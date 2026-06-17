@@ -1,4 +1,4 @@
-//! Minimal sample for `CommandBarFlyout` on a `Button`.
+//! Sample for `CommandBarFlyout` on a `Button`.
 
 use windows_reactor::*;
 
@@ -10,9 +10,9 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         button("Show Commands")
             .command_bar_flyout(vec![
-                app_bar_button_icon("Cut", SymbolGlyph::Cut),
-                app_bar_button_icon("Copy", SymbolGlyph::Copy),
-                app_bar_button_icon("Paste", SymbolGlyph::Paste),
+                app_bar_button_icon("Cut", Symbol::Cut),
+                app_bar_button_icon("Copy", Symbol::Copy),
+                app_bar_button_icon("Paste", Symbol::Paste),
             ])
             .command_bar_flyout_secondary(vec![
                 app_bar_button("Select All"),
@@ -26,5 +26,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("CommandBarFlyout", app)
 }

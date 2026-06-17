@@ -32,7 +32,7 @@ impl Write for Vec<u8> {
         unsafe {
             self.extend_from_slice(std::slice::from_raw_parts(
                 value as *const _ as _,
-                core::mem::size_of::<T>(),
+                size_of::<T>(),
             ));
         }
     }

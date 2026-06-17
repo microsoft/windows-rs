@@ -29,6 +29,7 @@ pub use interface::*;
 pub use method::*;
 pub use r#struct::*;
 
+#[expect(clippy::upper_case_acronyms, clippy::enum_variant_names)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),
@@ -632,6 +633,23 @@ impl Type {
         matches!(self, Self::ArrayRef(_))
     }
 
+    /// Returns `true` when `write_abi` emits `*mut core::ffi::c_void` for this
+    /// type — i.e. the ABI representation is a raw COM/HSTRING pointer rather
+    /// than the Rust type itself or `MaybeUninit<Self>`.
+    pub fn has_pointer_abi(&self) -> bool {
+        matches!(
+            self,
+            Self::IUnknown
+                | Self::Object
+                | Self::Delegate(_)
+                | Self::Class(_)
+                | Self::CppInterface(_)
+                | Self::Interface(_)
+                | Self::String
+                | Self::BSTR
+        )
+    }
+
     pub fn is_async(&self) -> bool {
         match self {
             Self::Interface(ty) => ty.def.is_async(),
@@ -650,6 +668,19 @@ impl Type {
             Self::ArrayFixed(ty, _) | Self::Array(ty) => ty.is_copyable(reader),
             _ => true,
         }
+    }
+
+    /// Returns `true` when the type implements `Eq` (no floating-point fields).
+    pub fn is_eq(&self, reader: &Reader) -> bool {
+        !matches!(self, Self::F32 | Self::F64)
+            && match self {
+                Self::Struct(ty) => ty
+                    .def
+                    .fields()
+                    .all(|field| field.field_type(None, reader).is_eq(reader)),
+                Self::ArrayFixed(ty, _) => ty.is_eq(reader),
+                _ => true,
+            }
     }
 
     pub fn is_dropped(&self, reader: &Reader) -> bool {
@@ -812,7 +843,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if config.bindgen.deps != DepMode::None || !config.bindgen.style.is_sys() {
+        if config.bindgen.resolved_deps() != DepMode::None || !config.bindgen.style.is_sys() {
             return quote! {};
         }
 
@@ -837,14 +868,9 @@ impl Type {
                     pub data3: u16,
                     pub data4: [u8; 8],
                 }
-                impl GUID {
-                    pub const fn from_u128(uuid: u128) -> Self {
-                        Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
-                    }
-                }
             },
             Self::IUnknown => quote! {
-                pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+                pub const IID_IUnknown: GUID = GUID { data1: 0x00000000, data2: 0x0000, data3: 0x0000, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
                 #[repr(C)]
                 pub struct IUnknown_Vtbl {
                     pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT,
@@ -853,7 +879,7 @@ impl Type {
                 }
             },
             Self::Object => quote! {
-                pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+                pub const IID_IInspectable: GUID = GUID { data1: 0xaf86e2e0, data2: 0xb12d, data3: 0x4c6a, data4: [156, 90, 215, 170, 101, 16, 30, 144] };
                 #[repr(C)]
                 pub struct IInspectable_Vtbl {
                     pub base: IUnknown_Vtbl,

@@ -391,11 +391,11 @@ unsafe impl Sync for PlayToConnection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayToConnectionError(pub i32);
 impl PlayToConnectionError {
-    pub const None: Self = Self(0i32);
-    pub const DeviceNotResponding: Self = Self(1i32);
-    pub const DeviceError: Self = Self(2i32);
-    pub const DeviceLocked: Self = Self(3i32);
-    pub const ProtectedPlaybackFailed: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const DeviceNotResponding: Self = Self(1);
+    pub const DeviceError: Self = Self(2);
+    pub const DeviceLocked: Self = Self(3);
+    pub const ProtectedPlaybackFailed: Self = Self(4);
 }
 impl windows_core::TypeKind for PlayToConnectionError {
     type TypeKind = windows_core::CopyType;
@@ -438,9 +438,9 @@ unsafe impl Sync for PlayToConnectionErrorEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlayToConnectionState(pub i32);
 impl PlayToConnectionState {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Rendering: Self = Self(2i32);
+    pub const Disconnected: Self = Self(0);
+    pub const Connected: Self = Self(1);
+    pub const Rendering: Self = Self(2);
 }
 impl windows_core::TypeKind for PlayToConnectionState {
     type TypeKind = windows_core::CopyType;

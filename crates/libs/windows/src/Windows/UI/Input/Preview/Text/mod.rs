@@ -394,11 +394,11 @@ unsafe impl Sync for InputDelegationModeChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyEventDeviceType(pub i32);
 impl KeyEventDeviceType {
-    pub const Undefined: Self = Self(0i32);
-    pub const HardwareKeyboard: Self = Self(1i32);
-    pub const SoftwareKeyboard: Self = Self(2i32);
-    pub const Gamepad: Self = Self(3i32);
-    pub const Injection: Self = Self(4i32);
+    pub const Undefined: Self = Self(0);
+    pub const HardwareKeyboard: Self = Self(1);
+    pub const SoftwareKeyboard: Self = Self(2);
+    pub const Gamepad: Self = Self(3);
+    pub const Injection: Self = Self(4);
 }
 impl windows_core::TypeKind for KeyEventDeviceType {
     type TypeKind = windows_core::CopyType;
@@ -679,13 +679,13 @@ unsafe impl Sync for KeyboardInputProcessor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PayloadResult(pub i32);
 impl PayloadResult {
-    pub const InEditing: Self = Self(0i32);
-    pub const Pending: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-    pub const Overridden: Self = Self(3i32);
-    pub const Outrun: Self = Self(4i32);
-    pub const Rejected: Self = Self(5i32);
-    pub const Canceled: Self = Self(6i32);
+    pub const InEditing: Self = Self(0);
+    pub const Pending: Self = Self(1);
+    pub const Completed: Self = Self(2);
+    pub const Overridden: Self = Self(3);
+    pub const Outrun: Self = Self(4);
+    pub const Rejected: Self = Self(5);
+    pub const Canceled: Self = Self(6);
 }
 impl windows_core::TypeKind for PayloadResult {
     type TypeKind = windows_core::CopyType;
@@ -723,11 +723,11 @@ unsafe impl Sync for ReconversionRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextBoxContentAttribute(pub i32);
 impl TextBoxContentAttribute {
-    pub const None: Self = Self(0i32);
-    pub const Selection: Self = Self(1i32);
-    pub const Text: Self = Self(2i32);
-    pub const Property: Self = Self(3i32);
-    pub const Layout: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Selection: Self = Self(1);
+    pub const Text: Self = Self(2);
+    pub const Property: Self = Self(3);
+    pub const Layout: Self = Self(4);
 }
 impl windows_core::TypeKind for TextBoxContentAttribute {
     type TypeKind = windows_core::CopyType;
@@ -782,10 +782,10 @@ unsafe impl Sync for TextBoxContentChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextBoxFeatures(pub u32);
 impl TextBoxFeatures {
-    pub const None: Self = Self(0u32);
-    pub const ReadText: Self = Self(1u32);
-    pub const WriteText: Self = Self(2u32);
-    pub const AugmentText: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const ReadText: Self = Self(1);
+    pub const WriteText: Self = Self(2);
+    pub const AugmentText: Self = Self(4);
 }
 impl windows_core::TypeKind for TextBoxFeatures {
     type TypeKind = windows_core::CopyType;
@@ -922,10 +922,10 @@ unsafe impl Sync for TextBoxInfoChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextBoxSettings(pub u32);
 impl TextBoxSettings {
-    pub const None: Self = Self(0u32);
-    pub const Private: Self = Self(1u32);
-    pub const Multiline: Self = Self(2u32);
-    pub const VerticalWriting: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const Private: Self = Self(1);
+    pub const Multiline: Self = Self(2);
+    pub const VerticalWriting: Self = Self(4);
 }
 impl windows_core::TypeKind for TextBoxSettings {
     type TypeKind = windows_core::CopyType;
@@ -971,14 +971,14 @@ impl core::ops::Not for TextBoxSettings {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextChangeSource(pub i32);
 impl TextChangeSource {
-    pub const External: Self = Self(0i32);
-    pub const HardwareKeyTyped: Self = Self(1i32);
-    pub const SoftwareKeyTyped: Self = Self(2i32);
-    pub const KeyboardImeInsertion: Self = Self(3i32);
-    pub const OtherImeInsertion: Self = Self(4i32);
-    pub const Reconversion: Self = Self(5i32);
-    pub const AutoCompletion: Self = Self(6i32);
-    pub const Mixed: Self = Self(7i32);
+    pub const External: Self = Self(0);
+    pub const HardwareKeyTyped: Self = Self(1);
+    pub const SoftwareKeyTyped: Self = Self(2);
+    pub const KeyboardImeInsertion: Self = Self(3);
+    pub const OtherImeInsertion: Self = Self(4);
+    pub const Reconversion: Self = Self(5);
+    pub const AutoCompletion: Self = Self(6);
+    pub const Mixed: Self = Self(7);
 }
 impl windows_core::TypeKind for TextChangeSource {
     type TypeKind = windows_core::CopyType;
@@ -1137,18 +1137,18 @@ unsafe impl Sync for TextCompositionSegment {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextConversionMode(pub i32);
 impl TextConversionMode {
-    pub const Undefined: Self = Self(0i32);
-    pub const AlphanumericHalfWidth: Self = Self(1i32);
-    pub const AlphanumericFullWidth: Self = Self(2i32);
-    pub const NativeHalfWidth: Self = Self(3i32);
-    pub const NativeFullWidth: Self = Self(4i32);
-    pub const KatakanaHalfWidth: Self = Self(5i32);
-    pub const KatakanaFullWidth: Self = Self(6i32);
-    pub const NativeHalfWidthNativeSymbol: Self = Self(7i32);
-    pub const NativeFullWidthNativeSymbol: Self = Self(8i32);
-    pub const NoConversion: Self = Self(9i32);
-    pub const RequestConversion: Self = Self(10i32);
-    pub const NativeEudc: Self = Self(11i32);
+    pub const Undefined: Self = Self(0);
+    pub const AlphanumericHalfWidth: Self = Self(1);
+    pub const AlphanumericFullWidth: Self = Self(2);
+    pub const NativeHalfWidth: Self = Self(3);
+    pub const NativeFullWidth: Self = Self(4);
+    pub const KatakanaHalfWidth: Self = Self(5);
+    pub const KatakanaFullWidth: Self = Self(6);
+    pub const NativeHalfWidthNativeSymbol: Self = Self(7);
+    pub const NativeFullWidthNativeSymbol: Self = Self(8);
+    pub const NoConversion: Self = Self(9);
+    pub const RequestConversion: Self = Self(10);
+    pub const NativeEudc: Self = Self(11);
 }
 impl windows_core::TypeKind for TextConversionMode {
     type TypeKind = windows_core::CopyType;
@@ -1486,11 +1486,11 @@ impl windows_core::RuntimeType for TextStyle {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextStyleAttributes(pub u32);
 impl TextStyleAttributes {
-    pub const None: Self = Self(0u32);
-    pub const TextColor: Self = Self(1u32);
-    pub const BackgroundColor: Self = Self(2u32);
-    pub const UnderlineColor: Self = Self(4u32);
-    pub const UnderlineType: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const TextColor: Self = Self(1);
+    pub const BackgroundColor: Self = Self(2);
+    pub const UnderlineColor: Self = Self(4);
+    pub const UnderlineType: Self = Self(8);
 }
 impl windows_core::TypeKind for TextStyleAttributes {
     type TypeKind = windows_core::CopyType;

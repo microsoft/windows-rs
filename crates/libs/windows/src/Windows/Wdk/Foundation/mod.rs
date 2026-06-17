@@ -419,8 +419,8 @@ pub type DRIVER_REINITIALIZE = Option<unsafe extern "system" fn(driverobject: *c
 pub type DRIVER_STARTIO = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type DRIVER_UNLOAD = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT)>;
-pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3i32);
-pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35i32);
+pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3);
+pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ECP_HEADER(pub isize);
@@ -1398,11 +1398,11 @@ impl Default for IRP_3_0_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IoPriorityCritical: IO_PRIORITY_HINT = IO_PRIORITY_HINT(4i32);
-pub const IoPriorityHigh: IO_PRIORITY_HINT = IO_PRIORITY_HINT(3i32);
-pub const IoPriorityLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(1i32);
-pub const IoPriorityNormal: IO_PRIORITY_HINT = IO_PRIORITY_HINT(2i32);
-pub const IoPriorityVeryLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(0i32);
+pub const IoPriorityCritical: IO_PRIORITY_HINT = IO_PRIORITY_HINT(4);
+pub const IoPriorityHigh: IO_PRIORITY_HINT = IO_PRIORITY_HINT(3);
+pub const IoPriorityLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(1);
+pub const IoPriorityNormal: IO_PRIORITY_HINT = IO_PRIORITY_HINT(2);
+pub const IoPriorityVeryLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(0);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1581,24 +1581,24 @@ impl Default for KWAIT_BLOCK_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LOADER_PARAMETER_BLOCK(pub isize);
-pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13i32);
-pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14i32);
-pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7i32);
-pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11i32);
-pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10i32);
-pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9i32);
-pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5i32);
-pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17i32);
-pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6i32);
-pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12i32);
-pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0i32);
-pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1i32);
-pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15i32);
-pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16i32);
-pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2i32);
-pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3i32);
-pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8i32);
-pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4i32);
+pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13);
+pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14);
+pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7);
+pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11);
+pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10);
+pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9);
+pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5);
+pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17);
+pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6);
+pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12);
+pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0);
+pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1);
+pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15);
+pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16);
+pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2);
+pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3);
+pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8);
+pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDL {
@@ -1616,28 +1616,28 @@ impl Default for MDL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MaxIoPriorityTypes: IO_PRIORITY_HINT = IO_PRIORITY_HINT(5i32);
-pub const MaxPoolType: POOL_TYPE = POOL_TYPE(7i32);
-pub const NTSTRSAFE_MAX_CCH: u32 = 2147483647u32;
-pub const NTSTRSAFE_MAX_LENGTH: u32 = 2147483646u32;
-pub const NTSTRSAFE_UNICODE_STRING_MAX_CCH: u32 = 32767u32;
-pub const NTSTRSAFE_USE_SECURE_CRT: u32 = 0u32;
-pub const NonPagedPool: POOL_TYPE = POOL_TYPE(0i32);
-pub const NonPagedPoolBase: POOL_TYPE = POOL_TYPE(0i32);
-pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
-pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
-pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
-pub const NonPagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
-pub const NonPagedPoolCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
-pub const NonPagedPoolCacheAlignedMustSSession: POOL_TYPE = POOL_TYPE(38i32);
-pub const NonPagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(36i32);
-pub const NonPagedPoolExecute: POOL_TYPE = POOL_TYPE(0i32);
-pub const NonPagedPoolMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
-pub const NonPagedPoolMustSucceedSession: POOL_TYPE = POOL_TYPE(34i32);
-pub const NonPagedPoolNx: POOL_TYPE = POOL_TYPE(512i32);
-pub const NonPagedPoolNxCacheAligned: POOL_TYPE = POOL_TYPE(516i32);
-pub const NonPagedPoolSession: POOL_TYPE = POOL_TYPE(32i32);
-pub const NonPagedPoolSessionNx: POOL_TYPE = POOL_TYPE(544i32);
+pub const MaxIoPriorityTypes: IO_PRIORITY_HINT = IO_PRIORITY_HINT(5);
+pub const MaxPoolType: POOL_TYPE = POOL_TYPE(7);
+pub const NTSTRSAFE_MAX_CCH: u32 = 2147483647;
+pub const NTSTRSAFE_MAX_LENGTH: u32 = 2147483646;
+pub const NTSTRSAFE_UNICODE_STRING_MAX_CCH: u32 = 32767;
+pub const NTSTRSAFE_USE_SECURE_CRT: u32 = 0;
+pub const NonPagedPool: POOL_TYPE = POOL_TYPE(0);
+pub const NonPagedPoolBase: POOL_TYPE = POOL_TYPE(0);
+pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = POOL_TYPE(4);
+pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6);
+pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = POOL_TYPE(2);
+pub const NonPagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(4);
+pub const NonPagedPoolCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6);
+pub const NonPagedPoolCacheAlignedMustSSession: POOL_TYPE = POOL_TYPE(38);
+pub const NonPagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(36);
+pub const NonPagedPoolExecute: POOL_TYPE = POOL_TYPE(0);
+pub const NonPagedPoolMustSucceed: POOL_TYPE = POOL_TYPE(2);
+pub const NonPagedPoolMustSucceedSession: POOL_TYPE = POOL_TYPE(34);
+pub const NonPagedPoolNx: POOL_TYPE = POOL_TYPE(512);
+pub const NonPagedPoolNxCacheAligned: POOL_TYPE = POOL_TYPE(516);
+pub const NonPagedPoolSession: POOL_TYPE = POOL_TYPE(32);
+pub const NonPagedPoolSessionNx: POOL_TYPE = POOL_TYPE(544);
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1724,8 +1724,8 @@ impl Default for OWNER_ENTRY_0 {
 pub struct OWNER_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0);
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PAFFINITY_TOKEN(pub isize);
@@ -1818,10 +1818,10 @@ pub struct PRKTHREAD(pub isize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSILO_MONITOR(pub isize);
 pub type PWORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn()>;
-pub const PagedPool: POOL_TYPE = POOL_TYPE(1i32);
-pub const PagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(5i32);
-pub const PagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(37i32);
-pub const PagedPoolSession: POOL_TYPE = POOL_TYPE(33i32);
+pub const PagedPool: POOL_TYPE = POOL_TYPE(1);
+pub const PagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(5);
+pub const PagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(37);
+pub const PagedPoolSession: POOL_TYPE = POOL_TYPE(33);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTL_SPLAY_LINKS {
@@ -1861,13 +1861,13 @@ impl Default for SECURITY_SUBJECT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const STRSAFE_FILL_BEHIND: u32 = 512u32;
-pub const STRSAFE_FILL_BEHIND_NULL: u32 = 512u32;
-pub const STRSAFE_FILL_ON_FAILURE: u32 = 1024u32;
-pub const STRSAFE_IGNORE_NULLS: u32 = 256u32;
-pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
-pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
-pub const STRSAFE_ZERO_LENGTH_ON_FAILURE: u32 = 2048u32;
+pub const STRSAFE_FILL_BEHIND: u32 = 512;
+pub const STRSAFE_FILL_BEHIND_NULL: u32 = 512;
+pub const STRSAFE_FILL_ON_FAILURE: u32 = 1024;
+pub const STRSAFE_IGNORE_NULLS: u32 = 256;
+pub const STRSAFE_NO_TRUNCATION: u32 = 4096;
+pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048;
+pub const STRSAFE_ZERO_LENGTH_ON_FAILURE: u32 = 2048;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SspiAsyncContext(pub isize);
@@ -1931,20 +1931,20 @@ pub struct _IORING_OBJECT(pub isize);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _SCSI_REQUEST_BLOCK(pub isize);
-pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
-pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
-pub const __WARNING_DEREF_NULL_PTR: u32 = 6011u32;
-pub const __WARNING_HIGH_PRIORITY_OVERFLOW_POSTCONDITION: u32 = 26045u32;
-pub const __WARNING_INCORRECT_ANNOTATION: u32 = 26007u32;
-pub const __WARNING_INVALID_PARAM_VALUE_1: u32 = 6387u32;
-pub const __WARNING_INVALID_PARAM_VALUE_3: u32 = 28183u32;
-pub const __WARNING_MISSING_ZERO_TERMINATION2: u32 = 6054u32;
-pub const __WARNING_POSTCONDITION_NULLTERMINATION_VIOLATION: u32 = 26036u32;
-pub const __WARNING_POST_EXPECTED: u32 = 28210u32;
-pub const __WARNING_POTENTIAL_BUFFER_OVERFLOW_HIGH_PRIORITY: u32 = 26015u32;
-pub const __WARNING_POTENTIAL_RANGE_POSTCONDITION_VIOLATION: u32 = 26071u32;
-pub const __WARNING_PRECONDITION_NULLTERMINATION_VIOLATION: u32 = 26035u32;
-pub const __WARNING_RANGE_POSTCONDITION_VIOLATION: u32 = 26061u32;
-pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
-pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
-pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
+pub const __WARNING_BANNED_API_USAGE: u32 = 28719;
+pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734;
+pub const __WARNING_DEREF_NULL_PTR: u32 = 6011;
+pub const __WARNING_HIGH_PRIORITY_OVERFLOW_POSTCONDITION: u32 = 26045;
+pub const __WARNING_INCORRECT_ANNOTATION: u32 = 26007;
+pub const __WARNING_INVALID_PARAM_VALUE_1: u32 = 6387;
+pub const __WARNING_INVALID_PARAM_VALUE_3: u32 = 28183;
+pub const __WARNING_MISSING_ZERO_TERMINATION2: u32 = 6054;
+pub const __WARNING_POSTCONDITION_NULLTERMINATION_VIOLATION: u32 = 26036;
+pub const __WARNING_POST_EXPECTED: u32 = 28210;
+pub const __WARNING_POTENTIAL_BUFFER_OVERFLOW_HIGH_PRIORITY: u32 = 26015;
+pub const __WARNING_POTENTIAL_RANGE_POSTCONDITION_VIOLATION: u32 = 26071;
+pub const __WARNING_PRECONDITION_NULLTERMINATION_VIOLATION: u32 = 26035;
+pub const __WARNING_RANGE_POSTCONDITION_VIOLATION: u32 = 26061;
+pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196;
+pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101;
+pub const __WARNING_USING_UNINIT_VAR: u32 = 6001;

@@ -356,11 +356,11 @@ unsafe impl Sync for SerialDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialError(pub i32);
 impl SerialError {
-    pub const Frame: Self = Self(0i32);
-    pub const BufferOverrun: Self = Self(1i32);
-    pub const ReceiveFull: Self = Self(2i32);
-    pub const ReceiveParity: Self = Self(3i32);
-    pub const TransmitFull: Self = Self(4i32);
+    pub const Frame: Self = Self(0);
+    pub const BufferOverrun: Self = Self(1);
+    pub const ReceiveFull: Self = Self(2);
+    pub const ReceiveParity: Self = Self(3);
+    pub const TransmitFull: Self = Self(4);
 }
 impl windows_core::TypeKind for SerialError {
     type TypeKind = windows_core::CopyType;
@@ -373,10 +373,10 @@ impl windows_core::RuntimeType for SerialError {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
-    pub const None: Self = Self(0i32);
-    pub const RequestToSend: Self = Self(1i32);
-    pub const XOnXOff: Self = Self(2i32);
-    pub const RequestToSendXOnXOff: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const RequestToSend: Self = Self(1);
+    pub const XOnXOff: Self = Self(2);
+    pub const RequestToSendXOnXOff: Self = Self(3);
 }
 impl windows_core::TypeKind for SerialHandshake {
     type TypeKind = windows_core::CopyType;
@@ -389,11 +389,11 @@ impl windows_core::RuntimeType for SerialHandshake {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
-    pub const None: Self = Self(0i32);
-    pub const Odd: Self = Self(1i32);
-    pub const Even: Self = Self(2i32);
-    pub const Mark: Self = Self(3i32);
-    pub const Space: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Odd: Self = Self(1);
+    pub const Even: Self = Self(2);
+    pub const Mark: Self = Self(3);
+    pub const Space: Self = Self(4);
 }
 impl windows_core::TypeKind for SerialParity {
     type TypeKind = windows_core::CopyType;
@@ -406,11 +406,11 @@ impl windows_core::RuntimeType for SerialParity {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
-    pub const BreakSignal: Self = Self(0i32);
-    pub const CarrierDetect: Self = Self(1i32);
-    pub const ClearToSend: Self = Self(2i32);
-    pub const DataSetReady: Self = Self(3i32);
-    pub const RingIndicator: Self = Self(4i32);
+    pub const BreakSignal: Self = Self(0);
+    pub const CarrierDetect: Self = Self(1);
+    pub const ClearToSend: Self = Self(2);
+    pub const DataSetReady: Self = Self(3);
+    pub const RingIndicator: Self = Self(4);
 }
 impl windows_core::TypeKind for SerialPinChange {
     type TypeKind = windows_core::CopyType;
@@ -423,9 +423,9 @@ impl windows_core::RuntimeType for SerialPinChange {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
-    pub const One: Self = Self(0i32);
-    pub const OnePointFive: Self = Self(1i32);
-    pub const Two: Self = Self(2i32);
+    pub const One: Self = Self(0);
+    pub const OnePointFive: Self = Self(1);
+    pub const Two: Self = Self(2);
 }
 impl windows_core::TypeKind for SerialStopBitCount {
     type TypeKind = windows_core::CopyType;

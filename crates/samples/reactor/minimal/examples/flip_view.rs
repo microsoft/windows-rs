@@ -1,4 +1,4 @@
-//! Minimal sample for the `flip_view` templated list.
+//! Sample for the `flip_view` templated list.
 
 use windows_reactor::*;
 
@@ -47,6 +47,7 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new()
         .title("Sample")
         .eager_templated_realization(true)

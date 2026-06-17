@@ -1,6 +1,6 @@
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
-pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
-pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2);
+pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0);
+pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreateProcessMethod(pub i32);

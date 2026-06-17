@@ -628,8 +628,8 @@ impl windows_core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
-    pub const Tunneling: Self = Self(0i32);
-    pub const Bubbling: Self = Self(1i32);
+    pub const Tunneling: Self = Self(0);
+    pub const Bubbling: Self = Self(1);
 }
 impl windows_core::TypeKind for WebViewControlAcceleratorKeyRoutingStage {
     type TypeKind = windows_core::CopyType;
@@ -642,9 +642,9 @@ impl windows_core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
-    pub const Programmatic: Self = Self(0i32);
-    pub const Next: Self = Self(1i32);
-    pub const Previous: Self = Self(2i32);
+    pub const Programmatic: Self = Self(0);
+    pub const Next: Self = Self(1);
+    pub const Previous: Self = Self(2);
 }
 impl windows_core::TypeKind for WebViewControlMoveFocusReason {
     type TypeKind = windows_core::CopyType;
@@ -760,9 +760,9 @@ impl windows_core::RuntimeName for WebViewControlProcess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {
-    pub const Default: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Disabled: Self = Self(1);
+    pub const Enabled: Self = Self(2);
 }
 impl windows_core::TypeKind for WebViewControlProcessCapabilityState {
     type TypeKind = windows_core::CopyType;

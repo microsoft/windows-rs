@@ -331,10 +331,10 @@ unsafe impl Sync for ProviderSpiConnectionSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
-    pub const Mode0: Self = Self(0i32);
-    pub const Mode1: Self = Self(1i32);
-    pub const Mode2: Self = Self(2i32);
-    pub const Mode3: Self = Self(3i32);
+    pub const Mode0: Self = Self(0);
+    pub const Mode1: Self = Self(1);
+    pub const Mode2: Self = Self(2);
+    pub const Mode3: Self = Self(3);
 }
 impl windows_core::TypeKind for ProviderSpiMode {
     type TypeKind = windows_core::CopyType;
@@ -347,8 +347,8 @@ impl windows_core::RuntimeType for ProviderSpiMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const Shared: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const Shared: Self = Self(1);
 }
 impl windows_core::TypeKind for ProviderSpiSharingMode {
     type TypeKind = windows_core::CopyType;

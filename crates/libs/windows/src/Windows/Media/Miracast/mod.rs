@@ -463,14 +463,14 @@ unsafe impl Sync for MiracastReceiverApplySettingsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const MiracastNotSupported: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-    pub const FriendlyNameTooLong: Self = Self(4i32);
-    pub const ModelNameTooLong: Self = Self(5i32);
-    pub const ModelNumberTooLong: Self = Self(6i32);
-    pub const InvalidSettings: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const MiracastNotSupported: Self = Self(2);
+    pub const AccessDenied: Self = Self(3);
+    pub const FriendlyNameTooLong: Self = Self(4);
+    pub const ModelNameTooLong: Self = Self(5);
+    pub const ModelNumberTooLong: Self = Self(6);
+    pub const InvalidSettings: Self = Self(7);
 }
 impl windows_core::TypeKind for MiracastReceiverApplySettingsStatus {
     type TypeKind = windows_core::CopyType;
@@ -483,10 +483,10 @@ impl windows_core::RuntimeType for MiracastReceiverApplySettingsStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
-    pub const None: Self = Self(0i32);
-    pub const ConfirmConnection: Self = Self(1i32);
-    pub const PinDisplayIfRequested: Self = Self(2i32);
-    pub const PinDisplayRequired: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const ConfirmConnection: Self = Self(1);
+    pub const PinDisplayIfRequested: Self = Self(2);
+    pub const PinDisplayRequired: Self = Self(3);
 }
 impl windows_core::TypeKind for MiracastReceiverAuthorizationMethod {
     type TypeKind = windows_core::CopyType;
@@ -713,14 +713,14 @@ unsafe impl Sync for MiracastReceiverCursorImageChannelSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
-    pub const Finished: Self = Self(0i32);
-    pub const AppSpecificError: Self = Self(1i32);
-    pub const ConnectionNotAccepted: Self = Self(2i32);
-    pub const DisconnectedByUser: Self = Self(3i32);
-    pub const FailedToStartStreaming: Self = Self(4i32);
-    pub const MediaDecodingError: Self = Self(5i32);
-    pub const MediaStreamingError: Self = Self(6i32);
-    pub const MediaDecryptionError: Self = Self(7i32);
+    pub const Finished: Self = Self(0);
+    pub const AppSpecificError: Self = Self(1);
+    pub const ConnectionNotAccepted: Self = Self(2);
+    pub const DisconnectedByUser: Self = Self(3);
+    pub const FailedToStartStreaming: Self = Self(4);
+    pub const MediaDecodingError: Self = Self(5);
+    pub const MediaStreamingError: Self = Self(6);
+    pub const MediaDecryptionError: Self = Self(7);
 }
 impl windows_core::TypeKind for MiracastReceiverDisconnectReason {
     type TypeKind = windows_core::CopyType;
@@ -817,8 +817,8 @@ unsafe impl Sync for MiracastReceiverGameControllerDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
-    pub const AsGameController: Self = Self(0i32);
-    pub const AsMouseAndKeyboard: Self = Self(1i32);
+    pub const AsGameController: Self = Self(0);
+    pub const AsMouseAndKeyboard: Self = Self(1);
 }
 impl windows_core::TypeKind for MiracastReceiverGameControllerDeviceUsageMode {
     type TypeKind = windows_core::CopyType;
@@ -912,12 +912,12 @@ unsafe impl Sync for MiracastReceiverKeyboardDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
-    pub const NotListening: Self = Self(0i32);
-    pub const Listening: Self = Self(1i32);
-    pub const ConnectionPending: Self = Self(2i32);
-    pub const Connected: Self = Self(3i32);
-    pub const DisabledByPolicy: Self = Self(4i32);
-    pub const TemporarilyDisabled: Self = Self(5i32);
+    pub const NotListening: Self = Self(0);
+    pub const Listening: Self = Self(1);
+    pub const ConnectionPending: Self = Self(2);
+    pub const Connected: Self = Self(3);
+    pub const DisabledByPolicy: Self = Self(4);
+    pub const TemporarilyDisabled: Self = Self(5);
 }
 impl windows_core::TypeKind for MiracastReceiverListeningStatus {
     type TypeKind = windows_core::CopyType;
@@ -1092,10 +1092,10 @@ unsafe impl Sync for MiracastReceiverSessionStartResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const MiracastNotSupported: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const MiracastNotSupported: Self = Self(2);
+    pub const AccessDenied: Self = Self(3);
 }
 impl windows_core::TypeKind for MiracastReceiverSessionStartStatus {
     type TypeKind = windows_core::CopyType;
@@ -1311,10 +1311,10 @@ unsafe impl Sync for MiracastReceiverVideoStreamSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
-    pub const MiracastSupportUndetermined: Self = Self(0i32);
-    pub const MiracastNotSupported: Self = Self(1i32);
-    pub const MiracastSupportNotOptimized: Self = Self(2i32);
-    pub const MiracastSupported: Self = Self(3i32);
+    pub const MiracastSupportUndetermined: Self = Self(0);
+    pub const MiracastNotSupported: Self = Self(1);
+    pub const MiracastSupportNotOptimized: Self = Self(2);
+    pub const MiracastSupported: Self = Self(3);
 }
 impl windows_core::TypeKind for MiracastReceiverWiFiStatus {
     type TypeKind = windows_core::CopyType;
@@ -1381,10 +1381,10 @@ unsafe impl Sync for MiracastTransmitter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {
-    pub const Undecided: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const AlwaysPrompt: Self = Self(2i32);
-    pub const Blocked: Self = Self(3i32);
+    pub const Undecided: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const AlwaysPrompt: Self = Self(2);
+    pub const Blocked: Self = Self(3);
 }
 impl windows_core::TypeKind for MiracastTransmitterAuthorizationStatus {
     type TypeKind = windows_core::CopyType;

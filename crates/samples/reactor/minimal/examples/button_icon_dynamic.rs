@@ -1,8 +1,4 @@
-//! Demonstrates that a button's icon is preserved when its label changes dynamically.
-//!
-//! Without the ButtonContent icon-preservation fix, updating the label would
-//! replace the entire StackPanel content (icon + text) with a bare TextBlock,
-//! causing the icon to disappear after the first click.
+//! Button icon preserved when its label changes dynamically.
 
 use windows_reactor::*;
 
@@ -11,12 +7,12 @@ fn app(cx: &mut RenderCx) -> Element {
     let label = format!("Clicked {count} times");
 
     vstack((
-        Button::new(&*label).icon(SymbolGlyph::Favorite).on_click({
+        Button::new(&*label).icon(Symbol::Favorite).on_click({
             let set_count = set_count.clone();
             move || set_count.call(count + 1)
         }),
         Button::new(if count == 0 { "Save" } else { "Saved!" })
-            .icon(SymbolGlyph::Save)
+            .icon(Symbol::Save)
             .accent()
             .on_click({
                 let set_count = set_count;
@@ -29,5 +25,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Button Icon — Dynamic Label").render(app)
+    reactor_minimal::run("ButtonIconDynamic", app)
 }

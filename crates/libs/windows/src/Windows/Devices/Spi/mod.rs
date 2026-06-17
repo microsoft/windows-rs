@@ -450,10 +450,10 @@ unsafe impl Sync for SpiDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
-    pub const Mode0: Self = Self(0i32);
-    pub const Mode1: Self = Self(1i32);
-    pub const Mode2: Self = Self(2i32);
-    pub const Mode3: Self = Self(3i32);
+    pub const Mode0: Self = Self(0);
+    pub const Mode1: Self = Self(1);
+    pub const Mode2: Self = Self(2);
+    pub const Mode3: Self = Self(3);
 }
 impl windows_core::TypeKind for SpiMode {
     type TypeKind = windows_core::CopyType;
@@ -466,8 +466,8 @@ impl windows_core::RuntimeType for SpiMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const Shared: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const Shared: Self = Self(1);
 }
 impl windows_core::TypeKind for SpiSharingMode {
     type TypeKind = windows_core::CopyType;

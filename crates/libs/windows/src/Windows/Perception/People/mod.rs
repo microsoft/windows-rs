@@ -56,32 +56,32 @@ unsafe impl Sync for EyesPose {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
-    pub const Palm: Self = Self(0i32);
-    pub const Wrist: Self = Self(1i32);
-    pub const ThumbMetacarpal: Self = Self(2i32);
-    pub const ThumbProximal: Self = Self(3i32);
-    pub const ThumbDistal: Self = Self(4i32);
-    pub const ThumbTip: Self = Self(5i32);
-    pub const IndexMetacarpal: Self = Self(6i32);
-    pub const IndexProximal: Self = Self(7i32);
-    pub const IndexIntermediate: Self = Self(8i32);
-    pub const IndexDistal: Self = Self(9i32);
-    pub const IndexTip: Self = Self(10i32);
-    pub const MiddleMetacarpal: Self = Self(11i32);
-    pub const MiddleProximal: Self = Self(12i32);
-    pub const MiddleIntermediate: Self = Self(13i32);
-    pub const MiddleDistal: Self = Self(14i32);
-    pub const MiddleTip: Self = Self(15i32);
-    pub const RingMetacarpal: Self = Self(16i32);
-    pub const RingProximal: Self = Self(17i32);
-    pub const RingIntermediate: Self = Self(18i32);
-    pub const RingDistal: Self = Self(19i32);
-    pub const RingTip: Self = Self(20i32);
-    pub const LittleMetacarpal: Self = Self(21i32);
-    pub const LittleProximal: Self = Self(22i32);
-    pub const LittleIntermediate: Self = Self(23i32);
-    pub const LittleDistal: Self = Self(24i32);
-    pub const LittleTip: Self = Self(25i32);
+    pub const Palm: Self = Self(0);
+    pub const Wrist: Self = Self(1);
+    pub const ThumbMetacarpal: Self = Self(2);
+    pub const ThumbProximal: Self = Self(3);
+    pub const ThumbDistal: Self = Self(4);
+    pub const ThumbTip: Self = Self(5);
+    pub const IndexMetacarpal: Self = Self(6);
+    pub const IndexProximal: Self = Self(7);
+    pub const IndexIntermediate: Self = Self(8);
+    pub const IndexDistal: Self = Self(9);
+    pub const IndexTip: Self = Self(10);
+    pub const MiddleMetacarpal: Self = Self(11);
+    pub const MiddleProximal: Self = Self(12);
+    pub const MiddleIntermediate: Self = Self(13);
+    pub const MiddleDistal: Self = Self(14);
+    pub const MiddleTip: Self = Self(15);
+    pub const RingMetacarpal: Self = Self(16);
+    pub const RingProximal: Self = Self(17);
+    pub const RingIntermediate: Self = Self(18);
+    pub const RingDistal: Self = Self(19);
+    pub const RingTip: Self = Self(20);
+    pub const LittleMetacarpal: Self = Self(21);
+    pub const LittleProximal: Self = Self(22);
+    pub const LittleIntermediate: Self = Self(23);
+    pub const LittleDistal: Self = Self(24);
+    pub const LittleTip: Self = Self(25);
 }
 impl windows_core::TypeKind for HandJointKind {
     type TypeKind = windows_core::CopyType;
@@ -415,8 +415,8 @@ impl windows_core::RuntimeType for JointPose {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Approximate: Self = Self(1i32);
+    pub const High: Self = Self(0);
+    pub const Approximate: Self = Self(1);
 }
 impl windows_core::TypeKind for JointPoseAccuracy {
     type TypeKind = windows_core::CopyType;

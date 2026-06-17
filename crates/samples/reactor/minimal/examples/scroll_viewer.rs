@@ -1,4 +1,4 @@
-//! Minimal sample for the `ScrollViewer` element.
+//! Sample for the `ScrollViewer` element.
 
 use windows_reactor::*;
 
@@ -31,5 +31,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("ScrollViewer", app)
 }

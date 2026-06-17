@@ -95,7 +95,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: Option<&[windows_core::BOOL
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromBooleanVector(prgf : *const windows_core::BOOL, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromBooleanVector(core::mem::transmute(prgf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromBooleanVector(core::mem::transmute(prgf.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgf.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -122,7 +122,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: Option<&[f64]>) -> windows_c
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromDoubleVector(prgn : *const f64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromDoubleVector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromDoubleVector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -140,7 +140,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: Option<&[super::super::su
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation::FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromFileTimeVector(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromFileTimeVector(core::mem::transmute(prgft.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -158,7 +158,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: Option<&[i16]>) -> windows_co
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt16Vector(prgn : *const i16, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromInt16Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -167,7 +167,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: Option<&[i32]>) -> windows_co
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt32Vector(prgn : *const i32, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromInt32Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -176,7 +176,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: Option<&[i64]>) -> windows_co
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromInt64Vector(prgn : *const i64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromInt64Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -215,7 +215,7 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: Option<&[windows_core::PCWS
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromStringVector(prgsz : *const windows_core::PCWSTR, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromStringVector(core::mem::transmute(prgsz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgsz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromStringVector(core::mem::transmute(prgsz.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgsz.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -224,7 +224,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: Option<&[u16]>) -> windows_c
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt16Vector(prgn : *const u16, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromUInt16Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromUInt16Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -233,7 +233,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: Option<&[u32]>) -> windows_c
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt32Vector(prgn : *const u32, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromUInt32Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromUInt32Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -242,7 +242,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: Option<&[u64]>) -> windows_c
     windows_core::link!("propsys.dll" "system" fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        InitPropVariantFromUInt64Vector(core::mem::transmute(prgn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
+        InitPropVariantFromUInt64Vector(core::mem::transmute(prgn.map_or(core::ptr::null(), |slice| slice.as_ptr())), prgn.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -1275,7 +1275,7 @@ impl Default for CAUL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
+pub const CCH_MAX_PROPSTG_NAME: u32 = 31;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLIPDATA {
@@ -1288,7 +1288,7 @@ impl Default for CLIPDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CWCSTORAGENAME: u32 = 32u32;
+pub const CWCSTORAGENAME: u32 = 32;
 windows_core::imp::define_interface!(IDirectWriterLock, IDirectWriterLock_Vtbl, 0x0e6d4d92_6738_11cf_9608_00aa00680db4);
 windows_core::imp::interface_hierarchy!(IDirectWriterLock, windows_core::IUnknown);
 impl IDirectWriterLock {
@@ -1920,7 +1920,7 @@ impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
 impl IMemoryAllocator {
     pub fn new<'a, T: IMemoryAllocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IMemoryAllocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -2571,7 +2571,7 @@ impl IStorage {
     where
         P3: windows_core::Param<IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr())), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()).ok() }
     }
     pub unsafe fn MoveElementTo<P0, P1, P2>(&self, pwcsname: P0, pstgdest: P1, pwcsnewname: P2, grfflags: STGMOVE) -> windows_core::Result<()>
     where
@@ -2821,74 +2821,74 @@ pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
 }
-pub const PIDDI_THUMBNAIL: i32 = 2i32;
-pub const PIDDSI_BYTECOUNT: u32 = 4u32;
-pub const PIDDSI_CATEGORY: u32 = 2u32;
-pub const PIDDSI_COMPANY: u32 = 15u32;
-pub const PIDDSI_DOCPARTS: u32 = 13u32;
-pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
-pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
-pub const PIDDSI_LINECOUNT: u32 = 5u32;
-pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
-pub const PIDDSI_MANAGER: u32 = 14u32;
-pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
-pub const PIDDSI_NOTECOUNT: u32 = 8u32;
-pub const PIDDSI_PARCOUNT: u32 = 6u32;
-pub const PIDDSI_PRESFORMAT: u32 = 3u32;
-pub const PIDDSI_SCALE: u32 = 11u32;
-pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
-pub const PIDMSI_COPYRIGHT: i32 = 11i32;
-pub const PIDMSI_EDITOR: i32 = 2i32;
-pub const PIDMSI_OWNER: i32 = 8i32;
-pub const PIDMSI_PRODUCTION: i32 = 10i32;
-pub const PIDMSI_PROJECT: i32 = 6i32;
-pub const PIDMSI_RATING: i32 = 9i32;
-pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
-pub const PIDMSI_SOURCE: i32 = 4i32;
-pub const PIDMSI_STATUS: i32 = 7i32;
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
+pub const PIDDI_THUMBNAIL: i32 = 2;
+pub const PIDDSI_BYTECOUNT: u32 = 4;
+pub const PIDDSI_CATEGORY: u32 = 2;
+pub const PIDDSI_COMPANY: u32 = 15;
+pub const PIDDSI_DOCPARTS: u32 = 13;
+pub const PIDDSI_HEADINGPAIR: u32 = 12;
+pub const PIDDSI_HIDDENCOUNT: u32 = 9;
+pub const PIDDSI_LINECOUNT: u32 = 5;
+pub const PIDDSI_LINKSDIRTY: u32 = 16;
+pub const PIDDSI_MANAGER: u32 = 14;
+pub const PIDDSI_MMCLIPCOUNT: u32 = 10;
+pub const PIDDSI_NOTECOUNT: u32 = 8;
+pub const PIDDSI_PARCOUNT: u32 = 6;
+pub const PIDDSI_PRESFORMAT: u32 = 3;
+pub const PIDDSI_SCALE: u32 = 11;
+pub const PIDDSI_SLIDECOUNT: u32 = 7;
+pub const PIDMSI_COPYRIGHT: i32 = 11;
+pub const PIDMSI_EDITOR: i32 = 2;
+pub const PIDMSI_OWNER: i32 = 8;
+pub const PIDMSI_PRODUCTION: i32 = 10;
+pub const PIDMSI_PROJECT: i32 = 6;
+pub const PIDMSI_RATING: i32 = 9;
+pub const PIDMSI_SEQUENCE_NO: i32 = 5;
+pub const PIDMSI_SOURCE: i32 = 4;
+pub const PIDMSI_STATUS: i32 = 7;
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3);
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5);
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8);
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4);
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1);
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0);
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767);
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2);
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7);
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
-pub const PIDMSI_SUPPLIER: i32 = 3i32;
-pub const PIDSI_APPNAME: i32 = 18i32;
-pub const PIDSI_AUTHOR: i32 = 4i32;
-pub const PIDSI_CHARCOUNT: i32 = 16i32;
-pub const PIDSI_COMMENTS: i32 = 6i32;
-pub const PIDSI_CREATE_DTM: i32 = 12i32;
-pub const PIDSI_DOC_SECURITY: i32 = 19i32;
-pub const PIDSI_EDITTIME: i32 = 10i32;
-pub const PIDSI_KEYWORDS: i32 = 5i32;
-pub const PIDSI_LASTAUTHOR: i32 = 8i32;
-pub const PIDSI_LASTPRINTED: i32 = 11i32;
-pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
-pub const PIDSI_PAGECOUNT: i32 = 14i32;
-pub const PIDSI_REVNUMBER: i32 = 9i32;
-pub const PIDSI_SUBJECT: i32 = 3i32;
-pub const PIDSI_TEMPLATE: i32 = 7i32;
-pub const PIDSI_THUMBNAIL: i32 = 17i32;
-pub const PIDSI_TITLE: i32 = 2i32;
-pub const PIDSI_WORDCOUNT: i32 = 15i32;
-pub const PID_BEHAVIOR: u32 = 2147483651u32;
-pub const PID_CODEPAGE: u32 = 1u32;
-pub const PID_DICTIONARY: u32 = 0u32;
-pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
-pub const PID_FIRST_USABLE: u32 = 2u32;
-pub const PID_ILLEGAL: u32 = 4294967295u32;
-pub const PID_LOCALE: u32 = 2147483648u32;
-pub const PID_MAX_READONLY: u32 = 3221225471u32;
-pub const PID_MIN_READONLY: u32 = 2147483648u32;
-pub const PID_MODIFY_TIME: u32 = 2147483649u32;
-pub const PID_SECURITY: u32 = 2147483650u32;
+pub const PIDMSI_SUPPLIER: i32 = 3;
+pub const PIDSI_APPNAME: i32 = 18;
+pub const PIDSI_AUTHOR: i32 = 4;
+pub const PIDSI_CHARCOUNT: i32 = 16;
+pub const PIDSI_COMMENTS: i32 = 6;
+pub const PIDSI_CREATE_DTM: i32 = 12;
+pub const PIDSI_DOC_SECURITY: i32 = 19;
+pub const PIDSI_EDITTIME: i32 = 10;
+pub const PIDSI_KEYWORDS: i32 = 5;
+pub const PIDSI_LASTAUTHOR: i32 = 8;
+pub const PIDSI_LASTPRINTED: i32 = 11;
+pub const PIDSI_LASTSAVE_DTM: i32 = 13;
+pub const PIDSI_PAGECOUNT: i32 = 14;
+pub const PIDSI_REVNUMBER: i32 = 9;
+pub const PIDSI_SUBJECT: i32 = 3;
+pub const PIDSI_TEMPLATE: i32 = 7;
+pub const PIDSI_THUMBNAIL: i32 = 17;
+pub const PIDSI_TITLE: i32 = 2;
+pub const PIDSI_WORDCOUNT: i32 = 15;
+pub const PID_BEHAVIOR: u32 = 2147483651;
+pub const PID_CODEPAGE: u32 = 1;
+pub const PID_DICTIONARY: u32 = 0;
+pub const PID_FIRST_NAME_DEFAULT: u32 = 4095;
+pub const PID_FIRST_USABLE: u32 = 2;
+pub const PID_ILLEGAL: u32 = 4294967295;
+pub const PID_LOCALE: u32 = 2147483648;
+pub const PID_MAX_READONLY: u32 = 3221225471;
+pub const PID_MIN_READONLY: u32 = 2147483648;
+pub const PID_MODIFY_TIME: u32 = 2147483649;
+pub const PID_SECURITY: u32 = 2147483650;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2900,13 +2900,13 @@ pub struct PROPBAG2 {
     pub pstrName: windows_core::PWSTR,
     pub clsid: windows_core::GUID,
 }
-pub const PROPSETFLAG_ANSI: u32 = 2u32;
-pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
-pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
-pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
-pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
-pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
-pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
+pub const PROPSETFLAG_ANSI: u32 = 2;
+pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8;
+pub const PROPSETFLAG_DEFAULT: u32 = 0;
+pub const PROPSETFLAG_NONSIMPLE: u32 = 1;
+pub const PROPSETFLAG_UNBUFFERED: u32 = 4;
+pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
+pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROPSPEC {
@@ -3146,29 +3146,29 @@ impl core::ops::Not for PROPVAR_COMPARE_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
-pub const PRSPEC_INVALID: u32 = 4294967295u32;
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
-pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
-pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0i32);
-pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32i32);
-pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1i32);
-pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2i32);
-pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4i32);
-pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8i32);
-pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16i32);
-pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2i32);
-pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);
-pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8i32);
-pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16i32);
-pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4i32);
-pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1i32);
-pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4i32);
-pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
-pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3i32);
-pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2i32);
-pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5i32);
-pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1i32);
-pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6i32);
+pub const PRSPEC_INVALID: u32 = 4294967295;
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0);
+pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1);
+pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0);
+pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32);
+pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1);
+pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2);
+pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4);
+pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8);
+pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16);
+pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2);
+pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0);
+pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8);
+pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16);
+pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4);
+pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1);
+pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4);
+pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0);
+pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3);
+pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2);
+pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5);
+pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1);
+pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSNB {
@@ -3214,18 +3214,18 @@ pub struct STATPROPSTG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGFMT(pub u32);
-pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
-pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
-pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
-pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
-pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
-pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
+pub const STGFMT_ANY: STGFMT = STGFMT(4);
+pub const STGFMT_DOCFILE: STGFMT = STGFMT(5);
+pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0);
+pub const STGFMT_FILE: STGFMT = STGFMT(3);
+pub const STGFMT_NATIVE: STGFMT = STGFMT(1);
+pub const STGFMT_STORAGE: STGFMT = STGFMT(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGMOVE(pub i32);
-pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
-pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
+pub const STGMOVE_COPY: STGMOVE = STGMOVE(1);
+pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0);
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STGOPTIONS {
@@ -3234,7 +3234,7 @@ pub struct STGOPTIONS {
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_core::PCWSTR,
 }
-pub const STGOPTIONS_VERSION: u32 = 1u32;
+pub const STGOPTIONS_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct VERSIONEDSTREAM {

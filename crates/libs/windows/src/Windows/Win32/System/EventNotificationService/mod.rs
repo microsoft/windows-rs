@@ -19,9 +19,9 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { IsNetworkAlive(lpdwflags as _).ok() }
 }
-pub const CONNECTION_AOL: u32 = 4u32;
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
+pub const CONNECTION_AOL: u32 = 4;
+pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0);
+pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensLogon, ISensLogon_Vtbl, 0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
@@ -406,10 +406,10 @@ impl ISensOnNow_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISensOnNow {}
-pub const NETWORK_ALIVE_AOL: u32 = 4u32;
-pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
-pub const NETWORK_ALIVE_LAN: u32 = 1u32;
-pub const NETWORK_ALIVE_WAN: u32 = 2u32;
+pub const NETWORK_ALIVE_AOL: u32 = 4;
+pub const NETWORK_ALIVE_INTERNET: u32 = 8;
+pub const NETWORK_ALIVE_LAN: u32 = 1;
+pub const NETWORK_ALIVE_WAN: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOCINFO {

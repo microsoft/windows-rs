@@ -62,10 +62,10 @@ unsafe impl Sync for ConditionForceEffect {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
-    pub const Spring: Self = Self(0i32);
-    pub const Damper: Self = Self(1i32);
-    pub const Inertia: Self = Self(2i32);
-    pub const Friction: Self = Self(3i32);
+    pub const Spring: Self = Self(0);
+    pub const Damper: Self = Self(1);
+    pub const Inertia: Self = Self(2);
+    pub const Friction: Self = Self(3);
 }
 impl windows_core::TypeKind for ConditionForceEffectKind {
     type TypeKind = windows_core::CopyType;
@@ -132,10 +132,10 @@ unsafe impl Sync for ConstantForceEffect {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
-    pub const None: Self = Self(0u32);
-    pub const X: Self = Self(1u32);
-    pub const Y: Self = Self(2u32);
-    pub const Z: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const X: Self = Self(1);
+    pub const Y: Self = Self(2);
+    pub const Z: Self = Self(4);
 }
 impl windows_core::TypeKind for ForceFeedbackEffectAxes {
     type TypeKind = windows_core::CopyType;
@@ -181,10 +181,10 @@ impl core::ops::Not for ForceFeedbackEffectAxes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
-    pub const Stopped: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const Paused: Self = Self(2i32);
-    pub const Faulted: Self = Self(3i32);
+    pub const Stopped: Self = Self(0);
+    pub const Running: Self = Self(1);
+    pub const Paused: Self = Self(2);
+    pub const Faulted: Self = Self(3);
 }
 impl windows_core::TypeKind for ForceFeedbackEffectState {
     type TypeKind = windows_core::CopyType;
@@ -197,9 +197,9 @@ impl windows_core::RuntimeType for ForceFeedbackEffectState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const EffectStorageFull: Self = Self(1i32);
-    pub const EffectNotSupported: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const EffectStorageFull: Self = Self(1);
+    pub const EffectNotSupported: Self = Self(2);
 }
 impl windows_core::TypeKind for ForceFeedbackLoadEffectResult {
     type TypeKind = windows_core::CopyType;
@@ -566,11 +566,11 @@ unsafe impl Sync for PeriodicForceEffect {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
-    pub const SquareWave: Self = Self(0i32);
-    pub const SineWave: Self = Self(1i32);
-    pub const TriangleWave: Self = Self(2i32);
-    pub const SawtoothWaveUp: Self = Self(3i32);
-    pub const SawtoothWaveDown: Self = Self(4i32);
+    pub const SquareWave: Self = Self(0);
+    pub const SineWave: Self = Self(1);
+    pub const TriangleWave: Self = Self(2);
+    pub const SawtoothWaveUp: Self = Self(3);
+    pub const SawtoothWaveDown: Self = Self(4);
 }
 impl windows_core::TypeKind for PeriodicForceEffectKind {
     type TypeKind = windows_core::CopyType;

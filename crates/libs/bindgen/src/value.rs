@@ -10,16 +10,46 @@ impl ValueExt for Value {
     fn write(&self) -> TokenStream {
         match self {
             Self::Bool(value) => quote! { #value },
-            Self::U8(value) => quote! { #value },
-            Self::I8(value) => quote! { #value },
-            Self::U16(value) => quote! { #value },
-            Self::I16(value) => quote! { #value },
-            Self::U32(value) => quote! { #value },
-            Self::I32(value) => quote! { #value },
-            Self::U64(value) => quote! { #value },
-            Self::I64(value) => quote! { #value },
-            Self::F32(value) => quote! { #value },
-            Self::F64(value) => quote! { #value },
+            Self::U8(value) => {
+                let lit = Literal::u8_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I8(value) => {
+                let lit = Literal::i8_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U16(value) => {
+                let lit = Literal::u16_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I16(value) => {
+                let lit = Literal::i16_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U32(value) => {
+                let lit = Literal::u32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I32(value) => {
+                let lit = Literal::i32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::U64(value) => {
+                let lit = Literal::u64_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::I64(value) => {
+                let lit = Literal::i64_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::F32(value) => {
+                let lit = Literal::f32_unsuffixed(*value);
+                quote! { #lit }
+            }
+            Self::F64(value) => {
+                let lit = Literal::f64_unsuffixed(*value);
+                quote! { #lit }
+            }
             Self::Utf16(value) => {
                 let mut tokens = "\"".to_string();
 
@@ -38,10 +68,43 @@ impl ValueExt for Value {
 impl Config<'_> {
     pub fn write_cpp_const_guid(&self, name: TokenStream, value: &GUID) -> TokenStream {
         let crate_name = self.write_core();
-        let value = self.write_guid_u128(value);
+        let value = self.write_guid_value(value);
 
         quote! {
-            pub const #name: #crate_name GUID = #crate_name GUID::from_u128(#value);
+            pub const #name: #crate_name GUID = #value;
+        }
+    }
+
+    pub fn write_guid_value(&self, value: &GUID) -> TokenStream {
+        if self.bindgen.resolved_deps() == DepMode::None {
+            let crate_name = self.write_core();
+            let data1 = format!("0x{:08x?}", value.0)
+                .parse::<TokenStream>()
+                .unwrap();
+            let data2 = format!("0x{:04x?}", value.1)
+                .parse::<TokenStream>()
+                .unwrap();
+            let data3 = format!("0x{:04x?}", value.2)
+                .parse::<TokenStream>()
+                .unwrap();
+            let data4_0 = Literal::u8_unsuffixed(value.3);
+            let data4_1 = Literal::u8_unsuffixed(value.4);
+            let data4_2 = Literal::u8_unsuffixed(value.5);
+            let data4_3 = Literal::u8_unsuffixed(value.6);
+            let data4_4 = Literal::u8_unsuffixed(value.7);
+            let data4_5 = Literal::u8_unsuffixed(value.8);
+            let data4_6 = Literal::u8_unsuffixed(value.9);
+            let data4_7 = Literal::u8_unsuffixed(value.10);
+
+            quote! {
+                #crate_name GUID { data1: #data1, data2: #data2, data3: #data3, data4: [#data4_0, #data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7] }
+            }
+        } else {
+            let crate_name = self.write_core();
+            let u128_value = self.write_guid_u128(value);
+            quote! {
+                #crate_name GUID::from_u128(#u128_value)
+            }
         }
     }
 
@@ -70,7 +133,7 @@ impl Config<'_> {
         match field.field_type(None, self.reader) {
             Type::GUID => {
                 let (literals, rest) = read_literal_array(input, 11);
-                let value = self.write_guid_u128(&GUID(
+                let value = self.write_guid_value(&GUID(
                     literals[0].parse().unwrap(),
                     literals[1].parse().unwrap(),
                     literals[2].parse().unwrap(),
@@ -83,8 +146,7 @@ impl Config<'_> {
                     literals[9].parse().unwrap(),
                     literals[10].parse().unwrap(),
                 ));
-                let crate_name = self.write_core();
-                (quote! { #name: #crate_name GUID::from_u128(#value), }, rest)
+                (quote! { #name: #value, }, rest)
             }
             Type::ArrayFixed(_, len) => {
                 let (literals, rest) = read_literal_array(input, len);

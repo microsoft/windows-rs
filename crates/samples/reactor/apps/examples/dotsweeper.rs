@@ -929,6 +929,7 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new().title("windows_reactor — dotsweeper").render(app)
 }
 

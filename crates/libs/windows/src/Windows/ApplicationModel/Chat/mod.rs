@@ -318,10 +318,10 @@ unsafe impl Sync for ChatConversationThreadingInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
-    pub const Participants: Self = Self(0i32);
-    pub const ContactId: Self = Self(1i32);
-    pub const ConversationId: Self = Self(2i32);
-    pub const Custom: Self = Self(3i32);
+    pub const Participants: Self = Self(0);
+    pub const ContactId: Self = Self(1);
+    pub const ConversationId: Self = Self(2);
+    pub const Custom: Self = Self(3);
 }
 impl windows_core::TypeKind for ChatConversationThreadingKind {
     type TypeKind = windows_core::CopyType;
@@ -334,8 +334,8 @@ impl windows_core::RuntimeType for ChatConversationThreadingKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
-    pub const Message: Self = Self(0i32);
-    pub const Conversation: Self = Self(1i32);
+    pub const Message: Self = Self(0);
+    pub const Conversation: Self = Self(1);
 }
 impl windows_core::TypeKind for ChatItemKind {
     type TypeKind = windows_core::CopyType;
@@ -863,10 +863,10 @@ unsafe impl Sync for ChatMessageChangeTracker {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
-    pub const MessageCreated: Self = Self(0i32);
-    pub const MessageModified: Self = Self(1i32);
-    pub const MessageDeleted: Self = Self(2i32);
-    pub const ChangeTrackingLost: Self = Self(3i32);
+    pub const MessageCreated: Self = Self(0);
+    pub const MessageModified: Self = Self(1);
+    pub const MessageDeleted: Self = Self(2);
+    pub const ChangeTrackingLost: Self = Self(3);
 }
 impl windows_core::TypeKind for ChatMessageChangeType {
     type TypeKind = windows_core::CopyType;
@@ -924,13 +924,13 @@ unsafe impl Sync for ChatMessageChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
-    pub const Standard: Self = Self(0i32);
-    pub const FileTransferRequest: Self = Self(1i32);
-    pub const TransportCustom: Self = Self(2i32);
-    pub const JoinedConversation: Self = Self(3i32);
-    pub const LeftConversation: Self = Self(4i32);
-    pub const OtherParticipantJoinedConversation: Self = Self(5i32);
-    pub const OtherParticipantLeftConversation: Self = Self(6i32);
+    pub const Standard: Self = Self(0);
+    pub const FileTransferRequest: Self = Self(1);
+    pub const TransportCustom: Self = Self(2);
+    pub const JoinedConversation: Self = Self(3);
+    pub const LeftConversation: Self = Self(4);
+    pub const OtherParticipantJoinedConversation: Self = Self(5);
+    pub const OtherParticipantLeftConversation: Self = Self(6);
 }
 impl windows_core::TypeKind for ChatMessageKind {
     type TypeKind = windows_core::CopyType;
@@ -1055,10 +1055,10 @@ unsafe impl Sync for ChatMessageNotificationTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Sms: Self = Self(1i32);
-    pub const Mms: Self = Self(2i32);
-    pub const Rcs: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Sms: Self = Self(1);
+    pub const Mms: Self = Self(2);
+    pub const Rcs: Self = Self(3);
 }
 impl windows_core::TypeKind for ChatMessageOperatorKind {
     type TypeKind = windows_core::CopyType;
@@ -1102,20 +1102,20 @@ unsafe impl Sync for ChatMessageReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
-    pub const Draft: Self = Self(0i32);
-    pub const Sending: Self = Self(1i32);
-    pub const Sent: Self = Self(2i32);
-    pub const SendRetryNeeded: Self = Self(3i32);
-    pub const SendFailed: Self = Self(4i32);
-    pub const Received: Self = Self(5i32);
-    pub const ReceiveDownloadNeeded: Self = Self(6i32);
-    pub const ReceiveDownloadFailed: Self = Self(7i32);
-    pub const ReceiveDownloading: Self = Self(8i32);
-    pub const Deleted: Self = Self(9i32);
-    pub const Declined: Self = Self(10i32);
-    pub const Cancelled: Self = Self(11i32);
-    pub const Recalled: Self = Self(12i32);
-    pub const ReceiveRetryNeeded: Self = Self(13i32);
+    pub const Draft: Self = Self(0);
+    pub const Sending: Self = Self(1);
+    pub const Sent: Self = Self(2);
+    pub const SendRetryNeeded: Self = Self(3);
+    pub const SendFailed: Self = Self(4);
+    pub const Received: Self = Self(5);
+    pub const ReceiveDownloadNeeded: Self = Self(6);
+    pub const ReceiveDownloadFailed: Self = Self(7);
+    pub const ReceiveDownloading: Self = Self(8);
+    pub const Deleted: Self = Self(9);
+    pub const Declined: Self = Self(10);
+    pub const Cancelled: Self = Self(11);
+    pub const Recalled: Self = Self(12);
+    pub const ReceiveRetryNeeded: Self = Self(13);
 }
 impl windows_core::TypeKind for ChatMessageStatus {
     type TypeKind = windows_core::CopyType;
@@ -1515,10 +1515,10 @@ unsafe impl Sync for ChatMessageTransportConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
-    pub const Text: Self = Self(0i32);
-    pub const Untriaged: Self = Self(1i32);
-    pub const Blocked: Self = Self(2i32);
-    pub const Custom: Self = Self(3i32);
+    pub const Text: Self = Self(0);
+    pub const Untriaged: Self = Self(1);
+    pub const Blocked: Self = Self(2);
+    pub const Custom: Self = Self(3);
 }
 impl windows_core::TypeKind for ChatMessageTransportKind {
     type TypeKind = windows_core::CopyType;
@@ -1573,20 +1573,20 @@ unsafe impl Sync for ChatMessageValidationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
-    pub const Valid: Self = Self(0i32);
-    pub const NoRecipients: Self = Self(1i32);
-    pub const InvalidData: Self = Self(2i32);
-    pub const MessageTooLarge: Self = Self(3i32);
-    pub const TooManyRecipients: Self = Self(4i32);
-    pub const TransportInactive: Self = Self(5i32);
-    pub const TransportNotFound: Self = Self(6i32);
-    pub const TooManyAttachments: Self = Self(7i32);
-    pub const InvalidRecipients: Self = Self(8i32);
-    pub const InvalidBody: Self = Self(9i32);
-    pub const InvalidOther: Self = Self(10i32);
-    pub const ValidWithLargeMessage: Self = Self(11i32);
-    pub const VoiceRoamingRestriction: Self = Self(12i32);
-    pub const DataRoamingRestriction: Self = Self(13i32);
+    pub const Valid: Self = Self(0);
+    pub const NoRecipients: Self = Self(1);
+    pub const InvalidData: Self = Self(2);
+    pub const MessageTooLarge: Self = Self(3);
+    pub const TooManyRecipients: Self = Self(4);
+    pub const TransportInactive: Self = Self(5);
+    pub const TransportNotFound: Self = Self(6);
+    pub const TooManyAttachments: Self = Self(7);
+    pub const InvalidRecipients: Self = Self(8);
+    pub const InvalidBody: Self = Self(9);
+    pub const InvalidOther: Self = Self(10);
+    pub const ValidWithLargeMessage: Self = Self(11);
+    pub const VoiceRoamingRestriction: Self = Self(12);
+    pub const DataRoamingRestriction: Self = Self(13);
 }
 impl windows_core::TypeKind for ChatMessageValidationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1657,7 +1657,7 @@ impl ChatRecipientDeliveryInfo {
         }
     }
     pub fn SetDeliveryTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDeliveryTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ReadTime(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1667,7 +1667,7 @@ impl ChatRecipientDeliveryInfo {
         }
     }
     pub fn SetReadTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetReadTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn TransportErrorCodeCategory(&self) -> windows_core::Result<ChatTransportErrorCodeCategory> {
@@ -1717,9 +1717,9 @@ unsafe impl Sync for ChatRecipientDeliveryInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
-    pub const LastMonth: Self = Self(0i32);
-    pub const LastYear: Self = Self(1i32);
-    pub const AnyTime: Self = Self(2i32);
+    pub const LastMonth: Self = Self(0);
+    pub const LastYear: Self = Self(1);
+    pub const AnyTime: Self = Self(2);
 }
 impl windows_core::TypeKind for ChatRestoreHistorySpan {
     type TypeKind = windows_core::CopyType;
@@ -1762,14 +1762,14 @@ unsafe impl Sync for ChatSearchReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
-    pub const NotificationsMissed: Self = Self(0i32);
-    pub const StoreModified: Self = Self(1i32);
-    pub const MessageCreated: Self = Self(2i32);
-    pub const MessageModified: Self = Self(3i32);
-    pub const MessageDeleted: Self = Self(4i32);
-    pub const ConversationModified: Self = Self(5i32);
-    pub const ConversationDeleted: Self = Self(6i32);
-    pub const ConversationTransportDeleted: Self = Self(7i32);
+    pub const NotificationsMissed: Self = Self(0);
+    pub const StoreModified: Self = Self(1);
+    pub const MessageCreated: Self = Self(2);
+    pub const MessageModified: Self = Self(3);
+    pub const MessageDeleted: Self = Self(4);
+    pub const ConversationModified: Self = Self(5);
+    pub const ConversationDeleted: Self = Self(6);
+    pub const ConversationTransportDeleted: Self = Self(7);
 }
 impl windows_core::TypeKind for ChatStoreChangedEventKind {
     type TypeKind = windows_core::CopyType;
@@ -1880,10 +1880,10 @@ unsafe impl Sync for ChatSyncManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
-    pub const None: Self = Self(0i32);
-    pub const Http: Self = Self(1i32);
-    pub const Network: Self = Self(2i32);
-    pub const MmsServer: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Http: Self = Self(1);
+    pub const Network: Self = Self(2);
+    pub const MmsServer: Self = Self(3);
 }
 impl windows_core::TypeKind for ChatTransportErrorCodeCategory {
     type TypeKind = windows_core::CopyType;
@@ -1896,12 +1896,12 @@ impl windows_core::RuntimeType for ChatTransportErrorCodeCategory {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
-    pub const None: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const InvalidRecipientAddress: Self = Self(2i32);
-    pub const NetworkConnectivity: Self = Self(3i32);
-    pub const ServiceDenied: Self = Self(4i32);
-    pub const Timeout: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Unknown: Self = Self(1);
+    pub const InvalidRecipientAddress: Self = Self(2);
+    pub const NetworkConnectivity: Self = Self(3);
+    pub const ServiceDenied: Self = Self(4);
+    pub const Timeout: Self = Self(5);
 }
 impl windows_core::TypeKind for ChatTransportInterpretedErrorCode {
     type TypeKind = windows_core::CopyType;
@@ -2967,10 +2967,10 @@ impl windows_core::RuntimeName for RcsManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {
-    pub const Chat: Self = Self(0i32);
-    pub const GroupChat: Self = Self(1i32);
-    pub const FileTransfer: Self = Self(2i32);
-    pub const Capability: Self = Self(3i32);
+    pub const Chat: Self = Self(0);
+    pub const GroupChat: Self = Self(1);
+    pub const FileTransfer: Self = Self(2);
+    pub const Capability: Self = Self(3);
 }
 impl windows_core::TypeKind for RcsServiceKind {
     type TypeKind = windows_core::CopyType;

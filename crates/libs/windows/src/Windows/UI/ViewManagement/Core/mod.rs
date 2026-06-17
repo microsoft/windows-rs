@@ -382,14 +382,14 @@ unsafe impl Sync for CoreInputViewHidingEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
-    pub const Default: Self = Self(0i32);
-    pub const Keyboard: Self = Self(1i32);
-    pub const Handwriting: Self = Self(2i32);
-    pub const Emoji: Self = Self(3i32);
-    pub const Symbols: Self = Self(4i32);
-    pub const Clipboard: Self = Self(5i32);
-    pub const Dictation: Self = Self(6i32);
-    pub const Gamepad: Self = Self(7i32);
+    pub const Default: Self = Self(0);
+    pub const Keyboard: Self = Self(1);
+    pub const Handwriting: Self = Self(2);
+    pub const Emoji: Self = Self(3);
+    pub const Symbols: Self = Self(4);
+    pub const Clipboard: Self = Self(5);
+    pub const Dictation: Self = Self(6);
+    pub const Gamepad: Self = Self(7);
 }
 impl windows_core::TypeKind for CoreInputViewKind {
     type TypeKind = windows_core::CopyType;
@@ -432,9 +432,9 @@ unsafe impl Sync for CoreInputViewOcclusion {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
-    pub const Docked: Self = Self(0i32);
-    pub const Floating: Self = Self(1i32);
-    pub const Overlay: Self = Self(2i32);
+    pub const Docked: Self = Self(0);
+    pub const Floating: Self = Self(1);
+    pub const Overlay: Self = Self(2);
 }
 impl windows_core::TypeKind for CoreInputViewOcclusionKind {
     type TypeKind = windows_core::CopyType;
@@ -552,10 +552,10 @@ unsafe impl Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
-    pub const Up: Self = Self(0i32);
-    pub const Right: Self = Self(1i32);
-    pub const Down: Self = Self(2i32);
-    pub const Left: Self = Self(3i32);
+    pub const Up: Self = Self(0);
+    pub const Right: Self = Self(1);
+    pub const Down: Self = Self(2);
+    pub const Left: Self = Self(3);
 }
 impl windows_core::TypeKind for CoreInputViewXYFocusTransferDirection {
     type TypeKind = windows_core::CopyType;

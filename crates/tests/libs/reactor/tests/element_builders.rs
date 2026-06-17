@@ -1,26 +1,26 @@
-use windows_reactor::core::element::{Element, GridLength, ScrollBarVisibility, Thickness};
-use windows_reactor::dsl::{ElementExt, check_box, scroll_viewer, text_block, text_box};
 use windows_reactor::grid;
+use windows_reactor::{Element, GridLength, ScrollBarVisibility, Thickness};
+use windows_reactor::{ElementExt, check_box, scroll_viewer, text_block, text_box};
 
 #[test]
 fn check_box_default_state() {
     let c = check_box(true);
     assert!(c.is_checked);
     assert!(c.is_enabled);
-    assert!(c.label.is_none());
-    assert!(c.on_changed.is_none());
+    assert!(c.content.is_none());
+    assert!(c.on_checked.is_none());
 }
 
 #[test]
-fn check_box_label_installs_label() {
-    let c = check_box(false).label("Accept terms");
-    assert_eq!(c.label.as_deref(), Some("Accept terms"));
+fn check_box_content_installs_content() {
+    let c = check_box(false).content("Accept terms");
+    assert_eq!(c.content.as_deref(), Some("Accept terms"));
 }
 
 #[test]
 fn check_box_on_changed_stores_callback() {
-    let c = check_box(false).on_changed(|_v| {});
-    assert!(c.on_changed.is_some());
+    let c = check_box(false).on_checked(|_v| {});
+    assert!(c.on_checked.is_some());
 }
 
 #[test]
@@ -41,21 +41,23 @@ fn text_field_default_state() {
     let t = text_box("hello");
     assert_eq!(t.value, "hello");
     assert!(t.is_enabled);
-    assert!(t.placeholder.is_none());
+    assert!(t.placeholder_text.is_empty());
     assert!(t.header.is_none());
 }
 
 #[test]
 fn text_field_placeholder_and_header() {
-    let t = text_box("").placeholder("Start typing...").header("Notes");
-    assert_eq!(t.placeholder.as_deref(), Some("Start typing..."));
+    let t = text_box("")
+        .placeholder_text("Start typing...")
+        .header("Notes");
+    assert_eq!(t.placeholder_text, "Start typing...");
     assert_eq!(t.header.as_deref(), Some("Notes"));
 }
 
 #[test]
 fn text_field_on_changed_installs_handler() {
-    let t = text_box("").on_changed(|_v| {});
-    assert!(t.on_changed.is_some());
+    let t = text_box("").on_text_changed(|_v| {});
+    assert!(t.on_text_changed.is_some());
 }
 
 #[test]
@@ -67,8 +69,8 @@ fn grid_builder_sets_row_and_column_definitions() {
         .column_spacing(6.0);
     assert_eq!(g.rows.len(), 2);
     assert_eq!(g.columns.len(), 2);
-    assert_eq!(g.row_spacing, Some(4.0));
-    assert_eq!(g.column_spacing, Some(6.0));
+    assert_eq!(g.row_spacing, 4.0);
+    assert_eq!(g.column_spacing, 6.0);
     assert_eq!(g.children.len(), 1);
 }
 
@@ -141,8 +143,9 @@ fn min_max_width_and_height_chain_through_element_ext() {
 mod mount {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-    use windows_reactor::core::reconciler::Reconciler;
+    use windows_reactor::Reconciler;
+    use windows_reactor::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn mount_one(el: Element) -> Reconciler<RecordingBackend> {
         let mut r = Reconciler::new(RecordingBackend::new());
@@ -170,7 +173,7 @@ mod mount {
 
     #[test]
     fn mount_text_field_records_value_and_placeholder() {
-        let t = text_box("draft").placeholder("…");
+        let t = text_box("draft").placeholder_text("…");
         let r = mount_one(t.into());
         let sets: Vec<_> = r
             .backend
@@ -183,11 +186,11 @@ mod mount {
             .collect();
         assert!(sets.iter().any(|(p, v)| matches!(
             (p, v),
-            (Prop::TextBoxValue, PropValue::Str(s)) if s == "draft"
+            (Prop::Value, PropValue::Str(s)) if s == "draft"
         )));
         assert!(sets.iter().any(|(p, v)| matches!(
             (p, v),
-            (Prop::Placeholder, PropValue::Str(s)) if s == "…"
+            (Prop::PlaceholderText, PropValue::Str(s)) if s == "…"
         )));
     }
 
@@ -246,14 +249,15 @@ mod mount {
 mod update {
     use super::*;
     use std::rc::Rc;
-    use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-    use windows_reactor::core::reconciler::Reconciler;
+    use windows_reactor::Reconciler;
+    use windows_reactor::{Op, RecordingBackend};
+    use windows_reactor::{Prop, PropValue};
 
     fn reconcile(
         r: &mut Reconciler<RecordingBackend>,
         old: &Element,
         new: &Element,
-        existing: Option<windows_reactor::core::backend::ControlId>,
+        existing: Option<windows_reactor::ControlId>,
     ) {
         r.reconcile(Some(old), new, existing, Rc::new(|| {}));
     }
@@ -299,7 +303,7 @@ mod update {
                 matches!(
                     o,
                     Op::SetProp {
-                        prop: Prop::TextBoxValue,
+                        prop: Prop::Value,
                         ..
                     }
                 )

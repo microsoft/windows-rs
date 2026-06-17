@@ -1521,11 +1521,11 @@ unsafe impl Sync for LearningModelDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
-    pub const Default: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const DirectX: Self = Self(2i32);
-    pub const DirectXHighPerformance: Self = Self(3i32);
-    pub const DirectXMinPower: Self = Self(4i32);
+    pub const Default: Self = Self(0);
+    pub const Cpu: Self = Self(1);
+    pub const DirectX: Self = Self(2);
+    pub const DirectXHighPerformance: Self = Self(3);
+    pub const DirectXMinPower: Self = Self(4);
 }
 impl windows_core::TypeKind for LearningModelDeviceKind {
     type TypeKind = windows_core::CopyType;
@@ -1580,10 +1580,10 @@ unsafe impl Sync for LearningModelEvaluationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
-    pub const Tensor: Self = Self(0i32);
-    pub const Sequence: Self = Self(1i32);
-    pub const Map: Self = Self(2i32);
-    pub const Image: Self = Self(3i32);
+    pub const Tensor: Self = Self(0);
+    pub const Sequence: Self = Self(1);
+    pub const Map: Self = Self(2);
+    pub const Image: Self = Self(3);
 }
 impl windows_core::TypeKind for LearningModelFeatureKind {
     type TypeKind = windows_core::CopyType;
@@ -1596,9 +1596,9 @@ impl windows_core::RuntimeType for LearningModelFeatureKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
-    pub const ZeroTo255: Self = Self(0i32);
-    pub const ZeroToOne: Self = Self(1i32);
-    pub const MinusOneToOne: Self = Self(2i32);
+    pub const ZeroTo255: Self = Self(0);
+    pub const ZeroToOne: Self = Self(1);
+    pub const MinusOneToOne: Self = Self(2);
 }
 impl windows_core::TypeKind for LearningModelPixelRange {
     type TypeKind = windows_core::CopyType;
@@ -2867,22 +2867,22 @@ unsafe impl Sync for TensorInt8Bit {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
-    pub const Undefined: Self = Self(0i32);
-    pub const Float: Self = Self(1i32);
-    pub const UInt8: Self = Self(2i32);
-    pub const Int8: Self = Self(3i32);
-    pub const UInt16: Self = Self(4i32);
-    pub const Int16: Self = Self(5i32);
-    pub const Int32: Self = Self(6i32);
-    pub const Int64: Self = Self(7i32);
-    pub const String: Self = Self(8i32);
-    pub const Boolean: Self = Self(9i32);
-    pub const Float16: Self = Self(10i32);
-    pub const Double: Self = Self(11i32);
-    pub const UInt32: Self = Self(12i32);
-    pub const UInt64: Self = Self(13i32);
-    pub const Complex64: Self = Self(14i32);
-    pub const Complex128: Self = Self(15i32);
+    pub const Undefined: Self = Self(0);
+    pub const Float: Self = Self(1);
+    pub const UInt8: Self = Self(2);
+    pub const Int8: Self = Self(3);
+    pub const UInt16: Self = Self(4);
+    pub const Int16: Self = Self(5);
+    pub const Int32: Self = Self(6);
+    pub const Int64: Self = Self(7);
+    pub const String: Self = Self(8);
+    pub const Boolean: Self = Self(9);
+    pub const Float16: Self = Self(10);
+    pub const Double: Self = Self(11);
+    pub const UInt32: Self = Self(12);
+    pub const UInt64: Self = Self(13);
+    pub const Complex64: Self = Self(14);
+    pub const Complex128: Self = Self(15);
 }
 impl windows_core::TypeKind for TensorKind {
     type TypeKind = windows_core::CopyType;

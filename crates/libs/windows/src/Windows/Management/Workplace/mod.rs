@@ -82,9 +82,9 @@ impl windows_core::RuntimeName for MdmPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
-    pub const Disallowed: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
+    pub const Disallowed: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const Required: Self = Self(2);
 }
 impl windows_core::TypeKind for MessagingSyncPolicy {
     type TypeKind = windows_core::CopyType;

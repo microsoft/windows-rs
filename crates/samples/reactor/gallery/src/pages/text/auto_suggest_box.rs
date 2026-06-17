@@ -18,7 +18,7 @@ pub fn auto_suggest_box_page(_: &(), cx: &mut RenderCx) -> Element {
             vstack((
                 auto_suggest_box(query.clone())
                     .items(suggestions)
-                    .placeholder("Search fruits...")
+                    .placeholder_text("Search fruits...")
                     .on_text_changed(move |s: String| set_query.call(s)),
                 text_block(format!("Query: \"{query}\"")).opacity(0.6),
             ))

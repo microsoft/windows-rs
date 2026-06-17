@@ -1,6 +1,6 @@
 pub mod Test {
-    pub const Execute: Options = Options(4u32);
-    pub const None: Options = Options(0u32);
+    pub const Execute: Options = Options(4);
+    pub const None: Options = Options(0);
     #[repr(transparent)]
     #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
     pub struct Options(pub u32);
@@ -37,6 +37,6 @@ pub mod Test {
             Self(self.0.not())
         }
     }
-    pub const Read: Options = Options(1u32);
-    pub const Write: Options = Options(2u32);
+    pub const Read: Options = Options(1);
+    pub const Write: Options = Options(2);
 }

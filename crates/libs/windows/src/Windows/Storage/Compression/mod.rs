@@ -2,12 +2,12 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
-    pub const InvalidAlgorithm: Self = Self(0i32);
-    pub const NullAlgorithm: Self = Self(1i32);
-    pub const Mszip: Self = Self(2i32);
-    pub const Xpress: Self = Self(3i32);
-    pub const XpressHuff: Self = Self(4i32);
-    pub const Lzms: Self = Self(5i32);
+    pub const InvalidAlgorithm: Self = Self(0);
+    pub const NullAlgorithm: Self = Self(1);
+    pub const Mszip: Self = Self(2);
+    pub const Xpress: Self = Self(3);
+    pub const XpressHuff: Self = Self(4);
+    pub const Lzms: Self = Self(5);
 }
 impl windows_core::TypeKind for CompressAlgorithm {
     type TypeKind = windows_core::CopyType;

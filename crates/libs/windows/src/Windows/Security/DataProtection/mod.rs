@@ -83,9 +83,9 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
-    pub const Always: Self = Self(0i32);
-    pub const AfterFirstUnlock: Self = Self(1i32);
-    pub const WhileUnlocked: Self = Self(2i32);
+    pub const Always: Self = Self(0);
+    pub const AfterFirstUnlock: Self = Self(1);
+    pub const WhileUnlocked: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataAvailability {
     type TypeKind = windows_core::CopyType;
@@ -153,8 +153,8 @@ unsafe impl Sync for UserDataBufferUnprotectResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Unavailable: Self = Self(1i32);
+    pub const Succeeded: Self = Self(0);
+    pub const Unavailable: Self = Self(1);
 }
 impl windows_core::TypeKind for UserDataBufferUnprotectStatus {
     type TypeKind = windows_core::CopyType;
@@ -287,9 +287,9 @@ unsafe impl Sync for UserDataStorageItemProtectionInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const NotProtectable: Self = Self(1i32);
-    pub const DataUnavailable: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const NotProtectable: Self = Self(1);
+    pub const DataUnavailable: Self = Self(2);
 }
 impl windows_core::TypeKind for UserDataStorageItemProtectionStatus {
     type TypeKind = windows_core::CopyType;

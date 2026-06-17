@@ -741,11 +741,11 @@ unsafe impl Sync for Print3DTaskCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Slicing: Self = Self(3i32);
-    pub const Submitted: Self = Self(4i32);
+    pub const Abandoned: Self = Self(0);
+    pub const Canceled: Self = Self(1);
+    pub const Failed: Self = Self(2);
+    pub const Slicing: Self = Self(3);
+    pub const Submitted: Self = Self(4);
 }
 impl windows_core::TypeKind for Print3DTaskCompletion {
     type TypeKind = windows_core::CopyType;
@@ -758,13 +758,13 @@ impl windows_core::RuntimeType for Print3DTaskCompletion {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
-    pub const Unknown: Self = Self(0i32);
-    pub const ModelExceedsPrintBed: Self = Self(1i32);
-    pub const UploadFailed: Self = Self(2i32);
-    pub const InvalidMaterialSelection: Self = Self(3i32);
-    pub const InvalidModel: Self = Self(4i32);
-    pub const ModelNotManifold: Self = Self(5i32);
-    pub const InvalidPrintTicket: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const ModelExceedsPrintBed: Self = Self(1);
+    pub const UploadFailed: Self = Self(2);
+    pub const InvalidMaterialSelection: Self = Self(3);
+    pub const InvalidModel: Self = Self(4);
+    pub const ModelNotManifold: Self = Self(5);
+    pub const InvalidPrintTicket: Self = Self(6);
 }
 impl windows_core::TypeKind for Print3DTaskDetail {
     type TypeKind = windows_core::CopyType;
@@ -879,7 +879,7 @@ impl windows_core::RuntimeType for Print3DTaskSourceRequestedHandler {
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<Print3DTaskSourceRequestedHandler, F>::new(&Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where
@@ -1152,13 +1152,13 @@ impl windows_core::RuntimeType for Printing3DBufferDescription {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const R32G32B32A32Float: Self = Self(2i32);
-    pub const R32G32B32A32UInt: Self = Self(3i32);
-    pub const R32G32B32Float: Self = Self(6i32);
-    pub const R32G32B32UInt: Self = Self(7i32);
-    pub const Printing3DDouble: Self = Self(500i32);
-    pub const Printing3DUInt: Self = Self(501i32);
+    pub const Unknown: Self = Self(0);
+    pub const R32G32B32A32Float: Self = Self(2);
+    pub const R32G32B32A32UInt: Self = Self(3);
+    pub const R32G32B32Float: Self = Self(6);
+    pub const R32G32B32UInt: Self = Self(7);
+    pub const Printing3DDouble: Self = Self(500);
+    pub const Printing3DUInt: Self = Self(501);
 }
 impl windows_core::TypeKind for Printing3DBufferFormat {
     type TypeKind = windows_core::CopyType;
@@ -1723,8 +1723,8 @@ unsafe impl Sync for Printing3DMesh {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
-    pub const FindFirstError: Self = Self(0i32);
-    pub const FindAllErrors: Self = Self(1i32);
+    pub const FindFirstError: Self = Self(0);
+    pub const FindAllErrors: Self = Self(1);
 }
 impl windows_core::TypeKind for Printing3DMeshVerificationMode {
     type TypeKind = windows_core::CopyType;
@@ -1985,12 +1985,12 @@ unsafe impl Sync for Printing3DModelTexture {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
-    pub const Meter: Self = Self(0i32);
-    pub const Micron: Self = Self(1i32);
-    pub const Millimeter: Self = Self(2i32);
-    pub const Centimeter: Self = Self(3i32);
-    pub const Inch: Self = Self(4i32);
-    pub const Foot: Self = Self(5i32);
+    pub const Meter: Self = Self(0);
+    pub const Micron: Self = Self(1);
+    pub const Millimeter: Self = Self(2);
+    pub const Centimeter: Self = Self(3);
+    pub const Inch: Self = Self(4);
+    pub const Foot: Self = Self(5);
 }
 impl windows_core::TypeKind for Printing3DModelUnit {
     type TypeKind = windows_core::CopyType;
@@ -2080,9 +2080,9 @@ unsafe impl Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
-    pub const Model: Self = Self(0i32);
-    pub const Support: Self = Self(1i32);
-    pub const Others: Self = Self(2i32);
+    pub const Model: Self = Self(0);
+    pub const Support: Self = Self(1);
+    pub const Others: Self = Self(2);
 }
 impl windows_core::TypeKind for Printing3DObjectType {
     type TypeKind = windows_core::CopyType;
@@ -2095,9 +2095,9 @@ impl windows_core::RuntimeType for Printing3DObjectType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
-    pub const Low: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const High: Self = Self(2i32);
+    pub const Low: Self = Self(0);
+    pub const Medium: Self = Self(1);
+    pub const High: Self = Self(2);
 }
 impl windows_core::TypeKind for Printing3DPackageCompression {
     type TypeKind = windows_core::CopyType;
@@ -2219,10 +2219,10 @@ unsafe impl Sync for Printing3DTexture2CoordMaterialGroup {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
-    pub const None: Self = Self(0i32);
-    pub const Wrap: Self = Self(1i32);
-    pub const Mirror: Self = Self(2i32);
-    pub const Clamp: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Wrap: Self = Self(1);
+    pub const Mirror: Self = Self(2);
+    pub const Clamp: Self = Self(3);
 }
 impl windows_core::TypeKind for Printing3DTextureEdgeBehavior {
     type TypeKind = windows_core::CopyType;

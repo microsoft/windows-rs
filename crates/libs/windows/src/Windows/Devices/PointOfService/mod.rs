@@ -330,11 +330,11 @@ unsafe impl Sync for BarcodeScannerReport {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
-    pub const Online: Self = Self(0i32);
-    pub const Off: Self = Self(1i32);
-    pub const Offline: Self = Self(2i32);
-    pub const OffOrOffline: Self = Self(3i32);
-    pub const Extended: Self = Self(4i32);
+    pub const Online: Self = Self(0);
+    pub const Off: Self = Self(1);
+    pub const Offline: Self = Self(2);
+    pub const OffOrOffline: Self = Self(3);
+    pub const Extended: Self = Self(4);
 }
 impl windows_core::TypeKind for BarcodeScannerStatus {
     type TypeKind = windows_core::CopyType;
@@ -1042,9 +1042,9 @@ unsafe impl Sync for BarcodeSymbologyAttributes {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
-    pub const AnyLength: Self = Self(0i32);
-    pub const Discrete: Self = Self(1i32);
-    pub const Range: Self = Self(2i32);
+    pub const AnyLength: Self = Self(0);
+    pub const Discrete: Self = Self(1);
+    pub const Range: Self = Self(2);
 }
 impl windows_core::TypeKind for BarcodeSymbologyDecodeLengthKind {
     type TypeKind = windows_core::CopyType;
@@ -1421,11 +1421,11 @@ unsafe impl Sync for CashDrawerStatus {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
-    pub const Online: Self = Self(0i32);
-    pub const Off: Self = Self(1i32);
-    pub const Offline: Self = Self(2i32);
-    pub const OffOrOffline: Self = Self(3i32);
-    pub const Extended: Self = Self(4i32);
+    pub const Online: Self = Self(0);
+    pub const Off: Self = Self(1);
+    pub const Offline: Self = Self(2);
+    pub const OffOrOffline: Self = Self(3);
+    pub const Extended: Self = Self(4);
 }
 impl windows_core::TypeKind for CashDrawerStatusKind {
     type TypeKind = windows_core::CopyType;
@@ -1702,7 +1702,6 @@ unsafe impl Sync for ClaimedBarcodeScanner {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedBarcodeScannerClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScannerClosedEventArgs>();
 }
@@ -1834,7 +1833,6 @@ unsafe impl Sync for ClaimedCashDrawer {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedCashDrawerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedCashDrawerClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawerClosedEventArgs>();
 }
@@ -2253,7 +2251,6 @@ unsafe impl Sync for ClaimedLineDisplay {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedLineDisplayClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedLineDisplayClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplayClosedEventArgs>();
 }
@@ -2491,7 +2488,6 @@ unsafe impl Sync for ClaimedMagneticStripeReader {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedMagneticStripeReaderClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReaderClosedEventArgs>();
 }
@@ -2656,7 +2652,6 @@ unsafe impl Sync for ClaimedPosPrinter {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ClaimedPosPrinterClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl ClaimedPosPrinterClosedEventArgs {}
 impl windows_core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinterClosedEventArgs>();
 }
@@ -6783,12 +6778,12 @@ unsafe impl Sync for LineDisplayCursorAttributes {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
-    pub const None: Self = Self(0i32);
-    pub const Block: Self = Self(1i32);
-    pub const HalfBlock: Self = Self(2i32);
-    pub const Underline: Self = Self(3i32);
-    pub const Reverse: Self = Self(4i32);
-    pub const Other: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Block: Self = Self(1);
+    pub const HalfBlock: Self = Self(2);
+    pub const Underline: Self = Self(3);
+    pub const Reverse: Self = Self(4);
+    pub const Other: Self = Self(5);
 }
 impl windows_core::TypeKind for LineDisplayCursorType {
     type TypeKind = windows_core::CopyType;
@@ -6841,9 +6836,9 @@ unsafe impl Sync for LineDisplayCustomGlyphs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Blink: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Blink: Self = Self(2);
 }
 impl windows_core::TypeKind for LineDisplayDescriptorState {
     type TypeKind = windows_core::CopyType;
@@ -6856,9 +6851,9 @@ impl windows_core::RuntimeType for LineDisplayDescriptorState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
-    pub const Left: Self = Self(0i32);
-    pub const Center: Self = Self(1i32);
-    pub const Right: Self = Self(2i32);
+    pub const Left: Self = Self(0);
+    pub const Center: Self = Self(1);
+    pub const Right: Self = Self(2);
 }
 impl windows_core::TypeKind for LineDisplayHorizontalAlignment {
     type TypeKind = windows_core::CopyType;
@@ -6928,9 +6923,9 @@ unsafe impl Sync for LineDisplayMarquee {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
-    pub const None: Self = Self(0i32);
-    pub const Walk: Self = Self(1i32);
-    pub const Place: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Walk: Self = Self(1);
+    pub const Place: Self = Self(2);
 }
 impl windows_core::TypeKind for LineDisplayMarqueeFormat {
     type TypeKind = windows_core::CopyType;
@@ -6943,11 +6938,11 @@ impl windows_core::RuntimeType for LineDisplayMarqueeFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Online: Self = Self(1i32);
-    pub const Off: Self = Self(2i32);
-    pub const Offline: Self = Self(3i32);
-    pub const OffOrOffline: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Online: Self = Self(1);
+    pub const Off: Self = Self(2);
+    pub const Offline: Self = Self(3);
+    pub const OffOrOffline: Self = Self(4);
 }
 impl windows_core::TypeKind for LineDisplayPowerStatus {
     type TypeKind = windows_core::CopyType;
@@ -6960,10 +6955,10 @@ impl windows_core::RuntimeType for LineDisplayPowerStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
-    pub const Up: Self = Self(0i32);
-    pub const Down: Self = Self(1i32);
-    pub const Left: Self = Self(2i32);
-    pub const Right: Self = Self(3i32);
+    pub const Up: Self = Self(0);
+    pub const Down: Self = Self(1);
+    pub const Left: Self = Self(2);
+    pub const Right: Self = Self(3);
 }
 impl windows_core::TypeKind for LineDisplayScrollDirection {
     type TypeKind = windows_core::CopyType;
@@ -7066,10 +7061,10 @@ unsafe impl Sync for LineDisplayStoredBitmap {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
-    pub const Normal: Self = Self(0i32);
-    pub const Blink: Self = Self(1i32);
-    pub const Reverse: Self = Self(2i32);
-    pub const ReverseBlink: Self = Self(3i32);
+    pub const Normal: Self = Self(0);
+    pub const Blink: Self = Self(1);
+    pub const Reverse: Self = Self(2);
+    pub const ReverseBlink: Self = Self(3);
 }
 impl windows_core::TypeKind for LineDisplayTextAttribute {
     type TypeKind = windows_core::CopyType;
@@ -7082,9 +7077,9 @@ impl windows_core::RuntimeType for LineDisplayTextAttribute {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
-    pub const NotSupported: Self = Self(0i32);
-    pub const EntireDisplay: Self = Self(1i32);
-    pub const PerCharacter: Self = Self(2i32);
+    pub const NotSupported: Self = Self(0);
+    pub const EntireDisplay: Self = Self(1);
+    pub const PerCharacter: Self = Self(2);
 }
 impl windows_core::TypeKind for LineDisplayTextAttributeGranularity {
     type TypeKind = windows_core::CopyType;
@@ -7097,9 +7092,9 @@ impl windows_core::RuntimeType for LineDisplayTextAttributeGranularity {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
-    pub const Top: Self = Self(0i32);
-    pub const Center: Self = Self(1i32);
-    pub const Bottom: Self = Self(2i32);
+    pub const Top: Self = Self(0);
+    pub const Center: Self = Self(1);
+    pub const Bottom: Self = Self(2);
 }
 impl windows_core::TypeKind for LineDisplayVerticalAlignment {
     type TypeKind = windows_core::CopyType;
@@ -7523,9 +7518,9 @@ unsafe impl Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
-    pub const NotSupported: Self = Self(0i32);
-    pub const Optional: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
+    pub const NotSupported: Self = Self(0);
+    pub const Optional: Self = Self(1);
+    pub const Required: Self = Self(2);
 }
 impl windows_core::TypeKind for MagneticStripeReaderAuthenticationLevel {
     type TypeKind = windows_core::CopyType;
@@ -7538,8 +7533,8 @@ impl windows_core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
-    pub const None: Self = Self(0i32);
-    pub const ChallengeResponse: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const ChallengeResponse: Self = Self(1);
 }
 impl windows_core::TypeKind for MagneticStripeReaderAuthenticationProtocol {
     type TypeKind = windows_core::CopyType;
@@ -7824,8 +7819,8 @@ unsafe impl Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
-    pub const CardLevel: Self = Self(0i32);
-    pub const TrackLevel: Self = Self(1i32);
+    pub const CardLevel: Self = Self(0);
+    pub const TrackLevel: Self = Self(1);
 }
 impl windows_core::TypeKind for MagneticStripeReaderErrorReportingType {
     type TypeKind = windows_core::CopyType;
@@ -7912,9 +7907,9 @@ unsafe impl Sync for MagneticStripeReaderReport {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
-    pub const Unauthenticated: Self = Self(0i32);
-    pub const Authenticated: Self = Self(1i32);
-    pub const Extended: Self = Self(2i32);
+    pub const Unauthenticated: Self = Self(0);
+    pub const Authenticated: Self = Self(1);
+    pub const Extended: Self = Self(2);
 }
 impl windows_core::TypeKind for MagneticStripeReaderStatus {
     type TypeKind = windows_core::CopyType;
@@ -7996,12 +7991,12 @@ unsafe impl Sync for MagneticStripeReaderTrackData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
-    pub const None: Self = Self(0i32);
-    pub const StartSentinelError: Self = Self(1i32);
-    pub const EndSentinelError: Self = Self(2i32);
-    pub const ParityError: Self = Self(3i32);
-    pub const LrcError: Self = Self(4i32);
-    pub const Unknown: Self = Self(-1i32);
+    pub const None: Self = Self(0);
+    pub const StartSentinelError: Self = Self(1);
+    pub const EndSentinelError: Self = Self(2);
+    pub const ParityError: Self = Self(3);
+    pub const LrcError: Self = Self(4);
+    pub const Unknown: Self = Self(-1);
 }
 impl windows_core::TypeKind for MagneticStripeReaderTrackErrorType {
     type TypeKind = windows_core::CopyType;
@@ -8014,11 +8009,11 @@ impl windows_core::RuntimeType for MagneticStripeReaderTrackErrorType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
-    pub const None: Self = Self(0i32);
-    pub const Track1: Self = Self(1i32);
-    pub const Track2: Self = Self(2i32);
-    pub const Track3: Self = Self(4i32);
-    pub const Track4: Self = Self(8i32);
+    pub const None: Self = Self(0);
+    pub const Track1: Self = Self(1);
+    pub const Track2: Self = Self(2);
+    pub const Track3: Self = Self(4);
+    pub const Track4: Self = Self(8);
 }
 impl windows_core::TypeKind for MagneticStripeReaderTrackIds {
     type TypeKind = windows_core::CopyType;
@@ -8055,10 +8050,10 @@ unsafe impl Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
-    pub const Local: Self = Self(1u32);
-    pub const IP: Self = Self(2u32);
-    pub const Bluetooth: Self = Self(4u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const Local: Self = Self(1);
+    pub const IP: Self = Self(2);
+    pub const Bluetooth: Self = Self(4);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for PosConnectionTypes {
     type TypeKind = windows_core::CopyType;
@@ -8236,9 +8231,9 @@ unsafe impl Sync for PosPrinter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
-    pub const Left: Self = Self(0i32);
-    pub const Center: Self = Self(1i32);
-    pub const Right: Self = Self(2i32);
+    pub const Left: Self = Self(0);
+    pub const Center: Self = Self(1);
+    pub const Right: Self = Self(2);
 }
 impl windows_core::TypeKind for PosPrinterAlignment {
     type TypeKind = windows_core::CopyType;
@@ -8251,9 +8246,9 @@ impl windows_core::RuntimeType for PosPrinterAlignment {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
-    pub const None: Self = Self(0i32);
-    pub const Above: Self = Self(1i32);
-    pub const Below: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Above: Self = Self(1);
+    pub const Below: Self = Self(2);
 }
 impl windows_core::TypeKind for PosPrinterBarcodeTextPosition {
     type TypeKind = windows_core::CopyType;
@@ -8344,11 +8339,11 @@ unsafe impl Sync for PosPrinterCapabilities {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
-    pub const None: Self = Self(0u32);
-    pub const Removed: Self = Self(1u32);
-    pub const Empty: Self = Self(2u32);
-    pub const HeadCleaning: Self = Self(4u32);
-    pub const NearEnd: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const Removed: Self = Self(1);
+    pub const Empty: Self = Self(2);
+    pub const HeadCleaning: Self = Self(4);
+    pub const NearEnd: Self = Self(8);
 }
 impl windows_core::TypeKind for PosPrinterCartridgeSensors {
     type TypeKind = windows_core::CopyType;
@@ -8422,18 +8417,18 @@ impl windows_core::RuntimeName for PosPrinterCharacterSetIds {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const Primary: Self = Self(1u32);
-    pub const Custom1: Self = Self(2u32);
-    pub const Custom2: Self = Self(4u32);
-    pub const Custom3: Self = Self(8u32);
-    pub const Custom4: Self = Self(16u32);
-    pub const Custom5: Self = Self(32u32);
-    pub const Custom6: Self = Self(64u32);
-    pub const Cyan: Self = Self(128u32);
-    pub const Magenta: Self = Self(256u32);
-    pub const Yellow: Self = Self(512u32);
-    pub const Full: Self = Self(1024u32);
+    pub const None: Self = Self(0);
+    pub const Primary: Self = Self(1);
+    pub const Custom1: Self = Self(2);
+    pub const Custom2: Self = Self(4);
+    pub const Custom3: Self = Self(8);
+    pub const Custom4: Self = Self(16);
+    pub const Custom5: Self = Self(32);
+    pub const Custom6: Self = Self(64);
+    pub const Cyan: Self = Self(128);
+    pub const Magenta: Self = Self(256);
+    pub const Yellow: Self = Self(512);
+    pub const Full: Self = Self(1024);
 }
 impl windows_core::TypeKind for PosPrinterColorCapabilities {
     type TypeKind = windows_core::CopyType;
@@ -8479,17 +8474,17 @@ impl core::ops::Not for PosPrinterColorCapabilities {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
-    pub const Unknown: Self = Self(0i32);
-    pub const Primary: Self = Self(1i32);
-    pub const Custom1: Self = Self(2i32);
-    pub const Custom2: Self = Self(3i32);
-    pub const Custom3: Self = Self(4i32);
-    pub const Custom4: Self = Self(5i32);
-    pub const Custom5: Self = Self(6i32);
-    pub const Custom6: Self = Self(7i32);
-    pub const Cyan: Self = Self(8i32);
-    pub const Magenta: Self = Self(9i32);
-    pub const Yellow: Self = Self(10i32);
+    pub const Unknown: Self = Self(0);
+    pub const Primary: Self = Self(1);
+    pub const Custom1: Self = Self(2);
+    pub const Custom2: Self = Self(3);
+    pub const Custom3: Self = Self(4);
+    pub const Custom4: Self = Self(5);
+    pub const Custom5: Self = Self(6);
+    pub const Custom6: Self = Self(7);
+    pub const Cyan: Self = Self(8);
+    pub const Magenta: Self = Self(9);
+    pub const Yellow: Self = Self(10);
 }
 impl windows_core::TypeKind for PosPrinterColorCartridge {
     type TypeKind = windows_core::CopyType;
@@ -8538,8 +8533,8 @@ unsafe impl Sync for PosPrinterFontProperty {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
-    pub const Horizontal: Self = Self(0i32);
-    pub const Vertical: Self = Self(1i32);
+    pub const Horizontal: Self = Self(0);
+    pub const Vertical: Self = Self(1);
 }
 impl windows_core::TypeKind for PosPrinterLineDirection {
     type TypeKind = windows_core::CopyType;
@@ -8552,10 +8547,10 @@ impl windows_core::RuntimeType for PosPrinterLineDirection {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
-    pub const SingleSolid: Self = Self(0i32);
-    pub const DoubleSolid: Self = Self(1i32);
-    pub const Broken: Self = Self(2i32);
-    pub const Chain: Self = Self(3i32);
+    pub const SingleSolid: Self = Self(0);
+    pub const DoubleSolid: Self = Self(1);
+    pub const Broken: Self = Self(2);
+    pub const Chain: Self = Self(3);
 }
 impl windows_core::TypeKind for PosPrinterLineStyle {
     type TypeKind = windows_core::CopyType;
@@ -8568,10 +8563,10 @@ impl windows_core::RuntimeType for PosPrinterLineStyle {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
-    pub const Dots: Self = Self(0i32);
-    pub const Twips: Self = Self(1i32);
-    pub const English: Self = Self(2i32);
-    pub const Metric: Self = Self(3i32);
+    pub const Dots: Self = Self(0);
+    pub const Twips: Self = Self(1);
+    pub const English: Self = Self(2);
+    pub const Metric: Self = Self(3);
 }
 impl windows_core::TypeKind for PosPrinterMapMode {
     type TypeKind = windows_core::CopyType;
@@ -8584,11 +8579,11 @@ impl windows_core::RuntimeType for PosPrinterMapMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const ToTakeUp: Self = Self(1u32);
-    pub const ToCutter: Self = Self(2u32);
-    pub const ToCurrentTopOfForm: Self = Self(4u32);
-    pub const ToNextTopOfForm: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const ToTakeUp: Self = Self(1);
+    pub const ToCutter: Self = Self(2);
+    pub const ToCurrentTopOfForm: Self = Self(4);
+    pub const ToNextTopOfForm: Self = Self(8);
 }
 impl windows_core::TypeKind for PosPrinterMarkFeedCapabilities {
     type TypeKind = windows_core::CopyType;
@@ -8634,10 +8629,10 @@ impl core::ops::Not for PosPrinterMarkFeedCapabilities {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
-    pub const ToTakeUp: Self = Self(0i32);
-    pub const ToCutter: Self = Self(1i32);
-    pub const ToCurrentTopOfForm: Self = Self(2i32);
-    pub const ToNextTopOfForm: Self = Self(3i32);
+    pub const ToTakeUp: Self = Self(0);
+    pub const ToCutter: Self = Self(1);
+    pub const ToCurrentTopOfForm: Self = Self(2);
+    pub const ToNextTopOfForm: Self = Self(3);
 }
 impl windows_core::TypeKind for PosPrinterMarkFeedKind {
     type TypeKind = windows_core::CopyType;
@@ -8792,9 +8787,9 @@ unsafe impl Sync for PosPrinterPrintOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
-    pub const Unknown: Self = Self(0i32);
-    pub const Side1: Self = Self(1i32);
-    pub const Side2: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Side1: Self = Self(1);
+    pub const Side2: Self = Self(2);
 }
 impl windows_core::TypeKind for PosPrinterPrintSide {
     type TypeKind = windows_core::CopyType;
@@ -8807,7 +8802,6 @@ impl windows_core::RuntimeType for PosPrinterPrintSide {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PosPrinterReleaseDeviceRequestedEventArgs {}
 impl windows_core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterReleaseDeviceRequestedEventArgs>();
 }
@@ -8824,10 +8818,10 @@ unsafe impl Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
-    pub const Normal: Self = Self(0i32);
-    pub const Right90: Self = Self(1i32);
-    pub const Left90: Self = Self(2i32);
-    pub const Rotate180: Self = Self(3i32);
+    pub const Normal: Self = Self(0);
+    pub const Right90: Self = Self(1);
+    pub const Left90: Self = Self(2);
+    pub const Rotate180: Self = Self(3);
 }
 impl windows_core::TypeKind for PosPrinterRotation {
     type TypeKind = windows_core::CopyType;
@@ -8840,9 +8834,9 @@ impl windows_core::RuntimeType for PosPrinterRotation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const Horizontal: Self = Self(1u32);
-    pub const Vertical: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Horizontal: Self = Self(1);
+    pub const Vertical: Self = Self(2);
 }
 impl windows_core::TypeKind for PosPrinterRuledLineCapabilities {
     type TypeKind = windows_core::CopyType;
@@ -8918,11 +8912,11 @@ unsafe impl Sync for PosPrinterStatus {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
-    pub const Online: Self = Self(0i32);
-    pub const Off: Self = Self(1i32);
-    pub const Offline: Self = Self(2i32);
-    pub const OffOrOffline: Self = Self(3i32);
-    pub const Extended: Self = Self(4i32);
+    pub const Online: Self = Self(0);
+    pub const Off: Self = Self(1);
+    pub const Offline: Self = Self(2);
+    pub const OffOrOffline: Self = Self(3);
+    pub const Extended: Self = Self(4);
 }
 impl windows_core::TypeKind for PosPrinterStatusKind {
     type TypeKind = windows_core::CopyType;
@@ -9772,17 +9766,17 @@ unsafe impl Sync for UnifiedPosErrorData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
-    pub const UnknownErrorReason: Self = Self(0i32);
-    pub const NoService: Self = Self(1i32);
-    pub const Disabled: Self = Self(2i32);
-    pub const Illegal: Self = Self(3i32);
-    pub const NoHardware: Self = Self(4i32);
-    pub const Closed: Self = Self(5i32);
-    pub const Offline: Self = Self(6i32);
-    pub const Failure: Self = Self(7i32);
-    pub const Timeout: Self = Self(8i32);
-    pub const Busy: Self = Self(9i32);
-    pub const Extended: Self = Self(10i32);
+    pub const UnknownErrorReason: Self = Self(0);
+    pub const NoService: Self = Self(1);
+    pub const Disabled: Self = Self(2);
+    pub const Illegal: Self = Self(3);
+    pub const NoHardware: Self = Self(4);
+    pub const Closed: Self = Self(5);
+    pub const Offline: Self = Self(6);
+    pub const Failure: Self = Self(7);
+    pub const Timeout: Self = Self(8);
+    pub const Busy: Self = Self(9);
+    pub const Extended: Self = Self(10);
 }
 impl windows_core::TypeKind for UnifiedPosErrorReason {
     type TypeKind = windows_core::CopyType;
@@ -9795,12 +9789,12 @@ impl windows_core::RuntimeType for UnifiedPosErrorReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
-    pub const UnknownErrorSeverity: Self = Self(0i32);
-    pub const Warning: Self = Self(1i32);
-    pub const Recoverable: Self = Self(2i32);
-    pub const Unrecoverable: Self = Self(3i32);
-    pub const AssistanceRequired: Self = Self(4i32);
-    pub const Fatal: Self = Self(5i32);
+    pub const UnknownErrorSeverity: Self = Self(0);
+    pub const Warning: Self = Self(1);
+    pub const Recoverable: Self = Self(2);
+    pub const Unrecoverable: Self = Self(3);
+    pub const AssistanceRequired: Self = Self(4);
+    pub const Fatal: Self = Self(5);
 }
 impl windows_core::TypeKind for UnifiedPosErrorSeverity {
     type TypeKind = windows_core::CopyType;
@@ -9813,10 +9807,10 @@ impl windows_core::RuntimeType for UnifiedPosErrorSeverity {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
-    pub const UnknownHealthCheckLevel: Self = Self(0i32);
-    pub const POSInternal: Self = Self(1i32);
-    pub const External: Self = Self(2i32);
-    pub const Interactive: Self = Self(3i32);
+    pub const UnknownHealthCheckLevel: Self = Self(0);
+    pub const POSInternal: Self = Self(1);
+    pub const External: Self = Self(2);
+    pub const Interactive: Self = Self(3);
 }
 impl windows_core::TypeKind for UnifiedPosHealthCheckLevel {
     type TypeKind = windows_core::CopyType;
@@ -9829,9 +9823,9 @@ impl windows_core::RuntimeType for UnifiedPosHealthCheckLevel {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
-    pub const UnknownPowerReportingType: Self = Self(0i32);
-    pub const Standard: Self = Self(1i32);
-    pub const Advanced: Self = Self(2i32);
+    pub const UnknownPowerReportingType: Self = Self(0);
+    pub const Standard: Self = Self(1);
+    pub const Advanced: Self = Self(2);
 }
 impl windows_core::TypeKind for UnifiedPosPowerReportingType {
     type TypeKind = windows_core::CopyType;

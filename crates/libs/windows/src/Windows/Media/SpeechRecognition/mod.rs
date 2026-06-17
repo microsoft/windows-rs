@@ -527,8 +527,8 @@ unsafe impl Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
-    pub const Default: Self = Self(0i32);
-    pub const PauseOnRecognition: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const PauseOnRecognition: Self = Self(1);
 }
 impl windows_core::TypeKind for SpeechContinuousRecognitionMode {
     type TypeKind = windows_core::CopyType;
@@ -649,13 +649,13 @@ unsafe impl Sync for SpeechContinuousRecognitionSession {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
-    pub const None: Self = Self(0i32);
-    pub const TooNoisy: Self = Self(1i32);
-    pub const NoSignal: Self = Self(2i32);
-    pub const TooLoud: Self = Self(3i32);
-    pub const TooQuiet: Self = Self(4i32);
-    pub const TooFast: Self = Self(5i32);
-    pub const TooSlow: Self = Self(6i32);
+    pub const None: Self = Self(0);
+    pub const TooNoisy: Self = Self(1);
+    pub const NoSignal: Self = Self(2);
+    pub const TooLoud: Self = Self(3);
+    pub const TooQuiet: Self = Self(4);
+    pub const TooFast: Self = Self(5);
+    pub const TooSlow: Self = Self(6);
 }
 impl windows_core::TypeKind for SpeechRecognitionAudioProblem {
     type TypeKind = windows_core::CopyType;
@@ -692,10 +692,10 @@ unsafe impl Sync for SpeechRecognitionCompilationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
-    pub const High: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
-    pub const Rejected: Self = Self(3i32);
+    pub const High: Self = Self(0);
+    pub const Medium: Self = Self(1);
+    pub const Low: Self = Self(2);
+    pub const Rejected: Self = Self(3);
 }
 impl windows_core::TypeKind for SpeechRecognitionConfidence {
     type TypeKind = windows_core::CopyType;
@@ -708,9 +708,9 @@ impl windows_core::RuntimeType for SpeechRecognitionConfidence {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-    pub const Max: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Min: Self = Self(1);
+    pub const Max: Self = Self(2);
 }
 impl windows_core::TypeKind for SpeechRecognitionConstraintProbability {
     type TypeKind = windows_core::CopyType;
@@ -723,10 +723,10 @@ impl windows_core::RuntimeType for SpeechRecognitionConstraintProbability {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
-    pub const Topic: Self = Self(0i32);
-    pub const List: Self = Self(1i32);
-    pub const Grammar: Self = Self(2i32);
-    pub const VoiceCommandDefinition: Self = Self(3i32);
+    pub const Topic: Self = Self(0);
+    pub const List: Self = Self(1);
+    pub const Grammar: Self = Self(2);
+    pub const VoiceCommandDefinition: Self = Self(3);
 }
 impl windows_core::TypeKind for SpeechRecognitionConstraintType {
     type TypeKind = windows_core::CopyType;
@@ -1068,17 +1068,17 @@ unsafe impl Sync for SpeechRecognitionResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const TopicLanguageNotSupported: Self = Self(1i32);
-    pub const GrammarLanguageMismatch: Self = Self(2i32);
-    pub const GrammarCompilationFailure: Self = Self(3i32);
-    pub const AudioQualityFailure: Self = Self(4i32);
-    pub const UserCanceled: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
-    pub const TimeoutExceeded: Self = Self(7i32);
-    pub const PauseLimitExceeded: Self = Self(8i32);
-    pub const NetworkFailure: Self = Self(9i32);
-    pub const MicrophoneUnavailable: Self = Self(10i32);
+    pub const Success: Self = Self(0);
+    pub const TopicLanguageNotSupported: Self = Self(1);
+    pub const GrammarLanguageMismatch: Self = Self(2);
+    pub const GrammarCompilationFailure: Self = Self(3);
+    pub const AudioQualityFailure: Self = Self(4);
+    pub const UserCanceled: Self = Self(5);
+    pub const Unknown: Self = Self(6);
+    pub const TimeoutExceeded: Self = Self(7);
+    pub const PauseLimitExceeded: Self = Self(8);
+    pub const NetworkFailure: Self = Self(9);
+    pub const MicrophoneUnavailable: Self = Self(10);
 }
 impl windows_core::TypeKind for SpeechRecognitionResultStatus {
     type TypeKind = windows_core::CopyType;
@@ -1091,9 +1091,9 @@ impl windows_core::RuntimeType for SpeechRecognitionResultStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
-    pub const WebSearch: Self = Self(0i32);
-    pub const Dictation: Self = Self(1i32);
-    pub const FormFilling: Self = Self(2i32);
+    pub const WebSearch: Self = Self(0);
+    pub const Dictation: Self = Self(1);
+    pub const FormFilling: Self = Self(2);
 }
 impl windows_core::TypeKind for SpeechRecognitionScenario {
     type TypeKind = windows_core::CopyType;
@@ -1461,13 +1461,13 @@ unsafe impl Sync for SpeechRecognizer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
-    pub const Idle: Self = Self(0i32);
-    pub const Capturing: Self = Self(1i32);
-    pub const Processing: Self = Self(2i32);
-    pub const SoundStarted: Self = Self(3i32);
-    pub const SoundEnded: Self = Self(4i32);
-    pub const SpeechDetected: Self = Self(5i32);
-    pub const Paused: Self = Self(6i32);
+    pub const Idle: Self = Self(0);
+    pub const Capturing: Self = Self(1);
+    pub const Processing: Self = Self(2);
+    pub const SoundStarted: Self = Self(3);
+    pub const SoundEnded: Self = Self(4);
+    pub const SpeechDetected: Self = Self(5);
+    pub const Paused: Self = Self(6);
 }
 impl windows_core::TypeKind for SpeechRecognizerState {
     type TypeKind = windows_core::CopyType;

@@ -36,7 +36,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if !method.dependencies.included(config) {
+                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
@@ -60,7 +60,8 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            !method.dependencies.included(config) || !config.includes_method(type_name, def)
+            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+                || !config.includes_method(type_name, def)
         })
     }
 
@@ -124,7 +125,7 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() {
+            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -434,7 +435,7 @@ impl CppInterface {
                     impl #name {
                         pub fn new<'a, T: #impl_name>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
                             let this = windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-                            let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+                            let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
                             unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
                         }
                     }

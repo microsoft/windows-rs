@@ -1,9 +1,9 @@
-//! Minimal sample for the `cx.use_state` hook.
+//! Sample for the `cx.use_state` hook.
 
 use windows_reactor::*;
 
 fn main() -> Result<()> {
-    App::new().title("sample").render(app)
+    reactor_minimal::run("UseState", app)
 }
 
 fn app(cx: &mut RenderCx) -> Element {

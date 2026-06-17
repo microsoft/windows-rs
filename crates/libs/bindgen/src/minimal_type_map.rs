@@ -1,5 +1,16 @@
 use super::*;
 
+/// Returns `true` if the given method should be considered "included" by the
+/// method set for type-closure purposes. This mirrors the overload-aware
+/// logic in `Config::includes_method`: methods with an overload-disambiguated
+/// name are matched only on that name, not on the shared raw metadata name.
+fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
+    if let Some(overload) = method_overload_name(method) {
+        return method_set.includes(&overload);
+    }
+    method_set.includes(method.name())
+}
+
 /// Computes the minimal type closure for `--minimal` mode.
 ///
 /// Starting from the methods and types listed in a [`MinimalFilter`], this
@@ -46,7 +57,7 @@ impl MinimalTypeMap {
 
                     // Walk method signatures for the requested methods.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(
                                 iface.def.namespace(),
                                 &iface.generics,
@@ -58,9 +69,14 @@ impl MinimalTypeMap {
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
-                    // Win32 COM interface — walk requested method signatures.
+                    // Win32 COM interface — walk the base interface hierarchy
+                    // so that vtable definitions and Deref chains are available.
+                    for base in iface.base_interfaces(reader) {
+                        base.combine_minimal(&mut types, reader, references);
+                    }
+                    // Walk requested method signatures.
                     for method in iface.def.methods() {
-                        if method_set.includes(method.name()) {
+                        if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(iface.def.namespace(), &[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_minimal(&mut types, reader, references);
@@ -72,9 +88,16 @@ impl MinimalTypeMap {
         }
 
         // 2. Process directly-included types (functions, structs, enums, etc.)
+        //    Walk dependencies first via combine_minimal, then force-insert the
+        //    type even if it belongs to a reference crate — the filter explicitly
+        //    requests it (e.g. `windows-time` generating its own `DateTime`/
+        //    `TimeSpan` bindings).  The insert must come AFTER combine_minimal so
+        //    that combine_minimal's early-return-if-present guard doesn't skip
+        //    dependency walking for non-reference types.
         for (namespace, name) in &minimal_filter.types {
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_minimal(&mut types, reader, references);
+                types.insert(ty.clone());
             }
         }
 
@@ -206,7 +229,11 @@ impl CombineMinimal for Type {
                 // The hierarchy is handled by the caller.
                 Type::Object.combine_minimal(types, reader, references);
             }
-            Type::CppInterface(_) => {
+            Type::CppInterface(iface) => {
+                // Pull in base interfaces so vtable/Deref/hierarchy work.
+                for base in iface.base_interfaces(reader) {
+                    base.combine_minimal(types, reader, references);
+                }
                 Type::IUnknown.combine_minimal(types, reader, references);
             }
             Type::CppFn(f) => {

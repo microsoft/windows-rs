@@ -152,10 +152,10 @@ impl windows_core::RuntimeName for MdmAlert {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
-    pub const String: Self = Self(0i32);
-    pub const Base64: Self = Self(1i32);
-    pub const Boolean: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
+    pub const String: Self = Self(0);
+    pub const Base64: Self = Self(1);
+    pub const Boolean: Self = Self(2);
+    pub const Integer: Self = Self(3);
 }
 impl windows_core::TypeKind for MdmAlertDataType {
     type TypeKind = windows_core::CopyType;
@@ -168,11 +168,11 @@ impl windows_core::RuntimeType for MdmAlertDataType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
-    pub const None: Self = Self(0i32);
-    pub const Fatal: Self = Self(1i32);
-    pub const Critical: Self = Self(2i32);
-    pub const Warning: Self = Self(3i32);
-    pub const Informational: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Fatal: Self = Self(1);
+    pub const Critical: Self = Self(2);
+    pub const Warning: Self = Self(3);
+    pub const Informational: Self = Self(4);
 }
 impl windows_core::TypeKind for MdmAlertMark {
     type TypeKind = windows_core::CopyType;
@@ -280,13 +280,13 @@ impl windows_core::RuntimeName for MdmSessionManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const Starting: Self = Self(1i32);
-    pub const Connecting: Self = Self(2i32);
-    pub const Communicating: Self = Self(3i32);
-    pub const AlertStatusAvailable: Self = Self(4i32);
-    pub const Retrying: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
+    pub const NotStarted: Self = Self(0);
+    pub const Starting: Self = Self(1);
+    pub const Connecting: Self = Self(2);
+    pub const Communicating: Self = Self(3);
+    pub const AlertStatusAvailable: Self = Self(4);
+    pub const Retrying: Self = Self(5);
+    pub const Completed: Self = Self(6);
 }
 impl windows_core::TypeKind for MdmSessionState {
     type TypeKind = windows_core::CopyType;

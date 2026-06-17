@@ -476,6 +476,7 @@ fn make_flag_handler(dispatch: Dispatch<Action>) -> impl Fn(usize, usize) + Clon
 }
 
 fn main() -> Result<()> {
+    bootstrap()?;
     App::new()
         .title("windows_reactor — minesweeper")
         .render(app)

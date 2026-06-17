@@ -69,10 +69,10 @@ pub struct IGeolocationProvider_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationOverrideStatus(pub i32);
 impl LocationOverrideStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const AlreadyStarted: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const AlreadyStarted: Self = Self(2);
+    pub const Other: Self = Self(3);
 }
 impl windows_core::TypeKind for LocationOverrideStatus {
     type TypeKind = windows_core::CopyType;

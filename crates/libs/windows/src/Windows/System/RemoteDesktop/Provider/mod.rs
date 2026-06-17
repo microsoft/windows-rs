@@ -247,10 +247,10 @@ unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteDesktopConnectionStatus(pub i32);
 impl RemoteDesktopConnectionStatus {
-    pub const Connecting: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const UserInputNeeded: Self = Self(2i32);
-    pub const Disconnected: Self = Self(3i32);
+    pub const Connecting: Self = Self(0);
+    pub const Connected: Self = Self(1);
+    pub const UserInputNeeded: Self = Self(2);
+    pub const Disconnected: Self = Self(3);
 }
 impl windows_core::TypeKind for RemoteDesktopConnectionStatus {
     type TypeKind = windows_core::CopyType;
@@ -303,11 +303,11 @@ unsafe impl Sync for RemoteDesktopInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteDesktopLocalAction(pub i32);
 impl RemoteDesktopLocalAction {
-    pub const ShowBluetoothSettings: Self = Self(0i32);
-    pub const ShowSystemSoundSettings: Self = Self(1i32);
-    pub const ShowSystemDisplaySettings: Self = Self(2i32);
-    pub const ShowSystemAccountSettings: Self = Self(3i32);
-    pub const ShowLocalSettings: Self = Self(4i32);
+    pub const ShowBluetoothSettings: Self = Self(0);
+    pub const ShowSystemSoundSettings: Self = Self(1);
+    pub const ShowSystemDisplaySettings: Self = Self(2);
+    pub const ShowSystemAccountSettings: Self = Self(3);
+    pub const ShowLocalSettings: Self = Self(4);
 }
 impl windows_core::TypeKind for RemoteDesktopLocalAction {
     type TypeKind = windows_core::CopyType;

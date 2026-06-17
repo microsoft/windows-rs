@@ -1,4 +1,4 @@
-//! Minimal sample for the `ContentDialog` element.
+//! Sample for the `ContentDialog` element.
 
 use windows_reactor::*;
 
@@ -39,5 +39,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("ContentDialog").render(app)
+    reactor_minimal::run("ContentDialog", app)
 }

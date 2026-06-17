@@ -236,11 +236,11 @@ unsafe impl Sync for AppTaskResultAsset {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppTaskState(pub i32);
 impl AppTaskState {
-    pub const Running: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const NeedsAttention: Self = Self(2i32);
-    pub const Paused: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
+    pub const Running: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const NeedsAttention: Self = Self(2);
+    pub const Paused: Self = Self(3);
+    pub const Error: Self = Self(4);
 }
 impl windows_core::TypeKind for AppTaskState {
     type TypeKind = windows_core::CopyType;

@@ -8,7 +8,7 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
     windows_core::link!("advapi32.dll" "system" fn OperationStart(operationstartparams : *const OPERATION_START_PARAMETERS) -> windows_core::BOOL);
     unsafe { OperationStart(operationstartparams) }
 }
-pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
+pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPERATION_END_PARAMETERS {
@@ -95,4 +95,4 @@ pub struct OPERATION_START_PARAMETERS {
     pub OperationId: u32,
     pub Flags: OPERATION_START_FLAGS,
 }
-pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
+pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1);

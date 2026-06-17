@@ -168,8 +168,8 @@ unsafe impl Sync for CoreDragOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
-    pub const Auto: Self = Self(0u32);
-    pub const Deferred: Self = Self(1u32);
+    pub const Auto: Self = Self(0);
+    pub const Deferred: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreDragUIContentMode {
     type TypeKind = windows_core::CopyType;

@@ -14,13 +14,13 @@ pub fn calendar_view_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     ToggleSwitch::new(today_highlighted)
                         .header("Highlight today")
-                        .on_changed({
+                        .on_toggled({
                             let set_today_highlighted = set_today_highlighted;
                             move |value| set_today_highlighted.call(value)
                         }),
                     calendar_view()
                         .today_highlighted(today_highlighted)
-                        .on_changed({
+                        .on_selected_dates_changed({
                             let set_selection_changes = set_selection_changes;
                             move || set_selection_changes.call(selection_changes + 1)
                         }),
@@ -28,16 +28,14 @@ pub fn calendar_view_page(_: &(), cx: &mut RenderCx) -> Element {
                         .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"ToggleSwitch::new(today_highlighted).on_changed(...)
+                r#"ToggleSwitch::new(today_highlighted).on_toggled(...)
 calendar_view()
     .today_highlighted(today_highlighted)
-    .on_changed(|| set_selection_changes.call(selection_changes + 1))"#,
+    .on_selected_dates_changed(|| set_selection_changes.call(selection_changes + 1))"#,
             ),
             sample_card(
                 "CalendarView without Labels",
-                calendar_view()
-                    .today_highlighted(true)
-                    .group_label_visible(false),
+                calendar_view().group_label_visible(false),
                 "calendar_view().group_label_visible(false)",
             ),
         ],

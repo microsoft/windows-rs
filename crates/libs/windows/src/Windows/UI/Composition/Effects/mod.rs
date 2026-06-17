@@ -145,8 +145,8 @@ unsafe impl Sync for SceneLightingEffect {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {
-    pub const BlinnPhong: Self = Self(0i32);
-    pub const PhysicallyBasedBlinnPhong: Self = Self(1i32);
+    pub const BlinnPhong: Self = Self(0);
+    pub const PhysicallyBasedBlinnPhong: Self = Self(1);
 }
 impl windows_core::TypeKind for SceneLightingEffectReflectanceModel {
     type TypeKind = windows_core::CopyType;

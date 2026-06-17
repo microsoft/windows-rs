@@ -1,5 +1,4 @@
-//! Demonstrates `cx.use_mutation` — fire async write operations with
-//! loading/success/error states.
+//! Sample for the `cx.use_mutation` hook.
 
 use std::thread;
 use std::time::Duration;
@@ -46,7 +45,9 @@ fn app(cx: &mut RenderCx) -> Element {
 
     vstack((
         text_block("use_mutation Demo").font_size(24.0),
-        text_box(name).header("Name").on_changed(on_name_changed),
+        text_box(name)
+            .header("Name")
+            .on_text_changed(on_name_changed),
         hstack((
             button("Save")
                 .enabled(!save_state.is_loading())
@@ -62,5 +63,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("use_mutation").render(app)
+    reactor_minimal::run("UseMutation", app)
 }

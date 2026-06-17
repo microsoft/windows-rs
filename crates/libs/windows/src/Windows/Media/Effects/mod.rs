@@ -159,8 +159,8 @@ unsafe impl Sync for AudioEffectDefinition {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEffectState(pub i32);
 impl AudioEffectState {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioEffectState {
     type TypeKind = windows_core::CopyType;
@@ -173,26 +173,26 @@ impl windows_core::RuntimeType for AudioEffectState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
-    pub const Other: Self = Self(0i32);
-    pub const AcousticEchoCancellation: Self = Self(1i32);
-    pub const NoiseSuppression: Self = Self(2i32);
-    pub const AutomaticGainControl: Self = Self(3i32);
-    pub const BeamForming: Self = Self(4i32);
-    pub const ConstantToneRemoval: Self = Self(5i32);
-    pub const Equalizer: Self = Self(6i32);
-    pub const LoudnessEqualizer: Self = Self(7i32);
-    pub const BassBoost: Self = Self(8i32);
-    pub const VirtualSurround: Self = Self(9i32);
-    pub const VirtualHeadphones: Self = Self(10i32);
-    pub const SpeakerFill: Self = Self(11i32);
-    pub const RoomCorrection: Self = Self(12i32);
-    pub const BassManagement: Self = Self(13i32);
-    pub const EnvironmentalEffects: Self = Self(14i32);
-    pub const SpeakerProtection: Self = Self(15i32);
-    pub const SpeakerCompensation: Self = Self(16i32);
-    pub const DynamicRangeCompression: Self = Self(17i32);
-    pub const FarFieldBeamForming: Self = Self(18i32);
-    pub const DeepNoiseSuppression: Self = Self(19i32);
+    pub const Other: Self = Self(0);
+    pub const AcousticEchoCancellation: Self = Self(1);
+    pub const NoiseSuppression: Self = Self(2);
+    pub const AutomaticGainControl: Self = Self(3);
+    pub const BeamForming: Self = Self(4);
+    pub const ConstantToneRemoval: Self = Self(5);
+    pub const Equalizer: Self = Self(6);
+    pub const LoudnessEqualizer: Self = Self(7);
+    pub const BassBoost: Self = Self(8);
+    pub const VirtualSurround: Self = Self(9);
+    pub const VirtualHeadphones: Self = Self(10);
+    pub const SpeakerFill: Self = Self(11);
+    pub const RoomCorrection: Self = Self(12);
+    pub const BassManagement: Self = Self(13);
+    pub const EnvironmentalEffects: Self = Self(14);
+    pub const SpeakerProtection: Self = Self(15);
+    pub const SpeakerCompensation: Self = Self(16);
+    pub const DynamicRangeCompression: Self = Self(17);
+    pub const FarFieldBeamForming: Self = Self(18);
+    pub const DeepNoiseSuppression: Self = Self(19);
 }
 impl windows_core::TypeKind for AudioEffectType {
     type TypeKind = windows_core::CopyType;
@@ -1323,10 +1323,10 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
-    pub const Done: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const UnsupportedEncodingFormat: Self = Self(2i32);
-    pub const EffectCurrentlyUnloaded: Self = Self(3i32);
+    pub const Done: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const UnsupportedEncodingFormat: Self = Self(2);
+    pub const EffectCurrentlyUnloaded: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaEffectClosedReason {
     type TypeKind = windows_core::CopyType;
@@ -1339,9 +1339,9 @@ impl windows_core::RuntimeType for MediaEffectClosedReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
-    pub const Gpu: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const GpuAndCpu: Self = Self(2i32);
+    pub const Gpu: Self = Self(0);
+    pub const Cpu: Self = Self(1);
+    pub const GpuAndCpu: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaMemoryTypes {
     type TypeKind = windows_core::CopyType;

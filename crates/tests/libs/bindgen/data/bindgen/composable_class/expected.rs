@@ -17,7 +17,7 @@ pub mod Test {
                     windows_core::Interface::as_raw(this),
                     name,
                     core::ptr::null_mut(),
-                    &mut core::ptr::null_mut(),
+                    core::ptr::null_mut(),
                     &mut result__,
                 )
                 .and_then(|| windows_core::Type::from_abi(result__))
@@ -48,7 +48,7 @@ pub mod Test {
                 (windows_core::Interface::vtable(this).Default)(
                     windows_core::Interface::as_raw(this),
                     core::ptr::null_mut(),
-                    &mut core::ptr::null_mut(),
+                    core::ptr::null_mut(),
                     &mut result__,
                 )
                 .and_then(|| windows_core::Type::from_abi(result__))

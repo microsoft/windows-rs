@@ -1,4 +1,4 @@
-use windows_reactor::core::rich_text::{RichText, RichTextInline, RichTextParagraph, RichTextRun};
+use windows_reactor::{RichTextBlock, RichTextInline, RichTextParagraph, RichTextRun};
 
 #[test]
 fn run_plain_creates_default_styled_run() {
@@ -22,12 +22,12 @@ fn paragraph_holds_inlines_in_order() {
 
 #[test]
 fn rich_text_builder_chain() {
-    let rt = RichText::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain("x"))])
+    let rt = RichTextBlock::single_paragraph(vec![RichTextInline::Run(RichTextRun::plain("x"))])
         .font_size(20.0)
         .selectable()
         .wrap();
     assert_eq!(rt.font_size, Some(20.0));
     assert!(rt.is_text_selection_enabled);
-    assert!(rt.text_wrapping_wrap);
+    assert_eq!(rt.text_wrapping, windows_reactor::TextWrapping::Wrap);
     assert_eq!(rt.paragraphs.len(), 1);
 }

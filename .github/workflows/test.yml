@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -30,17 +32,14 @@ jobs:
       matrix:
         include:
           - name: stable x64
-            version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
             runner: windows-2025-vs2026
-          - name: nightly i686
-            version: nightly
+          - name: stable i686
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025-vs2026
           - name: stable arm64
-            version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
@@ -54,7 +53,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
+        run: rustup update --no-self-update stable && rustup default stable-${{ matrix.host }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
       - name: Install fmt
@@ -92,6 +91,9 @@ jobs:
           $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
           Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
           & $script -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
       - name: Test
         # The 32-bit i686 test process has a 2 GB user-mode address space; the
         # ~110 bindgen fixtures in test_fixtures each load the large default

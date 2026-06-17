@@ -34,7 +34,7 @@ fn main() {
             let test_name = sanitize(&format!("{group}_{name}"));
             writeln!(
                 tests,
-                "#[test]\nfn {test_name}() {{\n    crate::run_fixture({group:?}, {name:?});\n}}",
+                "#[test]\nfn {test_name}() {{\n    run_fixture({group:?}, {name:?});\n}}",
             )
             .unwrap();
 

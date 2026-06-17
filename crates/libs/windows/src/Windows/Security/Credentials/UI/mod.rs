@@ -2,13 +2,13 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
-    pub const Basic: Self = Self(0i32);
-    pub const Digest: Self = Self(1i32);
-    pub const Ntlm: Self = Self(2i32);
-    pub const Kerberos: Self = Self(3i32);
-    pub const Negotiate: Self = Self(4i32);
-    pub const CredSsp: Self = Self(5i32);
-    pub const Custom: Self = Self(6i32);
+    pub const Basic: Self = Self(0);
+    pub const Digest: Self = Self(1);
+    pub const Ntlm: Self = Self(2);
+    pub const Kerberos: Self = Self(3);
+    pub const Negotiate: Self = Self(4);
+    pub const CredSsp: Self = Self(5);
+    pub const Custom: Self = Self(6);
 }
 impl windows_core::TypeKind for AuthenticationProtocol {
     type TypeKind = windows_core::CopyType;
@@ -229,9 +229,9 @@ impl windows_core::RuntimeName for CredentialPickerResults {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
-    pub const Unselected: Self = Self(0i32);
-    pub const Selected: Self = Self(1i32);
-    pub const Hidden: Self = Self(2i32);
+    pub const Unselected: Self = Self(0);
+    pub const Selected: Self = Self(1);
+    pub const Hidden: Self = Self(2);
 }
 impl windows_core::TypeKind for CredentialSaveOption {
     type TypeKind = windows_core::CopyType;
@@ -325,13 +325,13 @@ pub struct IUserConsentVerifierStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
-    pub const Verified: Self = Self(0i32);
-    pub const DeviceNotPresent: Self = Self(1i32);
-    pub const NotConfiguredForUser: Self = Self(2i32);
-    pub const DisabledByPolicy: Self = Self(3i32);
-    pub const DeviceBusy: Self = Self(4i32);
-    pub const RetriesExhausted: Self = Self(5i32);
-    pub const Canceled: Self = Self(6i32);
+    pub const Verified: Self = Self(0);
+    pub const DeviceNotPresent: Self = Self(1);
+    pub const NotConfiguredForUser: Self = Self(2);
+    pub const DisabledByPolicy: Self = Self(3);
+    pub const DeviceBusy: Self = Self(4);
+    pub const RetriesExhausted: Self = Self(5);
+    pub const Canceled: Self = Self(6);
 }
 impl windows_core::TypeKind for UserConsentVerificationResult {
     type TypeKind = windows_core::CopyType;
@@ -366,11 +366,11 @@ impl windows_core::RuntimeName for UserConsentVerifier {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
-    pub const Available: Self = Self(0i32);
-    pub const DeviceNotPresent: Self = Self(1i32);
-    pub const NotConfiguredForUser: Self = Self(2i32);
-    pub const DisabledByPolicy: Self = Self(3i32);
-    pub const DeviceBusy: Self = Self(4i32);
+    pub const Available: Self = Self(0);
+    pub const DeviceNotPresent: Self = Self(1);
+    pub const NotConfiguredForUser: Self = Self(2);
+    pub const DisabledByPolicy: Self = Self(3);
+    pub const DeviceBusy: Self = Self(4);
 }
 impl windows_core::TypeKind for UserConsentVerifierAvailability {
     type TypeKind = windows_core::CopyType;

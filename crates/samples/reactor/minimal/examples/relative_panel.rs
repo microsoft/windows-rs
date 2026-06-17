@@ -1,7 +1,4 @@
-//! Minimal sample for the `RelativePanel` layout.
-//!
-//! Children are positioned relative to the panel edges using
-//! `relative_align_*` attached property helpers.
+//! Sample for the `RelativePanel` layout.
 
 use windows_reactor::*;
 
@@ -32,5 +29,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("RelativePanel", app)
 }

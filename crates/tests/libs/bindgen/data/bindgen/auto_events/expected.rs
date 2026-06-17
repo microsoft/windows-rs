@@ -9,16 +9,15 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     impl CompletedCallback {
-        pub fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
+        pub(crate) fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
             let com = windows_core::imp::DelegateBox::<CompletedCallback, F>::new(
                 &CompletedCallbackBox::<F>::VTABLE,
                 invoke,
             );
-            unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct CompletedCallback_Vtbl {
         base__: windows_core::IUnknown_Vtbl,
         Invoke: unsafe extern "system" fn(
@@ -59,7 +58,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl,
         Invoke: unsafe extern "system" fn(
@@ -104,7 +102,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo {
-        pub fn Bar(&self) -> windows_core::Result<i32> {
+        pub(crate) fn Bar(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Bar)(
@@ -114,7 +112,10 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn add_Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+        pub(crate) fn add_Click<F>(
+            &self,
+            handler: F,
+        ) -> windows_core::Result<windows_core::EventRevoker>
         where
             F: Fn(windows_core::Ref<IFoo>, i32) + 'static,
         {
@@ -123,7 +124,7 @@ pub mod Test {
                     &HandlerBox::<F>::VTABLE,
                     handler,
                 );
-                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
             };
             unsafe {
                 let mut result__ = core::mem::zeroed();
@@ -140,7 +141,7 @@ pub mod Test {
                 ))
             }
         }
-        pub fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
+        pub(crate) fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
         where
             P0: windows_core::Param<CompletedCallback>,
         {
@@ -233,7 +234,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Bar:

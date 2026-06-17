@@ -1,4 +1,4 @@
-//! Minimal sample for the `InfoBar` element.
+//! Sample for the `InfoBar` element.
 
 use windows_reactor::*;
 
@@ -31,5 +31,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("InfoBar", app)
 }

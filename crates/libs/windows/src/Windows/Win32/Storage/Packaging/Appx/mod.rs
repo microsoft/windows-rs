@@ -479,21 +479,21 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : windows_core::PCWSTR) -> windows_core::WIN32_ERROR);
     unsafe { VerifyPackageRelativeApplicationId(packagerelativeapplicationid.param().abi()) }
 }
-pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130u32;
-pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20u32;
+pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130;
+pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(1i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(1);
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0);
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2);
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0);
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(0i32);
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(1i32);
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(0);
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_CAPABILITIES(pub i32);
@@ -530,35 +530,35 @@ impl core::ops::Not for APPX_CAPABILITIES {
         Self(self.0.not())
     }
 }
-pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = APPX_CAPABILITIES(1024i32);
-pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(7i32);
-pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(8i32);
-pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(0i32);
-pub const APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(1i32);
-pub const APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(2i32);
+pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = APPX_CAPABILITIES(1024);
+pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(7);
+pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(8);
+pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(0);
+pub const APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(1);
+pub const APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
-pub const APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(4i32);
-pub const APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = APPX_CAPABILITIES(2048i32);
-pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(8i32);
-pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = APPX_CAPABILITIES(128i32);
-pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = APPX_CAPABILITIES(1i32);
-pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(2i32);
-pub const APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(64i32);
-pub const APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(16i32);
-pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(4i32);
-pub const APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = APPX_CAPABILITIES(512i32);
-pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = APPX_CAPABILITIES(256i32);
-pub const APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(32i32);
+pub const APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(4);
+pub const APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = APPX_CAPABILITIES(2048);
+pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(8);
+pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = APPX_CAPABILITIES(128);
+pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = APPX_CAPABILITIES(1);
+pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(2);
+pub const APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(64);
+pub const APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(16);
+pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(4);
+pub const APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = APPX_CAPABILITIES(512);
+pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = APPX_CAPABILITIES(256);
+pub const APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_COMPRESSION_OPTION(pub i32);
-pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(3i32);
-pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(2i32);
-pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(0i32);
-pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(1i32);
-pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(4i32);
+pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(3);
+pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(2);
+pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(0);
+pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(1);
+pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
@@ -606,9 +606,9 @@ impl core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(1i32);
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0i32);
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(2i32);
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(1);
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0);
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(2);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -630,11 +630,11 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(1i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(3i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(4i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(2i32);
+pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(1);
+pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(3);
+pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(4);
+pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0);
+pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_KEY_INFO {
@@ -654,18 +654,18 @@ pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(5i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(12i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(11i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(65535i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(9i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(0i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(14i32);
-pub const APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(5i32);
-pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(12i32);
-pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(11i32);
-pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(9i32);
-pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0i32);
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(5);
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(12);
+pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(11);
+pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(65535);
+pub const APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(9);
+pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(0);
+pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(14);
+pub const APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(5);
+pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(12);
+pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(11);
+pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(9);
+pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub i32);
@@ -702,13 +702,13 @@ impl core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(2i32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(0i32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(1i32);
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(2);
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(0);
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0i32);
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -728,10 +728,10 @@ pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(1i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(2i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(3i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0i32);
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(1);
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(2);
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(3);
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AddPackageDependencyOptions(pub i32);
@@ -804,55 +804,55 @@ impl core::ops::Not for AddPackageDependencyOptions2 {
         Self(self.0.not())
     }
 }
-pub const AddPackageDependencyOptions2_None: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(0i32);
-pub const AddPackageDependencyOptions2_PrependIfRankCollision: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(1i32);
-pub const AddPackageDependencyOptions2_SpecifiedPackageFamilyOnly: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(2i32);
-pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = AddPackageDependencyOptions(0i32);
-pub const AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = AddPackageDependencyOptions(1i32);
+pub const AddPackageDependencyOptions2_None: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(0);
+pub const AddPackageDependencyOptions2_PrependIfRankCollision: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(1);
+pub const AddPackageDependencyOptions2_SpecifiedPackageFamilyOnly: AddPackageDependencyOptions2 = AddPackageDependencyOptions2(2);
+pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = AddPackageDependencyOptions(0);
+pub const AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = AddPackageDependencyOptions(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyClrCompat(pub i32);
-pub const AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = AppPolicyClrCompat(1i32);
-pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = AppPolicyClrCompat(0i32);
-pub const AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = AppPolicyClrCompat(3i32);
-pub const AppPolicyClrCompat_Universal: AppPolicyClrCompat = AppPolicyClrCompat(2i32);
+pub const AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = AppPolicyClrCompat(1);
+pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = AppPolicyClrCompat(0);
+pub const AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = AppPolicyClrCompat(3);
+pub const AppPolicyClrCompat_Universal: AppPolicyClrCompat = AppPolicyClrCompat(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyCreateFileAccess(pub i32);
-pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(0i32);
-pub const AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(1i32);
+pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(0);
+pub const AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyLifecycleManagement(pub i32);
-pub const AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(1i32);
-pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(0i32);
+pub const AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(1);
+pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
-pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(0i32);
-pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(1i32);
+pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(0);
+pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyProcessTerminationMethod(pub i32);
-pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(0i32);
-pub const AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(1i32);
+pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(0);
+pub const AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
-pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(0i32);
-pub const AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(1i32);
+pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(0);
+pub const AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyThreadInitializationType(pub i32);
-pub const AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(1i32);
-pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(0i32);
+pub const AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(1);
+pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyWindowingModel(pub i32);
-pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = AppPolicyWindowingModel(2i32);
-pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = AppPolicyWindowingModel(3i32);
-pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindowingModel(0i32);
-pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = AppPolicyWindowingModel(1i32);
+pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = AppPolicyWindowingModel(2);
+pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = AppPolicyWindowingModel(3);
+pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindowingModel(0);
+pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = AppPolicyWindowingModel(1);
 pub const AppxBundleFactory: windows_core::GUID = windows_core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
 pub const AppxEncryptionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
 pub const AppxFactory: windows_core::GUID = windows_core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
@@ -895,16 +895,16 @@ impl core::ops::Not for CreatePackageDependencyOptions {
         Self(self.0.not())
     }
 }
-pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = CreatePackageDependencyOptions(1i32);
-pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0i32);
-pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = CreatePackageDependencyOptions(2i32);
+pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = CreatePackageDependencyOptions(1);
+pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0);
+pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = CreatePackageDependencyOptions(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DX_FEATURE_LEVEL(pub i32);
-pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(2i32);
-pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(3i32);
-pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(1i32);
-pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0i32);
+pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(2);
+pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(3);
+pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(1);
+pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0);
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -8040,29 +8040,29 @@ impl Default for PACKAGEDEPENDENCY_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PACKAGE_APPLICATIONS_MAX_COUNT: u32 = 100u32;
-pub const PACKAGE_APPLICATIONS_MIN_COUNT: u32 = 0u32;
-pub const PACKAGE_ARCHITECTURE_MAX_LENGTH: u32 = 7u32;
-pub const PACKAGE_ARCHITECTURE_MIN_LENGTH: u32 = 3u32;
-pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
-pub const PACKAGE_FAMILY_MAX_RESOURCE_PACKAGES: u32 = 512u32;
-pub const PACKAGE_FAMILY_MIN_RESOURCE_PACKAGES: u32 = 0u32;
-pub const PACKAGE_FAMILY_NAME_MAX_LENGTH: u32 = 64u32;
-pub const PACKAGE_FAMILY_NAME_MIN_LENGTH: u32 = 17u32;
-pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
-pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
-pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
-pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
-pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
-pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
-pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
-pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
-pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
-pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
-pub const PACKAGE_FULL_NAME_MAX_LENGTH: u32 = 127u32;
-pub const PACKAGE_FULL_NAME_MIN_LENGTH: u32 = 30u32;
-pub const PACKAGE_GRAPH_MAX_SIZE: u32 = 641u32;
-pub const PACKAGE_GRAPH_MIN_SIZE: u32 = 1u32;
+pub const PACKAGE_APPLICATIONS_MAX_COUNT: u32 = 100;
+pub const PACKAGE_APPLICATIONS_MIN_COUNT: u32 = 0;
+pub const PACKAGE_ARCHITECTURE_MAX_LENGTH: u32 = 7;
+pub const PACKAGE_ARCHITECTURE_MIN_LENGTH: u32 = 3;
+pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0;
+pub const PACKAGE_FAMILY_MAX_RESOURCE_PACKAGES: u32 = 512;
+pub const PACKAGE_FAMILY_MIN_RESOURCE_PACKAGES: u32 = 0;
+pub const PACKAGE_FAMILY_NAME_MAX_LENGTH: u32 = 64;
+pub const PACKAGE_FAMILY_NAME_MIN_LENGTH: u32 = 17;
+pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0;
+pub const PACKAGE_FILTER_BUNDLE: u32 = 128;
+pub const PACKAGE_FILTER_DIRECT: u32 = 32;
+pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576;
+pub const PACKAGE_FILTER_HEAD: u32 = 16;
+pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152;
+pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144;
+pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072;
+pub const PACKAGE_FILTER_RESOURCE: u32 = 64;
+pub const PACKAGE_FILTER_STATIC: u32 = 524288;
+pub const PACKAGE_FULL_NAME_MAX_LENGTH: u32 = 127;
+pub const PACKAGE_FULL_NAME_MIN_LENGTH: u32 = 30;
+pub const PACKAGE_GRAPH_MAX_SIZE: u32 = 641;
+pub const PACKAGE_GRAPH_MIN_SIZE: u32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -8133,29 +8133,29 @@ impl Default for PACKAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
-pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
-pub const PACKAGE_MAX_DEPENDENCIES: u32 = 128u32;
-pub const PACKAGE_MIN_DEPENDENCIES: u32 = 0u32;
-pub const PACKAGE_NAME_MAX_LENGTH: u32 = 50u32;
-pub const PACKAGE_NAME_MIN_LENGTH: u32 = 3u32;
-pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
-pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
-pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
-pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
-pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
-pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
-pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
-pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
-pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
-pub const PACKAGE_PUBLISHERID_MAX_LENGTH: u32 = 13u32;
-pub const PACKAGE_PUBLISHERID_MIN_LENGTH: u32 = 13u32;
-pub const PACKAGE_PUBLISHER_MAX_LENGTH: u32 = 8192u32;
-pub const PACKAGE_PUBLISHER_MIN_LENGTH: u32 = 3u32;
-pub const PACKAGE_RELATIVE_APPLICATION_ID_MAX_LENGTH: u32 = 65u32;
-pub const PACKAGE_RELATIVE_APPLICATION_ID_MIN_LENGTH: u32 = 2u32;
-pub const PACKAGE_RESOURCEID_MAX_LENGTH: u32 = 30u32;
-pub const PACKAGE_RESOURCEID_MIN_LENGTH: u32 = 0u32;
+pub const PACKAGE_INFORMATION_BASIC: u32 = 0;
+pub const PACKAGE_INFORMATION_FULL: u32 = 256;
+pub const PACKAGE_MAX_DEPENDENCIES: u32 = 128;
+pub const PACKAGE_MIN_DEPENDENCIES: u32 = 0;
+pub const PACKAGE_NAME_MAX_LENGTH: u32 = 50;
+pub const PACKAGE_NAME_MIN_LENGTH: u32 = 3;
+pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4;
+pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536;
+pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576;
+pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1;
+pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152;
+pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144;
+pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8;
+pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2;
+pub const PACKAGE_PROPERTY_STATIC: u32 = 524288;
+pub const PACKAGE_PUBLISHERID_MAX_LENGTH: u32 = 13;
+pub const PACKAGE_PUBLISHERID_MIN_LENGTH: u32 = 13;
+pub const PACKAGE_PUBLISHER_MAX_LENGTH: u32 = 8192;
+pub const PACKAGE_PUBLISHER_MIN_LENGTH: u32 = 3;
+pub const PACKAGE_RELATIVE_APPLICATION_ID_MAX_LENGTH: u32 = 65;
+pub const PACKAGE_RELATIVE_APPLICATION_ID_MIN_LENGTH: u32 = 2;
+pub const PACKAGE_RESOURCEID_MAX_LENGTH: u32 = 30;
+pub const PACKAGE_RESOURCEID_MIN_LENGTH: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
@@ -8185,8 +8185,8 @@ pub struct PACKAGE_VERSION_0_0 {
     pub Minor: u16,
     pub Major: u16,
 }
-pub const PACKAGE_VERSION_MAX_LENGTH: u32 = 23u32;
-pub const PACKAGE_VERSION_MIN_LENGTH: u32 = 7u32;
+pub const PACKAGE_VERSION_MAX_LENGTH: u32 = 23;
+pub const PACKAGE_VERSION_MIN_LENGTH: u32 = 7;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE(pub *mut core::ffi::c_void);
@@ -8203,9 +8203,9 @@ impl Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageDependencyLifetimeKind(pub i32);
-pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(1i32);
-pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
-pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(2i32);
+pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(1);
+pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0);
+pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageDependencyProcessorArchitectures(pub i32);
@@ -8242,36 +8242,36 @@ impl core::ops::Not for PackageDependencyProcessorArchitectures {
         Self(self.0.not())
     }
 }
-pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(8i32);
-pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(16i32);
-pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(1i32);
-pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(0i32);
-pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(4i32);
-pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(2i32);
-pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(32i32);
+pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(8);
+pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(16);
+pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(1);
+pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(0);
+pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(4);
+pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(2);
+pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageInfo3Type(pub i32);
-pub const PackageInfo3Type_PackageInfoGeneration: PackageInfo3Type = PackageInfo3Type(16i32);
+pub const PackageInfo3Type_PackageInfoGeneration: PackageInfo3Type = PackageInfo3Type(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageOrigin(pub i32);
-pub const PackageOrigin_DeveloperSigned: PackageOrigin = PackageOrigin(5i32);
-pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = PackageOrigin(4i32);
-pub const PackageOrigin_Inbox: PackageOrigin = PackageOrigin(2i32);
-pub const PackageOrigin_LineOfBusiness: PackageOrigin = PackageOrigin(6i32);
-pub const PackageOrigin_Store: PackageOrigin = PackageOrigin(3i32);
-pub const PackageOrigin_Unknown: PackageOrigin = PackageOrigin(0i32);
-pub const PackageOrigin_Unsigned: PackageOrigin = PackageOrigin(1i32);
+pub const PackageOrigin_DeveloperSigned: PackageOrigin = PackageOrigin(5);
+pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = PackageOrigin(4);
+pub const PackageOrigin_Inbox: PackageOrigin = PackageOrigin(2);
+pub const PackageOrigin_LineOfBusiness: PackageOrigin = PackageOrigin(6);
+pub const PackageOrigin_Store: PackageOrigin = PackageOrigin(3);
+pub const PackageOrigin_Unknown: PackageOrigin = PackageOrigin(0);
+pub const PackageOrigin_Unsigned: PackageOrigin = PackageOrigin(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackagePathType(pub i32);
-pub const PackagePathType_Effective: PackagePathType = PackagePathType(2i32);
-pub const PackagePathType_EffectiveExternal: PackagePathType = PackagePathType(5i32);
-pub const PackagePathType_Install: PackagePathType = PackagePathType(0i32);
-pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i32);
-pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1i32);
-pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
+pub const PackagePathType_Effective: PackagePathType = PackagePathType(2);
+pub const PackagePathType_EffectiveExternal: PackagePathType = PackagePathType(5);
+pub const PackagePathType_Install: PackagePathType = PackagePathType(0);
+pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3);
+pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1);
+pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {

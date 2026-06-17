@@ -72,10 +72,10 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
-    pub const E164: Self = Self(0i32);
-    pub const International: Self = Self(1i32);
-    pub const National: Self = Self(2i32);
-    pub const Rfc3966: Self = Self(3i32);
+    pub const E164: Self = Self(0);
+    pub const International: Self = Self(1);
+    pub const National: Self = Self(2);
+    pub const Rfc3966: Self = Self(3);
 }
 impl windows_core::TypeKind for PhoneNumberFormat {
     type TypeKind = windows_core::CopyType;
@@ -277,10 +277,10 @@ unsafe impl Sync for PhoneNumberInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
-    pub const NoMatch: Self = Self(0i32);
-    pub const ShortNationalSignificantNumberMatch: Self = Self(1i32);
-    pub const NationalSignificantNumberMatch: Self = Self(2i32);
-    pub const ExactMatch: Self = Self(3i32);
+    pub const NoMatch: Self = Self(0);
+    pub const ShortNationalSignificantNumberMatch: Self = Self(1);
+    pub const NationalSignificantNumberMatch: Self = Self(2);
+    pub const ExactMatch: Self = Self(3);
 }
 impl windows_core::TypeKind for PhoneNumberMatchResult {
     type TypeKind = windows_core::CopyType;
@@ -293,11 +293,11 @@ impl windows_core::RuntimeType for PhoneNumberMatchResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
-    pub const Valid: Self = Self(0i32);
-    pub const NotANumber: Self = Self(1i32);
-    pub const InvalidCountryCode: Self = Self(2i32);
-    pub const TooShort: Self = Self(3i32);
-    pub const TooLong: Self = Self(4i32);
+    pub const Valid: Self = Self(0);
+    pub const NotANumber: Self = Self(1);
+    pub const InvalidCountryCode: Self = Self(2);
+    pub const TooShort: Self = Self(3);
+    pub const TooLong: Self = Self(4);
 }
 impl windows_core::TypeKind for PhoneNumberParseResult {
     type TypeKind = windows_core::CopyType;
@@ -310,18 +310,18 @@ impl windows_core::RuntimeType for PhoneNumberParseResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
-    pub const FixedLine: Self = Self(0i32);
-    pub const Mobile: Self = Self(1i32);
-    pub const FixedLineOrMobile: Self = Self(2i32);
-    pub const TollFree: Self = Self(3i32);
-    pub const PremiumRate: Self = Self(4i32);
-    pub const SharedCost: Self = Self(5i32);
-    pub const Voip: Self = Self(6i32);
-    pub const PersonalNumber: Self = Self(7i32);
-    pub const Pager: Self = Self(8i32);
-    pub const UniversalAccountNumber: Self = Self(9i32);
-    pub const Voicemail: Self = Self(10i32);
-    pub const Unknown: Self = Self(11i32);
+    pub const FixedLine: Self = Self(0);
+    pub const Mobile: Self = Self(1);
+    pub const FixedLineOrMobile: Self = Self(2);
+    pub const TollFree: Self = Self(3);
+    pub const PremiumRate: Self = Self(4);
+    pub const SharedCost: Self = Self(5);
+    pub const Voip: Self = Self(6);
+    pub const PersonalNumber: Self = Self(7);
+    pub const Pager: Self = Self(8);
+    pub const UniversalAccountNumber: Self = Self(9);
+    pub const Voicemail: Self = Self(10);
+    pub const Unknown: Self = Self(11);
 }
 impl windows_core::TypeKind for PredictedPhoneNumberKind {
     type TypeKind = windows_core::CopyType;

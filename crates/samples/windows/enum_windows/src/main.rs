@@ -12,7 +12,7 @@ fn main() -> windows::core::Result<()> {
             let text = String::from_utf16_lossy(&text[..len as usize]);
 
             let mut info = WINDOWINFO {
-                cbSize: core::mem::size_of::<WINDOWINFO>() as u32,
+                cbSize: size_of::<WINDOWINFO>() as u32,
                 ..Default::default()
             };
             GetWindowInfo(window, &mut info).unwrap();

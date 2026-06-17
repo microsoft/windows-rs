@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_callback` hook.
-//!
-//! Returns a `Callback` with stable identity across renders for
-//! the same deps. Clones share the underlying handler.
+//! Sample for the `cx.use_callback` hook.
 
 use windows_reactor::*;
 
@@ -43,5 +40,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("use_callback").render(app)
+    reactor_minimal::run("UseCallback", app)
 }

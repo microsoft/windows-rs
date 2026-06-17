@@ -44,15 +44,15 @@ unsafe impl Sync for CompositionDebugHeatMaps {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
-    pub const None: Self = Self(0u32);
-    pub const OffscreenRendered: Self = Self(1u32);
-    pub const Colors: Self = Self(2u32);
-    pub const Effects: Self = Self(4u32);
-    pub const Shadows: Self = Self(8u32);
-    pub const Lights: Self = Self(16u32);
-    pub const Surfaces: Self = Self(32u32);
-    pub const SwapChains: Self = Self(64u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const OffscreenRendered: Self = Self(1);
+    pub const Colors: Self = Self(2);
+    pub const Effects: Self = Self(4);
+    pub const Shadows: Self = Self(8);
+    pub const Lights: Self = Self(16);
+    pub const Surfaces: Self = Self(32);
+    pub const SwapChains: Self = Self(64);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
     type TypeKind = windows_core::CopyType;

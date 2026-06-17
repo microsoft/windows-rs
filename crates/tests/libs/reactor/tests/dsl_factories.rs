@@ -1,5 +1,5 @@
-use windows_reactor::core::element::Element;
-use windows_reactor::dsl::factories::{border, button, hstack, text_block, vstack};
+use windows_reactor::{Element, Orientation};
+use windows_reactor::{border, button, hstack, text_block, vstack};
 
 #[test]
 fn text_block_is_bare() {
@@ -31,10 +31,10 @@ fn button_disabled_clears_flag() {
 #[test]
 fn vstack_collects_children_in_order() {
     let s = vstack([text_block("a"), text_block("b")]);
-    assert!(s.vertical);
+    assert_eq!(s.orientation, Orientation::Vertical);
     assert_eq!(s.children.len(), 2);
     match &s.children[0] {
-        Element::TextBlock(t) => assert_eq!(t.content, "a"),
+        Element::TextBlock(t) => assert_eq!(t.text, "a"),
         other => panic!("unexpected {other:?}"),
     }
 }
@@ -42,13 +42,13 @@ fn vstack_collects_children_in_order() {
 #[test]
 fn hstack_is_horizontal() {
     let s = hstack(());
-    assert!(!s.vertical);
+    assert_eq!(s.orientation, Orientation::Horizontal);
 }
 
 #[test]
 fn stack_spacing_sets_field() {
     let s = vstack(()).spacing(8.0);
-    assert_eq!(s.spacing, Some(8.0));
+    assert_eq!(s.spacing, 8.0);
 }
 
 #[test]
@@ -61,22 +61,22 @@ fn text_bold_sets_weight_700() {
 fn border_wraps_child() {
     let b = border(text_block("inside"));
     match *b.child {
-        Element::TextBlock(t) => assert_eq!(t.content, "inside"),
+        Element::TextBlock(t) => assert_eq!(t.text, "inside"),
         other => panic!("unexpected {other:?}"),
     }
 }
 
 #[test]
 fn nested_stacks_compose() {
-    let tree = windows_reactor::vstack((
+    let tree = vstack((
         text_block("Hello").bold().font_size(28.0),
-        windows_reactor::hstack((button("-"), button("+"))).spacing(8.0),
+        hstack((button("-"), button("+"))).spacing(8.0),
     ));
     assert_eq!(tree.children.len(), 2);
     match &tree.children[1] {
         Element::StackPanel(s) => {
-            assert!(!s.vertical);
-            assert_eq!(s.spacing, Some(8.0));
+            assert_eq!(s.orientation, Orientation::Horizontal);
+            assert_eq!(s.spacing, 8.0);
             assert_eq!(s.children.len(), 2);
         }
         other => panic!("unexpected {other:?}"),

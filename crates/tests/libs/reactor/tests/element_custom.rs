@@ -15,12 +15,11 @@ use std::any::Any;
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{
-    Backend, ControlId, ControlKind, Op, Prop, PropValue, RecordingBackend,
-};
-use windows_reactor::core::custom::{CustomElement, CustomElementHandle};
-use windows_reactor::core::element::{Element, StackPanel, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Backend, ControlId, ControlKind, Prop, PropValue};
+use windows_reactor::{CustomElement, CustomElementHandle};
+use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -92,7 +91,7 @@ impl CustomElement for BadgeText {
     }
     fn mount(&self, backend: &mut dyn Backend) -> ControlId {
         let id = backend.create(ControlKind::TextBlock);
-        backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+        backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
@@ -101,7 +100,7 @@ impl CustomElement for BadgeText {
             .downcast_ref::<BadgeText>()
             .expect("reconciler guarantees prev has same type as self");
         if prev.rendered() != self.rendered() {
-            backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+            backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         }
     }
     fn before_destroy(&self, _id: ControlId, _backend: &mut dyn Backend) {
@@ -166,13 +165,13 @@ impl CustomElement for KeyedBadge {
     }
     fn mount(&self, backend: &mut dyn Backend) -> ControlId {
         let id = backend.create(ControlKind::TextBlock);
-        backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+        backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
         let prev = prev.as_any().downcast_ref::<KeyedBadge>().unwrap();
         if prev.rendered() != self.rendered() {
-            backend.set_prop(id, Prop::Text, PropValue::Str(self.rendered()));
+            backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         }
     }
 }
@@ -355,7 +354,7 @@ fn custom_before_destroy_uses_latest_handle_after_updates() {
 #[test]
 fn custom_lives_alongside_built_in_widgets_inside_a_stack() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("title")),
             into_element(BadgeText::new("Inbox", 5)),
@@ -375,7 +374,7 @@ fn custom_lives_alongside_built_in_widgets_inside_a_stack() {
 #[test]
 fn custom_keyed_reorder_inside_stack_reuses_controls() {
     let initial = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             keyed_badge("a", "A", 1),
             keyed_badge("b", "B", 2),
@@ -384,7 +383,7 @@ fn custom_keyed_reorder_inside_stack_reuses_controls() {
         ..Default::default()
     });
     let updated = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             keyed_badge("c", "C", 3),
             keyed_badge("a", "A", 1),

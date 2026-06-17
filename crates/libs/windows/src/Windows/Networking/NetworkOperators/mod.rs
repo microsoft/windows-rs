@@ -2,23 +2,23 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
-    pub const None: Self = Self(0u32);
-    pub const Gprs: Self = Self(1u32);
-    pub const Edge: Self = Self(2u32);
-    pub const Umts: Self = Self(4u32);
-    pub const Hsdpa: Self = Self(8u32);
-    pub const Hsupa: Self = Self(16u32);
-    pub const LteAdvanced: Self = Self(32u32);
-    pub const NewRadioNonStandalone: Self = Self(64u32);
-    pub const NewRadioStandalone: Self = Self(128u32);
-    pub const Cdma1xRtt: Self = Self(65536u32);
-    pub const Cdma1xEvdo: Self = Self(131072u32);
-    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
-    pub const Cdma1xEvdv: Self = Self(524288u32);
-    pub const Cdma3xRtt: Self = Self(1048576u32);
-    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
-    pub const CdmaUmb: Self = Self(4194304u32);
-    pub const Custom: Self = Self(2147483648u32);
+    pub const None: Self = Self(0);
+    pub const Gprs: Self = Self(1);
+    pub const Edge: Self = Self(2);
+    pub const Umts: Self = Self(4);
+    pub const Hsdpa: Self = Self(8);
+    pub const Hsupa: Self = Self(16);
+    pub const LteAdvanced: Self = Self(32);
+    pub const NewRadioNonStandalone: Self = Self(64);
+    pub const NewRadioStandalone: Self = Self(128);
+    pub const Cdma1xRtt: Self = Self(65536);
+    pub const Cdma1xEvdo: Self = Self(131072);
+    pub const Cdma1xEvdoRevA: Self = Self(262144);
+    pub const Cdma1xEvdv: Self = Self(524288);
+    pub const Cdma3xRtt: Self = Self(1048576);
+    pub const Cdma1xEvdoRevB: Self = Self(2097152);
+    pub const CdmaUmb: Self = Self(4194304);
+    pub const Custom: Self = Self(2147483648);
 }
 impl windows_core::TypeKind for DataClasses {
     type TypeKind = windows_core::CopyType;
@@ -213,9 +213,9 @@ unsafe impl Sync for ESimAddedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
-    pub const OnEntry: Self = Self(0i32);
-    pub const OnAction: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
+    pub const OnEntry: Self = Self(0);
+    pub const OnAction: Self = Self(1);
+    pub const Never: Self = Self(2);
 }
 impl windows_core::TypeKind for ESimAuthenticationPreference {
     type TypeKind = windows_core::CopyType;
@@ -300,9 +300,9 @@ unsafe impl Sync for ESimDiscoverResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
-    pub const None: Self = Self(0i32);
-    pub const Events: Self = Self(1i32);
-    pub const ProfileMetadata: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Events: Self = Self(1);
+    pub const ProfileMetadata: Self = Self(2);
 }
 impl windows_core::TypeKind for ESimDiscoverResultKind {
     type TypeKind = windows_core::CopyType;
@@ -403,35 +403,35 @@ unsafe impl Sync for ESimOperationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotAuthorized: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const PolicyViolation: Self = Self(3i32);
-    pub const InsufficientSpaceOnCard: Self = Self(4i32);
-    pub const ServerFailure: Self = Self(5i32);
-    pub const ServerNotReachable: Self = Self(6i32);
-    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
-    pub const IncorrectConfirmationCode: Self = Self(8i32);
-    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
-    pub const CardRemoved: Self = Self(10i32);
-    pub const CardBusy: Self = Self(11i32);
-    pub const Other: Self = Self(12i32);
-    pub const CardGeneralFailure: Self = Self(13i32);
-    pub const ConfirmationCodeMissing: Self = Self(14i32);
-    pub const InvalidMatchingId: Self = Self(15i32);
-    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
-    pub const OperationAborted: Self = Self(17i32);
-    pub const EidMismatch: Self = Self(18i32);
-    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
-    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
-    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
-    pub const ProfileNotPresent: Self = Self(22i32);
-    pub const NoCorrespondingRequest: Self = Self(23i32);
-    pub const TimeoutWaitingForResponse: Self = Self(24i32);
-    pub const IccidAlreadyExists: Self = Self(25i32);
-    pub const ProfileProcessingError: Self = Self(26i32);
-    pub const ServerNotTrusted: Self = Self(27i32);
-    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
+    pub const Success: Self = Self(0);
+    pub const NotAuthorized: Self = Self(1);
+    pub const NotFound: Self = Self(2);
+    pub const PolicyViolation: Self = Self(3);
+    pub const InsufficientSpaceOnCard: Self = Self(4);
+    pub const ServerFailure: Self = Self(5);
+    pub const ServerNotReachable: Self = Self(6);
+    pub const TimeoutWaitingForUserConsent: Self = Self(7);
+    pub const IncorrectConfirmationCode: Self = Self(8);
+    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9);
+    pub const CardRemoved: Self = Self(10);
+    pub const CardBusy: Self = Self(11);
+    pub const Other: Self = Self(12);
+    pub const CardGeneralFailure: Self = Self(13);
+    pub const ConfirmationCodeMissing: Self = Self(14);
+    pub const InvalidMatchingId: Self = Self(15);
+    pub const NoEligibleProfileForThisDevice: Self = Self(16);
+    pub const OperationAborted: Self = Self(17);
+    pub const EidMismatch: Self = Self(18);
+    pub const ProfileNotAvailableForNewBinding: Self = Self(19);
+    pub const ProfileNotReleasedByOperator: Self = Self(20);
+    pub const OperationProhibitedByProfileClass: Self = Self(21);
+    pub const ProfileNotPresent: Self = Self(22);
+    pub const NoCorrespondingRequest: Self = Self(23);
+    pub const TimeoutWaitingForResponse: Self = Self(24);
+    pub const IccidAlreadyExists: Self = Self(25);
+    pub const ProfileProcessingError: Self = Self(26);
+    pub const ServerNotTrusted: Self = Self(27);
+    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28);
 }
 impl windows_core::TypeKind for ESimOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -553,9 +553,9 @@ unsafe impl Sync for ESimProfile {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
-    pub const Operational: Self = Self(0i32);
-    pub const Test: Self = Self(1i32);
-    pub const Provisioning: Self = Self(2i32);
+    pub const Operational: Self = Self(0);
+    pub const Test: Self = Self(1);
+    pub const Provisioning: Self = Self(2);
 }
 impl windows_core::TypeKind for ESimProfileClass {
     type TypeKind = windows_core::CopyType;
@@ -678,14 +678,14 @@ unsafe impl Sync for ESimProfileMetadata {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
-    pub const Unknown: Self = Self(0i32);
-    pub const WaitingForInstall: Self = Self(1i32);
-    pub const Downloading: Self = Self(2i32);
-    pub const Installing: Self = Self(3i32);
-    pub const Expired: Self = Self(4i32);
-    pub const RejectingDownload: Self = Self(5i32);
-    pub const NoLongerAvailable: Self = Self(6i32);
-    pub const DeniedByPolicy: Self = Self(7i32);
+    pub const Unknown: Self = Self(0);
+    pub const WaitingForInstall: Self = Self(1);
+    pub const Downloading: Self = Self(2);
+    pub const Installing: Self = Self(3);
+    pub const Expired: Self = Self(4);
+    pub const RejectingDownload: Self = Self(5);
+    pub const NoLongerAvailable: Self = Self(6);
+    pub const DeniedByPolicy: Self = Self(7);
 }
 impl windows_core::TypeKind for ESimProfileMetadataState {
     type TypeKind = windows_core::CopyType;
@@ -734,10 +734,10 @@ unsafe impl Sync for ESimProfilePolicy {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-    pub const Deleted: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Disabled: Self = Self(1);
+    pub const Enabled: Self = Self(2);
+    pub const Deleted: Self = Self(3);
 }
 impl windows_core::TypeKind for ESimProfileState {
     type TypeKind = windows_core::CopyType;
@@ -804,10 +804,10 @@ unsafe impl Sync for ESimServiceInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimState(pub i32);
 impl ESimState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Idle: Self = Self(1i32);
-    pub const Removed: Self = Self(2i32);
-    pub const Busy: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Idle: Self = Self(1);
+    pub const Removed: Self = Self(2);
+    pub const Busy: Self = Self(3);
 }
 impl windows_core::TypeKind for ESimState {
     type TypeKind = windows_core::CopyType;
@@ -934,11 +934,11 @@ unsafe impl Sync for ESimWatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
 }
 impl windows_core::TypeKind for ESimWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -1050,13 +1050,13 @@ impl windows_core::RuntimeName for HotspotAuthenticationEventDetails {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
-    pub const NoError: Self = Self(0i32);
-    pub const LoginSucceeded: Self = Self(50i32);
-    pub const LoginFailed: Self = Self(100i32);
-    pub const RadiusServerError: Self = Self(102i32);
-    pub const NetworkAdministratorError: Self = Self(105i32);
-    pub const LoginAborted: Self = Self(151i32);
-    pub const AccessGatewayInternalError: Self = Self(255i32);
+    pub const NoError: Self = Self(0);
+    pub const LoginSucceeded: Self = Self(50);
+    pub const LoginFailed: Self = Self(100);
+    pub const RadiusServerError: Self = Self(102);
+    pub const NetworkAdministratorError: Self = Self(105);
+    pub const LoginAborted: Self = Self(151);
+    pub const AccessGatewayInternalError: Self = Self(255);
 }
 impl windows_core::TypeKind for HotspotAuthenticationResponseCode {
     type TypeKind = windows_core::CopyType;
@@ -3161,11 +3161,11 @@ impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-    pub const Aborted: Self = Self(4i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopped: Self = Self(3);
+    pub const Aborted: Self = Self(4);
 }
 impl windows_core::TypeKind for MobileBroadbandAccountWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -4199,10 +4199,10 @@ unsafe impl Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Embedded: Self = Self(1i32);
-    pub const Removable: Self = Self(2i32);
-    pub const Remote: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Embedded: Self = Self(1);
+    pub const Removable: Self = Self(2);
+    pub const Remote: Self = Self(3);
 }
 impl windows_core::TypeKind for MobileBroadbandDeviceType {
     type TypeKind = windows_core::CopyType;
@@ -4479,10 +4479,10 @@ unsafe impl Sync for MobileBroadbandModemIsolation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
-    pub const Success: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const Busy: Self = Self(2i32);
-    pub const NoDeviceSupport: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const OtherFailure: Self = Self(1);
+    pub const Busy: Self = Self(2);
+    pub const NoDeviceSupport: Self = Self(3);
 }
 impl windows_core::TypeKind for MobileBroadbandModemStatus {
     type TypeKind = windows_core::CopyType;
@@ -4795,9 +4795,9 @@ unsafe impl Sync for MobileBroadbandPin {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const Numeric: Self = Self(1i32);
-    pub const Alphanumeric: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Numeric: Self = Self(1);
+    pub const Alphanumeric: Self = Self(2);
 }
 impl windows_core::TypeKind for MobileBroadbandPinFormat {
     type TypeKind = windows_core::CopyType;
@@ -4810,10 +4810,10 @@ impl windows_core::RuntimeType for MobileBroadbandPinFormat {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Unlocked: Self = Self(1i32);
-    pub const PinRequired: Self = Self(2i32);
-    pub const PinUnblockKeyRequired: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Unlocked: Self = Self(1);
+    pub const PinRequired: Self = Self(2);
+    pub const PinUnblockKeyRequired: Self = Self(3);
 }
 impl windows_core::TypeKind for MobileBroadbandPinLockState {
     type TypeKind = windows_core::CopyType;
@@ -4946,17 +4946,17 @@ unsafe impl Sync for MobileBroadbandPinOperationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
-    pub const None: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
-    pub const Pin1: Self = Self(2i32);
-    pub const Pin2: Self = Self(3i32);
-    pub const SimPin: Self = Self(4i32);
-    pub const FirstSimPin: Self = Self(5i32);
-    pub const NetworkPin: Self = Self(6i32);
-    pub const NetworkSubsetPin: Self = Self(7i32);
-    pub const ServiceProviderPin: Self = Self(8i32);
-    pub const CorporatePin: Self = Self(9i32);
-    pub const SubsidyLock: Self = Self(10i32);
+    pub const None: Self = Self(0);
+    pub const Custom: Self = Self(1);
+    pub const Pin1: Self = Self(2);
+    pub const Pin2: Self = Self(3);
+    pub const SimPin: Self = Self(4);
+    pub const FirstSimPin: Self = Self(5);
+    pub const NetworkPin: Self = Self(6);
+    pub const NetworkSubsetPin: Self = Self(7);
+    pub const ServiceProviderPin: Self = Self(8);
+    pub const CorporatePin: Self = Self(9);
+    pub const SubsidyLock: Self = Self(10);
 }
 impl windows_core::TypeKind for MobileBroadbandPinType {
     type TypeKind = windows_core::CopyType;
@@ -4969,8 +4969,8 @@ impl windows_core::RuntimeType for MobileBroadbandPinType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
 }
 impl windows_core::TypeKind for MobileBroadbandRadioState {
     type TypeKind = windows_core::CopyType;
@@ -5269,16 +5269,16 @@ unsafe impl Sync for MobileBroadbandSlotManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
-    pub const Unmanaged: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const OffEmpty: Self = Self(2i32);
-    pub const Off: Self = Self(3i32);
-    pub const Empty: Self = Self(4i32);
-    pub const NotReady: Self = Self(5i32);
-    pub const Active: Self = Self(6i32);
-    pub const Error: Self = Self(7i32);
-    pub const ActiveEsim: Self = Self(8i32);
-    pub const ActiveEsimNoProfile: Self = Self(9i32);
+    pub const Unmanaged: Self = Self(0);
+    pub const Unknown: Self = Self(1);
+    pub const OffEmpty: Self = Self(2);
+    pub const Off: Self = Self(3);
+    pub const Empty: Self = Self(4);
+    pub const NotReady: Self = Self(5);
+    pub const Active: Self = Self(6);
+    pub const Error: Self = Self(7);
+    pub const ActiveEsim: Self = Self(8);
+    pub const ActiveEsimNoProfile: Self = Self(9);
 }
 impl windows_core::TypeKind for MobileBroadbandSlotState {
     type TypeKind = windows_core::CopyType;
@@ -5394,10 +5394,10 @@ unsafe impl Sync for MobileBroadbandUiccApp {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidUiccFilePath: Self = Self(1i32);
-    pub const AccessConditionNotHeld: Self = Self(2i32);
-    pub const UiccBusy: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const InvalidUiccFilePath: Self = Self(1);
+    pub const AccessConditionNotHeld: Self = Self(2);
+    pub const UiccBusy: Self = Self(3);
 }
 impl windows_core::TypeKind for MobileBroadbandUiccAppOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -5525,14 +5525,14 @@ unsafe impl Sync for MobileBroadbandUiccAppsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
-    pub const DeviceNotReady: Self = Self(0i32);
-    pub const DeviceReady: Self = Self(1i32);
-    pub const SimNotInserted: Self = Self(2i32);
-    pub const BadSim: Self = Self(3i32);
-    pub const DeviceHardwareFailure: Self = Self(4i32);
-    pub const AccountNotActivated: Self = Self(5i32);
-    pub const DeviceLocked: Self = Self(6i32);
-    pub const DeviceBlocked: Self = Self(7i32);
+    pub const DeviceNotReady: Self = Self(0);
+    pub const DeviceReady: Self = Self(1);
+    pub const SimNotInserted: Self = Self(2);
+    pub const BadSim: Self = Self(3);
+    pub const DeviceHardwareFailure: Self = Self(4);
+    pub const AccountNotActivated: Self = Self(5);
+    pub const DeviceLocked: Self = Self(6);
+    pub const DeviceBlocked: Self = Self(7);
 }
 impl windows_core::TypeKind for NetworkDeviceStatus {
     type TypeKind = windows_core::CopyType;
@@ -5545,7 +5545,7 @@ impl windows_core::RuntimeType for NetworkDeviceStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
-    pub const DataUsageProgress: Self = Self(0i32);
+    pub const DataUsageProgress: Self = Self(0);
 }
 impl windows_core::TypeKind for NetworkOperatorDataUsageNotificationKind {
     type TypeKind = windows_core::CopyType;
@@ -5582,19 +5582,19 @@ unsafe impl Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
-    pub const Gsm: Self = Self(0i32);
-    pub const Cdma: Self = Self(1i32);
-    pub const Ussd: Self = Self(2i32);
-    pub const DataPlanThresholdReached: Self = Self(3i32);
-    pub const DataPlanReset: Self = Self(4i32);
-    pub const DataPlanDeleted: Self = Self(5i32);
-    pub const ProfileConnected: Self = Self(6i32);
-    pub const ProfileDisconnected: Self = Self(7i32);
-    pub const RegisteredRoaming: Self = Self(8i32);
-    pub const RegisteredHome: Self = Self(9i32);
-    pub const TetheringEntitlementCheck: Self = Self(10i32);
-    pub const TetheringOperationalStateChanged: Self = Self(11i32);
-    pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
+    pub const Gsm: Self = Self(0);
+    pub const Cdma: Self = Self(1);
+    pub const Ussd: Self = Self(2);
+    pub const DataPlanThresholdReached: Self = Self(3);
+    pub const DataPlanReset: Self = Self(4);
+    pub const DataPlanDeleted: Self = Self(5);
+    pub const ProfileConnected: Self = Self(6);
+    pub const ProfileDisconnected: Self = Self(7);
+    pub const RegisteredRoaming: Self = Self(8);
+    pub const RegisteredHome: Self = Self(9);
+    pub const TetheringEntitlementCheck: Self = Self(10);
+    pub const TetheringOperationalStateChanged: Self = Self(11);
+    pub const TetheringNumberOfClientsChanged: Self = Self(12);
 }
 impl windows_core::TypeKind for NetworkOperatorEventMessageType {
     type TypeKind = windows_core::CopyType;
@@ -6072,13 +6072,13 @@ unsafe impl Sync for NetworkOperatorTetheringSessionAccessPointConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
-    pub const None: Self = Self(0i32);
-    pub const Deregistered: Self = Self(1i32);
-    pub const Searching: Self = Self(2i32);
-    pub const Home: Self = Self(3i32);
-    pub const Roaming: Self = Self(4i32);
-    pub const Partner: Self = Self(5i32);
-    pub const Denied: Self = Self(6i32);
+    pub const None: Self = Self(0);
+    pub const Deregistered: Self = Self(1);
+    pub const Searching: Self = Self(2);
+    pub const Home: Self = Self(3);
+    pub const Roaming: Self = Self(4);
+    pub const Partner: Self = Self(5);
+    pub const Denied: Self = Self(6);
 }
 impl windows_core::TypeKind for NetworkRegistrationState {
     type TypeKind = windows_core::CopyType;
@@ -6091,8 +6091,8 @@ impl windows_core::RuntimeType for NetworkRegistrationState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
-    pub const Wlan: Self = Self(0i32);
-    pub const Wwan: Self = Self(1i32);
+    pub const Wlan: Self = Self(0);
+    pub const Wwan: Self = Self(1);
 }
 impl windows_core::TypeKind for ProfileMediaType {
     type TypeKind = windows_core::CopyType;
@@ -6214,14 +6214,14 @@ impl windows_core::RuntimeName for ProvisioningAgent {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
-    pub const Enabled: Self = Self(0i32);
-    pub const DisabledByGroupPolicy: Self = Self(1i32);
-    pub const DisabledByHardwareLimitation: Self = Self(2i32);
-    pub const DisabledByOperator: Self = Self(3i32);
-    pub const DisabledBySku: Self = Self(4i32);
-    pub const DisabledByRequiredAppNotInstalled: Self = Self(5i32);
-    pub const DisabledDueToUnknownCause: Self = Self(6i32);
-    pub const DisabledBySystemCapability: Self = Self(7i32);
+    pub const Enabled: Self = Self(0);
+    pub const DisabledByGroupPolicy: Self = Self(1);
+    pub const DisabledByHardwareLimitation: Self = Self(2);
+    pub const DisabledByOperator: Self = Self(3);
+    pub const DisabledBySku: Self = Self(4);
+    pub const DisabledByRequiredAppNotInstalled: Self = Self(5);
+    pub const DisabledDueToUnknownCause: Self = Self(6);
+    pub const DisabledBySystemCapability: Self = Self(7);
 }
 impl windows_core::TypeKind for TetheringCapability {
     type TypeKind = windows_core::CopyType;
@@ -6264,18 +6264,18 @@ unsafe impl Sync for TetheringEntitlementCheckTriggerDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const MobileBroadbandDeviceOff: Self = Self(2i32);
-    pub const WiFiDeviceOff: Self = Self(3i32);
-    pub const EntitlementCheckTimeout: Self = Self(4i32);
-    pub const EntitlementCheckFailure: Self = Self(5i32);
-    pub const OperationInProgress: Self = Self(6i32);
-    pub const BluetoothDeviceOff: Self = Self(7i32);
-    pub const NetworkLimitedConnectivity: Self = Self(8i32);
-    pub const AlreadyOn: Self = Self(9i32);
-    pub const RadioRestriction: Self = Self(10i32);
-    pub const BandInterference: Self = Self(11i32);
+    pub const Success: Self = Self(0);
+    pub const Unknown: Self = Self(1);
+    pub const MobileBroadbandDeviceOff: Self = Self(2);
+    pub const WiFiDeviceOff: Self = Self(3);
+    pub const EntitlementCheckTimeout: Self = Self(4);
+    pub const EntitlementCheckFailure: Self = Self(5);
+    pub const OperationInProgress: Self = Self(6);
+    pub const BluetoothDeviceOff: Self = Self(7);
+    pub const NetworkLimitedConnectivity: Self = Self(8);
+    pub const AlreadyOn: Self = Self(9);
+    pub const RadioRestriction: Self = Self(10);
+    pub const BandInterference: Self = Self(11);
 }
 impl windows_core::TypeKind for TetheringOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -6288,10 +6288,10 @@ impl windows_core::RuntimeType for TetheringOperationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
-    pub const Unknown: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Off: Self = Self(2i32);
-    pub const InTransition: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Off: Self = Self(2);
+    pub const InTransition: Self = Self(3);
 }
 impl windows_core::TypeKind for TetheringOperationalState {
     type TypeKind = windows_core::CopyType;
@@ -6304,9 +6304,9 @@ impl windows_core::RuntimeType for TetheringOperationalState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiAuthenticationKind(pub i32);
 impl TetheringWiFiAuthenticationKind {
-    pub const Wpa2: Self = Self(0i32);
-    pub const Wpa3TransitionMode: Self = Self(1i32);
-    pub const Wpa3: Self = Self(2i32);
+    pub const Wpa2: Self = Self(0);
+    pub const Wpa3TransitionMode: Self = Self(1);
+    pub const Wpa3: Self = Self(2);
 }
 impl windows_core::TypeKind for TetheringWiFiAuthenticationKind {
     type TypeKind = windows_core::CopyType;
@@ -6319,10 +6319,10 @@ impl windows_core::RuntimeType for TetheringWiFiAuthenticationKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
-    pub const Auto: Self = Self(0i32);
-    pub const TwoPointFourGigahertz: Self = Self(1i32);
-    pub const FiveGigahertz: Self = Self(2i32);
-    pub const SixGigahertz: Self = Self(3i32);
+    pub const Auto: Self = Self(0);
+    pub const TwoPointFourGigahertz: Self = Self(1);
+    pub const FiveGigahertz: Self = Self(2);
+    pub const SixGigahertz: Self = Self(3);
 }
 impl windows_core::TypeKind for TetheringWiFiBand {
     type TypeKind = windows_core::CopyType;
@@ -6335,8 +6335,8 @@ impl windows_core::RuntimeType for TetheringWiFiBand {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiPerformancePriority(pub i32);
 impl TetheringWiFiPerformancePriority {
-    pub const Default: Self = Self(0i32);
-    pub const TetheringOverStation: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const TetheringOverStation: Self = Self(1);
 }
 impl windows_core::TypeKind for TetheringWiFiPerformancePriority {
     type TypeKind = windows_core::CopyType;
@@ -6349,14 +6349,14 @@ impl windows_core::RuntimeType for TetheringWiFiPerformancePriority {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
-    pub const AlwaysAllowed: Self = Self(0i32);
-    pub const Pin1: Self = Self(1i32);
-    pub const Pin2: Self = Self(2i32);
-    pub const Pin3: Self = Self(3i32);
-    pub const Pin4: Self = Self(4i32);
-    pub const Administrative5: Self = Self(5i32);
-    pub const Administrative6: Self = Self(6i32);
-    pub const NeverAllowed: Self = Self(7i32);
+    pub const AlwaysAllowed: Self = Self(0);
+    pub const Pin1: Self = Self(1);
+    pub const Pin2: Self = Self(2);
+    pub const Pin3: Self = Self(3);
+    pub const Pin4: Self = Self(4);
+    pub const Administrative5: Self = Self(5);
+    pub const Administrative6: Self = Self(6);
+    pub const NeverAllowed: Self = Self(7);
 }
 impl windows_core::TypeKind for UiccAccessCondition {
     type TypeKind = windows_core::CopyType;
@@ -6369,13 +6369,13 @@ impl windows_core::RuntimeType for UiccAccessCondition {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const MF: Self = Self(1i32);
-    pub const MFSim: Self = Self(2i32);
-    pub const MFRuim: Self = Self(3i32);
-    pub const USim: Self = Self(4i32);
-    pub const CSim: Self = Self(5i32);
-    pub const ISim: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const MF: Self = Self(1);
+    pub const MFSim: Self = Self(2);
+    pub const MFRuim: Self = Self(3);
+    pub const USim: Self = Self(4);
+    pub const CSim: Self = Self(5);
+    pub const ISim: Self = Self(6);
 }
 impl windows_core::TypeKind for UiccAppKind {
     type TypeKind = windows_core::CopyType;
@@ -6388,9 +6388,9 @@ impl windows_core::RuntimeType for UiccAppKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Transparent: Self = Self(1i32);
-    pub const RecordOriented: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Transparent: Self = Self(1);
+    pub const RecordOriented: Self = Self(2);
 }
 impl windows_core::TypeKind for UiccAppRecordKind {
     type TypeKind = windows_core::CopyType;
@@ -6486,12 +6486,12 @@ impl windows_core::RuntimeName for UssdReply {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
-    pub const NoActionRequired: Self = Self(0i32);
-    pub const ActionRequired: Self = Self(1i32);
-    pub const Terminated: Self = Self(2i32);
-    pub const OtherLocalClient: Self = Self(3i32);
-    pub const OperationNotSupported: Self = Self(4i32);
-    pub const NetworkTimeout: Self = Self(5i32);
+    pub const NoActionRequired: Self = Self(0);
+    pub const ActionRequired: Self = Self(1);
+    pub const Terminated: Self = Self(2);
+    pub const OtherLocalClient: Self = Self(3);
+    pub const OperationNotSupported: Self = Self(4);
+    pub const NetworkTimeout: Self = Self(5);
 }
 impl windows_core::TypeKind for UssdResultCode {
     type TypeKind = windows_core::CopyType;

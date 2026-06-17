@@ -24,11 +24,11 @@ pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> Element {
                                 text: "Exit".into(),
                             },
                         ])
-                        .on_flyout_item_click(move |s| set_selected.call(s)),
+                        .on_item_clicked(move |s| set_selected.call(s)),
                     text_block(format!("Last action: {selected}")).opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"drop_down_button("File").menu_flyout(items).on_flyout_item_click(handler)"#,
+                r#"drop_down_button("File").menu_flyout(items).on_item_clicked(handler)"#,
             ),
             sample_card(
                 "Disabled DropDownButton",

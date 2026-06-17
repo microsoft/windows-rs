@@ -133,11 +133,11 @@ unsafe impl Sync for AudioDeviceInputNode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceNotAvailable: Self = Self(1i32);
-    pub const FormatNotSupported: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
-    pub const AccessDenied: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const DeviceNotAvailable: Self = Self(1);
+    pub const FormatNotSupported: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
+    pub const AccessDenied: Self = Self(4);
 }
 impl windows_core::TypeKind for AudioDeviceNodeCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -324,9 +324,9 @@ unsafe impl Sync for AudioEffectsPackConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEffectsPackStatus(pub i32);
 impl AudioEffectsPackStatus {
-    pub const NotEnabled: Self = Self(0i32);
-    pub const Enabled: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
+    pub const NotEnabled: Self = Self(0);
+    pub const Enabled: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
 }
 impl windows_core::TypeKind for AudioEffectsPackStatus {
     type TypeKind = windows_core::CopyType;
@@ -366,7 +366,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetStartTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -376,7 +376,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetEndTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<i32> {
@@ -386,7 +386,7 @@ impl AudioFileInputNode {
         }
     }
     pub fn SetLoopCount(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLoopCount)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -536,11 +536,11 @@ unsafe impl Sync for AudioFileInputNode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FileNotFound: Self = Self(1i32);
-    pub const InvalidFileType: Self = Self(2i32);
-    pub const FormatNotSupported: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
+    pub const Success: Self = Self(0);
+    pub const FileNotFound: Self = Self(1);
+    pub const InvalidFileType: Self = Self(2);
+    pub const FormatNotSupported: Self = Self(3);
+    pub const UnknownFailure: Self = Self(4);
 }
 impl windows_core::TypeKind for AudioFileNodeCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1319,10 +1319,10 @@ unsafe impl Sync for AudioGraphConnection {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceNotAvailable: Self = Self(1i32);
-    pub const FormatNotSupported: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const DeviceNotAvailable: Self = Self(1);
+    pub const FormatNotSupported: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for AudioGraphCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1441,10 +1441,10 @@ unsafe impl Sync for AudioGraphSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
-    pub const None: Self = Self(0i32);
-    pub const AudioDeviceLost: Self = Self(1i32);
-    pub const AudioSessionDisconnected: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const AudioDeviceLost: Self = Self(1);
+    pub const AudioSessionDisconnected: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for AudioGraphUnrecoverableError {
     type TypeKind = windows_core::CopyType;
@@ -1639,8 +1639,8 @@ unsafe impl Sync for AudioNodeEmitterConeProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
-    pub const Natural: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
+    pub const Natural: Self = Self(0);
+    pub const Custom: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioNodeEmitterDecayKind {
     type TypeKind = windows_core::CopyType;
@@ -1741,8 +1741,8 @@ unsafe impl Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
-    pub const None: Self = Self(0u32);
-    pub const DisableDoppler: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const DisableDoppler: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioNodeEmitterSettings {
     type TypeKind = windows_core::CopyType;
@@ -1834,8 +1834,8 @@ unsafe impl Sync for AudioNodeEmitterShape {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
-    pub const Omnidirectional: Self = Self(0i32);
-    pub const Cone: Self = Self(1i32);
+    pub const Omnidirectional: Self = Self(0);
+    pub const Cone: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioNodeEmitterShapeKind {
     type TypeKind = windows_core::CopyType;
@@ -2025,10 +2025,10 @@ unsafe impl Sync for AudioPlaybackConnectionOpenResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const RequestTimedOut: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const RequestTimedOut: Self = Self(1);
+    pub const DeniedBySystem: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for AudioPlaybackConnectionOpenResultStatus {
     type TypeKind = windows_core::CopyType;
@@ -2041,8 +2041,8 @@ impl windows_core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
-    pub const Closed: Self = Self(0i32);
-    pub const Opened: Self = Self(1i32);
+    pub const Closed: Self = Self(0);
+    pub const Opened: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioPlaybackConnectionState {
     type TypeKind = windows_core::CopyType;
@@ -4645,7 +4645,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetStartTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -4655,7 +4655,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetEndTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<i32> {
@@ -4665,7 +4665,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     pub fn SetLoopCount(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLoopCount)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -4710,10 +4710,10 @@ unsafe impl Sync for MediaSourceAudioInputNode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FormatNotSupported: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const UnknownFailure: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const FormatNotSupported: Self = Self(1);
+    pub const NetworkError: Self = Self(2);
+    pub const UnknownFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaSourceAudioInputNodeCreationStatus {
     type TypeKind = windows_core::CopyType;
@@ -4726,8 +4726,8 @@ impl windows_core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
-    pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0i32);
-    pub const UseDeviceConfigurationDefaultSpatialAudioFormat: Self = Self(1i32);
+    pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0);
+    pub const UseDeviceConfigurationDefaultSpatialAudioFormat: Self = Self(1);
 }
 impl windows_core::TypeKind for MixedRealitySpatialAudioFormatPolicy {
     type TypeKind = windows_core::CopyType;
@@ -4740,9 +4740,9 @@ impl windows_core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
-    pub const SystemDefault: Self = Self(0i32);
-    pub const LowestLatency: Self = Self(1i32);
-    pub const ClosestToDesired: Self = Self(2i32);
+    pub const SystemDefault: Self = Self(0);
+    pub const LowestLatency: Self = Self(1);
+    pub const ClosestToDesired: Self = Self(2);
 }
 impl windows_core::TypeKind for QuantumSizeSelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -5042,12 +5042,12 @@ unsafe impl Sync for SetDefaultSpatialAudioFormatResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const LicenseExpired: Self = Self(2i32);
-    pub const LicenseNotValidForAudioEndpoint: Self = Self(3i32);
-    pub const NotSupportedOnAudioEndpoint: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
+    pub const Succeeded: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const LicenseExpired: Self = Self(2);
+    pub const LicenseNotValidForAudioEndpoint: Self = Self(3);
+    pub const NotSupportedOnAudioEndpoint: Self = Self(4);
+    pub const UnknownError: Self = Self(5);
 }
 impl windows_core::TypeKind for SetDefaultSpatialAudioFormatStatus {
     type TypeKind = windows_core::CopyType;
@@ -5241,8 +5241,8 @@ impl windows_core::RuntimeName for SpatialAudioFormatSubtype {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {
-    pub const ObjectBased: Self = Self(0i32);
-    pub const FoldDown: Self = Self(1i32);
+    pub const ObjectBased: Self = Self(0);
+    pub const FoldDown: Self = Self(1);
 }
 impl windows_core::TypeKind for SpatialAudioModel {
     type TypeKind = windows_core::CopyType;

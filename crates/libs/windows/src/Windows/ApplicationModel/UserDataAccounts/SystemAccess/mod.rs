@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccountAuthenticationType(pub i32);
 impl DeviceAccountAuthenticationType {
-    pub const Basic: Self = Self(0i32);
-    pub const OAuth: Self = Self(1i32);
-    pub const SingleSignOn: Self = Self(2i32);
+    pub const Basic: Self = Self(0);
+    pub const OAuth: Self = Self(1);
+    pub const SingleSignOn: Self = Self(2);
 }
 impl windows_core::TypeKind for DeviceAccountAuthenticationType {
     type TypeKind = windows_core::CopyType;
@@ -513,10 +513,10 @@ unsafe impl Sync for DeviceAccountConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
-    pub const Exchange: Self = Self(0i32);
-    pub const Msa: Self = Self(1i32);
-    pub const Outlook: Self = Self(2i32);
-    pub const Generic: Self = Self(3i32);
+    pub const Exchange: Self = Self(0);
+    pub const Msa: Self = Self(1);
+    pub const Outlook: Self = Self(2);
+    pub const Generic: Self = Self(3);
 }
 impl windows_core::TypeKind for DeviceAccountIconId {
     type TypeKind = windows_core::CopyType;
@@ -529,13 +529,13 @@ impl windows_core::RuntimeType for DeviceAccountIconId {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
 impl DeviceAccountMailAgeFilter {
-    pub const All: Self = Self(0i32);
-    pub const Last1Day: Self = Self(1i32);
-    pub const Last3Days: Self = Self(2i32);
-    pub const Last7Days: Self = Self(3i32);
-    pub const Last14Days: Self = Self(4i32);
-    pub const Last30Days: Self = Self(5i32);
-    pub const Last90Days: Self = Self(6i32);
+    pub const All: Self = Self(0);
+    pub const Last1Day: Self = Self(1);
+    pub const Last3Days: Self = Self(2);
+    pub const Last7Days: Self = Self(3);
+    pub const Last14Days: Self = Self(4);
+    pub const Last30Days: Self = Self(5);
+    pub const Last90Days: Self = Self(6);
 }
 impl windows_core::TypeKind for DeviceAccountMailAgeFilter {
     type TypeKind = windows_core::CopyType;
@@ -548,9 +548,9 @@ impl windows_core::RuntimeType for DeviceAccountMailAgeFilter {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccountServerType(pub i32);
 impl DeviceAccountServerType {
-    pub const Exchange: Self = Self(0i32);
-    pub const Pop: Self = Self(1i32);
-    pub const Imap: Self = Self(2i32);
+    pub const Exchange: Self = Self(0);
+    pub const Pop: Self = Self(1);
+    pub const Imap: Self = Self(2);
 }
 impl windows_core::TypeKind for DeviceAccountServerType {
     type TypeKind = windows_core::CopyType;
@@ -563,13 +563,13 @@ impl windows_core::RuntimeType for DeviceAccountServerType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);
 impl DeviceAccountSyncScheduleKind {
-    pub const Manual: Self = Self(0i32);
-    pub const Every15Minutes: Self = Self(1i32);
-    pub const Every30Minutes: Self = Self(2i32);
-    pub const Every60Minutes: Self = Self(3i32);
-    pub const Every2Hours: Self = Self(4i32);
-    pub const Daily: Self = Self(5i32);
-    pub const AsItemsArrive: Self = Self(6i32);
+    pub const Manual: Self = Self(0);
+    pub const Every15Minutes: Self = Self(1);
+    pub const Every30Minutes: Self = Self(2);
+    pub const Every60Minutes: Self = Self(3);
+    pub const Every2Hours: Self = Self(4);
+    pub const Daily: Self = Self(5);
+    pub const AsItemsArrive: Self = Self(6);
 }
 impl windows_core::TypeKind for DeviceAccountSyncScheduleKind {
     type TypeKind = windows_core::CopyType;

@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
-    pub const Unknown: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Configuring: Self = Self(2i32);
-    pub const ScreenSetupNeeded: Self = Self(3i32);
-    pub const UserCalibrationNeeded: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const Ready: Self = Self(1);
+    pub const Configuring: Self = Self(2);
+    pub const ScreenSetupNeeded: Self = Self(3);
+    pub const UserCalibrationNeeded: Self = Self(4);
 }
 impl windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
     type TypeKind = windows_core::CopyType;

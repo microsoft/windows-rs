@@ -80,10 +80,10 @@ unsafe impl Sync for AdvancedPhotoControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdvancedPhotoMode(pub i32);
 impl AdvancedPhotoMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Standard: Self = Self(1i32);
-    pub const Hdr: Self = Self(2i32);
-    pub const LowLight: Self = Self(3i32);
+    pub const Auto: Self = Self(0);
+    pub const Standard: Self = Self(1);
+    pub const Hdr: Self = Self(2);
+    pub const LowLight: Self = Self(3);
 }
 impl windows_core::TypeKind for AdvancedPhotoMode {
     type TypeKind = windows_core::CopyType;
@@ -305,8 +305,8 @@ unsafe impl Sync for AudioDeviceModulesManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioDeviceRole(pub i32);
 impl AudioDeviceRole {
-    pub const Default: Self = Self(0i32);
-    pub const Communications: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Communications: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioDeviceRole {
     type TypeKind = windows_core::CopyType;
@@ -319,9 +319,9 @@ impl windows_core::RuntimeType for AudioDeviceRole {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoFocusRange(pub i32);
 impl AutoFocusRange {
-    pub const FullRange: Self = Self(0i32);
-    pub const Macro: Self = Self(1i32);
-    pub const Normal: Self = Self(2i32);
+    pub const FullRange: Self = Self(0);
+    pub const Macro: Self = Self(1);
+    pub const Normal: Self = Self(2);
 }
 impl windows_core::TypeKind for AutoFocusRange {
     type TypeKind = windows_core::CopyType;
@@ -467,7 +467,7 @@ impl windows_core::RuntimeType for CallControlEventHandler {
 impl CallControlEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<CallControlEventHandler, F>::new(&CallControlEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -545,8 +545,8 @@ unsafe impl Sync for CameraOcclusionInfo {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
-    pub const Lid: Self = Self(0i32);
-    pub const CameraHardware: Self = Self(1i32);
+    pub const Lid: Self = Self(0);
+    pub const CameraHardware: Self = Self(1);
 }
 impl windows_core::TypeKind for CameraOcclusionKind {
     type TypeKind = windows_core::CopyType;
@@ -613,10 +613,10 @@ unsafe impl Sync for CameraOcclusionStateChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraStreamState(pub i32);
 impl CameraStreamState {
-    pub const NotStreaming: Self = Self(0i32);
-    pub const Streaming: Self = Self(1i32);
-    pub const BlockedForPrivacy: Self = Self(2i32);
-    pub const Shutdown: Self = Self(3i32);
+    pub const NotStreaming: Self = Self(0);
+    pub const Streaming: Self = Self(1);
+    pub const BlockedForPrivacy: Self = Self(2);
+    pub const Shutdown: Self = Self(3);
 }
 impl windows_core::TypeKind for CameraStreamState {
     type TypeKind = windows_core::CopyType;
@@ -629,19 +629,19 @@ impl windows_core::RuntimeType for CameraStreamState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CaptureSceneMode(pub i32);
 impl CaptureSceneMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const Macro: Self = Self(2i32);
-    pub const Portrait: Self = Self(3i32);
-    pub const Sport: Self = Self(4i32);
-    pub const Snow: Self = Self(5i32);
-    pub const Night: Self = Self(6i32);
-    pub const Beach: Self = Self(7i32);
-    pub const Sunset: Self = Self(8i32);
-    pub const Candlelight: Self = Self(9i32);
-    pub const Landscape: Self = Self(10i32);
-    pub const NightPortrait: Self = Self(11i32);
-    pub const Backlit: Self = Self(12i32);
+    pub const Auto: Self = Self(0);
+    pub const Manual: Self = Self(1);
+    pub const Macro: Self = Self(2);
+    pub const Portrait: Self = Self(3);
+    pub const Sport: Self = Self(4);
+    pub const Snow: Self = Self(5);
+    pub const Night: Self = Self(6);
+    pub const Beach: Self = Self(7);
+    pub const Sunset: Self = Self(8);
+    pub const Candlelight: Self = Self(9);
+    pub const Landscape: Self = Self(10);
+    pub const NightPortrait: Self = Self(11);
+    pub const Backlit: Self = Self(12);
 }
 impl windows_core::TypeKind for CaptureSceneMode {
     type TypeKind = windows_core::CopyType;
@@ -654,9 +654,9 @@ impl windows_core::RuntimeType for CaptureSceneMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CaptureUse(pub i32);
 impl CaptureUse {
-    pub const None: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Photo: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for CaptureUse {
     type TypeKind = windows_core::CopyType;
@@ -669,14 +669,14 @@ impl windows_core::RuntimeType for CaptureUse {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorTemperaturePreset(pub i32);
 impl ColorTemperaturePreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const Cloudy: Self = Self(2i32);
-    pub const Daylight: Self = Self(3i32);
-    pub const Flash: Self = Self(4i32);
-    pub const Fluorescent: Self = Self(5i32);
-    pub const Tungsten: Self = Self(6i32);
-    pub const Candlelight: Self = Self(7i32);
+    pub const Auto: Self = Self(0);
+    pub const Manual: Self = Self(1);
+    pub const Cloudy: Self = Self(2);
+    pub const Daylight: Self = Self(3);
+    pub const Flash: Self = Self(4);
+    pub const Fluorescent: Self = Self(5);
+    pub const Tungsten: Self = Self(6);
+    pub const Candlelight: Self = Self(7);
 }
 impl windows_core::TypeKind for ColorTemperaturePreset {
     type TypeKind = windows_core::CopyType;
@@ -779,7 +779,7 @@ impl windows_core::RuntimeType for DialRequestedEventHandler {
 impl DialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DialRequestedEventHandler, F>::new(&DialRequestedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -985,9 +985,9 @@ unsafe impl Sync for DigitalWindowControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DigitalWindowMode(pub i32);
 impl DigitalWindowMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Auto: Self = Self(2);
 }
 impl windows_core::TypeKind for DigitalWindowMode {
     type TypeKind = windows_core::CopyType;
@@ -1389,10 +1389,10 @@ impl windows_core::RuntimeName for FocusControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FocusMode(pub i32);
 impl FocusMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Single: Self = Self(1i32);
-    pub const Continuous: Self = Self(2i32);
-    pub const Manual: Self = Self(3i32);
+    pub const Auto: Self = Self(0);
+    pub const Single: Self = Self(1);
+    pub const Continuous: Self = Self(2);
+    pub const Manual: Self = Self(3);
 }
 impl windows_core::TypeKind for FocusMode {
     type TypeKind = windows_core::CopyType;
@@ -1405,12 +1405,12 @@ impl windows_core::RuntimeType for FocusMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FocusPreset(pub i32);
 impl FocusPreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const AutoMacro: Self = Self(2i32);
-    pub const AutoNormal: Self = Self(3i32);
-    pub const AutoInfinity: Self = Self(4i32);
-    pub const AutoHyperfocal: Self = Self(5i32);
+    pub const Auto: Self = Self(0);
+    pub const Manual: Self = Self(1);
+    pub const AutoMacro: Self = Self(2);
+    pub const AutoNormal: Self = Self(3);
+    pub const AutoInfinity: Self = Self(4);
+    pub const AutoHyperfocal: Self = Self(5);
 }
 impl windows_core::TypeKind for FocusPreset {
     type TypeKind = windows_core::CopyType;
@@ -1456,7 +1456,7 @@ impl FocusSettings {
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Distance(&self) -> windows_core::Result<ManualFocusDistance> {
@@ -1466,7 +1466,7 @@ impl FocusSettings {
         }
     }
     pub fn SetDistance(&self, value: Option<ManualFocusDistance>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<ManualFocusDistance> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<ManualFocusDistance> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDistance)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
@@ -1543,9 +1543,9 @@ unsafe impl Sync for HdrVideoControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdrVideoMode(pub i32);
 impl HdrVideoMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Auto: Self = Self(2);
 }
 impl windows_core::TypeKind for HdrVideoMode {
     type TypeKind = windows_core::CopyType;
@@ -2823,9 +2823,9 @@ unsafe impl Sync for InfraredTorchControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InfraredTorchMode(pub i32);
 impl InfraredTorchMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const AlternatingFrameIllumination: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const AlternatingFrameIllumination: Self = Self(2);
 }
 impl windows_core::TypeKind for InfraredTorchMode {
     type TypeKind = windows_core::CopyType;
@@ -2927,18 +2927,18 @@ impl windows_core::RuntimeName for IsoSpeedControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsoSpeedPreset(pub i32);
 impl IsoSpeedPreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Iso50: Self = Self(1i32);
-    pub const Iso80: Self = Self(2i32);
-    pub const Iso100: Self = Self(3i32);
-    pub const Iso200: Self = Self(4i32);
-    pub const Iso400: Self = Self(5i32);
-    pub const Iso800: Self = Self(6i32);
-    pub const Iso1600: Self = Self(7i32);
-    pub const Iso3200: Self = Self(8i32);
-    pub const Iso6400: Self = Self(9i32);
-    pub const Iso12800: Self = Self(10i32);
-    pub const Iso25600: Self = Self(11i32);
+    pub const Auto: Self = Self(0);
+    pub const Iso50: Self = Self(1);
+    pub const Iso80: Self = Self(2);
+    pub const Iso100: Self = Self(3);
+    pub const Iso200: Self = Self(4);
+    pub const Iso400: Self = Self(5);
+    pub const Iso800: Self = Self(6);
+    pub const Iso1600: Self = Self(7);
+    pub const Iso3200: Self = Self(8);
+    pub const Iso6400: Self = Self(9);
+    pub const Iso12800: Self = Self(10);
+    pub const Iso25600: Self = Self(11);
 }
 impl windows_core::TypeKind for IsoSpeedPreset {
     type TypeKind = windows_core::CopyType;
@@ -2978,7 +2978,7 @@ impl windows_core::RuntimeType for KeypadPressedEventHandler {
 impl KeypadPressedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<KeypadPressedEventHandler, F>::new(&KeypadPressedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -3187,9 +3187,9 @@ impl windows_core::RuntimeName for LowLagPhotoSequenceControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ManualFocusDistance(pub i32);
 impl ManualFocusDistance {
-    pub const Infinity: Self = Self(0i32);
-    pub const Hyperfocal: Self = Self(1i32);
-    pub const Nearest: Self = Self(2i32);
+    pub const Infinity: Self = Self(0);
+    pub const Hyperfocal: Self = Self(1);
+    pub const Nearest: Self = Self(2);
 }
 impl windows_core::TypeKind for ManualFocusDistance {
     type TypeKind = windows_core::CopyType;
@@ -3202,11 +3202,11 @@ impl windows_core::RuntimeType for ManualFocusDistance {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureFocusState(pub i32);
 impl MediaCaptureFocusState {
-    pub const Uninitialized: Self = Self(0i32);
-    pub const Lost: Self = Self(1i32);
-    pub const Searching: Self = Self(2i32);
-    pub const Focused: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
+    pub const Uninitialized: Self = Self(0);
+    pub const Lost: Self = Self(1);
+    pub const Searching: Self = Self(2);
+    pub const Focused: Self = Self(3);
+    pub const Failed: Self = Self(4);
 }
 impl windows_core::TypeKind for MediaCaptureFocusState {
     type TypeKind = windows_core::CopyType;
@@ -3219,13 +3219,13 @@ impl windows_core::RuntimeType for MediaCaptureFocusState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureOptimization(pub i32);
 impl MediaCaptureOptimization {
-    pub const Default: Self = Self(0i32);
-    pub const Quality: Self = Self(1i32);
-    pub const Latency: Self = Self(2i32);
-    pub const Power: Self = Self(3i32);
-    pub const LatencyThenQuality: Self = Self(4i32);
-    pub const LatencyThenPower: Self = Self(5i32);
-    pub const PowerAndQuality: Self = Self(6i32);
+    pub const Default: Self = Self(0);
+    pub const Quality: Self = Self(1);
+    pub const Latency: Self = Self(2);
+    pub const Power: Self = Self(3);
+    pub const LatencyThenQuality: Self = Self(4);
+    pub const LatencyThenPower: Self = Self(5);
+    pub const PowerAndQuality: Self = Self(6);
 }
 impl windows_core::TypeKind for MediaCaptureOptimization {
     type TypeKind = windows_core::CopyType;
@@ -3238,8 +3238,8 @@ impl windows_core::RuntimeType for MediaCaptureOptimization {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCapturePauseBehavior(pub i32);
 impl MediaCapturePauseBehavior {
-    pub const RetainHardwareResources: Self = Self(0i32);
-    pub const ReleaseHardwareResources: Self = Self(1i32);
+    pub const RetainHardwareResources: Self = Self(0);
+    pub const ReleaseHardwareResources: Self = Self(1);
 }
 impl windows_core::TypeKind for MediaCapturePauseBehavior {
     type TypeKind = windows_core::CopyType;
@@ -3482,9 +3482,9 @@ unsafe impl Sync for OpticalImageStabilizationControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OpticalImageStabilizationMode(pub i32);
 impl OpticalImageStabilizationMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Auto: Self = Self(2);
 }
 impl windows_core::TypeKind for OpticalImageStabilizationMode {
     type TypeKind = windows_core::CopyType;
@@ -3598,7 +3598,7 @@ impl windows_core::RuntimeType for RedialRequestedEventHandler {
 impl RedialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<RedialRequestedEventHandler, F>::new(&RedialRequestedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -3729,8 +3729,8 @@ unsafe impl Sync for RegionOfInterest {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RegionOfInterestType(pub i32);
 impl RegionOfInterestType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Face: Self = Self(1i32);
+    pub const Unknown: Self = Self(0);
+    pub const Face: Self = Self(1);
 }
 impl windows_core::TypeKind for RegionOfInterestType {
     type TypeKind = windows_core::CopyType;
@@ -3841,8 +3841,8 @@ impl windows_core::RuntimeName for SceneModeControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SendCommandStatus(pub i32);
 impl SendCommandStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceNotAvailable: Self = Self(1i32);
+    pub const Success: Self = Self(0);
+    pub const DeviceNotAvailable: Self = Self(1);
 }
 impl windows_core::TypeKind for SendCommandStatus {
     type TypeKind = windows_core::CopyType;
@@ -3855,22 +3855,22 @@ impl windows_core::RuntimeType for SendCommandStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TelephonyKey(pub i32);
 impl TelephonyKey {
-    pub const D0: Self = Self(0i32);
-    pub const D1: Self = Self(1i32);
-    pub const D2: Self = Self(2i32);
-    pub const D3: Self = Self(3i32);
-    pub const D4: Self = Self(4i32);
-    pub const D5: Self = Self(5i32);
-    pub const D6: Self = Self(6i32);
-    pub const D7: Self = Self(7i32);
-    pub const D8: Self = Self(8i32);
-    pub const D9: Self = Self(9i32);
-    pub const Star: Self = Self(10i32);
-    pub const Pound: Self = Self(11i32);
-    pub const A: Self = Self(12i32);
-    pub const B: Self = Self(13i32);
-    pub const C: Self = Self(14i32);
-    pub const D: Self = Self(15i32);
+    pub const D0: Self = Self(0);
+    pub const D1: Self = Self(1);
+    pub const D2: Self = Self(2);
+    pub const D3: Self = Self(3);
+    pub const D4: Self = Self(4);
+    pub const D5: Self = Self(5);
+    pub const D6: Self = Self(6);
+    pub const D7: Self = Self(7);
+    pub const D8: Self = Self(8);
+    pub const D9: Self = Self(9);
+    pub const Star: Self = Self(10);
+    pub const Pound: Self = Self(11);
+    pub const A: Self = Self(12);
+    pub const B: Self = Self(13);
+    pub const C: Self = Self(14);
+    pub const D: Self = Self(15);
 }
 impl windows_core::TypeKind for TelephonyKey {
     type TypeKind = windows_core::CopyType;
@@ -4118,7 +4118,7 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyById(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
-        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4136,7 +4136,7 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
-        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4329,13 +4329,13 @@ unsafe impl Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerGetDevicePropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const BufferTooSmall: Self = Self(2i32);
-    pub const NotSupported: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const MaxPropertyValueSizeTooSmall: Self = Self(5i32);
-    pub const MaxPropertyValueSizeRequired: Self = Self(6i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const BufferTooSmall: Self = Self(2);
+    pub const NotSupported: Self = Self(3);
+    pub const DeviceNotAvailable: Self = Self(4);
+    pub const MaxPropertyValueSizeTooSmall: Self = Self(5);
+    pub const MaxPropertyValueSizeRequired: Self = Self(6);
 }
 impl windows_core::TypeKind for VideoDeviceControllerGetDevicePropertyStatus {
     type TypeKind = windows_core::CopyType;
@@ -4348,12 +4348,12 @@ impl windows_core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerSetDevicePropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const InvalidValue: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const NotInControl: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownFailure: Self = Self(1);
+    pub const NotSupported: Self = Self(2);
+    pub const InvalidValue: Self = Self(3);
+    pub const DeviceNotAvailable: Self = Self(4);
+    pub const NotInControl: Self = Self(5);
 }
 impl windows_core::TypeKind for VideoDeviceControllerSetDevicePropertyStatus {
     type TypeKind = windows_core::CopyType;
@@ -4405,9 +4405,9 @@ unsafe impl Sync for VideoTemporalDenoisingControl {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoTemporalDenoisingMode(pub i32);
 impl VideoTemporalDenoisingMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
+    pub const Off: Self = Self(0);
+    pub const On: Self = Self(1);
+    pub const Auto: Self = Self(2);
 }
 impl windows_core::TypeKind for VideoTemporalDenoisingMode {
     type TypeKind = windows_core::CopyType;
@@ -4597,9 +4597,9 @@ unsafe impl Sync for ZoomSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Direct: Self = Self(1i32);
-    pub const Smooth: Self = Self(2i32);
+    pub const Auto: Self = Self(0);
+    pub const Direct: Self = Self(1);
+    pub const Smooth: Self = Self(2);
 }
 impl windows_core::TypeKind for ZoomTransitionMode {
     type TypeKind = windows_core::CopyType;

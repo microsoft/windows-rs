@@ -57,10 +57,10 @@ unsafe impl Sync for AppListEntry {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
-    pub const RestartPending: Self = Self(0i32);
-    pub const NotInForeground: Self = Self(1i32);
-    pub const InvalidUser: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
+    pub const RestartPending: Self = Self(0);
+    pub const NotInForeground: Self = Self(1);
+    pub const InvalidUser: Self = Self(2);
+    pub const Other: Self = Self(3);
 }
 impl windows_core::TypeKind for AppRestartFailureReason {
     type TypeKind = windows_core::CopyType;

@@ -1,0 +1,27 @@
+//! Text rendering with `TextFormat` and `draw_text`.
+
+#![windows_subsystem = "windows"]
+
+use windows_canvas::*;
+
+fn draw(ctx: &DrawContext) {
+    ctx.clear(ColorF::BLACK);
+
+    let Ok(format) = TextFormat::new("Segoe UI", 32.0)
+        .map(|f| f.with_alignment(TextAlignment::Center))
+        .map(|f| f.with_paragraph_alignment(ParagraphAlignment::Center))
+    else {
+        return;
+    };
+
+    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else {
+        return;
+    };
+
+    let rect = Rect::new(0.0, 0.0, ctx.width, ctx.height);
+    ctx.draw_text("Hello, Canvas!", &format, &rect, &brush);
+}
+
+fn main() -> Result<()> {
+    canvas_minimal::run("Text", draw)
+}

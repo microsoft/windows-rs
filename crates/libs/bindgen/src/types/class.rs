@@ -53,6 +53,7 @@ impl Class {
                         interface.kind,
                         &mut method_names,
                         &mut virtual_names,
+                        true,
                     );
 
                     methods.combine(quote! {
@@ -65,6 +66,29 @@ impl Class {
             // In minimal mode, only flatten static/factory methods onto the class
             // (needed for static caching). Instance methods live on their interfaces.
             let mut method_names = MethodNames::for_style(&config.bindgen.style);
+
+            // In minimal mode, compose() is only needed when the class is being
+            // subclassed (aggregated), which requires --implement on one of its
+            // interfaces — including overridable interfaces declared via
+            // OverridableAttribute (e.g. IApplicationOverrides).
+            let needs_compose = config.implement.is_some_and(|imp| {
+                required_interfaces
+                    .iter()
+                    .any(|i| imp.matches(i.def.type_name()))
+                    || self
+                        .def
+                        .attributes()
+                        .filter(|a| a.name() == "OverridableAttribute")
+                        .any(|a| {
+                            a.value().iter().any(|(_, arg)| {
+                                if let Value::TypeName(tn) = arg {
+                                    imp.matches_str(&tn.namespace, &tn.name)
+                                } else {
+                                    false
+                                }
+                            })
+                        })
+            });
 
             for interface in required_interfaces
                 .iter()
@@ -89,6 +113,7 @@ impl Class {
                         interface.kind,
                         &mut method_names,
                         &mut virtual_names,
+                        needs_compose,
                     );
 
                     methods.combine(quote! {
@@ -101,9 +126,21 @@ impl Class {
 
         let result = config.write_result();
 
-        let new = self.has_default_constructor(config.reader).then(||
+        let vis = if config.bindgen.style.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        };
+
+        let has_default_ctor = self.has_default_constructor(config.reader)
+            && config.minimal_filter.is_none_or(|mf| {
+                mf.activatable
+                    .contains(&(type_name.namespace(), type_name.name()))
+            });
+
+        let new = has_default_ctor.then(||
             quote! {
-                pub fn new() -> #result Result<Self> {
+                #vis fn new() -> #result Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
                 fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> #result Result<R>>(
@@ -116,7 +153,7 @@ impl Class {
             }
         );
 
-        let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
+        let factories: Vec<_> = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.def.methods().next().is_none() {
                     None
@@ -151,7 +188,7 @@ impl Class {
                     }
                 }
                 _ => None,
-            });
+            }).collect();
 
         if let Some(default_interface) = self.default_interface(config.reader) {
             if default_interface.is_async() {
@@ -272,6 +309,19 @@ impl Class {
                 quote! {}
             };
 
+            let impl_block = if new.is_none() && methods.is_empty() && factories.is_empty() {
+                quote! {}
+            } else {
+                quote! {
+                    #cfg
+                    impl #name {
+                        #new
+                        #methods
+                        #(#factories)*
+                    }
+                }
+            };
+
             quote! {
                 #cfg
                 #[repr(transparent)]
@@ -280,12 +330,7 @@ impl Class {
                 #cfg
                 #interface_hierarchy
                 #required_hierarchy
-                #cfg
-                impl #name {
-                    #new
-                    #methods
-                    #(#factories)*
-                }
+                #impl_block
                 #cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();
@@ -301,14 +346,22 @@ impl Class {
                 #into_iterator
             }
         } else {
+            let impl_block = if methods.is_empty() && factories.is_empty() {
+                quote! {}
+            } else {
+                quote! {
+                    #cfg
+                    impl #name {
+                        #methods
+                        #(#factories)*
+                    }
+                }
+            };
+
             quote! {
                 #cfg
                 pub struct #name;
-                #cfg
-                impl #name {
-                    #methods
-                    #(#factories)*
-                }
+                #impl_block
                 #runtime_name
             }
         }

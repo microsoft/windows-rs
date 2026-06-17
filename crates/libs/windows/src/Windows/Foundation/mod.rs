@@ -52,7 +52,7 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 impl DeferralCompletedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DeferralCompletedHandler, F>::new(&DeferralCompletedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
@@ -96,7 +96,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<EventHandler<T>, F>::new(&EventHandlerBox::<T, F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -1425,7 +1425,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
                 match IReferenceArray_Impl::Value(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1713,47 +1713,47 @@ impl windows_core::RuntimeType for Point {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
-    pub const Empty: Self = Self(0i32);
-    pub const UInt8: Self = Self(1i32);
-    pub const Int16: Self = Self(2i32);
-    pub const UInt16: Self = Self(3i32);
-    pub const Int32: Self = Self(4i32);
-    pub const UInt32: Self = Self(5i32);
-    pub const Int64: Self = Self(6i32);
-    pub const UInt64: Self = Self(7i32);
-    pub const Single: Self = Self(8i32);
-    pub const Double: Self = Self(9i32);
-    pub const Char16: Self = Self(10i32);
-    pub const Boolean: Self = Self(11i32);
-    pub const String: Self = Self(12i32);
-    pub const Inspectable: Self = Self(13i32);
-    pub const DateTime: Self = Self(14i32);
-    pub const TimeSpan: Self = Self(15i32);
-    pub const Guid: Self = Self(16i32);
-    pub const Point: Self = Self(17i32);
-    pub const Size: Self = Self(18i32);
-    pub const Rect: Self = Self(19i32);
-    pub const OtherType: Self = Self(20i32);
-    pub const UInt8Array: Self = Self(1025i32);
-    pub const Int16Array: Self = Self(1026i32);
-    pub const UInt16Array: Self = Self(1027i32);
-    pub const Int32Array: Self = Self(1028i32);
-    pub const UInt32Array: Self = Self(1029i32);
-    pub const Int64Array: Self = Self(1030i32);
-    pub const UInt64Array: Self = Self(1031i32);
-    pub const SingleArray: Self = Self(1032i32);
-    pub const DoubleArray: Self = Self(1033i32);
-    pub const Char16Array: Self = Self(1034i32);
-    pub const BooleanArray: Self = Self(1035i32);
-    pub const StringArray: Self = Self(1036i32);
-    pub const InspectableArray: Self = Self(1037i32);
-    pub const DateTimeArray: Self = Self(1038i32);
-    pub const TimeSpanArray: Self = Self(1039i32);
-    pub const GuidArray: Self = Self(1040i32);
-    pub const PointArray: Self = Self(1041i32);
-    pub const SizeArray: Self = Self(1042i32);
-    pub const RectArray: Self = Self(1043i32);
-    pub const OtherTypeArray: Self = Self(1044i32);
+    pub const Empty: Self = Self(0);
+    pub const UInt8: Self = Self(1);
+    pub const Int16: Self = Self(2);
+    pub const UInt16: Self = Self(3);
+    pub const Int32: Self = Self(4);
+    pub const UInt32: Self = Self(5);
+    pub const Int64: Self = Self(6);
+    pub const UInt64: Self = Self(7);
+    pub const Single: Self = Self(8);
+    pub const Double: Self = Self(9);
+    pub const Char16: Self = Self(10);
+    pub const Boolean: Self = Self(11);
+    pub const String: Self = Self(12);
+    pub const Inspectable: Self = Self(13);
+    pub const DateTime: Self = Self(14);
+    pub const TimeSpan: Self = Self(15);
+    pub const Guid: Self = Self(16);
+    pub const Point: Self = Self(17);
+    pub const Size: Self = Self(18);
+    pub const Rect: Self = Self(19);
+    pub const OtherType: Self = Self(20);
+    pub const UInt8Array: Self = Self(1025);
+    pub const Int16Array: Self = Self(1026);
+    pub const UInt16Array: Self = Self(1027);
+    pub const Int32Array: Self = Self(1028);
+    pub const UInt32Array: Self = Self(1029);
+    pub const Int64Array: Self = Self(1030);
+    pub const UInt64Array: Self = Self(1031);
+    pub const SingleArray: Self = Self(1032);
+    pub const DoubleArray: Self = Self(1033);
+    pub const Char16Array: Self = Self(1034);
+    pub const BooleanArray: Self = Self(1035);
+    pub const StringArray: Self = Self(1036);
+    pub const InspectableArray: Self = Self(1037);
+    pub const DateTimeArray: Self = Self(1038);
+    pub const TimeSpanArray: Self = Self(1039);
+    pub const GuidArray: Self = Self(1040);
+    pub const PointArray: Self = Self(1041);
+    pub const SizeArray: Self = Self(1042);
+    pub const RectArray: Self = Self(1043);
+    pub const OtherTypeArray: Self = Self(1044);
 }
 impl windows_core::TypeKind for PropertyType {
     type TypeKind = windows_core::CopyType;
@@ -2053,7 +2053,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<TypedEventHandler<TSender, TResult>, F>::new(&TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where

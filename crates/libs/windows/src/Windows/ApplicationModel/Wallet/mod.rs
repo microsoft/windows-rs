@@ -316,11 +316,11 @@ pub struct IWalletVerbFactory_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
-    pub const OpenItem: Self = Self(0i32);
-    pub const Transaction: Self = Self(1i32);
-    pub const MoreTransactions: Self = Self(2i32);
-    pub const Message: Self = Self(3i32);
-    pub const Verb: Self = Self(4i32);
+    pub const OpenItem: Self = Self(0);
+    pub const Transaction: Self = Self(1);
+    pub const MoreTransactions: Self = Self(2);
+    pub const Message: Self = Self(3);
+    pub const Verb: Self = Self(4);
 }
 impl windows_core::TypeKind for WalletActionKind {
     type TypeKind = windows_core::CopyType;
@@ -390,18 +390,18 @@ unsafe impl Sync for WalletBarcode {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
-    pub const Invalid: Self = Self(0i32);
-    pub const Upca: Self = Self(1i32);
-    pub const Upce: Self = Self(2i32);
-    pub const Ean13: Self = Self(3i32);
-    pub const Ean8: Self = Self(4i32);
-    pub const Itf: Self = Self(5i32);
-    pub const Code39: Self = Self(6i32);
-    pub const Code128: Self = Self(7i32);
-    pub const Qr: Self = Self(8i32);
-    pub const Pdf417: Self = Self(9i32);
-    pub const Aztec: Self = Self(10i32);
-    pub const Custom: Self = Self(100000i32);
+    pub const Invalid: Self = Self(0);
+    pub const Upca: Self = Self(1);
+    pub const Upce: Self = Self(2);
+    pub const Ean13: Self = Self(3);
+    pub const Ean8: Self = Self(4);
+    pub const Itf: Self = Self(5);
+    pub const Code39: Self = Self(6);
+    pub const Code128: Self = Self(7);
+    pub const Qr: Self = Self(8);
+    pub const Pdf417: Self = Self(9);
+    pub const Aztec: Self = Self(10);
+    pub const Custom: Self = Self(100000);
 }
 impl windows_core::TypeKind for WalletBarcodeSymbology {
     type TypeKind = windows_core::CopyType;
@@ -414,21 +414,21 @@ impl windows_core::RuntimeType for WalletBarcodeSymbology {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
-    pub const Hidden: Self = Self(0i32);
-    pub const HeaderField1: Self = Self(1i32);
-    pub const HeaderField2: Self = Self(2i32);
-    pub const PrimaryField1: Self = Self(3i32);
-    pub const PrimaryField2: Self = Self(4i32);
-    pub const SecondaryField1: Self = Self(5i32);
-    pub const SecondaryField2: Self = Self(6i32);
-    pub const SecondaryField3: Self = Self(7i32);
-    pub const SecondaryField4: Self = Self(8i32);
-    pub const SecondaryField5: Self = Self(9i32);
-    pub const CenterField1: Self = Self(10i32);
-    pub const FooterField1: Self = Self(11i32);
-    pub const FooterField2: Self = Self(12i32);
-    pub const FooterField3: Self = Self(13i32);
-    pub const FooterField4: Self = Self(14i32);
+    pub const Hidden: Self = Self(0);
+    pub const HeaderField1: Self = Self(1);
+    pub const HeaderField2: Self = Self(2);
+    pub const PrimaryField1: Self = Self(3);
+    pub const PrimaryField2: Self = Self(4);
+    pub const SecondaryField1: Self = Self(5);
+    pub const SecondaryField2: Self = Self(6);
+    pub const SecondaryField3: Self = Self(7);
+    pub const SecondaryField4: Self = Self(8);
+    pub const SecondaryField5: Self = Self(9);
+    pub const CenterField1: Self = Self(10);
+    pub const FooterField1: Self = Self(11);
+    pub const FooterField2: Self = Self(12);
+    pub const FooterField3: Self = Self(13);
+    pub const FooterField4: Self = Self(14);
 }
 impl windows_core::TypeKind for WalletDetailViewPosition {
     type TypeKind = windows_core::CopyType;
@@ -482,7 +482,7 @@ impl WalletItem {
         }
     }
     pub fn SetLastUpdated(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLastUpdated)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
@@ -510,7 +510,7 @@ impl WalletItem {
         }
     }
     pub fn SetExpirationDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -689,7 +689,7 @@ impl WalletItem {
         }
     }
     pub fn SetRelevantDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetRelevantDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -834,13 +834,13 @@ unsafe impl Sync for WalletItemCustomProperty {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
-    pub const Invalid: Self = Self(0i32);
-    pub const Deal: Self = Self(1i32);
-    pub const General: Self = Self(2i32);
-    pub const PaymentInstrument: Self = Self(3i32);
-    pub const Ticket: Self = Self(4i32);
-    pub const BoardingPass: Self = Self(5i32);
-    pub const MembershipCard: Self = Self(6i32);
+    pub const Invalid: Self = Self(0);
+    pub const Deal: Self = Self(1);
+    pub const General: Self = Self(2);
+    pub const PaymentInstrument: Self = Self(3);
+    pub const Ticket: Self = Self(4);
+    pub const BoardingPass: Self = Self(5);
+    pub const MembershipCard: Self = Self(6);
 }
 impl windows_core::TypeKind for WalletItemKind {
     type TypeKind = windows_core::CopyType;
@@ -1002,9 +1002,9 @@ unsafe impl Sync for WalletRelevantLocation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
-    pub const Hidden: Self = Self(0i32);
-    pub const Field1: Self = Self(1i32);
-    pub const Field2: Self = Self(2i32);
+    pub const Hidden: Self = Self(0);
+    pub const Field1: Self = Self(1);
+    pub const Field2: Self = Self(2);
 }
 impl windows_core::TypeKind for WalletSummaryViewPosition {
     type TypeKind = windows_core::CopyType;
@@ -1068,7 +1068,7 @@ impl WalletTransaction {
         }
     }
     pub fn SetTransactionDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetTransactionDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLaunchable(&self) -> windows_core::Result<bool> {

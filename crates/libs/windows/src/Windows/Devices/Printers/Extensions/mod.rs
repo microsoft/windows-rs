@@ -193,13 +193,13 @@ unsafe impl Sync for Print3DWorkflow {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
-    pub const Unknown: Self = Self(0i32);
-    pub const ModelExceedsPrintBed: Self = Self(1i32);
-    pub const UploadFailed: Self = Self(2i32);
-    pub const InvalidMaterialSelection: Self = Self(3i32);
-    pub const InvalidModel: Self = Self(4i32);
-    pub const ModelNotManifold: Self = Self(5i32);
-    pub const InvalidPrintTicket: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const ModelExceedsPrintBed: Self = Self(1);
+    pub const UploadFailed: Self = Self(2);
+    pub const InvalidMaterialSelection: Self = Self(3);
+    pub const InvalidModel: Self = Self(4);
+    pub const ModelNotManifold: Self = Self(5);
+    pub const InvalidPrintTicket: Self = Self(6);
 }
 impl windows_core::TypeKind for Print3DWorkflowDetail {
     type TypeKind = windows_core::CopyType;
@@ -272,11 +272,11 @@ unsafe impl Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Slicing: Self = Self(3i32);
-    pub const Submitted: Self = Self(4i32);
+    pub const Abandoned: Self = Self(0);
+    pub const Canceled: Self = Self(1);
+    pub const Failed: Self = Self(2);
+    pub const Slicing: Self = Self(3);
+    pub const Submitted: Self = Self(4);
 }
 impl windows_core::TypeKind for Print3DWorkflowStatus {
     type TypeKind = windows_core::CopyType;

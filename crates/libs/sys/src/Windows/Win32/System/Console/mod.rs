@@ -142,9 +142,9 @@ windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hcon
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::super::Foundation::HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation::HANDLE, lpbuffer : windows_sys::core::PCWSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 pub type ALLOC_CONSOLE_MODE = i32;
-pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0i32;
-pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1i32;
-pub const ALLOC_CONSOLE_MODE_NO_WINDOW: ALLOC_CONSOLE_MODE = 2i32;
+pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0;
+pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1;
+pub const ALLOC_CONSOLE_MODE_NO_WINDOW: ALLOC_CONSOLE_MODE = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ALLOC_CONSOLE_OPTIONS {
@@ -153,22 +153,22 @@ pub struct ALLOC_CONSOLE_OPTIONS {
     pub showWindow: u16,
 }
 pub type ALLOC_CONSOLE_RESULT = i32;
-pub const ALLOC_CONSOLE_RESULT_EXISTING_CONSOLE: ALLOC_CONSOLE_RESULT = 2i32;
-pub const ALLOC_CONSOLE_RESULT_NEW_CONSOLE: ALLOC_CONSOLE_RESULT = 1i32;
-pub const ALLOC_CONSOLE_RESULT_NO_CONSOLE: ALLOC_CONSOLE_RESULT = 0i32;
-pub const ALTNUMPAD_BIT: u32 = 67108864u32;
+pub const ALLOC_CONSOLE_RESULT_EXISTING_CONSOLE: ALLOC_CONSOLE_RESULT = 2;
+pub const ALLOC_CONSOLE_RESULT_NEW_CONSOLE: ALLOC_CONSOLE_RESULT = 1;
+pub const ALLOC_CONSOLE_RESULT_NO_CONSOLE: ALLOC_CONSOLE_RESULT = 0;
+pub const ALTNUMPAD_BIT: u32 = 67108864;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct APPKEY {
     pub Modifier: u16,
     pub ScanCode: u16,
 }
-pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
-pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
-pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u16;
-pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128u16;
-pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64u16;
-pub const CAPSLOCK_ON: u32 = 128u32;
+pub const ATTACH_PARENT_PROCESS: u32 = 4294967295;
+pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16;
+pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32;
+pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128;
+pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64;
+pub const CAPSLOCK_ON: u32 = 128;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CHAR_INFO {
@@ -191,17 +191,17 @@ impl Default for CHAR_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CHAR_TYPE_LEADING: u32 = 2u32;
-pub const CHAR_TYPE_SBCS: u32 = 0u32;
-pub const CHAR_TYPE_TRAILING: u32 = 3u32;
-pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
-pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
-pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u16;
-pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256u16;
-pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384u16;
-pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768u16;
-pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512u16;
-pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768u16;
+pub const CHAR_TYPE_LEADING: u32 = 2;
+pub const CHAR_TYPE_SBCS: u32 = 0;
+pub const CHAR_TYPE_TRAILING: u32 = 3;
+pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024;
+pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048;
+pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096;
+pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256;
+pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384;
+pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768;
+pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512;
+pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768;
 pub type CONSOLECONTROL = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -239,11 +239,11 @@ impl Default for CONSOLEWINDOWOWNER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CONSOLE_ALTENTER: u32 = 8u32;
-pub const CONSOLE_ALTESC: u32 = 2u32;
-pub const CONSOLE_ALTPRTSC: u32 = 16u32;
-pub const CONSOLE_ALTSPACE: u32 = 4u32;
-pub const CONSOLE_ALTTAB: u32 = 1u32;
+pub const CONSOLE_ALTENTER: u32 = 8;
+pub const CONSOLE_ALTESC: u32 = 2;
+pub const CONSOLE_ALTPRTSC: u32 = 16;
+pub const CONSOLE_ALTSPACE: u32 = 4;
+pub const CONSOLE_ALTTAB: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_CARET_INFO {
@@ -256,7 +256,7 @@ impl Default for CONSOLE_CARET_INFO {
     }
 }
 pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
-pub const CONSOLE_CTRLESC: u32 = 64u32;
+pub const CONSOLE_CTRLESC: u32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_CURSOR_INFO {
@@ -284,9 +284,9 @@ impl Default for CONSOLE_FONT_INFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CONSOLE_FULLSCREEN: u32 = 1u32;
-pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
-pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
+pub const CONSOLE_FULLSCREEN: u32 = 1;
+pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
+pub const CONSOLE_FULLSCREEN_MODE: u32 = 1;
 pub const CONSOLE_GENERIC: windows_sys::core::PCWSTR = windows_sys::core::w!("CON");
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -304,8 +304,8 @@ impl Default for CONSOLE_GRAPHICS_BUFFER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CONSOLE_HANDLE_NEVERSET: u32 = 268435456u32;
-pub const CONSOLE_HANDLE_SIGNATURE: u32 = 3u32;
+pub const CONSOLE_HANDLE_NEVERSET: u32 = 268435456;
+pub const CONSOLE_HANDLE_SIGNATURE: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_HISTORY_INFO {
@@ -316,13 +316,13 @@ pub struct CONSOLE_HISTORY_INFO {
 }
 pub const CONSOLE_INPUT_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("CONIN$");
 pub type CONSOLE_MODE = u32;
-pub const CONSOLE_MODIFIER_ALT: u32 = 8u32;
-pub const CONSOLE_MODIFIER_CONTROL: u32 = 4u32;
-pub const CONSOLE_MODIFIER_SHIFT: u32 = 3u32;
-pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
-pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
-pub const CONSOLE_NOSHORTCUTKEY: u32 = 0u32;
-pub const CONSOLE_NO_SELECTION: u32 = 0u32;
+pub const CONSOLE_MODIFIER_ALT: u32 = 8;
+pub const CONSOLE_MODIFIER_CONTROL: u32 = 4;
+pub const CONSOLE_MODIFIER_SHIFT: u32 = 3;
+pub const CONSOLE_MOUSE_DOWN: u32 = 8;
+pub const CONSOLE_MOUSE_SELECTION: u32 = 4;
+pub const CONSOLE_NOSHORTCUTKEY: u32 = 0;
+pub const CONSOLE_NO_SELECTION: u32 = 0;
 pub const CONSOLE_OUTPUT_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("CONOUT$");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -330,7 +330,7 @@ pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
-pub const CONSOLE_PRTSC: u32 = 32u32;
+pub const CONSOLE_PRTSC: u32 = 32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
@@ -339,8 +339,8 @@ pub struct CONSOLE_READCONSOLE_CONTROL {
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
-pub const CONSOLE_REGISTER_VDM: u32 = 1u32;
-pub const CONSOLE_REGISTER_WOW: u32 = 2u32;
+pub const CONSOLE_REGISTER_VDM: u32 = 1;
+pub const CONSOLE_REGISTER_WOW: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
@@ -375,45 +375,45 @@ pub struct CONSOLE_SELECTION_INFO {
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
-pub const CONSOLE_SELECTION_INVERTED: u32 = 16u32;
-pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
-pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
-pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
-pub const CONSOLE_UNREGISTER_VDM: u32 = 0u32;
-pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
+pub const CONSOLE_SELECTION_INVERTED: u32 = 16;
+pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
+pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
+pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1;
+pub const CONSOLE_UNREGISTER_VDM: u32 = 0;
+pub const CONSOLE_WINDOWED_MODE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
 }
-pub const CTRL_BREAK_EVENT: u32 = 1u32;
-pub const CTRL_CLOSE_EVENT: u32 = 2u32;
-pub const CTRL_C_EVENT: u32 = 0u32;
-pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
-pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
-pub const ConsoleEndTask: CONSOLECONTROL = 7i32;
-pub const ConsoleNotifyConsoleApplication: CONSOLECONTROL = 1i32;
-pub const ConsoleSetCaretInfo: CONSOLECONTROL = 3i32;
-pub const ConsoleSetForeground: CONSOLECONTROL = 5i32;
-pub const ConsoleSetWindowOwner: CONSOLECONTROL = 6i32;
-pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8u32;
-pub const DOUBLE_CLICK: u32 = 2u32;
-pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = 256u32;
-pub const ENABLE_ECHO_INPUT: CONSOLE_MODE = 4u32;
-pub const ENABLE_EXTENDED_FLAGS: CONSOLE_MODE = 128u32;
-pub const ENABLE_INSERT_MODE: CONSOLE_MODE = 32u32;
-pub const ENABLE_LINE_INPUT: CONSOLE_MODE = 2u32;
-pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = 16u32;
-pub const ENABLE_MOUSE_INPUT: CONSOLE_MODE = 16u32;
-pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = 1u32;
-pub const ENABLE_PROCESSED_OUTPUT: CONSOLE_MODE = 1u32;
-pub const ENABLE_QUICK_EDIT_MODE: CONSOLE_MODE = 64u32;
-pub const ENABLE_VIRTUAL_TERMINAL_INPUT: CONSOLE_MODE = 512u32;
-pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4u32;
-pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8u32;
-pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u32;
-pub const ENHANCED_KEY: u32 = 256u32;
+pub const CTRL_BREAK_EVENT: u32 = 1;
+pub const CTRL_CLOSE_EVENT: u32 = 2;
+pub const CTRL_C_EVENT: u32 = 0;
+pub const CTRL_LOGOFF_EVENT: u32 = 5;
+pub const CTRL_SHUTDOWN_EVENT: u32 = 6;
+pub const ConsoleEndTask: CONSOLECONTROL = 7;
+pub const ConsoleNotifyConsoleApplication: CONSOLECONTROL = 1;
+pub const ConsoleSetCaretInfo: CONSOLECONTROL = 3;
+pub const ConsoleSetForeground: CONSOLECONTROL = 5;
+pub const ConsoleSetWindowOwner: CONSOLECONTROL = 6;
+pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8;
+pub const DOUBLE_CLICK: u32 = 2;
+pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = 256;
+pub const ENABLE_ECHO_INPUT: CONSOLE_MODE = 4;
+pub const ENABLE_EXTENDED_FLAGS: CONSOLE_MODE = 128;
+pub const ENABLE_INSERT_MODE: CONSOLE_MODE = 32;
+pub const ENABLE_LINE_INPUT: CONSOLE_MODE = 2;
+pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = 16;
+pub const ENABLE_MOUSE_INPUT: CONSOLE_MODE = 16;
+pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = 1;
+pub const ENABLE_PROCESSED_OUTPUT: CONSOLE_MODE = 1;
+pub const ENABLE_QUICK_EDIT_MODE: CONSOLE_MODE = 64;
+pub const ENABLE_VIRTUAL_TERMINAL_INPUT: CONSOLE_MODE = 512;
+pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4;
+pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8;
+pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2;
+pub const ENHANCED_KEY: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ExtKeyDef {
@@ -443,21 +443,21 @@ pub struct ExtKeySubst {
     pub wVirKey: u16,
     pub wUnicodeChar: u16,
 }
-pub const FOCUS_EVENT: u32 = 16u32;
+pub const FOCUS_EVENT: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: windows_sys::core::BOOL,
 }
-pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 1u16;
-pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 2u16;
-pub const FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 8u16;
-pub const FOREGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 4u16;
-pub const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1u32;
-pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
-pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
-pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
-pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
+pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 1;
+pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 2;
+pub const FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 8;
+pub const FOREGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 4;
+pub const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1;
+pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4;
+pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8;
+pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16;
+pub const HISTORY_NO_DUP_FLAG: u32 = 1;
 pub type HPCON = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -484,7 +484,7 @@ impl Default for INPUT_RECORD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const KEY_EVENT: u32 = 1u32;
+pub const KEY_EVENT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KEY_EVENT_RECORD {
@@ -511,15 +511,15 @@ impl Default for KEY_EVENT_RECORD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const LEFT_ALT_PRESSED: u32 = 2u32;
-pub const LEFT_CTRL_PRESSED: u32 = 8u32;
-pub const MENU_EVENT: u32 = 8u32;
+pub const LEFT_ALT_PRESSED: u32 = 2;
+pub const LEFT_CTRL_PRESSED: u32 = 8;
+pub const MENU_EVENT: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
-pub const MOUSE_EVENT: u32 = 2u32;
+pub const MOUSE_EVENT: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSE_EVENT_RECORD {
@@ -528,40 +528,40 @@ pub struct MOUSE_EVENT_RECORD {
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
 }
-pub const MOUSE_HWHEELED: u32 = 8u32;
-pub const MOUSE_MOVED: u32 = 1u32;
-pub const MOUSE_WHEELED: u32 = 4u32;
-pub const NLS_ALPHANUMERIC: u32 = 0u32;
-pub const NLS_DBCSCHAR: u32 = 65536u32;
-pub const NLS_HIRAGANA: u32 = 262144u32;
-pub const NLS_IME_CONVERSION: u32 = 8388608u32;
-pub const NLS_IME_DISABLE: u32 = 536870912u32;
-pub const NLS_KATAKANA: u32 = 131072u32;
-pub const NLS_ROMAN: u32 = 4194304u32;
-pub const NUMLOCK_ON: u32 = 32u32;
+pub const MOUSE_HWHEELED: u32 = 8;
+pub const MOUSE_MOVED: u32 = 1;
+pub const MOUSE_WHEELED: u32 = 4;
+pub const NLS_ALPHANUMERIC: u32 = 0;
+pub const NLS_DBCSCHAR: u32 = 65536;
+pub const NLS_HIRAGANA: u32 = 262144;
+pub const NLS_IME_CONVERSION: u32 = 8388608;
+pub const NLS_IME_DISABLE: u32 = 536870912;
+pub const NLS_KATAKANA: u32 = 131072;
+pub const NLS_ROMAN: u32 = 4194304;
+pub const NUMLOCK_ON: u32 = 32;
 pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> windows_sys::core::BOOL>;
-pub const PID_CONSOLE_CTRLKEYSDISABLED: u32 = 4u32;
-pub const PID_CONSOLE_CURSOR_COLOR: u32 = 9u32;
-pub const PID_CONSOLE_CURSOR_TYPE: u32 = 8u32;
-pub const PID_CONSOLE_DEFAULTBACKGROUND: u32 = 12u32;
-pub const PID_CONSOLE_DEFAULTFOREGROUND: u32 = 11u32;
-pub const PID_CONSOLE_FILTERONPASTE: u32 = 3u32;
-pub const PID_CONSOLE_FORCEV2: u32 = 1u32;
-pub const PID_CONSOLE_INTERCEPT_COPY_PASTE: u32 = 10u32;
-pub const PID_CONSOLE_LINESELECTION: u32 = 5u32;
-pub const PID_CONSOLE_TERMINALSCROLLING: u32 = 13u32;
-pub const PID_CONSOLE_WINDOWMAXIMIZED: u32 = 7u32;
-pub const PID_CONSOLE_WINDOWTRANSPARENCY: u32 = 6u32;
-pub const PID_CONSOLE_WRAPTEXT: u32 = 2u32;
-pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
-pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
-pub const RIGHT_ALT_PRESSED: u32 = 1u32;
-pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
-pub const Reserved1: CONSOLECONTROL = 0i32;
-pub const Reserved2: CONSOLECONTROL = 2i32;
-pub const Reserved3: CONSOLECONTROL = 4i32;
-pub const SCROLLLOCK_ON: u32 = 64u32;
-pub const SHIFT_PRESSED: u32 = 16u32;
+pub const PID_CONSOLE_CTRLKEYSDISABLED: u32 = 4;
+pub const PID_CONSOLE_CURSOR_COLOR: u32 = 9;
+pub const PID_CONSOLE_CURSOR_TYPE: u32 = 8;
+pub const PID_CONSOLE_DEFAULTBACKGROUND: u32 = 12;
+pub const PID_CONSOLE_DEFAULTFOREGROUND: u32 = 11;
+pub const PID_CONSOLE_FILTERONPASTE: u32 = 3;
+pub const PID_CONSOLE_FORCEV2: u32 = 1;
+pub const PID_CONSOLE_INTERCEPT_COPY_PASTE: u32 = 10;
+pub const PID_CONSOLE_LINESELECTION: u32 = 5;
+pub const PID_CONSOLE_TERMINALSCROLLING: u32 = 13;
+pub const PID_CONSOLE_WINDOWMAXIMIZED: u32 = 7;
+pub const PID_CONSOLE_WINDOWTRANSPARENCY: u32 = 6;
+pub const PID_CONSOLE_WRAPTEXT: u32 = 2;
+pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1;
+pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2;
+pub const RIGHT_ALT_PRESSED: u32 = 1;
+pub const RIGHT_CTRL_PRESSED: u32 = 4;
+pub const Reserved1: CONSOLECONTROL = 0;
+pub const Reserved2: CONSOLECONTROL = 2;
+pub const Reserved3: CONSOLECONTROL = 4;
+pub const SCROLLLOCK_ON: u32 = 64;
+pub const SHIFT_PRESSED: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SMALL_RECT {
@@ -570,19 +570,19 @@ pub struct SMALL_RECT {
     pub Right: i16,
     pub Bottom: i16,
 }
-pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
+pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284;
 pub type STD_HANDLE = u32;
-pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
-pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
-pub const VDM_CLIENT_RECT: u32 = 3u32;
-pub const VDM_CLIENT_TO_SCREEN: u32 = 4u32;
-pub const VDM_FULLSCREEN_NOPAINT: u32 = 7u32;
-pub const VDM_HIDE_WINDOW: u32 = 1u32;
-pub const VDM_IS_HIDDEN: u32 = 6u32;
-pub const VDM_IS_ICONIC: u32 = 2u32;
-pub const VDM_SCREEN_TO_CLIENT: u32 = 5u32;
-pub const VDM_SET_VIDEO_MODE: u32 = 8u32;
-pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
+pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286;
+pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285;
+pub const VDM_CLIENT_RECT: u32 = 3;
+pub const VDM_CLIENT_TO_SCREEN: u32 = 4;
+pub const VDM_FULLSCREEN_NOPAINT: u32 = 7;
+pub const VDM_HIDE_WINDOW: u32 = 1;
+pub const VDM_IS_HIDDEN: u32 = 6;
+pub const VDM_IS_ICONIC: u32 = 2;
+pub const VDM_SCREEN_TO_CLIENT: u32 = 5;
+pub const VDM_SET_VIDEO_MODE: u32 = 8;
+pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {

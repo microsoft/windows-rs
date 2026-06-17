@@ -59,9 +59,9 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     windows_core::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
     unsafe { timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent) }
 }
-pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
-pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
-pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
+pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047);
+pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050);
+pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121);
 windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
@@ -237,44 +237,44 @@ impl IReferenceClockTimerControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IReferenceClockTimerControl {}
-pub const JOYERR_BASE: u32 = 160u32;
+pub const JOYERR_BASE: u32 = 160;
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub const MAXERRORLENGTH: u32 = 256u32;
-pub const MAXPNAMELEN: u32 = 32u32;
-pub const MCIERR_BASE: u32 = 256u32;
-pub const MCI_CD_OFFSET: u32 = 1088u32;
-pub const MCI_SEQ_OFFSET: u32 = 1216u32;
-pub const MCI_STRING_OFFSET: u32 = 512u32;
-pub const MCI_VD_OFFSET: u32 = 1024u32;
-pub const MCI_WAVE_OFFSET: u32 = 1152u32;
-pub const MIDIERR_BASE: u32 = 64u32;
-pub const MIXERR_BASE: u32 = 1024u32;
-pub const MMSYSERR_ALLOCATED: u32 = 4u32;
-pub const MMSYSERR_BADDB: u32 = 14u32;
-pub const MMSYSERR_BADDEVICEID: u32 = 2u32;
-pub const MMSYSERR_BADERRNUM: u32 = 9u32;
-pub const MMSYSERR_BASE: u32 = 0u32;
-pub const MMSYSERR_DELETEERROR: u32 = 18u32;
-pub const MMSYSERR_ERROR: u32 = 1u32;
-pub const MMSYSERR_HANDLEBUSY: u32 = 12u32;
-pub const MMSYSERR_INVALFLAG: u32 = 10u32;
-pub const MMSYSERR_INVALHANDLE: u32 = 5u32;
-pub const MMSYSERR_INVALIDALIAS: u32 = 13u32;
-pub const MMSYSERR_INVALPARAM: u32 = 11u32;
-pub const MMSYSERR_KEYNOTFOUND: u32 = 15u32;
-pub const MMSYSERR_LASTERROR: u32 = 21u32;
-pub const MMSYSERR_MOREDATA: u32 = 21u32;
-pub const MMSYSERR_NODRIVER: u32 = 6u32;
-pub const MMSYSERR_NODRIVERCB: u32 = 20u32;
-pub const MMSYSERR_NOERROR: u32 = 0u32;
-pub const MMSYSERR_NOMEM: u32 = 7u32;
-pub const MMSYSERR_NOTENABLED: u32 = 3u32;
-pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
-pub const MMSYSERR_READERROR: u32 = 16u32;
-pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
-pub const MMSYSERR_WRITEERROR: u32 = 17u32;
+pub const MAXERRORLENGTH: u32 = 256;
+pub const MAXPNAMELEN: u32 = 32;
+pub const MCIERR_BASE: u32 = 256;
+pub const MCI_CD_OFFSET: u32 = 1088;
+pub const MCI_SEQ_OFFSET: u32 = 1216;
+pub const MCI_STRING_OFFSET: u32 = 512;
+pub const MCI_VD_OFFSET: u32 = 1024;
+pub const MCI_WAVE_OFFSET: u32 = 1152;
+pub const MIDIERR_BASE: u32 = 64;
+pub const MIXERR_BASE: u32 = 1024;
+pub const MMSYSERR_ALLOCATED: u32 = 4;
+pub const MMSYSERR_BADDB: u32 = 14;
+pub const MMSYSERR_BADDEVICEID: u32 = 2;
+pub const MMSYSERR_BADERRNUM: u32 = 9;
+pub const MMSYSERR_BASE: u32 = 0;
+pub const MMSYSERR_DELETEERROR: u32 = 18;
+pub const MMSYSERR_ERROR: u32 = 1;
+pub const MMSYSERR_HANDLEBUSY: u32 = 12;
+pub const MMSYSERR_INVALFLAG: u32 = 10;
+pub const MMSYSERR_INVALHANDLE: u32 = 5;
+pub const MMSYSERR_INVALIDALIAS: u32 = 13;
+pub const MMSYSERR_INVALPARAM: u32 = 11;
+pub const MMSYSERR_KEYNOTFOUND: u32 = 15;
+pub const MMSYSERR_LASTERROR: u32 = 21;
+pub const MMSYSERR_MOREDATA: u32 = 21;
+pub const MMSYSERR_NODRIVER: u32 = 6;
+pub const MMSYSERR_NODRIVERCB: u32 = 20;
+pub const MMSYSERR_NOERROR: u32 = 0;
+pub const MMSYSERR_NOMEM: u32 = 7;
+pub const MMSYSERR_NOTENABLED: u32 = 3;
+pub const MMSYSERR_NOTSUPPORTED: u32 = 8;
+pub const MMSYSERR_READERROR: u32 = 16;
+pub const MMSYSERR_VALNOTFOUND: u32 = 19;
+pub const MMSYSERR_WRITEERROR: u32 = 17;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMTIME {
@@ -322,55 +322,55 @@ impl Default for MMTIME_0_0 {
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
-pub const MM_ADLIB: u32 = 9u32;
-pub const MM_DRVM_CLOSE: u32 = 977u32;
-pub const MM_DRVM_DATA: u32 = 978u32;
-pub const MM_DRVM_ERROR: u32 = 979u32;
-pub const MM_DRVM_OPEN: u32 = 976u32;
-pub const MM_JOY1BUTTONDOWN: u32 = 949u32;
-pub const MM_JOY1BUTTONUP: u32 = 951u32;
-pub const MM_JOY1MOVE: u32 = 928u32;
-pub const MM_JOY1ZMOVE: u32 = 930u32;
-pub const MM_JOY2BUTTONDOWN: u32 = 950u32;
-pub const MM_JOY2BUTTONUP: u32 = 952u32;
-pub const MM_JOY2MOVE: u32 = 929u32;
-pub const MM_JOY2ZMOVE: u32 = 931u32;
-pub const MM_MCINOTIFY: u32 = 953u32;
-pub const MM_MCISIGNAL: u32 = 971u32;
-pub const MM_MICROSOFT: u32 = 1u32;
-pub const MM_MIDI_MAPPER: u32 = 1u32;
-pub const MM_MIM_CLOSE: u32 = 962u32;
-pub const MM_MIM_DATA: u32 = 963u32;
-pub const MM_MIM_ERROR: u32 = 965u32;
-pub const MM_MIM_LONGDATA: u32 = 964u32;
-pub const MM_MIM_LONGERROR: u32 = 966u32;
-pub const MM_MIM_MOREDATA: u32 = 972u32;
-pub const MM_MIM_OPEN: u32 = 961u32;
-pub const MM_MIXM_CONTROL_CHANGE: u32 = 977u32;
-pub const MM_MIXM_LINE_CHANGE: u32 = 976u32;
-pub const MM_MOM_CLOSE: u32 = 968u32;
-pub const MM_MOM_DONE: u32 = 969u32;
-pub const MM_MOM_OPEN: u32 = 967u32;
-pub const MM_MOM_POSITIONCB: u32 = 970u32;
-pub const MM_MPU401_MIDIIN: u32 = 11u32;
-pub const MM_MPU401_MIDIOUT: u32 = 10u32;
-pub const MM_PC_JOYSTICK: u32 = 12u32;
-pub const MM_SNDBLST_MIDIIN: u32 = 4u32;
-pub const MM_SNDBLST_MIDIOUT: u32 = 3u32;
-pub const MM_SNDBLST_SYNTH: u32 = 5u32;
-pub const MM_SNDBLST_WAVEIN: u32 = 7u32;
-pub const MM_SNDBLST_WAVEOUT: u32 = 6u32;
-pub const MM_STREAM_CLOSE: u32 = 981u32;
-pub const MM_STREAM_DONE: u32 = 982u32;
-pub const MM_STREAM_ERROR: u32 = 983u32;
-pub const MM_STREAM_OPEN: u32 = 980u32;
-pub const MM_WAVE_MAPPER: u32 = 2u32;
-pub const MM_WIM_CLOSE: u32 = 959u32;
-pub const MM_WIM_DATA: u32 = 960u32;
-pub const MM_WIM_OPEN: u32 = 958u32;
-pub const MM_WOM_CLOSE: u32 = 956u32;
-pub const MM_WOM_DONE: u32 = 957u32;
-pub const MM_WOM_OPEN: u32 = 955u32;
+pub const MM_ADLIB: u32 = 9;
+pub const MM_DRVM_CLOSE: u32 = 977;
+pub const MM_DRVM_DATA: u32 = 978;
+pub const MM_DRVM_ERROR: u32 = 979;
+pub const MM_DRVM_OPEN: u32 = 976;
+pub const MM_JOY1BUTTONDOWN: u32 = 949;
+pub const MM_JOY1BUTTONUP: u32 = 951;
+pub const MM_JOY1MOVE: u32 = 928;
+pub const MM_JOY1ZMOVE: u32 = 930;
+pub const MM_JOY2BUTTONDOWN: u32 = 950;
+pub const MM_JOY2BUTTONUP: u32 = 952;
+pub const MM_JOY2MOVE: u32 = 929;
+pub const MM_JOY2ZMOVE: u32 = 931;
+pub const MM_MCINOTIFY: u32 = 953;
+pub const MM_MCISIGNAL: u32 = 971;
+pub const MM_MICROSOFT: u32 = 1;
+pub const MM_MIDI_MAPPER: u32 = 1;
+pub const MM_MIM_CLOSE: u32 = 962;
+pub const MM_MIM_DATA: u32 = 963;
+pub const MM_MIM_ERROR: u32 = 965;
+pub const MM_MIM_LONGDATA: u32 = 964;
+pub const MM_MIM_LONGERROR: u32 = 966;
+pub const MM_MIM_MOREDATA: u32 = 972;
+pub const MM_MIM_OPEN: u32 = 961;
+pub const MM_MIXM_CONTROL_CHANGE: u32 = 977;
+pub const MM_MIXM_LINE_CHANGE: u32 = 976;
+pub const MM_MOM_CLOSE: u32 = 968;
+pub const MM_MOM_DONE: u32 = 969;
+pub const MM_MOM_OPEN: u32 = 967;
+pub const MM_MOM_POSITIONCB: u32 = 970;
+pub const MM_MPU401_MIDIIN: u32 = 11;
+pub const MM_MPU401_MIDIOUT: u32 = 10;
+pub const MM_PC_JOYSTICK: u32 = 12;
+pub const MM_SNDBLST_MIDIIN: u32 = 4;
+pub const MM_SNDBLST_MIDIOUT: u32 = 3;
+pub const MM_SNDBLST_SYNTH: u32 = 5;
+pub const MM_SNDBLST_WAVEIN: u32 = 7;
+pub const MM_SNDBLST_WAVEOUT: u32 = 6;
+pub const MM_STREAM_CLOSE: u32 = 981;
+pub const MM_STREAM_DONE: u32 = 982;
+pub const MM_STREAM_ERROR: u32 = 983;
+pub const MM_STREAM_OPEN: u32 = 980;
+pub const MM_WAVE_MAPPER: u32 = 2;
+pub const MM_WIM_CLOSE: u32 = 959;
+pub const MM_WIM_DATA: u32 = 960;
+pub const MM_WIM_OPEN: u32 = 958;
+pub const MM_WOM_CLOSE: u32 = 956;
+pub const MM_WOM_DONE: u32 = 957;
+pub const MM_WOM_OPEN: u32 = 955;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMECAPS {
@@ -444,20 +444,20 @@ impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
         Self(self.0.not())
     }
 }
-pub const TIMERR_BASE: u32 = 96u32;
-pub const TIMERR_NOCANDO: u32 = 97u32;
-pub const TIMERR_NOERROR: u32 = 0u32;
-pub const TIMERR_STRUCT: u32 = 129u32;
-pub const TIME_BYTES: u32 = 4u32;
-pub const TIME_CALLBACK_EVENT_PULSE: u32 = 32u32;
-pub const TIME_CALLBACK_EVENT_SET: u32 = 16u32;
-pub const TIME_CALLBACK_FUNCTION: u32 = 0u32;
-pub const TIME_KILL_SYNCHRONOUS: u32 = 256u32;
-pub const TIME_MIDI: u32 = 16u32;
-pub const TIME_MS: u32 = 1u32;
-pub const TIME_ONESHOT: u32 = 0u32;
-pub const TIME_PERIODIC: u32 = 1u32;
-pub const TIME_SAMPLES: u32 = 2u32;
-pub const TIME_SMPTE: u32 = 8u32;
-pub const TIME_TICKS: u32 = 32u32;
-pub const WAVERR_BASE: u32 = 32u32;
+pub const TIMERR_BASE: u32 = 96;
+pub const TIMERR_NOCANDO: u32 = 97;
+pub const TIMERR_NOERROR: u32 = 0;
+pub const TIMERR_STRUCT: u32 = 129;
+pub const TIME_BYTES: u32 = 4;
+pub const TIME_CALLBACK_EVENT_PULSE: u32 = 32;
+pub const TIME_CALLBACK_EVENT_SET: u32 = 16;
+pub const TIME_CALLBACK_FUNCTION: u32 = 0;
+pub const TIME_KILL_SYNCHRONOUS: u32 = 256;
+pub const TIME_MIDI: u32 = 16;
+pub const TIME_MS: u32 = 1;
+pub const TIME_ONESHOT: u32 = 0;
+pub const TIME_PERIODIC: u32 = 1;
+pub const TIME_SAMPLES: u32 = 2;
+pub const TIME_SMPTE: u32 = 8;
+pub const TIME_TICKS: u32 = 32;
+pub const WAVERR_BASE: u32 = 32;

@@ -1013,10 +1013,10 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
-    pub const None: Self = Self(0u32);
-    pub const PositionX: Self = Self(1u32);
-    pub const PositionY: Self = Self(2u32);
-    pub const Scale: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const PositionX: Self = Self(1);
+    pub const PositionY: Self = Self(2);
+    pub const Scale: Self = Self(4);
 }
 impl windows_core::TypeKind for InteractionBindingAxisModes {
     type TypeKind = windows_core::CopyType;
@@ -1062,9 +1062,9 @@ impl core::ops::Not for InteractionBindingAxisModes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
+    pub const Auto: Self = Self(0);
+    pub const Always: Self = Self(1);
+    pub const Never: Self = Self(2);
 }
 impl windows_core::TypeKind for InteractionChainingMode {
     type TypeKind = windows_core::CopyType;
@@ -1229,9 +1229,9 @@ unsafe impl Sync for InteractionSourceConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const EnabledWithInertia: Self = Self(1i32);
-    pub const EnabledWithoutInertia: Self = Self(2i32);
+    pub const Disabled: Self = Self(0);
+    pub const EnabledWithInertia: Self = Self(1);
+    pub const EnabledWithoutInertia: Self = Self(2);
 }
 impl windows_core::TypeKind for InteractionSourceMode {
     type TypeKind = windows_core::CopyType;
@@ -1244,8 +1244,8 @@ impl windows_core::RuntimeType for InteractionSourceMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const Enabled: Self = Self(1i32);
+    pub const Disabled: Self = Self(0);
+    pub const Enabled: Self = Self(1);
 }
 impl windows_core::TypeKind for InteractionSourceRedirectionMode {
     type TypeKind = windows_core::CopyType;
@@ -1445,7 +1445,7 @@ impl InteractionTracker {
         }
     }
     pub fn SetPositionInertiaDecayRate(&self, value: Option<windows_numerics::Vector3>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_numerics::Vector3> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_numerics::Vector3> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<windows_numerics::Vector3> {
@@ -1467,7 +1467,7 @@ impl InteractionTracker {
         }
     }
     pub fn SetScaleInertiaDecayRate(&self, value: Option<f32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ScaleVelocityInPercentPerSecond(&self) -> windows_core::Result<f32> {
@@ -1658,8 +1658,8 @@ unsafe impl Sync for InteractionTracker {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
-    pub const Auto: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
+    pub const Auto: Self = Self(0);
+    pub const Disabled: Self = Self(1);
 }
 impl windows_core::TypeKind for InteractionTrackerClampingOption {
     type TypeKind = windows_core::CopyType;
@@ -2450,8 +2450,8 @@ unsafe impl Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
-    pub const Default: Self = Self(0i32);
-    pub const AllowActiveCustomScaleAnimation: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const AllowActiveCustomScaleAnimation: Self = Self(1);
 }
 impl windows_core::TypeKind for InteractionTrackerPositionUpdateOption {
     type TypeKind = windows_core::CopyType;
@@ -3140,10 +3140,10 @@ unsafe impl Sync for VisualInteractionSource {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {
-    pub const Off: Self = Self(0i32);
-    pub const CapableTouchpadOnly: Self = Self(1i32);
-    pub const PointerWheelOnly: Self = Self(2i32);
-    pub const CapableTouchpadAndPointerWheel: Self = Self(3i32);
+    pub const Off: Self = Self(0);
+    pub const CapableTouchpadOnly: Self = Self(1);
+    pub const PointerWheelOnly: Self = Self(2);
+    pub const CapableTouchpadAndPointerWheel: Self = Self(3);
 }
 impl windows_core::TypeKind for VisualInteractionSourceRedirectionMode {
     type TypeKind = windows_core::CopyType;

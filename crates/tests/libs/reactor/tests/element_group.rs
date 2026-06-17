@@ -5,9 +5,11 @@
 
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, GroupElement, StackPanel, TextBlock, group};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::GroupElement;
+use windows_reactor::Reconciler;
+use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock, group};
+use windows_reactor::{Op, RecordingBackend};
+use windows_reactor::{Prop, PropValue};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -20,7 +22,7 @@ fn label(name: &str) -> Element {
 fn keyed_label(key: &str, name: &str) -> Element {
     Element::TextBlock(TextBlock {
         key: Some(key.into()),
-        content: name.into(),
+        text: name.into(),
         ..Default::default()
     })
 }
@@ -41,7 +43,7 @@ fn appends_for(ops: &[Op]) -> Vec<(usize, usize)> {
 
 fn child_text_contents(
     r: &Reconciler<RecordingBackend>,
-    parent: windows_reactor::core::backend::ControlId,
+    parent: windows_reactor::ControlId,
 ) -> Vec<String> {
     // Walk children_of(parent) in order; for each child, find the most
     // recent SetProp(TextBlock) on that id and return its string value.
@@ -69,7 +71,7 @@ fn child_text_contents(
 fn group_flattens_into_parent_child_list() {
     // <StackPanel> a, <Group>[b, c], d </StackPanel>  ⇒  StackPanel with children a, b, c, d
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             label("a"),
             Element::Group(GroupElement::new(vec![label("b"), label("c")])),
@@ -94,7 +96,7 @@ fn nested_groups_flatten_recursively() {
     let inner = group(vec![label("c"), label("d")]);
     let outer = group(vec![label("b"), inner, label("e")]);
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![label("a"), outer, label("f")],
         ..Default::default()
     };
@@ -112,7 +114,7 @@ fn nested_groups_flatten_recursively() {
 #[test]
 fn empty_inside_group_is_filtered() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             group(vec![label("a"), Element::Empty, label("b")]),
             Element::Empty,
@@ -138,7 +140,7 @@ fn group_preserves_keys_across_structure_change() {
     // reconciliation should recognise the same three text controls and
     // reorder them — NOT destroy and re-create.
     let initial = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             keyed_label("x", "X"),
             group(vec![keyed_label("y", "Y"), keyed_label("z", "Z")]),
@@ -146,7 +148,7 @@ fn group_preserves_keys_across_structure_change() {
         ..Default::default()
     });
     let updated = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             group(vec![keyed_label("y", "Y")]),
             keyed_label("x", "X"),
@@ -200,12 +202,12 @@ fn group_with_changed_arity_drives_positional_add_remove() {
     // Positional (no keys): Group with 2 children → Group with 3 children
     // should add one new child to the parent.
     let initial = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![label("a"), group(vec![label("b"), label("c")])],
         ..Default::default()
     });
     let updated = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![label("a"), group(vec![label("b"), label("c"), label("d")])],
         ..Default::default()
     });
@@ -249,7 +251,7 @@ fn group_as_border_child_panics() {
     use std::panic::AssertUnwindSafe;
     // Border has a single-child slot, which is not a "child list" the
     // group can flatten into. Must panic with the same diagnostic.
-    use windows_reactor::core::element::Border;
+    use windows_reactor::Border;
     let border = Border::new(group(vec![label("a"), label("b")]));
     let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
         let mut r = Reconciler::new(RecordingBackend::new());
@@ -287,12 +289,12 @@ fn group_with_key_carries_key() {
 #[test]
 fn group_does_not_emit_extra_attach_ops() {
     let flat = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![label("a"), label("b"), label("c"), label("d")],
         ..Default::default()
     });
     let with_group = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![label("a"), group(vec![label("b"), label("c")]), label("d")],
         ..Default::default()
     });
@@ -313,7 +315,7 @@ fn group_does_not_emit_extra_attach_ops() {
 #[test]
 fn group_works_with_mixed_widget_kinds() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             label("intro"),
             group(vec![Element::Button(Button::new("ok")), label("after")]),

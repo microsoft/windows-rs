@@ -118,7 +118,7 @@ where
     windows_core::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common::ITEMIDLIST, hwnd : super::super::Foundation::HWND, cidl : u32, apidl : *const *const Common::ITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -127,7 +127,7 @@ pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, 
     windows_core::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const Common::ITEMIDLIST, cidl : u32, apidl : *const *const Common::ITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CIDLData_CreateFromIDArray(pidlfolder, apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CIDLData_CreateFromIDArray(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -2595,7 +2595,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const Common::ITEMIDLIST, cidl : u32, apidl : *const *const Common::ITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -2723,7 +2723,7 @@ where
 #[inline]
 pub unsafe fn SHCreateMemStream(pinit: Option<&[u8]>) -> Option<super::super::System::Com::IStream> {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < super::super::System::Com::IStream >);
-    unsafe { SHCreateMemStream(core::mem::transmute(pinit.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pinit.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SHCreateMemStream(core::mem::transmute(pinit.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinit.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
 #[inline]
@@ -2788,7 +2788,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const Common::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const *const Common::ITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3625,7 +3625,7 @@ where
 #[inline]
 pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: *const Common::ITEMIDLIST, apidl: Option<&[*const Common::ITEMIDLIST]>, dwflags: u32) -> windows_core::Result<()> {
     windows_core::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const Common::ITEMIDLIST, cidl : u32, apidl : *const *const Common::ITEMIDLIST, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwflags).ok() }
+    unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwflags).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Registry"))]
 #[inline]
@@ -3637,7 +3637,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_core::PCWSTR, ahkeys : *const super::super::System::Registry::HKEY, ckeys : u32, pclsiddefault : *const windows_core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
+    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
@@ -5407,54 +5407,54 @@ impl Default for AASHELLMENUITEM {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ABE_BOTTOM: u32 = 3u32;
-pub const ABE_LEFT: u32 = 0u32;
-pub const ABE_RIGHT: u32 = 2u32;
-pub const ABE_TOP: u32 = 1u32;
-pub const ABM_ACTIVATE: u32 = 6u32;
-pub const ABM_GETAUTOHIDEBAR: u32 = 7u32;
-pub const ABM_GETAUTOHIDEBAREX: u32 = 11u32;
-pub const ABM_GETSTATE: u32 = 4u32;
-pub const ABM_GETTASKBARPOS: u32 = 5u32;
-pub const ABM_NEW: u32 = 0u32;
-pub const ABM_QUERYPOS: u32 = 2u32;
-pub const ABM_REMOVE: u32 = 1u32;
-pub const ABM_SETAUTOHIDEBAR: u32 = 8u32;
-pub const ABM_SETAUTOHIDEBAREX: u32 = 12u32;
-pub const ABM_SETPOS: u32 = 3u32;
-pub const ABM_SETSTATE: u32 = 10u32;
-pub const ABM_WINDOWPOSCHANGED: u32 = 9u32;
-pub const ABN_FULLSCREENAPP: u32 = 2u32;
-pub const ABN_POSCHANGED: u32 = 1u32;
-pub const ABN_STATECHANGE: u32 = 0u32;
-pub const ABN_WINDOWARRANGE: u32 = 3u32;
-pub const ABS_ALWAYSONTOP: u32 = 2u32;
-pub const ABS_AUTOHIDE: u32 = 1u32;
-pub const ACDD_VISIBLE: u32 = 1u32;
+pub const ABE_BOTTOM: u32 = 3;
+pub const ABE_LEFT: u32 = 0;
+pub const ABE_RIGHT: u32 = 2;
+pub const ABE_TOP: u32 = 1;
+pub const ABM_ACTIVATE: u32 = 6;
+pub const ABM_GETAUTOHIDEBAR: u32 = 7;
+pub const ABM_GETAUTOHIDEBAREX: u32 = 11;
+pub const ABM_GETSTATE: u32 = 4;
+pub const ABM_GETTASKBARPOS: u32 = 5;
+pub const ABM_NEW: u32 = 0;
+pub const ABM_QUERYPOS: u32 = 2;
+pub const ABM_REMOVE: u32 = 1;
+pub const ABM_SETAUTOHIDEBAR: u32 = 8;
+pub const ABM_SETAUTOHIDEBAREX: u32 = 12;
+pub const ABM_SETPOS: u32 = 3;
+pub const ABM_SETSTATE: u32 = 10;
+pub const ABM_WINDOWPOSCHANGED: u32 = 9;
+pub const ABN_FULLSCREENAPP: u32 = 2;
+pub const ABN_POSCHANGED: u32 = 1;
+pub const ABN_STATECHANGE: u32 = 0;
+pub const ABN_WINDOWARRANGE: u32 = 3;
+pub const ABS_ALWAYSONTOP: u32 = 2;
+pub const ABS_AUTOHIDE: u32 = 1;
+pub const ACDD_VISIBLE: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACENUMOPTION(pub i32);
-pub const ACEO_FIRSTUNUSED: ACENUMOPTION = ACENUMOPTION(65536i32);
-pub const ACEO_MOSTRECENTFIRST: ACENUMOPTION = ACENUMOPTION(1i32);
-pub const ACEO_NONE: ACENUMOPTION = ACENUMOPTION(0i32);
-pub const ACLO_CURRENTDIR: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(1i32);
-pub const ACLO_DESKTOP: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(4i32);
-pub const ACLO_FAVORITES: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(8i32);
-pub const ACLO_FILESYSDIRS: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(32i32);
-pub const ACLO_FILESYSONLY: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(16i32);
-pub const ACLO_MYCOMPUTER: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(2i32);
-pub const ACLO_NONE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(0i32);
-pub const ACLO_VIRTUALNAMESPACE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(64i32);
-pub const ACO_AUTOAPPEND: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(2i32);
-pub const ACO_AUTOSUGGEST: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(1i32);
-pub const ACO_FILTERPREFIXES: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(8i32);
-pub const ACO_NONE: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(0i32);
-pub const ACO_NOPREFIXFILTERING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(256i32);
-pub const ACO_RTLREADING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(64i32);
-pub const ACO_SEARCH: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(4i32);
-pub const ACO_UPDOWNKEYDROPSLIST: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(32i32);
-pub const ACO_USETAB: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(16i32);
-pub const ACO_WORD_FILTER: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(128i32);
+pub const ACEO_FIRSTUNUSED: ACENUMOPTION = ACENUMOPTION(65536);
+pub const ACEO_MOSTRECENTFIRST: ACENUMOPTION = ACENUMOPTION(1);
+pub const ACEO_NONE: ACENUMOPTION = ACENUMOPTION(0);
+pub const ACLO_CURRENTDIR: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(1);
+pub const ACLO_DESKTOP: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(4);
+pub const ACLO_FAVORITES: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(8);
+pub const ACLO_FILESYSDIRS: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(32);
+pub const ACLO_FILESYSONLY: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(16);
+pub const ACLO_MYCOMPUTER: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(2);
+pub const ACLO_NONE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(0);
+pub const ACLO_VIRTUALNAMESPACE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(64);
+pub const ACO_AUTOAPPEND: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(2);
+pub const ACO_AUTOSUGGEST: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(1);
+pub const ACO_FILTERPREFIXES: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(8);
+pub const ACO_NONE: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(0);
+pub const ACO_NOPREFIXFILTERING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(256);
+pub const ACO_RTLREADING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(64);
+pub const ACO_SEARCH: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(4);
+pub const ACO_UPDOWNKEYDROPSLIST: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(32);
+pub const ACO_USETAB: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(16);
+pub const ACO_WORD_FILTER: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(128);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATEOPTIONS(pub i32);
@@ -5491,10 +5491,10 @@ impl core::ops::Not for ACTIVATEOPTIONS {
         Self(self.0.not())
     }
 }
-pub const ADDURL_SILENT: u32 = 1u32;
-pub const ADE_LEFT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(1i32);
-pub const ADE_NONE: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(0i32);
-pub const ADE_RIGHT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(2i32);
+pub const ADDURL_SILENT: u32 = 1;
+pub const ADE_LEFT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(1);
+pub const ADE_NONE: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(0);
+pub const ADE_RIGHT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADJACENT_DISPLAY_EDGES(pub i32);
@@ -5531,19 +5531,19 @@ impl core::ops::Not for ADJACENT_DISPLAY_EDGES {
         Self(self.0.not())
     }
 }
-pub const ADLT_FREQUENT: APPDOCLISTTYPE = APPDOCLISTTYPE(1i32);
-pub const ADLT_RECENT: APPDOCLISTTYPE = APPDOCLISTTYPE(0i32);
-pub const AD_APPLY_BUFFERED_REFRESH: u32 = 16u32;
-pub const AD_APPLY_DYNAMICREFRESH: u32 = 32u32;
-pub const AD_APPLY_FORCE: u32 = 8u32;
-pub const AD_APPLY_HTMLGEN: u32 = 2u32;
-pub const AD_APPLY_REFRESH: u32 = 4u32;
-pub const AD_APPLY_SAVE: u32 = 1u32;
-pub const AD_GETWP_BMP: u32 = 0u32;
-pub const AD_GETWP_IMAGE: u32 = 1u32;
-pub const AD_GETWP_LAST_APPLIED: u32 = 2u32;
-pub const AHE_DESKTOP: AHE_TYPE = AHE_TYPE(0i32);
-pub const AHE_IMMERSIVE: AHE_TYPE = AHE_TYPE(1i32);
+pub const ADLT_FREQUENT: APPDOCLISTTYPE = APPDOCLISTTYPE(1);
+pub const ADLT_RECENT: APPDOCLISTTYPE = APPDOCLISTTYPE(0);
+pub const AD_APPLY_BUFFERED_REFRESH: u32 = 16;
+pub const AD_APPLY_DYNAMICREFRESH: u32 = 32;
+pub const AD_APPLY_FORCE: u32 = 8;
+pub const AD_APPLY_HTMLGEN: u32 = 2;
+pub const AD_APPLY_REFRESH: u32 = 4;
+pub const AD_APPLY_SAVE: u32 = 1;
+pub const AD_GETWP_BMP: u32 = 0;
+pub const AD_GETWP_IMAGE: u32 = 1;
+pub const AD_GETWP_LAST_APPLIED: u32 = 2;
+pub const AHE_DESKTOP: AHE_TYPE = AHE_TYPE(0);
+pub const AHE_IMMERSIVE: AHE_TYPE = AHE_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AHE_TYPE(pub i32);
@@ -5583,52 +5583,52 @@ impl core::ops::Not for AHTYPE {
         Self(self.0.not())
     }
 }
-pub const AHTYPE_ANY_APPLICATION: AHTYPE = AHTYPE(16i32);
-pub const AHTYPE_ANY_PROGID: AHTYPE = AHTYPE(512i32);
-pub const AHTYPE_APPLICATION: AHTYPE = AHTYPE(128i32);
-pub const AHTYPE_CLASS_APPLICATION: AHTYPE = AHTYPE(256i32);
-pub const AHTYPE_MACHINEDEFAULT: AHTYPE = AHTYPE(32i32);
-pub const AHTYPE_PROGID: AHTYPE = AHTYPE(64i32);
-pub const AHTYPE_UNDEFINED: AHTYPE = AHTYPE(0i32);
-pub const AHTYPE_USER_APPLICATION: AHTYPE = AHTYPE(8i32);
-pub const AIM_COMMENTS: APPINFODATAFLAGS = APPINFODATAFLAGS(32768i32);
-pub const AIM_CONTACT: APPINFODATAFLAGS = APPINFODATAFLAGS(16384i32);
-pub const AIM_DISPLAYNAME: APPINFODATAFLAGS = APPINFODATAFLAGS(1i32);
-pub const AIM_HELPLINK: APPINFODATAFLAGS = APPINFODATAFLAGS(512i32);
-pub const AIM_IMAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(131072i32);
-pub const AIM_INSTALLDATE: APPINFODATAFLAGS = APPINFODATAFLAGS(4096i32);
-pub const AIM_INSTALLLOCATION: APPINFODATAFLAGS = APPINFODATAFLAGS(1024i32);
-pub const AIM_INSTALLSOURCE: APPINFODATAFLAGS = APPINFODATAFLAGS(2048i32);
-pub const AIM_LANGUAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(64i32);
-pub const AIM_PRODUCTID: APPINFODATAFLAGS = APPINFODATAFLAGS(8i32);
-pub const AIM_PUBLISHER: APPINFODATAFLAGS = APPINFODATAFLAGS(4i32);
-pub const AIM_READMEURL: APPINFODATAFLAGS = APPINFODATAFLAGS(262144i32);
-pub const AIM_REGISTEREDCOMPANY: APPINFODATAFLAGS = APPINFODATAFLAGS(32i32);
-pub const AIM_REGISTEREDOWNER: APPINFODATAFLAGS = APPINFODATAFLAGS(16i32);
-pub const AIM_SUPPORTTELEPHONE: APPINFODATAFLAGS = APPINFODATAFLAGS(256i32);
-pub const AIM_SUPPORTURL: APPINFODATAFLAGS = APPINFODATAFLAGS(128i32);
-pub const AIM_UPDATEINFOURL: APPINFODATAFLAGS = APPINFODATAFLAGS(524288i32);
-pub const AIM_VERSION: APPINFODATAFLAGS = APPINFODATAFLAGS(2i32);
-pub const AL_EFFECTIVE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(1i32);
-pub const AL_MACHINE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(0i32);
-pub const AL_USER: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(2i32);
-pub const AO_DESIGNMODE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(1i32);
-pub const AO_NOERRORUI: ACTIVATEOPTIONS = ACTIVATEOPTIONS(2i32);
-pub const AO_NONE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(0i32);
-pub const AO_NOSPLASHSCREEN: ACTIVATEOPTIONS = ACTIVATEOPTIONS(4i32);
-pub const AO_PRELAUNCH: ACTIVATEOPTIONS = ACTIVATEOPTIONS(33554432i32);
+pub const AHTYPE_ANY_APPLICATION: AHTYPE = AHTYPE(16);
+pub const AHTYPE_ANY_PROGID: AHTYPE = AHTYPE(512);
+pub const AHTYPE_APPLICATION: AHTYPE = AHTYPE(128);
+pub const AHTYPE_CLASS_APPLICATION: AHTYPE = AHTYPE(256);
+pub const AHTYPE_MACHINEDEFAULT: AHTYPE = AHTYPE(32);
+pub const AHTYPE_PROGID: AHTYPE = AHTYPE(64);
+pub const AHTYPE_UNDEFINED: AHTYPE = AHTYPE(0);
+pub const AHTYPE_USER_APPLICATION: AHTYPE = AHTYPE(8);
+pub const AIM_COMMENTS: APPINFODATAFLAGS = APPINFODATAFLAGS(32768);
+pub const AIM_CONTACT: APPINFODATAFLAGS = APPINFODATAFLAGS(16384);
+pub const AIM_DISPLAYNAME: APPINFODATAFLAGS = APPINFODATAFLAGS(1);
+pub const AIM_HELPLINK: APPINFODATAFLAGS = APPINFODATAFLAGS(512);
+pub const AIM_IMAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(131072);
+pub const AIM_INSTALLDATE: APPINFODATAFLAGS = APPINFODATAFLAGS(4096);
+pub const AIM_INSTALLLOCATION: APPINFODATAFLAGS = APPINFODATAFLAGS(1024);
+pub const AIM_INSTALLSOURCE: APPINFODATAFLAGS = APPINFODATAFLAGS(2048);
+pub const AIM_LANGUAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(64);
+pub const AIM_PRODUCTID: APPINFODATAFLAGS = APPINFODATAFLAGS(8);
+pub const AIM_PUBLISHER: APPINFODATAFLAGS = APPINFODATAFLAGS(4);
+pub const AIM_READMEURL: APPINFODATAFLAGS = APPINFODATAFLAGS(262144);
+pub const AIM_REGISTEREDCOMPANY: APPINFODATAFLAGS = APPINFODATAFLAGS(32);
+pub const AIM_REGISTEREDOWNER: APPINFODATAFLAGS = APPINFODATAFLAGS(16);
+pub const AIM_SUPPORTTELEPHONE: APPINFODATAFLAGS = APPINFODATAFLAGS(256);
+pub const AIM_SUPPORTURL: APPINFODATAFLAGS = APPINFODATAFLAGS(128);
+pub const AIM_UPDATEINFOURL: APPINFODATAFLAGS = APPINFODATAFLAGS(524288);
+pub const AIM_VERSION: APPINFODATAFLAGS = APPINFODATAFLAGS(2);
+pub const AL_EFFECTIVE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(1);
+pub const AL_MACHINE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(0);
+pub const AL_USER: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(2);
+pub const AO_DESIGNMODE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(1);
+pub const AO_NOERRORUI: ACTIVATEOPTIONS = ACTIVATEOPTIONS(2);
+pub const AO_NONE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(0);
+pub const AO_NOSPLASHSCREEN: ACTIVATEOPTIONS = ACTIVATEOPTIONS(4);
+pub const AO_PRELAUNCH: ACTIVATEOPTIONS = ACTIVATEOPTIONS(33554432);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPACTIONFLAGS(pub i32);
-pub const APPACTION_ADDLATER: APPACTIONFLAGS = APPACTIONFLAGS(256i32);
-pub const APPACTION_CANGETSIZE: APPACTIONFLAGS = APPACTIONFLAGS(32i32);
-pub const APPACTION_INSTALL: APPACTIONFLAGS = APPACTIONFLAGS(1i32);
-pub const APPACTION_MODIFY: APPACTIONFLAGS = APPACTIONFLAGS(4i32);
-pub const APPACTION_MODIFYREMOVE: APPACTIONFLAGS = APPACTIONFLAGS(128i32);
-pub const APPACTION_REPAIR: APPACTIONFLAGS = APPACTIONFLAGS(8i32);
-pub const APPACTION_UNINSTALL: APPACTIONFLAGS = APPACTIONFLAGS(2i32);
-pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = APPACTIONFLAGS(512i32);
-pub const APPACTION_UPGRADE: APPACTIONFLAGS = APPACTIONFLAGS(16i32);
+pub const APPACTION_ADDLATER: APPACTIONFLAGS = APPACTIONFLAGS(256);
+pub const APPACTION_CANGETSIZE: APPACTIONFLAGS = APPACTIONFLAGS(32);
+pub const APPACTION_INSTALL: APPACTIONFLAGS = APPACTIONFLAGS(1);
+pub const APPACTION_MODIFY: APPACTIONFLAGS = APPACTIONFLAGS(4);
+pub const APPACTION_MODIFYREMOVE: APPACTIONFLAGS = APPACTIONFLAGS(128);
+pub const APPACTION_REPAIR: APPACTIONFLAGS = APPACTIONFLAGS(8);
+pub const APPACTION_UNINSTALL: APPACTIONFLAGS = APPACTIONFLAGS(2);
+pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = APPACTIONFLAGS(512);
+pub const APPACTION_UPGRADE: APPACTIONFLAGS = APPACTIONFLAGS(16);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Default)]
@@ -5712,59 +5712,59 @@ pub struct APPLICATION_VIEW_SIZE_PREFERENCE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLICATION_VIEW_STATE(pub i32);
-pub const APPNAMEBUFFERLEN: u32 = 40u32;
-pub const ARCONTENT_AUDIOCD: u32 = 4u32;
-pub const ARCONTENT_AUTOPLAYMUSIC: u32 = 256u32;
-pub const ARCONTENT_AUTOPLAYPIX: u32 = 128u32;
-pub const ARCONTENT_AUTOPLAYVIDEO: u32 = 512u32;
-pub const ARCONTENT_AUTORUNINF: u32 = 2u32;
-pub const ARCONTENT_BLANKBD: u32 = 8192u32;
-pub const ARCONTENT_BLANKCD: u32 = 16u32;
-pub const ARCONTENT_BLANKDVD: u32 = 32u32;
-pub const ARCONTENT_BLURAY: u32 = 16384u32;
-pub const ARCONTENT_CAMERASTORAGE: u32 = 32768u32;
-pub const ARCONTENT_CUSTOMEVENT: u32 = 65536u32;
-pub const ARCONTENT_DVDAUDIO: u32 = 4096u32;
-pub const ARCONTENT_DVDMOVIE: u32 = 8u32;
-pub const ARCONTENT_MASK: u32 = 131070u32;
-pub const ARCONTENT_NONE: u32 = 0u32;
-pub const ARCONTENT_PHASE_FINAL: u32 = 1073741824u32;
-pub const ARCONTENT_PHASE_MASK: u32 = 1879048192u32;
-pub const ARCONTENT_PHASE_PRESNIFF: u32 = 268435456u32;
-pub const ARCONTENT_PHASE_SNIFFING: u32 = 536870912u32;
-pub const ARCONTENT_PHASE_UNKNOWN: u32 = 0u32;
-pub const ARCONTENT_SVCD: u32 = 2048u32;
-pub const ARCONTENT_UNKNOWNCONTENT: u32 = 64u32;
-pub const ARCONTENT_VCD: u32 = 1024u32;
+pub const APPNAMEBUFFERLEN: u32 = 40;
+pub const ARCONTENT_AUDIOCD: u32 = 4;
+pub const ARCONTENT_AUTOPLAYMUSIC: u32 = 256;
+pub const ARCONTENT_AUTOPLAYPIX: u32 = 128;
+pub const ARCONTENT_AUTOPLAYVIDEO: u32 = 512;
+pub const ARCONTENT_AUTORUNINF: u32 = 2;
+pub const ARCONTENT_BLANKBD: u32 = 8192;
+pub const ARCONTENT_BLANKCD: u32 = 16;
+pub const ARCONTENT_BLANKDVD: u32 = 32;
+pub const ARCONTENT_BLURAY: u32 = 16384;
+pub const ARCONTENT_CAMERASTORAGE: u32 = 32768;
+pub const ARCONTENT_CUSTOMEVENT: u32 = 65536;
+pub const ARCONTENT_DVDAUDIO: u32 = 4096;
+pub const ARCONTENT_DVDMOVIE: u32 = 8;
+pub const ARCONTENT_MASK: u32 = 131070;
+pub const ARCONTENT_NONE: u32 = 0;
+pub const ARCONTENT_PHASE_FINAL: u32 = 1073741824;
+pub const ARCONTENT_PHASE_MASK: u32 = 1879048192;
+pub const ARCONTENT_PHASE_PRESNIFF: u32 = 268435456;
+pub const ARCONTENT_PHASE_SNIFFING: u32 = 536870912;
+pub const ARCONTENT_PHASE_UNKNOWN: u32 = 0;
+pub const ARCONTENT_SVCD: u32 = 2048;
+pub const ARCONTENT_UNKNOWNCONTENT: u32 = 64;
+pub const ARCONTENT_VCD: u32 = 1024;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCCLASS(pub i32);
-pub const ASSOCCLASS_APP_KEY: ASSOCCLASS = ASSOCCLASS(5i32);
-pub const ASSOCCLASS_APP_STR: ASSOCCLASS = ASSOCCLASS(6i32);
-pub const ASSOCCLASS_CLSID_KEY: ASSOCCLASS = ASSOCCLASS(3i32);
-pub const ASSOCCLASS_CLSID_STR: ASSOCCLASS = ASSOCCLASS(4i32);
-pub const ASSOCCLASS_FIXED_PROGID_STR: ASSOCCLASS = ASSOCCLASS(10i32);
-pub const ASSOCCLASS_FOLDER: ASSOCCLASS = ASSOCCLASS(8i32);
-pub const ASSOCCLASS_PROGID_KEY: ASSOCCLASS = ASSOCCLASS(1i32);
-pub const ASSOCCLASS_PROGID_STR: ASSOCCLASS = ASSOCCLASS(2i32);
-pub const ASSOCCLASS_PROTOCOL_STR: ASSOCCLASS = ASSOCCLASS(11i32);
-pub const ASSOCCLASS_SHELL_KEY: ASSOCCLASS = ASSOCCLASS(0i32);
-pub const ASSOCCLASS_STAR: ASSOCCLASS = ASSOCCLASS(9i32);
-pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = ASSOCCLASS(7i32);
+pub const ASSOCCLASS_APP_KEY: ASSOCCLASS = ASSOCCLASS(5);
+pub const ASSOCCLASS_APP_STR: ASSOCCLASS = ASSOCCLASS(6);
+pub const ASSOCCLASS_CLSID_KEY: ASSOCCLASS = ASSOCCLASS(3);
+pub const ASSOCCLASS_CLSID_STR: ASSOCCLASS = ASSOCCLASS(4);
+pub const ASSOCCLASS_FIXED_PROGID_STR: ASSOCCLASS = ASSOCCLASS(10);
+pub const ASSOCCLASS_FOLDER: ASSOCCLASS = ASSOCCLASS(8);
+pub const ASSOCCLASS_PROGID_KEY: ASSOCCLASS = ASSOCCLASS(1);
+pub const ASSOCCLASS_PROGID_STR: ASSOCCLASS = ASSOCCLASS(2);
+pub const ASSOCCLASS_PROTOCOL_STR: ASSOCCLASS = ASSOCCLASS(11);
+pub const ASSOCCLASS_SHELL_KEY: ASSOCCLASS = ASSOCCLASS(0);
+pub const ASSOCCLASS_STAR: ASSOCCLASS = ASSOCCLASS(9);
+pub const ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = ASSOCCLASS(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCDATA(pub i32);
-pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = ASSOCDATA(5i32);
-pub const ASSOCDATA_HASPERUSERASSOC: ASSOCDATA = ASSOCDATA(4i32);
-pub const ASSOCDATA_MAX: ASSOCDATA = ASSOCDATA(7i32);
-pub const ASSOCDATA_MSIDESCRIPTOR: ASSOCDATA = ASSOCDATA(1i32);
-pub const ASSOCDATA_NOACTIVATEHANDLER: ASSOCDATA = ASSOCDATA(2i32);
-pub const ASSOCDATA_UNUSED1: ASSOCDATA = ASSOCDATA(3i32);
-pub const ASSOCDATA_VALUE: ASSOCDATA = ASSOCDATA(6i32);
+pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = ASSOCDATA(5);
+pub const ASSOCDATA_HASPERUSERASSOC: ASSOCDATA = ASSOCDATA(4);
+pub const ASSOCDATA_MAX: ASSOCDATA = ASSOCDATA(7);
+pub const ASSOCDATA_MSIDESCRIPTOR: ASSOCDATA = ASSOCDATA(1);
+pub const ASSOCDATA_NOACTIVATEHANDLER: ASSOCDATA = ASSOCDATA(2);
+pub const ASSOCDATA_UNUSED1: ASSOCDATA = ASSOCDATA(3);
+pub const ASSOCDATA_VALUE: ASSOCDATA = ASSOCDATA(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCENUM(pub i32);
-pub const ASSOCENUM_NONE: ASSOCENUM = ASSOCENUM(0i32);
+pub const ASSOCENUM_NONE: ASSOCENUM = ASSOCENUM(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCF(pub u32);
@@ -5801,25 +5801,25 @@ impl core::ops::Not for ASSOCF {
         Self(self.0.not())
     }
 }
-pub const ASSOCF_APP_TO_APP: ASSOCF = ASSOCF(65536u32);
-pub const ASSOCF_IGNOREBASECLASS: ASSOCF = ASSOCF(512u32);
-pub const ASSOCF_INIT_BYEXENAME: ASSOCF = ASSOCF(2u32);
-pub const ASSOCF_INIT_DEFAULTTOFOLDER: ASSOCF = ASSOCF(8u32);
-pub const ASSOCF_INIT_DEFAULTTOSTAR: ASSOCF = ASSOCF(4u32);
-pub const ASSOCF_INIT_FIXED_PROGID: ASSOCF = ASSOCF(2048u32);
-pub const ASSOCF_INIT_FOR_FILE: ASSOCF = ASSOCF(8192u32);
-pub const ASSOCF_INIT_IGNOREUNKNOWN: ASSOCF = ASSOCF(1024u32);
-pub const ASSOCF_INIT_NOREMAPCLSID: ASSOCF = ASSOCF(1u32);
-pub const ASSOCF_IS_FULL_URI: ASSOCF = ASSOCF(16384u32);
-pub const ASSOCF_IS_PROTOCOL: ASSOCF = ASSOCF(4096u32);
-pub const ASSOCF_NOFIXUPS: ASSOCF = ASSOCF(256u32);
-pub const ASSOCF_NONE: ASSOCF = ASSOCF(0u32);
-pub const ASSOCF_NOTRUNCATE: ASSOCF = ASSOCF(32u32);
-pub const ASSOCF_NOUSERSETTINGS: ASSOCF = ASSOCF(16u32);
-pub const ASSOCF_OPEN_BYEXENAME: ASSOCF = ASSOCF(2u32);
-pub const ASSOCF_PER_MACHINE_ONLY: ASSOCF = ASSOCF(32768u32);
-pub const ASSOCF_REMAPRUNDLL: ASSOCF = ASSOCF(128u32);
-pub const ASSOCF_VERIFY: ASSOCF = ASSOCF(64u32);
+pub const ASSOCF_APP_TO_APP: ASSOCF = ASSOCF(65536);
+pub const ASSOCF_IGNOREBASECLASS: ASSOCF = ASSOCF(512);
+pub const ASSOCF_INIT_BYEXENAME: ASSOCF = ASSOCF(2);
+pub const ASSOCF_INIT_DEFAULTTOFOLDER: ASSOCF = ASSOCF(8);
+pub const ASSOCF_INIT_DEFAULTTOSTAR: ASSOCF = ASSOCF(4);
+pub const ASSOCF_INIT_FIXED_PROGID: ASSOCF = ASSOCF(2048);
+pub const ASSOCF_INIT_FOR_FILE: ASSOCF = ASSOCF(8192);
+pub const ASSOCF_INIT_IGNOREUNKNOWN: ASSOCF = ASSOCF(1024);
+pub const ASSOCF_INIT_NOREMAPCLSID: ASSOCF = ASSOCF(1);
+pub const ASSOCF_IS_FULL_URI: ASSOCF = ASSOCF(16384);
+pub const ASSOCF_IS_PROTOCOL: ASSOCF = ASSOCF(4096);
+pub const ASSOCF_NOFIXUPS: ASSOCF = ASSOCF(256);
+pub const ASSOCF_NONE: ASSOCF = ASSOCF(0);
+pub const ASSOCF_NOTRUNCATE: ASSOCF = ASSOCF(32);
+pub const ASSOCF_NOUSERSETTINGS: ASSOCF = ASSOCF(16);
+pub const ASSOCF_OPEN_BYEXENAME: ASSOCF = ASSOCF(2);
+pub const ASSOCF_PER_MACHINE_ONLY: ASSOCF = ASSOCF(32768);
+pub const ASSOCF_REMAPRUNDLL: ASSOCF = ASSOCF(128);
+pub const ASSOCF_VERIFY: ASSOCF = ASSOCF(64);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
@@ -5847,38 +5847,38 @@ pub struct ASSOCIATIONTYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCKEY(pub i32);
-pub const ASSOCKEY_APP: ASSOCKEY = ASSOCKEY(2i32);
-pub const ASSOCKEY_BASECLASS: ASSOCKEY = ASSOCKEY(4i32);
-pub const ASSOCKEY_CLASS: ASSOCKEY = ASSOCKEY(3i32);
-pub const ASSOCKEY_MAX: ASSOCKEY = ASSOCKEY(5i32);
-pub const ASSOCKEY_SHELLEXECCLASS: ASSOCKEY = ASSOCKEY(1i32);
+pub const ASSOCKEY_APP: ASSOCKEY = ASSOCKEY(2);
+pub const ASSOCKEY_BASECLASS: ASSOCKEY = ASSOCKEY(4);
+pub const ASSOCKEY_CLASS: ASSOCKEY = ASSOCKEY(3);
+pub const ASSOCKEY_MAX: ASSOCKEY = ASSOCKEY(5);
+pub const ASSOCKEY_SHELLEXECCLASS: ASSOCKEY = ASSOCKEY(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCSTR(pub i32);
-pub const ASSOCSTR_APPICONREFERENCE: ASSOCSTR = ASSOCSTR(23i32);
-pub const ASSOCSTR_APPID: ASSOCSTR = ASSOCSTR(21i32);
-pub const ASSOCSTR_APPPUBLISHER: ASSOCSTR = ASSOCSTR(22i32);
-pub const ASSOCSTR_COMMAND: ASSOCSTR = ASSOCSTR(1i32);
-pub const ASSOCSTR_CONTENTTYPE: ASSOCSTR = ASSOCSTR(14i32);
-pub const ASSOCSTR_DDEAPPLICATION: ASSOCSTR = ASSOCSTR(9i32);
-pub const ASSOCSTR_DDECOMMAND: ASSOCSTR = ASSOCSTR(7i32);
-pub const ASSOCSTR_DDEIFEXEC: ASSOCSTR = ASSOCSTR(8i32);
-pub const ASSOCSTR_DDETOPIC: ASSOCSTR = ASSOCSTR(10i32);
-pub const ASSOCSTR_DEFAULTICON: ASSOCSTR = ASSOCSTR(15i32);
-pub const ASSOCSTR_DELEGATEEXECUTE: ASSOCSTR = ASSOCSTR(18i32);
-pub const ASSOCSTR_DROPTARGET: ASSOCSTR = ASSOCSTR(17i32);
-pub const ASSOCSTR_EXECUTABLE: ASSOCSTR = ASSOCSTR(2i32);
-pub const ASSOCSTR_FRIENDLYAPPNAME: ASSOCSTR = ASSOCSTR(4i32);
-pub const ASSOCSTR_FRIENDLYDOCNAME: ASSOCSTR = ASSOCSTR(3i32);
-pub const ASSOCSTR_INFOTIP: ASSOCSTR = ASSOCSTR(11i32);
-pub const ASSOCSTR_MAX: ASSOCSTR = ASSOCSTR(24i32);
-pub const ASSOCSTR_NOOPEN: ASSOCSTR = ASSOCSTR(5i32);
-pub const ASSOCSTR_PROGID: ASSOCSTR = ASSOCSTR(20i32);
-pub const ASSOCSTR_QUICKTIP: ASSOCSTR = ASSOCSTR(12i32);
-pub const ASSOCSTR_SHELLEXTENSION: ASSOCSTR = ASSOCSTR(16i32);
-pub const ASSOCSTR_SHELLNEWVALUE: ASSOCSTR = ASSOCSTR(6i32);
-pub const ASSOCSTR_SUPPORTED_URI_PROTOCOLS: ASSOCSTR = ASSOCSTR(19i32);
-pub const ASSOCSTR_TILEINFO: ASSOCSTR = ASSOCSTR(13i32);
+pub const ASSOCSTR_APPICONREFERENCE: ASSOCSTR = ASSOCSTR(23);
+pub const ASSOCSTR_APPID: ASSOCSTR = ASSOCSTR(21);
+pub const ASSOCSTR_APPPUBLISHER: ASSOCSTR = ASSOCSTR(22);
+pub const ASSOCSTR_COMMAND: ASSOCSTR = ASSOCSTR(1);
+pub const ASSOCSTR_CONTENTTYPE: ASSOCSTR = ASSOCSTR(14);
+pub const ASSOCSTR_DDEAPPLICATION: ASSOCSTR = ASSOCSTR(9);
+pub const ASSOCSTR_DDECOMMAND: ASSOCSTR = ASSOCSTR(7);
+pub const ASSOCSTR_DDEIFEXEC: ASSOCSTR = ASSOCSTR(8);
+pub const ASSOCSTR_DDETOPIC: ASSOCSTR = ASSOCSTR(10);
+pub const ASSOCSTR_DEFAULTICON: ASSOCSTR = ASSOCSTR(15);
+pub const ASSOCSTR_DELEGATEEXECUTE: ASSOCSTR = ASSOCSTR(18);
+pub const ASSOCSTR_DROPTARGET: ASSOCSTR = ASSOCSTR(17);
+pub const ASSOCSTR_EXECUTABLE: ASSOCSTR = ASSOCSTR(2);
+pub const ASSOCSTR_FRIENDLYAPPNAME: ASSOCSTR = ASSOCSTR(4);
+pub const ASSOCSTR_FRIENDLYDOCNAME: ASSOCSTR = ASSOCSTR(3);
+pub const ASSOCSTR_INFOTIP: ASSOCSTR = ASSOCSTR(11);
+pub const ASSOCSTR_MAX: ASSOCSTR = ASSOCSTR(24);
+pub const ASSOCSTR_NOOPEN: ASSOCSTR = ASSOCSTR(5);
+pub const ASSOCSTR_PROGID: ASSOCSTR = ASSOCSTR(20);
+pub const ASSOCSTR_QUICKTIP: ASSOCSTR = ASSOCSTR(12);
+pub const ASSOCSTR_SHELLEXTENSION: ASSOCSTR = ASSOCSTR(16);
+pub const ASSOCSTR_SHELLNEWVALUE: ASSOCSTR = ASSOCSTR(6);
+pub const ASSOCSTR_SUPPORTED_URI_PROTOCOLS: ASSOCSTR = ASSOCSTR(19);
+pub const ASSOCSTR_TILEINFO: ASSOCSTR = ASSOCSTR(13);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOC_FILTER(pub i32);
@@ -5915,25 +5915,25 @@ impl core::ops::Not for ASSOC_FILTER {
         Self(self.0.not())
     }
 }
-pub const ASSOC_FILTER_NONE: ASSOC_FILTER = ASSOC_FILTER(0i32);
-pub const ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = ASSOC_FILTER(1i32);
+pub const ASSOC_FILTER_NONE: ASSOC_FILTER = ASSOC_FILTER(0);
+pub const ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = ASSOC_FILTER(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACHMENT_ACTION(pub i32);
-pub const ATTACHMENT_ACTION_CANCEL: ATTACHMENT_ACTION = ATTACHMENT_ACTION(0i32);
-pub const ATTACHMENT_ACTION_EXEC: ATTACHMENT_ACTION = ATTACHMENT_ACTION(2i32);
-pub const ATTACHMENT_ACTION_SAVE: ATTACHMENT_ACTION = ATTACHMENT_ACTION(1i32);
+pub const ATTACHMENT_ACTION_CANCEL: ATTACHMENT_ACTION = ATTACHMENT_ACTION(0);
+pub const ATTACHMENT_ACTION_EXEC: ATTACHMENT_ACTION = ATTACHMENT_ACTION(2);
+pub const ATTACHMENT_ACTION_SAVE: ATTACHMENT_ACTION = ATTACHMENT_ACTION(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACHMENT_PROMPT(pub i32);
-pub const ATTACHMENT_PROMPT_EXEC: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(2i32);
-pub const ATTACHMENT_PROMPT_EXEC_OR_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(3i32);
-pub const ATTACHMENT_PROMPT_NONE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(0i32);
-pub const ATTACHMENT_PROMPT_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(1i32);
-pub const AT_FILEEXTENSION: ASSOCIATIONTYPE = ASSOCIATIONTYPE(0i32);
-pub const AT_MIMETYPE: ASSOCIATIONTYPE = ASSOCIATIONTYPE(3i32);
-pub const AT_STARTMENUCLIENT: ASSOCIATIONTYPE = ASSOCIATIONTYPE(2i32);
-pub const AT_URLPROTOCOL: ASSOCIATIONTYPE = ASSOCIATIONTYPE(1i32);
+pub const ATTACHMENT_PROMPT_EXEC: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(2);
+pub const ATTACHMENT_PROMPT_EXEC_OR_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(3);
+pub const ATTACHMENT_PROMPT_NONE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(0);
+pub const ATTACHMENT_PROMPT_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(1);
+pub const AT_FILEEXTENSION: ASSOCIATIONTYPE = ASSOCIATIONTYPE(0);
+pub const AT_MIMETYPE: ASSOCIATIONTYPE = ASSOCIATIONTYPE(3);
+pub const AT_STARTMENUCLIENT: ASSOCIATIONTYPE = ASSOCIATIONTYPE(2);
+pub const AT_URLPROTOCOL: ASSOCIATIONTYPE = ASSOCIATIONTYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTOCOMPLETELISTOPTIONS(pub i32);
@@ -5954,24 +5954,24 @@ impl Default for AUTO_SCROLL_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AVMW_320: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(1i32);
-pub const AVMW_500: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(2i32);
-pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(0i32);
-pub const AVO_LANDSCAPE: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(0i32);
-pub const AVO_PORTRAIT: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(1i32);
-pub const AVSP_CUSTOM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(6i32);
-pub const AVSP_DEFAULT: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(0i32);
-pub const AVSP_USE_HALF: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(2i32);
-pub const AVSP_USE_LESS: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(1i32);
-pub const AVSP_USE_MINIMUM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(4i32);
-pub const AVSP_USE_MORE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(3i32);
-pub const AVSP_USE_NONE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(5i32);
-pub const AVS_FILLED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(1i32);
-pub const AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(0i32);
-pub const AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(3i32);
-pub const AVS_SNAPPED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(2i32);
+pub const AVMW_320: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(1);
+pub const AVMW_500: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(2);
+pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(0);
+pub const AVO_LANDSCAPE: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(0);
+pub const AVO_PORTRAIT: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(1);
+pub const AVSP_CUSTOM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(6);
+pub const AVSP_DEFAULT: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(0);
+pub const AVSP_USE_HALF: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(2);
+pub const AVSP_USE_LESS: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(1);
+pub const AVSP_USE_MINIMUM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(4);
+pub const AVSP_USE_MORE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(3);
+pub const AVSP_USE_NONE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(5);
+pub const AVS_FILLED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(1);
+pub const AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(0);
+pub const AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(3);
+pub const AVS_SNAPPED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(2);
 pub const AccessibilityDockingService: windows_core::GUID = windows_core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
-pub const AllowSmallerSize: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(4i32);
+pub const AllowSmallerSize: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(4);
 pub const AlphabeticalCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
 pub const AppShellVerbHandler: windows_core::GUID = windows_core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
 pub const AppStartupLink: windows_core::GUID = windows_core::GUID::from_u128(0x273eb5e7_88b0_4843_bfef_e2c81d43aae5);
@@ -6100,40 +6100,40 @@ impl Default for BASEBROWSERDATAXP {
     }
 }
 pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
-pub const BFFM_ENABLEOK: u32 = 1125u32;
-pub const BFFM_INITIALIZED: u32 = 1u32;
-pub const BFFM_IUNKNOWN: u32 = 5u32;
-pub const BFFM_SELCHANGED: u32 = 2u32;
-pub const BFFM_SETEXPANDED: u32 = 1130u32;
-pub const BFFM_SETOKTEXT: u32 = 1129u32;
-pub const BFFM_SETSELECTION: u32 = 1127u32;
-pub const BFFM_SETSELECTIONA: u32 = 1126u32;
-pub const BFFM_SETSELECTIONW: u32 = 1127u32;
-pub const BFFM_SETSTATUSTEXT: u32 = 1128u32;
-pub const BFFM_SETSTATUSTEXTA: u32 = 1124u32;
-pub const BFFM_SETSTATUSTEXTW: u32 = 1128u32;
-pub const BFFM_VALIDATEFAILED: u32 = 4u32;
-pub const BFFM_VALIDATEFAILEDA: u32 = 3u32;
-pub const BFFM_VALIDATEFAILEDW: u32 = 4u32;
-pub const BFO_ADD_IE_TOCAPTIONBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(512i32);
-pub const BFO_BOTH_OPTIONS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(4i32);
-pub const BFO_BROWSER_PERSIST_SETTINGS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(1i32);
-pub const BFO_BROWSE_NO_IN_NEW_PROCESS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(16i32);
-pub const BFO_ENABLE_HYPERLINK_TRACKING: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(32i32);
-pub const BFO_GO_HOME_PAGE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(16384i32);
-pub const BFO_NONE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(0i32);
-pub const BFO_NO_PARENT_FOLDER_SUPPORT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(4096i32);
-pub const BFO_NO_REOPEN_NEXT_RESTART: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(8192i32);
-pub const BFO_PREFER_IEPROCESS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(32768i32);
-pub const BFO_QUERY_ALL: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(-1i32);
-pub const BFO_RENAME_FOLDER_OPTIONS_TOINTERNET: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(2i32);
-pub const BFO_SHOW_NAVIGATION_CANCELLED: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(65536i32);
-pub const BFO_SUBSTITUE_INTERNET_START_PAGE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(128i32);
-pub const BFO_USE_DIALUP_REF: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(1024i32);
-pub const BFO_USE_IE_LOGOBANDING: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(256i32);
-pub const BFO_USE_IE_OFFLINE_SUPPORT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(64i32);
-pub const BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(131072i32);
-pub const BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(2048i32);
+pub const BFFM_ENABLEOK: u32 = 1125;
+pub const BFFM_INITIALIZED: u32 = 1;
+pub const BFFM_IUNKNOWN: u32 = 5;
+pub const BFFM_SELCHANGED: u32 = 2;
+pub const BFFM_SETEXPANDED: u32 = 1130;
+pub const BFFM_SETOKTEXT: u32 = 1129;
+pub const BFFM_SETSELECTION: u32 = 1127;
+pub const BFFM_SETSELECTIONA: u32 = 1126;
+pub const BFFM_SETSELECTIONW: u32 = 1127;
+pub const BFFM_SETSTATUSTEXT: u32 = 1128;
+pub const BFFM_SETSTATUSTEXTA: u32 = 1124;
+pub const BFFM_SETSTATUSTEXTW: u32 = 1128;
+pub const BFFM_VALIDATEFAILED: u32 = 4;
+pub const BFFM_VALIDATEFAILEDA: u32 = 3;
+pub const BFFM_VALIDATEFAILEDW: u32 = 4;
+pub const BFO_ADD_IE_TOCAPTIONBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(512);
+pub const BFO_BOTH_OPTIONS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(4);
+pub const BFO_BROWSER_PERSIST_SETTINGS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(1);
+pub const BFO_BROWSE_NO_IN_NEW_PROCESS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(16);
+pub const BFO_ENABLE_HYPERLINK_TRACKING: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(32);
+pub const BFO_GO_HOME_PAGE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(16384);
+pub const BFO_NONE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(0);
+pub const BFO_NO_PARENT_FOLDER_SUPPORT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(4096);
+pub const BFO_NO_REOPEN_NEXT_RESTART: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(8192);
+pub const BFO_PREFER_IEPROCESS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(32768);
+pub const BFO_QUERY_ALL: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(-1);
+pub const BFO_RENAME_FOLDER_OPTIONS_TOINTERNET: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(2);
+pub const BFO_SHOW_NAVIGATION_CANCELLED: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(65536);
+pub const BFO_SUBSTITUE_INTERNET_START_PAGE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(128);
+pub const BFO_USE_DIALUP_REF: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(1024);
+pub const BFO_USE_IE_LOGOBANDING: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(256);
+pub const BFO_USE_IE_OFFLINE_SUPPORT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(64);
+pub const BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(131072);
+pub const BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(2048);
 pub const BHID_AssociationArray: windows_core::GUID = windows_core::GUID::from_u128(0xbea9ef17_82f1_4f60_9284_4f8db75c3be9);
 pub const BHID_DataObject: windows_core::GUID = windows_core::GUID::from_u128(0xb8c0bd9f_ed24_455c_83e6_d5390c4fe8c4);
 pub const BHID_EnumAssocHandlers: windows_core::GUID = windows_core::GUID::from_u128(0xb8ab0b9c_c2ec_4f7a_918d_314900e6280a);
@@ -6152,38 +6152,38 @@ pub const BHID_StorageItem: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const BHID_Stream: windows_core::GUID = windows_core::GUID::from_u128(0x1cebb3ab_7c10_499a_a417_92ca16c4cb83);
 pub const BHID_ThumbnailHandler: windows_core::GUID = windows_core::GUID::from_u128(0x7b2e650a_8e20_4f4a_b09e_6597afc72fb0);
 pub const BHID_Transfer: windows_core::GUID = windows_core::GUID::from_u128(0xd5e346a1_f753_4932_b403_4574800e2498);
-pub const BIF_BROWSEFILEJUNCTIONS: u32 = 65536u32;
-pub const BIF_BROWSEFORCOMPUTER: u32 = 4096u32;
-pub const BIF_BROWSEFORPRINTER: u32 = 8192u32;
-pub const BIF_BROWSEINCLUDEFILES: u32 = 16384u32;
-pub const BIF_BROWSEINCLUDEURLS: u32 = 128u32;
-pub const BIF_DONTGOBELOWDOMAIN: u32 = 2u32;
-pub const BIF_EDITBOX: u32 = 16u32;
-pub const BIF_NEWDIALOGSTYLE: u32 = 64u32;
-pub const BIF_NONEWFOLDERBUTTON: u32 = 512u32;
-pub const BIF_NOTRANSLATETARGETS: u32 = 1024u32;
-pub const BIF_PREFER_INTERNET_SHORTCUT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(8i32);
-pub const BIF_RETURNFSANCESTORS: u32 = 8u32;
-pub const BIF_RETURNONLYFSDIRS: u32 = 1u32;
-pub const BIF_SHAREABLE: u32 = 32768u32;
-pub const BIF_STATUSTEXT: u32 = 4u32;
-pub const BIF_UAHINT: u32 = 256u32;
-pub const BIF_VALIDATE: u32 = 32u32;
-pub const BIND_INTERRUPTABLE: u32 = 4294967295u32;
-pub const BMICON_LARGE: i32 = 0i32;
-pub const BMICON_SMALL: i32 = 1i32;
-pub const BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(4i32);
-pub const BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(5i32);
-pub const BNE_Closed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(2i32);
-pub const BNE_Dismissed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(3i32);
-pub const BNE_Hovered: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(1i32);
-pub const BNE_Rendered: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(0i32);
+pub const BIF_BROWSEFILEJUNCTIONS: u32 = 65536;
+pub const BIF_BROWSEFORCOMPUTER: u32 = 4096;
+pub const BIF_BROWSEFORPRINTER: u32 = 8192;
+pub const BIF_BROWSEINCLUDEFILES: u32 = 16384;
+pub const BIF_BROWSEINCLUDEURLS: u32 = 128;
+pub const BIF_DONTGOBELOWDOMAIN: u32 = 2;
+pub const BIF_EDITBOX: u32 = 16;
+pub const BIF_NEWDIALOGSTYLE: u32 = 64;
+pub const BIF_NONEWFOLDERBUTTON: u32 = 512;
+pub const BIF_NOTRANSLATETARGETS: u32 = 1024;
+pub const BIF_PREFER_INTERNET_SHORTCUT: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(8);
+pub const BIF_RETURNFSANCESTORS: u32 = 8;
+pub const BIF_RETURNONLYFSDIRS: u32 = 1;
+pub const BIF_SHAREABLE: u32 = 32768;
+pub const BIF_STATUSTEXT: u32 = 4;
+pub const BIF_UAHINT: u32 = 256;
+pub const BIF_VALIDATE: u32 = 32;
+pub const BIND_INTERRUPTABLE: u32 = 4294967295;
+pub const BMICON_LARGE: i32 = 0;
+pub const BMICON_SMALL: i32 = 1;
+pub const BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(4);
+pub const BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(5);
+pub const BNE_Closed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(2);
+pub const BNE_Dismissed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(3);
+pub const BNE_Hovered: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(1);
+pub const BNE_Rendered: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BNSTATE(pub i32);
-pub const BNS_BEGIN_NAVIGATE: BNSTATE = BNSTATE(1i32);
-pub const BNS_NAVIGATE: BNSTATE = BNSTATE(2i32);
-pub const BNS_NORMAL: BNSTATE = BNSTATE(0i32);
+pub const BNS_BEGIN_NAVIGATE: BNSTATE = BNSTATE(1);
+pub const BNS_NAVIGATE: BNSTATE = BNSTATE(2);
+pub const BNS_NORMAL: BNSTATE = BNSTATE(0);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[derive(Clone, Copy, Debug)]
@@ -6222,42 +6222,42 @@ impl Default for BROWSEINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BSF_CANMAXIMIZE: u32 = 1024u32;
-pub const BSF_DELEGATEDNAVIGATION: u32 = 65536u32;
-pub const BSF_DONTSHOWNAVCANCELPAGE: u32 = 16384u32;
-pub const BSF_FEEDNAVIGATION: u32 = 524288u32;
-pub const BSF_FEEDSUBSCRIBED: u32 = 1048576u32;
-pub const BSF_HTMLNAVCANCELED: u32 = 8192u32;
-pub const BSF_MERGEDMENUS: u32 = 262144u32;
-pub const BSF_NAVNOHISTORY: u32 = 4096u32;
-pub const BSF_NOLOCALFILEWARNING: u32 = 16u32;
-pub const BSF_REGISTERASDROPTARGET: u32 = 1u32;
-pub const BSF_RESIZABLE: u32 = 512u32;
-pub const BSF_SETNAVIGATABLECODEPAGE: u32 = 32768u32;
-pub const BSF_THEATERMODE: u32 = 2u32;
-pub const BSF_TOPBROWSER: u32 = 2048u32;
-pub const BSF_TRUSTEDFORACTIVEX: u32 = 131072u32;
-pub const BSF_UISETBYAUTOMATION: u32 = 256u32;
-pub const BSID_BANDADDED: BANDSITECID = BANDSITECID(0i32);
-pub const BSID_BANDREMOVED: BANDSITECID = BANDSITECID(1i32);
-pub const BSIM_STATE: u32 = 1u32;
-pub const BSIM_STYLE: u32 = 2u32;
-pub const BSIS_ALWAYSGRIPPER: u32 = 2u32;
-pub const BSIS_AUTOGRIPPER: u32 = 0u32;
-pub const BSIS_FIXEDORDER: u32 = 1024u32;
-pub const BSIS_LEFTALIGN: u32 = 4u32;
-pub const BSIS_LOCKED: u32 = 256u32;
-pub const BSIS_NOCAPTION: u32 = 64u32;
-pub const BSIS_NOCONTEXTMENU: u32 = 16u32;
-pub const BSIS_NODROPTARGET: u32 = 32u32;
-pub const BSIS_NOGRIPPER: u32 = 1u32;
-pub const BSIS_PREFERNOLINEBREAK: u32 = 128u32;
-pub const BSIS_PRESERVEORDERDURINGLAYOUT: u32 = 512u32;
-pub const BSIS_SINGLECLICK: u32 = 8u32;
-pub const BSSF_NOTITLE: u32 = 2u32;
-pub const BSSF_UNDELETEABLE: u32 = 4096u32;
-pub const BSSF_VISIBLE: u32 = 1u32;
-pub const BUFFLEN: u32 = 255u32;
+pub const BSF_CANMAXIMIZE: u32 = 1024;
+pub const BSF_DELEGATEDNAVIGATION: u32 = 65536;
+pub const BSF_DONTSHOWNAVCANCELPAGE: u32 = 16384;
+pub const BSF_FEEDNAVIGATION: u32 = 524288;
+pub const BSF_FEEDSUBSCRIBED: u32 = 1048576;
+pub const BSF_HTMLNAVCANCELED: u32 = 8192;
+pub const BSF_MERGEDMENUS: u32 = 262144;
+pub const BSF_NAVNOHISTORY: u32 = 4096;
+pub const BSF_NOLOCALFILEWARNING: u32 = 16;
+pub const BSF_REGISTERASDROPTARGET: u32 = 1;
+pub const BSF_RESIZABLE: u32 = 512;
+pub const BSF_SETNAVIGATABLECODEPAGE: u32 = 32768;
+pub const BSF_THEATERMODE: u32 = 2;
+pub const BSF_TOPBROWSER: u32 = 2048;
+pub const BSF_TRUSTEDFORACTIVEX: u32 = 131072;
+pub const BSF_UISETBYAUTOMATION: u32 = 256;
+pub const BSID_BANDADDED: BANDSITECID = BANDSITECID(0);
+pub const BSID_BANDREMOVED: BANDSITECID = BANDSITECID(1);
+pub const BSIM_STATE: u32 = 1;
+pub const BSIM_STYLE: u32 = 2;
+pub const BSIS_ALWAYSGRIPPER: u32 = 2;
+pub const BSIS_AUTOGRIPPER: u32 = 0;
+pub const BSIS_FIXEDORDER: u32 = 1024;
+pub const BSIS_LEFTALIGN: u32 = 4;
+pub const BSIS_LOCKED: u32 = 256;
+pub const BSIS_NOCAPTION: u32 = 64;
+pub const BSIS_NOCONTEXTMENU: u32 = 16;
+pub const BSIS_NODROPTARGET: u32 = 32;
+pub const BSIS_NOGRIPPER: u32 = 1;
+pub const BSIS_PREFERNOLINEBREAK: u32 = 128;
+pub const BSIS_PRESERVEORDERDURINGLAYOUT: u32 = 512;
+pub const BSIS_SINGLECLICK: u32 = 8;
+pub const BSSF_NOTITLE: u32 = 2;
+pub const BSSF_UNDELETEABLE: u32 = 4096;
+pub const BSSF_VISIBLE: u32 = 1;
+pub const BUFFLEN: u32 = 255;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BrowserNavConstants(pub i32);
@@ -6269,7 +6269,7 @@ pub struct CABINETSTATE {
     pub _bitfield: i32,
     pub fMenuEnumFilter: u32,
 }
-pub const CABINETSTATE_VERSION: u32 = 2u32;
+pub const CABINETSTATE_VERSION: u32 = 2;
 pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80270120_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6327,17 +6327,17 @@ pub const CATID_InfoBand: windows_core::GUID = windows_core::GUID::from_u128(0x0
 pub const CATID_LocationFactory: windows_core::GUID = windows_core::GUID::from_u128(0x965c4d51_8b76_4e57_80b7_564d2ea4b55e);
 pub const CATID_LocationProvider: windows_core::GUID = windows_core::GUID::from_u128(0x1b3ca474_2614_414b_b813_1aceca3e3dd8);
 pub const CATID_SearchableApplication: windows_core::GUID = windows_core::GUID::from_u128(0x366c292a_d9b3_4dbf_bb70_e62ec3d0bbbf);
-pub const CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(1i32);
-pub const CATINFO_EXPANDED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(4i32);
-pub const CATINFO_HIDDEN: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(2i32);
-pub const CATINFO_NOHEADER: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(8i32);
-pub const CATINFO_NOHEADERCOUNT: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(32i32);
-pub const CATINFO_NORMAL: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(0i32);
-pub const CATINFO_NOTCOLLAPSIBLE: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(16i32);
-pub const CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(128i32);
-pub const CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(256i32);
-pub const CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(64i32);
-pub const CATSORT_DEFAULT: CATSORT_FLAGS = CATSORT_FLAGS(0i32);
+pub const CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(1);
+pub const CATINFO_EXPANDED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(4);
+pub const CATINFO_HIDDEN: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(2);
+pub const CATINFO_NOHEADER: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(8);
+pub const CATINFO_NOHEADERCOUNT: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(32);
+pub const CATINFO_NORMAL: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(0);
+pub const CATINFO_NOTCOLLAPSIBLE: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(16);
+pub const CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(128);
+pub const CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(256);
+pub const CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(64);
+pub const CATSORT_DEFAULT: CATSORT_FLAGS = CATSORT_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CATSORT_FLAGS(pub i32);
@@ -6374,27 +6374,27 @@ impl core::ops::Not for CATSORT_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CATSORT_NAME: CATSORT_FLAGS = CATSORT_FLAGS(1i32);
-pub const CDB2GVF_ADDSHIELD: u32 = 64u32;
-pub const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4u32;
-pub const CDB2GVF_ISFILESAVE: u32 = 2u32;
-pub const CDB2GVF_ISFOLDERPICKER: u32 = 32u32;
-pub const CDB2GVF_NOINCLUDEITEM: u32 = 16u32;
-pub const CDB2GVF_NOSELECTVERB: u32 = 8u32;
-pub const CDB2GVF_SHOWALLFILES: u32 = 1u32;
-pub const CDB2N_CONTEXTMENU_DONE: u32 = 1u32;
-pub const CDB2N_CONTEXTMENU_START: u32 = 2u32;
-pub const CDBE_RET_DEFAULT: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(0i32);
-pub const CDBE_RET_DONTRUNOTHEREXTS: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(1i32);
-pub const CDBE_RET_STOPWIZARD: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(2i32);
-pub const CDBE_TYPE_ALL: _CDBE_ACTIONS = _CDBE_ACTIONS(-1i32);
-pub const CDBE_TYPE_DATA: _CDBE_ACTIONS = _CDBE_ACTIONS(2i32);
-pub const CDBE_TYPE_MUSIC: _CDBE_ACTIONS = _CDBE_ACTIONS(1i32);
-pub const CDBOSC_KILLFOCUS: u32 = 1u32;
-pub const CDBOSC_RENAME: u32 = 3u32;
-pub const CDBOSC_SELCHANGE: u32 = 2u32;
-pub const CDBOSC_SETFOCUS: u32 = 0u32;
-pub const CDBOSC_STATECHANGE: u32 = 4u32;
+pub const CATSORT_NAME: CATSORT_FLAGS = CATSORT_FLAGS(1);
+pub const CDB2GVF_ADDSHIELD: u32 = 64;
+pub const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4;
+pub const CDB2GVF_ISFILESAVE: u32 = 2;
+pub const CDB2GVF_ISFOLDERPICKER: u32 = 32;
+pub const CDB2GVF_NOINCLUDEITEM: u32 = 16;
+pub const CDB2GVF_NOSELECTVERB: u32 = 8;
+pub const CDB2GVF_SHOWALLFILES: u32 = 1;
+pub const CDB2N_CONTEXTMENU_DONE: u32 = 1;
+pub const CDB2N_CONTEXTMENU_START: u32 = 2;
+pub const CDBE_RET_DEFAULT: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(0);
+pub const CDBE_RET_DONTRUNOTHEREXTS: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(1);
+pub const CDBE_RET_STOPWIZARD: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(2);
+pub const CDBE_TYPE_ALL: _CDBE_ACTIONS = _CDBE_ACTIONS(-1);
+pub const CDBE_TYPE_DATA: _CDBE_ACTIONS = _CDBE_ACTIONS(2);
+pub const CDBE_TYPE_MUSIC: _CDBE_ACTIONS = _CDBE_ACTIONS(1);
+pub const CDBOSC_KILLFOCUS: u32 = 1;
+pub const CDBOSC_RENAME: u32 = 3;
+pub const CDBOSC_SELCHANGE: u32 = 2;
+pub const CDBOSC_SETFOCUS: u32 = 0;
+pub const CDBOSC_STATECHANGE: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDBURNINGEXTENSIONRET(pub i32);
@@ -6435,10 +6435,10 @@ impl core::ops::Not for CDCONTROLSTATEF {
         Self(self.0.not())
     }
 }
-pub const CDCS_ENABLED: CDCONTROLSTATEF = CDCONTROLSTATEF(1i32);
-pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(3i32);
-pub const CDCS_INACTIVE: CDCONTROLSTATEF = CDCONTROLSTATEF(0i32);
-pub const CDCS_VISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(2i32);
+pub const CDCS_ENABLED: CDCONTROLSTATEF = CDCONTROLSTATEF(1);
+pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(3);
+pub const CDCS_INACTIVE: CDCONTROLSTATEF = CDCONTROLSTATEF(0);
+pub const CDCS_VISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(2);
 pub const CFSTR_AUTOPLAY_SHELLIDLISTS: windows_core::PCWSTR = windows_core::w!("Autoplay Enumerated IDList Array");
 pub const CFSTR_DROPDESCRIPTION: windows_core::PCWSTR = windows_core::w!("DropDescription");
 pub const CFSTR_FILECONTENTS: windows_core::PCWSTR = windows_core::w!("FileContents");
@@ -6558,8 +6558,8 @@ impl CIE4ConnectionPoint_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 impl windows_core::RuntimeName for CIE4ConnectionPoint {}
-pub const CLOSEPROPS_DISCARD: u32 = 1u32;
-pub const CLOSEPROPS_NONE: u32 = 0u32;
+pub const CLOSEPROPS_DISCARD: u32 = 1;
+pub const CLOSEPROPS_NONE: u32 = 0;
 pub const CLSID_ACLCustomMRU: windows_core::GUID = windows_core::GUID::from_u128(0x6935db93_21e8_4ccc_beb9_9fe3c77a297a);
 pub const CLSID_ACLHistory: windows_core::GUID = windows_core::GUID::from_u128(0x00bb2764_6a77_11d0_a535_00c04fd7d062);
 pub const CLSID_ACLMRU: windows_core::GUID = windows_core::GUID::from_u128(0x6756a641_de71_11d0_831b_00aa005b4383);
@@ -6605,7 +6605,7 @@ pub const CLSID_RecycleBin: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const CLSID_ShellFldSetExt: windows_core::GUID = windows_core::GUID::from_u128(0x6d5313c0_8c62_11d1_b2cd_006097df8c11);
 pub const CLSID_ShellThumbnailDiskCache: windows_core::GUID = windows_core::GUID::from_u128(0x1ebdcf80_a200_11d0_a3a4_00c04fd706ec);
 pub const CLSID_ToolbarExtButtons: windows_core::GUID = windows_core::GUID::from_u128(0x2ce4b5d8_a28f_11d2_86c5_00c04f8eea99);
-pub const CMDID_INTSHORTCUTCREATE: i32 = 1i32;
+pub const CMDID_INTSHORTCUTCREATE: i32 = 1;
 pub const CMDSTR_NEWFOLDER: windows_core::PCWSTR = windows_core::w!("NewFolder");
 pub const CMDSTR_NEWFOLDERA: windows_core::PCSTR = windows_core::s!("NewFolder");
 pub const CMDSTR_NEWFOLDERW: windows_core::PCWSTR = windows_core::w!("NewFolder");
@@ -6615,25 +6615,25 @@ pub const CMDSTR_VIEWDETAILSW: windows_core::PCWSTR = windows_core::w!("ViewDeta
 pub const CMDSTR_VIEWLIST: windows_core::PCWSTR = windows_core::w!("ViewList");
 pub const CMDSTR_VIEWLISTA: windows_core::PCSTR = windows_core::s!("ViewList");
 pub const CMDSTR_VIEWLISTW: windows_core::PCWSTR = windows_core::w!("ViewList");
-pub const CMF_ASYNCVERBSTATE: u32 = 1024u32;
-pub const CMF_CANRENAME: u32 = 16u32;
-pub const CMF_DEFAULTONLY: u32 = 1u32;
-pub const CMF_DISABLEDVERBS: u32 = 512u32;
-pub const CMF_DONOTPICKDEFAULT: u32 = 8192u32;
-pub const CMF_EXPLORE: u32 = 4u32;
-pub const CMF_EXTENDEDVERBS: u32 = 256u32;
-pub const CMF_INCLUDESTATIC: u32 = 64u32;
-pub const CMF_ITEMMENU: u32 = 128u32;
-pub const CMF_NODEFAULT: u32 = 32u32;
-pub const CMF_NORMAL: u32 = 0u32;
-pub const CMF_NOVERBS: u32 = 8u32;
-pub const CMF_OPTIMIZEFORINVOKE: u32 = 2048u32;
-pub const CMF_RESERVED: u32 = 4294901760u32;
-pub const CMF_SYNCCASCADEMENU: u32 = 4096u32;
-pub const CMF_VERBSONLY: u32 = 2u32;
-pub const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824u32;
-pub const CMIC_MASK_PTINVOKE: u32 = 536870912u32;
-pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456u32;
+pub const CMF_ASYNCVERBSTATE: u32 = 1024;
+pub const CMF_CANRENAME: u32 = 16;
+pub const CMF_DEFAULTONLY: u32 = 1;
+pub const CMF_DISABLEDVERBS: u32 = 512;
+pub const CMF_DONOTPICKDEFAULT: u32 = 8192;
+pub const CMF_EXPLORE: u32 = 4;
+pub const CMF_EXTENDEDVERBS: u32 = 256;
+pub const CMF_INCLUDESTATIC: u32 = 64;
+pub const CMF_ITEMMENU: u32 = 128;
+pub const CMF_NODEFAULT: u32 = 32;
+pub const CMF_NORMAL: u32 = 0;
+pub const CMF_NOVERBS: u32 = 8;
+pub const CMF_OPTIMIZEFORINVOKE: u32 = 2048;
+pub const CMF_RESERVED: u32 = 4294901760;
+pub const CMF_SYNCCASCADEMENU: u32 = 4096;
+pub const CMF_VERBSONLY: u32 = 2;
+pub const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824;
+pub const CMIC_MASK_PTINVOKE: u32 = 536870912;
+pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CMINVOKECOMMANDINFO {
@@ -6702,7 +6702,7 @@ impl Default for CM_COLUMNINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CM_ENUM_ALL: CM_ENUM_FLAGS = CM_ENUM_FLAGS(1i32);
+pub const CM_ENUM_ALL: CM_ENUM_FLAGS = CM_ENUM_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ENUM_FLAGS(pub i32);
@@ -6739,7 +6739,7 @@ impl core::ops::Not for CM_ENUM_FLAGS {
         Self(self.0.not())
     }
 }
-pub const CM_ENUM_VISIBLE: CM_ENUM_FLAGS = CM_ENUM_FLAGS(2i32);
+pub const CM_ENUM_VISIBLE: CM_ENUM_FLAGS = CM_ENUM_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_MASK(pub i32);
@@ -6776,11 +6776,11 @@ impl core::ops::Not for CM_MASK {
         Self(self.0.not())
     }
 }
-pub const CM_MASK_DEFAULTWIDTH: CM_MASK = CM_MASK(2i32);
-pub const CM_MASK_IDEALWIDTH: CM_MASK = CM_MASK(4i32);
-pub const CM_MASK_NAME: CM_MASK = CM_MASK(8i32);
-pub const CM_MASK_STATE: CM_MASK = CM_MASK(16i32);
-pub const CM_MASK_WIDTH: CM_MASK = CM_MASK(1i32);
+pub const CM_MASK_DEFAULTWIDTH: CM_MASK = CM_MASK(2);
+pub const CM_MASK_IDEALWIDTH: CM_MASK = CM_MASK(4);
+pub const CM_MASK_NAME: CM_MASK = CM_MASK(8);
+pub const CM_MASK_STATE: CM_MASK = CM_MASK(16);
+pub const CM_MASK_WIDTH: CM_MASK = CM_MASK(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_SET_WIDTH_VALUE(pub i32);
@@ -6820,37 +6820,37 @@ impl core::ops::Not for CM_STATE {
         Self(self.0.not())
     }
 }
-pub const CM_STATE_ALWAYSVISIBLE: CM_STATE = CM_STATE(8i32);
-pub const CM_STATE_FIXEDWIDTH: CM_STATE = CM_STATE(2i32);
-pub const CM_STATE_NONE: CM_STATE = CM_STATE(0i32);
-pub const CM_STATE_NOSORTBYFOLDERNESS: CM_STATE = CM_STATE(4i32);
-pub const CM_STATE_VISIBLE: CM_STATE = CM_STATE(1i32);
-pub const CM_WIDTH_AUTOSIZE: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-2i32);
-pub const CM_WIDTH_USEDEFAULT: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-1i32);
-pub const COMPONENT_DEFAULT_LEFT: u32 = 65535u32;
-pub const COMPONENT_DEFAULT_TOP: u32 = 65535u32;
-pub const COMPONENT_TOP: u32 = 1073741823u32;
-pub const COMP_ELEM_CHECKED: u32 = 2u32;
-pub const COMP_ELEM_CURITEMSTATE: u32 = 16384u32;
-pub const COMP_ELEM_DIRTY: u32 = 4u32;
-pub const COMP_ELEM_FRIENDLYNAME: u32 = 1024u32;
-pub const COMP_ELEM_NOSCROLL: u32 = 8u32;
-pub const COMP_ELEM_ORIGINAL_CSI: u32 = 4096u32;
-pub const COMP_ELEM_POS_LEFT: u32 = 16u32;
-pub const COMP_ELEM_POS_TOP: u32 = 32u32;
-pub const COMP_ELEM_POS_ZINDEX: u32 = 256u32;
-pub const COMP_ELEM_RESTORED_CSI: u32 = 8192u32;
-pub const COMP_ELEM_SIZE_HEIGHT: u32 = 128u32;
-pub const COMP_ELEM_SIZE_WIDTH: u32 = 64u32;
-pub const COMP_ELEM_SOURCE: u32 = 512u32;
-pub const COMP_ELEM_SUBSCRIBEDURL: u32 = 2048u32;
-pub const COMP_ELEM_TYPE: u32 = 1u32;
-pub const COMP_TYPE_CFHTML: u32 = 4u32;
-pub const COMP_TYPE_CONTROL: u32 = 3u32;
-pub const COMP_TYPE_HTMLDOC: u32 = 0u32;
-pub const COMP_TYPE_MAX: u32 = 4u32;
-pub const COMP_TYPE_PICTURE: u32 = 1u32;
-pub const COMP_TYPE_WEBSITE: u32 = 2u32;
+pub const CM_STATE_ALWAYSVISIBLE: CM_STATE = CM_STATE(8);
+pub const CM_STATE_FIXEDWIDTH: CM_STATE = CM_STATE(2);
+pub const CM_STATE_NONE: CM_STATE = CM_STATE(0);
+pub const CM_STATE_NOSORTBYFOLDERNESS: CM_STATE = CM_STATE(4);
+pub const CM_STATE_VISIBLE: CM_STATE = CM_STATE(1);
+pub const CM_WIDTH_AUTOSIZE: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-2);
+pub const CM_WIDTH_USEDEFAULT: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-1);
+pub const COMPONENT_DEFAULT_LEFT: u32 = 65535;
+pub const COMPONENT_DEFAULT_TOP: u32 = 65535;
+pub const COMPONENT_TOP: u32 = 1073741823;
+pub const COMP_ELEM_CHECKED: u32 = 2;
+pub const COMP_ELEM_CURITEMSTATE: u32 = 16384;
+pub const COMP_ELEM_DIRTY: u32 = 4;
+pub const COMP_ELEM_FRIENDLYNAME: u32 = 1024;
+pub const COMP_ELEM_NOSCROLL: u32 = 8;
+pub const COMP_ELEM_ORIGINAL_CSI: u32 = 4096;
+pub const COMP_ELEM_POS_LEFT: u32 = 16;
+pub const COMP_ELEM_POS_TOP: u32 = 32;
+pub const COMP_ELEM_POS_ZINDEX: u32 = 256;
+pub const COMP_ELEM_RESTORED_CSI: u32 = 8192;
+pub const COMP_ELEM_SIZE_HEIGHT: u32 = 128;
+pub const COMP_ELEM_SIZE_WIDTH: u32 = 64;
+pub const COMP_ELEM_SOURCE: u32 = 512;
+pub const COMP_ELEM_SUBSCRIBEDURL: u32 = 2048;
+pub const COMP_ELEM_TYPE: u32 = 1;
+pub const COMP_TYPE_CFHTML: u32 = 4;
+pub const COMP_TYPE_CONTROL: u32 = 3;
+pub const COMP_TYPE_HTMLDOC: u32 = 0;
+pub const COMP_TYPE_MAX: u32 = 4;
+pub const COMP_TYPE_PICTURE: u32 = 1;
+pub const COMP_TYPE_WEBSITE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct CONFIRM_CONFLICT_ITEM {
@@ -6960,15 +6960,15 @@ pub const COPYENGINE_S_PROGRESS_PAUSE: windows_core::HRESULT = windows_core::HRE
 pub const COPYENGINE_S_USER_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x270005_u32 as _);
 pub const COPYENGINE_S_USER_RETRY: windows_core::HRESULT = windows_core::HRESULT(0x270004_u32 as _);
 pub const COPYENGINE_S_YES: windows_core::HRESULT = windows_core::HRESULT(0x270001_u32 as _);
-pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(2i32);
-pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(1i32);
-pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(0i32);
-pub const CPCFO_ENABLE_PASSWORD_REVEAL: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(1i32);
-pub const CPCFO_ENABLE_TOUCH_KEYBOARD_AUTO_INVOKE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(4i32);
-pub const CPCFO_IS_EMAIL_ADDRESS: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(2i32);
-pub const CPCFO_NONE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(0i32);
-pub const CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(8i32);
-pub const CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(16i32);
+pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(2);
+pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(1);
+pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(0);
+pub const CPCFO_ENABLE_PASSWORD_REVEAL: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(1);
+pub const CPCFO_ENABLE_TOUCH_KEYBOARD_AUTO_INVOKE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(4);
+pub const CPCFO_IS_EMAIL_ADDRESS: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(2);
+pub const CPCFO_NONE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(0);
+pub const CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(8);
+pub const CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(16);
 pub const CPFG_CREDENTIAL_PROVIDER_LABEL: windows_core::GUID = windows_core::GUID::from_u128(0x286bbff3_bad4_438f_b007_79b7267c3d48);
 pub const CPFG_CREDENTIAL_PROVIDER_LOGO: windows_core::GUID = windows_core::GUID::from_u128(0x2d837775_f6cd_464e_a745_482fd0b47493);
 pub const CPFG_LOGON_PASSWORD: windows_core::GUID = windows_core::GUID::from_u128(0x60624cfa_a477_47b1_8a8e_3a4a19981827);
@@ -6977,28 +6977,28 @@ pub const CPFG_SMARTCARD_PIN: windows_core::GUID = windows_core::GUID::from_u128
 pub const CPFG_SMARTCARD_USERNAME: windows_core::GUID = windows_core::GUID::from_u128(0x3e1ecf69_568c_4d96_9d59_46444174e2d6);
 pub const CPFG_STANDALONE_SUBMIT_BUTTON: windows_core::GUID = windows_core::GUID::from_u128(0x0b7b0ad8_cc36_4d59_802b_82f714fa7022);
 pub const CPFG_STYLE_LINK_AS_BUTTON: windows_core::GUID = windows_core::GUID::from_u128(0x088fa508_94a6_4430_a4cb_6fc6e3c0b9e2);
-pub const CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(2i32);
-pub const CPFIS_FOCUSED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(3i32);
-pub const CPFIS_NONE: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(0i32);
-pub const CPFIS_READONLY: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(1i32);
-pub const CPFS_DISPLAY_IN_BOTH: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(3i32);
-pub const CPFS_DISPLAY_IN_DESELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(2i32);
-pub const CPFS_DISPLAY_IN_SELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(1i32);
-pub const CPFS_HIDDEN: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(0i32);
-pub const CPFT_CHECKBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(7i32);
-pub const CPFT_COMBOBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(8i32);
-pub const CPFT_COMMAND_LINK: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(3i32);
-pub const CPFT_EDIT_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(4i32);
-pub const CPFT_INVALID: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(0i32);
-pub const CPFT_LARGE_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(1i32);
-pub const CPFT_PASSWORD_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(5i32);
-pub const CPFT_SMALL_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(2i32);
-pub const CPFT_SUBMIT_BUTTON: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(9i32);
-pub const CPFT_TILE_IMAGE: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(6i32);
-pub const CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(1i32);
-pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(0i32);
-pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(2i32);
-pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(3i32);
+pub const CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(2);
+pub const CPFIS_FOCUSED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(3);
+pub const CPFIS_NONE: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(0);
+pub const CPFIS_READONLY: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(1);
+pub const CPFS_DISPLAY_IN_BOTH: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(3);
+pub const CPFS_DISPLAY_IN_DESELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(2);
+pub const CPFS_DISPLAY_IN_SELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(1);
+pub const CPFS_HIDDEN: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(0);
+pub const CPFT_CHECKBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(7);
+pub const CPFT_COMBOBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(8);
+pub const CPFT_COMMAND_LINK: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(3);
+pub const CPFT_EDIT_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(4);
+pub const CPFT_INVALID: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(0);
+pub const CPFT_LARGE_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(1);
+pub const CPFT_PASSWORD_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(5);
+pub const CPFT_SMALL_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(2);
+pub const CPFT_SUBMIT_BUTTON: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(9);
+pub const CPFT_TILE_IMAGE: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(6);
+pub const CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(1);
+pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(0);
+pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(2);
+pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(3);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CPLINFO {
@@ -7007,41 +7007,41 @@ pub struct CPLINFO {
     pub idInfo: i32,
     pub lData: isize,
 }
-pub const CPLPAGE_DISPLAY_BACKGROUND: u32 = 1u32;
-pub const CPLPAGE_KEYBOARD_SPEED: u32 = 1u32;
-pub const CPLPAGE_MOUSE_BUTTONS: u32 = 1u32;
-pub const CPLPAGE_MOUSE_PTRMOTION: u32 = 2u32;
-pub const CPLPAGE_MOUSE_WHEEL: u32 = 3u32;
-pub const CPL_DBLCLK: u32 = 5u32;
-pub const CPL_DYNAMIC_RES: u32 = 0u32;
-pub const CPL_EXIT: u32 = 7u32;
-pub const CPL_GETCOUNT: u32 = 2u32;
-pub const CPL_INIT: u32 = 1u32;
-pub const CPL_INQUIRE: u32 = 3u32;
-pub const CPL_NEWINQUIRE: u32 = 8u32;
-pub const CPL_SELECT: u32 = 4u32;
-pub const CPL_SETUP: u32 = 200u32;
-pub const CPL_STARTWPARMS: u32 = 10u32;
-pub const CPL_STARTWPARMSA: u32 = 9u32;
-pub const CPL_STARTWPARMSW: u32 = 10u32;
-pub const CPL_STOP: u32 = 6u32;
-pub const CPSI_ERROR: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(1i32);
-pub const CPSI_NONE: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(0i32);
-pub const CPSI_SUCCESS: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(3i32);
-pub const CPSI_WARNING: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(2i32);
-pub const CPUS_CHANGE_PASSWORD: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(3i32);
-pub const CPUS_CREDUI: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(4i32);
-pub const CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(0i32);
-pub const CPUS_LOGON: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(1i32);
-pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(5i32);
-pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(2i32);
+pub const CPLPAGE_DISPLAY_BACKGROUND: u32 = 1;
+pub const CPLPAGE_KEYBOARD_SPEED: u32 = 1;
+pub const CPLPAGE_MOUSE_BUTTONS: u32 = 1;
+pub const CPLPAGE_MOUSE_PTRMOTION: u32 = 2;
+pub const CPLPAGE_MOUSE_WHEEL: u32 = 3;
+pub const CPL_DBLCLK: u32 = 5;
+pub const CPL_DYNAMIC_RES: u32 = 0;
+pub const CPL_EXIT: u32 = 7;
+pub const CPL_GETCOUNT: u32 = 2;
+pub const CPL_INIT: u32 = 1;
+pub const CPL_INQUIRE: u32 = 3;
+pub const CPL_NEWINQUIRE: u32 = 8;
+pub const CPL_SELECT: u32 = 4;
+pub const CPL_SETUP: u32 = 200;
+pub const CPL_STARTWPARMS: u32 = 10;
+pub const CPL_STARTWPARMSA: u32 = 9;
+pub const CPL_STARTWPARMSW: u32 = 10;
+pub const CPL_STOP: u32 = 6;
+pub const CPSI_ERROR: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(1);
+pub const CPSI_NONE: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(0);
+pub const CPSI_SUCCESS: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(3);
+pub const CPSI_WARNING: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(2);
+pub const CPUS_CHANGE_PASSWORD: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(3);
+pub const CPUS_CREDUI: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(4);
+pub const CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(0);
+pub const CPUS_LOGON: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(1);
+pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(5);
+pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPVIEW(pub i32);
-pub const CPVIEW_ALLITEMS: CPVIEW = CPVIEW(0i32);
-pub const CPVIEW_CATEGORY: CPVIEW = CPVIEW(1i32);
-pub const CPVIEW_CLASSIC: CPVIEW = CPVIEW(0i32);
-pub const CPVIEW_HOME: CPVIEW = CPVIEW(1i32);
+pub const CPVIEW_ALLITEMS: CPVIEW = CPVIEW(0);
+pub const CPVIEW_CATEGORY: CPVIEW = CPVIEW(1);
+pub const CPVIEW_CLASSIC: CPVIEW = CPVIEW(0);
+pub const CPVIEW_HOME: CPVIEW = CPVIEW(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(pub i32);
@@ -7147,16 +7147,16 @@ pub struct CREDENTIAL_PROVIDER_FIELD_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(pub i32);
-pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295u32;
+pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_STATUS_ICON(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_USAGE_SCENARIO(pub i32);
-pub const CSC_NAVIGATEBACK: CommandStateChangeConstants = CommandStateChangeConstants(2i32);
-pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = CommandStateChangeConstants(1i32);
-pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = CommandStateChangeConstants(-1i32);
+pub const CSC_NAVIGATEBACK: CommandStateChangeConstants = CommandStateChangeConstants(2);
+pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = CommandStateChangeConstants(1);
+pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = CommandStateChangeConstants(-1);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[derive(Clone, Debug)]
@@ -7175,86 +7175,86 @@ impl Default for CSFV {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CSIDL_ADMINTOOLS: u32 = 48u32;
-pub const CSIDL_ALTSTARTUP: u32 = 29u32;
-pub const CSIDL_APPDATA: u32 = 26u32;
-pub const CSIDL_BITBUCKET: u32 = 10u32;
-pub const CSIDL_CDBURN_AREA: u32 = 59u32;
-pub const CSIDL_COMMON_ADMINTOOLS: u32 = 47u32;
-pub const CSIDL_COMMON_ALTSTARTUP: u32 = 30u32;
-pub const CSIDL_COMMON_APPDATA: u32 = 35u32;
-pub const CSIDL_COMMON_DESKTOPDIRECTORY: u32 = 25u32;
-pub const CSIDL_COMMON_DOCUMENTS: u32 = 46u32;
-pub const CSIDL_COMMON_FAVORITES: u32 = 31u32;
-pub const CSIDL_COMMON_MUSIC: u32 = 53u32;
-pub const CSIDL_COMMON_OEM_LINKS: u32 = 58u32;
-pub const CSIDL_COMMON_PICTURES: u32 = 54u32;
-pub const CSIDL_COMMON_PROGRAMS: u32 = 23u32;
-pub const CSIDL_COMMON_STARTMENU: u32 = 22u32;
-pub const CSIDL_COMMON_STARTUP: u32 = 24u32;
-pub const CSIDL_COMMON_TEMPLATES: u32 = 45u32;
-pub const CSIDL_COMMON_VIDEO: u32 = 55u32;
-pub const CSIDL_COMPUTERSNEARME: u32 = 61u32;
-pub const CSIDL_CONNECTIONS: u32 = 49u32;
-pub const CSIDL_CONTROLS: u32 = 3u32;
-pub const CSIDL_COOKIES: u32 = 33u32;
-pub const CSIDL_DESKTOP: u32 = 0u32;
-pub const CSIDL_DESKTOPDIRECTORY: u32 = 16u32;
-pub const CSIDL_DRIVES: u32 = 17u32;
-pub const CSIDL_FAVORITES: u32 = 6u32;
-pub const CSIDL_FLAG_CREATE: u32 = 32768u32;
-pub const CSIDL_FLAG_DONT_UNEXPAND: u32 = 8192u32;
-pub const CSIDL_FLAG_DONT_VERIFY: u32 = 16384u32;
-pub const CSIDL_FLAG_MASK: u32 = 65280u32;
-pub const CSIDL_FLAG_NO_ALIAS: u32 = 4096u32;
-pub const CSIDL_FLAG_PER_USER_INIT: u32 = 2048u32;
-pub const CSIDL_FLAG_PFTI_TRACKTARGET: u32 = 16384u32;
-pub const CSIDL_FONTS: u32 = 20u32;
-pub const CSIDL_HISTORY: u32 = 34u32;
-pub const CSIDL_INTERNET: u32 = 1u32;
-pub const CSIDL_INTERNET_CACHE: u32 = 32u32;
-pub const CSIDL_LOCAL_APPDATA: u32 = 28u32;
-pub const CSIDL_MYDOCUMENTS: u32 = 5u32;
-pub const CSIDL_MYMUSIC: u32 = 13u32;
-pub const CSIDL_MYPICTURES: u32 = 39u32;
-pub const CSIDL_MYVIDEO: u32 = 14u32;
-pub const CSIDL_NETHOOD: u32 = 19u32;
-pub const CSIDL_NETWORK: u32 = 18u32;
-pub const CSIDL_PERSONAL: u32 = 5u32;
-pub const CSIDL_PRINTERS: u32 = 4u32;
-pub const CSIDL_PRINTHOOD: u32 = 27u32;
-pub const CSIDL_PROFILE: u32 = 40u32;
-pub const CSIDL_PROGRAMS: u32 = 2u32;
-pub const CSIDL_PROGRAM_FILES: u32 = 38u32;
-pub const CSIDL_PROGRAM_FILESX86: u32 = 42u32;
-pub const CSIDL_PROGRAM_FILES_COMMON: u32 = 43u32;
-pub const CSIDL_PROGRAM_FILES_COMMONX86: u32 = 44u32;
-pub const CSIDL_RECENT: u32 = 8u32;
-pub const CSIDL_RESOURCES: u32 = 56u32;
-pub const CSIDL_RESOURCES_LOCALIZED: u32 = 57u32;
-pub const CSIDL_SENDTO: u32 = 9u32;
-pub const CSIDL_STARTMENU: u32 = 11u32;
-pub const CSIDL_STARTUP: u32 = 7u32;
-pub const CSIDL_SYSTEM: u32 = 37u32;
-pub const CSIDL_SYSTEMX86: u32 = 41u32;
-pub const CSIDL_TEMPLATES: u32 = 21u32;
-pub const CSIDL_WINDOWS: u32 = 36u32;
+pub const CSIDL_ADMINTOOLS: u32 = 48;
+pub const CSIDL_ALTSTARTUP: u32 = 29;
+pub const CSIDL_APPDATA: u32 = 26;
+pub const CSIDL_BITBUCKET: u32 = 10;
+pub const CSIDL_CDBURN_AREA: u32 = 59;
+pub const CSIDL_COMMON_ADMINTOOLS: u32 = 47;
+pub const CSIDL_COMMON_ALTSTARTUP: u32 = 30;
+pub const CSIDL_COMMON_APPDATA: u32 = 35;
+pub const CSIDL_COMMON_DESKTOPDIRECTORY: u32 = 25;
+pub const CSIDL_COMMON_DOCUMENTS: u32 = 46;
+pub const CSIDL_COMMON_FAVORITES: u32 = 31;
+pub const CSIDL_COMMON_MUSIC: u32 = 53;
+pub const CSIDL_COMMON_OEM_LINKS: u32 = 58;
+pub const CSIDL_COMMON_PICTURES: u32 = 54;
+pub const CSIDL_COMMON_PROGRAMS: u32 = 23;
+pub const CSIDL_COMMON_STARTMENU: u32 = 22;
+pub const CSIDL_COMMON_STARTUP: u32 = 24;
+pub const CSIDL_COMMON_TEMPLATES: u32 = 45;
+pub const CSIDL_COMMON_VIDEO: u32 = 55;
+pub const CSIDL_COMPUTERSNEARME: u32 = 61;
+pub const CSIDL_CONNECTIONS: u32 = 49;
+pub const CSIDL_CONTROLS: u32 = 3;
+pub const CSIDL_COOKIES: u32 = 33;
+pub const CSIDL_DESKTOP: u32 = 0;
+pub const CSIDL_DESKTOPDIRECTORY: u32 = 16;
+pub const CSIDL_DRIVES: u32 = 17;
+pub const CSIDL_FAVORITES: u32 = 6;
+pub const CSIDL_FLAG_CREATE: u32 = 32768;
+pub const CSIDL_FLAG_DONT_UNEXPAND: u32 = 8192;
+pub const CSIDL_FLAG_DONT_VERIFY: u32 = 16384;
+pub const CSIDL_FLAG_MASK: u32 = 65280;
+pub const CSIDL_FLAG_NO_ALIAS: u32 = 4096;
+pub const CSIDL_FLAG_PER_USER_INIT: u32 = 2048;
+pub const CSIDL_FLAG_PFTI_TRACKTARGET: u32 = 16384;
+pub const CSIDL_FONTS: u32 = 20;
+pub const CSIDL_HISTORY: u32 = 34;
+pub const CSIDL_INTERNET: u32 = 1;
+pub const CSIDL_INTERNET_CACHE: u32 = 32;
+pub const CSIDL_LOCAL_APPDATA: u32 = 28;
+pub const CSIDL_MYDOCUMENTS: u32 = 5;
+pub const CSIDL_MYMUSIC: u32 = 13;
+pub const CSIDL_MYPICTURES: u32 = 39;
+pub const CSIDL_MYVIDEO: u32 = 14;
+pub const CSIDL_NETHOOD: u32 = 19;
+pub const CSIDL_NETWORK: u32 = 18;
+pub const CSIDL_PERSONAL: u32 = 5;
+pub const CSIDL_PRINTERS: u32 = 4;
+pub const CSIDL_PRINTHOOD: u32 = 27;
+pub const CSIDL_PROFILE: u32 = 40;
+pub const CSIDL_PROGRAMS: u32 = 2;
+pub const CSIDL_PROGRAM_FILES: u32 = 38;
+pub const CSIDL_PROGRAM_FILESX86: u32 = 42;
+pub const CSIDL_PROGRAM_FILES_COMMON: u32 = 43;
+pub const CSIDL_PROGRAM_FILES_COMMONX86: u32 = 44;
+pub const CSIDL_RECENT: u32 = 8;
+pub const CSIDL_RESOURCES: u32 = 56;
+pub const CSIDL_RESOURCES_LOCALIZED: u32 = 57;
+pub const CSIDL_SENDTO: u32 = 9;
+pub const CSIDL_STARTMENU: u32 = 11;
+pub const CSIDL_STARTUP: u32 = 7;
+pub const CSIDL_SYSTEM: u32 = 37;
+pub const CSIDL_SYSTEMX86: u32 = 41;
+pub const CSIDL_TEMPLATES: u32 = 21;
+pub const CSIDL_WINDOWS: u32 = 36;
 pub const CScriptErrorList: windows_core::GUID = windows_core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
-pub const CTF_COINIT: i32 = 8i32;
-pub const CTF_COINIT_MTA: i32 = 4096i32;
-pub const CTF_COINIT_STA: i32 = 8i32;
-pub const CTF_FREELIBANDEXIT: i32 = 16i32;
-pub const CTF_INHERITWOW64: i32 = 256i32;
-pub const CTF_INSIST: i32 = 1i32;
-pub const CTF_KEYBOARD_LOCALE: i32 = 1024i32;
-pub const CTF_NOADDREFLIB: i32 = 8192i32;
-pub const CTF_OLEINITIALIZE: i32 = 2048i32;
-pub const CTF_PROCESS_REF: i32 = 4i32;
-pub const CTF_REF_COUNTED: i32 = 32i32;
-pub const CTF_THREAD_REF: i32 = 2i32;
-pub const CTF_UNUSED: i32 = 128i32;
-pub const CTF_WAIT_ALLOWCOM: i32 = 64i32;
-pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
+pub const CTF_COINIT: i32 = 8;
+pub const CTF_COINIT_MTA: i32 = 4096;
+pub const CTF_COINIT_STA: i32 = 8;
+pub const CTF_FREELIBANDEXIT: i32 = 16;
+pub const CTF_INHERITWOW64: i32 = 256;
+pub const CTF_INSIST: i32 = 1;
+pub const CTF_KEYBOARD_LOCALE: i32 = 1024;
+pub const CTF_NOADDREFLIB: i32 = 8192;
+pub const CTF_OLEINITIALIZE: i32 = 2048;
+pub const CTF_PROCESS_REF: i32 = 4;
+pub const CTF_REF_COUNTED: i32 = 32;
+pub const CTF_THREAD_REF: i32 = 2;
+pub const CTF_UNUSED: i32 = 128;
+pub const CTF_WAIT_ALLOWCOM: i32 = 64;
+pub const CTF_WAIT_NO_REENTRANCY: i32 = 512;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommandStateChangeConstants(pub i32);
@@ -7301,51 +7301,51 @@ impl core::ops::Not for DATAOBJ_GET_ITEM_FLAGS {
         Self(self.0.not())
     }
 }
-pub const DBCID_CLSIDOFBAR: i32 = 2i32;
-pub const DBCID_EMPTY: i32 = 0i32;
-pub const DBCID_GETBAR: i32 = 4i32;
-pub const DBCID_ONDRAG: i32 = 1i32;
-pub const DBCID_RESIZE: i32 = 3i32;
-pub const DBCID_UPDATESIZE: i32 = 5i32;
-pub const DBC_GS_IDEAL: u32 = 0u32;
-pub const DBC_GS_SIZEDOWN: u32 = 1u32;
-pub const DBC_HIDE: u32 = 0u32;
-pub const DBC_SHOW: u32 = 1u32;
-pub const DBC_SHOWOBSCURE: u32 = 2u32;
-pub const DBID_BANDINFOCHANGED: DESKBANDCID = DESKBANDCID(0i32);
-pub const DBID_DELAYINIT: DESKBANDCID = DESKBANDCID(4i32);
-pub const DBID_FINISHINIT: DESKBANDCID = DESKBANDCID(5i32);
-pub const DBID_MAXIMIZEBAND: DESKBANDCID = DESKBANDCID(2i32);
-pub const DBID_PERMITAUTOHIDE: DESKBANDCID = DESKBANDCID(7i32);
-pub const DBID_PUSHCHEVRON: DESKBANDCID = DESKBANDCID(3i32);
-pub const DBID_SETWINDOWTHEME: DESKBANDCID = DESKBANDCID(6i32);
-pub const DBID_SHOWONLY: DESKBANDCID = DESKBANDCID(1i32);
-pub const DBIF_VIEWMODE_FLOATING: u32 = 2u32;
-pub const DBIF_VIEWMODE_NORMAL: u32 = 0u32;
-pub const DBIF_VIEWMODE_TRANSPARENT: u32 = 4u32;
-pub const DBIF_VIEWMODE_VERTICAL: u32 = 1u32;
-pub const DBIMF_ADDTOFRONT: u32 = 512u32;
-pub const DBIMF_ALWAYSGRIPPER: u32 = 4096u32;
-pub const DBIMF_BKCOLOR: u32 = 64u32;
-pub const DBIMF_BREAK: u32 = 256u32;
-pub const DBIMF_DEBOSSED: u32 = 32u32;
-pub const DBIMF_FIXED: u32 = 1u32;
-pub const DBIMF_FIXEDBMP: u32 = 4u32;
-pub const DBIMF_NOGRIPPER: u32 = 2048u32;
-pub const DBIMF_NOMARGINS: u32 = 8192u32;
-pub const DBIMF_NORMAL: u32 = 0u32;
-pub const DBIMF_TOPALIGN: u32 = 1024u32;
-pub const DBIMF_UNDELETEABLE: u32 = 16u32;
-pub const DBIMF_USECHEVRON: u32 = 128u32;
-pub const DBIMF_VARIABLEHEIGHT: u32 = 8u32;
-pub const DBIM_ACTUAL: u32 = 8u32;
-pub const DBIM_BKCOLOR: u32 = 64u32;
-pub const DBIM_INTEGRAL: u32 = 4u32;
-pub const DBIM_MAXSIZE: u32 = 2u32;
-pub const DBIM_MINSIZE: u32 = 1u32;
-pub const DBIM_MODEFLAGS: u32 = 32u32;
-pub const DBIM_TITLE: u32 = 16u32;
-pub const DBPC_SELECTFIRST: u32 = 4294967295u32;
+pub const DBCID_CLSIDOFBAR: i32 = 2;
+pub const DBCID_EMPTY: i32 = 0;
+pub const DBCID_GETBAR: i32 = 4;
+pub const DBCID_ONDRAG: i32 = 1;
+pub const DBCID_RESIZE: i32 = 3;
+pub const DBCID_UPDATESIZE: i32 = 5;
+pub const DBC_GS_IDEAL: u32 = 0;
+pub const DBC_GS_SIZEDOWN: u32 = 1;
+pub const DBC_HIDE: u32 = 0;
+pub const DBC_SHOW: u32 = 1;
+pub const DBC_SHOWOBSCURE: u32 = 2;
+pub const DBID_BANDINFOCHANGED: DESKBANDCID = DESKBANDCID(0);
+pub const DBID_DELAYINIT: DESKBANDCID = DESKBANDCID(4);
+pub const DBID_FINISHINIT: DESKBANDCID = DESKBANDCID(5);
+pub const DBID_MAXIMIZEBAND: DESKBANDCID = DESKBANDCID(2);
+pub const DBID_PERMITAUTOHIDE: DESKBANDCID = DESKBANDCID(7);
+pub const DBID_PUSHCHEVRON: DESKBANDCID = DESKBANDCID(3);
+pub const DBID_SETWINDOWTHEME: DESKBANDCID = DESKBANDCID(6);
+pub const DBID_SHOWONLY: DESKBANDCID = DESKBANDCID(1);
+pub const DBIF_VIEWMODE_FLOATING: u32 = 2;
+pub const DBIF_VIEWMODE_NORMAL: u32 = 0;
+pub const DBIF_VIEWMODE_TRANSPARENT: u32 = 4;
+pub const DBIF_VIEWMODE_VERTICAL: u32 = 1;
+pub const DBIMF_ADDTOFRONT: u32 = 512;
+pub const DBIMF_ALWAYSGRIPPER: u32 = 4096;
+pub const DBIMF_BKCOLOR: u32 = 64;
+pub const DBIMF_BREAK: u32 = 256;
+pub const DBIMF_DEBOSSED: u32 = 32;
+pub const DBIMF_FIXED: u32 = 1;
+pub const DBIMF_FIXEDBMP: u32 = 4;
+pub const DBIMF_NOGRIPPER: u32 = 2048;
+pub const DBIMF_NOMARGINS: u32 = 8192;
+pub const DBIMF_NORMAL: u32 = 0;
+pub const DBIMF_TOPALIGN: u32 = 1024;
+pub const DBIMF_UNDELETEABLE: u32 = 16;
+pub const DBIMF_USECHEVRON: u32 = 128;
+pub const DBIMF_VARIABLEHEIGHT: u32 = 8;
+pub const DBIM_ACTUAL: u32 = 8;
+pub const DBIM_BKCOLOR: u32 = 64;
+pub const DBIM_INTEGRAL: u32 = 4;
+pub const DBIM_MAXSIZE: u32 = 2;
+pub const DBIM_MINSIZE: u32 = 1;
+pub const DBIM_MODEFLAGS: u32 = 32;
+pub const DBIM_TITLE: u32 = 16;
+pub const DBPC_SELECTFIRST: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEFAULTSAVEFOLDERTYPE(pub i32);
@@ -7405,8 +7405,8 @@ impl Default for DEFCONTEXTMENU {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = DEF_SHARE_ID(2i32);
-pub const DEFSHAREID_USERS: DEF_SHARE_ID = DEF_SHARE_ID(1i32);
+pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = DEF_SHARE_ID(2);
+pub const DEFSHAREID_USERS: DEF_SHARE_ID = DEF_SHARE_ID(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEF_SHARE_ID(pub i32);
@@ -7537,8 +7537,8 @@ impl Default for DETAILSINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(1i32);
-pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(0i32);
+pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(1);
+pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DFConstraint, DFConstraint_Vtbl, 0x4a3df050_23bd_11d2_939f_00a0c91eedba);
 #[cfg(feature = "Win32_System_Com")]
@@ -7633,96 +7633,96 @@ impl Default for DFMICS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(0i32);
-pub const DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(1024i32);
-pub const DFMR_NO_NATIVECPU_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(2048i32);
-pub const DFMR_NO_NONWOW_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(4096i32);
-pub const DFMR_NO_RESOURCE_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(32i32);
-pub const DFMR_NO_STATIC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(8i32);
-pub const DFMR_OPTIN_HANDLERS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(64i32);
-pub const DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(128i32);
-pub const DFMR_STATIC_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(16i32);
-pub const DFMR_USE_SPECIFIED_HANDLERS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(256i32);
-pub const DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(512i32);
+pub const DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(0);
+pub const DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(1024);
+pub const DFMR_NO_NATIVECPU_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(2048);
+pub const DFMR_NO_NONWOW_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(4096);
+pub const DFMR_NO_RESOURCE_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(32);
+pub const DFMR_NO_STATIC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(8);
+pub const DFMR_OPTIN_HANDLERS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(64);
+pub const DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(128);
+pub const DFMR_STATIC_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(16);
+pub const DFMR_USE_SPECIFIED_HANDLERS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(256);
+pub const DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(512);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFM_CMD(pub i32);
-pub const DFM_CMD_COPY: DFM_CMD = DFM_CMD(-3i32);
-pub const DFM_CMD_DELETE: DFM_CMD = DFM_CMD(-1i32);
-pub const DFM_CMD_LINK: DFM_CMD = DFM_CMD(-4i32);
-pub const DFM_CMD_MODALPROP: DFM_CMD = DFM_CMD(-12i32);
-pub const DFM_CMD_MOVE: DFM_CMD = DFM_CMD(-2i32);
-pub const DFM_CMD_NEWFOLDER: DFM_CMD = DFM_CMD(-6i32);
-pub const DFM_CMD_PASTE: DFM_CMD = DFM_CMD(-7i32);
-pub const DFM_CMD_PASTELINK: DFM_CMD = DFM_CMD(-10i32);
-pub const DFM_CMD_PASTESPECIAL: DFM_CMD = DFM_CMD(-11i32);
-pub const DFM_CMD_PROPERTIES: DFM_CMD = DFM_CMD(-5i32);
-pub const DFM_CMD_RENAME: DFM_CMD = DFM_CMD(-13i32);
-pub const DFM_CMD_VIEWDETAILS: DFM_CMD = DFM_CMD(-9i32);
-pub const DFM_CMD_VIEWLIST: DFM_CMD = DFM_CMD(-8i32);
-pub const DFM_GETDEFSTATICID: DFM_MESSAGE_ID = DFM_MESSAGE_ID(14i32);
-pub const DFM_GETHELPTEXT: DFM_MESSAGE_ID = DFM_MESSAGE_ID(5i32);
-pub const DFM_GETHELPTEXTW: DFM_MESSAGE_ID = DFM_MESSAGE_ID(11i32);
-pub const DFM_GETVERBA: DFM_MESSAGE_ID = DFM_MESSAGE_ID(16i32);
-pub const DFM_GETVERBW: DFM_MESSAGE_ID = DFM_MESSAGE_ID(15i32);
-pub const DFM_INVOKECOMMAND: DFM_MESSAGE_ID = DFM_MESSAGE_ID(2i32);
-pub const DFM_INVOKECOMMANDEX: DFM_MESSAGE_ID = DFM_MESSAGE_ID(12i32);
-pub const DFM_MAPCOMMANDNAME: DFM_MESSAGE_ID = DFM_MESSAGE_ID(13i32);
-pub const DFM_MERGECONTEXTMENU: DFM_MESSAGE_ID = DFM_MESSAGE_ID(1i32);
-pub const DFM_MERGECONTEXTMENU_BOTTOM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(17i32);
-pub const DFM_MERGECONTEXTMENU_TOP: DFM_MESSAGE_ID = DFM_MESSAGE_ID(10i32);
+pub const DFM_CMD_COPY: DFM_CMD = DFM_CMD(-3);
+pub const DFM_CMD_DELETE: DFM_CMD = DFM_CMD(-1);
+pub const DFM_CMD_LINK: DFM_CMD = DFM_CMD(-4);
+pub const DFM_CMD_MODALPROP: DFM_CMD = DFM_CMD(-12);
+pub const DFM_CMD_MOVE: DFM_CMD = DFM_CMD(-2);
+pub const DFM_CMD_NEWFOLDER: DFM_CMD = DFM_CMD(-6);
+pub const DFM_CMD_PASTE: DFM_CMD = DFM_CMD(-7);
+pub const DFM_CMD_PASTELINK: DFM_CMD = DFM_CMD(-10);
+pub const DFM_CMD_PASTESPECIAL: DFM_CMD = DFM_CMD(-11);
+pub const DFM_CMD_PROPERTIES: DFM_CMD = DFM_CMD(-5);
+pub const DFM_CMD_RENAME: DFM_CMD = DFM_CMD(-13);
+pub const DFM_CMD_VIEWDETAILS: DFM_CMD = DFM_CMD(-9);
+pub const DFM_CMD_VIEWLIST: DFM_CMD = DFM_CMD(-8);
+pub const DFM_GETDEFSTATICID: DFM_MESSAGE_ID = DFM_MESSAGE_ID(14);
+pub const DFM_GETHELPTEXT: DFM_MESSAGE_ID = DFM_MESSAGE_ID(5);
+pub const DFM_GETHELPTEXTW: DFM_MESSAGE_ID = DFM_MESSAGE_ID(11);
+pub const DFM_GETVERBA: DFM_MESSAGE_ID = DFM_MESSAGE_ID(16);
+pub const DFM_GETVERBW: DFM_MESSAGE_ID = DFM_MESSAGE_ID(15);
+pub const DFM_INVOKECOMMAND: DFM_MESSAGE_ID = DFM_MESSAGE_ID(2);
+pub const DFM_INVOKECOMMANDEX: DFM_MESSAGE_ID = DFM_MESSAGE_ID(12);
+pub const DFM_MAPCOMMANDNAME: DFM_MESSAGE_ID = DFM_MESSAGE_ID(13);
+pub const DFM_MERGECONTEXTMENU: DFM_MESSAGE_ID = DFM_MESSAGE_ID(1);
+pub const DFM_MERGECONTEXTMENU_BOTTOM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(17);
+pub const DFM_MERGECONTEXTMENU_TOP: DFM_MESSAGE_ID = DFM_MESSAGE_ID(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFM_MESSAGE_ID(pub i32);
-pub const DFM_MODIFYQCMFLAGS: DFM_MESSAGE_ID = DFM_MESSAGE_ID(18i32);
-pub const DFM_VALIDATECMD: DFM_MESSAGE_ID = DFM_MESSAGE_ID(9i32);
-pub const DFM_WM_DRAWITEM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(7i32);
-pub const DFM_WM_INITMENUPOPUP: DFM_MESSAGE_ID = DFM_MESSAGE_ID(8i32);
-pub const DFM_WM_MEASUREITEM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(6i32);
-pub const DISPID_BEGINDRAG: u32 = 204u32;
-pub const DISPID_CHECKSTATECHANGED: u32 = 209u32;
-pub const DISPID_COLUMNSCHANGED: u32 = 212u32;
-pub const DISPID_CONTENTSCHANGED: u32 = 207u32;
-pub const DISPID_CTRLMOUSEWHEEL: u32 = 213u32;
-pub const DISPID_DEFAULTVERBINVOKED: u32 = 203u32;
-pub const DISPID_ENTERPRESSED: u32 = 200u32;
-pub const DISPID_ENTERPRISEIDCHANGED: u32 = 224u32;
-pub const DISPID_EXPLORERWINDOWREADY: u32 = 221u32;
-pub const DISPID_FILELISTENUMDONE: u32 = 201u32;
-pub const DISPID_FILTERINVOKED: u32 = 218u32;
-pub const DISPID_FOCUSCHANGED: u32 = 208u32;
-pub const DISPID_FOLDERCHANGED: u32 = 217u32;
-pub const DISPID_IADCCTL_DEFAULTCAT: u32 = 262u32;
-pub const DISPID_IADCCTL_DIRTY: u32 = 256u32;
-pub const DISPID_IADCCTL_FORCEX86: u32 = 259u32;
-pub const DISPID_IADCCTL_ONDOMAIN: u32 = 261u32;
-pub const DISPID_IADCCTL_PUBCAT: u32 = 257u32;
-pub const DISPID_IADCCTL_SHOWPOSTSETUP: u32 = 260u32;
-pub const DISPID_IADCCTL_SORT: u32 = 258u32;
-pub const DISPID_ICONSIZECHANGED: u32 = 215u32;
-pub const DISPID_INITIALENUMERATIONDONE: u32 = 223u32;
-pub const DISPID_NOITEMSTATE_CHANGED: u32 = 206u32;
-pub const DISPID_ORDERCHANGED: u32 = 210u32;
-pub const DISPID_SEARCHCOMMAND_ABORT: u32 = 3u32;
-pub const DISPID_SEARCHCOMMAND_COMPLETE: u32 = 2u32;
-pub const DISPID_SEARCHCOMMAND_ERROR: u32 = 6u32;
-pub const DISPID_SEARCHCOMMAND_PROGRESSTEXT: u32 = 5u32;
-pub const DISPID_SEARCHCOMMAND_RESTORE: u32 = 7u32;
-pub const DISPID_SEARCHCOMMAND_START: u32 = 1u32;
-pub const DISPID_SEARCHCOMMAND_UPDATE: u32 = 4u32;
-pub const DISPID_SELECTEDITEMCHANGED: u32 = 220u32;
-pub const DISPID_SELECTIONCHANGED: u32 = 200u32;
-pub const DISPID_SORTDONE: u32 = 214u32;
-pub const DISPID_UPDATEIMAGE: u32 = 222u32;
-pub const DISPID_VERBINVOKED: u32 = 202u32;
-pub const DISPID_VIEWMODECHANGED: u32 = 205u32;
-pub const DISPID_VIEWPAINTDONE: u32 = 211u32;
-pub const DISPID_WORDWHEELEDITED: u32 = 219u32;
+pub const DFM_MODIFYQCMFLAGS: DFM_MESSAGE_ID = DFM_MESSAGE_ID(18);
+pub const DFM_VALIDATECMD: DFM_MESSAGE_ID = DFM_MESSAGE_ID(9);
+pub const DFM_WM_DRAWITEM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(7);
+pub const DFM_WM_INITMENUPOPUP: DFM_MESSAGE_ID = DFM_MESSAGE_ID(8);
+pub const DFM_WM_MEASUREITEM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(6);
+pub const DISPID_BEGINDRAG: u32 = 204;
+pub const DISPID_CHECKSTATECHANGED: u32 = 209;
+pub const DISPID_COLUMNSCHANGED: u32 = 212;
+pub const DISPID_CONTENTSCHANGED: u32 = 207;
+pub const DISPID_CTRLMOUSEWHEEL: u32 = 213;
+pub const DISPID_DEFAULTVERBINVOKED: u32 = 203;
+pub const DISPID_ENTERPRESSED: u32 = 200;
+pub const DISPID_ENTERPRISEIDCHANGED: u32 = 224;
+pub const DISPID_EXPLORERWINDOWREADY: u32 = 221;
+pub const DISPID_FILELISTENUMDONE: u32 = 201;
+pub const DISPID_FILTERINVOKED: u32 = 218;
+pub const DISPID_FOCUSCHANGED: u32 = 208;
+pub const DISPID_FOLDERCHANGED: u32 = 217;
+pub const DISPID_IADCCTL_DEFAULTCAT: u32 = 262;
+pub const DISPID_IADCCTL_DIRTY: u32 = 256;
+pub const DISPID_IADCCTL_FORCEX86: u32 = 259;
+pub const DISPID_IADCCTL_ONDOMAIN: u32 = 261;
+pub const DISPID_IADCCTL_PUBCAT: u32 = 257;
+pub const DISPID_IADCCTL_SHOWPOSTSETUP: u32 = 260;
+pub const DISPID_IADCCTL_SORT: u32 = 258;
+pub const DISPID_ICONSIZECHANGED: u32 = 215;
+pub const DISPID_INITIALENUMERATIONDONE: u32 = 223;
+pub const DISPID_NOITEMSTATE_CHANGED: u32 = 206;
+pub const DISPID_ORDERCHANGED: u32 = 210;
+pub const DISPID_SEARCHCOMMAND_ABORT: u32 = 3;
+pub const DISPID_SEARCHCOMMAND_COMPLETE: u32 = 2;
+pub const DISPID_SEARCHCOMMAND_ERROR: u32 = 6;
+pub const DISPID_SEARCHCOMMAND_PROGRESSTEXT: u32 = 5;
+pub const DISPID_SEARCHCOMMAND_RESTORE: u32 = 7;
+pub const DISPID_SEARCHCOMMAND_START: u32 = 1;
+pub const DISPID_SEARCHCOMMAND_UPDATE: u32 = 4;
+pub const DISPID_SELECTEDITEMCHANGED: u32 = 220;
+pub const DISPID_SELECTIONCHANGED: u32 = 200;
+pub const DISPID_SORTDONE: u32 = 214;
+pub const DISPID_UPDATEIMAGE: u32 = 222;
+pub const DISPID_VERBINVOKED: u32 = 202;
+pub const DISPID_VIEWMODECHANGED: u32 = 205;
+pub const DISPID_VIEWPAINTDONE: u32 = 211;
+pub const DISPID_WORDWHEELEDITED: u32 = 219;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAY_DEVICE_TYPE(pub i32);
 pub const DI_GETDRAGIMAGE: windows_core::PCWSTR = windows_core::w!("ShellGetDragImage");
-pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
+pub const DLG_SCRNSAVECONFIGURE: u32 = 2003;
 pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -7740,17 +7740,17 @@ pub struct DLLVERSIONINFO2 {
     pub dwFlags: u32,
     pub ullVersion: u64,
 }
-pub const DLLVER_BUILD_MASK: u64 = 4294901760u64;
-pub const DLLVER_MAJOR_MASK: u64 = 18446462598732840960u64;
-pub const DLLVER_MINOR_MASK: u64 = 281470681743360u64;
-pub const DLLVER_PLATFORM_NT: u32 = 2u32;
-pub const DLLVER_PLATFORM_WINDOWS: u32 = 1u32;
-pub const DLLVER_QFE_MASK: u64 = 65535u64;
-pub const DOGIF_DEFAULT: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(0i32);
-pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(2i32);
-pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(4i32);
-pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(8i32);
-pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(1i32);
+pub const DLLVER_BUILD_MASK: u64 = 4294901760;
+pub const DLLVER_MAJOR_MASK: u64 = 18446462598732840960;
+pub const DLLVER_MINOR_MASK: u64 = 281470681743360;
+pub const DLLVER_PLATFORM_NT: u32 = 2;
+pub const DLLVER_PLATFORM_WINDOWS: u32 = 1;
+pub const DLLVER_QFE_MASK: u64 = 65535;
+pub const DOGIF_DEFAULT: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(0);
+pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(2);
+pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(4);
+pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(8);
+pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(1);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Default)]
@@ -7814,20 +7814,20 @@ pub struct DROPFILES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPIMAGETYPE(pub i32);
-pub const DROPIMAGE_COPY: DROPIMAGETYPE = DROPIMAGETYPE(1i32);
-pub const DROPIMAGE_INVALID: DROPIMAGETYPE = DROPIMAGETYPE(-1i32);
-pub const DROPIMAGE_LABEL: DROPIMAGETYPE = DROPIMAGETYPE(6i32);
-pub const DROPIMAGE_LINK: DROPIMAGETYPE = DROPIMAGETYPE(4i32);
-pub const DROPIMAGE_MOVE: DROPIMAGETYPE = DROPIMAGETYPE(2i32);
-pub const DROPIMAGE_NOIMAGE: DROPIMAGETYPE = DROPIMAGETYPE(8i32);
-pub const DROPIMAGE_NONE: DROPIMAGETYPE = DROPIMAGETYPE(0i32);
-pub const DROPIMAGE_WARNING: DROPIMAGETYPE = DROPIMAGETYPE(7i32);
-pub const DSD_BACKWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(1i32);
-pub const DSD_FORWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(0i32);
-pub const DSFT_DETECT: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(1i32);
-pub const DSFT_PRIVATE: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(2i32);
-pub const DSFT_PUBLIC: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(3i32);
-pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = DSH_FLAGS(1i32);
+pub const DROPIMAGE_COPY: DROPIMAGETYPE = DROPIMAGETYPE(1);
+pub const DROPIMAGE_INVALID: DROPIMAGETYPE = DROPIMAGETYPE(-1);
+pub const DROPIMAGE_LABEL: DROPIMAGETYPE = DROPIMAGETYPE(6);
+pub const DROPIMAGE_LINK: DROPIMAGETYPE = DROPIMAGETYPE(4);
+pub const DROPIMAGE_MOVE: DROPIMAGETYPE = DROPIMAGETYPE(2);
+pub const DROPIMAGE_NOIMAGE: DROPIMAGETYPE = DROPIMAGETYPE(8);
+pub const DROPIMAGE_NONE: DROPIMAGETYPE = DROPIMAGETYPE(0);
+pub const DROPIMAGE_WARNING: DROPIMAGETYPE = DROPIMAGETYPE(7);
+pub const DSD_BACKWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(1);
+pub const DSD_FORWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(0);
+pub const DSFT_DETECT: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(1);
+pub const DSFT_PRIVATE: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(2);
+pub const DSFT_PUBLIC: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(3);
+pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = DSH_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSH_FLAGS(pub i32);
@@ -7864,10 +7864,10 @@ impl core::ops::Not for DSH_FLAGS {
         Self(self.0.not())
     }
 }
-pub const DSO_SHUFFLEIMAGES: DESKTOP_SLIDESHOW_OPTIONS = DESKTOP_SLIDESHOW_OPTIONS(1i32);
-pub const DSS_DISABLED_BY_REMOTE_SESSION: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(4i32);
-pub const DSS_ENABLED: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(1i32);
-pub const DSS_SLIDESHOW: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(2i32);
+pub const DSO_SHUFFLEIMAGES: DESKTOP_SLIDESHOW_OPTIONS = DESKTOP_SLIDESHOW_OPTIONS(1);
+pub const DSS_DISABLED_BY_REMOTE_SESSION: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(4);
+pub const DSS_ENABLED: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(1);
+pub const DSS_SLIDESHOW: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DShellFolderViewEvents, DShellFolderViewEvents_Vtbl, 0x62112aa2_ebe4_11cf_a5fb_0020afe7292d);
 #[cfg(feature = "Win32_System_Com")]
@@ -7958,21 +7958,21 @@ impl DShellWindowsEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DShellWindowsEvents {}
-pub const DVASPECT_COPY: u32 = 3u32;
-pub const DVASPECT_LINK: u32 = 4u32;
-pub const DVASPECT_SHORTNAME: u32 = 2u32;
-pub const DWFAF_AUTOHIDE: u32 = 16u32;
-pub const DWFAF_GROUP1: u32 = 2u32;
-pub const DWFAF_GROUP2: u32 = 4u32;
-pub const DWFAF_HIDDEN: u32 = 1u32;
-pub const DWFRF_DELETECONFIGDATA: u32 = 1u32;
-pub const DWFRF_NORMAL: u32 = 0u32;
-pub const DWPOS_CENTER: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(0i32);
-pub const DWPOS_FILL: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(4i32);
-pub const DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(3i32);
-pub const DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(5i32);
-pub const DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(2i32);
-pub const DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(1i32);
+pub const DVASPECT_COPY: u32 = 3;
+pub const DVASPECT_LINK: u32 = 4;
+pub const DVASPECT_SHORTNAME: u32 = 2;
+pub const DWFAF_AUTOHIDE: u32 = 16;
+pub const DWFAF_GROUP1: u32 = 2;
+pub const DWFAF_GROUP2: u32 = 4;
+pub const DWFAF_HIDDEN: u32 = 1;
+pub const DWFRF_DELETECONFIGDATA: u32 = 1;
+pub const DWFRF_NORMAL: u32 = 0;
+pub const DWPOS_CENTER: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(0);
+pub const DWPOS_FILL: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(4);
+pub const DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(3);
+pub const DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(5);
+pub const DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(2);
+pub const DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DWebBrowserEvents, DWebBrowserEvents_Vtbl, 0xeab22ac2_30c1_11cf_a7eb_0000c05bae0b);
 #[cfg(feature = "Win32_System_Com")]
@@ -8041,53 +8041,53 @@ pub const DestinationListBoth: windows_core::GUID = windows_core::GUID::from_u12
 pub const DocPropShellExtension: windows_core::GUID = windows_core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
 pub const DriveSizeCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
 pub const DriveTypeCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
-pub const EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(512i32);
-pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(0i32);
-pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(256i32);
-pub const EBO_ALWAYSNAVIGATE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(4i32);
-pub const EBO_HTMLSHAREPOINTVIEW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(32i32);
-pub const EBO_NAVIGATEONCE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(1i32);
-pub const EBO_NOBORDER: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(64i32);
-pub const EBO_NONE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(0i32);
-pub const EBO_NOPERSISTVIEWSTATE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(128i32);
-pub const EBO_NOTRAVELLOG: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(8i32);
-pub const EBO_NOWRAPPERWINDOW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(16i32);
-pub const EBO_SHOWFRAMES: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(2i32);
-pub const ECF_AUTOMENUICONS: _EXPCMDFLAGS = _EXPCMDFLAGS(512i32);
-pub const ECF_DEFAULT: _EXPCMDFLAGS = _EXPCMDFLAGS(0i32);
-pub const ECF_HASLUASHIELD: _EXPCMDFLAGS = _EXPCMDFLAGS(16i32);
-pub const ECF_HASSPLITBUTTON: _EXPCMDFLAGS = _EXPCMDFLAGS(2i32);
-pub const ECF_HASSUBCOMMANDS: _EXPCMDFLAGS = _EXPCMDFLAGS(1i32);
-pub const ECF_HIDELABEL: _EXPCMDFLAGS = _EXPCMDFLAGS(4i32);
-pub const ECF_ISDROPDOWN: _EXPCMDFLAGS = _EXPCMDFLAGS(128i32);
-pub const ECF_ISSEPARATOR: _EXPCMDFLAGS = _EXPCMDFLAGS(8i32);
-pub const ECF_SEPARATORAFTER: _EXPCMDFLAGS = _EXPCMDFLAGS(64i32);
-pub const ECF_SEPARATORBEFORE: _EXPCMDFLAGS = _EXPCMDFLAGS(32i32);
-pub const ECF_TOGGLEABLE: _EXPCMDFLAGS = _EXPCMDFLAGS(256i32);
-pub const ECHUIM_DESKTOP: EC_HOST_UI_MODE = EC_HOST_UI_MODE(0i32);
-pub const ECHUIM_IMMERSIVE: EC_HOST_UI_MODE = EC_HOST_UI_MODE(1i32);
-pub const ECHUIM_SYSTEM_LAUNCHER: EC_HOST_UI_MODE = EC_HOST_UI_MODE(2i32);
-pub const ECS_CHECKBOX: _EXPCMDSTATE = _EXPCMDSTATE(4i32);
-pub const ECS_CHECKED: _EXPCMDSTATE = _EXPCMDSTATE(8i32);
-pub const ECS_DISABLED: _EXPCMDSTATE = _EXPCMDSTATE(1i32);
-pub const ECS_ENABLED: _EXPCMDSTATE = _EXPCMDSTATE(0i32);
-pub const ECS_HIDDEN: _EXPCMDSTATE = _EXPCMDSTATE(2i32);
-pub const ECS_RADIOCHECK: _EXPCMDSTATE = _EXPCMDSTATE(16i32);
+pub const EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(512);
+pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(0);
+pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(256);
+pub const EBO_ALWAYSNAVIGATE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(4);
+pub const EBO_HTMLSHAREPOINTVIEW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(32);
+pub const EBO_NAVIGATEONCE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(1);
+pub const EBO_NOBORDER: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(64);
+pub const EBO_NONE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(0);
+pub const EBO_NOPERSISTVIEWSTATE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(128);
+pub const EBO_NOTRAVELLOG: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(8);
+pub const EBO_NOWRAPPERWINDOW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(16);
+pub const EBO_SHOWFRAMES: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(2);
+pub const ECF_AUTOMENUICONS: _EXPCMDFLAGS = _EXPCMDFLAGS(512);
+pub const ECF_DEFAULT: _EXPCMDFLAGS = _EXPCMDFLAGS(0);
+pub const ECF_HASLUASHIELD: _EXPCMDFLAGS = _EXPCMDFLAGS(16);
+pub const ECF_HASSPLITBUTTON: _EXPCMDFLAGS = _EXPCMDFLAGS(2);
+pub const ECF_HASSUBCOMMANDS: _EXPCMDFLAGS = _EXPCMDFLAGS(1);
+pub const ECF_HIDELABEL: _EXPCMDFLAGS = _EXPCMDFLAGS(4);
+pub const ECF_ISDROPDOWN: _EXPCMDFLAGS = _EXPCMDFLAGS(128);
+pub const ECF_ISSEPARATOR: _EXPCMDFLAGS = _EXPCMDFLAGS(8);
+pub const ECF_SEPARATORAFTER: _EXPCMDFLAGS = _EXPCMDFLAGS(64);
+pub const ECF_SEPARATORBEFORE: _EXPCMDFLAGS = _EXPCMDFLAGS(32);
+pub const ECF_TOGGLEABLE: _EXPCMDFLAGS = _EXPCMDFLAGS(256);
+pub const ECHUIM_DESKTOP: EC_HOST_UI_MODE = EC_HOST_UI_MODE(0);
+pub const ECHUIM_IMMERSIVE: EC_HOST_UI_MODE = EC_HOST_UI_MODE(1);
+pub const ECHUIM_SYSTEM_LAUNCHER: EC_HOST_UI_MODE = EC_HOST_UI_MODE(2);
+pub const ECS_CHECKBOX: _EXPCMDSTATE = _EXPCMDSTATE(4);
+pub const ECS_CHECKED: _EXPCMDSTATE = _EXPCMDSTATE(8);
+pub const ECS_DISABLED: _EXPCMDSTATE = _EXPCMDSTATE(1);
+pub const ECS_ENABLED: _EXPCMDSTATE = _EXPCMDSTATE(0);
+pub const ECS_HIDDEN: _EXPCMDSTATE = _EXPCMDSTATE(2);
+pub const ECS_RADIOCHECK: _EXPCMDSTATE = _EXPCMDSTATE(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EC_HOST_UI_MODE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDGE_GESTURE_KIND(pub i32);
-pub const EGK_KEYBOARD: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(1i32);
-pub const EGK_MOUSE: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(2i32);
-pub const EGK_TOUCH: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(0i32);
-pub const EPS_DEFAULT_OFF: _EXPLORERPANESTATE = _EXPLORERPANESTATE(2i32);
-pub const EPS_DEFAULT_ON: _EXPLORERPANESTATE = _EXPLORERPANESTATE(1i32);
-pub const EPS_DONTCARE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(0i32);
-pub const EPS_FORCE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(131072i32);
-pub const EPS_INITIALSTATE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65536i32);
-pub const EPS_STATEMASK: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65535i32);
+pub const EGK_KEYBOARD: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(1);
+pub const EGK_MOUSE: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(2);
+pub const EGK_TOUCH: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(0);
+pub const EPS_DEFAULT_OFF: _EXPLORERPANESTATE = _EXPLORERPANESTATE(2);
+pub const EPS_DEFAULT_ON: _EXPLORERPANESTATE = _EXPLORERPANESTATE(1);
+pub const EPS_DONTCARE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(0);
+pub const EPS_FORCE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(131072);
+pub const EPS_INITIALSTATE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65536);
+pub const EPS_STATEMASK: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65535);
 pub const EP_AdvQueryPane: windows_core::GUID = windows_core::GUID::from_u128(0xb4e9db8b_34ba_4c39_b5cc_16a1bd2c411c);
 pub const EP_Commands: windows_core::GUID = windows_core::GUID::from_u128(0xd9745868_ca5f_4a76_91cd_f5a129fbb076);
 pub const EP_Commands_Organize: windows_core::GUID = windows_core::GUID::from_u128(0x72e81700_e3ec_4660_bf24_3c3b7b648806);
@@ -8171,8 +8171,8 @@ impl core::ops::Not for EXPLORER_BROWSER_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const EXPPS_FILETYPES: _EXPPS = _EXPPS(1i32);
-pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
+pub const EXPPS_FILETYPES: _EXPPS = _EXPPS(1);
+pub const EXP_DARWIN_ID_SIG: u32 = 2684354566;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EXP_DARWIN_LINK {
@@ -8197,7 +8197,7 @@ impl Default for EXP_PROPERTYSTORAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569u32;
+pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EXP_SPECIAL_FOLDER {
@@ -8206,8 +8206,8 @@ pub struct EXP_SPECIAL_FOLDER {
     pub idSpecialFolder: u32,
     pub cbOffset: u32,
 }
-pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
-pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
+pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565;
+pub const EXP_SZ_ICON_SIG: u32 = 2684354567;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EXP_SZ_LINK {
@@ -8221,7 +8221,7 @@ impl Default for EXP_SZ_LINK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const EXP_SZ_LINK_SIG: u32 = 2684354561u32;
+pub const EXP_SZ_LINK_SIG: u32 = 2684354561;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTRASEARCH {
@@ -8261,88 +8261,88 @@ pub const EnumerableObjectCollection: windows_core::GUID = windows_core::GUID::f
 pub const ExecuteFolder: windows_core::GUID = windows_core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
 pub const ExecuteUnknown: windows_core::GUID = windows_core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
 pub const ExplorerBrowser: windows_core::GUID = windows_core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
-pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(0i32);
-pub const FCIDM_BROWSERFIRST: u32 = 40960u32;
-pub const FCIDM_BROWSERLAST: u32 = 48896u32;
-pub const FCIDM_GLOBALFIRST: u32 = 32768u32;
-pub const FCIDM_GLOBALLAST: u32 = 40959u32;
-pub const FCIDM_MENU_EDIT: u32 = 32832u32;
-pub const FCIDM_MENU_EXPLORE: u32 = 33104u32;
-pub const FCIDM_MENU_FAVORITES: u32 = 33136u32;
-pub const FCIDM_MENU_FILE: u32 = 32768u32;
-pub const FCIDM_MENU_FIND: u32 = 33088u32;
-pub const FCIDM_MENU_HELP: u32 = 33024u32;
-pub const FCIDM_MENU_TOOLS: u32 = 32960u32;
-pub const FCIDM_MENU_TOOLS_SEP_GOTO: u32 = 32961u32;
-pub const FCIDM_MENU_VIEW: u32 = 32896u32;
-pub const FCIDM_MENU_VIEW_SEP_OPTIONS: u32 = 32897u32;
-pub const FCIDM_SHVIEWFIRST: u32 = 0u32;
-pub const FCIDM_SHVIEWLAST: u32 = 32767u32;
-pub const FCIDM_STATUS: u32 = 40961u32;
-pub const FCIDM_TOOLBAR: u32 = 40960u32;
-pub const FCSM_CLSID: u32 = 8u32;
-pub const FCSM_FLAGS: u32 = 64u32;
-pub const FCSM_ICONFILE: u32 = 16u32;
-pub const FCSM_INFOTIP: u32 = 4u32;
-pub const FCSM_LOGO: u32 = 32u32;
-pub const FCSM_VIEWID: u32 = 1u32;
-pub const FCSM_WEBVIEWTEMPLATE: u32 = 2u32;
-pub const FCS_FLAG_DRAGDROP: u32 = 2u32;
-pub const FCS_FORCEWRITE: u32 = 2u32;
-pub const FCS_READ: u32 = 1u32;
-pub const FCT_ADDTOEND: u32 = 4u32;
-pub const FCT_CONFIGABLE: u32 = 2u32;
-pub const FCT_MERGE: u32 = 1u32;
-pub const FCW_INTERNETBAR: u32 = 6u32;
-pub const FCW_PROGRESS: u32 = 8u32;
-pub const FCW_STATUS: u32 = 1u32;
-pub const FCW_TOOLBAR: u32 = 2u32;
-pub const FCW_TREE: u32 = 3u32;
+pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(0);
+pub const FCIDM_BROWSERFIRST: u32 = 40960;
+pub const FCIDM_BROWSERLAST: u32 = 48896;
+pub const FCIDM_GLOBALFIRST: u32 = 32768;
+pub const FCIDM_GLOBALLAST: u32 = 40959;
+pub const FCIDM_MENU_EDIT: u32 = 32832;
+pub const FCIDM_MENU_EXPLORE: u32 = 33104;
+pub const FCIDM_MENU_FAVORITES: u32 = 33136;
+pub const FCIDM_MENU_FILE: u32 = 32768;
+pub const FCIDM_MENU_FIND: u32 = 33088;
+pub const FCIDM_MENU_HELP: u32 = 33024;
+pub const FCIDM_MENU_TOOLS: u32 = 32960;
+pub const FCIDM_MENU_TOOLS_SEP_GOTO: u32 = 32961;
+pub const FCIDM_MENU_VIEW: u32 = 32896;
+pub const FCIDM_MENU_VIEW_SEP_OPTIONS: u32 = 32897;
+pub const FCIDM_SHVIEWFIRST: u32 = 0;
+pub const FCIDM_SHVIEWLAST: u32 = 32767;
+pub const FCIDM_STATUS: u32 = 40961;
+pub const FCIDM_TOOLBAR: u32 = 40960;
+pub const FCSM_CLSID: u32 = 8;
+pub const FCSM_FLAGS: u32 = 64;
+pub const FCSM_ICONFILE: u32 = 16;
+pub const FCSM_INFOTIP: u32 = 4;
+pub const FCSM_LOGO: u32 = 32;
+pub const FCSM_VIEWID: u32 = 1;
+pub const FCSM_WEBVIEWTEMPLATE: u32 = 2;
+pub const FCS_FLAG_DRAGDROP: u32 = 2;
+pub const FCS_FORCEWRITE: u32 = 2;
+pub const FCS_READ: u32 = 1;
+pub const FCT_ADDTOEND: u32 = 4;
+pub const FCT_CONFIGABLE: u32 = 2;
+pub const FCT_MERGE: u32 = 1;
+pub const FCW_INTERNETBAR: u32 = 6;
+pub const FCW_PROGRESS: u32 = 8;
+pub const FCW_STATUS: u32 = 1;
+pub const FCW_TOOLBAR: u32 = 2;
+pub const FCW_TREE: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDAP(pub i32);
-pub const FDAP_BOTTOM: FDAP = FDAP(0i32);
-pub const FDAP_TOP: FDAP = FDAP(1i32);
-pub const FDEOR_ACCEPT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(1i32);
-pub const FDEOR_DEFAULT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(0i32);
-pub const FDEOR_REFUSE: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(2i32);
-pub const FDESVR_ACCEPT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(1i32);
-pub const FDESVR_DEFAULT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(0i32);
-pub const FDESVR_REFUSE: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(2i32);
+pub const FDAP_BOTTOM: FDAP = FDAP(0);
+pub const FDAP_TOP: FDAP = FDAP(1);
+pub const FDEOR_ACCEPT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(1);
+pub const FDEOR_DEFAULT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(0);
+pub const FDEOR_REFUSE: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(2);
+pub const FDESVR_ACCEPT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(1);
+pub const FDESVR_DEFAULT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(0);
+pub const FDESVR_REFUSE: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDE_OVERWRITE_RESPONSE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDE_SHAREVIOLATION_RESPONSE(pub i32);
-pub const FDTF_LONGDATE: u32 = 4u32;
-pub const FDTF_LONGTIME: u32 = 8u32;
-pub const FDTF_LTRDATE: u32 = 256u32;
-pub const FDTF_NOAUTOREADINGORDER: u32 = 1024u32;
-pub const FDTF_RELATIVE: u32 = 16u32;
-pub const FDTF_RTLDATE: u32 = 512u32;
-pub const FDTF_SHORTDATE: u32 = 2u32;
-pub const FDTF_SHORTTIME: u32 = 1u32;
-pub const FD_ACCESSTIME: FD_FLAGS = FD_FLAGS(16i32);
-pub const FD_ATTRIBUTES: FD_FLAGS = FD_FLAGS(4i32);
-pub const FD_CLSID: FD_FLAGS = FD_FLAGS(1i32);
-pub const FD_CREATETIME: FD_FLAGS = FD_FLAGS(8i32);
-pub const FD_FILESIZE: FD_FLAGS = FD_FLAGS(64i32);
+pub const FDTF_LONGDATE: u32 = 4;
+pub const FDTF_LONGTIME: u32 = 8;
+pub const FDTF_LTRDATE: u32 = 256;
+pub const FDTF_NOAUTOREADINGORDER: u32 = 1024;
+pub const FDTF_RELATIVE: u32 = 16;
+pub const FDTF_RTLDATE: u32 = 512;
+pub const FDTF_SHORTDATE: u32 = 2;
+pub const FDTF_SHORTTIME: u32 = 1;
+pub const FD_ACCESSTIME: FD_FLAGS = FD_FLAGS(16);
+pub const FD_ATTRIBUTES: FD_FLAGS = FD_FLAGS(4);
+pub const FD_CLSID: FD_FLAGS = FD_FLAGS(1);
+pub const FD_CREATETIME: FD_FLAGS = FD_FLAGS(8);
+pub const FD_FILESIZE: FD_FLAGS = FD_FLAGS(64);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FD_FLAGS(pub i32);
-pub const FD_LINKUI: FD_FLAGS = FD_FLAGS(32768i32);
-pub const FD_PROGRESSUI: FD_FLAGS = FD_FLAGS(16384i32);
-pub const FD_SIZEPOINT: FD_FLAGS = FD_FLAGS(2i32);
-pub const FD_UNICODE: FD_FLAGS = FD_FLAGS(-2147483648i32);
-pub const FD_WRITESTIME: FD_FLAGS = FD_FLAGS(32i32);
-pub const FEM_NAVIGATION: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(1i32);
-pub const FEM_VIEWRESULT: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(0i32);
-pub const FFFP_EXACTMATCH: FFFP_MODE = FFFP_MODE(0i32);
+pub const FD_LINKUI: FD_FLAGS = FD_FLAGS(32768);
+pub const FD_PROGRESSUI: FD_FLAGS = FD_FLAGS(16384);
+pub const FD_SIZEPOINT: FD_FLAGS = FD_FLAGS(2);
+pub const FD_UNICODE: FD_FLAGS = FD_FLAGS(-2147483648);
+pub const FD_WRITESTIME: FD_FLAGS = FD_FLAGS(32);
+pub const FEM_NAVIGATION: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(1);
+pub const FEM_VIEWRESULT: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(0);
+pub const FFFP_EXACTMATCH: FFFP_MODE = FFFP_MODE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FFFP_MODE(pub i32);
-pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = FFFP_MODE(1i32);
+pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = FFFP_MODE(1);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
@@ -8565,14 +8565,14 @@ impl core::ops::Not for FILE_OPERATION_FLAGS2 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_USAGE_TYPE(pub i32);
-pub const FLVM_CONTENT: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5i32);
-pub const FLVM_DETAILS: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(1i32);
-pub const FLVM_FIRST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(1i32);
-pub const FLVM_ICONS: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(3i32);
-pub const FLVM_LAST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5i32);
-pub const FLVM_LIST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(4i32);
-pub const FLVM_TILES: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(2i32);
-pub const FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(-1i32);
+pub const FLVM_CONTENT: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5);
+pub const FLVM_DETAILS: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(1);
+pub const FLVM_FIRST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(1);
+pub const FLVM_ICONS: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(3);
+pub const FLVM_LAST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5);
+pub const FLVM_LIST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(4);
+pub const FLVM_TILES: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(2);
+pub const FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLYOUT_PLACEMENT(pub i32);
@@ -8591,41 +8591,41 @@ pub const FMTID_ShellDetails: windows_core::GUID = windows_core::GUID::from_u128
 pub const FMTID_Storage: windows_core::GUID = windows_core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac);
 pub const FMTID_Volume: windows_core::GUID = windows_core::GUID::from_u128(0x9b174b35_40ff_11d2_a27e_00c04fc30871);
 pub const FMTID_WebView: windows_core::GUID = windows_core::GUID::from_u128(0xf2275480_f782_4291_bd94_f13693513aec);
-pub const FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(1i32);
-pub const FOF2_NONE: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(0i32);
-pub const FOFX_ADDUNDORECORD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(536870912u32);
-pub const FOFX_COPYASDOWNLOAD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1073741824u32);
-pub const FOFX_DONTDISPLAYDESTPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(134217728u32);
-pub const FOFX_DONTDISPLAYLOCATIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2147483648u32);
-pub const FOFX_DONTDISPLAYSOURCEPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(67108864u32);
-pub const FOFX_EARLYFAILURE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1048576u32);
-pub const FOFX_KEEPNEWERFILE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4194304u32);
-pub const FOFX_MOVEACLSACROSSVOLUMES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(33554432u32);
-pub const FOFX_NOCOPYHOOKS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8388608u32);
-pub const FOFX_NOMINIMIZEBOX: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16777216u32);
-pub const FOFX_NOSKIPJUNCTIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(65536u32);
-pub const FOFX_PREFERHARDLINK: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(131072u32);
-pub const FOFX_PRESERVEFILEEXTENSIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2097152u32);
-pub const FOFX_RECYCLEONDELETE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(524288u32);
-pub const FOFX_REQUIREELEVATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(268435456u32);
-pub const FOFX_SHOWELEVATIONPROMPT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(262144u32);
-pub const FOF_ALLOWUNDO: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(64u32);
-pub const FOF_CONFIRMMOUSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2u32);
-pub const FOF_FILESONLY: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(128u32);
-pub const FOF_MULTIDESTFILES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1u32);
-pub const FOF_NOCONFIRMATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16u32);
-pub const FOF_NOCONFIRMMKDIR: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(512u32);
-pub const FOF_NOCOPYSECURITYATTRIBS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2048u32);
-pub const FOF_NOERRORUI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1024u32);
-pub const FOF_NORECURSEREPARSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32768u32);
-pub const FOF_NORECURSION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4096u32);
-pub const FOF_NO_CONNECTED_ELEMENTS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8192u32);
-pub const FOF_NO_UI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1556u32);
-pub const FOF_RENAMEONCOLLISION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8u32);
-pub const FOF_SILENT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4u32);
-pub const FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(256u32);
-pub const FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32u32);
-pub const FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16384u32);
+pub const FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(1);
+pub const FOF2_NONE: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(0);
+pub const FOFX_ADDUNDORECORD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(536870912);
+pub const FOFX_COPYASDOWNLOAD: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1073741824);
+pub const FOFX_DONTDISPLAYDESTPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(134217728);
+pub const FOFX_DONTDISPLAYLOCATIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2147483648);
+pub const FOFX_DONTDISPLAYSOURCEPATH: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(67108864);
+pub const FOFX_EARLYFAILURE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1048576);
+pub const FOFX_KEEPNEWERFILE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4194304);
+pub const FOFX_MOVEACLSACROSSVOLUMES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(33554432);
+pub const FOFX_NOCOPYHOOKS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8388608);
+pub const FOFX_NOMINIMIZEBOX: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16777216);
+pub const FOFX_NOSKIPJUNCTIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(65536);
+pub const FOFX_PREFERHARDLINK: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(131072);
+pub const FOFX_PRESERVEFILEEXTENSIONS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2097152);
+pub const FOFX_RECYCLEONDELETE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(524288);
+pub const FOFX_REQUIREELEVATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(268435456);
+pub const FOFX_SHOWELEVATIONPROMPT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(262144);
+pub const FOF_ALLOWUNDO: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(64);
+pub const FOF_CONFIRMMOUSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2);
+pub const FOF_FILESONLY: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(128);
+pub const FOF_MULTIDESTFILES: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1);
+pub const FOF_NOCONFIRMATION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16);
+pub const FOF_NOCONFIRMMKDIR: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(512);
+pub const FOF_NOCOPYSECURITYATTRIBS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(2048);
+pub const FOF_NOERRORUI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1024);
+pub const FOF_NORECURSEREPARSE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32768);
+pub const FOF_NORECURSION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4096);
+pub const FOF_NO_CONNECTED_ELEMENTS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8192);
+pub const FOF_NO_UI: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(1556);
+pub const FOF_RENAMEONCOLLISION: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(8);
+pub const FOF_SILENT: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(4);
+pub const FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(256);
+pub const FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(32);
+pub const FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = FILEOPERATION_FLAGS(16384);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERFLAGS(pub i32);
@@ -8899,123 +8899,123 @@ impl core::ops::Not for FOLDERVIEWOPTIONS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDER_ENUM_MODE(pub i32);
-pub const FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(128u32);
-pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(512u32);
-pub const FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(8192u32);
-pub const FOS_DEFAULTNOMINIMODE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(536870912u32);
-pub const FOS_DONTADDTORECENT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(33554432u32);
-pub const FOS_FILEMUSTEXIST: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(4096u32);
-pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(64u32);
-pub const FOS_FORCEPREVIEWPANEON: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(1073741824u32);
-pub const FOS_FORCESHOWHIDDEN: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(268435456u32);
-pub const FOS_HIDEMRUPLACES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(131072u32);
-pub const FOS_HIDEPINNEDPLACES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(262144u32);
-pub const FOS_NOCHANGEDIR: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(8u32);
-pub const FOS_NODEREFERENCELINKS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(1048576u32);
-pub const FOS_NOREADONLYRETURN: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(32768u32);
-pub const FOS_NOTESTFILECREATE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(65536u32);
-pub const FOS_NOVALIDATE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(256u32);
-pub const FOS_OKBUTTONNEEDSINTERACTION: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2097152u32);
-pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2u32);
-pub const FOS_PATHMUSTEXIST: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2048u32);
-pub const FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(32u32);
-pub const FOS_SHAREAWARE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(16384u32);
-pub const FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(4u32);
-pub const FOS_SUPPORTSTREAMABLEITEMS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2147483648u32);
-pub const FO_COPY: u32 = 2u32;
-pub const FO_DELETE: u32 = 3u32;
-pub const FO_MOVE: u32 = 1u32;
-pub const FO_RENAME: u32 = 4u32;
-pub const FP_ABOVE: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(1i32);
-pub const FP_BELOW: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(2i32);
-pub const FP_DEFAULT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(0i32);
-pub const FP_LEFT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(3i32);
-pub const FP_RIGHT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(4i32);
+pub const FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(128);
+pub const FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(512);
+pub const FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(8192);
+pub const FOS_DEFAULTNOMINIMODE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(536870912);
+pub const FOS_DONTADDTORECENT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(33554432);
+pub const FOS_FILEMUSTEXIST: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(4096);
+pub const FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(64);
+pub const FOS_FORCEPREVIEWPANEON: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(1073741824);
+pub const FOS_FORCESHOWHIDDEN: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(268435456);
+pub const FOS_HIDEMRUPLACES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(131072);
+pub const FOS_HIDEPINNEDPLACES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(262144);
+pub const FOS_NOCHANGEDIR: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(8);
+pub const FOS_NODEREFERENCELINKS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(1048576);
+pub const FOS_NOREADONLYRETURN: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(32768);
+pub const FOS_NOTESTFILECREATE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(65536);
+pub const FOS_NOVALIDATE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(256);
+pub const FOS_OKBUTTONNEEDSINTERACTION: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2097152);
+pub const FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2);
+pub const FOS_PATHMUSTEXIST: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2048);
+pub const FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(32);
+pub const FOS_SHAREAWARE: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(16384);
+pub const FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(4);
+pub const FOS_SUPPORTSTREAMABLEITEMS: FILEOPENDIALOGOPTIONS = FILEOPENDIALOGOPTIONS(2147483648);
+pub const FO_COPY: u32 = 2;
+pub const FO_DELETE: u32 = 3;
+pub const FO_MOVE: u32 = 1;
+pub const FO_RENAME: u32 = 4;
+pub const FP_ABOVE: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(1);
+pub const FP_BELOW: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(2);
+pub const FP_DEFAULT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(0);
+pub const FP_LEFT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(3);
+pub const FP_RIGHT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(4);
 pub const FSCopyHandler: windows_core::GUID = windows_core::GUID::from_u128(0xd197380a_0a79_4dc8_a033_ed882c2fa14b);
-pub const FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(131072i32);
-pub const FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4194304i32);
-pub const FTA_Exclude: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1i32);
-pub const FTA_HasExtension: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4i32);
-pub const FTA_NoDDE: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(8192i32);
-pub const FTA_NoEdit: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(8i32);
-pub const FTA_NoEditDesc: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(256i32);
-pub const FTA_NoEditDflt: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1024i32);
-pub const FTA_NoEditIcon: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(512i32);
-pub const FTA_NoEditMIME: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(32768i32);
-pub const FTA_NoEditVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(64i32);
-pub const FTA_NoEditVerbCmd: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2048i32);
-pub const FTA_NoEditVerbExe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4096i32);
-pub const FTA_NoNewVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(32i32);
-pub const FTA_NoRecentDocs: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1048576i32);
-pub const FTA_NoRemove: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(16i32);
-pub const FTA_NoRemoveVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(128i32);
-pub const FTA_None: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(0i32);
-pub const FTA_OpenIsSafe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(65536i32);
-pub const FTA_SafeForElevation: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2097152i32);
-pub const FTA_Show: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2i32);
-pub const FUT_EDITING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(1i32);
-pub const FUT_GENERIC: FILE_USAGE_TYPE = FILE_USAGE_TYPE(2i32);
-pub const FUT_PLAYING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(0i32);
-pub const FVM_AUTO: FOLDERVIEWMODE = FOLDERVIEWMODE(-1i32);
-pub const FVM_CONTENT: FOLDERVIEWMODE = FOLDERVIEWMODE(8i32);
-pub const FVM_DETAILS: FOLDERVIEWMODE = FOLDERVIEWMODE(4i32);
-pub const FVM_FIRST: FOLDERVIEWMODE = FOLDERVIEWMODE(1i32);
-pub const FVM_ICON: FOLDERVIEWMODE = FOLDERVIEWMODE(1i32);
-pub const FVM_LAST: FOLDERVIEWMODE = FOLDERVIEWMODE(8i32);
-pub const FVM_LIST: FOLDERVIEWMODE = FOLDERVIEWMODE(3i32);
-pub const FVM_SMALLICON: FOLDERVIEWMODE = FOLDERVIEWMODE(2i32);
-pub const FVM_THUMBNAIL: FOLDERVIEWMODE = FOLDERVIEWMODE(5i32);
-pub const FVM_THUMBSTRIP: FOLDERVIEWMODE = FOLDERVIEWMODE(7i32);
-pub const FVM_TILE: FOLDERVIEWMODE = FOLDERVIEWMODE(6i32);
-pub const FVO_CUSTOMORDERING: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(4i32);
-pub const FVO_CUSTOMPOSITION: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(2i32);
-pub const FVO_DEFAULT: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(0i32);
-pub const FVO_NOANIMATIONS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(16i32);
-pub const FVO_NOSCROLLTIPS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(32i32);
-pub const FVO_SUPPORTHYPERLINKS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(8i32);
-pub const FVO_VISTALAYOUT: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(1i32);
-pub const FVSIF_CANVIEWIT: u32 = 1073741824u32;
-pub const FVSIF_NEWFAILED: u32 = 134217728u32;
-pub const FVSIF_NEWFILE: u32 = 2147483648u32;
-pub const FVSIF_PINNED: u32 = 2u32;
-pub const FVSIF_RECT: u32 = 1u32;
-pub const FVST_EMPTYTEXT: FVTEXTTYPE = FVTEXTTYPE(0i32);
+pub const FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(131072);
+pub const FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4194304);
+pub const FTA_Exclude: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1);
+pub const FTA_HasExtension: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4);
+pub const FTA_NoDDE: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(8192);
+pub const FTA_NoEdit: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(8);
+pub const FTA_NoEditDesc: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(256);
+pub const FTA_NoEditDflt: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1024);
+pub const FTA_NoEditIcon: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(512);
+pub const FTA_NoEditMIME: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(32768);
+pub const FTA_NoEditVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(64);
+pub const FTA_NoEditVerbCmd: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2048);
+pub const FTA_NoEditVerbExe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4096);
+pub const FTA_NoNewVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(32);
+pub const FTA_NoRecentDocs: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1048576);
+pub const FTA_NoRemove: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(16);
+pub const FTA_NoRemoveVerb: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(128);
+pub const FTA_None: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(0);
+pub const FTA_OpenIsSafe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(65536);
+pub const FTA_SafeForElevation: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2097152);
+pub const FTA_Show: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2);
+pub const FUT_EDITING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(1);
+pub const FUT_GENERIC: FILE_USAGE_TYPE = FILE_USAGE_TYPE(2);
+pub const FUT_PLAYING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(0);
+pub const FVM_AUTO: FOLDERVIEWMODE = FOLDERVIEWMODE(-1);
+pub const FVM_CONTENT: FOLDERVIEWMODE = FOLDERVIEWMODE(8);
+pub const FVM_DETAILS: FOLDERVIEWMODE = FOLDERVIEWMODE(4);
+pub const FVM_FIRST: FOLDERVIEWMODE = FOLDERVIEWMODE(1);
+pub const FVM_ICON: FOLDERVIEWMODE = FOLDERVIEWMODE(1);
+pub const FVM_LAST: FOLDERVIEWMODE = FOLDERVIEWMODE(8);
+pub const FVM_LIST: FOLDERVIEWMODE = FOLDERVIEWMODE(3);
+pub const FVM_SMALLICON: FOLDERVIEWMODE = FOLDERVIEWMODE(2);
+pub const FVM_THUMBNAIL: FOLDERVIEWMODE = FOLDERVIEWMODE(5);
+pub const FVM_THUMBSTRIP: FOLDERVIEWMODE = FOLDERVIEWMODE(7);
+pub const FVM_TILE: FOLDERVIEWMODE = FOLDERVIEWMODE(6);
+pub const FVO_CUSTOMORDERING: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(4);
+pub const FVO_CUSTOMPOSITION: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(2);
+pub const FVO_DEFAULT: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(0);
+pub const FVO_NOANIMATIONS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(16);
+pub const FVO_NOSCROLLTIPS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(32);
+pub const FVO_SUPPORTHYPERLINKS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(8);
+pub const FVO_VISTALAYOUT: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(1);
+pub const FVSIF_CANVIEWIT: u32 = 1073741824;
+pub const FVSIF_NEWFAILED: u32 = 134217728;
+pub const FVSIF_NEWFILE: u32 = 2147483648;
+pub const FVSIF_PINNED: u32 = 2;
+pub const FVSIF_RECT: u32 = 1;
+pub const FVST_EMPTYTEXT: FVTEXTTYPE = FVTEXTTYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FVTEXTTYPE(pub i32);
-pub const FWF_ABBREVIATEDNAMES: FOLDERFLAGS = FOLDERFLAGS(2i32);
-pub const FWF_ALIGNLEFT: FOLDERFLAGS = FOLDERFLAGS(2048i32);
-pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = FOLDERFLAGS(-2147483648i32);
-pub const FWF_AUTOARRANGE: FOLDERFLAGS = FOLDERFLAGS(1i32);
-pub const FWF_AUTOCHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(134217728i32);
-pub const FWF_BESTFITWINDOW: FOLDERFLAGS = FOLDERFLAGS(16i32);
-pub const FWF_CHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(262144i32);
-pub const FWF_DESKTOP: FOLDERFLAGS = FOLDERFLAGS(32i32);
-pub const FWF_EXTENDEDTILES: FOLDERFLAGS = FOLDERFLAGS(33554432i32);
-pub const FWF_FULLROWSELECT: FOLDERFLAGS = FOLDERFLAGS(2097152i32);
-pub const FWF_HIDEFILENAMES: FOLDERFLAGS = FOLDERFLAGS(131072i32);
-pub const FWF_NOBROWSERVIEWSTATE: FOLDERFLAGS = FOLDERFLAGS(268435456i32);
-pub const FWF_NOCLIENTEDGE: FOLDERFLAGS = FOLDERFLAGS(512i32);
-pub const FWF_NOCOLUMNHEADER: FOLDERFLAGS = FOLDERFLAGS(8388608i32);
-pub const FWF_NOENUMREFRESH: FOLDERFLAGS = FOLDERFLAGS(524288i32);
-pub const FWF_NOFILTERS: FOLDERFLAGS = FOLDERFLAGS(4194304i32);
-pub const FWF_NOGROUPING: FOLDERFLAGS = FOLDERFLAGS(1048576i32);
-pub const FWF_NOHEADERINALLVIEWS: FOLDERFLAGS = FOLDERFLAGS(16777216i32);
-pub const FWF_NOICONS: FOLDERFLAGS = FOLDERFLAGS(4096i32);
-pub const FWF_NONE: FOLDERFLAGS = FOLDERFLAGS(0i32);
-pub const FWF_NOSCROLL: FOLDERFLAGS = FOLDERFLAGS(1024i32);
-pub const FWF_NOSUBFOLDERS: FOLDERFLAGS = FOLDERFLAGS(128i32);
-pub const FWF_NOVISIBLE: FOLDERFLAGS = FOLDERFLAGS(16384i32);
-pub const FWF_NOWEBVIEW: FOLDERFLAGS = FOLDERFLAGS(65536i32);
-pub const FWF_OWNERDATA: FOLDERFLAGS = FOLDERFLAGS(8i32);
-pub const FWF_SHOWSELALWAYS: FOLDERFLAGS = FOLDERFLAGS(8192i32);
-pub const FWF_SINGLECLICKACTIVATE: FOLDERFLAGS = FOLDERFLAGS(32768i32);
-pub const FWF_SINGLESEL: FOLDERFLAGS = FOLDERFLAGS(64i32);
-pub const FWF_SNAPTOGRID: FOLDERFLAGS = FOLDERFLAGS(4i32);
-pub const FWF_SUBSETGROUPS: FOLDERFLAGS = FOLDERFLAGS(536870912i32);
-pub const FWF_TRANSPARENT: FOLDERFLAGS = FOLDERFLAGS(256i32);
-pub const FWF_TRICHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(67108864i32);
-pub const FWF_USESEARCHFOLDER: FOLDERFLAGS = FOLDERFLAGS(1073741824i32);
+pub const FWF_ABBREVIATEDNAMES: FOLDERFLAGS = FOLDERFLAGS(2);
+pub const FWF_ALIGNLEFT: FOLDERFLAGS = FOLDERFLAGS(2048);
+pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = FOLDERFLAGS(-2147483648);
+pub const FWF_AUTOARRANGE: FOLDERFLAGS = FOLDERFLAGS(1);
+pub const FWF_AUTOCHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(134217728);
+pub const FWF_BESTFITWINDOW: FOLDERFLAGS = FOLDERFLAGS(16);
+pub const FWF_CHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(262144);
+pub const FWF_DESKTOP: FOLDERFLAGS = FOLDERFLAGS(32);
+pub const FWF_EXTENDEDTILES: FOLDERFLAGS = FOLDERFLAGS(33554432);
+pub const FWF_FULLROWSELECT: FOLDERFLAGS = FOLDERFLAGS(2097152);
+pub const FWF_HIDEFILENAMES: FOLDERFLAGS = FOLDERFLAGS(131072);
+pub const FWF_NOBROWSERVIEWSTATE: FOLDERFLAGS = FOLDERFLAGS(268435456);
+pub const FWF_NOCLIENTEDGE: FOLDERFLAGS = FOLDERFLAGS(512);
+pub const FWF_NOCOLUMNHEADER: FOLDERFLAGS = FOLDERFLAGS(8388608);
+pub const FWF_NOENUMREFRESH: FOLDERFLAGS = FOLDERFLAGS(524288);
+pub const FWF_NOFILTERS: FOLDERFLAGS = FOLDERFLAGS(4194304);
+pub const FWF_NOGROUPING: FOLDERFLAGS = FOLDERFLAGS(1048576);
+pub const FWF_NOHEADERINALLVIEWS: FOLDERFLAGS = FOLDERFLAGS(16777216);
+pub const FWF_NOICONS: FOLDERFLAGS = FOLDERFLAGS(4096);
+pub const FWF_NONE: FOLDERFLAGS = FOLDERFLAGS(0);
+pub const FWF_NOSCROLL: FOLDERFLAGS = FOLDERFLAGS(1024);
+pub const FWF_NOSUBFOLDERS: FOLDERFLAGS = FOLDERFLAGS(128);
+pub const FWF_NOVISIBLE: FOLDERFLAGS = FOLDERFLAGS(16384);
+pub const FWF_NOWEBVIEW: FOLDERFLAGS = FOLDERFLAGS(65536);
+pub const FWF_OWNERDATA: FOLDERFLAGS = FOLDERFLAGS(8);
+pub const FWF_SHOWSELALWAYS: FOLDERFLAGS = FOLDERFLAGS(8192);
+pub const FWF_SINGLECLICKACTIVATE: FOLDERFLAGS = FOLDERFLAGS(32768);
+pub const FWF_SINGLESEL: FOLDERFLAGS = FOLDERFLAGS(64);
+pub const FWF_SNAPTOGRID: FOLDERFLAGS = FOLDERFLAGS(4);
+pub const FWF_SUBSETGROUPS: FOLDERFLAGS = FOLDERFLAGS(536870912);
+pub const FWF_TRANSPARENT: FOLDERFLAGS = FOLDERFLAGS(256);
+pub const FWF_TRICHECKSELECT: FOLDERFLAGS = FOLDERFLAGS(67108864);
+pub const FWF_USESEARCHFOLDER: FOLDERFLAGS = FOLDERFLAGS(1073741824);
 pub const FileOpenDialog: windows_core::GUID = windows_core::GUID::from_u128(0xdc1c5a9c_e88a_4dde_a5a1_60f82a20aef7);
 pub const FileOperation: windows_core::GUID = windows_core::GUID::from_u128(0x3ad05575_8857_4850_9277_11b85bdb8e09);
 pub const FileSaveDialog: windows_core::GUID = windows_core::GUID::from_u128(0xc0b4e2f3_ba21_4773_8dba_335ec946eb8b);
@@ -10412,100 +10412,100 @@ impl windows_core::RuntimeName for FolderItems3 {}
 pub const FolderViewHost: windows_core::GUID = windows_core::GUID::from_u128(0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee);
 pub const FrameworkInputPane: windows_core::GUID = windows_core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
 pub const FreeSpaceCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
-pub const GADOF_DIRTY: u32 = 1u32;
-pub const GCS_HELPTEXT: u32 = 5u32;
-pub const GCS_HELPTEXTA: u32 = 1u32;
-pub const GCS_HELPTEXTW: u32 = 5u32;
-pub const GCS_UNICODE: u32 = 4u32;
-pub const GCS_VALIDATE: u32 = 6u32;
-pub const GCS_VALIDATEA: u32 = 2u32;
-pub const GCS_VALIDATEW: u32 = 6u32;
-pub const GCS_VERB: u32 = 4u32;
-pub const GCS_VERBA: u32 = 0u32;
-pub const GCS_VERBICONW: u32 = 20u32;
-pub const GCS_VERBW: u32 = 4u32;
-pub const GCT_INVALID: u32 = 0u32;
-pub const GCT_LFNCHAR: u32 = 1u32;
-pub const GCT_SEPARATOR: u32 = 8u32;
-pub const GCT_SHORTCHAR: u32 = 2u32;
-pub const GCT_WILD: u32 = 4u32;
-pub const GETPROPS_NONE: u32 = 0u32;
-pub const GIL_ASYNC: u32 = 32u32;
-pub const GIL_CHECKSHIELD: u32 = 512u32;
-pub const GIL_DEFAULTICON: u32 = 64u32;
-pub const GIL_DONTCACHE: u32 = 16u32;
-pub const GIL_FORCENOSHIELD: u32 = 1024u32;
-pub const GIL_FORSHELL: u32 = 2u32;
-pub const GIL_FORSHORTCUT: u32 = 128u32;
-pub const GIL_NOTFILENAME: u32 = 8u32;
-pub const GIL_OPENICON: u32 = 1u32;
-pub const GIL_PERCLASS: u32 = 4u32;
-pub const GIL_PERINSTANCE: u32 = 2u32;
-pub const GIL_SHIELD: u32 = 512u32;
-pub const GIL_SIMULATEDOC: u32 = 1u32;
-pub const GLOBALCOUNTER_APPLICATION_DESTINATIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(12i32);
-pub const GLOBALCOUNTER_APPROVEDSITES: SHGLOBALCOUNTER = SHGLOBALCOUNTER(4i32);
-pub const GLOBALCOUNTER_APPSFOLDER_FILETYPEASSOCIATION_COUNTER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(55i32);
-pub const GLOBALCOUNTER_APP_ITEMS_STATE_STORE_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(53i32);
-pub const GLOBALCOUNTER_ASSOCCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(52i32);
-pub const GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(58i32);
-pub const GLOBALCOUNTER_BITBUCKETNUMDELETERS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(14i32);
-pub const GLOBALCOUNTER_COMMONPLACES_LIST_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(50i32);
-pub const GLOBALCOUNTER_FOLDERDEFINITION_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(49i32);
-pub const GLOBALCOUNTER_FOLDERSETTINGSCHANGE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(2i32);
-pub const GLOBALCOUNTER_IEONLY_SESSIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(11i32);
-pub const GLOBALCOUNTER_IESESSIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(10i32);
-pub const GLOBALCOUNTER_INTERNETTOOLBAR_LAYOUT: SHGLOBALCOUNTER = SHGLOBALCOUNTER(48i32);
-pub const GLOBALCOUNTER_MAXIMUMVALUE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(59i32);
-pub const GLOBALCOUNTER_OVERLAYMANAGER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(8i32);
-pub const GLOBALCOUNTER_PRIVATE_PROFILE_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(47i32);
-pub const GLOBALCOUNTER_PRIVATE_PROFILE_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(51i32);
-pub const GLOBALCOUNTER_QUERYASSOCIATIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(9i32);
-pub const GLOBALCOUNTER_RATINGS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(3i32);
-pub const GLOBALCOUNTER_RATINGS_STATECOUNTER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(46i32);
-pub const GLOBALCOUNTER_RECYCLEBINCORRUPTED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(45i32);
-pub const GLOBALCOUNTER_RECYCLEBINENUM: SHGLOBALCOUNTER = SHGLOBALCOUNTER(44i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_A: SHGLOBALCOUNTER = SHGLOBALCOUNTER(16i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_B: SHGLOBALCOUNTER = SHGLOBALCOUNTER(17i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_C: SHGLOBALCOUNTER = SHGLOBALCOUNTER(18i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_D: SHGLOBALCOUNTER = SHGLOBALCOUNTER(19i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_E: SHGLOBALCOUNTER = SHGLOBALCOUNTER(20i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_F: SHGLOBALCOUNTER = SHGLOBALCOUNTER(21i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_G: SHGLOBALCOUNTER = SHGLOBALCOUNTER(22i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_H: SHGLOBALCOUNTER = SHGLOBALCOUNTER(23i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_I: SHGLOBALCOUNTER = SHGLOBALCOUNTER(24i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_J: SHGLOBALCOUNTER = SHGLOBALCOUNTER(25i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_K: SHGLOBALCOUNTER = SHGLOBALCOUNTER(26i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_L: SHGLOBALCOUNTER = SHGLOBALCOUNTER(27i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_M: SHGLOBALCOUNTER = SHGLOBALCOUNTER(28i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_N: SHGLOBALCOUNTER = SHGLOBALCOUNTER(29i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_O: SHGLOBALCOUNTER = SHGLOBALCOUNTER(30i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_P: SHGLOBALCOUNTER = SHGLOBALCOUNTER(31i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Q: SHGLOBALCOUNTER = SHGLOBALCOUNTER(32i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_R: SHGLOBALCOUNTER = SHGLOBALCOUNTER(33i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_S: SHGLOBALCOUNTER = SHGLOBALCOUNTER(34i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_T: SHGLOBALCOUNTER = SHGLOBALCOUNTER(35i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_U: SHGLOBALCOUNTER = SHGLOBALCOUNTER(36i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_V: SHGLOBALCOUNTER = SHGLOBALCOUNTER(37i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_W: SHGLOBALCOUNTER = SHGLOBALCOUNTER(38i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_X: SHGLOBALCOUNTER = SHGLOBALCOUNTER(39i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Y: SHGLOBALCOUNTER = SHGLOBALCOUNTER(40i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Z: SHGLOBALCOUNTER = SHGLOBALCOUNTER(41i32);
-pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SHARES: SHGLOBALCOUNTER = SHGLOBALCOUNTER(15i32);
-pub const GLOBALCOUNTER_RESTRICTIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(5i32);
-pub const GLOBALCOUNTER_SEARCHMANAGER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(0i32);
-pub const GLOBALCOUNTER_SEARCHOPTIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(1i32);
-pub const GLOBALCOUNTER_SETTINGSYNC_ENABLED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(54i32);
-pub const GLOBALCOUNTER_SHELLSETTINGSCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(6i32);
-pub const GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(57i32);
-pub const GLOBALCOUNTER_SYSTEMPIDLCHANGE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(7i32);
-pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(56i32);
-pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = GPFIDL_FLAGS(1u32);
-pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = GPFIDL_FLAGS(0u32);
+pub const GADOF_DIRTY: u32 = 1;
+pub const GCS_HELPTEXT: u32 = 5;
+pub const GCS_HELPTEXTA: u32 = 1;
+pub const GCS_HELPTEXTW: u32 = 5;
+pub const GCS_UNICODE: u32 = 4;
+pub const GCS_VALIDATE: u32 = 6;
+pub const GCS_VALIDATEA: u32 = 2;
+pub const GCS_VALIDATEW: u32 = 6;
+pub const GCS_VERB: u32 = 4;
+pub const GCS_VERBA: u32 = 0;
+pub const GCS_VERBICONW: u32 = 20;
+pub const GCS_VERBW: u32 = 4;
+pub const GCT_INVALID: u32 = 0;
+pub const GCT_LFNCHAR: u32 = 1;
+pub const GCT_SEPARATOR: u32 = 8;
+pub const GCT_SHORTCHAR: u32 = 2;
+pub const GCT_WILD: u32 = 4;
+pub const GETPROPS_NONE: u32 = 0;
+pub const GIL_ASYNC: u32 = 32;
+pub const GIL_CHECKSHIELD: u32 = 512;
+pub const GIL_DEFAULTICON: u32 = 64;
+pub const GIL_DONTCACHE: u32 = 16;
+pub const GIL_FORCENOSHIELD: u32 = 1024;
+pub const GIL_FORSHELL: u32 = 2;
+pub const GIL_FORSHORTCUT: u32 = 128;
+pub const GIL_NOTFILENAME: u32 = 8;
+pub const GIL_OPENICON: u32 = 1;
+pub const GIL_PERCLASS: u32 = 4;
+pub const GIL_PERINSTANCE: u32 = 2;
+pub const GIL_SHIELD: u32 = 512;
+pub const GIL_SIMULATEDOC: u32 = 1;
+pub const GLOBALCOUNTER_APPLICATION_DESTINATIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(12);
+pub const GLOBALCOUNTER_APPROVEDSITES: SHGLOBALCOUNTER = SHGLOBALCOUNTER(4);
+pub const GLOBALCOUNTER_APPSFOLDER_FILETYPEASSOCIATION_COUNTER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(55);
+pub const GLOBALCOUNTER_APP_ITEMS_STATE_STORE_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(53);
+pub const GLOBALCOUNTER_ASSOCCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(52);
+pub const GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(58);
+pub const GLOBALCOUNTER_BITBUCKETNUMDELETERS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(14);
+pub const GLOBALCOUNTER_COMMONPLACES_LIST_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(50);
+pub const GLOBALCOUNTER_FOLDERDEFINITION_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(49);
+pub const GLOBALCOUNTER_FOLDERSETTINGSCHANGE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(2);
+pub const GLOBALCOUNTER_IEONLY_SESSIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(11);
+pub const GLOBALCOUNTER_IESESSIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(10);
+pub const GLOBALCOUNTER_INTERNETTOOLBAR_LAYOUT: SHGLOBALCOUNTER = SHGLOBALCOUNTER(48);
+pub const GLOBALCOUNTER_MAXIMUMVALUE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(59);
+pub const GLOBALCOUNTER_OVERLAYMANAGER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(8);
+pub const GLOBALCOUNTER_PRIVATE_PROFILE_CACHE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(47);
+pub const GLOBALCOUNTER_PRIVATE_PROFILE_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(51);
+pub const GLOBALCOUNTER_QUERYASSOCIATIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(9);
+pub const GLOBALCOUNTER_RATINGS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(3);
+pub const GLOBALCOUNTER_RATINGS_STATECOUNTER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(46);
+pub const GLOBALCOUNTER_RECYCLEBINCORRUPTED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(45);
+pub const GLOBALCOUNTER_RECYCLEBINENUM: SHGLOBALCOUNTER = SHGLOBALCOUNTER(44);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_A: SHGLOBALCOUNTER = SHGLOBALCOUNTER(16);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_B: SHGLOBALCOUNTER = SHGLOBALCOUNTER(17);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_C: SHGLOBALCOUNTER = SHGLOBALCOUNTER(18);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_D: SHGLOBALCOUNTER = SHGLOBALCOUNTER(19);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_E: SHGLOBALCOUNTER = SHGLOBALCOUNTER(20);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_F: SHGLOBALCOUNTER = SHGLOBALCOUNTER(21);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_G: SHGLOBALCOUNTER = SHGLOBALCOUNTER(22);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_H: SHGLOBALCOUNTER = SHGLOBALCOUNTER(23);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_I: SHGLOBALCOUNTER = SHGLOBALCOUNTER(24);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_J: SHGLOBALCOUNTER = SHGLOBALCOUNTER(25);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_K: SHGLOBALCOUNTER = SHGLOBALCOUNTER(26);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_L: SHGLOBALCOUNTER = SHGLOBALCOUNTER(27);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_M: SHGLOBALCOUNTER = SHGLOBALCOUNTER(28);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_N: SHGLOBALCOUNTER = SHGLOBALCOUNTER(29);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_O: SHGLOBALCOUNTER = SHGLOBALCOUNTER(30);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_P: SHGLOBALCOUNTER = SHGLOBALCOUNTER(31);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Q: SHGLOBALCOUNTER = SHGLOBALCOUNTER(32);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_R: SHGLOBALCOUNTER = SHGLOBALCOUNTER(33);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_S: SHGLOBALCOUNTER = SHGLOBALCOUNTER(34);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_T: SHGLOBALCOUNTER = SHGLOBALCOUNTER(35);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_U: SHGLOBALCOUNTER = SHGLOBALCOUNTER(36);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_V: SHGLOBALCOUNTER = SHGLOBALCOUNTER(37);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_W: SHGLOBALCOUNTER = SHGLOBALCOUNTER(38);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_X: SHGLOBALCOUNTER = SHGLOBALCOUNTER(39);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Y: SHGLOBALCOUNTER = SHGLOBALCOUNTER(40);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_DRIVE_Z: SHGLOBALCOUNTER = SHGLOBALCOUNTER(41);
+pub const GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SHARES: SHGLOBALCOUNTER = SHGLOBALCOUNTER(15);
+pub const GLOBALCOUNTER_RESTRICTIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(5);
+pub const GLOBALCOUNTER_SEARCHMANAGER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(0);
+pub const GLOBALCOUNTER_SEARCHOPTIONS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(1);
+pub const GLOBALCOUNTER_SETTINGSYNC_ENABLED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(54);
+pub const GLOBALCOUNTER_SHELLSETTINGSCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(6);
+pub const GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(57);
+pub const GLOBALCOUNTER_SYSTEMPIDLCHANGE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(7);
+pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(56);
+pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = GPFIDL_FLAGS(1);
+pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = GPFIDL_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPFIDL_FLAGS(pub u32);
-pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = GPFIDL_FLAGS(2u32);
+pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = GPFIDL_FLAGS(2);
 pub const GenericCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -10530,8 +10530,8 @@ pub struct HELPINFO {
     pub dwContextId: usize,
     pub MousePos: super::super::Foundation::POINT,
 }
-pub const HELPINFO_MENUITEM: HELP_INFO_TYPE = HELP_INFO_TYPE(2i32);
-pub const HELPINFO_WINDOW: HELP_INFO_TYPE = HELP_INFO_TYPE(1i32);
+pub const HELPINFO_MENUITEM: HELP_INFO_TYPE = HELP_INFO_TYPE(2);
+pub const HELPINFO_WINDOW: HELP_INFO_TYPE = HELP_INFO_TYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HELPWININFOA {
@@ -10567,13 +10567,13 @@ impl Default for HELPWININFOW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HELP_INFO_TYPE(pub i32);
-pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(8i32);
-pub const HGSC_MUSICLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(1i32);
-pub const HGSC_NONE: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(0i32);
-pub const HGSC_PICTURESLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(2i32);
-pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(16i32);
-pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(4i32);
-pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(8i32);
+pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(8);
+pub const HGSC_MUSICLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(1);
+pub const HGSC_NONE: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(0);
+pub const HGSC_PICTURESLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(2);
+pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(16);
+pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(4);
+pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLBWIF_FLAGS(pub i32);
@@ -10610,11 +10610,11 @@ impl core::ops::Not for HLBWIF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(4i32);
-pub const HLBWIF_HASDOCWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(2i32);
-pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(1i32);
-pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16i32);
-pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32i32);
+pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(4);
+pub const HLBWIF_HASDOCWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(2);
+pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(1);
+pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16);
+pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLBWINFO {
@@ -10660,42 +10660,42 @@ impl core::ops::Not for HLFNAMEF {
         Self(self.0.not())
     }
 }
-pub const HLFNAMEF_DEFAULT: HLFNAMEF = HLFNAMEF(0i32);
-pub const HLFNAMEF_TRYCACHE: HLFNAMEF = HLFNAMEF(1i32);
-pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = HLFNAMEF(4i32);
-pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = HLFNAMEF(2i32);
-pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = HLFNAMEF(8i32);
-pub const HLID_CURRENT: HLID_INFO = HLID_INFO(4294967293u32);
+pub const HLFNAMEF_DEFAULT: HLFNAMEF = HLFNAMEF(0);
+pub const HLFNAMEF_TRYCACHE: HLFNAMEF = HLFNAMEF(1);
+pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = HLFNAMEF(4);
+pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = HLFNAMEF(2);
+pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = HLFNAMEF(8);
+pub const HLID_CURRENT: HLID_INFO = HLID_INFO(4294967293);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLID_INFO(pub u32);
-pub const HLID_INVALID: HLID_INFO = HLID_INFO(0u32);
-pub const HLID_NEXT: HLID_INFO = HLID_INFO(4294967294u32);
-pub const HLID_PREVIOUS: HLID_INFO = HLID_INFO(4294967295u32);
-pub const HLID_STACKBOTTOM: HLID_INFO = HLID_INFO(4294967292u32);
-pub const HLID_STACKTOP: HLID_INFO = HLID_INFO(4294967291u32);
+pub const HLID_INVALID: HLID_INFO = HLID_INFO(0);
+pub const HLID_NEXT: HLID_INFO = HLID_INFO(4294967294);
+pub const HLID_PREVIOUS: HLID_INFO = HLID_INFO(4294967295);
+pub const HLID_STACKBOTTOM: HLID_INFO = HLID_INFO(4294967292);
+pub const HLID_STACKTOP: HLID_INFO = HLID_INFO(4294967291);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLINKGETREF(pub i32);
-pub const HLINKGETREF_ABSOLUTE: HLINKGETREF = HLINKGETREF(1i32);
-pub const HLINKGETREF_DEFAULT: HLINKGETREF = HLINKGETREF(0i32);
-pub const HLINKGETREF_RELATIVE: HLINKGETREF = HLINKGETREF(2i32);
+pub const HLINKGETREF_ABSOLUTE: HLINKGETREF = HLINKGETREF(1);
+pub const HLINKGETREF_DEFAULT: HLINKGETREF = HLINKGETREF(0);
+pub const HLINKGETREF_RELATIVE: HLINKGETREF = HLINKGETREF(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLINKMISC(pub i32);
-pub const HLINKMISC_RELATIVE: HLINKMISC = HLINKMISC(1i32);
+pub const HLINKMISC_RELATIVE: HLINKMISC = HLINKMISC(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLINKSETF(pub i32);
-pub const HLINKSETF_LOCATION: HLINKSETF = HLINKSETF(2i32);
-pub const HLINKSETF_TARGET: HLINKSETF = HLINKSETF(1i32);
+pub const HLINKSETF_LOCATION: HLINKSETF = HLINKSETF(2);
+pub const HLINKSETF_TARGET: HLINKSETF = HLINKSETF(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLINKWHICHMK(pub i32);
-pub const HLINKWHICHMK_BASE: HLINKWHICHMK = HLINKWHICHMK(2i32);
-pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = HLINKWHICHMK(1i32);
+pub const HLINKWHICHMK_BASE: HLINKWHICHMK = HLINKWHICHMK(2);
+pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = HLINKWHICHMK(1);
 pub const HLINK_E_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x80040100_u32 as _);
-pub const HLINK_S_DONTHIDE: i32 = 262400i32;
+pub const HLINK_S_DONTHIDE: i32 = 262400;
 pub const HLINK_S_FIRST: windows_core::HRESULT = windows_core::HRESULT(0x40100_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -10739,58 +10739,58 @@ impl core::ops::Not for HLNF {
         Self(self.0.not())
     }
 }
-pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912u32;
-pub const HLNF_CALLERUNTRUSTED: u32 = 2097152u32;
-pub const HLNF_CREATENOHISTORY: HLNF = HLNF(32u32);
-pub const HLNF_DISABLEWINDOWRESTRICTIONS: u32 = 8388608u32;
-pub const HLNF_EXTERNALNAVIGATE: u32 = 268435456u32;
-pub const HLNF_INTERNALJUMP: HLNF = HLNF(1u32);
-pub const HLNF_NAVIGATINGBACK: HLNF = HLNF(4u32);
-pub const HLNF_NAVIGATINGFORWARD: HLNF = HLNF(8u32);
-pub const HLNF_NAVIGATINGTOSTACKITEM: HLNF = HLNF(16u32);
-pub const HLNF_NEWWINDOWSMANAGED: u32 = 2147483648u32;
-pub const HLNF_OPENINNEWWINDOW: HLNF = HLNF(2u32);
-pub const HLNF_TRUSTEDFORACTIVEX: u32 = 4194304u32;
-pub const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216u32;
-pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
+pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912;
+pub const HLNF_CALLERUNTRUSTED: u32 = 2097152;
+pub const HLNF_CREATENOHISTORY: HLNF = HLNF(32);
+pub const HLNF_DISABLEWINDOWRESTRICTIONS: u32 = 8388608;
+pub const HLNF_EXTERNALNAVIGATE: u32 = 268435456;
+pub const HLNF_INTERNALJUMP: HLNF = HLNF(1);
+pub const HLNF_NAVIGATINGBACK: HLNF = HLNF(4);
+pub const HLNF_NAVIGATINGFORWARD: HLNF = HLNF(8);
+pub const HLNF_NAVIGATINGTOSTACKITEM: HLNF = HLNF(16);
+pub const HLNF_NEWWINDOWSMANAGED: u32 = 2147483648;
+pub const HLNF_OPENINNEWWINDOW: HLNF = HLNF(2);
+pub const HLNF_TRUSTEDFORACTIVEX: u32 = 4194304;
+pub const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
+pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLQF_INFO(pub i32);
-pub const HLQF_ISCURRENT: HLQF_INFO = HLQF_INFO(2i32);
-pub const HLQF_ISVALID: HLQF_INFO = HLQF_INFO(1i32);
+pub const HLQF_ISCURRENT: HLQF_INFO = HLQF_INFO(2);
+pub const HLQF_ISVALID: HLQF_INFO = HLQF_INFO(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLSHORTCUTF(pub i32);
-pub const HLSHORTCUTF_DEFAULT: HLSHORTCUTF = HLSHORTCUTF(0i32);
-pub const HLSHORTCUTF_DONTACTUALLYCREATE: HLSHORTCUTF = HLSHORTCUTF(1i32);
-pub const HLSHORTCUTF_MAYUSEEXISTINGSHORTCUT: HLSHORTCUTF = HLSHORTCUTF(8i32);
-pub const HLSHORTCUTF_USEFILENAMEFROMFRIENDLYNAME: HLSHORTCUTF = HLSHORTCUTF(2i32);
-pub const HLSHORTCUTF_USEUNIQUEFILENAME: HLSHORTCUTF = HLSHORTCUTF(4i32);
+pub const HLSHORTCUTF_DEFAULT: HLSHORTCUTF = HLSHORTCUTF(0);
+pub const HLSHORTCUTF_DONTACTUALLYCREATE: HLSHORTCUTF = HLSHORTCUTF(1);
+pub const HLSHORTCUTF_MAYUSEEXISTINGSHORTCUT: HLSHORTCUTF = HLSHORTCUTF(8);
+pub const HLSHORTCUTF_USEFILENAMEFROMFRIENDLYNAME: HLSHORTCUTF = HLSHORTCUTF(2);
+pub const HLSHORTCUTF_USEUNIQUEFILENAME: HLSHORTCUTF = HLSHORTCUTF(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLSR(pub i32);
-pub const HLSR_HISTORYFOLDER: HLSR = HLSR(2i32);
-pub const HLSR_HOME: HLSR = HLSR(0i32);
-pub const HLSR_SEARCHPAGE: HLSR = HLSR(1i32);
+pub const HLSR_HISTORYFOLDER: HLSR = HLSR(2);
+pub const HLSR_HOME: HLSR = HLSR(0);
+pub const HLSR_SEARCHPAGE: HLSR = HLSR(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::super::Foundation::RECT,
 }
-pub const HLTB_DOCKEDBOTTOM: HLTB_INFO = HLTB_INFO(3i32);
-pub const HLTB_DOCKEDLEFT: HLTB_INFO = HLTB_INFO(0i32);
-pub const HLTB_DOCKEDRIGHT: HLTB_INFO = HLTB_INFO(2i32);
-pub const HLTB_DOCKEDTOP: HLTB_INFO = HLTB_INFO(1i32);
-pub const HLTB_FLOATING: HLTB_INFO = HLTB_INFO(4i32);
+pub const HLTB_DOCKEDBOTTOM: HLTB_INFO = HLTB_INFO(3);
+pub const HLTB_DOCKEDLEFT: HLTB_INFO = HLTB_INFO(0);
+pub const HLTB_DOCKEDRIGHT: HLTB_INFO = HLTB_INFO(2);
+pub const HLTB_DOCKEDTOP: HLTB_INFO = HLTB_INFO(1);
+pub const HLTB_FLOATING: HLTB_INFO = HLTB_INFO(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLTB_INFO(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLTRANSLATEF(pub i32);
-pub const HLTRANSLATEF_DEFAULT: HLTRANSLATEF = HLTRANSLATEF(0i32);
-pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: HLTRANSLATEF = HLTRANSLATEF(1i32);
+pub const HLTRANSLATEF_DEFAULT: HLTRANSLATEF = HLTRANSLATEF(0);
+pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: HLTRANSLATEF = HLTRANSLATEF(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOMEGROUPSHARINGCHOICES(pub i32);
@@ -17511,17 +17511,17 @@ impl ICustomDestinationList_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl windows_core::RuntimeName for ICustomDestinationList {}
-pub const IDC_OFFLINE_HAND: u32 = 103u32;
-pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105u32;
-pub const IDC_PANTOOL_HAND_OPEN: u32 = 104u32;
-pub const IDD_WIZEXTN_FIRST: u32 = 20480u32;
-pub const IDD_WIZEXTN_LAST: u32 = 20736u32;
-pub const IDO_SHGIOI_DEFAULT: u64 = 4294967292u64;
-pub const IDO_SHGIOI_LINK: u32 = 268435454u32;
-pub const IDO_SHGIOI_SHARE: u32 = 268435455u32;
-pub const IDO_SHGIOI_SLOWFILE: u64 = 4294967293u64;
-pub const IDS_DESCRIPTION: u32 = 1u32;
-pub const ID_APP: u32 = 100u32;
+pub const IDC_OFFLINE_HAND: u32 = 103;
+pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105;
+pub const IDC_PANTOOL_HAND_OPEN: u32 = 104;
+pub const IDD_WIZEXTN_FIRST: u32 = 20480;
+pub const IDD_WIZEXTN_LAST: u32 = 20736;
+pub const IDO_SHGIOI_DEFAULT: u64 = 4294967292;
+pub const IDO_SHGIOI_LINK: u32 = 268435454;
+pub const IDO_SHGIOI_SHARE: u32 = 268435455;
+pub const IDO_SHGIOI_SLOWFILE: u64 = 4294967293;
+pub const IDS_DESCRIPTION: u32 = 1;
+pub const ID_APP: u32 = 100;
 windows_core::imp::define_interface!(IDataObjectAsyncCapability, IDataObjectAsyncCapability_Vtbl, 0x3d8b0590_f691_11d2_8ea9_006097df5bd4);
 windows_core::imp::interface_hierarchy!(IDataObjectAsyncCapability, windows_core::IUnknown);
 impl IDataObjectAsyncCapability {
@@ -19327,32 +19327,32 @@ impl IDynamicHWHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDynamicHWHandler {}
-pub const IEIFLAG_ASPECT: u32 = 4u32;
-pub const IEIFLAG_ASYNC: u32 = 1u32;
-pub const IEIFLAG_CACHE: u32 = 2u32;
-pub const IEIFLAG_GLEAM: u32 = 16u32;
-pub const IEIFLAG_NOBORDER: u32 = 256u32;
-pub const IEIFLAG_NOSTAMP: u32 = 128u32;
-pub const IEIFLAG_OFFLINE: u32 = 8u32;
-pub const IEIFLAG_ORIGSIZE: u32 = 64u32;
-pub const IEIFLAG_QUALITY: u32 = 512u32;
-pub const IEIFLAG_REFRESH: u32 = 1024u32;
-pub const IEIFLAG_SCREEN: u32 = 32u32;
-pub const IEIT_PRIORITY_NORMAL: u32 = 268435456u32;
-pub const IEI_PRIORITY_MAX: u32 = 2147483647u32;
-pub const IEI_PRIORITY_MIN: u32 = 0u32;
+pub const IEIFLAG_ASPECT: u32 = 4;
+pub const IEIFLAG_ASYNC: u32 = 1;
+pub const IEIFLAG_CACHE: u32 = 2;
+pub const IEIFLAG_GLEAM: u32 = 16;
+pub const IEIFLAG_NOBORDER: u32 = 256;
+pub const IEIFLAG_NOSTAMP: u32 = 128;
+pub const IEIFLAG_OFFLINE: u32 = 8;
+pub const IEIFLAG_ORIGSIZE: u32 = 64;
+pub const IEIFLAG_QUALITY: u32 = 512;
+pub const IEIFLAG_REFRESH: u32 = 1024;
+pub const IEIFLAG_SCREEN: u32 = 32;
+pub const IEIT_PRIORITY_NORMAL: u32 = 268435456;
+pub const IEI_PRIORITY_MAX: u32 = 2147483647;
+pub const IEI_PRIORITY_MIN: u32 = 0;
 pub const IENamespaceTreeControl: windows_core::GUID = windows_core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEPDNFLAGS(pub i32);
-pub const IEPDN_BINDINGUI: IEPDNFLAGS = IEPDNFLAGS(1i32);
+pub const IEPDN_BINDINGUI: IEPDNFLAGS = IEPDNFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IESHORTCUTFLAGS(pub i32);
-pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(8i32);
-pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = IESHORTCUTFLAGS(4i32);
-pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = IESHORTCUTFLAGS(1i32);
-pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(2i32);
+pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(8);
+pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = IESHORTCUTFLAGS(4);
+pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = IESHORTCUTFLAGS(1);
+pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEnumACString, IEnumACString_Vtbl, 0x8e74c210_cf9d_4eaf_a403_7356428f0a5a);
 #[cfg(feature = "Win32_System_Com")]
@@ -27937,7 +27937,7 @@ impl IKnownFolderManager {
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppszerror.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr())), ppszerror.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -28090,7 +28090,7 @@ impl IKnownFolderManager_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl windows_core::RuntimeName for IKnownFolderManager {}
-pub const ILMM_IE4: u32 = 0u32;
+pub const ILMM_IE4: u32 = 0;
 windows_core::imp::define_interface!(ILaunchSourceAppUserModelId, ILaunchSourceAppUserModelId_Vtbl, 0x989191ac_28ff_4cf0_9584_e0d078bc2396);
 windows_core::imp::interface_hierarchy!(ILaunchSourceAppUserModelId, windows_core::IUnknown);
 impl ILaunchSourceAppUserModelId {
@@ -28528,8 +28528,8 @@ impl IModalWindow_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IModalWindow {}
-pub const INTERNET_MAX_PATH_LENGTH: u32 = 2048u32;
-pub const INTERNET_MAX_SCHEME_LENGTH: u32 = 32u32;
+pub const INTERNET_MAX_PATH_LENGTH: u32 = 2048;
+pub const INTERNET_MAX_SCHEME_LENGTH: u32 = 32;
 windows_core::imp::define_interface!(INameSpaceTreeAccessible, INameSpaceTreeAccessible_Vtbl, 0x71f312de_43ed_4190_8477_e9536b82350b);
 windows_core::imp::interface_hierarchy!(INameSpaceTreeAccessible, windows_core::IUnknown);
 impl INameSpaceTreeAccessible {
@@ -32918,11 +32918,11 @@ impl IQueryInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IQueryInfo {}
-pub const IRTIR_TASK_FINISHED: u32 = 4u32;
-pub const IRTIR_TASK_NOT_RUNNING: u32 = 0u32;
-pub const IRTIR_TASK_PENDING: u32 = 3u32;
-pub const IRTIR_TASK_RUNNING: u32 = 1u32;
-pub const IRTIR_TASK_SUSPENDED: u32 = 2u32;
+pub const IRTIR_TASK_FINISHED: u32 = 4;
+pub const IRTIR_TASK_NOT_RUNNING: u32 = 0;
+pub const IRTIR_TASK_PENDING: u32 = 3;
+pub const IRTIR_TASK_RUNNING: u32 = 1;
+pub const IRTIR_TASK_SUSPENDED: u32 = 2;
 windows_core::imp::define_interface!(IRegTreeItem, IRegTreeItem_Vtbl, 0xa9521922_0812_4d44_9ec3_7fd38c726f3d);
 windows_core::imp::interface_hierarchy!(IRegTreeItem, windows_core::IUnknown);
 impl IRegTreeItem {
@@ -33298,34 +33298,34 @@ impl IRunnableTask_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRunnableTask {}
-pub const ISFBVIEWMODE_LARGEICONS: u32 = 2u32;
-pub const ISFBVIEWMODE_LOGOS: u32 = 3u32;
-pub const ISFBVIEWMODE_SMALLICONS: u32 = 1u32;
-pub const ISFB_MASK_BKCOLOR: u32 = 2u32;
-pub const ISFB_MASK_COLORS: u32 = 32u32;
-pub const ISFB_MASK_IDLIST: u32 = 16u32;
-pub const ISFB_MASK_SHELLFOLDER: u32 = 8u32;
-pub const ISFB_MASK_STATE: u32 = 1u32;
-pub const ISFB_MASK_VIEWMODE: u32 = 4u32;
-pub const ISFB_STATE_ALLOWRENAME: u32 = 2u32;
-pub const ISFB_STATE_BTNMINSIZE: u32 = 256u32;
-pub const ISFB_STATE_CHANNELBAR: u32 = 16u32;
-pub const ISFB_STATE_DEBOSSED: u32 = 1u32;
-pub const ISFB_STATE_DEFAULT: u32 = 0u32;
-pub const ISFB_STATE_FULLOPEN: u32 = 64u32;
-pub const ISFB_STATE_NONAMESORT: u32 = 128u32;
-pub const ISFB_STATE_NOSHOWTEXT: u32 = 4u32;
-pub const ISFB_STATE_QLINKSMODE: u32 = 32u32;
-pub const ISHCUTCMDID_COMMITHISTORY: i32 = 2i32;
-pub const ISHCUTCMDID_DOWNLOADICON: i32 = 0i32;
-pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1i32;
-pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3i32;
-pub const ISIOI_ICONFILE: u32 = 1u32;
-pub const ISIOI_ICONINDEX: u32 = 2u32;
+pub const ISFBVIEWMODE_LARGEICONS: u32 = 2;
+pub const ISFBVIEWMODE_LOGOS: u32 = 3;
+pub const ISFBVIEWMODE_SMALLICONS: u32 = 1;
+pub const ISFB_MASK_BKCOLOR: u32 = 2;
+pub const ISFB_MASK_COLORS: u32 = 32;
+pub const ISFB_MASK_IDLIST: u32 = 16;
+pub const ISFB_MASK_SHELLFOLDER: u32 = 8;
+pub const ISFB_MASK_STATE: u32 = 1;
+pub const ISFB_MASK_VIEWMODE: u32 = 4;
+pub const ISFB_STATE_ALLOWRENAME: u32 = 2;
+pub const ISFB_STATE_BTNMINSIZE: u32 = 256;
+pub const ISFB_STATE_CHANNELBAR: u32 = 16;
+pub const ISFB_STATE_DEBOSSED: u32 = 1;
+pub const ISFB_STATE_DEFAULT: u32 = 0;
+pub const ISFB_STATE_FULLOPEN: u32 = 64;
+pub const ISFB_STATE_NONAMESORT: u32 = 128;
+pub const ISFB_STATE_NOSHOWTEXT: u32 = 4;
+pub const ISFB_STATE_QLINKSMODE: u32 = 32;
+pub const ISHCUTCMDID_COMMITHISTORY: i32 = 2;
+pub const ISHCUTCMDID_DOWNLOADICON: i32 = 0;
+pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1;
+pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3;
+pub const ISIOI_ICONFILE: u32 = 1;
+pub const ISIOI_ICONINDEX: u32 = 2;
 pub const IS_E_EXEC_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80042002_u32 as _);
-pub const IS_FULLSCREEN: u32 = 2u32;
-pub const IS_NORMAL: u32 = 1u32;
-pub const IS_SPLIT: u32 = 4u32;
+pub const IS_FULLSCREEN: u32 = 2;
+pub const IS_NORMAL: u32 = 1;
+pub const IS_SPLIT: u32 = 4;
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IScriptErrorList, IScriptErrorList_Vtbl, 0xf3470f24_15fd_11d2_bb2e_00805ff7efca);
 #[cfg(feature = "Win32_System_Com")]
@@ -34374,7 +34374,7 @@ impl IShellBrowser {
     }
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn SetToolbarItems(&self, lpbuttons: Option<&[super::Controls::TBBUTTON]>, uflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetToolbarItems)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbuttons.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuttons.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), uflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetToolbarItems)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbuttons.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuttons.map_or(0, |slice| slice.len().try_into().unwrap()), uflags).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -47170,13 +47170,13 @@ pub struct ITEMSPACING {
     pub cxLarge: i32,
     pub cyLarge: i32,
 }
-pub const ITSAT_DEFAULT_PRIORITY: u32 = 268435456u32;
-pub const ITSAT_MAX_PRIORITY: u32 = 2147483647u32;
-pub const ITSAT_MIN_PRIORITY: u32 = 0u32;
-pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0u32;
-pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
-pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
-pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294u32;
+pub const ITSAT_DEFAULT_PRIORITY: u32 = 268435456;
+pub const ITSAT_MAX_PRIORITY: u32 = 2147483647;
+pub const ITSAT_MIN_PRIORITY: u32 = 0;
+pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0;
+pub const ITSSFLAG_FLAGS_MASK: u32 = 3;
+pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1;
+pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294;
 windows_core::imp::define_interface!(ITaskbarList, ITaskbarList_Vtbl, 0x56fdf342_fd6d_11d0_958a_006097c9a090);
 windows_core::imp::interface_hierarchy!(ITaskbarList, windows_core::IUnknown);
 impl ITaskbarList {
@@ -49193,16 +49193,16 @@ impl windows_core::RuntimeName for IURLSearchHook2 {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IURL_INVOKECOMMAND_FLAGS(pub i32);
-pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(1i32);
-pub const IURL_INVOKECOMMAND_FL_ASYNCOK: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(8i32);
-pub const IURL_INVOKECOMMAND_FL_DDEWAIT: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(4i32);
-pub const IURL_INVOKECOMMAND_FL_LOG_USAGE: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(16i32);
-pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(2i32);
+pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(1);
+pub const IURL_INVOKECOMMAND_FL_ASYNCOK: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(8);
+pub const IURL_INVOKECOMMAND_FL_DDEWAIT: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(4);
+pub const IURL_INVOKECOMMAND_FL_LOG_USAGE: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(16);
+pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: IURL_INVOKECOMMAND_FLAGS = IURL_INVOKECOMMAND_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IURL_SETURL_FLAGS(pub i32);
-pub const IURL_SETURL_FL_GUESS_PROTOCOL: IURL_SETURL_FLAGS = IURL_SETURL_FLAGS(1i32);
-pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = IURL_SETURL_FLAGS(2i32);
+pub const IURL_SETURL_FL_GUESS_PROTOCOL: IURL_SETURL_FLAGS = IURL_SETURL_FLAGS(1);
+pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = IURL_SETURL_FLAGS(2);
 windows_core::imp::define_interface!(IUniformResourceLocatorA, IUniformResourceLocatorA_Vtbl, 0xfbf23b80_e3f0_101b_8488_00aa003e56f8);
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorA, windows_core::IUnknown);
 impl IUniformResourceLocatorA {
@@ -51668,54 +51668,54 @@ pub const InternetExplorerMedium: windows_core::GUID = windows_core::GUID::from_
 pub const InternetPrintOrdering: windows_core::GUID = windows_core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 pub const ItemCount_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xabbf5c45_5ccc_47b7_bb4e_87cb87bbd162);
 pub const ItemIndex_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x92a053da_2969_4021_bf27_514cfc2e4a69);
-pub const KDC_FREQUENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(1i32);
-pub const KDC_RECENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(2i32);
-pub const KFDF_LOCAL_REDIRECT_ONLY: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(2i32);
-pub const KFDF_NO_REDIRECT_UI: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(64i32);
-pub const KFDF_PRECREATE: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(8i32);
-pub const KFDF_PUBLISHEXPANDEDPATH: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(32i32);
-pub const KFDF_ROAMABLE: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(4i32);
-pub const KFDF_STREAM: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(16i32);
+pub const KDC_FREQUENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(1);
+pub const KDC_RECENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(2);
+pub const KFDF_LOCAL_REDIRECT_ONLY: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(2);
+pub const KFDF_NO_REDIRECT_UI: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(64);
+pub const KFDF_PRECREATE: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(8);
+pub const KFDF_PUBLISHEXPANDEDPATH: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(32);
+pub const KFDF_ROAMABLE: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(4);
+pub const KFDF_STREAM: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KF_CATEGORY(pub i32);
-pub const KF_CATEGORY_COMMON: KF_CATEGORY = KF_CATEGORY(3i32);
-pub const KF_CATEGORY_FIXED: KF_CATEGORY = KF_CATEGORY(2i32);
-pub const KF_CATEGORY_PERUSER: KF_CATEGORY = KF_CATEGORY(4i32);
-pub const KF_CATEGORY_VIRTUAL: KF_CATEGORY = KF_CATEGORY(1i32);
-pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(-2147483648i32);
-pub const KF_FLAG_CREATE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(32768i32);
-pub const KF_FLAG_DEFAULT: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(0i32);
-pub const KF_FLAG_DEFAULT_PATH: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(1024i32);
-pub const KF_FLAG_DONT_UNEXPAND: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(8192i32);
-pub const KF_FLAG_DONT_VERIFY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(16384i32);
-pub const KF_FLAG_FORCE_APPCONTAINER_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(131072i32);
-pub const KF_FLAG_FORCE_APP_DATA_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(524288i32);
-pub const KF_FLAG_FORCE_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(131072i32);
-pub const KF_FLAG_INIT: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(2048i32);
-pub const KF_FLAG_NOT_PARENT_RELATIVE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(512i32);
-pub const KF_FLAG_NO_ALIAS: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(4096i32);
-pub const KF_FLAG_NO_APPCONTAINER_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(65536i32);
-pub const KF_FLAG_NO_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(65536i32);
-pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(262144i32);
-pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(256i32);
-pub const KF_REDIRECTION_CAPABILITIES_ALLOW_ALL: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(255i32);
-pub const KF_REDIRECTION_CAPABILITIES_DENY_ALL: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1048320i32);
-pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1024i32);
-pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(512i32);
-pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(256i32);
-pub const KF_REDIRECTION_CAPABILITIES_REDIRECTABLE: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1i32);
-pub const KF_REDIRECT_CHECK_ONLY: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(16i32);
-pub const KF_REDIRECT_COPY_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(512i32);
-pub const KF_REDIRECT_COPY_SOURCE_DACL: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(2i32);
-pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1024i32);
-pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(2048i32);
-pub const KF_REDIRECT_OWNER_USER: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(4i32);
-pub const KF_REDIRECT_PIN: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(128i32);
-pub const KF_REDIRECT_SET_OWNER_EXPLICIT: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(8i32);
-pub const KF_REDIRECT_UNPIN: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(64i32);
-pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1i32);
-pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(32i32);
+pub const KF_CATEGORY_COMMON: KF_CATEGORY = KF_CATEGORY(3);
+pub const KF_CATEGORY_FIXED: KF_CATEGORY = KF_CATEGORY(2);
+pub const KF_CATEGORY_PERUSER: KF_CATEGORY = KF_CATEGORY(4);
+pub const KF_CATEGORY_VIRTUAL: KF_CATEGORY = KF_CATEGORY(1);
+pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(-2147483648);
+pub const KF_FLAG_CREATE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(32768);
+pub const KF_FLAG_DEFAULT: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(0);
+pub const KF_FLAG_DEFAULT_PATH: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(1024);
+pub const KF_FLAG_DONT_UNEXPAND: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(8192);
+pub const KF_FLAG_DONT_VERIFY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(16384);
+pub const KF_FLAG_FORCE_APPCONTAINER_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(131072);
+pub const KF_FLAG_FORCE_APP_DATA_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(524288);
+pub const KF_FLAG_FORCE_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(131072);
+pub const KF_FLAG_INIT: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(2048);
+pub const KF_FLAG_NOT_PARENT_RELATIVE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(512);
+pub const KF_FLAG_NO_ALIAS: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(4096);
+pub const KF_FLAG_NO_APPCONTAINER_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(65536);
+pub const KF_FLAG_NO_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(65536);
+pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(262144);
+pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(256);
+pub const KF_REDIRECTION_CAPABILITIES_ALLOW_ALL: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(255);
+pub const KF_REDIRECTION_CAPABILITIES_DENY_ALL: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1048320);
+pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1024);
+pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(512);
+pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(256);
+pub const KF_REDIRECTION_CAPABILITIES_REDIRECTABLE: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1);
+pub const KF_REDIRECT_CHECK_ONLY: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(16);
+pub const KF_REDIRECT_COPY_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(512);
+pub const KF_REDIRECT_COPY_SOURCE_DACL: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(2);
+pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1024);
+pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(2048);
+pub const KF_REDIRECT_OWNER_USER: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(4);
+pub const KF_REDIRECT_PIN: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(128);
+pub const KF_REDIRECT_SET_OWNER_EXPLICIT: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(8);
+pub const KF_REDIRECT_UNPIN: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(64);
+pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1);
+pub const KF_REDIRECT_WITH_UI: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNOWNDESTCATEGORY(pub i32);
@@ -51773,9 +51773,9 @@ impl core::ops::Not for KNOWN_FOLDER_FLAG {
     }
 }
 pub const KnownFolderManager: windows_core::GUID = windows_core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
-pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(3i32);
-pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(1i32);
-pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(2i32);
+pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(3);
+pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(1);
+pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIBRARYFOLDERFILTER(pub i32);
@@ -51890,31 +51890,31 @@ impl core::ops::Not for LIBRARYSAVEFLAGS {
 pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: windows_core::HRESULT = windows_core::HRESULT(0x80270201_u32 as _);
 pub const LIBRARY_E_NO_SAVE_LOCATION: windows_core::HRESULT = windows_core::HRESULT(0x80270200_u32 as _);
 pub const LINK_E_DELETE: windows_core::HRESULT = windows_core::HRESULT(0x80270103_u32 as _);
-pub const LMD_ALLOWUNINDEXABLENETWORKLOCATIONS: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(1i32);
-pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(0i32);
-pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(0i32);
-pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
-pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
+pub const LMD_ALLOWUNINDEXABLENETWORKLOCATIONS: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(1);
+pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(0);
+pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(0);
+pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1);
+pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1);
 #[cfg(feature = "Win32_System_Com")]
 pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: windows_core::Ref<IShellFolder>, hwnd: super::super::Foundation::HWND, pdtobj: windows_core::Ref<super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_System_Ole")]
 pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: windows_core::Ref<IShellView>, psf: windows_core::Ref<IShellFolder>, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT>;
-pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(0i32);
-pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(2i32);
-pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(1i32);
+pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(0);
+pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(2);
+pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(1);
 pub const LocalThumbnailCache: windows_core::GUID = windows_core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
-pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(2i32);
-pub const MAV_NO_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(1i32);
-pub const MAV_UNKNOWN: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(0i32);
-pub const MAXFILELEN: u32 = 13u32;
-pub const MAX_COLUMN_DESC_LEN: u32 = 128u32;
-pub const MAX_COLUMN_NAME_LEN: u32 = 80u32;
-pub const MAX_SYNCMGRHANDLERNAME: u32 = 32u32;
-pub const MAX_SYNCMGRITEMNAME: u32 = 128u32;
-pub const MAX_SYNCMGR_ID: u32 = 64u32;
-pub const MAX_SYNCMGR_NAME: u32 = 128u32;
-pub const MAX_SYNCMGR_PROGRESSTEXT: u32 = 260u32;
-pub const MBHANDCID_PIDLSELECT: MENUBANDHANDLERCID = MENUBANDHANDLERCID(0i32);
+pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(2);
+pub const MAV_NO_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(1);
+pub const MAV_UNKNOWN: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(0);
+pub const MAXFILELEN: u32 = 13;
+pub const MAX_COLUMN_DESC_LEN: u32 = 128;
+pub const MAX_COLUMN_NAME_LEN: u32 = 80;
+pub const MAX_SYNCMGRHANDLERNAME: u32 = 32;
+pub const MAX_SYNCMGRITEMNAME: u32 = 128;
+pub const MAX_SYNCMGR_ID: u32 = 64;
+pub const MAX_SYNCMGR_NAME: u32 = 128;
+pub const MAX_SYNCMGR_PROGRESSTEXT: u32 = 260;
+pub const MBHANDCID_PIDLSELECT: MENUBANDHANDLERCID = MENUBANDHANDLERCID(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUBANDHANDLERCID(pub i32);
@@ -51927,12 +51927,12 @@ pub struct MENUPOPUPSELECT(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MERGE_UPDATE_STATUS(pub i32);
-pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: MIMEASSOCIATIONDIALOG_IN_FLAGS = MIMEASSOCIATIONDIALOG_IN_FLAGS(1i32);
+pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: MIMEASSOCIATIONDIALOG_IN_FLAGS = MIMEASSOCIATIONDIALOG_IN_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIMEASSOCIATIONDIALOG_IN_FLAGS(pub i32);
-pub const MM_ADDSEPARATOR: MM_FLAGS = MM_FLAGS(1u32);
-pub const MM_DONTREMOVESEPS: MM_FLAGS = MM_FLAGS(4u32);
+pub const MM_ADDSEPARATOR: MM_FLAGS = MM_FLAGS(1);
+pub const MM_DONTREMOVESEPS: MM_FLAGS = MM_FLAGS(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_FLAGS(pub u32);
@@ -51969,30 +51969,30 @@ impl core::ops::Not for MM_FLAGS {
         Self(self.0.not())
     }
 }
-pub const MM_SUBMENUSHAVEIDS: MM_FLAGS = MM_FLAGS(2u32);
+pub const MM_SUBMENUSHAVEIDS: MM_FLAGS = MM_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_APP_VISIBILITY(pub i32);
-pub const MPOS_CANCELLEVEL: MENUPOPUPSELECT = MENUPOPUPSELECT(2i32);
-pub const MPOS_CHILDTRACKING: MENUPOPUPSELECT = MENUPOPUPSELECT(5i32);
-pub const MPOS_EXECUTE: MENUPOPUPSELECT = MENUPOPUPSELECT(0i32);
-pub const MPOS_FULLCANCEL: MENUPOPUPSELECT = MENUPOPUPSELECT(1i32);
-pub const MPOS_SELECTLEFT: MENUPOPUPSELECT = MENUPOPUPSELECT(3i32);
-pub const MPOS_SELECTRIGHT: MENUPOPUPSELECT = MENUPOPUPSELECT(4i32);
-pub const MPPF_ALIGN_LEFT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(33554432i32);
-pub const MPPF_ALIGN_RIGHT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(67108864i32);
-pub const MPPF_BOTTOM: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-2147483648i32);
-pub const MPPF_FINALSELECT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(128i32);
-pub const MPPF_FORCEZORDER: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(64i32);
-pub const MPPF_INITIALSELECT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(2i32);
-pub const MPPF_KEYBOARD: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(16i32);
-pub const MPPF_LEFT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1073741824i32);
-pub const MPPF_NOANIMATE: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(4i32);
-pub const MPPF_POS_MASK: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-536870912i32);
-pub const MPPF_REPOSITION: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(32i32);
-pub const MPPF_RIGHT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1610612736i32);
-pub const MPPF_SETFOCUS: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1i32);
-pub const MPPF_TOP: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(536870912i32);
+pub const MPOS_CANCELLEVEL: MENUPOPUPSELECT = MENUPOPUPSELECT(2);
+pub const MPOS_CHILDTRACKING: MENUPOPUPSELECT = MENUPOPUPSELECT(5);
+pub const MPOS_EXECUTE: MENUPOPUPSELECT = MENUPOPUPSELECT(0);
+pub const MPOS_FULLCANCEL: MENUPOPUPSELECT = MENUPOPUPSELECT(1);
+pub const MPOS_SELECTLEFT: MENUPOPUPSELECT = MENUPOPUPSELECT(3);
+pub const MPOS_SELECTRIGHT: MENUPOPUPSELECT = MENUPOPUPSELECT(4);
+pub const MPPF_ALIGN_LEFT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(33554432);
+pub const MPPF_ALIGN_RIGHT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(67108864);
+pub const MPPF_BOTTOM: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-2147483648);
+pub const MPPF_FINALSELECT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(128);
+pub const MPPF_FORCEZORDER: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(64);
+pub const MPPF_INITIALSELECT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(2);
+pub const MPPF_KEYBOARD: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(16);
+pub const MPPF_LEFT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1073741824);
+pub const MPPF_NOANIMATE: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(4);
+pub const MPPF_POS_MASK: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-536870912);
+pub const MPPF_REPOSITION: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(32);
+pub const MPPF_RIGHT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1610612736);
+pub const MPPF_SETFOCUS: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1);
+pub const MPPF_TOP: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(536870912);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MULTIKEYHELPA {
@@ -52017,9 +52017,9 @@ impl Default for MULTIKEYHELPW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(0i32);
-pub const MUS_FAILED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(2i32);
-pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(1i32);
+pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(0);
+pub const MUS_FAILED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(2);
+pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(1);
 pub const MailRecipient: windows_core::GUID = windows_core::GUID::from_u128(0x9e56be60_c50f_11cf_9a2c_00a0c90a90ce);
 pub const MergedCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(transparent)]
@@ -52061,10 +52061,10 @@ impl core::ops::Not for NAMESPACEWALKFLAG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NATIVE_DISPLAY_ORIENTATION(pub i32);
-pub const NCM_DISPLAYERRORTIP: u32 = 1028u32;
-pub const NCM_GETADDRESS: u32 = 1025u32;
-pub const NCM_GETALLOWTYPE: u32 = 1027u32;
-pub const NCM_SETALLOWTYPE: u32 = 1026u32;
+pub const NCM_DISPLAYERRORTIP: u32 = 1028;
+pub const NCM_GETADDRESS: u32 = 1025;
+pub const NCM_GETALLOWTYPE: u32 = 1027;
+pub const NCM_SETALLOWTYPE: u32 = 1026;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -52079,8 +52079,8 @@ impl Default for NC_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(0i32);
-pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(1i32);
+pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(0);
+pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(1);
 pub const NETCACHE_E_NEGATIVE_CACHE: windows_core::HRESULT = windows_core::HRESULT(0x80270100_u32 as _);
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -52120,43 +52120,43 @@ impl Default for NEWCPLINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NIF_GUID: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(32u32);
-pub const NIF_ICON: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(2u32);
-pub const NIF_INFO: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(16u32);
-pub const NIF_MESSAGE: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(1u32);
-pub const NIF_REALTIME: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(64u32);
-pub const NIF_SHOWTIP: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(128u32);
-pub const NIF_STATE: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(8u32);
-pub const NIF_TIP: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(4u32);
-pub const NIIF_ERROR: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(3u32);
-pub const NIIF_ICON_MASK: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(15u32);
-pub const NIIF_INFO: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(1u32);
-pub const NIIF_LARGE_ICON: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(32u32);
-pub const NIIF_NONE: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(0u32);
-pub const NIIF_NOSOUND: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(16u32);
-pub const NIIF_RESPECT_QUIET_TIME: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(128u32);
-pub const NIIF_USER: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(4u32);
-pub const NIIF_WARNING: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(2u32);
-pub const NIM_ADD: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(0u32);
-pub const NIM_DELETE: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(2u32);
-pub const NIM_MODIFY: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(1u32);
-pub const NIM_SETFOCUS: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(3u32);
-pub const NIM_SETVERSION: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(4u32);
-pub const NINF_KEY: u32 = 1u32;
-pub const NIN_BALLOONHIDE: u32 = 1027u32;
-pub const NIN_BALLOONSHOW: u32 = 1026u32;
-pub const NIN_BALLOONTIMEOUT: u32 = 1028u32;
-pub const NIN_BALLOONUSERCLICK: u32 = 1029u32;
-pub const NIN_POPUPCLOSE: u32 = 1031u32;
-pub const NIN_POPUPOPEN: u32 = 1030u32;
-pub const NIN_SELECT: u32 = 1024u32;
-pub const NIS_HIDDEN: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(1u32);
-pub const NIS_SHAREDICON: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(2u32);
-pub const NMCII_FOLDERS: _NMCII_FLAGS = _NMCII_FLAGS(2i32);
-pub const NMCII_ITEMS: _NMCII_FLAGS = _NMCII_FLAGS(1i32);
-pub const NMCII_NONE: _NMCII_FLAGS = _NMCII_FLAGS(0i32);
-pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(1i32);
-pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(0i32);
+pub const NIF_GUID: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(32);
+pub const NIF_ICON: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(2);
+pub const NIF_INFO: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(16);
+pub const NIF_MESSAGE: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(1);
+pub const NIF_REALTIME: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(64);
+pub const NIF_SHOWTIP: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(128);
+pub const NIF_STATE: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(8);
+pub const NIF_TIP: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(4);
+pub const NIIF_ERROR: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(3);
+pub const NIIF_ICON_MASK: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(15);
+pub const NIIF_INFO: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(1);
+pub const NIIF_LARGE_ICON: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(32);
+pub const NIIF_NONE: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(0);
+pub const NIIF_NOSOUND: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(16);
+pub const NIIF_RESPECT_QUIET_TIME: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(128);
+pub const NIIF_USER: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(4);
+pub const NIIF_WARNING: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(2);
+pub const NIM_ADD: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(0);
+pub const NIM_DELETE: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(2);
+pub const NIM_MODIFY: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(1);
+pub const NIM_SETFOCUS: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(3);
+pub const NIM_SETVERSION: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(4);
+pub const NINF_KEY: u32 = 1;
+pub const NIN_BALLOONHIDE: u32 = 1027;
+pub const NIN_BALLOONSHOW: u32 = 1026;
+pub const NIN_BALLOONTIMEOUT: u32 = 1028;
+pub const NIN_BALLOONUSERCLICK: u32 = 1029;
+pub const NIN_POPUPCLOSE: u32 = 1031;
+pub const NIN_POPUPOPEN: u32 = 1030;
+pub const NIN_SELECT: u32 = 1024;
+pub const NIS_HIDDEN: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(1);
+pub const NIS_SHAREDICON: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(2);
+pub const NMCII_FOLDERS: _NMCII_FLAGS = _NMCII_FLAGS(2);
+pub const NMCII_ITEMS: _NMCII_FLAGS = _NMCII_FLAGS(1);
+pub const NMCII_NONE: _NMCII_FLAGS = _NMCII_FLAGS(0);
+pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(1);
+pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(0);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -52347,8 +52347,8 @@ pub struct NOTIFYICONIDENTIFIER {
     pub uID: u32,
     pub guidItem: windows_core::GUID,
 }
-pub const NOTIFYICON_VERSION: u32 = 3u32;
-pub const NOTIFYICON_VERSION_4: u32 = 4u32;
+pub const NOTIFYICON_VERSION: u32 = 3;
+pub const NOTIFYICON_VERSION_4: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_ICON_DATA_FLAGS(pub u32);
@@ -52487,24 +52487,24 @@ pub struct NSTCCUSTOMDRAW {
     pub iLevel: i32,
     pub iIndent: i32,
 }
-pub const NSTCDHPOS_ONTOP: i32 = -1i32;
-pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3i32);
-pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = _NSTCECLICKTYPE(4i32);
-pub const NSTCECT_LBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(1i32);
-pub const NSTCECT_MBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(2i32);
-pub const NSTCECT_RBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3i32);
-pub const NSTCEHT_NOWHERE: _NSTCEHITTEST = _NSTCEHITTEST(1i32);
-pub const NSTCEHT_ONITEM: _NSTCEHITTEST = _NSTCEHITTEST(70i32);
-pub const NSTCEHT_ONITEMBUTTON: _NSTCEHITTEST = _NSTCEHITTEST(16i32);
-pub const NSTCEHT_ONITEMICON: _NSTCEHITTEST = _NSTCEHITTEST(2i32);
-pub const NSTCEHT_ONITEMINDENT: _NSTCEHITTEST = _NSTCEHITTEST(8i32);
-pub const NSTCEHT_ONITEMLABEL: _NSTCEHITTEST = _NSTCEHITTEST(4i32);
-pub const NSTCEHT_ONITEMRIGHT: _NSTCEHITTEST = _NSTCEHITTEST(32i32);
-pub const NSTCEHT_ONITEMSTATEICON: _NSTCEHITTEST = _NSTCEHITTEST(64i32);
-pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = _NSTCEHITTEST(4096i32);
-pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(2i32);
-pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(0i32);
-pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(1i32);
+pub const NSTCDHPOS_ONTOP: i32 = -1;
+pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3);
+pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = _NSTCECLICKTYPE(4);
+pub const NSTCECT_LBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(1);
+pub const NSTCECT_MBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(2);
+pub const NSTCECT_RBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3);
+pub const NSTCEHT_NOWHERE: _NSTCEHITTEST = _NSTCEHITTEST(1);
+pub const NSTCEHT_ONITEM: _NSTCEHITTEST = _NSTCEHITTEST(70);
+pub const NSTCEHT_ONITEMBUTTON: _NSTCEHITTEST = _NSTCEHITTEST(16);
+pub const NSTCEHT_ONITEMICON: _NSTCEHITTEST = _NSTCEHITTEST(2);
+pub const NSTCEHT_ONITEMINDENT: _NSTCEHITTEST = _NSTCEHITTEST(8);
+pub const NSTCEHT_ONITEMLABEL: _NSTCEHITTEST = _NSTCEHITTEST(4);
+pub const NSTCEHT_ONITEMRIGHT: _NSTCEHITTEST = _NSTCEHITTEST(32);
+pub const NSTCEHT_ONITEMSTATEICON: _NSTCEHITTEST = _NSTCEHITTEST(64);
+pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = _NSTCEHITTEST(4096);
+pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(2);
+pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(0);
+pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NSTCFOLDERCAPABILITIES(pub i32);
@@ -52544,28 +52544,28 @@ impl core::ops::Not for NSTCFOLDERCAPABILITIES {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NSTCGNI(pub i32);
-pub const NSTCGNI_CHILD: NSTCGNI = NSTCGNI(5i32);
-pub const NSTCGNI_FIRSTVISIBLE: NSTCGNI = NSTCGNI(6i32);
-pub const NSTCGNI_LASTVISIBLE: NSTCGNI = NSTCGNI(7i32);
-pub const NSTCGNI_NEXT: NSTCGNI = NSTCGNI(0i32);
-pub const NSTCGNI_NEXTVISIBLE: NSTCGNI = NSTCGNI(1i32);
-pub const NSTCGNI_PARENT: NSTCGNI = NSTCGNI(4i32);
-pub const NSTCGNI_PREV: NSTCGNI = NSTCGNI(2i32);
-pub const NSTCGNI_PREVVISIBLE: NSTCGNI = NSTCGNI(3i32);
-pub const NSTCIS_BOLD: _NSTCITEMSTATE = _NSTCITEMSTATE(4i32);
-pub const NSTCIS_DISABLED: _NSTCITEMSTATE = _NSTCITEMSTATE(8i32);
-pub const NSTCIS_EXPANDED: _NSTCITEMSTATE = _NSTCITEMSTATE(2i32);
-pub const NSTCIS_NONE: _NSTCITEMSTATE = _NSTCITEMSTATE(0i32);
-pub const NSTCIS_SELECTED: _NSTCITEMSTATE = _NSTCITEMSTATE(1i32);
-pub const NSTCIS_SELECTEDNOEXPAND: _NSTCITEMSTATE = _NSTCITEMSTATE(16i32);
-pub const NSTCRS_EXPANDED: _NSTCROOTSTYLE = _NSTCROOTSTYLE(2i32);
-pub const NSTCRS_HIDDEN: _NSTCROOTSTYLE = _NSTCROOTSTYLE(1i32);
-pub const NSTCRS_VISIBLE: _NSTCROOTSTYLE = _NSTCROOTSTYLE(0i32);
-pub const NSTCS2_DEFAULT: NSTCSTYLE2 = NSTCSTYLE2(0i32);
-pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = NSTCSTYLE2(4i32);
-pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = NSTCSTYLE2(8i32);
-pub const NSTCS2_INTERRUPTNOTIFICATIONS: NSTCSTYLE2 = NSTCSTYLE2(1i32);
-pub const NSTCS2_SHOWNULLSPACEMENU: NSTCSTYLE2 = NSTCSTYLE2(2i32);
+pub const NSTCGNI_CHILD: NSTCGNI = NSTCGNI(5);
+pub const NSTCGNI_FIRSTVISIBLE: NSTCGNI = NSTCGNI(6);
+pub const NSTCGNI_LASTVISIBLE: NSTCGNI = NSTCGNI(7);
+pub const NSTCGNI_NEXT: NSTCGNI = NSTCGNI(0);
+pub const NSTCGNI_NEXTVISIBLE: NSTCGNI = NSTCGNI(1);
+pub const NSTCGNI_PARENT: NSTCGNI = NSTCGNI(4);
+pub const NSTCGNI_PREV: NSTCGNI = NSTCGNI(2);
+pub const NSTCGNI_PREVVISIBLE: NSTCGNI = NSTCGNI(3);
+pub const NSTCIS_BOLD: _NSTCITEMSTATE = _NSTCITEMSTATE(4);
+pub const NSTCIS_DISABLED: _NSTCITEMSTATE = _NSTCITEMSTATE(8);
+pub const NSTCIS_EXPANDED: _NSTCITEMSTATE = _NSTCITEMSTATE(2);
+pub const NSTCIS_NONE: _NSTCITEMSTATE = _NSTCITEMSTATE(0);
+pub const NSTCIS_SELECTED: _NSTCITEMSTATE = _NSTCITEMSTATE(1);
+pub const NSTCIS_SELECTEDNOEXPAND: _NSTCITEMSTATE = _NSTCITEMSTATE(16);
+pub const NSTCRS_EXPANDED: _NSTCROOTSTYLE = _NSTCROOTSTYLE(2);
+pub const NSTCRS_HIDDEN: _NSTCROOTSTYLE = _NSTCROOTSTYLE(1);
+pub const NSTCRS_VISIBLE: _NSTCROOTSTYLE = _NSTCROOTSTYLE(0);
+pub const NSTCS2_DEFAULT: NSTCSTYLE2 = NSTCSTYLE2(0);
+pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = NSTCSTYLE2(4);
+pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = NSTCSTYLE2(8);
+pub const NSTCS2_INTERRUPTNOTIFICATIONS: NSTCSTYLE2 = NSTCSTYLE2(1);
+pub const NSTCS2_SHOWNULLSPACEMENU: NSTCSTYLE2 = NSTCSTYLE2(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NSTCSTYLE2(pub i32);
@@ -52602,55 +52602,55 @@ impl core::ops::Not for NSTCSTYLE2 {
         Self(self.0.not())
     }
 }
-pub const NSTCS_ALLOWJUNCTIONS: _NSTCSTYLE = _NSTCSTYLE(268435456i32);
-pub const NSTCS_AUTOHSCROLL: _NSTCSTYLE = _NSTCSTYLE(1048576i32);
-pub const NSTCS_BORDER: _NSTCSTYLE = _NSTCSTYLE(32768i32);
-pub const NSTCS_CHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(8388608i32);
-pub const NSTCS_DIMMEDCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(67108864i32);
-pub const NSTCS_DISABLEDRAGDROP: _NSTCSTYLE = _NSTCSTYLE(4096i32);
-pub const NSTCS_EMPTYTEXT: _NSTCSTYLE = _NSTCSTYLE(4194304i32);
-pub const NSTCS_EVENHEIGHT: _NSTCSTYLE = _NSTCSTYLE(1024i32);
-pub const NSTCS_EXCLUSIONCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(33554432i32);
-pub const NSTCS_FADEINOUTEXPANDOS: _NSTCSTYLE = _NSTCSTYLE(2097152i32);
-pub const NSTCS_FAVORITESMODE: _NSTCSTYLE = _NSTCSTYLE(524288i32);
-pub const NSTCS_FULLROWSELECT: _NSTCSTYLE = _NSTCSTYLE(8i32);
-pub const NSTCS_HASEXPANDOS: _NSTCSTYLE = _NSTCSTYLE(1i32);
-pub const NSTCS_HASLINES: _NSTCSTYLE = _NSTCSTYLE(2i32);
-pub const NSTCS_HORIZONTALSCROLL: _NSTCSTYLE = _NSTCSTYLE(32i32);
-pub const NSTCS_NOEDITLABELS: _NSTCSTYLE = _NSTCSTYLE(65536i32);
-pub const NSTCS_NOINDENTCHECKS: _NSTCSTYLE = _NSTCSTYLE(134217728i32);
-pub const NSTCS_NOINFOTIP: _NSTCSTYLE = _NSTCSTYLE(512i32);
-pub const NSTCS_NOORDERSTREAM: _NSTCSTYLE = _NSTCSTYLE(8192i32);
-pub const NSTCS_NOREPLACEOPEN: _NSTCSTYLE = _NSTCSTYLE(2048i32);
-pub const NSTCS_PARTIALCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(16777216i32);
-pub const NSTCS_RICHTOOLTIP: _NSTCSTYLE = _NSTCSTYLE(16384i32);
-pub const NSTCS_ROOTHASEXPANDO: _NSTCSTYLE = _NSTCSTYLE(64i32);
-pub const NSTCS_SHOWDELETEBUTTON: _NSTCSTYLE = _NSTCSTYLE(1073741824i32);
-pub const NSTCS_SHOWREFRESHBUTTON: _NSTCSTYLE = _NSTCSTYLE(-2147483648i32);
-pub const NSTCS_SHOWSELECTIONALWAYS: _NSTCSTYLE = _NSTCSTYLE(128i32);
-pub const NSTCS_SHOWTABSBUTTON: _NSTCSTYLE = _NSTCSTYLE(536870912i32);
-pub const NSTCS_SINGLECLICKEXPAND: _NSTCSTYLE = _NSTCSTYLE(4i32);
-pub const NSTCS_SPRINGEXPAND: _NSTCSTYLE = _NSTCSTYLE(16i32);
-pub const NSTCS_TABSTOP: _NSTCSTYLE = _NSTCSTYLE(131072i32);
-pub const NSWF_ACCUMULATE_FOLDERS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(2048i32);
-pub const NSWF_ANY_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(32768i32);
-pub const NSWF_ASYNC: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(512i32);
-pub const NSWF_DEFAULT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(0i32);
-pub const NSWF_DONT_ACCUMULATE_RESULT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(8i32);
-pub const NSWF_DONT_RESOLVE_LINKS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(1024i32);
-pub const NSWF_DONT_SORT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(4096i32);
-pub const NSWF_DONT_TRAVERSE_LINKS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(4i32);
-pub const NSWF_DONT_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(16384i32);
-pub const NSWF_FILESYSTEM_ONLY: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(32i32);
-pub const NSWF_FLAG_VIEWORDER: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(128i32);
-pub const NSWF_IGNORE_AUTOPLAY_HIDA: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(256i32);
-pub const NSWF_NONE_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(1i32);
-pub const NSWF_ONE_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(2i32);
-pub const NSWF_SHOW_PROGRESS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(64i32);
-pub const NSWF_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(16i32);
-pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(8192i32);
-pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = NSTCSTYLE2(32i32);
-pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = NSTCSTYLE2(16i32);
+pub const NSTCS_ALLOWJUNCTIONS: _NSTCSTYLE = _NSTCSTYLE(268435456);
+pub const NSTCS_AUTOHSCROLL: _NSTCSTYLE = _NSTCSTYLE(1048576);
+pub const NSTCS_BORDER: _NSTCSTYLE = _NSTCSTYLE(32768);
+pub const NSTCS_CHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(8388608);
+pub const NSTCS_DIMMEDCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(67108864);
+pub const NSTCS_DISABLEDRAGDROP: _NSTCSTYLE = _NSTCSTYLE(4096);
+pub const NSTCS_EMPTYTEXT: _NSTCSTYLE = _NSTCSTYLE(4194304);
+pub const NSTCS_EVENHEIGHT: _NSTCSTYLE = _NSTCSTYLE(1024);
+pub const NSTCS_EXCLUSIONCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(33554432);
+pub const NSTCS_FADEINOUTEXPANDOS: _NSTCSTYLE = _NSTCSTYLE(2097152);
+pub const NSTCS_FAVORITESMODE: _NSTCSTYLE = _NSTCSTYLE(524288);
+pub const NSTCS_FULLROWSELECT: _NSTCSTYLE = _NSTCSTYLE(8);
+pub const NSTCS_HASEXPANDOS: _NSTCSTYLE = _NSTCSTYLE(1);
+pub const NSTCS_HASLINES: _NSTCSTYLE = _NSTCSTYLE(2);
+pub const NSTCS_HORIZONTALSCROLL: _NSTCSTYLE = _NSTCSTYLE(32);
+pub const NSTCS_NOEDITLABELS: _NSTCSTYLE = _NSTCSTYLE(65536);
+pub const NSTCS_NOINDENTCHECKS: _NSTCSTYLE = _NSTCSTYLE(134217728);
+pub const NSTCS_NOINFOTIP: _NSTCSTYLE = _NSTCSTYLE(512);
+pub const NSTCS_NOORDERSTREAM: _NSTCSTYLE = _NSTCSTYLE(8192);
+pub const NSTCS_NOREPLACEOPEN: _NSTCSTYLE = _NSTCSTYLE(2048);
+pub const NSTCS_PARTIALCHECKBOXES: _NSTCSTYLE = _NSTCSTYLE(16777216);
+pub const NSTCS_RICHTOOLTIP: _NSTCSTYLE = _NSTCSTYLE(16384);
+pub const NSTCS_ROOTHASEXPANDO: _NSTCSTYLE = _NSTCSTYLE(64);
+pub const NSTCS_SHOWDELETEBUTTON: _NSTCSTYLE = _NSTCSTYLE(1073741824);
+pub const NSTCS_SHOWREFRESHBUTTON: _NSTCSTYLE = _NSTCSTYLE(-2147483648);
+pub const NSTCS_SHOWSELECTIONALWAYS: _NSTCSTYLE = _NSTCSTYLE(128);
+pub const NSTCS_SHOWTABSBUTTON: _NSTCSTYLE = _NSTCSTYLE(536870912);
+pub const NSTCS_SINGLECLICKEXPAND: _NSTCSTYLE = _NSTCSTYLE(4);
+pub const NSTCS_SPRINGEXPAND: _NSTCSTYLE = _NSTCSTYLE(16);
+pub const NSTCS_TABSTOP: _NSTCSTYLE = _NSTCSTYLE(131072);
+pub const NSWF_ACCUMULATE_FOLDERS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(2048);
+pub const NSWF_ANY_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(32768);
+pub const NSWF_ASYNC: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(512);
+pub const NSWF_DEFAULT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(0);
+pub const NSWF_DONT_ACCUMULATE_RESULT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(8);
+pub const NSWF_DONT_RESOLVE_LINKS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(1024);
+pub const NSWF_DONT_SORT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(4096);
+pub const NSWF_DONT_TRAVERSE_LINKS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(4);
+pub const NSWF_DONT_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(16384);
+pub const NSWF_FILESYSTEM_ONLY: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(32);
+pub const NSWF_FLAG_VIEWORDER: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(128);
+pub const NSWF_IGNORE_AUTOPLAY_HIDA: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(256);
+pub const NSWF_NONE_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(1);
+pub const NSWF_ONE_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(2);
+pub const NSWF_SHOW_PROGRESS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(64);
+pub const NSWF_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(16);
+pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(8192);
+pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = NSTCSTYLE2(32);
+pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = NSTCSTYLE2(16);
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy)]
@@ -52683,15 +52683,15 @@ impl Default for NT_CONSOLE_PROPS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562u32;
+pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub uCodePage: u32,
 }
-pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564u32;
-pub const NUM_POINTS: u32 = 3u32;
+pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564;
+pub const NUM_POINTS: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NWMF(pub i32);
@@ -52728,20 +52728,20 @@ impl core::ops::Not for NWMF {
         Self(self.0.not())
     }
 }
-pub const NWMF_FIRST: NWMF = NWMF(4i32);
-pub const NWMF_FORCETAB: NWMF = NWMF(131072i32);
-pub const NWMF_FORCEWINDOW: NWMF = NWMF(65536i32);
-pub const NWMF_FROMDIALOGCHILD: NWMF = NWMF(64i32);
-pub const NWMF_HTMLDIALOG: NWMF = NWMF(32i32);
-pub const NWMF_INACTIVETAB: NWMF = NWMF(1048576i32);
-pub const NWMF_OVERRIDEKEY: NWMF = NWMF(8i32);
-pub const NWMF_SHOWHELP: NWMF = NWMF(16i32);
-pub const NWMF_SUGGESTTAB: NWMF = NWMF(524288i32);
-pub const NWMF_SUGGESTWINDOW: NWMF = NWMF(262144i32);
-pub const NWMF_UNLOADING: NWMF = NWMF(1i32);
-pub const NWMF_USERALLOWED: NWMF = NWMF(256i32);
-pub const NWMF_USERINITED: NWMF = NWMF(2i32);
-pub const NWMF_USERREQUESTED: NWMF = NWMF(128i32);
+pub const NWMF_FIRST: NWMF = NWMF(4);
+pub const NWMF_FORCETAB: NWMF = NWMF(131072);
+pub const NWMF_FORCEWINDOW: NWMF = NWMF(65536);
+pub const NWMF_FROMDIALOGCHILD: NWMF = NWMF(64);
+pub const NWMF_HTMLDIALOG: NWMF = NWMF(32);
+pub const NWMF_INACTIVETAB: NWMF = NWMF(1048576);
+pub const NWMF_OVERRIDEKEY: NWMF = NWMF(8);
+pub const NWMF_SHOWHELP: NWMF = NWMF(16);
+pub const NWMF_SUGGESTTAB: NWMF = NWMF(524288);
+pub const NWMF_SUGGESTWINDOW: NWMF = NWMF(262144);
+pub const NWMF_UNLOADING: NWMF = NWMF(1);
+pub const NWMF_USERALLOWED: NWMF = NWMF(256);
+pub const NWMF_USERINITED: NWMF = NWMF(2);
+pub const NWMF_USERREQUESTED: NWMF = NWMF(128);
 pub const NamespaceTreeControl: windows_core::GUID = windows_core::GUID::from_u128(0xae054212_3535_4430_83ed_d501aa6680e6);
 pub const NamespaceWalker: windows_core::GUID = windows_core::GUID::from_u128(0x72eb61e0_8672_4303_9175_f2e4c68b2e7c);
 pub const NetworkConnections: windows_core::GUID = windows_core::GUID::from_u128(0x7007acc7_3202_11d1_aad2_00805fc1270e);
@@ -52750,27 +52750,27 @@ pub const NetworkPlaces: windows_core::GUID = windows_core::GUID::from_u128(0x20
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NewProcessCauseConstants(pub i32);
-pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(1i32);
-pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(4i32);
-pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(128i32);
-pub const OAIF_FORCE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(8i32);
-pub const OAIF_HIDE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(32i32);
-pub const OAIF_REGISTER_EXT: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(2i32);
-pub const OAIF_URL_PROTOCOL: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(64i32);
-pub const OFASI_EDIT: u32 = 1u32;
-pub const OFASI_OPENDESKTOP: u32 = 2u32;
-pub const OFFLINE_STATUS_INCOMPLETE: u32 = 4u32;
-pub const OFFLINE_STATUS_LOCAL: u32 = 1u32;
-pub const OFFLINE_STATUS_REMOTE: u32 = 2u32;
-pub const OFS_DIRTYCACHE: OfflineFolderStatus = OfflineFolderStatus(3i32);
-pub const OFS_INACTIVE: OfflineFolderStatus = OfflineFolderStatus(-1i32);
-pub const OFS_OFFLINE: OfflineFolderStatus = OfflineFolderStatus(1i32);
-pub const OFS_ONLINE: OfflineFolderStatus = OfflineFolderStatus(0i32);
-pub const OFS_SERVERBACK: OfflineFolderStatus = OfflineFolderStatus(2i32);
-pub const OF_CAP_CANCLOSE: u32 = 2u32;
-pub const OF_CAP_CANSWITCHTO: u32 = 1u32;
-pub const OI_ASYNC: u32 = 4294962926u32;
-pub const OI_DEFAULT: u32 = 0u32;
+pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(1);
+pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(4);
+pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(128);
+pub const OAIF_FORCE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(8);
+pub const OAIF_HIDE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(32);
+pub const OAIF_REGISTER_EXT: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(2);
+pub const OAIF_URL_PROTOCOL: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(64);
+pub const OFASI_EDIT: u32 = 1;
+pub const OFASI_OPENDESKTOP: u32 = 2;
+pub const OFFLINE_STATUS_INCOMPLETE: u32 = 4;
+pub const OFFLINE_STATUS_LOCAL: u32 = 1;
+pub const OFFLINE_STATUS_REMOTE: u32 = 2;
+pub const OFS_DIRTYCACHE: OfflineFolderStatus = OfflineFolderStatus(3);
+pub const OFS_INACTIVE: OfflineFolderStatus = OfflineFolderStatus(-1);
+pub const OFS_OFFLINE: OfflineFolderStatus = OfflineFolderStatus(1);
+pub const OFS_ONLINE: OfflineFolderStatus = OfflineFolderStatus(0);
+pub const OFS_SERVERBACK: OfflineFolderStatus = OfflineFolderStatus(2);
+pub const OF_CAP_CANCLOSE: u32 = 2;
+pub const OF_CAP_CANSWITCHTO: u32 = 1;
+pub const OI_ASYNC: u32 = 4294962926;
+pub const OI_DEFAULT: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPENASINFO {
@@ -52778,8 +52778,8 @@ pub struct OPENASINFO {
     pub pcszClass: windows_core::PCWSTR,
     pub oaifInFlags: OPEN_AS_INFO_FLAGS,
 }
-pub const OPENPROPS_INHIBITPIF: u32 = 32768u32;
-pub const OPENPROPS_NONE: u32 = 0u32;
+pub const OPENPROPS_INHIBITPIF: u32 = 32768;
+pub const OPENPROPS_NONE: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_AS_INFO_FLAGS(pub i32);
@@ -52856,52 +52856,52 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwFlags: u32,
     pub bModal: windows_core::BOOL,
 }
-pub const OPPROGDLG_ALLOWUNDO: _OPPROGDLGF = _OPPROGDLGF(256i32);
-pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = _OPPROGDLGF(0i32);
-pub const OPPROGDLG_DONTDISPLAYDESTPATH: _OPPROGDLGF = _OPPROGDLGF(1024i32);
-pub const OPPROGDLG_DONTDISPLAYLOCATIONS: _OPPROGDLGF = _OPPROGDLGF(4096i32);
-pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: _OPPROGDLGF = _OPPROGDLGF(512i32);
-pub const OPPROGDLG_ENABLEPAUSE: _OPPROGDLGF = _OPPROGDLGF(128i32);
-pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = _OPPROGDLGF(2048i32);
+pub const OPPROGDLG_ALLOWUNDO: _OPPROGDLGF = _OPPROGDLGF(256);
+pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = _OPPROGDLGF(0);
+pub const OPPROGDLG_DONTDISPLAYDESTPATH: _OPPROGDLGF = _OPPROGDLGF(1024);
+pub const OPPROGDLG_DONTDISPLAYLOCATIONS: _OPPROGDLGF = _OPPROGDLGF(4096);
+pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: _OPPROGDLGF = _OPPROGDLGF(512);
+pub const OPPROGDLG_ENABLEPAUSE: _OPPROGDLGF = _OPPROGDLGF(128);
+pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = _OPPROGDLGF(2048);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS(pub u32);
-pub const OS_ADVSERVER: OS = OS(22u32);
-pub const OS_ANYSERVER: OS = OS(29u32);
-pub const OS_APPLIANCE: OS = OS(36u32);
-pub const OS_DATACENTER: OS = OS(21u32);
-pub const OS_DOMAINMEMBER: OS = OS(28u32);
-pub const OS_EMBEDDED: OS = OS(13u32);
-pub const OS_FASTUSERSWITCHING: OS = OS(26u32);
-pub const OS_HOME: OS = OS(19u32);
-pub const OS_MEDIACENTER: OS = OS(35u32);
-pub const OS_MEORGREATER: OS = OS(17u32);
-pub const OS_NT: OS = OS(1u32);
-pub const OS_NT4ORGREATER: OS = OS(3u32);
-pub const OS_PERSONALTERMINALSERVER: OS = OS(25u32);
-pub const OS_PROFESSIONAL: OS = OS(20u32);
-pub const OS_SERVER: OS = OS(23u32);
-pub const OS_SERVERADMINUI: OS = OS(34u32);
-pub const OS_SMALLBUSINESSSERVER: OS = OS(32u32);
-pub const OS_TABLETPC: OS = OS(33u32);
-pub const OS_TERMINALCLIENT: OS = OS(14u32);
-pub const OS_TERMINALREMOTEADMIN: OS = OS(15u32);
-pub const OS_TERMINALSERVER: OS = OS(24u32);
-pub const OS_WEBSERVER: OS = OS(31u32);
-pub const OS_WELCOMELOGONUI: OS = OS(27u32);
-pub const OS_WIN2000ADVSERVER: OS = OS(10u32);
-pub const OS_WIN2000DATACENTER: OS = OS(11u32);
-pub const OS_WIN2000ORGREATER: OS = OS(7u32);
-pub const OS_WIN2000PRO: OS = OS(8u32);
-pub const OS_WIN2000SERVER: OS = OS(9u32);
-pub const OS_WIN2000TERMINAL: OS = OS(12u32);
-pub const OS_WIN95ORGREATER: OS = OS(2u32);
-pub const OS_WIN95_GOLD: OS = OS(16u32);
-pub const OS_WIN98ORGREATER: OS = OS(5u32);
-pub const OS_WIN98_GOLD: OS = OS(6u32);
-pub const OS_WINDOWS: OS = OS(0u32);
-pub const OS_WOW6432: OS = OS(30u32);
-pub const OS_XPORGREATER: OS = OS(18u32);
+pub const OS_ADVSERVER: OS = OS(22);
+pub const OS_ANYSERVER: OS = OS(29);
+pub const OS_APPLIANCE: OS = OS(36);
+pub const OS_DATACENTER: OS = OS(21);
+pub const OS_DOMAINMEMBER: OS = OS(28);
+pub const OS_EMBEDDED: OS = OS(13);
+pub const OS_FASTUSERSWITCHING: OS = OS(26);
+pub const OS_HOME: OS = OS(19);
+pub const OS_MEDIACENTER: OS = OS(35);
+pub const OS_MEORGREATER: OS = OS(17);
+pub const OS_NT: OS = OS(1);
+pub const OS_NT4ORGREATER: OS = OS(3);
+pub const OS_PERSONALTERMINALSERVER: OS = OS(25);
+pub const OS_PROFESSIONAL: OS = OS(20);
+pub const OS_SERVER: OS = OS(23);
+pub const OS_SERVERADMINUI: OS = OS(34);
+pub const OS_SMALLBUSINESSSERVER: OS = OS(32);
+pub const OS_TABLETPC: OS = OS(33);
+pub const OS_TERMINALCLIENT: OS = OS(14);
+pub const OS_TERMINALREMOTEADMIN: OS = OS(15);
+pub const OS_TERMINALSERVER: OS = OS(24);
+pub const OS_WEBSERVER: OS = OS(31);
+pub const OS_WELCOMELOGONUI: OS = OS(27);
+pub const OS_WIN2000ADVSERVER: OS = OS(10);
+pub const OS_WIN2000DATACENTER: OS = OS(11);
+pub const OS_WIN2000ORGREATER: OS = OS(7);
+pub const OS_WIN2000PRO: OS = OS(8);
+pub const OS_WIN2000SERVER: OS = OS(9);
+pub const OS_WIN2000TERMINAL: OS = OS(12);
+pub const OS_WIN95ORGREATER: OS = OS(2);
+pub const OS_WIN95_GOLD: OS = OS(16);
+pub const OS_WIN98ORGREATER: OS = OS(5);
+pub const OS_WIN98_GOLD: OS = OS(6);
+pub const OS_WINDOWS: OS = OS(0);
+pub const OS_WOW6432: OS = OS(30);
+pub const OS_XPORGREATER: OS = OS(18);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineFolderStatus(pub i32);
@@ -52911,19 +52911,19 @@ pub const OpenControlPanel: windows_core::GUID = windows_core::GUID::from_u128(0
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKAGE_EXECUTION_STATE(pub i32);
-pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(2i32);
-pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(16i32);
-pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(4i32);
-pub const PAI_SCHEDULEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(8i32);
-pub const PAI_SOURCE: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(1i32);
-pub const PANE_NAVIGATION: u32 = 5u32;
-pub const PANE_NONE: u32 = 4294967295u32;
-pub const PANE_OFFLINE: u32 = 2u32;
-pub const PANE_PRINTER: u32 = 3u32;
-pub const PANE_PRIVACY: u32 = 7u32;
-pub const PANE_PROGRESS: u32 = 6u32;
-pub const PANE_SSL: u32 = 4u32;
-pub const PANE_ZONE: u32 = 1u32;
+pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(2);
+pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(16);
+pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(4);
+pub const PAI_SCHEDULEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(8);
+pub const PAI_SOURCE: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(1);
+pub const PANE_NAVIGATION: u32 = 5;
+pub const PANE_NONE: u32 = 4294967295;
+pub const PANE_OFFLINE: u32 = 2;
+pub const PANE_PRINTER: u32 = 3;
+pub const PANE_PRIVACY: u32 = 7;
+pub const PANE_PROGRESS: u32 = 6;
+pub const PANE_SSL: u32 = 4;
+pub const PANE_ZONE: u32 = 1;
 pub type PAPPCONSTRAIN_CHANGE_ROUTINE = Option<unsafe extern "system" fn(constrained: bool, context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -52952,15 +52952,15 @@ pub struct PARSEDURLW {
     pub cchSuffix: u32,
     pub nScheme: u32,
 }
-pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(1u32);
-pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64u32);
-pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(8u32);
-pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(16u32);
-pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(32u32);
-pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(4u32);
-pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(2u32);
-pub const PATHCCH_MAX_CCH: u32 = 32768u32;
-pub const PATHCCH_NONE: PATHCCH_OPTIONS = PATHCCH_OPTIONS(0u32);
+pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(1);
+pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64);
+pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(8);
+pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(16);
+pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(32);
+pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(4);
+pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(2);
+pub const PATHCCH_MAX_CCH: u32 = 32768;
+pub const PATHCCH_NONE: PATHCCH_OPTIONS = PATHCCH_OPTIONS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATHCCH_OPTIONS(pub u32);
@@ -52997,10 +52997,10 @@ impl core::ops::Not for PATHCCH_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const PCS_FATAL: PCS_RET = PCS_RET(2147483648u32);
-pub const PCS_PATHTOOLONG: PCS_RET = PCS_RET(8u32);
-pub const PCS_REMOVEDCHAR: PCS_RET = PCS_RET(2u32);
-pub const PCS_REPLACEDCHAR: PCS_RET = PCS_RET(1u32);
+pub const PCS_FATAL: PCS_RET = PCS_RET(2147483648);
+pub const PCS_PATHTOOLONG: PCS_RET = PCS_RET(8);
+pub const PCS_REMOVEDCHAR: PCS_RET = PCS_RET(2);
+pub const PCS_REPLACEDCHAR: PCS_RET = PCS_RET(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCS_RET(pub u32);
@@ -53037,16 +53037,16 @@ impl core::ops::Not for PCS_RET {
         Self(self.0.not())
     }
 }
-pub const PCS_TRUNCATED: PCS_RET = PCS_RET(4u32);
-pub const PDM_DEFAULT: _PDMODE = _PDMODE(0i32);
-pub const PDM_ERRORSBLOCKING: _PDMODE = _PDMODE(8i32);
-pub const PDM_INDETERMINATE: _PDMODE = _PDMODE(16i32);
-pub const PDM_PREFLIGHT: _PDMODE = _PDMODE(2i32);
-pub const PDM_RUN: _PDMODE = _PDMODE(1i32);
-pub const PDM_UNDOING: _PDMODE = _PDMODE(4i32);
-pub const PDTIMER_PAUSE: u32 = 2u32;
-pub const PDTIMER_RESET: u32 = 1u32;
-pub const PDTIMER_RESUME: u32 = 3u32;
+pub const PCS_TRUNCATED: PCS_RET = PCS_RET(4);
+pub const PDM_DEFAULT: _PDMODE = _PDMODE(0);
+pub const PDM_ERRORSBLOCKING: _PDMODE = _PDMODE(8);
+pub const PDM_INDETERMINATE: _PDMODE = _PDMODE(16);
+pub const PDM_PREFLIGHT: _PDMODE = _PDMODE(2);
+pub const PDM_RUN: _PDMODE = _PDMODE(1);
+pub const PDM_UNDOING: _PDMODE = _PDMODE(4);
+pub const PDTIMER_PAUSE: u32 = 2;
+pub const PDTIMER_RESET: u32 = 1;
+pub const PDTIMER_RESUME: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -53063,29 +53063,29 @@ impl Default for PERSIST_FOLDER_TARGET_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PES_RUNNING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(1i32);
-pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(3i32);
-pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(2i32);
-pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(4i32);
-pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(0i32);
+pub const PES_RUNNING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(1);
+pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(3);
+pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(2);
+pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(4);
+pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(0);
 pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_core::PCWSTR) -> windows_core::HRESULT>;
 pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT>;
-pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
-pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
-pub const PIDASI_COMPRESSION: u32 = 10u32;
-pub const PIDASI_FORMAT: u32 = 2u32;
-pub const PIDASI_SAMPLE_RATE: u32 = 5u32;
-pub const PIDASI_SAMPLE_SIZE: u32 = 6u32;
-pub const PIDASI_STREAM_NAME: u32 = 9u32;
-pub const PIDASI_STREAM_NUMBER: u32 = 8u32;
-pub const PIDASI_TIMELENGTH: u32 = 3u32;
-pub const PIDDRSI_DESCRIPTION: u32 = 3u32;
-pub const PIDDRSI_PLAYCOUNT: u32 = 4u32;
-pub const PIDDRSI_PLAYEXPIRES: u32 = 6u32;
-pub const PIDDRSI_PLAYSTARTS: u32 = 5u32;
-pub const PIDDRSI_PROTECTED: u32 = 2u32;
-pub const PIDISF_CACHEDSTICKY: PIDISF_FLAGS = PIDISF_FLAGS(2i32);
-pub const PIDISF_CACHEIMAGES: PIDISF_FLAGS = PIDISF_FLAGS(16i32);
+pub const PIDASI_AVG_DATA_RATE: u32 = 4;
+pub const PIDASI_CHANNEL_COUNT: u32 = 7;
+pub const PIDASI_COMPRESSION: u32 = 10;
+pub const PIDASI_FORMAT: u32 = 2;
+pub const PIDASI_SAMPLE_RATE: u32 = 5;
+pub const PIDASI_SAMPLE_SIZE: u32 = 6;
+pub const PIDASI_STREAM_NAME: u32 = 9;
+pub const PIDASI_STREAM_NUMBER: u32 = 8;
+pub const PIDASI_TIMELENGTH: u32 = 3;
+pub const PIDDRSI_DESCRIPTION: u32 = 3;
+pub const PIDDRSI_PLAYCOUNT: u32 = 4;
+pub const PIDDRSI_PLAYEXPIRES: u32 = 6;
+pub const PIDDRSI_PLAYSTARTS: u32 = 5;
+pub const PIDDRSI_PROTECTED: u32 = 2;
+pub const PIDISF_CACHEDSTICKY: PIDISF_FLAGS = PIDISF_FLAGS(2);
+pub const PIDISF_CACHEIMAGES: PIDISF_FLAGS = PIDISF_FLAGS(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDISF_FLAGS(pub i32);
@@ -53122,126 +53122,126 @@ impl core::ops::Not for PIDISF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const PIDISF_FOLLOWALLLINKS: PIDISF_FLAGS = PIDISF_FLAGS(32i32);
-pub const PIDISF_RECENTLYCHANGED: PIDISF_FLAGS = PIDISF_FLAGS(1i32);
-pub const PIDISM_DONTWATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(2i32);
-pub const PIDISM_GLOBAL: PIDISM_OPTIONS = PIDISM_OPTIONS(0i32);
+pub const PIDISF_FOLLOWALLLINKS: PIDISF_FLAGS = PIDISF_FLAGS(32);
+pub const PIDISF_RECENTLYCHANGED: PIDISF_FLAGS = PIDISF_FLAGS(1);
+pub const PIDISM_DONTWATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(2);
+pub const PIDISM_GLOBAL: PIDISM_OPTIONS = PIDISM_OPTIONS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDISM_OPTIONS(pub i32);
-pub const PIDISM_WATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(1i32);
+pub const PIDISM_WATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDISR_INFO(pub i32);
-pub const PIDISR_NEEDS_ADD: PIDISR_INFO = PIDISR_INFO(1i32);
-pub const PIDISR_NEEDS_DELETE: PIDISR_INFO = PIDISR_INFO(3i32);
-pub const PIDISR_NEEDS_UPDATE: PIDISR_INFO = PIDISR_INFO(2i32);
-pub const PIDISR_UP_TO_DATE: PIDISR_INFO = PIDISR_INFO(0i32);
-pub const PIDSI_ALBUM: u32 = 4u32;
-pub const PIDSI_ARTIST: u32 = 2u32;
-pub const PIDSI_COMMENT: u32 = 6u32;
-pub const PIDSI_GENRE: u32 = 11u32;
-pub const PIDSI_LYRICS: u32 = 12u32;
-pub const PIDSI_SONGTITLE: u32 = 3u32;
-pub const PIDSI_TRACK: u32 = 7u32;
-pub const PIDSI_YEAR: u32 = 5u32;
-pub const PIDVSI_COMPRESSION: u32 = 10u32;
-pub const PIDVSI_DATA_RATE: u32 = 8u32;
-pub const PIDVSI_FRAME_COUNT: u32 = 5u32;
-pub const PIDVSI_FRAME_HEIGHT: u32 = 4u32;
-pub const PIDVSI_FRAME_RATE: u32 = 6u32;
-pub const PIDVSI_FRAME_WIDTH: u32 = 3u32;
-pub const PIDVSI_SAMPLE_SIZE: u32 = 9u32;
-pub const PIDVSI_STREAM_NAME: u32 = 2u32;
-pub const PIDVSI_STREAM_NUMBER: u32 = 11u32;
-pub const PIDVSI_TIMELENGTH: u32 = 7u32;
-pub const PID_COMPUTERNAME: u32 = 5u32;
-pub const PID_CONTROLPANEL_CATEGORY: u32 = 2u32;
-pub const PID_DESCRIPTIONID: u32 = 2u32;
-pub const PID_DISPLACED_DATE: u32 = 3u32;
-pub const PID_DISPLACED_FROM: u32 = 2u32;
-pub const PID_DISPLAY_PROPERTIES: u32 = 0u32;
-pub const PID_FINDDATA: u32 = 0u32;
-pub const PID_HTMLINFOTIPFILE: u32 = 5u32;
-pub const PID_INTROTEXT: u32 = 1u32;
+pub const PIDISR_NEEDS_ADD: PIDISR_INFO = PIDISR_INFO(1);
+pub const PIDISR_NEEDS_DELETE: PIDISR_INFO = PIDISR_INFO(3);
+pub const PIDISR_NEEDS_UPDATE: PIDISR_INFO = PIDISR_INFO(2);
+pub const PIDISR_UP_TO_DATE: PIDISR_INFO = PIDISR_INFO(0);
+pub const PIDSI_ALBUM: u32 = 4;
+pub const PIDSI_ARTIST: u32 = 2;
+pub const PIDSI_COMMENT: u32 = 6;
+pub const PIDSI_GENRE: u32 = 11;
+pub const PIDSI_LYRICS: u32 = 12;
+pub const PIDSI_SONGTITLE: u32 = 3;
+pub const PIDSI_TRACK: u32 = 7;
+pub const PIDSI_YEAR: u32 = 5;
+pub const PIDVSI_COMPRESSION: u32 = 10;
+pub const PIDVSI_DATA_RATE: u32 = 8;
+pub const PIDVSI_FRAME_COUNT: u32 = 5;
+pub const PIDVSI_FRAME_HEIGHT: u32 = 4;
+pub const PIDVSI_FRAME_RATE: u32 = 6;
+pub const PIDVSI_FRAME_WIDTH: u32 = 3;
+pub const PIDVSI_SAMPLE_SIZE: u32 = 9;
+pub const PIDVSI_STREAM_NAME: u32 = 2;
+pub const PIDVSI_STREAM_NUMBER: u32 = 11;
+pub const PIDVSI_TIMELENGTH: u32 = 7;
+pub const PID_COMPUTERNAME: u32 = 5;
+pub const PID_CONTROLPANEL_CATEGORY: u32 = 2;
+pub const PID_DESCRIPTIONID: u32 = 2;
+pub const PID_DISPLACED_DATE: u32 = 3;
+pub const PID_DISPLACED_FROM: u32 = 2;
+pub const PID_DISPLAY_PROPERTIES: u32 = 0;
+pub const PID_FINDDATA: u32 = 0;
+pub const PID_HTMLINFOTIPFILE: u32 = 5;
+pub const PID_INTROTEXT: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PID_INTSITE(pub i32);
-pub const PID_INTSITE_AUTHOR: PID_INTSITE = PID_INTSITE(3i32);
-pub const PID_INTSITE_CODEPAGE: PID_INTSITE = PID_INTSITE(18i32);
-pub const PID_INTSITE_COMMENT: PID_INTSITE = PID_INTSITE(8i32);
-pub const PID_INTSITE_CONTENTCODE: PID_INTSITE = PID_INTSITE(11i32);
-pub const PID_INTSITE_CONTENTLEN: PID_INTSITE = PID_INTSITE(10i32);
-pub const PID_INTSITE_DESCRIPTION: PID_INTSITE = PID_INTSITE(7i32);
-pub const PID_INTSITE_FLAGS: PID_INTSITE = PID_INTSITE(9i32);
-pub const PID_INTSITE_ICONFILE: PID_INTSITE = PID_INTSITE(21i32);
-pub const PID_INTSITE_ICONINDEX: PID_INTSITE = PID_INTSITE(20i32);
-pub const PID_INTSITE_LASTMOD: PID_INTSITE = PID_INTSITE(5i32);
-pub const PID_INTSITE_LASTVISIT: PID_INTSITE = PID_INTSITE(4i32);
-pub const PID_INTSITE_RECURSE: PID_INTSITE = PID_INTSITE(12i32);
-pub const PID_INTSITE_ROAMED: PID_INTSITE = PID_INTSITE(34i32);
-pub const PID_INTSITE_SUBSCRIPTION: PID_INTSITE = PID_INTSITE(14i32);
-pub const PID_INTSITE_TITLE: PID_INTSITE = PID_INTSITE(16i32);
-pub const PID_INTSITE_TRACKING: PID_INTSITE = PID_INTSITE(19i32);
-pub const PID_INTSITE_URL: PID_INTSITE = PID_INTSITE(15i32);
-pub const PID_INTSITE_VISITCOUNT: PID_INTSITE = PID_INTSITE(6i32);
-pub const PID_INTSITE_WATCH: PID_INTSITE = PID_INTSITE(13i32);
-pub const PID_INTSITE_WHATSNEW: PID_INTSITE = PID_INTSITE(2i32);
+pub const PID_INTSITE_AUTHOR: PID_INTSITE = PID_INTSITE(3);
+pub const PID_INTSITE_CODEPAGE: PID_INTSITE = PID_INTSITE(18);
+pub const PID_INTSITE_COMMENT: PID_INTSITE = PID_INTSITE(8);
+pub const PID_INTSITE_CONTENTCODE: PID_INTSITE = PID_INTSITE(11);
+pub const PID_INTSITE_CONTENTLEN: PID_INTSITE = PID_INTSITE(10);
+pub const PID_INTSITE_DESCRIPTION: PID_INTSITE = PID_INTSITE(7);
+pub const PID_INTSITE_FLAGS: PID_INTSITE = PID_INTSITE(9);
+pub const PID_INTSITE_ICONFILE: PID_INTSITE = PID_INTSITE(21);
+pub const PID_INTSITE_ICONINDEX: PID_INTSITE = PID_INTSITE(20);
+pub const PID_INTSITE_LASTMOD: PID_INTSITE = PID_INTSITE(5);
+pub const PID_INTSITE_LASTVISIT: PID_INTSITE = PID_INTSITE(4);
+pub const PID_INTSITE_RECURSE: PID_INTSITE = PID_INTSITE(12);
+pub const PID_INTSITE_ROAMED: PID_INTSITE = PID_INTSITE(34);
+pub const PID_INTSITE_SUBSCRIPTION: PID_INTSITE = PID_INTSITE(14);
+pub const PID_INTSITE_TITLE: PID_INTSITE = PID_INTSITE(16);
+pub const PID_INTSITE_TRACKING: PID_INTSITE = PID_INTSITE(19);
+pub const PID_INTSITE_URL: PID_INTSITE = PID_INTSITE(15);
+pub const PID_INTSITE_VISITCOUNT: PID_INTSITE = PID_INTSITE(6);
+pub const PID_INTSITE_WATCH: PID_INTSITE = PID_INTSITE(13);
+pub const PID_INTSITE_WHATSNEW: PID_INTSITE = PID_INTSITE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PID_IS(pub i32);
-pub const PID_IS_AUTHOR: PID_IS = PID_IS(11i32);
-pub const PID_IS_COMMENT: PID_IS = PID_IS(13i32);
-pub const PID_IS_DESCRIPTION: PID_IS = PID_IS(12i32);
-pub const PID_IS_HOTKEY: PID_IS = PID_IS(6i32);
-pub const PID_IS_ICONFILE: PID_IS = PID_IS(9i32);
-pub const PID_IS_ICONINDEX: PID_IS = PID_IS(8i32);
-pub const PID_IS_NAME: PID_IS = PID_IS(4i32);
-pub const PID_IS_ROAMED: PID_IS = PID_IS(15i32);
-pub const PID_IS_SHOWCMD: PID_IS = PID_IS(7i32);
-pub const PID_IS_URL: PID_IS = PID_IS(2i32);
-pub const PID_IS_WHATSNEW: PID_IS = PID_IS(10i32);
-pub const PID_IS_WORKINGDIR: PID_IS = PID_IS(5i32);
-pub const PID_LINK_TARGET: u32 = 2u32;
-pub const PID_LINK_TARGET_TYPE: u32 = 3u32;
-pub const PID_MISC_ACCESSCOUNT: u32 = 3u32;
-pub const PID_MISC_OWNER: u32 = 4u32;
-pub const PID_MISC_PICS: u32 = 6u32;
-pub const PID_MISC_STATUS: u32 = 2u32;
-pub const PID_NETRESOURCE: u32 = 1u32;
-pub const PID_NETWORKLOCATION: u32 = 4u32;
-pub const PID_QUERY_RANK: u32 = 2u32;
-pub const PID_SHARE_CSC_STATUS: u32 = 2u32;
-pub const PID_SYNC_COPY_IN: u32 = 2u32;
-pub const PID_VOLUME_CAPACITY: u32 = 3u32;
-pub const PID_VOLUME_FILESYSTEM: u32 = 4u32;
-pub const PID_VOLUME_FREE: u32 = 2u32;
-pub const PID_WHICHFOLDER: u32 = 3u32;
-pub const PIFDEFFILESIZE: u32 = 80u32;
-pub const PIFDEFPATHSIZE: u32 = 64u32;
-pub const PIFMAXFILEPATH: u32 = 260u32;
-pub const PIFNAMESIZE: u32 = 30u32;
-pub const PIFPARAMSSIZE: u32 = 64u32;
-pub const PIFSHDATASIZE: u32 = 64u32;
-pub const PIFSHPROGSIZE: u32 = 64u32;
-pub const PIFSTARTLOCSIZE: u32 = 63u32;
+pub const PID_IS_AUTHOR: PID_IS = PID_IS(11);
+pub const PID_IS_COMMENT: PID_IS = PID_IS(13);
+pub const PID_IS_DESCRIPTION: PID_IS = PID_IS(12);
+pub const PID_IS_HOTKEY: PID_IS = PID_IS(6);
+pub const PID_IS_ICONFILE: PID_IS = PID_IS(9);
+pub const PID_IS_ICONINDEX: PID_IS = PID_IS(8);
+pub const PID_IS_NAME: PID_IS = PID_IS(4);
+pub const PID_IS_ROAMED: PID_IS = PID_IS(15);
+pub const PID_IS_SHOWCMD: PID_IS = PID_IS(7);
+pub const PID_IS_URL: PID_IS = PID_IS(2);
+pub const PID_IS_WHATSNEW: PID_IS = PID_IS(10);
+pub const PID_IS_WORKINGDIR: PID_IS = PID_IS(5);
+pub const PID_LINK_TARGET: u32 = 2;
+pub const PID_LINK_TARGET_TYPE: u32 = 3;
+pub const PID_MISC_ACCESSCOUNT: u32 = 3;
+pub const PID_MISC_OWNER: u32 = 4;
+pub const PID_MISC_PICS: u32 = 6;
+pub const PID_MISC_STATUS: u32 = 2;
+pub const PID_NETRESOURCE: u32 = 1;
+pub const PID_NETWORKLOCATION: u32 = 4;
+pub const PID_QUERY_RANK: u32 = 2;
+pub const PID_SHARE_CSC_STATUS: u32 = 2;
+pub const PID_SYNC_COPY_IN: u32 = 2;
+pub const PID_VOLUME_CAPACITY: u32 = 3;
+pub const PID_VOLUME_FILESYSTEM: u32 = 4;
+pub const PID_VOLUME_FREE: u32 = 2;
+pub const PID_WHICHFOLDER: u32 = 3;
+pub const PIFDEFFILESIZE: u32 = 80;
+pub const PIFDEFPATHSIZE: u32 = 64;
+pub const PIFMAXFILEPATH: u32 = 260;
+pub const PIFNAMESIZE: u32 = 30;
+pub const PIFPARAMSSIZE: u32 = 64;
+pub const PIFSHDATASIZE: u32 = 64;
+pub const PIFSHPROGSIZE: u32 = 64;
+pub const PIFSTARTLOCSIZE: u32 = 63;
 pub const PINLogonCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
-pub const PLATFORM_BROWSERONLY: u32 = 1u32;
-pub const PLATFORM_IE3: u32 = 1u32;
-pub const PLATFORM_INTEGRATED: u32 = 2u32;
-pub const PLATFORM_UNKNOWN: u32 = 0u32;
-pub const PMSF_DONT_STRIP_SPACES: u32 = 65536u32;
-pub const PMSF_MULTIPLE: u32 = 1u32;
-pub const PMSF_NORMAL: u32 = 0u32;
-pub const PO_DELETE: u32 = 19u32;
-pub const PO_PORTCHANGE: u32 = 32u32;
-pub const PO_RENAME: u32 = 20u32;
-pub const PO_REN_PORT: u32 = 52u32;
-pub const PPCF_ADDARGUMENTS: u32 = 3u32;
-pub const PPCF_ADDQUOTES: u32 = 1u32;
-pub const PPCF_FORCEQUALIFY: u32 = 64u32;
-pub const PPCF_LONGESTPOSSIBLE: u32 = 128u32;
-pub const PPCF_NODIRECTORIES: u32 = 16u32;
+pub const PLATFORM_BROWSERONLY: u32 = 1;
+pub const PLATFORM_IE3: u32 = 1;
+pub const PLATFORM_INTEGRATED: u32 = 2;
+pub const PLATFORM_UNKNOWN: u32 = 0;
+pub const PMSF_DONT_STRIP_SPACES: u32 = 65536;
+pub const PMSF_MULTIPLE: u32 = 1;
+pub const PMSF_NORMAL: u32 = 0;
+pub const PO_DELETE: u32 = 19;
+pub const PO_PORTCHANGE: u32 = 32;
+pub const PO_RENAME: u32 = 20;
+pub const PO_REN_PORT: u32 = 52;
+pub const PPCF_ADDARGUMENTS: u32 = 3;
+pub const PPCF_ADDQUOTES: u32 = 1;
+pub const PPCF_FORCEQUALIFY: u32 = 64;
+pub const PPCF_LONGESTPOSSIBLE: u32 = 128;
+pub const PPCF_NODIRECTORIES: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -53249,8 +53249,8 @@ pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::WindowsAndMessaging::HACCEL,
     pub cAccelEntries: u32,
 }
-pub const PRF_DONTFINDLNK: PRF_FLAGS = PRF_FLAGS(8i32);
-pub const PRF_FIRSTDIRDEF: PRF_FLAGS = PRF_FLAGS(4i32);
+pub const PRF_DONTFINDLNK: PRF_FLAGS = PRF_FLAGS(8);
+pub const PRF_FIRSTDIRDEF: PRF_FLAGS = PRF_FLAGS(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRF_FLAGS(pub i32);
@@ -53287,18 +53287,18 @@ impl core::ops::Not for PRF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const PRF_REQUIREABSOLUTE: PRF_FLAGS = PRF_FLAGS(16i32);
-pub const PRF_TRYPROGRAMEXTENSIONS: PRF_FLAGS = PRF_FLAGS(3i32);
-pub const PRF_VERIFYEXISTS: PRF_FLAGS = PRF_FLAGS(1i32);
-pub const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6u32;
-pub const PRINTACTION_NETINSTALL: u32 = 2u32;
-pub const PRINTACTION_NETINSTALLLINK: u32 = 3u32;
-pub const PRINTACTION_OPEN: u32 = 0u32;
-pub const PRINTACTION_OPENNETPRN: u32 = 5u32;
-pub const PRINTACTION_PROPERTIES: u32 = 1u32;
-pub const PRINTACTION_SERVERPROPERTIES: u32 = 7u32;
-pub const PRINTACTION_TESTPAGE: u32 = 4u32;
-pub const PRINT_PROP_FORCE_NAME: u32 = 1u32;
+pub const PRF_REQUIREABSOLUTE: PRF_FLAGS = PRF_FLAGS(16);
+pub const PRF_TRYPROGRAMEXTENSIONS: PRF_FLAGS = PRF_FLAGS(3);
+pub const PRF_VERIFYEXISTS: PRF_FLAGS = PRF_FLAGS(1);
+pub const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6;
+pub const PRINTACTION_NETINSTALL: u32 = 2;
+pub const PRINTACTION_NETINSTALLLINK: u32 = 3;
+pub const PRINTACTION_OPEN: u32 = 0;
+pub const PRINTACTION_OPENNETPRN: u32 = 5;
+pub const PRINTACTION_PROPERTIES: u32 = 1;
+pub const PRINTACTION_SERVERPROPERTIES: u32 = 7;
+pub const PRINTACTION_TESTPAGE: u32 = 4;
+pub const PRINT_PROP_FORCE_NAME: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILEINFOA {
@@ -53323,14 +53323,14 @@ pub struct PROFILEINFOW {
     pub lpPolicyPath: windows_core::PWSTR,
     pub hProfile: super::super::Foundation::HANDLE,
 }
-pub const PROGDLG_AUTOTIME: u32 = 2u32;
-pub const PROGDLG_MARQUEEPROGRESS: u32 = 32u32;
-pub const PROGDLG_MODAL: u32 = 1u32;
-pub const PROGDLG_NOCANCEL: u32 = 64u32;
-pub const PROGDLG_NOMINIMIZE: u32 = 8u32;
-pub const PROGDLG_NOPROGRESSBAR: u32 = 16u32;
-pub const PROGDLG_NORMAL: u32 = 0u32;
-pub const PROGDLG_NOTIME: u32 = 4u32;
+pub const PROGDLG_AUTOTIME: u32 = 2;
+pub const PROGDLG_MARQUEEPROGRESS: u32 = 32;
+pub const PROGDLG_MODAL: u32 = 1;
+pub const PROGDLG_NOCANCEL: u32 = 64;
+pub const PROGDLG_NOMINIMIZE: u32 = 8;
+pub const PROGDLG_NOPROGRESSBAR: u32 = 16;
+pub const PROGDLG_NORMAL: u32 = 0;
+pub const PROGDLG_NOTIME: u32 = 4;
 pub const PROPSTR_EXTENSIONCOMPLETIONSTATE: windows_core::PCWSTR = windows_core::w!("ExtensionCompletionState");
 pub const PROP_CONTRACT_DELEGATE: windows_core::PCWSTR = windows_core::w!("ContractDelegate");
 pub const PSGUID_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x64440490_4c8b_11d1_8b70_080036b11a03);
@@ -53372,7 +53372,7 @@ pub const PackageDebugSettings: windows_core::GUID = windows_core::GUID::from_u1
 pub const PasswordCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x60b78e88_ead8_445c_9cfd_0b87f74ea6cd);
 pub const PreviousVersions: windows_core::GUID = windows_core::GUID::from_u128(0x596ab062_b4d2_4215_9f74_e9109b0a8153);
 pub const PropertiesUI: windows_core::GUID = windows_core::GUID::from_u128(0xd912f8cf_0396_4915_884e_fb425d32943b);
-pub const ProtectedModeRedirect: NewProcessCauseConstants = NewProcessCauseConstants(1i32);
+pub const ProtectedModeRedirect: NewProcessCauseConstants = NewProcessCauseConstants(1);
 pub const PublishDropTarget: windows_core::GUID = windows_core::GUID::from_u128(0xcc6eeffb_43f6_46c5_9619_51d571967f7d);
 pub const PublishingWizard: windows_core::GUID = windows_core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
 #[repr(C)]
@@ -53408,10 +53408,10 @@ pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
 }
-pub const QCMINFO_PLACE_AFTER: u32 = 1u32;
-pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
-pub const QIF_CACHED: QITIPF_FLAGS = QITIPF_FLAGS(1i32);
-pub const QIF_DONTEXPANDFOLDER: QITIPF_FLAGS = QITIPF_FLAGS(2i32);
+pub const QCMINFO_PLACE_AFTER: u32 = 1;
+pub const QCMINFO_PLACE_BEFORE: u32 = 0;
+pub const QIF_CACHED: QITIPF_FLAGS = QITIPF_FLAGS(1);
+pub const QIF_DONTEXPANDFOLDER: QITIPF_FLAGS = QITIPF_FLAGS(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QITAB {
@@ -53423,7 +53423,7 @@ impl Default for QITAB {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const QITIPF_DEFAULT: QITIPF_FLAGS = QITIPF_FLAGS(0i32);
+pub const QITIPF_DEFAULT: QITIPF_FLAGS = QITIPF_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QITIPF_FLAGS(pub i32);
@@ -53460,230 +53460,230 @@ impl core::ops::Not for QITIPF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const QITIPF_LINKNOTARGET: QITIPF_FLAGS = QITIPF_FLAGS(2i32);
-pub const QITIPF_LINKUSETARGET: QITIPF_FLAGS = QITIPF_FLAGS(4i32);
-pub const QITIPF_SINGLELINE: QITIPF_FLAGS = QITIPF_FLAGS(16i32);
-pub const QITIPF_USENAME: QITIPF_FLAGS = QITIPF_FLAGS(1i32);
-pub const QITIPF_USESLOWTIP: QITIPF_FLAGS = QITIPF_FLAGS(8i32);
+pub const QITIPF_LINKNOTARGET: QITIPF_FLAGS = QITIPF_FLAGS(2);
+pub const QITIPF_LINKUSETARGET: QITIPF_FLAGS = QITIPF_FLAGS(4);
+pub const QITIPF_SINGLELINE: QITIPF_FLAGS = QITIPF_FLAGS(16);
+pub const QITIPF_USENAME: QITIPF_FLAGS = QITIPF_FLAGS(1);
+pub const QITIPF_USESLOWTIP: QITIPF_FLAGS = QITIPF_FLAGS(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_USER_NOTIFICATION_STATE(pub i32);
-pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(5i32);
-pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(7i32);
-pub const QUNS_BUSY: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(2i32);
-pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(1i32);
-pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(4i32);
-pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(6i32);
-pub const QUNS_RUNNING_D3D_FULL_SCREEN: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(3i32);
+pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(5);
+pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(7);
+pub const QUNS_BUSY: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(2);
+pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(1);
+pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(4);
+pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(6);
+pub const QUNS_RUNNING_D3D_FULL_SCREEN: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(3);
 pub const QueryCancelAutoPlay: windows_core::GUID = windows_core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
 pub const RASProvider: windows_core::GUID = windows_core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
-pub const REFRESH_COMPLETELY: RefreshConstants = RefreshConstants(3i32);
-pub const REFRESH_IFEXPIRED: RefreshConstants = RefreshConstants(1i32);
-pub const REFRESH_NORMAL: RefreshConstants = RefreshConstants(0i32);
+pub const REFRESH_COMPLETELY: RefreshConstants = RefreshConstants(3);
+pub const REFRESH_IFEXPIRED: RefreshConstants = RefreshConstants(1);
+pub const REFRESH_NORMAL: RefreshConstants = RefreshConstants(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESTRICTIONS(pub i32);
-pub const REST_ALLOWBITBUCKDRIVES: RESTRICTIONS = RESTRICTIONS(1073741905i32);
-pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = RESTRICTIONS(1090519044i32);
-pub const REST_ALLOWFILECLSIDJUNCTIONS: RESTRICTIONS = RESTRICTIONS(1073741980i32);
-pub const REST_ALLOWLEGACYWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741955i32);
-pub const REST_ALLOWUNHASHEDWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741954i32);
-pub const REST_ARP_DONTGROUPPATCHES: RESTRICTIONS = RESTRICTIONS(1073741996i32);
-pub const REST_ARP_NOADDPAGE: RESTRICTIONS = RESTRICTIONS(1073741867i32);
-pub const REST_ARP_NOARP: RESTRICTIONS = RESTRICTIONS(1073741865i32);
-pub const REST_ARP_NOCHOOSEPROGRAMSPAGE: RESTRICTIONS = RESTRICTIONS(1073741997i32);
-pub const REST_ARP_NOREMOVEPAGE: RESTRICTIONS = RESTRICTIONS(1073741866i32);
-pub const REST_ARP_NOWINSETUPPAGE: RESTRICTIONS = RESTRICTIONS(1073741868i32);
-pub const REST_ARP_ShowPostSetup: RESTRICTIONS = RESTRICTIONS(1073741861i32);
-pub const REST_BITBUCKCONFIRMDELETE: RESTRICTIONS = RESTRICTIONS(1073741941i32);
-pub const REST_BITBUCKNOPROP: RESTRICTIONS = RESTRICTIONS(1073741942i32);
-pub const REST_BITBUCKNUKEONDELETE: RESTRICTIONS = RESTRICTIONS(1073741940i32);
-pub const REST_CLASSICSHELL: RESTRICTIONS = RESTRICTIONS(1073741832i32);
-pub const REST_CLEARRECENTDOCSONEXIT: RESTRICTIONS = RESTRICTIONS(1073741831i32);
-pub const REST_DISALLOWCPL: RESTRICTIONS = RESTRICTIONS(1073741889i32);
-pub const REST_DISALLOWRUN: RESTRICTIONS = RESTRICTIONS(1073741886i32);
-pub const REST_DONTRETRYBADNETNAME: RESTRICTIONS = RESTRICTIONS(1073741979i32);
-pub const REST_DONTSHOWSUPERHIDDEN: RESTRICTIONS = RESTRICTIONS(1073741879i32);
-pub const REST_ENFORCESHELLEXTSECURITY: RESTRICTIONS = RESTRICTIONS(1048576i32);
-pub const REST_ENUMWORKGROUP: RESTRICTIONS = RESTRICTIONS(1073741864i32);
-pub const REST_FORCEACTIVEDESKTOPON: RESTRICTIONS = RESTRICTIONS(1073741898i32);
-pub const REST_FORCECOPYACLWITHFILE: RESTRICTIONS = RESTRICTIONS(1073741851i32);
-pub const REST_FORCESTARTMENULOGOFF: RESTRICTIONS = RESTRICTIONS(1073741874i32);
-pub const REST_GREYMSIADS: RESTRICTIONS = RESTRICTIONS(1073741869i32);
-pub const REST_HASFINDCOMPUTERS: RESTRICTIONS = RESTRICTIONS(1073741858i32);
-pub const REST_HIDECLOCK: RESTRICTIONS = RESTRICTIONS(1073741936i32);
-pub const REST_HIDERUNASVERB: RESTRICTIONS = RESTRICTIONS(1073741948i32);
-pub const REST_INHERITCONSOLEHANDLES: RESTRICTIONS = RESTRICTIONS(1073741958i32);
-pub const REST_INTELLIMENUS: RESTRICTIONS = RESTRICTIONS(1073741859i32);
-pub const REST_LINKRESOLVEIGNORELINKINFO: RESTRICTIONS = RESTRICTIONS(2097152i32);
-pub const REST_MYCOMPNOPROP: RESTRICTIONS = RESTRICTIONS(1073741912i32);
-pub const REST_MYDOCSNOPROP: RESTRICTIONS = RESTRICTIONS(1073741913i32);
-pub const REST_MYDOCSONNET: RESTRICTIONS = RESTRICTIONS(262144i32);
-pub const REST_MaxRecentDocs: RESTRICTIONS = RESTRICTIONS(1073741872i32);
-pub const REST_NOACTIVEDESKTOP: RESTRICTIONS = RESTRICTIONS(1073741828i32);
-pub const REST_NOACTIVEDESKTOPCHANGES: RESTRICTIONS = RESTRICTIONS(1073741829i32);
-pub const REST_NOADDDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741843i32);
-pub const REST_NOAUTOTRAYNOTIFY: RESTRICTIONS = RESTRICTIONS(1073741909i32);
-pub const REST_NOCDBURNING: RESTRICTIONS = RESTRICTIONS(1073741911i32);
-pub const REST_NOCHANGEMAPPEDDRIVECOMMENT: RESTRICTIONS = RESTRICTIONS(1073741871i32);
-pub const REST_NOCHANGEMAPPEDDRIVELABEL: RESTRICTIONS = RESTRICTIONS(1073741870i32);
-pub const REST_NOCHANGESTARMENU: RESTRICTIONS = RESTRICTIONS(1073741856i32);
-pub const REST_NOCHANGINGWALLPAPER: RESTRICTIONS = RESTRICTIONS(1073741841i32);
-pub const REST_NOCLOSE: RESTRICTIONS = RESTRICTIONS(2i32);
-pub const REST_NOCLOSEDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741845i32);
-pub const REST_NOCLOSE_DRAGDROPBAND: RESTRICTIONS = RESTRICTIONS(1073741846i32);
-pub const REST_NOCOLORCHOICE: RESTRICTIONS = RESTRICTIONS(1073741919i32);
-pub const REST_NOCOMMONGROUPS: RESTRICTIONS = RESTRICTIONS(4194304i32);
-pub const REST_NOCONTROLPANEL: RESTRICTIONS = RESTRICTIONS(1073741863i32);
-pub const REST_NOCONTROLPANELBARRICADE: RESTRICTIONS = RESTRICTIONS(1073741907i32);
-pub const REST_NOCSC: RESTRICTIONS = RESTRICTIONS(1073741862i32);
-pub const REST_NOCURRENTUSERRUN: RESTRICTIONS = RESTRICTIONS(1073741895i32);
-pub const REST_NOCURRENTUSERRUNONCE: RESTRICTIONS = RESTRICTIONS(1073741897i32);
-pub const REST_NOCUSTOMIZETHISFOLDER: RESTRICTIONS = RESTRICTIONS(1073741876i32);
-pub const REST_NOCUSTOMIZEWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741833i32);
-pub const REST_NODELDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741844i32);
-pub const REST_NODESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741842i32);
-pub const REST_NODESKTOP: RESTRICTIONS = RESTRICTIONS(64i32);
-pub const REST_NODESKTOPCLEANUP: RESTRICTIONS = RESTRICTIONS(1073741939i32);
-pub const REST_NODISCONNECT: RESTRICTIONS = RESTRICTIONS(1090519041i32);
-pub const REST_NODISPBACKGROUND: RESTRICTIONS = RESTRICTIONS(1073741943i32);
-pub const REST_NODISPLAYAPPEARANCEPAGE: RESTRICTIONS = RESTRICTIONS(1073741915i32);
-pub const REST_NODISPLAYCPL: RESTRICTIONS = RESTRICTIONS(1073741947i32);
-pub const REST_NODISPSCREENSAVEPG: RESTRICTIONS = RESTRICTIONS(1073741944i32);
-pub const REST_NODISPSCREENSAVEPREVIEW: RESTRICTIONS = RESTRICTIONS(1073741946i32);
-pub const REST_NODISPSETTINGSPG: RESTRICTIONS = RESTRICTIONS(1073741945i32);
-pub const REST_NODRIVEAUTORUN: RESTRICTIONS = RESTRICTIONS(512i32);
-pub const REST_NODRIVES: RESTRICTIONS = RESTRICTIONS(256i32);
-pub const REST_NODRIVETYPEAUTORUN: RESTRICTIONS = RESTRICTIONS(1024i32);
-pub const REST_NOEDITDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741848i32);
-pub const REST_NOENCRYPTION: RESTRICTIONS = RESTRICTIONS(1073741877i32);
-pub const REST_NOENCRYPTONMOVE: RESTRICTIONS = RESTRICTIONS(1073741893i32);
-pub const REST_NOENTIRENETWORK: RESTRICTIONS = RESTRICTIONS(1073741938i32);
-pub const REST_NOENUMENTIRENETWORK: RESTRICTIONS = RESTRICTIONS(1073741971i32);
-pub const REST_NOEXITTODOS: RESTRICTIONS = RESTRICTIONS(524288i32);
-pub const REST_NOFAVORITESMENU: RESTRICTIONS = RESTRICTIONS(1073741830i32);
-pub const REST_NOFILEASSOCIATE: RESTRICTIONS = RESTRICTIONS(1090519043i32);
-pub const REST_NOFILEMENU: RESTRICTIONS = RESTRICTIONS(8i32);
-pub const REST_NOFIND: RESTRICTIONS = RESTRICTIONS(128i32);
-pub const REST_NOFOLDEROPTIONS: RESTRICTIONS = RESTRICTIONS(1073741857i32);
-pub const REST_NOFORGETSOFTWAREUPDATE: RESTRICTIONS = RESTRICTIONS(1073741853i32);
-pub const REST_NOHARDWARETAB: RESTRICTIONS = RESTRICTIONS(1073741881i32);
-pub const REST_NOHTMLWALLPAPER: RESTRICTIONS = RESTRICTIONS(1073741840i32);
-pub const REST_NOINTERNETICON: RESTRICTIONS = RESTRICTIONS(1073741825i32);
-pub const REST_NOINTERNETOPENWITH: RESTRICTIONS = RESTRICTIONS(1073741973i32);
-pub const REST_NOLOCALMACHINERUN: RESTRICTIONS = RESTRICTIONS(1073741894i32);
-pub const REST_NOLOCALMACHINERUNONCE: RESTRICTIONS = RESTRICTIONS(1073741896i32);
-pub const REST_NOLOWDISKSPACECHECKS: RESTRICTIONS = RESTRICTIONS(1073741937i32);
-pub const REST_NOMANAGEMYCOMPUTERVERB: RESTRICTIONS = RESTRICTIONS(1073741884i32);
-pub const REST_NOMOVINGBAND: RESTRICTIONS = RESTRICTIONS(1073741847i32);
-pub const REST_NOMYCOMPUTERICON: RESTRICTIONS = RESTRICTIONS(1073741923i32);
-pub const REST_NONE: RESTRICTIONS = RESTRICTIONS(0i32);
-pub const REST_NONETCONNECTDISCONNECT: RESTRICTIONS = RESTRICTIONS(134217728i32);
-pub const REST_NONETCRAWL: RESTRICTIONS = RESTRICTIONS(1073741901i32);
-pub const REST_NONETHOOD: RESTRICTIONS = RESTRICTIONS(2048i32);
-pub const REST_NONETWORKCONNECTIONS: RESTRICTIONS = RESTRICTIONS(1073741873i32);
-pub const REST_NONLEGACYSHELLMODE: RESTRICTIONS = RESTRICTIONS(1073741906i32);
-pub const REST_NOONLINEPRINTSWIZARD: RESTRICTIONS = RESTRICTIONS(1073741952i32);
-pub const REST_NOPRINTERADD: RESTRICTIONS = RESTRICTIONS(65536i32);
-pub const REST_NOPRINTERDELETE: RESTRICTIONS = RESTRICTIONS(32768i32);
-pub const REST_NOPRINTERTABS: RESTRICTIONS = RESTRICTIONS(16384i32);
-pub const REST_NOPUBLISHWIZARD: RESTRICTIONS = RESTRICTIONS(1073741951i32);
-pub const REST_NORECENTDOCSHISTORY: RESTRICTIONS = RESTRICTIONS(1073741826i32);
-pub const REST_NORECENTDOCSMENU: RESTRICTIONS = RESTRICTIONS(1073741827i32);
-pub const REST_NOREMOTECHANGENOTIFY: RESTRICTIONS = RESTRICTIONS(1073741969i32);
-pub const REST_NOREMOTERECURSIVEEVENTS: RESTRICTIONS = RESTRICTIONS(1073741961i32);
-pub const REST_NORESOLVESEARCH: RESTRICTIONS = RESTRICTIONS(1073741849i32);
-pub const REST_NORESOLVETRACK: RESTRICTIONS = RESTRICTIONS(1073741850i32);
-pub const REST_NORUN: RESTRICTIONS = RESTRICTIONS(1i32);
-pub const REST_NORUNASINSTALLPROMPT: RESTRICTIONS = RESTRICTIONS(1073741882i32);
-pub const REST_NOSAVESET: RESTRICTIONS = RESTRICTIONS(4i32);
-pub const REST_NOSECURITY: RESTRICTIONS = RESTRICTIONS(1090519042i32);
-pub const REST_NOSETACTIVEDESKTOP: RESTRICTIONS = RESTRICTIONS(1073741854i32);
-pub const REST_NOSETFOLDERS: RESTRICTIONS = RESTRICTIONS(16i32);
-pub const REST_NOSETTASKBAR: RESTRICTIONS = RESTRICTIONS(32i32);
-pub const REST_NOSETTINGSASSIST: RESTRICTIONS = RESTRICTIONS(536870912i32);
-pub const REST_NOSHAREDDOCUMENTS: RESTRICTIONS = RESTRICTIONS(1073741902i32);
-pub const REST_NOSHELLSEARCHBUTTON: RESTRICTIONS = RESTRICTIONS(1073741880i32);
-pub const REST_NOSIZECHOICE: RESTRICTIONS = RESTRICTIONS(1073741918i32);
-pub const REST_NOSMBALLOONTIP: RESTRICTIONS = RESTRICTIONS(1073741890i32);
-pub const REST_NOSMCONFIGUREPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741935i32);
-pub const REST_NOSMEJECTPC: RESTRICTIONS = RESTRICTIONS(1073741927i32);
-pub const REST_NOSMHELP: RESTRICTIONS = RESTRICTIONS(1073741891i32);
-pub const REST_NOSMMFUPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741929i32);
-pub const REST_NOSMMOREPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741928i32);
-pub const REST_NOSMMYDOCS: RESTRICTIONS = RESTRICTIONS(1073741903i32);
-pub const REST_NOSMMYMUSIC: RESTRICTIONS = RESTRICTIONS(1073741926i32);
-pub const REST_NOSMMYPICS: RESTRICTIONS = RESTRICTIONS(1073741904i32);
-pub const REST_NOSMNETWORKPLACES: RESTRICTIONS = RESTRICTIONS(1073741924i32);
-pub const REST_NOSMPINNEDLIST: RESTRICTIONS = RESTRICTIONS(1073741925i32);
-pub const REST_NOSTARTMENUSUBFOLDERS: RESTRICTIONS = RESTRICTIONS(131072i32);
-pub const REST_NOSTARTPAGE: RESTRICTIONS = RESTRICTIONS(1073741908i32);
-pub const REST_NOSTARTPANEL: RESTRICTIONS = RESTRICTIONS(1073741914i32);
-pub const REST_NOSTRCMPLOGICAL: RESTRICTIONS = RESTRICTIONS(1073741950i32);
-pub const REST_NOTASKGROUPING: RESTRICTIONS = RESTRICTIONS(1073741910i32);
-pub const REST_NOTHEMESTAB: RESTRICTIONS = RESTRICTIONS(1073741916i32);
-pub const REST_NOTHUMBNAILCACHE: RESTRICTIONS = RESTRICTIONS(1073741949i32);
-pub const REST_NOTOOLBARSONTASKBAR: RESTRICTIONS = RESTRICTIONS(1073741931i32);
-pub const REST_NOTRAYCONTEXTMENU: RESTRICTIONS = RESTRICTIONS(33554432i32);
-pub const REST_NOTRAYITEMSDISPLAY: RESTRICTIONS = RESTRICTIONS(1073741930i32);
-pub const REST_NOUPDATEWINDOWS: RESTRICTIONS = RESTRICTIONS(1073741855i32);
-pub const REST_NOUPNPINSTALL: RESTRICTIONS = RESTRICTIONS(1073741981i32);
-pub const REST_NOUSERNAMEINSTARTPANEL: RESTRICTIONS = RESTRICTIONS(1073741922i32);
-pub const REST_NOVIEWCONTEXTMENU: RESTRICTIONS = RESTRICTIONS(67108864i32);
-pub const REST_NOVIEWONDRIVE: RESTRICTIONS = RESTRICTIONS(1073741900i32);
-pub const REST_NOVISUALSTYLECHOICE: RESTRICTIONS = RESTRICTIONS(1073741917i32);
-pub const REST_NOWEB: RESTRICTIONS = RESTRICTIONS(16777216i32);
-pub const REST_NOWEBSERVICES: RESTRICTIONS = RESTRICTIONS(1073741953i32);
-pub const REST_NOWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741875i32);
-pub const REST_NOWELCOMESCREEN: RESTRICTIONS = RESTRICTIONS(1073741887i32);
-pub const REST_NOWINKEYS: RESTRICTIONS = RESTRICTIONS(1073741892i32);
-pub const REST_PROMPTRUNASINSTALLNETPATH: RESTRICTIONS = RESTRICTIONS(1073741883i32);
-pub const REST_RESTRICTCPL: RESTRICTIONS = RESTRICTIONS(1073741888i32);
-pub const REST_RESTRICTRUN: RESTRICTIONS = RESTRICTIONS(8192i32);
-pub const REST_REVERTWEBVIEWSECURITY: RESTRICTIONS = RESTRICTIONS(1073741956i32);
-pub const REST_RUNDLGMEMCHECKBOX: RESTRICTIONS = RESTRICTIONS(1073741860i32);
-pub const REST_SEPARATEDESKTOPPROCESS: RESTRICTIONS = RESTRICTIONS(8388608i32);
-pub const REST_SETVISUALSTYLE: RESTRICTIONS = RESTRICTIONS(1073741920i32);
-pub const REST_STARTBANNER: RESTRICTIONS = RESTRICTIONS(4096i32);
-pub const REST_STARTMENULOGOFF: RESTRICTIONS = RESTRICTIONS(268435456i32);
-pub const REST_STARTRUNNOHOMEPATH: RESTRICTIONS = RESTRICTIONS(1073741921i32);
+pub const REST_ALLOWBITBUCKDRIVES: RESTRICTIONS = RESTRICTIONS(1073741905);
+pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = RESTRICTIONS(1090519044);
+pub const REST_ALLOWFILECLSIDJUNCTIONS: RESTRICTIONS = RESTRICTIONS(1073741980);
+pub const REST_ALLOWLEGACYWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741955);
+pub const REST_ALLOWUNHASHEDWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741954);
+pub const REST_ARP_DONTGROUPPATCHES: RESTRICTIONS = RESTRICTIONS(1073741996);
+pub const REST_ARP_NOADDPAGE: RESTRICTIONS = RESTRICTIONS(1073741867);
+pub const REST_ARP_NOARP: RESTRICTIONS = RESTRICTIONS(1073741865);
+pub const REST_ARP_NOCHOOSEPROGRAMSPAGE: RESTRICTIONS = RESTRICTIONS(1073741997);
+pub const REST_ARP_NOREMOVEPAGE: RESTRICTIONS = RESTRICTIONS(1073741866);
+pub const REST_ARP_NOWINSETUPPAGE: RESTRICTIONS = RESTRICTIONS(1073741868);
+pub const REST_ARP_ShowPostSetup: RESTRICTIONS = RESTRICTIONS(1073741861);
+pub const REST_BITBUCKCONFIRMDELETE: RESTRICTIONS = RESTRICTIONS(1073741941);
+pub const REST_BITBUCKNOPROP: RESTRICTIONS = RESTRICTIONS(1073741942);
+pub const REST_BITBUCKNUKEONDELETE: RESTRICTIONS = RESTRICTIONS(1073741940);
+pub const REST_CLASSICSHELL: RESTRICTIONS = RESTRICTIONS(1073741832);
+pub const REST_CLEARRECENTDOCSONEXIT: RESTRICTIONS = RESTRICTIONS(1073741831);
+pub const REST_DISALLOWCPL: RESTRICTIONS = RESTRICTIONS(1073741889);
+pub const REST_DISALLOWRUN: RESTRICTIONS = RESTRICTIONS(1073741886);
+pub const REST_DONTRETRYBADNETNAME: RESTRICTIONS = RESTRICTIONS(1073741979);
+pub const REST_DONTSHOWSUPERHIDDEN: RESTRICTIONS = RESTRICTIONS(1073741879);
+pub const REST_ENFORCESHELLEXTSECURITY: RESTRICTIONS = RESTRICTIONS(1048576);
+pub const REST_ENUMWORKGROUP: RESTRICTIONS = RESTRICTIONS(1073741864);
+pub const REST_FORCEACTIVEDESKTOPON: RESTRICTIONS = RESTRICTIONS(1073741898);
+pub const REST_FORCECOPYACLWITHFILE: RESTRICTIONS = RESTRICTIONS(1073741851);
+pub const REST_FORCESTARTMENULOGOFF: RESTRICTIONS = RESTRICTIONS(1073741874);
+pub const REST_GREYMSIADS: RESTRICTIONS = RESTRICTIONS(1073741869);
+pub const REST_HASFINDCOMPUTERS: RESTRICTIONS = RESTRICTIONS(1073741858);
+pub const REST_HIDECLOCK: RESTRICTIONS = RESTRICTIONS(1073741936);
+pub const REST_HIDERUNASVERB: RESTRICTIONS = RESTRICTIONS(1073741948);
+pub const REST_INHERITCONSOLEHANDLES: RESTRICTIONS = RESTRICTIONS(1073741958);
+pub const REST_INTELLIMENUS: RESTRICTIONS = RESTRICTIONS(1073741859);
+pub const REST_LINKRESOLVEIGNORELINKINFO: RESTRICTIONS = RESTRICTIONS(2097152);
+pub const REST_MYCOMPNOPROP: RESTRICTIONS = RESTRICTIONS(1073741912);
+pub const REST_MYDOCSNOPROP: RESTRICTIONS = RESTRICTIONS(1073741913);
+pub const REST_MYDOCSONNET: RESTRICTIONS = RESTRICTIONS(262144);
+pub const REST_MaxRecentDocs: RESTRICTIONS = RESTRICTIONS(1073741872);
+pub const REST_NOACTIVEDESKTOP: RESTRICTIONS = RESTRICTIONS(1073741828);
+pub const REST_NOACTIVEDESKTOPCHANGES: RESTRICTIONS = RESTRICTIONS(1073741829);
+pub const REST_NOADDDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741843);
+pub const REST_NOAUTOTRAYNOTIFY: RESTRICTIONS = RESTRICTIONS(1073741909);
+pub const REST_NOCDBURNING: RESTRICTIONS = RESTRICTIONS(1073741911);
+pub const REST_NOCHANGEMAPPEDDRIVECOMMENT: RESTRICTIONS = RESTRICTIONS(1073741871);
+pub const REST_NOCHANGEMAPPEDDRIVELABEL: RESTRICTIONS = RESTRICTIONS(1073741870);
+pub const REST_NOCHANGESTARMENU: RESTRICTIONS = RESTRICTIONS(1073741856);
+pub const REST_NOCHANGINGWALLPAPER: RESTRICTIONS = RESTRICTIONS(1073741841);
+pub const REST_NOCLOSE: RESTRICTIONS = RESTRICTIONS(2);
+pub const REST_NOCLOSEDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741845);
+pub const REST_NOCLOSE_DRAGDROPBAND: RESTRICTIONS = RESTRICTIONS(1073741846);
+pub const REST_NOCOLORCHOICE: RESTRICTIONS = RESTRICTIONS(1073741919);
+pub const REST_NOCOMMONGROUPS: RESTRICTIONS = RESTRICTIONS(4194304);
+pub const REST_NOCONTROLPANEL: RESTRICTIONS = RESTRICTIONS(1073741863);
+pub const REST_NOCONTROLPANELBARRICADE: RESTRICTIONS = RESTRICTIONS(1073741907);
+pub const REST_NOCSC: RESTRICTIONS = RESTRICTIONS(1073741862);
+pub const REST_NOCURRENTUSERRUN: RESTRICTIONS = RESTRICTIONS(1073741895);
+pub const REST_NOCURRENTUSERRUNONCE: RESTRICTIONS = RESTRICTIONS(1073741897);
+pub const REST_NOCUSTOMIZETHISFOLDER: RESTRICTIONS = RESTRICTIONS(1073741876);
+pub const REST_NOCUSTOMIZEWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741833);
+pub const REST_NODELDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741844);
+pub const REST_NODESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741842);
+pub const REST_NODESKTOP: RESTRICTIONS = RESTRICTIONS(64);
+pub const REST_NODESKTOPCLEANUP: RESTRICTIONS = RESTRICTIONS(1073741939);
+pub const REST_NODISCONNECT: RESTRICTIONS = RESTRICTIONS(1090519041);
+pub const REST_NODISPBACKGROUND: RESTRICTIONS = RESTRICTIONS(1073741943);
+pub const REST_NODISPLAYAPPEARANCEPAGE: RESTRICTIONS = RESTRICTIONS(1073741915);
+pub const REST_NODISPLAYCPL: RESTRICTIONS = RESTRICTIONS(1073741947);
+pub const REST_NODISPSCREENSAVEPG: RESTRICTIONS = RESTRICTIONS(1073741944);
+pub const REST_NODISPSCREENSAVEPREVIEW: RESTRICTIONS = RESTRICTIONS(1073741946);
+pub const REST_NODISPSETTINGSPG: RESTRICTIONS = RESTRICTIONS(1073741945);
+pub const REST_NODRIVEAUTORUN: RESTRICTIONS = RESTRICTIONS(512);
+pub const REST_NODRIVES: RESTRICTIONS = RESTRICTIONS(256);
+pub const REST_NODRIVETYPEAUTORUN: RESTRICTIONS = RESTRICTIONS(1024);
+pub const REST_NOEDITDESKCOMP: RESTRICTIONS = RESTRICTIONS(1073741848);
+pub const REST_NOENCRYPTION: RESTRICTIONS = RESTRICTIONS(1073741877);
+pub const REST_NOENCRYPTONMOVE: RESTRICTIONS = RESTRICTIONS(1073741893);
+pub const REST_NOENTIRENETWORK: RESTRICTIONS = RESTRICTIONS(1073741938);
+pub const REST_NOENUMENTIRENETWORK: RESTRICTIONS = RESTRICTIONS(1073741971);
+pub const REST_NOEXITTODOS: RESTRICTIONS = RESTRICTIONS(524288);
+pub const REST_NOFAVORITESMENU: RESTRICTIONS = RESTRICTIONS(1073741830);
+pub const REST_NOFILEASSOCIATE: RESTRICTIONS = RESTRICTIONS(1090519043);
+pub const REST_NOFILEMENU: RESTRICTIONS = RESTRICTIONS(8);
+pub const REST_NOFIND: RESTRICTIONS = RESTRICTIONS(128);
+pub const REST_NOFOLDEROPTIONS: RESTRICTIONS = RESTRICTIONS(1073741857);
+pub const REST_NOFORGETSOFTWAREUPDATE: RESTRICTIONS = RESTRICTIONS(1073741853);
+pub const REST_NOHARDWARETAB: RESTRICTIONS = RESTRICTIONS(1073741881);
+pub const REST_NOHTMLWALLPAPER: RESTRICTIONS = RESTRICTIONS(1073741840);
+pub const REST_NOINTERNETICON: RESTRICTIONS = RESTRICTIONS(1073741825);
+pub const REST_NOINTERNETOPENWITH: RESTRICTIONS = RESTRICTIONS(1073741973);
+pub const REST_NOLOCALMACHINERUN: RESTRICTIONS = RESTRICTIONS(1073741894);
+pub const REST_NOLOCALMACHINERUNONCE: RESTRICTIONS = RESTRICTIONS(1073741896);
+pub const REST_NOLOWDISKSPACECHECKS: RESTRICTIONS = RESTRICTIONS(1073741937);
+pub const REST_NOMANAGEMYCOMPUTERVERB: RESTRICTIONS = RESTRICTIONS(1073741884);
+pub const REST_NOMOVINGBAND: RESTRICTIONS = RESTRICTIONS(1073741847);
+pub const REST_NOMYCOMPUTERICON: RESTRICTIONS = RESTRICTIONS(1073741923);
+pub const REST_NONE: RESTRICTIONS = RESTRICTIONS(0);
+pub const REST_NONETCONNECTDISCONNECT: RESTRICTIONS = RESTRICTIONS(134217728);
+pub const REST_NONETCRAWL: RESTRICTIONS = RESTRICTIONS(1073741901);
+pub const REST_NONETHOOD: RESTRICTIONS = RESTRICTIONS(2048);
+pub const REST_NONETWORKCONNECTIONS: RESTRICTIONS = RESTRICTIONS(1073741873);
+pub const REST_NONLEGACYSHELLMODE: RESTRICTIONS = RESTRICTIONS(1073741906);
+pub const REST_NOONLINEPRINTSWIZARD: RESTRICTIONS = RESTRICTIONS(1073741952);
+pub const REST_NOPRINTERADD: RESTRICTIONS = RESTRICTIONS(65536);
+pub const REST_NOPRINTERDELETE: RESTRICTIONS = RESTRICTIONS(32768);
+pub const REST_NOPRINTERTABS: RESTRICTIONS = RESTRICTIONS(16384);
+pub const REST_NOPUBLISHWIZARD: RESTRICTIONS = RESTRICTIONS(1073741951);
+pub const REST_NORECENTDOCSHISTORY: RESTRICTIONS = RESTRICTIONS(1073741826);
+pub const REST_NORECENTDOCSMENU: RESTRICTIONS = RESTRICTIONS(1073741827);
+pub const REST_NOREMOTECHANGENOTIFY: RESTRICTIONS = RESTRICTIONS(1073741969);
+pub const REST_NOREMOTERECURSIVEEVENTS: RESTRICTIONS = RESTRICTIONS(1073741961);
+pub const REST_NORESOLVESEARCH: RESTRICTIONS = RESTRICTIONS(1073741849);
+pub const REST_NORESOLVETRACK: RESTRICTIONS = RESTRICTIONS(1073741850);
+pub const REST_NORUN: RESTRICTIONS = RESTRICTIONS(1);
+pub const REST_NORUNASINSTALLPROMPT: RESTRICTIONS = RESTRICTIONS(1073741882);
+pub const REST_NOSAVESET: RESTRICTIONS = RESTRICTIONS(4);
+pub const REST_NOSECURITY: RESTRICTIONS = RESTRICTIONS(1090519042);
+pub const REST_NOSETACTIVEDESKTOP: RESTRICTIONS = RESTRICTIONS(1073741854);
+pub const REST_NOSETFOLDERS: RESTRICTIONS = RESTRICTIONS(16);
+pub const REST_NOSETTASKBAR: RESTRICTIONS = RESTRICTIONS(32);
+pub const REST_NOSETTINGSASSIST: RESTRICTIONS = RESTRICTIONS(536870912);
+pub const REST_NOSHAREDDOCUMENTS: RESTRICTIONS = RESTRICTIONS(1073741902);
+pub const REST_NOSHELLSEARCHBUTTON: RESTRICTIONS = RESTRICTIONS(1073741880);
+pub const REST_NOSIZECHOICE: RESTRICTIONS = RESTRICTIONS(1073741918);
+pub const REST_NOSMBALLOONTIP: RESTRICTIONS = RESTRICTIONS(1073741890);
+pub const REST_NOSMCONFIGUREPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741935);
+pub const REST_NOSMEJECTPC: RESTRICTIONS = RESTRICTIONS(1073741927);
+pub const REST_NOSMHELP: RESTRICTIONS = RESTRICTIONS(1073741891);
+pub const REST_NOSMMFUPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741929);
+pub const REST_NOSMMOREPROGRAMS: RESTRICTIONS = RESTRICTIONS(1073741928);
+pub const REST_NOSMMYDOCS: RESTRICTIONS = RESTRICTIONS(1073741903);
+pub const REST_NOSMMYMUSIC: RESTRICTIONS = RESTRICTIONS(1073741926);
+pub const REST_NOSMMYPICS: RESTRICTIONS = RESTRICTIONS(1073741904);
+pub const REST_NOSMNETWORKPLACES: RESTRICTIONS = RESTRICTIONS(1073741924);
+pub const REST_NOSMPINNEDLIST: RESTRICTIONS = RESTRICTIONS(1073741925);
+pub const REST_NOSTARTMENUSUBFOLDERS: RESTRICTIONS = RESTRICTIONS(131072);
+pub const REST_NOSTARTPAGE: RESTRICTIONS = RESTRICTIONS(1073741908);
+pub const REST_NOSTARTPANEL: RESTRICTIONS = RESTRICTIONS(1073741914);
+pub const REST_NOSTRCMPLOGICAL: RESTRICTIONS = RESTRICTIONS(1073741950);
+pub const REST_NOTASKGROUPING: RESTRICTIONS = RESTRICTIONS(1073741910);
+pub const REST_NOTHEMESTAB: RESTRICTIONS = RESTRICTIONS(1073741916);
+pub const REST_NOTHUMBNAILCACHE: RESTRICTIONS = RESTRICTIONS(1073741949);
+pub const REST_NOTOOLBARSONTASKBAR: RESTRICTIONS = RESTRICTIONS(1073741931);
+pub const REST_NOTRAYCONTEXTMENU: RESTRICTIONS = RESTRICTIONS(33554432);
+pub const REST_NOTRAYITEMSDISPLAY: RESTRICTIONS = RESTRICTIONS(1073741930);
+pub const REST_NOUPDATEWINDOWS: RESTRICTIONS = RESTRICTIONS(1073741855);
+pub const REST_NOUPNPINSTALL: RESTRICTIONS = RESTRICTIONS(1073741981);
+pub const REST_NOUSERNAMEINSTARTPANEL: RESTRICTIONS = RESTRICTIONS(1073741922);
+pub const REST_NOVIEWCONTEXTMENU: RESTRICTIONS = RESTRICTIONS(67108864);
+pub const REST_NOVIEWONDRIVE: RESTRICTIONS = RESTRICTIONS(1073741900);
+pub const REST_NOVISUALSTYLECHOICE: RESTRICTIONS = RESTRICTIONS(1073741917);
+pub const REST_NOWEB: RESTRICTIONS = RESTRICTIONS(16777216);
+pub const REST_NOWEBSERVICES: RESTRICTIONS = RESTRICTIONS(1073741953);
+pub const REST_NOWEBVIEW: RESTRICTIONS = RESTRICTIONS(1073741875);
+pub const REST_NOWELCOMESCREEN: RESTRICTIONS = RESTRICTIONS(1073741887);
+pub const REST_NOWINKEYS: RESTRICTIONS = RESTRICTIONS(1073741892);
+pub const REST_PROMPTRUNASINSTALLNETPATH: RESTRICTIONS = RESTRICTIONS(1073741883);
+pub const REST_RESTRICTCPL: RESTRICTIONS = RESTRICTIONS(1073741888);
+pub const REST_RESTRICTRUN: RESTRICTIONS = RESTRICTIONS(8192);
+pub const REST_REVERTWEBVIEWSECURITY: RESTRICTIONS = RESTRICTIONS(1073741956);
+pub const REST_RUNDLGMEMCHECKBOX: RESTRICTIONS = RESTRICTIONS(1073741860);
+pub const REST_SEPARATEDESKTOPPROCESS: RESTRICTIONS = RESTRICTIONS(8388608);
+pub const REST_SETVISUALSTYLE: RESTRICTIONS = RESTRICTIONS(1073741920);
+pub const REST_STARTBANNER: RESTRICTIONS = RESTRICTIONS(4096);
+pub const REST_STARTMENULOGOFF: RESTRICTIONS = RESTRICTIONS(268435456);
+pub const REST_STARTRUNNOHOMEPATH: RESTRICTIONS = RESTRICTIONS(1073741921);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RefreshConstants(pub i32);
-pub const ResizeThumbnail: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(2i32);
-pub const ReturnOnlyIfCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(1i32);
-pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(0i32);
-pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(3i32);
-pub const SBSC_SHOW: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(1i32);
-pub const SBSC_TOGGLE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(2i32);
-pub const SBSP_ABSOLUTE: u32 = 0u32;
-pub const SBSP_ACTIVATE_NOFOCUS: u32 = 524288u32;
-pub const SBSP_ALLOW_AUTONAVIGATE: u32 = 65536u32;
-pub const SBSP_CALLERUNTRUSTED: u32 = 8388608u32;
-pub const SBSP_CREATENOHISTORY: u32 = 1048576u32;
-pub const SBSP_DEFBROWSER: u32 = 0u32;
-pub const SBSP_DEFMODE: u32 = 0u32;
-pub const SBSP_EXPLOREMODE: u32 = 32u32;
-pub const SBSP_FEEDNAVIGATION: u32 = 536870912u32;
-pub const SBSP_HELPMODE: u32 = 64u32;
-pub const SBSP_INITIATEDBYHLINKFRAME: u32 = 2147483648u32;
-pub const SBSP_KEEPSAMETEMPLATE: u32 = 131072u32;
-pub const SBSP_KEEPWORDWHEELTEXT: u32 = 262144u32;
-pub const SBSP_NAVIGATEBACK: u32 = 16384u32;
-pub const SBSP_NAVIGATEFORWARD: u32 = 32768u32;
-pub const SBSP_NEWBROWSER: u32 = 2u32;
-pub const SBSP_NOAUTOSELECT: u32 = 67108864u32;
-pub const SBSP_NOTRANSFERHIST: u32 = 128u32;
-pub const SBSP_OPENMODE: u32 = 16u32;
-pub const SBSP_PARENT: u32 = 8192u32;
-pub const SBSP_PLAYNOSOUND: u32 = 2097152u32;
-pub const SBSP_REDIRECT: u32 = 1073741824u32;
-pub const SBSP_RELATIVE: u32 = 4096u32;
-pub const SBSP_SAMEBROWSER: u32 = 1u32;
-pub const SBSP_TRUSTEDFORACTIVEX: u32 = 268435456u32;
-pub const SBSP_TRUSTFIRSTDOWNLOAD: u32 = 16777216u32;
-pub const SBSP_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
-pub const SBSP_WRITENOHISTORY: u32 = 134217728u32;
+pub const ResizeThumbnail: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(2);
+pub const ReturnOnlyIfCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(1);
+pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(0);
+pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(3);
+pub const SBSC_SHOW: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(1);
+pub const SBSC_TOGGLE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(2);
+pub const SBSP_ABSOLUTE: u32 = 0;
+pub const SBSP_ACTIVATE_NOFOCUS: u32 = 524288;
+pub const SBSP_ALLOW_AUTONAVIGATE: u32 = 65536;
+pub const SBSP_CALLERUNTRUSTED: u32 = 8388608;
+pub const SBSP_CREATENOHISTORY: u32 = 1048576;
+pub const SBSP_DEFBROWSER: u32 = 0;
+pub const SBSP_DEFMODE: u32 = 0;
+pub const SBSP_EXPLOREMODE: u32 = 32;
+pub const SBSP_FEEDNAVIGATION: u32 = 536870912;
+pub const SBSP_HELPMODE: u32 = 64;
+pub const SBSP_INITIATEDBYHLINKFRAME: u32 = 2147483648;
+pub const SBSP_KEEPSAMETEMPLATE: u32 = 131072;
+pub const SBSP_KEEPWORDWHEELTEXT: u32 = 262144;
+pub const SBSP_NAVIGATEBACK: u32 = 16384;
+pub const SBSP_NAVIGATEFORWARD: u32 = 32768;
+pub const SBSP_NEWBROWSER: u32 = 2;
+pub const SBSP_NOAUTOSELECT: u32 = 67108864;
+pub const SBSP_NOTRANSFERHIST: u32 = 128;
+pub const SBSP_OPENMODE: u32 = 16;
+pub const SBSP_PARENT: u32 = 8192;
+pub const SBSP_PLAYNOSOUND: u32 = 2097152;
+pub const SBSP_REDIRECT: u32 = 1073741824;
+pub const SBSP_RELATIVE: u32 = 4096;
+pub const SBSP_SAMEBROWSER: u32 = 1;
+pub const SBSP_TRUSTEDFORACTIVEX: u32 = 268435456;
+pub const SBSP_TRUSTFIRSTDOWNLOAD: u32 = 16777216;
+pub const SBSP_UNTRUSTEDFORDOWNLOAD: u32 = 33554432;
+pub const SBSP_WRITENOHISTORY: u32 = 134217728;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCALE_CHANGE_FLAGS(pub i32);
@@ -53720,103 +53720,103 @@ impl core::ops::Not for SCALE_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(2i32);
-pub const SCF_SCALE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(1i32);
-pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(0i32);
-pub const SCHEME_CREATE: u32 = 128u32;
-pub const SCHEME_DISPLAY: u32 = 1u32;
-pub const SCHEME_DONOTUSE: u32 = 64u32;
-pub const SCHEME_EDIT: u32 = 2u32;
-pub const SCHEME_GLOBAL: u32 = 8u32;
-pub const SCHEME_LOCAL: u32 = 4u32;
-pub const SCHEME_REFRESH: u32 = 16u32;
-pub const SCHEME_UPDATE: u32 = 32u32;
-pub const SCNRT_DISABLE: SCNRT_STATUS = SCNRT_STATUS(1i32);
-pub const SCNRT_ENABLE: SCNRT_STATUS = SCNRT_STATUS(0i32);
+pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(2);
+pub const SCF_SCALE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(1);
+pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(0);
+pub const SCHEME_CREATE: u32 = 128;
+pub const SCHEME_DISPLAY: u32 = 1;
+pub const SCHEME_DONOTUSE: u32 = 64;
+pub const SCHEME_EDIT: u32 = 2;
+pub const SCHEME_GLOBAL: u32 = 8;
+pub const SCHEME_LOCAL: u32 = 4;
+pub const SCHEME_REFRESH: u32 = 16;
+pub const SCHEME_UPDATE: u32 = 32;
+pub const SCNRT_DISABLE: SCNRT_STATUS = SCNRT_STATUS(1);
+pub const SCNRT_ENABLE: SCNRT_STATUS = SCNRT_STATUS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCNRT_STATUS(pub i32);
-pub const SCRM_VERIFYPW: u32 = 32768u32;
+pub const SCRM_VERIFYPW: u32 = 32768;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURELOCKCODE(pub i32);
-pub const SECURELOCK_FIRSTSUGGEST: SECURELOCKCODE = SECURELOCKCODE(7i32);
-pub const SECURELOCK_NOCHANGE: SECURELOCKCODE = SECURELOCKCODE(-1i32);
-pub const SECURELOCK_SET_FORTEZZA: SECURELOCKCODE = SECURELOCKCODE(5i32);
-pub const SECURELOCK_SET_MIXED: SECURELOCKCODE = SECURELOCKCODE(1i32);
-pub const SECURELOCK_SET_SECURE128BIT: SECURELOCKCODE = SECURELOCKCODE(6i32);
-pub const SECURELOCK_SET_SECURE40BIT: SECURELOCKCODE = SECURELOCKCODE(3i32);
-pub const SECURELOCK_SET_SECURE56BIT: SECURELOCKCODE = SECURELOCKCODE(4i32);
-pub const SECURELOCK_SET_SECUREUNKNOWNBIT: SECURELOCKCODE = SECURELOCKCODE(2i32);
-pub const SECURELOCK_SET_UNSECURE: SECURELOCKCODE = SECURELOCKCODE(0i32);
-pub const SECURELOCK_SUGGEST_FORTEZZA: SECURELOCKCODE = SECURELOCKCODE(12i32);
-pub const SECURELOCK_SUGGEST_MIXED: SECURELOCKCODE = SECURELOCKCODE(8i32);
-pub const SECURELOCK_SUGGEST_SECURE128BIT: SECURELOCKCODE = SECURELOCKCODE(13i32);
-pub const SECURELOCK_SUGGEST_SECURE40BIT: SECURELOCKCODE = SECURELOCKCODE(10i32);
-pub const SECURELOCK_SUGGEST_SECURE56BIT: SECURELOCKCODE = SECURELOCKCODE(11i32);
-pub const SECURELOCK_SUGGEST_SECUREUNKNOWNBIT: SECURELOCKCODE = SECURELOCKCODE(9i32);
-pub const SECURELOCK_SUGGEST_UNSECURE: SECURELOCKCODE = SECURELOCKCODE(7i32);
-pub const SEE_MASK_ASYNCOK: u32 = 1048576u32;
-pub const SEE_MASK_CLASSKEY: u32 = 3u32;
-pub const SEE_MASK_CLASSNAME: u32 = 1u32;
-pub const SEE_MASK_CONNECTNETDRV: u32 = 128u32;
-pub const SEE_MASK_DEFAULT: u32 = 0u32;
-pub const SEE_MASK_DOENVSUBST: u32 = 512u32;
-pub const SEE_MASK_FLAG_DDEWAIT: u32 = 256u32;
-pub const SEE_MASK_FLAG_HINST_IS_SITE: u32 = 134217728u32;
-pub const SEE_MASK_FLAG_LOG_USAGE: u32 = 67108864u32;
-pub const SEE_MASK_FLAG_NO_UI: u32 = 1024u32;
-pub const SEE_MASK_HMONITOR: u32 = 2097152u32;
-pub const SEE_MASK_HOTKEY: u32 = 32u32;
-pub const SEE_MASK_ICON: u32 = 16u32;
-pub const SEE_MASK_IDLIST: u32 = 4u32;
-pub const SEE_MASK_INVOKEIDLIST: u32 = 12u32;
-pub const SEE_MASK_NOASYNC: u32 = 256u32;
-pub const SEE_MASK_NOCLOSEPROCESS: u32 = 64u32;
-pub const SEE_MASK_NOQUERYCLASSSTORE: u32 = 16777216u32;
-pub const SEE_MASK_NOZONECHECKS: u32 = 8388608u32;
-pub const SEE_MASK_NO_CONSOLE: u32 = 32768u32;
-pub const SEE_MASK_UNICODE: u32 = 16384u32;
-pub const SEE_MASK_WAITFORINPUTIDLE: u32 = 33554432u32;
-pub const SETPROPS_NONE: u32 = 0u32;
-pub const SE_ERR_ACCESSDENIED: u32 = 5u32;
-pub const SE_ERR_ASSOCINCOMPLETE: u32 = 27u32;
-pub const SE_ERR_DDEBUSY: u32 = 30u32;
-pub const SE_ERR_DDEFAIL: u32 = 29u32;
-pub const SE_ERR_DDETIMEOUT: u32 = 28u32;
-pub const SE_ERR_DLLNOTFOUND: u32 = 32u32;
-pub const SE_ERR_FNF: u32 = 2u32;
-pub const SE_ERR_NOASSOC: u32 = 31u32;
-pub const SE_ERR_OOM: u32 = 8u32;
-pub const SE_ERR_PNF: u32 = 3u32;
-pub const SE_ERR_SHARE: u32 = 26u32;
-pub const SFBID_PIDLCHANGED: i32 = 0i32;
+pub const SECURELOCK_FIRSTSUGGEST: SECURELOCKCODE = SECURELOCKCODE(7);
+pub const SECURELOCK_NOCHANGE: SECURELOCKCODE = SECURELOCKCODE(-1);
+pub const SECURELOCK_SET_FORTEZZA: SECURELOCKCODE = SECURELOCKCODE(5);
+pub const SECURELOCK_SET_MIXED: SECURELOCKCODE = SECURELOCKCODE(1);
+pub const SECURELOCK_SET_SECURE128BIT: SECURELOCKCODE = SECURELOCKCODE(6);
+pub const SECURELOCK_SET_SECURE40BIT: SECURELOCKCODE = SECURELOCKCODE(3);
+pub const SECURELOCK_SET_SECURE56BIT: SECURELOCKCODE = SECURELOCKCODE(4);
+pub const SECURELOCK_SET_SECUREUNKNOWNBIT: SECURELOCKCODE = SECURELOCKCODE(2);
+pub const SECURELOCK_SET_UNSECURE: SECURELOCKCODE = SECURELOCKCODE(0);
+pub const SECURELOCK_SUGGEST_FORTEZZA: SECURELOCKCODE = SECURELOCKCODE(12);
+pub const SECURELOCK_SUGGEST_MIXED: SECURELOCKCODE = SECURELOCKCODE(8);
+pub const SECURELOCK_SUGGEST_SECURE128BIT: SECURELOCKCODE = SECURELOCKCODE(13);
+pub const SECURELOCK_SUGGEST_SECURE40BIT: SECURELOCKCODE = SECURELOCKCODE(10);
+pub const SECURELOCK_SUGGEST_SECURE56BIT: SECURELOCKCODE = SECURELOCKCODE(11);
+pub const SECURELOCK_SUGGEST_SECUREUNKNOWNBIT: SECURELOCKCODE = SECURELOCKCODE(9);
+pub const SECURELOCK_SUGGEST_UNSECURE: SECURELOCKCODE = SECURELOCKCODE(7);
+pub const SEE_MASK_ASYNCOK: u32 = 1048576;
+pub const SEE_MASK_CLASSKEY: u32 = 3;
+pub const SEE_MASK_CLASSNAME: u32 = 1;
+pub const SEE_MASK_CONNECTNETDRV: u32 = 128;
+pub const SEE_MASK_DEFAULT: u32 = 0;
+pub const SEE_MASK_DOENVSUBST: u32 = 512;
+pub const SEE_MASK_FLAG_DDEWAIT: u32 = 256;
+pub const SEE_MASK_FLAG_HINST_IS_SITE: u32 = 134217728;
+pub const SEE_MASK_FLAG_LOG_USAGE: u32 = 67108864;
+pub const SEE_MASK_FLAG_NO_UI: u32 = 1024;
+pub const SEE_MASK_HMONITOR: u32 = 2097152;
+pub const SEE_MASK_HOTKEY: u32 = 32;
+pub const SEE_MASK_ICON: u32 = 16;
+pub const SEE_MASK_IDLIST: u32 = 4;
+pub const SEE_MASK_INVOKEIDLIST: u32 = 12;
+pub const SEE_MASK_NOASYNC: u32 = 256;
+pub const SEE_MASK_NOCLOSEPROCESS: u32 = 64;
+pub const SEE_MASK_NOQUERYCLASSSTORE: u32 = 16777216;
+pub const SEE_MASK_NOZONECHECKS: u32 = 8388608;
+pub const SEE_MASK_NO_CONSOLE: u32 = 32768;
+pub const SEE_MASK_UNICODE: u32 = 16384;
+pub const SEE_MASK_WAITFORINPUTIDLE: u32 = 33554432;
+pub const SETPROPS_NONE: u32 = 0;
+pub const SE_ERR_ACCESSDENIED: u32 = 5;
+pub const SE_ERR_ASSOCINCOMPLETE: u32 = 27;
+pub const SE_ERR_DDEBUSY: u32 = 30;
+pub const SE_ERR_DDEFAIL: u32 = 29;
+pub const SE_ERR_DDETIMEOUT: u32 = 28;
+pub const SE_ERR_DLLNOTFOUND: u32 = 32;
+pub const SE_ERR_FNF: u32 = 2;
+pub const SE_ERR_NOASSOC: u32 = 31;
+pub const SE_ERR_OOM: u32 = 8;
+pub const SE_ERR_PNF: u32 = 3;
+pub const SE_ERR_SHARE: u32 = 26;
+pub const SFBID_PIDLCHANGED: i32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFBS_FLAGS(pub i32);
-pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: SFBS_FLAGS = SFBS_FLAGS(1i32);
-pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: SFBS_FLAGS = SFBS_FLAGS(2i32);
-pub const SFVM_ADDOBJECT: u32 = 3u32;
-pub const SFVM_ADDPROPERTYPAGES: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(47i32);
-pub const SFVM_BACKGROUNDENUM: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(32i32);
-pub const SFVM_BACKGROUNDENUMDONE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(48i32);
-pub const SFVM_COLUMNCLICK: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(24i32);
-pub const SFVM_DEFITEMCOUNT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(26i32);
-pub const SFVM_DEFVIEWMODE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(27i32);
-pub const SFVM_DIDDRAGDROP: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(36i32);
-pub const SFVM_FSNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(14i32);
-pub const SFVM_GETANIMATION: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(68i32);
-pub const SFVM_GETBUTTONINFO: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(5i32);
-pub const SFVM_GETBUTTONS: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(6i32);
-pub const SFVM_GETDETAILSOF: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(23i32);
-pub const SFVM_GETHELPTEXT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(3i32);
-pub const SFVM_GETHELPTOPIC: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(63i32);
-pub const SFVM_GETNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(49i32);
-pub const SFVM_GETPANE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(59i32);
-pub const SFVM_GETSELECTEDOBJECTS: u32 = 9u32;
-pub const SFVM_GETSORTDEFAULTS: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(53i32);
-pub const SFVM_GETTOOLTIPTEXT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(4i32);
-pub const SFVM_GETZONE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(58i32);
+pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: SFBS_FLAGS = SFBS_FLAGS(1);
+pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: SFBS_FLAGS = SFBS_FLAGS(2);
+pub const SFVM_ADDOBJECT: u32 = 3;
+pub const SFVM_ADDPROPERTYPAGES: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(47);
+pub const SFVM_BACKGROUNDENUM: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(32);
+pub const SFVM_BACKGROUNDENUMDONE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(48);
+pub const SFVM_COLUMNCLICK: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(24);
+pub const SFVM_DEFITEMCOUNT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(26);
+pub const SFVM_DEFVIEWMODE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(27);
+pub const SFVM_DIDDRAGDROP: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(36);
+pub const SFVM_FSNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(14);
+pub const SFVM_GETANIMATION: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(68);
+pub const SFVM_GETBUTTONINFO: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(5);
+pub const SFVM_GETBUTTONS: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(6);
+pub const SFVM_GETDETAILSOF: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(23);
+pub const SFVM_GETHELPTEXT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(3);
+pub const SFVM_GETHELPTOPIC: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(63);
+pub const SFVM_GETNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(49);
+pub const SFVM_GETPANE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(59);
+pub const SFVM_GETSELECTEDOBJECTS: u32 = 9;
+pub const SFVM_GETSORTDEFAULTS: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(53);
+pub const SFVM_GETTOOLTIPTEXT: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(4);
+pub const SFVM_GETZONE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(58);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SFVM_HELPTOPIC_DATA {
@@ -53828,9 +53828,9 @@ impl Default for SFVM_HELPTOPIC_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SFVM_INITMENUPOPUP: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(7i32);
-pub const SFVM_INVOKECOMMAND: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(2i32);
-pub const SFVM_MERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(1i32);
+pub const SFVM_INITMENUPOPUP: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(7);
+pub const SFVM_INVOKECOMMAND: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(2);
+pub const SFVM_MERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFVM_MESSAGE_ID(pub i32);
@@ -53842,34 +53842,34 @@ pub struct SFVM_PROPPAGE_DATA {
     pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
     pub lParam: super::super::Foundation::LPARAM,
 }
-pub const SFVM_QUERYFSNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(25i32);
-pub const SFVM_REARRANGE: u32 = 1u32;
-pub const SFVM_REMOVEOBJECT: u32 = 6u32;
-pub const SFVM_SETCLIPBOARD: u32 = 16u32;
-pub const SFVM_SETISFV: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(39i32);
-pub const SFVM_SETITEMPOS: u32 = 14u32;
-pub const SFVM_SETPOINTS: u32 = 23u32;
-pub const SFVM_SIZE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(57i32);
-pub const SFVM_THISIDLIST: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(41i32);
-pub const SFVM_UNMERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(28i32);
-pub const SFVM_UPDATEOBJECT: u32 = 7u32;
-pub const SFVM_UPDATESTATUSBAR: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(31i32);
-pub const SFVM_WINDOWCREATED: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(15i32);
-pub const SFVSOC_INVALIDATE_ALL: u32 = 1u32;
-pub const SFVSOC_NOSCROLL: u32 = 2u32;
+pub const SFVM_QUERYFSNOTIFY: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(25);
+pub const SFVM_REARRANGE: u32 = 1;
+pub const SFVM_REMOVEOBJECT: u32 = 6;
+pub const SFVM_SETCLIPBOARD: u32 = 16;
+pub const SFVM_SETISFV: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(39);
+pub const SFVM_SETITEMPOS: u32 = 14;
+pub const SFVM_SETPOINTS: u32 = 23;
+pub const SFVM_SIZE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(57);
+pub const SFVM_THISIDLIST: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(41);
+pub const SFVM_UNMERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(28);
+pub const SFVM_UPDATEOBJECT: u32 = 7;
+pub const SFVM_UPDATESTATUSBAR: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(31);
+pub const SFVM_WINDOWCREATED: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(15);
+pub const SFVSOC_INVALIDATE_ALL: u32 = 1;
+pub const SFVSOC_NOSCROLL: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFVS_SELECT(pub i32);
-pub const SFVS_SELECT_ALLITEMS: SFVS_SELECT = SFVS_SELECT(1i32);
-pub const SFVS_SELECT_INVERT: SFVS_SELECT = SFVS_SELECT(2i32);
-pub const SFVS_SELECT_NONE: SFVS_SELECT = SFVS_SELECT(0i32);
-pub const SFVVO_DESKTOPHTML: ShellFolderViewOptions = ShellFolderViewOptions(512i32);
-pub const SFVVO_DOUBLECLICKINWEBVIEW: ShellFolderViewOptions = ShellFolderViewOptions(128i32);
-pub const SFVVO_SHOWALLOBJECTS: ShellFolderViewOptions = ShellFolderViewOptions(1i32);
-pub const SFVVO_SHOWCOMPCOLOR: ShellFolderViewOptions = ShellFolderViewOptions(8i32);
-pub const SFVVO_SHOWEXTENSIONS: ShellFolderViewOptions = ShellFolderViewOptions(2i32);
-pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = ShellFolderViewOptions(32i32);
-pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = ShellFolderViewOptions(64i32);
+pub const SFVS_SELECT_ALLITEMS: SFVS_SELECT = SFVS_SELECT(1);
+pub const SFVS_SELECT_INVERT: SFVS_SELECT = SFVS_SELECT(2);
+pub const SFVS_SELECT_NONE: SFVS_SELECT = SFVS_SELECT(0);
+pub const SFVVO_DESKTOPHTML: ShellFolderViewOptions = ShellFolderViewOptions(512);
+pub const SFVVO_DOUBLECLICKINWEBVIEW: ShellFolderViewOptions = ShellFolderViewOptions(128);
+pub const SFVVO_SHOWALLOBJECTS: ShellFolderViewOptions = ShellFolderViewOptions(1);
+pub const SFVVO_SHOWCOMPCOLOR: ShellFolderViewOptions = ShellFolderViewOptions(8);
+pub const SFVVO_SHOWEXTENSIONS: ShellFolderViewOptions = ShellFolderViewOptions(2);
+pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = ShellFolderViewOptions(32);
+pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = ShellFolderViewOptions(64);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -53892,19 +53892,19 @@ impl Default for SFV_SETITEMPOS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHACF_AUTOAPPEND_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2147483648u32);
-pub const SHACF_AUTOAPPEND_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1073741824u32);
-pub const SHACF_AUTOSUGGEST_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(536870912u32);
-pub const SHACF_AUTOSUGGEST_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(268435456u32);
-pub const SHACF_DEFAULT: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(0u32);
-pub const SHACF_FILESYSTEM: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1u32);
-pub const SHACF_FILESYS_DIRS: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(32u32);
-pub const SHACF_FILESYS_ONLY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(16u32);
-pub const SHACF_URLALL: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(6u32);
-pub const SHACF_URLHISTORY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2u32);
-pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(4u32);
-pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(8u32);
-pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(64u32);
+pub const SHACF_AUTOAPPEND_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2147483648);
+pub const SHACF_AUTOAPPEND_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1073741824);
+pub const SHACF_AUTOSUGGEST_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(536870912);
+pub const SHACF_AUTOSUGGEST_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(268435456);
+pub const SHACF_DEFAULT: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(0);
+pub const SHACF_FILESYSTEM: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1);
+pub const SHACF_FILESYS_DIRS: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(32);
+pub const SHACF_FILESYS_ONLY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(16);
+pub const SHACF_URLALL: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(6);
+pub const SHACF_URLHISTORY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2);
+pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(4);
+pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(8);
+pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(64);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARD(pub i32);
@@ -53933,44 +53933,44 @@ pub struct SHARDAPPIDINFOLINK {
     pub psl: core::mem::ManuallyDrop<Option<IShellLinkA>>,
     pub pszAppID: windows_core::PCWSTR,
 }
-pub const SHARD_APPIDINFO: SHARD = SHARD(4i32);
-pub const SHARD_APPIDINFOIDLIST: SHARD = SHARD(5i32);
-pub const SHARD_APPIDINFOLINK: SHARD = SHARD(7i32);
-pub const SHARD_LINK: SHARD = SHARD(6i32);
-pub const SHARD_PATHA: SHARD = SHARD(2i32);
-pub const SHARD_PATHW: SHARD = SHARD(3i32);
-pub const SHARD_PIDL: SHARD = SHARD(1i32);
-pub const SHARD_SHELLITEM: SHARD = SHARD(8i32);
+pub const SHARD_APPIDINFO: SHARD = SHARD(4);
+pub const SHARD_APPIDINFOIDLIST: SHARD = SHARD(5);
+pub const SHARD_APPIDINFOLINK: SHARD = SHARD(7);
+pub const SHARD_LINK: SHARD = SHARD(6);
+pub const SHARD_PATHA: SHARD = SHARD(2);
+pub const SHARD_PATHW: SHARD = SHARD(3);
+pub const SHARD_PIDL: SHARD = SHARD(1);
+pub const SHARD_SHELLITEM: SHARD = SHARD(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_ROLE(pub i32);
-pub const SHARE_ROLE_CONTRIBUTOR: SHARE_ROLE = SHARE_ROLE(1i32);
-pub const SHARE_ROLE_CO_OWNER: SHARE_ROLE = SHARE_ROLE(2i32);
-pub const SHARE_ROLE_CUSTOM: SHARE_ROLE = SHARE_ROLE(4i32);
-pub const SHARE_ROLE_INVALID: SHARE_ROLE = SHARE_ROLE(-1i32);
-pub const SHARE_ROLE_MIXED: SHARE_ROLE = SHARE_ROLE(5i32);
-pub const SHARE_ROLE_OWNER: SHARE_ROLE = SHARE_ROLE(3i32);
-pub const SHARE_ROLE_READER: SHARE_ROLE = SHARE_ROLE(0i32);
-pub const SHCDF_UPDATEITEM: u32 = 1u32;
-pub const SHCIDS_ALLFIELDS: i32 = -2147483648i32;
-pub const SHCIDS_BITMASK: i32 = -65536i32;
-pub const SHCIDS_CANONICALONLY: i32 = 268435456i32;
-pub const SHCIDS_COLUMNMASK: i32 = 65535i32;
-pub const SHCNEE_MSI_CHANGE: i32 = 4i32;
-pub const SHCNEE_MSI_UNINSTALL: i32 = 5i32;
-pub const SHCNEE_ORDERCHANGED: i32 = 2i32;
-pub const SHCNE_ALLEVENTS: SHCNE_ID = SHCNE_ID(2147483647u32);
-pub const SHCNE_ASSOCCHANGED: SHCNE_ID = SHCNE_ID(134217728u32);
-pub const SHCNE_ATTRIBUTES: SHCNE_ID = SHCNE_ID(2048u32);
-pub const SHCNE_CREATE: SHCNE_ID = SHCNE_ID(2u32);
-pub const SHCNE_DELETE: SHCNE_ID = SHCNE_ID(4u32);
-pub const SHCNE_DISKEVENTS: SHCNE_ID = SHCNE_ID(145439u32);
-pub const SHCNE_DRIVEADD: SHCNE_ID = SHCNE_ID(256u32);
-pub const SHCNE_DRIVEADDGUI: SHCNE_ID = SHCNE_ID(65536u32);
-pub const SHCNE_DRIVEREMOVED: SHCNE_ID = SHCNE_ID(128u32);
-pub const SHCNE_EXTENDED_EVENT: SHCNE_ID = SHCNE_ID(67108864u32);
-pub const SHCNE_FREESPACE: SHCNE_ID = SHCNE_ID(262144u32);
-pub const SHCNE_GLOBALEVENTS: SHCNE_ID = SHCNE_ID(201687520u32);
+pub const SHARE_ROLE_CONTRIBUTOR: SHARE_ROLE = SHARE_ROLE(1);
+pub const SHARE_ROLE_CO_OWNER: SHARE_ROLE = SHARE_ROLE(2);
+pub const SHARE_ROLE_CUSTOM: SHARE_ROLE = SHARE_ROLE(4);
+pub const SHARE_ROLE_INVALID: SHARE_ROLE = SHARE_ROLE(-1);
+pub const SHARE_ROLE_MIXED: SHARE_ROLE = SHARE_ROLE(5);
+pub const SHARE_ROLE_OWNER: SHARE_ROLE = SHARE_ROLE(3);
+pub const SHARE_ROLE_READER: SHARE_ROLE = SHARE_ROLE(0);
+pub const SHCDF_UPDATEITEM: u32 = 1;
+pub const SHCIDS_ALLFIELDS: i32 = -2147483648;
+pub const SHCIDS_BITMASK: i32 = -65536;
+pub const SHCIDS_CANONICALONLY: i32 = 268435456;
+pub const SHCIDS_COLUMNMASK: i32 = 65535;
+pub const SHCNEE_MSI_CHANGE: i32 = 4;
+pub const SHCNEE_MSI_UNINSTALL: i32 = 5;
+pub const SHCNEE_ORDERCHANGED: i32 = 2;
+pub const SHCNE_ALLEVENTS: SHCNE_ID = SHCNE_ID(2147483647);
+pub const SHCNE_ASSOCCHANGED: SHCNE_ID = SHCNE_ID(134217728);
+pub const SHCNE_ATTRIBUTES: SHCNE_ID = SHCNE_ID(2048);
+pub const SHCNE_CREATE: SHCNE_ID = SHCNE_ID(2);
+pub const SHCNE_DELETE: SHCNE_ID = SHCNE_ID(4);
+pub const SHCNE_DISKEVENTS: SHCNE_ID = SHCNE_ID(145439);
+pub const SHCNE_DRIVEADD: SHCNE_ID = SHCNE_ID(256);
+pub const SHCNE_DRIVEADDGUI: SHCNE_ID = SHCNE_ID(65536);
+pub const SHCNE_DRIVEREMOVED: SHCNE_ID = SHCNE_ID(128);
+pub const SHCNE_EXTENDED_EVENT: SHCNE_ID = SHCNE_ID(67108864);
+pub const SHCNE_FREESPACE: SHCNE_ID = SHCNE_ID(262144);
+pub const SHCNE_GLOBALEVENTS: SHCNE_ID = SHCNE_ID(201687520);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCNE_ID(pub u32);
@@ -54007,20 +54007,20 @@ impl core::ops::Not for SHCNE_ID {
         Self(self.0.not())
     }
 }
-pub const SHCNE_INTERRUPT: SHCNE_ID = SHCNE_ID(2147483648u32);
-pub const SHCNE_MEDIAINSERTED: SHCNE_ID = SHCNE_ID(32u32);
-pub const SHCNE_MEDIAREMOVED: SHCNE_ID = SHCNE_ID(64u32);
-pub const SHCNE_MKDIR: SHCNE_ID = SHCNE_ID(8u32);
-pub const SHCNE_NETSHARE: SHCNE_ID = SHCNE_ID(512u32);
-pub const SHCNE_NETUNSHARE: SHCNE_ID = SHCNE_ID(1024u32);
-pub const SHCNE_RENAMEFOLDER: SHCNE_ID = SHCNE_ID(131072u32);
-pub const SHCNE_RENAMEITEM: SHCNE_ID = SHCNE_ID(1u32);
-pub const SHCNE_RMDIR: SHCNE_ID = SHCNE_ID(16u32);
-pub const SHCNE_SERVERDISCONNECT: SHCNE_ID = SHCNE_ID(16384u32);
-pub const SHCNE_UPDATEDIR: SHCNE_ID = SHCNE_ID(4096u32);
-pub const SHCNE_UPDATEIMAGE: SHCNE_ID = SHCNE_ID(32768u32);
-pub const SHCNE_UPDATEITEM: SHCNE_ID = SHCNE_ID(8192u32);
-pub const SHCNF_DWORD: SHCNF_FLAGS = SHCNF_FLAGS(3u32);
+pub const SHCNE_INTERRUPT: SHCNE_ID = SHCNE_ID(2147483648);
+pub const SHCNE_MEDIAINSERTED: SHCNE_ID = SHCNE_ID(32);
+pub const SHCNE_MEDIAREMOVED: SHCNE_ID = SHCNE_ID(64);
+pub const SHCNE_MKDIR: SHCNE_ID = SHCNE_ID(8);
+pub const SHCNE_NETSHARE: SHCNE_ID = SHCNE_ID(512);
+pub const SHCNE_NETUNSHARE: SHCNE_ID = SHCNE_ID(1024);
+pub const SHCNE_RENAMEFOLDER: SHCNE_ID = SHCNE_ID(131072);
+pub const SHCNE_RENAMEITEM: SHCNE_ID = SHCNE_ID(1);
+pub const SHCNE_RMDIR: SHCNE_ID = SHCNE_ID(16);
+pub const SHCNE_SERVERDISCONNECT: SHCNE_ID = SHCNE_ID(16384);
+pub const SHCNE_UPDATEDIR: SHCNE_ID = SHCNE_ID(4096);
+pub const SHCNE_UPDATEIMAGE: SHCNE_ID = SHCNE_ID(32768);
+pub const SHCNE_UPDATEITEM: SHCNE_ID = SHCNE_ID(8192);
+pub const SHCNF_DWORD: SHCNF_FLAGS = SHCNF_FLAGS(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCNF_FLAGS(pub u32);
@@ -54057,20 +54057,20 @@ impl core::ops::Not for SHCNF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SHCNF_FLUSH: SHCNF_FLAGS = SHCNF_FLAGS(4096u32);
-pub const SHCNF_FLUSHNOWAIT: SHCNF_FLAGS = SHCNF_FLAGS(12288u32);
-pub const SHCNF_IDLIST: SHCNF_FLAGS = SHCNF_FLAGS(0u32);
-pub const SHCNF_NOTIFYRECURSIVE: SHCNF_FLAGS = SHCNF_FLAGS(65536u32);
-pub const SHCNF_PATH: SHCNF_FLAGS = SHCNF_FLAGS(5u32);
-pub const SHCNF_PATHA: SHCNF_FLAGS = SHCNF_FLAGS(1u32);
-pub const SHCNF_PATHW: SHCNF_FLAGS = SHCNF_FLAGS(5u32);
-pub const SHCNF_PRINTER: SHCNF_FLAGS = SHCNF_FLAGS(6u32);
-pub const SHCNF_PRINTERA: SHCNF_FLAGS = SHCNF_FLAGS(2u32);
-pub const SHCNF_PRINTERW: SHCNF_FLAGS = SHCNF_FLAGS(6u32);
-pub const SHCNF_TYPE: SHCNF_FLAGS = SHCNF_FLAGS(255u32);
-pub const SHCNRF_InterruptLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(1i32);
-pub const SHCNRF_NewDelivery: SHCNRF_SOURCE = SHCNRF_SOURCE(32768i32);
-pub const SHCNRF_RecursiveInterrupt: SHCNRF_SOURCE = SHCNRF_SOURCE(4096i32);
+pub const SHCNF_FLUSH: SHCNF_FLAGS = SHCNF_FLAGS(4096);
+pub const SHCNF_FLUSHNOWAIT: SHCNF_FLAGS = SHCNF_FLAGS(12288);
+pub const SHCNF_IDLIST: SHCNF_FLAGS = SHCNF_FLAGS(0);
+pub const SHCNF_NOTIFYRECURSIVE: SHCNF_FLAGS = SHCNF_FLAGS(65536);
+pub const SHCNF_PATH: SHCNF_FLAGS = SHCNF_FLAGS(5);
+pub const SHCNF_PATHA: SHCNF_FLAGS = SHCNF_FLAGS(1);
+pub const SHCNF_PATHW: SHCNF_FLAGS = SHCNF_FLAGS(5);
+pub const SHCNF_PRINTER: SHCNF_FLAGS = SHCNF_FLAGS(6);
+pub const SHCNF_PRINTERA: SHCNF_FLAGS = SHCNF_FLAGS(2);
+pub const SHCNF_PRINTERW: SHCNF_FLAGS = SHCNF_FLAGS(6);
+pub const SHCNF_TYPE: SHCNF_FLAGS = SHCNF_FLAGS(255);
+pub const SHCNRF_InterruptLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(1);
+pub const SHCNRF_NewDelivery: SHCNRF_SOURCE = SHCNRF_SOURCE(32768);
+pub const SHCNRF_RecursiveInterrupt: SHCNRF_SOURCE = SHCNRF_SOURCE(4096);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCNRF_SOURCE(pub i32);
@@ -54107,7 +54107,7 @@ impl core::ops::Not for SHCNRF_SOURCE {
         Self(self.0.not())
     }
 }
-pub const SHCNRF_ShellLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(2i32);
+pub const SHCNRF_ShellLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHCOLUMNDATA {
@@ -54152,19 +54152,19 @@ impl Default for SHCOLUMNINIT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHCONTF_CHECKING_FOR_CHILDREN: _SHCONTF = _SHCONTF(16i32);
-pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = _SHCONTF(32768i32);
-pub const SHCONTF_FASTITEMS: _SHCONTF = _SHCONTF(8192i32);
-pub const SHCONTF_FLATLIST: _SHCONTF = _SHCONTF(16384i32);
-pub const SHCONTF_FOLDERS: _SHCONTF = _SHCONTF(32i32);
-pub const SHCONTF_INCLUDEHIDDEN: _SHCONTF = _SHCONTF(128i32);
-pub const SHCONTF_INCLUDESUPERHIDDEN: _SHCONTF = _SHCONTF(65536i32);
-pub const SHCONTF_INIT_ON_FIRST_NEXT: _SHCONTF = _SHCONTF(256i32);
-pub const SHCONTF_NAVIGATION_ENUM: _SHCONTF = _SHCONTF(4096i32);
-pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = _SHCONTF(512i32);
-pub const SHCONTF_NONFOLDERS: _SHCONTF = _SHCONTF(64i32);
-pub const SHCONTF_SHAREABLE: _SHCONTF = _SHCONTF(1024i32);
-pub const SHCONTF_STORAGE: _SHCONTF = _SHCONTF(2048i32);
+pub const SHCONTF_CHECKING_FOR_CHILDREN: _SHCONTF = _SHCONTF(16);
+pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = _SHCONTF(32768);
+pub const SHCONTF_FASTITEMS: _SHCONTF = _SHCONTF(8192);
+pub const SHCONTF_FLATLIST: _SHCONTF = _SHCONTF(16384);
+pub const SHCONTF_FOLDERS: _SHCONTF = _SHCONTF(32);
+pub const SHCONTF_INCLUDEHIDDEN: _SHCONTF = _SHCONTF(128);
+pub const SHCONTF_INCLUDESUPERHIDDEN: _SHCONTF = _SHCONTF(65536);
+pub const SHCONTF_INIT_ON_FIRST_NEXT: _SHCONTF = _SHCONTF(256);
+pub const SHCONTF_NAVIGATION_ENUM: _SHCONTF = _SHCONTF(4096);
+pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = _SHCONTF(512);
+pub const SHCONTF_NONFOLDERS: _SHCONTF = _SHCONTF(64);
+pub const SHCONTF_SHAREABLE: _SHCONTF = _SHCONTF(1024);
+pub const SHCONTF_STORAGE: _SHCONTF = _SHCONTF(2048);
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
@@ -54273,31 +54273,31 @@ pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
     pub clsid: windows_core::GUID,
 }
-pub const SHDID_COMPUTER_AUDIO: SHDID_ID = SHDID_ID(19i32);
-pub const SHDID_COMPUTER_CDROM: SHDID_ID = SHDID_ID(10i32);
-pub const SHDID_COMPUTER_DRIVE35: SHDID_ID = SHDID_ID(5i32);
-pub const SHDID_COMPUTER_DRIVE525: SHDID_ID = SHDID_ID(6i32);
-pub const SHDID_COMPUTER_FIXED: SHDID_ID = SHDID_ID(8i32);
-pub const SHDID_COMPUTER_IMAGING: SHDID_ID = SHDID_ID(18i32);
-pub const SHDID_COMPUTER_NETDRIVE: SHDID_ID = SHDID_ID(9i32);
-pub const SHDID_COMPUTER_OTHER: SHDID_ID = SHDID_ID(12i32);
-pub const SHDID_COMPUTER_RAMDISK: SHDID_ID = SHDID_ID(11i32);
-pub const SHDID_COMPUTER_REMOVABLE: SHDID_ID = SHDID_ID(7i32);
-pub const SHDID_COMPUTER_SHAREDDOCS: SHDID_ID = SHDID_ID(20i32);
-pub const SHDID_FS_DIRECTORY: SHDID_ID = SHDID_ID(3i32);
-pub const SHDID_FS_FILE: SHDID_ID = SHDID_ID(2i32);
-pub const SHDID_FS_OTHER: SHDID_ID = SHDID_ID(4i32);
+pub const SHDID_COMPUTER_AUDIO: SHDID_ID = SHDID_ID(19);
+pub const SHDID_COMPUTER_CDROM: SHDID_ID = SHDID_ID(10);
+pub const SHDID_COMPUTER_DRIVE35: SHDID_ID = SHDID_ID(5);
+pub const SHDID_COMPUTER_DRIVE525: SHDID_ID = SHDID_ID(6);
+pub const SHDID_COMPUTER_FIXED: SHDID_ID = SHDID_ID(8);
+pub const SHDID_COMPUTER_IMAGING: SHDID_ID = SHDID_ID(18);
+pub const SHDID_COMPUTER_NETDRIVE: SHDID_ID = SHDID_ID(9);
+pub const SHDID_COMPUTER_OTHER: SHDID_ID = SHDID_ID(12);
+pub const SHDID_COMPUTER_RAMDISK: SHDID_ID = SHDID_ID(11);
+pub const SHDID_COMPUTER_REMOVABLE: SHDID_ID = SHDID_ID(7);
+pub const SHDID_COMPUTER_SHAREDDOCS: SHDID_ID = SHDID_ID(20);
+pub const SHDID_FS_DIRECTORY: SHDID_ID = SHDID_ID(3);
+pub const SHDID_FS_FILE: SHDID_ID = SHDID_ID(2);
+pub const SHDID_FS_OTHER: SHDID_ID = SHDID_ID(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDID_ID(pub i32);
-pub const SHDID_MOBILE_DEVICE: SHDID_ID = SHDID_ID(21i32);
-pub const SHDID_NET_DOMAIN: SHDID_ID = SHDID_ID(13i32);
-pub const SHDID_NET_OTHER: SHDID_ID = SHDID_ID(17i32);
-pub const SHDID_NET_RESTOFNET: SHDID_ID = SHDID_ID(16i32);
-pub const SHDID_NET_SERVER: SHDID_ID = SHDID_ID(14i32);
-pub const SHDID_NET_SHARE: SHDID_ID = SHDID_ID(15i32);
-pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = SHDID_ID(22i32);
-pub const SHDID_ROOT_REGITEM: SHDID_ID = SHDID_ID(1i32);
+pub const SHDID_MOBILE_DEVICE: SHDID_ID = SHDID_ID(21);
+pub const SHDID_NET_DOMAIN: SHDID_ID = SHDID_ID(13);
+pub const SHDID_NET_OTHER: SHDID_ID = SHDID_ID(17);
+pub const SHDID_NET_RESTOFNET: SHDID_ID = SHDID_ID(16);
+pub const SHDID_NET_SERVER: SHDID_ID = SHDID_ID(14);
+pub const SHDID_NET_SHARE: SHDID_ID = SHDID_ID(15);
+pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = SHDID_ID(22);
+pub const SHDID_ROOT_REGITEM: SHDID_ID = SHDID_ID(1);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -54499,8 +54499,8 @@ pub struct SHELLSTATEA {
     pub uNotUsed: u32,
     pub _bitfield2: i32,
 }
-pub const SHELLSTATEVERSION_IE4: u32 = 9u32;
-pub const SHELLSTATEVERSION_WIN2K: u32 = 10u32;
+pub const SHELLSTATEVERSION_IE4: u32 = 9;
+pub const SHELLSTATEVERSION_WIN2K: u32 = 10;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEW {
@@ -54600,12 +54600,12 @@ impl core::ops::Not for SHELL_LINK_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHELL_UI_COMPONENT(pub i32);
-pub const SHELL_UI_COMPONENT_DESKBAND: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(2i32);
-pub const SHELL_UI_COMPONENT_NOTIFICATIONAREA: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(1i32);
-pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(0i32);
-pub const SHERB_NOCONFIRMATION: u32 = 1u32;
-pub const SHERB_NOPROGRESSUI: u32 = 2u32;
-pub const SHERB_NOSOUND: u32 = 4u32;
+pub const SHELL_UI_COMPONENT_DESKBAND: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(2);
+pub const SHELL_UI_COMPONENT_NOTIFICATIONAREA: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(1);
+pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(0);
+pub const SHERB_NOCONFIRMATION: u32 = 1;
+pub const SHERB_NOPROGRESSUI: u32 = 2;
+pub const SHERB_NOSOUND: u32 = 4;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -54754,13 +54754,13 @@ impl Default for SHFILEOPSTRUCTW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHFMT_CANCEL: SHFMT_RET = SHFMT_RET(4294967294u32);
-pub const SHFMT_ERROR: SHFMT_RET = SHFMT_RET(4294967295u32);
+pub const SHFMT_CANCEL: SHFMT_RET = SHFMT_RET(4294967294);
+pub const SHFMT_ERROR: SHFMT_RET = SHFMT_RET(4294967295);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFMT_ID(pub u32);
-pub const SHFMT_ID_DEFAULT: SHFMT_ID = SHFMT_ID(65535u32);
-pub const SHFMT_NOFORMAT: SHFMT_RET = SHFMT_RET(4294967293u32);
+pub const SHFMT_ID_DEFAULT: SHFMT_ID = SHFMT_ID(65535);
+pub const SHFMT_NOFORMAT: SHFMT_RET = SHFMT_RET(4294967293);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFMT_OPT(pub i32);
@@ -54797,9 +54797,9 @@ impl core::ops::Not for SHFMT_OPT {
         Self(self.0.not())
     }
 }
-pub const SHFMT_OPT_FULL: SHFMT_OPT = SHFMT_OPT(1i32);
-pub const SHFMT_OPT_NONE: SHFMT_OPT = SHFMT_OPT(0i32);
-pub const SHFMT_OPT_SYSONLY: SHFMT_OPT = SHFMT_OPT(2i32);
+pub const SHFMT_OPT_FULL: SHFMT_OPT = SHFMT_OPT(1);
+pub const SHFMT_OPT_NONE: SHFMT_OPT = SHFMT_OPT(0);
+pub const SHFMT_OPT_SYSONLY: SHFMT_OPT = SHFMT_OPT(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHFMT_RET(pub u32);
@@ -54827,25 +54827,25 @@ impl Default for SHFOLDERCUSTOMSETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SHGDFIL_DESCRIPTIONID: SHGDFIL_FORMAT = SHGDFIL_FORMAT(3i32);
-pub const SHGDFIL_FINDDATA: SHGDFIL_FORMAT = SHGDFIL_FORMAT(1i32);
+pub const SHGDFIL_DESCRIPTIONID: SHGDFIL_FORMAT = SHGDFIL_FORMAT(3);
+pub const SHGDFIL_FINDDATA: SHGDFIL_FORMAT = SHGDFIL_FORMAT(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGDFIL_FORMAT(pub i32);
-pub const SHGDFIL_NETRESOURCE: SHGDFIL_FORMAT = SHGDFIL_FORMAT(2i32);
+pub const SHGDFIL_NETRESOURCE: SHGDFIL_FORMAT = SHGDFIL_FORMAT(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGDNF(pub u32);
-pub const SHGDN_FORADDRESSBAR: SHGDNF = SHGDNF(16384u32);
-pub const SHGDN_FOREDITING: SHGDNF = SHGDNF(4096u32);
-pub const SHGDN_FORPARSING: SHGDNF = SHGDNF(32768u32);
-pub const SHGDN_INFOLDER: SHGDNF = SHGDNF(1u32);
-pub const SHGDN_NORMAL: SHGDNF = SHGDNF(0u32);
-pub const SHGFI_ADDOVERLAYS: SHGFI_FLAGS = SHGFI_FLAGS(32u32);
-pub const SHGFI_ATTRIBUTES: SHGFI_FLAGS = SHGFI_FLAGS(2048u32);
-pub const SHGFI_ATTR_SPECIFIED: SHGFI_FLAGS = SHGFI_FLAGS(131072u32);
-pub const SHGFI_DISPLAYNAME: SHGFI_FLAGS = SHGFI_FLAGS(512u32);
-pub const SHGFI_EXETYPE: SHGFI_FLAGS = SHGFI_FLAGS(8192u32);
+pub const SHGDN_FORADDRESSBAR: SHGDNF = SHGDNF(16384);
+pub const SHGDN_FOREDITING: SHGDNF = SHGDNF(4096);
+pub const SHGDN_FORPARSING: SHGDNF = SHGDNF(32768);
+pub const SHGDN_INFOLDER: SHGDNF = SHGDNF(1);
+pub const SHGDN_NORMAL: SHGDNF = SHGDNF(0);
+pub const SHGFI_ADDOVERLAYS: SHGFI_FLAGS = SHGFI_FLAGS(32);
+pub const SHGFI_ATTRIBUTES: SHGFI_FLAGS = SHGFI_FLAGS(2048);
+pub const SHGFI_ATTR_SPECIFIED: SHGFI_FLAGS = SHGFI_FLAGS(131072);
+pub const SHGFI_DISPLAYNAME: SHGFI_FLAGS = SHGFI_FLAGS(512);
+pub const SHGFI_EXETYPE: SHGFI_FLAGS = SHGFI_FLAGS(8192);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGFI_FLAGS(pub u32);
@@ -54882,33 +54882,33 @@ impl core::ops::Not for SHGFI_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SHGFI_ICON: SHGFI_FLAGS = SHGFI_FLAGS(256u32);
-pub const SHGFI_ICONLOCATION: SHGFI_FLAGS = SHGFI_FLAGS(4096u32);
-pub const SHGFI_LARGEICON: SHGFI_FLAGS = SHGFI_FLAGS(0u32);
-pub const SHGFI_LINKOVERLAY: SHGFI_FLAGS = SHGFI_FLAGS(32768u32);
-pub const SHGFI_OPENICON: SHGFI_FLAGS = SHGFI_FLAGS(2u32);
-pub const SHGFI_OVERLAYINDEX: SHGFI_FLAGS = SHGFI_FLAGS(64u32);
-pub const SHGFI_PIDL: SHGFI_FLAGS = SHGFI_FLAGS(8u32);
-pub const SHGFI_SELECTED: SHGFI_FLAGS = SHGFI_FLAGS(65536u32);
-pub const SHGFI_SHELLICONSIZE: SHGFI_FLAGS = SHGFI_FLAGS(4u32);
-pub const SHGFI_SMALLICON: SHGFI_FLAGS = SHGFI_FLAGS(1u32);
-pub const SHGFI_SYSICONINDEX: SHGFI_FLAGS = SHGFI_FLAGS(16384u32);
-pub const SHGFI_TYPENAME: SHGFI_FLAGS = SHGFI_FLAGS(1024u32);
-pub const SHGFI_USEFILEATTRIBUTES: SHGFI_FLAGS = SHGFI_FLAGS(16u32);
+pub const SHGFI_ICON: SHGFI_FLAGS = SHGFI_FLAGS(256);
+pub const SHGFI_ICONLOCATION: SHGFI_FLAGS = SHGFI_FLAGS(4096);
+pub const SHGFI_LARGEICON: SHGFI_FLAGS = SHGFI_FLAGS(0);
+pub const SHGFI_LINKOVERLAY: SHGFI_FLAGS = SHGFI_FLAGS(32768);
+pub const SHGFI_OPENICON: SHGFI_FLAGS = SHGFI_FLAGS(2);
+pub const SHGFI_OVERLAYINDEX: SHGFI_FLAGS = SHGFI_FLAGS(64);
+pub const SHGFI_PIDL: SHGFI_FLAGS = SHGFI_FLAGS(8);
+pub const SHGFI_SELECTED: SHGFI_FLAGS = SHGFI_FLAGS(65536);
+pub const SHGFI_SHELLICONSIZE: SHGFI_FLAGS = SHGFI_FLAGS(4);
+pub const SHGFI_SMALLICON: SHGFI_FLAGS = SHGFI_FLAGS(1);
+pub const SHGFI_SYSICONINDEX: SHGFI_FLAGS = SHGFI_FLAGS(16384);
+pub const SHGFI_TYPENAME: SHGFI_FLAGS = SHGFI_FLAGS(1024);
+pub const SHGFI_USEFILEATTRIBUTES: SHGFI_FLAGS = SHGFI_FLAGS(16);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGFP_TYPE(pub i32);
-pub const SHGFP_TYPE_CURRENT: SHGFP_TYPE = SHGFP_TYPE(0i32);
-pub const SHGFP_TYPE_DEFAULT: SHGFP_TYPE = SHGFP_TYPE(1i32);
+pub const SHGFP_TYPE_CURRENT: SHGFP_TYPE = SHGFP_TYPE(0);
+pub const SHGFP_TYPE_DEFAULT: SHGFP_TYPE = SHGFP_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGLOBALCOUNTER(pub i32);
-pub const SHGNLI_NOLNK: u64 = 8u64;
-pub const SHGNLI_NOLOCNAME: u64 = 16u64;
-pub const SHGNLI_NOUNIQUE: u64 = 4u64;
-pub const SHGNLI_PIDL: u64 = 1u64;
-pub const SHGNLI_PREFIXNAME: u64 = 2u64;
-pub const SHGNLI_USEURLEXT: u64 = 32u64;
+pub const SHGNLI_NOLNK: u64 = 8;
+pub const SHGNLI_NOLOCNAME: u64 = 16;
+pub const SHGNLI_NOUNIQUE: u64 = 4;
+pub const SHGNLI_PIDL: u64 = 1;
+pub const SHGNLI_PREFIXNAME: u64 = 2;
+pub const SHGNLI_USEURLEXT: u64 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHGSI_FLAGS(pub u32);
@@ -54945,36 +54945,36 @@ impl core::ops::Not for SHGSI_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SHGSI_ICON: SHGSI_FLAGS = SHGSI_FLAGS(256u32);
-pub const SHGSI_ICONLOCATION: SHGSI_FLAGS = SHGSI_FLAGS(0u32);
-pub const SHGSI_LARGEICON: SHGSI_FLAGS = SHGSI_FLAGS(0u32);
-pub const SHGSI_LINKOVERLAY: SHGSI_FLAGS = SHGSI_FLAGS(32768u32);
-pub const SHGSI_SELECTED: SHGSI_FLAGS = SHGSI_FLAGS(65536u32);
-pub const SHGSI_SHELLICONSIZE: SHGSI_FLAGS = SHGSI_FLAGS(4u32);
-pub const SHGSI_SMALLICON: SHGSI_FLAGS = SHGSI_FLAGS(1u32);
-pub const SHGSI_SYSICONINDEX: SHGSI_FLAGS = SHGSI_FLAGS(16384u32);
-pub const SHGVSPB_ALLFOLDERS: u32 = 8u32;
-pub const SHGVSPB_ALLUSERS: u32 = 2u32;
-pub const SHGVSPB_INHERIT: u32 = 16u32;
-pub const SHGVSPB_NOAUTODEFAULTS: u32 = 2147483648u32;
-pub const SHGVSPB_PERFOLDER: u32 = 4u32;
-pub const SHGVSPB_PERUSER: u32 = 1u32;
-pub const SHGVSPB_ROAM: u32 = 32u32;
-pub const SHHLNF_NOAUTOSELECT: u32 = 67108864u32;
-pub const SHHLNF_WRITENOHISTORY: u32 = 134217728u32;
-pub const SHIL_EXTRALARGE: u32 = 2u32;
-pub const SHIL_JUMBO: u32 = 4u32;
-pub const SHIL_LARGE: u32 = 0u32;
-pub const SHIL_LAST: u32 = 4u32;
-pub const SHIL_SMALL: u32 = 1u32;
-pub const SHIL_SYSSMALL: u32 = 3u32;
-pub const SHIMGDEC_DEFAULT: u32 = 0u32;
-pub const SHIMGDEC_LOADFULL: u32 = 2u32;
-pub const SHIMGDEC_THUMBNAIL: u32 = 1u32;
+pub const SHGSI_ICON: SHGSI_FLAGS = SHGSI_FLAGS(256);
+pub const SHGSI_ICONLOCATION: SHGSI_FLAGS = SHGSI_FLAGS(0);
+pub const SHGSI_LARGEICON: SHGSI_FLAGS = SHGSI_FLAGS(0);
+pub const SHGSI_LINKOVERLAY: SHGSI_FLAGS = SHGSI_FLAGS(32768);
+pub const SHGSI_SELECTED: SHGSI_FLAGS = SHGSI_FLAGS(65536);
+pub const SHGSI_SHELLICONSIZE: SHGSI_FLAGS = SHGSI_FLAGS(4);
+pub const SHGSI_SMALLICON: SHGSI_FLAGS = SHGSI_FLAGS(1);
+pub const SHGSI_SYSICONINDEX: SHGSI_FLAGS = SHGSI_FLAGS(16384);
+pub const SHGVSPB_ALLFOLDERS: u32 = 8;
+pub const SHGVSPB_ALLUSERS: u32 = 2;
+pub const SHGVSPB_INHERIT: u32 = 16;
+pub const SHGVSPB_NOAUTODEFAULTS: u32 = 2147483648;
+pub const SHGVSPB_PERFOLDER: u32 = 4;
+pub const SHGVSPB_PERUSER: u32 = 1;
+pub const SHGVSPB_ROAM: u32 = 32;
+pub const SHHLNF_NOAUTOSELECT: u32 = 67108864;
+pub const SHHLNF_WRITENOHISTORY: u32 = 134217728;
+pub const SHIL_EXTRALARGE: u32 = 2;
+pub const SHIL_JUMBO: u32 = 4;
+pub const SHIL_LARGE: u32 = 0;
+pub const SHIL_LAST: u32 = 4;
+pub const SHIL_SMALL: u32 = 1;
+pub const SHIL_SYSSMALL: u32 = 3;
+pub const SHIMGDEC_DEFAULT: u32 = 0;
+pub const SHIMGDEC_LOADFULL: u32 = 2;
+pub const SHIMGDEC_THUMBNAIL: u32 = 1;
 pub const SHIMGKEY_QUALITY: windows_core::PCWSTR = windows_core::w!("Compression");
 pub const SHIMGKEY_RAWFORMAT: windows_core::PCWSTR = windows_core::w!("RawDataFormat");
-pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
-pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
+pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1;
+pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Default)]
@@ -55011,8 +55011,8 @@ pub struct SHNAMEMAPPINGW {
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
-pub const SHOP_FILEPATH: SHOP_TYPE = SHOP_TYPE(2i32);
-pub const SHOP_PRINTERNAME: SHOP_TYPE = SHOP_TYPE(1i32);
+pub const SHOP_FILEPATH: SHOP_TYPE = SHOP_TYPE(2);
+pub const SHOP_PRINTERNAME: SHOP_TYPE = SHOP_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHOP_TYPE(pub i32);
@@ -55049,19 +55049,19 @@ impl core::ops::Not for SHOP_TYPE {
         Self(self.0.not())
     }
 }
-pub const SHOP_VOLUMEGUID: SHOP_TYPE = SHOP_TYPE(4i32);
-pub const SHPPFW_ASKDIRCREATE: u32 = 2u32;
-pub const SHPPFW_DIRCREATE: u32 = 1u32;
-pub const SHPPFW_IGNOREFILENAME: u32 = 4u32;
-pub const SHPPFW_MEDIACHECKONLY: u32 = 16u32;
-pub const SHPPFW_NONE: u32 = 0u32;
-pub const SHPPFW_NOWRITECHECK: u32 = 8u32;
-pub const SHPWHF_ANYLOCATION: u32 = 256u32;
-pub const SHPWHF_NOFILESELECTOR: u32 = 4u32;
-pub const SHPWHF_NONETPLACECREATE: u32 = 2u32;
-pub const SHPWHF_NORECOMPRESS: u32 = 1u32;
-pub const SHPWHF_USEMRU: u32 = 8u32;
-pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
+pub const SHOP_VOLUMEGUID: SHOP_TYPE = SHOP_TYPE(4);
+pub const SHPPFW_ASKDIRCREATE: u32 = 2;
+pub const SHPPFW_DIRCREATE: u32 = 1;
+pub const SHPPFW_IGNOREFILENAME: u32 = 4;
+pub const SHPPFW_MEDIACHECKONLY: u32 = 16;
+pub const SHPPFW_NONE: u32 = 0;
+pub const SHPPFW_NOWRITECHECK: u32 = 8;
+pub const SHPWHF_ANYLOCATION: u32 = 256;
+pub const SHPWHF_NOFILESELECTOR: u32 = 4;
+pub const SHPWHF_NONETPLACECREATE: u32 = 2;
+pub const SHPWHF_NORECOMPRESS: u32 = 1;
+pub const SHPWHF_USEMRU: u32 = 8;
+pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Default)]
@@ -55078,24 +55078,24 @@ pub struct SHQUERYRBINFO {
     pub i64Size: i64,
     pub i64NumItems: i64,
 }
-pub const SHREGDEL_BOTH: SHREGDEL_FLAGS = SHREGDEL_FLAGS(17i32);
-pub const SHREGDEL_DEFAULT: SHREGDEL_FLAGS = SHREGDEL_FLAGS(0i32);
+pub const SHREGDEL_BOTH: SHREGDEL_FLAGS = SHREGDEL_FLAGS(17);
+pub const SHREGDEL_DEFAULT: SHREGDEL_FLAGS = SHREGDEL_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHREGDEL_FLAGS(pub i32);
-pub const SHREGDEL_HKCU: SHREGDEL_FLAGS = SHREGDEL_FLAGS(1i32);
-pub const SHREGDEL_HKLM: SHREGDEL_FLAGS = SHREGDEL_FLAGS(16i32);
-pub const SHREGENUM_BOTH: SHREGENUM_FLAGS = SHREGENUM_FLAGS(17i32);
-pub const SHREGENUM_DEFAULT: SHREGENUM_FLAGS = SHREGENUM_FLAGS(0i32);
+pub const SHREGDEL_HKCU: SHREGDEL_FLAGS = SHREGDEL_FLAGS(1);
+pub const SHREGDEL_HKLM: SHREGDEL_FLAGS = SHREGDEL_FLAGS(16);
+pub const SHREGENUM_BOTH: SHREGENUM_FLAGS = SHREGENUM_FLAGS(17);
+pub const SHREGENUM_DEFAULT: SHREGENUM_FLAGS = SHREGENUM_FLAGS(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHREGENUM_FLAGS(pub i32);
-pub const SHREGENUM_HKCU: SHREGENUM_FLAGS = SHREGENUM_FLAGS(1i32);
-pub const SHREGENUM_HKLM: SHREGENUM_FLAGS = SHREGENUM_FLAGS(16i32);
-pub const SHREGSET_FORCE_HKCU: u32 = 2u32;
-pub const SHREGSET_FORCE_HKLM: u32 = 8u32;
-pub const SHREGSET_HKCU: u32 = 1u32;
-pub const SHREGSET_HKLM: u32 = 4u32;
+pub const SHREGENUM_HKCU: SHREGENUM_FLAGS = SHREGENUM_FLAGS(1);
+pub const SHREGENUM_HKLM: SHREGENUM_FLAGS = SHREGENUM_FLAGS(16);
+pub const SHREGSET_FORCE_HKCU: u32 = 2;
+pub const SHREGSET_FORCE_HKLM: u32 = 8;
+pub const SHREGSET_HKCU: u32 = 1;
+pub const SHREGSET_HKLM: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHSTOCKICONID(pub i32);
@@ -55171,15 +55171,15 @@ impl core::ops::Not for SIATTRIBFLAGS {
         Self(self.0.not())
     }
 }
-pub const SIATTRIBFLAGS_ALLITEMS: SIATTRIBFLAGS = SIATTRIBFLAGS(16384i32);
-pub const SIATTRIBFLAGS_AND: SIATTRIBFLAGS = SIATTRIBFLAGS(1i32);
-pub const SIATTRIBFLAGS_APPCOMPAT: SIATTRIBFLAGS = SIATTRIBFLAGS(3i32);
-pub const SIATTRIBFLAGS_MASK: SIATTRIBFLAGS = SIATTRIBFLAGS(3i32);
-pub const SIATTRIBFLAGS_OR: SIATTRIBFLAGS = SIATTRIBFLAGS(2i32);
-pub const SICHINT_ALLFIELDS: _SICHINTF = _SICHINTF(-2147483648i32);
-pub const SICHINT_CANONICAL: _SICHINTF = _SICHINTF(268435456i32);
-pub const SICHINT_DISPLAY: _SICHINTF = _SICHINTF(0i32);
-pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: _SICHINTF = _SICHINTF(536870912i32);
+pub const SIATTRIBFLAGS_ALLITEMS: SIATTRIBFLAGS = SIATTRIBFLAGS(16384);
+pub const SIATTRIBFLAGS_AND: SIATTRIBFLAGS = SIATTRIBFLAGS(1);
+pub const SIATTRIBFLAGS_APPCOMPAT: SIATTRIBFLAGS = SIATTRIBFLAGS(3);
+pub const SIATTRIBFLAGS_MASK: SIATTRIBFLAGS = SIATTRIBFLAGS(3);
+pub const SIATTRIBFLAGS_OR: SIATTRIBFLAGS = SIATTRIBFLAGS(2);
+pub const SICHINT_ALLFIELDS: _SICHINTF = _SICHINTF(-2147483648);
+pub const SICHINT_CANONICAL: _SICHINTF = _SICHINTF(268435456);
+pub const SICHINT_DISPLAY: _SICHINTF = _SICHINTF(0);
+pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: _SICHINTF = _SICHINTF(536870912);
 pub const SID_CommandsPropertyBag: windows_core::GUID = windows_core::GUID::from_u128(0x6e043250_4416_485c_b143_e62a760d9fe5);
 pub const SID_CtxQueryAssociations: windows_core::GUID = windows_core::GUID::from_u128(0xfaadfc40_b777_4b69_aa81_77035ef0e6e8);
 pub const SID_DefView: windows_core::GUID = windows_core::GUID::from_u128(0x6d12fe80_7911_11cf_9534_0000c05bae0b);
@@ -55207,110 +55207,110 @@ pub const SID_URLExecutionContext: windows_core::GUID = windows_core::GUID::from
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIGDN(pub i32);
-pub const SIGDN_DESKTOPABSOLUTEEDITING: SIGDN = SIGDN(-2147172352i32);
-pub const SIGDN_DESKTOPABSOLUTEPARSING: SIGDN = SIGDN(-2147319808i32);
-pub const SIGDN_FILESYSPATH: SIGDN = SIGDN(-2147123200i32);
-pub const SIGDN_NORMALDISPLAY: SIGDN = SIGDN(0i32);
-pub const SIGDN_PARENTRELATIVE: SIGDN = SIGDN(-2146959359i32);
-pub const SIGDN_PARENTRELATIVEEDITING: SIGDN = SIGDN(-2147282943i32);
-pub const SIGDN_PARENTRELATIVEFORADDRESSBAR: SIGDN = SIGDN(-2146975743i32);
-pub const SIGDN_PARENTRELATIVEFORUI: SIGDN = SIGDN(-2146877439i32);
-pub const SIGDN_PARENTRELATIVEPARSING: SIGDN = SIGDN(-2147385343i32);
-pub const SIGDN_URL: SIGDN = SIGDN(-2147057664i32);
-pub const SIID_APPLICATION: SHSTOCKICONID = SHSTOCKICONID(2i32);
-pub const SIID_AUDIOFILES: SHSTOCKICONID = SHSTOCKICONID(71i32);
-pub const SIID_AUTOLIST: SHSTOCKICONID = SHSTOCKICONID(49i32);
-pub const SIID_CLUSTEREDDRIVE: SHSTOCKICONID = SHSTOCKICONID(140i32);
-pub const SIID_DELETE: SHSTOCKICONID = SHSTOCKICONID(84i32);
-pub const SIID_DESKTOPPC: SHSTOCKICONID = SHSTOCKICONID(94i32);
-pub const SIID_DEVICEAUDIOPLAYER: SHSTOCKICONID = SHSTOCKICONID(102i32);
-pub const SIID_DEVICECAMERA: SHSTOCKICONID = SHSTOCKICONID(100i32);
-pub const SIID_DEVICECELLPHONE: SHSTOCKICONID = SHSTOCKICONID(99i32);
-pub const SIID_DEVICEVIDEOCAMERA: SHSTOCKICONID = SHSTOCKICONID(101i32);
-pub const SIID_DOCASSOC: SHSTOCKICONID = SHSTOCKICONID(1i32);
-pub const SIID_DOCNOASSOC: SHSTOCKICONID = SHSTOCKICONID(0i32);
-pub const SIID_DRIVE35: SHSTOCKICONID = SHSTOCKICONID(6i32);
-pub const SIID_DRIVE525: SHSTOCKICONID = SHSTOCKICONID(5i32);
-pub const SIID_DRIVEBD: SHSTOCKICONID = SHSTOCKICONID(133i32);
-pub const SIID_DRIVECD: SHSTOCKICONID = SHSTOCKICONID(11i32);
-pub const SIID_DRIVEDVD: SHSTOCKICONID = SHSTOCKICONID(59i32);
-pub const SIID_DRIVEFIXED: SHSTOCKICONID = SHSTOCKICONID(8i32);
-pub const SIID_DRIVEHDDVD: SHSTOCKICONID = SHSTOCKICONID(132i32);
-pub const SIID_DRIVENET: SHSTOCKICONID = SHSTOCKICONID(9i32);
-pub const SIID_DRIVENETDISABLED: SHSTOCKICONID = SHSTOCKICONID(10i32);
-pub const SIID_DRIVERAM: SHSTOCKICONID = SHSTOCKICONID(12i32);
-pub const SIID_DRIVEREMOVE: SHSTOCKICONID = SHSTOCKICONID(7i32);
-pub const SIID_DRIVEUNKNOWN: SHSTOCKICONID = SHSTOCKICONID(58i32);
-pub const SIID_ERROR: SHSTOCKICONID = SHSTOCKICONID(80i32);
-pub const SIID_FIND: SHSTOCKICONID = SHSTOCKICONID(22i32);
-pub const SIID_FOLDER: SHSTOCKICONID = SHSTOCKICONID(3i32);
-pub const SIID_FOLDERBACK: SHSTOCKICONID = SHSTOCKICONID(75i32);
-pub const SIID_FOLDERFRONT: SHSTOCKICONID = SHSTOCKICONID(76i32);
-pub const SIID_FOLDEROPEN: SHSTOCKICONID = SHSTOCKICONID(4i32);
-pub const SIID_HELP: SHSTOCKICONID = SHSTOCKICONID(23i32);
-pub const SIID_IMAGEFILES: SHSTOCKICONID = SHSTOCKICONID(72i32);
-pub const SIID_INFO: SHSTOCKICONID = SHSTOCKICONID(79i32);
-pub const SIID_INTERNET: SHSTOCKICONID = SHSTOCKICONID(104i32);
-pub const SIID_KEY: SHSTOCKICONID = SHSTOCKICONID(81i32);
-pub const SIID_LINK: SHSTOCKICONID = SHSTOCKICONID(29i32);
-pub const SIID_LOCK: SHSTOCKICONID = SHSTOCKICONID(47i32);
-pub const SIID_MAX_ICONS: SHSTOCKICONID = SHSTOCKICONID(181i32);
-pub const SIID_MEDIAAUDIODVD: SHSTOCKICONID = SHSTOCKICONID(85i32);
-pub const SIID_MEDIABDR: SHSTOCKICONID = SHSTOCKICONID(138i32);
-pub const SIID_MEDIABDRE: SHSTOCKICONID = SHSTOCKICONID(139i32);
-pub const SIID_MEDIABDROM: SHSTOCKICONID = SHSTOCKICONID(137i32);
-pub const SIID_MEDIABLANKCD: SHSTOCKICONID = SHSTOCKICONID(69i32);
-pub const SIID_MEDIABLURAY: SHSTOCKICONID = SHSTOCKICONID(90i32);
-pub const SIID_MEDIACDAUDIO: SHSTOCKICONID = SHSTOCKICONID(40i32);
-pub const SIID_MEDIACDAUDIOPLUS: SHSTOCKICONID = SHSTOCKICONID(65i32);
-pub const SIID_MEDIACDBURN: SHSTOCKICONID = SHSTOCKICONID(68i32);
-pub const SIID_MEDIACDR: SHSTOCKICONID = SHSTOCKICONID(67i32);
-pub const SIID_MEDIACDROM: SHSTOCKICONID = SHSTOCKICONID(70i32);
-pub const SIID_MEDIACDRW: SHSTOCKICONID = SHSTOCKICONID(66i32);
-pub const SIID_MEDIACOMPACTFLASH: SHSTOCKICONID = SHSTOCKICONID(98i32);
-pub const SIID_MEDIADVD: SHSTOCKICONID = SHSTOCKICONID(60i32);
-pub const SIID_MEDIADVDPLUSR: SHSTOCKICONID = SHSTOCKICONID(92i32);
-pub const SIID_MEDIADVDPLUSRW: SHSTOCKICONID = SHSTOCKICONID(93i32);
-pub const SIID_MEDIADVDR: SHSTOCKICONID = SHSTOCKICONID(63i32);
-pub const SIID_MEDIADVDRAM: SHSTOCKICONID = SHSTOCKICONID(61i32);
-pub const SIID_MEDIADVDROM: SHSTOCKICONID = SHSTOCKICONID(64i32);
-pub const SIID_MEDIADVDRW: SHSTOCKICONID = SHSTOCKICONID(62i32);
-pub const SIID_MEDIAENHANCEDCD: SHSTOCKICONID = SHSTOCKICONID(87i32);
-pub const SIID_MEDIAENHANCEDDVD: SHSTOCKICONID = SHSTOCKICONID(88i32);
-pub const SIID_MEDIAHDDVD: SHSTOCKICONID = SHSTOCKICONID(89i32);
-pub const SIID_MEDIAHDDVDR: SHSTOCKICONID = SHSTOCKICONID(135i32);
-pub const SIID_MEDIAHDDVDRAM: SHSTOCKICONID = SHSTOCKICONID(136i32);
-pub const SIID_MEDIAHDDVDROM: SHSTOCKICONID = SHSTOCKICONID(134i32);
-pub const SIID_MEDIAMOVIEDVD: SHSTOCKICONID = SHSTOCKICONID(86i32);
-pub const SIID_MEDIASMARTMEDIA: SHSTOCKICONID = SHSTOCKICONID(97i32);
-pub const SIID_MEDIASVCD: SHSTOCKICONID = SHSTOCKICONID(56i32);
-pub const SIID_MEDIAVCD: SHSTOCKICONID = SHSTOCKICONID(91i32);
-pub const SIID_MIXEDFILES: SHSTOCKICONID = SHSTOCKICONID(74i32);
-pub const SIID_MOBILEPC: SHSTOCKICONID = SHSTOCKICONID(95i32);
-pub const SIID_MYNETWORK: SHSTOCKICONID = SHSTOCKICONID(17i32);
-pub const SIID_NETWORKCONNECT: SHSTOCKICONID = SHSTOCKICONID(103i32);
-pub const SIID_PRINTER: SHSTOCKICONID = SHSTOCKICONID(16i32);
-pub const SIID_PRINTERFAX: SHSTOCKICONID = SHSTOCKICONID(52i32);
-pub const SIID_PRINTERFAXNET: SHSTOCKICONID = SHSTOCKICONID(53i32);
-pub const SIID_PRINTERFILE: SHSTOCKICONID = SHSTOCKICONID(54i32);
-pub const SIID_PRINTERNET: SHSTOCKICONID = SHSTOCKICONID(50i32);
-pub const SIID_RECYCLER: SHSTOCKICONID = SHSTOCKICONID(31i32);
-pub const SIID_RECYCLERFULL: SHSTOCKICONID = SHSTOCKICONID(32i32);
-pub const SIID_RENAME: SHSTOCKICONID = SHSTOCKICONID(83i32);
-pub const SIID_SERVER: SHSTOCKICONID = SHSTOCKICONID(15i32);
-pub const SIID_SERVERSHARE: SHSTOCKICONID = SHSTOCKICONID(51i32);
-pub const SIID_SETTINGS: SHSTOCKICONID = SHSTOCKICONID(106i32);
-pub const SIID_SHARE: SHSTOCKICONID = SHSTOCKICONID(28i32);
-pub const SIID_SHIELD: SHSTOCKICONID = SHSTOCKICONID(77i32);
-pub const SIID_SLOWFILE: SHSTOCKICONID = SHSTOCKICONID(30i32);
-pub const SIID_SOFTWARE: SHSTOCKICONID = SHSTOCKICONID(82i32);
-pub const SIID_STACK: SHSTOCKICONID = SHSTOCKICONID(55i32);
-pub const SIID_STUFFEDFOLDER: SHSTOCKICONID = SHSTOCKICONID(57i32);
-pub const SIID_USERS: SHSTOCKICONID = SHSTOCKICONID(96i32);
-pub const SIID_VIDEOFILES: SHSTOCKICONID = SHSTOCKICONID(73i32);
-pub const SIID_WARNING: SHSTOCKICONID = SHSTOCKICONID(78i32);
-pub const SIID_WORLD: SHSTOCKICONID = SHSTOCKICONID(13i32);
-pub const SIID_ZIPFILE: SHSTOCKICONID = SHSTOCKICONID(105i32);
+pub const SIGDN_DESKTOPABSOLUTEEDITING: SIGDN = SIGDN(-2147172352);
+pub const SIGDN_DESKTOPABSOLUTEPARSING: SIGDN = SIGDN(-2147319808);
+pub const SIGDN_FILESYSPATH: SIGDN = SIGDN(-2147123200);
+pub const SIGDN_NORMALDISPLAY: SIGDN = SIGDN(0);
+pub const SIGDN_PARENTRELATIVE: SIGDN = SIGDN(-2146959359);
+pub const SIGDN_PARENTRELATIVEEDITING: SIGDN = SIGDN(-2147282943);
+pub const SIGDN_PARENTRELATIVEFORADDRESSBAR: SIGDN = SIGDN(-2146975743);
+pub const SIGDN_PARENTRELATIVEFORUI: SIGDN = SIGDN(-2146877439);
+pub const SIGDN_PARENTRELATIVEPARSING: SIGDN = SIGDN(-2147385343);
+pub const SIGDN_URL: SIGDN = SIGDN(-2147057664);
+pub const SIID_APPLICATION: SHSTOCKICONID = SHSTOCKICONID(2);
+pub const SIID_AUDIOFILES: SHSTOCKICONID = SHSTOCKICONID(71);
+pub const SIID_AUTOLIST: SHSTOCKICONID = SHSTOCKICONID(49);
+pub const SIID_CLUSTEREDDRIVE: SHSTOCKICONID = SHSTOCKICONID(140);
+pub const SIID_DELETE: SHSTOCKICONID = SHSTOCKICONID(84);
+pub const SIID_DESKTOPPC: SHSTOCKICONID = SHSTOCKICONID(94);
+pub const SIID_DEVICEAUDIOPLAYER: SHSTOCKICONID = SHSTOCKICONID(102);
+pub const SIID_DEVICECAMERA: SHSTOCKICONID = SHSTOCKICONID(100);
+pub const SIID_DEVICECELLPHONE: SHSTOCKICONID = SHSTOCKICONID(99);
+pub const SIID_DEVICEVIDEOCAMERA: SHSTOCKICONID = SHSTOCKICONID(101);
+pub const SIID_DOCASSOC: SHSTOCKICONID = SHSTOCKICONID(1);
+pub const SIID_DOCNOASSOC: SHSTOCKICONID = SHSTOCKICONID(0);
+pub const SIID_DRIVE35: SHSTOCKICONID = SHSTOCKICONID(6);
+pub const SIID_DRIVE525: SHSTOCKICONID = SHSTOCKICONID(5);
+pub const SIID_DRIVEBD: SHSTOCKICONID = SHSTOCKICONID(133);
+pub const SIID_DRIVECD: SHSTOCKICONID = SHSTOCKICONID(11);
+pub const SIID_DRIVEDVD: SHSTOCKICONID = SHSTOCKICONID(59);
+pub const SIID_DRIVEFIXED: SHSTOCKICONID = SHSTOCKICONID(8);
+pub const SIID_DRIVEHDDVD: SHSTOCKICONID = SHSTOCKICONID(132);
+pub const SIID_DRIVENET: SHSTOCKICONID = SHSTOCKICONID(9);
+pub const SIID_DRIVENETDISABLED: SHSTOCKICONID = SHSTOCKICONID(10);
+pub const SIID_DRIVERAM: SHSTOCKICONID = SHSTOCKICONID(12);
+pub const SIID_DRIVEREMOVE: SHSTOCKICONID = SHSTOCKICONID(7);
+pub const SIID_DRIVEUNKNOWN: SHSTOCKICONID = SHSTOCKICONID(58);
+pub const SIID_ERROR: SHSTOCKICONID = SHSTOCKICONID(80);
+pub const SIID_FIND: SHSTOCKICONID = SHSTOCKICONID(22);
+pub const SIID_FOLDER: SHSTOCKICONID = SHSTOCKICONID(3);
+pub const SIID_FOLDERBACK: SHSTOCKICONID = SHSTOCKICONID(75);
+pub const SIID_FOLDERFRONT: SHSTOCKICONID = SHSTOCKICONID(76);
+pub const SIID_FOLDEROPEN: SHSTOCKICONID = SHSTOCKICONID(4);
+pub const SIID_HELP: SHSTOCKICONID = SHSTOCKICONID(23);
+pub const SIID_IMAGEFILES: SHSTOCKICONID = SHSTOCKICONID(72);
+pub const SIID_INFO: SHSTOCKICONID = SHSTOCKICONID(79);
+pub const SIID_INTERNET: SHSTOCKICONID = SHSTOCKICONID(104);
+pub const SIID_KEY: SHSTOCKICONID = SHSTOCKICONID(81);
+pub const SIID_LINK: SHSTOCKICONID = SHSTOCKICONID(29);
+pub const SIID_LOCK: SHSTOCKICONID = SHSTOCKICONID(47);
+pub const SIID_MAX_ICONS: SHSTOCKICONID = SHSTOCKICONID(181);
+pub const SIID_MEDIAAUDIODVD: SHSTOCKICONID = SHSTOCKICONID(85);
+pub const SIID_MEDIABDR: SHSTOCKICONID = SHSTOCKICONID(138);
+pub const SIID_MEDIABDRE: SHSTOCKICONID = SHSTOCKICONID(139);
+pub const SIID_MEDIABDROM: SHSTOCKICONID = SHSTOCKICONID(137);
+pub const SIID_MEDIABLANKCD: SHSTOCKICONID = SHSTOCKICONID(69);
+pub const SIID_MEDIABLURAY: SHSTOCKICONID = SHSTOCKICONID(90);
+pub const SIID_MEDIACDAUDIO: SHSTOCKICONID = SHSTOCKICONID(40);
+pub const SIID_MEDIACDAUDIOPLUS: SHSTOCKICONID = SHSTOCKICONID(65);
+pub const SIID_MEDIACDBURN: SHSTOCKICONID = SHSTOCKICONID(68);
+pub const SIID_MEDIACDR: SHSTOCKICONID = SHSTOCKICONID(67);
+pub const SIID_MEDIACDROM: SHSTOCKICONID = SHSTOCKICONID(70);
+pub const SIID_MEDIACDRW: SHSTOCKICONID = SHSTOCKICONID(66);
+pub const SIID_MEDIACOMPACTFLASH: SHSTOCKICONID = SHSTOCKICONID(98);
+pub const SIID_MEDIADVD: SHSTOCKICONID = SHSTOCKICONID(60);
+pub const SIID_MEDIADVDPLUSR: SHSTOCKICONID = SHSTOCKICONID(92);
+pub const SIID_MEDIADVDPLUSRW: SHSTOCKICONID = SHSTOCKICONID(93);
+pub const SIID_MEDIADVDR: SHSTOCKICONID = SHSTOCKICONID(63);
+pub const SIID_MEDIADVDRAM: SHSTOCKICONID = SHSTOCKICONID(61);
+pub const SIID_MEDIADVDROM: SHSTOCKICONID = SHSTOCKICONID(64);
+pub const SIID_MEDIADVDRW: SHSTOCKICONID = SHSTOCKICONID(62);
+pub const SIID_MEDIAENHANCEDCD: SHSTOCKICONID = SHSTOCKICONID(87);
+pub const SIID_MEDIAENHANCEDDVD: SHSTOCKICONID = SHSTOCKICONID(88);
+pub const SIID_MEDIAHDDVD: SHSTOCKICONID = SHSTOCKICONID(89);
+pub const SIID_MEDIAHDDVDR: SHSTOCKICONID = SHSTOCKICONID(135);
+pub const SIID_MEDIAHDDVDRAM: SHSTOCKICONID = SHSTOCKICONID(136);
+pub const SIID_MEDIAHDDVDROM: SHSTOCKICONID = SHSTOCKICONID(134);
+pub const SIID_MEDIAMOVIEDVD: SHSTOCKICONID = SHSTOCKICONID(86);
+pub const SIID_MEDIASMARTMEDIA: SHSTOCKICONID = SHSTOCKICONID(97);
+pub const SIID_MEDIASVCD: SHSTOCKICONID = SHSTOCKICONID(56);
+pub const SIID_MEDIAVCD: SHSTOCKICONID = SHSTOCKICONID(91);
+pub const SIID_MIXEDFILES: SHSTOCKICONID = SHSTOCKICONID(74);
+pub const SIID_MOBILEPC: SHSTOCKICONID = SHSTOCKICONID(95);
+pub const SIID_MYNETWORK: SHSTOCKICONID = SHSTOCKICONID(17);
+pub const SIID_NETWORKCONNECT: SHSTOCKICONID = SHSTOCKICONID(103);
+pub const SIID_PRINTER: SHSTOCKICONID = SHSTOCKICONID(16);
+pub const SIID_PRINTERFAX: SHSTOCKICONID = SHSTOCKICONID(52);
+pub const SIID_PRINTERFAXNET: SHSTOCKICONID = SHSTOCKICONID(53);
+pub const SIID_PRINTERFILE: SHSTOCKICONID = SHSTOCKICONID(54);
+pub const SIID_PRINTERNET: SHSTOCKICONID = SHSTOCKICONID(50);
+pub const SIID_RECYCLER: SHSTOCKICONID = SHSTOCKICONID(31);
+pub const SIID_RECYCLERFULL: SHSTOCKICONID = SHSTOCKICONID(32);
+pub const SIID_RENAME: SHSTOCKICONID = SHSTOCKICONID(83);
+pub const SIID_SERVER: SHSTOCKICONID = SHSTOCKICONID(15);
+pub const SIID_SERVERSHARE: SHSTOCKICONID = SHSTOCKICONID(51);
+pub const SIID_SETTINGS: SHSTOCKICONID = SHSTOCKICONID(106);
+pub const SIID_SHARE: SHSTOCKICONID = SHSTOCKICONID(28);
+pub const SIID_SHIELD: SHSTOCKICONID = SHSTOCKICONID(77);
+pub const SIID_SLOWFILE: SHSTOCKICONID = SHSTOCKICONID(30);
+pub const SIID_SOFTWARE: SHSTOCKICONID = SHSTOCKICONID(82);
+pub const SIID_STACK: SHSTOCKICONID = SHSTOCKICONID(55);
+pub const SIID_STUFFEDFOLDER: SHSTOCKICONID = SHSTOCKICONID(57);
+pub const SIID_USERS: SHSTOCKICONID = SHSTOCKICONID(96);
+pub const SIID_VIDEOFILES: SHSTOCKICONID = SHSTOCKICONID(73);
+pub const SIID_WARNING: SHSTOCKICONID = SHSTOCKICONID(78);
+pub const SIID_WORLD: SHSTOCKICONID = SHSTOCKICONID(13);
+pub const SIID_ZIPFILE: SHSTOCKICONID = SHSTOCKICONID(105);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIIGBF(pub i32);
@@ -55347,52 +55347,52 @@ impl core::ops::Not for SIIGBF {
         Self(self.0.not())
     }
 }
-pub const SIIGBF_BIGGERSIZEOK: SIIGBF = SIIGBF(1i32);
-pub const SIIGBF_CROPTOSQUARE: SIIGBF = SIIGBF(32i32);
-pub const SIIGBF_ICONBACKGROUND: SIIGBF = SIIGBF(128i32);
-pub const SIIGBF_ICONONLY: SIIGBF = SIIGBF(4i32);
-pub const SIIGBF_INCACHEONLY: SIIGBF = SIIGBF(16i32);
-pub const SIIGBF_MEMORYONLY: SIIGBF = SIIGBF(2i32);
-pub const SIIGBF_RESIZETOFIT: SIIGBF = SIIGBF(0i32);
-pub const SIIGBF_SCALEUP: SIIGBF = SIIGBF(256i32);
-pub const SIIGBF_THUMBNAILONLY: SIIGBF = SIIGBF(8i32);
-pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = SIIGBF(64i32);
-pub const SIOM_ICONINDEX: u32 = 2u32;
-pub const SIOM_OVERLAYINDEX: u32 = 1u32;
-pub const SIOM_RESERVED_DEFAULT: u32 = 3u32;
-pub const SIOM_RESERVED_LINK: u32 = 1u32;
-pub const SIOM_RESERVED_SHARED: u32 = 0u32;
-pub const SIOM_RESERVED_SLOWFILE: u32 = 2u32;
-pub const SLDF_ALLOW_LINK_TO_LINK: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8388608i32);
-pub const SLDF_DEFAULT: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(0i32);
-pub const SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(2097152i32);
-pub const SLDF_DISABLE_LINK_PATH_TRACKING: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1048576i32);
-pub const SLDF_ENABLE_TARGET_METADATA: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(524288i32);
-pub const SLDF_FORCE_NO_LINKINFO: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(256i32);
-pub const SLDF_FORCE_NO_LINKTRACK: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(262144i32);
-pub const SLDF_FORCE_UNCNAME: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(65536i32);
-pub const SLDF_HAS_ARGS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(32i32);
-pub const SLDF_HAS_DARWINID: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4096i32);
-pub const SLDF_HAS_EXP_ICON_SZ: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16384i32);
-pub const SLDF_HAS_EXP_SZ: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(512i32);
-pub const SLDF_HAS_ICONLOCATION: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(64i32);
-pub const SLDF_HAS_ID_LIST: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1i32);
-pub const SLDF_HAS_LINK_INFO: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(2i32);
-pub const SLDF_HAS_NAME: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4i32);
-pub const SLDF_HAS_RELPATH: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8i32);
-pub const SLDF_HAS_WORKINGDIR: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16i32);
-pub const SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(67108864i32);
-pub const SLDF_NO_KF_ALIAS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4194304i32);
-pub const SLDF_NO_PIDL_ALIAS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(32768i32);
-pub const SLDF_PERSIST_VOLUME_ID_RELATIVE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(134217728i32);
-pub const SLDF_PREFER_ENVIRONMENT_PATH: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(33554432i32);
-pub const SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(-2147483648i32);
-pub const SLDF_RUNAS_USER: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8192i32);
-pub const SLDF_RUN_IN_SEPARATE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1024i32);
-pub const SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(131072i32);
-pub const SLDF_UNALIAS_ON_SAVE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16777216i32);
-pub const SLDF_UNICODE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(128i32);
-pub const SLDF_VALID: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(268433407i32);
+pub const SIIGBF_BIGGERSIZEOK: SIIGBF = SIIGBF(1);
+pub const SIIGBF_CROPTOSQUARE: SIIGBF = SIIGBF(32);
+pub const SIIGBF_ICONBACKGROUND: SIIGBF = SIIGBF(128);
+pub const SIIGBF_ICONONLY: SIIGBF = SIIGBF(4);
+pub const SIIGBF_INCACHEONLY: SIIGBF = SIIGBF(16);
+pub const SIIGBF_MEMORYONLY: SIIGBF = SIIGBF(2);
+pub const SIIGBF_RESIZETOFIT: SIIGBF = SIIGBF(0);
+pub const SIIGBF_SCALEUP: SIIGBF = SIIGBF(256);
+pub const SIIGBF_THUMBNAILONLY: SIIGBF = SIIGBF(8);
+pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = SIIGBF(64);
+pub const SIOM_ICONINDEX: u32 = 2;
+pub const SIOM_OVERLAYINDEX: u32 = 1;
+pub const SIOM_RESERVED_DEFAULT: u32 = 3;
+pub const SIOM_RESERVED_LINK: u32 = 1;
+pub const SIOM_RESERVED_SHARED: u32 = 0;
+pub const SIOM_RESERVED_SLOWFILE: u32 = 2;
+pub const SLDF_ALLOW_LINK_TO_LINK: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8388608);
+pub const SLDF_DEFAULT: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(0);
+pub const SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(2097152);
+pub const SLDF_DISABLE_LINK_PATH_TRACKING: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1048576);
+pub const SLDF_ENABLE_TARGET_METADATA: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(524288);
+pub const SLDF_FORCE_NO_LINKINFO: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(256);
+pub const SLDF_FORCE_NO_LINKTRACK: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(262144);
+pub const SLDF_FORCE_UNCNAME: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(65536);
+pub const SLDF_HAS_ARGS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(32);
+pub const SLDF_HAS_DARWINID: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4096);
+pub const SLDF_HAS_EXP_ICON_SZ: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16384);
+pub const SLDF_HAS_EXP_SZ: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(512);
+pub const SLDF_HAS_ICONLOCATION: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(64);
+pub const SLDF_HAS_ID_LIST: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1);
+pub const SLDF_HAS_LINK_INFO: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(2);
+pub const SLDF_HAS_NAME: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4);
+pub const SLDF_HAS_RELPATH: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8);
+pub const SLDF_HAS_WORKINGDIR: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16);
+pub const SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(67108864);
+pub const SLDF_NO_KF_ALIAS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(4194304);
+pub const SLDF_NO_PIDL_ALIAS: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(32768);
+pub const SLDF_PERSIST_VOLUME_ID_RELATIVE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(134217728);
+pub const SLDF_PREFER_ENVIRONMENT_PATH: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(33554432);
+pub const SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(-2147483648);
+pub const SLDF_RUNAS_USER: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(8192);
+pub const SLDF_RUN_IN_SEPARATE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(1024);
+pub const SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(131072);
+pub const SLDF_UNALIAS_ON_SAVE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(16777216);
+pub const SLDF_UNICODE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(128);
+pub const SLDF_VALID: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(268433407);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLGP_FLAGS(pub i32);
@@ -55429,10 +55429,10 @@ impl core::ops::Not for SLGP_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SLGP_RAWPATH: SLGP_FLAGS = SLGP_FLAGS(4i32);
-pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = SLGP_FLAGS(8i32);
-pub const SLGP_SHORTPATH: SLGP_FLAGS = SLGP_FLAGS(1i32);
-pub const SLGP_UNCPRIORITY: SLGP_FLAGS = SLGP_FLAGS(2i32);
+pub const SLGP_RAWPATH: SLGP_FLAGS = SLGP_FLAGS(4);
+pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = SLGP_FLAGS(8);
+pub const SLGP_SHORTPATH: SLGP_FLAGS = SLGP_FLAGS(1);
+pub const SLGP_UNCPRIORITY: SLGP_FLAGS = SLGP_FLAGS(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLOWAPPINFO {
@@ -55441,7 +55441,7 @@ pub struct SLOWAPPINFO {
     pub iTimesUsed: i32,
     pub pszImage: windows_core::PWSTR,
 }
-pub const SLR_ANY_MATCH: SLR_FLAGS = SLR_FLAGS(2i32);
+pub const SLR_ANY_MATCH: SLR_FLAGS = SLR_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLR_FLAGS(pub i32);
@@ -55478,24 +55478,24 @@ impl core::ops::Not for SLR_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SLR_INVOKE_MSI: SLR_FLAGS = SLR_FLAGS(128i32);
-pub const SLR_KNOWNFOLDER: SLR_FLAGS = SLR_FLAGS(1024i32);
-pub const SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = SLR_FLAGS(2048i32);
-pub const SLR_NOLINKINFO: SLR_FLAGS = SLR_FLAGS(64i32);
-pub const SLR_NONE: SLR_FLAGS = SLR_FLAGS(0i32);
-pub const SLR_NOSEARCH: SLR_FLAGS = SLR_FLAGS(16i32);
-pub const SLR_NOTRACK: SLR_FLAGS = SLR_FLAGS(32i32);
-pub const SLR_NOUPDATE: SLR_FLAGS = SLR_FLAGS(8i32);
-pub const SLR_NO_OBJECT_ID: SLR_FLAGS = SLR_FLAGS(8192i32);
-pub const SLR_NO_UI: SLR_FLAGS = SLR_FLAGS(1i32);
-pub const SLR_NO_UI_WITH_MSG_PUMP: SLR_FLAGS = SLR_FLAGS(257i32);
-pub const SLR_OFFER_DELETE_WITHOUT_FILE: SLR_FLAGS = SLR_FLAGS(512i32);
-pub const SLR_UPDATE: SLR_FLAGS = SLR_FLAGS(4i32);
-pub const SLR_UPDATE_MACHINE_AND_SID: SLR_FLAGS = SLR_FLAGS(4096i32);
-pub const SMAE_CONTRACTED: u32 = 2u32;
-pub const SMAE_EXPANDED: u32 = 1u32;
-pub const SMAE_USER: u32 = 4u32;
-pub const SMAE_VALID: u32 = 7u32;
+pub const SLR_INVOKE_MSI: SLR_FLAGS = SLR_FLAGS(128);
+pub const SLR_KNOWNFOLDER: SLR_FLAGS = SLR_FLAGS(1024);
+pub const SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = SLR_FLAGS(2048);
+pub const SLR_NOLINKINFO: SLR_FLAGS = SLR_FLAGS(64);
+pub const SLR_NONE: SLR_FLAGS = SLR_FLAGS(0);
+pub const SLR_NOSEARCH: SLR_FLAGS = SLR_FLAGS(16);
+pub const SLR_NOTRACK: SLR_FLAGS = SLR_FLAGS(32);
+pub const SLR_NOUPDATE: SLR_FLAGS = SLR_FLAGS(8);
+pub const SLR_NO_OBJECT_ID: SLR_FLAGS = SLR_FLAGS(8192);
+pub const SLR_NO_UI: SLR_FLAGS = SLR_FLAGS(1);
+pub const SLR_NO_UI_WITH_MSG_PUMP: SLR_FLAGS = SLR_FLAGS(257);
+pub const SLR_OFFER_DELETE_WITHOUT_FILE: SLR_FLAGS = SLR_FLAGS(512);
+pub const SLR_UPDATE: SLR_FLAGS = SLR_FLAGS(4);
+pub const SLR_UPDATE_MACHINE_AND_SID: SLR_FLAGS = SLR_FLAGS(4096);
+pub const SMAE_CONTRACTED: u32 = 2;
+pub const SMAE_EXPANDED: u32 = 1;
+pub const SMAE_USER: u32 = 4;
+pub const SMAE_VALID: u32 = 7;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -55510,32 +55510,32 @@ impl Default for SMCSHCHANGENOTIFYSTRUCT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SMC_AUTOEXPANDCHANGE: u32 = 66u32;
-pub const SMC_CHEVRONEXPAND: u32 = 25u32;
-pub const SMC_CHEVRONGETTIP: u32 = 47u32;
-pub const SMC_CREATE: u32 = 2u32;
-pub const SMC_DEFAULTICON: u32 = 22u32;
-pub const SMC_DEMOTE: u32 = 17u32;
-pub const SMC_DISPLAYCHEVRONTIP: u32 = 42u32;
-pub const SMC_EXITMENU: u32 = 3u32;
-pub const SMC_GETAUTOEXPANDSTATE: u32 = 65u32;
-pub const SMC_GETBKCONTEXTMENU: u32 = 68u32;
-pub const SMC_GETCONTEXTMENUMODIFIER: u32 = 67u32;
-pub const SMC_GETINFO: u32 = 5u32;
-pub const SMC_GETOBJECT: u32 = 7u32;
-pub const SMC_GETSFINFO: u32 = 6u32;
-pub const SMC_GETSFOBJECT: u32 = 8u32;
-pub const SMC_INITMENU: u32 = 1u32;
-pub const SMC_NEWITEM: u32 = 23u32;
-pub const SMC_OPEN: u32 = 69u32;
-pub const SMC_PROMOTE: u32 = 18u32;
-pub const SMC_REFRESH: u32 = 16u32;
-pub const SMC_SETSFOBJECT: u32 = 45u32;
-pub const SMC_SFDDRESTRICTED: u32 = 48u32;
-pub const SMC_SFEXEC: u32 = 9u32;
-pub const SMC_SFEXEC_MIDDLE: u32 = 49u32;
-pub const SMC_SFSELECTITEM: u32 = 10u32;
-pub const SMC_SHCHANGENOTIFY: u32 = 46u32;
+pub const SMC_AUTOEXPANDCHANGE: u32 = 66;
+pub const SMC_CHEVRONEXPAND: u32 = 25;
+pub const SMC_CHEVRONGETTIP: u32 = 47;
+pub const SMC_CREATE: u32 = 2;
+pub const SMC_DEFAULTICON: u32 = 22;
+pub const SMC_DEMOTE: u32 = 17;
+pub const SMC_DISPLAYCHEVRONTIP: u32 = 42;
+pub const SMC_EXITMENU: u32 = 3;
+pub const SMC_GETAUTOEXPANDSTATE: u32 = 65;
+pub const SMC_GETBKCONTEXTMENU: u32 = 68;
+pub const SMC_GETCONTEXTMENUMODIFIER: u32 = 67;
+pub const SMC_GETINFO: u32 = 5;
+pub const SMC_GETOBJECT: u32 = 7;
+pub const SMC_GETSFINFO: u32 = 6;
+pub const SMC_GETSFOBJECT: u32 = 8;
+pub const SMC_INITMENU: u32 = 1;
+pub const SMC_NEWITEM: u32 = 23;
+pub const SMC_OPEN: u32 = 69;
+pub const SMC_PROMOTE: u32 = 18;
+pub const SMC_REFRESH: u32 = 16;
+pub const SMC_SETSFOBJECT: u32 = 45;
+pub const SMC_SFDDRESTRICTED: u32 = 48;
+pub const SMC_SFEXEC: u32 = 9;
+pub const SMC_SFEXEC_MIDDLE: u32 = 49;
+pub const SMC_SFSELECTITEM: u32 = 10;
+pub const SMC_SHCHANGENOTIFY: u32 = 46;
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -55559,25 +55559,25 @@ impl Default for SMDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SMDM_HMENU: u32 = 2u32;
-pub const SMDM_SHELLFOLDER: u32 = 1u32;
-pub const SMDM_TOOLBAR: u32 = 4u32;
-pub const SMIF_ACCELERATOR: SMINFOFLAGS = SMINFOFLAGS(2i32);
-pub const SMIF_ALTSTATE: SMINFOFLAGS = SMINFOFLAGS(2048i32);
-pub const SMIF_CHECKED: SMINFOFLAGS = SMINFOFLAGS(32i32);
-pub const SMIF_DEMOTED: SMINFOFLAGS = SMINFOFLAGS(1024i32);
-pub const SMIF_DISABLED: SMINFOFLAGS = SMINFOFLAGS(256i32);
-pub const SMIF_DRAGNDROP: SMINFOFLAGS = SMINFOFLAGS(4096i32);
-pub const SMIF_DROPCASCADE: SMINFOFLAGS = SMINFOFLAGS(64i32);
-pub const SMIF_DROPTARGET: SMINFOFLAGS = SMINFOFLAGS(4i32);
-pub const SMIF_HIDDEN: SMINFOFLAGS = SMINFOFLAGS(128i32);
-pub const SMIF_ICON: SMINFOFLAGS = SMINFOFLAGS(1i32);
-pub const SMIF_NEW: SMINFOFLAGS = SMINFOFLAGS(8192i32);
-pub const SMIF_SUBMENU: SMINFOFLAGS = SMINFOFLAGS(8i32);
-pub const SMIF_TRACKPOPUP: SMINFOFLAGS = SMINFOFLAGS(512i32);
-pub const SMIM_FLAGS: SMINFOMASK = SMINFOMASK(2i32);
-pub const SMIM_ICON: SMINFOMASK = SMINFOMASK(4i32);
-pub const SMIM_TYPE: SMINFOMASK = SMINFOMASK(1i32);
+pub const SMDM_HMENU: u32 = 2;
+pub const SMDM_SHELLFOLDER: u32 = 1;
+pub const SMDM_TOOLBAR: u32 = 4;
+pub const SMIF_ACCELERATOR: SMINFOFLAGS = SMINFOFLAGS(2);
+pub const SMIF_ALTSTATE: SMINFOFLAGS = SMINFOFLAGS(2048);
+pub const SMIF_CHECKED: SMINFOFLAGS = SMINFOFLAGS(32);
+pub const SMIF_DEMOTED: SMINFOFLAGS = SMINFOFLAGS(1024);
+pub const SMIF_DISABLED: SMINFOFLAGS = SMINFOFLAGS(256);
+pub const SMIF_DRAGNDROP: SMINFOFLAGS = SMINFOFLAGS(4096);
+pub const SMIF_DROPCASCADE: SMINFOFLAGS = SMINFOFLAGS(64);
+pub const SMIF_DROPTARGET: SMINFOFLAGS = SMINFOFLAGS(4);
+pub const SMIF_HIDDEN: SMINFOFLAGS = SMINFOFLAGS(128);
+pub const SMIF_ICON: SMINFOFLAGS = SMINFOFLAGS(1);
+pub const SMIF_NEW: SMINFOFLAGS = SMINFOFLAGS(8192);
+pub const SMIF_SUBMENU: SMINFOFLAGS = SMINFOFLAGS(8);
+pub const SMIF_TRACKPOPUP: SMINFOFLAGS = SMINFOFLAGS(512);
+pub const SMIM_FLAGS: SMINFOMASK = SMINFOMASK(2);
+pub const SMIM_ICON: SMINFOMASK = SMINFOMASK(4);
+pub const SMIM_TYPE: SMINFOMASK = SMINFOMASK(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SMINFO {
@@ -55595,22 +55595,22 @@ pub struct SMINFOMASK(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMINFOTYPE(pub i32);
-pub const SMINIT_AUTOEXPAND: u32 = 256u32;
-pub const SMINIT_AUTOTOOLTIP: u32 = 512u32;
-pub const SMINIT_CACHED: u32 = 16u32;
-pub const SMINIT_DEFAULT: u32 = 0u32;
-pub const SMINIT_DROPONCONTAINER: u32 = 1024u32;
-pub const SMINIT_HORIZONTAL: u32 = 536870912u32;
-pub const SMINIT_RESTRICT_DRAGDROP: u32 = 2u32;
-pub const SMINIT_TOPLEVEL: u32 = 4u32;
-pub const SMINIT_VERTICAL: u32 = 268435456u32;
-pub const SMINV_ID: u32 = 8u32;
-pub const SMINV_REFRESH: u32 = 1u32;
-pub const SMIT_SEPARATOR: SMINFOTYPE = SMINFOTYPE(1i32);
-pub const SMIT_STRING: SMINFOTYPE = SMINFOTYPE(2i32);
-pub const SMSET_BOTTOM: u32 = 536870912u32;
-pub const SMSET_DONTOWN: u32 = 1u32;
-pub const SMSET_TOP: u32 = 268435456u32;
+pub const SMINIT_AUTOEXPAND: u32 = 256;
+pub const SMINIT_AUTOTOOLTIP: u32 = 512;
+pub const SMINIT_CACHED: u32 = 16;
+pub const SMINIT_DEFAULT: u32 = 0;
+pub const SMINIT_DROPONCONTAINER: u32 = 1024;
+pub const SMINIT_HORIZONTAL: u32 = 536870912;
+pub const SMINIT_RESTRICT_DRAGDROP: u32 = 2;
+pub const SMINIT_TOPLEVEL: u32 = 4;
+pub const SMINIT_VERTICAL: u32 = 268435456;
+pub const SMINV_ID: u32 = 8;
+pub const SMINV_REFRESH: u32 = 1;
+pub const SMIT_SEPARATOR: SMINFOTYPE = SMINFOTYPE(1);
+pub const SMIT_STRING: SMINFOTYPE = SMINFOTYPE(2);
+pub const SMSET_BOTTOM: u32 = 536870912;
+pub const SMSET_DONTOWN: u32 = 1;
+pub const SMSET_TOP: u32 = 268435456;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SORTCOLUMN {
@@ -55620,86 +55620,86 @@ pub struct SORTCOLUMN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SORTDIRECTION(pub i32);
-pub const SORT_ASCENDING: SORTDIRECTION = SORTDIRECTION(1i32);
-pub const SORT_DESCENDING: SORTDIRECTION = SORTDIRECTION(-1i32);
+pub const SORT_ASCENDING: SORTDIRECTION = SORTDIRECTION(1);
+pub const SORT_DESCENDING: SORTDIRECTION = SORTDIRECTION(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SORT_ORDER_TYPE(pub i32);
-pub const SOT_DEFAULT: SORT_ORDER_TYPE = SORT_ORDER_TYPE(0i32);
-pub const SOT_IGNORE_FOLDERNESS: SORT_ORDER_TYPE = SORT_ORDER_TYPE(1i32);
+pub const SOT_DEFAULT: SORT_ORDER_TYPE = SORT_ORDER_TYPE(0);
+pub const SOT_IGNORE_FOLDERNESS: SORT_ORDER_TYPE = SORT_ORDER_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPACTION(pub i32);
-pub const SPACTION_APPLYINGATTRIBS: SPACTION = SPACTION(4i32);
-pub const SPACTION_CALCULATING: SPACTION = SPACTION(7i32);
-pub const SPACTION_COPYING: SPACTION = SPACTION(2i32);
-pub const SPACTION_COPY_MOVING: SPACTION = SPACTION(13i32);
-pub const SPACTION_DELETING: SPACTION = SPACTION(10i32);
-pub const SPACTION_DOWNLOADING: SPACTION = SPACTION(5i32);
-pub const SPACTION_FORMATTING: SPACTION = SPACTION(12i32);
-pub const SPACTION_MOVING: SPACTION = SPACTION(1i32);
-pub const SPACTION_NONE: SPACTION = SPACTION(0i32);
-pub const SPACTION_RECYCLING: SPACTION = SPACTION(3i32);
-pub const SPACTION_RENAMING: SPACTION = SPACTION(11i32);
-pub const SPACTION_SEARCHING_FILES: SPACTION = SPACTION(9i32);
-pub const SPACTION_SEARCHING_INTERNET: SPACTION = SPACTION(6i32);
-pub const SPACTION_UPLOADING: SPACTION = SPACTION(8i32);
-pub const SPBEGINF_AUTOTIME: _SPBEGINF = _SPBEGINF(2i32);
-pub const SPBEGINF_MARQUEEPROGRESS: _SPBEGINF = _SPBEGINF(32i32);
-pub const SPBEGINF_NOCANCELBUTTON: _SPBEGINF = _SPBEGINF(64i32);
-pub const SPBEGINF_NOPROGRESSBAR: _SPBEGINF = _SPBEGINF(16i32);
-pub const SPBEGINF_NORMAL: _SPBEGINF = _SPBEGINF(0i32);
-pub const SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(2i32);
-pub const SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(1i32);
-pub const SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(0i32);
-pub const SPINITF_MODAL: _SPINITF = _SPINITF(1i32);
-pub const SPINITF_NOMINIMIZE: _SPINITF = _SPINITF(8i32);
-pub const SPINITF_NORMAL: _SPINITF = _SPINITF(0i32);
-pub const SPMODE_BROWSER: u32 = 8u32;
-pub const SPMODE_DBMON: u32 = 8192u32;
-pub const SPMODE_DEBUGBREAK: u32 = 512u32;
-pub const SPMODE_DEBUGOUT: u32 = 2u32;
-pub const SPMODE_EVENT: u32 = 32u32;
-pub const SPMODE_EVENTTRACE: u32 = 32768u32;
-pub const SPMODE_FLUSH: u32 = 16u32;
-pub const SPMODE_FORMATTEXT: u32 = 128u32;
-pub const SPMODE_MEMWATCH: u32 = 4096u32;
-pub const SPMODE_MSGTRACE: u32 = 1024u32;
-pub const SPMODE_MSVM: u32 = 64u32;
-pub const SPMODE_MULTISTOP: u32 = 16384u32;
-pub const SPMODE_PERFTAGS: u32 = 2048u32;
-pub const SPMODE_PROFILE: u32 = 256u32;
-pub const SPMODE_SHELL: u32 = 1u32;
-pub const SPMODE_TEST: u32 = 4u32;
+pub const SPACTION_APPLYINGATTRIBS: SPACTION = SPACTION(4);
+pub const SPACTION_CALCULATING: SPACTION = SPACTION(7);
+pub const SPACTION_COPYING: SPACTION = SPACTION(2);
+pub const SPACTION_COPY_MOVING: SPACTION = SPACTION(13);
+pub const SPACTION_DELETING: SPACTION = SPACTION(10);
+pub const SPACTION_DOWNLOADING: SPACTION = SPACTION(5);
+pub const SPACTION_FORMATTING: SPACTION = SPACTION(12);
+pub const SPACTION_MOVING: SPACTION = SPACTION(1);
+pub const SPACTION_NONE: SPACTION = SPACTION(0);
+pub const SPACTION_RECYCLING: SPACTION = SPACTION(3);
+pub const SPACTION_RENAMING: SPACTION = SPACTION(11);
+pub const SPACTION_SEARCHING_FILES: SPACTION = SPACTION(9);
+pub const SPACTION_SEARCHING_INTERNET: SPACTION = SPACTION(6);
+pub const SPACTION_UPLOADING: SPACTION = SPACTION(8);
+pub const SPBEGINF_AUTOTIME: _SPBEGINF = _SPBEGINF(2);
+pub const SPBEGINF_MARQUEEPROGRESS: _SPBEGINF = _SPBEGINF(32);
+pub const SPBEGINF_NOCANCELBUTTON: _SPBEGINF = _SPBEGINF(64);
+pub const SPBEGINF_NOPROGRESSBAR: _SPBEGINF = _SPBEGINF(16);
+pub const SPBEGINF_NORMAL: _SPBEGINF = _SPBEGINF(0);
+pub const SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(2);
+pub const SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(1);
+pub const SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(0);
+pub const SPINITF_MODAL: _SPINITF = _SPINITF(1);
+pub const SPINITF_NOMINIMIZE: _SPINITF = _SPINITF(8);
+pub const SPINITF_NORMAL: _SPINITF = _SPINITF(0);
+pub const SPMODE_BROWSER: u32 = 8;
+pub const SPMODE_DBMON: u32 = 8192;
+pub const SPMODE_DEBUGBREAK: u32 = 512;
+pub const SPMODE_DEBUGOUT: u32 = 2;
+pub const SPMODE_EVENT: u32 = 32;
+pub const SPMODE_EVENTTRACE: u32 = 32768;
+pub const SPMODE_FLUSH: u32 = 16;
+pub const SPMODE_FORMATTEXT: u32 = 128;
+pub const SPMODE_MEMWATCH: u32 = 4096;
+pub const SPMODE_MSGTRACE: u32 = 1024;
+pub const SPMODE_MSVM: u32 = 64;
+pub const SPMODE_MULTISTOP: u32 = 16384;
+pub const SPMODE_PERFTAGS: u32 = 2048;
+pub const SPMODE_PROFILE: u32 = 256;
+pub const SPMODE_SHELL: u32 = 1;
+pub const SPMODE_TEST: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPTEXT(pub i32);
-pub const SPTEXT_ACTIONDESCRIPTION: SPTEXT = SPTEXT(1i32);
-pub const SPTEXT_ACTIONDETAIL: SPTEXT = SPTEXT(2i32);
-pub const SRRF_NOEXPAND: u32 = 268435456u32;
-pub const SRRF_NOVIRT: u32 = 1073741824u32;
-pub const SRRF_RM_ANY: u32 = 0u32;
-pub const SRRF_RM_NORMAL: u32 = 65536u32;
-pub const SRRF_RM_SAFE: u32 = 131072u32;
-pub const SRRF_RM_SAFENETWORK: u32 = 262144u32;
-pub const SRRF_RT_ANY: u32 = 65535u32;
-pub const SRRF_RT_REG_BINARY: u32 = 8u32;
-pub const SRRF_RT_REG_DWORD: u32 = 16u32;
-pub const SRRF_RT_REG_EXPAND_SZ: u32 = 4u32;
-pub const SRRF_RT_REG_MULTI_SZ: u32 = 32u32;
-pub const SRRF_RT_REG_NONE: u32 = 1u32;
-pub const SRRF_RT_REG_QWORD: u32 = 64u32;
-pub const SRRF_RT_REG_SZ: u32 = 2u32;
-pub const SRRF_ZEROONFAILURE: u32 = 536870912u32;
-pub const SSF_AUTOCHECKSELECT: SSF_MASK = SSF_MASK(8388608u32);
-pub const SSF_DESKTOPHTML: SSF_MASK = SSF_MASK(512u32);
-pub const SSF_DONTPRETTYPATH: SSF_MASK = SSF_MASK(2048u32);
-pub const SSF_DOUBLECLICKINWEBVIEW: SSF_MASK = SSF_MASK(128u32);
-pub const SSF_FILTER: SSF_MASK = SSF_MASK(65536u32);
-pub const SSF_HIDDENFILEEXTS: SSF_MASK = SSF_MASK(4u32);
-pub const SSF_HIDEICONS: SSF_MASK = SSF_MASK(16384u32);
-pub const SSF_ICONSONLY: SSF_MASK = SSF_MASK(16777216u32);
-pub const SSF_MAPNETDRVBUTTON: SSF_MASK = SSF_MASK(4096u32);
+pub const SPTEXT_ACTIONDESCRIPTION: SPTEXT = SPTEXT(1);
+pub const SPTEXT_ACTIONDETAIL: SPTEXT = SPTEXT(2);
+pub const SRRF_NOEXPAND: u32 = 268435456;
+pub const SRRF_NOVIRT: u32 = 1073741824;
+pub const SRRF_RM_ANY: u32 = 0;
+pub const SRRF_RM_NORMAL: u32 = 65536;
+pub const SRRF_RM_SAFE: u32 = 131072;
+pub const SRRF_RM_SAFENETWORK: u32 = 262144;
+pub const SRRF_RT_ANY: u32 = 65535;
+pub const SRRF_RT_REG_BINARY: u32 = 8;
+pub const SRRF_RT_REG_DWORD: u32 = 16;
+pub const SRRF_RT_REG_EXPAND_SZ: u32 = 4;
+pub const SRRF_RT_REG_MULTI_SZ: u32 = 32;
+pub const SRRF_RT_REG_NONE: u32 = 1;
+pub const SRRF_RT_REG_QWORD: u32 = 64;
+pub const SRRF_RT_REG_SZ: u32 = 2;
+pub const SRRF_ZEROONFAILURE: u32 = 536870912;
+pub const SSF_AUTOCHECKSELECT: SSF_MASK = SSF_MASK(8388608);
+pub const SSF_DESKTOPHTML: SSF_MASK = SSF_MASK(512);
+pub const SSF_DONTPRETTYPATH: SSF_MASK = SSF_MASK(2048);
+pub const SSF_DOUBLECLICKINWEBVIEW: SSF_MASK = SSF_MASK(128);
+pub const SSF_FILTER: SSF_MASK = SSF_MASK(65536);
+pub const SSF_HIDDENFILEEXTS: SSF_MASK = SSF_MASK(4);
+pub const SSF_HIDEICONS: SSF_MASK = SSF_MASK(16384);
+pub const SSF_ICONSONLY: SSF_MASK = SSF_MASK(16777216);
+pub const SSF_MAPNETDRVBUTTON: SSF_MASK = SSF_MASK(4096);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSF_MASK(pub u32);
@@ -55736,40 +55736,40 @@ impl core::ops::Not for SSF_MASK {
         Self(self.0.not())
     }
 }
-pub const SSF_NOCONFIRMRECYCLE: SSF_MASK = SSF_MASK(32768u32);
-pub const SSF_NONETCRAWLING: SSF_MASK = SSF_MASK(1048576u32);
-pub const SSF_SEPPROCESS: SSF_MASK = SSF_MASK(524288u32);
-pub const SSF_SERVERADMINUI: SSF_MASK = SSF_MASK(4u32);
-pub const SSF_SHOWALLOBJECTS: SSF_MASK = SSF_MASK(1u32);
-pub const SSF_SHOWATTRIBCOL: SSF_MASK = SSF_MASK(256u32);
-pub const SSF_SHOWCOMPCOLOR: SSF_MASK = SSF_MASK(8u32);
-pub const SSF_SHOWEXTENSIONS: SSF_MASK = SSF_MASK(2u32);
-pub const SSF_SHOWINFOTIP: SSF_MASK = SSF_MASK(8192u32);
-pub const SSF_SHOWSTARTPAGE: SSF_MASK = SSF_MASK(4194304u32);
-pub const SSF_SHOWSTATUSBAR: SSF_MASK = SSF_MASK(67108864u32);
-pub const SSF_SHOWSUPERHIDDEN: SSF_MASK = SSF_MASK(262144u32);
-pub const SSF_SHOWSYSFILES: SSF_MASK = SSF_MASK(32u32);
-pub const SSF_SHOWTYPEOVERLAY: SSF_MASK = SSF_MASK(33554432u32);
-pub const SSF_SORTCOLUMNS: SSF_MASK = SSF_MASK(16u32);
-pub const SSF_STARTPANELON: SSF_MASK = SSF_MASK(2097152u32);
-pub const SSF_WEBVIEW: SSF_MASK = SSF_MASK(131072u32);
-pub const SSF_WIN95CLASSIC: SSF_MASK = SSF_MASK(1024u32);
-pub const SSM_CLEAR: u32 = 0u32;
-pub const SSM_REFRESH: u32 = 2u32;
-pub const SSM_SET: u32 = 1u32;
-pub const SSM_UPDATE: u32 = 4u32;
+pub const SSF_NOCONFIRMRECYCLE: SSF_MASK = SSF_MASK(32768);
+pub const SSF_NONETCRAWLING: SSF_MASK = SSF_MASK(1048576);
+pub const SSF_SEPPROCESS: SSF_MASK = SSF_MASK(524288);
+pub const SSF_SERVERADMINUI: SSF_MASK = SSF_MASK(4);
+pub const SSF_SHOWALLOBJECTS: SSF_MASK = SSF_MASK(1);
+pub const SSF_SHOWATTRIBCOL: SSF_MASK = SSF_MASK(256);
+pub const SSF_SHOWCOMPCOLOR: SSF_MASK = SSF_MASK(8);
+pub const SSF_SHOWEXTENSIONS: SSF_MASK = SSF_MASK(2);
+pub const SSF_SHOWINFOTIP: SSF_MASK = SSF_MASK(8192);
+pub const SSF_SHOWSTARTPAGE: SSF_MASK = SSF_MASK(4194304);
+pub const SSF_SHOWSTATUSBAR: SSF_MASK = SSF_MASK(67108864);
+pub const SSF_SHOWSUPERHIDDEN: SSF_MASK = SSF_MASK(262144);
+pub const SSF_SHOWSYSFILES: SSF_MASK = SSF_MASK(32);
+pub const SSF_SHOWTYPEOVERLAY: SSF_MASK = SSF_MASK(33554432);
+pub const SSF_SORTCOLUMNS: SSF_MASK = SSF_MASK(16);
+pub const SSF_STARTPANELON: SSF_MASK = SSF_MASK(2097152);
+pub const SSF_WEBVIEW: SSF_MASK = SSF_MASK(131072);
+pub const SSF_WIN95CLASSIC: SSF_MASK = SSF_MASK(1024);
+pub const SSM_CLEAR: u32 = 0;
+pub const SSM_REFRESH: u32 = 2;
+pub const SSM_SET: u32 = 1;
+pub const SSM_UPDATE: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGOP(pub i32);
-pub const STGOP_APPLYPROPERTIES: STGOP = STGOP(8i32);
-pub const STGOP_COPY: STGOP = STGOP(2i32);
-pub const STGOP_MOVE: STGOP = STGOP(1i32);
-pub const STGOP_NEW: STGOP = STGOP(10i32);
-pub const STGOP_REMOVE: STGOP = STGOP(5i32);
-pub const STGOP_RENAME: STGOP = STGOP(6i32);
-pub const STGOP_SYNC: STGOP = STGOP(3i32);
-pub const STIF_DEFAULT: i32 = 0i32;
-pub const STIF_SUPPORT_HEX: i32 = 1i32;
+pub const STGOP_APPLYPROPERTIES: STGOP = STGOP(8);
+pub const STGOP_COPY: STGOP = STGOP(2);
+pub const STGOP_MOVE: STGOP = STGOP(1);
+pub const STGOP_NEW: STGOP = STGOP(10);
+pub const STGOP_REMOVE: STGOP = STGOP(5);
+pub const STGOP_RENAME: STGOP = STGOP(6);
+pub const STGOP_SYNC: STGOP = STGOP(3);
+pub const STIF_DEFAULT: i32 = 0;
+pub const STIF_SUPPORT_HEX: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROVIDER_FILE_FLAGS(pub i32);
@@ -55843,11 +55843,11 @@ impl core::ops::Not for STPFLAG {
         Self(self.0.not())
     }
 }
-pub const STPF_NONE: STPFLAG = STPFLAG(0i32);
-pub const STPF_USEAPPPEEKALWAYS: STPFLAG = STPFLAG(4i32);
-pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = STPFLAG(8i32);
-pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = STPFLAG(1i32);
-pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = STPFLAG(2i32);
+pub const STPF_NONE: STPFLAG = STPFLAG(0);
+pub const STPF_USEAPPPEEKALWAYS: STPFLAG = STPFLAG(4);
+pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = STPFLAG(8);
+pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = STPFLAG(1);
+pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = STPFLAG(2);
 pub const STR_AVOID_DRIVE_RESTRICTION_POLICY: windows_core::PCWSTR = windows_core::w!("Avoid Drive Restriction Policy");
 pub const STR_BIND_DELEGATE_CREATE_OBJECT: windows_core::PCWSTR = windows_core::w!("Delegate Object Creation");
 pub const STR_BIND_FOLDERS_READ_ONLY: windows_core::PCWSTR = windows_core::w!("Folders As Read Only");
@@ -55910,64 +55910,64 @@ impl Default for SV2CVW2_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(0i32);
-pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(4i32);
-pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(2i32);
-pub const SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(1i32);
-pub const SVGIO_ALLVIEW: _SVGIO = _SVGIO(2i32);
-pub const SVGIO_BACKGROUND: _SVGIO = _SVGIO(0i32);
-pub const SVGIO_CHECKED: _SVGIO = _SVGIO(3i32);
-pub const SVGIO_FLAG_VIEWORDER: _SVGIO = _SVGIO(-2147483648i32);
-pub const SVGIO_SELECTION: _SVGIO = _SVGIO(1i32);
-pub const SVGIO_TYPE_MASK: _SVGIO = _SVGIO(15i32);
-pub const SVSI_CHECK: _SVSIF = _SVSIF(256i32);
-pub const SVSI_CHECK2: _SVSIF = _SVSIF(512i32);
-pub const SVSI_DESELECT: _SVSIF = _SVSIF(0i32);
-pub const SVSI_DESELECTOTHERS: _SVSIF = _SVSIF(4i32);
-pub const SVSI_EDIT: _SVSIF = _SVSIF(3i32);
-pub const SVSI_ENSUREVISIBLE: _SVSIF = _SVSIF(8i32);
-pub const SVSI_FOCUSED: _SVSIF = _SVSIF(16i32);
-pub const SVSI_KEYBOARDSELECT: _SVSIF = _SVSIF(1025i32);
-pub const SVSI_NOTAKEFOCUS: _SVSIF = _SVSIF(1073741824i32);
-pub const SVSI_POSITIONITEM: _SVSIF = _SVSIF(128i32);
-pub const SVSI_SELECT: _SVSIF = _SVSIF(1i32);
-pub const SVSI_SELECTIONMARK: _SVSIF = _SVSIF(64i32);
-pub const SVSI_TRANSLATEPT: _SVSIF = _SVSIF(32i32);
-pub const SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = SVUIA_STATUS(2i32);
-pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = SVUIA_STATUS(1i32);
-pub const SVUIA_DEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(0i32);
-pub const SVUIA_INPLACEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(3i32);
+pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(0);
+pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(4);
+pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(2);
+pub const SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(1);
+pub const SVGIO_ALLVIEW: _SVGIO = _SVGIO(2);
+pub const SVGIO_BACKGROUND: _SVGIO = _SVGIO(0);
+pub const SVGIO_CHECKED: _SVGIO = _SVGIO(3);
+pub const SVGIO_FLAG_VIEWORDER: _SVGIO = _SVGIO(-2147483648);
+pub const SVGIO_SELECTION: _SVGIO = _SVGIO(1);
+pub const SVGIO_TYPE_MASK: _SVGIO = _SVGIO(15);
+pub const SVSI_CHECK: _SVSIF = _SVSIF(256);
+pub const SVSI_CHECK2: _SVSIF = _SVSIF(512);
+pub const SVSI_DESELECT: _SVSIF = _SVSIF(0);
+pub const SVSI_DESELECTOTHERS: _SVSIF = _SVSIF(4);
+pub const SVSI_EDIT: _SVSIF = _SVSIF(3);
+pub const SVSI_ENSUREVISIBLE: _SVSIF = _SVSIF(8);
+pub const SVSI_FOCUSED: _SVSIF = _SVSIF(16);
+pub const SVSI_KEYBOARDSELECT: _SVSIF = _SVSIF(1025);
+pub const SVSI_NOTAKEFOCUS: _SVSIF = _SVSIF(1073741824);
+pub const SVSI_POSITIONITEM: _SVSIF = _SVSIF(128);
+pub const SVSI_SELECT: _SVSIF = _SVSIF(1);
+pub const SVSI_SELECTIONMARK: _SVSIF = _SVSIF(64);
+pub const SVSI_TRANSLATEPT: _SVSIF = _SVSIF(32);
+pub const SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = SVUIA_STATUS(2);
+pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = SVUIA_STATUS(1);
+pub const SVUIA_DEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(0);
+pub const SVUIA_INPLACEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SVUIA_STATUS(pub i32);
-pub const SWC_3RDPARTY: ShellWindowTypeConstants = ShellWindowTypeConstants(2i32);
-pub const SWC_BROWSER: ShellWindowTypeConstants = ShellWindowTypeConstants(1i32);
-pub const SWC_CALLBACK: ShellWindowTypeConstants = ShellWindowTypeConstants(4i32);
-pub const SWC_DESKTOP: ShellWindowTypeConstants = ShellWindowTypeConstants(8i32);
-pub const SWC_EXPLORER: ShellWindowTypeConstants = ShellWindowTypeConstants(0i32);
-pub const SWFO_COOKIEPASSED: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(4i32);
-pub const SWFO_INCLUDEPENDING: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(2i32);
-pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(1i32);
+pub const SWC_3RDPARTY: ShellWindowTypeConstants = ShellWindowTypeConstants(2);
+pub const SWC_BROWSER: ShellWindowTypeConstants = ShellWindowTypeConstants(1);
+pub const SWC_CALLBACK: ShellWindowTypeConstants = ShellWindowTypeConstants(4);
+pub const SWC_DESKTOP: ShellWindowTypeConstants = ShellWindowTypeConstants(8);
+pub const SWC_EXPLORER: ShellWindowTypeConstants = ShellWindowTypeConstants(0);
+pub const SWFO_COOKIEPASSED: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(4);
+pub const SWFO_INCLUDEPENDING: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(2);
+pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRERRORFLAGS(pub i32);
-pub const SYNCMGRERRORFLAG_ENABLEJUMPTEXT: SYNCMGRERRORFLAGS = SYNCMGRERRORFLAGS(1i32);
+pub const SYNCMGRERRORFLAG_ENABLEJUMPTEXT: SYNCMGRERRORFLAGS = SYNCMGRERRORFLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRFLAG(pub i32);
-pub const SYNCMGRFLAG_CONNECT: SYNCMGRFLAG = SYNCMGRFLAG(1i32);
-pub const SYNCMGRFLAG_EVENTMASK: SYNCMGRFLAG = SYNCMGRFLAG(255i32);
-pub const SYNCMGRFLAG_IDLE: SYNCMGRFLAG = SYNCMGRFLAG(4i32);
-pub const SYNCMGRFLAG_INVOKE: SYNCMGRFLAG = SYNCMGRFLAG(5i32);
-pub const SYNCMGRFLAG_MANUAL: SYNCMGRFLAG = SYNCMGRFLAG(3i32);
-pub const SYNCMGRFLAG_MAYBOTHERUSER: SYNCMGRFLAG = SYNCMGRFLAG(512i32);
-pub const SYNCMGRFLAG_PENDINGDISCONNECT: SYNCMGRFLAG = SYNCMGRFLAG(2i32);
-pub const SYNCMGRFLAG_SCHEDULED: SYNCMGRFLAG = SYNCMGRFLAG(6i32);
-pub const SYNCMGRFLAG_SETTINGS: SYNCMGRFLAG = SYNCMGRFLAG(256i32);
+pub const SYNCMGRFLAG_CONNECT: SYNCMGRFLAG = SYNCMGRFLAG(1);
+pub const SYNCMGRFLAG_EVENTMASK: SYNCMGRFLAG = SYNCMGRFLAG(255);
+pub const SYNCMGRFLAG_IDLE: SYNCMGRFLAG = SYNCMGRFLAG(4);
+pub const SYNCMGRFLAG_INVOKE: SYNCMGRFLAG = SYNCMGRFLAG(5);
+pub const SYNCMGRFLAG_MANUAL: SYNCMGRFLAG = SYNCMGRFLAG(3);
+pub const SYNCMGRFLAG_MAYBOTHERUSER: SYNCMGRFLAG = SYNCMGRFLAG(512);
+pub const SYNCMGRFLAG_PENDINGDISCONNECT: SYNCMGRFLAG = SYNCMGRFLAG(2);
+pub const SYNCMGRFLAG_SCHEDULED: SYNCMGRFLAG = SYNCMGRFLAG(6);
+pub const SYNCMGRFLAG_SETTINGS: SYNCMGRFLAG = SYNCMGRFLAG(256);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRHANDLERFLAGS(pub i32);
-pub const SYNCMGRHANDLERFLAG_MASK: u32 = 15u32;
+pub const SYNCMGRHANDLERFLAG_MASK: u32 = 15;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -55983,15 +55983,15 @@ impl Default for SYNCMGRHANDLERINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SYNCMGRHANDLER_ALWAYSLISTHANDLER: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(4i32);
-pub const SYNCMGRHANDLER_HASPROPERTIES: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(1i32);
-pub const SYNCMGRHANDLER_HIDDEN: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(8i32);
-pub const SYNCMGRHANDLER_MAYESTABLISHCONNECTION: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(2i32);
+pub const SYNCMGRHANDLER_ALWAYSLISTHANDLER: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(4);
+pub const SYNCMGRHANDLER_HASPROPERTIES: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(1);
+pub const SYNCMGRHANDLER_HIDDEN: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(8);
+pub const SYNCMGRHANDLER_MAYESTABLISHCONNECTION: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRINVOKEFLAGS(pub i32);
-pub const SYNCMGRINVOKE_MINIMIZED: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(4i32);
-pub const SYNCMGRINVOKE_STARTSYNC: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(2i32);
+pub const SYNCMGRINVOKE_MINIMIZED: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(4);
+pub const SYNCMGRINVOKE_STARTSYNC: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(2);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -56016,15 +56016,15 @@ pub struct SYNCMGRITEMFLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRITEMSTATE(pub i32);
-pub const SYNCMGRITEMSTATE_CHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(1i32);
-pub const SYNCMGRITEMSTATE_UNCHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(0i32);
-pub const SYNCMGRITEM_HASPROPERTIES: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(1i32);
-pub const SYNCMGRITEM_HIDDEN: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(32i32);
-pub const SYNCMGRITEM_ITEMFLAGMASK: u32 = 127u32;
-pub const SYNCMGRITEM_LASTUPDATETIME: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(8i32);
-pub const SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(16i32);
-pub const SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(4i32);
-pub const SYNCMGRITEM_TEMPORARY: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(2i32);
+pub const SYNCMGRITEMSTATE_CHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(1);
+pub const SYNCMGRITEMSTATE_UNCHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(0);
+pub const SYNCMGRITEM_HASPROPERTIES: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(1);
+pub const SYNCMGRITEM_HIDDEN: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(32);
+pub const SYNCMGRITEM_ITEMFLAGMASK: u32 = 127;
+pub const SYNCMGRITEM_LASTUPDATETIME: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(8);
+pub const SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(16);
+pub const SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(4);
+pub const SYNCMGRITEM_TEMPORARY: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNCMGRLOGERRORINFO {
@@ -56034,16 +56034,16 @@ pub struct SYNCMGRLOGERRORINFO {
     pub ErrorID: windows_core::GUID,
     pub ItemID: windows_core::GUID,
 }
-pub const SYNCMGRLOGERROR_ERRORFLAGS: u32 = 1u32;
-pub const SYNCMGRLOGERROR_ERRORID: u32 = 2u32;
-pub const SYNCMGRLOGERROR_ITEMID: u32 = 4u32;
+pub const SYNCMGRLOGERROR_ERRORFLAGS: u32 = 1;
+pub const SYNCMGRLOGERROR_ERRORID: u32 = 2;
+pub const SYNCMGRLOGERROR_ITEMID: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRLOGLEVEL(pub i32);
-pub const SYNCMGRLOGLEVEL_ERROR: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3i32);
-pub const SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(1i32);
-pub const SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3i32);
-pub const SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(2i32);
+pub const SYNCMGRLOGLEVEL_ERROR: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3);
+pub const SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(1);
+pub const SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3);
+pub const SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYNCMGRPROGRESSITEM {
@@ -56054,40 +56054,40 @@ pub struct SYNCMGRPROGRESSITEM {
     pub iProgValue: i32,
     pub iMaxValue: i32,
 }
-pub const SYNCMGRPROGRESSITEM_MAXVALUE: u32 = 8u32;
-pub const SYNCMGRPROGRESSITEM_PROGVALUE: u32 = 4u32;
-pub const SYNCMGRPROGRESSITEM_STATUSTEXT: u32 = 1u32;
-pub const SYNCMGRPROGRESSITEM_STATUSTYPE: u32 = 2u32;
+pub const SYNCMGRPROGRESSITEM_MAXVALUE: u32 = 8;
+pub const SYNCMGRPROGRESSITEM_PROGVALUE: u32 = 4;
+pub const SYNCMGRPROGRESSITEM_STATUSTEXT: u32 = 1;
+pub const SYNCMGRPROGRESSITEM_STATUSTYPE: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRREGISTERFLAGS(pub i32);
-pub const SYNCMGRREGISTERFLAGS_MASK: u32 = 7u32;
-pub const SYNCMGRREGISTERFLAG_CONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(1i32);
-pub const SYNCMGRREGISTERFLAG_IDLE: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(4i32);
-pub const SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(2i32);
+pub const SYNCMGRREGISTERFLAGS_MASK: u32 = 7;
+pub const SYNCMGRREGISTERFLAG_CONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(1);
+pub const SYNCMGRREGISTERFLAG_IDLE: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(4);
+pub const SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGRSTATUS(pub i32);
-pub const SYNCMGRSTATUS_DELETED: SYNCMGRSTATUS = SYNCMGRSTATUS(256i32);
-pub const SYNCMGRSTATUS_FAILED: SYNCMGRSTATUS = SYNCMGRSTATUS(5i32);
-pub const SYNCMGRSTATUS_PAUSED: SYNCMGRSTATUS = SYNCMGRSTATUS(6i32);
-pub const SYNCMGRSTATUS_PENDING: SYNCMGRSTATUS = SYNCMGRSTATUS(2i32);
-pub const SYNCMGRSTATUS_RESUMING: SYNCMGRSTATUS = SYNCMGRSTATUS(7i32);
-pub const SYNCMGRSTATUS_SKIPPED: SYNCMGRSTATUS = SYNCMGRSTATUS(1i32);
-pub const SYNCMGRSTATUS_STOPPED: SYNCMGRSTATUS = SYNCMGRSTATUS(0i32);
-pub const SYNCMGRSTATUS_SUCCEEDED: SYNCMGRSTATUS = SYNCMGRSTATUS(4i32);
-pub const SYNCMGRSTATUS_UPDATING: SYNCMGRSTATUS = SYNCMGRSTATUS(3i32);
-pub const SYNCMGRSTATUS_UPDATING_INDETERMINATE: SYNCMGRSTATUS = SYNCMGRSTATUS(8i32);
+pub const SYNCMGRSTATUS_DELETED: SYNCMGRSTATUS = SYNCMGRSTATUS(256);
+pub const SYNCMGRSTATUS_FAILED: SYNCMGRSTATUS = SYNCMGRSTATUS(5);
+pub const SYNCMGRSTATUS_PAUSED: SYNCMGRSTATUS = SYNCMGRSTATUS(6);
+pub const SYNCMGRSTATUS_PENDING: SYNCMGRSTATUS = SYNCMGRSTATUS(2);
+pub const SYNCMGRSTATUS_RESUMING: SYNCMGRSTATUS = SYNCMGRSTATUS(7);
+pub const SYNCMGRSTATUS_SKIPPED: SYNCMGRSTATUS = SYNCMGRSTATUS(1);
+pub const SYNCMGRSTATUS_STOPPED: SYNCMGRSTATUS = SYNCMGRSTATUS(0);
+pub const SYNCMGRSTATUS_SUCCEEDED: SYNCMGRSTATUS = SYNCMGRSTATUS(4);
+pub const SYNCMGRSTATUS_UPDATING: SYNCMGRSTATUS = SYNCMGRSTATUS(3);
+pub const SYNCMGRSTATUS_UPDATING_INDETERMINATE: SYNCMGRSTATUS = SYNCMGRSTATUS(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_CANCEL_REQUEST(pub i32);
-pub const SYNCMGR_CF_NONE: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0i32);
-pub const SYNCMGR_CF_NOUI: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(2i32);
-pub const SYNCMGR_CF_NOWAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0i32);
-pub const SYNCMGR_CF_VALID: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(3i32);
-pub const SYNCMGR_CF_WAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(1i32);
-pub const SYNCMGR_CIT_DELETED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(2i32);
-pub const SYNCMGR_CIT_UPDATED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(1i32);
+pub const SYNCMGR_CF_NONE: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0);
+pub const SYNCMGR_CF_NOUI: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(2);
+pub const SYNCMGR_CF_NOWAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0);
+pub const SYNCMGR_CF_VALID: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(3);
+pub const SYNCMGR_CF_WAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(1);
+pub const SYNCMGR_CIT_DELETED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(2);
+pub const SYNCMGR_CIT_UPDATED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(1);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -56107,16 +56107,16 @@ pub struct SYNCMGR_CONFLICT_ITEM_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_CONTROL_FLAGS(pub i32);
-pub const SYNCMGR_CR_CANCEL_ALL: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2i32);
-pub const SYNCMGR_CR_CANCEL_ITEM: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(1i32);
-pub const SYNCMGR_CR_MAX: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2i32);
-pub const SYNCMGR_CR_NONE: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(0i32);
-pub const SYNCMGR_EF_NONE: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0i32);
-pub const SYNCMGR_EF_VALID: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0i32);
-pub const SYNCMGR_EL_ERROR: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3i32);
-pub const SYNCMGR_EL_INFORMATION: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(1i32);
-pub const SYNCMGR_EL_MAX: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3i32);
-pub const SYNCMGR_EL_WARNING: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(2i32);
+pub const SYNCMGR_CR_CANCEL_ALL: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2);
+pub const SYNCMGR_CR_CANCEL_ITEM: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(1);
+pub const SYNCMGR_CR_MAX: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2);
+pub const SYNCMGR_CR_NONE: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(0);
+pub const SYNCMGR_EF_NONE: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0);
+pub const SYNCMGR_EF_VALID: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0);
+pub const SYNCMGR_EL_ERROR: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3);
+pub const SYNCMGR_EL_INFORMATION: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(1);
+pub const SYNCMGR_EL_MAX: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3);
+pub const SYNCMGR_EL_WARNING: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_EVENT_FLAGS(pub i32);
@@ -56132,65 +56132,65 @@ pub struct SYNCMGR_HANDLER_POLICIES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_HANDLER_TYPE(pub i32);
-pub const SYNCMGR_HCM_CAN_BROWSE_CONTENT: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(65536i32);
-pub const SYNCMGR_HCM_CAN_SHOW_SCHEDULE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(131072i32);
-pub const SYNCMGR_HCM_CONFLICT_STORE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(4i32);
-pub const SYNCMGR_HCM_EVENT_STORE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(2i32);
-pub const SYNCMGR_HCM_NONE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(0i32);
-pub const SYNCMGR_HCM_PROVIDES_ICON: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(1i32);
-pub const SYNCMGR_HCM_QUERY_BEFORE_ACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(1048576i32);
-pub const SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(2097152i32);
-pub const SYNCMGR_HCM_QUERY_BEFORE_DISABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(8388608i32);
-pub const SYNCMGR_HCM_QUERY_BEFORE_ENABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(4194304i32);
-pub const SYNCMGR_HCM_SUPPORTS_CONCURRENT_SESSIONS: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(16i32);
-pub const SYNCMGR_HCM_VALID_MASK: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(15925271i32);
-pub const SYNCMGR_HPM_BACKGROUND_SYNC_ONLY: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(48i32);
-pub const SYNCMGR_HPM_DISABLE_BROWSE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(4096i32);
-pub const SYNCMGR_HPM_DISABLE_DISABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(512i32);
-pub const SYNCMGR_HPM_DISABLE_ENABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(256i32);
-pub const SYNCMGR_HPM_DISABLE_SCHEDULE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(8192i32);
-pub const SYNCMGR_HPM_DISABLE_START_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(1024i32);
-pub const SYNCMGR_HPM_DISABLE_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(2048i32);
-pub const SYNCMGR_HPM_HIDDEN_BY_DEFAULT: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(65536i32);
-pub const SYNCMGR_HPM_NONE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(0i32);
-pub const SYNCMGR_HPM_PREVENT_ACTIVATE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(1i32);
-pub const SYNCMGR_HPM_PREVENT_DEACTIVATE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(2i32);
-pub const SYNCMGR_HPM_PREVENT_DISABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(8i32);
-pub const SYNCMGR_HPM_PREVENT_ENABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(4i32);
-pub const SYNCMGR_HPM_PREVENT_START_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(16i32);
-pub const SYNCMGR_HPM_PREVENT_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(32i32);
-pub const SYNCMGR_HPM_VALID_MASK: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(77631i32);
-pub const SYNCMGR_HT_APPLICATION: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(1i32);
-pub const SYNCMGR_HT_COMPUTER: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5i32);
-pub const SYNCMGR_HT_DEVICE: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(2i32);
-pub const SYNCMGR_HT_FOLDER: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(3i32);
-pub const SYNCMGR_HT_MAX: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5i32);
-pub const SYNCMGR_HT_MIN: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0i32);
-pub const SYNCMGR_HT_SERVICE: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(4i32);
-pub const SYNCMGR_HT_UNSPECIFIED: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0i32);
-pub const SYNCMGR_ICM_CAN_BROWSE_CONTENT: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(65536i32);
-pub const SYNCMGR_ICM_CAN_DELETE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(16i32);
-pub const SYNCMGR_ICM_CONFLICT_STORE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(4i32);
-pub const SYNCMGR_ICM_EVENT_STORE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(2i32);
-pub const SYNCMGR_ICM_NONE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(0i32);
-pub const SYNCMGR_ICM_PROVIDES_ICON: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(1i32);
-pub const SYNCMGR_ICM_QUERY_BEFORE_DELETE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(4194304i32);
-pub const SYNCMGR_ICM_QUERY_BEFORE_DISABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(2097152i32);
-pub const SYNCMGR_ICM_QUERY_BEFORE_ENABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(1048576i32);
-pub const SYNCMGR_ICM_VALID_MASK: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(7405591i32);
-pub const SYNCMGR_IPM_DISABLE_BROWSE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(256i32);
-pub const SYNCMGR_IPM_DISABLE_DELETE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(512i32);
-pub const SYNCMGR_IPM_DISABLE_DISABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(32i32);
-pub const SYNCMGR_IPM_DISABLE_ENABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(16i32);
-pub const SYNCMGR_IPM_DISABLE_START_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(64i32);
-pub const SYNCMGR_IPM_DISABLE_STOP_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(128i32);
-pub const SYNCMGR_IPM_HIDDEN_BY_DEFAULT: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(65536i32);
-pub const SYNCMGR_IPM_NONE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(0i32);
-pub const SYNCMGR_IPM_PREVENT_DISABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(2i32);
-pub const SYNCMGR_IPM_PREVENT_ENABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(1i32);
-pub const SYNCMGR_IPM_PREVENT_START_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(4i32);
-pub const SYNCMGR_IPM_PREVENT_STOP_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(8i32);
-pub const SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(66303i32);
+pub const SYNCMGR_HCM_CAN_BROWSE_CONTENT: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(65536);
+pub const SYNCMGR_HCM_CAN_SHOW_SCHEDULE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(131072);
+pub const SYNCMGR_HCM_CONFLICT_STORE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(4);
+pub const SYNCMGR_HCM_EVENT_STORE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(2);
+pub const SYNCMGR_HCM_NONE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(0);
+pub const SYNCMGR_HCM_PROVIDES_ICON: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(1);
+pub const SYNCMGR_HCM_QUERY_BEFORE_ACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(1048576);
+pub const SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(2097152);
+pub const SYNCMGR_HCM_QUERY_BEFORE_DISABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(8388608);
+pub const SYNCMGR_HCM_QUERY_BEFORE_ENABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(4194304);
+pub const SYNCMGR_HCM_SUPPORTS_CONCURRENT_SESSIONS: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(16);
+pub const SYNCMGR_HCM_VALID_MASK: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(15925271);
+pub const SYNCMGR_HPM_BACKGROUND_SYNC_ONLY: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(48);
+pub const SYNCMGR_HPM_DISABLE_BROWSE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(4096);
+pub const SYNCMGR_HPM_DISABLE_DISABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(512);
+pub const SYNCMGR_HPM_DISABLE_ENABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(256);
+pub const SYNCMGR_HPM_DISABLE_SCHEDULE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(8192);
+pub const SYNCMGR_HPM_DISABLE_START_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(1024);
+pub const SYNCMGR_HPM_DISABLE_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(2048);
+pub const SYNCMGR_HPM_HIDDEN_BY_DEFAULT: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(65536);
+pub const SYNCMGR_HPM_NONE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(0);
+pub const SYNCMGR_HPM_PREVENT_ACTIVATE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(1);
+pub const SYNCMGR_HPM_PREVENT_DEACTIVATE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(2);
+pub const SYNCMGR_HPM_PREVENT_DISABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(8);
+pub const SYNCMGR_HPM_PREVENT_ENABLE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(4);
+pub const SYNCMGR_HPM_PREVENT_START_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(16);
+pub const SYNCMGR_HPM_PREVENT_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(32);
+pub const SYNCMGR_HPM_VALID_MASK: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(77631);
+pub const SYNCMGR_HT_APPLICATION: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(1);
+pub const SYNCMGR_HT_COMPUTER: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5);
+pub const SYNCMGR_HT_DEVICE: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(2);
+pub const SYNCMGR_HT_FOLDER: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(3);
+pub const SYNCMGR_HT_MAX: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5);
+pub const SYNCMGR_HT_MIN: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0);
+pub const SYNCMGR_HT_SERVICE: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(4);
+pub const SYNCMGR_HT_UNSPECIFIED: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0);
+pub const SYNCMGR_ICM_CAN_BROWSE_CONTENT: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(65536);
+pub const SYNCMGR_ICM_CAN_DELETE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(16);
+pub const SYNCMGR_ICM_CONFLICT_STORE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(4);
+pub const SYNCMGR_ICM_EVENT_STORE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(2);
+pub const SYNCMGR_ICM_NONE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(0);
+pub const SYNCMGR_ICM_PROVIDES_ICON: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(1);
+pub const SYNCMGR_ICM_QUERY_BEFORE_DELETE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(4194304);
+pub const SYNCMGR_ICM_QUERY_BEFORE_DISABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(2097152);
+pub const SYNCMGR_ICM_QUERY_BEFORE_ENABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(1048576);
+pub const SYNCMGR_ICM_VALID_MASK: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(7405591);
+pub const SYNCMGR_IPM_DISABLE_BROWSE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(256);
+pub const SYNCMGR_IPM_DISABLE_DELETE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(512);
+pub const SYNCMGR_IPM_DISABLE_DISABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(32);
+pub const SYNCMGR_IPM_DISABLE_ENABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(16);
+pub const SYNCMGR_IPM_DISABLE_START_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(64);
+pub const SYNCMGR_IPM_DISABLE_STOP_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(128);
+pub const SYNCMGR_IPM_HIDDEN_BY_DEFAULT: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(65536);
+pub const SYNCMGR_IPM_NONE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(0);
+pub const SYNCMGR_IPM_PREVENT_DISABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(2);
+pub const SYNCMGR_IPM_PREVENT_ENABLE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(1);
+pub const SYNCMGR_IPM_PREVENT_START_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(4);
+pub const SYNCMGR_IPM_PREVENT_STOP_SYNC: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(8);
+pub const SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(66303);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_ITEM_CAPABILITIES(pub i32);
@@ -56208,15 +56208,15 @@ pub const SYNCMGR_OBJECTID_QueryBeforeDelete: windows_core::GUID = windows_core:
 pub const SYNCMGR_OBJECTID_QueryBeforeDisable: windows_core::GUID = windows_core::GUID::from_u128(0xbb5f64aa_f004_4eb5_8e4d_26751966344c);
 pub const SYNCMGR_OBJECTID_QueryBeforeEnable: windows_core::GUID = windows_core::GUID::from_u128(0x04cbf7f0_5beb_4de1_bc90_908345c480f6);
 pub const SYNCMGR_OBJECTID_ShowSchedule: windows_core::GUID = windows_core::GUID::from_u128(0xedc6f3e3_8441_4109_adf3_6c1ca0b7de47);
-pub const SYNCMGR_PC_KEEP_MULTIPLE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(2i32);
-pub const SYNCMGR_PC_KEEP_ONE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(1i32);
-pub const SYNCMGR_PC_KEEP_RECENT: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(3i32);
-pub const SYNCMGR_PC_NO_CHOICE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(0i32);
-pub const SYNCMGR_PC_REMOVE_FROM_SYNC_SET: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(4i32);
-pub const SYNCMGR_PC_SKIP: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(5i32);
-pub const SYNCMGR_PNS_CANCEL: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(2i32);
-pub const SYNCMGR_PNS_CONTINUE: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(0i32);
-pub const SYNCMGR_PNS_DEFAULT: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(1i32);
+pub const SYNCMGR_PC_KEEP_MULTIPLE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(2);
+pub const SYNCMGR_PC_KEEP_ONE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(1);
+pub const SYNCMGR_PC_KEEP_RECENT: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(3);
+pub const SYNCMGR_PC_NO_CHOICE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(0);
+pub const SYNCMGR_PC_REMOVE_FROM_SYNC_SET: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(4);
+pub const SYNCMGR_PC_SKIP: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(5);
+pub const SYNCMGR_PNS_CANCEL: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(2);
+pub const SYNCMGR_PNS_CONTINUE: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(0);
+pub const SYNCMGR_PNS_DEFAULT: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_PRESENTER_CHOICE(pub i32);
@@ -56226,41 +56226,41 @@ pub struct SYNCMGR_PRESENTER_NEXT_STEP(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_PROGRESS_STATUS(pub i32);
-pub const SYNCMGR_PS_CANCELED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(5i32);
-pub const SYNCMGR_PS_DISCONNECTED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6i32);
-pub const SYNCMGR_PS_FAILED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(4i32);
-pub const SYNCMGR_PS_MAX: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6i32);
-pub const SYNCMGR_PS_SUCCEEDED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(3i32);
-pub const SYNCMGR_PS_UPDATING: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(1i32);
-pub const SYNCMGR_PS_UPDATING_INDETERMINATE: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(2i32);
-pub const SYNCMGR_RA_KEEPOTHER: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(1i32);
-pub const SYNCMGR_RA_KEEPRECENT: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(2i32);
-pub const SYNCMGR_RA_KEEP_MULTIPLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(16i32);
-pub const SYNCMGR_RA_KEEP_SINGLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(8i32);
-pub const SYNCMGR_RA_REMOVEFROMSYNCSET: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(4i32);
-pub const SYNCMGR_RA_VALID: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(31i32);
+pub const SYNCMGR_PS_CANCELED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(5);
+pub const SYNCMGR_PS_DISCONNECTED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6);
+pub const SYNCMGR_PS_FAILED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(4);
+pub const SYNCMGR_PS_MAX: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6);
+pub const SYNCMGR_PS_SUCCEEDED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(3);
+pub const SYNCMGR_PS_UPDATING: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(1);
+pub const SYNCMGR_PS_UPDATING_INDETERMINATE: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(2);
+pub const SYNCMGR_RA_KEEPOTHER: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(1);
+pub const SYNCMGR_RA_KEEPRECENT: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(2);
+pub const SYNCMGR_RA_KEEP_MULTIPLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(16);
+pub const SYNCMGR_RA_KEEP_SINGLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(8);
+pub const SYNCMGR_RA_REMOVEFROMSYNCSET: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(4);
+pub const SYNCMGR_RA_VALID: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(31);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_RESOLUTION_ABILITIES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_RESOLUTION_FEEDBACK(pub i32);
-pub const SYNCMGR_RF_CANCEL: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(2i32);
-pub const SYNCMGR_RF_CONTINUE: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(0i32);
-pub const SYNCMGR_RF_REFRESH: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(1i32);
-pub const SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1i32);
-pub const SYNCMGR_SCF_NONE: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(0i32);
-pub const SYNCMGR_SCF_VALID: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1i32);
+pub const SYNCMGR_RF_CANCEL: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(2);
+pub const SYNCMGR_RF_CONTINUE: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(0);
+pub const SYNCMGR_RF_REFRESH: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(1);
+pub const SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1);
+pub const SYNCMGR_SCF_NONE: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(0);
+pub const SYNCMGR_SCF_VALID: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_SYNC_CONTROL_FLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCMGR_UPDATE_REASON(pub i32);
-pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(0i32);
-pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(1i32);
-pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2i32);
-pub const SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2i32);
+pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(0);
+pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(1);
+pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2);
+pub const SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2);
 pub const SZ_CONTENTTYPE_CDF: windows_core::PCWSTR = windows_core::w!("application/x-cdf");
 pub const SZ_CONTENTTYPE_CDFA: windows_core::PCSTR = windows_core::s!("application/x-cdf");
 pub const SZ_CONTENTTYPE_CDFW: windows_core::PCWSTR = windows_core::w!("application/x-cdf");
@@ -56326,13 +56326,13 @@ pub const SyncMgrFolder: windows_core::GUID = windows_core::GUID::from_u128(0x9c
 pub const SyncMgrScheduleWizard: windows_core::GUID = windows_core::GUID::from_u128(0x8d8b8e30_c451_421b_8553_d2976afa648c);
 pub const SyncResultsFolder: windows_core::GUID = windows_core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
 pub const SyncSetupFolder: windows_core::GUID = windows_core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
-pub const TBIF_APPEND: u32 = 0u32;
-pub const TBIF_DEFAULT: u32 = 0u32;
-pub const TBIF_INTERNETBAR: u32 = 65536u32;
-pub const TBIF_NOTOOLBAR: u32 = 196608u32;
-pub const TBIF_PREPEND: u32 = 1u32;
-pub const TBIF_REPLACE: u32 = 2u32;
-pub const TBIF_STANDARDTOOLBAR: u32 = 131072u32;
+pub const TBIF_APPEND: u32 = 0;
+pub const TBIF_DEFAULT: u32 = 0;
+pub const TBIF_INTERNETBAR: u32 = 65536;
+pub const TBIF_NOTOOLBAR: u32 = 196608;
+pub const TBIF_PREPEND: u32 = 1;
+pub const TBIF_REPLACE: u32 = 2;
+pub const TBIF_STANDARDTOOLBAR: u32 = 131072;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TBINFO {
@@ -56375,22 +56375,22 @@ impl core::ops::Not for TBPFLAG {
         Self(self.0.not())
     }
 }
-pub const TBPF_ERROR: TBPFLAG = TBPFLAG(4i32);
-pub const TBPF_INDETERMINATE: TBPFLAG = TBPFLAG(1i32);
-pub const TBPF_NOPROGRESS: TBPFLAG = TBPFLAG(0i32);
-pub const TBPF_NORMAL: TBPFLAG = TBPFLAG(2i32);
-pub const TBPF_PAUSED: TBPFLAG = TBPFLAG(8i32);
-pub const THBF_DISABLED: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(1i32);
-pub const THBF_DISMISSONCLICK: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(2i32);
-pub const THBF_ENABLED: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(0i32);
-pub const THBF_HIDDEN: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(8i32);
-pub const THBF_NOBACKGROUND: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(4i32);
-pub const THBF_NONINTERACTIVE: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(16i32);
-pub const THBN_CLICKED: u32 = 6144u32;
-pub const THB_BITMAP: THUMBBUTTONMASK = THUMBBUTTONMASK(1i32);
-pub const THB_FLAGS: THUMBBUTTONMASK = THUMBBUTTONMASK(8i32);
-pub const THB_ICON: THUMBBUTTONMASK = THUMBBUTTONMASK(2i32);
-pub const THB_TOOLTIP: THUMBBUTTONMASK = THUMBBUTTONMASK(4i32);
+pub const TBPF_ERROR: TBPFLAG = TBPFLAG(4);
+pub const TBPF_INDETERMINATE: TBPFLAG = TBPFLAG(1);
+pub const TBPF_NOPROGRESS: TBPFLAG = TBPFLAG(0);
+pub const TBPF_NORMAL: TBPFLAG = TBPFLAG(2);
+pub const TBPF_PAUSED: TBPFLAG = TBPFLAG(8);
+pub const THBF_DISABLED: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(1);
+pub const THBF_DISMISSONCLICK: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(2);
+pub const THBF_ENABLED: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(0);
+pub const THBF_HIDDEN: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(8);
+pub const THBF_NOBACKGROUND: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(4);
+pub const THBF_NONINTERACTIVE: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(16);
+pub const THBN_CLICKED: u32 = 6144;
+pub const THB_BITMAP: THUMBBUTTONMASK = THUMBBUTTONMASK(1);
+pub const THB_FLAGS: THUMBBUTTONMASK = THUMBBUTTONMASK(8);
+pub const THB_ICON: THUMBBUTTONMASK = THUMBBUTTONMASK(2);
+pub const THB_TOOLTIP: THUMBBUTTONMASK = THUMBBUTTONMASK(4);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -56480,28 +56480,28 @@ impl core::ops::Not for THUMBBUTTONMASK {
         Self(self.0.not())
     }
 }
-pub const TITLEBARNAMELEN: u32 = 40u32;
-pub const TI_BITMAP: TI_FLAGS = TI_FLAGS(1i32);
+pub const TITLEBARNAMELEN: u32 = 40;
+pub const TI_BITMAP: TI_FLAGS = TI_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TI_FLAGS(pub i32);
-pub const TI_JPEG: TI_FLAGS = TI_FLAGS(2i32);
-pub const TLEF_ABSOLUTE: TLENUMF = TLENUMF(49i32);
-pub const TLEF_EXCLUDE_ABOUT_PAGES: TLENUMF = TLENUMF(256i32);
-pub const TLEF_EXCLUDE_SUBFRAME_ENTRIES: TLENUMF = TLENUMF(128i32);
-pub const TLEF_INCLUDE_UNINVOKEABLE: TLENUMF = TLENUMF(64i32);
-pub const TLEF_RELATIVE_BACK: TLENUMF = TLENUMF(16i32);
-pub const TLEF_RELATIVE_FORE: TLENUMF = TLENUMF(32i32);
-pub const TLEF_RELATIVE_INCLUDE_CURRENT: TLENUMF = TLENUMF(1i32);
+pub const TI_JPEG: TI_FLAGS = TI_FLAGS(2);
+pub const TLEF_ABSOLUTE: TLENUMF = TLENUMF(49);
+pub const TLEF_EXCLUDE_ABOUT_PAGES: TLENUMF = TLENUMF(256);
+pub const TLEF_EXCLUDE_SUBFRAME_ENTRIES: TLENUMF = TLENUMF(128);
+pub const TLEF_INCLUDE_UNINVOKEABLE: TLENUMF = TLENUMF(64);
+pub const TLEF_RELATIVE_BACK: TLENUMF = TLENUMF(16);
+pub const TLEF_RELATIVE_FORE: TLENUMF = TLENUMF(32);
+pub const TLEF_RELATIVE_INCLUDE_CURRENT: TLENUMF = TLENUMF(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TLENUMF(pub i32);
-pub const TLMENUF_BACK: u32 = 16u32;
-pub const TLMENUF_FORE: u32 = 32u32;
-pub const TLMENUF_INCLUDECURRENT: u32 = 1u32;
-pub const TLOG_BACK: i32 = -1i32;
-pub const TLOG_CURRENT: u32 = 0u32;
-pub const TLOG_FORE: u32 = 1u32;
+pub const TLMENUF_BACK: u32 = 16;
+pub const TLMENUF_FORE: u32 = 32;
+pub const TLMENUF_INCLUDECURRENT: u32 = 1;
+pub const TLOG_BACK: i32 = -1;
+pub const TLOG_CURRENT: u32 = 0;
+pub const TLOG_FORE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -56512,29 +56512,29 @@ pub struct TOOLBARITEM {
     pub fShow: windows_core::BOOL,
     pub hMon: super::super::Graphics::Gdi::HMONITOR,
 }
-pub const TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(1i32);
-pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(2i32);
+pub const TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(1);
+pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = TRANSLATEURL_IN_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSLATEURL_IN_FLAGS(pub i32);
-pub const TSF_ALLOW_DECRYPTION: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(4i32);
-pub const TSF_COPY_CREATION_TIME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(16i32);
-pub const TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(256i32);
-pub const TSF_COPY_LOCALIZED_NAME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(512i32);
-pub const TSF_COPY_WRITE_TIME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(32i32);
-pub const TSF_DELETE_RECYCLE_IF_POSSIBLE: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(128i32);
-pub const TSF_FAIL_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(0i32);
-pub const TSF_MOVE_AS_COPY_DELETE: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(1024i32);
-pub const TSF_NORMAL: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(0i32);
-pub const TSF_NO_SECURITY: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(8i32);
-pub const TSF_OVERWRITE_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(2i32);
-pub const TSF_RENAME_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(1i32);
-pub const TSF_SUSPEND_SHELLEVENTS: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(2048i32);
-pub const TSF_USE_FULL_ACCESS: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(64i32);
-pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(4i32);
-pub const TS_NONE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(0i32);
-pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(1i32);
-pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(2i32);
+pub const TSF_ALLOW_DECRYPTION: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(4);
+pub const TSF_COPY_CREATION_TIME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(16);
+pub const TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(256);
+pub const TSF_COPY_LOCALIZED_NAME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(512);
+pub const TSF_COPY_WRITE_TIME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(32);
+pub const TSF_DELETE_RECYCLE_IF_POSSIBLE: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(128);
+pub const TSF_FAIL_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(0);
+pub const TSF_MOVE_AS_COPY_DELETE: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(1024);
+pub const TSF_NORMAL: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(0);
+pub const TSF_NO_SECURITY: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(8);
+pub const TSF_OVERWRITE_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(2);
+pub const TSF_RENAME_EXIST: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(1);
+pub const TSF_SUSPEND_SHELLEVENTS: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(2048);
+pub const TSF_USE_FULL_ACCESS: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(64);
+pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(4);
+pub const TS_NONE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(0);
+pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(1);
+pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(2);
 pub const TaskbarList: windows_core::GUID = windows_core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
 pub const ThumbnailStreamCache: windows_core::GUID = windows_core::GUID::from_u128(0xcbe0fed3_4b91_4e90_8354_8a8c84ec6872);
 #[repr(transparent)]
@@ -56580,8 +56580,8 @@ pub const TrayDeskBand: windows_core::GUID = windows_core::GUID::from_u128(0xe64
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNDOCK_REASON(pub i32);
-pub const URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = URLASSOCIATIONDIALOG_IN_FLAGS(2i32);
-pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = URLASSOCIATIONDIALOG_IN_FLAGS(1i32);
+pub const URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = URLASSOCIATIONDIALOG_IN_FLAGS(2);
+pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = URLASSOCIATIONDIALOG_IN_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLASSOCIATIONDIALOG_IN_FLAGS(pub i32);
@@ -56604,92 +56604,92 @@ pub struct URLINVOKECOMMANDINFOW {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLIS(pub i32);
-pub const URLIS_APPLIABLE: URLIS = URLIS(4i32);
-pub const URLIS_DIRECTORY: URLIS = URLIS(5i32);
-pub const URLIS_FILEURL: URLIS = URLIS(3i32);
-pub const URLIS_HASQUERY: URLIS = URLIS(6i32);
-pub const URLIS_NOHISTORY: URLIS = URLIS(2i32);
-pub const URLIS_OPAQUE: URLIS = URLIS(1i32);
-pub const URLIS_URL: URLIS = URLIS(0i32);
-pub const URL_APPLY_DEFAULT: u32 = 1u32;
-pub const URL_APPLY_FORCEAPPLY: u32 = 8u32;
-pub const URL_APPLY_GUESSFILE: u32 = 4u32;
-pub const URL_APPLY_GUESSSCHEME: u32 = 2u32;
-pub const URL_BROWSER_MODE: u32 = 33554432u32;
-pub const URL_CONVERT_IF_DOSPATH: u32 = 2097152u32;
-pub const URL_DONT_ESCAPE_EXTRA_INFO: u32 = 33554432u32;
-pub const URL_DONT_SIMPLIFY: u32 = 134217728u32;
-pub const URL_DONT_UNESCAPE: u32 = 131072u32;
-pub const URL_DONT_UNESCAPE_EXTRA_INFO: u32 = 33554432u32;
-pub const URL_ESCAPE_ASCII_URI_COMPONENT: u32 = 524288u32;
-pub const URL_ESCAPE_AS_UTF8: u32 = 262144u32;
-pub const URL_ESCAPE_PERCENT: u32 = 4096u32;
-pub const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192u32;
-pub const URL_ESCAPE_SPACES_ONLY: u32 = 67108864u32;
-pub const URL_ESCAPE_UNSAFE: u32 = 536870912u32;
+pub const URLIS_APPLIABLE: URLIS = URLIS(4);
+pub const URLIS_DIRECTORY: URLIS = URLIS(5);
+pub const URLIS_FILEURL: URLIS = URLIS(3);
+pub const URLIS_HASQUERY: URLIS = URLIS(6);
+pub const URLIS_NOHISTORY: URLIS = URLIS(2);
+pub const URLIS_OPAQUE: URLIS = URLIS(1);
+pub const URLIS_URL: URLIS = URLIS(0);
+pub const URL_APPLY_DEFAULT: u32 = 1;
+pub const URL_APPLY_FORCEAPPLY: u32 = 8;
+pub const URL_APPLY_GUESSFILE: u32 = 4;
+pub const URL_APPLY_GUESSSCHEME: u32 = 2;
+pub const URL_BROWSER_MODE: u32 = 33554432;
+pub const URL_CONVERT_IF_DOSPATH: u32 = 2097152;
+pub const URL_DONT_ESCAPE_EXTRA_INFO: u32 = 33554432;
+pub const URL_DONT_SIMPLIFY: u32 = 134217728;
+pub const URL_DONT_UNESCAPE: u32 = 131072;
+pub const URL_DONT_UNESCAPE_EXTRA_INFO: u32 = 33554432;
+pub const URL_ESCAPE_ASCII_URI_COMPONENT: u32 = 524288;
+pub const URL_ESCAPE_AS_UTF8: u32 = 262144;
+pub const URL_ESCAPE_PERCENT: u32 = 4096;
+pub const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192;
+pub const URL_ESCAPE_SPACES_ONLY: u32 = 67108864;
+pub const URL_ESCAPE_UNSAFE: u32 = 536870912;
 pub const URL_E_INVALID_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x80041001_u32 as _);
 pub const URL_E_UNREGISTERED_PROTOCOL: windows_core::HRESULT = windows_core::HRESULT(0x80041002_u32 as _);
-pub const URL_FILE_USE_PATHURL: u32 = 65536u32;
-pub const URL_INTERNAL_PATH: u32 = 8388608u32;
-pub const URL_NO_META: u32 = 134217728u32;
+pub const URL_FILE_USE_PATHURL: u32 = 65536;
+pub const URL_INTERNAL_PATH: u32 = 8388608;
+pub const URL_NO_META: u32 = 134217728;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_PART(pub i32);
-pub const URL_PARTFLAG_KEEPSCHEME: u32 = 1u32;
-pub const URL_PART_HOSTNAME: URL_PART = URL_PART(2i32);
-pub const URL_PART_NONE: URL_PART = URL_PART(0i32);
-pub const URL_PART_PASSWORD: URL_PART = URL_PART(4i32);
-pub const URL_PART_PORT: URL_PART = URL_PART(5i32);
-pub const URL_PART_QUERY: URL_PART = URL_PART(6i32);
-pub const URL_PART_SCHEME: URL_PART = URL_PART(1i32);
-pub const URL_PART_USERNAME: URL_PART = URL_PART(3i32);
-pub const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824u32;
+pub const URL_PARTFLAG_KEEPSCHEME: u32 = 1;
+pub const URL_PART_HOSTNAME: URL_PART = URL_PART(2);
+pub const URL_PART_NONE: URL_PART = URL_PART(0);
+pub const URL_PART_PASSWORD: URL_PART = URL_PART(4);
+pub const URL_PART_PORT: URL_PART = URL_PART(5);
+pub const URL_PART_QUERY: URL_PART = URL_PART(6);
+pub const URL_PART_SCHEME: URL_PART = URL_PART(1);
+pub const URL_PART_USERNAME: URL_PART = URL_PART(3);
+pub const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_SCHEME(pub i32);
-pub const URL_SCHEME_ABOUT: URL_SCHEME = URL_SCHEME(17i32);
-pub const URL_SCHEME_FILE: URL_SCHEME = URL_SCHEME(9i32);
-pub const URL_SCHEME_FTP: URL_SCHEME = URL_SCHEME(1i32);
-pub const URL_SCHEME_GOPHER: URL_SCHEME = URL_SCHEME(3i32);
-pub const URL_SCHEME_HTTP: URL_SCHEME = URL_SCHEME(2i32);
-pub const URL_SCHEME_HTTPS: URL_SCHEME = URL_SCHEME(11i32);
-pub const URL_SCHEME_INVALID: URL_SCHEME = URL_SCHEME(-1i32);
-pub const URL_SCHEME_JAVASCRIPT: URL_SCHEME = URL_SCHEME(15i32);
-pub const URL_SCHEME_KNOWNFOLDER: URL_SCHEME = URL_SCHEME(26i32);
-pub const URL_SCHEME_LOCAL: URL_SCHEME = URL_SCHEME(14i32);
-pub const URL_SCHEME_MAILTO: URL_SCHEME = URL_SCHEME(4i32);
-pub const URL_SCHEME_MAXVALUE: URL_SCHEME = URL_SCHEME(27i32);
-pub const URL_SCHEME_MK: URL_SCHEME = URL_SCHEME(10i32);
-pub const URL_SCHEME_MSHELP: URL_SCHEME = URL_SCHEME(21i32);
-pub const URL_SCHEME_MSSHELLDEVICE: URL_SCHEME = URL_SCHEME(22i32);
-pub const URL_SCHEME_MSSHELLIDLIST: URL_SCHEME = URL_SCHEME(20i32);
-pub const URL_SCHEME_MSSHELLROOTED: URL_SCHEME = URL_SCHEME(19i32);
-pub const URL_SCHEME_NEWS: URL_SCHEME = URL_SCHEME(5i32);
-pub const URL_SCHEME_NNTP: URL_SCHEME = URL_SCHEME(6i32);
-pub const URL_SCHEME_RES: URL_SCHEME = URL_SCHEME(18i32);
-pub const URL_SCHEME_SEARCH: URL_SCHEME = URL_SCHEME(25i32);
-pub const URL_SCHEME_SEARCH_MS: URL_SCHEME = URL_SCHEME(24i32);
-pub const URL_SCHEME_SHELL: URL_SCHEME = URL_SCHEME(12i32);
-pub const URL_SCHEME_SNEWS: URL_SCHEME = URL_SCHEME(13i32);
-pub const URL_SCHEME_TELNET: URL_SCHEME = URL_SCHEME(7i32);
-pub const URL_SCHEME_UNKNOWN: URL_SCHEME = URL_SCHEME(0i32);
-pub const URL_SCHEME_VBSCRIPT: URL_SCHEME = URL_SCHEME(16i32);
-pub const URL_SCHEME_WAIS: URL_SCHEME = URL_SCHEME(8i32);
-pub const URL_SCHEME_WILDCARD: URL_SCHEME = URL_SCHEME(23i32);
-pub const URL_UNESCAPE: u32 = 268435456u32;
-pub const URL_UNESCAPE_AS_UTF8: u32 = 262144u32;
-pub const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304u32;
-pub const URL_UNESCAPE_INPLACE: u32 = 1048576u32;
-pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
-pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
-pub const UR_MONITOR_DISCONNECT: UNDOCK_REASON = UNDOCK_REASON(1i32);
-pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = UNDOCK_REASON(0i32);
+pub const URL_SCHEME_ABOUT: URL_SCHEME = URL_SCHEME(17);
+pub const URL_SCHEME_FILE: URL_SCHEME = URL_SCHEME(9);
+pub const URL_SCHEME_FTP: URL_SCHEME = URL_SCHEME(1);
+pub const URL_SCHEME_GOPHER: URL_SCHEME = URL_SCHEME(3);
+pub const URL_SCHEME_HTTP: URL_SCHEME = URL_SCHEME(2);
+pub const URL_SCHEME_HTTPS: URL_SCHEME = URL_SCHEME(11);
+pub const URL_SCHEME_INVALID: URL_SCHEME = URL_SCHEME(-1);
+pub const URL_SCHEME_JAVASCRIPT: URL_SCHEME = URL_SCHEME(15);
+pub const URL_SCHEME_KNOWNFOLDER: URL_SCHEME = URL_SCHEME(26);
+pub const URL_SCHEME_LOCAL: URL_SCHEME = URL_SCHEME(14);
+pub const URL_SCHEME_MAILTO: URL_SCHEME = URL_SCHEME(4);
+pub const URL_SCHEME_MAXVALUE: URL_SCHEME = URL_SCHEME(27);
+pub const URL_SCHEME_MK: URL_SCHEME = URL_SCHEME(10);
+pub const URL_SCHEME_MSHELP: URL_SCHEME = URL_SCHEME(21);
+pub const URL_SCHEME_MSSHELLDEVICE: URL_SCHEME = URL_SCHEME(22);
+pub const URL_SCHEME_MSSHELLIDLIST: URL_SCHEME = URL_SCHEME(20);
+pub const URL_SCHEME_MSSHELLROOTED: URL_SCHEME = URL_SCHEME(19);
+pub const URL_SCHEME_NEWS: URL_SCHEME = URL_SCHEME(5);
+pub const URL_SCHEME_NNTP: URL_SCHEME = URL_SCHEME(6);
+pub const URL_SCHEME_RES: URL_SCHEME = URL_SCHEME(18);
+pub const URL_SCHEME_SEARCH: URL_SCHEME = URL_SCHEME(25);
+pub const URL_SCHEME_SEARCH_MS: URL_SCHEME = URL_SCHEME(24);
+pub const URL_SCHEME_SHELL: URL_SCHEME = URL_SCHEME(12);
+pub const URL_SCHEME_SNEWS: URL_SCHEME = URL_SCHEME(13);
+pub const URL_SCHEME_TELNET: URL_SCHEME = URL_SCHEME(7);
+pub const URL_SCHEME_UNKNOWN: URL_SCHEME = URL_SCHEME(0);
+pub const URL_SCHEME_VBSCRIPT: URL_SCHEME = URL_SCHEME(16);
+pub const URL_SCHEME_WAIS: URL_SCHEME = URL_SCHEME(8);
+pub const URL_SCHEME_WILDCARD: URL_SCHEME = URL_SCHEME(23);
+pub const URL_UNESCAPE: u32 = 268435456;
+pub const URL_UNESCAPE_AS_UTF8: u32 = 262144;
+pub const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304;
+pub const URL_UNESCAPE_INPLACE: u32 = 1048576;
+pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144;
+pub const URL_WININET_COMPATIBILITY: u32 = 2147483648;
+pub const UR_MONITOR_DISCONNECT: UNDOCK_REASON = UNDOCK_REASON(1);
+pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = UNDOCK_REASON(0);
 pub const UserNotification: windows_core::GUID = windows_core::GUID::from_u128(0x0010890e_8789_413c_adbc_48f5b511b3af);
 pub const V1PasswordCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x6f45dc1e_5384_457a_bc13_2cd81b0d28ed);
 pub const V1SmartcardCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x8bf9a910_a8ff_457f_999f_a5ca10b4a885);
 pub const V1WinBioCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0xac3ac249_e820_4343_a65b_377ac634dc09);
-pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(1i32);
-pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(2i32);
+pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(1);
+pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALIDATEUNC_OPTION(pub i32);
@@ -56726,9 +56726,9 @@ impl core::ops::Not for VALIDATEUNC_OPTION {
         Self(self.0.not())
     }
 }
-pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(8i32);
-pub const VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(4i32);
-pub const VALIDATEUNC_VALID: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(15i32);
+pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(8);
+pub const VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(4);
+pub const VALIDATEUNC_VALID: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(15);
 pub const VID_Content: windows_core::GUID = windows_core::GUID::from_u128(0x30c2c434_0889_4c8d_985d_a9f71830b0a9);
 pub const VID_Details: windows_core::GUID = windows_core::GUID::from_u128(0x137e7700_3573_11cf_ae69_08002b2e1262);
 pub const VID_LargeIcons: windows_core::GUID = windows_core::GUID::from_u128(0x0057d0e0_3573_11cf_ae69_08002b2e1262);
@@ -56737,22 +56737,22 @@ pub const VID_SmallIcons: windows_core::GUID = windows_core::GUID::from_u128(0x0
 pub const VID_ThumbStrip: windows_core::GUID = windows_core::GUID::from_u128(0x8eefa624_d1e9_445b_94b7_74fbce2ea11a);
 pub const VID_Thumbnails: windows_core::GUID = windows_core::GUID::from_u128(0x8bebb290_52d0_11d0_b7f4_00c04fd706ec);
 pub const VID_Tile: windows_core::GUID = windows_core::GUID::from_u128(0x65f125e5_7be1_4810_ba9d_d271c8432ce3);
-pub const VIEW_PRIORITY_CACHEHIT: u32 = 80u32;
-pub const VIEW_PRIORITY_CACHEMISS: u32 = 48u32;
-pub const VIEW_PRIORITY_DESPERATE: u32 = 16u32;
-pub const VIEW_PRIORITY_INHERIT: u32 = 32u32;
-pub const VIEW_PRIORITY_NONE: u32 = 0u32;
-pub const VIEW_PRIORITY_RESTRICTED: u32 = 112u32;
-pub const VIEW_PRIORITY_SHELLEXT: u32 = 64u32;
-pub const VIEW_PRIORITY_SHELLEXT_ASBACKUP: u32 = 21u32;
-pub const VIEW_PRIORITY_STALECACHEHIT: u32 = 69u32;
-pub const VIEW_PRIORITY_USEASDEFAULT: u32 = 67u32;
+pub const VIEW_PRIORITY_CACHEHIT: u32 = 80;
+pub const VIEW_PRIORITY_CACHEMISS: u32 = 48;
+pub const VIEW_PRIORITY_DESPERATE: u32 = 16;
+pub const VIEW_PRIORITY_INHERIT: u32 = 32;
+pub const VIEW_PRIORITY_NONE: u32 = 0;
+pub const VIEW_PRIORITY_RESTRICTED: u32 = 112;
+pub const VIEW_PRIORITY_SHELLEXT: u32 = 64;
+pub const VIEW_PRIORITY_SHELLEXT_ASBACKUP: u32 = 21;
+pub const VIEW_PRIORITY_STALECACHEHIT: u32 = 69;
+pub const VIEW_PRIORITY_USEASDEFAULT: u32 = 67;
 pub const VOLUME_PREFIX: windows_core::PCWSTR = windows_core::w!("\\\\?\\Volume");
-pub const VPCF_BACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(2i32);
-pub const VPCF_SORTCOLUMN: VPCOLORFLAGS = VPCOLORFLAGS(3i32);
-pub const VPCF_SUBTEXT: VPCOLORFLAGS = VPCOLORFLAGS(4i32);
-pub const VPCF_TEXT: VPCOLORFLAGS = VPCOLORFLAGS(1i32);
-pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(5i32);
+pub const VPCF_BACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(2);
+pub const VPCF_SORTCOLUMN: VPCOLORFLAGS = VPCOLORFLAGS(3);
+pub const VPCF_SUBTEXT: VPCOLORFLAGS = VPCOLORFLAGS(4);
+pub const VPCF_TEXT: VPCOLORFLAGS = VPCOLORFLAGS(1);
+pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(5);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VPCOLORFLAGS(pub i32);
@@ -56792,8 +56792,8 @@ impl core::ops::Not for VPWATERMARKFLAGS {
         Self(self.0.not())
     }
 }
-pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = VPWATERMARKFLAGS(1i32);
-pub const VPWF_DEFAULT: VPWATERMARKFLAGS = VPWATERMARKFLAGS(0i32);
+pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = VPWATERMARKFLAGS(1);
+pub const VPWF_DEFAULT: VPWATERMARKFLAGS = VPWATERMARKFLAGS(0);
 pub const VaultProvider: windows_core::GUID = windows_core::GUID::from_u128(0x503739d0_4c5e_4cfd_b3ba_d881334f0df2);
 pub const VirtualDesktopManager: windows_core::GUID = windows_core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 pub const WC_NETADDRESS: windows_core::PCWSTR = windows_core::w!("msctls_netaddress");
@@ -56814,28 +56814,28 @@ impl Default for WINDOWDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WM_CPL_LAUNCH: u32 = 2024u32;
-pub const WM_CPL_LAUNCHED: u32 = 2025u32;
-pub const WPSTYLE_CENTER: u32 = 0u32;
-pub const WPSTYLE_CROPTOFIT: u32 = 4u32;
-pub const WPSTYLE_KEEPASPECT: u32 = 3u32;
-pub const WPSTYLE_MAX: u32 = 6u32;
-pub const WPSTYLE_SPAN: u32 = 5u32;
-pub const WPSTYLE_STRETCH: u32 = 2u32;
-pub const WPSTYLE_TILE: u32 = 1u32;
-pub const WTSAT_ARGB: WTS_ALPHATYPE = WTS_ALPHATYPE(2i32);
-pub const WTSAT_RGB: WTS_ALPHATYPE = WTS_ALPHATYPE(1i32);
-pub const WTSAT_UNKNOWN: WTS_ALPHATYPE = WTS_ALPHATYPE(0i32);
-pub const WTSCF_APPSTYLE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(1i32);
-pub const WTSCF_DEFAULT: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(0i32);
-pub const WTSCF_FAST: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(8i32);
-pub const WTSCF_SQUARE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(2i32);
-pub const WTSCF_WIDE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(4i32);
+pub const WM_CPL_LAUNCH: u32 = 2024;
+pub const WM_CPL_LAUNCHED: u32 = 2025;
+pub const WPSTYLE_CENTER: u32 = 0;
+pub const WPSTYLE_CROPTOFIT: u32 = 4;
+pub const WPSTYLE_KEEPASPECT: u32 = 3;
+pub const WPSTYLE_MAX: u32 = 6;
+pub const WPSTYLE_SPAN: u32 = 5;
+pub const WPSTYLE_STRETCH: u32 = 2;
+pub const WPSTYLE_TILE: u32 = 1;
+pub const WTSAT_ARGB: WTS_ALPHATYPE = WTS_ALPHATYPE(2);
+pub const WTSAT_RGB: WTS_ALPHATYPE = WTS_ALPHATYPE(1);
+pub const WTSAT_UNKNOWN: WTS_ALPHATYPE = WTS_ALPHATYPE(0);
+pub const WTSCF_APPSTYLE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(1);
+pub const WTSCF_DEFAULT: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(0);
+pub const WTSCF_FAST: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(8);
+pub const WTSCF_SQUARE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(2);
+pub const WTSCF_WIDE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_ALPHATYPE(pub i32);
-pub const WTS_APPSTYLE: WTS_FLAGS = WTS_FLAGS(8192i32);
-pub const WTS_CACHED: WTS_CACHEFLAGS = WTS_CACHEFLAGS(2i32);
+pub const WTS_APPSTYLE: WTS_FLAGS = WTS_FLAGS(8192);
+pub const WTS_CACHED: WTS_CACHEFLAGS = WTS_CACHEFLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_CACHEFLAGS(pub i32);
@@ -56908,11 +56908,11 @@ impl core::ops::Not for WTS_CONTEXTFLAGS {
         Self(self.0.not())
     }
 }
-pub const WTS_CROPTOSQUARE: WTS_FLAGS = WTS_FLAGS(512i32);
-pub const WTS_DEFAULT: WTS_CACHEFLAGS = WTS_CACHEFLAGS(0i32);
-pub const WTS_EXTRACT: WTS_FLAGS = WTS_FLAGS(0i32);
-pub const WTS_EXTRACTDONOTCACHE: WTS_FLAGS = WTS_FLAGS(32i32);
-pub const WTS_EXTRACTINPROC: WTS_FLAGS = WTS_FLAGS(256i32);
+pub const WTS_CROPTOSQUARE: WTS_FLAGS = WTS_FLAGS(512);
+pub const WTS_DEFAULT: WTS_CACHEFLAGS = WTS_CACHEFLAGS(0);
+pub const WTS_EXTRACT: WTS_FLAGS = WTS_FLAGS(0);
+pub const WTS_EXTRACTDONOTCACHE: WTS_FLAGS = WTS_FLAGS(32);
+pub const WTS_EXTRACTINPROC: WTS_FLAGS = WTS_FLAGS(256);
 pub const WTS_E_DATAFILEUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8004B204_u32 as _);
 pub const WTS_E_EXTRACTIONBLOCKED: windows_core::HRESULT = windows_core::HRESULT(0x8004B206_u32 as _);
 pub const WTS_E_EXTRACTIONPENDING: windows_core::HRESULT = windows_core::HRESULT(0x8004B205_u32 as _);
@@ -56921,7 +56921,7 @@ pub const WTS_E_FAILEDEXTRACTION: windows_core::HRESULT = windows_core::HRESULT(
 pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x8004B203_u32 as _);
 pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: windows_core::HRESULT = windows_core::HRESULT(0x8004B207_u32 as _);
 pub const WTS_E_SURROGATEUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x8004B202_u32 as _);
-pub const WTS_FASTEXTRACT: WTS_FLAGS = WTS_FLAGS(2i32);
+pub const WTS_FASTEXTRACT: WTS_FLAGS = WTS_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTS_FLAGS(pub i32);
@@ -56958,17 +56958,17 @@ impl core::ops::Not for WTS_FLAGS {
         Self(self.0.not())
     }
 }
-pub const WTS_FORCEEXTRACTION: WTS_FLAGS = WTS_FLAGS(4i32);
-pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = WTS_FLAGS(32768i32);
-pub const WTS_INCACHEONLY: WTS_FLAGS = WTS_FLAGS(1i32);
-pub const WTS_INSTANCESURROGATE: WTS_FLAGS = WTS_FLAGS(1024i32);
-pub const WTS_LOWQUALITY: WTS_CACHEFLAGS = WTS_CACHEFLAGS(1i32);
-pub const WTS_NONE: WTS_FLAGS = WTS_FLAGS(0i32);
-pub const WTS_REQUIRESURROGATE: WTS_FLAGS = WTS_FLAGS(2048i32);
-pub const WTS_SCALETOREQUESTEDSIZE: WTS_FLAGS = WTS_FLAGS(64i32);
-pub const WTS_SCALEUP: WTS_FLAGS = WTS_FLAGS(65536i32);
-pub const WTS_SKIPFASTEXTRACT: WTS_FLAGS = WTS_FLAGS(128i32);
-pub const WTS_SLOWRECLAIM: WTS_FLAGS = WTS_FLAGS(8i32);
+pub const WTS_FORCEEXTRACTION: WTS_FLAGS = WTS_FLAGS(4);
+pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = WTS_FLAGS(32768);
+pub const WTS_INCACHEONLY: WTS_FLAGS = WTS_FLAGS(1);
+pub const WTS_INSTANCESURROGATE: WTS_FLAGS = WTS_FLAGS(1024);
+pub const WTS_LOWQUALITY: WTS_CACHEFLAGS = WTS_CACHEFLAGS(1);
+pub const WTS_NONE: WTS_FLAGS = WTS_FLAGS(0);
+pub const WTS_REQUIRESURROGATE: WTS_FLAGS = WTS_FLAGS(2048);
+pub const WTS_SCALETOREQUESTEDSIZE: WTS_FLAGS = WTS_FLAGS(64);
+pub const WTS_SCALEUP: WTS_FLAGS = WTS_FLAGS(65536);
+pub const WTS_SKIPFASTEXTRACT: WTS_FLAGS = WTS_FLAGS(128);
+pub const WTS_SLOWRECLAIM: WTS_FLAGS = WTS_FLAGS(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTS_THUMBNAILID {
@@ -56979,7 +56979,7 @@ impl Default for WTS_THUMBNAILID {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WTS_WIDETHUMBNAILS: WTS_FLAGS = WTS_FLAGS(16384i32);
+pub const WTS_WIDETHUMBNAILS: WTS_FLAGS = WTS_FLAGS(16384);
 pub const WebBrowser: windows_core::GUID = windows_core::GUID::from_u128(0x8856f961_340a_11d0_a96b_00c04fd705a2);
 pub const WebBrowser_V1: windows_core::GUID = windows_core::GUID::from_u128(0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b);
 pub const WebWizardHost: windows_core::GUID = windows_core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
@@ -57164,94 +57164,94 @@ pub struct _TRANSFER_ADVISE_STATE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TRANSFER_SOURCE_FLAGS(pub i32);
-pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(13i32);
-pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(42i32);
-pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: SHGLOBALCOUNTER = SHGLOBALCOUNTER(43i32);
-pub const idsAppName: u32 = 1007u32;
-pub const idsBadOldPW: u32 = 1006u32;
-pub const idsChangePW: u32 = 1005u32;
-pub const idsDefKeyword: u32 = 1010u32;
-pub const idsDifferentPW: u32 = 1004u32;
-pub const idsHelpFile: u32 = 1009u32;
-pub const idsIniFile: u32 = 1001u32;
-pub const idsIsPassword: u32 = 1000u32;
-pub const idsNoHelpMemory: u32 = 1008u32;
-pub const idsPassword: u32 = 1003u32;
-pub const idsScreenSaver: u32 = 1002u32;
-pub const navAllowAutosearch: BrowserNavConstants = BrowserNavConstants(16i32);
-pub const navBlockRedirectsXDomain: BrowserNavConstants = BrowserNavConstants(32768i32);
-pub const navBrowserBar: BrowserNavConstants = BrowserNavConstants(32i32);
-pub const navDeferUnload: BrowserNavConstants = BrowserNavConstants(262144i32);
-pub const navEnforceRestricted: BrowserNavConstants = BrowserNavConstants(128i32);
-pub const navHomepageNavigate: BrowserNavConstants = BrowserNavConstants(8388608i32);
-pub const navHostNavigation: BrowserNavConstants = BrowserNavConstants(33554432i32);
-pub const navHyperlink: BrowserNavConstants = BrowserNavConstants(64i32);
-pub const navKeepWordWheelText: BrowserNavConstants = BrowserNavConstants(8192i32);
-pub const navNewWindowsManaged: BrowserNavConstants = BrowserNavConstants(256i32);
-pub const navNoHistory: BrowserNavConstants = BrowserNavConstants(2i32);
-pub const navNoReadFromCache: BrowserNavConstants = BrowserNavConstants(4i32);
-pub const navNoWriteToCache: BrowserNavConstants = BrowserNavConstants(8i32);
-pub const navOpenInBackgroundTab: BrowserNavConstants = BrowserNavConstants(4096i32);
-pub const navOpenInNewTab: BrowserNavConstants = BrowserNavConstants(2048i32);
-pub const navOpenInNewWindow: BrowserNavConstants = BrowserNavConstants(1i32);
-pub const navOpenNewForegroundTab: BrowserNavConstants = BrowserNavConstants(65536i32);
-pub const navRefresh: BrowserNavConstants = BrowserNavConstants(16777216i32);
-pub const navReserved1: BrowserNavConstants = BrowserNavConstants(4194304i32);
-pub const navReserved2: BrowserNavConstants = BrowserNavConstants(67108864i32);
-pub const navReserved3: BrowserNavConstants = BrowserNavConstants(134217728i32);
-pub const navReserved4: BrowserNavConstants = BrowserNavConstants(268435456i32);
-pub const navReserved5: BrowserNavConstants = BrowserNavConstants(536870912i32);
-pub const navReserved6: BrowserNavConstants = BrowserNavConstants(1073741824i32);
-pub const navReserved7: BrowserNavConstants = BrowserNavConstants(-2147483648i32);
-pub const navSpeculative: BrowserNavConstants = BrowserNavConstants(524288i32);
-pub const navSuggestNewTab: BrowserNavConstants = BrowserNavConstants(2097152i32);
-pub const navSuggestNewWindow: BrowserNavConstants = BrowserNavConstants(1048576i32);
-pub const navTravelLogScreenshot: BrowserNavConstants = BrowserNavConstants(131072i32);
-pub const navTrustedForActiveX: BrowserNavConstants = BrowserNavConstants(1024i32);
-pub const navUntrustedForDownload: BrowserNavConstants = BrowserNavConstants(512i32);
-pub const navVirtualTab: BrowserNavConstants = BrowserNavConstants(16384i32);
-pub const secureLockIconMixed: SecureLockIconConstants = SecureLockIconConstants(1i32);
-pub const secureLockIconSecure128Bit: SecureLockIconConstants = SecureLockIconConstants(6i32);
-pub const secureLockIconSecure40Bit: SecureLockIconConstants = SecureLockIconConstants(3i32);
-pub const secureLockIconSecure56Bit: SecureLockIconConstants = SecureLockIconConstants(4i32);
-pub const secureLockIconSecureFortezza: SecureLockIconConstants = SecureLockIconConstants(5i32);
-pub const secureLockIconSecureUnknownBits: SecureLockIconConstants = SecureLockIconConstants(2i32);
-pub const secureLockIconUnsecure: SecureLockIconConstants = SecureLockIconConstants(0i32);
-pub const ssfALTSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(29i32);
-pub const ssfAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(26i32);
-pub const ssfBITBUCKET: ShellSpecialFolderConstants = ShellSpecialFolderConstants(10i32);
-pub const ssfCOMMONALTSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(30i32);
-pub const ssfCOMMONAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(35i32);
-pub const ssfCOMMONDESKTOPDIR: ShellSpecialFolderConstants = ShellSpecialFolderConstants(25i32);
-pub const ssfCOMMONFAVORITES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(31i32);
-pub const ssfCOMMONPROGRAMS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(23i32);
-pub const ssfCOMMONSTARTMENU: ShellSpecialFolderConstants = ShellSpecialFolderConstants(22i32);
-pub const ssfCOMMONSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(24i32);
-pub const ssfCONTROLS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(3i32);
-pub const ssfCOOKIES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(33i32);
-pub const ssfDESKTOP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(0i32);
-pub const ssfDESKTOPDIRECTORY: ShellSpecialFolderConstants = ShellSpecialFolderConstants(16i32);
-pub const ssfDRIVES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(17i32);
-pub const ssfFAVORITES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(6i32);
-pub const ssfFONTS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(20i32);
-pub const ssfHISTORY: ShellSpecialFolderConstants = ShellSpecialFolderConstants(34i32);
-pub const ssfINTERNETCACHE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(32i32);
-pub const ssfLOCALAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(28i32);
-pub const ssfMYPICTURES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(39i32);
-pub const ssfNETHOOD: ShellSpecialFolderConstants = ShellSpecialFolderConstants(19i32);
-pub const ssfNETWORK: ShellSpecialFolderConstants = ShellSpecialFolderConstants(18i32);
-pub const ssfPERSONAL: ShellSpecialFolderConstants = ShellSpecialFolderConstants(5i32);
-pub const ssfPRINTERS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(4i32);
-pub const ssfPRINTHOOD: ShellSpecialFolderConstants = ShellSpecialFolderConstants(27i32);
-pub const ssfPROFILE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(40i32);
-pub const ssfPROGRAMFILES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(38i32);
-pub const ssfPROGRAMFILESx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(48i32);
-pub const ssfPROGRAMS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(2i32);
-pub const ssfRECENT: ShellSpecialFolderConstants = ShellSpecialFolderConstants(8i32);
-pub const ssfSENDTO: ShellSpecialFolderConstants = ShellSpecialFolderConstants(9i32);
-pub const ssfSTARTMENU: ShellSpecialFolderConstants = ShellSpecialFolderConstants(11i32);
-pub const ssfSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(7i32);
-pub const ssfSYSTEM: ShellSpecialFolderConstants = ShellSpecialFolderConstants(37i32);
-pub const ssfSYSTEMx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(41i32);
-pub const ssfTEMPLATES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(21i32);
-pub const ssfWINDOWS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(36i32);
+pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: SHGLOBALCOUNTER = SHGLOBALCOUNTER(13);
+pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(42);
+pub const __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: SHGLOBALCOUNTER = SHGLOBALCOUNTER(43);
+pub const idsAppName: u32 = 1007;
+pub const idsBadOldPW: u32 = 1006;
+pub const idsChangePW: u32 = 1005;
+pub const idsDefKeyword: u32 = 1010;
+pub const idsDifferentPW: u32 = 1004;
+pub const idsHelpFile: u32 = 1009;
+pub const idsIniFile: u32 = 1001;
+pub const idsIsPassword: u32 = 1000;
+pub const idsNoHelpMemory: u32 = 1008;
+pub const idsPassword: u32 = 1003;
+pub const idsScreenSaver: u32 = 1002;
+pub const navAllowAutosearch: BrowserNavConstants = BrowserNavConstants(16);
+pub const navBlockRedirectsXDomain: BrowserNavConstants = BrowserNavConstants(32768);
+pub const navBrowserBar: BrowserNavConstants = BrowserNavConstants(32);
+pub const navDeferUnload: BrowserNavConstants = BrowserNavConstants(262144);
+pub const navEnforceRestricted: BrowserNavConstants = BrowserNavConstants(128);
+pub const navHomepageNavigate: BrowserNavConstants = BrowserNavConstants(8388608);
+pub const navHostNavigation: BrowserNavConstants = BrowserNavConstants(33554432);
+pub const navHyperlink: BrowserNavConstants = BrowserNavConstants(64);
+pub const navKeepWordWheelText: BrowserNavConstants = BrowserNavConstants(8192);
+pub const navNewWindowsManaged: BrowserNavConstants = BrowserNavConstants(256);
+pub const navNoHistory: BrowserNavConstants = BrowserNavConstants(2);
+pub const navNoReadFromCache: BrowserNavConstants = BrowserNavConstants(4);
+pub const navNoWriteToCache: BrowserNavConstants = BrowserNavConstants(8);
+pub const navOpenInBackgroundTab: BrowserNavConstants = BrowserNavConstants(4096);
+pub const navOpenInNewTab: BrowserNavConstants = BrowserNavConstants(2048);
+pub const navOpenInNewWindow: BrowserNavConstants = BrowserNavConstants(1);
+pub const navOpenNewForegroundTab: BrowserNavConstants = BrowserNavConstants(65536);
+pub const navRefresh: BrowserNavConstants = BrowserNavConstants(16777216);
+pub const navReserved1: BrowserNavConstants = BrowserNavConstants(4194304);
+pub const navReserved2: BrowserNavConstants = BrowserNavConstants(67108864);
+pub const navReserved3: BrowserNavConstants = BrowserNavConstants(134217728);
+pub const navReserved4: BrowserNavConstants = BrowserNavConstants(268435456);
+pub const navReserved5: BrowserNavConstants = BrowserNavConstants(536870912);
+pub const navReserved6: BrowserNavConstants = BrowserNavConstants(1073741824);
+pub const navReserved7: BrowserNavConstants = BrowserNavConstants(-2147483648);
+pub const navSpeculative: BrowserNavConstants = BrowserNavConstants(524288);
+pub const navSuggestNewTab: BrowserNavConstants = BrowserNavConstants(2097152);
+pub const navSuggestNewWindow: BrowserNavConstants = BrowserNavConstants(1048576);
+pub const navTravelLogScreenshot: BrowserNavConstants = BrowserNavConstants(131072);
+pub const navTrustedForActiveX: BrowserNavConstants = BrowserNavConstants(1024);
+pub const navUntrustedForDownload: BrowserNavConstants = BrowserNavConstants(512);
+pub const navVirtualTab: BrowserNavConstants = BrowserNavConstants(16384);
+pub const secureLockIconMixed: SecureLockIconConstants = SecureLockIconConstants(1);
+pub const secureLockIconSecure128Bit: SecureLockIconConstants = SecureLockIconConstants(6);
+pub const secureLockIconSecure40Bit: SecureLockIconConstants = SecureLockIconConstants(3);
+pub const secureLockIconSecure56Bit: SecureLockIconConstants = SecureLockIconConstants(4);
+pub const secureLockIconSecureFortezza: SecureLockIconConstants = SecureLockIconConstants(5);
+pub const secureLockIconSecureUnknownBits: SecureLockIconConstants = SecureLockIconConstants(2);
+pub const secureLockIconUnsecure: SecureLockIconConstants = SecureLockIconConstants(0);
+pub const ssfALTSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(29);
+pub const ssfAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(26);
+pub const ssfBITBUCKET: ShellSpecialFolderConstants = ShellSpecialFolderConstants(10);
+pub const ssfCOMMONALTSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(30);
+pub const ssfCOMMONAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(35);
+pub const ssfCOMMONDESKTOPDIR: ShellSpecialFolderConstants = ShellSpecialFolderConstants(25);
+pub const ssfCOMMONFAVORITES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(31);
+pub const ssfCOMMONPROGRAMS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(23);
+pub const ssfCOMMONSTARTMENU: ShellSpecialFolderConstants = ShellSpecialFolderConstants(22);
+pub const ssfCOMMONSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(24);
+pub const ssfCONTROLS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(3);
+pub const ssfCOOKIES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(33);
+pub const ssfDESKTOP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(0);
+pub const ssfDESKTOPDIRECTORY: ShellSpecialFolderConstants = ShellSpecialFolderConstants(16);
+pub const ssfDRIVES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(17);
+pub const ssfFAVORITES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(6);
+pub const ssfFONTS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(20);
+pub const ssfHISTORY: ShellSpecialFolderConstants = ShellSpecialFolderConstants(34);
+pub const ssfINTERNETCACHE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(32);
+pub const ssfLOCALAPPDATA: ShellSpecialFolderConstants = ShellSpecialFolderConstants(28);
+pub const ssfMYPICTURES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(39);
+pub const ssfNETHOOD: ShellSpecialFolderConstants = ShellSpecialFolderConstants(19);
+pub const ssfNETWORK: ShellSpecialFolderConstants = ShellSpecialFolderConstants(18);
+pub const ssfPERSONAL: ShellSpecialFolderConstants = ShellSpecialFolderConstants(5);
+pub const ssfPRINTERS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(4);
+pub const ssfPRINTHOOD: ShellSpecialFolderConstants = ShellSpecialFolderConstants(27);
+pub const ssfPROFILE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(40);
+pub const ssfPROGRAMFILES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(38);
+pub const ssfPROGRAMFILESx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(48);
+pub const ssfPROGRAMS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(2);
+pub const ssfRECENT: ShellSpecialFolderConstants = ShellSpecialFolderConstants(8);
+pub const ssfSENDTO: ShellSpecialFolderConstants = ShellSpecialFolderConstants(9);
+pub const ssfSTARTMENU: ShellSpecialFolderConstants = ShellSpecialFolderConstants(11);
+pub const ssfSTARTUP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(7);
+pub const ssfSYSTEM: ShellSpecialFolderConstants = ShellSpecialFolderConstants(37);
+pub const ssfSYSTEMx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(41);
+pub const ssfTEMPLATES: ShellSpecialFolderConstants = ShellSpecialFolderConstants(21);
+pub const ssfWINDOWS: ShellSpecialFolderConstants = ShellSpecialFolderConstants(36);

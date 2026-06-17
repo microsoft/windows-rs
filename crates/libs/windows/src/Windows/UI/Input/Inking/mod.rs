@@ -8,9 +8,9 @@ pub mod Preview;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
-    pub const Small: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const Large: Self = Self(2i32);
+    pub const Small: Self = Self(0);
+    pub const Medium: Self = Self(1);
+    pub const Large: Self = Self(2);
 }
 impl windows_core::TypeKind for HandwritingLineHeight {
     type TypeKind = windows_core::CopyType;
@@ -1491,8 +1491,8 @@ unsafe impl Sync for InkDrawingAttributes {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
-    pub const Default: Self = Self(0i32);
-    pub const Pencil: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Pencil: Self = Self(1);
 }
 impl windows_core::TypeKind for InkDrawingAttributesKind {
     type TypeKind = windows_core::CopyType;
@@ -1532,9 +1532,9 @@ unsafe impl Sync for InkDrawingAttributesPencilProperties {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
-    pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
-    pub const UseSystemColors: Self = Self(1i32);
-    pub const UseOriginalColors: Self = Self(2i32);
+    pub const UseSystemColorsWhenNecessary: Self = Self(0);
+    pub const UseSystemColors: Self = Self(1);
+    pub const UseOriginalColors: Self = Self(2);
 }
 impl windows_core::TypeKind for InkHighContrastAdjustment {
     type TypeKind = windows_core::CopyType;
@@ -1630,9 +1630,9 @@ unsafe impl Sync for InkInputProcessingConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
-    pub const None: Self = Self(0i32);
-    pub const Inking: Self = Self(1i32);
-    pub const Erasing: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Inking: Self = Self(1);
+    pub const Erasing: Self = Self(2);
 }
 impl windows_core::TypeKind for InkInputProcessingMode {
     type TypeKind = windows_core::CopyType;
@@ -1645,8 +1645,8 @@ impl windows_core::RuntimeType for InkInputProcessingMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
-    pub const LeaveUnprocessed: Self = Self(0i32);
-    pub const AllowProcessing: Self = Self(1i32);
+    pub const LeaveUnprocessed: Self = Self(0);
+    pub const AllowProcessing: Self = Self(1);
 }
 impl windows_core::TypeKind for InkInputRightDragAction {
     type TypeKind = windows_core::CopyType;
@@ -1858,9 +1858,9 @@ impl windows_core::RuntimeName for InkManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
-    pub const Inking: Self = Self(0i32);
-    pub const Erasing: Self = Self(1i32);
-    pub const Selecting: Self = Self(2i32);
+    pub const Inking: Self = Self(0);
+    pub const Erasing: Self = Self(1);
+    pub const Selecting: Self = Self(2);
 }
 impl windows_core::TypeKind for InkManipulationMode {
     type TypeKind = windows_core::CopyType;
@@ -1920,8 +1920,8 @@ unsafe impl Sync for InkModelerAttributes {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
-    pub const GifWithEmbeddedIsf: Self = Self(0i32);
-    pub const Isf: Self = Self(1i32);
+    pub const GifWithEmbeddedIsf: Self = Self(0);
+    pub const Isf: Self = Self(1);
 }
 impl windows_core::TypeKind for InkPersistenceFormat {
     type TypeKind = windows_core::CopyType;
@@ -2137,8 +2137,8 @@ unsafe impl Sync for InkPresenter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
-    pub const SimpleSinglePointer: Self = Self(0i32);
-    pub const SimpleMultiplePointer: Self = Self(1i32);
+    pub const SimpleSinglePointer: Self = Self(0);
+    pub const SimpleMultiplePointer: Self = Self(1);
 }
 impl windows_core::TypeKind for InkPresenterPredefinedConfiguration {
     type TypeKind = windows_core::CopyType;
@@ -2420,9 +2420,9 @@ unsafe impl Sync for InkPresenterRuler {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
-    pub const Other: Self = Self(0i32);
-    pub const Ruler: Self = Self(1i32);
-    pub const Protractor: Self = Self(2i32);
+    pub const Other: Self = Self(0);
+    pub const Ruler: Self = Self(1);
+    pub const Protractor: Self = Self(2);
 }
 impl windows_core::TypeKind for InkPresenterStencilKind {
     type TypeKind = windows_core::CopyType;
@@ -2471,9 +2471,9 @@ unsafe impl Sync for InkRecognitionResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
-    pub const All: Self = Self(0i32);
-    pub const Selected: Self = Self(1i32);
-    pub const Recent: Self = Self(2i32);
+    pub const All: Self = Self(0);
+    pub const Selected: Self = Self(1);
+    pub const Recent: Self = Self(2);
 }
 impl windows_core::TypeKind for InkRecognitionTarget {
     type TypeKind = windows_core::CopyType;
@@ -2632,7 +2632,7 @@ impl InkStroke {
     }
     pub fn SetStrokeStartedTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetStrokeStartedTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn StrokeDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2644,7 +2644,7 @@ impl InkStroke {
     }
     pub fn SetStrokeDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetStrokeDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PointerId(&self) -> windows_core::Result<u32> {
@@ -2733,8 +2733,8 @@ impl InkStrokeBuilder {
         P0: windows_core::Param<windows_collections::IIterable<InkPoint>>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeBuilder3>(self)?;
-        let strokestartedtime__ = strokestartedtime.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
-        let strokeduration__ = strokeduration.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let strokestartedtime__ = strokestartedtime.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
+        let strokeduration__ = strokeduration.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), inkpoints.param().abi(), transform, windows_core::Param::param(strokestartedtime__.as_ref()).abi(), windows_core::Param::param(strokeduration__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3287,8 +3287,8 @@ unsafe impl Sync for PenAndInkSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
-    pub const Right: Self = Self(0i32);
-    pub const Left: Self = Self(1i32);
+    pub const Right: Self = Self(0);
+    pub const Left: Self = Self(1);
 }
 impl windows_core::TypeKind for PenHandedness {
     type TypeKind = windows_core::CopyType;
@@ -3301,8 +3301,8 @@ impl windows_core::RuntimeType for PenHandedness {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {
-    pub const Circle: Self = Self(0i32);
-    pub const Rectangle: Self = Self(1i32);
+    pub const Circle: Self = Self(0);
+    pub const Rectangle: Self = Self(1);
 }
 impl windows_core::TypeKind for PenTipShape {
     type TypeKind = windows_core::CopyType;

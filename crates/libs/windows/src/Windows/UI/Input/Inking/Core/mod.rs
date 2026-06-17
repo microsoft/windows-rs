@@ -255,9 +255,9 @@ unsafe impl Sync for CoreInkPresenterHost {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
-    pub const Inking: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
+    pub const Inking: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const Canceled: Self = Self(2);
 }
 impl windows_core::TypeKind for CoreWetStrokeDisposition {
     type TypeKind = windows_core::CopyType;

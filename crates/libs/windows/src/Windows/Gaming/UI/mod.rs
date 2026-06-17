@@ -48,8 +48,8 @@ impl windows_core::RuntimeName for GameBar {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
-    pub const Voice: Self = Self(0i32);
-    pub const Text: Self = Self(1i32);
+    pub const Voice: Self = Self(0);
+    pub const Text: Self = Self(1);
 }
 impl windows_core::TypeKind for GameChatMessageOrigin {
     type TypeKind = windows_core::CopyType;
@@ -190,14 +190,14 @@ unsafe impl Sync for GameChatOverlayMessageSource {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
-    pub const BottomCenter: Self = Self(0i32);
-    pub const BottomLeft: Self = Self(1i32);
-    pub const BottomRight: Self = Self(2i32);
-    pub const MiddleRight: Self = Self(3i32);
-    pub const MiddleLeft: Self = Self(4i32);
-    pub const TopCenter: Self = Self(5i32);
-    pub const TopLeft: Self = Self(6i32);
-    pub const TopRight: Self = Self(7i32);
+    pub const BottomCenter: Self = Self(0);
+    pub const BottomLeft: Self = Self(1);
+    pub const BottomRight: Self = Self(2);
+    pub const MiddleRight: Self = Self(3);
+    pub const MiddleLeft: Self = Self(4);
+    pub const TopCenter: Self = Self(5);
+    pub const TopLeft: Self = Self(6);
+    pub const TopRight: Self = Self(7);
 }
 impl windows_core::TypeKind for GameChatOverlayPosition {
     type TypeKind = windows_core::CopyType;

@@ -26,7 +26,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
             .collect()
     };
 
-    let mut nav_items = vec![NavViewItem::new("Home").tag("home").icon(SymbolGlyph::Home)];
+    let mut nav_items = vec![NavViewItem::new("Home").tag("home").icon(Symbol::Home)];
     for &cat in CATEGORIES {
         let controls = registry::controls_in_category(cat);
         let mut item = NavViewItem::new(cat)
@@ -68,7 +68,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
     };
 
     let search_box: Element = auto_suggest_box(&*search_text)
-        .placeholder("Search controls and samples...")
+        .placeholder_text("Search controls and samples...")
         .items(suggestions)
         .on_text_changed(move |text| set_search_text.call(text))
         .on_query_submitted({
@@ -151,7 +151,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
                 }
             }
         })
-        .pane_display_mode(NavViewPaneDisplayMode::Left)
+        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
         .pane_open(is_pane_open)
         .pane_toggle_button_visible(false)
         .back_button_visible(false)
@@ -163,18 +163,18 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
         .into()
 }
 
-fn category_icon(category: &str) -> SymbolGlyph {
+fn category_icon(category: &str) -> Symbol {
     match category {
-        "Basic Input" | "Text" => SymbolGlyph::Edit,
-        "Collections" | "Menus and Toolbars" => SymbolGlyph::More,
-        "Date and Time" => SymbolGlyph::Favorite,
-        "Design Guidance" => SymbolGlyph::People,
-        "Dialogs and Flyouts" => SymbolGlyph::Mail,
-        "Layout" => SymbolGlyph::Find,
-        "Media" => SymbolGlyph::Camera,
-        "Navigation" => SymbolGlyph::World,
-        "Status and Info" => SymbolGlyph::Flag,
-        _ => SymbolGlyph::Help,
+        "Basic Input" | "Text" => Symbol::Edit,
+        "Collections" | "Menus and Toolbars" => Symbol::More,
+        "Date and Time" => Symbol::Favorite,
+        "Design Guidance" => Symbol::People,
+        "Dialogs and Flyouts" => Symbol::Mail,
+        "Layout" => Symbol::Find,
+        "Media" => Symbol::Camera,
+        "Navigation" => Symbol::World,
+        "Status and Info" => Symbol::Flag,
+        _ => Symbol::Help,
     }
 }
 

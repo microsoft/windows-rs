@@ -256,18 +256,26 @@ impl CppMethod {
         let name = method_names.add(self.def);
         let vname = virtual_names.add(self.def);
 
-        let args = self.write_args();
+        let args = self.write_args(config);
         let params = self.write_params(config);
         let generics = self.write_generics();
         let abi_return_type = self.write_return(config);
         let result = config.write_result();
+
+        // In minimal mode, use pub(crate) so that the dead_code lint can detect
+        // unused methods within the consuming crate.
+        let vis = if config.bindgen.style.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        };
 
         match self.return_hint {
             ReturnHint::Query(..) => {
                 let where_clause = self.write_where(config, true);
 
                 quote! {
-                    pub unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
+                    #vis unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__)) }
                     }
@@ -277,7 +285,7 @@ impl CppMethod {
                 let where_clause = self.write_where(config, true);
 
                 quote! {
-                    pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> #result Result<()> #where_clause {
+                    #vis unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> #result Result<()> #where_clause {
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
@@ -291,7 +299,7 @@ impl CppMethod {
                 let return_type = return_type.write_name(config);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
+                    #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
@@ -303,7 +311,7 @@ impl CppMethod {
                 let where_clause = self.write_where(config, false);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> #result Result<()> #where_clause {
+                    #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<()> #where_clause {
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
@@ -317,7 +325,7 @@ impl CppMethod {
                     let return_type = return_type.write_name(config);
 
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
+                        #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
@@ -336,7 +344,7 @@ impl CppMethod {
                     let where_clause = self.write_where(config, false);
 
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        #vis unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
@@ -351,7 +359,7 @@ impl CppMethod {
                 let where_clause = self.write_where(config, false);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                    #vis unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
@@ -365,13 +373,13 @@ impl CppMethod {
 
                 if matches!(self.signature.return_type, Type::Void) {
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
+                        #vis unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
                             unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args); }
                         }
                     }
                 } else {
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
+                        #vis unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
                             unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args) }
                         }
                     }
@@ -635,7 +643,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_args(&self) -> TokenStream {
+    pub fn write_args(&self, config: &Config) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -663,17 +671,34 @@ impl CppMethod {
                         | ParamHint::ArrayRelativeLen(_)
                         | ParamHint::ArrayRelativeByteLen(_) => {
                             let map = if param.is_optional() {
-                                quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                if param.is_input() {
+                                    quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                } else {
+                                    quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                }
                             } else {
                                 quote! { #name.as_ptr() }
                             };
-                            quote! { core::mem::transmute(#map), }
+                            // In minimal mode, when the param type is a raw pointer
+                            // (not PCWSTR/PCSTR wrapper), the element type matches the
+                            // vtable signature — no transmute needed.
+                            if config.minimal_filter.is_some()
+                                && matches!(param.ty, Type::PtrConst(..) | Type::PtrMut(..))
+                            {
+                                quote! { #map, }
+                            } else {
+                                quote! { core::mem::transmute(#map), }
+                            }
                         }
                         ParamHint::ArrayRelativePtr(relative) => {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
                             if relative_param.is_optional() {
-                                quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                if relative_param.is_input() {
+                                    quote! { #name.map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                } else {
+                                    quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                }
                             } else {
                                 quote! { #name.len().try_into().unwrap(), }
                             }
@@ -700,7 +725,15 @@ impl CppMethod {
                         }
                         ParamHint::Blittable => {
                             if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
-                                quote! { #name.0 as _, }
+                                if config.minimal_filter.is_some() {
+                                    quote! { #name as _, }
+                                } else {
+                                    quote! { #name.0 as _, }
+                                }
+                            } else if config.minimal_filter.is_some() {
+                                // In minimal mode, blittable types ARE their ABI
+                                // representation — no transmute needed.
+                                quote! { #name, }
                             } else {
                                 quote! { core::mem::transmute(#name), }
                             }

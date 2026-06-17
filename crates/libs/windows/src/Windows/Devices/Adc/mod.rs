@@ -45,8 +45,8 @@ unsafe impl Sync for AdcChannel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
-    pub const SingleEnded: Self = Self(0i32);
-    pub const Differential: Self = Self(1i32);
+    pub const SingleEnded: Self = Self(0);
+    pub const Differential: Self = Self(1);
 }
 impl windows_core::TypeKind for AdcChannelMode {
     type TypeKind = windows_core::CopyType;

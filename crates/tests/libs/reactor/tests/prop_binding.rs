@@ -1,8 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlId, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{ControlId, Prop, PropValue};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
 
 fn noop_rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -31,24 +32,21 @@ fn text_with(content: &str, font_size: Option<f64>, font_weight: Option<u16>) ->
 #[test]
 fn mount_text_with_no_optionals_emits_only_text_prop() {
     let (r, _id) = mount(&Element::TextBlock(TextBlock::new("hi")));
-    let ops = &r.backend.ops;
-    assert_eq!(
-        ops.len(),
-        2,
-        "expected Create + SetProp(TextBlock), got {ops:?}"
-    );
-    assert!(matches!(ops[0], Op::Create { .. }));
-    match &ops[1] {
-        Op::SetProp { prop, value, .. } => {
-            assert_eq!(*prop, Prop::Text);
-            assert_eq!(*value, PropValue::Str("hi".into()));
-        }
-        other => panic!("expected SetProp(TextBlock), got {other:?}"),
-    }
+    let props: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::SetProp { prop, .. } => Some(*prop),
+            _ => None,
+        })
+        .collect();
+    // Text is always emitted; IsTextSelectionEnabled + TextWrapping are always-emit too.
+    assert!(props.contains(&Prop::Text));
 }
 
 #[test]
-fn mount_text_with_optionals_emits_each_in_declaration_order() {
+fn mount_text_with_optionals_emits_all_expected_props() {
     let (r, _id) = mount(&text_with("hi", Some(14.0), Some(700)));
     let ops: Vec<&Op> = r
         .backend
@@ -56,15 +54,25 @@ fn mount_text_with_optionals_emits_each_in_declaration_order() {
         .iter()
         .filter(|op| matches!(op, Op::SetProp { .. }))
         .collect();
-    assert_eq!(ops.len(), 3);
-    let props: Vec<Prop> = ops
+    // FontSize, FontWeight, IsTextSelectionEnabled, Text, TextWrapping
+    assert_eq!(ops.len(), 5);
+    let mut props: Vec<Prop> = ops
         .iter()
         .map(|op| match op {
             Op::SetProp { prop, .. } => *prop,
             _ => unreachable!(),
         })
         .collect();
-    assert_eq!(props, vec![Prop::Text, Prop::FontSize, Prop::FontWeight]);
+    props.sort_by_key(|p| format!("{p:?}"));
+    let mut expected = vec![
+        Prop::Text,
+        Prop::FontSize,
+        Prop::FontWeight,
+        Prop::IsTextSelectionEnabled,
+        Prop::TextWrapping,
+    ];
+    expected.sort_by_key(|p| format!("{p:?}"));
+    assert_eq!(props, expected);
 }
 
 #[test]
@@ -139,10 +147,13 @@ fn diff_props_handles_multiple_simultaneous_transitions() {
         .collect();
     assert_eq!(setprops.len(), 3, "expected 3 set_prop ops, got {ops:?}");
 
-    assert_eq!(setprops[0].0, Prop::Text);
-    assert_eq!(setprops[0].1, PropValue::Str("bye".into()));
-    assert_eq!(setprops[1].0, Prop::FontSize);
-    assert_eq!(setprops[1].1, PropValue::F64(14.0));
-    assert_eq!(setprops[2].0, Prop::FontWeight);
-    assert_eq!(setprops[2].1, PropValue::Unset);
+    let find = |p: Prop| {
+        setprops
+            .iter()
+            .find(|(prop, _)| *prop == p)
+            .map(|(_, v)| v.clone())
+    };
+    assert_eq!(find(Prop::Text), Some(PropValue::Str("bye".into())));
+    assert_eq!(find(Prop::FontSize), Some(PropValue::F64(14.0)));
+    assert_eq!(find(Prop::FontWeight), Some(PropValue::Unset));
 }

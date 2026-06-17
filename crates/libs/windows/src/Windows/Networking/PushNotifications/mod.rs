@@ -353,7 +353,6 @@ unsafe impl Sync for PushNotificationChannelManagerForUser {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PushNotificationChannelsRevokedEventArgs {}
 impl windows_core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelsRevokedEventArgs>();
 }
@@ -430,11 +429,11 @@ unsafe impl Sync for PushNotificationReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
-    pub const Toast: Self = Self(0i32);
-    pub const Tile: Self = Self(1i32);
-    pub const Badge: Self = Self(2i32);
-    pub const Raw: Self = Self(3i32);
-    pub const TileFlyout: Self = Self(4i32);
+    pub const Toast: Self = Self(0);
+    pub const Tile: Self = Self(1);
+    pub const Badge: Self = Self(2);
+    pub const Raw: Self = Self(3);
+    pub const TileFlyout: Self = Self(4);
 }
 impl windows_core::TypeKind for PushNotificationType {
     type TypeKind = windows_core::CopyType;

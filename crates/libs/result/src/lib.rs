@@ -3,7 +3,6 @@
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
 #![cfg_attr(not(windows), expect(unused_imports))]
 #![expect(
-    dead_code,
     non_upper_case_globals,
     non_snake_case,
     non_camel_case_types,
@@ -14,6 +13,7 @@ extern crate alloc;
 
 use alloc::{string::String, vec::Vec};
 
+#[expect(dead_code)]
 mod bindings;
 use bindings::*;
 

@@ -530,11 +530,11 @@ unsafe impl Sync for IppAttributeError {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
-    pub const RequestEntityTooLarge: Self = Self(0i32);
-    pub const AttributeNotSupported: Self = Self(1i32);
-    pub const AttributeValuesNotSupported: Self = Self(2i32);
-    pub const AttributeNotSettable: Self = Self(3i32);
-    pub const ConflictingAttributes: Self = Self(4i32);
+    pub const RequestEntityTooLarge: Self = Self(0);
+    pub const AttributeNotSupported: Self = Self(1);
+    pub const AttributeValuesNotSupported: Self = Self(2);
+    pub const AttributeNotSettable: Self = Self(3);
+    pub const ConflictingAttributes: Self = Self(4);
 }
 impl windows_core::TypeKind for IppAttributeErrorReason {
     type TypeKind = windows_core::CopyType;
@@ -995,27 +995,27 @@ unsafe impl Sync for IppAttributeValue {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
-    pub const Unsupported: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const NoValue: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
-    pub const Boolean: Self = Self(4i32);
-    pub const Enum: Self = Self(5i32);
-    pub const OctetString: Self = Self(6i32);
-    pub const DateTime: Self = Self(7i32);
-    pub const Resolution: Self = Self(8i32);
-    pub const RangeOfInteger: Self = Self(9i32);
-    pub const Collection: Self = Self(10i32);
-    pub const TextWithLanguage: Self = Self(11i32);
-    pub const NameWithLanguage: Self = Self(12i32);
-    pub const TextWithoutLanguage: Self = Self(13i32);
-    pub const NameWithoutLanguage: Self = Self(14i32);
-    pub const Keyword: Self = Self(15i32);
-    pub const Uri: Self = Self(16i32);
-    pub const UriSchema: Self = Self(17i32);
-    pub const Charset: Self = Self(18i32);
-    pub const NaturalLanguage: Self = Self(19i32);
-    pub const MimeMediaType: Self = Self(20i32);
+    pub const Unsupported: Self = Self(0);
+    pub const Unknown: Self = Self(1);
+    pub const NoValue: Self = Self(2);
+    pub const Integer: Self = Self(3);
+    pub const Boolean: Self = Self(4);
+    pub const Enum: Self = Self(5);
+    pub const OctetString: Self = Self(6);
+    pub const DateTime: Self = Self(7);
+    pub const Resolution: Self = Self(8);
+    pub const RangeOfInteger: Self = Self(9);
+    pub const Collection: Self = Self(10);
+    pub const TextWithLanguage: Self = Self(11);
+    pub const NameWithLanguage: Self = Self(12);
+    pub const TextWithoutLanguage: Self = Self(13);
+    pub const NameWithoutLanguage: Self = Self(14);
+    pub const Keyword: Self = Self(15);
+    pub const Uri: Self = Self(16);
+    pub const UriSchema: Self = Self(17);
+    pub const Charset: Self = Self(18);
+    pub const NaturalLanguage: Self = Self(19);
+    pub const MimeMediaType: Self = Self(20);
 }
 impl windows_core::TypeKind for IppAttributeValueKind {
     type TypeKind = windows_core::CopyType;
@@ -1294,10 +1294,10 @@ unsafe impl Sync for IppPrintDeviceInstallationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppPrintDeviceInstallationStatus(pub i32);
 impl IppPrintDeviceInstallationStatus {
-    pub const InstallationSucceeded: Self = Self(0i32);
-    pub const PrinterAlreadyInstalled: Self = Self(1i32);
-    pub const CommunicationError: Self = Self(2i32);
-    pub const OtherFailure: Self = Self(3i32);
+    pub const InstallationSucceeded: Self = Self(0);
+    pub const PrinterAlreadyInstalled: Self = Self(1);
+    pub const CommunicationError: Self = Self(2);
+    pub const OtherFailure: Self = Self(3);
 }
 impl windows_core::TypeKind for IppPrintDeviceInstallationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1310,9 +1310,9 @@ impl windows_core::RuntimeType for IppPrintDeviceInstallationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppPrintDeviceKind(pub i32);
 impl IppPrintDeviceKind {
-    pub const Printer: Self = Self(0i32);
-    pub const FaxOut: Self = Self(1i32);
-    pub const VirtualPrinter: Self = Self(2i32);
+    pub const Printer: Self = Self(0);
+    pub const FaxOut: Self = Self(1);
+    pub const VirtualPrinter: Self = Self(2);
 }
 impl windows_core::TypeKind for IppPrintDeviceKind {
     type TypeKind = windows_core::CopyType;
@@ -1396,8 +1396,8 @@ unsafe impl Sync for IppResolution {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
-    pub const DotsPerInch: Self = Self(0i32);
-    pub const DotsPerCentimeter: Self = Self(1i32);
+    pub const DotsPerInch: Self = Self(0);
+    pub const DotsPerCentimeter: Self = Self(1);
 }
 impl windows_core::TypeKind for IppResolutionUnit {
     type TypeKind = windows_core::CopyType;
@@ -1523,8 +1523,8 @@ unsafe impl Sync for PageConfigurationSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PageConfigurationSource(pub i32);
 impl PageConfigurationSource {
-    pub const PrintJobConfiguration: Self = Self(0i32);
-    pub const PdlContent: Self = Self(1i32);
+    pub const PrintJobConfiguration: Self = Self(0);
+    pub const PdlContent: Self = Self(1);
 }
 impl windows_core::TypeKind for PageConfigurationSource {
     type TypeKind = windows_core::CopyType;
@@ -1737,9 +1737,9 @@ unsafe impl Sync for ReplaceDevicePropertiesResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReplaceDevicePropertiesStatus(pub i32);
 impl ReplaceDevicePropertiesStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const AccessDenied: Self = Self(1i32);
-    pub const OtherFailure: Self = Self(2i32);
+    pub const Succeeded: Self = Self(0);
+    pub const AccessDenied: Self = Self(1);
+    pub const OtherFailure: Self = Self(2);
 }
 impl windows_core::TypeKind for ReplaceDevicePropertiesStatus {
     type TypeKind = windows_core::CopyType;
@@ -1876,10 +1876,10 @@ unsafe impl Sync for VirtualPrinterInstallationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VirtualPrinterInstallationStatus(pub i32);
 impl VirtualPrinterInstallationStatus {
-    pub const InstallationSucceeded: Self = Self(0i32);
-    pub const PrinterAlreadyInstalled: Self = Self(1i32);
-    pub const PrinterInstallationAccessDenied: Self = Self(2i32);
-    pub const PrinterInstallationFailed: Self = Self(3i32);
+    pub const InstallationSucceeded: Self = Self(0);
+    pub const PrinterAlreadyInstalled: Self = Self(1);
+    pub const PrinterInstallationAccessDenied: Self = Self(2);
+    pub const PrinterInstallationFailed: Self = Self(3);
 }
 impl windows_core::TypeKind for VirtualPrinterInstallationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1962,8 +1962,8 @@ impl windows_core::RuntimeName for VirtualPrinterManager {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VirtualPrinterPreferredInputFormat(pub i32);
 impl VirtualPrinterPreferredInputFormat {
-    pub const OpenXps: Self = Self(0i32);
-    pub const PostScript: Self = Self(1i32);
+    pub const OpenXps: Self = Self(0);
+    pub const PostScript: Self = Self(1);
 }
 impl windows_core::TypeKind for VirtualPrinterPreferredInputFormat {
     type TypeKind = windows_core::CopyType;

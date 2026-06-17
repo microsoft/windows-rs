@@ -388,10 +388,10 @@ pub struct IPrintSupportSettingsUISession_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppCommunicationErrorKind(pub i32);
 impl IppCommunicationErrorKind {
-    pub const Other: Self = Self(0i32);
-    pub const Timeout: Self = Self(1i32);
-    pub const ConnectionError: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
+    pub const Other: Self = Self(0);
+    pub const Timeout: Self = Self(1);
+    pub const ConnectionError: Self = Self(2);
+    pub const AccessDenied: Self = Self(3);
 }
 impl windows_core::TypeKind for IppCommunicationErrorKind {
     type TypeKind = windows_core::CopyType;
@@ -404,11 +404,11 @@ impl windows_core::RuntimeType for IppCommunicationErrorKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppPrinterCommunicationKind(pub i32);
 impl IppPrinterCommunicationKind {
-    pub const Network: Self = Self(0i32);
-    pub const Usb: Self = Self(1i32);
-    pub const PrinterConnection: Self = Self(2i32);
-    pub const UniversalPrint: Self = Self(3i32);
-    pub const VirtualPrinter: Self = Self(4i32);
+    pub const Network: Self = Self(0);
+    pub const Usb: Self = Self(1);
+    pub const PrinterConnection: Self = Self(2);
+    pub const UniversalPrint: Self = Self(3);
+    pub const VirtualPrinter: Self = Self(4);
 }
 impl windows_core::TypeKind for IppPrinterCommunicationKind {
     type TypeKind = windows_core::CopyType;
@@ -421,13 +421,13 @@ impl windows_core::RuntimeType for IppPrinterCommunicationKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintSupportAppContracts(pub u32);
 impl PrintSupportAppContracts {
-    pub const None: Self = Self(0u32);
-    pub const JobBackgroundSession: Self = Self(1u32);
-    pub const SettingsUI: Self = Self(2u32);
-    pub const Extension: Self = Self(4u32);
-    pub const JobUI: Self = Self(8u32);
-    pub const VirtualPrinterBackgroundSession: Self = Self(16u32);
-    pub const EnterpriseManagementUI: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const JobBackgroundSession: Self = Self(1);
+    pub const SettingsUI: Self = Self(2);
+    pub const Extension: Self = Self(4);
+    pub const JobUI: Self = Self(8);
+    pub const VirtualPrinterBackgroundSession: Self = Self(16);
+    pub const EnterpriseManagementUI: Self = Self(32);
 }
 impl windows_core::TypeKind for PrintSupportAppContracts {
     type TypeKind = windows_core::CopyType;
@@ -1296,8 +1296,8 @@ unsafe impl Sync for PrintSupportSettingsUISession {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
-    pub const JobPrintTicket: Self = Self(0i32);
-    pub const UserDefaultPrintTicket: Self = Self(1i32);
+    pub const JobPrintTicket: Self = Self(0);
+    pub const UserDefaultPrintTicket: Self = Self(1);
 }
 impl windows_core::TypeKind for SettingsLaunchKind {
     type TypeKind = windows_core::CopyType;
@@ -1310,9 +1310,9 @@ impl windows_core::RuntimeType for SettingsLaunchKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
-    pub const Resolved: Self = Self(0i32);
-    pub const Conflicting: Self = Self(1i32);
-    pub const Invalid: Self = Self(2i32);
+    pub const Resolved: Self = Self(0);
+    pub const Conflicting: Self = Self(1);
+    pub const Invalid: Self = Self(2);
 }
 impl windows_core::TypeKind for WorkflowPrintTicketValidationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1325,10 +1325,10 @@ impl windows_core::RuntimeType for WorkflowPrintTicketValidationStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XpsImageQuality(pub i32);
 impl XpsImageQuality {
-    pub const JpegHighCompression: Self = Self(0i32);
-    pub const JpegMediumCompression: Self = Self(1i32);
-    pub const JpegLowCompression: Self = Self(2i32);
-    pub const Png: Self = Self(3i32);
+    pub const JpegHighCompression: Self = Self(0);
+    pub const JpegMediumCompression: Self = Self(1);
+    pub const JpegLowCompression: Self = Self(2);
+    pub const Png: Self = Self(3);
 }
 impl windows_core::TypeKind for XpsImageQuality {
     type TypeKind = windows_core::CopyType;

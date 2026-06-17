@@ -1,0 +1,62 @@
+// Extra types needed by windows-reactor but not available in metadata.
+
+#[win32]
+mod extras {
+    #[guid(0xeecdbf0e_bae9_4cb6_a68e_9598e1cb57bb)]
+    interface IWindowNative : Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_WindowHandle(&self, hwnd: *mut *mut void) -> HRESULT;
+    }
+
+    #[guid(0x63aad0b8_7c24_40ff_85a8_640d944cc325)]
+    interface ISwapChainPanelNative : Windows::Win32::System::Com::IUnknown {
+        fn SetSwapChain(&self, swapChain: *mut void) -> HRESULT;
+    }
+
+    #[guid(0xcb833102_d5d1_448b_a31a_52a9509f24e6)]
+    interface ISurfaceImageSourceNativeWithD2D : Windows::Win32::System::Com::IUnknown {
+        fn SetDevice(&self, device: *mut void) -> HRESULT;
+        fn BeginDraw(&self, updateRect: *const Windows::Win32::Foundation::RECT, iid: *const GUID, updateObject: *mut *mut void, offset: *mut Windows::Win32::Foundation::POINT) -> HRESULT;
+        fn EndDraw(&self) -> HRESULT;
+        fn SuspendDraw(&self) -> HRESULT;
+        fn ResumeDraw(&self) -> HRESULT;
+    }
+
+    // Sourced from Microsoft.WindowsAppSDK.Runtime 2.0.1
+
+    #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
+    extern fn MddBootstrapInitialize2(
+        majorMinorVersion: u32,
+        versionTag: *const u16,
+        minVersion: Windows::Win32::Storage::Packaging::Appx::PACKAGE_VERSION,
+        options: MddBootstrapInitializeOptions,
+    ) -> Windows::Win32::Foundation::HRESULT;
+    
+    #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
+    extern fn MddBootstrapShutdown();
+    
+    #[repr(i32)]
+    enum MddBootstrapInitializeOptions {
+        MddBootstrapInitializeOptions_None = 0,
+        MddBootstrapInitializeOptions_OnError_DebugBreak = 1,
+        MddBootstrapInitializeOptions_OnError_DebugBreak_IfDebuggerAttached = 2,
+        MddBootstrapInitializeOptions_OnError_FailFast = 4,
+        MddBootstrapInitializeOptions_OnNoMatch_ShowUI = 8,
+        MddBootstrapInitializeOptions_OnPackageIdentity_NOOP = 16,
+    }
+
+    const WINDOWSAPPSDK_RELEASE_MAJOR: i32 = 2;
+    const WINDOWSAPPSDK_RELEASE_MINOR: i32 = 0;
+    const WINDOWSAPPSDK_RELEASE_PATCH: i32 = 1;
+    const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 0x0002_0000;
+
+    const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 0;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 1;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 0x0002_0000_0001_0000;
+    
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("utf-16")]
+    const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: String = "";
+}
+
