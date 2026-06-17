@@ -38,8 +38,6 @@ impl TypeDefOrRefExt for TypeDefOrRef {
     }
 }
 
-
-
 // Extension trait for guid_attribute(), which uses our Value type rather than metadata's.
 pub trait GuidAttributeExt {
     fn guid_attribute(&self) -> Option<GUID>;
