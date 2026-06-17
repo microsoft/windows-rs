@@ -112,7 +112,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub(crate) fn add_Click<F>(
+        pub(crate) fn Click<F>(
             &self,
             handler: F,
         ) -> windows_core::Result<windows_core::EventRevoker>

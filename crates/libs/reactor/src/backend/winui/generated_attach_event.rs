@@ -13,7 +13,7 @@ pub fn dispatch(
         (Event::ItemClicked, Handle::BreadcrumbBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_ItemClicked(move |_sender, args| {
+                h.ItemClicked(move |_sender, args| {
                     if let Some(a) = args.as_ref()
                         && let Ok(v) = a.get_Index()
                     {
@@ -28,7 +28,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IButtonBase>()
                     .unwrap()
-                    .add_Click(move |_sender, _args| {
+                    .Click(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -37,7 +37,7 @@ pub fn dispatch(
         (Event::SelectedDatesChanged, Handle::CalendarView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_SelectedDatesChanged(move |_sender, _args| {
+                h.SelectedDatesChanged(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -48,7 +48,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IToggleButton>()
                     .unwrap()
-                    .add_Checked(move |_sender, _args| {
+                    .Checked(move |_sender, _args| {
                         true_handler.invoke_bool(true);
                     })
                     .unwrap(),
@@ -57,7 +57,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IToggleButton>()
                     .unwrap()
-                    .add_Unchecked(move |_sender, _args| {
+                    .Unchecked(move |_sender, _args| {
                         false_handler.invoke_bool(false);
                     })
                     .unwrap(),
@@ -68,7 +68,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IButtonBase>()
                     .unwrap()
-                    .add_Click(move |_sender, _args| {
+                    .Click(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -77,14 +77,14 @@ pub fn dispatch(
         (Event::Expanding, Handle::Expander(h)) => {
             let true_handler = handler.clone();
             revokers.push(
-                h.add_Expanding(move |_sender, _args| {
+                h.Expanding(move |_sender, _args| {
                     true_handler.invoke_bool(true);
                 })
                 .unwrap(),
             );
             let false_handler = handler.clone();
             revokers.push(
-                h.add_Collapsed(move |_sender, _args| {
+                h.Collapsed(move |_sender, _args| {
                     false_handler.invoke_bool(false);
                 })
                 .unwrap(),
@@ -95,7 +95,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IButtonBase>()
                     .unwrap()
-                    .add_Click(move |_sender, _args| {
+                    .Click(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -104,7 +104,7 @@ pub fn dispatch(
         (Event::Closed, Handle::InfoBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_Closed(move |_sender, _args| {
+                h.Closed(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -115,7 +115,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::INavigationView2>()
                     .unwrap()
-                    .add_BackRequested(move |_sender, _args| {
+                    .BackRequested(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -124,7 +124,7 @@ pub fn dispatch(
         (Event::ValueChanged, Handle::NumberBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_ValueChanged(move |_sender, args| {
+                h.ValueChanged(move |_sender, args| {
                     if let Some(a) = args.as_ref()
                         && let Ok(v) = a.get_NewValue()
                     {
@@ -137,7 +137,7 @@ pub fn dispatch(
         (Event::PasswordChanged, Handle::PasswordBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_PasswordChanged(move |sender, _args| {
+                h.PasswordChanged(move |sender, _args| {
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::PasswordBox>().ok())
@@ -153,7 +153,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IButtonBase>()
                     .unwrap()
-                    .add_Click(move |_sender, _args| {
+                    .Click(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -162,14 +162,14 @@ pub fn dispatch(
         (Event::Checked, Handle::ToggleButton(h)) => {
             let true_handler = handler.clone();
             revokers.push(
-                h.add_Checked(move |_sender, _args| {
+                h.Checked(move |_sender, _args| {
                     true_handler.invoke_bool(true);
                 })
                 .unwrap(),
             );
             let false_handler = handler.clone();
             revokers.push(
-                h.add_Unchecked(move |_sender, _args| {
+                h.Unchecked(move |_sender, _args| {
                     false_handler.invoke_bool(false);
                 })
                 .unwrap(),
@@ -180,7 +180,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IToggleButton>()
                     .unwrap()
-                    .add_Checked(move |_sender, _args| {
+                    .Checked(move |_sender, _args| {
                         handler.invoke();
                     })
                     .unwrap(),
@@ -189,7 +189,7 @@ pub fn dispatch(
         (Event::SelectionChanged, Handle::RadioButtons(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_SelectionChanged(move |sender, _args| {
+                h.SelectionChanged(move |sender, _args| {
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::RadioButtons>().ok())
@@ -203,7 +203,7 @@ pub fn dispatch(
         (Event::ValueChanged, Handle::RatingControl(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_ValueChanged(move |sender, _args| {
+                h.ValueChanged(move |sender, _args| {
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::RatingControl>().ok())
@@ -219,7 +219,7 @@ pub fn dispatch(
             revokers.push(
                 h.cast::<bindings::IRangeBase>()
                     .unwrap()
-                    .add_ValueChanged(move |_sender, args| {
+                    .ValueChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
                             && let Ok(v) = a.get_NewValue()
                         {
@@ -232,7 +232,7 @@ pub fn dispatch(
         (Event::Click, Handle::SplitButton(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_Click(move |_sender, _args| {
+                h.Click(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -241,7 +241,7 @@ pub fn dispatch(
         (Event::PaneClosed, Handle::SplitView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_PaneClosed(move |_sender, _args| {
+                h.PaneClosed(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -250,7 +250,7 @@ pub fn dispatch(
         (Event::AddTabButtonClick, Handle::TabView(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_AddTabButtonClick(move |_sender, _args| {
+                h.AddTabButtonClick(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -259,7 +259,7 @@ pub fn dispatch(
         (Event::ActionButtonClick, Handle::TeachingTip(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_ActionButtonClick(move |_sender, _args| {
+                h.ActionButtonClick(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -268,7 +268,7 @@ pub fn dispatch(
         (Event::Closed, Handle::TeachingTip(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_Closed(move |_sender, _args| {
+                h.Closed(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -277,7 +277,7 @@ pub fn dispatch(
         (Event::TextChanged, Handle::TextBox(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_TextChanged(move |sender, _args| {
+                h.TextChanged(move |sender, _args| {
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::TextBox>().ok())
@@ -291,7 +291,7 @@ pub fn dispatch(
         (Event::BackRequested, Handle::TitleBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_BackRequested(move |_sender, _args| {
+                h.BackRequested(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -300,7 +300,7 @@ pub fn dispatch(
         (Event::PaneToggleRequested, Handle::TitleBar(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_PaneToggleRequested(move |_sender, _args| {
+                h.PaneToggleRequested(move |_sender, _args| {
                     handler.invoke();
                 })
                 .unwrap(),
@@ -309,7 +309,7 @@ pub fn dispatch(
         (Event::Toggled, Handle::ToggleSwitch(h)) => {
             let handler = handler.clone();
             revokers.push(
-                h.add_Toggled(move |sender, _args| {
+                h.Toggled(move |sender, _args| {
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::ToggleSwitch>().ok())

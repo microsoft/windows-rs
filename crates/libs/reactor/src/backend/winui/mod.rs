@@ -268,7 +268,7 @@ impl WinUIBackend {
             if let Ok(item) = base.cast::<bindings::MenuFlyoutItem>() {
                 let text = item.get_Text().unwrap_or_default().clone();
                 let handler = handler.clone();
-                if let Ok(rev) = item.add_Click(move |_s, _a| {
+                if let Ok(rev) = item.Click(move |_s, _a| {
                     handler.invoke_string(text.clone());
                 }) {
                     revokers.push(rev);
@@ -292,7 +292,7 @@ impl WinUIBackend {
                 let label = btn.get_Label().unwrap_or_default().clone();
                 let handler = handler.clone();
                 if let Ok(rev) = btn.cast::<bindings::ButtonBase>().and_then(|bb| {
-                    bb.add_Click(move |_s, _a| {
+                    bb.Click(move |_s, _a| {
                         handler.invoke_string(label.clone());
                     })
                 }) {
@@ -2029,7 +2029,7 @@ impl Backend for WinUIBackend {
         // accumulate handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
         let revoker = selector
-            .add_SelectionChanged(move |sender, _args| {
+            .SelectionChanged(move |sender, _args| {
                 let idx = sender
                     .as_ref()
                     .and_then(|s| s.cast::<bindings::ISelector>().ok())
@@ -2093,7 +2093,7 @@ impl Backend for WinUIBackend {
         match (event, handle) {
             (Event::Closed, Handle::ContentDialog(d)) => {
                 revokers.push(
-                    d.add_Closed(move |_sender, args| {
+                    d.Closed(move |_sender, args| {
                         let result = args
                             .as_ref()
                             .and_then(|a| a.get_Result().ok())
@@ -2105,7 +2105,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SelectionChanged, Handle::TabView(tv)) => {
                 revokers.push(
-                    tv.add_SelectionChanged(move |sender, _args| {
+                    tv.SelectionChanged(move |sender, _args| {
                         let idx = sender
                             .as_ref()
                             .and_then(|s| s.cast::<bindings::TabView>().ok())
@@ -2120,7 +2120,7 @@ impl Backend for WinUIBackend {
             }
             (Event::CloseRequested, Handle::TabView(tv)) => {
                 revokers.push(
-                    tv.add_TabCloseRequested(move |_sender, args| {
+                    tv.TabCloseRequested(move |_sender, args| {
                         let key = args
                             .as_ref()
                             .and_then(|a| a.get_Tab().ok())
@@ -2145,7 +2145,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SelectionChanged, Handle::NavigationView(nv)) => {
                 revokers.push(
-                    nv.add_SelectionChanged(move |_sender, args| {
+                    nv.SelectionChanged(move |_sender, args| {
                         let tag = args
                             .as_ref()
                             .and_then(|a| {
@@ -2177,7 +2177,7 @@ impl Backend for WinUIBackend {
             (Event::QuerySubmitted, Handle::NavigationView(nv)) => {
                 if let Ok(asb) = nv.get_AutoSuggestBox() {
                     revokers.push(
-                        asb.add_QuerySubmitted(move |_sender, args| {
+                        asb.QuerySubmitted(move |_sender, args| {
                             let query = args
                                 .as_ref()
                                 .and_then(|a| a.get_QueryText().ok())
@@ -2191,7 +2191,7 @@ impl Backend for WinUIBackend {
             (Event::TextChanged, Handle::NavigationView(nv)) => {
                 if let Ok(asb) = nv.get_AutoSuggestBox() {
                     revokers.push(
-                        asb.add_TextChanged(move |sender, _args| {
+                        asb.TextChanged(move |sender, _args| {
                             let text = sender
                                 .as_ref()
                                 .and_then(|s| s.get_Text().ok())
@@ -2205,7 +2205,7 @@ impl Backend for WinUIBackend {
             (Event::SuggestionChosen, Handle::NavigationView(nv)) => {
                 if let Ok(asb) = nv.get_AutoSuggestBox() {
                     revokers.push(
-                        asb.add_SuggestionChosen(move |_sender, args| {
+                        asb.SuggestionChosen(move |_sender, args| {
                             let item = args
                                 .as_ref()
                                 .and_then(|a| a.get_SelectedItem().ok())
@@ -2226,7 +2226,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SelectionChanged, Handle::Pivot(p)) => {
                 revokers.push(
-                    p.add_SelectionChanged(move |sender, _args| {
+                    p.SelectionChanged(move |sender, _args| {
                         let idx = sender
                             .as_ref()
                             .and_then(|s| s.cast::<bindings::Selector>().ok())
@@ -2248,7 +2248,7 @@ impl Backend for WinUIBackend {
                 revokers.push(
                     c.cast::<bindings::ISelector>()
                         .unwrap()
-                        .add_SelectionChanged(move |sender, _args| {
+                        .SelectionChanged(move |sender, _args| {
                             let idx = sender
                                 .as_ref()
                                 .and_then(|s| s.cast::<bindings::Selector>().ok())
@@ -2266,7 +2266,7 @@ impl Backend for WinUIBackend {
             }
             (Event::ColorChanged, Handle::ColorPicker(cp)) => {
                 revokers.push(
-                    cp.add_ColorChanged(move |_sender, args| {
+                    cp.ColorChanged(move |_sender, args| {
                         let color =
                             args.as_ref()
                                 .and_then(|a| a.get_NewColor().ok())
@@ -2283,7 +2283,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SelectedDateChanged, Handle::DatePicker(dp)) => {
                 revokers.push(
-                    dp.add_SelectedDateChanged(move |_sender, args| {
+                    dp.SelectedDateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
                             && let Ok(dt) = a.get_NewDate()
                         {
@@ -2295,7 +2295,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SelectedTimeChanged, Handle::TimePicker(tp)) => {
                 revokers.push(
-                    tp.add_SelectedTimeChanged(move |_sender, args| {
+                    tp.SelectedTimeChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
                             && let Ok(ts) = a.get_NewTime()
                         {
@@ -2307,7 +2307,7 @@ impl Backend for WinUIBackend {
             }
             (Event::DateChanged, Handle::CalendarDatePicker(cdp)) => {
                 revokers.push(
-                    cdp.add_DateChanged(move |_sender, args| {
+                    cdp.DateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
                             && let Ok(dt) = a.get_NewDate()
                         {
@@ -2321,7 +2321,7 @@ impl Backend for WinUIBackend {
                 revokers.push(
                     lb.cast::<bindings::ISelector>()
                         .unwrap()
-                        .add_SelectionChanged(move |_sender, _args| {
+                        .SelectionChanged(move |_sender, _args| {
                             if let Some(sel) = _sender.as_ref()
                                 && let Ok(idx) = sel
                                     .cast::<bindings::ISelector>()
@@ -2335,7 +2335,7 @@ impl Backend for WinUIBackend {
             }
             (Event::TextChanged, Handle::AutoSuggestBox(asb)) => {
                 revokers.push(
-                    asb.add_TextChanged(move |sender, args| {
+                    asb.TextChanged(move |sender, args| {
                         // Only fire for user input, not programmatic changes.
                         let is_user_input = args
                             .as_ref()
@@ -2356,7 +2356,7 @@ impl Backend for WinUIBackend {
             }
             (Event::QuerySubmitted, Handle::AutoSuggestBox(asb)) => {
                 revokers.push(
-                    asb.add_QuerySubmitted(move |_sender, args| {
+                    asb.QuerySubmitted(move |_sender, args| {
                         let text = args
                             .as_ref()
                             .and_then(|a| a.get_QueryText().ok())
@@ -2368,7 +2368,7 @@ impl Backend for WinUIBackend {
             }
             (Event::SuggestionChosen, Handle::AutoSuggestBox(asb)) => {
                 revokers.push(
-                    asb.add_SuggestionChosen(move |_sender, args| {
+                    asb.SuggestionChosen(move |_sender, args| {
                         let item = args
                             .as_ref()
                             .and_then(|a| a.get_SelectedItem().ok())
@@ -2404,7 +2404,7 @@ impl Backend for WinUIBackend {
             }
             (Event::ItemInvoked, Handle::TreeView(tv)) => {
                 revokers.push(
-                    tv.add_ItemInvoked(move |_sender, args| {
+                    tv.ItemInvoked(move |_sender, args| {
                         let text = args
                             .as_ref()
                             .and_then(|a| a.get_InvokedItem().ok())
@@ -2443,7 +2443,7 @@ impl Backend for WinUIBackend {
             (Event::SelectionChanged, Handle::SelectorBar(sb)) => {
                 let sb2 = sb.clone();
                 revokers.push(
-                    sb.add_SelectionChanged(move |_sender, _args| {
+                    sb.SelectionChanged(move |_sender, _args| {
                         if let Ok(selected) = sb2.get_SelectedItem()
                             && let Ok(text) = selected.get_Text()
                         {
@@ -2455,7 +2455,7 @@ impl Backend for WinUIBackend {
             }
             (Event::TextChanged, Handle::RichEditBox(reb)) => {
                 revokers.push(
-                    reb.add_TextChanged(move |sender, _args| {
+                    reb.TextChanged(move |sender, _args| {
                         let text = sender
                             .as_ref()
                             .and_then(|s| s.cast::<bindings::RichEditBox>().ok())
@@ -2594,7 +2594,7 @@ impl Backend for WinUIBackend {
             let _ = ika.put_Modifiers(accel.modifiers);
             let cb = accel.on_invoked.clone();
             let _ = ika
-                .add_Invoked(move |_sender, args| {
+                .Invoked(move |_sender, args| {
                     if let Some(a) = args.as_ref()
                         && let Ok(ia) = a.cast::<bindings::IKeyboardAcceleratorInvokedEventArgs>()
                     {
@@ -2773,7 +2773,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_tapped.clone() {
             tokens.tapped = iue
-                .add_Tapped(move |_sender, _args| {
+                .Tapped(move |_sender, _args| {
                     cb.invoke(());
                 })
                 .ok();
@@ -2781,7 +2781,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_right_tapped.clone() {
             tokens.right_tapped = iue
-                .add_RightTapped(move |_sender, _args| {
+                .RightTapped(move |_sender, _args| {
                     cb.invoke(());
                 })
                 .ok();
@@ -2789,7 +2789,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_pointer_pressed.clone() {
             tokens.pressed = iue
-                .add_PointerPressed(move |sender, args| {
+                .PointerPressed(move |sender, args| {
                     let info = pointer_event_info(sender, args);
                     cb.invoke(info);
                 })
@@ -2798,7 +2798,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_pointer_released.clone() {
             tokens.released = iue
-                .add_PointerReleased(move |sender, args| {
+                .PointerReleased(move |sender, args| {
                     let info = pointer_event_info(sender, args);
                     cb.invoke(info);
                 })
@@ -2807,7 +2807,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_pointer_exited.clone() {
             tokens.exited = iue
-                .add_PointerExited(move |_sender, _args| {
+                .PointerExited(move |_sender, _args| {
                     cb.invoke(());
                 })
                 .ok();
@@ -2840,7 +2840,7 @@ impl Backend for WinUIBackend {
                 .ok();
 
             tokens.enter = ui_element
-                .add_DragEnter(move |_sender, args| {
+                .DragEnter(move |_sender, args| {
                     let Some(args) = args.as_ref() else { return };
                     let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
                         return;
@@ -2890,7 +2890,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_drag_leave.clone() {
             tokens.leave = ui_element
-                .add_DragLeave(move |_sender, args| {
+                .DragLeave(move |_sender, args| {
                     let ctx = build_drag_context(args.as_ref());
                     cb.call(&ctx);
                 })
@@ -2899,7 +2899,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_drag_over.clone() {
             tokens.over = ui_element
-                .add_DragOver(move |_sender, args| {
+                .DragOver(move |_sender, args| {
                     accept_or_reject(&cb, args.as_ref());
                 })
                 .ok();
@@ -2911,7 +2911,7 @@ impl Backend for WinUIBackend {
                 .ok();
 
             tokens.drop = ui_element
-                .add_Drop(move |_sender, args| {
+                .Drop(move |_sender, args| {
                     let Some(args) = args.as_ref() else { return };
                     let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
                         return;
