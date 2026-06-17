@@ -171,7 +171,6 @@ on `windows-result`/`windows-strings` directly rather than through
 ### `--package` (internal)
 
 The `--package` option generates a complete crate with `Cargo.toml` feature
-gates and per-namespace module files. It is used exclusively for generating the
-published `windows` and `windows-sys` crates and is not intended for external
-use. It may be moved to a dedicated tool in the future to keep the public
-`windows-bindgen` API simple.
+gates and per-namespace module files. It is used exclusively by `tool_package`
+for generating the published `windows` and `windows-sys` crates and is not
+intended for external use.

@@ -76,11 +76,13 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 
 2. **`tool_bindings`** — reads filter `.txt` files from `crates/tools/bindings/src/`
    → runs `windows-bindgen` → generates `bindings.rs` in each crate:
-   - `crates/libs/reactor/src/bindings.rs` (from `reactor.txt` + `generated.txt`)
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-3. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
+3. **`tool_package`** — generates the published `windows` and `windows-sys` package
+   crates using `--package` mode (per-namespace files + Cargo.toml features).
+
+4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
 
 ## Key Architecture Facts
 
