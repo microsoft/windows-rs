@@ -32,10 +32,6 @@ fn method_matches(m: MethodDef, method_name: &str) -> bool {
 pub struct Filter {
     pub rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
-    /// Types marked with the `?Ns.Type` prefix in `--filter`.
-    trait_only: BTreeSet<(String, String)>,
-    /// Types marked with the `??Ns.Type` prefix in `--filter`.
-    full_demote: BTreeSet<(String, String)>,
     warnings: Vec<String>,
     /// Enums with specific variants requested.
     enum_variants: HashMap<(String, String), MethodSet>,
@@ -157,15 +153,6 @@ impl Filter {
     /// exists, unlisted methods are demoted (allow-list mode); otherwise
     /// only listed deny entries are demoted (deny-only mode).
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
-        // `??Ns.Type` (full vtable demotion) overrides any per-method
-        // filter: the entire vtable is opaque for this type.
-        if self.full_demote.contains(&(
-            type_name.namespace().to_string(),
-            type_name.name().to_string(),
-        )) {
-            return false;
-        }
-
         let key = (
             type_name.namespace().to_string(),
             type_name.name().to_string(),
@@ -217,18 +204,6 @@ impl Filter {
         filter.keep.is_empty()
     }
 
-    /// Returns `true` if `name` was marked with the `?Ns.Type` or
-    /// `??Ns.Type` prefix in `--filter`, indicating that its inherent
-    /// method-wrapper block should be suppressed. The type is still
-    /// emitted (struct, vtable, `_Impl` trait when fully-typed, vtable
-    /// thunks, IID, `Interface` impl) so implementers can stub its
-    /// methods and the ABI is preserved; only the caller-side
-    /// `impl IFace { fn X(&self) -> Result<T> { ... } }` block is skipped.
-    pub fn is_trait_only(&self, name: TypeName) -> bool {
-        let key = (name.namespace().to_string(), name.name().to_string());
-        self.trait_only.contains(&key) || self.full_demote.contains(&key)
-    }
-
     /// Returns the variant filter for a given enum, if one was specified.
     /// Returns `None` if the enum was included as a plain type (all variants kept).
     pub fn enum_variant_filter(&self, namespace: &str, name: &str) -> Option<&MethodSet> {
@@ -263,8 +238,6 @@ impl Filter {
 
         let mut rules: Vec<(String, bool)> = Vec::new();
         let mut methods: HashMap<(String, String), MethodFilter> = HashMap::new();
-        let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
-        let mut full_demote: BTreeSet<(String, String)> = BTreeSet::new();
         let mut enum_variants: HashMap<(String, String), MethodSet> = HashMap::new();
         let mut activatable: HashSet<(String, String)> = HashSet::new();
         let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
@@ -293,13 +266,6 @@ impl Filter {
                     let full = format!("{namespace}.{name}");
                     rules.push((full, include));
 
-                    if entry.trait_only {
-                        trait_only.insert((namespace.clone(), name.clone()));
-                        if entry.skeleton_only {
-                            full_demote.insert((namespace.clone(), name.clone()));
-                        }
-                    }
-
                     if include && default_demote {
                         // In minimal mode, a bare type entry (no ::members)
                         // is recorded as a direct type for the type closure.
@@ -320,13 +286,6 @@ impl Filter {
                     // applies to the method/variant, not the type itself.
                     if !rules.iter().any(|(r, _)| r == &full) {
                         rules.push((full, true));
-                    }
-
-                    if entry.trait_only {
-                        trait_only.insert((namespace.clone(), name.clone()));
-                        if entry.skeleton_only {
-                            full_demote.insert((namespace.clone(), name.clone()));
-                        }
                     }
 
                     // Register each member
@@ -374,8 +333,6 @@ impl Filter {
         Self {
             rules,
             methods,
-            trait_only,
-            full_demote,
             warnings,
             enum_variants,
             activatable,

@@ -18,10 +18,6 @@ use super::*;
 pub struct FilterEntry {
     /// True for `!` (exclusion) entries.
     pub exclude: bool,
-    /// True for `?` (trait-only) or `??` (skeleton-only) entries.
-    pub trait_only: bool,
-    /// True for `??` (skeleton-only) entries.
-    pub skeleton_only: bool,
     /// Flattened path segments: ["Windows", "Win32", "Graphics", "Dxgi", "IDXGIDevice", "GetAdapter"]
     pub segments: Vec<String>,
 }
@@ -41,25 +37,12 @@ pub fn parse_filter_entry(input: &str) -> Vec<FilterEntry> {
         (false, input)
     };
 
-    let (skeleton_only, trait_only, rest) = if let Some(rest) = rest.strip_prefix("??") {
-        (true, true, rest)
-    } else if let Some(rest) = rest.strip_prefix('?') {
-        (false, true, rest)
-    } else {
-        (false, false, rest)
-    };
-
     // Parse the path tree and flatten
     let paths = parse_tree(rest);
 
     paths
         .into_iter()
-        .map(|segments| FilterEntry {
-            exclude,
-            trait_only,
-            skeleton_only,
-            segments,
-        })
+        .map(|segments| FilterEntry { exclude, segments })
         .collect()
 }
 
@@ -117,7 +100,10 @@ fn split_path(input: &str) -> Vec<&str> {
     while i < bytes.len() {
         match bytes[i] {
             b'{' => depth += 1,
-            b'}' => depth -= 1,
+            b'}' => {
+                assert!(depth > 0, "unbalanced `}}` in filter: `{input}`");
+                depth -= 1;
+            }
             b':' if depth == 0 && i + 1 < bytes.len() && bytes[i + 1] == b':' => {
                 parts.push(&input[start..i]);
                 i += 2;
@@ -128,6 +114,7 @@ fn split_path(input: &str) -> Vec<&str> {
         }
         i += 1;
     }
+    assert!(depth == 0, "unbalanced `{{` in filter: `{input}`");
     parts.push(&input[start..]);
     parts
 }
@@ -142,7 +129,10 @@ fn split_group(input: &str) -> Vec<&str> {
     for (i, &b) in bytes.iter().enumerate() {
         match b {
             b'{' => depth += 1,
-            b'}' => depth -= 1,
+            b'}' => {
+                assert!(depth > 0, "unbalanced `}}` in filter group: `{input}`");
+                depth -= 1;
+            }
             b',' if depth == 0 => {
                 parts.push(&input[start..i]);
                 start = i + 1;
@@ -150,6 +140,7 @@ fn split_group(input: &str) -> Vec<&str> {
             _ => {}
         }
     }
+    assert!(depth == 0, "unbalanced `{{` in filter group: `{input}`");
     parts.push(&input[start..]);
     parts
 }
@@ -159,10 +150,6 @@ fn split_group(input: &str) -> Vec<&str> {
 pub struct ResolvedFilter {
     /// True for `!` (exclusion) entries.
     pub exclude: bool,
-    /// True for `?` (trait-only) or `??` (skeleton-only) entries.
-    pub trait_only: bool,
-    /// True for `??` (skeleton-only) entries.
-    pub skeleton_only: bool,
     /// What this entry resolved to.
     pub kind: ResolvedKind,
 }
@@ -212,8 +199,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 
     let base = |kind: ResolvedKind| ResolvedFilter {
         exclude: entry.exclude,
-        trait_only: entry.trait_only,
-        skeleton_only: entry.skeleton_only,
         kind,
     };
 
@@ -378,14 +363,6 @@ mod tests {
         assert_eq!(entries.len(), 1);
         assert!(entries[0].exclude);
         assert_eq!(entries[0].segments, vec!["Windows", "UI", "Xaml"]);
-    }
-
-    #[test]
-    fn skeleton_prefix() {
-        let entries = parse_filter_entry("??Windows::Win32::Com::IStream");
-        assert_eq!(entries.len(), 1);
-        assert!(entries[0].skeleton_only);
-        assert!(entries[0].trait_only);
     }
 
     #[test]

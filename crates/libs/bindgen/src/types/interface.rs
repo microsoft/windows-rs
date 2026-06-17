@@ -328,23 +328,54 @@ impl Interface {
             // the methods through this type.
             let is_factory =
                 is_exclusive && config.bindgen.style.is_minimal() && self.is_factory(config.reader);
-            let is_trait_only = config.filter.is_trait_only(type_name);
             if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
-                if !is_trait_only {
-                    let method_names = &mut MethodNames::for_style(&config.bindgen.style);
-                    let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
-                    let mut method_tokens = TokenStream::new();
+                let method_names = &mut MethodNames::for_style(&config.bindgen.style);
+                let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+                let mut method_tokens = TokenStream::new();
 
-                    for method in methods.iter().filter_map(|method| match &method {
-                        MethodOrName::Method(method) => Some(method),
-                        _ => None,
-                    }) {
+                for method in methods.iter().filter_map(|method| match &method {
+                    MethodOrName::Method(method) => Some(method),
+                    _ => None,
+                }) {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
+
+                    let method = method.write(
+                        config,
+                        Some(self),
+                        InterfaceKind::Default,
+                        method_names,
+                        virtual_names,
+                        true,
+                    );
+
+                    method_tokens.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
+
+                for interface in &required_interfaces {
+                    // In `minimal` mode callers `cast` to the owning interface explicitly.
+                    if config.bindgen.style.is_minimal() {
+                        continue;
+                    }
+                    let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+
+                    for method in
+                        interface
+                            .get_methods(config)
+                            .iter()
+                            .filter_map(|method| match &method {
+                                MethodOrName::Method(method) => Some(method),
+                                _ => None,
+                            })
+                    {
                         let cfg = method.write_cfg(config, &class_cfg, false);
 
                         let method = method.write(
                             config,
-                            Some(self),
-                            InterfaceKind::Default,
+                            Some(interface),
+                            interface.kind,
                             method_names,
                             virtual_names,
                             true,
@@ -355,48 +386,15 @@ impl Interface {
                             #method
                         });
                     }
+                }
 
-                    for interface in &required_interfaces {
-                        // In `minimal` mode callers `cast` to the owning interface explicitly.
-                        if config.bindgen.style.is_minimal() {
-                            continue;
+                if !method_tokens.is_empty() {
+                    result.combine(quote! {
+                        #cfg
+                        impl<#constraints> #name {
+                            #method_tokens
                         }
-                        let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
-
-                        for method in
-                            interface.get_methods(config).iter().filter_map(
-                                |method| match &method {
-                                    MethodOrName::Method(method) => Some(method),
-                                    _ => None,
-                                },
-                            )
-                        {
-                            let cfg = method.write_cfg(config, &class_cfg, false);
-
-                            let method = method.write(
-                                config,
-                                Some(interface),
-                                interface.kind,
-                                method_names,
-                                virtual_names,
-                                true,
-                            );
-
-                            method_tokens.combine(quote! {
-                                #cfg
-                                #method
-                            });
-                        }
-                    }
-
-                    if !method_tokens.is_empty() {
-                        result.combine(quote! {
-                            #cfg
-                            impl<#constraints> #name {
-                                #method_tokens
-                            }
-                        });
-                    }
+                    });
                 }
 
                 if self.def.is_agile() {
