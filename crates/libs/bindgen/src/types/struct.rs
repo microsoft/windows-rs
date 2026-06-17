@@ -67,7 +67,7 @@ impl Struct {
             // useful when the struct appears as a generic type argument in an
             // implemented parameterized interface. In minimal mode we skip it
             // unconditionally — the trait default (empty) is sufficient.
-            let name_const = if config.bindgen.style.is_minimal() {
+            let name_const = if config.minimal_closure {
                 quote! {}
             } else {
                 let type_name_bytes =

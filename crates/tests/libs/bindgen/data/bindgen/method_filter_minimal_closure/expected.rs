@@ -3,8 +3,6 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     impl IFoo {
         pub fn Direct(&self) -> windows_core::Result<i32> {
@@ -42,8 +40,6 @@ pub mod Test {
     impl windows_core::RuntimeType for IFoo2 {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
-        const NAME: windows_core::imp::ConstBuffer =
-            windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo2");
     }
     windows_core::imp::interface_hierarchy!(
         IFoo2,

@@ -192,7 +192,7 @@ impl Interface {
                 // In minimal mode, NAME is only needed for interfaces that are
                 // being implemented (for GetRuntimeClassName). The trait provides
                 // an empty default, so omitting it is safe.
-                let name_const = if config.bindgen.style.is_minimal()
+                let name_const = if config.minimal_closure
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
@@ -227,7 +227,7 @@ impl Interface {
                 // In minimal mode, NAME on parameterized interfaces is only needed
                 // when the interface is implemented (for GetRuntimeClassName via
                 // RUNTIME_CLASS_NAME). Skip it otherwise.
-                let name_const = if config.bindgen.style.is_minimal()
+                let name_const = if config.minimal_closure
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
