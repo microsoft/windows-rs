@@ -130,5 +130,4 @@ impl windows_core::RuntimeType for IDeferralFactory {
 #[doc(hidden)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Create: usize,
 }

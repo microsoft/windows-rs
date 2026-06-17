@@ -616,11 +616,7 @@ impl Bindgen {
             warnings.add(message.clone());
         }
 
-        let event_only_delegates = if use_minimal_closure {
-            compute_event_only_delegates(&types, &reader)
-        } else {
-            HashSet::new()
-        };
+        let event_only_delegates = compute_event_only_delegates(&types, &reader);
 
         let config = Config {
             bindgen: self,
@@ -748,7 +744,8 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
         }
     }
 
-    // Track delegates that appear in non-event contexts.
+    // Track delegates that appear in event contexts and non-event contexts.
+    let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
 
     for type_set in types.values() {
@@ -771,24 +768,24 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
                     && method.name().starts_with("add_");
 
-                if is_event_add {
-                    continue;
-                }
-
-                // For non-event methods, any delegate param means that delegate
-                // is used outside of events.
                 let sig = method.method_signature("", generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
-                        non_event_delegates.insert(d.type_name());
+                        if is_event_add {
+                            event_delegates.insert(d.type_name());
+                        } else {
+                            non_event_delegates.insert(d.type_name());
+                        }
                     }
                 }
             }
         }
     }
 
-    // Event-only = all delegates minus those used in non-event contexts.
-    all_delegates
+    // Event-only = delegates that appear in events but never in non-event contexts.
+    // Delegates not referenced by any interface at all are NOT event-only (they're
+    // standalone and need new()/Invoke()).
+    event_delegates
         .difference(&non_event_delegates)
         .copied()
         .collect()

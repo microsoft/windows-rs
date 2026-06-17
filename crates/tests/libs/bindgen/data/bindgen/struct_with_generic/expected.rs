@@ -527,7 +527,4 @@ pub struct IPropertyValue_Vtbl {
         *mut u32,
         *mut *mut windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
-    GetPointArray: usize,
-    GetSizeArray: usize,
-    GetRectArray: usize,
 }

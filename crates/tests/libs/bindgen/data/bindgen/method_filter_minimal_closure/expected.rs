@@ -38,7 +38,6 @@ pub mod Test {
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT,
-        SetName: usize,
     }
     windows_core::imp::define_interface!(IFoo2, IFoo2_Vtbl, 0xd5639aca_50ae_5b48_9f64_938ce24b8683);
     impl windows_core::RuntimeType for IFoo2 {
@@ -59,6 +58,5 @@ pub mod Test {
     #[doc(hidden)]
     pub struct IFoo2_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
-        Bar: usize,
     }
 }

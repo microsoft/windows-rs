@@ -32,6 +32,5 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Keep:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        Drop: usize,
     }
 }

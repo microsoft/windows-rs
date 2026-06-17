@@ -97,7 +97,6 @@ pub mod Test {
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
-        DropFactory: usize,
     }
     windows_core::imp::define_interface!(
         IFooStatics,
@@ -116,6 +115,5 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepStatic:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        DropStatic: usize,
     }
 }

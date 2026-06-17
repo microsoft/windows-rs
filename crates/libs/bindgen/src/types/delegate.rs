@@ -40,11 +40,22 @@ impl Delegate {
             true,
         );
 
-        // In minimal mode, delegates are invoked by the API, not by user code.
-        // Suppress the public Invoke() method for all minimal delegates.
-        let is_event_only = config.bindgen.style.is_minimal()
-            && config.event_only_delegates.contains(&self.type_name());
+        // Suppress `new()` (and in minimal mode also `Invoke()`) for delegates
+        // that weren't explicitly requested — they're transitive dependencies
+        // pulled in by method signatures and the event-add wrapper handles
+        // construction inline. If the user directly listed the delegate in the
+        // filter, they intend to use it and it keeps its methods.
+        let type_name = self.type_name();
+        let delegate_key = (
+            type_name.namespace().to_string(),
+            type_name.name().to_string(),
+        );
+        let is_event_only = !config.filter.has_broad_filter
+            && !config.filter.direct_types.contains(&delegate_key)
+            && config.event_only_delegates.contains(&type_name);
         let invoke_method = if config.bindgen.style.is_minimal() {
+            // In minimal mode, delegates are invoked by the framework, not
+            // user code — suppress the public Invoke() wrapper entirely.
             quote! {}
         } else {
             invoke
