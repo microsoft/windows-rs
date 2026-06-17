@@ -37,9 +37,6 @@ impl CppInterface {
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
                 if !config.minimal_closure && !method.dependencies.included(config) {
-                    config
-                        .warnings
-                        .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
                 } else if !config.includes_method(type_name, def) {
                     // Method-level filter demoted this slot to opaque.
@@ -366,8 +363,6 @@ impl CppInterface {
                     });
 
                 if has_skipped_methods {
-                    config.warnings.skip_implement(self.def);
-
                     if has_unknown_base {
                         result.combine(quote! {
                             #cfg

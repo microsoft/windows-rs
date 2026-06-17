@@ -25,7 +25,6 @@ impl MethodSet {
 pub struct Filter {
     pub rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
-    warnings: Vec<String>,
     /// Enums with specific variants requested.
     enum_variants: HashMap<(String, String), MethodSet>,
     /// Classes that explicitly requested `CreateInstance`.
@@ -73,10 +72,6 @@ pub struct MethodFilter {
 }
 
 impl Filter {
-    pub fn warnings(&self) -> &[String] {
-        &self.warnings
-    }
-
     /// Validate that no method-level filter entry targets a type matched by
     /// `--implement`. Methods on implemented types must always be emitted.
     #[track_caller]
@@ -234,7 +229,6 @@ impl Filter {
         let mut activatable: HashSet<(String, String)> = HashSet::new();
         let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
         let mut direct_types: Vec<(String, String)> = Vec::new();
-        let mut warnings: Vec<String> = Vec::new();
         let mut has_broad_filter = false;
 
         for entry in entries {
@@ -306,7 +300,6 @@ impl Filter {
                             Self::register_member(
                                 reader,
                                 &mut methods,
-                                &mut warnings,
                                 &mut requested_interfaces,
                                 &mut direct_types,
                                 &mut activatable,
@@ -331,7 +324,6 @@ impl Filter {
         Self {
             rules,
             methods,
-            warnings,
             enum_variants,
             activatable,
             default_demote: false,
@@ -391,7 +383,6 @@ impl Filter {
     fn register_member(
         reader: &Reader,
         methods: &mut HashMap<(String, String), MethodFilter>,
-        warnings: &mut Vec<String>,
         requested_interfaces: &mut HashMap<(String, String), MethodSet>,
         direct_types: &mut Vec<(String, String)>,
         activatable: &mut HashSet<(String, String)>,
@@ -565,9 +556,6 @@ impl Filter {
                             names.insert(name.clone());
                         }
                     }
-                    maybe_warn_ambiguous_overload(
-                        warnings, member, namespace, name, &defs, include, member,
-                    );
                     register_method_filter(methods, namespace, name, expanded, include);
                 }
                 _ => {
@@ -651,50 +639,6 @@ fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
     }
 
     Vec::new()
-}
-
-/// If a deny filter entry collapses onto a raw `MethodDef` name that is
-/// shared by multiple rows (real CLR overloads), warn the user listing the
-/// disambiguated Rust names so they can use the precise form to keep the
-/// overloads they actually consume.
-fn maybe_warn_ambiguous_overload(
-    warnings: &mut Vec<String>,
-    method_part: &str,
-    namespace: &str,
-    type_name: &str,
-    defs: &[MethodDef],
-    include: bool,
-    raw: &str,
-) {
-    if include {
-        return;
-    }
-    // Only flag exact raw-name matches. Sugar and overload-name resolution
-    // already address specific rows (or all property/event accessors), so
-    // their multi-row behavior is intentional.
-    let matching: Vec<MethodDef> = defs
-        .iter()
-        .copied()
-        .filter(|m| m.name() == method_part)
-        .collect();
-    if matching.len() < 2 {
-        return;
-    }
-    let names: Vec<String> = matching
-        .iter()
-        .map(|m| method_overload_name(*m).unwrap_or_else(|| m.name().to_string()))
-        .collect();
-    warnings.push(format!(
-        "filter `{raw}` denies {n} overloads of `{namespace}.{type_name}::{method_part}`: \
-         [{names}]; use the overload-disambiguated name (e.g. \
-         `!{namespace}.{type_name}::{first}`) to address a single overload\n",
-        n = matching.len(),
-        names = names.join(", "),
-        first = names
-            .iter()
-            .find(|n| n.as_str() != method_part)
-            .map_or(method_part, String::as_str),
-    ));
 }
 
 fn register_method_filter(

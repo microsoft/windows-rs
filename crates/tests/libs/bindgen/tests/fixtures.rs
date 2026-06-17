@@ -338,11 +338,7 @@ fn run_bindgen(f: &Fixture) {
             .collect::<Vec<_>>();
         args.push("--out".into());
         args.push(actual_rs.to_string_lossy().into_owned());
-        // Discard warnings: tool_bindgen-style fixtures intentionally
-        // exercise filters that omit some dependencies, which the
-        // bindgen pipeline reports as warnings. The diff against
-        // `expected.rs` is what we actually care about.
-        let _ = windows_bindgen::bindgen(args);
+        windows_bindgen::bindgen(args);
         write_golden(&actual_rs, &f.input("expected.rs"));
         return;
     }
@@ -376,11 +372,7 @@ fn run_bindgen(f: &Fixture) {
     if cfg.implement || !cfg.implements.is_empty() {
         bindgen.implement(&cfg.implements);
     }
-    // Discard warnings: fixtures may intentionally exercise filters
-    // (including method-level `--filter` denylist / allowlist entries)
-    // that demote slots and therefore omit `_Impl` traits, which surface
-    // as warnings. The diff against `expected.rs` is what we care about.
-    let _ = bindgen.write();
+    bindgen.write();
 
     write_golden(&actual_rs, &f.input("expected.rs"));
 }
@@ -484,9 +476,9 @@ fn run_error_bindgen(f: &Fixture) {
     let prev_hook = std::panic::take_hook();
     std::panic::set_hook(Box::new(|_| {}));
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        // `.unwrap()` panics on warnings as well as hard errors, matching
-        // what the legacy `panic.rs` cases asserted.
-        windows_bindgen::bindgen(&args).unwrap();
+        // `bindgen` panics internally on invalid inputs, matching what the
+        // legacy `panic.rs` cases asserted.
+        windows_bindgen::bindgen(&args);
     }));
     std::panic::set_hook(prev_hook);
 

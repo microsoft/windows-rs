@@ -7,10 +7,10 @@ fn main() {
     let time = std::time::Instant::now();
 
     // The `windows-sys` crate (sys-style package).
-    _ = windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
+    windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
 
     // The `windows` crate (full-fidelity package).
-    _ = windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
+    windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

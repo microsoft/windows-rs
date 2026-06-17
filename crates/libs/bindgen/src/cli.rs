@@ -10,7 +10,7 @@ use super::*;
 ///     "GetTickCount",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// Here is a list of supported arguments.
@@ -90,7 +90,7 @@ use super::*;
 ///     "MyApi",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// # `--flat`
@@ -108,7 +108,7 @@ use super::*;
 ///     "--flat",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// The resulting bindings now look something like this:
@@ -137,7 +137,7 @@ use super::*;
 ///     "Eq",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// # `--sys`
@@ -156,7 +156,7 @@ use super::*;
 ///     "--flat",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// The resulting bindings now look something like this:
@@ -170,8 +170,7 @@ use super::*;
 /// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
 ///
 #[track_caller]
-#[must_use]
-pub fn bindgen<I, S>(args: I) -> Warnings
+pub fn bindgen<I, S>(args: I)
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
@@ -257,7 +256,7 @@ where
         }
     }
 
-    builder.write()
+    builder.write();
 }
 
 enum ArgKind {
