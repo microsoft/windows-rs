@@ -236,31 +236,50 @@ this behavior in `includes_method()`.
 
 ### Remaining mode differences
 
-The following `is_minimal()` / `is_sys()` conditional behaviors remain in the
-codebase. They are grouped by category with notes on whether unification is
-feasible:
+The following `is_minimal()` conditional behaviors remain in the codebase (~33
+call sites). These are all **tier-defining** — they represent the genuine
+abstraction-level difference between `--minimal` and default mode:
 
-| Category | Location(s) | Description | Unifiable? |
-|----------|-------------|-------------|------------|
-| **Visibility** | delegate.rs, method.rs, class.rs, cpp_method.rs, struct.rs | `pub(crate)` in minimal (Rust dead-code workaround), `pub` in default | Justified — minimal generates into a crate that controls visibility |
-| **Delegate signature** | delegate.rs (×4) | Minimal closures return nothing (S_OK injected by box); default closures return `Result` | Semantic — default mode preserves return propagation for hand-written callers |
-| **Method-dep filtering** | interface.rs, cpp_interface.rs (×4) | Default skips methods whose param types aren't in the type map; minimal never hits this (MinimalTypeMap ensures deps exist) | **Yes** — can unify by making MinimalTypeMap universal for specific filters |
-| **Hide vtbl / name constants** | interface.rs, cpp_interface.rs, delegate.rs | `#[doc(hidden)]` in minimal; public in default | Low priority — cosmetic |
-| **Event add/remove sugar** | method.rs (×5) | Minimal generates typed `add_`/`remove_` wrappers; default uses raw token | Could unify — but default callers expect the raw pattern |
-| **Class sugar** | class.rs (×10) | Default emits `Deref`, `IntoIterator`, constructor forwarders, interface hierarchy impls; minimal omits them | Largest gap — these are genuinely different abstraction levels |
-| **Struct field naming** | struct.rs (×3) | Minimal prefixes unused struct field names with `_` | Dead-code workaround — justified |
-| **Method param sugar** | method.rs (×8) | Default uses `Param<T>` trait, PCWSTR wrappers; minimal uses raw refs | Core ergonomic difference between tiers |
-| **Enum naming** | enum.rs, cpp_enum.rs | Sys/minimal use short names for non-scoped enums | Justified — default needs qualified names for compat |
+| Category | Count | Purpose |
+|----------|-------|---------|
+| **Delegate** (no-return closure, suppress Invoke) | 5 | Minimal inlines S_OK, no Result propagation |
+| **Class sugar** (Deref, IntoIterator, forwarders, constructors) | 6 | Default's ergonomic layer |
+| **Method sugar** (Param trait, PCWSTR, String, event add/remove) | 9 | Default's parameter convenience |
+| **Cpp method** (param patterns) | 3 | Same as above for COM |
+| **Naming** (method_names raw, struct snake_case, enum short) | 4 | Minimal uses metadata names |
+| **Raw FFI patterns** (cpp_fn, cpp_handle, cpp_enum, cpp_const) | 4 | `is_sys() \|\| is_minimal()` — no wrapper sugar |
+| **Structural** (lib.rs decision logic) | 1 | Defines what triggers `minimal_closure` |
+| **Interface** (forwarder skip, IntoIterator skip) | 2 | Class sugar related |
 
-**Already unified (this session):**
-- ✅ MinimalTypeMap activation — now based on filter structure, not mode
+**Already unified (no longer mode-gated):**
+- ✅ MinimalTypeMap activation — based on filter structure (`minimal_closure` flag)
 - ✅ Vtable truncation — unconditional for all WinRT interfaces
-- ✅ Event-only delegate suppression — filter-structure-based (no mode check for the algorithm itself)
+- ✅ Event-only delegate suppression — filter-structure-based
+- ✅ Method-dep filtering — gated on `minimal_closure`, not mode
+- ✅ `#[doc(hidden)]` on vtbl structs — removed (only emitted in `--package`)
+- ✅ NAME constant suppression — gated on `minimal_closure`
+- ✅ `required_hierarchy!` filter — gated on `minimal_closure`
+- ✅ Visibility (`pub(crate)`) — decoupled into `--dead-code` option
 
-**Next targets:**
-1. Method-dep filtering — make MinimalTypeMap handle this universally so the "skip method if deps missing" heuristic in default mode becomes unnecessary
-2. Event add/remove sugar — evaluate making typed event wrappers available in default mode
-3. Class sugar — potentially opt-in via a flag rather than mode-gated
+### `--dead-code`
+
+Emits `pub(crate)` instead of `pub` on generated functions and methods so the
+`dead_code` lint surfaces unused bindings. Works around
+[rust-lang/rust#157961](https://github.com/rust-lang/rust/issues/157961) where
+`pub` items in non-public modules do not trigger dead-code warnings.
+
+`--minimal` implies `--dead-code` for backward compatibility, but the option
+can be used independently with any mode.
+
+### Future possibilities
+
+| Opportunity | Impact | Notes |
+|-------------|--------|-------|
+| **Merge `--minimal` into default** | High | The remaining 33 differences define the tier. If they became opt-in flags (`--raw-names`, `--no-sugar`, `--no-forwarders`), `--minimal` could be eliminated entirely |
+| **Event sugar universal** | Medium | Typed `add_`/`remove_` wrappers could benefit default-mode users too |
+| **`--dead-code` for `--sys`** | Low | Now possible since it's mode-independent |
+| **Further filter intelligence** | Medium | `minimal_closure` could auto-detect more cases (e.g., flat + no broad filter even without method entries) |
+| **Remove `--deps` entirely** | Low | Already hidden; final step is wiring deps from style automatically |
 
 ### `--deps` (internal)
 
