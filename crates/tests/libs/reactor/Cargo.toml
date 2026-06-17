@@ -6,6 +6,7 @@ publish = false
 
 [dev-dependencies]
 rustc-hash = { workspace = true }
+windows-core = { workspace = true }
 
 [dependencies]
 windows-reactor = { workspace = true }
