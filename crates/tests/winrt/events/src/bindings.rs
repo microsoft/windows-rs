@@ -181,7 +181,6 @@ impl IClass_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Signal:
@@ -280,7 +279,6 @@ impl IClassStatics_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StaticSignal:

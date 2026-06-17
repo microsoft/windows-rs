@@ -88,6 +88,10 @@ pub struct Bindgen {
     style: Style,
     deps: Option<DepMode>,
     index: bool,
+    // Emit `pub(crate)` instead of `pub` on generated functions and methods
+    // to surface unused bindings as dead-code warnings. Works around
+    // https://github.com/rust-lang/rust/issues/157961
+    dead_code: bool,
 }
 
 /// Output layout for the generated bindings. Mutually exclusive variants
@@ -391,6 +395,8 @@ impl Bindgen {
             panic!("cannot combine `--sys` and `--minimal`");
         }
         self.style = Style::Minimal;
+        // --minimal implies --dead-code for backward compatibility.
+        self.dead_code = true;
         self
     }
 
@@ -409,6 +415,15 @@ impl Bindgen {
     /// Generate a `features.json` index alongside the output file.
     pub fn index(&mut self) -> &mut Self {
         self.index = true;
+        self
+    }
+
+    /// Emit `pub(crate)` instead of `pub` on generated functions and methods to
+    /// surface unused bindings as dead-code warnings. Works around
+    /// <https://github.com/rust-lang/rust/issues/157961> where `pub` items in
+    /// non-public modules do not trigger dead-code warnings.
+    pub fn dead_code(&mut self) -> &mut Self {
+        self.dead_code = true;
         self
     }
 
@@ -566,7 +581,7 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        let (filter, types) = {
+        let (filter, types, use_minimal_closure) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -579,15 +594,29 @@ impl Bindgen {
                 all_parsed.extend(entries);
             }
             let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
-            let default_demote = self.style.is_minimal();
-            let mut filter = Filter::from_resolved(&reader, &resolved, default_demote);
 
-            let types = if self.style.is_minimal() {
+            // Decide whether to use bottom-up type closure (MinimalTypeMap).
+            // Use it when:
+            // - explicitly requested via --minimal, OR
+            // - the filter has method-level entries (requested_interfaces) and
+            //   no broad namespace/glob includes that MinimalTypeMap can't handle.
+            let mut filter = Filter::from_resolved(&reader, &resolved);
+
+            let use_minimal_closure = self.style.is_minimal()
+                || (!filter.has_broad_filter
+                    && !filter.requested_interfaces.is_empty()
+                    && !self.layout.is_package());
+
+            // When MinimalTypeMap is active, unspecified methods become usize
+            // vtable slots (method demotion).
+            filter.default_demote = use_minimal_closure;
+
+            let types = if use_minimal_closure {
                 MinimalTypeMap::build(&reader, &mut filter, &references)
             } else {
                 TypeMap::filter(&reader, &filter, &references)
             };
-            (filter, types)
+            (filter, types, use_minimal_closure)
         };
 
         let derive = Derive::new(&reader, &types, &derive_str);
@@ -599,11 +628,7 @@ impl Bindgen {
             warnings.add(message.clone());
         }
 
-        let event_only_delegates = if self.style.is_minimal() {
-            compute_event_only_delegates(&types, &reader)
-        } else {
-            HashSet::new()
-        };
+        let event_only_delegates = compute_event_only_delegates(&types, &reader);
 
         let config = Config {
             bindgen: self,
@@ -617,6 +642,7 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
+            minimal_closure: use_minimal_closure,
         };
 
         let tree = TypeTree::new(&types);
@@ -730,7 +756,8 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
         }
     }
 
-    // Track delegates that appear in non-event contexts.
+    // Track delegates that appear in event contexts and non-event contexts.
+    let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
 
     for type_set in types.values() {
@@ -753,24 +780,24 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
                     && method.name().starts_with("add_");
 
-                if is_event_add {
-                    continue;
-                }
-
-                // For non-event methods, any delegate param means that delegate
-                // is used outside of events.
                 let sig = method.method_signature("", generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
-                        non_event_delegates.insert(d.type_name());
+                        if is_event_add {
+                            event_delegates.insert(d.type_name());
+                        } else {
+                            non_event_delegates.insert(d.type_name());
+                        }
                     }
                 }
             }
         }
     }
 
-    // Event-only = all delegates minus those used in non-event contexts.
-    all_delegates
+    // Event-only = delegates that appear in events but never in non-event contexts.
+    // Delegates not referenced by any interface at all are NOT event-only (they're
+    // standalone and need new()/Invoke()).
+    event_delegates
         .difference(&non_event_delegates)
         .copied()
         .collect()

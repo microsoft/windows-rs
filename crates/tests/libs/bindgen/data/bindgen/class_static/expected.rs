@@ -58,7 +58,6 @@ impl windows_core::RuntimeType for IGuidHelperStatics {
         windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGuidHelperStatics");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IGuidHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateNewGuid: unsafe extern "system" fn(

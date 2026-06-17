@@ -87,7 +87,7 @@ impl References {
                 .map(|stage| {
                     let entries = filter_parser::parse_filter_entry(&stage.path);
                     let resolved = filter_parser::resolve_entries(reader, &entries);
-                    let filter = Filter::from_resolved(reader, &resolved, false);
+                    let filter = Filter::from_resolved(reader, &resolved);
 
                     Reference {
                         name: stage.name,

@@ -36,7 +36,6 @@ impl AsyncActionCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncActionCompletedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -130,7 +129,6 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncActionProgressHandler_Vtbl<TProgress>
 where
     TProgress: windows_core::RuntimeType + 'static,
@@ -257,7 +255,6 @@ impl<TProgress: windows_core::RuntimeType + 'static>
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>
 where
     TProgress: windows_core::RuntimeType + 'static,
@@ -378,7 +375,6 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncOperationCompletedHandler_Vtbl<TResult>
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -506,7 +502,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncOperationProgressHandler_Vtbl<TResult, TProgress>
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -651,7 +646,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -902,7 +896,6 @@ impl IAsyncAction_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetCompleted: unsafe extern "system" fn(
@@ -1204,7 +1197,6 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncActionWithProgress_Vtbl<TProgress>
 where
     TProgress: windows_core::RuntimeType + 'static,
@@ -1381,7 +1373,6 @@ impl IAsyncInfo_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1610,7 +1601,6 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncOperation_Vtbl<TResult>
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -1959,7 +1949,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
 where
     TResult: windows_core::RuntimeType + 'static,

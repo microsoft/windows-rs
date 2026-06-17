@@ -26,7 +26,6 @@ impl IActivationFactory {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActivateInstance: unsafe extern "system" fn(

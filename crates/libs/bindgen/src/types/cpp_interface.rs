@@ -36,7 +36,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
+                if !config.minimal_closure && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
@@ -60,7 +60,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+            (!config.minimal_closure && !method.dependencies.included(config))
                 || !config.includes_method(type_name, def)
         })
     }
@@ -125,10 +125,10 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
-                quote! {}
-            } else {
+            let hide_vtbl = if config.bindgen.layout.is_package() {
                 quote! { #[doc(hidden)] }
+            } else {
+                quote! {}
             };
 
             quote! {

@@ -34,7 +34,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct Handler_Vtbl {
         base__: windows_core::IUnknown_Vtbl,
         Invoke: unsafe extern "system" fn(
@@ -100,7 +99,6 @@ pub mod Test {
         const NAME: &'static str = "Test.IFoo";
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         Value: usize,

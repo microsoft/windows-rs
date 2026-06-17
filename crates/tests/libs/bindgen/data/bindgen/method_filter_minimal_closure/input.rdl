@@ -1,0 +1,75 @@
+// Exercises bindgen's `--minimal` mode.
+//
+// `Foo` is an activatable WinRT class with both an instance interface (`IFoo`)
+// and a static factory (`IFooStatics`). `IFoo` requires `IFoo2`, which means
+// in default mode `impl IFoo` would carry a forwarding wrapper for
+// `IFoo2::Bar`.
+//
+// In minimal mode:
+//   * `impl Foo { ... }` should retain the `new()` activation helper, the
+//     `IFooStatics::Stat()` static-factory wrapper, and the `IFooStatics`
+//     factory-cache helper, but should drop the `IFoo::Direct()` instance
+//     forwarder.
+//   * `impl IFoo { ... }` should retain `Direct` (own vtable) and drop
+//     `Bar` (the inherited forwarder that calls `Interface::cast::<IFoo2>`).
+//     This must hold even though `IFoo` is `[ExclusiveTo(Foo)]` — every
+//     WinRT class default interface is exclusive, so suppressing own-vtable
+//     methods on exclusive interfaces in minimal mode would leave callers
+//     with no wrappers anywhere.
+//   * `impl IFooStatics { ... }` should be elided entirely: `IFooStatics` is
+//     `[ExclusiveTo(Foo)]` *and* is referenced from `Foo`'s `Static`
+//     attribute, so it's a factory interface and its method (`Stat`) is
+//     already exposed via `impl Foo`.
+//   * `IFoo_Vtbl` must be byte-identical to default mode (slots intact).
+//
+// The `#[win32]` mod additionally exercises the sys-style drops that
+// minimal mode now performs:
+//   * `HANDLE` (a single-`Value`-field NativeTypedef-attributed struct) is
+//     emitted as a bare `pub type HANDLE = *mut core::ffi::c_void;` alias,
+//     not as a `#[repr(transparent)]` newtype with `is_invalid` / `Free`.
+//   * Constants of a handle type (e.g. `INVALID_HANDLE_VALUE: HANDLE`) are
+//     emitted without the `HANDLE(value)` newtype constructor, since the
+//     handle type is now a bare alias rather than a tuple struct.
+//   * Unscoped Win32 enums (`Color`) are emitted as a bare
+//     `pub type Color = i32;` alias, with their variants flattened into
+//     top-level `pub const Red: Color = 0i32;` constants (no `Color(...)`
+//     newtype constructor). Scoped enums still emit as a transparent
+//     newtype wrapper.
+//   * `GetValue` and `SetValue` are emitted as their `link!` declaration
+//     only, without the `pub unsafe fn`-style ergonomic wrapper.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    #[Windows::Foundation::Metadata::Static(IFooStatics, 1)]
+    class Foo {
+        IFoo,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFoo: IFoo2 {
+        fn Direct(&self) -> i32;
+        Name: String;
+    }
+    interface IFoo2 {
+        fn Bar(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFooStatics {
+        fn Stat(&self) -> i32;
+    }
+}
+#[win32]
+mod Test {
+    type HANDLE = *mut void;
+    const INVALID_HANDLE_VALUE: HANDLE = -1;
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+    #[library("test.dll")]
+    extern fn GetValue() -> u32;
+    #[library("test.dll")]
+    extern fn SetValue(value: u32);
+}

@@ -10,7 +10,6 @@ impl windows_core::RuntimeType for IInstance {
         windows_core::imp::ConstBuffer::from_slice(b"test_activation.One.IInstance");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -28,7 +27,6 @@ impl windows_core::RuntimeType for IMissing {
         windows_core::imp::ConstBuffer::from_slice(b"test_activation.One.IMissing");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMissing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -46,7 +44,6 @@ impl windows_core::RuntimeType for IStaticStatics {
     );
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStaticStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:

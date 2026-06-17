@@ -39,12 +39,15 @@ pub struct Filter {
     activatable: HashSet<(String, String)>,
     /// When `true`, methods on types with no explicit MethodFilter entry are
     /// demoted by default (minimal/opt-in mode).
-    default_demote: bool,
-    /// Interfaces with specific methods requested (for type closure in minimal mode).
+    pub default_demote: bool,
+    /// Interfaces with specific methods requested (for type closure).
     /// Key: (namespace, type_name), Value: requested method names (or All).
     pub requested_interfaces: HashMap<(String, String), MethodSet>,
-    /// Types directly included without `::` (for type closure in minimal mode).
+    /// Types directly included without `::` (for type closure).
     pub direct_types: Vec<(String, String)>,
+    /// `true` if the filter includes broad entries (namespaces or name globs)
+    /// that are not compatible with bottom-up type closure.
+    pub has_broad_filter: bool,
 }
 
 /// Per-type method filter. Entries are recorded as two parallel sets:
@@ -229,11 +232,7 @@ impl Filter {
     /// - `Namespace.Type::{a, b}` — include multiple methods
     /// - `Namespace.Class::CreateInstance` — mark class as activatable
     #[track_caller]
-    pub fn from_resolved(
-        reader: &Reader,
-        entries: &[filter_parser::ResolvedFilter],
-        default_demote: bool,
-    ) -> Self {
+    pub fn from_resolved(reader: &Reader, entries: &[filter_parser::ResolvedFilter]) -> Self {
         use filter_parser::ResolvedKind;
 
         let mut rules: Vec<(String, bool)> = Vec::new();
@@ -243,6 +242,7 @@ impl Filter {
         let mut requested_interfaces: HashMap<(String, String), MethodSet> = HashMap::new();
         let mut direct_types: Vec<(String, String)> = Vec::new();
         let mut warnings: Vec<String> = Vec::new();
+        let mut has_broad_filter = false;
 
         for entry in entries {
             let include = !entry.exclude;
@@ -250,8 +250,14 @@ impl Filter {
             match &entry.kind {
                 ResolvedKind::Namespace(ns) => {
                     rules.push((ns.clone(), include));
+                    if include {
+                        has_broad_filter = true;
+                    }
                 }
                 ResolvedKind::NameGlob { namespace, prefix } => {
+                    if include {
+                        has_broad_filter = true;
+                    }
                     // Expand glob to concrete types
                     if let Some(ns_map) = reader.get(namespace.as_str()) {
                         for name in ns_map.keys() {
@@ -266,10 +272,10 @@ impl Filter {
                     let full = format!("{namespace}.{name}");
                     rules.push((full, include));
 
-                    if include && default_demote {
-                        // In minimal mode, a bare type entry (no ::members)
-                        // is recorded as a direct type for the type closure.
-                        // This matches the old parse_minimal_type_entry behavior.
+                    if include {
+                        // Record as a direct type for MinimalTypeMap's closure.
+                        // Populated regardless of mode — the type-map decision
+                        // happens after filter construction.
                         let key = (namespace.clone(), name.clone());
                         if !direct_types.contains(&key) {
                             direct_types.push(key);
@@ -316,7 +322,6 @@ impl Filter {
                                 name,
                                 member,
                                 include,
-                                default_demote,
                             );
                         }
                     }
@@ -336,9 +341,10 @@ impl Filter {
             warnings,
             enum_variants,
             activatable,
-            default_demote,
+            default_demote: false,
             requested_interfaces,
             direct_types,
+            has_broad_filter,
         }
     }
 
@@ -401,7 +407,6 @@ impl Filter {
         name: &str,
         member: &str,
         include: bool,
-        default_demote: bool,
     ) {
         let key = (namespace.to_string(), name.to_string());
 
@@ -515,18 +520,18 @@ impl Filter {
                     }
                 }
                 Type::Interface(_) | Type::CppInterface(_) | Type::Delegate(_) => {
-                    // Use existing method filter expansion (property/event sugar)
-                    if default_demote {
-                        // Minimal mode: register in requested_interfaces
-                        let set = requested_interfaces
-                            .entry(key.clone())
-                            .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                        if let MethodSet::Names(names) = set {
-                            names.insert(member.to_string());
-                            // Auto-include remove_X when add_X is requested
-                            if let Some(event) = member.strip_prefix("add_") {
-                                names.insert(format!("remove_{event}"));
-                            }
+                    // Register in requested_interfaces for type closure
+                    // (used by MinimalTypeMap to walk only requested method
+                    // signatures). Populated regardless of mode — the decision
+                    // of which type-map algorithm to use happens later.
+                    let set = requested_interfaces
+                        .entry(key.clone())
+                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                    if let MethodSet::Names(names) = set {
+                        names.insert(member.to_string());
+                        // Auto-include remove_X when add_X is requested
+                        if let Some(event) = member.strip_prefix("add_") {
+                            names.insert(format!("remove_{event}"));
                         }
                     }
                     // Also register in method filter for emission control

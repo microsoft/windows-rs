@@ -80,21 +80,43 @@ Produces the rawest possible bindings: `link!` macros (or `extern` blocks with
 core types (`PCWSTR = *const u16`, `HRESULT = i32`, etc.).
 
 No dependency on `windows-sys`, `windows-core`, or any other `windows-*` crate
-beyond `windows-link`. This is the right choice when you want to avoid the
-monolithic crate and control your own type definitions.
+beyond `windows-link`. COM interfaces become just vtable structs and GUIDs —
+interface pointers are `*mut c_void`. This is the right choice when you want
+to avoid the type system entirely and control your own type definitions.
 
 ### `--minimal` mode
 
-Preserves COM vtable layout, `_Impl` traits, and `RuntimeType` but demotes
-methods you don't call to `usize` vtable slots. Depends on `windows-core`
-(and transitively `windows-result`, `windows-strings`). Used internally by
+Preserves COM vtable layout, `define_interface!`, `_Impl` traits, and
+`RuntimeType` but demotes methods you don't call to `usize` vtable slots.
+Uses bottom-up type closure (`MinimalTypeMap`) — only types reachable from
+requested method signatures are emitted. Depends on `windows-core` (and
+transitively `windows-result`, `windows-strings`). Used internally by
 `windows-reactor` and `windows-canvas` for optimized build times.
+
+Key differences from default:
+- Bottom-up type closure (only types reachable from requested methods)
+- Methods demoted by default unless explicitly requested
+- No inherited method forwarders (callers use `cast()`)
+- Vtable truncation (trailing unused slots removed)
+- Handles emitted as raw type aliases (no newtype wrappers)
+- No `#[doc(hidden)]` on vtables
 
 ### Default mode
 
 Full-fidelity bindings with class wrappers, inherited interface method
-forwarders, and all the convenience sugar. Same `windows-core` dependency
-as minimal. This is what the published `windows` crate uses.
+forwarders, and all the convenience sugar. Uses top-down type inclusion
+(`TypeMap::filter`) — all types matching the namespace/type filter are
+included. Same `windows-core` dependency as minimal. This is what the
+published `windows` crate uses.
+
+Key differences from minimal:
+- Top-down type inclusion (all matching types included)
+- All methods included by default (skipped only if deps missing)
+- Inherited methods forwarded onto derived interfaces
+- Handle newtypes with `is_invalid()` and `Default`
+- Struct `Debug`/`PartialEq` derives
+- `IntoIterator` for `IIterable` types
+- `#[doc(hidden)]` on vtable structs
 
 ## Options reference
 
@@ -155,6 +177,109 @@ The long-term goal is to share optimizations (method-level filtering, dead-code
 elimination, vtable slot demotion) across tiers so that each mode produces
 optimal output by default, and the choice between tiers is purely about which
 level of abstraction you want — not about which optimizations you get.
+
+### Type closure: MinimalTypeMap vs TypeMap::filter
+
+The two non-sys modes use different strategies for determining which types to
+include in the output:
+
+**Default mode (`TypeMap::filter`)** — top-down. Iterates all types in the
+metadata that match the namespace/type filter rules and includes them. For each
+included type, computes its full dependency set (`Dependencies::combine`) and
+checks that none of those dependencies are explicitly excluded. Methods on
+interfaces are then individually checked: if a method's parameter/return types
+aren't in the final `types` map (or references), it gets demoted to a `usize`
+vtable slot with a warning.
+
+**Minimal mode (`MinimalTypeMap::build`)** — bottom-up. Starts from explicitly
+requested methods (via `Interface::Method` filter syntax) and types, then walks
+method signatures recursively to discover *only* the types that are actually
+referenced. Types reachable through signatures get pulled in; interfaces
+encountered as dependencies get their struct/IID but their methods are *not*
+recursively walked (avoiding an explosion of transitive types). After building
+the closure, method-level inclusion is determined by `includes_method` — methods
+not in the filter's `requested_interfaces` map are demoted by default.
+
+**Why two approaches?** Top-down is appropriate when the filter is broad (entire
+namespaces or the full `Windows::**` for the published crate) — walking every
+method signature in the entire Windows API would be prohibitively expensive.
+Bottom-up is appropriate when the filter is specific (dozens/hundreds of known
+methods) and you want zero extraneous code.
+
+**Future direction:** The bottom-up approach produces strictly better output for
+targeted use cases. If both modes used `MinimalTypeMap`, default-mode users
+would benefit from: no spurious method skipping (no dependency-check heuristic
+needed), no transitive type bloat, and deterministic output regardless of what
+other types happen to be in the filter. The blocker is performance — running
+`MinimalTypeMap` over `Windows::**` would need to walk ~100K+ method signatures.
+A possible hybrid: use `MinimalTypeMap` when the filter is specific (method-level
+entries, individual types) and fall back to `TypeMap::filter` for broad namespace
+filters.
+
+### Method-level filtering
+
+Method-level filtering (the `Interface::Method` syntax) already works in both
+default and minimal modes, but with different defaults:
+
+| | Default mode | Minimal mode |
+|---|---|---|
+| Type has no method filter entries | All methods included | All methods demoted |
+| Type has explicit `::Method` entries | Listed methods included, rest included too | Listed methods included, rest demoted |
+| Type has `::*` entry | All methods included | All methods included |
+| Method deps missing from types map | Method demoted (with warning) | N/A (MinimalTypeMap ensures deps exist) |
+
+In default mode, method-level filters are *additive allow-list on top of include-all*.
+In minimal mode, they are *the mechanism that determines what gets included at all*.
+
+The `default_demote` flag on `Filter` (set to `true` in minimal mode) controls
+this behavior in `includes_method()`.
+
+### Remaining mode differences
+
+The following `is_minimal()` conditional behaviors remain in the codebase (~33
+call sites). These are all **tier-defining** — they represent the genuine
+abstraction-level difference between `--minimal` and default mode:
+
+| Category | Count | Purpose |
+|----------|-------|---------|
+| **Delegate** (no-return closure, suppress Invoke) | 5 | Minimal inlines S_OK, no Result propagation |
+| **Class sugar** (Deref, IntoIterator, forwarders, constructors) | 6 | Default's ergonomic layer |
+| **Method sugar** (Param trait, PCWSTR, String, event add/remove) | 9 | Default's parameter convenience |
+| **Cpp method** (param patterns) | 3 | Same as above for COM |
+| **Naming** (method_names raw, struct snake_case, enum short) | 4 | Minimal uses metadata names |
+| **Raw FFI patterns** (cpp_fn, cpp_handle, cpp_enum, cpp_const) | 4 | `is_sys() \|\| is_minimal()` — no wrapper sugar |
+| **Structural** (lib.rs decision logic) | 1 | Defines what triggers `minimal_closure` |
+| **Interface** (forwarder skip, IntoIterator skip) | 2 | Class sugar related |
+
+**Already unified (no longer mode-gated):**
+- ✅ MinimalTypeMap activation — based on filter structure (`minimal_closure` flag)
+- ✅ Vtable truncation — unconditional for all WinRT interfaces
+- ✅ Event-only delegate suppression — filter-structure-based
+- ✅ Method-dep filtering — gated on `minimal_closure`, not mode
+- ✅ `#[doc(hidden)]` on vtbl structs — removed (only emitted in `--package`)
+- ✅ NAME constant suppression — gated on `minimal_closure`
+- ✅ `required_hierarchy!` filter — gated on `minimal_closure`
+- ✅ Visibility (`pub(crate)`) — decoupled into `--dead-code` option
+
+### `--dead-code`
+
+Emits `pub(crate)` instead of `pub` on generated functions and methods so the
+`dead_code` lint surfaces unused bindings. Works around
+[rust-lang/rust#157961](https://github.com/rust-lang/rust/issues/157961) where
+`pub` items in non-public modules do not trigger dead-code warnings.
+
+`--minimal` implies `--dead-code` for backward compatibility, but the option
+can be used independently with any mode.
+
+### Future possibilities
+
+| Opportunity | Impact | Notes |
+|-------------|--------|-------|
+| **Merge `--minimal` into default** | High | The remaining 33 differences define the tier. If they became opt-in flags (`--raw-names`, `--no-sugar`, `--no-forwarders`), `--minimal` could be eliminated entirely |
+| **Event sugar universal** | Medium | Typed `add_`/`remove_` wrappers could benefit default-mode users too |
+| **`--dead-code` for `--sys`** | Low | Now possible since it's mode-independent |
+| **Further filter intelligence** | Medium | `minimal_closure` could auto-detect more cases (e.g., flat + no broad filter even without method entries) |
+| **Remove `--deps` entirely** | Low | Already hidden; final step is wiring deps from style automatically |
 
 ### `--deps` (internal)
 

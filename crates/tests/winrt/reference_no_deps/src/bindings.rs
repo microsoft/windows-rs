@@ -67,7 +67,6 @@ impl windows_core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     SetCompleted: usize,
@@ -128,7 +127,6 @@ impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -226,7 +224,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -450,7 +447,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -549,7 +545,6 @@ impl IStringable_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
@@ -681,7 +676,6 @@ impl ITest_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ITest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Numerics:
@@ -893,7 +887,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVect
         <Self as windows_core::RuntimeType>::NAME;
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVector_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,

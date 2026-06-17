@@ -325,7 +325,6 @@ impl windows_core::RuntimeType for IA {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IA");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IA_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -341,7 +340,6 @@ impl windows_core::RuntimeType for IB {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IB");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IB_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodOne:
@@ -357,7 +355,6 @@ impl windows_core::RuntimeType for IC {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IC");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IC_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -373,7 +370,6 @@ impl windows_core::RuntimeType for ID {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.ID");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method:
@@ -389,7 +385,6 @@ impl windows_core::RuntimeType for ID2 {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.ID2");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(
@@ -414,7 +409,6 @@ impl windows_core::RuntimeType for IE {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IE");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IE_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodOne:
@@ -430,7 +424,6 @@ impl windows_core::RuntimeType for IE2 {
         windows_core::imp::ConstBuffer::from_slice(b"test_overloads.IE2");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IE2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MethodThree: unsafe extern "system" fn(

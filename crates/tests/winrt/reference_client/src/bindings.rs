@@ -10,7 +10,6 @@ impl windows_core::RuntimeType for IReference {
         windows_core::imp::ConstBuffer::from_slice(b"test_reference.IReference");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(

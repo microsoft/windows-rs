@@ -72,7 +72,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
@@ -90,14 +89,12 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFooFactory");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooFactory_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepFactory: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
         ) -> windows_result::HRESULT,
-        DropFactory: usize,
     }
     windows_core::imp::define_interface!(
         IFooStatics,
@@ -111,11 +108,9 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFooStatics");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooStatics_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepStatic:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
-        DropStatic: usize,
     }
 }

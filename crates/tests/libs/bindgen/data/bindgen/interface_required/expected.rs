@@ -67,7 +67,6 @@ impl windows_core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     SetCompleted: usize,
@@ -128,7 +127,6 @@ impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,

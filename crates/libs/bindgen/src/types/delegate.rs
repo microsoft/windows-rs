@@ -40,11 +40,28 @@ impl Delegate {
             true,
         );
 
-        // In minimal mode, delegates are invoked by the API, not by user code.
-        // Suppress the public Invoke() method for all minimal delegates.
-        let is_event_only = config.bindgen.style.is_minimal()
-            && config.event_only_delegates.contains(&self.type_name());
+        // Suppress `new()` / `Invoke()` for delegates that are exclusively used
+        // as event handler parameters — the event-add wrapper inlines the
+        // DelegateBox construction directly. Safe when:
+        // 1. No broad namespace filter (hand-written code might call these)
+        // 2. The delegate only appears as a parameter in add_* event methods
+        // 3. In non-minimal mode, the delegate wasn't explicitly listed in the
+        //    filter (explicit inclusion means the caller may use it directly —
+        //    e.g. windows-collections calls .Invoke() on its event delegates).
+        //    In minimal mode, event wrappers always inline construction so
+        //    explicit filter listing doesn't imply direct usage.
+        let type_name = self.type_name();
+        let delegate_key = (
+            type_name.namespace().to_string(),
+            type_name.name().to_string(),
+        );
+        let is_event_only = !config.filter.has_broad_filter
+            && config.event_only_delegates.contains(&type_name)
+            && (config.bindgen.style.is_minimal()
+                || !config.filter.direct_types.contains(&delegate_key));
         let invoke_method = if config.bindgen.style.is_minimal() {
+            // In minimal mode, delegates are invoked by the framework, not
+            // user code — suppress the public Invoke() wrapper entirely.
             quote! {}
         } else {
             invoke
@@ -116,7 +133,7 @@ impl Delegate {
         let new_method = if is_event_only {
             quote! {}
         } else {
-            let vis = if config.bindgen.style.is_minimal() {
+            let vis = if config.bindgen.dead_code {
                 quote! { pub(crate) }
             } else {
                 quote! { pub }
@@ -149,10 +166,10 @@ impl Delegate {
             }
         };
 
-        let hide_vtbl = if config.bindgen.style.is_minimal() {
-            quote! {}
-        } else {
+        let hide_vtbl = if config.bindgen.layout.is_package() {
             quote! { #[doc(hidden)] }
+        } else {
+            quote! {}
         };
 
         quote! {
