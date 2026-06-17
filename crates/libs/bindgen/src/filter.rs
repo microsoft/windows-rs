@@ -21,13 +21,6 @@ impl MethodSet {
 
 /// Returns true if `method_name` matches either the raw metadata name or the
 /// overload-disambiguated name of `m`.
-fn method_matches(m: MethodDef, method_name: &str) -> bool {
-    if m.name() == method_name {
-        return true;
-    }
-    method_overload_name(m).as_deref() == Some(method_name)
-}
-
 #[derive(Debug, Default)]
 pub struct Filter {
     pub rules: Vec<(String, bool)>,
@@ -459,45 +452,59 @@ impl Filter {
                         // Find which interface carries this method
                         let mut found = false;
                         for iface in &required {
-                            if iface.def.methods().any(|m| method_matches(m, member)) {
-                                let iface_key = (
-                                    iface.def.namespace().to_string(),
-                                    iface.def.name().to_string(),
-                                );
-                                // Register on the interface
-                                let set = requested_interfaces
-                                    .entry(iface_key.clone())
-                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                                if let MethodSet::Names(names) = set {
-                                    names.insert(member.to_string());
-                                    if let Some(event) = member.strip_prefix("add_") {
-                                        names.insert(format!("remove_{event}"));
-                                    }
-                                }
-                                let filter_entry = methods.entry(iface_key).or_default();
-                                if include {
-                                    filter_entry.keep.insert(member.to_string());
-                                    if let Some(event) = member.strip_prefix("add_") {
-                                        filter_entry.keep.insert(format!("remove_{event}"));
-                                    }
-                                } else {
-                                    filter_entry.drop.insert(member.to_string());
-                                }
-                                if !direct_types.contains(&key) {
-                                    direct_types.push(key.clone());
-                                }
-                                found = true;
-                                break;
+                            let defs: Vec<MethodDef> = iface.def.methods().collect();
+                            let mut expanded = expand_method_part(member, &defs);
+                            if expanded.is_empty() {
+                                continue;
                             }
+                            // Auto-include remove_X when add_X is requested
+                            if include {
+                                let remove_extras: Vec<String> = expanded
+                                    .iter()
+                                    .filter_map(|m| {
+                                        m.strip_prefix("add_")
+                                            .map(|event| format!("remove_{event}"))
+                                    })
+                                    .filter(|r| defs.iter().any(|d| d.name() == r.as_str()))
+                                    .collect();
+                                expanded.extend(remove_extras);
+                            }
+                            let iface_key = (
+                                iface.def.namespace().to_string(),
+                                iface.def.name().to_string(),
+                            );
+                            // Register expanded names in requested_interfaces
+                            let set = requested_interfaces
+                                .entry(iface_key.clone())
+                                .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                            if let MethodSet::Names(names) = set {
+                                for n in &expanded {
+                                    names.insert(n.clone());
+                                }
+                            }
+                            let filter_entry = methods.entry(iface_key).or_default();
+                            if include {
+                                for n in &expanded {
+                                    filter_entry.keep.insert(n.clone());
+                                }
+                            } else {
+                                filter_entry.drop.insert(member.to_string());
+                            }
+                            if !direct_types.contains(&key) {
+                                direct_types.push(key.clone());
+                            }
+                            found = true;
+                            break;
                         }
                         // Check composable interfaces too
                         if !found {
                             for iface in &required {
-                                if matches!(iface.kind, InterfaceKind::Composable)
-                                    && iface.def.methods().any(|m| method_matches(m, member))
-                                {
-                                    found = true;
-                                    break;
+                                if matches!(iface.kind, InterfaceKind::Composable) {
+                                    let defs: Vec<MethodDef> = iface.def.methods().collect();
+                                    if !expand_method_part(member, &defs).is_empty() {
+                                        found = true;
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -520,21 +527,9 @@ impl Filter {
                     }
                 }
                 Type::Interface(_) | Type::CppInterface(_) | Type::Delegate(_) => {
-                    // Register in requested_interfaces for type closure
-                    // (used by MinimalTypeMap to walk only requested method
-                    // signatures). Populated regardless of mode — the decision
-                    // of which type-map algorithm to use happens later.
-                    let set = requested_interfaces
-                        .entry(key.clone())
-                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
-                    if let MethodSet::Names(names) = set {
-                        names.insert(member.to_string());
-                        // Auto-include remove_X when add_X is requested
-                        if let Some(event) = member.strip_prefix("add_") {
-                            names.insert(format!("remove_{event}"));
-                        }
-                    }
-                    // Also register in method filter for emission control
+                    // Expand sugar (e.g. "Click" → "add_Click" + "remove_Click")
+                    // before registering so both requested_interfaces and the
+                    // method filter use the real metadata method names.
                     let def = match &ty {
                         Type::Interface(t) => t.def,
                         Type::CppInterface(t) => t.def,
@@ -558,6 +553,17 @@ impl Filter {
                             .filter(|r| defs.iter().any(|d| d.name() == r.as_str()))
                             .collect();
                         expanded.extend(remove_extras);
+                    }
+                    // Register expanded names in requested_interfaces for type
+                    // closure (used by MinimalTypeMap to walk only requested
+                    // method signatures).
+                    let set = requested_interfaces
+                        .entry(key.clone())
+                        .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                    if let MethodSet::Names(names) = set {
+                        for name in &expanded {
+                            names.insert(name.clone());
+                        }
                     }
                     maybe_warn_ambiguous_overload(
                         warnings, member, namespace, name, &defs, include, member,

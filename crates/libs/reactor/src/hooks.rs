@@ -33,7 +33,7 @@ impl DispatcherTimer {
         timer.put_Interval(duration_to_timespan(interval))?;
         timer.put_IsRepeating(repeating)?;
 
-        let tick_revoker = timer.add_Tick(move |_, _| {
+        let tick_revoker = timer.Tick(move |_, _| {
             f();
         })?;
         timer.Start()?;
@@ -68,7 +68,7 @@ pub fn on_rendering<F>(f: F) -> Result<Rendering>
 where
     F: Fn() + 'static,
 {
-    let revoker = CompositionTarget::add_Rendering(move |_, _| {
+    let revoker = CompositionTarget::Rendering(move |_, _| {
         f();
     })?;
     Ok(Rendering { _revoker: revoker })
