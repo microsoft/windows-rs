@@ -21,6 +21,5 @@ fn test() {
         "--filter",
         "Test",
         "--sys",
-    ])
-    .unwrap();
+    ]);
 }

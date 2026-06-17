@@ -33,6 +33,5 @@ fn main() {
         "test_activation",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

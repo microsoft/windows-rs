@@ -25,15 +25,13 @@ fn main() {
         .output(rdl)
         .namespace(namespace)
         .library(library)
-        .write()
-        .unwrap();
+        .write();
 
     windows_rdl::reader()
         .input(rdl)
         .input(reference)
         .output(winmd)
-        .write()
-        .unwrap();
+        .write();
 
     windows_bindgen::builder()
         .input(winmd)
@@ -43,6 +41,5 @@ fn main() {
         .reference("windows")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }

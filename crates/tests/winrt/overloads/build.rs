@@ -32,6 +32,5 @@ fn main() {
         "test_overloads",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

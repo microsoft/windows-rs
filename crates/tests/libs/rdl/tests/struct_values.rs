@@ -22,8 +22,7 @@ fn test() {
         "src/struct_values.rs",
         "--filter",
         "Test",
-    ])
-    .unwrap();
+    ]);
 
     let c = Color {
         R: 255,

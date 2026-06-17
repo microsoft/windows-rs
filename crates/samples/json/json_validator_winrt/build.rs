@@ -14,8 +14,7 @@ fn main() {
         .input("src/sample.rdl")
         .input(&windows_foundation)
         .output("sample.winmd")
-        .write()
-        .unwrap();
+        .write();
 
     windows_bindgen::builder()
         .input("sample.winmd")
@@ -24,6 +23,5 @@ fn main() {
         .filter("Sample")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }

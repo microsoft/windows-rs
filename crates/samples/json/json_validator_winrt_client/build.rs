@@ -12,6 +12,5 @@ fn main() {
         .output("src/bindings.rs")
         .filter("Sample")
         .flat()
-        .write()
-        .unwrap();
+        .write();
 }

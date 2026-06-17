@@ -39,8 +39,7 @@ fn msvc_main() {
         "Test",
         "--implement",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 
     let include = std::env::var("OUT_DIR").unwrap();
 

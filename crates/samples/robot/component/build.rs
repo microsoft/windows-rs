@@ -7,8 +7,7 @@ fn main() {
         .input("src/robot.rdl")
         .input(reference)
         .output("robot.winmd")
-        .write()
-        .unwrap();
+        .write();
 
     windows_bindgen::builder()
         .input("robot.winmd")
@@ -17,6 +16,5 @@ fn main() {
         .filter("Robotics")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }
