@@ -183,16 +183,12 @@ fn map_changed_event() -> Result<()> {
     let events = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
-    let handler =
-        MapChangedEventHandler::new(move |_sender, args: Ref<IMapChangedEventArgs<i32>>| {
-            let args = args.ok()?;
-            let change = args.CollectionChange()?;
-            let key = args.Key().ok();
-            events_clone.lock().unwrap().push((change, key));
-            Ok(())
-        });
-
-    let token = m.MapChanged(&handler)?;
+    let revoker = m.MapChanged(move |_sender, args: Ref<IMapChangedEventArgs<i32>>| {
+        let args = args.unwrap();
+        let change = args.CollectionChange().unwrap();
+        let key = args.Key().ok();
+        events_clone.lock().unwrap().push((change, key));
+    })?;
 
     // Insert new key fires ItemInserted
     m.Insert(2, 20u64)?;
@@ -231,7 +227,7 @@ fn map_changed_event() -> Result<()> {
     }
 
     // Removing the handler means no more events
-    m.RemoveMapChanged(token)?;
+    drop(revoker);
     m.Insert(5, 50u64)?;
     {
         let ev = events.lock().unwrap();
@@ -249,31 +245,26 @@ fn multiple_handlers() -> Result<()> {
     let count2 = std::sync::Arc::new(std::sync::atomic::AtomicUsize::new(0));
 
     let c1 = count1.clone();
-    let handler1 = MapChangedEventHandler::new(move |_, _| {
+    let revoker1 = m.MapChanged(move |_, _| {
         c1.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        Ok(())
-    });
+    })?;
 
     let c2 = count2.clone();
-    let handler2 = MapChangedEventHandler::new(move |_, _| {
+    let revoker2 = m.MapChanged(move |_, _| {
         c2.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        Ok(())
-    });
-
-    let token1 = m.MapChanged(&handler1)?;
-    let token2 = m.MapChanged(&handler2)?;
+    })?;
 
     m.Insert(1, 10u64)?;
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1);
     assert_eq!(count2.load(std::sync::atomic::Ordering::Relaxed), 1);
 
     // Remove first handler
-    m.RemoveMapChanged(token1)?;
+    drop(revoker1);
     m.Insert(2, 20u64)?;
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1); // no change
     assert_eq!(count2.load(std::sync::atomic::Ordering::Relaxed), 2);
 
-    m.RemoveMapChanged(token2)?;
+    drop(revoker2);
     m.Insert(3, 30u64)?;
     assert_eq!(count1.load(std::sync::atomic::Ordering::Relaxed), 1); // no change
     assert_eq!(count2.load(std::sync::atomic::Ordering::Relaxed), 2); // no change
@@ -322,16 +313,12 @@ fn hstring_map_changed_event() -> Result<()> {
         std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
     let events_clone = events.clone();
 
-    let handler =
-        MapChangedEventHandler::new(move |_sender, args: Ref<IMapChangedEventArgs<HSTRING>>| {
-            let args = args.ok()?;
-            let change = args.CollectionChange()?;
-            let key = args.Key()?;
-            events_clone.lock().unwrap().push((change, key));
-            Ok(())
-        });
-
-    let _token = m.MapChanged(&handler)?;
+    let _revoker = m.MapChanged(move |_sender, args: Ref<IMapChangedEventArgs<HSTRING>>| {
+        let args = args.unwrap();
+        let change = args.CollectionChange().unwrap();
+        let key = args.Key().unwrap();
+        events_clone.lock().unwrap().push((change, key));
+    })?;
 
     m.Insert(h!("alpha"), 1)?;
     {
