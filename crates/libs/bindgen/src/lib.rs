@@ -88,6 +88,10 @@ pub struct Bindgen {
     style: Style,
     deps: Option<DepMode>,
     index: bool,
+    // Emit `pub(crate)` instead of `pub` on generated functions and methods
+    // to surface unused bindings as dead-code warnings. Works around
+    // https://github.com/rust-lang/rust/issues/157961
+    dead_code: bool,
 }
 
 /// Output layout for the generated bindings. Mutually exclusive variants
@@ -391,6 +395,8 @@ impl Bindgen {
             panic!("cannot combine `--sys` and `--minimal`");
         }
         self.style = Style::Minimal;
+        // --minimal implies --dead-code for backward compatibility.
+        self.dead_code = true;
         self
     }
 
@@ -409,6 +415,15 @@ impl Bindgen {
     /// Generate a `features.json` index alongside the output file.
     pub fn index(&mut self) -> &mut Self {
         self.index = true;
+        self
+    }
+
+    /// Emit `pub(crate)` instead of `pub` on generated functions and methods to
+    /// surface unused bindings as dead-code warnings. Works around
+    /// <https://github.com/rust-lang/rust/issues/157961> where `pub` items in
+    /// non-public modules do not trigger dead-code warnings.
+    pub fn dead_code(&mut self) -> &mut Self {
+        self.dead_code = true;
         self
     }
 

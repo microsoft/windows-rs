@@ -232,10 +232,7 @@ impl Filter {
     /// - `Namespace.Type::{a, b}` — include multiple methods
     /// - `Namespace.Class::CreateInstance` — mark class as activatable
     #[track_caller]
-    pub fn from_resolved(
-        reader: &Reader,
-        entries: &[filter_parser::ResolvedFilter],
-    ) -> Self {
+    pub fn from_resolved(reader: &Reader, entries: &[filter_parser::ResolvedFilter]) -> Self {
         use filter_parser::ResolvedKind;
 
         let mut rules: Vec<(String, bool)> = Vec::new();

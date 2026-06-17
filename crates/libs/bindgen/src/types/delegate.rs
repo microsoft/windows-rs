@@ -133,7 +133,7 @@ impl Delegate {
         let new_method = if is_event_only {
             quote! {}
         } else {
-            let vis = if config.bindgen.style.is_minimal() {
+            let vis = if config.bindgen.dead_code {
                 quote! { pub(crate) }
             } else {
                 quote! { pub }

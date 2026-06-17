@@ -373,9 +373,9 @@ impl Method {
             (method_names.add(self.def), TokenStream::new())
         };
 
-        // In minimal mode, use pub(crate) so that the dead_code lint can detect
-        // unused methods within the consuming crate.
-        let vis = if config.bindgen.style.is_minimal() {
+        // Use pub(crate) when --dead-code is set so the dead_code lint can
+        // detect unused methods. See https://github.com/rust-lang/rust/issues/157961
+        let vis = if config.bindgen.dead_code {
             quote! { pub(crate) }
         } else {
             quote! { pub }

@@ -219,6 +219,9 @@ where
                 "--minimal" => {
                     builder.minimal();
                 }
+                "--dead-code" => {
+                    builder.dead_code();
+                }
                 "--extern" => {
                     builder.extern_fns();
                 }

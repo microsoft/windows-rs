@@ -126,7 +126,7 @@ impl Class {
 
         let result = config.write_result();
 
-        let vis = if config.bindgen.style.is_minimal() {
+        let vis = if config.bindgen.dead_code {
             quote! { pub(crate) }
         } else {
             quote! { pub }
