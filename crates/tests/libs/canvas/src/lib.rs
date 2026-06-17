@@ -152,39 +152,39 @@ mod tests {
 
         // Default is identity.
         let identity = session.get_transform();
-        assert_eq!(identity.M11, 1.0);
-        assert_eq!(identity.M22, 1.0);
-        assert_eq!(identity.M31, 0.0);
+        assert_eq!(identity.m11, 1.0);
+        assert_eq!(identity.m22, 1.0);
+        assert_eq!(identity.m31, 0.0);
 
         // Set a translation.
         let translated = Matrix3x2 {
-            M11: 1.0,
-            M12: 0.0,
-            M21: 0.0,
-            M22: 1.0,
-            M31: 10.0,
-            M32: 20.0,
+            m11: 1.0,
+            m12: 0.0,
+            m21: 0.0,
+            m22: 1.0,
+            m31: 10.0,
+            m32: 20.0,
         };
         session.set_transform(&translated);
         let got = session.get_transform();
-        assert_eq!(got.M31, 10.0);
-        assert_eq!(got.M32, 20.0);
+        assert_eq!(got.m31, 10.0);
+        assert_eq!(got.m32, 20.0);
 
         // with_transform restores original.
         let scaled = Matrix3x2 {
-            M11: 2.0,
-            M12: 0.0,
-            M21: 0.0,
-            M22: 2.0,
-            M31: 0.0,
-            M32: 0.0,
+            m11: 2.0,
+            m12: 0.0,
+            m21: 0.0,
+            m22: 2.0,
+            m31: 0.0,
+            m32: 0.0,
         };
         session.with_transform(&scaled, || {
             let inside = session.get_transform();
-            assert_eq!(inside.M11, 2.0);
+            assert_eq!(inside.m11, 2.0);
         });
         let after = session.get_transform();
-        assert_eq!(after.M31, 10.0); // restored to translated
+        assert_eq!(after.m31, 10.0); // restored to translated
 
         drop(session);
         chain.present().unwrap();
@@ -597,8 +597,8 @@ mod tests {
     #[test]
     fn ellipse_new() {
         let e = Ellipse::new(Vector2::new(10.0, 20.0), 30.0, 40.0);
-        assert_eq!(e.center.X, 10.0);
-        assert_eq!(e.center.Y, 20.0);
+        assert_eq!(e.center.x, 10.0);
+        assert_eq!(e.center.y, 20.0);
         assert_eq!(e.radius_x, 30.0);
         assert_eq!(e.radius_y, 40.0);
     }

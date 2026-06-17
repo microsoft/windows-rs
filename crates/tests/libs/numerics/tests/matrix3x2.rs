@@ -28,22 +28,22 @@ fn skew_around_zero_yields_identity() {
 fn rotation_y_zero_yields_identity() {
     // 0° rotation_y is the identity matrix (sin(0)=0, cos(0)=1)
     let m = Matrix4x4::rotation_y(0.0);
-    assert_eq!(m.M11, 1.0);
-    assert_eq!(m.M13, 0.0);
-    assert_eq!(m.M22, 1.0);
-    assert_eq!(m.M31, 0.0);
-    assert_eq!(m.M33, 1.0);
-    assert_eq!(m.M44, 1.0);
-    assert_eq!(m.M12, 0.0);
-    assert_eq!(m.M14, 0.0);
-    assert_eq!(m.M21, 0.0);
-    assert_eq!(m.M23, 0.0);
-    assert_eq!(m.M24, 0.0);
-    assert_eq!(m.M32, 0.0);
-    assert_eq!(m.M34, 0.0);
-    assert_eq!(m.M41, 0.0);
-    assert_eq!(m.M42, 0.0);
-    assert_eq!(m.M43, 0.0);
+    assert_eq!(m.m11, 1.0);
+    assert_eq!(m.m13, 0.0);
+    assert_eq!(m.m22, 1.0);
+    assert_eq!(m.m31, 0.0);
+    assert_eq!(m.m33, 1.0);
+    assert_eq!(m.m44, 1.0);
+    assert_eq!(m.m12, 0.0);
+    assert_eq!(m.m14, 0.0);
+    assert_eq!(m.m21, 0.0);
+    assert_eq!(m.m23, 0.0);
+    assert_eq!(m.m24, 0.0);
+    assert_eq!(m.m32, 0.0);
+    assert_eq!(m.m34, 0.0);
+    assert_eq!(m.m41, 0.0);
+    assert_eq!(m.m42, 0.0);
+    assert_eq!(m.m43, 0.0);
 }
 
 #[cfg(windows)]
@@ -56,40 +56,40 @@ mod d2d1_comparison {
 
     fn assert_matrix3x2_approx_eq(rust: &Matrix3x2, d2d1: &Matrix3x2) {
         assert!(
-            approx_eq(rust.M11, d2d1.M11),
+            approx_eq(rust.m11, d2d1.m11),
             "M11: {} != {}",
-            rust.M11,
-            d2d1.M11
+            rust.m11,
+            d2d1.m11
         );
         assert!(
-            approx_eq(rust.M12, d2d1.M12),
+            approx_eq(rust.m12, d2d1.m12),
             "M12: {} != {}",
-            rust.M12,
-            d2d1.M12
+            rust.m12,
+            d2d1.m12
         );
         assert!(
-            approx_eq(rust.M21, d2d1.M21),
+            approx_eq(rust.m21, d2d1.m21),
             "M21: {} != {}",
-            rust.M21,
-            d2d1.M21
+            rust.m21,
+            d2d1.m21
         );
         assert!(
-            approx_eq(rust.M22, d2d1.M22),
+            approx_eq(rust.m22, d2d1.m22),
             "M22: {} != {}",
-            rust.M22,
-            d2d1.M22
+            rust.m22,
+            d2d1.m22
         );
         assert!(
-            approx_eq(rust.M31, d2d1.M31),
+            approx_eq(rust.m31, d2d1.m31),
             "M31: {} != {}",
-            rust.M31,
-            d2d1.M31
+            rust.m31,
+            d2d1.m31
         );
         assert!(
-            approx_eq(rust.M32, d2d1.M32),
+            approx_eq(rust.m32, d2d1.m32),
             "M32: {} != {}",
-            rust.M32,
-            d2d1.M32
+            rust.m32,
+            d2d1.m32
         );
     }
 
@@ -139,27 +139,27 @@ mod d2d1_comparison {
                 D2D1SinCos(degree.to_radians(), &mut d2d1_sin, &mut d2d1_cos);
             }
             assert!(
-                approx_eq(rust.M11, d2d1_cos),
+                approx_eq(rust.m11, d2d1_cos),
                 "rotation_y({degree}) M11: {} != {}",
-                rust.M11,
+                rust.m11,
                 d2d1_cos
             );
             assert!(
-                approx_eq(rust.M13, -d2d1_sin),
+                approx_eq(rust.m13, -d2d1_sin),
                 "rotation_y({degree}) M13: {} != {}",
-                rust.M13,
+                rust.m13,
                 -d2d1_sin
             );
             assert!(
-                approx_eq(rust.M31, d2d1_sin),
+                approx_eq(rust.m31, d2d1_sin),
                 "rotation_y({degree}) M31: {} != {}",
-                rust.M31,
+                rust.m31,
                 d2d1_sin
             );
             assert!(
-                approx_eq(rust.M33, d2d1_cos),
+                approx_eq(rust.m33, d2d1_cos),
                 "rotation_y({degree}) M33: {} != {}",
-                rust.M33,
+                rust.m33,
                 d2d1_cos
             );
         }

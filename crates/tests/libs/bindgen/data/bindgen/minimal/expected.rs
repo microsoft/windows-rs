@@ -1,6 +1,6 @@
 pub mod Test {
-    windows_link::link!("test.dll" "system" fn GetValue() -> u32);
-    windows_link::link!("test.dll" "system" fn SetValue(value : u32));
+    windows_core::link!("test.dll" "system" fn GetValue() -> u32);
+    windows_core::link!("test.dll" "system" fn SetValue(value : u32));
     pub type Color = i32;
     pub type HANDLE = *mut core::ffi::c_void;
     windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x29b2ee6f_e8bf_5d03_8e01_81e8ad109076);
@@ -9,7 +9,7 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     impl IFoo {
-        pub(crate) fn Direct(&self) -> windows_result::Result<i32> {
+        pub(crate) fn Direct(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Direct)(
@@ -19,7 +19,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub(crate) fn get_Name(&self) -> windows_result::Result<String> {
+        pub(crate) fn get_Name(&self) -> windows_core::Result<String> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).get_Name)(
@@ -32,7 +32,7 @@ pub mod Test {
                 })
             }
         }
-        pub(crate) fn put_Name(&self, value: &str) -> windows_result::Result<()> {
+        pub(crate) fn put_Name(&self, value: &str) -> windows_core::Result<()> {
             unsafe {
                 (windows_core::Interface::vtable(self).put_Name)(
                     windows_core::Interface::as_raw(self),
@@ -46,15 +46,15 @@ pub mod Test {
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
         pub get_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
-        ) -> windows_result::HRESULT,
+        ) -> windows_core::HRESULT,
         pub put_Name: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut core::ffi::c_void,
-        ) -> windows_result::HRESULT,
+        ) -> windows_core::HRESULT,
     }
     windows_core::imp::define_interface!(IFoo2, IFoo2_Vtbl, 0xd5639aca_50ae_5b48_9f64_938ce24b8683);
     impl windows_core::RuntimeType for IFoo2 {
@@ -67,7 +67,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo2 {
-        pub(crate) fn Bar(&self) -> windows_result::Result<i32> {
+        pub(crate) fn Bar(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Bar)(
@@ -82,7 +82,7 @@ pub mod Test {
         const NAME: &'static str = "Test.IFoo2";
     }
     pub trait IFoo2_Impl: windows_core::IUnknownImpl {
-        fn Bar(&self) -> windows_result::Result<i32>;
+        fn Bar(&self) -> windows_core::Result<i32>;
     }
     impl IFoo2_Vtbl {
         pub const fn new<Identity: IFoo2_Impl, const OFFSET: isize>() -> Self {
@@ -115,7 +115,7 @@ pub mod Test {
     pub struct IFoo2_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Bar:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     }
     windows_core::imp::define_interface!(
         IFooStatics,
@@ -130,7 +130,7 @@ pub mod Test {
     pub struct IFooStatics_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Stat:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     }
     pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
 }

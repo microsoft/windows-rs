@@ -1,4 +1,3 @@
 filter = "Test"
 filters = ["!Test.IFoo::Drop"]
-deps = "specific"
 references = ["../../../libs/bindgen/default"]

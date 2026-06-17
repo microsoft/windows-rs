@@ -27,12 +27,12 @@ fn draw(ctx: &DrawContext) {
         let angle = t + i as f32 * std::f32::consts::PI / 3.0;
         let (sin, cos) = (angle.sin(), angle.cos());
         let transform = Matrix3x2 {
-            M11: cos,
-            M12: sin,
-            M21: -sin,
-            M22: cos,
-            M31: cx * (1.0 - cos) + cy * sin,
-            M32: cy * (1.0 - cos) - cx * sin,
+            m11: cos,
+            m12: sin,
+            m21: -sin,
+            m22: cos,
+            m31: cx * (1.0 - cos) + cy * sin,
+            m32: cy * (1.0 - cos) - cx * sin,
         };
 
         let frac = i as f32 / 6.0;

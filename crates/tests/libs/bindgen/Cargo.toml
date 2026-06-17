@@ -12,8 +12,11 @@ doctest = false
 # `include!` every `expected.rs` from `src/lib.rs` and have it really
 # compile, not just parse.
 [dependencies]
+windows-collections = { workspace = true }
 windows-core = { workspace = true }
+windows-future = { workspace = true }
 windows-link = { workspace = true }
+windows-numerics = { workspace = true }
 windows-reference = { workspace = true }
 windows-result = { workspace = true }
 windows-targets = { workspace = true }

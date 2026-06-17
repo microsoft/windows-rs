@@ -1,5 +1,5 @@
 --out crates/libs/numerics/src/bindings.rs
---flat
+--flat --minimal
 
 --filter
     Windows::Foundation::Numerics::{Matrix3x2, Matrix4x4, Vector2, Vector3, Vector4}

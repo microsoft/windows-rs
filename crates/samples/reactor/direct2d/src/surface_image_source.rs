@@ -47,8 +47,8 @@ fn build_surface(device: &Device) -> Result<SurfaceImageSource> {
         context.FillEllipse(
             &D2D1_ELLIPSE {
                 point: Vector2 {
-                    X: center,
-                    Y: center,
+                    x: center,
+                    y: center,
                 },
                 radiusX: center - 24.0,
                 radiusY: center - 24.0,

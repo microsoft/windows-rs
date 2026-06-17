@@ -279,20 +279,6 @@ can be used independently with any mode.
 | **Event sugar universal** | Medium | Typed `add_`/`remove_` wrappers could benefit default-mode users too |
 | **`--dead-code` for `--sys`** | Low | Now possible since it's mode-independent |
 | **Further filter intelligence** | Medium | `minimal_closure` could auto-detect more cases (e.g., flat + no broad filter even without method entries) |
-| **Remove `--deps` entirely** | Low | Already hidden; final step is wiring deps from style automatically |
-
-### `--deps` (internal)
-
-The `--deps` option exists for internal bootstrapping (e.g., `windows-core`
-generating its own sys-style bindings with `--deps none`). It controls whether
-core types reference external crates or are emitted inline.
-
-For `--sys` mode, `--deps none` is always the effective default — users should
-not need to specify it. For default/minimal modes, `--deps core` is the
-default. The `--deps specific` value is used internally by crates that depend
-on `windows-result`/`windows-strings` directly rather than through
-`windows-core`.
-
 ### `--package` (internal)
 
 The `--package` option generates a complete crate with `Cargo.toml` feature

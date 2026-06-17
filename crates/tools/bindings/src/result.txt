@@ -1,5 +1,5 @@
 --out crates/libs/result/src/bindings.rs
---flat --sys --deps none
+--flat --sys
 
 --filter
     E_UNEXPECTED

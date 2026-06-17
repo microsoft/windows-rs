@@ -1,3 +1,2 @@
 filter = "Test"
-deps = "specific"
 implements = ["Test.IFoo"]

@@ -1,5 +1,5 @@
 --out crates/libs/future/src/bindings_impl.rs
---flat --sys --deps none
+--flat --sys
 
 --filter
     CloseHandle

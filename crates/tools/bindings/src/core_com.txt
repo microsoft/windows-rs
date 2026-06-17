@@ -1,5 +1,5 @@
 --out crates/libs/core/src/imp/com_bindings.rs
---flat --deps none
+--flat
 
 --filter
     AGILEREFERENCE_DEFAULT

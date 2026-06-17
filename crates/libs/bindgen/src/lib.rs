@@ -86,7 +86,6 @@ pub struct Bindgen {
     link: Option<String>,
     layout: Layout,
     style: Style,
-    deps: Option<DepMode>,
     index: bool,
     // Emit `pub(crate)` instead of `pub` on generated functions and methods
     // to surface unused bindings as dead-code warnings. Works around
@@ -266,37 +265,8 @@ impl Bindgen {
         self
     }
 
-    /// Select how generated bindings depend on the `windows-*` crates.
-    ///
-    /// This is an **internal** option used for bootstrapping foundational
-    /// crates (e.g., `windows-core` generating its own bindings). Most users
-    /// should not need this — the default is determined by the code-style mode:
-    ///
-    /// - `--sys`: always `None` (self-contained, only `windows-link`).
-    /// - `--minimal` / default: always `Core` (depends on `windows-core`).
-    ///
-    /// Values:
-    /// - [`DepMode::Core`]: depend on `windows-core`.
-    /// - [`DepMode::Specific`]: depend on `windows-result`, `windows-strings`,
-    ///   and `windows-link` directly.
-    /// - [`DepMode::None`]: no `windows-*` dependencies.
-    pub fn deps(&mut self, mode: DepMode) -> &mut Self {
-        self.deps = Some(mode);
-        self
-    }
-
-    /// Returns the effective dependency mode, resolving the default based on
-    /// the current style when `--deps` was not explicitly set.
-    ///
-    /// In `--sys` mode (non-package), the effective dep mode is always `None`
-    /// — sys bindings are self-contained and only depend on `windows-link`.
-    /// An explicit `--deps` value is only honored for `--package` (which
-    /// generates the published `windows-sys` crate) or for non-sys styles.
-    pub(crate) fn resolved_deps(&self) -> DepMode {
-        if self.style.is_sys() && !self.layout.is_package() {
-            return DepMode::None;
-        }
-        self.deps.unwrap_or(DepMode::Core)
+    fn uses_inline_core_types(&self) -> bool {
+        self.style.is_sys() && !self.layout.is_package()
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
@@ -459,7 +429,7 @@ impl Bindgen {
 
         let link = if let Some(link) = self.link.as_deref() {
             link
-        } else if sys || self.resolved_deps() == DepMode::Specific {
+        } else if sys {
             "windows_link"
         } else {
             "windows_core"
@@ -480,7 +450,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !sys && self.resolved_deps() != DepMode::None {
+        if !sys {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -488,11 +458,6 @@ impl Bindgen {
             // `prepend_default_refs` so they take precedence over any
             // user-supplied `--reference` entries (matching the historical
             // `references.insert(0, …)` ordering).
-            let win32_foundation_crate = if self.resolved_deps() == DepMode::Specific {
-                "windows_result"
-            } else {
-                "windows_core"
-            };
             for (probe_namespace, crate_name, paths) in [
                 (
                     "Windows.Foundation",
@@ -542,7 +507,7 @@ impl Bindgen {
                 ),
                 (
                     "Windows.Win32.Foundation",
-                    win32_foundation_crate,
+                    "windows_core",
                     &[
                         "Windows.Win32.Foundation.WIN32_ERROR",
                         "Windows.Win32.Foundation.NTSTATUS",
@@ -654,19 +619,6 @@ impl Bindgen {
 
         warnings.build()
     }
-}
-
-/// Selects how generated bindings depend on the `windows-*` crates.
-///
-/// Used with [`Bindgen::deps`].
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum DepMode {
-    /// Depend on `windows-core` (default).
-    Core,
-    /// Depend on `windows-result`, `windows-strings`, and `windows-link` directly.
-    Specific,
-    /// No `windows-*` dependencies (default for `--sys`).
-    None,
 }
 
 #[track_caller]

@@ -1,5 +1,4 @@
 filter = "Test.IFoo::*"
 filters = ["Test.IFoo2::*", "Test.IFooStatics::*", "Test.HANDLE", "Test.INVALID_HANDLE_VALUE", "Test.Color", "Test.GetValue", "Test.SetValue"]
-deps = "specific"
 minimal = true
 references = ["../../../libs/bindgen/default"]
