@@ -10,7 +10,6 @@ impl windows_core::RuntimeType for IJsonValidator {
         windows_core::imp::ConstBuffer::from_slice(b"Sample.IJsonValidator");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValidator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Validate: unsafe extern "system" fn(
@@ -31,7 +30,6 @@ impl windows_core::RuntimeType for IJsonValidatorFactory {
         windows_core::imp::ConstBuffer::from_slice(b"Sample.IJsonValidatorFactory");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IJsonValidatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

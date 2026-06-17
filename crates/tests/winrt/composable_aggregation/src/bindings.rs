@@ -125,7 +125,6 @@ impl IFoo_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFoo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Hello: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -215,7 +214,6 @@ impl IFooFactory_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IFooFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

@@ -116,7 +116,6 @@ impl windows_core::RuntimeType for ICompositor {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.ICompositor");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSpriteVisual: unsafe extern "system" fn(
@@ -142,7 +141,6 @@ impl windows_core::RuntimeType for IContainerVisual {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisual");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Children:
@@ -160,7 +158,6 @@ impl windows_core::RuntimeType for IContainerVisualFactory {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisualFactory");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -176,7 +173,6 @@ impl windows_core::RuntimeType for ISpriteVisual {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.ISpriteVisual");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -193,7 +189,6 @@ impl windows_core::RuntimeType for IVisual {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisual");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compositor: unsafe extern "system" fn(
@@ -213,7 +208,6 @@ impl windows_core::RuntimeType for IVisualFactory {
         windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisualFactory");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

@@ -1975,7 +1975,6 @@ impl ICoreWebView2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Settings: unsafe extern "system" fn(
@@ -3524,7 +3523,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KeyEventKind: unsafe extern "system" fn(
@@ -3731,7 +3729,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
     pub base__: ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl,
     pub IsBrowserAcceleratorKeyEnabled: unsafe extern "system" fn(
@@ -3821,7 +3818,6 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -3897,7 +3893,6 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -4022,7 +4017,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -4214,7 +4208,6 @@ impl ICoreWebView2BasicAuthenticationRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -4316,7 +4309,6 @@ impl ICoreWebView2BasicAuthenticationResponse {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationResponse_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UserName:
@@ -4488,7 +4480,6 @@ impl ICoreWebView2BrowserExtension {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
@@ -4652,7 +4643,6 @@ impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -4730,7 +4720,6 @@ impl ICoreWebView2BrowserExtensionList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserExtensionList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -4823,7 +4812,6 @@ impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -4902,7 +4890,6 @@ impl ICoreWebView2BrowserProcessExitedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BrowserProcessExitKind: unsafe extern "system" fn(
@@ -4999,7 +4986,6 @@ impl ICoreWebView2BrowserProcessExitedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5075,7 +5061,6 @@ impl ICoreWebView2BytesReceivedChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5151,7 +5136,6 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5221,7 +5205,6 @@ impl ICoreWebView2CapturePreviewCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5355,7 +5338,6 @@ impl ICoreWebView2Certificate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Certificate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Subject:
@@ -5581,7 +5563,6 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5645,7 +5626,6 @@ impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -5791,7 +5771,6 @@ impl ICoreWebView2ClientCertificate {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClientCertificate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Subject:
@@ -6057,7 +6036,6 @@ impl ICoreWebView2ClientCertificateCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -6271,7 +6249,6 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Host:
@@ -6603,7 +6580,6 @@ impl ICoreWebView2ClientCertificateRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -6766,7 +6742,6 @@ impl ICoreWebView2CompositionController {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CompositionController_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RootVisualTarget: unsafe extern "system" fn(
@@ -7034,7 +7009,6 @@ impl ICoreWebView2CompositionController2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CompositionController2_Vtbl {
     pub base__: ICoreWebView2CompositionController_Vtbl,
     pub AutomationProvider: unsafe extern "system" fn(
@@ -7164,7 +7138,6 @@ impl ICoreWebView2CompositionController3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CompositionController3_Vtbl {
     pub base__: ICoreWebView2CompositionController2_Vtbl,
     pub DragEnter: unsafe extern "system" fn(
@@ -7395,7 +7368,6 @@ impl ICoreWebView2CompositionController4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CompositionController4_Vtbl {
     pub base__: ICoreWebView2CompositionController3_Vtbl,
     pub GetNonClientRegionAtPoint: unsafe extern "system" fn(
@@ -7583,7 +7555,6 @@ impl ICoreWebView2CompositionController5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CompositionController5_Vtbl {
     pub base__: ICoreWebView2CompositionController4_Vtbl,
     pub add_DragStarting: unsafe extern "system" fn(
@@ -7687,7 +7658,6 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -7771,7 +7741,6 @@ impl ICoreWebView2ContentLoadingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContentLoadingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsErrorPage: unsafe extern "system" fn(
@@ -7863,7 +7832,6 @@ impl ICoreWebView2ContentLoadingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -8053,7 +8021,6 @@ impl ICoreWebView2ContextMenuItem {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContextMenuItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name:
@@ -8449,7 +8416,6 @@ impl ICoreWebView2ContextMenuItemCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContextMenuItemCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -8661,7 +8627,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MenuItems: unsafe extern "system" fn(
@@ -8899,7 +8864,6 @@ impl ICoreWebView2ContextMenuRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -9088,7 +9052,6 @@ impl ICoreWebView2ContextMenuTarget {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ContextMenuTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Kind: unsafe extern "system" fn(
@@ -9677,7 +9640,6 @@ impl ICoreWebView2Controller {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Controller_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsVisible: unsafe extern "system" fn(
@@ -10298,7 +10260,6 @@ impl ICoreWebView2Controller2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Controller2_Vtbl {
     pub base__: ICoreWebView2Controller_Vtbl,
     pub DefaultBackgroundColor: unsafe extern "system" fn(
@@ -10475,7 +10436,6 @@ impl ICoreWebView2Controller3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Controller3_Vtbl {
     pub base__: ICoreWebView2Controller2_Vtbl,
     pub RasterizationScale:
@@ -10734,7 +10694,6 @@ impl ICoreWebView2Controller4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Controller4_Vtbl {
     pub base__: ICoreWebView2Controller3_Vtbl,
     pub AllowExternalDrop: unsafe extern "system" fn(
@@ -10849,7 +10808,6 @@ impl ICoreWebView2ControllerOptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ControllerOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProfileName:
@@ -10996,7 +10954,6 @@ impl ICoreWebView2ControllerOptions2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ControllerOptions2_Vtbl {
     pub base__: ICoreWebView2ControllerOptions_Vtbl,
     pub ScriptLocale:
@@ -11101,7 +11058,6 @@ impl ICoreWebView2ControllerOptions3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ControllerOptions3_Vtbl {
     pub base__: ICoreWebView2ControllerOptions2_Vtbl,
     pub DefaultBackgroundColor: unsafe extern "system" fn(
@@ -11209,7 +11165,6 @@ impl ICoreWebView2ControllerOptions4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ControllerOptions4_Vtbl {
     pub base__: ICoreWebView2ControllerOptions3_Vtbl,
     pub AllowHostInputProcessing: unsafe extern "system" fn(
@@ -11425,7 +11380,6 @@ impl ICoreWebView2Cookie {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Cookie_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name:
@@ -11779,7 +11733,6 @@ impl ICoreWebView2CookieList {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CookieList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -11966,7 +11919,6 @@ impl ICoreWebView2CookieManager {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CookieManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateCookie: unsafe extern "system" fn(
@@ -12248,7 +12200,6 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -12332,7 +12283,6 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -12413,7 +12363,6 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -12491,7 +12440,6 @@ impl ICoreWebView2CursorChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CursorChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -12565,7 +12513,6 @@ impl ICoreWebView2CustomItemSelectedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -12706,7 +12653,6 @@ impl ICoreWebView2CustomSchemeRegistration {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SchemeName:
@@ -12928,7 +12874,6 @@ impl ICoreWebView2DOMContentLoadedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NavigationId:
@@ -12995,7 +12940,6 @@ impl ICoreWebView2DOMContentLoadedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -13060,7 +13004,6 @@ impl ICoreWebView2Deferral {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Deferral_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13114,7 +13057,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ParameterObjectAsJson:
@@ -13182,7 +13124,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
     pub base__: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl,
     pub SessionId:
@@ -13254,7 +13195,6 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -13347,7 +13287,6 @@ impl ICoreWebView2DevToolsProtocolEventReceiver {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub add_DevToolsProtocolEventReceived: unsafe extern "system" fn(
@@ -13437,7 +13376,6 @@ impl ICoreWebView2DocumentTitleChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -13688,7 +13626,6 @@ impl ICoreWebView2DownloadOperation {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DownloadOperation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub add_BytesReceivedChanged: unsafe extern "system" fn(
@@ -14237,7 +14174,6 @@ impl ICoreWebView2DownloadStartingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DownloadOperation: unsafe extern "system" fn(
@@ -14471,7 +14407,6 @@ impl ICoreWebView2DownloadStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -14589,7 +14524,6 @@ impl ICoreWebView2DragStartingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DragStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AllowedDropEffects:
@@ -14779,7 +14713,6 @@ impl ICoreWebView2DragStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2DragStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -14912,7 +14845,6 @@ impl ICoreWebView2Environment {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateCoreWebView2Controller: unsafe extern "system" fn(
@@ -15163,7 +15095,6 @@ impl ICoreWebView2Environment10 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment10_Vtbl {
     pub base__: ICoreWebView2Environment9_Vtbl,
     pub CreateCoreWebView2ControllerOptions: unsafe extern "system" fn(
@@ -15334,7 +15265,6 @@ impl ICoreWebView2Environment11 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment11_Vtbl {
     pub base__: ICoreWebView2Environment10_Vtbl,
     pub FailureReportFolderPath:
@@ -15427,7 +15357,6 @@ impl ICoreWebView2Environment12 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment12_Vtbl {
     pub base__: ICoreWebView2Environment11_Vtbl,
     pub CreateSharedBuffer: unsafe extern "system" fn(
@@ -15527,7 +15456,6 @@ impl ICoreWebView2Environment13 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment13_Vtbl {
     pub base__: ICoreWebView2Environment12_Vtbl,
     pub GetProcessExtendedInfos: unsafe extern "system" fn(
@@ -15661,7 +15589,6 @@ impl ICoreWebView2Environment14 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment14_Vtbl {
     pub base__: ICoreWebView2Environment13_Vtbl,
     pub CreateWebFileSystemFileHandle: unsafe extern "system" fn(
@@ -15847,7 +15774,6 @@ impl ICoreWebView2Environment15 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment15_Vtbl {
     pub base__: ICoreWebView2Environment14_Vtbl,
     pub CreateFindOptions: unsafe extern "system" fn(
@@ -15945,7 +15871,6 @@ impl ICoreWebView2Environment2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment2_Vtbl {
     pub base__: ICoreWebView2Environment_Vtbl,
     pub CreateWebResourceRequest: unsafe extern "system" fn(
@@ -16059,7 +15984,6 @@ impl ICoreWebView2Environment3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment3_Vtbl {
     pub base__: ICoreWebView2Environment2_Vtbl,
     pub CreateCoreWebView2CompositionController: unsafe extern "system" fn(
@@ -16174,7 +16098,6 @@ impl ICoreWebView2Environment4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment4_Vtbl {
     pub base__: ICoreWebView2Environment3_Vtbl,
     pub GetAutomationProviderForWindow: unsafe extern "system" fn(
@@ -16272,7 +16195,6 @@ impl ICoreWebView2Environment5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment5_Vtbl {
     pub base__: ICoreWebView2Environment4_Vtbl,
     pub add_BrowserProcessExited: unsafe extern "system" fn(
@@ -16380,7 +16302,6 @@ impl ICoreWebView2Environment6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment6_Vtbl {
     pub base__: ICoreWebView2Environment5_Vtbl,
     pub CreatePrintSettings: unsafe extern "system" fn(
@@ -16461,7 +16382,6 @@ impl ICoreWebView2Environment7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment7_Vtbl {
     pub base__: ICoreWebView2Environment6_Vtbl,
     pub UserDataFolder:
@@ -16567,7 +16487,6 @@ impl ICoreWebView2Environment8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment8_Vtbl {
     pub base__: ICoreWebView2Environment7_Vtbl,
     pub add_ProcessInfosChanged: unsafe extern "system" fn(
@@ -16717,7 +16636,6 @@ impl ICoreWebView2Environment9 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Environment9_Vtbl {
     pub base__: ICoreWebView2Environment8_Vtbl,
     pub CreateContextMenuItem: unsafe extern "system" fn(
@@ -16876,7 +16794,6 @@ impl ICoreWebView2EnvironmentOptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdditionalBrowserArguments:
@@ -17115,7 +17032,6 @@ impl ICoreWebView2EnvironmentOptions2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ExclusiveUserDataFolderAccess: unsafe extern "system" fn(
@@ -17212,7 +17128,6 @@ impl ICoreWebView2EnvironmentOptions3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsCustomCrashReportingEnabled: unsafe extern "system" fn(
@@ -17318,7 +17233,6 @@ impl ICoreWebView2EnvironmentOptions4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCustomSchemeRegistrations: unsafe extern "system" fn(
@@ -17424,7 +17338,6 @@ impl ICoreWebView2EnvironmentOptions5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableTrackingPrevention: unsafe extern "system" fn(
@@ -17518,7 +17431,6 @@ impl ICoreWebView2EnvironmentOptions6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AreBrowserExtensionsEnabled: unsafe extern "system" fn(
@@ -17640,7 +17552,6 @@ impl ICoreWebView2EnvironmentOptions7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ChannelSearchKind: unsafe extern "system" fn(
@@ -17788,7 +17699,6 @@ impl ICoreWebView2EnvironmentOptions8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions8_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScrollBarStyle: unsafe extern "system" fn(
@@ -17880,7 +17790,6 @@ impl ICoreWebView2EstimatedEndTimeChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -17958,7 +17867,6 @@ impl ICoreWebView2ExecuteScriptCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -18058,7 +17966,6 @@ impl ICoreWebView2ExecuteScriptResult {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Succeeded: unsafe extern "system" fn(
@@ -18208,7 +18115,6 @@ impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -18286,7 +18192,6 @@ impl ICoreWebView2FaviconChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FaviconChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -18355,7 +18260,6 @@ impl ICoreWebView2File {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2File_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Path:
@@ -18433,7 +18337,6 @@ impl ICoreWebView2FileSystemHandle {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FileSystemHandle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Kind: unsafe extern "system" fn(
@@ -18634,7 +18537,6 @@ impl ICoreWebView2Find {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Find_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActiveMatchIndex:
@@ -18900,7 +18802,6 @@ impl ICoreWebView2FindActiveMatchIndexChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -18978,7 +18879,6 @@ impl ICoreWebView2FindMatchCountChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FindMatchCountChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -19132,7 +19032,6 @@ impl ICoreWebView2FindOptions {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FindOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindTerm:
@@ -19403,7 +19302,6 @@ impl ICoreWebView2FindStartCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FindStartCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -19470,7 +19368,6 @@ impl ICoreWebView2FocusChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -19620,7 +19517,6 @@ impl ICoreWebView2Frame {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name:
@@ -20018,7 +19914,6 @@ impl ICoreWebView2Frame2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame2_Vtbl {
     pub base__: ICoreWebView2Frame_Vtbl,
     pub add_NavigationStarting: unsafe extern "system" fn(
@@ -20421,7 +20316,6 @@ impl ICoreWebView2Frame3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame3_Vtbl {
     pub base__: ICoreWebView2Frame2_Vtbl,
     pub add_PermissionRequested: unsafe extern "system" fn(
@@ -20534,7 +20428,6 @@ impl ICoreWebView2Frame4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame4_Vtbl {
     pub base__: ICoreWebView2Frame3_Vtbl,
     pub PostSharedBufferToScript: unsafe extern "system" fn(
@@ -20620,7 +20513,6 @@ impl ICoreWebView2Frame5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame5_Vtbl {
     pub base__: ICoreWebView2Frame4_Vtbl,
     pub FrameId:
@@ -20713,7 +20605,6 @@ impl ICoreWebView2Frame6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame6_Vtbl {
     pub base__: ICoreWebView2Frame5_Vtbl,
     pub add_ScreenCaptureStarting: unsafe extern "system" fn(
@@ -20836,7 +20727,6 @@ impl ICoreWebView2Frame7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Frame7_Vtbl {
     pub base__: ICoreWebView2Frame6_Vtbl,
     pub add_FrameCreated: unsafe extern "system" fn(
@@ -20939,7 +20829,6 @@ impl ICoreWebView2FrameChildFrameCreatedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21015,7 +20904,6 @@ impl ICoreWebView2FrameContentLoadingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21084,7 +20972,6 @@ impl ICoreWebView2FrameCreatedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameCreatedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Frame: unsafe extern "system" fn(
@@ -21153,7 +21040,6 @@ impl ICoreWebView2FrameCreatedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameCreatedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21227,7 +21113,6 @@ impl ICoreWebView2FrameDOMContentLoadedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21303,7 +21188,6 @@ impl ICoreWebView2FrameDestroyedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameDestroyedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21382,7 +21266,6 @@ impl ICoreWebView2FrameInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Name:
@@ -21494,7 +21377,6 @@ impl ICoreWebView2FrameInfo2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameInfo2_Vtbl {
     pub base__: ICoreWebView2FrameInfo_Vtbl,
     pub ParentFrameInfo: unsafe extern "system" fn(
@@ -21606,7 +21488,6 @@ impl ICoreWebView2FrameInfoCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameInfoCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIterator: unsafe extern "system" fn(
@@ -21691,7 +21572,6 @@ impl ICoreWebView2FrameInfoCollectionIterator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameInfoCollectionIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasCurrent: unsafe extern "system" fn(
@@ -21812,7 +21692,6 @@ impl ICoreWebView2FrameNameChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameNameChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21888,7 +21767,6 @@ impl ICoreWebView2FrameNavigationCompletedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -21966,7 +21844,6 @@ impl ICoreWebView2FrameNavigationStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22044,7 +21921,6 @@ impl ICoreWebView2FramePermissionRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22122,7 +21998,6 @@ impl ICoreWebView2FrameScreenCaptureStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22200,7 +22075,6 @@ impl ICoreWebView2FrameWebMessageReceivedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22281,7 +22155,6 @@ impl ICoreWebView2GetCookiesCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22360,7 +22233,6 @@ impl ICoreWebView2GetFaviconCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2GetFaviconCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22439,7 +22311,6 @@ impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22520,7 +22391,6 @@ impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22598,7 +22468,6 @@ impl ICoreWebView2HistoryChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2HistoryChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -22694,7 +22563,6 @@ impl ICoreWebView2HttpHeadersCollectionIterator {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentHeader: unsafe extern "system" fn(
@@ -22866,7 +22734,6 @@ impl ICoreWebView2HttpRequestHeaders {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2HttpRequestHeaders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHeader: unsafe extern "system" fn(
@@ -23116,7 +22983,6 @@ impl ICoreWebView2HttpResponseHeaders {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2HttpResponseHeaders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AppendHeader: unsafe extern "system" fn(
@@ -23304,7 +23170,6 @@ impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -23382,7 +23247,6 @@ impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -23460,7 +23324,6 @@ impl ICoreWebView2IsMutedChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2IsMutedChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -23581,7 +23444,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -23774,7 +23636,6 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -23867,7 +23728,6 @@ impl ICoreWebView2MoveFocusRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reason: unsafe extern "system" fn(
@@ -23986,7 +23846,6 @@ impl ICoreWebView2MoveFocusRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -24078,7 +23937,6 @@ impl ICoreWebView2NavigationCompletedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSuccess: unsafe extern "system" fn(
@@ -24200,7 +24058,6 @@ impl ICoreWebView2NavigationCompletedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
     pub base__: ICoreWebView2NavigationCompletedEventArgs_Vtbl,
     pub HttpStatusCode:
@@ -24272,7 +24129,6 @@ impl ICoreWebView2NavigationCompletedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -24403,7 +24259,6 @@ impl ICoreWebView2NavigationStartingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -24633,7 +24488,6 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventArgs2_Vtbl {
     pub base__: ICoreWebView2NavigationStartingEventArgs_Vtbl,
     pub AdditionalAllowedFrameAncestors:
@@ -24727,7 +24581,6 @@ impl ICoreWebView2NavigationStartingEventArgs3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventArgs3_Vtbl {
     pub base__: ICoreWebView2NavigationStartingEventArgs2_Vtbl,
     pub NavigationKind: unsafe extern "system" fn(
@@ -24802,7 +24655,6 @@ impl ICoreWebView2NavigationStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -24878,7 +24730,6 @@ impl ICoreWebView2NewBrowserVersionAvailableEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -25023,7 +24874,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -25267,7 +25117,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
     pub base__: ICoreWebView2NewWindowRequestedEventArgs_Vtbl,
     pub Name:
@@ -25343,7 +25192,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {
     pub base__: ICoreWebView2NewWindowRequestedEventArgs2_Vtbl,
     pub OriginalSourceFrameInfo: unsafe extern "system" fn(
@@ -25419,7 +25267,6 @@ impl ICoreWebView2NewWindowRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -25491,7 +25338,6 @@ impl ICoreWebView2NonClientRegionChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NonClientRegionChangedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegionKind: unsafe extern "system" fn(
@@ -25562,7 +25408,6 @@ impl ICoreWebView2NonClientRegionChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -25802,7 +25647,6 @@ impl ICoreWebView2Notification {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Notification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub add_CloseRequested: unsafe extern "system" fn(
@@ -26258,7 +26102,6 @@ impl ICoreWebView2NotificationCloseRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -26371,7 +26214,6 @@ impl ICoreWebView2NotificationReceivedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NotificationReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SenderOrigin:
@@ -26538,7 +26380,6 @@ impl ICoreWebView2NotificationReceivedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2NotificationReceivedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -26633,7 +26474,6 @@ impl ICoreWebView2ObjectCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ObjectCollection_Vtbl {
     pub base__: ICoreWebView2ObjectCollectionView_Vtbl,
     pub RemoveValueAtIndex:
@@ -26735,7 +26575,6 @@ impl ICoreWebView2ObjectCollectionView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ObjectCollectionView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -26880,7 +26719,6 @@ impl ICoreWebView2PermissionRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -27084,7 +26922,6 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
     pub base__: ICoreWebView2PermissionRequestedEventArgs_Vtbl,
     pub Handled: unsafe extern "system" fn(
@@ -27194,7 +27031,6 @@ impl ICoreWebView2PermissionRequestedEventArgs3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
     pub base__: ICoreWebView2PermissionRequestedEventArgs2_Vtbl,
     pub SavesInProfile: unsafe extern "system" fn(
@@ -27292,7 +27128,6 @@ impl ICoreWebView2PermissionRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -27381,7 +27216,6 @@ impl ICoreWebView2PermissionSetting {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionSetting_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PermissionKind: unsafe extern "system" fn(
@@ -27507,7 +27341,6 @@ impl ICoreWebView2PermissionSettingCollectionView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PermissionSettingCollectionView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValueAtIndex: unsafe extern "system" fn(
@@ -28156,7 +27989,6 @@ impl ICoreWebView2PointerInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PointerInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PointerKind:
@@ -29474,7 +29306,6 @@ impl ICoreWebView2PrintCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PrintCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -29790,7 +29621,6 @@ impl ICoreWebView2PrintSettings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PrintSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Orientation: unsafe extern "system" fn(
@@ -30587,7 +30417,6 @@ impl ICoreWebView2PrintSettings2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PrintSettings2_Vtbl {
     pub base__: ICoreWebView2PrintSettings_Vtbl,
     pub PageRanges:
@@ -30993,7 +30822,6 @@ impl ICoreWebView2PrintToPdfCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -31072,7 +30900,6 @@ impl ICoreWebView2PrintToPdfStreamCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -31153,7 +30980,6 @@ impl ICoreWebView2ProcessExtendedInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessExtendedInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessInfo: unsafe extern "system" fn(
@@ -31257,7 +31083,6 @@ impl ICoreWebView2ProcessExtendedInfoCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -31357,7 +31182,6 @@ impl ICoreWebView2ProcessFailedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessFailedKind: unsafe extern "system" fn(
@@ -31461,7 +31285,6 @@ impl ICoreWebView2ProcessFailedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventArgs2_Vtbl {
     pub base__: ICoreWebView2ProcessFailedEventArgs_Vtbl,
     pub Reason: unsafe extern "system" fn(
@@ -31608,7 +31431,6 @@ impl ICoreWebView2ProcessFailedEventArgs3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventArgs3_Vtbl {
     pub base__: ICoreWebView2ProcessFailedEventArgs2_Vtbl,
     pub FailureSourceModulePath:
@@ -31679,7 +31501,6 @@ impl ICoreWebView2ProcessFailedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -31756,7 +31577,6 @@ impl ICoreWebView2ProcessInfo {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessId:
@@ -31854,7 +31674,6 @@ impl ICoreWebView2ProcessInfoCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessInfoCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -31951,7 +31770,6 @@ impl ICoreWebView2ProcessInfosChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -32083,7 +31901,6 @@ impl ICoreWebView2Profile {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProfileName:
@@ -32335,7 +32152,6 @@ impl ICoreWebView2Profile2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile2_Vtbl {
     pub base__: ICoreWebView2Profile_Vtbl,
     pub ClearBrowsingData: unsafe extern "system" fn(
@@ -32491,7 +32307,6 @@ impl ICoreWebView2Profile3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile3_Vtbl {
     pub base__: ICoreWebView2Profile2_Vtbl,
     pub PreferredTrackingPreventionLevel: unsafe extern "system" fn(
@@ -32624,7 +32439,6 @@ impl ICoreWebView2Profile4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile4_Vtbl {
     pub base__: ICoreWebView2Profile3_Vtbl,
     pub SetPermissionState: unsafe extern "system" fn(
@@ -32740,7 +32554,6 @@ impl ICoreWebView2Profile5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile5_Vtbl {
     pub base__: ICoreWebView2Profile4_Vtbl,
     pub CookieManager: unsafe extern "system" fn(
@@ -32847,7 +32660,6 @@ impl ICoreWebView2Profile6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile6_Vtbl {
     pub base__: ICoreWebView2Profile5_Vtbl,
     pub IsPasswordAutosaveEnabled: unsafe extern "system" fn(
@@ -33018,7 +32830,6 @@ impl ICoreWebView2Profile7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile7_Vtbl {
     pub base__: ICoreWebView2Profile6_Vtbl,
     pub AddBrowserExtension: unsafe extern "system" fn(
@@ -33151,7 +32962,6 @@ impl ICoreWebView2Profile8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Profile8_Vtbl {
     pub base__: ICoreWebView2Profile7_Vtbl,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33270,7 +33080,6 @@ impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -33348,7 +33157,6 @@ impl ICoreWebView2ProfileDeletedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProfileDeletedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -33427,7 +33235,6 @@ impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -33505,7 +33312,6 @@ impl ICoreWebView2RasterizationScaleChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -33593,7 +33399,6 @@ impl ICoreWebView2RegionRectCollectionView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2RegionRectCollectionView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -33794,7 +33599,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ContentMimeType:
@@ -34122,7 +33926,6 @@ impl ICoreWebView2SaveAsUIShowingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -34262,7 +34065,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CancelSave: unsafe extern "system" fn(
@@ -34497,7 +34299,6 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -34619,7 +34420,6 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(
@@ -34813,7 +34613,6 @@ impl ICoreWebView2ScreenCaptureStartingEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -34950,7 +34749,6 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -35174,7 +34972,6 @@ impl ICoreWebView2ScriptDialogOpeningEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -35283,7 +35080,6 @@ impl ICoreWebView2ScriptException {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ScriptException_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LineNumber:
@@ -35491,7 +35287,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ErrorStatus: unsafe extern "system" fn(
@@ -35690,7 +35485,6 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -35763,7 +35557,6 @@ impl ICoreWebView2SetPermissionStateCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -36003,7 +35796,6 @@ impl ICoreWebView2Settings {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsScriptEnabled: unsafe extern "system" fn(
@@ -36506,7 +36298,6 @@ impl ICoreWebView2Settings2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings2_Vtbl {
     pub base__: ICoreWebView2Settings_Vtbl,
     pub UserAgent:
@@ -36609,7 +36400,6 @@ impl ICoreWebView2Settings3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings3_Vtbl {
     pub base__: ICoreWebView2Settings2_Vtbl,
     pub AreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
@@ -36742,7 +36532,6 @@ impl ICoreWebView2Settings4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings4_Vtbl {
     pub base__: ICoreWebView2Settings3_Vtbl,
     pub IsPasswordAutosaveEnabled: unsafe extern "system" fn(
@@ -36899,7 +36688,6 @@ impl ICoreWebView2Settings5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings5_Vtbl {
     pub base__: ICoreWebView2Settings4_Vtbl,
     pub IsPinchZoomEnabled: unsafe extern "system" fn(
@@ -37010,7 +36798,6 @@ impl ICoreWebView2Settings6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings6_Vtbl {
     pub base__: ICoreWebView2Settings5_Vtbl,
     pub IsSwipeNavigationEnabled: unsafe extern "system" fn(
@@ -37128,7 +36915,6 @@ impl ICoreWebView2Settings7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings7_Vtbl {
     pub base__: ICoreWebView2Settings6_Vtbl,
     pub HiddenPdfToolbarItems: unsafe extern "system" fn(
@@ -37246,7 +37032,6 @@ impl ICoreWebView2Settings8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings8_Vtbl {
     pub base__: ICoreWebView2Settings7_Vtbl,
     pub IsReputationCheckingRequired: unsafe extern "system" fn(
@@ -37371,7 +37156,6 @@ impl ICoreWebView2Settings9 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2Settings9_Vtbl {
     pub base__: ICoreWebView2Settings8_Vtbl,
     pub IsNonClientRegionSupportEnabled: unsafe extern "system" fn(
@@ -37507,7 +37291,6 @@ impl ICoreWebView2SharedBuffer {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SharedBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Size:
@@ -37661,7 +37444,6 @@ impl ICoreWebView2ShowSaveAsUICompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -37733,7 +37515,6 @@ impl ICoreWebView2SourceChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SourceChangedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsNewDocument: unsafe extern "system" fn(
@@ -37802,7 +37583,6 @@ impl ICoreWebView2SourceChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2SourceChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -37876,7 +37656,6 @@ impl ICoreWebView2StateChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2StateChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -37950,7 +37729,6 @@ impl ICoreWebView2StatusBarTextChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -38030,7 +37808,6 @@ impl ICoreWebView2StringCollection {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2StringCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count:
@@ -38126,7 +37903,6 @@ impl ICoreWebView2TrySuspendCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2TrySuspendCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -38218,7 +37994,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Source:
@@ -38339,7 +38114,6 @@ impl ICoreWebView2WebMessageReceivedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {
     pub base__: ICoreWebView2WebMessageReceivedEventArgs_Vtbl,
     pub AdditionalObjects: unsafe extern "system" fn(
@@ -38413,7 +38187,6 @@ impl ICoreWebView2WebMessageReceivedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -38542,7 +38315,6 @@ impl ICoreWebView2WebResourceRequest {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Uri:
@@ -38786,7 +38558,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(
@@ -38963,7 +38734,6 @@ impl ICoreWebView2WebResourceRequestedEventArgs2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs2_Vtbl {
     pub base__: ICoreWebView2WebResourceRequestedEventArgs_Vtbl,
     pub RequestedSourceKind: unsafe extern "system" fn(
@@ -39039,7 +38809,6 @@ impl ICoreWebView2WebResourceRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -39168,7 +38937,6 @@ impl ICoreWebView2WebResourceResponse {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponse_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Content: unsafe extern "system" fn(
@@ -39382,7 +39150,6 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(
@@ -39480,7 +39247,6 @@ impl ICoreWebView2WebResourceResponseReceivedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -39586,7 +39352,6 @@ impl ICoreWebView2WebResourceResponseView {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Headers: unsafe extern "system" fn(
@@ -39730,7 +39495,6 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -39808,7 +39572,6 @@ impl ICoreWebView2WindowCloseRequestedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -39967,7 +39730,6 @@ impl ICoreWebView2WindowFeatures {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2WindowFeatures_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasPosition: unsafe extern "system" fn(
@@ -40252,7 +40014,6 @@ impl ICoreWebView2ZoomFactorChangedEventHandler {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
@@ -40358,7 +40119,6 @@ impl ICoreWebView2_10 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_10_Vtbl {
     pub base__: ICoreWebView2_9_Vtbl,
     pub add_BasicAuthenticationRequested: unsafe extern "system" fn(
@@ -40513,7 +40273,6 @@ impl ICoreWebView2_11 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_11_Vtbl {
     pub base__: ICoreWebView2_10_Vtbl,
     pub CallDevToolsProtocolMethodForSession: unsafe extern "system" fn(
@@ -40698,7 +40457,6 @@ impl ICoreWebView2_12 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_12_Vtbl {
     pub base__: ICoreWebView2_11_Vtbl,
     pub add_StatusBarTextChanged: unsafe extern "system" fn(
@@ -40843,7 +40601,6 @@ impl ICoreWebView2_13 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_13_Vtbl {
     pub base__: ICoreWebView2_12_Vtbl,
     pub Profile: unsafe extern "system" fn(
@@ -40969,7 +40726,6 @@ impl ICoreWebView2_14 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_14_Vtbl {
     pub base__: ICoreWebView2_13_Vtbl,
     pub add_ServerCertificateErrorDetected: unsafe extern "system" fn(
@@ -41170,7 +40926,6 @@ impl ICoreWebView2_15 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_15_Vtbl {
     pub base__: ICoreWebView2_14_Vtbl,
     pub add_FaviconChanged: unsafe extern "system" fn(
@@ -41385,7 +41140,6 @@ impl ICoreWebView2_16 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_16_Vtbl {
     pub base__: ICoreWebView2_15_Vtbl,
     pub Print: unsafe extern "system" fn(
@@ -41553,7 +41307,6 @@ impl ICoreWebView2_17 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_17_Vtbl {
     pub base__: ICoreWebView2_16_Vtbl,
     pub PostSharedBufferToScript: unsafe extern "system" fn(
@@ -41681,7 +41434,6 @@ impl ICoreWebView2_18 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_18_Vtbl {
     pub base__: ICoreWebView2_17_Vtbl,
     pub add_LaunchingExternalUriScheme: unsafe extern "system" fn(
@@ -41829,7 +41581,6 @@ impl ICoreWebView2_19 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_19_Vtbl {
     pub base__: ICoreWebView2_18_Vtbl,
     pub MemoryUsageTargetLevel: unsafe extern "system" fn(
@@ -42016,7 +41767,6 @@ impl ICoreWebView2_2 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_2_Vtbl {
     pub base__: ICoreWebView2_Vtbl,
     pub add_WebResourceResponseReceived: unsafe extern "system" fn(
@@ -42268,7 +42018,6 @@ impl ICoreWebView2_20 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_20_Vtbl {
     pub base__: ICoreWebView2_19_Vtbl,
     pub FrameId:
@@ -42379,7 +42128,6 @@ impl ICoreWebView2_21 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_21_Vtbl {
     pub base__: ICoreWebView2_20_Vtbl,
     pub ExecuteScriptWithResult: unsafe extern "system" fn(
@@ -42519,7 +42267,6 @@ impl ICoreWebView2_22 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_22_Vtbl {
     pub base__: ICoreWebView2_21_Vtbl,
     pub AddWebResourceRequestedFilterWithRequestSourceKinds:
@@ -42686,7 +42433,6 @@ impl ICoreWebView2_23 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_23_Vtbl {
     pub base__: ICoreWebView2_22_Vtbl,
     pub PostWebMessageAsJsonWithAdditionalObjects:
@@ -42823,7 +42569,6 @@ impl ICoreWebView2_24 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_24_Vtbl {
     pub base__: ICoreWebView2_23_Vtbl,
     pub add_NotificationReceived: unsafe extern "system" fn(
@@ -42994,7 +42739,6 @@ impl ICoreWebView2_25 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_25_Vtbl {
     pub base__: ICoreWebView2_24_Vtbl,
     pub add_SaveAsUIShowing: unsafe extern "system" fn(
@@ -43184,7 +42928,6 @@ impl ICoreWebView2_26 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_26_Vtbl {
     pub base__: ICoreWebView2_25_Vtbl,
     pub add_SaveFileSecurityCheckStarting: unsafe extern "system" fn(
@@ -43353,7 +43096,6 @@ impl ICoreWebView2_27 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_27_Vtbl {
     pub base__: ICoreWebView2_26_Vtbl,
     pub add_ScreenCaptureStarting: unsafe extern "system" fn(
@@ -43505,7 +43247,6 @@ impl ICoreWebView2_28 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_28_Vtbl {
     pub base__: ICoreWebView2_27_Vtbl,
     pub Find: unsafe extern "system" fn(
@@ -43647,7 +43388,6 @@ impl ICoreWebView2_3 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_3_Vtbl {
     pub base__: ICoreWebView2_2_Vtbl,
     pub TrySuspend: unsafe extern "system" fn(
@@ -43850,7 +43590,6 @@ impl ICoreWebView2_4 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_4_Vtbl {
     pub base__: ICoreWebView2_3_Vtbl,
     pub add_FrameCreated: unsafe extern "system" fn(
@@ -44023,7 +43762,6 @@ impl ICoreWebView2_5 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_5_Vtbl {
     pub base__: ICoreWebView2_4_Vtbl,
     pub add_ClientCertificateRequested: unsafe extern "system" fn(
@@ -44129,7 +43867,6 @@ impl ICoreWebView2_6 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_6_Vtbl {
     pub base__: ICoreWebView2_5_Vtbl,
     pub OpenTaskManagerWindow:
@@ -44211,7 +43948,6 @@ impl ICoreWebView2_7 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_7_Vtbl {
     pub base__: ICoreWebView2_6_Vtbl,
     pub PrintToPdf: unsafe extern "system" fn(
@@ -44374,7 +44110,6 @@ impl ICoreWebView2_8 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_8_Vtbl {
     pub base__: ICoreWebView2_7_Vtbl,
     pub add_IsMutedChanged: unsafe extern "system" fn(
@@ -44701,7 +44436,6 @@ impl ICoreWebView2_9 {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICoreWebView2_9_Vtbl {
     pub base__: ICoreWebView2_8_Vtbl,
     pub add_IsDefaultDownloadDialogOpenChanged: unsafe extern "system" fn(

@@ -17,7 +17,6 @@ impl IPersist {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersist_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(
@@ -111,7 +110,6 @@ impl IPersistFile {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,

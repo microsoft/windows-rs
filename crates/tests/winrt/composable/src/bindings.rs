@@ -177,7 +177,6 @@ impl ICompositor_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSpriteVisual: unsafe extern "system" fn(
@@ -232,7 +231,6 @@ impl IContainerVisual_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Children:
@@ -265,7 +263,6 @@ impl IContainerVisualFactory_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IContainerVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -310,7 +307,6 @@ impl ISpriteVisual_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -361,7 +357,6 @@ impl IVisual_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compositor: unsafe extern "system" fn(
@@ -395,7 +390,6 @@ impl IVisualFactory_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVisualFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

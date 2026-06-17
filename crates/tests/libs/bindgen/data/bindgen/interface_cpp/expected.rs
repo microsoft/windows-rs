@@ -17,7 +17,6 @@ impl IPersist {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPersist_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(

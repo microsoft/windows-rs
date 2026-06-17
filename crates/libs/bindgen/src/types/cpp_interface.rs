@@ -125,10 +125,10 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
-                quote! {}
-            } else {
+            let hide_vtbl = if config.bindgen.layout.is_package() {
                 quote! { #[doc(hidden)] }
+            } else {
+                quote! {}
             };
 
             quote! {

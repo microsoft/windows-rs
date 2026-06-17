@@ -31,7 +31,6 @@ impl ID3D12DeviceChild {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D12DeviceChild_Vtbl {
     pub base__: ID3D12Object_Vtbl,
     pub GetDevice: unsafe extern "system" fn(
@@ -151,7 +150,6 @@ impl ID3D12Object {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D12Object_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPrivateData: unsafe extern "system" fn(
@@ -302,7 +300,6 @@ windows_core::imp::interface_hierarchy!(
     ID3D12DeviceChild
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D12Pageable_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
@@ -350,7 +347,6 @@ impl ID3D12Resource {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct ID3D12Resource_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     Map: usize,

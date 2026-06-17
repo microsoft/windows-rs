@@ -358,7 +358,6 @@ impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     Type: usize,
@@ -485,9 +484,6 @@ pub struct IPropertyValue_Vtbl {
         *mut u32,
         *mut *mut windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
-    GetPointArray: usize,
-    GetSizeArray: usize,
-    GetRectArray: usize,
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]

@@ -72,7 +72,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFoo");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
@@ -90,7 +89,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFooFactory");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooFactory_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepFactory: unsafe extern "system" fn(
@@ -110,7 +108,6 @@ pub mod Test {
             windows_core::imp::ConstBuffer::from_slice(b"Test.IFooStatics");
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooStatics_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepStatic:

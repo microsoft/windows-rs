@@ -52,7 +52,6 @@ impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -160,7 +159,6 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeName
         <Self as windows_core::RuntimeType>::NAME;
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAsyncOperation_Vtbl<TResult>
 where
     TResult: windows_core::RuntimeType + 'static,

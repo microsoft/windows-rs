@@ -46,7 +46,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IBase_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
@@ -77,7 +76,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct ILeaf_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
@@ -112,7 +110,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IMiddle_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }

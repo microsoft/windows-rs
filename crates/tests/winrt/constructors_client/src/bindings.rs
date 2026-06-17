@@ -178,7 +178,6 @@ impl windows_core::RuntimeType for IActivatable {
         windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IActivatable");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -196,7 +195,6 @@ impl windows_core::RuntimeType for IActivatableFactory {
         windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IActivatableFactory");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IActivatableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WithValue: unsafe extern "system" fn(
@@ -217,7 +215,6 @@ impl windows_core::RuntimeType for IComposable {
         windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IComposable");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComposable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -235,7 +232,6 @@ impl windows_core::RuntimeType for IComposableFactory {
         windows_core::imp::ConstBuffer::from_slice(b"test_constructors.IComposableFactory");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IComposableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(

@@ -113,7 +113,6 @@ impl windows_core::RuntimeType for IClass {
         windows_core::imp::ConstBuffer::from_slice(b"test_events.IClass");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Signal:
@@ -138,7 +137,6 @@ impl windows_core::RuntimeType for IClassStatics {
         windows_core::imp::ConstBuffer::from_slice(b"test_events.IClassStatics");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IClassStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StaticSignal:

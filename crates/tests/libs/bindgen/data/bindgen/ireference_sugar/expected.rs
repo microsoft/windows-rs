@@ -149,7 +149,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IThing_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Count: unsafe extern "system" fn(

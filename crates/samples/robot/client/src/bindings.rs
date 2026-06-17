@@ -17,7 +17,6 @@ impl windows_core::RuntimeType for IRobot {
         windows_core::imp::ConstBuffer::from_slice(b"Robotics.IRobot");
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRobot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Speak: unsafe extern "system" fn(
@@ -39,7 +38,6 @@ impl IRobotInterop {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IRobotInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,

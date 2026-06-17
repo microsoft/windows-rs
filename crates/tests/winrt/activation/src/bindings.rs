@@ -43,7 +43,6 @@ impl IInstance_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -87,7 +86,6 @@ impl IMissing_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IMissing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -138,7 +136,6 @@ impl IStaticStatics_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStaticStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:

@@ -27,7 +27,6 @@ pub mod Test {
         const NAME: &'static str = "Test.IFoo";
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Keep:

@@ -29,7 +29,6 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IAgileObject, windows_core::IUnknown);
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAgileObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -68,7 +67,6 @@ impl IAgileReference {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IAgileReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(
@@ -135,7 +133,6 @@ impl IWeakReference {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWeakReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(
@@ -198,7 +195,6 @@ impl IWeakReferenceSource {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWeakReferenceSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWeakReference: unsafe extern "system" fn(

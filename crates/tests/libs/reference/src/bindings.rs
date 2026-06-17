@@ -1279,7 +1279,6 @@ impl IPropertyValue_Vtbl {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(

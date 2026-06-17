@@ -37,7 +37,6 @@ impl IDispatch {
     }
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IDispatch_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTypeInfoCount:

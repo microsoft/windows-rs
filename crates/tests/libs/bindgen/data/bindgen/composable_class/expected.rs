@@ -118,7 +118,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
     }
@@ -260,7 +259,6 @@ pub mod Test {
         }
     }
     #[repr(C)]
-    #[doc(hidden)]
     pub struct IFooFactory_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub CreateInstance: unsafe extern "system" fn(
