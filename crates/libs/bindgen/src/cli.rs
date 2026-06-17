@@ -23,8 +23,7 @@ use super::*;
 /// | `--rustfmt` | Overrides the default Rust formatting. |
 /// | `--derive` | Extra traits for types to derive. |
 /// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--deps` | Dependency mode: `core` (default), `specific`, or `none` (default for `--sys`). |
-/// | `--sys` | Generates raw or sys-style Rust bindings. |
+/// | `--sys` | Generates raw C-style bindings with no `windows-core` dependency (only `windows-link`). |
 /// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |

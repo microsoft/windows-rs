@@ -264,10 +264,18 @@ impl Bindgen {
 
     /// Select how generated bindings depend on the `windows-*` crates.
     ///
-    /// - [`DepMode::Core`]: depend on `windows-core` (default).
+    /// This is an **internal** option used for bootstrapping foundational
+    /// crates (e.g., `windows-core` generating its own bindings). Most users
+    /// should not need this — the default is determined by the code-style mode:
+    ///
+    /// - `--sys`: always `None` (self-contained, only `windows-link`).
+    /// - `--minimal` / default: always `Core` (depends on `windows-core`).
+    ///
+    /// Values:
+    /// - [`DepMode::Core`]: depend on `windows-core`.
     /// - [`DepMode::Specific`]: depend on `windows-result`, `windows-strings`,
     ///   and `windows-link` directly.
-    /// - [`DepMode::None`]: no `windows-*` dependencies (default for `--sys`).
+    /// - [`DepMode::None`]: no `windows-*` dependencies.
     pub fn deps(&mut self, mode: DepMode) -> &mut Self {
         self.deps = Some(mode);
         self
