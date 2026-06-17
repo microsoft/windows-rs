@@ -171,7 +171,7 @@ impl App {
                             // fail-fasts due to live COM refs, so terminate directly.
                             let _ = host
                                 .window()
-                                .add_Closed(|_, _| {
+                                .Closed(|_, _| {
                                     std::process::exit(0);
                                 })?
                                 .into_token();

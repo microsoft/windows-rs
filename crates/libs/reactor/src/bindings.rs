@@ -1944,7 +1944,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl CompositionTarget {
-    pub(crate) fn add_Rendering<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Rendering<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
@@ -4271,7 +4271,7 @@ impl IAutoSuggestBox {
             .ok()
         }
     }
-    pub(crate) fn add_SuggestionChosen<F>(
+    pub(crate) fn SuggestionChosen<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -4311,7 +4311,7 @@ impl IAutoSuggestBox {
             ))
         }
     }
-    pub(crate) fn add_TextChanged<F>(
+    pub(crate) fn TextChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -4340,7 +4340,7 @@ impl IAutoSuggestBox {
             ))
         }
     }
-    pub(crate) fn add_QuerySubmitted<F>(
+    pub(crate) fn QuerySubmitted<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -4825,7 +4825,7 @@ impl IBreadcrumbBar {
             .ok()
         }
     }
-    pub(crate) fn add_ItemClicked<F>(
+    pub(crate) fn ItemClicked<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -4983,10 +4983,7 @@ impl windows_core::RuntimeType for IButtonBase {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IButtonBase {
-    pub(crate) fn add_Click<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
             + 'static,
@@ -5101,7 +5098,7 @@ impl ICalendarDatePicker {
             .ok()
         }
     }
-    pub(crate) fn add_DateChanged<F>(
+    pub(crate) fn DateChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -5275,7 +5272,7 @@ impl ICalendarView {
             .ok()
         }
     }
-    pub(crate) fn add_SelectedDatesChanged<F>(
+    pub(crate) fn SelectedDatesChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -5695,7 +5692,7 @@ impl IColorPicker {
             .ok()
         }
     }
-    pub(crate) fn add_ColorChanged<F>(
+    pub(crate) fn ColorChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -6526,10 +6523,7 @@ impl IContentDialog {
             .ok()
         }
     }
-    pub(crate) fn add_Closed<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<ContentDialog>, windows_core::Ref<ContentDialogClosedEventArgs>)
             + 'static,
@@ -6975,7 +6969,7 @@ impl IDatePicker {
             .ok()
         }
     }
-    pub(crate) fn add_SelectedDateChanged<F>(
+    pub(crate) fn SelectedDateChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -7260,7 +7254,7 @@ impl IDispatcherQueueTimer {
             (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
         }
     }
-    pub(crate) fn add_Tick<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Tick<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(
                 windows_core::Ref<DispatcherQueueTimer>,
@@ -7573,7 +7567,7 @@ impl IExpander {
             .ok()
         }
     }
-    pub(crate) fn add_Expanding<F>(
+    pub(crate) fn Expanding<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -7605,7 +7599,7 @@ impl IExpander {
             ))
         }
     }
-    pub(crate) fn add_Collapsed<F>(
+    pub(crate) fn Collapsed<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -8040,7 +8034,7 @@ impl IFrameworkElement {
             .map(|| result__)
         }
     }
-    pub(crate) fn add_SizeChanged<F>(
+    pub(crate) fn SizeChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -8072,7 +8066,7 @@ impl IFrameworkElement {
             ))
         }
     }
-    pub(crate) fn add_ActualThemeChanged<F>(
+    pub(crate) fn ActualThemeChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -8620,10 +8614,7 @@ impl IInfoBar {
             .ok()
         }
     }
-    pub(crate) fn add_Closed<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<InfoBar>, windows_core::Ref<InfoBarClosedEventArgs>) + 'static,
     {
@@ -8901,10 +8892,7 @@ impl IKeyboardAccelerator {
             .ok()
         }
     }
-    pub(crate) fn add_Invoked<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Invoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(
                 windows_core::Ref<KeyboardAccelerator>,
@@ -9469,10 +9457,7 @@ impl IMenuFlyoutItem {
             .ok()
         }
     }
-    pub(crate) fn add_Click<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
             + 'static,
@@ -9778,7 +9763,7 @@ impl INavigationView {
             .ok()
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -9934,7 +9919,7 @@ impl INavigationView2 {
             .ok()
         }
     }
-    pub(crate) fn add_BackRequested<F>(
+    pub(crate) fn BackRequested<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -10258,7 +10243,7 @@ impl INumberBox {
             .ok()
         }
     }
-    pub(crate) fn add_ValueChanged<F>(
+    pub(crate) fn ValueChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -10622,7 +10607,7 @@ impl IPasswordBox {
             .ok()
         }
     }
-    pub(crate) fn add_PasswordChanged<F>(
+    pub(crate) fn PasswordChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -10810,7 +10795,7 @@ impl IPivot {
             .ok()
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -11313,7 +11298,7 @@ impl IRadioButtons {
             .ok()
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -11466,7 +11451,7 @@ impl IRangeBase {
             .ok()
         }
     }
-    pub(crate) fn add_ValueChanged<F>(
+    pub(crate) fn ValueChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -11616,7 +11601,7 @@ impl IRatingControl {
             .ok()
         }
     }
-    pub(crate) fn add_ValueChanged<F>(
+    pub(crate) fn ValueChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -11981,7 +11966,7 @@ impl IRichEditBox {
             .ok()
         }
     }
-    pub(crate) fn add_TextChanged<F>(
+    pub(crate) fn TextChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -12522,7 +12507,7 @@ impl ISelector {
             .ok()
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -12610,7 +12595,7 @@ impl ISelectorBar {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -13012,10 +12997,7 @@ impl windows_core::RuntimeType for ISplitButton {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ISplitButton {
-    pub(crate) fn add_Click<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<SplitButton>, windows_core::Ref<SplitButtonClickEventArgs>)
             + 'static,
@@ -13165,7 +13147,7 @@ impl ISplitView {
             .ok()
         }
     }
-    pub(crate) fn add_PaneClosed<F>(
+    pub(crate) fn PaneClosed<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -13556,7 +13538,7 @@ impl ISwapChainPanel {
             .map(|| result__)
         }
     }
-    pub(crate) fn add_CompositionScaleChanged<F>(
+    pub(crate) fn CompositionScaleChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -13715,7 +13697,7 @@ impl ITabView {
             .ok()
         }
     }
-    pub(crate) fn add_TabCloseRequested<F>(
+    pub(crate) fn TabCloseRequested<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -13748,7 +13730,7 @@ impl ITabView {
             ))
         }
     }
-    pub(crate) fn add_AddTabButtonClick<F>(
+    pub(crate) fn AddTabButtonClick<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -13820,7 +13802,7 @@ impl ITabView {
             .ok()
         }
     }
-    pub(crate) fn add_SelectionChanged<F>(
+    pub(crate) fn SelectionChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -14137,7 +14119,7 @@ impl ITeachingTip {
             .ok()
         }
     }
-    pub(crate) fn add_ActionButtonClick<F>(
+    pub(crate) fn ActionButtonClick<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -14170,10 +14152,7 @@ impl ITeachingTip {
             ))
         }
     }
-    pub(crate) fn add_Closed<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<TeachingTip>, windows_core::Ref<TeachingTipClosedEventArgs>)
             + 'static,
@@ -14531,7 +14510,7 @@ impl ITextBox {
             .ok()
         }
     }
-    pub(crate) fn add_TextChanged<F>(
+    pub(crate) fn TextChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -14818,7 +14797,7 @@ impl ITimePicker {
             .ok()
         }
     }
-    pub(crate) fn add_SelectedTimeChanged<F>(
+    pub(crate) fn SelectedTimeChanged<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15011,7 +14990,7 @@ impl ITitleBar {
             .ok()
         }
     }
-    pub(crate) fn add_BackRequested<F>(
+    pub(crate) fn BackRequested<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15043,7 +15022,7 @@ impl ITitleBar {
             ))
         }
     }
-    pub(crate) fn add_PaneToggleRequested<F>(
+    pub(crate) fn PaneToggleRequested<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15167,10 +15146,7 @@ impl IToggleButton {
             .ok()
         }
     }
-    pub(crate) fn add_Checked<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Checked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
             + 'static,
@@ -15197,7 +15173,7 @@ impl IToggleButton {
             ))
         }
     }
-    pub(crate) fn add_Unchecked<F>(
+    pub(crate) fn Unchecked<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15337,10 +15313,7 @@ impl IToggleSwitch {
             .ok()
         }
     }
-    pub(crate) fn add_Toggled<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Toggled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
             + 'static,
@@ -15513,7 +15486,7 @@ impl ITreeView {
             .ok()
         }
     }
-    pub(crate) fn add_ItemInvoked<F>(
+    pub(crate) fn ItemInvoked<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15803,7 +15776,7 @@ impl IUIElement {
             .ok()
         }
     }
-    pub(crate) fn add_DragEnter<F>(
+    pub(crate) fn DragEnter<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15833,7 +15806,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_DragLeave<F>(
+    pub(crate) fn DragLeave<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15863,10 +15836,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_DragOver<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn DragOver<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
             + 'static,
@@ -15893,7 +15863,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_Drop<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Drop<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DragEventArgs>)
             + 'static,
@@ -15920,7 +15890,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_PointerPressed<F>(
+    pub(crate) fn PointerPressed<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15952,7 +15922,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_PointerReleased<F>(
+    pub(crate) fn PointerReleased<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -15984,7 +15954,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_PointerExited<F>(
+    pub(crate) fn PointerExited<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -16016,10 +15986,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_Tapped<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(
                 windows_core::Ref<windows_core::IInspectable>,
@@ -16048,7 +16015,7 @@ impl IUIElement {
             ))
         }
     }
-    pub(crate) fn add_RightTapped<F>(
+    pub(crate) fn RightTapped<F>(
         &self,
         handler: F,
     ) -> windows_core::Result<windows_core::EventRevoker>
@@ -16546,10 +16513,7 @@ impl IWindow {
             .ok()
         }
     }
-    pub(crate) fn add_Closed<F>(
-        &self,
-        handler: F,
-    ) -> windows_core::Result<windows_core::EventRevoker>
+    pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<WindowEventArgs>)
             + 'static,

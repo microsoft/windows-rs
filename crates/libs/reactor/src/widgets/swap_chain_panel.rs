@@ -38,7 +38,7 @@ impl SwapChainPanelHandle {
         f: impl Fn(f32, f32) + 'static,
     ) -> Result<windows_core::EventRevoker> {
         let panel: bindings::ISwapChainPanel = self.0.cast()?;
-        panel.add_CompositionScaleChanged(move |sender, _| {
+        panel.CompositionScaleChanged(move |sender, _| {
             if let Some(sender) = sender.as_ref() {
                 let scp: &bindings::ISwapChainPanel = sender;
                 let x = scp.get_CompositionScaleX().unwrap_or(1.0);
@@ -122,7 +122,7 @@ impl SwapChainPanel {
                 // Store the revoker so the subscription lives as long as the control.
                 let revoker: Rc<RefCell<Option<windows_core::EventRevoker>>> =
                     Rc::new(RefCell::new(None));
-                let r = fe.add_SizeChanged(move |_sender, args| {
+                let r = fe.SizeChanged(move |_sender, args| {
                     if let Some(args) = args.as_ref()
                         && let Ok(s) = args.get_NewSize()
                     {

@@ -423,7 +423,7 @@ fn subscribe_size_and_dpi(
     }
 
     let _ = fe
-        .add_SizeChanged(move |_sender, args| {
+        .SizeChanged(move |_sender, args| {
             let size = args.unwrap().get_NewSize().unwrap();
             let new_dpi = unsafe { GetDpiForWindow(hwnd) };
             if new_dpi > 0 {
@@ -567,7 +567,7 @@ fn subscribe_actual_theme_changed(
     update_color_scheme_from(fe);
 
     let _ = fe
-        .add_ActualThemeChanged(move |sender, _| {
+        .ActualThemeChanged(move |sender, _| {
             if let Some(fe) = sender.as_ref() {
                 update_color_scheme_from(fe);
                 update_titlebar_theme();

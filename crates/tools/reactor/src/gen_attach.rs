@@ -144,7 +144,9 @@ fn gen_event_arm(
         .resolve(handle_name, &add_method)
         .unwrap_or_else(|| panic!("metadata: cannot resolve {handle_name}.{add_method} for event"));
     let iface = ident(iface_ref.short_name());
-    let add_ident = ident(&add_method);
+    // The generated bindings use the bare event name (e.g. "Click" not
+    // "add_Click") since the remove method is suppressed.
+    let add_ident = ident(&event_name);
 
     let handler_body = match invoke {
         "invoke" => {
@@ -217,7 +219,7 @@ fn gen_event_arm(
                 panic!("event '{handle_name}.{event_name}': invoke_bool_dual requires false_event")
             });
             let add_false = format!("add_{false_evt}");
-            let add_false_ident = ident(&add_false);
+            let add_false_ident = ident(false_evt);
             let iface_false_ref = resolver
                 .resolve(handle_name, &add_false)
                 .unwrap_or_else(|| {

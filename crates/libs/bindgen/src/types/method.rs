@@ -778,6 +778,11 @@ impl Method {
             // The event part (e.g. "Click" from "add_Click") determines the
             // vtable field name for the paired remove method.
             let event_part = &raw_method_name[4..];
+
+            // Use the bare event name (e.g. "Click" instead of "add_Click")
+            // since the remove method is suppressed and there's no ambiguity.
+            let name = to_ident(event_part);
+
             let remove_vname = if config.bindgen.style.is_minimal() {
                 // Raw mode: vtbl field is "remove_Click"
                 to_ident(&format!("remove_{event_part}"))
