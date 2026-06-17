@@ -51,11 +51,10 @@ use types::*;
 use value::*;
 pub use warnings::*;
 use winmd::*;
+mod filter_parser;
 mod method_names;
-mod minimal_filter;
 mod minimal_type_map;
 use method_names::*;
-use minimal_filter::*;
 use minimal_type_map::*;
 
 pub fn builder() -> Bindgen {
@@ -556,20 +555,27 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        // In minimal mode, use the method-centric filter and automatic type
-        // closure instead of the traditional type-level include/exclude filter.
-        let minimal_filter = if self.style.is_minimal() {
-            Some(MinimalFilter::new(&reader, &include))
-        } else {
-            None
-        };
+        let (filter, types) = {
+            let mut all_parsed = Vec::new();
+            for entry in &include {
+                all_parsed.extend(filter_parser::parse_filter_entry(entry));
+            }
+            for entry in &exclude {
+                let mut entries = filter_parser::parse_filter_entry(entry);
+                for e in &mut entries {
+                    e.exclude = true;
+                }
+                all_parsed.extend(entries);
+            }
+            let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
+            let default_demote = self.style.is_minimal();
+            let mut filter = Filter::from_resolved(&reader, &resolved, default_demote);
 
-        let (filter, types) = if let Some(minimal) = &minimal_filter {
-            let (types, filter) = MinimalTypeMap::build(&reader, minimal, &references);
-            (filter, types)
-        } else {
-            let filter = Filter::new(&reader, &include, &exclude);
-            let types = TypeMap::filter(&reader, &filter, &references);
+            let types = if self.style.is_minimal() {
+                MinimalTypeMap::build(&reader, &mut filter, &references)
+            } else {
+                TypeMap::filter(&reader, &filter, &references)
+            };
             (filter, types)
         };
 
@@ -600,7 +606,6 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_filter: minimal_filter.as_ref(),
         };
 
         let tree = TypeTree::new(&types);

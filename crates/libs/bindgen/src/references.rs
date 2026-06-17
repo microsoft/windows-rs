@@ -85,7 +85,9 @@ impl References {
             stage
                 .into_iter()
                 .map(|stage| {
-                    let filter = Filter::new(reader, &[&stage.path], &[]);
+                    let entries = filter_parser::parse_filter_entry(&stage.path);
+                    let resolved = filter_parser::resolve_entries(reader, &entries);
+                    let filter = Filter::from_resolved(reader, &resolved, false);
 
                     Reference {
                         name: stage.name,

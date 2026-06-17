@@ -1,2 +1,2 @@
 
-error: type not found: `Windows.Fondation`
+error: could not resolve filter entry `Windows::Fondation`

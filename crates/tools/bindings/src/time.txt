@@ -2,6 +2,5 @@
 --flat --minimal
 
 --filter
-    Windows.Foundation.DateTime
-    Windows.Foundation.TimeSpan
-    Windows.Win32.Storage.FileSystem.FileTimeToLocalFileTime
+    Windows::Foundation::{DateTime, TimeSpan}
+    FileTimeToLocalFileTime

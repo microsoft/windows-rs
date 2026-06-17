@@ -1,2 +1,2 @@
 
-error: type not found: `POINT`
+error: type or namespace not found: `POINT`

@@ -23,7 +23,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
         if line.is_empty() {
             continue;
         }
-        if let Some((iface, methods_part)) = line.split_once("::{") {
+        if let Some((iface, methods_part)) = line.rsplit_once("::{") {
             let methods_part = methods_part.trim_end_matches('}');
             let methods: BTreeSet<String> = methods_part
                 .split(',')
@@ -34,6 +34,12 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 .entry(iface.to_string())
                 .or_default()
                 .extend(methods);
+        } else if let Some((iface, method)) = line.rsplit_once("::") {
+            // Single method without braces: `Iface::Method`
+            base_iface_methods
+                .entry(iface.to_string())
+                .or_default()
+                .insert(method.to_string());
         }
     }
 
@@ -44,10 +50,11 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
         let ns = ctrl
             .namespace
             .as_deref()
-            .unwrap_or("Microsoft.UI.Xaml.Controls");
+            .unwrap_or("Microsoft.UI.Xaml.Controls")
+            .replace('.', "::");
 
         // CreateInstance for each control class
-        let class_path = format!("{ns}.{}", ctrl.handle());
+        let class_path = format!("{ns}::{}", ctrl.handle());
         needed
             .entry(class_path)
             .or_default()
@@ -67,7 +74,7 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 && let Some(iface_ref) = resolver.resolve(ctrl.handle(), method)
             {
                 needed
-                    .entry(iface_ref.full_path())
+                    .entry(iface_ref.full_path().replace('.', "::"))
                     .or_default()
                     .insert(method.to_string());
             }
@@ -92,8 +99,12 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
     // Build sorted output
     let mut lines: Vec<String> = Vec::new();
     for (iface, methods) in &output {
-        let methods_str: Vec<&str> = methods.iter().map(|s| s.as_str()).collect();
-        lines.push(format!("{iface}::{{{}}}", methods_str.join(", ")));
+        if methods.len() == 1 {
+            lines.push(format!("{iface}::{}", methods.first().unwrap()));
+        } else {
+            let methods_str: Vec<&str> = methods.iter().map(|s| s.as_str()).collect();
+            lines.push(format!("{iface}::{{{}}}", methods_str.join(", ")));
+        }
     }
 
     if lines.is_empty() {

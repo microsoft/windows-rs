@@ -2,5 +2,5 @@
 --flat
 
 --filter
-    Windows.Foundation.Async*
-    Windows.Foundation.IAsync*
+    Windows::Foundation::Async*
+    Windows::Foundation::IAsync*
