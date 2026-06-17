@@ -598,16 +598,16 @@ fn easing_for(
             return lin.cast::<bindings::CompositionEasingFunction>();
         }
         Easing::EaseOut => (
-            windows_numerics::Vector2 { X: 0.0, Y: 0.0 },
-            windows_numerics::Vector2 { X: 0.58, Y: 1.0 },
+            windows_numerics::Vector2 { x: 0.0, y: 0.0 },
+            windows_numerics::Vector2 { x: 0.58, y: 1.0 },
         ),
         Easing::EaseIn => (
-            windows_numerics::Vector2 { X: 0.42, Y: 0.0 },
-            windows_numerics::Vector2 { X: 1.0, Y: 1.0 },
+            windows_numerics::Vector2 { x: 0.42, y: 0.0 },
+            windows_numerics::Vector2 { x: 1.0, y: 1.0 },
         ),
         Easing::EaseInOut => (
-            windows_numerics::Vector2 { X: 0.42, Y: 0.0 },
-            windows_numerics::Vector2 { X: 0.58, Y: 1.0 },
+            windows_numerics::Vector2 { x: 0.42, y: 0.0 },
+            windows_numerics::Vector2 { x: 0.58, y: 1.0 },
         ),
     };
     let cubic = compositor.CreateCubicBezierEasingFunction(p1, p2)?;
@@ -708,9 +708,9 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
             let h = fe.get_ActualHeight().unwrap_or(0.0) as f32;
             if w > 0.0 && h > 0.0 {
                 let _ = iv.put_CenterPoint(windows_numerics::Vector3 {
-                    X: w / 2.0,
-                    Y: h / 2.0,
-                    Z: 0.0,
+                    x: w / 2.0,
+                    y: h / 2.0,
+                    z: 0.0,
                 });
             } else if cfg!(debug_assertions) {
                 eprintln!(
@@ -719,7 +719,7 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
             }
         }
         // Preserve current Scale.Z; cfg.scale is a uniform X/Y scalar.
-        let current_z = iv.get_Scale().map_or(1.0, |v| v.Z);
+        let current_z = iv.get_Scale().map_or(1.0, |v| v.z);
         let a = icomp.CreateVector3KeyFrameAnimation()?;
         let ia = a.cast::<bindings::IVector3KeyFrameAnimation>()?;
         a.cast::<bindings::IKeyFrameAnimation>()?
@@ -729,9 +729,9 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
         ia.InsertKeyFrameWithEasingFunction(
             1.0,
             windows_numerics::Vector3 {
-                X: s,
-                Y: s,
-                Z: current_z,
+                x: s,
+                y: s,
+                z: current_z,
             },
             &easing,
         )?;
