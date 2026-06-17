@@ -585,19 +585,16 @@ impl Bindgen {
             // - explicitly requested via --minimal, OR
             // - the filter has method-level entries (requested_interfaces) and
             //   no broad namespace/glob includes that MinimalTypeMap can't handle.
-            let default_demote = self.style.is_minimal();
-            let mut filter = Filter::from_resolved(&reader, &resolved, default_demote);
+            let mut filter = Filter::from_resolved(&reader, &resolved);
 
             let use_minimal_closure = self.style.is_minimal()
                 || (!filter.has_broad_filter
                     && !filter.requested_interfaces.is_empty()
                     && !self.layout.is_package());
 
-            // If using MinimalTypeMap in non-minimal mode, enable method
-            // demotion so unspecified methods become usize vtable slots.
-            if use_minimal_closure && !self.style.is_minimal() {
-                filter.default_demote = true;
-            }
+            // When MinimalTypeMap is active, unspecified methods become usize
+            // vtable slots (method demotion).
+            filter.default_demote = use_minimal_closure;
 
             let types = if use_minimal_closure {
                 MinimalTypeMap::build(&reader, &mut filter, &references)

@@ -282,7 +282,7 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            if config.bindgen.style.is_minimal() {
+                            if config.minimal_closure {
                                 let tn = Type::Interface((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {
@@ -320,7 +320,7 @@ impl Interface {
             // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
             // via the `_Impl` trait — not called. In both cases we suppress the caller-side
             // method wrapper to avoid dead code.
-            let use_minimal_methods = config.bindgen.style.is_minimal() || config.minimal_closure;
+            let use_minimal_methods = config.minimal_closure;
             let suppress_methods = is_exclusive
                 && use_minimal_methods
                 && (self.is_factory(config.reader) || config.should_implement(type_name, false));

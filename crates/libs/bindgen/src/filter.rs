@@ -235,7 +235,6 @@ impl Filter {
     pub fn from_resolved(
         reader: &Reader,
         entries: &[filter_parser::ResolvedFilter],
-        default_demote: bool,
     ) -> Self {
         use filter_parser::ResolvedKind;
 
@@ -345,7 +344,7 @@ impl Filter {
             warnings,
             enum_variants,
             activatable,
-            default_demote,
+            default_demote: false,
             requested_interfaces,
             direct_types,
             has_broad_filter,
