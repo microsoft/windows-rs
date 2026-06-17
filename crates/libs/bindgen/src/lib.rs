@@ -275,13 +275,16 @@ impl Bindgen {
 
     /// Returns the effective dependency mode, resolving the default based on
     /// the current style when `--deps` was not explicitly set.
+    ///
+    /// In `--sys` mode (non-package), the effective dep mode is always `None`
+    /// — sys bindings are self-contained and only depend on `windows-link`.
+    /// An explicit `--deps` value is only honored for `--package` (which
+    /// generates the published `windows-sys` crate) or for non-sys styles.
     pub(crate) fn resolved_deps(&self) -> DepMode {
-        self.deps
-            .unwrap_or(if self.style.is_sys() && !self.layout.is_package() {
-                DepMode::None
-            } else {
-                DepMode::Core
-            })
+        if self.style.is_sys() && !self.layout.is_package() {
+            return DepMode::None;
+        }
+        self.deps.unwrap_or(DepMode::Core)
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
