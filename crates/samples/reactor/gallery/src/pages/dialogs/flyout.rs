@@ -12,7 +12,7 @@ pub fn flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Confirmation Flyout",
                 vstack((
                     button("Delete item")
-                        .icon(SymbolGlyph::Delete)
+                        .icon(Symbol::Delete)
                         .flyout("Are you sure? This cannot be undone.")
                         .on_click({
                             let set_deleted = set_deleted;
@@ -39,7 +39,7 @@ pub fn flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                     button("Help").flyout("Press F1 for more help."),
                     button("Info")
                         .flyout("This operation cannot be undone.")
-                        .icon(SymbolGlyph::Flag),
+                        .icon(Symbol::Flag),
                 ))
                 .spacing(8.0),
                 r#"button("Help").flyout("message"), button("Info").flyout("...")"#,

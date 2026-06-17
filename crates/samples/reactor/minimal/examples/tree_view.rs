@@ -1,4 +1,4 @@
-//! Minimal sample for the `TreeView` element.
+//! Sample for the `TreeView` element.
 
 use windows_reactor::*;
 
@@ -23,5 +23,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("TreeView Sample").render(app)
+    reactor_minimal::run("TreeView", app)
 }

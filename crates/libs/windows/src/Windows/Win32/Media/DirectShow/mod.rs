@@ -12,12 +12,12 @@ pub unsafe fn AMGetErrorTextW(hr: windows_core::HRESULT, pbuffer: &mut [u16]) ->
     windows_core::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : windows_core::HRESULT, pbuffer : windows_core::PWSTR, maxlen : u32) -> u32);
     unsafe { AMGetErrorTextW(hr, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()) }
 }
-pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
-pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4i32);
-pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16i32);
-pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0i32);
-pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2i32);
-pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8i32);
+pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1);
+pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4);
+pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16);
+pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0);
+pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2);
+pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADVISE_TYPE(pub i32);
@@ -62,16 +62,16 @@ pub struct ALLOCATOR_PROPERTIES {
     pub cbAlign: i32,
     pub cbPrefix: i32,
 }
-pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2i32);
-pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4i32);
-pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16i32);
-pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(32i32);
-pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(8i32);
-pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(1i32);
-pub const AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
-pub const AMCONTROL_PAD_TO_16x9: u32 = 4u32;
-pub const AMCONTROL_PAD_TO_4x3: u32 = 2u32;
-pub const AMCONTROL_USED: u32 = 1u32;
+pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2);
+pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4);
+pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16);
+pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(32);
+pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(8);
+pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(1);
+pub const AMCONTROL_COLORINFO_PRESENT: u32 = 128;
+pub const AMCONTROL_PAD_TO_16x9: u32 = 4;
+pub const AMCONTROL_PAD_TO_4x3: u32 = 2;
+pub const AMCONTROL_USED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMCOPPCommand {
@@ -122,39 +122,39 @@ impl Default for AMCOPPStatusOutput {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AMCOPYPROTECT_RestrictDuplication: u32 = 1u32;
-pub const AMDDS_ALL: u32 = 255u32;
-pub const AMDDS_DCIPS: u32 = 1u32;
-pub const AMDDS_DEFAULT: u32 = 255u32;
-pub const AMDDS_NONE: u32 = 0u32;
-pub const AMDDS_PS: u32 = 2u32;
-pub const AMDDS_RGBFLP: u32 = 64u32;
-pub const AMDDS_RGBOFF: u32 = 16u32;
-pub const AMDDS_RGBOVR: u32 = 4u32;
-pub const AMDDS_YUVFLP: u32 = 128u32;
-pub const AMDDS_YUVOFF: u32 = 32u32;
-pub const AMDDS_YUVOVR: u32 = 8u32;
+pub const AMCOPYPROTECT_RestrictDuplication: u32 = 1;
+pub const AMDDS_ALL: u32 = 255;
+pub const AMDDS_DCIPS: u32 = 1;
+pub const AMDDS_DEFAULT: u32 = 255;
+pub const AMDDS_NONE: u32 = 0;
+pub const AMDDS_PS: u32 = 2;
+pub const AMDDS_RGBFLP: u32 = 64;
+pub const AMDDS_RGBOFF: u32 = 16;
+pub const AMDDS_RGBOVR: u32 = 4;
+pub const AMDDS_YUVFLP: u32 = 128;
+pub const AMDDS_YUVOFF: u32 = 32;
+pub const AMDDS_YUVOVR: u32 = 8;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMExtendedSeekingCapabilities(pub i32);
-pub const AMF_AUTOMATICGAIN: f64 = -1f64;
+pub const AMF_AUTOMATICGAIN: f64 = -1.0;
 pub type AMGETERRORTEXTPROCA = Option<unsafe extern "system" fn(param0: windows_core::HRESULT, param1: windows_core::PCSTR, param2: u32) -> windows_core::BOOL>;
 pub type AMGETERRORTEXTPROCW = Option<unsafe extern "system" fn(param0: windows_core::HRESULT, param1: windows_core::PCWSTR, param2: u32) -> windows_core::BOOL>;
-pub const AMINTERLACE_1FieldPerSample: u32 = 2u32;
-pub const AMINTERLACE_DisplayModeBobOnly: u32 = 0u32;
-pub const AMINTERLACE_DisplayModeBobOrWeave: u32 = 128u32;
-pub const AMINTERLACE_DisplayModeMask: u32 = 192u32;
-pub const AMINTERLACE_DisplayModeWeaveOnly: u32 = 64u32;
-pub const AMINTERLACE_Field1First: u32 = 4u32;
-pub const AMINTERLACE_FieldPatBothIrregular: u32 = 48u32;
-pub const AMINTERLACE_FieldPatBothRegular: u32 = 32u32;
-pub const AMINTERLACE_FieldPatField1Only: u32 = 0u32;
-pub const AMINTERLACE_FieldPatField2Only: u32 = 16u32;
-pub const AMINTERLACE_FieldPatternMask: u32 = 48u32;
-pub const AMINTERLACE_IsInterlaced: u32 = 1u32;
-pub const AMINTERLACE_UNUSED: u32 = 8u32;
-pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1i32);
-pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2i32);
+pub const AMINTERLACE_1FieldPerSample: u32 = 2;
+pub const AMINTERLACE_DisplayModeBobOnly: u32 = 0;
+pub const AMINTERLACE_DisplayModeBobOrWeave: u32 = 128;
+pub const AMINTERLACE_DisplayModeMask: u32 = 192;
+pub const AMINTERLACE_DisplayModeWeaveOnly: u32 = 64;
+pub const AMINTERLACE_Field1First: u32 = 4;
+pub const AMINTERLACE_FieldPatBothIrregular: u32 = 48;
+pub const AMINTERLACE_FieldPatBothRegular: u32 = 32;
+pub const AMINTERLACE_FieldPatField1Only: u32 = 0;
+pub const AMINTERLACE_FieldPatField2Only: u32 = 16;
+pub const AMINTERLACE_FieldPatternMask: u32 = 48;
+pub const AMINTERLACE_IsInterlaced: u32 = 1;
+pub const AMINTERLACE_UNUSED: u32 = 8;
+pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1);
+pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMMSF_MMS_INIT_FLAGS(pub i32);
@@ -227,13 +227,13 @@ impl core::ops::Not for AMMSF_MS_FLAGS {
         Self(self.0.not())
     }
 }
-pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4i32);
-pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1i32);
-pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2i32);
-pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8i32);
-pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1i32);
-pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0i32);
-pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3i32);
+pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4);
+pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1);
+pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2);
+pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8);
+pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1);
+pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0);
+pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMMSF_RENDER_FLAGS(pub i32);
@@ -270,29 +270,29 @@ impl core::ops::Not for AMMSF_RENDER_FLAGS {
         Self(self.0.not())
     }
 }
-pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8i32);
-pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4i32);
-pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = AMOVERLAYFX(8i32);
-pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = AMOVERLAYFX(2i32);
-pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = AMOVERLAYFX(4i32);
-pub const AMOVERFX_NOFX: AMOVERLAYFX = AMOVERLAYFX(0i32);
+pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8);
+pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4);
+pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = AMOVERLAYFX(8);
+pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = AMOVERLAYFX(2);
+pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = AMOVERLAYFX(4);
+pub const AMOVERFX_NOFX: AMOVERLAYFX = AMOVERLAYFX(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMOVERLAYFX(pub i32);
-pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = AMPlayListEventFlags(1i32);
-pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = AMPlayListEventFlags(15i32);
-pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = AMPlayListEventFlags(2i32);
-pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = AMPlayListEventFlags(16i32);
-pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = AMPlayListEventFlags(0i32);
-pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = AMPlayListItemFlags(2i32);
-pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = AMPlayListItemFlags(1i32);
-pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = AMPlayListFlags(2i32);
-pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = AMPlayListFlags(1i32);
+pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = AMPlayListEventFlags(1);
+pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = AMPlayListEventFlags(15);
+pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = AMPlayListEventFlags(2);
+pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = AMPlayListEventFlags(16);
+pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = AMPlayListEventFlags(0);
+pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = AMPlayListItemFlags(2);
+pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = AMPlayListItemFlags(1);
+pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = AMPlayListFlags(2);
+pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = AMPlayListFlags(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMPROPERTY_PIN(pub i32);
-pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = AMPROPERTY_PIN(0i32);
-pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = AMPROPERTY_PIN(1i32);
+pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = AMPROPERTY_PIN(0);
+pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = AMPROPERTY_PIN(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMPlayListEventFlags(pub i32);
@@ -302,33 +302,33 @@ pub struct AMPlayListFlags(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMPlayListItemFlags(pub i32);
-pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);
-pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(1i32);
-pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(1i32);
-pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(2i32);
-pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(1i32);
-pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(2i32);
-pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = AMTunerEventType(1i32);
-pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = AMTunerSignalStrength(-1i32);
-pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = AMTunerModeType(4i32);
-pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = AMTunerModeType(0i32);
-pub const AMTUNER_MODE_DSS: AMTunerModeType = AMTunerModeType(8i32);
-pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = AMTunerModeType(2i32);
-pub const AMTUNER_MODE_TV: AMTunerModeType = AMTunerModeType(1i32);
-pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = AMTunerSignalStrength(0i32);
-pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = AMTunerSignalStrength(1i32);
-pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = AMTunerSubChannel(-1i32);
-pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = AMTunerSubChannel(-2i32);
-pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = AMTVAudioEventType(1i32);
-pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = TVAudioMode(16i32);
-pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = TVAudioMode(32i32);
-pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = TVAudioMode(64i32);
-pub const AMTVAUDIO_MODE_MONO: TVAudioMode = TVAudioMode(1i32);
-pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = TVAudioMode(2i32);
-pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = TVAudioMode(4096i32);
-pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = TVAudioMode(8192i32);
-pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = TVAudioMode(16384i32);
-pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = TVAudioMode(512i32);
+pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0);
+pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(1);
+pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(1);
+pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(2);
+pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(1);
+pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(2);
+pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = AMTunerEventType(1);
+pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = AMTunerSignalStrength(-1);
+pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = AMTunerModeType(4);
+pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = AMTunerModeType(0);
+pub const AMTUNER_MODE_DSS: AMTunerModeType = AMTunerModeType(8);
+pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = AMTunerModeType(2);
+pub const AMTUNER_MODE_TV: AMTunerModeType = AMTunerModeType(1);
+pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = AMTunerSignalStrength(0);
+pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = AMTunerSignalStrength(1);
+pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = AMTunerSubChannel(-1);
+pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = AMTunerSubChannel(-2);
+pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = AMTVAudioEventType(1);
+pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = TVAudioMode(16);
+pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = TVAudioMode(32);
+pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = TVAudioMode(64);
+pub const AMTVAUDIO_MODE_MONO: TVAudioMode = TVAudioMode(1);
+pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = TVAudioMode(2);
+pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = TVAudioMode(4096);
+pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = TVAudioMode(8192);
+pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = TVAudioMode(16384);
+pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = TVAudioMode(512);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMTVAudioEventType(pub i32);
@@ -427,8 +427,8 @@ impl Default for AMVAUncompDataInfo {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1u32;
-pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295u32;
+pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1;
+pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AMVPDATAINFO {
@@ -461,17 +461,17 @@ pub struct AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1i32);
-pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0i32);
-pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(2i32);
+pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1);
+pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0);
+pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMVP_MODE(pub i32);
-pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = AMVP_MODE(1i32);
-pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = AMVP_MODE(2i32);
-pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = AMVP_MODE(3i32);
-pub const AMVP_MODE_SKIPODD: AMVP_MODE = AMVP_MODE(4i32);
-pub const AMVP_MODE_WEAVE: AMVP_MODE = AMVP_MODE(0i32);
+pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = AMVP_MODE(1);
+pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = AMVP_MODE(2);
+pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = AMVP_MODE(3);
+pub const AMVP_MODE_SKIPODD: AMVP_MODE = AMVP_MODE(4);
+pub const AMVP_MODE_WEAVE: AMVP_MODE = AMVP_MODE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMVP_SELECT_FORMAT_BY(pub i32);
@@ -481,9 +481,9 @@ pub struct AM_AC3_ALTERNATE_AUDIO {
     pub fStereo: windows_core::BOOL,
     pub DualMode: u32,
 }
-pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1u32;
-pub const AM_AC3_ALTERNATE_AUDIO_2: u32 = 2u32;
-pub const AM_AC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
+pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1;
+pub const AM_AC3_ALTERNATE_AUDIO_2: u32 = 2;
+pub const AM_AC3_ALTERNATE_AUDIO_BOTH: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_AC3_BIT_STREAM_MODE {
@@ -511,33 +511,33 @@ pub struct AM_AC3_ERROR_CONCEALMENT {
 pub struct AM_AC3_ROOM_TYPE {
     pub fLargeRoom: windows_core::BOOL,
 }
-pub const AM_AC3_SERVICE_COMMENTARY: u32 = 5u32;
-pub const AM_AC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
-pub const AM_AC3_SERVICE_EMERGENCY_FLASH: u32 = 6u32;
-pub const AM_AC3_SERVICE_HEARING_IMPAIRED: u32 = 3u32;
-pub const AM_AC3_SERVICE_MAIN_AUDIO: u32 = 0u32;
-pub const AM_AC3_SERVICE_NO_DIALOG: u32 = 1u32;
-pub const AM_AC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
-pub const AM_AC3_SERVICE_VOICE_OVER: u32 = 7u32;
-pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(2i32);
-pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(1i32);
-pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(0i32);
-pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(3i32);
+pub const AM_AC3_SERVICE_COMMENTARY: u32 = 5;
+pub const AM_AC3_SERVICE_DIALOG_ONLY: u32 = 4;
+pub const AM_AC3_SERVICE_EMERGENCY_FLASH: u32 = 6;
+pub const AM_AC3_SERVICE_HEARING_IMPAIRED: u32 = 3;
+pub const AM_AC3_SERVICE_MAIN_AUDIO: u32 = 0;
+pub const AM_AC3_SERVICE_NO_DIALOG: u32 = 1;
+pub const AM_AC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2;
+pub const AM_AC3_SERVICE_VOICE_OVER: u32 = 7;
+pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(2);
+pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(1);
+pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(0);
+pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_ASPECT_RATIO_MODE(pub i32);
-pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(1i32);
-pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(11i32);
-pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(5i32);
-pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(12i32);
-pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(4i32);
-pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(3i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(10i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(7i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(8i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(9i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(2i32);
-pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(6i32);
+pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(1);
+pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(11);
+pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(5);
+pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(12);
+pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(4);
+pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(3);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(10);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(7);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(8);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(9);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(2);
+pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(6);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_COLCON {
@@ -546,10 +546,10 @@ pub struct AM_COLCON {
     pub _bitfield3: u8,
     pub _bitfield4: u8,
 }
-pub const AM_CONTENTPROPERTY_AUTHOR: u32 = 2u32;
-pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4u32;
-pub const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8u32;
-pub const AM_CONTENTPROPERTY_TITLE: u32 = 1u32;
+pub const AM_CONTENTPROPERTY_AUTHOR: u32 = 2;
+pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4;
+pub const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8;
+pub const AM_CONTENTPROPERTY_TITLE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_COPY_MACROVISION {
@@ -561,17 +561,17 @@ pub struct AM_COPY_MACROVISION_LEVEL(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_DIGITAL_CP(pub i32);
-pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = AM_DIGITAL_CP(2i32);
-pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = AM_DIGITAL_CP(0i32);
-pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = AM_DIGITAL_CP(1i32);
+pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = AM_DIGITAL_CP(2);
+pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = AM_DIGITAL_CP(0);
+pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = AM_DIGITAL_CP(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_DVDCOPYSTATE(pub i32);
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(2i32);
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(3i32);
-pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(4i32);
-pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(0i32);
-pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(1i32);
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(2);
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(3);
+pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(4);
+pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(0);
+pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_DVDCOPY_BUSKEY {
@@ -622,14 +622,14 @@ impl Default for AM_DVDCOPY_TITLEKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384i32);
-pub const AM_DVD_CGMS_COPY_ONCE: u32 = 16u32;
-pub const AM_DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
-pub const AM_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
-pub const AM_DVD_CGMS_NO_COPY: u32 = 24u32;
-pub const AM_DVD_CGMS_RESERVED_MASK: u32 = 120u32;
-pub const AM_DVD_COPYRIGHTED: u32 = 64u32;
-pub const AM_DVD_COPYRIGHT_MASK: u32 = 64u32;
+pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384);
+pub const AM_DVD_CGMS_COPY_ONCE: u32 = 16;
+pub const AM_DVD_CGMS_COPY_PERMITTED: u32 = 0;
+pub const AM_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24;
+pub const AM_DVD_CGMS_NO_COPY: u32 = 24;
+pub const AM_DVD_CGMS_RESERVED_MASK: u32 = 120;
+pub const AM_DVD_COPYRIGHTED: u32 = 64;
+pub const AM_DVD_COPYRIGHT_MASK: u32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_DVD_ChangeRate {
@@ -637,17 +637,17 @@ pub struct AM_DVD_ChangeRate {
     pub StartOutTime: i64,
     pub Rate: i32,
 }
-pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512i32);
-pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096i32);
-pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8192i32);
+pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512);
+pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096);
+pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8192);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_DVD_GRAPH_FLAGS(pub i32);
-pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2i32);
-pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(1i32);
-pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(65535i32);
-pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0u32;
-pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(256i32);
+pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2);
+pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(1);
+pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(65535);
+pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0;
+pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(256);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_DVD_RENDERSTATUS {
@@ -660,18 +660,18 @@ pub struct AM_DVD_RENDERSTATUS {
     pub iNumStreamsFailed: i32,
     pub dwFailedStreamsFlag: u32,
 }
-pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
-pub const AM_DVD_SECTOR_PROTECTED: u32 = 32u32;
-pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
-pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(2i32);
+pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0;
+pub const AM_DVD_SECTOR_PROTECTED: u32 = 32;
+pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32;
+pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_DVD_STREAM_FLAGS(pub i32);
-pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(4i32);
-pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(1i32);
-pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8i32);
-pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4i32);
-pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2048i32);
+pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(4);
+pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(1);
+pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8);
+pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4);
+pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2048);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_DVD_YUV {
@@ -686,13 +686,13 @@ pub struct AM_DvdKaraokeData {
     pub dwDownmix: u32,
     pub dwSpeakerAssignment: u32,
 }
-pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32i32);
-pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2i32);
-pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(1i32);
-pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(4i32);
-pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(16i32);
-pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(8i32);
-pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(64i32);
+pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32);
+pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2);
+pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(1);
+pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(4);
+pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(16);
+pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(8);
+pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(64);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_ExactRateChange {
@@ -702,35 +702,35 @@ pub struct AM_ExactRateChange {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_FILESINK_FLAGS(pub i32);
-pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = AM_FILESINK_FLAGS(1i32);
+pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = AM_FILESINK_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_FILTER_FLAGS(pub i32);
-pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = AM_FILTER_FLAGS(1i32);
-pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(1i32);
-pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(2i32);
+pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = AM_FILTER_FLAGS(1);
+pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(1);
+pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_FRAMESTEP_STEP {
     pub dwFramesToStep: u32,
 }
-pub const AM_GBF_NODDSURFACELOCK: u32 = 8u32;
-pub const AM_GBF_NOTASYNCPOINT: u32 = 2u32;
-pub const AM_GBF_NOWAIT: u32 = 4u32;
-pub const AM_GBF_PREVFRAMESKIPPED: u32 = 1u32;
-pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7u32;
-pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6u32;
-pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1u32;
-pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(2i32);
-pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(1i32);
+pub const AM_GBF_NODDSURFACELOCK: u32 = 8;
+pub const AM_GBF_NOTASYNCPOINT: u32 = 2;
+pub const AM_GBF_NOWAIT: u32 = 4;
+pub const AM_GBF_PREVFRAMESKIPPED: u32 = 1;
+pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7;
+pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6;
+pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1;
+pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(2);
+pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_GRAPH_CONFIG_RECONNECT_FLAGS(pub i32);
-pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(4i32);
+pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(4);
 pub const AM_INTERFACESETID_Standard: windows_core::GUID = windows_core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
-pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(4i32);
-pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(1i32);
-pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(2i32);
+pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(4);
+pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(1);
+pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(2);
 pub const AM_KSCATEGORY_AUDIO: windows_core::GUID = windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
 pub const AM_KSCATEGORY_CAPTURE: windows_core::GUID = windows_core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
 pub const AM_KSCATEGORY_CROSSBAR: windows_core::GUID = windows_core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
@@ -750,23 +750,23 @@ pub const AM_KSPROPSETID_DvdSubPic: windows_core::GUID = windows_core::GUID::fro
 pub const AM_KSPROPSETID_FrameStep: windows_core::GUID = windows_core::GUID::from_u128(0xc830acbd_ab07_492f_8852_45b6987c2979);
 pub const AM_KSPROPSETID_MPEG4_MediaType_Attributes: windows_core::GUID = windows_core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
 pub const AM_KSPROPSETID_TSRateChange: windows_core::GUID = windows_core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
-pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = AM_LINE21_CCLEVEL(0i32);
-pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(1i32);
-pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(2i32);
-pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(10i32);
-pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(11i32);
-pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(0i32);
-pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(3i32);
-pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(4i32);
-pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(5i32);
-pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(0i32);
-pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(1i32);
-pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(0i32);
-pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(2i32);
-pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(1i32);
-pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(3i32);
-pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(0i32);
-pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(1i32);
+pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = AM_LINE21_CCLEVEL(0);
+pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(1);
+pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(2);
+pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(10);
+pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(11);
+pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(0);
+pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(3);
+pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(4);
+pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(5);
+pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(0);
+pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(1);
+pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(0);
+pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(2);
+pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(1);
+pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(3);
+pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(0);
+pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_LINE21_CCLEVEL(pub i32);
@@ -782,36 +782,36 @@ pub struct AM_LINE21_CCSTYLE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_LINE21_DRAWBGMODE(pub i32);
-pub const AM_LOADSTATUS_CLOSED: u32 = 0u32;
-pub const AM_LOADSTATUS_CONNECTING: u32 = 4u32;
-pub const AM_LOADSTATUS_LOADINGDESCR: u32 = 1u32;
-pub const AM_LOADSTATUS_LOADINGMCAST: u32 = 2u32;
-pub const AM_LOADSTATUS_LOCATING: u32 = 3u32;
-pub const AM_LOADSTATUS_OPEN: u32 = 6u32;
-pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
-pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(0i32);
-pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(1i32);
-pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(2i32);
-pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(3i32);
+pub const AM_LOADSTATUS_CLOSED: u32 = 0;
+pub const AM_LOADSTATUS_CONNECTING: u32 = 4;
+pub const AM_LOADSTATUS_LOADINGDESCR: u32 = 1;
+pub const AM_LOADSTATUS_LOADINGMCAST: u32 = 2;
+pub const AM_LOADSTATUS_LOCATING: u32 = 3;
+pub const AM_LOADSTATUS_OPEN: u32 = 6;
+pub const AM_LOADSTATUS_OPENING: u32 = 5;
+pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(0);
+pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(1);
+pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(2);
+pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_MEDIAEVENT_FLAGS(pub i32);
-pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = AM_MEDIAEVENT_FLAGS(1i32);
+pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = AM_MEDIAEVENT_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_MPEG2Level(pub i32);
-pub const AM_MPEG2Level_High: AM_MPEG2Level = AM_MPEG2Level(4i32);
-pub const AM_MPEG2Level_High1440: AM_MPEG2Level = AM_MPEG2Level(3i32);
-pub const AM_MPEG2Level_Low: AM_MPEG2Level = AM_MPEG2Level(1i32);
-pub const AM_MPEG2Level_Main: AM_MPEG2Level = AM_MPEG2Level(2i32);
+pub const AM_MPEG2Level_High: AM_MPEG2Level = AM_MPEG2Level(4);
+pub const AM_MPEG2Level_High1440: AM_MPEG2Level = AM_MPEG2Level(3);
+pub const AM_MPEG2Level_Low: AM_MPEG2Level = AM_MPEG2Level(1);
+pub const AM_MPEG2Level_Main: AM_MPEG2Level = AM_MPEG2Level(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_MPEG2Profile(pub i32);
-pub const AM_MPEG2Profile_High: AM_MPEG2Profile = AM_MPEG2Profile(5i32);
-pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = AM_MPEG2Profile(2i32);
-pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = AM_MPEG2Profile(3i32);
-pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = AM_MPEG2Profile(1i32);
-pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = AM_MPEG2Profile(4i32);
+pub const AM_MPEG2Profile_High: AM_MPEG2Profile = AM_MPEG2Profile(5);
+pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = AM_MPEG2Profile(2);
+pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = AM_MPEG2Profile(3);
+pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = AM_MPEG2Profile(1);
+pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = AM_MPEG2Profile(4);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[derive(Clone, Debug, PartialEq)]
@@ -841,59 +841,59 @@ impl Default for AM_MPEGSYSTEMTYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
-pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0u32;
-pub const AM_MPEG_AUDIO_DUAL_RIGHT: u32 = 2u32;
-pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(4i32);
-pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(2i32);
-pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(1i32);
-pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(1i32);
+pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1;
+pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0;
+pub const AM_MPEG_AUDIO_DUAL_RIGHT: u32 = 2;
+pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(4);
+pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(2);
+pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(1);
+pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_AC3(pub i32);
-pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(2i32);
-pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(4i32);
-pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(5i32);
-pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(3i32);
-pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(1i32);
-pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(6i32);
-pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(7i32);
-pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(8i32);
-pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(9i32);
-pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(10i32);
-pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(5i32);
+pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(2);
+pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(4);
+pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(5);
+pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(3);
+pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(1);
+pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(6);
+pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(7);
+pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(8);
+pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(9);
+pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(10);
+pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(5);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_DVDCOPYPROT(pub i32);
-pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(1i32);
-pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(3i32);
-pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(128i32);
-pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(2i32);
-pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(6i32);
-pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(7i32);
-pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(11i32);
-pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(4i32);
+pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(1);
+pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(3);
+pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(128);
+pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(2);
+pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(6);
+pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(7);
+pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(11);
+pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_DVDKARAOKE(pub i32);
-pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(1i32);
-pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(0i32);
+pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(1);
+pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_DVDSUBPIC(pub i32);
-pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(2i32);
-pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(1i32);
-pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(0i32);
+pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(2);
+pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(1);
+pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_DVD_RATE_CHANGE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_FRAMESTEP(pub i32);
-pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(2i32);
-pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(3i32);
-pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(4i32);
-pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(1i32);
+pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(2);
+pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(3);
+pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(4);
+pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_PROPERTY_SPHLI {
@@ -920,41 +920,41 @@ impl Default for AM_PROPERTY_SPPAL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_PROPERTY_TS_RATE_CHANGE(pub i32);
-pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(1i32);
-pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(2i32);
-pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(4i32);
-pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(131072i32);
-pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(65536i32);
-pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5u32;
-pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4u32;
-pub const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3u32;
-pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2u32;
-pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1u32;
+pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(1);
+pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(2);
+pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(4);
+pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(131072);
+pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(65536);
+pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5;
+pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4;
+pub const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3;
+pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
+pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_QueryRate {
     pub lMaxForwardFullFrame: i32,
     pub lMaxReverseFullFrame: i32,
 }
-pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1i32);
-pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8i32);
-pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(4i32);
-pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(5i32);
-pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(2i32);
-pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(2i32);
-pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(3i32);
-pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(6i32);
-pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(7i32);
-pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(11i32);
-pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(10i32);
-pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(3i32);
-pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(9i32);
-pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(1i32);
-pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(4i32);
-pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(5i32);
-pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = _AM_RENSDEREXFLAGS(1i32);
-pub const AM_ReverseBlockEnd: u32 = 4u32;
-pub const AM_ReverseBlockStart: u32 = 2u32;
+pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1);
+pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8);
+pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(4);
+pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(5);
+pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(2);
+pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(2);
+pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(3);
+pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(6);
+pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(7);
+pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(11);
+pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(10);
+pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(3);
+pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(9);
+pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(1);
+pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(4);
+pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(5);
+pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = _AM_RENSDEREXFLAGS(1);
+pub const AM_ReverseBlockEnd: u32 = 4;
+pub const AM_ReverseBlockStart: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -976,43 +976,43 @@ impl Default for AM_SAMPLE2_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4i32);
-pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512i32);
-pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(128i32);
-pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(2i32);
+pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4);
+pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512);
+pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(128);
+pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_SAMPLE_PROPERTY_FLAGS(pub i32);
-pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
-pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(256i32);
-pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(64i32);
-pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(16i32);
-pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(8i32);
-pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(1i32);
-pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(128i32);
-pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(8i32);
-pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(32i32);
-pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(16i32);
-pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(64i32);
-pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(1i32);
-pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(4i32);
-pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(2i32);
-pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(32i32);
-pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(0i32);
-pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(2i32);
-pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(8i32);
+pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1);
+pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(256);
+pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(64);
+pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(16);
+pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(8);
+pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(1);
+pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(128);
+pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(8);
+pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(32);
+pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(16);
+pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(64);
+pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(1);
+pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(4);
+pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(2);
+pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3);
+pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(32);
+pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(0);
+pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3);
+pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(2);
+pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_SEEKING_SEEKING_CAPABILITIES(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_SEEKING_SEEKING_FLAGS(pub i32);
-pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(4i32);
-pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(16i32);
-pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(256i32);
-pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
+pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(4);
+pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(16);
+pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(256);
+pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_STREAM_INFO {
@@ -1022,41 +1022,41 @@ pub struct AM_STREAM_INFO {
     pub dwStopCookie: u32,
     pub dwFlags: u32,
 }
-pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4i32);
+pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_STREAM_INFO_FLAGS(pub i32);
-pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(1i32);
-pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(2i32);
-pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(16i32);
-pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(0i32);
+pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(1);
+pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(2);
+pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(16);
+pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AM_SimpleRateChange {
     pub StartTime: i64,
     pub Rate: i32,
 }
-pub const AM_UseNewCSSKey: u32 = 1u32;
-pub const AM_VIDEO_FLAG_B_SAMPLE: i32 = 32i32;
-pub const AM_VIDEO_FLAG_FIELD1: i32 = 1i32;
-pub const AM_VIDEO_FLAG_FIELD1FIRST: i32 = 4i32;
-pub const AM_VIDEO_FLAG_FIELD2: i32 = 2i32;
-pub const AM_VIDEO_FLAG_FIELD_MASK: i32 = 3i32;
-pub const AM_VIDEO_FLAG_INTERLEAVED_FRAME: i32 = 0i32;
-pub const AM_VIDEO_FLAG_IPB_MASK: i32 = 48i32;
-pub const AM_VIDEO_FLAG_I_SAMPLE: i32 = 0i32;
-pub const AM_VIDEO_FLAG_P_SAMPLE: i32 = 16i32;
-pub const AM_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
-pub const AM_VIDEO_FLAG_WEAVE: i32 = 8i32;
+pub const AM_UseNewCSSKey: u32 = 1;
+pub const AM_VIDEO_FLAG_B_SAMPLE: i32 = 32;
+pub const AM_VIDEO_FLAG_FIELD1: i32 = 1;
+pub const AM_VIDEO_FLAG_FIELD1FIRST: i32 = 4;
+pub const AM_VIDEO_FLAG_FIELD2: i32 = 2;
+pub const AM_VIDEO_FLAG_FIELD_MASK: i32 = 3;
+pub const AM_VIDEO_FLAG_INTERLEAVED_FRAME: i32 = 0;
+pub const AM_VIDEO_FLAG_IPB_MASK: i32 = 48;
+pub const AM_VIDEO_FLAG_I_SAMPLE: i32 = 0;
+pub const AM_VIDEO_FLAG_P_SAMPLE: i32 = 16;
+pub const AM_VIDEO_FLAG_REPEAT_FIELD: i32 = 64;
+pub const AM_VIDEO_FLAG_WEAVE: i32 = 8;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_DRAWBGMODE(pub i32);
-pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(0i32);
-pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(1i32);
+pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(0);
+pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_LEVEL(pub i32);
-pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = AM_WST_LEVEL(0i32);
+pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = AM_WST_LEVEL(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AM_WST_PAGE {
@@ -1072,20 +1072,20 @@ impl Default for AM_WST_PAGE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_SERVICE(pub i32);
-pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = AM_WST_SERVICE(2i32);
-pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = AM_WST_SERVICE(3i32);
-pub const AM_WST_SERVICE_None: AM_WST_SERVICE = AM_WST_SERVICE(0i32);
-pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = AM_WST_SERVICE(1i32);
+pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = AM_WST_SERVICE(2);
+pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = AM_WST_SERVICE(3);
+pub const AM_WST_SERVICE_None: AM_WST_SERVICE = AM_WST_SERVICE(0);
+pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = AM_WST_SERVICE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_STATE(pub i32);
-pub const AM_WST_STATE_Off: AM_WST_STATE = AM_WST_STATE(0i32);
-pub const AM_WST_STATE_On: AM_WST_STATE = AM_WST_STATE(1i32);
+pub const AM_WST_STATE_Off: AM_WST_STATE = AM_WST_STATE(0);
+pub const AM_WST_STATE_On: AM_WST_STATE = AM_WST_STATE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_WST_STYLE(pub i32);
-pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1i32);
-pub const AM_WST_STYLE_None: AM_WST_STYLE = AM_WST_STYLE(0i32);
+pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1);
+pub const AM_WST_STYLE_None: AM_WST_STYLE = AM_WST_STYLE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ANALOGVIDEOINFO {
@@ -1095,8 +1095,8 @@ pub struct ANALOGVIDEOINFO {
     pub dwActiveHeight: u32,
     pub AvgTimePerFrame: i64,
 }
-pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8i32);
-pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
+pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8);
+pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATSCComponentTypeFlags(pub i32);
@@ -1153,20 +1153,20 @@ pub struct AVIFIELDINDEX_0 {
     pub dwSize: u32,
     pub dwOffsetField2: u32,
 }
-pub const AVIF_COPYRIGHTED: u32 = 131072u32;
-pub const AVIF_HASINDEX: u32 = 16u32;
-pub const AVIF_ISINTERLEAVED: u32 = 256u32;
-pub const AVIF_MUSTUSEINDEX: u32 = 32u32;
-pub const AVIF_TRUSTCKTYPE: u32 = 2048u32;
-pub const AVIF_WASCAPTUREFILE: u32 = 65536u32;
-pub const AVIIF_COMPRESSOR: u32 = 268369920u32;
-pub const AVIIF_COMPUSE: i32 = 268369920i32;
-pub const AVIIF_FIRSTPART: i32 = 32i32;
-pub const AVIIF_KEYFRAME: i32 = 16i32;
-pub const AVIIF_LASTPART: i32 = 64i32;
-pub const AVIIF_LIST: i32 = 1i32;
-pub const AVIIF_NOTIME: i32 = 256i32;
-pub const AVIIF_NO_TIME: u32 = 256u32;
+pub const AVIF_COPYRIGHTED: u32 = 131072;
+pub const AVIF_HASINDEX: u32 = 16;
+pub const AVIF_ISINTERLEAVED: u32 = 256;
+pub const AVIF_MUSTUSEINDEX: u32 = 32;
+pub const AVIF_TRUSTCKTYPE: u32 = 2048;
+pub const AVIF_WASCAPTUREFILE: u32 = 65536;
+pub const AVIIF_COMPRESSOR: u32 = 268369920;
+pub const AVIIF_COMPUSE: i32 = 268369920;
+pub const AVIIF_FIRSTPART: i32 = 32;
+pub const AVIIF_KEYFRAME: i32 = 16;
+pub const AVIIF_LASTPART: i32 = 64;
+pub const AVIIF_LIST: i32 = 1;
+pub const AVIIF_NOTIME: i32 = 256;
+pub const AVIIF_NO_TIME: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AVIINDEXENTRY {
@@ -1250,8 +1250,8 @@ impl Default for AVIPALCHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AVISF_DISABLED: u32 = 1u32;
-pub const AVISF_VIDEO_PALCHANGES: u32 = 65536u32;
+pub const AVISF_DISABLED: u32 = 1;
+pub const AVISF_VIDEO_PALCHANGES: u32 = 65536;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct AVISTDINDEX {
@@ -1271,7 +1271,7 @@ impl Default for AVISTDINDEX {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const AVISTDINDEX_DELTAFRAME: u32 = 2147483648u32;
+pub const AVISTDINDEX_DELTAFRAME: u32 = 2147483648;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct AVISTDINDEX_ENTRY {
@@ -1427,53 +1427,53 @@ pub struct AVITIMEDINDEX_ENTRY {
     pub dwSize: u32,
     pub dwDuration: u32,
 }
-pub const AVI_HEADERSIZE: u32 = 2048u32;
-pub const AVI_INDEX_IS_DATA: u32 = 128u32;
-pub const AVI_INDEX_OF_CHUNKS: u32 = 1u32;
-pub const AVI_INDEX_OF_INDEXES: u32 = 0u32;
-pub const AVI_INDEX_OF_SUB_2FIELD: u32 = 3u32;
-pub const AVI_INDEX_OF_TIMED_CHUNKS: u32 = 2u32;
-pub const AVI_INDEX_SUB_2FIELD: u32 = 1u32;
-pub const AVI_INDEX_SUB_DEFAULT: u32 = 0u32;
-pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = AnalogVideoStandard(1052167i32);
-pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = AnalogVideoStandard(496i32);
-pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = AnalogVideoStandard(1044480i32);
+pub const AVI_HEADERSIZE: u32 = 2048;
+pub const AVI_INDEX_IS_DATA: u32 = 128;
+pub const AVI_INDEX_OF_CHUNKS: u32 = 1;
+pub const AVI_INDEX_OF_INDEXES: u32 = 0;
+pub const AVI_INDEX_OF_SUB_2FIELD: u32 = 3;
+pub const AVI_INDEX_OF_TIMED_CHUNKS: u32 = 2;
+pub const AVI_INDEX_SUB_2FIELD: u32 = 1;
+pub const AVI_INDEX_SUB_DEFAULT: u32 = 0;
+pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = AnalogVideoStandard(1052167);
+pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = AnalogVideoStandard(496);
+pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = AnalogVideoStandard(1044480);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnalogVideoStandard(pub i32);
-pub const AnalogVideo_NTSC_433: AnalogVideoStandard = AnalogVideoStandard(4i32);
-pub const AnalogVideo_NTSC_M: AnalogVideoStandard = AnalogVideoStandard(1i32);
-pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = AnalogVideoStandard(2i32);
-pub const AnalogVideo_NTSC_Mask: u32 = 7u32;
-pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
-pub const AnalogVideo_PAL_60: AnalogVideoStandard = AnalogVideoStandard(2048i32);
-pub const AnalogVideo_PAL_B: AnalogVideoStandard = AnalogVideoStandard(16i32);
-pub const AnalogVideo_PAL_D: AnalogVideoStandard = AnalogVideoStandard(32i32);
-pub const AnalogVideo_PAL_G: AnalogVideoStandard = AnalogVideoStandard(64i32);
-pub const AnalogVideo_PAL_H: AnalogVideoStandard = AnalogVideoStandard(128i32);
-pub const AnalogVideo_PAL_I: AnalogVideoStandard = AnalogVideoStandard(256i32);
-pub const AnalogVideo_PAL_M: AnalogVideoStandard = AnalogVideoStandard(512i32);
-pub const AnalogVideo_PAL_Mask: u32 = 1052656u32;
-pub const AnalogVideo_PAL_N: AnalogVideoStandard = AnalogVideoStandard(1024i32);
-pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = AnalogVideoStandard(1048576i32);
-pub const AnalogVideo_SECAM_B: AnalogVideoStandard = AnalogVideoStandard(4096i32);
-pub const AnalogVideo_SECAM_D: AnalogVideoStandard = AnalogVideoStandard(8192i32);
-pub const AnalogVideo_SECAM_G: AnalogVideoStandard = AnalogVideoStandard(16384i32);
-pub const AnalogVideo_SECAM_H: AnalogVideoStandard = AnalogVideoStandard(32768i32);
-pub const AnalogVideo_SECAM_K: AnalogVideoStandard = AnalogVideoStandard(65536i32);
-pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = AnalogVideoStandard(131072i32);
-pub const AnalogVideo_SECAM_L: AnalogVideoStandard = AnalogVideoStandard(262144i32);
-pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = AnalogVideoStandard(524288i32);
-pub const AnalogVideo_SECAM_Mask: u32 = 1044480u32;
+pub const AnalogVideo_NTSC_433: AnalogVideoStandard = AnalogVideoStandard(4);
+pub const AnalogVideo_NTSC_M: AnalogVideoStandard = AnalogVideoStandard(1);
+pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = AnalogVideoStandard(2);
+pub const AnalogVideo_NTSC_Mask: u32 = 7;
+pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0);
+pub const AnalogVideo_PAL_60: AnalogVideoStandard = AnalogVideoStandard(2048);
+pub const AnalogVideo_PAL_B: AnalogVideoStandard = AnalogVideoStandard(16);
+pub const AnalogVideo_PAL_D: AnalogVideoStandard = AnalogVideoStandard(32);
+pub const AnalogVideo_PAL_G: AnalogVideoStandard = AnalogVideoStandard(64);
+pub const AnalogVideo_PAL_H: AnalogVideoStandard = AnalogVideoStandard(128);
+pub const AnalogVideo_PAL_I: AnalogVideoStandard = AnalogVideoStandard(256);
+pub const AnalogVideo_PAL_M: AnalogVideoStandard = AnalogVideoStandard(512);
+pub const AnalogVideo_PAL_Mask: u32 = 1052656;
+pub const AnalogVideo_PAL_N: AnalogVideoStandard = AnalogVideoStandard(1024);
+pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = AnalogVideoStandard(1048576);
+pub const AnalogVideo_SECAM_B: AnalogVideoStandard = AnalogVideoStandard(4096);
+pub const AnalogVideo_SECAM_D: AnalogVideoStandard = AnalogVideoStandard(8192);
+pub const AnalogVideo_SECAM_G: AnalogVideoStandard = AnalogVideoStandard(16384);
+pub const AnalogVideo_SECAM_H: AnalogVideoStandard = AnalogVideoStandard(32768);
+pub const AnalogVideo_SECAM_K: AnalogVideoStandard = AnalogVideoStandard(65536);
+pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = AnalogVideoStandard(131072);
+pub const AnalogVideo_SECAM_L: AnalogVideoStandard = AnalogVideoStandard(262144);
+pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = AnalogVideoStandard(524288);
+pub const AnalogVideo_SECAM_Mask: u32 = 1044480;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationTypeType(pub i32);
-pub const Associated: SmartCardAssociationType = SmartCardAssociationType(1i32);
-pub const AssociationUnknown: SmartCardAssociationType = SmartCardAssociationType(2i32);
-pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = BDA_Comp_Flags(1i32);
-pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4i32);
-pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2i32);
-pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = BDA_Comp_Flags(0i32);
+pub const Associated: SmartCardAssociationType = SmartCardAssociationType(1);
+pub const AssociationUnknown: SmartCardAssociationType = SmartCardAssociationType(2);
+pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = BDA_Comp_Flags(1);
+pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4);
+pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2);
+pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = BDA_Comp_Flags(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BDANODE_DESCRIPTOR {
@@ -1481,23 +1481,23 @@ pub struct BDANODE_DESCRIPTOR {
     pub guidFunction: windows_core::GUID,
     pub guidName: windows_core::GUID,
 }
-pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1i32);
-pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10i32);
-pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9i32);
-pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(2i32);
-pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(11i32);
-pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(3i32);
-pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(4i32);
-pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(5i32);
-pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(7i32);
-pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(6i32);
-pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(12i32);
-pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(8i32);
-pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13i32);
-pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14i32);
-pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15i32);
-pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(0i32);
-pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(-1i32);
+pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1);
+pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10);
+pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9);
+pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(2);
+pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(11);
+pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(3);
+pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(4);
+pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(5);
+pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(7);
+pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(6);
+pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(12);
+pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(8);
+pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13);
+pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14);
+pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15);
+pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(0);
+pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_BUFFER {
@@ -1561,13 +1561,13 @@ impl Default for BDA_CA_MODULE_UI {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0i32);
-pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1i32);
+pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0);
+pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CHANGE_STATE(pub i32);
-pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(0i32);
-pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(-1i32);
+pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(0);
+pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CONDITIONALACCESS_MMICLOSEREASON(pub i32);
@@ -1586,12 +1586,12 @@ pub struct BDA_Channel_Bandwidth(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_Comp_Flags(pub i32);
-pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(2i32);
-pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(1i32);
+pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(2);
+pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_DISCOVERY_STATE(pub i32);
-pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
+pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_DISEQC_RESPONSE {
@@ -1655,16 +1655,16 @@ impl Default for BDA_DVBT2_L1_SIGNALLING_DATA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_DrmPairingError(pub i32);
-pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = BDA_DrmPairingError(8i32);
-pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = BDA_DrmPairingError(5i32);
-pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = BDA_DrmPairingError(6i32);
-pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = BDA_DrmPairingError(7i32);
-pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = BDA_DrmPairingError(1i32);
-pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = BDA_DrmPairingError(3i32);
-pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = BDA_DrmPairingError(2i32);
-pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = BDA_DrmPairingError(9i32);
-pub const BDA_DrmPairing_Other: BDA_DrmPairingError = BDA_DrmPairingError(4i32);
-pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = BDA_DrmPairingError(0i32);
+pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = BDA_DrmPairingError(8);
+pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = BDA_DrmPairingError(5);
+pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = BDA_DrmPairingError(6);
+pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = BDA_DrmPairingError(7);
+pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = BDA_DrmPairingError(1);
+pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = BDA_DrmPairingError(3);
+pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = BDA_DrmPairingError(2);
+pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = BDA_DrmPairingError(9);
+pub const BDA_DrmPairing_Other: BDA_DrmPairingError = BDA_DrmPairingError(4);
+pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = BDA_DrmPairingError(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS {
@@ -1686,29 +1686,29 @@ impl Default for BDA_ETHERNET_ADDRESS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15i32);
-pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14i32);
-pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(4i32);
-pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(7i32);
-pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(8i32);
-pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(5i32);
-pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(6i32);
-pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = BDA_EVENT_ID(2i32);
-pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = BDA_EVENT_ID(3i32);
+pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15);
+pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14);
+pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(4);
+pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(7);
+pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(8);
+pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(5);
+pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(6);
+pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = BDA_EVENT_ID(2);
+pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = BDA_EVENT_ID(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_EVENT_ID(pub i32);
-pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = BDA_EVENT_ID(16i32);
-pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = BDA_EVENT_ID(17i32);
-pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = BDA_EVENT_ID(1i32);
-pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = BDA_EVENT_ID(0i32);
-pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = BDA_EVENT_ID(18i32);
-pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = BDA_EVENT_ID(19i32);
-pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(9i32);
-pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(12i32);
-pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(13i32);
-pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(10i32);
-pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(11i32);
+pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = BDA_EVENT_ID(16);
+pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = BDA_EVENT_ID(17);
+pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = BDA_EVENT_ID(1);
+pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = BDA_EVENT_ID(0);
+pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = BDA_EVENT_ID(18);
+pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = BDA_EVENT_ID(19);
+pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(9);
+pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(12);
+pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(13);
+pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(10);
+pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(11);
 pub const BDA_E_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0xC0040009_u32 as _);
 pub const BDA_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC004000B_u32 as _);
 pub const BDA_E_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC004000E_u32 as _);
@@ -1755,19 +1755,19 @@ pub const BDA_E_WMDRM_INVALID_SIGNATURE: windows_core::HRESULT = windows_core::H
 pub const BDA_E_WMDRM_INVALID_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC004F004_u32 as _);
 pub const BDA_E_WMDRM_KEY_ID_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC004F008_u32 as _);
 pub const BDA_E_WOULD_DISRUPT_STREAMING: windows_core::HRESULT = windows_core::HRESULT(0xC0044003_u32 as _);
-pub const BDA_FEC_BCH: FECMethod = FECMethod(4i32);
-pub const BDA_FEC_LDPC: FECMethod = FECMethod(3i32);
-pub const BDA_FEC_MAX: FECMethod = FECMethod(6i32);
-pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = FECMethod(0i32);
-pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
-pub const BDA_FEC_RS_147_130: FECMethod = FECMethod(5i32);
-pub const BDA_FEC_RS_204_188: FECMethod = FECMethod(2i32);
-pub const BDA_FEC_VITERBI: FECMethod = FECMethod(1i32);
-pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(1i32);
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(0i32);
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(-1i32);
-pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = BDA_Frequency(0i32);
-pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = BDA_Frequency(-1i32);
+pub const BDA_FEC_BCH: FECMethod = FECMethod(4);
+pub const BDA_FEC_LDPC: FECMethod = FECMethod(3);
+pub const BDA_FEC_MAX: FECMethod = FECMethod(6);
+pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = FECMethod(0);
+pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1);
+pub const BDA_FEC_RS_147_130: FECMethod = FECMethod(5);
+pub const BDA_FEC_RS_204_188: FECMethod = FECMethod(2);
+pub const BDA_FEC_VITERBI: FECMethod = FECMethod(1);
+pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(1);
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(0);
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(-1);
+pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = BDA_Frequency(0);
+pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = BDA_Frequency(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_Frequency(pub i32);
@@ -1793,22 +1793,22 @@ pub struct BDA_GDDS_DATATYPE {
     pub lResult: i32,
     pub uuidDataType: windows_core::GUID,
 }
-pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6i32);
-pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7i32);
-pub const BDA_GUARD_1_128: GuardInterval = GuardInterval(5i32);
-pub const BDA_GUARD_1_16: GuardInterval = GuardInterval(2i32);
-pub const BDA_GUARD_1_32: GuardInterval = GuardInterval(1i32);
-pub const BDA_GUARD_1_4: GuardInterval = GuardInterval(4i32);
-pub const BDA_GUARD_1_8: GuardInterval = GuardInterval(3i32);
-pub const BDA_GUARD_MAX: GuardInterval = GuardInterval(8i32);
-pub const BDA_GUARD_NOT_DEFINED: GuardInterval = GuardInterval(0i32);
-pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1i32);
-pub const BDA_HALPHA_1: HierarchyAlpha = HierarchyAlpha(1i32);
-pub const BDA_HALPHA_2: HierarchyAlpha = HierarchyAlpha(2i32);
-pub const BDA_HALPHA_4: HierarchyAlpha = HierarchyAlpha(3i32);
-pub const BDA_HALPHA_MAX: HierarchyAlpha = HierarchyAlpha(4i32);
-pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = HierarchyAlpha(0i32);
-pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = HierarchyAlpha(-1i32);
+pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6);
+pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7);
+pub const BDA_GUARD_1_128: GuardInterval = GuardInterval(5);
+pub const BDA_GUARD_1_16: GuardInterval = GuardInterval(2);
+pub const BDA_GUARD_1_32: GuardInterval = GuardInterval(1);
+pub const BDA_GUARD_1_4: GuardInterval = GuardInterval(4);
+pub const BDA_GUARD_1_8: GuardInterval = GuardInterval(3);
+pub const BDA_GUARD_MAX: GuardInterval = GuardInterval(8);
+pub const BDA_GUARD_NOT_DEFINED: GuardInterval = GuardInterval(0);
+pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1);
+pub const BDA_HALPHA_1: HierarchyAlpha = HierarchyAlpha(1);
+pub const BDA_HALPHA_2: HierarchyAlpha = HierarchyAlpha(2);
+pub const BDA_HALPHA_4: HierarchyAlpha = HierarchyAlpha(3);
+pub const BDA_HALPHA_MAX: HierarchyAlpha = HierarchyAlpha(4);
+pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = HierarchyAlpha(0);
+pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = HierarchyAlpha(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_IPv4_ADDRESS {
@@ -1897,51 +1897,51 @@ impl Default for BDA_ISDBCAS_RESPONSEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1i32);
-pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2i32);
-pub const BDA_LNB_SOURCE_C: LNB_Source = LNB_Source(3i32);
-pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4i32);
-pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5i32);
-pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = LNB_Source(0i32);
-pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1i32);
-pub const BDA_MOD_1024QAM: ModulationType = ModulationType(19i32);
-pub const BDA_MOD_112QAM: ModulationType = ModulationType(6i32);
-pub const BDA_MOD_128QAM: ModulationType = ModulationType(7i32);
-pub const BDA_MOD_160QAM: ModulationType = ModulationType(8i32);
-pub const BDA_MOD_16APSK: ModulationType = ModulationType(29i32);
-pub const BDA_MOD_16QAM: ModulationType = ModulationType(1i32);
-pub const BDA_MOD_16VSB: ModulationType = ModulationType(24i32);
-pub const BDA_MOD_192QAM: ModulationType = ModulationType(9i32);
-pub const BDA_MOD_224QAM: ModulationType = ModulationType(10i32);
-pub const BDA_MOD_256QAM: ModulationType = ModulationType(11i32);
-pub const BDA_MOD_320QAM: ModulationType = ModulationType(12i32);
-pub const BDA_MOD_32APSK: ModulationType = ModulationType(30i32);
-pub const BDA_MOD_32QAM: ModulationType = ModulationType(2i32);
-pub const BDA_MOD_384QAM: ModulationType = ModulationType(13i32);
-pub const BDA_MOD_448QAM: ModulationType = ModulationType(14i32);
-pub const BDA_MOD_512QAM: ModulationType = ModulationType(15i32);
-pub const BDA_MOD_640QAM: ModulationType = ModulationType(16i32);
-pub const BDA_MOD_64QAM: ModulationType = ModulationType(3i32);
-pub const BDA_MOD_768QAM: ModulationType = ModulationType(17i32);
-pub const BDA_MOD_80QAM: ModulationType = ModulationType(4i32);
-pub const BDA_MOD_896QAM: ModulationType = ModulationType(18i32);
-pub const BDA_MOD_8PSK: ModulationType = ModulationType(27i32);
-pub const BDA_MOD_8VSB: ModulationType = ModulationType(23i32);
-pub const BDA_MOD_96QAM: ModulationType = ModulationType(5i32);
-pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = ModulationType(25i32);
-pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = ModulationType(26i32);
-pub const BDA_MOD_BPSK: ModulationType = ModulationType(21i32);
-pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33i32);
-pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35i32);
-pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34i32);
-pub const BDA_MOD_MAX: ModulationType = ModulationType(36i32);
-pub const BDA_MOD_NBC_8PSK: ModulationType = ModulationType(32i32);
-pub const BDA_MOD_NBC_QPSK: ModulationType = ModulationType(31i32);
-pub const BDA_MOD_NOT_DEFINED: ModulationType = ModulationType(0i32);
-pub const BDA_MOD_NOT_SET: ModulationType = ModulationType(-1i32);
-pub const BDA_MOD_OQPSK: ModulationType = ModulationType(22i32);
-pub const BDA_MOD_QPSK: ModulationType = ModulationType(20i32);
-pub const BDA_MOD_RF: ModulationType = ModulationType(28i32);
+pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1);
+pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2);
+pub const BDA_LNB_SOURCE_C: LNB_Source = LNB_Source(3);
+pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4);
+pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5);
+pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = LNB_Source(0);
+pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1);
+pub const BDA_MOD_1024QAM: ModulationType = ModulationType(19);
+pub const BDA_MOD_112QAM: ModulationType = ModulationType(6);
+pub const BDA_MOD_128QAM: ModulationType = ModulationType(7);
+pub const BDA_MOD_160QAM: ModulationType = ModulationType(8);
+pub const BDA_MOD_16APSK: ModulationType = ModulationType(29);
+pub const BDA_MOD_16QAM: ModulationType = ModulationType(1);
+pub const BDA_MOD_16VSB: ModulationType = ModulationType(24);
+pub const BDA_MOD_192QAM: ModulationType = ModulationType(9);
+pub const BDA_MOD_224QAM: ModulationType = ModulationType(10);
+pub const BDA_MOD_256QAM: ModulationType = ModulationType(11);
+pub const BDA_MOD_320QAM: ModulationType = ModulationType(12);
+pub const BDA_MOD_32APSK: ModulationType = ModulationType(30);
+pub const BDA_MOD_32QAM: ModulationType = ModulationType(2);
+pub const BDA_MOD_384QAM: ModulationType = ModulationType(13);
+pub const BDA_MOD_448QAM: ModulationType = ModulationType(14);
+pub const BDA_MOD_512QAM: ModulationType = ModulationType(15);
+pub const BDA_MOD_640QAM: ModulationType = ModulationType(16);
+pub const BDA_MOD_64QAM: ModulationType = ModulationType(3);
+pub const BDA_MOD_768QAM: ModulationType = ModulationType(17);
+pub const BDA_MOD_80QAM: ModulationType = ModulationType(4);
+pub const BDA_MOD_896QAM: ModulationType = ModulationType(18);
+pub const BDA_MOD_8PSK: ModulationType = ModulationType(27);
+pub const BDA_MOD_8VSB: ModulationType = ModulationType(23);
+pub const BDA_MOD_96QAM: ModulationType = ModulationType(5);
+pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = ModulationType(25);
+pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = ModulationType(26);
+pub const BDA_MOD_BPSK: ModulationType = ModulationType(21);
+pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33);
+pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35);
+pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34);
+pub const BDA_MOD_MAX: ModulationType = ModulationType(36);
+pub const BDA_MOD_NBC_8PSK: ModulationType = ModulationType(32);
+pub const BDA_MOD_NBC_QPSK: ModulationType = ModulationType(31);
+pub const BDA_MOD_NOT_DEFINED: ModulationType = ModulationType(0);
+pub const BDA_MOD_NOT_SET: ModulationType = ModulationType(-1);
+pub const BDA_MOD_OQPSK: ModulationType = ModulationType(22);
+pub const BDA_MOD_QPSK: ModulationType = ModulationType(20);
+pub const BDA_MOD_RF: ModulationType = ModulationType(28);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_MULTICAST_MODE(pub i32);
@@ -1952,7 +1952,7 @@ pub struct BDA_MUX_PIDLISTITEM {
     pub usProgramNumber: u16,
     pub ePIDType: MUX_PID_TYPE,
 }
-pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2i32);
+pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_PID_MAP {
@@ -1976,19 +1976,19 @@ impl Default for BDA_PID_UNMAP {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_PILOT_MAX: Pilot = Pilot(3i32);
-pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0i32);
-pub const BDA_PILOT_NOT_SET: Pilot = Pilot(-1i32);
-pub const BDA_PILOT_OFF: Pilot = Pilot(1i32);
-pub const BDA_PILOT_ON: Pilot = Pilot(2i32);
-pub const BDA_PLP_ID_NOT_SET: i32 = -1i32;
-pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = Polarisation(3i32);
-pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = Polarisation(4i32);
-pub const BDA_POLARISATION_LINEAR_H: Polarisation = Polarisation(1i32);
-pub const BDA_POLARISATION_LINEAR_V: Polarisation = Polarisation(2i32);
-pub const BDA_POLARISATION_MAX: Polarisation = Polarisation(5i32);
-pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = Polarisation(0i32);
-pub const BDA_POLARISATION_NOT_SET: Polarisation = Polarisation(-1i32);
+pub const BDA_PILOT_MAX: Pilot = Pilot(3);
+pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0);
+pub const BDA_PILOT_NOT_SET: Pilot = Pilot(-1);
+pub const BDA_PILOT_OFF: Pilot = Pilot(1);
+pub const BDA_PILOT_ON: Pilot = Pilot(2);
+pub const BDA_PLP_ID_NOT_SET: i32 = -1;
+pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = Polarisation(3);
+pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = Polarisation(4);
+pub const BDA_POLARISATION_LINEAR_H: Polarisation = Polarisation(1);
+pub const BDA_POLARISATION_LINEAR_V: Polarisation = Polarisation(2);
+pub const BDA_POLARISATION_MAX: Polarisation = Polarisation(5);
+pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = Polarisation(0);
+pub const BDA_POLARISATION_NOT_SET: Polarisation = Polarisation(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_PROGRAM_PID_LIST {
@@ -2001,9 +2001,9 @@ impl Default for BDA_PROGRAM_PID_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0i32);
-pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0i32);
-pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1i32);
+pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0);
+pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0);
+pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_RATING_PINRESET {
@@ -2015,12 +2015,12 @@ impl Default for BDA_RATING_PINRESET {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_ROLL_OFF_20: RollOff = RollOff(1i32);
-pub const BDA_ROLL_OFF_25: RollOff = RollOff(2i32);
-pub const BDA_ROLL_OFF_35: RollOff = RollOff(3i32);
-pub const BDA_ROLL_OFF_MAX: RollOff = RollOff(4i32);
-pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = RollOff(0i32);
-pub const BDA_ROLL_OFF_NOT_SET: RollOff = RollOff(-1i32);
+pub const BDA_ROLL_OFF_20: RollOff = RollOff(1);
+pub const BDA_ROLL_OFF_25: RollOff = RollOff(2);
+pub const BDA_ROLL_OFF_35: RollOff = RollOff(3);
+pub const BDA_ROLL_OFF_MAX: RollOff = RollOff(4);
+pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = RollOff(0);
+pub const BDA_ROLL_OFF_NOT_SET: RollOff = RollOff(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_Range(pub i32);
@@ -2030,36 +2030,36 @@ pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: i32,
     pub ul64AnalogStandardsSupported: u64,
 }
-pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144i32);
-pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32i32);
-pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = ScanModulationTypes(64i32);
-pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = ScanModulationTypes(128i32);
-pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456i32);
-pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = ScanModulationTypes(1i32);
-pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = ScanModulationTypes(8388608i32);
-pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = ScanModulationTypes(256i32);
-pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = ScanModulationTypes(512i32);
-pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = ScanModulationTypes(1024i32);
-pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = ScanModulationTypes(2048i32);
-pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912i32);
-pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = ScanModulationTypes(2i32);
-pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = ScanModulationTypes(4096i32);
-pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = ScanModulationTypes(8192i32);
-pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = ScanModulationTypes(16384i32);
-pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = ScanModulationTypes(32768i32);
-pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = ScanModulationTypes(4i32);
-pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = ScanModulationTypes(65536i32);
-pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = ScanModulationTypes(8i32);
-pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = ScanModulationTypes(131072i32);
-pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = ScanModulationTypes(67108864i32);
-pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = ScanModulationTypes(4194304i32);
-pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = ScanModulationTypes(16i32);
-pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = ScanModulationTypes(16777216i32);
-pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = ScanModulationTypes(1048576i32);
-pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = ScanModulationTypes(33554432i32);
-pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = ScanModulationTypes(2097152i32);
-pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = ScanModulationTypes(524288i32);
-pub const BDA_SCAN_MOD_RF: ScanModulationTypes = ScanModulationTypes(134217728i32);
+pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144);
+pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32);
+pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = ScanModulationTypes(64);
+pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = ScanModulationTypes(128);
+pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456);
+pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = ScanModulationTypes(1);
+pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = ScanModulationTypes(8388608);
+pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = ScanModulationTypes(256);
+pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = ScanModulationTypes(512);
+pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = ScanModulationTypes(1024);
+pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = ScanModulationTypes(2048);
+pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912);
+pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = ScanModulationTypes(2);
+pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = ScanModulationTypes(4096);
+pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = ScanModulationTypes(8192);
+pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = ScanModulationTypes(16384);
+pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = ScanModulationTypes(32768);
+pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = ScanModulationTypes(4);
+pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = ScanModulationTypes(65536);
+pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = ScanModulationTypes(8);
+pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = ScanModulationTypes(131072);
+pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = ScanModulationTypes(67108864);
+pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = ScanModulationTypes(4194304);
+pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = ScanModulationTypes(16);
+pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = ScanModulationTypes(16777216);
+pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = ScanModulationTypes(1048576);
+pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = ScanModulationTypes(33554432);
+pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = ScanModulationTypes(2097152);
+pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = ScanModulationTypes(524288);
+pub const BDA_SCAN_MOD_RF: ScanModulationTypes = ScanModulationTypes(134217728);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BDA_SCAN_START {
@@ -2075,8 +2075,8 @@ pub struct BDA_SCAN_STATE {
     pub ulSecondsLeft: u32,
     pub ulCurrentFrequency: u32,
 }
-pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2i32);
-pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1i32);
+pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2);
+pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SIGNAL_STATE(pub i32);
@@ -2087,13 +2087,13 @@ pub struct BDA_SIGNAL_TIMEOUTS {
     pub ulScanningTimeoutMs: u32,
     pub ulTuningTimeoutMs: u32,
 }
-pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0i32);
-pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1i32);
-pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3i32);
-pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4i32);
-pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2i32);
-pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = SpectralInversion(0i32);
-pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = SpectralInversion(-1i32);
+pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0);
+pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1);
+pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3);
+pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4);
+pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2);
+pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = SpectralInversion(0);
+pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = SpectralInversion(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_STRING {
@@ -2177,8 +2177,8 @@ impl Default for BDA_TUNER_TUNERSTATE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1i32);
-pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
+pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1);
+pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BDA_USERACTIVITY_INTERVAL {
@@ -2243,34 +2243,34 @@ pub struct BDA_WMDRM_STATUS {
     pub ulRevInfoTTL: u32,
     pub ulState: u32,
 }
-pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
-pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
-pub const BDA_XMIT_MODE_2K: TransmissionMode = TransmissionMode(1i32);
-pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = TransmissionMode(4i32);
-pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8i32);
-pub const BDA_XMIT_MODE_4K: TransmissionMode = TransmissionMode(3i32);
-pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = TransmissionMode(5i32);
-pub const BDA_XMIT_MODE_8K: TransmissionMode = TransmissionMode(2i32);
-pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9i32);
-pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = TransmissionMode(0i32);
-pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = TransmissionMode(-1i32);
+pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7);
+pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6);
+pub const BDA_XMIT_MODE_2K: TransmissionMode = TransmissionMode(1);
+pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = TransmissionMode(4);
+pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8);
+pub const BDA_XMIT_MODE_4K: TransmissionMode = TransmissionMode(3);
+pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = TransmissionMode(5);
+pub const BDA_XMIT_MODE_8K: TransmissionMode = TransmissionMode(2);
+pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9);
+pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = TransmissionMode(0);
+pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = TransmissionMode(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BinaryConvolutionCodeRate(pub i32);
-pub const CATEGORY_COUNT: ComponentCategory = ComponentCategory(8i32);
-pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2u32;
-pub const CDEF_CLASS_DEFAULT: u32 = 1u32;
-pub const CDEF_DEVMON_CMGR_DEVICE: u32 = 16u32;
-pub const CDEF_DEVMON_DMO: u32 = 32u32;
-pub const CDEF_DEVMON_FILTER: u32 = 128u32;
-pub const CDEF_DEVMON_PNP_DEVICE: u32 = 64u32;
-pub const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240u32;
-pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8u32;
+pub const CATEGORY_COUNT: ComponentCategory = ComponentCategory(8);
+pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2;
+pub const CDEF_CLASS_DEFAULT: u32 = 1;
+pub const CDEF_DEVMON_CMGR_DEVICE: u32 = 16;
+pub const CDEF_DEVMON_DMO: u32 = 32;
+pub const CDEF_DEVMON_FILTER: u32 = 128;
+pub const CDEF_DEVMON_PNP_DEVICE: u32 = 64;
+pub const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240;
+pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8;
 pub const CFSTR_VFW_FILTERLIST: windows_core::PCSTR = windows_core::s!("Video for Windows 4 Filters");
-pub const CHARS_IN_GUID: u32 = 39u32;
-pub const CK_INDEX: COLORKEY_TYPE = COLORKEY_TYPE(1i32);
-pub const CK_NOCOLORKEY: COLORKEY_TYPE = COLORKEY_TYPE(0i32);
-pub const CK_RGB: COLORKEY_TYPE = COLORKEY_TYPE(2i32);
+pub const CHARS_IN_GUID: u32 = 39;
+pub const CK_INDEX: COLORKEY_TYPE = COLORKEY_TYPE(1);
+pub const CK_NOCOLORKEY: COLORKEY_TYPE = COLORKEY_TYPE(0);
+pub const CK_RGB: COLORKEY_TYPE = COLORKEY_TYPE(2);
 pub const CLSID_AMAudioData: windows_core::GUID = windows_core::GUID::from_u128(0xf2468580_af8a_11d0_8212_00c04fc32c45);
 pub const CLSID_AMAudioStream: windows_core::GUID = windows_core::GUID::from_u128(0x8496e040_af4c_11d0_8212_00c04fc32c45);
 pub const CLSID_AMDirectDrawStream: windows_core::GUID = windows_core::GUID::from_u128(0x49c47ce4_9ba4_11d0_8212_00c04fc32c45);
@@ -2296,124 +2296,124 @@ pub struct COLORKEY_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPLETION_STATUS_FLAGS(pub i32);
-pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(4i32);
-pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(1i32);
-pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(2i32);
-pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(2i32);
-pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(1i32);
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(2i32);
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(3i32);
-pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(0i32);
-pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(1i32);
-pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(4i32);
-pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(3i32);
-pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(5i32);
-pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(6i32);
-pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(1i32);
-pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(0i32);
-pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(2i32);
-pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(0i32);
-pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2147483647i32);
-pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
-pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(1i32);
-pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2i32);
-pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
+pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(4);
+pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(1);
+pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(2);
+pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(2);
+pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(1);
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(2);
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(3);
+pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(0);
+pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(1);
+pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(4);
+pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(3);
+pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(5);
+pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(6);
+pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(1);
+pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(0);
+pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(2);
+pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(0);
+pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2147483647);
+pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0);
+pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(1);
+pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2);
+pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3);
+pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3);
+pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_ACP_Protection_Level(pub i32);
-pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(1i32);
-pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2i32);
-pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(3i32);
-pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(4i32);
-pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(5i32);
-pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(7i32);
-pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(0i32);
-pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(6i32);
-pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2147483647i32);
+pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(1);
+pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2);
+pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(3);
+pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(4);
+pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(5);
+pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(7);
+pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(0);
+pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(6);
+pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2147483647);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_BusType(pub i32);
-pub const COPP_BusType_AGP: COPP_BusType = COPP_BusType(4i32);
-pub const COPP_BusType_ForceDWORD: COPP_BusType = COPP_BusType(2147483647i32);
-pub const COPP_BusType_Integrated: COPP_BusType = COPP_BusType(-2147483648i32);
-pub const COPP_BusType_PCI: COPP_BusType = COPP_BusType(1i32);
-pub const COPP_BusType_PCIExpress: COPP_BusType = COPP_BusType(3i32);
-pub const COPP_BusType_PCIX: COPP_BusType = COPP_BusType(2i32);
-pub const COPP_BusType_Unknown: COPP_BusType = COPP_BusType(0i32);
-pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(1i32);
-pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(4i32);
-pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2i32);
-pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(3i32);
-pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
-pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2147483647i32);
-pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(12i32);
-pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
+pub const COPP_BusType_AGP: COPP_BusType = COPP_BusType(4);
+pub const COPP_BusType_ForceDWORD: COPP_BusType = COPP_BusType(2147483647);
+pub const COPP_BusType_Integrated: COPP_BusType = COPP_BusType(-2147483648);
+pub const COPP_BusType_PCI: COPP_BusType = COPP_BusType(1);
+pub const COPP_BusType_PCIExpress: COPP_BusType = COPP_BusType(3);
+pub const COPP_BusType_PCIX: COPP_BusType = COPP_BusType(2);
+pub const COPP_BusType_Unknown: COPP_BusType = COPP_BusType(0);
+pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(1);
+pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(4);
+pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2);
+pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(3);
+pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0);
+pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2147483647);
+pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(12);
+pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_CGMSA_Protection_Level(pub i32);
-pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(8i32);
+pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_ConnectorType(pub i32);
-pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = COPP_ConnectorType(3i32);
-pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = COPP_ConnectorType(2i32);
-pub const COPP_ConnectorType_DVI: COPP_ConnectorType = COPP_ConnectorType(4i32);
-pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = COPP_ConnectorType(8i32);
-pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = COPP_ConnectorType(2147483647i32);
-pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = COPP_ConnectorType(5i32);
-pub const COPP_ConnectorType_Internal: COPP_ConnectorType = COPP_ConnectorType(-2147483648i32);
-pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = COPP_ConnectorType(6i32);
-pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = COPP_ConnectorType(1i32);
-pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = COPP_ConnectorType(7i32);
-pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = COPP_ConnectorType(-1i32);
-pub const COPP_ConnectorType_VGA: COPP_ConnectorType = COPP_ConnectorType(0i32);
-pub const COPP_DefaultProtectionLevel: u32 = 0u32;
-pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(-2i32);
-pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(1i32);
-pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(2147483647i32);
-pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
-pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
+pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = COPP_ConnectorType(3);
+pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = COPP_ConnectorType(2);
+pub const COPP_ConnectorType_DVI: COPP_ConnectorType = COPP_ConnectorType(4);
+pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = COPP_ConnectorType(8);
+pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = COPP_ConnectorType(2147483647);
+pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = COPP_ConnectorType(5);
+pub const COPP_ConnectorType_Internal: COPP_ConnectorType = COPP_ConnectorType(-2147483648);
+pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = COPP_ConnectorType(6);
+pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = COPP_ConnectorType(1);
+pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = COPP_ConnectorType(7);
+pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = COPP_ConnectorType(-1);
+pub const COPP_ConnectorType_VGA: COPP_ConnectorType = COPP_ConnectorType(0);
+pub const COPP_DefaultProtectionLevel: u32 = 0;
+pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(-2);
+pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(1);
+pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(2147483647);
+pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0);
+pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1);
+pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1);
+pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_HDCP_Protection_Level(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_ImageAspectRatio_EN300294(pub i32);
-pub const COPP_ImageAspectRatio_EN300294_Mask: u32 = 7u32;
-pub const COPP_LinkLost: COPP_StatusFlags = COPP_StatusFlags(1i32);
-pub const COPP_NoProtectionLevelAvailable: i32 = -1i32;
-pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16384i32);
-pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2048i32);
-pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4096i32);
-pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8192i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(128i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(32i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(64i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1024i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(256i32);
-pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(512i32);
-pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8i32);
-pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16i32);
-pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2i32);
-pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1i32);
-pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4i32);
-pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147450881i32);
-pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = COPP_TVProtectionStandard(0i32);
-pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2147450880i32);
-pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147483648i32);
-pub const COPP_RenegotiationRequired: COPP_StatusFlags = COPP_StatusFlags(2i32);
+pub const COPP_ImageAspectRatio_EN300294_Mask: u32 = 7;
+pub const COPP_LinkLost: COPP_StatusFlags = COPP_StatusFlags(1);
+pub const COPP_NoProtectionLevelAvailable: i32 = -1;
+pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16384);
+pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2048);
+pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4096);
+pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8192);
+pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(128);
+pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(32);
+pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(64);
+pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1024);
+pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(256);
+pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(512);
+pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8);
+pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16);
+pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2);
+pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1);
+pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4);
+pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147450881);
+pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = COPP_TVProtectionStandard(0);
+pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2147450880);
+pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147483648);
+pub const COPP_RenegotiationRequired: COPP_StatusFlags = COPP_StatusFlags(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_StatusFlags(pub i32);
-pub const COPP_StatusFlagsReserved: COPP_StatusFlags = COPP_StatusFlags(-4i32);
+pub const COPP_StatusFlagsReserved: COPP_StatusFlags = COPP_StatusFlags(-4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_StatusHDCPFlags(pub i32);
-pub const COPP_StatusNormal: COPP_StatusFlags = COPP_StatusFlags(0i32);
+pub const COPP_StatusNormal: COPP_StatusFlags = COPP_StatusFlags(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPP_TVProtectionStandard(pub i32);
@@ -2423,29 +2423,29 @@ pub struct CameraControlFlags(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraControlProperty(pub i32);
-pub const CameraControl_Exposure: CameraControlProperty = CameraControlProperty(4i32);
-pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
-pub const CameraControl_Flags_Manual: CameraControlFlags = CameraControlFlags(2i32);
-pub const CameraControl_Focus: CameraControlProperty = CameraControlProperty(6i32);
-pub const CameraControl_Iris: CameraControlProperty = CameraControlProperty(5i32);
-pub const CameraControl_Pan: CameraControlProperty = CameraControlProperty(0i32);
-pub const CameraControl_Roll: CameraControlProperty = CameraControlProperty(2i32);
-pub const CameraControl_Tilt: CameraControlProperty = CameraControlProperty(1i32);
-pub const CameraControl_Zoom: CameraControlProperty = CameraControlProperty(3i32);
-pub const CardDataChanged: SmartCardStatusType = SmartCardStatusType(3i32);
-pub const CardError: SmartCardStatusType = SmartCardStatusType(2i32);
-pub const CardFirmwareUpgrade: SmartCardStatusType = SmartCardStatusType(4i32);
-pub const CardInserted: SmartCardStatusType = SmartCardStatusType(0i32);
-pub const CardRemoved: SmartCardStatusType = SmartCardStatusType(1i32);
-pub const CategoryAudio: ComponentCategory = ComponentCategory(2i32);
-pub const CategoryCaptions: ComponentCategory = ComponentCategory(5i32);
-pub const CategoryData: ComponentCategory = ComponentCategory(7i32);
-pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
-pub const CategoryOther: ComponentCategory = ComponentCategory(0i32);
-pub const CategorySubtitles: ComponentCategory = ComponentCategory(4i32);
-pub const CategorySuperimpose: ComponentCategory = ComponentCategory(6i32);
-pub const CategoryText: ComponentCategory = ComponentCategory(3i32);
-pub const CategoryVideo: ComponentCategory = ComponentCategory(1i32);
+pub const CameraControl_Exposure: CameraControlProperty = CameraControlProperty(4);
+pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1);
+pub const CameraControl_Flags_Manual: CameraControlFlags = CameraControlFlags(2);
+pub const CameraControl_Focus: CameraControlProperty = CameraControlProperty(6);
+pub const CameraControl_Iris: CameraControlProperty = CameraControlProperty(5);
+pub const CameraControl_Pan: CameraControlProperty = CameraControlProperty(0);
+pub const CameraControl_Roll: CameraControlProperty = CameraControlProperty(2);
+pub const CameraControl_Tilt: CameraControlProperty = CameraControlProperty(1);
+pub const CameraControl_Zoom: CameraControlProperty = CameraControlProperty(3);
+pub const CardDataChanged: SmartCardStatusType = SmartCardStatusType(3);
+pub const CardError: SmartCardStatusType = SmartCardStatusType(2);
+pub const CardFirmwareUpgrade: SmartCardStatusType = SmartCardStatusType(4);
+pub const CardInserted: SmartCardStatusType = SmartCardStatusType(0);
+pub const CardRemoved: SmartCardStatusType = SmartCardStatusType(1);
+pub const CategoryAudio: ComponentCategory = ComponentCategory(2);
+pub const CategoryCaptions: ComponentCategory = ComponentCategory(5);
+pub const CategoryData: ComponentCategory = ComponentCategory(7);
+pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1);
+pub const CategoryOther: ComponentCategory = ComponentCategory(0);
+pub const CategorySubtitles: ComponentCategory = ComponentCategory(4);
+pub const CategorySuperimpose: ComponentCategory = ComponentCategory(6);
+pub const CategoryText: ComponentCategory = ComponentCategory(3);
+pub const CategoryVideo: ComponentCategory = ComponentCategory(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ComponentCategory(pub i32);
@@ -2455,12 +2455,12 @@ pub struct ComponentStatus(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompressionCaps(pub i32);
-pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8i32);
-pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2i32);
-pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4i32);
-pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
-pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16i32);
-pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(0i32);
+pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8);
+pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2);
+pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4);
+pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1);
+pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16);
+pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDSFF_FLAGS(pub i32);
@@ -2497,33 +2497,33 @@ impl core::ops::Not for DDSFF_FLAGS {
         Self(self.0.not())
     }
 }
-pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1i32);
-pub const DECIMATION_DEFAULT: DECIMATION_USAGE = DECIMATION_USAGE(4i32);
-pub const DECIMATION_LEGACY: DECIMATION_USAGE = DECIMATION_USAGE(0i32);
+pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1);
+pub const DECIMATION_DEFAULT: DECIMATION_USAGE = DECIMATION_USAGE(4);
+pub const DECIMATION_LEGACY: DECIMATION_USAGE = DECIMATION_USAGE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECIMATION_USAGE(pub i32);
-pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(1i32);
-pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(3i32);
-pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(2i32);
-pub const DECODER_CAP_NOTSUPPORTED: u32 = 0u32;
-pub const DECODER_CAP_SUPPORTED: u32 = 1u32;
-pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(1i32);
-pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(3i32);
-pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(2i32);
-pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(0i32);
-pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129i32);
-pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135i32);
+pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(1);
+pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(3);
+pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(2);
+pub const DECODER_CAP_NOTSUPPORTED: u32 = 0;
+pub const DECODER_CAP_SUPPORTED: u32 = 1;
+pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(1);
+pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(3);
+pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(2);
+pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(0);
+pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129);
+pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVBSystemType(pub i32);
-pub const DVB_Cable: DVBSystemType = DVBSystemType(0i32);
-pub const DVB_Satellite: DVBSystemType = DVBSystemType(2i32);
-pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1i32);
-pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1002i32);
-pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1001i32);
-pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1000i32);
-pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1003i32);
+pub const DVB_Cable: DVBSystemType = DVBSystemType(0);
+pub const DVB_Satellite: DVBSystemType = DVBSystemType(2);
+pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1);
+pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1002);
+pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1001);
+pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1000);
+pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1003);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_ATR {
@@ -2538,33 +2538,33 @@ impl Default for DVD_ATR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_AUDIO_APPMODE(pub i32);
-pub const DVD_AUDIO_CAPS_AC3: u32 = 1u32;
-pub const DVD_AUDIO_CAPS_DTS: u32 = 8u32;
-pub const DVD_AUDIO_CAPS_LPCM: u32 = 4u32;
-pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2u32;
-pub const DVD_AUDIO_CAPS_SDDS: u32 = 16u32;
+pub const DVD_AUDIO_CAPS_AC3: u32 = 1;
+pub const DVD_AUDIO_CAPS_DTS: u32 = 8;
+pub const DVD_AUDIO_CAPS_LPCM: u32 = 4;
+pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2;
+pub const DVD_AUDIO_CAPS_SDDS: u32 = 16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_AUDIO_FORMAT(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_AUDIO_LANG_EXT(pub i32);
-pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(1i32);
-pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(3i32);
-pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(4i32);
-pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(0i32);
-pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(2i32);
-pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(1i32);
-pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(0i32);
-pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(3i32);
-pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(2i32);
-pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(4i32);
-pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(6i32);
-pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(3i32);
-pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(5i32);
-pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(7i32);
-pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(0i32);
-pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(1i32);
+pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(1);
+pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(3);
+pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(4);
+pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(0);
+pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(2);
+pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(1);
+pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(0);
+pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(3);
+pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(2);
+pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(4);
+pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(6);
+pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(3);
+pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(5);
+pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(7);
+pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(0);
+pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_AudioAttributes {
@@ -2584,36 +2584,36 @@ impl Default for DVD_AudioAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4i32);
-pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0i32);
-pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(6i32);
-pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(5i32);
-pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(1i32);
-pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(2i32);
-pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(3i32);
-pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(4i32);
-pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(8i32);
-pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(7i32);
-pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(1i32);
-pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(0i32);
-pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(3i32);
-pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(2i32);
+pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4);
+pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0);
+pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(6);
+pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(5);
+pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(1);
+pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(2);
+pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(3);
+pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(4);
+pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(8);
+pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(7);
+pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(1);
+pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(0);
+pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(3);
+pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_CMD_FLAGS(pub i32);
-pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = DVD_CMD_FLAGS(4i32);
-pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(16i32);
-pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = DVD_CMD_FLAGS(1i32);
-pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = DVD_CMD_FLAGS(0i32);
-pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = DVD_CMD_FLAGS(2i32);
-pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(8i32);
-pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(6i32);
-pub const DVD_Channel_Audio: DVD_TextStringType = DVD_TextStringType(32i32);
-pub const DVD_CharSet_ISO646: DVD_TextCharSet = DVD_TextCharSet(1i32);
-pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = DVD_TextCharSet(3i32);
-pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = DVD_TextCharSet(2i32);
-pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = DVD_TextCharSet(4i32);
-pub const DVD_CharSet_Unicode: DVD_TextCharSet = DVD_TextCharSet(0i32);
+pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = DVD_CMD_FLAGS(4);
+pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(16);
+pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = DVD_CMD_FLAGS(1);
+pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = DVD_CMD_FLAGS(0);
+pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = DVD_CMD_FLAGS(2);
+pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(8);
+pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(6);
+pub const DVD_Channel_Audio: DVD_TextStringType = DVD_TextStringType(32);
+pub const DVD_CharSet_ISO646: DVD_TextCharSet = DVD_TextCharSet(1);
+pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = DVD_TextCharSet(3);
+pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = DVD_TextCharSet(2);
+pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = DVD_TextCharSet(4);
+pub const DVD_CharSet_Unicode: DVD_TextCharSet = DVD_TextCharSet(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_DECODER_CAPS {
@@ -2630,49 +2630,49 @@ pub struct DVD_DECODER_CAPS {
     pub dwRes3: u32,
     pub dwRes4: u32,
 }
-pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15u32;
-pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1i32);
-pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(0i32);
+pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15;
+pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1);
+pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_DISC_SIDE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_DOMAIN(pub i32);
-pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = DVD_DOMAIN(1i32);
-pub const DVD_DOMAIN_Stop: DVD_DOMAIN = DVD_DOMAIN(5i32);
-pub const DVD_DOMAIN_Title: DVD_DOMAIN = DVD_DOMAIN(4i32);
-pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = DVD_DOMAIN(2i32);
-pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = DVD_DOMAIN(3i32);
-pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = DVD_OPTION_FLAG(14i32);
+pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = DVD_DOMAIN(1);
+pub const DVD_DOMAIN_Stop: DVD_DOMAIN = DVD_DOMAIN(5);
+pub const DVD_DOMAIN_Title: DVD_DOMAIN = DVD_DOMAIN(4);
+pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = DVD_DOMAIN(2);
+pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = DVD_DOMAIN(3);
+pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = DVD_OPTION_FLAG(14);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_ERROR(pub i32);
-pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = DVD_ERROR(2i32);
-pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = DVD_ERROR(9i32);
-pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = DVD_ERROR(10i32);
-pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = DVD_ERROR(8i32);
-pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = DVD_ERROR(7i32);
-pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = DVD_ERROR(3i32);
-pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = DVD_ERROR(4i32);
-pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = DVD_ERROR(5i32);
-pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = DVD_ERROR(6i32);
-pub const DVD_ERROR_Unexpected: DVD_ERROR = DVD_ERROR(1i32);
-pub const DVD_EnableCC: DVD_OPTION_FLAG = DVD_OPTION_FLAG(19i32);
-pub const DVD_EnableESOutput: DVD_OPTION_FLAG = DVD_OPTION_FLAG(12i32);
-pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = DVD_OPTION_FLAG(8i32);
-pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(15i32);
-pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = DVD_OPTION_FLAG(5i32);
-pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = DVD_OPTION_FLAG(7i32);
-pub const DVD_EnableStreaming: DVD_OPTION_FLAG = DVD_OPTION_FLAG(11i32);
-pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = DVD_OPTION_FLAG(13i32);
-pub const DVD_FPS_25: DVD_FRAMERATE = DVD_FRAMERATE(1i32);
-pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = DVD_FRAMERATE(3i32);
+pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = DVD_ERROR(2);
+pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = DVD_ERROR(9);
+pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = DVD_ERROR(10);
+pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = DVD_ERROR(8);
+pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = DVD_ERROR(7);
+pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = DVD_ERROR(3);
+pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = DVD_ERROR(4);
+pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = DVD_ERROR(5);
+pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = DVD_ERROR(6);
+pub const DVD_ERROR_Unexpected: DVD_ERROR = DVD_ERROR(1);
+pub const DVD_EnableCC: DVD_OPTION_FLAG = DVD_OPTION_FLAG(19);
+pub const DVD_EnableESOutput: DVD_OPTION_FLAG = DVD_OPTION_FLAG(12);
+pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = DVD_OPTION_FLAG(8);
+pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(15);
+pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = DVD_OPTION_FLAG(5);
+pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = DVD_OPTION_FLAG(7);
+pub const DVD_EnableStreaming: DVD_OPTION_FLAG = DVD_OPTION_FLAG(11);
+pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = DVD_OPTION_FLAG(13);
+pub const DVD_FPS_25: DVD_FRAMERATE = DVD_FRAMERATE(1);
+pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = DVD_FRAMERATE(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_FRAMERATE(pub i32);
-pub const DVD_General_Comments: DVD_TextStringType = DVD_TextStringType(49i32);
-pub const DVD_General_Name: DVD_TextStringType = DVD_TextStringType(48i32);
+pub const DVD_General_Comments: DVD_TextStringType = DVD_TextStringType(49);
+pub const DVD_General_Name: DVD_TextStringType = DVD_TextStringType(48);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_HMSF_TIMECODE {
@@ -2681,8 +2681,8 @@ pub struct DVD_HMSF_TIMECODE {
     pub bSeconds: u8,
     pub bFrames: u8,
 }
-pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3i32);
-pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10i32);
+pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3);
+pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_KARAOKE_ASSIGNMENT(pub i32);
@@ -2706,23 +2706,23 @@ impl Default for DVD_KaraokeAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4i32);
-pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8i32);
-pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(16i32);
-pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(32i32);
-pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(1i32);
-pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(2i32);
-pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(64i32);
-pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(128i32);
-pub const DVD_MENU_Angle: DVD_MENU_ID = DVD_MENU_ID(6i32);
-pub const DVD_MENU_Audio: DVD_MENU_ID = DVD_MENU_ID(5i32);
-pub const DVD_MENU_Chapter: DVD_MENU_ID = DVD_MENU_ID(7i32);
+pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4);
+pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8);
+pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(16);
+pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(32);
+pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(1);
+pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(2);
+pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(64);
+pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(128);
+pub const DVD_MENU_Angle: DVD_MENU_ID = DVD_MENU_ID(6);
+pub const DVD_MENU_Audio: DVD_MENU_ID = DVD_MENU_ID(5);
+pub const DVD_MENU_Chapter: DVD_MENU_ID = DVD_MENU_ID(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_MENU_ID(pub i32);
-pub const DVD_MENU_Root: DVD_MENU_ID = DVD_MENU_ID(3i32);
-pub const DVD_MENU_Subpicture: DVD_MENU_ID = DVD_MENU_ID(4i32);
-pub const DVD_MENU_Title: DVD_MENU_ID = DVD_MENU_ID(2i32);
+pub const DVD_MENU_Root: DVD_MENU_ID = DVD_MENU_ID(3);
+pub const DVD_MENU_Subpicture: DVD_MENU_ID = DVD_MENU_ID(4);
+pub const DVD_MENU_Title: DVD_MENU_ID = DVD_MENU_ID(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_MUA_Coeff {
@@ -2738,7 +2738,7 @@ pub struct DVD_MUA_MixingInfo {
     pub fMix1InPhase: windows_core::BOOL,
     pub dwSpeakerPosition: u32,
 }
-pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16i32);
+pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MenuAttributes {
@@ -2754,20 +2754,20 @@ impl Default for DVD_MenuAttributes {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1i32);
-pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256i32);
-pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2i32);
-pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(512i32);
-pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4i32);
-pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1024i32);
-pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8i32);
-pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2048i32);
-pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16i32);
-pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4096i32);
-pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(32i32);
-pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8192i32);
-pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(64i32);
-pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16384i32);
+pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1);
+pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256);
+pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2);
+pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(512);
+pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4);
+pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1024);
+pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8);
+pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2048);
+pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16);
+pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4096);
+pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(32);
+pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8192);
+pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(64);
+pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16384);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_MultichannelAudioAttributes {
@@ -2782,48 +2782,48 @@ impl Default for DVD_MultichannelAudioAttributes {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_NavCmdType(pub i32);
-pub const DVD_NavCmdType_Button: DVD_NavCmdType = DVD_NavCmdType(4i32);
-pub const DVD_NavCmdType_Cell: DVD_NavCmdType = DVD_NavCmdType(3i32);
-pub const DVD_NavCmdType_Post: DVD_NavCmdType = DVD_NavCmdType(2i32);
-pub const DVD_NavCmdType_Pre: DVD_NavCmdType = DVD_NavCmdType(1i32);
-pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(2i32);
-pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(9i32);
+pub const DVD_NavCmdType_Button: DVD_NavCmdType = DVD_NavCmdType(4);
+pub const DVD_NavCmdType_Cell: DVD_NavCmdType = DVD_NavCmdType(3);
+pub const DVD_NavCmdType_Post: DVD_NavCmdType = DVD_NavCmdType(2);
+pub const DVD_NavCmdType_Pre: DVD_NavCmdType = DVD_NavCmdType(1);
+pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(2);
+pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(9);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_OPTION_FLAG(pub i32);
-pub const DVD_Other_Cut: DVD_TextStringType = DVD_TextStringType(81i32);
-pub const DVD_Other_Scene: DVD_TextStringType = DVD_TextStringType(80i32);
-pub const DVD_Other_Take: DVD_TextStringType = DVD_TextStringType(82i32);
+pub const DVD_Other_Cut: DVD_TextStringType = DVD_TextStringType(81);
+pub const DVD_Other_Scene: DVD_TextStringType = DVD_TextStringType(80);
+pub const DVD_Other_Take: DVD_TextStringType = DVD_TextStringType(82);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_PARENTAL_LEVEL(pub i32);
-pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(256i32);
-pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(512i32);
-pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(1024i32);
-pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(2048i32);
-pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(4096i32);
-pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(8192i32);
-pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(16384i32);
-pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(32768i32);
+pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(256);
+pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(512);
+pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(1024);
+pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(2048);
+pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(4096);
+pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(8192);
+pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(16384);
+pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(32768);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_PB_STOPPED(pub i32);
-pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(13i32);
-pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(14i32);
-pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = DVD_PB_STOPPED(15i32);
-pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = DVD_PB_STOPPED(5i32);
-pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = DVD_PB_STOPPED(12i32);
-pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(6i32);
-pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(11i32);
-pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = DVD_PB_STOPPED(1i32);
-pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = DVD_PB_STOPPED(2i32);
-pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = DVD_PB_STOPPED(0i32);
-pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(9i32);
-pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(8i32);
-pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(7i32);
-pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(10i32);
-pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = DVD_PB_STOPPED(4i32);
-pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(3i32);
+pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(13);
+pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(14);
+pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = DVD_PB_STOPPED(15);
+pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = DVD_PB_STOPPED(5);
+pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = DVD_PB_STOPPED(12);
+pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(6);
+pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(11);
+pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = DVD_PB_STOPPED(1);
+pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = DVD_PB_STOPPED(2);
+pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = DVD_PB_STOPPED(0);
+pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(9);
+pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(8);
+pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(7);
+pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(10);
+pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = DVD_PB_STOPPED(4);
+pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION {
@@ -2848,35 +2848,35 @@ pub struct DVD_PREFERRED_DISPLAY_MODE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_RELATIVE_BUTTON(pub i32);
-pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = DVD_OPTION_FLAG(17i32);
-pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(3i32);
-pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(2i32);
-pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(4i32);
-pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(1i32);
-pub const DVD_ResetOnStop: DVD_OPTION_FLAG = DVD_OPTION_FLAG(1i32);
-pub const DVD_RestartDisc: DVD_OPTION_FLAG = DVD_OPTION_FLAG(18i32);
-pub const DVD_SIDE_A: DVD_DISC_SIDE = DVD_DISC_SIDE(1i32);
-pub const DVD_SIDE_B: DVD_DISC_SIDE = DVD_DISC_SIDE(2i32);
-pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(1i32);
-pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(2i32);
-pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(0i32);
-pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(1i32);
-pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(0i32);
-pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(2i32);
-pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(6i32);
-pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(7i32);
-pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(5i32);
-pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(2i32);
-pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(3i32);
-pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(1i32);
-pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(14i32);
-pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(15i32);
-pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(13i32);
-pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(9i32);
-pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(0i32);
-pub const DVD_STREAM_DATA_CURRENT: u32 = 2048u32;
-pub const DVD_STREAM_DATA_VMGM: u32 = 1024u32;
-pub const DVD_STREAM_DATA_VTSM: u32 = 1025u32;
+pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = DVD_OPTION_FLAG(17);
+pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(3);
+pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(2);
+pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(4);
+pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(1);
+pub const DVD_ResetOnStop: DVD_OPTION_FLAG = DVD_OPTION_FLAG(1);
+pub const DVD_RestartDisc: DVD_OPTION_FLAG = DVD_OPTION_FLAG(18);
+pub const DVD_SIDE_A: DVD_DISC_SIDE = DVD_DISC_SIDE(1);
+pub const DVD_SIDE_B: DVD_DISC_SIDE = DVD_DISC_SIDE(2);
+pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(1);
+pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(2);
+pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(0);
+pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(1);
+pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(0);
+pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(2);
+pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(6);
+pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(7);
+pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(5);
+pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(2);
+pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(3);
+pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(1);
+pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(14);
+pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(15);
+pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(13);
+pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(9);
+pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(0);
+pub const DVD_STREAM_DATA_CURRENT: u32 = 2048;
+pub const DVD_STREAM_DATA_VMGM: u32 = 1024;
+pub const DVD_STREAM_DATA_VTSM: u32 = 1025;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_SUBPICTURE_CODING(pub i32);
@@ -2886,14 +2886,14 @@ pub struct DVD_SUBPICTURE_LANG_EXT(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_SUBPICTURE_TYPE(pub i32);
-pub const DVD_Stream_Angle: DVD_TextStringType = DVD_TextStringType(18i32);
-pub const DVD_Stream_Audio: DVD_TextStringType = DVD_TextStringType(16i32);
-pub const DVD_Stream_Subpicture: DVD_TextStringType = DVD_TextStringType(17i32);
-pub const DVD_Struct_Cell: DVD_TextStringType = DVD_TextStringType(5i32);
-pub const DVD_Struct_ParentalID: DVD_TextStringType = DVD_TextStringType(3i32);
-pub const DVD_Struct_PartOfTitle: DVD_TextStringType = DVD_TextStringType(4i32);
-pub const DVD_Struct_Title: DVD_TextStringType = DVD_TextStringType(2i32);
-pub const DVD_Struct_Volume: DVD_TextStringType = DVD_TextStringType(1i32);
+pub const DVD_Stream_Angle: DVD_TextStringType = DVD_TextStringType(18);
+pub const DVD_Stream_Audio: DVD_TextStringType = DVD_TextStringType(16);
+pub const DVD_Stream_Subpicture: DVD_TextStringType = DVD_TextStringType(17);
+pub const DVD_Struct_Cell: DVD_TextStringType = DVD_TextStringType(5);
+pub const DVD_Struct_ParentalID: DVD_TextStringType = DVD_TextStringType(3);
+pub const DVD_Struct_PartOfTitle: DVD_TextStringType = DVD_TextStringType(4);
+pub const DVD_Struct_Title: DVD_TextStringType = DVD_TextStringType(2);
+pub const DVD_Struct_Volume: DVD_TextStringType = DVD_TextStringType(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_SubpictureAttributes {
@@ -2902,10 +2902,10 @@ pub struct DVD_SubpictureAttributes {
     pub Language: u32,
     pub LanguageExtension: DVD_SUBPICTURE_LANG_EXT,
 }
-pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1i32);
-pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2i32);
-pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4i32);
-pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(8i32);
+pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1);
+pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2);
+pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4);
+pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_TIMECODE {
@@ -2917,7 +2917,7 @@ pub struct DVD_TIMECODE_FLAGS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_TITLE_APPMODE(pub i32);
-pub const DVD_TITLE_MENU: u32 = 0u32;
+pub const DVD_TITLE_MENU: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_TextCharSet(pub i32);
@@ -2951,24 +2951,24 @@ impl Default for DVD_TitleAttributes_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59i32);
-pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57i32);
-pub const DVD_Title_Orig_Album: DVD_TextStringType = DVD_TextStringType(75i32);
-pub const DVD_Title_Orig_Movie: DVD_TextStringType = DVD_TextStringType(73i32);
-pub const DVD_Title_Orig_Other: DVD_TextStringType = DVD_TextStringType(79i32);
-pub const DVD_Title_Orig_Series: DVD_TextStringType = DVD_TextStringType(72i32);
-pub const DVD_Title_Orig_Song: DVD_TextStringType = DVD_TextStringType(76i32);
-pub const DVD_Title_Orig_Video: DVD_TextStringType = DVD_TextStringType(74i32);
-pub const DVD_Title_Other: DVD_TextStringType = DVD_TextStringType(63i32);
-pub const DVD_Title_Series: DVD_TextStringType = DVD_TextStringType(56i32);
-pub const DVD_Title_Song: DVD_TextStringType = DVD_TextStringType(60i32);
-pub const DVD_Title_Sub_Album: DVD_TextStringType = DVD_TextStringType(67i32);
-pub const DVD_Title_Sub_Movie: DVD_TextStringType = DVD_TextStringType(65i32);
-pub const DVD_Title_Sub_Other: DVD_TextStringType = DVD_TextStringType(71i32);
-pub const DVD_Title_Sub_Series: DVD_TextStringType = DVD_TextStringType(64i32);
-pub const DVD_Title_Sub_Song: DVD_TextStringType = DVD_TextStringType(68i32);
-pub const DVD_Title_Sub_Video: DVD_TextStringType = DVD_TextStringType(66i32);
-pub const DVD_Title_Video: DVD_TextStringType = DVD_TextStringType(58i32);
+pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59);
+pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57);
+pub const DVD_Title_Orig_Album: DVD_TextStringType = DVD_TextStringType(75);
+pub const DVD_Title_Orig_Movie: DVD_TextStringType = DVD_TextStringType(73);
+pub const DVD_Title_Orig_Other: DVD_TextStringType = DVD_TextStringType(79);
+pub const DVD_Title_Orig_Series: DVD_TextStringType = DVD_TextStringType(72);
+pub const DVD_Title_Orig_Song: DVD_TextStringType = DVD_TextStringType(76);
+pub const DVD_Title_Orig_Video: DVD_TextStringType = DVD_TextStringType(74);
+pub const DVD_Title_Other: DVD_TextStringType = DVD_TextStringType(63);
+pub const DVD_Title_Series: DVD_TextStringType = DVD_TextStringType(56);
+pub const DVD_Title_Song: DVD_TextStringType = DVD_TextStringType(60);
+pub const DVD_Title_Sub_Album: DVD_TextStringType = DVD_TextStringType(67);
+pub const DVD_Title_Sub_Movie: DVD_TextStringType = DVD_TextStringType(65);
+pub const DVD_Title_Sub_Other: DVD_TextStringType = DVD_TextStringType(71);
+pub const DVD_Title_Sub_Series: DVD_TextStringType = DVD_TextStringType(64);
+pub const DVD_Title_Sub_Song: DVD_TextStringType = DVD_TextStringType(68);
+pub const DVD_Title_Sub_Video: DVD_TextStringType = DVD_TextStringType(66);
+pub const DVD_Title_Video: DVD_TextStringType = DVD_TextStringType(58);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_VIDEO_COMPRESSION(pub i32);
@@ -2989,27 +2989,27 @@ pub struct DVD_VideoAttributes {
     pub fIsSourceLetterboxed: windows_core::BOOL,
     pub fIsFilmMode: windows_core::BOOL,
 }
-pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1i32);
-pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2i32);
-pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0i32);
+pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1);
+pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2);
+pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_WARNING(pub i32);
-pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = DVD_WARNING(2i32);
-pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = DVD_WARNING(3i32);
-pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = DVD_WARNING(1i32);
-pub const DVD_WARNING_Open: DVD_WARNING = DVD_WARNING(4i32);
-pub const DVD_WARNING_Read: DVD_WARNING = DVD_WARNING(6i32);
-pub const DVD_WARNING_Seek: DVD_WARNING = DVD_WARNING(5i32);
-pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = _DVENCODERFORMAT(2008i32);
-pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = _DVENCODERFORMAT(2007i32);
-pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = _DVENCODERFORMAT(2009i32);
-pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2014i32);
-pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2013i32);
-pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2012i32);
-pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2015i32);
-pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2000i32);
-pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2001i32);
+pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = DVD_WARNING(2);
+pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = DVD_WARNING(3);
+pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = DVD_WARNING(1);
+pub const DVD_WARNING_Open: DVD_WARNING = DVD_WARNING(4);
+pub const DVD_WARNING_Read: DVD_WARNING = DVD_WARNING(6);
+pub const DVD_WARNING_Seek: DVD_WARNING = DVD_WARNING(5);
+pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = _DVENCODERFORMAT(2008);
+pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = _DVENCODERFORMAT(2007);
+pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = _DVENCODERFORMAT(2009);
+pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2014);
+pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2013);
+pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2012);
+pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2015);
+pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2000);
+pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2001);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVINFO {
@@ -3026,11 +3026,11 @@ impl Default for DVINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003i32);
-pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000i32);
-pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001i32);
-pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002i32);
-pub const DWORD_ALLPARAMS: i32 = -1i32;
+pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003);
+pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000);
+pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001);
+pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002);
+pub const DWORD_ALLPARAMS: i32 = -1;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -3172,29 +3172,29 @@ impl Default for DXVA2Trace_VideoProcessDeviceData {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521i32);
-pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8i32);
-pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(1i32);
-pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(4i32);
-pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(65536i32);
-pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = DXVA2_DestinationFlags(262144i32);
-pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(131072i32);
-pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(2i32);
+pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521);
+pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8);
+pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(1);
+pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(4);
+pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(65536);
+pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = DXVA2_DestinationFlags(262144);
+pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(131072);
+pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_DestinationFlags(pub i32);
-pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(8i32);
-pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(4i32);
-pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(1i32);
-pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(16i32);
-pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = DXVA2_SampleFlags(65536i32);
-pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = DXVA2_SampleFlags(262144i32);
-pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(2i32);
-pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = DXVA2_SampleFlags(131072i32);
+pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(8);
+pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(4);
+pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(1);
+pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(16);
+pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = DXVA2_SampleFlags(65536);
+pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = DXVA2_SampleFlags(262144);
+pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(2);
+pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = DXVA2_SampleFlags(131072);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_SampleFlags(pub i32);
-pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = DXVA2_SampleFlags(-65505i32);
+pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = DXVA2_SampleFlags(-65505);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[derive(Clone, Copy)]
@@ -3241,35 +3241,35 @@ impl Default for DXVA2_VIDEOSAMPLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13u32;
-pub const DXVA_ALPHA_BLEND_COMBINATION_FUNCTION: u32 = 3u32;
-pub const DXVA_ALPHA_BLEND_DATA_LOAD_FUNCTION: u32 = 2u32;
-pub const DXVA_AYUV_BUFFER: u32 = 8u32;
-pub const DXVA_BIDIRECTIONAL_AVERAGING_H263_TRUNC: u32 = 1u32;
-pub const DXVA_BIDIRECTIONAL_AVERAGING_MPEG2_ROUND: u32 = 0u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_BACKWARD: u32 = 3u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_FORWARD: u32 = 2u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_INTRA: u32 = 1u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_UNSPECIFIED: u32 = 0u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_NEED_LIKELY: u32 = 2u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_NEED_MILD: u32 = 1u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_NEED_SEVERE: u32 = 3u32;
-pub const DXVA_BITSTREAM_CONCEALMENT_NEED_UNLIKELY: u32 = 0u32;
-pub const DXVA_BITSTREAM_DATA_BUFFER: u32 = 7u32;
-pub const DXVA_CHROMA_FORMAT_420: u32 = 1u32;
-pub const DXVA_CHROMA_FORMAT_422: u32 = 2u32;
-pub const DXVA_CHROMA_FORMAT_444: u32 = 3u32;
-pub const DXVA_COMPBUFFER_TYPE_THAT_IS_NOT_USED: u32 = 0u32;
-pub const DXVA_CONFIG_BLEND_TYPE_BACK_HARDWARE: u32 = 1u32;
-pub const DXVA_CONFIG_BLEND_TYPE_FRONT_BUFFER: u32 = 0u32;
-pub const DXVA_CONFIG_DATA_TYPE_AI44: u32 = 1u32;
-pub const DXVA_CONFIG_DATA_TYPE_AYUV: u32 = 3u32;
-pub const DXVA_CONFIG_DATA_TYPE_DPXD: u32 = 2u32;
-pub const DXVA_CONFIG_DATA_TYPE_IA44: u32 = 0u32;
-pub const DXVA_COPPCommandFnCode: u32 = 4u32;
+pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13;
+pub const DXVA_ALPHA_BLEND_COMBINATION_FUNCTION: u32 = 3;
+pub const DXVA_ALPHA_BLEND_DATA_LOAD_FUNCTION: u32 = 2;
+pub const DXVA_AYUV_BUFFER: u32 = 8;
+pub const DXVA_BIDIRECTIONAL_AVERAGING_H263_TRUNC: u32 = 1;
+pub const DXVA_BIDIRECTIONAL_AVERAGING_MPEG2_ROUND: u32 = 0;
+pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_BACKWARD: u32 = 3;
+pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_FORWARD: u32 = 2;
+pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_INTRA: u32 = 1;
+pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_UNSPECIFIED: u32 = 0;
+pub const DXVA_BITSTREAM_CONCEALMENT_NEED_LIKELY: u32 = 2;
+pub const DXVA_BITSTREAM_CONCEALMENT_NEED_MILD: u32 = 1;
+pub const DXVA_BITSTREAM_CONCEALMENT_NEED_SEVERE: u32 = 3;
+pub const DXVA_BITSTREAM_CONCEALMENT_NEED_UNLIKELY: u32 = 0;
+pub const DXVA_BITSTREAM_DATA_BUFFER: u32 = 7;
+pub const DXVA_CHROMA_FORMAT_420: u32 = 1;
+pub const DXVA_CHROMA_FORMAT_422: u32 = 2;
+pub const DXVA_CHROMA_FORMAT_444: u32 = 3;
+pub const DXVA_COMPBUFFER_TYPE_THAT_IS_NOT_USED: u32 = 0;
+pub const DXVA_CONFIG_BLEND_TYPE_BACK_HARDWARE: u32 = 1;
+pub const DXVA_CONFIG_BLEND_TYPE_FRONT_BUFFER: u32 = 0;
+pub const DXVA_CONFIG_DATA_TYPE_AI44: u32 = 1;
+pub const DXVA_CONFIG_DATA_TYPE_AYUV: u32 = 3;
+pub const DXVA_CONFIG_DATA_TYPE_DPXD: u32 = 2;
+pub const DXVA_CONFIG_DATA_TYPE_IA44: u32 = 0;
+pub const DXVA_COPPCommandFnCode: u32 = 4;
 pub const DXVA_COPPDevice: windows_core::GUID = windows_core::GUID::from_u128(0xd2457add_8999_45ed_8a8a_d1aa047ba4d5);
-pub const DXVA_COPPGetCertificateLengthFnCode: u32 = 1u32;
-pub const DXVA_COPPKeyExchangeFnCode: u32 = 2u32;
+pub const DXVA_COPPGetCertificateLengthFnCode: u32 = 1;
+pub const DXVA_COPPKeyExchangeFnCode: u32 = 2;
 pub const DXVA_COPPQueryBusData: windows_core::GUID = windows_core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
 pub const DXVA_COPPQueryConnectorType: windows_core::GUID = windows_core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
 pub const DXVA_COPPQueryDisplayData: windows_core::GUID = windows_core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
@@ -3278,8 +3278,8 @@ pub const DXVA_COPPQueryHDCPKeyData: windows_core::GUID = windows_core::GUID::fr
 pub const DXVA_COPPQueryLocalProtectionLevel: windows_core::GUID = windows_core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
 pub const DXVA_COPPQueryProtectionType: windows_core::GUID = windows_core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
 pub const DXVA_COPPQuerySignaling: windows_core::GUID = windows_core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
-pub const DXVA_COPPQueryStatusFnCode: u32 = 5u32;
-pub const DXVA_COPPSequenceStartFnCode: u32 = 3u32;
+pub const DXVA_COPPQueryStatusFnCode: u32 = 5;
+pub const DXVA_COPPSequenceStartFnCode: u32 = 3;
 pub const DXVA_COPPSetProtectionLevel: windows_core::GUID = windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3362,34 +3362,34 @@ impl Default for DXVA_COPPStatusSignalingCmdData {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DXVA_DCCMD_SURFACE_BUFFER: u32 = 12u32;
-pub const DXVA_DEBLOCKING_CONTROL_BUFFER: u32 = 4u32;
-pub const DXVA_DEBLOCKING_FILTER_FUNCTION: u32 = 5u32;
-pub const DXVA_DPXD_SURFACE_BUFFER: u32 = 10u32;
-pub const DXVA_DeinterlaceBltExFnCode: u32 = 2u32;
-pub const DXVA_DeinterlaceBltFnCode: u32 = 1u32;
+pub const DXVA_DCCMD_SURFACE_BUFFER: u32 = 12;
+pub const DXVA_DEBLOCKING_CONTROL_BUFFER: u32 = 4;
+pub const DXVA_DEBLOCKING_FILTER_FUNCTION: u32 = 5;
+pub const DXVA_DPXD_SURFACE_BUFFER: u32 = 10;
+pub const DXVA_DeinterlaceBltExFnCode: u32 = 2;
+pub const DXVA_DeinterlaceBltFnCode: u32 = 1;
 pub const DXVA_DeinterlaceBobDevice: windows_core::GUID = windows_core::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
 pub const DXVA_DeinterlaceContainerDevice: windows_core::GUID = windows_core::GUID::from_u128(0x0e85cb93_3046_4ff0_aecc_d58cb5f035fd);
-pub const DXVA_DeinterlaceQueryAvailableModesFnCode: u32 = 1u32;
-pub const DXVA_DeinterlaceQueryModeCapsFnCode: u32 = 2u32;
-pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_ACCEL: u32 = 16776968u32;
-pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_HOST: u32 = 16776960u32;
-pub const DXVA_EXECUTE_RETURN_DATA_ERROR_MINOR: u32 = 1u32;
-pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SEVERE: u32 = 3u32;
-pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SIGNIF: u32 = 2u32;
-pub const DXVA_EXECUTE_RETURN_OK: u32 = 0u32;
-pub const DXVA_EXECUTE_RETURN_OTHER_ERROR_SEVERE: u32 = 4u32;
-pub const DXVA_ExtColorData_ShiftBase: u32 = 8u32;
-pub const DXVA_FILM_GRAIN_BUFFER: u32 = 17u32;
-pub const DXVA_FILM_GRAIN_SYNTHESIS_FUNCTION: u32 = 6u32;
-pub const DXVA_HIGHLIGHT_BUFFER: u32 = 11u32;
-pub const DXVA_IA44_SURFACE_BUFFER: u32 = 9u32;
-pub const DXVA_INVERSE_QUANTIZATION_MATRIX_BUFFER: u32 = 5u32;
-pub const DXVA_MACROBLOCK_CONTROL_BUFFER: u32 = 2u32;
-pub const DXVA_MOTION_VECTOR_BUFFER: u32 = 16u32;
-pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261: u32 = 2u32;
-pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263: u32 = 1u32;
-pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2: u32 = 0u32;
+pub const DXVA_DeinterlaceQueryAvailableModesFnCode: u32 = 1;
+pub const DXVA_DeinterlaceQueryModeCapsFnCode: u32 = 2;
+pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_ACCEL: u32 = 16776968;
+pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_HOST: u32 = 16776960;
+pub const DXVA_EXECUTE_RETURN_DATA_ERROR_MINOR: u32 = 1;
+pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SEVERE: u32 = 3;
+pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SIGNIF: u32 = 2;
+pub const DXVA_EXECUTE_RETURN_OK: u32 = 0;
+pub const DXVA_EXECUTE_RETURN_OTHER_ERROR_SEVERE: u32 = 4;
+pub const DXVA_ExtColorData_ShiftBase: u32 = 8;
+pub const DXVA_FILM_GRAIN_BUFFER: u32 = 17;
+pub const DXVA_FILM_GRAIN_SYNTHESIS_FUNCTION: u32 = 6;
+pub const DXVA_HIGHLIGHT_BUFFER: u32 = 11;
+pub const DXVA_IA44_SURFACE_BUFFER: u32 = 9;
+pub const DXVA_INVERSE_QUANTIZATION_MATRIX_BUFFER: u32 = 5;
+pub const DXVA_MACROBLOCK_CONTROL_BUFFER: u32 = 2;
+pub const DXVA_MOTION_VECTOR_BUFFER: u32 = 16;
+pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261: u32 = 2;
+pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263: u32 = 1;
+pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2: u32 = 0;
 pub const DXVA_ModeAV1_VLD_12bit_Profile2: windows_core::GUID = windows_core::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
 pub const DXVA_ModeAV1_VLD_12bit_Profile2_420: windows_core::GUID = windows_core::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
 pub const DXVA_ModeAV1_VLD_Profile0: windows_core::GUID = windows_core::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
@@ -3456,120 +3456,120 @@ pub const DXVA_ModeWMV8_B: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const DXVA_ModeWMV9_A: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVA_ModeWMV9_B: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVA_ModeWMV9_C: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
-pub const DXVA_NUM_TYPES_COMP_BUFFERS: u32 = 18u32;
+pub const DXVA_NUM_TYPES_COMP_BUFFERS: u32 = 18;
 pub const DXVA_NoEncrypt: windows_core::GUID = windows_core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
-pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_off: u32 = 4u32;
-pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_on: u32 = 5u32;
-pub const DXVA_NumMV_OBMC_on__BinPB_off: u32 = 10u32;
-pub const DXVA_NumMV_OBMC_on__BinPB_on: u32 = 11u32;
-pub const DXVA_PICTURE_DECODE_BUFFER: u32 = 1u32;
-pub const DXVA_PICTURE_DECODING_FUNCTION: u32 = 1u32;
-pub const DXVA_PICTURE_RESAMPLE_BUFFER: u32 = 14u32;
-pub const DXVA_PICTURE_RESAMPLE_FUNCTION: u32 = 4u32;
-pub const DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD: u32 = 2u32;
-pub const DXVA_PICTURE_STRUCTURE_FRAME: u32 = 3u32;
-pub const DXVA_PICTURE_STRUCTURE_TOP_FIELD: u32 = 1u32;
-pub const DXVA_ProcAmpControlBltFnCode: u32 = 1u32;
+pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_off: u32 = 4;
+pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_on: u32 = 5;
+pub const DXVA_NumMV_OBMC_on__BinPB_off: u32 = 10;
+pub const DXVA_NumMV_OBMC_on__BinPB_on: u32 = 11;
+pub const DXVA_PICTURE_DECODE_BUFFER: u32 = 1;
+pub const DXVA_PICTURE_DECODING_FUNCTION: u32 = 1;
+pub const DXVA_PICTURE_RESAMPLE_BUFFER: u32 = 14;
+pub const DXVA_PICTURE_RESAMPLE_FUNCTION: u32 = 4;
+pub const DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD: u32 = 2;
+pub const DXVA_PICTURE_STRUCTURE_FRAME: u32 = 3;
+pub const DXVA_PICTURE_STRUCTURE_TOP_FIELD: u32 = 1;
+pub const DXVA_ProcAmpControlBltFnCode: u32 = 1;
 pub const DXVA_ProcAmpControlDevice: windows_core::GUID = windows_core::GUID::from_u128(0x9f200913_2ffd_4056_9f1e_e1b508f22dcf);
-pub const DXVA_ProcAmpControlQueryCapsFnCode: u32 = 3u32;
-pub const DXVA_ProcAmpControlQueryRangeFnCode: u32 = 4u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS: u32 = 16777215u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_OK_COPY: u32 = 16777212u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_FALSE_PLUS: u32 = 16777211u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_COPY: u32 = 16777208u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_PLUS: u32 = 16777209u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_LOCK_QUERY: u32 = 16777205u32;
-pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_PROBE_QUERY: u32 = 16777201u32;
-pub const DXVA_READ_BACK_BUFFER: u32 = 15u32;
-pub const DXVA_RESIDUAL_DIFFERENCE_BUFFER: u32 = 3u32;
-pub const DXVA_RESTRICTED_MODE_H261_A: u32 = 1u32;
-pub const DXVA_RESTRICTED_MODE_H261_B: u32 = 2u32;
-pub const DXVA_RESTRICTED_MODE_H263_A: u32 = 3u32;
-pub const DXVA_RESTRICTED_MODE_H263_B: u32 = 4u32;
-pub const DXVA_RESTRICTED_MODE_H263_C: u32 = 5u32;
-pub const DXVA_RESTRICTED_MODE_H263_D: u32 = 6u32;
-pub const DXVA_RESTRICTED_MODE_H263_E: u32 = 7u32;
-pub const DXVA_RESTRICTED_MODE_H263_F: u32 = 8u32;
-pub const DXVA_RESTRICTED_MODE_H264_A: u32 = 100u32;
-pub const DXVA_RESTRICTED_MODE_H264_B: u32 = 101u32;
-pub const DXVA_RESTRICTED_MODE_H264_C: u32 = 102u32;
-pub const DXVA_RESTRICTED_MODE_H264_D: u32 = 103u32;
-pub const DXVA_RESTRICTED_MODE_H264_E: u32 = 104u32;
-pub const DXVA_RESTRICTED_MODE_H264_F: u32 = 105u32;
-pub const DXVA_RESTRICTED_MODE_H264_IDCT_FGT: u32 = 103u32;
-pub const DXVA_RESTRICTED_MODE_H264_IDCT_NOFGT: u32 = 102u32;
-pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_FGT: u32 = 101u32;
-pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_NOFGT: u32 = 100u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_FGT: u32 = 105u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_MULTIVIEW_NOFGT: u32 = 115u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_NOFGT: u32 = 104u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_NOFGT: u32 = 114u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: u32 = 113u32;
-pub const DXVA_RESTRICTED_MODE_H264_VLD_WITHFMOASO_NOFGT: u32 = 112u32;
-pub const DXVA_RESTRICTED_MODE_MPEG1_A: u32 = 9u32;
-pub const DXVA_RESTRICTED_MODE_MPEG1_VLD: u32 = 16u32;
-pub const DXVA_RESTRICTED_MODE_MPEG2_A: u32 = 10u32;
-pub const DXVA_RESTRICTED_MODE_MPEG2_B: u32 = 11u32;
-pub const DXVA_RESTRICTED_MODE_MPEG2_C: u32 = 12u32;
-pub const DXVA_RESTRICTED_MODE_MPEG2_D: u32 = 13u32;
-pub const DXVA_RESTRICTED_MODE_MPEG2and1_VLD: u32 = 17u32;
-pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_GMC: u32 = 178u32;
-pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_NOGMC: u32 = 177u32;
-pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_SIMPLE: u32 = 176u32;
-pub const DXVA_RESTRICTED_MODE_UNRESTRICTED: u32 = 65535u32;
-pub const DXVA_RESTRICTED_MODE_VC1_A: u32 = 160u32;
-pub const DXVA_RESTRICTED_MODE_VC1_B: u32 = 161u32;
-pub const DXVA_RESTRICTED_MODE_VC1_C: u32 = 162u32;
-pub const DXVA_RESTRICTED_MODE_VC1_D: u32 = 163u32;
-pub const DXVA_RESTRICTED_MODE_VC1_D2010: u32 = 164u32;
-pub const DXVA_RESTRICTED_MODE_VC1_IDCT: u32 = 162u32;
-pub const DXVA_RESTRICTED_MODE_VC1_MOCOMP: u32 = 161u32;
-pub const DXVA_RESTRICTED_MODE_VC1_POSTPROC: u32 = 160u32;
-pub const DXVA_RESTRICTED_MODE_VC1_VLD: u32 = 163u32;
-pub const DXVA_RESTRICTED_MODE_WMV8_A: u32 = 128u32;
-pub const DXVA_RESTRICTED_MODE_WMV8_B: u32 = 129u32;
-pub const DXVA_RESTRICTED_MODE_WMV8_MOCOMP: u32 = 129u32;
-pub const DXVA_RESTRICTED_MODE_WMV8_POSTPROC: u32 = 128u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_A: u32 = 144u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_B: u32 = 145u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_C: u32 = 148u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_IDCT: u32 = 148u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_MOCOMP: u32 = 145u32;
-pub const DXVA_RESTRICTED_MODE_WMV9_POSTPROC: u32 = 144u32;
-pub const DXVA_SCAN_METHOD_ALTERNATE_HORIZONTAL: u32 = 2u32;
-pub const DXVA_SCAN_METHOD_ALTERNATE_VERTICAL: u32 = 1u32;
-pub const DXVA_SCAN_METHOD_ARBITRARY: u32 = 3u32;
-pub const DXVA_SCAN_METHOD_ZIG_ZAG: u32 = 0u32;
-pub const DXVA_SLICE_CONTROL_BUFFER: u32 = 6u32;
-pub const DXVA_STATUS_REPORTING_FUNCTION: u32 = 7u32;
-pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8u32;
-pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8u32;
-pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(2i32);
-pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(7i32);
-pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(1i32);
-pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(4i32);
-pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = VMRDeinterlacePrefs(2i32);
-pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = VMRDeinterlacePrefs(7i32);
-pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = VMRDeinterlacePrefs(1i32);
-pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = VMRDeinterlacePrefs(4i32);
-pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = VMR9DeinterlaceTech(1i32);
-pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = VMR9DeinterlaceTech(2i32);
-pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(16i32);
-pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(32i32);
-pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(4i32);
-pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = VMR9DeinterlaceTech(128i32);
-pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(64i32);
-pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = VMR9DeinterlaceTech(0i32);
-pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = VMRDeinterlaceTech(1i32);
-pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = VMRDeinterlaceTech(2i32);
-pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(16i32);
-pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(32i32);
-pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(4i32);
-pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = VMRDeinterlaceTech(128i32);
-pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(64i32);
-pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = VMRDeinterlaceTech(0i32);
-pub const DeviceClosed: UICloseReasonType = UICloseReasonType(3i32);
-pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0i32);
+pub const DXVA_ProcAmpControlQueryCapsFnCode: u32 = 3;
+pub const DXVA_ProcAmpControlQueryRangeFnCode: u32 = 4;
+pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS: u32 = 16777215;
+pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_OK_COPY: u32 = 16777212;
+pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_FALSE_PLUS: u32 = 16777211;
+pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_COPY: u32 = 16777208;
+pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_PLUS: u32 = 16777209;
+pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_LOCK_QUERY: u32 = 16777205;
+pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_PROBE_QUERY: u32 = 16777201;
+pub const DXVA_READ_BACK_BUFFER: u32 = 15;
+pub const DXVA_RESIDUAL_DIFFERENCE_BUFFER: u32 = 3;
+pub const DXVA_RESTRICTED_MODE_H261_A: u32 = 1;
+pub const DXVA_RESTRICTED_MODE_H261_B: u32 = 2;
+pub const DXVA_RESTRICTED_MODE_H263_A: u32 = 3;
+pub const DXVA_RESTRICTED_MODE_H263_B: u32 = 4;
+pub const DXVA_RESTRICTED_MODE_H263_C: u32 = 5;
+pub const DXVA_RESTRICTED_MODE_H263_D: u32 = 6;
+pub const DXVA_RESTRICTED_MODE_H263_E: u32 = 7;
+pub const DXVA_RESTRICTED_MODE_H263_F: u32 = 8;
+pub const DXVA_RESTRICTED_MODE_H264_A: u32 = 100;
+pub const DXVA_RESTRICTED_MODE_H264_B: u32 = 101;
+pub const DXVA_RESTRICTED_MODE_H264_C: u32 = 102;
+pub const DXVA_RESTRICTED_MODE_H264_D: u32 = 103;
+pub const DXVA_RESTRICTED_MODE_H264_E: u32 = 104;
+pub const DXVA_RESTRICTED_MODE_H264_F: u32 = 105;
+pub const DXVA_RESTRICTED_MODE_H264_IDCT_FGT: u32 = 103;
+pub const DXVA_RESTRICTED_MODE_H264_IDCT_NOFGT: u32 = 102;
+pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_FGT: u32 = 101;
+pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_NOFGT: u32 = 100;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_FGT: u32 = 105;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_MULTIVIEW_NOFGT: u32 = 115;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_NOFGT: u32 = 104;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_NOFGT: u32 = 114;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: u32 = 113;
+pub const DXVA_RESTRICTED_MODE_H264_VLD_WITHFMOASO_NOFGT: u32 = 112;
+pub const DXVA_RESTRICTED_MODE_MPEG1_A: u32 = 9;
+pub const DXVA_RESTRICTED_MODE_MPEG1_VLD: u32 = 16;
+pub const DXVA_RESTRICTED_MODE_MPEG2_A: u32 = 10;
+pub const DXVA_RESTRICTED_MODE_MPEG2_B: u32 = 11;
+pub const DXVA_RESTRICTED_MODE_MPEG2_C: u32 = 12;
+pub const DXVA_RESTRICTED_MODE_MPEG2_D: u32 = 13;
+pub const DXVA_RESTRICTED_MODE_MPEG2and1_VLD: u32 = 17;
+pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_GMC: u32 = 178;
+pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_NOGMC: u32 = 177;
+pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_SIMPLE: u32 = 176;
+pub const DXVA_RESTRICTED_MODE_UNRESTRICTED: u32 = 65535;
+pub const DXVA_RESTRICTED_MODE_VC1_A: u32 = 160;
+pub const DXVA_RESTRICTED_MODE_VC1_B: u32 = 161;
+pub const DXVA_RESTRICTED_MODE_VC1_C: u32 = 162;
+pub const DXVA_RESTRICTED_MODE_VC1_D: u32 = 163;
+pub const DXVA_RESTRICTED_MODE_VC1_D2010: u32 = 164;
+pub const DXVA_RESTRICTED_MODE_VC1_IDCT: u32 = 162;
+pub const DXVA_RESTRICTED_MODE_VC1_MOCOMP: u32 = 161;
+pub const DXVA_RESTRICTED_MODE_VC1_POSTPROC: u32 = 160;
+pub const DXVA_RESTRICTED_MODE_VC1_VLD: u32 = 163;
+pub const DXVA_RESTRICTED_MODE_WMV8_A: u32 = 128;
+pub const DXVA_RESTRICTED_MODE_WMV8_B: u32 = 129;
+pub const DXVA_RESTRICTED_MODE_WMV8_MOCOMP: u32 = 129;
+pub const DXVA_RESTRICTED_MODE_WMV8_POSTPROC: u32 = 128;
+pub const DXVA_RESTRICTED_MODE_WMV9_A: u32 = 144;
+pub const DXVA_RESTRICTED_MODE_WMV9_B: u32 = 145;
+pub const DXVA_RESTRICTED_MODE_WMV9_C: u32 = 148;
+pub const DXVA_RESTRICTED_MODE_WMV9_IDCT: u32 = 148;
+pub const DXVA_RESTRICTED_MODE_WMV9_MOCOMP: u32 = 145;
+pub const DXVA_RESTRICTED_MODE_WMV9_POSTPROC: u32 = 144;
+pub const DXVA_SCAN_METHOD_ALTERNATE_HORIZONTAL: u32 = 2;
+pub const DXVA_SCAN_METHOD_ALTERNATE_VERTICAL: u32 = 1;
+pub const DXVA_SCAN_METHOD_ARBITRARY: u32 = 3;
+pub const DXVA_SCAN_METHOD_ZIG_ZAG: u32 = 0;
+pub const DXVA_SLICE_CONTROL_BUFFER: u32 = 6;
+pub const DXVA_STATUS_REPORTING_FUNCTION: u32 = 7;
+pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8;
+pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8;
+pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(2);
+pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(7);
+pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(1);
+pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(4);
+pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = VMRDeinterlacePrefs(2);
+pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = VMRDeinterlacePrefs(7);
+pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = VMRDeinterlacePrefs(1);
+pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = VMRDeinterlacePrefs(4);
+pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = VMR9DeinterlaceTech(1);
+pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = VMR9DeinterlaceTech(2);
+pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(16);
+pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(32);
+pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(4);
+pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = VMR9DeinterlaceTech(128);
+pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(64);
+pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = VMR9DeinterlaceTech(0);
+pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = VMRDeinterlaceTech(1);
+pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = VMRDeinterlaceTech(2);
+pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(16);
+pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(32);
+pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(4);
+pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = VMRDeinterlaceTech(128);
+pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(64);
+pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = VMRDeinterlaceTech(0);
+pub const DeviceClosed: UICloseReasonType = UICloseReasonType(3);
+pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EALocationCodeType {
@@ -3578,118 +3578,118 @@ pub struct EALocationCodeType {
     pub county_subdivision: u8,
     pub county_code: u16,
 }
-pub const EC_ACTIVATE: u32 = 19u32;
-pub const EC_BANDWIDTHCHANGE: u32 = 72u32;
-pub const EC_BUFFERING_DATA: u32 = 17u32;
-pub const EC_BUILT: u32 = 768u32;
-pub const EC_CLOCK_CHANGED: u32 = 13u32;
-pub const EC_CLOCK_UNSET: u32 = 81u32;
-pub const EC_CODECAPI_EVENT: u32 = 87u32;
-pub const EC_COMPLETE: u32 = 1u32;
-pub const EC_CONTENTPROPERTY_CHANGED: u32 = 71u32;
-pub const EC_DEVICE_LOST: u32 = 31u32;
-pub const EC_DISPLAY_CHANGED: u32 = 22u32;
-pub const EC_DVDBASE: u32 = 256u32;
-pub const EC_DVD_ANGLES_AVAILABLE: u32 = 275u32;
-pub const EC_DVD_ANGLE_CHANGE: u32 = 262u32;
-pub const EC_DVD_AUDIO_STREAM_CHANGE: u32 = 260u32;
-pub const EC_DVD_BUTTON_AUTO_ACTIVATED: u32 = 277u32;
-pub const EC_DVD_BUTTON_CHANGE: u32 = 263u32;
-pub const EC_DVD_BeginNavigationCommands: u32 = 291u32;
-pub const EC_DVD_CHAPTER_AUTOSTOP: u32 = 270u32;
-pub const EC_DVD_CHAPTER_START: u32 = 259u32;
-pub const EC_DVD_CMD_END: u32 = 279u32;
-pub const EC_DVD_CMD_START: u32 = 278u32;
-pub const EC_DVD_CURRENT_HMSF_TIME: u32 = 282u32;
-pub const EC_DVD_CURRENT_TIME: u32 = 267u32;
-pub const EC_DVD_DISC_EJECTED: u32 = 280u32;
-pub const EC_DVD_DISC_INSERTED: u32 = 281u32;
-pub const EC_DVD_DOMAIN_CHANGE: u32 = 257u32;
-pub const EC_DVD_ERROR: u32 = 268u32;
-pub const EC_DVD_GPRM_Change: u32 = 289u32;
-pub const EC_DVD_KARAOKE_MODE: u32 = 283u32;
-pub const EC_DVD_NO_FP_PGC: u32 = 271u32;
-pub const EC_DVD_NavigationCommand: u32 = 292u32;
-pub const EC_DVD_PARENTAL_LEVEL_CHANGE: u32 = 273u32;
-pub const EC_DVD_PLAYBACK_RATE_CHANGE: u32 = 272u32;
-pub const EC_DVD_PLAYBACK_STOPPED: u32 = 274u32;
-pub const EC_DVD_PLAYPERIOD_AUTOSTOP: u32 = 276u32;
-pub const EC_DVD_PROGRAM_CELL_CHANGE: u32 = 284u32;
-pub const EC_DVD_PROGRAM_CHAIN_CHANGE: u32 = 286u32;
-pub const EC_DVD_SPRM_Change: u32 = 290u32;
-pub const EC_DVD_STILL_OFF: u32 = 266u32;
-pub const EC_DVD_STILL_ON: u32 = 265u32;
-pub const EC_DVD_SUBPICTURE_STREAM_CHANGE: u32 = 261u32;
-pub const EC_DVD_TITLE_CHANGE: u32 = 258u32;
-pub const EC_DVD_TITLE_SET_CHANGE: u32 = 285u32;
-pub const EC_DVD_VALID_UOPS_CHANGE: u32 = 264u32;
-pub const EC_DVD_VOBU_Offset: u32 = 287u32;
-pub const EC_DVD_VOBU_Timestamp: u32 = 288u32;
-pub const EC_DVD_WARNING: u32 = 269u32;
-pub const EC_END_OF_SEGMENT: u32 = 28u32;
-pub const EC_EOS_SOON: u32 = 70u32;
-pub const EC_ERRORABORT: u32 = 3u32;
-pub const EC_ERRORABORTEX: u32 = 69u32;
-pub const EC_ERROR_STILLPLAYING: u32 = 8u32;
-pub const EC_EXTDEVICE_MODE_CHANGE: u32 = 49u32;
-pub const EC_FILE_CLOSED: u32 = 68u32;
-pub const EC_FULLSCREEN_LOST: u32 = 18u32;
-pub const EC_GRAPH_CHANGED: u32 = 80u32;
-pub const EC_LENGTH_CHANGED: u32 = 30u32;
-pub const EC_LOADSTATUS: u32 = 67u32;
-pub const EC_MARKER_HIT: u32 = 66u32;
-pub const EC_NEED_RESTART: u32 = 20u32;
-pub const EC_NEW_PIN: u32 = 32u32;
-pub const EC_NOTIFY_WINDOW: u32 = 25u32;
-pub const EC_OLE_EVENT: u32 = 24u32;
-pub const EC_OPENING_FILE: u32 = 16u32;
-pub const EC_PALETTE_CHANGED: u32 = 9u32;
-pub const EC_PAUSED: u32 = 14u32;
-pub const EC_PLEASE_REOPEN: u32 = 64u32;
-pub const EC_PREPROCESS_COMPLETE: u32 = 86u32;
-pub const EC_PROCESSING_LATENCY: u32 = 33u32;
-pub const EC_QUALITY_CHANGE: u32 = 11u32;
-pub const EC_RENDER_FINISHED: u32 = 33u32;
-pub const EC_REPAINT: u32 = 5u32;
-pub const EC_SAMPLE_LATENCY: u32 = 34u32;
-pub const EC_SAMPLE_NEEDED: u32 = 32u32;
-pub const EC_SCRUB_TIME: u32 = 35u32;
-pub const EC_SEGMENT_STARTED: u32 = 29u32;
-pub const EC_SHUTTING_DOWN: u32 = 12u32;
-pub const EC_SKIP_FRAMES: u32 = 37u32;
-pub const EC_SNDDEV_IN_ERROR: u32 = 512u32;
-pub const EC_SNDDEV_OUT_ERROR: u32 = 513u32;
-pub const EC_SND_DEVICE_ERROR_BASE: u32 = 512u32;
-pub const EC_STARVATION: u32 = 23u32;
-pub const EC_STATE_CHANGE: u32 = 50u32;
-pub const EC_STATUS: u32 = 65u32;
-pub const EC_STEP_COMPLETE: u32 = 36u32;
-pub const EC_STREAM_CONTROL_STARTED: u32 = 27u32;
-pub const EC_STREAM_CONTROL_STOPPED: u32 = 26u32;
-pub const EC_STREAM_ERROR_STILLPLAYING: u32 = 7u32;
-pub const EC_STREAM_ERROR_STOPPED: u32 = 6u32;
-pub const EC_SYSTEMBASE: u32 = 0u32;
-pub const EC_TIME: u32 = 4u32;
-pub const EC_TIMECODE_AVAILABLE: u32 = 48u32;
-pub const EC_UNBUILT: u32 = 769u32;
-pub const EC_USER: u32 = 32768u32;
-pub const EC_USERABORT: u32 = 2u32;
-pub const EC_VIDEOFRAMEREADY: u32 = 73u32;
-pub const EC_VIDEO_SIZE_CHANGED: u32 = 10u32;
-pub const EC_VMR_RECONNECTION_FAILED: u32 = 85u32;
-pub const EC_VMR_RENDERDEVICE_SET: u32 = 83u32;
-pub const EC_VMR_SURFACE_FLIPPED: u32 = 84u32;
-pub const EC_WINDOW_DESTROYED: u32 = 21u32;
-pub const EC_WMT_EVENT: u32 = 594u32;
-pub const EC_WMT_EVENT_BASE: u32 = 593u32;
-pub const EC_WMT_INDEX_EVENT: u32 = 593u32;
+pub const EC_ACTIVATE: u32 = 19;
+pub const EC_BANDWIDTHCHANGE: u32 = 72;
+pub const EC_BUFFERING_DATA: u32 = 17;
+pub const EC_BUILT: u32 = 768;
+pub const EC_CLOCK_CHANGED: u32 = 13;
+pub const EC_CLOCK_UNSET: u32 = 81;
+pub const EC_CODECAPI_EVENT: u32 = 87;
+pub const EC_COMPLETE: u32 = 1;
+pub const EC_CONTENTPROPERTY_CHANGED: u32 = 71;
+pub const EC_DEVICE_LOST: u32 = 31;
+pub const EC_DISPLAY_CHANGED: u32 = 22;
+pub const EC_DVDBASE: u32 = 256;
+pub const EC_DVD_ANGLES_AVAILABLE: u32 = 275;
+pub const EC_DVD_ANGLE_CHANGE: u32 = 262;
+pub const EC_DVD_AUDIO_STREAM_CHANGE: u32 = 260;
+pub const EC_DVD_BUTTON_AUTO_ACTIVATED: u32 = 277;
+pub const EC_DVD_BUTTON_CHANGE: u32 = 263;
+pub const EC_DVD_BeginNavigationCommands: u32 = 291;
+pub const EC_DVD_CHAPTER_AUTOSTOP: u32 = 270;
+pub const EC_DVD_CHAPTER_START: u32 = 259;
+pub const EC_DVD_CMD_END: u32 = 279;
+pub const EC_DVD_CMD_START: u32 = 278;
+pub const EC_DVD_CURRENT_HMSF_TIME: u32 = 282;
+pub const EC_DVD_CURRENT_TIME: u32 = 267;
+pub const EC_DVD_DISC_EJECTED: u32 = 280;
+pub const EC_DVD_DISC_INSERTED: u32 = 281;
+pub const EC_DVD_DOMAIN_CHANGE: u32 = 257;
+pub const EC_DVD_ERROR: u32 = 268;
+pub const EC_DVD_GPRM_Change: u32 = 289;
+pub const EC_DVD_KARAOKE_MODE: u32 = 283;
+pub const EC_DVD_NO_FP_PGC: u32 = 271;
+pub const EC_DVD_NavigationCommand: u32 = 292;
+pub const EC_DVD_PARENTAL_LEVEL_CHANGE: u32 = 273;
+pub const EC_DVD_PLAYBACK_RATE_CHANGE: u32 = 272;
+pub const EC_DVD_PLAYBACK_STOPPED: u32 = 274;
+pub const EC_DVD_PLAYPERIOD_AUTOSTOP: u32 = 276;
+pub const EC_DVD_PROGRAM_CELL_CHANGE: u32 = 284;
+pub const EC_DVD_PROGRAM_CHAIN_CHANGE: u32 = 286;
+pub const EC_DVD_SPRM_Change: u32 = 290;
+pub const EC_DVD_STILL_OFF: u32 = 266;
+pub const EC_DVD_STILL_ON: u32 = 265;
+pub const EC_DVD_SUBPICTURE_STREAM_CHANGE: u32 = 261;
+pub const EC_DVD_TITLE_CHANGE: u32 = 258;
+pub const EC_DVD_TITLE_SET_CHANGE: u32 = 285;
+pub const EC_DVD_VALID_UOPS_CHANGE: u32 = 264;
+pub const EC_DVD_VOBU_Offset: u32 = 287;
+pub const EC_DVD_VOBU_Timestamp: u32 = 288;
+pub const EC_DVD_WARNING: u32 = 269;
+pub const EC_END_OF_SEGMENT: u32 = 28;
+pub const EC_EOS_SOON: u32 = 70;
+pub const EC_ERRORABORT: u32 = 3;
+pub const EC_ERRORABORTEX: u32 = 69;
+pub const EC_ERROR_STILLPLAYING: u32 = 8;
+pub const EC_EXTDEVICE_MODE_CHANGE: u32 = 49;
+pub const EC_FILE_CLOSED: u32 = 68;
+pub const EC_FULLSCREEN_LOST: u32 = 18;
+pub const EC_GRAPH_CHANGED: u32 = 80;
+pub const EC_LENGTH_CHANGED: u32 = 30;
+pub const EC_LOADSTATUS: u32 = 67;
+pub const EC_MARKER_HIT: u32 = 66;
+pub const EC_NEED_RESTART: u32 = 20;
+pub const EC_NEW_PIN: u32 = 32;
+pub const EC_NOTIFY_WINDOW: u32 = 25;
+pub const EC_OLE_EVENT: u32 = 24;
+pub const EC_OPENING_FILE: u32 = 16;
+pub const EC_PALETTE_CHANGED: u32 = 9;
+pub const EC_PAUSED: u32 = 14;
+pub const EC_PLEASE_REOPEN: u32 = 64;
+pub const EC_PREPROCESS_COMPLETE: u32 = 86;
+pub const EC_PROCESSING_LATENCY: u32 = 33;
+pub const EC_QUALITY_CHANGE: u32 = 11;
+pub const EC_RENDER_FINISHED: u32 = 33;
+pub const EC_REPAINT: u32 = 5;
+pub const EC_SAMPLE_LATENCY: u32 = 34;
+pub const EC_SAMPLE_NEEDED: u32 = 32;
+pub const EC_SCRUB_TIME: u32 = 35;
+pub const EC_SEGMENT_STARTED: u32 = 29;
+pub const EC_SHUTTING_DOWN: u32 = 12;
+pub const EC_SKIP_FRAMES: u32 = 37;
+pub const EC_SNDDEV_IN_ERROR: u32 = 512;
+pub const EC_SNDDEV_OUT_ERROR: u32 = 513;
+pub const EC_SND_DEVICE_ERROR_BASE: u32 = 512;
+pub const EC_STARVATION: u32 = 23;
+pub const EC_STATE_CHANGE: u32 = 50;
+pub const EC_STATUS: u32 = 65;
+pub const EC_STEP_COMPLETE: u32 = 36;
+pub const EC_STREAM_CONTROL_STARTED: u32 = 27;
+pub const EC_STREAM_CONTROL_STOPPED: u32 = 26;
+pub const EC_STREAM_ERROR_STILLPLAYING: u32 = 7;
+pub const EC_STREAM_ERROR_STOPPED: u32 = 6;
+pub const EC_SYSTEMBASE: u32 = 0;
+pub const EC_TIME: u32 = 4;
+pub const EC_TIMECODE_AVAILABLE: u32 = 48;
+pub const EC_UNBUILT: u32 = 769;
+pub const EC_USER: u32 = 32768;
+pub const EC_USERABORT: u32 = 2;
+pub const EC_VIDEOFRAMEREADY: u32 = 73;
+pub const EC_VIDEO_SIZE_CHANGED: u32 = 10;
+pub const EC_VMR_RECONNECTION_FAILED: u32 = 85;
+pub const EC_VMR_RENDERDEVICE_SET: u32 = 83;
+pub const EC_VMR_SURFACE_FLIPPED: u32 = 84;
+pub const EC_WINDOW_DESTROYED: u32 = 21;
+pub const EC_WMT_EVENT: u32 = 594;
+pub const EC_WMT_EVENT_BASE: u32 = 593;
+pub const EC_WMT_INDEX_EVENT: u32 = 593;
 pub const E_PROP_ID_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80070490_u32 as _);
 pub const E_PROP_SET_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80070492_u32 as _);
-pub const Entitled: EntitlementType = EntitlementType(0i32);
+pub const Entitled: EntitlementType = EntitlementType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EntitlementType(pub i32);
-pub const ErrorClosed: UICloseReasonType = UICloseReasonType(4i32);
+pub const ErrorClosed: UICloseReasonType = UICloseReasonType(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FECMethod(pub i32);
@@ -3715,9 +3715,9 @@ pub const FORMAT_MPEG2Audio: windows_core::GUID = windows_core::GUID::from_u128(
 pub const FORMAT_MPEG2Video: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 pub const FORMAT_MPEG2_VIDEO: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 pub const FORMAT_UVCH264Video: windows_core::GUID = windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
-pub const Famine: QualityMessageType = QualityMessageType(0i32);
+pub const Famine: QualityMessageType = QualityMessageType(0);
 pub const FilgraphManager: windows_core::GUID = windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
-pub const Flood: QualityMessageType = QualityMessageType(1i32);
+pub const Flood: QualityMessageType = QualityMessageType(1);
 pub const GUID_TIME_MUSIC: windows_core::GUID = windows_core::GUID::from_u128(0x0574c49d_5b04_4b15_a542_ae282030117b);
 pub const GUID_TIME_REFERENCE: windows_core::GUID = windows_core::GUID::from_u128(0x93ad712b_daa0_4ffe_bc81_b0ce500fcdd9);
 pub const GUID_TIME_SAMPLES: windows_core::GUID = windows_core::GUID::from_u128(0xa8593d05_0c43_4984_9a63_97af9e02c4c0);
@@ -3748,8 +3748,8 @@ pub struct HEAACWAVEINFO {
     pub wReserved1: u16,
     pub dwReserved2: u32,
 }
-pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
-pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36i32);
+pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37);
+pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HierarchyAlpha(pub i32);
@@ -28382,10 +28382,10 @@ impl IMultiMediaStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMultiMediaStream {}
-pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
-pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2i32);
-pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
-pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3i32);
+pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1);
+pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2);
+pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0);
+pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3);
 windows_core::imp::define_interface!(IOverlay, IOverlay_Vtbl, 0x56a868a1_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IOverlay, windows_core::IUnknown);
 impl IOverlay {
@@ -29694,7 +29694,7 @@ impl IQueueCommand_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IQueueCommand {}
-pub const IRPM_STREAMM: MPEG2StreamType = MPEG2StreamType(26i32);
+pub const IRPM_STREAMM: MPEG2StreamType = MPEG2StreamType(26);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IRegFilterInfo, IRegFilterInfo_Vtbl, 0x56a868bb_0ad4_11ce_b03a_0020af0ba770);
 #[cfg(feature = "Win32_System_Com")]
@@ -30013,30 +30013,30 @@ impl windows_core::RuntimeName for IResourceManager {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ISDBCAS_REQUEST_ID(pub i32);
-pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58i32);
-pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
-pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4i32);
-pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3i32);
-pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = MPEG2StreamType(1i32);
-pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = MPEG2StreamType(3i32);
-pub const ISO_IEC_13522_MHEG: MPEG2StreamType = MPEG2StreamType(7i32);
-pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = MPEG2StreamType(14i32);
-pub const ISO_IEC_13818_1_PES: MPEG2StreamType = MPEG2StreamType(6i32);
-pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = MPEG2StreamType(5i32);
-pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = MPEG2StreamType(28i32);
-pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = MPEG2StreamType(2i32);
-pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = MPEG2StreamType(4i32);
-pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = MPEG2StreamType(20i32);
-pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = MPEG2StreamType(10i32);
-pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = MPEG2StreamType(11i32);
-pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = MPEG2StreamType(12i32);
-pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = MPEG2StreamType(13i32);
-pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = MPEG2StreamType(15i32);
-pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = MPEG2StreamType(18i32);
-pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = MPEG2StreamType(19i32);
-pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = MPEG2StreamType(16i32);
-pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = MPEG2StreamType(17i32);
-pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128i32);
+pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58);
+pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56);
+pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4);
+pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3);
+pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = MPEG2StreamType(1);
+pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = MPEG2StreamType(3);
+pub const ISO_IEC_13522_MHEG: MPEG2StreamType = MPEG2StreamType(7);
+pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = MPEG2StreamType(14);
+pub const ISO_IEC_13818_1_PES: MPEG2StreamType = MPEG2StreamType(6);
+pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = MPEG2StreamType(5);
+pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = MPEG2StreamType(28);
+pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = MPEG2StreamType(2);
+pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = MPEG2StreamType(4);
+pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = MPEG2StreamType(20);
+pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = MPEG2StreamType(10);
+pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = MPEG2StreamType(11);
+pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = MPEG2StreamType(12);
+pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = MPEG2StreamType(13);
+pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = MPEG2StreamType(15);
+pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = MPEG2StreamType(18);
+pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = MPEG2StreamType(19);
+pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = MPEG2StreamType(16);
+pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = MPEG2StreamType(17);
+pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128);
 windows_core::imp::define_interface!(ISeekingPassThru, ISeekingPassThru_Vtbl, 0x36b73883_c2c8_11cf_8b46_00805f6cef60);
 windows_core::imp::interface_hierarchy!(ISeekingPassThru, windows_core::IUnknown);
 impl ISeekingPassThru {
@@ -30326,8 +30326,8 @@ impl IStreamSample_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IStreamSample {}
-pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27i32);
-pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9i32);
+pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27);
+pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9);
 windows_core::imp::define_interface!(IVMRAspectRatioControl, IVMRAspectRatioControl_Vtbl, 0xede80b5c_bad6_4623_b537_65586c9f8dfd);
 windows_core::imp::interface_hierarchy!(IVMRAspectRatioControl, windows_core::IUnknown);
 impl IVMRAspectRatioControl {
@@ -35363,9 +35363,9 @@ impl core::ops::Not for KSPROPERTY_IPSINK {
         Self(self.0.not())
     }
 }
-pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2i32);
-pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1i32);
-pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0i32);
+pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2);
+pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1);
+pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KS_BDA_FRAME_INFO {
@@ -35384,13 +35384,13 @@ pub struct LNB_Source(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationCodeSchemeType(pub i32);
-pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32u32;
-pub const MAX_DEINTERLACE_SURFACES: u32 = 32u32;
-pub const MAX_ERROR_TEXT_LEN: u32 = 160u32;
-pub const MAX_FILTER_NAME: u32 = 128u32;
-pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = STREAMIF_CONSTANTS(16i32);
-pub const MAX_PIN_NAME: u32 = 128u32;
-pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
+pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32;
+pub const MAX_DEINTERLACE_SURFACES: u32 = 32;
+pub const MAX_ERROR_TEXT_LEN: u32 = 160;
+pub const MAX_FILTER_NAME: u32 = 128;
+pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = STREAMIF_CONSTANTS(16);
+pub const MAX_PIN_NAME: u32 = 128;
+pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
 pub const MEDIASUBTYPE_ATSC_SI: windows_core::GUID = windows_core::GUID::from_u128(0xb3c7397c_d303_414d_b33c_4ed2c9d29733);
 pub const MEDIASUBTYPE_DOLBY_AC3: windows_core::GUID = windows_core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
 pub const MEDIASUBTYPE_DTS: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
@@ -35420,26 +35420,26 @@ pub const MEDIATYPE_DVD_NAVIGATION: windows_core::GUID = windows_core::GUID::fro
 pub const MEDIATYPE_MPEG2_PACK: windows_core::GUID = windows_core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
 pub const MEDIATYPE_MPEG2_PES: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
 pub const MEDIATYPE_MPEG2_SECTIONS: windows_core::GUID = windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(1i32);
-pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(2i32);
+pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(1);
+pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_SAMPLE_CONTENT(pub i32);
-pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0i32);
-pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(3i32);
-pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(2097152i32);
-pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048656i32);
-pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(6291456i32);
-pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
-pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048576i32);
-pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(4194304i32);
-pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = MPEG2StreamType(23i32);
-pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = MPEG2StreamType(25i32);
-pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = MPEG2StreamType(24i32);
-pub const METADATA_IN_PES: MPEG2StreamType = MPEG2StreamType(21i32);
-pub const METADATA_IN_SECTION: MPEG2StreamType = MPEG2StreamType(22i32);
-pub const MIN_DIMENSION: u32 = 1u32;
-pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4i32);
+pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0);
+pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(3);
+pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(2097152);
+pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048656);
+pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(6291456);
+pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608);
+pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048576);
+pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(4194304);
+pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = MPEG2StreamType(23);
+pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = MPEG2StreamType(25);
+pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = MPEG2StreamType(24);
+pub const METADATA_IN_PES: MPEG2StreamType = MPEG2StreamType(21);
+pub const METADATA_IN_SECTION: MPEG2StreamType = MPEG2StreamType(22);
+pub const MIN_DIMENSION: u32 = 1;
+pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMSSF_GET_INFORMATION_FLAGS(pub i32);
@@ -35476,10 +35476,10 @@ impl core::ops::Not for MMSSF_GET_INFORMATION_FLAGS {
         Self(self.0.not())
     }
 }
-pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1i32);
-pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2i32);
-pub const MPBOOL_FALSE: u32 = 0u32;
-pub const MPBOOL_TRUE: u32 = 1u32;
+pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1);
+pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2);
+pub const MPBOOL_FALSE: u32 = 0;
+pub const MPBOOL_TRUE: u32 = 1;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
@@ -35497,7 +35497,7 @@ pub struct MPEG1WAVEFORMAT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG2StreamType(pub i32);
-pub const MPEG2_BASE: u32 = 512u32;
+pub const MPEG2_BASE: u32 = 512;
 pub const MPEG2_E_ALREADY_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80040201_u32 as _);
 pub const MPEG2_E_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0x80040219_u32 as _);
 pub const MPEG2_E_DATA_SOURCE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80040216_u32 as _);
@@ -35528,12 +35528,12 @@ pub const MPEG2_E_TOO_MANY_SECTIONS: windows_core::HRESULT = windows_core::HRESU
 pub const MPEG2_E_TX_STREAM_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80040207_u32 as _);
 pub const MPEG2_E_UNDEFINED: windows_core::HRESULT = windows_core::HRESULT(0x80040204_u32 as _);
 pub const MPEG2_E_UNINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x80040200_u32 as _);
-pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2u32;
-pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1u32;
-pub const MPEG2_PROGRAM_PACK_HEADER: u32 = 3u32;
-pub const MPEG2_PROGRAM_PES_STREAM: u32 = 4u32;
-pub const MPEG2_PROGRAM_STREAM_MAP: u32 = 0u32;
-pub const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5u32;
+pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2;
+pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1;
+pub const MPEG2_PROGRAM_PACK_HEADER: u32 = 3;
+pub const MPEG2_PROGRAM_PES_STREAM: u32 = 4;
+pub const MPEG2_PROGRAM_STREAM_MAP: u32 = 0;
+pub const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5;
 pub const MPEG2_S_MORE_DATA_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x40200_u32 as _);
 pub const MPEG2_S_MPE_INFO_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x40204_u32 as _);
 pub const MPEG2_S_MPE_INFO_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0x40205_u32 as _);
@@ -35562,27 +35562,27 @@ pub struct MPEGLAYER3WAVEFORMAT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEGLAYER3WAVEFORMAT_FLAGS(pub u32);
-pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(0u32);
-pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(2u32);
-pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(1u32);
-pub const MPEG_H_AUDIO: MPEG2StreamType = MPEG2StreamType(45i32);
-pub const MPEG_H_AUDIO_MS: MPEG2StreamType = MPEG2StreamType(46i32);
-pub const MPF_ENVLP_BEGIN_CURRENTVAL: u32 = 1u32;
-pub const MPF_ENVLP_BEGIN_NEUTRALVAL: u32 = 2u32;
-pub const MPF_ENVLP_STANDARD: u32 = 0u32;
-pub const MPF_PUNCHIN_NOW: u32 = 1u32;
-pub const MPF_PUNCHIN_REFTIME: u32 = 0u32;
-pub const MPF_PUNCHIN_STOPPED: u32 = 2u32;
-pub const MPT_BOOL: MP_TYPE = MP_TYPE(2i32);
-pub const MPT_ENUM: MP_TYPE = MP_TYPE(3i32);
-pub const MPT_FLOAT: MP_TYPE = MP_TYPE(1i32);
-pub const MPT_INT: MP_TYPE = MP_TYPE(0i32);
-pub const MPT_MAX: MP_TYPE = MP_TYPE(4i32);
-pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(8i32);
-pub const MP_CURVE_JUMP: MP_CURVE_TYPE = MP_CURVE_TYPE(1i32);
-pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = MP_CURVE_TYPE(2i32);
-pub const MP_CURVE_SINE: MP_CURVE_TYPE = MP_CURVE_TYPE(16i32);
-pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(4i32);
+pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(0);
+pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(2);
+pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(1);
+pub const MPEG_H_AUDIO: MPEG2StreamType = MPEG2StreamType(45);
+pub const MPEG_H_AUDIO_MS: MPEG2StreamType = MPEG2StreamType(46);
+pub const MPF_ENVLP_BEGIN_CURRENTVAL: u32 = 1;
+pub const MPF_ENVLP_BEGIN_NEUTRALVAL: u32 = 2;
+pub const MPF_ENVLP_STANDARD: u32 = 0;
+pub const MPF_PUNCHIN_NOW: u32 = 1;
+pub const MPF_PUNCHIN_REFTIME: u32 = 0;
+pub const MPF_PUNCHIN_STOPPED: u32 = 2;
+pub const MPT_BOOL: MP_TYPE = MP_TYPE(2);
+pub const MPT_ENUM: MP_TYPE = MP_TYPE(3);
+pub const MPT_FLOAT: MP_TYPE = MP_TYPE(1);
+pub const MPT_INT: MP_TYPE = MP_TYPE(0);
+pub const MPT_MAX: MP_TYPE = MP_TYPE(4);
+pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(8);
+pub const MP_CURVE_JUMP: MP_CURVE_TYPE = MP_CURVE_TYPE(1);
+pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = MP_CURVE_TYPE(2);
+pub const MP_CURVE_SINE: MP_CURVE_TYPE = MP_CURVE_TYPE(16);
+pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MP_CURVE_TYPE(pub i32);
@@ -35643,45 +35643,45 @@ impl Default for MainAVIHeader {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4i32);
-pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64i32);
-pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = VMR9MixerPrefs(16i32);
-pub const MixerPref9_DecimateMask: VMR9MixerPrefs = VMR9MixerPrefs(15i32);
-pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = VMR9MixerPrefs(2i32);
-pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = VMR9MixerPrefs(2097152i32);
-pub const MixerPref9_DynamicMask: VMR9MixerPrefs = VMR9MixerPrefs(15728640i32);
-pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = VMR9MixerPrefs(12582912i32);
-pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = VMR9MixerPrefs(1048576i32);
-pub const MixerPref9_FilteringMask: VMR9MixerPrefs = VMR9MixerPrefs(4080i32);
-pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = VMR9MixerPrefs(3584i32);
-pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(256i32);
-pub const MixerPref9_NoDecimation: VMR9MixerPrefs = VMR9MixerPrefs(1i32);
-pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = VMR9MixerPrefs(8i32);
-pub const MixerPref9_PointFiltering: VMR9MixerPrefs = VMR9MixerPrefs(32i32);
-pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(128i32);
-pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = VMR9MixerPrefs(1044480i32);
-pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = VMR9MixerPrefs(4096i32);
-pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = VMR9MixerPrefs(1032192i32);
-pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = VMR9MixerPrefs(8192i32);
-pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = VMRMixerPrefs(4i32);
-pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = VMRMixerPrefs(16i32);
-pub const MixerPref_DecimateMask: VMRMixerPrefs = VMRMixerPrefs(15i32);
-pub const MixerPref_DecimateOutput: VMRMixerPrefs = VMRMixerPrefs(2i32);
-pub const MixerPref_DecimationReserved: VMRMixerPrefs = VMRMixerPrefs(8i32);
-pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = VMRMixerPrefs(131072i32);
-pub const MixerPref_DynamicMask: VMRMixerPrefs = VMRMixerPrefs(983040i32);
-pub const MixerPref_DynamicReserved: VMRMixerPrefs = VMRMixerPrefs(786432i32);
-pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = VMRMixerPrefs(65536i32);
-pub const MixerPref_FilteringMask: VMRMixerPrefs = VMRMixerPrefs(240i32);
-pub const MixerPref_NoDecimation: VMRMixerPrefs = VMRMixerPrefs(1i32);
-pub const MixerPref_PointFiltering: VMRMixerPrefs = VMRMixerPrefs(32i32);
-pub const MixerPref_RenderTargetMask: VMRMixerPrefs = VMRMixerPrefs(65280i32);
-pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = VMRMixerPrefs(256i32);
-pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = VMRMixerPrefs(57344i32);
-pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = VMRMixerPrefs(4096i32);
-pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = VMRMixerPrefs(512i32);
-pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = VMRMixerPrefs(1024i32);
-pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = VMRMixerPrefs(2048i32);
+pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4);
+pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64);
+pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = VMR9MixerPrefs(16);
+pub const MixerPref9_DecimateMask: VMR9MixerPrefs = VMR9MixerPrefs(15);
+pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = VMR9MixerPrefs(2);
+pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = VMR9MixerPrefs(2097152);
+pub const MixerPref9_DynamicMask: VMR9MixerPrefs = VMR9MixerPrefs(15728640);
+pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = VMR9MixerPrefs(12582912);
+pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = VMR9MixerPrefs(1048576);
+pub const MixerPref9_FilteringMask: VMR9MixerPrefs = VMR9MixerPrefs(4080);
+pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = VMR9MixerPrefs(3584);
+pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(256);
+pub const MixerPref9_NoDecimation: VMR9MixerPrefs = VMR9MixerPrefs(1);
+pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = VMR9MixerPrefs(8);
+pub const MixerPref9_PointFiltering: VMR9MixerPrefs = VMR9MixerPrefs(32);
+pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(128);
+pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = VMR9MixerPrefs(1044480);
+pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = VMR9MixerPrefs(4096);
+pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = VMR9MixerPrefs(1032192);
+pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = VMR9MixerPrefs(8192);
+pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = VMRMixerPrefs(4);
+pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = VMRMixerPrefs(16);
+pub const MixerPref_DecimateMask: VMRMixerPrefs = VMRMixerPrefs(15);
+pub const MixerPref_DecimateOutput: VMRMixerPrefs = VMRMixerPrefs(2);
+pub const MixerPref_DecimationReserved: VMRMixerPrefs = VMRMixerPrefs(8);
+pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = VMRMixerPrefs(131072);
+pub const MixerPref_DynamicMask: VMRMixerPrefs = VMRMixerPrefs(983040);
+pub const MixerPref_DynamicReserved: VMRMixerPrefs = VMRMixerPrefs(786432);
+pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = VMRMixerPrefs(65536);
+pub const MixerPref_FilteringMask: VMRMixerPrefs = VMRMixerPrefs(240);
+pub const MixerPref_NoDecimation: VMRMixerPrefs = VMRMixerPrefs(1);
+pub const MixerPref_PointFiltering: VMRMixerPrefs = VMRMixerPrefs(32);
+pub const MixerPref_RenderTargetMask: VMRMixerPrefs = VMRMixerPrefs(65280);
+pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = VMRMixerPrefs(256);
+pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = VMRMixerPrefs(57344);
+pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = VMRMixerPrefs(4096);
+pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = VMRMixerPrefs(512);
+pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = VMRMixerPrefs(1024);
+pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = VMRMixerPrefs(2048);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ModulationType(pub i32);
@@ -35693,11 +35693,11 @@ pub struct NORMALIZEDRECT {
     pub right: f32,
     pub bottom: f32,
 }
-pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0i32);
-pub const NotEntitled: EntitlementType = EntitlementType(1i32);
-pub const NotReady: UICloseReasonType = UICloseReasonType(0i32);
-pub const OAFALSE: OA_BOOL = OA_BOOL(0i32);
-pub const OATRUE: OA_BOOL = OA_BOOL(-1i32);
+pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0);
+pub const NotEntitled: EntitlementType = EntitlementType(1);
+pub const NotReady: UICloseReasonType = UICloseReasonType(0);
+pub const OAFALSE: OA_BOOL = OA_BOOL(0);
+pub const OATRUE: OA_BOOL = OA_BOOL(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OA_BOOL(pub i32);
@@ -35739,15 +35739,15 @@ impl core::ops::Not for OUTPUT_STATE {
 }
 pub const PBDA_AUX_CONNECTOR_TYPE_Composite: windows_core::GUID = windows_core::GUID::from_u128(0xf6298b4c_c725_4d42_849b_410bbb14ea62);
 pub const PBDA_AUX_CONNECTOR_TYPE_SVideo: windows_core::GUID = windows_core::GUID::from_u128(0xa0e905f4_24c9_4a54_b761_213355efc13a);
-pub const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1u32;
-pub const PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII: u32 = 0u32;
-pub const PBDA_Encoder_BitrateMode_Average: u32 = 3u32;
-pub const PBDA_Encoder_BitrateMode_Constant: u32 = 1u32;
-pub const PBDA_Encoder_BitrateMode_Variable: u32 = 2u32;
-pub const PBDA_Encoder_Video_AVC: u32 = 1u32;
-pub const PBDA_Encoder_Video_H264: u32 = 1u32;
-pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0u32;
-pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1u32;
+pub const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1;
+pub const PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII: u32 = 0;
+pub const PBDA_Encoder_BitrateMode_Average: u32 = 3;
+pub const PBDA_Encoder_BitrateMode_Constant: u32 = 1;
+pub const PBDA_Encoder_BitrateMode_Variable: u32 = 2;
+pub const PBDA_Encoder_Video_AVC: u32 = 1;
+pub const PBDA_Encoder_Video_H264: u32 = 1;
+pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0;
+pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1;
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = Option<unsafe extern "system" fn(pd3dd9: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DDevice9>, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
 pub type PDXVA2SW_DESTROYVIDEOPROCESSDEVICE = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
@@ -35771,17 +35771,17 @@ pub type PDXVA2SW_VIDEOPROCESSBLT = Option<unsafe extern "system" fn(hdevice: su
 pub type PDXVA2SW_VIDEOPROCESSENDFRAME = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, phandlecomplete: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: windows_core::Ref<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> windows_core::HRESULT>;
-pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0i32);
+pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PID_MAP {
     pub ulPID: u32,
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
 }
-pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1i32);
-pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1i32);
-pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
-pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1i32);
+pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1);
+pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1);
+pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0);
+pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIN_DIRECTION(pub i32);
@@ -35799,31 +35799,31 @@ impl Default for PIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103i32);
-pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099i32);
-pub const PhysConn_Audio_AUX: PhysicalConnectorType = PhysicalConnectorType(4102i32);
-pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = PhysicalConnectorType(4105i32);
-pub const PhysConn_Audio_Line: PhysicalConnectorType = PhysicalConnectorType(4097i32);
-pub const PhysConn_Audio_Mic: PhysicalConnectorType = PhysicalConnectorType(4098i32);
-pub const PhysConn_Audio_SCSI: PhysicalConnectorType = PhysicalConnectorType(4101i32);
-pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = PhysicalConnectorType(4100i32);
-pub const PhysConn_Audio_Tuner: PhysicalConnectorType = PhysicalConnectorType(4096i32);
-pub const PhysConn_Audio_USB: PhysicalConnectorType = PhysicalConnectorType(4104i32);
-pub const PhysConn_Video_1394: PhysicalConnectorType = PhysicalConnectorType(10i32);
-pub const PhysConn_Video_AUX: PhysicalConnectorType = PhysicalConnectorType(9i32);
-pub const PhysConn_Video_Black: PhysicalConnectorType = PhysicalConnectorType(15i32);
-pub const PhysConn_Video_Composite: PhysicalConnectorType = PhysicalConnectorType(2i32);
-pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = PhysicalConnectorType(7i32);
-pub const PhysConn_Video_RGB: PhysicalConnectorType = PhysicalConnectorType(4i32);
-pub const PhysConn_Video_SCART: PhysicalConnectorType = PhysicalConnectorType(14i32);
-pub const PhysConn_Video_SCSI: PhysicalConnectorType = PhysicalConnectorType(8i32);
-pub const PhysConn_Video_SVideo: PhysicalConnectorType = PhysicalConnectorType(3i32);
-pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = PhysicalConnectorType(6i32);
-pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1i32);
-pub const PhysConn_Video_USB: PhysicalConnectorType = PhysicalConnectorType(11i32);
-pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = PhysicalConnectorType(12i32);
-pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = PhysicalConnectorType(13i32);
-pub const PhysConn_Video_YRYBY: PhysicalConnectorType = PhysicalConnectorType(5i32);
+pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103);
+pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099);
+pub const PhysConn_Audio_AUX: PhysicalConnectorType = PhysicalConnectorType(4102);
+pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = PhysicalConnectorType(4105);
+pub const PhysConn_Audio_Line: PhysicalConnectorType = PhysicalConnectorType(4097);
+pub const PhysConn_Audio_Mic: PhysicalConnectorType = PhysicalConnectorType(4098);
+pub const PhysConn_Audio_SCSI: PhysicalConnectorType = PhysicalConnectorType(4101);
+pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = PhysicalConnectorType(4100);
+pub const PhysConn_Audio_Tuner: PhysicalConnectorType = PhysicalConnectorType(4096);
+pub const PhysConn_Audio_USB: PhysicalConnectorType = PhysicalConnectorType(4104);
+pub const PhysConn_Video_1394: PhysicalConnectorType = PhysicalConnectorType(10);
+pub const PhysConn_Video_AUX: PhysicalConnectorType = PhysicalConnectorType(9);
+pub const PhysConn_Video_Black: PhysicalConnectorType = PhysicalConnectorType(15);
+pub const PhysConn_Video_Composite: PhysicalConnectorType = PhysicalConnectorType(2);
+pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = PhysicalConnectorType(7);
+pub const PhysConn_Video_RGB: PhysicalConnectorType = PhysicalConnectorType(4);
+pub const PhysConn_Video_SCART: PhysicalConnectorType = PhysicalConnectorType(14);
+pub const PhysConn_Video_SCSI: PhysicalConnectorType = PhysicalConnectorType(8);
+pub const PhysConn_Video_SVideo: PhysicalConnectorType = PhysicalConnectorType(3);
+pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = PhysicalConnectorType(6);
+pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1);
+pub const PhysConn_Video_USB: PhysicalConnectorType = PhysicalConnectorType(11);
+pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = PhysicalConnectorType(12);
+pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = PhysicalConnectorType(13);
+pub const PhysConn_Video_YRYBY: PhysicalConnectorType = PhysicalConnectorType(5);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhysicalConnectorType(pub i32);
@@ -35833,11 +35833,11 @@ pub struct Pilot(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Polarisation(pub i32);
-pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(1i32);
-pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(2i32);
-pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(4i32);
-pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(15i32);
-pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(8i32);
+pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(1);
+pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(2);
+pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(4);
+pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(15);
+pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Quality {
@@ -35988,11 +35988,11 @@ impl core::ops::Not for REG_PINFLAG {
         Self(self.0.not())
     }
 }
-pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4i32);
-pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8i32);
-pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2i32);
-pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1i32);
-pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);
+pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4);
+pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8);
+pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2);
+pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1);
+pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1);
 #[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct RIFFCHUNK {
@@ -36006,65 +36006,65 @@ pub struct RIFFLIST {
     pub cb: u32,
     pub fccListType: u32,
 }
-pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
-pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
-pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
-pub const RenderPrefs9_Mask: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
-pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = VMRRenderPrefs(0i32);
-pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = VMRRenderPrefs(0i32);
-pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = VMRRenderPrefs(8i32);
-pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = VMRRenderPrefs(1i32);
-pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = VMRRenderPrefs(2i32);
-pub const RenderPrefs_Mask: VMRRenderPrefs = VMRRenderPrefs(63i32);
-pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = VMRRenderPrefs(32i32);
-pub const RenderPrefs_Reserved: VMRRenderPrefs = VMRRenderPrefs(16i32);
-pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = VMRRenderPrefs(0i32);
-pub const Reserved1: MPEG2StreamType = MPEG2StreamType(0i32);
+pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1);
+pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2);
+pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = VMR9RenderPrefs(1);
+pub const RenderPrefs9_Mask: VMR9RenderPrefs = VMR9RenderPrefs(1);
+pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = VMRRenderPrefs(0);
+pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = VMRRenderPrefs(0);
+pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = VMRRenderPrefs(8);
+pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = VMRRenderPrefs(1);
+pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = VMRRenderPrefs(2);
+pub const RenderPrefs_Mask: VMRRenderPrefs = VMRRenderPrefs(63);
+pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = VMRRenderPrefs(32);
+pub const RenderPrefs_Reserved: VMRRenderPrefs = VMRRenderPrefs(16);
+pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = VMRRenderPrefs(0);
+pub const Reserved1: MPEG2StreamType = MPEG2StreamType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RollOff(pub i32);
-pub const SCTE28_ConditionalAccess: ApplicationTypeType = ApplicationTypeType(0i32);
-pub const SCTE28_CopyProtection: ApplicationTypeType = ApplicationTypeType(5i32);
-pub const SCTE28_Diagnostic: ApplicationTypeType = ApplicationTypeType(6i32);
-pub const SCTE28_IPService: ApplicationTypeType = ApplicationTypeType(2i32);
-pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = ApplicationTypeType(4i32);
-pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = ApplicationTypeType(3i32);
-pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = ApplicationTypeType(1i32);
-pub const SCTE28_Reserved: ApplicationTypeType = ApplicationTypeType(8i32);
-pub const SCTE28_Undesignated: ApplicationTypeType = ApplicationTypeType(7i32);
-pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0i32);
+pub const SCTE28_ConditionalAccess: ApplicationTypeType = ApplicationTypeType(0);
+pub const SCTE28_CopyProtection: ApplicationTypeType = ApplicationTypeType(5);
+pub const SCTE28_Diagnostic: ApplicationTypeType = ApplicationTypeType(6);
+pub const SCTE28_IPService: ApplicationTypeType = ApplicationTypeType(2);
+pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = ApplicationTypeType(4);
+pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = ApplicationTypeType(3);
+pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = ApplicationTypeType(1);
+pub const SCTE28_Reserved: ApplicationTypeType = ApplicationTypeType(8);
+pub const SCTE28_Undesignated: ApplicationTypeType = ApplicationTypeType(7);
+pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNDDEV_ERR(pub i32);
-pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = SNDDEV_ERR(13i32);
-pub const SNDDEV_ERROR_Close: SNDDEV_ERR = SNDDEV_ERR(2i32);
-pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = SNDDEV_ERR(3i32);
-pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = SNDDEV_ERR(8i32);
-pub const SNDDEV_ERROR_Open: SNDDEV_ERR = SNDDEV_ERR(1i32);
-pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = SNDDEV_ERR(10i32);
-pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = SNDDEV_ERR(4i32);
-pub const SNDDEV_ERROR_Query: SNDDEV_ERR = SNDDEV_ERR(14i32);
-pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = SNDDEV_ERR(6i32);
-pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = SNDDEV_ERR(7i32);
-pub const SNDDEV_ERROR_Start: SNDDEV_ERR = SNDDEV_ERR(12i32);
-pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = SNDDEV_ERR(11i32);
-pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = SNDDEV_ERR(5i32);
-pub const SNDDEV_ERROR_Write: SNDDEV_ERR = SNDDEV_ERR(9i32);
+pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = SNDDEV_ERR(13);
+pub const SNDDEV_ERROR_Close: SNDDEV_ERR = SNDDEV_ERR(2);
+pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = SNDDEV_ERR(3);
+pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = SNDDEV_ERR(8);
+pub const SNDDEV_ERROR_Open: SNDDEV_ERR = SNDDEV_ERR(1);
+pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = SNDDEV_ERR(10);
+pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = SNDDEV_ERR(4);
+pub const SNDDEV_ERROR_Query: SNDDEV_ERR = SNDDEV_ERR(14);
+pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = SNDDEV_ERR(6);
+pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = SNDDEV_ERR(7);
+pub const SNDDEV_ERROR_Start: SNDDEV_ERR = SNDDEV_ERR(12);
+pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = SNDDEV_ERR(11);
+pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = SNDDEV_ERR(5);
+pub const SNDDEV_ERROR_Write: SNDDEV_ERR = SNDDEV_ERR(9);
 pub const SPECIFYPAGES_STATISTICS: windows_core::GUID = windows_core::GUID::from_u128(0x4c437b92_6e9e_11d1_a704_006097c4e476);
-pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1i32);
-pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = SSUPDATE_TYPE(2i32);
+pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1);
+pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = SSUPDATE_TYPE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSUPDATE_TYPE(pub i32);
-pub const STDINDEXSIZE: u32 = 16384u32;
+pub const STDINDEXSIZE: u32 = 16384;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMIF_CONSTANTS(pub i32);
-pub const STREAMSTATE_RUN: STREAM_STATE = STREAM_STATE(1i32);
-pub const STREAMSTATE_STOP: STREAM_STATE = STREAM_STATE(0i32);
-pub const STREAMTYPE_READ: STREAM_TYPE = STREAM_TYPE(0i32);
-pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = STREAM_TYPE(2i32);
-pub const STREAMTYPE_WRITE: STREAM_TYPE = STREAM_TYPE(1i32);
+pub const STREAMSTATE_RUN: STREAM_STATE = STREAM_STATE(1);
+pub const STREAMSTATE_STOP: STREAM_STATE = STREAM_STATE(0);
+pub const STREAMTYPE_READ: STREAM_TYPE = STREAM_TYPE(0);
+pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = STREAM_TYPE(2);
+pub const STREAMTYPE_WRITE: STREAM_TYPE = STREAM_TYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STREAM_ID_MAP {
@@ -36079,15 +36079,15 @@ pub struct STREAM_STATE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAM_TYPE(pub i32);
-pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456u32;
+pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScanModulationTypes(pub i32);
-pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75i32);
-pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulationTypes(-1i32);
-pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = ScanModulationTypes(28i32);
-pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = ScanModulationTypes(11i32);
-pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = ScanModulationTypes(23i32);
+pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75);
+pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulationTypes(-1);
+pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = ScanModulationTypes(28);
+pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = ScanModulationTypes(11);
+pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = ScanModulationTypes(23);
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct SmartCardApplication {
@@ -36105,13 +36105,13 @@ pub struct SmartCardStatusType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpectralInversion(pub i32);
-pub const State_Paused: FILTER_STATE = FILTER_STATE(1i32);
-pub const State_Running: FILTER_STATE = FILTER_STATE(2i32);
-pub const State_Stopped: FILTER_STATE = FILTER_STATE(0i32);
-pub const StatusActive: ComponentStatus = ComponentStatus(0i32);
-pub const StatusInactive: ComponentStatus = ComponentStatus(1i32);
-pub const StatusUnavailable: ComponentStatus = ComponentStatus(2i32);
-pub const SystemClosed: UICloseReasonType = UICloseReasonType(2i32);
+pub const State_Paused: FILTER_STATE = FILTER_STATE(1);
+pub const State_Running: FILTER_STATE = FILTER_STATE(2);
+pub const State_Stopped: FILTER_STATE = FILTER_STATE(0);
+pub const StatusActive: ComponentStatus = ComponentStatus(0);
+pub const StatusInactive: ComponentStatus = ComponentStatus(1);
+pub const StatusUnavailable: ComponentStatus = ComponentStatus(2);
+pub const SystemClosed: UICloseReasonType = UICloseReasonType(2);
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct TIMECODEDATA {
@@ -36124,9 +36124,9 @@ impl Default for TIMECODEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const TIMECODE_RATE_30DROP: u32 = 0u32;
-pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7u32;
-pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8u32;
+pub const TIMECODE_RATE_30DROP: u32 = 0;
+pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7;
+pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -36143,45 +36143,45 @@ impl Default for TRUECOLORINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVAudioMode(pub i32);
-pub const TechnicalFailure: EntitlementType = EntitlementType(2i32);
+pub const TechnicalFailure: EntitlementType = EntitlementType(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TransmissionMode(pub i32);
-pub const TunerInputAntenna: TunerInputType = TunerInputType(1i32);
-pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
+pub const TunerInputAntenna: TunerInputType = TunerInputType(1);
+pub const TunerInputCable: TunerInputType = TunerInputType(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TunerInputType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UICloseReasonType(pub i32);
-pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = VALID_UOP_FLAG(524288i32);
-pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(128i32);
-pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(64i32);
-pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = VALID_UOP_FLAG(512i32);
-pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(2i32);
-pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(32i32);
-pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = VALID_UOP_FLAG(256i32);
-pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(4i32);
-pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(1i32);
-pub const UOP_FLAG_Resume: VALID_UOP_FLAG = VALID_UOP_FLAG(65536i32);
-pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = VALID_UOP_FLAG(16i32);
-pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(4194304i32);
-pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(1048576i32);
-pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = VALID_UOP_FLAG(8388608i32);
-pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = VALID_UOP_FLAG(131072i32);
-pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(2097152i32);
-pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = VALID_UOP_FLAG(16777216i32);
-pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(16384i32);
-pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = VALID_UOP_FLAG(8192i32);
-pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(32768i32);
-pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = VALID_UOP_FLAG(2048i32);
-pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = VALID_UOP_FLAG(4096i32);
-pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(1024i32);
-pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = VALID_UOP_FLAG(262144i32);
-pub const UOP_FLAG_Stop: VALID_UOP_FLAG = VALID_UOP_FLAG(8i32);
-pub const USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(16i32);
-pub const UserClosed: UICloseReasonType = UICloseReasonType(1i32);
+pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = VALID_UOP_FLAG(524288);
+pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(128);
+pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(64);
+pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = VALID_UOP_FLAG(512);
+pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(2);
+pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(32);
+pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = VALID_UOP_FLAG(256);
+pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(4);
+pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(1);
+pub const UOP_FLAG_Resume: VALID_UOP_FLAG = VALID_UOP_FLAG(65536);
+pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = VALID_UOP_FLAG(16);
+pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(4194304);
+pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(1048576);
+pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = VALID_UOP_FLAG(8388608);
+pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = VALID_UOP_FLAG(131072);
+pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(2097152);
+pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = VALID_UOP_FLAG(16777216);
+pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(16384);
+pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = VALID_UOP_FLAG(8192);
+pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(32768);
+pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = VALID_UOP_FLAG(2048);
+pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = VALID_UOP_FLAG(4096);
+pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(1024);
+pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = VALID_UOP_FLAG(262144);
+pub const UOP_FLAG_Stop: VALID_UOP_FLAG = VALID_UOP_FLAG(8);
+pub const USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(16);
+pub const UserClosed: UICloseReasonType = UICloseReasonType(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALID_UOP_FLAG(pub i32);
@@ -36328,7 +36328,7 @@ impl Default for VFW_FILTERLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const VFW_FIRST_CODE: u32 = 512u32;
+pub const VFW_FIRST_CODE: u32 = 512;
 pub const VFW_S_AUDIO_NOT_RENDERED: windows_core::HRESULT = windows_core::HRESULT(0x40258_u32 as _);
 pub const VFW_S_CANT_CUE: windows_core::HRESULT = windows_core::HRESULT(0x40268_u32 as _);
 pub const VFW_S_CONNECTIONS_DEFERRED: windows_core::HRESULT = windows_core::HRESULT(0x40246_u32 as _);
@@ -36410,15 +36410,15 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub MinBitsPerSecond: i32,
     pub MaxBitsPerSecond: i32,
 }
-pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1i32);
-pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0i32);
-pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1i32);
-pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(2i32);
-pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(8i32);
-pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(16i32);
-pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(4i32);
-pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(255i32);
-pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(224i32);
+pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1);
+pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0);
+pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1);
+pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(2);
+pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(8);
+pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(16);
+pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(4);
+pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(255);
+pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(224);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -36448,12 +36448,12 @@ pub struct VMR9AlphaBitmap {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9AlphaBitmapFlags(pub i32);
-pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(1i32);
-pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(4i32);
-pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(32i32);
-pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(8i32);
-pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(16i32);
-pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(2i32);
+pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(1);
+pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(4);
+pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(32);
+pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(8);
+pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(16);
+pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9AspectRatioMode(pub i32);
@@ -36484,10 +36484,10 @@ pub struct VMR9MixerPrefs(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9Mode(pub i32);
-pub const VMR9Mode_Mask: VMR9Mode = VMR9Mode(7i32);
-pub const VMR9Mode_Renderless: VMR9Mode = VMR9Mode(4i32);
-pub const VMR9Mode_Windowed: VMR9Mode = VMR9Mode(1i32);
-pub const VMR9Mode_Windowless: VMR9Mode = VMR9Mode(2i32);
+pub const VMR9Mode_Mask: VMR9Mode = VMR9Mode(7);
+pub const VMR9Mode_Renderless: VMR9Mode = VMR9Mode(4);
+pub const VMR9Mode_Windowed: VMR9Mode = VMR9Mode(1);
+pub const VMR9Mode_Windowless: VMR9Mode = VMR9Mode(2);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -36561,11 +36561,11 @@ pub struct VMR9ProcAmpControlRange {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9RenderPrefs(pub i32);
-pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = VMR9PresentationFlags(4i32);
-pub const VMR9Sample_Preroll: VMR9PresentationFlags = VMR9PresentationFlags(2i32);
-pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = VMR9PresentationFlags(16i32);
-pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = VMR9PresentationFlags(1i32);
-pub const VMR9Sample_TimeValid: VMR9PresentationFlags = VMR9PresentationFlags(8i32);
+pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = VMR9PresentationFlags(4);
+pub const VMR9Sample_Preroll: VMR9PresentationFlags = VMR9PresentationFlags(2);
+pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = VMR9PresentationFlags(16);
+pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = VMR9PresentationFlags(1);
+pub const VMR9Sample_TimeValid: VMR9PresentationFlags = VMR9PresentationFlags(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9SurfaceAllocationFlags(pub i32);
@@ -36594,15 +36594,15 @@ pub struct VMR9VideoStreamInfo {
     pub rtEnd: i64,
     pub SampleFormat: VMR9_SampleFormat,
 }
-pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3i32);
-pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4i32);
-pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = VMR9_SampleFormat(5i32);
-pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = VMR9_SampleFormat(6i32);
+pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3);
+pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4);
+pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = VMR9_SampleFormat(5);
+pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = VMR9_SampleFormat(6);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR9_SampleFormat(pub i32);
-pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = VMR9_SampleFormat(2i32);
-pub const VMR9_SampleReserved: VMR9_SampleFormat = VMR9_SampleFormat(1i32);
+pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = VMR9_SampleFormat(2);
+pub const VMR9_SampleReserved: VMR9_SampleFormat = VMR9_SampleFormat(1);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -36634,11 +36634,11 @@ pub struct VMRALPHABITMAP {
     pub fAlpha: f32,
     pub clrSrcKey: super::super::Foundation::COLORREF,
 }
-pub const VMRBITMAP_DISABLE: u32 = 1u32;
-pub const VMRBITMAP_ENTIREDDS: u32 = 4u32;
-pub const VMRBITMAP_HDC: u32 = 2u32;
-pub const VMRBITMAP_SRCCOLORKEY: u32 = 8u32;
-pub const VMRBITMAP_SRCRECT: u32 = 16u32;
+pub const VMRBITMAP_DISABLE: u32 = 1;
+pub const VMRBITMAP_ENTIREDDS: u32 = 4;
+pub const VMRBITMAP_HDC: u32 = 2;
+pub const VMRBITMAP_SRCCOLORKEY: u32 = 8;
+pub const VMRBITMAP_SRCRECT: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VMRDeinterlaceCaps {
@@ -36699,10 +36699,10 @@ pub struct VMRMixerPrefs(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRMode(pub i32);
-pub const VMRMode_Mask: VMRMode = VMRMode(7i32);
-pub const VMRMode_Renderless: VMRMode = VMRMode(4i32);
-pub const VMRMode_Windowed: VMRMode = VMRMode(1i32);
-pub const VMRMode_Windowless: VMRMode = VMRMode(2i32);
+pub const VMRMode_Mask: VMRMode = VMRMode(7);
+pub const VMRMode_Renderless: VMRMode = VMRMode(4);
+pub const VMRMode_Windowed: VMRMode = VMRMode(1);
+pub const VMRMode_Windowless: VMRMode = VMRMode(2);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -36723,11 +36723,11 @@ pub struct VMRPresentationFlags(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRRenderPrefs(pub i32);
-pub const VMRSample_Discontinuity: VMRPresentationFlags = VMRPresentationFlags(4i32);
-pub const VMRSample_Preroll: VMRPresentationFlags = VMRPresentationFlags(2i32);
-pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = VMRPresentationFlags(16i32);
-pub const VMRSample_SyncPoint: VMRPresentationFlags = VMRPresentationFlags(1i32);
-pub const VMRSample_TimeValid: VMRPresentationFlags = VMRPresentationFlags(8i32);
+pub const VMRSample_Discontinuity: VMRPresentationFlags = VMRPresentationFlags(4);
+pub const VMRSample_Preroll: VMRPresentationFlags = VMRPresentationFlags(2);
+pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = VMRPresentationFlags(16);
+pub const VMRSample_SyncPoint: VMRPresentationFlags = VMRPresentationFlags(1);
+pub const VMRSample_TimeValid: VMRPresentationFlags = VMRPresentationFlags(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRSurfaceAllocationFlags(pub i32);
@@ -36754,40 +36754,40 @@ pub struct VMRVideoDesc {
     pub InputSampleFreq: VMRFrequency,
     pub OutputFrameFreq: VMRFrequency,
 }
-pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1i32);
-pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0i32);
+pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1);
+pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMR_ASPECT_RATIO_MODE(pub i32);
-pub const VMR_NOTSUPPORTED: u32 = 0u32;
-pub const VMR_RENDER_DEVICE_OVERLAY: u32 = 1u32;
-pub const VMR_RENDER_DEVICE_SYSMEM: u32 = 4u32;
-pub const VMR_RENDER_DEVICE_VIDMEM: u32 = 2u32;
-pub const VMR_SUPPORTED: u32 = 1u32;
-pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(1i32);
-pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(2i32);
-pub const VfwCaptureDialog_Display: VfwCaptureDialogs = VfwCaptureDialogs(4i32);
-pub const VfwCaptureDialog_Format: VfwCaptureDialogs = VfwCaptureDialogs(2i32);
-pub const VfwCaptureDialog_Source: VfwCaptureDialogs = VfwCaptureDialogs(1i32);
+pub const VMR_NOTSUPPORTED: u32 = 0;
+pub const VMR_RENDER_DEVICE_OVERLAY: u32 = 1;
+pub const VMR_RENDER_DEVICE_SYSMEM: u32 = 4;
+pub const VMR_RENDER_DEVICE_VIDMEM: u32 = 2;
+pub const VMR_SUPPORTED: u32 = 1;
+pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(1);
+pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(2);
+pub const VfwCaptureDialog_Display: VfwCaptureDialogs = VfwCaptureDialogs(4);
+pub const VfwCaptureDialog_Format: VfwCaptureDialogs = VfwCaptureDialogs(2);
+pub const VfwCaptureDialog_Source: VfwCaptureDialogs = VfwCaptureDialogs(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VfwCaptureDialogs(pub i32);
-pub const VfwCompressDialog_About: VfwCompressDialogs = VfwCompressDialogs(2i32);
-pub const VfwCompressDialog_Config: VfwCompressDialogs = VfwCompressDialogs(1i32);
-pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = VfwCompressDialogs(8i32);
-pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = VfwCompressDialogs(4i32);
+pub const VfwCompressDialog_About: VfwCompressDialogs = VfwCompressDialogs(2);
+pub const VfwCompressDialog_Config: VfwCompressDialogs = VfwCompressDialogs(1);
+pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = VfwCompressDialogs(8);
+pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = VfwCompressDialogs(4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VfwCompressDialogs(pub i32);
-pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = VideoControlFlags(4i32);
-pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = VideoControlFlags(1i32);
-pub const VideoControlFlag_FlipVertical: VideoControlFlags = VideoControlFlags(2i32);
-pub const VideoControlFlag_Trigger: VideoControlFlags = VideoControlFlags(8i32);
+pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = VideoControlFlags(4);
+pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = VideoControlFlags(1);
+pub const VideoControlFlag_FlipVertical: VideoControlFlags = VideoControlFlags(2);
+pub const VideoControlFlag_Trigger: VideoControlFlags = VideoControlFlags(8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoControlFlags(pub i32);
-pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = VideoCopyProtectionType(0i32);
-pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = VideoCopyProtectionType(1i32);
+pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = VideoCopyProtectionType(0);
+pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = VideoCopyProtectionType(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoCopyProtectionType(pub i32);
@@ -36797,18 +36797,18 @@ pub struct VideoProcAmpFlags(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoProcAmpProperty(pub i32);
-pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAmpProperty(8i32);
-pub const VideoProcAmp_Brightness: VideoProcAmpProperty = VideoProcAmpProperty(0i32);
-pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = VideoProcAmpProperty(6i32);
-pub const VideoProcAmp_Contrast: VideoProcAmpProperty = VideoProcAmpProperty(1i32);
-pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = VideoProcAmpFlags(1i32);
-pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = VideoProcAmpFlags(2i32);
-pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9i32);
-pub const VideoProcAmp_Gamma: VideoProcAmpProperty = VideoProcAmpProperty(5i32);
-pub const VideoProcAmp_Hue: VideoProcAmpProperty = VideoProcAmpProperty(2i32);
-pub const VideoProcAmp_Saturation: VideoProcAmpProperty = VideoProcAmpProperty(3i32);
-pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = VideoProcAmpProperty(4i32);
-pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = VideoProcAmpProperty(7i32);
+pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAmpProperty(8);
+pub const VideoProcAmp_Brightness: VideoProcAmpProperty = VideoProcAmpProperty(0);
+pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = VideoProcAmpProperty(6);
+pub const VideoProcAmp_Contrast: VideoProcAmpProperty = VideoProcAmpProperty(1);
+pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = VideoProcAmpFlags(1);
+pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = VideoProcAmpFlags(2);
+pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9);
+pub const VideoProcAmp_Gamma: VideoProcAmpProperty = VideoProcAmpProperty(5);
+pub const VideoProcAmp_Hue: VideoProcAmpProperty = VideoProcAmpProperty(2);
+pub const VideoProcAmp_Saturation: VideoProcAmpProperty = VideoProcAmpProperty(3);
+pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = VideoProcAmpProperty(4);
+pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = VideoProcAmpProperty(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _AMRESCTL_RESERVEFLAGS(pub i32);
@@ -36858,12 +36858,12 @@ pub struct _DVRESOLUTION(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REM_FILTER_FLAGS(pub i32);
 pub const g_wszExcludeScriptStreamDeliverySynchronization: windows_core::PCWSTR = windows_core::w!("ExcludeScriptStreamDeliverySynchronization");
-pub const iBLUE: u32 = 2u32;
-pub const iEGA_COLORS: u32 = 16u32;
-pub const iGREEN: u32 = 1u32;
-pub const iMASK_COLORS: u32 = 3u32;
-pub const iMAXBITS: u32 = 8u32;
-pub const iPALETTE: u32 = 8u32;
-pub const iPALETTE_COLORS: u32 = 256u32;
-pub const iRED: u32 = 0u32;
-pub const iTRUECOLOR: u32 = 16u32;
+pub const iBLUE: u32 = 2;
+pub const iEGA_COLORS: u32 = 16;
+pub const iGREEN: u32 = 1;
+pub const iMASK_COLORS: u32 = 3;
+pub const iMAXBITS: u32 = 8;
+pub const iPALETTE: u32 = 8;
+pub const iPALETTE_COLORS: u32 = 256;
+pub const iRED: u32 = 0;
+pub const iTRUECOLOR: u32 = 16;

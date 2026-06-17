@@ -255,9 +255,9 @@ unsafe impl Sync for TargetedContentAction {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
-    pub const NotApplicable: Self = Self(0i32);
-    pub const NotInstalled: Self = Self(1i32);
-    pub const Installed: Self = Self(2i32);
+    pub const NotApplicable: Self = Self(0);
+    pub const NotInstalled: Self = Self(1);
+    pub const Installed: Self = Self(2);
 }
 impl windows_core::TypeKind for TargetedContentAppInstallationState {
     type TypeKind = windows_core::CopyType;
@@ -270,9 +270,9 @@ impl windows_core::RuntimeType for TargetedContentAppInstallationState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
-    pub const None: Self = Self(0i32);
-    pub const Partial: Self = Self(1i32);
-    pub const All: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Partial: Self = Self(1);
+    pub const All: Self = Self(2);
 }
 impl windows_core::TypeKind for TargetedContentAvailability {
     type TypeKind = windows_core::CopyType;
@@ -530,19 +530,19 @@ unsafe impl Sync for TargetedContentImage {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
-    pub const Impression: Self = Self(0i32);
-    pub const ClickThrough: Self = Self(1i32);
-    pub const Hover: Self = Self(2i32);
-    pub const Like: Self = Self(3i32);
-    pub const Dislike: Self = Self(4i32);
-    pub const Dismiss: Self = Self(5i32);
-    pub const Ineligible: Self = Self(6i32);
-    pub const Accept: Self = Self(7i32);
-    pub const Decline: Self = Self(8i32);
-    pub const Defer: Self = Self(9i32);
-    pub const Canceled: Self = Self(10i32);
-    pub const Conversion: Self = Self(11i32);
-    pub const Opportunity: Self = Self(12i32);
+    pub const Impression: Self = Self(0);
+    pub const ClickThrough: Self = Self(1);
+    pub const Hover: Self = Self(2);
+    pub const Like: Self = Self(3);
+    pub const Dislike: Self = Self(4);
+    pub const Dismiss: Self = Self(5);
+    pub const Ineligible: Self = Self(6);
+    pub const Accept: Self = Self(7);
+    pub const Decline: Self = Self(8);
+    pub const Defer: Self = Self(9);
+    pub const Canceled: Self = Self(10);
+    pub const Conversion: Self = Self(11);
+    pub const Opportunity: Self = Self(12);
 }
 impl windows_core::TypeKind for TargetedContentInteraction {
     type TypeKind = windows_core::CopyType;
@@ -675,9 +675,9 @@ unsafe impl Sync for TargetedContentObject {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
-    pub const Collection: Self = Self(0i32);
-    pub const Item: Self = Self(1i32);
-    pub const Value: Self = Self(2i32);
+    pub const Collection: Self = Self(0);
+    pub const Item: Self = Self(1);
+    pub const Value: Self = Self(2);
 }
 impl windows_core::TypeKind for TargetedContentObjectKind {
     type TypeKind = windows_core::CopyType;
@@ -962,20 +962,20 @@ unsafe impl Sync for TargetedContentValue {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
-    pub const String: Self = Self(0i32);
-    pub const Uri: Self = Self(1i32);
-    pub const Number: Self = Self(2i32);
-    pub const Boolean: Self = Self(3i32);
-    pub const File: Self = Self(4i32);
-    pub const ImageFile: Self = Self(5i32);
-    pub const Action: Self = Self(6i32);
-    pub const Strings: Self = Self(7i32);
-    pub const Uris: Self = Self(8i32);
-    pub const Numbers: Self = Self(9i32);
-    pub const Booleans: Self = Self(10i32);
-    pub const Files: Self = Self(11i32);
-    pub const ImageFiles: Self = Self(12i32);
-    pub const Actions: Self = Self(13i32);
+    pub const String: Self = Self(0);
+    pub const Uri: Self = Self(1);
+    pub const Number: Self = Self(2);
+    pub const Boolean: Self = Self(3);
+    pub const File: Self = Self(4);
+    pub const ImageFile: Self = Self(5);
+    pub const Action: Self = Self(6);
+    pub const Strings: Self = Self(7);
+    pub const Uris: Self = Self(8);
+    pub const Numbers: Self = Self(9);
+    pub const Booleans: Self = Self(10);
+    pub const Files: Self = Self(11);
+    pub const ImageFiles: Self = Self(12);
+    pub const Actions: Self = Self(13);
 }
 impl windows_core::TypeKind for TargetedContentValueKind {
     type TypeKind = windows_core::CopyType;

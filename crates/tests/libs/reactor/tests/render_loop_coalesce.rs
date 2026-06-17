@@ -1,14 +1,15 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
-use windows_reactor::core::backend::RecordingBackend;
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::dispatcher::{DispatchPriority, Dispatcher, RunOnDemandDispatcher};
-use windows_reactor::core::element::{Element, StackPanel, TextBlock};
-use windows_reactor::core::render_context::{RenderCx, SetState};
-use windows_reactor::core::render_host::RenderHost;
-use windows_reactor::core::window::Size;
+use windows_reactor::Component;
+use windows_reactor::RecordingBackend;
+use windows_reactor::RenderHost;
+use windows_reactor::RunOnDemandDispatcher;
+use windows_reactor::WindowSize;
+use windows_reactor::component;
+use windows_reactor::{Dispatcher, DispatcherQueuePriority};
+use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{RenderCx, SetState};
 
 struct Counter {
     setter_slot: Rc<RefCell<Option<SetState<i32>>>>,
@@ -19,7 +20,7 @@ impl Component for Counter {
         let (count, set) = cx.use_state(0_i32);
         *self.setter_slot.borrow_mut() = Some(set);
         Element::TextBlock(TextBlock {
-            content: format!("Count: {count}"),
+            text: format!("Count: {count}"),
             ..TextBlock::default()
         })
     }
@@ -38,7 +39,7 @@ fn hundred_setstate_calls_collapse_to_one_reconcile_pass() {
     assert_eq!(host.render_count(), 0);
 }
 
-type QueuedJob = (DispatchPriority, Box<dyn FnOnce()>);
+type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
 
 #[derive(Clone, Default)]
 struct TestDispatcher {
@@ -78,7 +79,7 @@ impl TestDispatcher {
 }
 
 impl Dispatcher for TestDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         self.queue.borrow_mut().push((priority, f));
         true
     }
@@ -134,7 +135,7 @@ impl Component for SetDuringRender {
             set.call(7);
         }
         Element::TextBlock(TextBlock {
-            content: "x".into(),
+            text: "x".into(),
             ..TextBlock::default()
         })
     }
@@ -159,7 +160,7 @@ type PriorityQueue = Rc<RefCell<Vec<Box<dyn FnOnce()>>>>;
 
 #[derive(Default)]
 struct PriorityCapturingDispatcher {
-    priorities: Rc<RefCell<Vec<DispatchPriority>>>,
+    priorities: Rc<RefCell<Vec<DispatcherQueuePriority>>>,
     queue: PriorityQueue,
 }
 
@@ -168,7 +169,7 @@ impl PriorityCapturingDispatcher {
         Self::default()
     }
 
-    fn priorities(&self) -> Vec<DispatchPriority> {
+    fn priorities(&self) -> Vec<DispatcherQueuePriority> {
         self.priorities.borrow().clone()
     }
 
@@ -191,7 +192,7 @@ impl PriorityCapturingDispatcher {
 }
 
 impl Dispatcher for PriorityCapturingDispatcher {
-    fn enqueue(&self, priority: DispatchPriority, f: Box<dyn FnOnce()>) -> bool {
+    fn enqueue(&self, priority: DispatcherQueuePriority, f: Box<dyn FnOnce()>) -> bool {
         self.priorities.borrow_mut().push(priority);
         self.queue.borrow_mut().push(f);
         true
@@ -218,13 +219,13 @@ impl Component for ToggleRoot {
         *self.setter_slot.borrow_mut() = Some(set);
         if show {
             Element::TextBlock(TextBlock {
-                content: "T".into(),
+                text: "T".into(),
                 ..TextBlock::default()
             })
         } else {
-            use windows_reactor::core::element::StackPanel;
+            use windows_reactor::StackPanel;
             Element::StackPanel(StackPanel {
-                vertical: true,
+                orientation: Orientation::Vertical,
                 ..StackPanel::default()
             })
         }
@@ -241,7 +242,7 @@ fn post_render_hook_fires_after_each_render_with_current_root_id() {
     });
     let host = RenderHost::new(RecordingBackend::new(), root, dispatcher.clone());
 
-    let observations: Rc<RefCell<Vec<Option<windows_reactor::core::backend::ControlId>>>> =
+    let observations: Rc<RefCell<Vec<Option<windows_reactor::ControlId>>>> =
         Rc::new(RefCell::new(Vec::new()));
     let observations_for_hook = Rc::clone(&observations);
     host.set_post_render(move |new_id| {
@@ -288,8 +289,8 @@ fn setstate_during_render_enqueue_uses_low_priority() {
 
     let priorities = dispatcher.priorities();
     assert_eq!(priorities.len(), 2, "priorities: {priorities:?}");
-    assert_eq!(priorities[0], DispatchPriority::Normal);
-    assert_eq!(priorities[1], DispatchPriority::Low);
+    assert_eq!(priorities[0], DispatcherQueuePriority::Normal);
+    assert_eq!(priorities[1], DispatcherQueuePriority::Low);
     assert_eq!(host.render_count(), 2);
 }
 
@@ -359,7 +360,7 @@ struct InnerSizeRoot {
 impl Component for InnerSizeRoot {
     fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
         Element::StackPanel(StackPanel {
-            vertical: true,
+            orientation: Orientation::Vertical,
             children: vec![component(
                 InnerSizeLeaf {
                     renders: Rc::clone(&self.child_renders),
@@ -388,7 +389,7 @@ fn inner_size_change_rerenders_children_once_and_resets_force_flag() {
         "child should render on initial mount"
     );
 
-    host.set_inner_size(Size {
+    host.set_inner_size(WindowSize {
         width: 800.0,
         height: 600.0,
     });

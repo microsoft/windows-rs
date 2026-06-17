@@ -86,9 +86,9 @@ unsafe impl Sync for GpioChangeCounter {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
-    pub const Falling: Self = Self(0i32);
-    pub const Rising: Self = Self(1i32);
-    pub const Both: Self = Self(2i32);
+    pub const Falling: Self = Self(0);
+    pub const Rising: Self = Self(1);
+    pub const Both: Self = Self(2);
 }
 impl windows_core::TypeKind for GpioChangePolarity {
     type TypeKind = windows_core::CopyType;
@@ -303,11 +303,11 @@ unsafe impl Sync for GpioController {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
-    pub const PinOpened: Self = Self(0i32);
-    pub const PinUnavailable: Self = Self(1i32);
-    pub const SharingViolation: Self = Self(2i32);
-    pub const MuxingConflict: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
+    pub const PinOpened: Self = Self(0);
+    pub const PinUnavailable: Self = Self(1);
+    pub const SharingViolation: Self = Self(2);
+    pub const MuxingConflict: Self = Self(3);
+    pub const UnknownError: Self = Self(4);
 }
 impl windows_core::TypeKind for GpioOpenStatus {
     type TypeKind = windows_core::CopyType;
@@ -400,14 +400,14 @@ unsafe impl Sync for GpioPin {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
-    pub const Input: Self = Self(0i32);
-    pub const Output: Self = Self(1i32);
-    pub const InputPullUp: Self = Self(2i32);
-    pub const InputPullDown: Self = Self(3i32);
-    pub const OutputOpenDrain: Self = Self(4i32);
-    pub const OutputOpenDrainPullUp: Self = Self(5i32);
-    pub const OutputOpenSource: Self = Self(6i32);
-    pub const OutputOpenSourcePullDown: Self = Self(7i32);
+    pub const Input: Self = Self(0);
+    pub const Output: Self = Self(1);
+    pub const InputPullUp: Self = Self(2);
+    pub const InputPullDown: Self = Self(3);
+    pub const OutputOpenDrain: Self = Self(4);
+    pub const OutputOpenDrainPullUp: Self = Self(5);
+    pub const OutputOpenSource: Self = Self(6);
+    pub const OutputOpenSourcePullDown: Self = Self(7);
 }
 impl windows_core::TypeKind for GpioPinDriveMode {
     type TypeKind = windows_core::CopyType;
@@ -420,8 +420,8 @@ impl windows_core::RuntimeType for GpioPinDriveMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
-    pub const FallingEdge: Self = Self(0i32);
-    pub const RisingEdge: Self = Self(1i32);
+    pub const FallingEdge: Self = Self(0);
+    pub const RisingEdge: Self = Self(1);
 }
 impl windows_core::TypeKind for GpioPinEdge {
     type TypeKind = windows_core::CopyType;
@@ -434,8 +434,8 @@ impl windows_core::RuntimeType for GpioPinEdge {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
-    pub const Low: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
+    pub const Low: Self = Self(0);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for GpioPinValue {
     type TypeKind = windows_core::CopyType;
@@ -472,8 +472,8 @@ unsafe impl Sync for GpioPinValueChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
-    pub const Exclusive: Self = Self(0i32);
-    pub const SharedReadOnly: Self = Self(1i32);
+    pub const Exclusive: Self = Self(0);
+    pub const SharedReadOnly: Self = Self(1);
 }
 impl windows_core::TypeKind for GpioSharingMode {
     type TypeKind = windows_core::CopyType;

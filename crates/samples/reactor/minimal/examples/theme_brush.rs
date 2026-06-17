@@ -1,7 +1,4 @@
-//! Minimal sample for theme-brush bindings.
-//!
-//! `ThemeRef::Accent`, `CardBackground`, etc. resolve against the live
-//! XAML resource dictionary and track light/dark switches.
+//! Sample for theme-brush bindings.
 
 use windows_reactor::*;
 
@@ -42,5 +39,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("ThemeBrush", app)
 }

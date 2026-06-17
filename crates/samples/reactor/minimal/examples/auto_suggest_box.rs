@@ -1,4 +1,4 @@
-//! Minimal sample for the `AutoSuggestBox` element.
+//! Sample for the `AutoSuggestBox` element.
 
 use windows_reactor::*;
 
@@ -40,7 +40,7 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         auto_suggest_box(query)
             .items(suggestions)
-            .placeholder("Search fruits…")
+            .placeholder_text("Search fruits…")
             .on_text_changed(on_text)
             .on_suggestion_chosen(on_chosen),
         text_block(if chosen.is_empty() {
@@ -54,5 +54,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("AutoSuggestBox Sample").render(app)
+    reactor_minimal::run("AutoSuggestBox", app)
 }

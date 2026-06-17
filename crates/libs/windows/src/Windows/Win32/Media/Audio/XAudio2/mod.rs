@@ -34,26 +34,26 @@ pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, fla
 }
 pub const AudioReverb: windows_core::GUID = windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
 pub const AudioVolumeMeter: windows_core::GUID = windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
-pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
-pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
-pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
-pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
-pub const FACILITY_XAPO: u32 = 2199u32;
-pub const FACILITY_XAUDIO2: u32 = 2198u32;
-pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
-pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5f32;
-pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5f32;
+pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1);
+pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1);
+pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2);
+pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1);
+pub const FACILITY_XAPO: u32 = 2199;
+pub const FACILITY_XAUDIO2: u32 = 2198;
+pub const FXECHO_DEFAULT_DELAY: f32 = 500.0;
+pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5;
+pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct FXECHO_INITDATA {
     pub MaxDelay: f32,
 }
-pub const FXECHO_MAX_DELAY: f32 = 2000f32;
-pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
-pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
-pub const FXECHO_MIN_DELAY: f32 = 1f32;
-pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
-pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
+pub const FXECHO_MAX_DELAY: f32 = 2000.0;
+pub const FXECHO_MAX_FEEDBACK: f32 = 1.0;
+pub const FXECHO_MAX_WETDRYMIX: f32 = 1.0;
+pub const FXECHO_MIN_DELAY: f32 = 1.0;
+pub const FXECHO_MIN_FEEDBACK: f32 = 0.0;
+pub const FXECHO_MIN_WETDRYMIX: f32 = 0.0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct FXECHO_PARAMETERS {
@@ -62,20 +62,20 @@ pub struct FXECHO_PARAMETERS {
     pub Delay: f32,
 }
 pub const FXEQ: windows_core::GUID = windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
-pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_2: f32 = 2000f32;
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_3: f32 = 10000f32;
-pub const FXEQ_DEFAULT_GAIN: f32 = 1f32;
-pub const FXEQ_MAX_BANDWIDTH: f32 = 2f32;
-pub const FXEQ_MAX_FRAMERATE: u32 = 48000u32;
-pub const FXEQ_MAX_FREQUENCY_CENTER: f32 = 20000f32;
-pub const FXEQ_MAX_GAIN: f32 = 7.94f32;
-pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1f32;
-pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
-pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
-pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
+pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1.0;
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100.0;
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800.0;
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_2: f32 = 2000.0;
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_3: f32 = 10000.0;
+pub const FXEQ_DEFAULT_GAIN: f32 = 1.0;
+pub const FXEQ_MAX_BANDWIDTH: f32 = 2.0;
+pub const FXEQ_MAX_FRAMERATE: u32 = 48000;
+pub const FXEQ_MAX_FREQUENCY_CENTER: f32 = 20000.0;
+pub const FXEQ_MAX_GAIN: f32 = 7.94;
+pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1;
+pub const FXEQ_MIN_FRAMERATE: u32 = 22000;
+pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20.0;
+pub const FXEQ_MIN_GAIN: f32 = 0.126;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct FXEQ_PARAMETERS {
@@ -93,14 +93,14 @@ pub struct FXEQ_PARAMETERS {
     pub Bandwidth3: f32,
 }
 pub const FXEcho: windows_core::GUID = windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
-pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
-pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
-pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
-pub const FXMASTERINGLIMITER_DEFAULT_RELEASE: u32 = 6u32;
-pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800u32;
-pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
-pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
-pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
+pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400;
+pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000;
+pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000;
+pub const FXMASTERINGLIMITER_DEFAULT_RELEASE: u32 = 6;
+pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800;
+pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20;
+pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1;
+pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct FXMASTERINGLIMITER_PARAMETERS {
@@ -108,12 +108,12 @@ pub struct FXMASTERINGLIMITER_PARAMETERS {
     pub Loudness: u32,
 }
 pub const FXMasteringLimiter: windows_core::GUID = windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
-pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
-pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
-pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
-pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
-pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
-pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
+pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9;
+pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6;
+pub const FXREVERB_MAX_DIFFUSION: f32 = 1.0;
+pub const FXREVERB_MAX_ROOMSIZE: f32 = 1.0;
+pub const FXREVERB_MIN_DIFFUSION: f32 = 0.0;
+pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct FXREVERB_PARAMETERS {
@@ -121,12 +121,12 @@ pub struct FXREVERB_PARAMETERS {
     pub RoomSize: f32,
 }
 pub const FXReverb: windows_core::GUID = windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
-pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
-pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
-pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
-pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05f32;
-pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
-pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
+pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1.0;
+pub const HRTF_MAX_GAIN_LIMIT: f32 = 12.0;
+pub const HRTF_MIN_GAIN_LIMIT: f32 = -96.0;
+pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05;
+pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2);
+pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfApoInit {
@@ -216,7 +216,7 @@ impl IXAPO {
         }
     }
     pub unsafe fn LockForProcess(&self, pinputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>, poutputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputlockedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputlockedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn UnlockForProcess(&self) {
         unsafe {
@@ -225,7 +225,7 @@ impl IXAPO {
     }
     pub unsafe fn Process(&self, pinputprocessparameters: Option<&[XAPO_PROCESS_BUFFER_PARAMETERS]>, poutputprocessparameters: Option<&mut [XAPO_PROCESS_BUFFER_PARAMETERS]>, isenabled: bool) {
         unsafe {
-            (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pinputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), isenabled.into());
+            (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pinputprocessparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputprocessparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), isenabled.into());
         }
     }
     pub unsafe fn CalcInputFrames(&self, outputframecount: u32) -> u32 {
@@ -698,7 +698,7 @@ impl<T: IXAudio2EngineCallback_Impl> IXAudio2EngineCallback_ImplVtbl<T> {
 impl IXAudio2EngineCallback {
     pub fn new<'a, T: IXAudio2EngineCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2EngineCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -802,7 +802,7 @@ impl<T: IXAudio2MasteringVoice_Impl> IXAudio2MasteringVoice_ImplVtbl<T> {
 impl IXAudio2MasteringVoice {
     pub fn new<'a, T: IXAudio2MasteringVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2MasteringVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -973,7 +973,7 @@ impl<T: IXAudio2SourceVoice_Impl> IXAudio2SourceVoice_ImplVtbl<T> {
 impl IXAudio2SourceVoice {
     pub fn new<'a, T: IXAudio2SourceVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SourceVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -1003,7 +1003,7 @@ impl<T: IXAudio2SubmixVoice_Impl> IXAudio2SubmixVoice_ImplVtbl<T> {
 impl IXAudio2SubmixVoice {
     pub fn new<'a, T: IXAudio2SubmixVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SubmixVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -1316,7 +1316,7 @@ impl<T: IXAudio2Voice_Impl> IXAudio2Voice_ImplVtbl<T> {
 impl IXAudio2Voice {
     pub fn new<'a, T: IXAudio2Voice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2Voice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
@@ -1447,77 +1447,77 @@ impl<T: IXAudio2VoiceCallback_Impl> IXAudio2VoiceCallback_ImplVtbl<T> {
 impl IXAudio2VoiceCallback {
     pub fn new<'a, T: IXAudio2VoiceCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2VoiceCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
-pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
-pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
-pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
-pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
-pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
-pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
-pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
-pub const Processor1: u32 = 1u32;
-pub const Processor10: u32 = 512u32;
-pub const Processor11: u32 = 1024u32;
-pub const Processor12: u32 = 2048u32;
-pub const Processor13: u32 = 4096u32;
-pub const Processor14: u32 = 8192u32;
-pub const Processor15: u32 = 16384u32;
-pub const Processor16: u32 = 32768u32;
-pub const Processor17: u32 = 65536u32;
-pub const Processor18: u32 = 131072u32;
-pub const Processor19: u32 = 262144u32;
-pub const Processor2: u32 = 2u32;
-pub const Processor20: u32 = 524288u32;
-pub const Processor21: u32 = 1048576u32;
-pub const Processor22: u32 = 2097152u32;
-pub const Processor23: u32 = 4194304u32;
-pub const Processor24: u32 = 8388608u32;
-pub const Processor25: u32 = 16777216u32;
-pub const Processor26: u32 = 33554432u32;
-pub const Processor27: u32 = 67108864u32;
-pub const Processor28: u32 = 134217728u32;
-pub const Processor29: u32 = 268435456u32;
-pub const Processor3: u32 = 4u32;
-pub const Processor30: u32 = 536870912u32;
-pub const Processor31: u32 = 1073741824u32;
-pub const Processor32: u32 = 2147483648u32;
-pub const Processor4: u32 = 8u32;
-pub const Processor5: u32 = 16u32;
-pub const Processor6: u32 = 32u32;
-pub const Processor7: u32 = 64u32;
-pub const Processor8: u32 = 128u32;
-pub const Processor9: u32 = 256u32;
-pub const SPEAKER_MONO: u32 = 4u32;
-pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
-pub const X3DAUDIO_2PI: f32 = 6.2831855f32;
-pub const X3DAUDIO_CALCULATE_DELAY: u32 = 2u32;
-pub const X3DAUDIO_CALCULATE_DOPPLER: u32 = 32u32;
-pub const X3DAUDIO_CALCULATE_EMITTER_ANGLE: u32 = 64u32;
-pub const X3DAUDIO_CALCULATE_LPF_DIRECT: u32 = 4u32;
-pub const X3DAUDIO_CALCULATE_LPF_REVERB: u32 = 8u32;
-pub const X3DAUDIO_CALCULATE_MATRIX: u32 = 1u32;
-pub const X3DAUDIO_CALCULATE_REDIRECT_TO_LFE: u32 = 131072u32;
-pub const X3DAUDIO_CALCULATE_REVERB: u32 = 16u32;
-pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536u32;
-pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
-pub const X3DAUDIO_PI: f32 = 3.1415927f32;
-pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
+pub const Large: HrtfEnvironment = HrtfEnvironment(2);
+pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0);
+pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4);
+pub const Medium: HrtfEnvironment = HrtfEnvironment(1);
+pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0);
+pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3);
+pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0);
+pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3);
+pub const Processor1: u32 = 1;
+pub const Processor10: u32 = 512;
+pub const Processor11: u32 = 1024;
+pub const Processor12: u32 = 2048;
+pub const Processor13: u32 = 4096;
+pub const Processor14: u32 = 8192;
+pub const Processor15: u32 = 16384;
+pub const Processor16: u32 = 32768;
+pub const Processor17: u32 = 65536;
+pub const Processor18: u32 = 131072;
+pub const Processor19: u32 = 262144;
+pub const Processor2: u32 = 2;
+pub const Processor20: u32 = 524288;
+pub const Processor21: u32 = 1048576;
+pub const Processor22: u32 = 2097152;
+pub const Processor23: u32 = 4194304;
+pub const Processor24: u32 = 8388608;
+pub const Processor25: u32 = 16777216;
+pub const Processor26: u32 = 33554432;
+pub const Processor27: u32 = 67108864;
+pub const Processor28: u32 = 134217728;
+pub const Processor29: u32 = 268435456;
+pub const Processor3: u32 = 4;
+pub const Processor30: u32 = 536870912;
+pub const Processor31: u32 = 1073741824;
+pub const Processor32: u32 = 2147483648;
+pub const Processor4: u32 = 8;
+pub const Processor5: u32 = 16;
+pub const Processor6: u32 = 32;
+pub const Processor7: u32 = 64;
+pub const Processor8: u32 = 128;
+pub const Processor9: u32 = 256;
+pub const SPEAKER_MONO: u32 = 4;
+pub const Small: HrtfEnvironment = HrtfEnvironment(0);
+pub const X3DAUDIO_2PI: f32 = 6.2831855;
+pub const X3DAUDIO_CALCULATE_DELAY: u32 = 2;
+pub const X3DAUDIO_CALCULATE_DOPPLER: u32 = 32;
+pub const X3DAUDIO_CALCULATE_EMITTER_ANGLE: u32 = 64;
+pub const X3DAUDIO_CALCULATE_LPF_DIRECT: u32 = 4;
+pub const X3DAUDIO_CALCULATE_LPF_REVERB: u32 = 8;
+pub const X3DAUDIO_CALCULATE_MATRIX: u32 = 1;
+pub const X3DAUDIO_CALCULATE_REDIRECT_TO_LFE: u32 = 131072;
+pub const X3DAUDIO_CALCULATE_REVERB: u32 = 16;
+pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536;
+pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20;
+pub const X3DAUDIO_PI: f32 = 3.1415927;
+pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
-pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
-pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
+pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0);
+pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1);
 pub const XAPO_E_FORMAT_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88970001_u32 as _);
-pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
-pub const XAPO_FLAG_BUFFERCOUNT_MUST_MATCH: u32 = 8u32;
-pub const XAPO_FLAG_CHANNELS_MUST_MATCH: u32 = 1u32;
-pub const XAPO_FLAG_FRAMERATE_MUST_MATCH: u32 = 2u32;
-pub const XAPO_FLAG_INPLACE_REQUIRED: u32 = 32u32;
-pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16u32;
+pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4;
+pub const XAPO_FLAG_BUFFERCOUNT_MUST_MATCH: u32 = 8;
+pub const XAPO_FLAG_CHANNELS_MUST_MATCH: u32 = 1;
+pub const XAPO_FLAG_FRAMERATE_MUST_MATCH: u32 = 2;
+pub const XAPO_FLAG_INPLACE_REQUIRED: u32 = 32;
+pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
@@ -1529,10 +1529,10 @@ impl Default for XAPO_LOCKFORPROCESS_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XAPO_MAX_CHANNELS: u32 = 64u32;
-pub const XAPO_MAX_FRAMERATE: u32 = 200000u32;
-pub const XAPO_MIN_CHANNELS: u32 = 1u32;
-pub const XAPO_MIN_FRAMERATE: u32 = 1000u32;
+pub const XAPO_MAX_CHANNELS: u32 = 64;
+pub const XAPO_MAX_FRAMERATE: u32 = 200000;
+pub const XAPO_MIN_CHANNELS: u32 = 1;
+pub const XAPO_MIN_FRAMERATE: u32 = 1000;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAPO_PROCESS_BUFFER_PARAMETERS {
@@ -1564,33 +1564,33 @@ impl Default for XAPO_REGISTRATION_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
+pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256;
 pub const XAUDIO2D_DLL: windows_core::PCWSTR = windows_core::w!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_A: windows_core::PCSTR = windows_core::s!("xaudio2_9d.dll");
 pub const XAUDIO2D_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9d.dll");
-pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_REAR_DELAY: u32 = 20u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_SIDE_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_DECAY_TIME: f32 = 1f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_DENSITY: f32 = 100f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_DISABLE_LATE_FIELD: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_EARLY_DIFFUSION: u32 = 8u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_HIGH_EQ_CUTOFF: u32 = 4u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_HIGH_EQ_GAIN: u32 = 8u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_LATE_DIFFUSION: u32 = 8u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_LOW_EQ_CUTOFF: u32 = 4u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_LOW_EQ_GAIN: u32 = 8u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_POSITION: u32 = 6u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_POSITION_MATRIX: u32 = 27u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_REAR_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_REFLECTIONS_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_REFLECTIONS_GAIN: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_REVERB_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_DEFAULT_REVERB_GAIN: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_FREQ: f32 = 5000f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_HF: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_MAIN: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_SIZE: f32 = 100f32;
-pub const XAUDIO2FX_REVERB_DEFAULT_WET_DRY_MIX: f32 = 100f32;
+pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_REAR_DELAY: u32 = 20;
+pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_SIDE_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_DEFAULT_DECAY_TIME: f32 = 1.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_DENSITY: f32 = 100.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_DISABLE_LATE_FIELD: u32 = 0;
+pub const XAUDIO2FX_REVERB_DEFAULT_EARLY_DIFFUSION: u32 = 8;
+pub const XAUDIO2FX_REVERB_DEFAULT_HIGH_EQ_CUTOFF: u32 = 4;
+pub const XAUDIO2FX_REVERB_DEFAULT_HIGH_EQ_GAIN: u32 = 8;
+pub const XAUDIO2FX_REVERB_DEFAULT_LATE_DIFFUSION: u32 = 8;
+pub const XAUDIO2FX_REVERB_DEFAULT_LOW_EQ_CUTOFF: u32 = 4;
+pub const XAUDIO2FX_REVERB_DEFAULT_LOW_EQ_GAIN: u32 = 8;
+pub const XAUDIO2FX_REVERB_DEFAULT_POSITION: u32 = 6;
+pub const XAUDIO2FX_REVERB_DEFAULT_POSITION_MATRIX: u32 = 27;
+pub const XAUDIO2FX_REVERB_DEFAULT_REAR_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_DEFAULT_REFLECTIONS_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_DEFAULT_REFLECTIONS_GAIN: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_REVERB_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_DEFAULT_REVERB_GAIN: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_FREQ: f32 = 5000.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_HF: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_MAIN: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_SIZE: f32 = 100.0;
+pub const XAUDIO2FX_REVERB_DEFAULT_WET_DRY_MIX: f32 = 100.0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
@@ -1608,47 +1608,47 @@ pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub Density: f32,
     pub HFReference: f32,
 }
-pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
-pub const XAUDIO2FX_REVERB_MAX_7POINT1_SIDE_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_MAX_DENSITY: f32 = 100f32;
-pub const XAUDIO2FX_REVERB_MAX_DIFFUSION: u32 = 15u32;
-pub const XAUDIO2FX_REVERB_MAX_FRAMERATE: u32 = 48000u32;
-pub const XAUDIO2FX_REVERB_MAX_HIGH_EQ_CUTOFF: u32 = 14u32;
-pub const XAUDIO2FX_REVERB_MAX_HIGH_EQ_GAIN: u32 = 8u32;
-pub const XAUDIO2FX_REVERB_MAX_LOW_EQ_CUTOFF: u32 = 9u32;
-pub const XAUDIO2FX_REVERB_MAX_LOW_EQ_GAIN: u32 = 12u32;
-pub const XAUDIO2FX_REVERB_MAX_POSITION: u32 = 30u32;
-pub const XAUDIO2FX_REVERB_MAX_REAR_DELAY: u32 = 5u32;
-pub const XAUDIO2FX_REVERB_MAX_REFLECTIONS_DELAY: u32 = 300u32;
-pub const XAUDIO2FX_REVERB_MAX_REFLECTIONS_GAIN: f32 = 20f32;
-pub const XAUDIO2FX_REVERB_MAX_REVERB_DELAY: u32 = 85u32;
-pub const XAUDIO2FX_REVERB_MAX_REVERB_GAIN: f32 = 20f32;
-pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_FREQ: f32 = 20000f32;
-pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_HF: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_MAIN: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_MAX_ROOM_SIZE: f32 = 100f32;
-pub const XAUDIO2FX_REVERB_MAX_WET_DRY_MIX: f32 = 100f32;
-pub const XAUDIO2FX_REVERB_MIN_7POINT1_REAR_DELAY: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_7POINT1_SIDE_DELAY: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_DECAY_TIME: f32 = 0.1f32;
-pub const XAUDIO2FX_REVERB_MIN_DENSITY: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_MIN_DIFFUSION: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_FRAMERATE: u32 = 20000u32;
-pub const XAUDIO2FX_REVERB_MIN_HIGH_EQ_CUTOFF: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_HIGH_EQ_GAIN: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_LOW_EQ_CUTOFF: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_LOW_EQ_GAIN: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_POSITION: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_REAR_DELAY: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_REFLECTIONS_DELAY: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_REFLECTIONS_GAIN: f32 = -100f32;
-pub const XAUDIO2FX_REVERB_MIN_REVERB_DELAY: u32 = 0u32;
-pub const XAUDIO2FX_REVERB_MIN_REVERB_GAIN: f32 = -100f32;
-pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_FREQ: f32 = 20f32;
-pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_HF: f32 = -100f32;
-pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100f32;
-pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0f32;
-pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0f32;
+pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20;
+pub const XAUDIO2FX_REVERB_MAX_7POINT1_SIDE_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_MAX_DENSITY: f32 = 100.0;
+pub const XAUDIO2FX_REVERB_MAX_DIFFUSION: u32 = 15;
+pub const XAUDIO2FX_REVERB_MAX_FRAMERATE: u32 = 48000;
+pub const XAUDIO2FX_REVERB_MAX_HIGH_EQ_CUTOFF: u32 = 14;
+pub const XAUDIO2FX_REVERB_MAX_HIGH_EQ_GAIN: u32 = 8;
+pub const XAUDIO2FX_REVERB_MAX_LOW_EQ_CUTOFF: u32 = 9;
+pub const XAUDIO2FX_REVERB_MAX_LOW_EQ_GAIN: u32 = 12;
+pub const XAUDIO2FX_REVERB_MAX_POSITION: u32 = 30;
+pub const XAUDIO2FX_REVERB_MAX_REAR_DELAY: u32 = 5;
+pub const XAUDIO2FX_REVERB_MAX_REFLECTIONS_DELAY: u32 = 300;
+pub const XAUDIO2FX_REVERB_MAX_REFLECTIONS_GAIN: f32 = 20.0;
+pub const XAUDIO2FX_REVERB_MAX_REVERB_DELAY: u32 = 85;
+pub const XAUDIO2FX_REVERB_MAX_REVERB_GAIN: f32 = 20.0;
+pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_FREQ: f32 = 20000.0;
+pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_HF: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_MAX_ROOM_FILTER_MAIN: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_MAX_ROOM_SIZE: f32 = 100.0;
+pub const XAUDIO2FX_REVERB_MAX_WET_DRY_MIX: f32 = 100.0;
+pub const XAUDIO2FX_REVERB_MIN_7POINT1_REAR_DELAY: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_7POINT1_SIDE_DELAY: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_DECAY_TIME: f32 = 0.1;
+pub const XAUDIO2FX_REVERB_MIN_DENSITY: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_MIN_DIFFUSION: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_FRAMERATE: u32 = 20000;
+pub const XAUDIO2FX_REVERB_MIN_HIGH_EQ_CUTOFF: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_HIGH_EQ_GAIN: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_LOW_EQ_CUTOFF: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_LOW_EQ_GAIN: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_POSITION: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_REAR_DELAY: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_REFLECTIONS_DELAY: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_REFLECTIONS_GAIN: f32 = -100.0;
+pub const XAUDIO2FX_REVERB_MIN_REVERB_DELAY: u32 = 0;
+pub const XAUDIO2FX_REVERB_MIN_REVERB_GAIN: f32 = -100.0;
+pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_FREQ: f32 = 20.0;
+pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_HF: f32 = -100.0;
+pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100.0;
+pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0.0;
+pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0.0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2FX_REVERB_PARAMETERS {
@@ -1689,8 +1689,8 @@ impl Default for XAUDIO2FX_VOLUMEMETER_LEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
-pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
+pub const XAUDIO2_1024_QUANTUM: u32 = 32768;
+pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER {
@@ -1720,8 +1720,8 @@ impl Default for XAUDIO2_BUFFER_WMA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
-pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
+pub const XAUDIO2_COMMIT_ALL: u32 = 0;
+pub const XAUDIO2_COMMIT_NOW: u32 = 0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
@@ -1732,13 +1732,13 @@ pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub LogFunctionName: windows_core::BOOL,
     pub LogTiming: windows_core::BOOL,
 }
-pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
-pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
-pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1f32;
-pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1f32;
-pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
-pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
-pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
+pub const XAUDIO2_DEBUG_ENGINE: u32 = 1;
+pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0;
+pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1.0;
+pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1.0;
+pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2.0;
+pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1;
+pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0;
 pub const XAUDIO2_DLL: windows_core::PCWSTR = windows_core::w!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_A: windows_core::PCSTR = windows_core::s!("xaudio2_9.dll");
 pub const XAUDIO2_DLL_W: windows_core::PCWSTR = windows_core::w!("xaudio2_9.dll");
@@ -1760,7 +1760,7 @@ pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub InitialState: windows_core::BOOL,
     pub OutputChannels: u32,
 }
-pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
+pub const XAUDIO2_END_OF_STREAM: u32 = 64;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: windows_core::HRESULT = windows_core::HRESULT(0x88960004_u32 as _);
 pub const XAUDIO2_E_INVALID_CALL: windows_core::HRESULT = windows_core::HRESULT(0x88960001_u32 as _);
 pub const XAUDIO2_E_XAPO_CREATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x88960003_u32 as _);
@@ -1775,33 +1775,33 @@ pub struct XAUDIO2_FILTER_PARAMETERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
-pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
-pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
-pub const XAUDIO2_LOG_ERRORS: u32 = 1u32;
-pub const XAUDIO2_LOG_FUNC_CALLS: u32 = 32u32;
-pub const XAUDIO2_LOG_INFO: u32 = 4u32;
-pub const XAUDIO2_LOG_LOCKS: u32 = 128u32;
-pub const XAUDIO2_LOG_MEMORY: u32 = 256u32;
-pub const XAUDIO2_LOG_STREAMING: u32 = 4096u32;
-pub const XAUDIO2_LOG_TIMING: u32 = 64u32;
-pub const XAUDIO2_LOG_WARNINGS: u32 = 2u32;
-pub const XAUDIO2_LOOP_INFINITE: u32 = 255u32;
-pub const XAUDIO2_MAX_AUDIO_CHANNELS: u32 = 64u32;
-pub const XAUDIO2_MAX_BUFFERS_SYSTEM: u32 = 2u32;
-pub const XAUDIO2_MAX_BUFFER_BYTES: u32 = 2147483648u32;
-pub const XAUDIO2_MAX_FILTER_FREQUENCY: f32 = 1f32;
-pub const XAUDIO2_MAX_FILTER_ONEOVERQ: f32 = 1.5f32;
-pub const XAUDIO2_MAX_FREQ_RATIO: f32 = 1024f32;
-pub const XAUDIO2_MAX_INSTANCES: u32 = 8u32;
-pub const XAUDIO2_MAX_LOOP_COUNT: u32 = 254u32;
-pub const XAUDIO2_MAX_QUEUED_BUFFERS: u32 = 64u32;
-pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: u32 = 600000u32;
-pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: u32 = 300000u32;
-pub const XAUDIO2_MAX_SAMPLE_RATE: u32 = 200000u32;
-pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216f32;
-pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000u32;
-pub const XAUDIO2_NO_LOOP_REGION: u32 = 0u32;
-pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536u32;
+pub const XAUDIO2_LOG_API_CALLS: u32 = 16;
+pub const XAUDIO2_LOG_DETAIL: u32 = 8;
+pub const XAUDIO2_LOG_ERRORS: u32 = 1;
+pub const XAUDIO2_LOG_FUNC_CALLS: u32 = 32;
+pub const XAUDIO2_LOG_INFO: u32 = 4;
+pub const XAUDIO2_LOG_LOCKS: u32 = 128;
+pub const XAUDIO2_LOG_MEMORY: u32 = 256;
+pub const XAUDIO2_LOG_STREAMING: u32 = 4096;
+pub const XAUDIO2_LOG_TIMING: u32 = 64;
+pub const XAUDIO2_LOG_WARNINGS: u32 = 2;
+pub const XAUDIO2_LOOP_INFINITE: u32 = 255;
+pub const XAUDIO2_MAX_AUDIO_CHANNELS: u32 = 64;
+pub const XAUDIO2_MAX_BUFFERS_SYSTEM: u32 = 2;
+pub const XAUDIO2_MAX_BUFFER_BYTES: u32 = 2147483648;
+pub const XAUDIO2_MAX_FILTER_FREQUENCY: f32 = 1.0;
+pub const XAUDIO2_MAX_FILTER_ONEOVERQ: f32 = 1.5;
+pub const XAUDIO2_MAX_FREQ_RATIO: f32 = 1024.0;
+pub const XAUDIO2_MAX_INSTANCES: u32 = 8;
+pub const XAUDIO2_MAX_LOOP_COUNT: u32 = 254;
+pub const XAUDIO2_MAX_QUEUED_BUFFERS: u32 = 64;
+pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: u32 = 600000;
+pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: u32 = 300000;
+pub const XAUDIO2_MAX_SAMPLE_RATE: u32 = 200000;
+pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216.0;
+pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000;
+pub const XAUDIO2_NO_LOOP_REGION: u32 = 0;
+pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_PERFORMANCE_DATA {
@@ -1820,18 +1820,18 @@ pub struct XAUDIO2_PERFORMANCE_DATA {
     pub ActiveXmaSourceVoices: u32,
     pub ActiveXmaStreams: u32,
 }
-pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
-pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
-pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
+pub const XAUDIO2_PLAY_TAILS: u32 = 32;
+pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100;
+pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1;
 #[repr(C, packed(1))]
 #[derive(Default)]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
     pub pOutputVoice: core::mem::ManuallyDrop<Option<IXAudio2Voice>>,
 }
-pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
-pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
-pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0u32;
+pub const XAUDIO2_SEND_USEFILTER: u32 = 128;
+pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192;
+pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XAUDIO2_VOICE_DETAILS {
@@ -1840,9 +1840,9 @@ pub struct XAUDIO2_VOICE_DETAILS {
     pub InputChannels: u32,
     pub InputSampleRate: u32,
 }
-pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
-pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
-pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
+pub const XAUDIO2_VOICE_NOPITCH: u32 = 2;
+pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256;
+pub const XAUDIO2_VOICE_NOSRC: u32 = 4;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_SENDS {
@@ -1866,4 +1866,4 @@ impl Default for XAUDIO2_VOICE_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
+pub const XAUDIO2_VOICE_USEFILTER: u32 = 8;

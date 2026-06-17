@@ -397,10 +397,10 @@ unsafe impl Sync for PdfPageRenderOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
-    pub const Normal: Self = Self(0i32);
-    pub const Rotate90: Self = Self(1i32);
-    pub const Rotate180: Self = Self(2i32);
-    pub const Rotate270: Self = Self(3i32);
+    pub const Normal: Self = Self(0);
+    pub const Rotate90: Self = Self(1);
+    pub const Rotate180: Self = Self(2);
+    pub const Rotate270: Self = Self(3);
 }
 impl windows_core::TypeKind for PdfPageRotation {
     type TypeKind = windows_core::CopyType;

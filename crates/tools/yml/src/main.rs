@@ -1,3 +1,4 @@
+mod doc;
 mod msrv;
 mod no_default_features;
 
@@ -5,6 +6,7 @@ use std::fmt::Write;
 use std::io::BufRead;
 
 fn main() {
+    doc::yml();
     no_default_features::yml();
     msrv::yml();
 }

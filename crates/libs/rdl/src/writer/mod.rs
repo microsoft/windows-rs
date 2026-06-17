@@ -797,12 +797,12 @@ fn guid_output(
         return Ok(GuidOutput::None);
     };
     let stored = extract_guid_from_attribute(attr)?;
-    let s = crate::reader::guid::build_interface_string(
+    let s = reader::guid::build_interface_string(
         item.namespace(),
         metadata::trim_tick(item.name()),
         methods,
     );
-    let derived = crate::reader::guid::guid_from_interface_string(&s);
+    let derived = reader::guid::guid_from_interface_string(&s);
     if stored == derived {
         Ok(GuidOutput::Omit)
     } else {

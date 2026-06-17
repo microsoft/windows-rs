@@ -74,9 +74,9 @@ unsafe impl Sync for CustomDevice {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const Write: Self = Self(1i32);
-    pub const ReadWrite: Self = Self(2i32);
+    pub const Read: Self = Self(0);
+    pub const Write: Self = Self(1);
+    pub const ReadWrite: Self = Self(2);
 }
 impl windows_core::TypeKind for DeviceAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -89,8 +89,8 @@ impl windows_core::RuntimeType for DeviceAccessMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
-    pub const Shared: Self = Self(0i32);
-    pub const Exclusive: Self = Self(1i32);
+    pub const Shared: Self = Self(0);
+    pub const Exclusive: Self = Self(1);
 }
 impl windows_core::TypeKind for DeviceSharingMode {
     type TypeKind = windows_core::CopyType;
@@ -296,10 +296,10 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
-    pub const Any: Self = Self(0i32);
-    pub const Read: Self = Self(1i32);
-    pub const Write: Self = Self(2i32);
-    pub const ReadWrite: Self = Self(3i32);
+    pub const Any: Self = Self(0);
+    pub const Read: Self = Self(1);
+    pub const Write: Self = Self(2);
+    pub const ReadWrite: Self = Self(3);
 }
 impl windows_core::TypeKind for IOControlAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -312,10 +312,10 @@ impl windows_core::RuntimeType for IOControlAccessMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
-    pub const Buffered: Self = Self(0i32);
-    pub const DirectInput: Self = Self(1i32);
-    pub const DirectOutput: Self = Self(2i32);
-    pub const Neither: Self = Self(3i32);
+    pub const Buffered: Self = Self(0);
+    pub const DirectInput: Self = Self(1);
+    pub const DirectOutput: Self = Self(2);
+    pub const Neither: Self = Self(3);
 }
 impl windows_core::TypeKind for IOControlBufferingMethod {
     type TypeKind = windows_core::CopyType;

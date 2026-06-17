@@ -1,4 +1,4 @@
-//! Minimal sample for the `ToggleButton` widget.
+//! Sample for the `ToggleButton` widget.
 
 use windows_reactor::*;
 
@@ -17,8 +17,8 @@ fn app(cx: &mut RenderCx) -> Element {
     };
 
     vstack((
-        toggle_button("Bold", is_bold).on_changed(on_bold),
-        toggle_button("Italic", is_italic).on_changed(on_italic),
+        toggle_button("Bold", is_bold).on_checked(on_bold),
+        toggle_button("Italic", is_italic).on_checked(on_italic),
         text_block(format!("Style: {style_label}")),
     ))
     .spacing(8.0)
@@ -26,5 +26,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("ToggleButton", app)
 }

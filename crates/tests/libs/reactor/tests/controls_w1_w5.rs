@@ -1,6 +1,6 @@
 //! Coverage for the W1–W5 widgets added per `docs/gaps.md`:
 //!
-//! * **W1**: `virtual_list` constructor and `scroll_templated_to_index`
+//! * **W1**: `list_view` constructor and `scroll_templated_to_index`
 //! * **W2**: `PasswordBox`
 //! * **W3**: `RadioButtons`
 //! * **W4**: `ComboBox`
@@ -13,15 +13,14 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use windows_reactor::ElementExt;
-use windows_reactor::core::backend::{
-    Backend, ControlKind, Event, Op, Prop, PropValue, RecordingBackend,
-};
-use windows_reactor::core::element::{
+use windows_reactor::Reconciler;
+use windows_reactor::list_view;
+use windows_reactor::{Backend, ControlKind, Event, Prop, PropValue};
+use windows_reactor::{
     Canvas, CanvasPosition, ComboBox, PasswordBox, PasswordRevealMode, RadioButtons,
 };
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::templated_list::{list_view, virtual_list};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -29,9 +28,7 @@ fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     r
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()
@@ -49,8 +46,8 @@ fn password_box_mounts_with_value_header_and_reveal_mode() {
     let el: Element = PasswordBox::new()
         .value("hunter2")
         .header("Secret")
-        .placeholder("type something")
-        .reveal_mode(PasswordRevealMode::Visible)
+        .placeholder_text("type something")
+        .password_reveal_mode(PasswordRevealMode::Visible)
         .into();
     let r = mount(&el);
     let (kind, id) = first_create(&r);
@@ -71,13 +68,14 @@ fn password_box_mounts_with_value_header_and_reveal_mode() {
                 continue;
             }
             match (prop, value) {
-                (Prop::PasswordValue, PropValue::Str(s)) if s == "hunter2" => value_set = true,
-                (
-                    Prop::PasswordRevealMode,
-                    PropValue::PasswordRevealMode(PasswordRevealMode::Visible),
-                ) => reveal_set = true,
+                (Prop::Value, PropValue::Str(s)) if s == "hunter2" => value_set = true,
+                (Prop::PasswordRevealMode, PropValue::I32(v))
+                    if *v == PasswordRevealMode::Visible.0 =>
+                {
+                    reveal_set = true;
+                }
                 (Prop::Header, PropValue::Str(s)) if s == "Secret" => header_set = true,
-                (Prop::Placeholder, PropValue::Str(s)) if s == "type something" => {
+                (Prop::PlaceholderText, PropValue::Str(s)) if s == "type something" => {
                     placeholder_set = true;
                 }
                 _ => {}
@@ -95,7 +93,7 @@ fn password_box_attaches_password_changed_event() {
     let captured = Rc::new(Cell::new(None::<String>));
     let cap = Rc::clone(&captured);
     let el: Element = PasswordBox::new()
-        .on_changed(move |s| cap.set(Some(s)))
+        .on_password_changed(move |s| cap.set(Some(s)))
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
@@ -132,12 +130,12 @@ fn radio_buttons_mounts_with_items_and_selection() {
                 continue;
             }
             match (prop, value) {
-                (Prop::RadioButtonsItems, PropValue::StrList(v)) if v == &["A", "B", "C"] => {
+                (Prop::Items, PropValue::StrList(v)) if v == &["A", "B", "C"] => {
                     items_ok = true;
                 }
                 (Prop::SelectedIndex, PropValue::I32(1)) => sel_ok = true,
                 (Prop::Header, PropValue::Str(s)) if s == "Pick" => header_ok = true,
-                (Prop::RadioButtonsMaxColumns, PropValue::I32(2)) => maxcols_ok = true,
+                (Prop::MaxColumns, PropValue::I32(2)) => maxcols_ok = true,
                 _ => {}
             }
         }
@@ -154,8 +152,7 @@ fn radio_buttons_fires_selection_changed() {
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
-    r.backend
-        .fire_i32(id, Event::RadioButtonsSelectionChanged, 1);
+    r.backend.fire_i32(id, Event::SelectionChanged, 1);
     assert_eq!(chosen.get(), 1);
 }
 
@@ -165,7 +162,7 @@ fn radio_buttons_fires_selection_changed() {
 fn combo_box_mounts_with_items_placeholder_and_selection() {
     let el: Element = ComboBox::new(["Red", "Green", "Blue"])
         .selected_index(2)
-        .placeholder("color")
+        .placeholder_text("color")
         .header("Pick a color")
         .into();
     let r = mount(&el);
@@ -187,11 +184,11 @@ fn combo_box_mounts_with_items_placeholder_and_selection() {
                 continue;
             }
             match (prop, value) {
-                (Prop::ComboBoxItems, PropValue::StrList(v)) if v == &["Red", "Green", "Blue"] => {
+                (Prop::Items, PropValue::StrList(v)) if v == &["Red", "Green", "Blue"] => {
                     items_ok = true;
                 }
                 (Prop::SelectedIndex, PropValue::I32(2)) => sel_ok = true,
-                (Prop::Placeholder, PropValue::Str(s)) if s == "color" => placeholder_ok = true,
+                (Prop::PlaceholderText, PropValue::Str(s)) if s == "color" => placeholder_ok = true,
                 (Prop::Header, PropValue::Str(s)) if s == "Pick a color" => header_ok = true,
                 _ => {}
             }
@@ -226,7 +223,7 @@ fn combo_box_fires_selection_changed() {
         .into();
     let r = mount(&el);
     let (_, id) = first_create(&r);
-    r.backend.fire_i32(id, Event::ComboSelectionChanged, 1);
+    r.backend.fire_i32(id, Event::SelectionChanged, 1);
     assert_eq!(chosen.get(), 1);
 }
 
@@ -292,15 +289,12 @@ fn canvas_position_emits_attached_set_props_on_mount() {
     assert!(top_ok, "missing AttachedCanvasTop=80.0");
 }
 
-// ── W1: virtual_list alias + scroll_to_index plumbing ──────────────────
+// ── W1: list_view + scroll_to_index plumbing ──────────────────
 
 #[test]
-fn virtual_list_alias_produces_templated_list() {
-    let e = virtual_list(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
-    matches!(&e, Element::TemplatedList(_));
-    // Same shape as list_view so consumers can swap freely.
-    let e2 = list_view(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
-    assert_eq!(std::mem::discriminant(&e), std::mem::discriminant(&e2));
+fn list_view_produces_templated_list() {
+    let e = list_view(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
+    assert!(matches!(&e, Element::TemplatedList(_)));
 }
 
 #[test]

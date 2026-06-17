@@ -167,8 +167,8 @@ impl windows_core::RuntimeName for GraphicsCaptureAccess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
-    pub const Borderless: Self = Self(0i32);
-    pub const Programmatic: Self = Self(1i32);
+    pub const Borderless: Self = Self(0);
+    pub const Programmatic: Self = Self(1);
 }
 impl windows_core::TypeKind for GraphicsCaptureAccessKind {
     type TypeKind = windows_core::CopyType;
@@ -181,8 +181,8 @@ impl windows_core::RuntimeType for GraphicsCaptureAccessKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GraphicsCaptureDirtyRegionMode(pub i32);
 impl GraphicsCaptureDirtyRegionMode {
-    pub const ReportOnly: Self = Self(0i32);
-    pub const ReportAndRender: Self = Self(1i32);
+    pub const ReportOnly: Self = Self(0);
+    pub const ReportAndRender: Self = Self(1);
 }
 impl windows_core::TypeKind for GraphicsCaptureDirtyRegionMode {
     type TypeKind = windows_core::CopyType;

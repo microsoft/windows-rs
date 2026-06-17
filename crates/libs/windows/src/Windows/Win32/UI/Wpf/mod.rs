@@ -1692,7 +1692,7 @@ impl IMILBitmapEffects_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMILBitmapEffects {}
-pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
+pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MILMatrixF {

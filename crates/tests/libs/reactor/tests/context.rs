@@ -2,14 +2,14 @@ use std::cell::Cell;
 use std::rc::Rc;
 use std::sync::LazyLock;
 
-use windows_reactor::core::backend::RecordingBackend;
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::context::Context;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{ElementExt, border, text_block};
+use windows_reactor::Component;
+use windows_reactor::Context;
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::RecordingBackend;
+use windows_reactor::RenderCx;
+use windows_reactor::component;
+use windows_reactor::{ElementExt, border, text_block};
 
 use windows_reactor::vstack;
 static THEME: LazyLock<Context<String>> =
@@ -31,8 +31,8 @@ fn reconcile(
     r: &mut Reconciler<RecordingBackend>,
     old: Option<&Element>,
     new: &Element,
-    existing: Option<windows_reactor::core::backend::ControlId>,
-) -> Option<windows_reactor::core::backend::ControlId> {
+    existing: Option<windows_reactor::ControlId>,
+) -> Option<windows_reactor::ControlId> {
     r.reconcile(old, new, existing, Rc::new(|| {}))
 }
 
@@ -459,7 +459,7 @@ impl Component for PanicOnRender {
 
 #[test]
 fn provider_push_pop_recovers_after_panic_in_child() {
-    use windows_reactor::core::error_boundary::error_boundary;
+    use windows_reactor::error_boundary;
 
     let post_panic_seen = Rc::new(Cell::new(String::new()));
 

@@ -101,9 +101,9 @@ unsafe impl Sync for AudioBuffer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const ReadWrite: Self = Self(1i32);
-    pub const Write: Self = Self(2i32);
+    pub const Read: Self = Self(0);
+    pub const ReadWrite: Self = Self(1);
+    pub const Write: Self = Self(2);
 }
 impl windows_core::TypeKind for AudioBufferAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -150,7 +150,7 @@ impl AudioFrame {
     }
     pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -162,7 +162,7 @@ impl AudioFrame {
     }
     pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -174,7 +174,7 @@ impl AudioFrame {
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -224,8 +224,8 @@ unsafe impl Sync for AudioFrame {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
-    pub const Default: Self = Self(0i32);
-    pub const Raw: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const Raw: Self = Self(1);
 }
 impl windows_core::TypeKind for AudioProcessing {
     type TypeKind = windows_core::CopyType;
@@ -483,7 +483,7 @@ impl IMediaFrame {
         }
     }
     pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -493,7 +493,7 @@ impl IMediaFrame {
         }
     }
     pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSystemRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -503,7 +503,7 @@ impl IMediaFrame {
         }
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -1608,9 +1608,9 @@ impl windows_core::RuntimeName for MediaMarkerTypes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
-    pub const None: Self = Self(0i32);
-    pub const Track: Self = Self(1i32);
-    pub const List: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Track: Self = Self(1);
+    pub const List: Self = Self(2);
 }
 impl windows_core::TypeKind for MediaPlaybackAutoRepeatMode {
     type TypeKind = windows_core::CopyType;
@@ -1623,11 +1623,11 @@ impl windows_core::RuntimeType for MediaPlaybackAutoRepeatMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Changing: Self = Self(1i32);
-    pub const Stopped: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
+    pub const Closed: Self = Self(0);
+    pub const Changing: Self = Self(1);
+    pub const Stopped: Self = Self(2);
+    pub const Playing: Self = Self(3);
+    pub const Paused: Self = Self(4);
 }
 impl windows_core::TypeKind for MediaPlaybackStatus {
     type TypeKind = windows_core::CopyType;
@@ -1640,10 +1640,10 @@ impl windows_core::RuntimeType for MediaPlaybackStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Music: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-    pub const Image: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Music: Self = Self(1);
+    pub const Video: Self = Self(2);
+    pub const Image: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaPlaybackType {
     type TypeKind = windows_core::CopyType;
@@ -1768,7 +1768,7 @@ impl MediaTimelineController {
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLoopingEnabled(&self) -> windows_core::Result<bool> {
@@ -1851,10 +1851,10 @@ unsafe impl Sync for MediaTimelineControllerFailedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
-    pub const Paused: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const Stalled: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
+    pub const Paused: Self = Self(0);
+    pub const Running: Self = Self(1);
+    pub const Stalled: Self = Self(2);
+    pub const Error: Self = Self(3);
 }
 impl windows_core::TypeKind for MediaTimelineControllerState {
     type TypeKind = windows_core::CopyType;
@@ -2024,9 +2024,9 @@ unsafe impl Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
-    pub const Muted: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
+    pub const Muted: Self = Self(0);
+    pub const Low: Self = Self(1);
+    pub const Full: Self = Self(2);
 }
 impl windows_core::TypeKind for SoundLevel {
     type TypeKind = windows_core::CopyType;
@@ -2307,16 +2307,16 @@ unsafe impl Sync for SystemMediaTransportControls {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
-    pub const Play: Self = Self(0i32);
-    pub const Pause: Self = Self(1i32);
-    pub const Stop: Self = Self(2i32);
-    pub const Record: Self = Self(3i32);
-    pub const FastForward: Self = Self(4i32);
-    pub const Rewind: Self = Self(5i32);
-    pub const Next: Self = Self(6i32);
-    pub const Previous: Self = Self(7i32);
-    pub const ChannelUp: Self = Self(8i32);
-    pub const ChannelDown: Self = Self(9i32);
+    pub const Play: Self = Self(0);
+    pub const Pause: Self = Self(1);
+    pub const Stop: Self = Self(2);
+    pub const Record: Self = Self(3);
+    pub const FastForward: Self = Self(4);
+    pub const Rewind: Self = Self(5);
+    pub const Next: Self = Self(6);
+    pub const Previous: Self = Self(7);
+    pub const ChannelUp: Self = Self(8);
+    pub const ChannelDown: Self = Self(9);
 }
 impl windows_core::TypeKind for SystemMediaTransportControlsButton {
     type TypeKind = windows_core::CopyType;
@@ -2437,7 +2437,7 @@ unsafe impl Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
-    pub const SoundLevel: Self = Self(0i32);
+    pub const SoundLevel: Self = Self(0);
 }
 impl windows_core::TypeKind for SystemMediaTransportControlsProperty {
     type TypeKind = windows_core::CopyType;
@@ -2625,7 +2625,7 @@ impl VideoFrame {
     }
     pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2637,7 +2637,7 @@ impl VideoFrame {
     }
     pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2649,7 +2649,7 @@ impl VideoFrame {
     }
     pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -2707,8 +2707,8 @@ impl VideoFrame {
         P0: windows_core::Param<VideoFrame>,
     {
         let this = &windows_core::Interface::cast::<IVideoFrame2>(self)?;
-        let sourcebounds__ = sourcebounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as core::convert::From<_>>::from);
-        let destinationbounds__ = destinationbounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as core::convert::From<_>>::from);
+        let sourcebounds__ = sourcebounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as From<_>>::from);
+        let destinationbounds__ = destinationbounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), windows_core::Param::param(sourcebounds__.as_ref()).abi(), windows_core::Param::param(destinationbounds__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

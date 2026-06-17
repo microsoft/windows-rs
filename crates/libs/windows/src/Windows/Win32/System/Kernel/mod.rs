@@ -37,8 +37,8 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : *const SLIST_HEADER) -> u16);
     unsafe { RtlQueryDepthSList(listhead) }
 }
-pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
-pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
+pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2);
+pub const Blade: SUITE_TYPE = SUITE_TYPE(10);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPARTMENT_ID(pub i32);
@@ -49,10 +49,10 @@ pub struct CSTRING {
     pub MaximumLength: u16,
     pub Buffer: windows_core::PCSTR,
 }
-pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
-pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
-pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
-pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
+pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3);
+pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14);
+pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1);
+pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TYPE(pub i32);
@@ -74,13 +74,13 @@ impl Default for EXCEPTION_REGISTRATION_RECORD {
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
-pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
-pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
-pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
-pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
-pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
-pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
-pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
+pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6);
+pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11);
+pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1);
+pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3);
+pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0);
+pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1);
+pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2);
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -144,11 +144,11 @@ pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
 }
-pub const MAXUCHAR: u32 = 255u32;
-pub const MAXULONG: u32 = 4294967295u32;
-pub const MAXUSHORT: u32 = 65535u32;
-pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
-pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
+pub const MAXUCHAR: u32 = 255;
+pub const MAXULONG: u32 = 4294967295;
+pub const MAXUSHORT: u32 = 65535;
+pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18);
+pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NT_PRODUCT_TYPE(pub i32);
@@ -183,19 +183,19 @@ impl Default for NT_TIB_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NULL64: u32 = 0u32;
-pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
-pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
-pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
-pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
-pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
+pub const NULL64: u32 = 0;
+pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0);
+pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0);
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2);
+pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3);
+pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
 }
-pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
+pub const OBJ_HANDLE_TAGBITS: i32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_NUMBER {
@@ -203,8 +203,8 @@ pub struct PROCESSOR_NUMBER {
     pub Number: u8,
     pub Reserved: u8,
 }
-pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
-pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
+pub const Personal: SUITE_TYPE = SUITE_TYPE(9);
+pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct QUAD {
@@ -270,7 +270,7 @@ impl Default for RTL_BALANCED_NODE_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
+pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
@@ -395,22 +395,22 @@ pub struct STRING64 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUITE_TYPE(pub i32);
-pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
-pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
-pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
-pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
-pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
-pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
-pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
+pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12);
+pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8);
+pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0);
+pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5);
+pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13);
+pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1);
+pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMER_TYPE(pub i32);
-pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
-pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
+pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4);
+pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_TYPE(pub i32);
-pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
+pub const WHServer: SUITE_TYPE = SUITE_TYPE(15);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNF_STATE_NAME {
@@ -421,8 +421,8 @@ impl Default for WNF_STATE_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
-pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
-pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
-pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
-pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
+pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0);
+pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1);
+pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3);
+pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4);
+pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2);

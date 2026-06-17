@@ -2,11 +2,11 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
-    pub const NotNormalized: Self = Self(0i32);
-    pub const Number: Self = Self(1i32);
-    pub const Currency: Self = Self(3i32);
-    pub const Date: Self = Self(4i32);
-    pub const Time: Self = Self(5i32);
+    pub const NotNormalized: Self = Self(0);
+    pub const Number: Self = Self(1);
+    pub const Currency: Self = Self(3);
+    pub const Date: Self = Self(4);
+    pub const Time: Self = Self(5);
 }
 impl windows_core::TypeKind for AlternateNormalizationFormat {
     type TypeKind = windows_core::CopyType;
@@ -344,7 +344,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SelectableWordSegmentsTokenizingHandler, F>::new(&SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where
@@ -646,9 +646,9 @@ unsafe impl Sync for TextPredictionGenerator {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
-    pub const None: Self = Self(0u32);
-    pub const Predictions: Self = Self(1u32);
-    pub const Corrections: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Predictions: Self = Self(1);
+    pub const Corrections: Self = Self(2);
 }
 impl windows_core::TypeKind for TextPredictionOptions {
     type TypeKind = windows_core::CopyType;
@@ -869,36 +869,36 @@ impl windows_core::RuntimeName for UnicodeCharacters {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
-    pub const UppercaseLetter: Self = Self(0i32);
-    pub const LowercaseLetter: Self = Self(1i32);
-    pub const TitlecaseLetter: Self = Self(2i32);
-    pub const ModifierLetter: Self = Self(3i32);
-    pub const OtherLetter: Self = Self(4i32);
-    pub const NonspacingMark: Self = Self(5i32);
-    pub const SpacingCombiningMark: Self = Self(6i32);
-    pub const EnclosingMark: Self = Self(7i32);
-    pub const DecimalDigitNumber: Self = Self(8i32);
-    pub const LetterNumber: Self = Self(9i32);
-    pub const OtherNumber: Self = Self(10i32);
-    pub const SpaceSeparator: Self = Self(11i32);
-    pub const LineSeparator: Self = Self(12i32);
-    pub const ParagraphSeparator: Self = Self(13i32);
-    pub const Control: Self = Self(14i32);
-    pub const Format: Self = Self(15i32);
-    pub const Surrogate: Self = Self(16i32);
-    pub const PrivateUse: Self = Self(17i32);
-    pub const ConnectorPunctuation: Self = Self(18i32);
-    pub const DashPunctuation: Self = Self(19i32);
-    pub const OpenPunctuation: Self = Self(20i32);
-    pub const ClosePunctuation: Self = Self(21i32);
-    pub const InitialQuotePunctuation: Self = Self(22i32);
-    pub const FinalQuotePunctuation: Self = Self(23i32);
-    pub const OtherPunctuation: Self = Self(24i32);
-    pub const MathSymbol: Self = Self(25i32);
-    pub const CurrencySymbol: Self = Self(26i32);
-    pub const ModifierSymbol: Self = Self(27i32);
-    pub const OtherSymbol: Self = Self(28i32);
-    pub const NotAssigned: Self = Self(29i32);
+    pub const UppercaseLetter: Self = Self(0);
+    pub const LowercaseLetter: Self = Self(1);
+    pub const TitlecaseLetter: Self = Self(2);
+    pub const ModifierLetter: Self = Self(3);
+    pub const OtherLetter: Self = Self(4);
+    pub const NonspacingMark: Self = Self(5);
+    pub const SpacingCombiningMark: Self = Self(6);
+    pub const EnclosingMark: Self = Self(7);
+    pub const DecimalDigitNumber: Self = Self(8);
+    pub const LetterNumber: Self = Self(9);
+    pub const OtherNumber: Self = Self(10);
+    pub const SpaceSeparator: Self = Self(11);
+    pub const LineSeparator: Self = Self(12);
+    pub const ParagraphSeparator: Self = Self(13);
+    pub const Control: Self = Self(14);
+    pub const Format: Self = Self(15);
+    pub const Surrogate: Self = Self(16);
+    pub const PrivateUse: Self = Self(17);
+    pub const ConnectorPunctuation: Self = Self(18);
+    pub const DashPunctuation: Self = Self(19);
+    pub const OpenPunctuation: Self = Self(20);
+    pub const ClosePunctuation: Self = Self(21);
+    pub const InitialQuotePunctuation: Self = Self(22);
+    pub const FinalQuotePunctuation: Self = Self(23);
+    pub const OtherPunctuation: Self = Self(24);
+    pub const MathSymbol: Self = Self(25);
+    pub const CurrencySymbol: Self = Self(26);
+    pub const ModifierSymbol: Self = Self(27);
+    pub const OtherSymbol: Self = Self(28);
+    pub const NotAssigned: Self = Self(29);
 }
 impl windows_core::TypeKind for UnicodeGeneralCategory {
     type TypeKind = windows_core::CopyType;
@@ -911,10 +911,10 @@ impl windows_core::RuntimeType for UnicodeGeneralCategory {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
-    pub const None: Self = Self(0i32);
-    pub const Decimal: Self = Self(1i32);
-    pub const Digit: Self = Self(2i32);
-    pub const Numeric: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Decimal: Self = Self(1);
+    pub const Digit: Self = Self(2);
+    pub const Numeric: Self = Self(3);
 }
 impl windows_core::TypeKind for UnicodeNumericType {
     type TypeKind = windows_core::CopyType;
@@ -966,7 +966,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<WordSegmentsTokenizingHandler, F>::new(&WordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where

@@ -1,11 +1,10 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Brush, Color, Element};
-use windows_reactor::core::element::{
-    HyperlinkButton, Image, ImageStretch, ProgressBar, ProgressRing, Shape,
-};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Color, Element};
+use windows_reactor::{ControlKind, Prop, PropValue};
+use windows_reactor::{HyperlinkButton, Image, ProgressBar, ProgressRing, Shape, Stretch};
+use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());
@@ -29,7 +28,7 @@ fn rectangle_mounts_with_fill_and_corner_radius() {
             op,
             Op::SetProp {
                 prop: Prop::Fill,
-                value: PropValue::Brush(Brush::Solid(_)),
+                value: PropValue::Color(_),
                 ..
             }
         )
@@ -127,8 +126,8 @@ fn shape_kind_change_remounts_control() {
 
 #[test]
 fn image_mounts_with_source_and_stretch() {
-    let el: Element = Image::new("ms-appx:///Assets/logo.png")
-        .stretch(ImageStretch::UniformToFill)
+    let el: Element = Image::new_with_uri("ms-appx:///Assets/logo.png")
+        .stretch(Stretch::UniformToFill)
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -142,13 +141,29 @@ fn image_mounts_with_source_and_stretch() {
         matches!(
             op,
             Op::SetProp {
-                prop: Prop::ImageStretch,
-                value: PropValue::ImageStretch(ImageStretch::UniformToFill),
+                prop: Prop::Stretch,
+                value: PropValue::I32(v),
                 ..
-            }
+            } if *v == Stretch::UniformToFill.0
         )
     });
     assert!(saw_stretch);
+}
+
+#[test]
+fn image_default_emits_no_bindings() {
+    let el: Element = Image::default().into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::Image);
+    // Default Image has no source; Stretch is always emitted (defaults to Uniform).
+    let prop_ops: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter(|op| matches!(op, Op::SetProp { .. }))
+        .collect();
+    assert_eq!(prop_ops.len(), 1);
 }
 
 #[test]
@@ -162,13 +177,43 @@ fn progress_bar_determinate_sets_value() {
         matches!(
             op,
             Op::SetProp {
-                prop: Prop::NumericValue,
+                prop: Prop::Value,
                 value: PropValue::F64(50.0),
                 ..
             }
         )
     });
     assert!(saw_val);
+}
+
+#[test]
+fn progress_bar_mounts_with_minimum_maximum_and_indeterminate() {
+    let el: Element = ProgressBar {
+        value: 25.0,
+        minimum: 10.0,
+        maximum: 90.0,
+        is_indeterminate: true,
+        ..ProgressBar::default()
+    }
+    .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::ProgressBar);
+
+    let mut saw_min = false;
+    let mut saw_max = false;
+    let mut saw_indeterminate = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::Minimum, PropValue::F64(10.0)) => saw_min = true,
+                (Prop::Maximum, PropValue::F64(90.0)) => saw_max = true,
+                (Prop::IsIndeterminate, PropValue::Bool(true)) => saw_indeterminate = true,
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_min && saw_max && saw_indeterminate);
 }
 
 #[test]
@@ -192,6 +237,39 @@ fn progress_ring_indeterminate_sets_flag() {
 }
 
 #[test]
+fn progress_ring_mounts_with_value_range_and_active() {
+    let el: Element = ProgressRing {
+        value: 42.0,
+        minimum: 5.0,
+        maximum: 80.0,
+        is_indeterminate: false,
+        is_active: true,
+        ..ProgressRing::default()
+    }
+    .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::ProgressRing);
+
+    let mut saw_value = false;
+    let mut saw_min = false;
+    let mut saw_max = false;
+    let mut saw_active = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::Value, PropValue::F64(42.0)) => saw_value = true,
+                (Prop::Minimum, PropValue::F64(5.0)) => saw_min = true,
+                (Prop::Maximum, PropValue::F64(80.0)) => saw_max = true,
+                (Prop::IsActive, PropValue::Bool(true)) => saw_active = true,
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_value && saw_min && saw_max && saw_active);
+}
+
+#[test]
 fn hyperlink_mounts_with_label_and_uri() {
     let el: Element = HyperlinkButton::new("Docs")
         .navigate_uri("https://example.com/docs")
@@ -201,7 +279,7 @@ fn hyperlink_mounts_with_label_and_uri() {
     assert_eq!(kind, ControlKind::HyperlinkButton);
 
     let saw_label = r.backend.ops.iter().any(|op| {
-        matches!(op, Op::SetProp { prop: Prop::ButtonContent, value: PropValue::Str(s), .. } if s == "Docs")
+        matches!(op, Op::SetProp { prop: Prop::Content, value: PropValue::Str(s), .. } if s == "Docs")
     });
     assert!(saw_label);
     let saw_uri = r.backend.ops.iter().any(|op| {
@@ -210,9 +288,7 @@ fn hyperlink_mounts_with_label_and_uri() {
     assert!(saw_uri);
 }
 
-fn first_create(
-    r: &Reconciler<RecordingBackend>,
-) -> (ControlKind, windows_reactor::core::backend::ControlId) {
+fn first_create(r: &Reconciler<RecordingBackend>) -> (ControlKind, windows_reactor::ControlId) {
     r.backend
         .ops
         .iter()

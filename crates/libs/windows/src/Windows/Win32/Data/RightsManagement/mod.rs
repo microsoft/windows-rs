@@ -13,7 +13,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : u32, uflags : u32, pvreserved : *mut core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pwsztemplateids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), wszurl.param().abi(), pvcontext as _).ok() }
+    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr())), wszurl.param().abi(), pvcontext as _).ok() }
 }
 #[inline]
 pub unsafe fn DRMAcquireLicense<P2, P3, P4, P5>(hsession: u32, uflags: u32, wszgroupidentitycredential: P2, wszrequestedrights: P3, wszcustomdata: P4, wszurl: P5, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -388,7 +388,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicenseEx(henv : u32, hissuancelicense : u32, uflags : u32, pbsymkey : *const u8, cbsymkey : u32, wszsymkeytype : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, henablingprincipal : u32, hboundlicenseclc : u32, pfncallback : DRMCALLBACK, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, core::mem::transmute(pbsymkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext).ok() }
+    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, core::mem::transmute(pbsymkey.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.map_or(0, |slice| slice.len().try_into().unwrap()), wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext).ok() }
 }
 #[inline]
 pub unsafe fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
@@ -580,13 +580,13 @@ where
     windows_core::link!("msdrm.dll" "system" fn DRMVerify(wszdata : windows_core::PCWSTR, pcattesteddata : *mut u32, wszattesteddata : windows_core::PWSTR, petype : *mut DRMATTESTTYPE, pcprincipal : *mut u32, wszprincipal : windows_core::PWSTR, pcmanifest : *mut u32, wszmanifest : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { DRMVerify(wszdata.param().abi(), pcattesteddata as _, wszattesteddata.unwrap_or(core::mem::zeroed()) as _, petype as _, pcprincipal as _, wszprincipal.unwrap_or(core::mem::zeroed()) as _, pcmanifest as _, wszmanifest.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
-pub const DRMACTSERVINFOVERSION: u32 = 0u32;
+pub const DRMACTSERVINFOVERSION: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMATTESTTYPE(pub i32);
-pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
-pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
-pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
+pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0);
+pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1);
+pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
@@ -606,27 +606,27 @@ impl Default for DRMBOUNDLICENSEPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
+pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1;
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub const DRMCALLBACKVERSION: u32 = 1u32;
-pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
+pub const DRMCALLBACKVERSION: u32 = 1;
+pub const DRMCLIENTSTRUCTVERSION: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMENCODINGTYPE(pub i32);
-pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
-pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
-pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
-pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1i32);
-pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
-pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
-pub const DRMENVHANDLE_INVALID: u32 = 0u32;
+pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0);
+pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2);
+pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5);
+pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1);
+pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3);
+pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4);
+pub const DRMENVHANDLE_INVALID: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMGLOBALOPTIONS(pub i32);
-pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
-pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
-pub const DRMHANDLE_INVALID: u32 = 0u32;
-pub const DRMHSESSION_INVALID: u32 = 0u32;
+pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1);
+pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0);
+pub const DRMHANDLE_INVALID: u32 = 0;
+pub const DRMHSESSION_INVALID: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRMID {
@@ -634,31 +634,31 @@ pub struct DRMID {
     pub wszIDType: windows_core::PWSTR,
     pub wszID: windows_core::PWSTR,
 }
-pub const DRMIDVERSION: u32 = 0u32;
-pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
-pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
-pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
+pub const DRMIDVERSION: u32 = 0;
+pub const DRMLICENSEACQDATAVERSION: u32 = 0;
+pub const DRMPUBHANDLE_INVALID: u32 = 0;
+pub const DRMQUERYHANDLE_INVALID: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
+pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMSPECTYPE(pub i32);
-pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
-pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
+pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1);
+pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRMTIMETYPE(pub i32);
-pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
-pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
-pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
-pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
-pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
-pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
-pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
-pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
-pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
+pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1);
+pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0);
+pub const DRM_ACTIVATE_CANCEL: u32 = 8;
+pub const DRM_ACTIVATE_DELAYED: u32 = 64;
+pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2;
+pub const DRM_ACTIVATE_MACHINE: u32 = 1;
+pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32;
+pub const DRM_ACTIVATE_SILENT: u32 = 16;
+pub const DRM_ACTIVATE_TEMPORARY: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRM_ACTSERV_INFO {
@@ -666,17 +666,17 @@ pub struct DRM_ACTSERV_INFO {
     pub wszPubKey: windows_core::PWSTR,
     pub wszURL: windows_core::PWSTR,
 }
-pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
-pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
-pub const DRM_AILT_CANCEL: u32 = 4u32;
-pub const DRM_AILT_NONSILENT: u32 = 1u32;
-pub const DRM_AILT_OBTAIN_ALL: u32 = 2u32;
-pub const DRM_AL_CANCEL: u32 = 4u32;
-pub const DRM_AL_FETCHNOADVISORY: u32 = 8u32;
-pub const DRM_AL_NONSILENT: u32 = 1u32;
-pub const DRM_AL_NOPERSIST: u32 = 2u32;
-pub const DRM_AL_NOUI: u32 = 16u32;
-pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
+pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0;
+pub const DRM_ADD_LICENSE_PERSIST: u32 = 1;
+pub const DRM_AILT_CANCEL: u32 = 4;
+pub const DRM_AILT_NONSILENT: u32 = 1;
+pub const DRM_AILT_OBTAIN_ALL: u32 = 2;
+pub const DRM_AL_CANCEL: u32 = 4;
+pub const DRM_AL_FETCHNOADVISORY: u32 = 8;
+pub const DRM_AL_NONSILENT: u32 = 1;
+pub const DRM_AL_NOPERSIST: u32 = 2;
+pub const DRM_AL_NOUI: u32 = 16;
+pub const DRM_AUTO_GENERATE_KEY: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_CLIENT_VERSION_INFO {
@@ -696,25 +696,25 @@ pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: windows_core::PCWSTR = windows_cor
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
-pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
-pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
-pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
-pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
-pub const DRM_EL_EUL: u32 = 32u32;
-pub const DRM_EL_EUL_LID: u32 = 64u32;
-pub const DRM_EL_EXPIRED: u32 = 4096u32;
-pub const DRM_EL_GROUPIDENTITY: u32 = 2u32;
-pub const DRM_EL_GROUPIDENTITY_LID: u32 = 8u32;
-pub const DRM_EL_GROUPIDENTITY_NAME: u32 = 4u32;
-pub const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384u32;
-pub const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768u32;
-pub const DRM_EL_ISSUERNAME: u32 = 8192u32;
-pub const DRM_EL_MACHINE: u32 = 1u32;
-pub const DRM_EL_REVOCATIONLIST: u32 = 1024u32;
-pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
-pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
-pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
+pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0);
+pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1);
+pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2);
+pub const DRM_EL_CLIENTLICENSOR: u32 = 128;
+pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256;
+pub const DRM_EL_EUL: u32 = 32;
+pub const DRM_EL_EUL_LID: u32 = 64;
+pub const DRM_EL_EXPIRED: u32 = 4096;
+pub const DRM_EL_GROUPIDENTITY: u32 = 2;
+pub const DRM_EL_GROUPIDENTITY_LID: u32 = 8;
+pub const DRM_EL_GROUPIDENTITY_NAME: u32 = 4;
+pub const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384;
+pub const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768;
+pub const DRM_EL_ISSUERNAME: u32 = 8192;
+pub const DRM_EL_MACHINE: u32 = 1;
+pub const DRM_EL_REVOCATIONLIST: u32 = 1024;
+pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048;
+pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512;
+pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRM_LICENSE_ACQ_DATA {
@@ -730,39 +730,39 @@ impl Default for DRM_LICENSE_ACQ_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
-pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
-pub const DRM_LOCKBOXTYPE_NONE: u32 = 0u32;
-pub const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1u32;
-pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = DRM_STATUS_MSG(3i32);
-pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = DRM_STATUS_MSG(5i32);
-pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = DRM_STATUS_MSG(6i32);
-pub const DRM_MSG_ACQUIRE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(2i32);
-pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: DRM_STATUS_MSG = DRM_STATUS_MSG(1i32);
-pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0i32);
-pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(4i32);
-pub const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32u32;
-pub const DRM_REUSE_KEY: u32 = 64u32;
-pub const DRM_SERVER_ISSUANCELICENSE: u32 = 8u32;
-pub const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2u32;
-pub const DRM_SERVICE_LOCATION_INTERNET: u32 = 1u32;
-pub const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1u32;
-pub const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2u32;
-pub const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8u32;
-pub const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4u32;
-pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
-pub const DRM_SIGN_CANCEL: u32 = 4u32;
-pub const DRM_SIGN_OFFLINE: u32 = 2u32;
-pub const DRM_SIGN_ONLINE: u32 = 1u32;
+pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2;
+pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2;
+pub const DRM_LOCKBOXTYPE_NONE: u32 = 0;
+pub const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1;
+pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = DRM_STATUS_MSG(3);
+pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = DRM_STATUS_MSG(5);
+pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = DRM_STATUS_MSG(6);
+pub const DRM_MSG_ACQUIRE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(2);
+pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: DRM_STATUS_MSG = DRM_STATUS_MSG(1);
+pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0);
+pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(4);
+pub const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32;
+pub const DRM_REUSE_KEY: u32 = 64;
+pub const DRM_SERVER_ISSUANCELICENSE: u32 = 8;
+pub const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2;
+pub const DRM_SERVICE_LOCATION_INTERNET: u32 = 1;
+pub const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1;
+pub const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2;
+pub const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8;
+pub const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4;
+pub const DRM_SERVICE_TYPE_SILENT: u32 = 16;
+pub const DRM_SIGN_CANCEL: u32 = 4;
+pub const DRM_SIGN_OFFLINE: u32 = 2;
+pub const DRM_SIGN_ONLINE: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_STATUS_MSG(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
-pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2i32);
-pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);
-pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1i32);
-pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(3i32);
-pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
-pub const MSDRM_POLICY_ZONE: u32 = 37632u32;
+pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2);
+pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0);
+pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1);
+pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(3);
+pub const MSDRM_CLIENT_ZONE: u32 = 52992;
+pub const MSDRM_POLICY_ZONE: u32 = 37632;

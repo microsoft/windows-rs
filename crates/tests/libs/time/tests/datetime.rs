@@ -136,7 +136,7 @@ fn now_converts_to_system_time() {
     let n = DateTime::now();
     // Verify that DateTime::now() round-trips through SystemTime without
     // assuming the system clock is after the Unix epoch.
-    let st: std::time::SystemTime = n.try_into().unwrap();
+    let st: SystemTime = n.try_into().unwrap();
     let back: DateTime = st.try_into().unwrap();
     assert_eq!(n, back);
 }

@@ -1,4 +1,4 @@
-//! Minimal sample for the `TextBox` element.
+//! Sample for the `TextBox` element.
 
 use windows_reactor::*;
 
@@ -12,8 +12,8 @@ fn app(cx: &mut RenderCx) -> Element {
     vstack((
         text_box(name.clone())
             .header("Display name")
-            .placeholder("Type your name…")
-            .on_changed(update_name),
+            .placeholder_text("Type your name…")
+            .on_text_changed(update_name),
         text_block(format!(
             "Hello, {}!",
             if name.is_empty() {
@@ -24,10 +24,10 @@ fn app(cx: &mut RenderCx) -> Element {
         )),
         text_box(notes)
             .header("Notes")
-            .placeholder("Write something longer…")
+            .placeholder_text("Write something longer…")
             .multiline()
             .height(100.0)
-            .on_changed(update_notes),
+            .on_text_changed(update_notes),
         text_box("read-only").header("Disabled").enabled(false),
     ))
     .spacing(8.0)
@@ -35,5 +35,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("TextBox", app)
 }

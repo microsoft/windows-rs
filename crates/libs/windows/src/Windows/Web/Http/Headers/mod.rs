@@ -11,7 +11,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         }
     }
     pub fn SetMaxAge(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxAge)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxStale(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -21,7 +21,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         }
     }
     pub fn SetMaxStale(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxStale)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MinFresh(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -31,7 +31,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         }
     }
     pub fn SetMinFresh(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMinFresh)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SharedMaxAge(&self) -> windows_core::Result<windows_time::TimeSpan> {
@@ -41,7 +41,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         }
     }
     pub fn SetSharedMaxAge(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSharedMaxAge)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1010,7 +1010,7 @@ impl HttpContentDispositionHeaderValue {
         }
     }
     pub fn SetSize(&self, value: Option<u64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Create(dispositiontype: &windows_core::HSTRING) -> windows_core::Result<HttpContentDispositionHeaderValue> {
@@ -1104,7 +1104,7 @@ impl HttpContentHeaderCollection {
         }
     }
     pub fn SetContentLength(&self, value: Option<u64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetContentLength)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ContentLocation(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
@@ -1164,7 +1164,7 @@ impl HttpContentHeaderCollection {
         }
     }
     pub fn SetExpires(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpires)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LastModified(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -1174,7 +1174,7 @@ impl HttpContentHeaderCollection {
         }
     }
     pub fn SetLastModified(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetLastModified)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Append(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2361,7 +2361,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
         }
     }
     pub fn SetQuality(&self, value: Option<f64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetQuality)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn CreateFromMediaType(mediatype: &windows_core::HSTRING) -> windows_core::Result<HttpMediaTypeWithQualityHeaderValue> {
@@ -3083,7 +3083,7 @@ impl HttpRequestHeaderCollection {
         }
     }
     pub fn SetDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Expect(&self) -> windows_core::Result<HttpExpectationHeaderValueCollection> {
@@ -3122,7 +3122,7 @@ impl HttpRequestHeaderCollection {
         }
     }
     pub fn SetIfModifiedSince(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetIfModifiedSince)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IfUnmodifiedSince(&self) -> windows_core::Result<windows_time::DateTime> {
@@ -3132,7 +3132,7 @@ impl HttpRequestHeaderCollection {
         }
     }
     pub fn SetIfUnmodifiedSince(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetIfUnmodifiedSince)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxForwards(&self) -> windows_core::Result<u32> {
@@ -3142,7 +3142,7 @@ impl HttpRequestHeaderCollection {
         }
     }
     pub fn SetMaxForwards(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxForwards)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ProxyAuthorization(&self) -> windows_core::Result<HttpCredentialsHeaderValue> {
@@ -3287,7 +3287,7 @@ impl HttpResponseHeaderCollection {
         }
     }
     pub fn SetAge(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetAge)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Allow(&self) -> windows_core::Result<HttpMethodHeaderValueCollection> {
@@ -3315,7 +3315,7 @@ impl HttpResponseHeaderCollection {
         }
     }
     pub fn SetDate(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Location(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {

@@ -107,10 +107,10 @@ unsafe impl Sync for DeviceAccessInformation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const DeniedByUser: Self = Self(2);
+    pub const DeniedBySystem: Self = Self(3);
 }
 impl windows_core::TypeKind for DeviceAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -123,13 +123,13 @@ impl windows_core::RuntimeType for DeviceAccessStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
-    pub const All: Self = Self(0i32);
-    pub const AudioCapture: Self = Self(1i32);
-    pub const AudioRender: Self = Self(2i32);
-    pub const PortableStorageDevice: Self = Self(3i32);
-    pub const VideoCapture: Self = Self(4i32);
-    pub const ImageScanner: Self = Self(5i32);
-    pub const Location: Self = Self(6i32);
+    pub const All: Self = Self(0);
+    pub const AudioCapture: Self = Self(1);
+    pub const AudioRender: Self = Self(2);
+    pub const PortableStorageDevice: Self = Self(3);
+    pub const VideoCapture: Self = Self(4);
+    pub const ImageScanner: Self = Self(5);
+    pub const Location: Self = Self(6);
 }
 impl windows_core::TypeKind for DeviceClass {
     type TypeKind = windows_core::CopyType;
@@ -561,16 +561,16 @@ unsafe impl Sync for DeviceInformationCustomPairing {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const DeviceInterface: Self = Self(1i32);
-    pub const DeviceContainer: Self = Self(2i32);
-    pub const Device: Self = Self(3i32);
-    pub const DeviceInterfaceClass: Self = Self(4i32);
-    pub const AssociationEndpoint: Self = Self(5i32);
-    pub const AssociationEndpointContainer: Self = Self(6i32);
-    pub const AssociationEndpointService: Self = Self(7i32);
-    pub const DevicePanel: Self = Self(8i32);
-    pub const AssociationEndpointProtocol: Self = Self(9i32);
+    pub const Unknown: Self = Self(0);
+    pub const DeviceInterface: Self = Self(1);
+    pub const DeviceContainer: Self = Self(2);
+    pub const Device: Self = Self(3);
+    pub const DeviceInterfaceClass: Self = Self(4);
+    pub const AssociationEndpoint: Self = Self(5);
+    pub const AssociationEndpointContainer: Self = Self(6);
+    pub const AssociationEndpointService: Self = Self(7);
+    pub const DevicePanel: Self = Self(8);
+    pub const AssociationEndpointProtocol: Self = Self(9);
 }
 impl windows_core::TypeKind for DeviceInformationKind {
     type TypeKind = windows_core::CopyType;
@@ -713,12 +713,12 @@ unsafe impl Sync for DeviceInformationUpdate {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePairingAddPairingSetMemberStatus(pub i32);
 impl DevicePairingAddPairingSetMemberStatus {
-    pub const AddedToSet: Self = Self(0i32);
-    pub const CouldNotBeAddedToSet: Self = Self(1i32);
-    pub const SetDiscoveryNotAttemptedByProtocol: Self = Self(2i32);
-    pub const SetDiscoveryCompletedByProtocol: Self = Self(3i32);
-    pub const SetDiscoveryPartiallyCompletedByProtocol: Self = Self(4i32);
-    pub const Failed: Self = Self(5i32);
+    pub const AddedToSet: Self = Self(0);
+    pub const CouldNotBeAddedToSet: Self = Self(1);
+    pub const SetDiscoveryNotAttemptedByProtocol: Self = Self(2);
+    pub const SetDiscoveryCompletedByProtocol: Self = Self(3);
+    pub const SetDiscoveryPartiallyCompletedByProtocol: Self = Self(4);
+    pub const Failed: Self = Self(5);
 }
 impl windows_core::TypeKind for DevicePairingAddPairingSetMemberStatus {
     type TypeKind = windows_core::CopyType;
@@ -731,13 +731,13 @@ impl windows_core::RuntimeType for DevicePairingAddPairingSetMemberStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
-    pub const None: Self = Self(0u32);
-    pub const ConfirmOnly: Self = Self(1u32);
-    pub const DisplayPin: Self = Self(2u32);
-    pub const ProvidePin: Self = Self(4u32);
-    pub const ConfirmPinMatch: Self = Self(8u32);
-    pub const ProvidePasswordCredential: Self = Self(16u32);
-    pub const ProvideAddress: Self = Self(32u32);
+    pub const None: Self = Self(0);
+    pub const ConfirmOnly: Self = Self(1);
+    pub const DisplayPin: Self = Self(2);
+    pub const ProvidePin: Self = Self(4);
+    pub const ConfirmPinMatch: Self = Self(8);
+    pub const ProvidePasswordCredential: Self = Self(16);
+    pub const ProvideAddress: Self = Self(32);
 }
 impl windows_core::TypeKind for DevicePairingKinds {
     type TypeKind = windows_core::CopyType;
@@ -783,10 +783,10 @@ impl core::ops::Not for DevicePairingKinds {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
-    pub const Default: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
-    pub const Encryption: Self = Self(2i32);
-    pub const EncryptionAndAuthentication: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const None: Self = Self(1);
+    pub const Encryption: Self = Self(2);
+    pub const EncryptionAndAuthentication: Self = Self(3);
 }
 impl windows_core::TypeKind for DevicePairingProtectionLevel {
     type TypeKind = windows_core::CopyType;
@@ -889,26 +889,26 @@ unsafe impl Sync for DevicePairingResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
-    pub const Paired: Self = Self(0i32);
-    pub const NotReadyToPair: Self = Self(1i32);
-    pub const NotPaired: Self = Self(2i32);
-    pub const AlreadyPaired: Self = Self(3i32);
-    pub const ConnectionRejected: Self = Self(4i32);
-    pub const TooManyConnections: Self = Self(5i32);
-    pub const HardwareFailure: Self = Self(6i32);
-    pub const AuthenticationTimeout: Self = Self(7i32);
-    pub const AuthenticationNotAllowed: Self = Self(8i32);
-    pub const AuthenticationFailure: Self = Self(9i32);
-    pub const NoSupportedProfiles: Self = Self(10i32);
-    pub const ProtectionLevelCouldNotBeMet: Self = Self(11i32);
-    pub const AccessDenied: Self = Self(12i32);
-    pub const InvalidCeremonyData: Self = Self(13i32);
-    pub const PairingCanceled: Self = Self(14i32);
-    pub const OperationAlreadyInProgress: Self = Self(15i32);
-    pub const RequiredHandlerNotRegistered: Self = Self(16i32);
-    pub const RejectedByHandler: Self = Self(17i32);
-    pub const RemoteDeviceHasAssociation: Self = Self(18i32);
-    pub const Failed: Self = Self(19i32);
+    pub const Paired: Self = Self(0);
+    pub const NotReadyToPair: Self = Self(1);
+    pub const NotPaired: Self = Self(2);
+    pub const AlreadyPaired: Self = Self(3);
+    pub const ConnectionRejected: Self = Self(4);
+    pub const TooManyConnections: Self = Self(5);
+    pub const HardwareFailure: Self = Self(6);
+    pub const AuthenticationTimeout: Self = Self(7);
+    pub const AuthenticationNotAllowed: Self = Self(8);
+    pub const AuthenticationFailure: Self = Self(9);
+    pub const NoSupportedProfiles: Self = Self(10);
+    pub const ProtectionLevelCouldNotBeMet: Self = Self(11);
+    pub const AccessDenied: Self = Self(12);
+    pub const InvalidCeremonyData: Self = Self(13);
+    pub const PairingCanceled: Self = Self(14);
+    pub const OperationAlreadyInProgress: Self = Self(15);
+    pub const RequiredHandlerNotRegistered: Self = Self(16);
+    pub const RejectedByHandler: Self = Self(17);
+    pub const RemoteDeviceHasAssociation: Self = Self(18);
+    pub const Failed: Self = Self(19);
 }
 impl windows_core::TypeKind for DevicePairingResultStatus {
     type TypeKind = windows_core::CopyType;
@@ -1158,10 +1158,10 @@ unsafe impl Sync for DevicePickerAppearance {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
-    pub const None: Self = Self(0u32);
-    pub const ShowProgress: Self = Self(1u32);
-    pub const ShowDisconnectButton: Self = Self(2u32);
-    pub const ShowRetryButton: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const ShowProgress: Self = Self(1);
+    pub const ShowDisconnectButton: Self = Self(2);
+    pub const ShowRetryButton: Self = Self(4);
 }
 impl windows_core::TypeKind for DevicePickerDisplayStatusOptions {
     type TypeKind = windows_core::CopyType;
@@ -1408,11 +1408,11 @@ unsafe impl Sync for DeviceUnpairingResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
-    pub const Unpaired: Self = Self(0i32);
-    pub const AlreadyUnpaired: Self = Self(1i32);
-    pub const OperationAlreadyInProgress: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
+    pub const Unpaired: Self = Self(0);
+    pub const AlreadyUnpaired: Self = Self(1);
+    pub const OperationAlreadyInProgress: Self = Self(2);
+    pub const AccessDenied: Self = Self(3);
+    pub const Failed: Self = Self(4);
 }
 impl windows_core::TypeKind for DeviceUnpairingResultStatus {
     type TypeKind = windows_core::CopyType;
@@ -1562,9 +1562,9 @@ unsafe impl Sync for DeviceWatcherEvent {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
-    pub const Add: Self = Self(0i32);
-    pub const Update: Self = Self(1i32);
-    pub const Remove: Self = Self(2i32);
+    pub const Add: Self = Self(0);
+    pub const Update: Self = Self(1);
+    pub const Remove: Self = Self(2);
 }
 impl windows_core::TypeKind for DeviceWatcherEventKind {
     type TypeKind = windows_core::CopyType;
@@ -1577,12 +1577,12 @@ impl windows_core::RuntimeType for DeviceWatcherEventKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
+    pub const Created: Self = Self(0);
+    pub const Started: Self = Self(1);
+    pub const EnumerationCompleted: Self = Self(2);
+    pub const Stopping: Self = Self(3);
+    pub const Stopped: Self = Self(4);
+    pub const Aborted: Self = Self(5);
 }
 impl windows_core::TypeKind for DeviceWatcherStatus {
     type TypeKind = windows_core::CopyType;
@@ -2261,13 +2261,13 @@ pub struct IEnclosureLocation2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Panel(pub i32);
 impl Panel {
-    pub const Unknown: Self = Self(0i32);
-    pub const Front: Self = Self(1i32);
-    pub const Back: Self = Self(2i32);
-    pub const Top: Self = Self(3i32);
-    pub const Bottom: Self = Self(4i32);
-    pub const Left: Self = Self(5i32);
-    pub const Right: Self = Self(6i32);
+    pub const Unknown: Self = Self(0);
+    pub const Front: Self = Self(1);
+    pub const Back: Self = Self(2);
+    pub const Top: Self = Self(3);
+    pub const Bottom: Self = Self(4);
+    pub const Left: Self = Self(5);
+    pub const Right: Self = Self(6);
 }
 impl windows_core::TypeKind for Panel {
     type TypeKind = windows_core::CopyType;

@@ -57,6 +57,7 @@ impl<T: RuntimeType + 'static> RuntimeName for IReference<T> {
 
 impl<T: RuntimeType + 'static> IReference<T> {
     /// Retrieves the boxed value.
+    #[allow(non_snake_case)]
     pub fn Value(&self) -> Result<T> {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -26,7 +26,7 @@ extern "system" fn DllGetActivationFactory(
 extern "system" fn CreateRobotFromHandle(
     handle: *mut std::ffi::c_void,
     robot: OutRef<bindings::Robot>,
-) -> windows_core::HRESULT {
+) -> HRESULT {
     robot.write(Some(Robot { handle }.into())).into()
 }
 

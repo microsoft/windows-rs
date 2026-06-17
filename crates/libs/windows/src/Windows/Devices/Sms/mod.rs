@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
-    pub const None: Self = Self(0i32);
-    pub const Gsm: Self = Self(1i32);
-    pub const Cdma: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Gsm: Self = Self(1);
+    pub const Cdma: Self = Self(2);
 }
 impl windows_core::TypeKind for CellularClass {
     type TypeKind = windows_core::CopyType;
@@ -132,7 +132,7 @@ impl ISmsBinaryMessage_Vtbl {
                 match ISmsBinaryMessage_Impl::GetData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(core::mem::transmute(ok_data__));
+                        result__.write(ok_data__);
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -1575,21 +1575,21 @@ unsafe impl Sync for SmsBroadcastMessage {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
-    pub const Other: Self = Self(0i32);
-    pub const CmasPresidential: Self = Self(1i32);
-    pub const CmasExtreme: Self = Self(2i32);
-    pub const CmasSevere: Self = Self(3i32);
-    pub const CmasAmber: Self = Self(4i32);
-    pub const CmasTest: Self = Self(5i32);
-    pub const EUAlert1: Self = Self(6i32);
-    pub const EUAlert2: Self = Self(7i32);
-    pub const EUAlert3: Self = Self(8i32);
-    pub const EUAlertAmber: Self = Self(9i32);
-    pub const EUAlertInfo: Self = Self(10i32);
-    pub const EtwsEarthquake: Self = Self(11i32);
-    pub const EtwsTsunami: Self = Self(12i32);
-    pub const EtwsTsunamiAndEarthquake: Self = Self(13i32);
-    pub const LatAlertLocal: Self = Self(14i32);
+    pub const Other: Self = Self(0);
+    pub const CmasPresidential: Self = Self(1);
+    pub const CmasExtreme: Self = Self(2);
+    pub const CmasSevere: Self = Self(3);
+    pub const CmasAmber: Self = Self(4);
+    pub const CmasTest: Self = Self(5);
+    pub const EUAlert1: Self = Self(6);
+    pub const EUAlert2: Self = Self(7);
+    pub const EUAlert3: Self = Self(8);
+    pub const EUAlertAmber: Self = Self(9);
+    pub const EUAlertInfo: Self = Self(10);
+    pub const EtwsEarthquake: Self = Self(11);
+    pub const EtwsTsunami: Self = Self(12);
+    pub const EtwsTsunamiAndEarthquake: Self = Self(13);
+    pub const LatAlertLocal: Self = Self(14);
 }
 impl windows_core::TypeKind for SmsBroadcastType {
     type TypeKind = windows_core::CopyType;
@@ -1602,11 +1602,11 @@ impl windows_core::RuntimeType for SmsBroadcastType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const CdmaSubmit: Self = Self(1i32);
-    pub const GsmSubmit: Self = Self(2i32);
-    pub const CdmaDeliver: Self = Self(3i32);
-    pub const GsmDeliver: Self = Self(4i32);
+    pub const Unknown: Self = Self(0);
+    pub const CdmaSubmit: Self = Self(1);
+    pub const GsmSubmit: Self = Self(2);
+    pub const CdmaDeliver: Self = Self(3);
+    pub const GsmDeliver: Self = Self(4);
 }
 impl windows_core::TypeKind for SmsDataFormat {
     type TypeKind = windows_core::CopyType;
@@ -1892,14 +1892,14 @@ impl windows_core::RuntimeName for SmsDeviceMessageStore {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
-    pub const Off: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const SimNotInserted: Self = Self(2i32);
-    pub const BadSim: Self = Self(3i32);
-    pub const DeviceFailure: Self = Self(4i32);
-    pub const SubscriptionNotActivated: Self = Self(5i32);
-    pub const DeviceLocked: Self = Self(6i32);
-    pub const DeviceBlocked: Self = Self(7i32);
+    pub const Off: Self = Self(0);
+    pub const Ready: Self = Self(1);
+    pub const SimNotInserted: Self = Self(2);
+    pub const BadSim: Self = Self(3);
+    pub const DeviceFailure: Self = Self(4);
+    pub const SubscriptionNotActivated: Self = Self(5);
+    pub const DeviceLocked: Self = Self(6);
+    pub const DeviceBlocked: Self = Self(7);
 }
 impl windows_core::TypeKind for SmsDeviceStatus {
     type TypeKind = windows_core::CopyType;
@@ -1915,7 +1915,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SmsDeviceStatusChangedEventHandler, F>::new(&SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
@@ -1967,17 +1967,17 @@ impl windows_core::RuntimeType for SmsEncodedLength {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
-    pub const Unknown: Self = Self(0i32);
-    pub const Optimal: Self = Self(1i32);
-    pub const SevenBitAscii: Self = Self(2i32);
-    pub const Unicode: Self = Self(3i32);
-    pub const GsmSevenBit: Self = Self(4i32);
-    pub const EightBit: Self = Self(5i32);
-    pub const Latin: Self = Self(6i32);
-    pub const Korean: Self = Self(7i32);
-    pub const IA5: Self = Self(8i32);
-    pub const ShiftJis: Self = Self(9i32);
-    pub const LatinHebrew: Self = Self(10i32);
+    pub const Unknown: Self = Self(0);
+    pub const Optimal: Self = Self(1);
+    pub const SevenBitAscii: Self = Self(2);
+    pub const Unicode: Self = Self(3);
+    pub const GsmSevenBit: Self = Self(4);
+    pub const EightBit: Self = Self(5);
+    pub const Latin: Self = Self(6);
+    pub const Korean: Self = Self(7);
+    pub const IA5: Self = Self(8);
+    pub const ShiftJis: Self = Self(9);
+    pub const LatinHebrew: Self = Self(10);
 }
 impl windows_core::TypeKind for SmsEncoding {
     type TypeKind = windows_core::CopyType;
@@ -1990,10 +1990,10 @@ impl windows_core::RuntimeType for SmsEncoding {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
-    pub const AcceptImmediately: Self = Self(0i32);
-    pub const Drop: Self = Self(1i32);
-    pub const Peek: Self = Self(2i32);
-    pub const Accept: Self = Self(3i32);
+    pub const AcceptImmediately: Self = Self(0);
+    pub const Drop: Self = Self(1);
+    pub const Peek: Self = Self(2);
+    pub const Accept: Self = Self(3);
 }
 impl windows_core::TypeKind for SmsFilterActionType {
     type TypeKind = windows_core::CopyType;
@@ -2155,11 +2155,11 @@ unsafe impl Sync for SmsFilterRules {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
-    pub const None: Self = Self(0i32);
-    pub const CellWithImmediateDisplay: Self = Self(1i32);
-    pub const LocationArea: Self = Self(2i32);
-    pub const Plmn: Self = Self(3i32);
-    pub const Cell: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const CellWithImmediateDisplay: Self = Self(1);
+    pub const LocationArea: Self = Self(2);
+    pub const Plmn: Self = Self(3);
+    pub const Cell: Self = Self(4);
 }
 impl windows_core::TypeKind for SmsGeographicalScope {
     type TypeKind = windows_core::CopyType;
@@ -2172,11 +2172,11 @@ impl windows_core::RuntimeType for SmsGeographicalScope {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
-    pub const None: Self = Self(0i32);
-    pub const Class0: Self = Self(1i32);
-    pub const Class1: Self = Self(2i32);
-    pub const Class2: Self = Self(3i32);
-    pub const Class3: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Class0: Self = Self(1);
+    pub const Class1: Self = Self(2);
+    pub const Class2: Self = Self(3);
+    pub const Class3: Self = Self(4);
 }
 impl windows_core::TypeKind for SmsMessageClass {
     type TypeKind = windows_core::CopyType;
@@ -2189,11 +2189,11 @@ impl windows_core::RuntimeType for SmsMessageClass {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageFilter(pub i32);
 impl SmsMessageFilter {
-    pub const All: Self = Self(0i32);
-    pub const Unread: Self = Self(1i32);
-    pub const Read: Self = Self(2i32);
-    pub const Sent: Self = Self(3i32);
-    pub const Draft: Self = Self(4i32);
+    pub const All: Self = Self(0);
+    pub const Unread: Self = Self(1);
+    pub const Read: Self = Self(2);
+    pub const Sent: Self = Self(3);
+    pub const Draft: Self = Self(4);
 }
 impl windows_core::TypeKind for SmsMessageFilter {
     type TypeKind = windows_core::CopyType;
@@ -2237,7 +2237,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<SmsMessageReceivedEventHandler, F>::new(&SmsMessageReceivedEventHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
@@ -2396,13 +2396,13 @@ impl windows_core::RuntimeName for SmsMessageRegistration {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
-    pub const Binary: Self = Self(0i32);
-    pub const Text: Self = Self(1i32);
-    pub const Wap: Self = Self(2i32);
-    pub const App: Self = Self(3i32);
-    pub const Broadcast: Self = Self(4i32);
-    pub const Voicemail: Self = Self(5i32);
-    pub const Status: Self = Self(6i32);
+    pub const Binary: Self = Self(0);
+    pub const Text: Self = Self(1);
+    pub const Wap: Self = Self(2);
+    pub const App: Self = Self(3);
+    pub const Broadcast: Self = Self(4);
+    pub const Voicemail: Self = Self(5);
+    pub const Status: Self = Self(6);
 }
 impl windows_core::TypeKind for SmsMessageType {
     type TypeKind = windows_core::CopyType;
@@ -2415,18 +2415,18 @@ impl windows_core::RuntimeType for SmsMessageType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
-    pub const Other: Self = Self(0i32);
-    pub const MessagingNetworkError: Self = Self(1i32);
-    pub const SmsOperationNotSupportedByDevice: Self = Self(2i32);
-    pub const SmsServiceNotSupportedByNetwork: Self = Self(3i32);
-    pub const DeviceFailure: Self = Self(4i32);
-    pub const MessageNotEncodedProperly: Self = Self(5i32);
-    pub const MessageTooLarge: Self = Self(6i32);
-    pub const DeviceNotReady: Self = Self(7i32);
-    pub const NetworkNotReady: Self = Self(8i32);
-    pub const InvalidSmscAddress: Self = Self(9i32);
-    pub const NetworkFailure: Self = Self(10i32);
-    pub const FixedDialingNumberRestricted: Self = Self(11i32);
+    pub const Other: Self = Self(0);
+    pub const MessagingNetworkError: Self = Self(1);
+    pub const SmsOperationNotSupportedByDevice: Self = Self(2);
+    pub const SmsServiceNotSupportedByNetwork: Self = Self(3);
+    pub const DeviceFailure: Self = Self(4);
+    pub const MessageNotEncodedProperly: Self = Self(5);
+    pub const MessageTooLarge: Self = Self(6);
+    pub const DeviceNotReady: Self = Self(7);
+    pub const NetworkNotReady: Self = Self(8);
+    pub const InvalidSmscAddress: Self = Self(9);
+    pub const NetworkFailure: Self = Self(10);
+    pub const FixedDialingNumberRestricted: Self = Self(11);
 }
 impl windows_core::TypeKind for SmsModemErrorCode {
     type TypeKind = windows_core::CopyType;

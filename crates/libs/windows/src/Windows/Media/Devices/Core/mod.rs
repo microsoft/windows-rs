@@ -264,7 +264,7 @@ impl FrameController {
         }
     }
     pub fn SetPhotoConfirmationEnabled(&self, value: Option<bool>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn FlashControl(&self) -> windows_core::Result<FrameFlashControl> {
@@ -379,7 +379,7 @@ impl FrameExposureCompensationControl {
         }
     }
     pub fn SetValue(&self, value: Option<f32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<f32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -414,7 +414,7 @@ impl FrameExposureControl {
         }
     }
     pub fn SetValue(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -518,9 +518,9 @@ impl windows_core::RuntimeName for FrameFlashControl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
-    pub const Disable: Self = Self(0i32);
-    pub const Enable: Self = Self(1i32);
-    pub const Global: Self = Self(2i32);
+    pub const Disable: Self = Self(0);
+    pub const Enable: Self = Self(1);
+    pub const Global: Self = Self(2);
 }
 impl windows_core::TypeKind for FrameFlashMode {
     type TypeKind = windows_core::CopyType;
@@ -581,7 +581,7 @@ impl FrameFocusControl {
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -656,7 +656,7 @@ impl FrameIsoSpeedControl {
         }
     }
     pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }

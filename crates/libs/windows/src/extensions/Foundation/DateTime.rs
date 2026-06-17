@@ -11,13 +11,13 @@ use windows_time::DateTime;
 impl From<FILETIME> for DateTime {
     fn from(value: FILETIME) -> Self {
         let ticks = ((value.dwHighDateTime as u64) << 32 | value.dwLowDateTime as u64) as i64;
-        Self { UniversalTime: ticks }
+        Self { universal_time: ticks }
     }
 }
 
 impl From<DateTime> for FILETIME {
     fn from(value: DateTime) -> Self {
-        let ticks = value.UniversalTime as u64;
+        let ticks = value.universal_time as u64;
         Self { dwLowDateTime: ticks as u32, dwHighDateTime: (ticks >> 32) as u32 }
     }
 }

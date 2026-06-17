@@ -1,4 +1,4 @@
-//! Minimal sample for the `CalendarView` element.
+//! Sample for the `CalendarView` element.
 
 use windows_reactor::*;
 
@@ -8,7 +8,7 @@ fn app(cx: &mut RenderCx) -> Element {
     let bump = move || set_count.call(count + 1);
 
     vstack((
-        calendar_view().today_highlighted(true).on_changed(bump),
+        calendar_view().on_selected_dates_changed(bump),
         text_block(format!("Selection changed {count} time(s)")),
     ))
     .spacing(8.0)
@@ -16,5 +16,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("CalendarView", app)
 }

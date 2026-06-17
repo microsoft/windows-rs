@@ -1,19 +1,20 @@
 use std::rc::Rc;
 use std::sync::LazyLock;
 
-use windows_reactor::core::backend::{ControlKind, Op, RecordingBackend};
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::context::Context;
-use windows_reactor::core::element::Element;
-use windows_reactor::core::element::{
+use windows_reactor::Component;
+use windows_reactor::Context;
+use windows_reactor::ControlKind;
+use windows_reactor::Element;
+use windows_reactor::Reconciler;
+use windows_reactor::RenderCx;
+use windows_reactor::component;
+use windows_reactor::vstack;
+use windows_reactor::{ElementExt, text_block};
+use windows_reactor::{
     Expander, HyperlinkButton, InfoBar, ProgressBar, ProgressRing, RadioButton, Shape, Slider,
     TabItem, TabView, ToggleSwitch,
 };
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::dsl::{ElementExt, text_block};
-use windows_reactor::vstack;
+use windows_reactor::{Op, RecordingBackend};
 
 static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".to_string()));
 
@@ -127,8 +128,8 @@ fn context_demo_page_resolves_provided_theme() {
         matches!(
             op,
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Text,
-                value: windows_reactor::core::backend::PropValue::Str(s),
+                prop: windows_reactor::Prop::Text,
+                value: windows_reactor::PropValue::Str(s),
                 ..
             } if s == "theme=dark"
         )

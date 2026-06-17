@@ -6,11 +6,11 @@ pub mod Provider;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Terrain: Self = Self(1i32);
-    pub const Ellipsoid: Self = Self(2i32);
-    pub const Geoid: Self = Self(3i32);
-    pub const Surface: Self = Self(4i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Terrain: Self = Self(1);
+    pub const Ellipsoid: Self = Self(2);
+    pub const Geoid: Self = Self(3);
+    pub const Surface: Self = Self(4);
 }
 impl windows_core::TypeKind for AltitudeReferenceSystem {
     type TypeKind = windows_core::CopyType;
@@ -433,9 +433,9 @@ unsafe impl Sync for GeocoordinateSatelliteData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const Denied: Self = Self(2i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Allowed: Self = Self(1);
+    pub const Denied: Self = Self(2);
 }
 impl windows_core::TypeKind for GeolocationAccessStatus {
     type TypeKind = windows_core::CopyType;
@@ -554,7 +554,7 @@ impl Geolocator {
         })
     }
     pub fn SetDefaultGeoposition(value: Option<BasicGeoposition>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<BasicGeoposition> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<BasicGeoposition> as From<_>>::from);
         Self::IGeolocatorStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultGeoposition)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() })
     }
     pub fn DefaultGeoposition() -> windows_core::Result<BasicGeoposition> {
@@ -572,7 +572,7 @@ impl Geolocator {
     }
     pub fn SetDesiredAccuracyInMeters(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -782,10 +782,10 @@ unsafe impl Sync for Geoposition {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
-    pub const Geopoint: Self = Self(0i32);
-    pub const Geocircle: Self = Self(1i32);
-    pub const Geopath: Self = Self(2i32);
-    pub const GeoboundingBox: Self = Self(3i32);
+    pub const Geopoint: Self = Self(0);
+    pub const Geocircle: Self = Self(1);
+    pub const Geopath: Self = Self(2);
+    pub const GeoboundingBox: Self = Self(3);
 }
 impl windows_core::TypeKind for GeoshapeType {
     type TypeKind = windows_core::CopyType;
@@ -1439,8 +1439,8 @@ pub struct IVenueData_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
-    pub const Default: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for PositionAccuracy {
     type TypeKind = windows_core::CopyType;
@@ -1477,13 +1477,13 @@ unsafe impl Sync for PositionChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
-    pub const Cellular: Self = Self(0i32);
-    pub const Satellite: Self = Self(1i32);
-    pub const WiFi: Self = Self(2i32);
-    pub const IPAddress: Self = Self(3i32);
-    pub const Unknown: Self = Self(4i32);
-    pub const Default: Self = Self(5i32);
-    pub const Obfuscated: Self = Self(6i32);
+    pub const Cellular: Self = Self(0);
+    pub const Satellite: Self = Self(1);
+    pub const WiFi: Self = Self(2);
+    pub const IPAddress: Self = Self(3);
+    pub const Unknown: Self = Self(4);
+    pub const Default: Self = Self(5);
+    pub const Obfuscated: Self = Self(6);
 }
 impl windows_core::TypeKind for PositionSource {
     type TypeKind = windows_core::CopyType;
@@ -1496,12 +1496,12 @@ impl windows_core::RuntimeType for PositionSource {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
-    pub const Ready: Self = Self(0i32);
-    pub const Initializing: Self = Self(1i32);
-    pub const NoData: Self = Self(2i32);
-    pub const Disabled: Self = Self(3i32);
-    pub const NotInitialized: Self = Self(4i32);
-    pub const NotAvailable: Self = Self(5i32);
+    pub const Ready: Self = Self(0);
+    pub const Initializing: Self = Self(1);
+    pub const NoData: Self = Self(2);
+    pub const Disabled: Self = Self(3);
+    pub const NotInitialized: Self = Self(4);
+    pub const NotAvailable: Self = Self(5);
 }
 impl windows_core::TypeKind for PositionStatus {
     type TypeKind = windows_core::CopyType;
@@ -1568,8 +1568,8 @@ unsafe impl Sync for VenueData {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
-    pub const Venue: Self = Self(0i32);
-    pub const City: Self = Self(1i32);
+    pub const Venue: Self = Self(0);
+    pub const City: Self = Self(1);
 }
 impl windows_core::TypeKind for VisitMonitoringScope {
     type TypeKind = windows_core::CopyType;
@@ -1582,10 +1582,10 @@ impl windows_core::RuntimeType for VisitMonitoringScope {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
-    pub const TrackingLost: Self = Self(0i32);
-    pub const Arrived: Self = Self(1i32);
-    pub const Departed: Self = Self(2i32);
-    pub const OtherMovement: Self = Self(3i32);
+    pub const TrackingLost: Self = Self(0);
+    pub const Arrived: Self = Self(1);
+    pub const Departed: Self = Self(2);
+    pub const OtherMovement: Self = Self(3);
 }
 impl windows_core::TypeKind for VisitStateChange {
     type TypeKind = windows_core::CopyType;

@@ -1,16 +1,16 @@
 use std::rc::Rc;
 use std::time::Duration;
 
+use windows_reactor::Element;
 use windows_reactor::ElementExt;
-use windows_reactor::core::animation::{
+use windows_reactor::Reconciler;
+use windows_reactor::button;
+use windows_reactor::vstack;
+use windows_reactor::{
     AnimationConfig, Easing, ImplicitTransitions, LayoutAnimationConfig, ScalarTransition,
     Vector3Axes, Vector3Transition,
 };
-use windows_reactor::core::backend::{Op, RecordingBackend};
-use windows_reactor::core::element::Element;
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::dsl::factories::button;
-use windows_reactor::vstack;
+use windows_reactor::{Op, RecordingBackend};
 
 fn fresh() -> Reconciler<RecordingBackend> {
     Reconciler::new(RecordingBackend::new())
@@ -277,7 +277,7 @@ fn enter_transition_fires_at_mount_time() {
 
 #[test]
 fn animation_does_not_disturb_theme_bindings_or_layout_props() {
-    use windows_reactor::core::theme::ThemeRef;
+    use windows_reactor::ThemeRef;
 
     let mut r = fresh();
     let el: Element = button("hi")
@@ -301,7 +301,7 @@ fn animation_does_not_disturb_theme_bindings_or_layout_props() {
         matches!(
             op,
             Op::SetProp {
-                prop: windows_reactor::core::backend::Prop::Margin,
+                prop: windows_reactor::Prop::Margin,
                 ..
             }
         )

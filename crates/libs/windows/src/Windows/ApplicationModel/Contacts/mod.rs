@@ -542,9 +542,9 @@ unsafe impl Sync for ContactAddress {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
-    pub const Home: Self = Self(0i32);
-    pub const Work: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
+    pub const Home: Self = Self(0);
+    pub const Work: Self = Self(1);
+    pub const Other: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactAddressKind {
     type TypeKind = windows_core::CopyType;
@@ -723,14 +723,14 @@ unsafe impl Sync for ContactAnnotationList {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
-    pub const None: Self = Self(0u32);
-    pub const ContactProfile: Self = Self(1u32);
-    pub const Message: Self = Self(2u32);
-    pub const AudioCall: Self = Self(4u32);
-    pub const VideoCall: Self = Self(8u32);
-    pub const SocialFeeds: Self = Self(16u32);
-    pub const Share: Self = Self(32u32);
-    pub const Activity: Self = Self(64u32);
+    pub const None: Self = Self(0);
+    pub const ContactProfile: Self = Self(1);
+    pub const Message: Self = Self(2);
+    pub const AudioCall: Self = Self(4);
+    pub const VideoCall: Self = Self(8);
+    pub const SocialFeeds: Self = Self(16);
+    pub const Share: Self = Self(32);
+    pub const Activity: Self = Self(64);
 }
 impl windows_core::TypeKind for ContactAnnotationOperations {
     type TypeKind = windows_core::CopyType;
@@ -855,8 +855,8 @@ unsafe impl Sync for ContactAnnotationStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
-    pub const AppAnnotationsReadWrite: Self = Self(0i32);
-    pub const AllAnnotationsReadWrite: Self = Self(1i32);
+    pub const AppAnnotationsReadWrite: Self = Self(0);
+    pub const AllAnnotationsReadWrite: Self = Self(1);
 }
 impl windows_core::TypeKind for ContactAnnotationStoreAccessType {
     type TypeKind = windows_core::CopyType;
@@ -899,9 +899,9 @@ unsafe impl Sync for ContactBatch {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
-    pub const Success: Self = Self(0i32);
-    pub const ServerSearchSyncManagerError: Self = Self(1i32);
-    pub const ServerSearchUnknownError: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const ServerSearchSyncManagerError: Self = Self(1);
+    pub const ServerSearchUnknownError: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactBatchStatus {
     type TypeKind = windows_core::CopyType;
@@ -943,9 +943,9 @@ unsafe impl Sync for ContactCardDelayedDataLoader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
-    pub const Default: Self = Self(0i32);
-    pub const Basic: Self = Self(1i32);
-    pub const Enterprise: Self = Self(2i32);
+    pub const Default: Self = Self(0);
+    pub const Basic: Self = Self(1);
+    pub const Enterprise: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactCardHeaderKind {
     type TypeKind = windows_core::CopyType;
@@ -1008,12 +1008,12 @@ unsafe impl Sync for ContactCardOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
-    pub const Default: Self = Self(0i32);
-    pub const Email: Self = Self(1i32);
-    pub const Messaging: Self = Self(2i32);
-    pub const Phone: Self = Self(3i32);
-    pub const Video: Self = Self(4i32);
-    pub const OrganizationalHierarchy: Self = Self(5i32);
+    pub const Default: Self = Self(0);
+    pub const Email: Self = Self(1);
+    pub const Messaging: Self = Self(2);
+    pub const Phone: Self = Self(3);
+    pub const Video: Self = Self(4);
+    pub const OrganizationalHierarchy: Self = Self(5);
 }
 impl windows_core::TypeKind for ContactCardTabKind {
     type TypeKind = windows_core::CopyType;
@@ -1126,10 +1126,10 @@ unsafe impl Sync for ContactChangeTracker {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
-    pub const Created: Self = Self(0i32);
-    pub const Modified: Self = Self(1i32);
-    pub const Deleted: Self = Self(2i32);
-    pub const ChangeTrackingLost: Self = Self(3i32);
+    pub const Created: Self = Self(0);
+    pub const Modified: Self = Self(1);
+    pub const Deleted: Self = Self(2);
+    pub const ChangeTrackingLost: Self = Self(3);
 }
 impl windows_core::TypeKind for ContactChangeType {
     type TypeKind = windows_core::CopyType;
@@ -1245,7 +1245,7 @@ impl ContactDate {
         }
     }
     pub fn SetDay(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDay)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Month(&self) -> windows_core::Result<u32> {
@@ -1255,7 +1255,7 @@ impl ContactDate {
         }
     }
     pub fn SetMonth(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMonth)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Year(&self) -> windows_core::Result<i32> {
@@ -1265,7 +1265,7 @@ impl ContactDate {
         }
     }
     pub fn SetYear(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetYear)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<ContactDateKind> {
@@ -1303,9 +1303,9 @@ unsafe impl Sync for ContactDate {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
-    pub const Birthday: Self = Self(0i32);
-    pub const Anniversary: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
+    pub const Birthday: Self = Self(0);
+    pub const Anniversary: Self = Self(1);
+    pub const Other: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactDateKind {
     type TypeKind = windows_core::CopyType;
@@ -1370,9 +1370,9 @@ unsafe impl Sync for ContactEmail {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
-    pub const Personal: Self = Self(0i32);
-    pub const Work: Self = Self(1i32);
-    pub const Other: Self = Self(2i32);
+    pub const Personal: Self = Self(0);
+    pub const Work: Self = Self(1);
+    pub const Other: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactEmailKind {
     type TypeKind = windows_core::CopyType;
@@ -1450,11 +1450,11 @@ unsafe impl Sync for ContactField {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
-    pub const None: Self = Self(0i32);
-    pub const Home: Self = Self(1i32);
-    pub const Work: Self = Self(2i32);
-    pub const Mobile: Self = Self(3i32);
-    pub const Other: Self = Self(4i32);
+    pub const None: Self = Self(0);
+    pub const Home: Self = Self(1);
+    pub const Work: Self = Self(2);
+    pub const Mobile: Self = Self(3);
+    pub const Other: Self = Self(4);
 }
 impl windows_core::TypeKind for ContactFieldCategory {
     type TypeKind = windows_core::CopyType;
@@ -1556,18 +1556,18 @@ unsafe impl Sync for ContactFieldFactory {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
-    pub const Email: Self = Self(0i32);
-    pub const PhoneNumber: Self = Self(1i32);
-    pub const Location: Self = Self(2i32);
-    pub const InstantMessage: Self = Self(3i32);
-    pub const Custom: Self = Self(4i32);
-    pub const ConnectedServiceAccount: Self = Self(5i32);
-    pub const ImportantDate: Self = Self(6i32);
-    pub const Address: Self = Self(7i32);
-    pub const SignificantOther: Self = Self(8i32);
-    pub const Notes: Self = Self(9i32);
-    pub const Website: Self = Self(10i32);
-    pub const JobInfo: Self = Self(11i32);
+    pub const Email: Self = Self(0);
+    pub const PhoneNumber: Self = Self(1);
+    pub const Location: Self = Self(2);
+    pub const InstantMessage: Self = Self(3);
+    pub const Custom: Self = Self(4);
+    pub const ConnectedServiceAccount: Self = Self(5);
+    pub const ImportantDate: Self = Self(6);
+    pub const Address: Self = Self(7);
+    pub const SignificantOther: Self = Self(8);
+    pub const Notes: Self = Self(9);
+    pub const Website: Self = Self(10);
+    pub const JobInfo: Self = Self(11);
 }
 impl windows_core::TypeKind for ContactFieldType {
     type TypeKind = windows_core::CopyType;
@@ -1580,7 +1580,6 @@ impl windows_core::RuntimeType for ContactFieldType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactGroup {}
 impl windows_core::RuntimeType for ContactGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactGroup>();
 }
@@ -2125,10 +2124,10 @@ unsafe impl Sync for ContactListLimitedWriteOperations {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Limited: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
+    pub const SystemOnly: Self = Self(0);
+    pub const Limited: Self = Self(1);
+    pub const Full: Self = Self(2);
+    pub const None: Self = Self(3);
 }
 impl windows_core::TypeKind for ContactListOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
@@ -2141,9 +2140,9 @@ impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
-    pub const None: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
-    pub const Limited: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const SystemOnly: Self = Self(1);
+    pub const Limited: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactListOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
@@ -2173,7 +2172,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxHomePhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomePhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxMobilePhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2183,7 +2182,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxMobilePhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxMobilePhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxWorkPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2193,7 +2192,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxWorkPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxOtherPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2203,7 +2202,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxOtherPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxPagerPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2213,7 +2212,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxPagerPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxPagerPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxBusinessFaxPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2223,7 +2222,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxBusinessFaxPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxBusinessFaxPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxHomeFaxPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2233,7 +2232,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxHomeFaxPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomeFaxPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxCompanyPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2243,7 +2242,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxCompanyPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxCompanyPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxAssistantPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2253,7 +2252,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxAssistantPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxAssistantPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxRadioPhoneNumbers(&self) -> windows_core::Result<i32> {
@@ -2263,7 +2262,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxRadioPhoneNumbers(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxRadioPhoneNumbers)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxPersonalEmailAddresses(&self) -> windows_core::Result<i32> {
@@ -2273,7 +2272,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxPersonalEmailAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxPersonalEmailAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxWorkEmailAddresses(&self) -> windows_core::Result<i32> {
@@ -2283,7 +2282,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxWorkEmailAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkEmailAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxOtherEmailAddresses(&self) -> windows_core::Result<i32> {
@@ -2293,7 +2292,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxOtherEmailAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherEmailAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxHomeAddresses(&self) -> windows_core::Result<i32> {
@@ -2303,7 +2302,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxHomeAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomeAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxWorkAddresses(&self) -> windows_core::Result<i32> {
@@ -2313,7 +2312,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxWorkAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxOtherAddresses(&self) -> windows_core::Result<i32> {
@@ -2323,7 +2322,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxOtherAddresses(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherAddresses)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxBirthdayDates(&self) -> windows_core::Result<i32> {
@@ -2333,7 +2332,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxBirthdayDates(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxBirthdayDates)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxAnniversaryDates(&self) -> windows_core::Result<i32> {
@@ -2343,7 +2342,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxAnniversaryDates(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxAnniversaryDates)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxOtherDates(&self) -> windows_core::Result<i32> {
@@ -2353,7 +2352,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxOtherDates(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherDates)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxOtherRelationships(&self) -> windows_core::Result<i32> {
@@ -2363,7 +2362,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxOtherRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxSpouseRelationships(&self) -> windows_core::Result<i32> {
@@ -2373,7 +2372,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxSpouseRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxSpouseRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxPartnerRelationships(&self) -> windows_core::Result<i32> {
@@ -2383,7 +2382,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxPartnerRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxPartnerRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxSiblingRelationships(&self) -> windows_core::Result<i32> {
@@ -2393,7 +2392,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxSiblingRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxSiblingRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxParentRelationships(&self) -> windows_core::Result<i32> {
@@ -2403,7 +2402,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxParentRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxParentRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxChildRelationships(&self) -> windows_core::Result<i32> {
@@ -2413,7 +2412,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxChildRelationships(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxChildRelationships)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxJobInfo(&self) -> windows_core::Result<i32> {
@@ -2423,7 +2422,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxJobInfo(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxJobInfo)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn MaxWebsites(&self) -> windows_core::Result<i32> {
@@ -2433,7 +2432,7 @@ impl ContactListSyncConstraints {
         }
     }
     pub fn SetMaxWebsites(&self, value: Option<i32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetMaxWebsites)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -2519,13 +2518,13 @@ unsafe impl Sync for ContactListSyncManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
-    pub const Idle: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const UpToDate: Self = Self(2i32);
-    pub const AuthenticationError: Self = Self(3i32);
-    pub const PolicyError: Self = Self(4i32);
-    pub const UnknownError: Self = Self(5i32);
-    pub const ManualAccountRemovalRequired: Self = Self(6i32);
+    pub const Idle: Self = Self(0);
+    pub const Syncing: Self = Self(1);
+    pub const UpToDate: Self = Self(2);
+    pub const AuthenticationError: Self = Self(3);
+    pub const PolicyError: Self = Self(4);
+    pub const UnknownError: Self = Self(5);
+    pub const ManualAccountRemovalRequired: Self = Self(6);
 }
 impl windows_core::TypeKind for ContactListSyncStatus {
     type TypeKind = windows_core::CopyType;
@@ -2951,12 +2950,12 @@ unsafe impl Sync for ContactMatchReason {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
-    pub const Name: Self = Self(0i32);
-    pub const EmailAddress: Self = Self(1i32);
-    pub const PhoneNumber: Self = Self(2i32);
-    pub const JobInfo: Self = Self(3i32);
-    pub const YomiName: Self = Self(4i32);
-    pub const Other: Self = Self(5i32);
+    pub const Name: Self = Self(0);
+    pub const EmailAddress: Self = Self(1);
+    pub const PhoneNumber: Self = Self(2);
+    pub const JobInfo: Self = Self(3);
+    pub const YomiName: Self = Self(4);
+    pub const Other: Self = Self(5);
 }
 impl windows_core::TypeKind for ContactMatchReasonKind {
     type TypeKind = windows_core::CopyType;
@@ -2969,8 +2968,8 @@ impl windows_core::RuntimeType for ContactMatchReasonKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
-    pub const FirstNameLastName: Self = Self(0i32);
-    pub const LastNameFirstName: Self = Self(1i32);
+    pub const FirstNameLastName: Self = Self(0);
+    pub const LastNameFirstName: Self = Self(1);
 }
 impl windows_core::TypeKind for ContactNameOrder {
     type TypeKind = windows_core::CopyType;
@@ -2996,7 +2995,7 @@ impl ContactPanel {
     }
     #[cfg(feature = "UI")]
     pub fn SetHeaderColor(&self, value: Option<super::super::UI::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetHeaderColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LaunchFullAppRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -3143,16 +3142,16 @@ unsafe impl Sync for ContactPhone {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
-    pub const Home: Self = Self(0i32);
-    pub const Mobile: Self = Self(1i32);
-    pub const Work: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
-    pub const Pager: Self = Self(4i32);
-    pub const BusinessFax: Self = Self(5i32);
-    pub const HomeFax: Self = Self(6i32);
-    pub const Company: Self = Self(7i32);
-    pub const Assistant: Self = Self(8i32);
-    pub const Radio: Self = Self(9i32);
+    pub const Home: Self = Self(0);
+    pub const Mobile: Self = Self(1);
+    pub const Work: Self = Self(2);
+    pub const Other: Self = Self(3);
+    pub const Pager: Self = Self(4);
+    pub const BusinessFax: Self = Self(5);
+    pub const HomeFax: Self = Self(6);
+    pub const Company: Self = Self(7);
+    pub const Assistant: Self = Self(8);
+    pub const Radio: Self = Self(9);
 }
 impl windows_core::TypeKind for ContactPhoneKind {
     type TypeKind = windows_core::CopyType;
@@ -3273,10 +3272,10 @@ impl windows_core::RuntimeName for ContactPicker {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
-    pub const None: Self = Self(0u32);
-    pub const PhoneNumber: Self = Self(1u32);
-    pub const EmailAddress: Self = Self(2u32);
-    pub const PostalAddress: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const PhoneNumber: Self = Self(1);
+    pub const EmailAddress: Self = Self(2);
+    pub const PostalAddress: Self = Self(4);
 }
 impl windows_core::TypeKind for ContactQueryDesiredFields {
     type TypeKind = windows_core::CopyType;
@@ -3408,11 +3407,11 @@ unsafe impl Sync for ContactQueryOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
-    pub const None: Self = Self(0u32);
-    pub const Name: Self = Self(1u32);
-    pub const Email: Self = Self(2u32);
-    pub const Phone: Self = Self(4u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const Name: Self = Self(1);
+    pub const Email: Self = Self(2);
+    pub const Phone: Self = Self(4);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for ContactQuerySearchFields {
     type TypeKind = windows_core::CopyType;
@@ -3458,8 +3457,8 @@ impl core::ops::Not for ContactQuerySearchFields {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
-    pub const Local: Self = Self(0i32);
-    pub const Server: Self = Self(1i32);
+    pub const Local: Self = Self(0);
+    pub const Server: Self = Self(1);
 }
 impl windows_core::TypeKind for ContactQuerySearchScope {
     type TypeKind = windows_core::CopyType;
@@ -3550,12 +3549,12 @@ unsafe impl Sync for ContactReader {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
-    pub const Other: Self = Self(0i32);
-    pub const Spouse: Self = Self(1i32);
-    pub const Partner: Self = Self(2i32);
-    pub const Sibling: Self = Self(3i32);
-    pub const Parent: Self = Self(4i32);
-    pub const Child: Self = Self(5i32);
+    pub const Other: Self = Self(0);
+    pub const Spouse: Self = Self(1);
+    pub const Partner: Self = Self(2);
+    pub const Sibling: Self = Self(3);
+    pub const Parent: Self = Self(4);
+    pub const Child: Self = Self(5);
 }
 impl windows_core::TypeKind for ContactRelationship {
     type TypeKind = windows_core::CopyType;
@@ -3568,8 +3567,8 @@ impl windows_core::RuntimeType for ContactRelationship {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
-    pub const Contacts: Self = Self(0i32);
-    pub const Fields: Self = Self(1i32);
+    pub const Contacts: Self = Self(0);
+    pub const Fields: Self = Self(1);
 }
 impl windows_core::TypeKind for ContactSelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -3759,9 +3758,9 @@ unsafe impl Sync for ContactStore {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
-    pub const AppContactsReadWrite: Self = Self(0i32);
-    pub const AllContactsReadOnly: Self = Self(1i32);
-    pub const AllContactsReadWrite: Self = Self(2i32);
+    pub const AppContactsReadWrite: Self = Self(0);
+    pub const AllContactsReadOnly: Self = Self(1);
+    pub const AllContactsReadWrite: Self = Self(2);
 }
 impl windows_core::TypeKind for ContactStoreAccessType {
     type TypeKind = windows_core::CopyType;
@@ -3774,7 +3773,6 @@ impl windows_core::RuntimeType for ContactStoreAccessType {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for ContactStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTriggerDetails>();
 }
@@ -5671,8 +5669,8 @@ unsafe impl Sync for PinnedContactManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
-    pub const StartMenu: Self = Self(0i32);
-    pub const Taskbar: Self = Self(1i32);
+    pub const StartMenu: Self = Self(0);
+    pub const Taskbar: Self = Self(1);
 }
 impl windows_core::TypeKind for PinnedContactSurface {
     type TypeKind = windows_core::CopyType;

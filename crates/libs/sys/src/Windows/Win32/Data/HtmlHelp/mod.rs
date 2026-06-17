@@ -108,30 +108,30 @@ pub const E_UNMATCHEDTYPE: windows_sys::core::HRESULT = 0x8000105E_u32 as _;
 pub const E_UNSUPPORTED_TRANSPORT: windows_sys::core::HRESULT = 0x80001017_u32 as _;
 pub const E_WILD_IN_DTYPE: windows_sys::core::HRESULT = 0x80001061_u32 as _;
 pub const E_WORDTOOLONG: windows_sys::core::HRESULT = 0x8000105F_u32 as _;
-pub const HHACT_BACK: i32 = 7i32;
-pub const HHACT_CONTRACT: i32 = 6i32;
-pub const HHACT_CUSTOMIZE: i32 = 16i32;
-pub const HHACT_EXPAND: i32 = 5i32;
-pub const HHACT_FORWARD: i32 = 8i32;
-pub const HHACT_HIGHLIGHT: i32 = 15i32;
-pub const HHACT_HOME: i32 = 11i32;
-pub const HHACT_JUMP1: i32 = 17i32;
-pub const HHACT_JUMP2: i32 = 18i32;
-pub const HHACT_LAST_ENUM: i32 = 23i32;
-pub const HHACT_NOTES: i32 = 22i32;
-pub const HHACT_OPTIONS: i32 = 13i32;
-pub const HHACT_PRINT: i32 = 14i32;
-pub const HHACT_REFRESH: i32 = 10i32;
-pub const HHACT_STOP: i32 = 9i32;
-pub const HHACT_SYNC: i32 = 12i32;
-pub const HHACT_TAB_CONTENTS: i32 = 0i32;
-pub const HHACT_TAB_FAVORITES: i32 = 4i32;
-pub const HHACT_TAB_HISTORY: i32 = 3i32;
-pub const HHACT_TAB_INDEX: i32 = 1i32;
-pub const HHACT_TAB_SEARCH: i32 = 2i32;
-pub const HHACT_TOC_NEXT: i32 = 20i32;
-pub const HHACT_TOC_PREV: i32 = 21i32;
-pub const HHACT_ZOOM: i32 = 19i32;
+pub const HHACT_BACK: i32 = 7;
+pub const HHACT_CONTRACT: i32 = 6;
+pub const HHACT_CUSTOMIZE: i32 = 16;
+pub const HHACT_EXPAND: i32 = 5;
+pub const HHACT_FORWARD: i32 = 8;
+pub const HHACT_HIGHLIGHT: i32 = 15;
+pub const HHACT_HOME: i32 = 11;
+pub const HHACT_JUMP1: i32 = 17;
+pub const HHACT_JUMP2: i32 = 18;
+pub const HHACT_LAST_ENUM: i32 = 23;
+pub const HHACT_NOTES: i32 = 22;
+pub const HHACT_OPTIONS: i32 = 13;
+pub const HHACT_PRINT: i32 = 14;
+pub const HHACT_REFRESH: i32 = 10;
+pub const HHACT_STOP: i32 = 9;
+pub const HHACT_SYNC: i32 = 12;
+pub const HHACT_TAB_CONTENTS: i32 = 0;
+pub const HHACT_TAB_FAVORITES: i32 = 4;
+pub const HHACT_TAB_HISTORY: i32 = 3;
+pub const HHACT_TAB_INDEX: i32 = 1;
+pub const HHACT_TAB_SEARCH: i32 = 2;
+pub const HHACT_TOC_NEXT: i32 = 20;
+pub const HHACT_TOC_PREV: i32 = 21;
+pub const HHACT_ZOOM: i32 = 19;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
 #[derive(Clone, Copy)]
@@ -147,9 +147,9 @@ impl Default for HHNTRACK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HHN_FIRST: u32 = 4294966436u32;
-pub const HHN_LAST: u32 = 4294966417u32;
-pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
+pub const HHN_FIRST: u32 = 4294966436;
+pub const HHN_LAST: u32 = 4294966417;
+pub const HHN_NAVCOMPLETE: u32 = 4294966436;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
 #[derive(Clone, Copy)]
@@ -163,82 +163,82 @@ impl Default for HHN_NOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HHN_TRACK: u32 = 4294966435u32;
-pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
-pub const HHWIN_BUTTON_BACK: u32 = 4u32;
-pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
-pub const HHWIN_BUTTON_BROWSE_FWD: u32 = 128u32;
-pub const HHWIN_BUTTON_CONTENTS: u32 = 1024u32;
-pub const HHWIN_BUTTON_EXPAND: u32 = 2u32;
-pub const HHWIN_BUTTON_FAVORITES: u32 = 131072u32;
-pub const HHWIN_BUTTON_FORWARD: u32 = 8u32;
-pub const HHWIN_BUTTON_HISTORY: u32 = 65536u32;
-pub const HHWIN_BUTTON_HOME: u32 = 64u32;
-pub const HHWIN_BUTTON_INDEX: u32 = 16384u32;
-pub const HHWIN_BUTTON_JUMP1: u32 = 262144u32;
-pub const HHWIN_BUTTON_JUMP2: u32 = 524288u32;
-pub const HHWIN_BUTTON_NOTES: u32 = 512u32;
-pub const HHWIN_BUTTON_OPTIONS: u32 = 4096u32;
-pub const HHWIN_BUTTON_PRINT: u32 = 8192u32;
-pub const HHWIN_BUTTON_REFRESH: u32 = 32u32;
-pub const HHWIN_BUTTON_SEARCH: u32 = 32768u32;
-pub const HHWIN_BUTTON_STOP: u32 = 16u32;
-pub const HHWIN_BUTTON_SYNC: u32 = 2048u32;
-pub const HHWIN_BUTTON_TOC_NEXT: u32 = 2097152u32;
-pub const HHWIN_BUTTON_TOC_PREV: u32 = 4194304u32;
-pub const HHWIN_BUTTON_ZOOM: u32 = 1048576u32;
-pub const HHWIN_NAVTAB_BOTTOM: i32 = 2i32;
-pub const HHWIN_NAVTAB_LEFT: i32 = 1i32;
-pub const HHWIN_NAVTAB_TOP: i32 = 0i32;
-pub const HHWIN_NAVTYPE_AUTHOR: i32 = 5i32;
-pub const HHWIN_NAVTYPE_CUSTOM_FIRST: i32 = 11i32;
-pub const HHWIN_NAVTYPE_FAVORITES: i32 = 3i32;
-pub const HHWIN_NAVTYPE_HISTORY: i32 = 4i32;
-pub const HHWIN_NAVTYPE_INDEX: i32 = 1i32;
-pub const HHWIN_NAVTYPE_SEARCH: i32 = 2i32;
-pub const HHWIN_NAVTYPE_TOC: i32 = 0i32;
-pub const HHWIN_PARAM_CUR_TAB: u32 = 8192u32;
-pub const HHWIN_PARAM_EXPANSION: u32 = 512u32;
-pub const HHWIN_PARAM_EXSTYLES: u32 = 8u32;
-pub const HHWIN_PARAM_HISTORY_COUNT: u32 = 4096u32;
-pub const HHWIN_PARAM_INFOTYPES: u32 = 128u32;
-pub const HHWIN_PARAM_NAV_WIDTH: u32 = 32u32;
-pub const HHWIN_PARAM_PROPERTIES: u32 = 2u32;
-pub const HHWIN_PARAM_RECT: u32 = 16u32;
-pub const HHWIN_PARAM_SHOWSTATE: u32 = 64u32;
-pub const HHWIN_PARAM_STYLES: u32 = 4u32;
-pub const HHWIN_PARAM_TABORDER: u32 = 2048u32;
-pub const HHWIN_PARAM_TABPOS: u32 = 1024u32;
-pub const HHWIN_PARAM_TB_FLAGS: u32 = 256u32;
-pub const HHWIN_PROP_AUTO_SYNC: u32 = 256u32;
-pub const HHWIN_PROP_CHANGE_TITLE: u32 = 8192u32;
-pub const HHWIN_PROP_MENU: u32 = 65536u32;
-pub const HHWIN_PROP_NAV_ONLY_WIN: u32 = 16384u32;
-pub const HHWIN_PROP_NODEF_EXSTYLES: u32 = 16u32;
-pub const HHWIN_PROP_NODEF_STYLES: u32 = 8u32;
-pub const HHWIN_PROP_NOTB_TEXT: u32 = 64u32;
-pub const HHWIN_PROP_NOTITLEBAR: u32 = 4u32;
-pub const HHWIN_PROP_NO_TOOLBAR: u32 = 32768u32;
-pub const HHWIN_PROP_ONTOP: u32 = 2u32;
-pub const HHWIN_PROP_POST_QUIT: u32 = 128u32;
-pub const HHWIN_PROP_TAB_ADVSEARCH: u32 = 131072u32;
-pub const HHWIN_PROP_TAB_AUTOHIDESHOW: u32 = 1u32;
-pub const HHWIN_PROP_TAB_CUSTOM1: u32 = 524288u32;
-pub const HHWIN_PROP_TAB_CUSTOM2: u32 = 1048576u32;
-pub const HHWIN_PROP_TAB_CUSTOM3: u32 = 2097152u32;
-pub const HHWIN_PROP_TAB_CUSTOM4: u32 = 4194304u32;
-pub const HHWIN_PROP_TAB_CUSTOM5: u32 = 8388608u32;
-pub const HHWIN_PROP_TAB_CUSTOM6: u32 = 16777216u32;
-pub const HHWIN_PROP_TAB_CUSTOM7: u32 = 33554432u32;
-pub const HHWIN_PROP_TAB_CUSTOM8: u32 = 67108864u32;
-pub const HHWIN_PROP_TAB_CUSTOM9: u32 = 134217728u32;
-pub const HHWIN_PROP_TAB_FAVORITES: u32 = 4096u32;
-pub const HHWIN_PROP_TAB_HISTORY: u32 = 2048u32;
-pub const HHWIN_PROP_TAB_SEARCH: u32 = 1024u32;
-pub const HHWIN_PROP_TRACKING: u32 = 512u32;
-pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
-pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
-pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
+pub const HHN_TRACK: u32 = 4294966435;
+pub const HHN_WINDOW_CREATE: u32 = 4294966434;
+pub const HHWIN_BUTTON_BACK: u32 = 4;
+pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256;
+pub const HHWIN_BUTTON_BROWSE_FWD: u32 = 128;
+pub const HHWIN_BUTTON_CONTENTS: u32 = 1024;
+pub const HHWIN_BUTTON_EXPAND: u32 = 2;
+pub const HHWIN_BUTTON_FAVORITES: u32 = 131072;
+pub const HHWIN_BUTTON_FORWARD: u32 = 8;
+pub const HHWIN_BUTTON_HISTORY: u32 = 65536;
+pub const HHWIN_BUTTON_HOME: u32 = 64;
+pub const HHWIN_BUTTON_INDEX: u32 = 16384;
+pub const HHWIN_BUTTON_JUMP1: u32 = 262144;
+pub const HHWIN_BUTTON_JUMP2: u32 = 524288;
+pub const HHWIN_BUTTON_NOTES: u32 = 512;
+pub const HHWIN_BUTTON_OPTIONS: u32 = 4096;
+pub const HHWIN_BUTTON_PRINT: u32 = 8192;
+pub const HHWIN_BUTTON_REFRESH: u32 = 32;
+pub const HHWIN_BUTTON_SEARCH: u32 = 32768;
+pub const HHWIN_BUTTON_STOP: u32 = 16;
+pub const HHWIN_BUTTON_SYNC: u32 = 2048;
+pub const HHWIN_BUTTON_TOC_NEXT: u32 = 2097152;
+pub const HHWIN_BUTTON_TOC_PREV: u32 = 4194304;
+pub const HHWIN_BUTTON_ZOOM: u32 = 1048576;
+pub const HHWIN_NAVTAB_BOTTOM: i32 = 2;
+pub const HHWIN_NAVTAB_LEFT: i32 = 1;
+pub const HHWIN_NAVTAB_TOP: i32 = 0;
+pub const HHWIN_NAVTYPE_AUTHOR: i32 = 5;
+pub const HHWIN_NAVTYPE_CUSTOM_FIRST: i32 = 11;
+pub const HHWIN_NAVTYPE_FAVORITES: i32 = 3;
+pub const HHWIN_NAVTYPE_HISTORY: i32 = 4;
+pub const HHWIN_NAVTYPE_INDEX: i32 = 1;
+pub const HHWIN_NAVTYPE_SEARCH: i32 = 2;
+pub const HHWIN_NAVTYPE_TOC: i32 = 0;
+pub const HHWIN_PARAM_CUR_TAB: u32 = 8192;
+pub const HHWIN_PARAM_EXPANSION: u32 = 512;
+pub const HHWIN_PARAM_EXSTYLES: u32 = 8;
+pub const HHWIN_PARAM_HISTORY_COUNT: u32 = 4096;
+pub const HHWIN_PARAM_INFOTYPES: u32 = 128;
+pub const HHWIN_PARAM_NAV_WIDTH: u32 = 32;
+pub const HHWIN_PARAM_PROPERTIES: u32 = 2;
+pub const HHWIN_PARAM_RECT: u32 = 16;
+pub const HHWIN_PARAM_SHOWSTATE: u32 = 64;
+pub const HHWIN_PARAM_STYLES: u32 = 4;
+pub const HHWIN_PARAM_TABORDER: u32 = 2048;
+pub const HHWIN_PARAM_TABPOS: u32 = 1024;
+pub const HHWIN_PARAM_TB_FLAGS: u32 = 256;
+pub const HHWIN_PROP_AUTO_SYNC: u32 = 256;
+pub const HHWIN_PROP_CHANGE_TITLE: u32 = 8192;
+pub const HHWIN_PROP_MENU: u32 = 65536;
+pub const HHWIN_PROP_NAV_ONLY_WIN: u32 = 16384;
+pub const HHWIN_PROP_NODEF_EXSTYLES: u32 = 16;
+pub const HHWIN_PROP_NODEF_STYLES: u32 = 8;
+pub const HHWIN_PROP_NOTB_TEXT: u32 = 64;
+pub const HHWIN_PROP_NOTITLEBAR: u32 = 4;
+pub const HHWIN_PROP_NO_TOOLBAR: u32 = 32768;
+pub const HHWIN_PROP_ONTOP: u32 = 2;
+pub const HHWIN_PROP_POST_QUIT: u32 = 128;
+pub const HHWIN_PROP_TAB_ADVSEARCH: u32 = 131072;
+pub const HHWIN_PROP_TAB_AUTOHIDESHOW: u32 = 1;
+pub const HHWIN_PROP_TAB_CUSTOM1: u32 = 524288;
+pub const HHWIN_PROP_TAB_CUSTOM2: u32 = 1048576;
+pub const HHWIN_PROP_TAB_CUSTOM3: u32 = 2097152;
+pub const HHWIN_PROP_TAB_CUSTOM4: u32 = 4194304;
+pub const HHWIN_PROP_TAB_CUSTOM5: u32 = 8388608;
+pub const HHWIN_PROP_TAB_CUSTOM6: u32 = 16777216;
+pub const HHWIN_PROP_TAB_CUSTOM7: u32 = 33554432;
+pub const HHWIN_PROP_TAB_CUSTOM8: u32 = 67108864;
+pub const HHWIN_PROP_TAB_CUSTOM9: u32 = 134217728;
+pub const HHWIN_PROP_TAB_FAVORITES: u32 = 4096;
+pub const HHWIN_PROP_TAB_HISTORY: u32 = 2048;
+pub const HHWIN_PROP_TAB_SEARCH: u32 = 1024;
+pub const HHWIN_PROP_TRACKING: u32 = 512;
+pub const HHWIN_PROP_TRI_PANE: u32 = 32;
+pub const HHWIN_PROP_USER_POS: u32 = 262144;
+pub const HHWIN_TB_MARGIN: u32 = 268435456;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_AKLINK {
@@ -256,13 +256,13 @@ impl Default for HH_AKLINK {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_ALINK_LOOKUP: HTML_HELP_COMMAND = 19i32;
-pub const HH_CLOSE_ALL: HTML_HELP_COMMAND = 18i32;
-pub const HH_DISPLAY_INDEX: HTML_HELP_COMMAND = 2i32;
-pub const HH_DISPLAY_SEARCH: HTML_HELP_COMMAND = 3i32;
-pub const HH_DISPLAY_TEXT_POPUP: HTML_HELP_COMMAND = 14i32;
-pub const HH_DISPLAY_TOC: HTML_HELP_COMMAND = 1i32;
-pub const HH_DISPLAY_TOPIC: HTML_HELP_COMMAND = 0i32;
+pub const HH_ALINK_LOOKUP: HTML_HELP_COMMAND = 19;
+pub const HH_CLOSE_ALL: HTML_HELP_COMMAND = 18;
+pub const HH_DISPLAY_INDEX: HTML_HELP_COMMAND = 2;
+pub const HH_DISPLAY_SEARCH: HTML_HELP_COMMAND = 3;
+pub const HH_DISPLAY_TEXT_POPUP: HTML_HELP_COMMAND = 14;
+pub const HH_DISPLAY_TOC: HTML_HELP_COMMAND = 1;
+pub const HH_DISPLAY_TOPIC: HTML_HELP_COMMAND = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_ENUM_CAT {
@@ -275,9 +275,9 @@ impl Default for HH_ENUM_CAT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = 21i32;
-pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = 22i32;
-pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = 7i32;
+pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = 21;
+pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = 22;
+pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = 7;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_ENUM_IT {
@@ -292,7 +292,7 @@ impl Default for HH_ENUM_IT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = -1i32;
+pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = -1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_FTS_QUERY {
@@ -310,9 +310,9 @@ impl Default for HH_FTS_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_GET_LAST_ERROR: HTML_HELP_COMMAND = 20i32;
-pub const HH_GET_WIN_HANDLE: HTML_HELP_COMMAND = 6i32;
-pub const HH_GET_WIN_TYPE: HTML_HELP_COMMAND = 5i32;
+pub const HH_GET_LAST_ERROR: HTML_HELP_COMMAND = 20;
+pub const HH_GET_WIN_HANDLE: HTML_HELP_COMMAND = 6;
+pub const HH_GET_WIN_TYPE: HTML_HELP_COMMAND = 5;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -327,17 +327,17 @@ impl Default for HH_GLOBAL_PROPERTY {
     }
 }
 pub type HH_GPROPID = i32;
-pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5i32;
-pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = 4i32;
-pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = 1i32;
-pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = 2i32;
-pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = 3i32;
-pub const HH_HELP_CONTEXT: HTML_HELP_COMMAND = 15i32;
-pub const HH_HELP_FINDER: HTML_HELP_COMMAND = 0i32;
-pub const HH_INITIALIZE: HTML_HELP_COMMAND = 28i32;
-pub const HH_KEYWORD_LOOKUP: HTML_HELP_COMMAND = 13i32;
-pub const HH_MAX_TABS: HTML_HELP_COMMAND = 19i32;
-pub const HH_MAX_TABS_CUSTOM: HTML_HELP_COMMAND = 9i32;
+pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5;
+pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = 4;
+pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = 1;
+pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = 2;
+pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = 3;
+pub const HH_HELP_CONTEXT: HTML_HELP_COMMAND = 15;
+pub const HH_HELP_FINDER: HTML_HELP_COMMAND = 0;
+pub const HH_INITIALIZE: HTML_HELP_COMMAND = 28;
+pub const HH_KEYWORD_LOOKUP: HTML_HELP_COMMAND = 13;
+pub const HH_MAX_TABS: HTML_HELP_COMMAND = 19;
+pub const HH_MAX_TABS_CUSTOM: HTML_HELP_COMMAND = 9;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_POPUP {
@@ -356,15 +356,15 @@ impl Default for HH_POPUP {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_PRETRANSLATEMESSAGE: HTML_HELP_COMMAND = 253i32;
-pub const HH_RESERVED1: HTML_HELP_COMMAND = 10i32;
-pub const HH_RESERVED2: HTML_HELP_COMMAND = 11i32;
-pub const HH_RESERVED3: HTML_HELP_COMMAND = 12i32;
-pub const HH_RESET_IT_FILTER: HTML_HELP_COMMAND = 23i32;
-pub const HH_SAFE_DISPLAY_TOPIC: HTML_HELP_COMMAND = 32i32;
-pub const HH_SET_EXCLUSIVE_FILTER: HTML_HELP_COMMAND = 25i32;
-pub const HH_SET_GLOBAL_PROPERTY: HTML_HELP_COMMAND = 252i32;
-pub const HH_SET_INCLUSIVE_FILTER: HTML_HELP_COMMAND = 24i32;
+pub const HH_PRETRANSLATEMESSAGE: HTML_HELP_COMMAND = 253;
+pub const HH_RESERVED1: HTML_HELP_COMMAND = 10;
+pub const HH_RESERVED2: HTML_HELP_COMMAND = 11;
+pub const HH_RESERVED3: HTML_HELP_COMMAND = 12;
+pub const HH_RESET_IT_FILTER: HTML_HELP_COMMAND = 23;
+pub const HH_SAFE_DISPLAY_TOPIC: HTML_HELP_COMMAND = 32;
+pub const HH_SET_EXCLUSIVE_FILTER: HTML_HELP_COMMAND = 25;
+pub const HH_SET_GLOBAL_PROPERTY: HTML_HELP_COMMAND = 252;
+pub const HH_SET_INCLUSIVE_FILTER: HTML_HELP_COMMAND = 24;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_SET_INFOTYPE {
@@ -377,21 +377,21 @@ impl Default for HH_SET_INFOTYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HH_SET_INFO_TYPE: HTML_HELP_COMMAND = 8i32;
-pub const HH_SET_QUERYSERVICE: HTML_HELP_COMMAND = 30i32;
-pub const HH_SET_WIN_TYPE: HTML_HELP_COMMAND = 4i32;
-pub const HH_SYNC: HTML_HELP_COMMAND = 9i32;
-pub const HH_TAB_AUTHOR: i32 = 5i32;
-pub const HH_TAB_CONTENTS: i32 = 0i32;
-pub const HH_TAB_CUSTOM_FIRST: i32 = 11i32;
-pub const HH_TAB_CUSTOM_LAST: i32 = 19i32;
-pub const HH_TAB_FAVORITES: i32 = 3i32;
-pub const HH_TAB_HISTORY: i32 = 4i32;
-pub const HH_TAB_INDEX: i32 = 1i32;
-pub const HH_TAB_SEARCH: i32 = 2i32;
-pub const HH_TP_HELP_CONTEXTMENU: HTML_HELP_COMMAND = 16i32;
-pub const HH_TP_HELP_WM_HELP: HTML_HELP_COMMAND = 17i32;
-pub const HH_UNINITIALIZE: HTML_HELP_COMMAND = 29i32;
+pub const HH_SET_INFO_TYPE: HTML_HELP_COMMAND = 8;
+pub const HH_SET_QUERYSERVICE: HTML_HELP_COMMAND = 30;
+pub const HH_SET_WIN_TYPE: HTML_HELP_COMMAND = 4;
+pub const HH_SYNC: HTML_HELP_COMMAND = 9;
+pub const HH_TAB_AUTHOR: i32 = 5;
+pub const HH_TAB_CONTENTS: i32 = 0;
+pub const HH_TAB_CUSTOM_FIRST: i32 = 11;
+pub const HH_TAB_CUSTOM_LAST: i32 = 19;
+pub const HH_TAB_FAVORITES: i32 = 3;
+pub const HH_TAB_HISTORY: i32 = 4;
+pub const HH_TAB_INDEX: i32 = 1;
+pub const HH_TAB_SEARCH: i32 = 2;
+pub const HH_TP_HELP_CONTEXTMENU: HTML_HELP_COMMAND = 16;
+pub const HH_TP_HELP_WM_HELP: HTML_HELP_COMMAND = 17;
+pub const HH_UNINITIALIZE: HTML_HELP_COMMAND = 29;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HH_WINTYPE {
@@ -438,46 +438,46 @@ impl Default for HH_WINTYPE {
     }
 }
 pub type HTML_HELP_COMMAND = i32;
-pub const IDTB_BACK: u32 = 204u32;
-pub const IDTB_BROWSE_BACK: u32 = 212u32;
-pub const IDTB_BROWSE_FWD: u32 = 211u32;
-pub const IDTB_CONTENTS: u32 = 213u32;
-pub const IDTB_CONTRACT: u32 = 201u32;
-pub const IDTB_CUSTOMIZE: u32 = 221u32;
-pub const IDTB_EXPAND: u32 = 200u32;
-pub const IDTB_FAVORITES: u32 = 217u32;
-pub const IDTB_FORWARD: u32 = 209u32;
-pub const IDTB_HISTORY: u32 = 216u32;
-pub const IDTB_HOME: u32 = 205u32;
-pub const IDTB_INDEX: u32 = 214u32;
-pub const IDTB_JUMP1: u32 = 218u32;
-pub const IDTB_JUMP2: u32 = 219u32;
-pub const IDTB_NOTES: u32 = 210u32;
-pub const IDTB_OPTIONS: u32 = 208u32;
-pub const IDTB_PRINT: u32 = 207u32;
-pub const IDTB_REFRESH: u32 = 203u32;
-pub const IDTB_SEARCH: u32 = 215u32;
-pub const IDTB_STOP: u32 = 202u32;
-pub const IDTB_SYNC: u32 = 206u32;
-pub const IDTB_TOC_NEXT: u32 = 223u32;
-pub const IDTB_TOC_PREV: u32 = 224u32;
-pub const IDTB_ZOOM: u32 = 222u32;
-pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
-pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
-pub const ITWW_CBKEY_MAX: u32 = 1024u32;
-pub const ITWW_OPEN_NOCONNECT: u32 = 1u32;
-pub const IT_EXCLUSIVE: i32 = 1i32;
-pub const IT_HIDDEN: i32 = 2i32;
-pub const IT_INCLUSIVE: i32 = 0i32;
-pub const MAX_COLUMNS: u32 = 256u32;
+pub const IDTB_BACK: u32 = 204;
+pub const IDTB_BROWSE_BACK: u32 = 212;
+pub const IDTB_BROWSE_FWD: u32 = 211;
+pub const IDTB_CONTENTS: u32 = 213;
+pub const IDTB_CONTRACT: u32 = 201;
+pub const IDTB_CUSTOMIZE: u32 = 221;
+pub const IDTB_EXPAND: u32 = 200;
+pub const IDTB_FAVORITES: u32 = 217;
+pub const IDTB_FORWARD: u32 = 209;
+pub const IDTB_HISTORY: u32 = 216;
+pub const IDTB_HOME: u32 = 205;
+pub const IDTB_INDEX: u32 = 214;
+pub const IDTB_JUMP1: u32 = 218;
+pub const IDTB_JUMP2: u32 = 219;
+pub const IDTB_NOTES: u32 = 210;
+pub const IDTB_OPTIONS: u32 = 208;
+pub const IDTB_PRINT: u32 = 207;
+pub const IDTB_REFRESH: u32 = 203;
+pub const IDTB_SEARCH: u32 = 215;
+pub const IDTB_STOP: u32 = 202;
+pub const IDTB_SYNC: u32 = 206;
+pub const IDTB_TOC_NEXT: u32 = 223;
+pub const IDTB_TOC_PREV: u32 = 224;
+pub const IDTB_ZOOM: u32 = 222;
+pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1;
+pub const IITWBC_BREAK_AND_STEM: u32 = 2;
+pub const ITWW_CBKEY_MAX: u32 = 1024;
+pub const ITWW_OPEN_NOCONNECT: u32 = 1;
+pub const IT_EXCLUSIVE: i32 = 1;
+pub const IT_HIDDEN: i32 = 2;
+pub const IT_INCLUSIVE: i32 = 0;
+pub const MAX_COLUMNS: u32 = 256;
 pub type PFNCOLHEAPFREE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> i32>;
 pub type PRIORITY = i32;
-pub const PRIORITY_HIGH: PRIORITY = 2i32;
-pub const PRIORITY_LOW: PRIORITY = 0i32;
-pub const PRIORITY_NORMAL: PRIORITY = 1i32;
-pub const PROP_ADD: u32 = 0u32;
-pub const PROP_DELETE: u32 = 1u32;
-pub const PROP_UPDATE: u32 = 2u32;
+pub const PRIORITY_HIGH: PRIORITY = 2;
+pub const PRIORITY_LOW: PRIORITY = 0;
+pub const PRIORITY_NORMAL: PRIORITY = 1;
+pub const PROP_ADD: u32 = 0;
+pub const PROP_DELETE: u32 = 1;
+pub const PROP_UPDATE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ROWSTATUS {
@@ -486,25 +486,25 @@ pub struct ROWSTATUS {
     pub cProperties: i32,
     pub cRowsTotal: i32,
 }
-pub const STDPROP_DISPLAYKEY: u32 = 101u32;
-pub const STDPROP_INDEX_BREAK: u32 = 204u32;
-pub const STDPROP_INDEX_DTYPE: u32 = 202u32;
-pub const STDPROP_INDEX_LENGTH: u32 = 203u32;
-pub const STDPROP_INDEX_TERM: u32 = 210u32;
-pub const STDPROP_INDEX_TERM_RAW_LENGTH: u32 = 211u32;
-pub const STDPROP_INDEX_TEXT: u32 = 200u32;
-pub const STDPROP_INDEX_VFLD: u32 = 201u32;
-pub const STDPROP_KEY: u32 = 4u32;
-pub const STDPROP_SORTKEY: u32 = 100u32;
-pub const STDPROP_SORTORDINAL: u32 = 102u32;
-pub const STDPROP_TITLE: u32 = 2u32;
-pub const STDPROP_UID: u32 = 1u32;
-pub const STDPROP_USERDATA: u32 = 3u32;
-pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
-pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
+pub const STDPROP_DISPLAYKEY: u32 = 101;
+pub const STDPROP_INDEX_BREAK: u32 = 204;
+pub const STDPROP_INDEX_DTYPE: u32 = 202;
+pub const STDPROP_INDEX_LENGTH: u32 = 203;
+pub const STDPROP_INDEX_TERM: u32 = 210;
+pub const STDPROP_INDEX_TERM_RAW_LENGTH: u32 = 211;
+pub const STDPROP_INDEX_TEXT: u32 = 200;
+pub const STDPROP_INDEX_VFLD: u32 = 201;
+pub const STDPROP_KEY: u32 = 4;
+pub const STDPROP_SORTKEY: u32 = 100;
+pub const STDPROP_SORTORDINAL: u32 = 102;
+pub const STDPROP_TITLE: u32 = 2;
+pub const STDPROP_UID: u32 = 1;
+pub const STDPROP_USERDATA: u32 = 3;
+pub const STDPROP_USERPROP_BASE: u32 = 65536;
+pub const STDPROP_USERPROP_MAX: u32 = 2147483647;
 pub const SZ_WWDEST_GLOBAL: windows_sys::core::PCWSTR = windows_sys::core::w!("GLOBAL");
 pub const SZ_WWDEST_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("KEY");
 pub const SZ_WWDEST_OCC: windows_sys::core::PCWSTR = windows_sys::core::w!("OCC");
-pub const TYPE_POINTER: u32 = 1u32;
-pub const TYPE_STRING: u32 = 2u32;
-pub const TYPE_VALUE: u32 = 0u32;
+pub const TYPE_POINTER: u32 = 1;
+pub const TYPE_STRING: u32 = 2;
+pub const TYPE_VALUE: u32 = 0;

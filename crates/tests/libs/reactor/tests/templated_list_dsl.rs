@@ -1,8 +1,8 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::templated_list::{TemplatedKind, flip_view, grid_view, list_view};
+use windows_reactor::{Element, TextBlock};
+use windows_reactor::{TemplatedKind, flip_view, grid_view, list_view};
 
 #[test]
 fn list_view_builder_produces_templated_list_variant() {
@@ -26,7 +26,7 @@ fn build_item_view_invokes_view_builder() {
         panic!()
     };
     match tl.build_item_view(1) {
-        Element::TextBlock(t) => assert_eq!(t.content, "1:b"),
+        Element::TextBlock(t) => assert_eq!(t.text, "1:b"),
         other => panic!("unexpected {other:?}"),
     }
 }

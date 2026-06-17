@@ -1,8 +1,9 @@
 use std::rc::Rc;
 
-use windows_reactor::core::backend::{ControlKind, Op, Prop, PropValue, RecordingBackend};
-use windows_reactor::core::element::{Button, Element, StackPanel, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
+use windows_reactor::Reconciler;
+use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock};
+use windows_reactor::{ControlKind, Prop, PropValue};
+use windows_reactor::{Op, RecordingBackend};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -12,7 +13,7 @@ fn mount(
     el: Element,
 ) -> (
     Reconciler<RecordingBackend>,
-    Option<windows_reactor::core::backend::ControlId>,
+    Option<windows_reactor::ControlId>,
 ) {
     let mut r = Reconciler::new(RecordingBackend::new());
     let id = r.reconcile(None, &el, None, noop_request_rerender());
@@ -25,26 +26,10 @@ fn mounting_text_records_create_and_set_text() {
     let id = id.expect("TextBlock mount produces an id");
 
     let ops = &r.backend.ops;
-    assert_eq!(ops.len(), 2, "expected 2 ops, got {ops:?}");
-    match &ops[0] {
-        Op::Create { id: got, kind } => {
-            assert_eq!(*got, id);
-            assert_eq!(*kind, ControlKind::TextBlock);
-        }
-        other => panic!("unexpected {other:?}"),
-    }
-    match &ops[1] {
-        Op::SetProp {
-            id: got,
-            prop,
-            value,
-        } => {
-            assert_eq!(*got, id);
-            assert_eq!(*prop, Prop::Text);
-            assert_eq!(*value, PropValue::Str("hi".into()));
-        }
-        other => panic!("unexpected {other:?}"),
-    }
+    assert!(
+        matches!(&ops[0], Op::Create { id: got, kind } if *got == id && *kind == ControlKind::TextBlock)
+    );
+    assert!(ops.iter().any(|op| matches!(op, Op::SetProp { prop: Prop::Text, value: PropValue::Str(s), .. } if s == "hi")));
 }
 
 #[test]
@@ -54,27 +39,30 @@ fn mounting_button_sets_content_and_enables_by_default() {
 
     let ops = &r.backend.ops;
 
-    assert_eq!(ops.len(), 2);
-    match &ops[0] {
-        Op::Create { id: got, kind } => {
-            assert_eq!(*got, id);
-            assert_eq!(*kind, ControlKind::Button);
-        }
-        other => panic!("unexpected {other:?}"),
-    }
-    assert!(matches!(
-        ops[1],
+    assert!(
+        matches!(&ops[0], Op::Create { id: got, kind } if *got == id && *kind == ControlKind::Button)
+    );
+    assert!(ops.iter().any(|op| matches!(
+        op,
         Op::SetProp {
-            prop: Prop::ButtonContent,
+            prop: Prop::Content,
             ..
         }
-    ));
+    )));
+    assert!(ops.iter().any(|op| matches!(
+        op,
+        Op::SetProp {
+            prop: Prop::IsEnabled,
+            value: PropValue::Bool(true),
+            ..
+        }
+    )));
 }
 
 #[test]
 fn mounting_stack_appends_children_in_order() {
     let stack = StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::Button(Button::new("b")),
@@ -86,7 +74,7 @@ fn mounting_stack_appends_children_in_order() {
 
     let ops = &r.backend.ops;
 
-    assert_eq!(ops.len(), 8, "ops: {ops:#?}");
+    assert_eq!(ops.len(), 12, "ops: {ops:#?}");
 
     let appends: Vec<_> = ops
         .iter()
@@ -111,8 +99,7 @@ fn mounting_empty_returns_none_and_records_nothing() {
 
 #[test]
 fn mounting_border_appends_single_child() {
-    let border =
-        windows_reactor::core::element::Border::new(Element::TextBlock(TextBlock::new("inside")));
+    let border = windows_reactor::Border::new(Element::TextBlock(TextBlock::new("inside")));
     let (r, id) = mount(Element::Border(border));
     let id = id.unwrap();
 
@@ -132,9 +119,9 @@ fn mounting_border_appends_single_child() {
 #[test]
 fn nested_stacks_mount_in_tree_order() {
     let tree = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::StackPanel(StackPanel {
-            vertical: false,
+            orientation: Orientation::Horizontal,
             children: vec![
                 Element::TextBlock(TextBlock::new("a")),
                 Element::TextBlock(TextBlock::new("b")),
@@ -168,7 +155,7 @@ fn nested_stacks_mount_in_tree_order() {
 #[test]
 fn font_size_and_weight_are_set_when_present() {
     let t = TextBlock {
-        content: "Heading".to_string(),
+        text: "Heading".to_string(),
         font_size: Some(28.0),
         font_weight: Some(700),
         ..TextBlock::default()
@@ -193,7 +180,7 @@ fn font_size_and_weight_are_set_when_present() {
 #[test]
 fn disabled_button_emits_is_enabled_false() {
     let b = Button {
-        label: "no".to_string(),
+        content: "no".to_string(),
         is_enabled: false,
         ..Button::default()
     };

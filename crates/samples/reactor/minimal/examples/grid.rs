@@ -1,4 +1,4 @@
-//! Minimal sample for the `Grid` element.
+//! Sample for the `Grid` element.
 
 use windows_reactor::*;
 
@@ -37,5 +37,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("Grid", app)
 }

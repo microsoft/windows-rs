@@ -2,10 +2,10 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
-    pub const Unspecified: Self = Self(0i32);
-    pub const SavingData: Self = Self(1i32);
-    pub const BackgroundAudio: Self = Self(2i32);
-    pub const Unconstrained: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const SavingData: Self = Self(1);
+    pub const BackgroundAudio: Self = Self(2);
+    pub const Unconstrained: Self = Self(3);
 }
 impl windows_core::TypeKind for ExtendedExecutionForegroundReason {
     type TypeKind = windows_core::CopyType;
@@ -18,8 +18,8 @@ impl windows_core::RuntimeType for ExtendedExecutionForegroundReason {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
-    pub const Allowed: Self = Self(0i32);
-    pub const Denied: Self = Self(1i32);
+    pub const Allowed: Self = Self(0);
+    pub const Denied: Self = Self(1);
 }
 impl windows_core::TypeKind for ExtendedExecutionForegroundResult {
     type TypeKind = windows_core::CopyType;
@@ -56,8 +56,8 @@ unsafe impl Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
-    pub const Resumed: Self = Self(0i32);
-    pub const SystemPolicy: Self = Self(1i32);
+    pub const Resumed: Self = Self(0);
+    pub const SystemPolicy: Self = Self(1);
 }
 impl windows_core::TypeKind for ExtendedExecutionForegroundRevokedReason {
     type TypeKind = windows_core::CopyType;

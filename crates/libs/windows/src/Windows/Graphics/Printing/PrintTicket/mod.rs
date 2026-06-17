@@ -412,8 +412,8 @@ unsafe impl Sync for PrintTicketFeature {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
-    pub const PickOne: Self = Self(0i32);
-    pub const PickMany: Self = Self(1i32);
+    pub const PickOne: Self = Self(0);
+    pub const PickMany: Self = Self(1);
 }
 impl windows_core::TypeKind for PrintTicketFeatureSelectionType {
     type TypeKind = windows_core::CopyType;
@@ -495,9 +495,9 @@ unsafe impl Sync for PrintTicketOption {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
-    pub const Integer: Self = Self(0i32);
-    pub const NumericString: Self = Self(1i32);
-    pub const String: Self = Self(2i32);
+    pub const Integer: Self = Self(0);
+    pub const NumericString: Self = Self(1);
+    pub const String: Self = Self(2);
 }
 impl windows_core::TypeKind for PrintTicketParameterDataType {
     type TypeKind = windows_core::CopyType;
@@ -656,9 +656,9 @@ unsafe impl Sync for PrintTicketValue {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
-    pub const Integer: Self = Self(0i32);
-    pub const String: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
+    pub const Integer: Self = Self(0);
+    pub const String: Self = Self(1);
+    pub const Unknown: Self = Self(2);
 }
 impl windows_core::TypeKind for PrintTicketValueType {
     type TypeKind = windows_core::CopyType;

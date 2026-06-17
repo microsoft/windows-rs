@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use windows_reactor::core::animation::{
+use windows_reactor::{
     AnimationConfig, Easing, ImplicitTransitions, LayoutAnimationConfig, ScalarTransition,
     Vector3Axes, Vector3Transition,
 };

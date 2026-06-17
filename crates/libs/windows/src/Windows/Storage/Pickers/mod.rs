@@ -893,16 +893,16 @@ pub struct IFolderPickerStatics_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
-    pub const DocumentsLibrary: Self = Self(0i32);
-    pub const ComputerFolder: Self = Self(1i32);
-    pub const Desktop: Self = Self(2i32);
-    pub const Downloads: Self = Self(3i32);
-    pub const HomeGroup: Self = Self(4i32);
-    pub const MusicLibrary: Self = Self(5i32);
-    pub const PicturesLibrary: Self = Self(6i32);
-    pub const VideosLibrary: Self = Self(7i32);
-    pub const Objects3D: Self = Self(8i32);
-    pub const Unspecified: Self = Self(9i32);
+    pub const DocumentsLibrary: Self = Self(0);
+    pub const ComputerFolder: Self = Self(1);
+    pub const Desktop: Self = Self(2);
+    pub const Downloads: Self = Self(3);
+    pub const HomeGroup: Self = Self(4);
+    pub const MusicLibrary: Self = Self(5);
+    pub const PicturesLibrary: Self = Self(6);
+    pub const VideosLibrary: Self = Self(7);
+    pub const Objects3D: Self = Self(8);
+    pub const Unspecified: Self = Self(9);
 }
 impl windows_core::TypeKind for PickerLocationId {
     type TypeKind = windows_core::CopyType;
@@ -915,8 +915,8 @@ impl windows_core::RuntimeType for PickerLocationId {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
-    pub const List: Self = Self(0i32);
-    pub const Thumbnail: Self = Self(1i32);
+    pub const List: Self = Self(0);
+    pub const Thumbnail: Self = Self(1);
 }
 impl windows_core::TypeKind for PickerViewMode {
     type TypeKind = windows_core::CopyType;

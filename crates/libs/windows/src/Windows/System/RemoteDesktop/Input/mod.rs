@@ -50,11 +50,11 @@ pub struct IRemoteTextConnectionFactory2_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteKeyEventAttributes(pub u32);
 impl RemoteKeyEventAttributes {
-    pub const None: Self = Self(0u32);
-    pub const KeyUp: Self = Self(1u32);
-    pub const Repeat: Self = Self(2u32);
-    pub const Extended: Self = Self(4u32);
-    pub const Extended1: Self = Self(8u32);
+    pub const None: Self = Self(0);
+    pub const KeyUp: Self = Self(1);
+    pub const Repeat: Self = Self(2);
+    pub const Extended: Self = Self(4);
+    pub const Extended1: Self = Self(8);
 }
 impl windows_core::TypeKind for RemoteKeyEventAttributes {
     type TypeKind = windows_core::CopyType;
@@ -174,7 +174,7 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<RemoteTextConnectionDataHandler, F>::new(&RemoteTextConnectionDataHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {
         unsafe {
@@ -216,8 +216,8 @@ impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConn
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteTextConnectionOptions(pub u32);
 impl RemoteTextConnectionOptions {
-    pub const None: Self = Self(0u32);
-    pub const EnablePredictedKeyReporting: Self = Self(1u32);
+    pub const None: Self = Self(0);
+    pub const EnablePredictedKeyReporting: Self = Self(1);
 }
 impl windows_core::TypeKind for RemoteTextConnectionOptions {
     type TypeKind = windows_core::CopyType;

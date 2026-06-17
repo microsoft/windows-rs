@@ -823,26 +823,26 @@ unsafe impl Sync for MidiMessageReceivedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
-    pub const None: Self = Self(0i32);
-    pub const NoteOff: Self = Self(128i32);
-    pub const NoteOn: Self = Self(144i32);
-    pub const PolyphonicKeyPressure: Self = Self(160i32);
-    pub const ControlChange: Self = Self(176i32);
-    pub const ProgramChange: Self = Self(192i32);
-    pub const ChannelPressure: Self = Self(208i32);
-    pub const PitchBendChange: Self = Self(224i32);
-    pub const SystemExclusive: Self = Self(240i32);
-    pub const MidiTimeCode: Self = Self(241i32);
-    pub const SongPositionPointer: Self = Self(242i32);
-    pub const SongSelect: Self = Self(243i32);
-    pub const TuneRequest: Self = Self(246i32);
-    pub const EndSystemExclusive: Self = Self(247i32);
-    pub const TimingClock: Self = Self(248i32);
-    pub const Start: Self = Self(250i32);
-    pub const Continue: Self = Self(251i32);
-    pub const Stop: Self = Self(252i32);
-    pub const ActiveSensing: Self = Self(254i32);
-    pub const SystemReset: Self = Self(255i32);
+    pub const None: Self = Self(0);
+    pub const NoteOff: Self = Self(128);
+    pub const NoteOn: Self = Self(144);
+    pub const PolyphonicKeyPressure: Self = Self(160);
+    pub const ControlChange: Self = Self(176);
+    pub const ProgramChange: Self = Self(192);
+    pub const ChannelPressure: Self = Self(208);
+    pub const PitchBendChange: Self = Self(224);
+    pub const SystemExclusive: Self = Self(240);
+    pub const MidiTimeCode: Self = Self(241);
+    pub const SongPositionPointer: Self = Self(242);
+    pub const SongSelect: Self = Self(243);
+    pub const TuneRequest: Self = Self(246);
+    pub const EndSystemExclusive: Self = Self(247);
+    pub const TimingClock: Self = Self(248);
+    pub const Start: Self = Self(250);
+    pub const Continue: Self = Self(251);
+    pub const Stop: Self = Self(252);
+    pub const ActiveSensing: Self = Self(254);
+    pub const SystemReset: Self = Self(255);
 }
 impl windows_core::TypeKind for MidiMessageType {
     type TypeKind = windows_core::CopyType;

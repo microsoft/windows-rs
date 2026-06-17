@@ -1,0 +1,329 @@
+# Reactor widget declarations — metadata-driven format.
+#
+# Section keys are full WinUI type names. Member keys are metadata
+# property or event names. The tool resolves put_/add_ methods, value
+# types, and interfaces from .winmd metadata automatically.
+#
+# ── Property overrides ──────────────────────────────────────────────
+#   (no overrides)       Field is T, binding always emitted.
+#   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
+#                        For Object (IInspectable) params, selects IReference<T>
+#                        wrapping instead of the default TextBlock wrapping.
+#
+# Textblock and IReference setters use a trait-based binding that works
+# with both T and Option<T> widget struct fields. The struct author
+# decides whether the field is optional — no TOML override needed.
+#
+# ── Event overrides ─────────────────────────────────────────────────
+#   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
+#   type = "Type"        EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
+#   manual = true        Skip codegen; hand-written attach_event in backend.
+#   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
+#   false_event = "Name" Complement event for bool-dual (e.g. "Unchecked").
+
+["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
+PlaceholderText = {}
+Header = { type = "Str" }
+IsEnabled = {}
+TextChanged = { manual = true, type = "Str" }
+QuerySubmitted = { manual = true, type = "Str" }
+SuggestionChosen = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.Border"]
+
+["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
+ItemClicked = { property = "Index" }
+
+["Microsoft.UI.Xaml.Controls.Button"]
+IsEnabled = {}
+Click = {}
+ItemClicked = { manual = true, type = "Str" }
+CommandBarFlyoutClick = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
+Header = {}
+PlaceholderText = {}
+IsTodayHighlighted = {}
+IsCalendarOpen = {}
+IsEnabled = {}
+DateChanged = { manual = true, type = "DateTime" }
+
+["Microsoft.UI.Xaml.Controls.CalendarView"]
+IsTodayHighlighted = {}
+IsGroupLabelVisible = {}
+IsEnabled = {}
+SelectedDatesChanged = {}
+
+["Microsoft.UI.Xaml.Controls.Canvas"]
+
+["Microsoft.UI.Xaml.Controls.CheckBox"]
+IsChecked = {}
+Content = {}
+IsEnabled = {}
+Checked = { false_event = "Unchecked" }
+
+["Microsoft.UI.Xaml.Controls.ColorPicker"]
+IsAlphaEnabled = {}
+IsHexInputVisible = {}
+IsColorSliderVisible = {}
+IsColorChannelTextInputVisible = {}
+ColorChanged = { manual = true, type = "Color" }
+
+["Microsoft.UI.Xaml.Controls.ComboBox"]
+SelectedIndex = {}
+Header = {}
+PlaceholderText = {}
+IsEditable = {}
+IsEnabled = {}
+SelectionChanged = { manual = true, type = "I32" }
+
+["Microsoft.UI.Xaml.Controls.CommandBar"]
+DefaultLabelPosition = {}
+Click = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.ContentDialog"]
+Title = { type = "Str" }
+Content = {}
+PrimaryButtonText = {}
+SecondaryButtonText = {}
+CloseButtonText = {}
+IsPrimaryButtonEnabled = {}
+IsSecondaryButtonEnabled = {}
+
+["Microsoft.UI.Xaml.Controls.DatePicker"]
+Header = {}
+DayVisible = {}
+MonthVisible = {}
+YearVisible = {}
+IsEnabled = {}
+SelectedDateChanged = { manual = true, type = "DateTime" }
+
+["Microsoft.UI.Xaml.Controls.DropDownButton"]
+Content = { type = "Str" }
+IsEnabled = {}
+ItemClicked = { manual = true, type = "Str" }
+Click = {}
+
+["Microsoft.UI.Xaml.Controls.Expander"]
+IsExpanded = {}
+Expanding = { false_event = "Collapsed" }
+
+["Microsoft.UI.Xaml.Controls.Grid"]
+RowSpacing = {}
+ColumnSpacing = {}
+
+["Microsoft.UI.Xaml.Controls.HyperlinkButton"]
+Content = {}
+IsEnabled = {}
+Click = {}
+
+["Microsoft.UI.Xaml.Controls.Image"]
+Stretch = {}
+
+["Microsoft.UI.Xaml.Controls.InfoBadge"]
+
+["Microsoft.UI.Xaml.Controls.InfoBar"]
+Title = {}
+Message = {}
+Severity = {}
+IsOpen = {}
+IsClosable = {}
+Closed = {}
+
+["Microsoft.UI.Xaml.Controls.ListBox"]
+SelectedIndex = {}
+IsEnabled = {}
+SelectionChanged = { manual = true, type = "I32" }
+
+["Microsoft.UI.Xaml.Controls.MenuBar"]
+ItemClicked = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.NavigationView"]
+IsPaneOpen = {}
+PaneDisplayMode = {}
+IsBackEnabled = {}
+IsSettingsVisible = {}
+IsPaneToggleButtonVisible = {}
+PaneTitle = {}
+Header = {}
+SelectionChanged = { manual = true, type = "Str" }
+BackRequested = {}
+QuerySubmitted = { manual = true, type = "Str" }
+TextChanged = { manual = true, type = "Str" }
+SuggestionChosen = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.NumberBox"]
+Value = {}
+Minimum = {}
+Maximum = {}
+Header = {}
+IsEnabled = {}
+ValueChanged = { property = "NewValue" }
+
+["Microsoft.UI.Xaml.Controls.PasswordBox"]
+PlaceholderText = {}
+Header = {}
+IsEnabled = {}
+PasswordRevealMode = {}
+IsPasswordRevealButtonEnabled = {}
+PasswordChanged = { property = "Password" }
+
+["Microsoft.UI.Xaml.Controls.PersonPicture"]
+DisplayName = {}
+Initials = {}
+
+["Microsoft.UI.Xaml.Controls.Pivot"]
+SelectedIndex = {}
+Title = {}
+SelectionChanged = { manual = true, type = "I32" }
+
+["Microsoft.UI.Xaml.Controls.ProgressBar"]
+Value = {}
+Minimum = {}
+Maximum = {}
+IsIndeterminate = {}
+
+["Microsoft.UI.Xaml.Controls.ProgressRing"]
+Value = {}
+Minimum = {}
+Maximum = {}
+IsActive = {}
+IsIndeterminate = {}
+
+["Microsoft.UI.Xaml.Controls.RadioButton"]
+Content = {}
+IsChecked = {}
+GroupName = {}
+IsEnabled = {}
+Checked = {}
+
+["Microsoft.UI.Xaml.Controls.RadioButtons"]
+Header = {}
+SelectedIndex = {}
+MaxColumns = {}
+SelectionChanged = { property = "SelectedIndex" }
+
+["Microsoft.UI.Xaml.Controls.RatingControl"]
+Value = {}
+MaxRating = {}
+Caption = {}
+PlaceholderValue = {}
+IsReadOnly = {}
+ValueChanged = { property = "Value" }
+
+["Microsoft.UI.Xaml.Controls.RelativePanel"]
+
+["Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"]
+Content = {}
+IsEnabled = {}
+Delay = {}
+Interval = {}
+Click = {}
+
+["Microsoft.UI.Xaml.Controls.RichEditBox"]
+PlaceholderText = {}
+Header = {}
+IsReadOnly = {}
+TextChanged = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.ScrollView"]
+HorizontalScrollBarVisibility = {}
+VerticalScrollBarVisibility = {}
+
+["Microsoft.UI.Xaml.Controls.ScrollViewer"]
+HorizontalScrollBarVisibility = {}
+VerticalScrollBarVisibility = {}
+
+["Microsoft.UI.Xaml.Controls.SelectorBar"]
+SelectionChanged = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.Slider"]
+Minimum = {}
+Maximum = {}
+Value = {}
+Header = {}
+Orientation = {}
+IsEnabled = {}
+ValueChanged = { property = "NewValue" }
+
+["Microsoft.UI.Xaml.Controls.SplitButton"]
+Content = { type = "Str" }
+IsEnabled = {}
+Click = {}
+
+["Microsoft.UI.Xaml.Controls.SplitView"]
+IsPaneOpen = {}
+OpenPaneLength = {}
+CompactPaneLength = {}
+PaneClosed = {}
+
+["Microsoft.UI.Xaml.Controls.StackPanel"]
+Orientation = {}
+Spacing = {}
+
+["Microsoft.UI.Xaml.Controls.TabView"]
+SelectedIndex = {}
+CanReorderTabs = {}
+IsAddTabButtonVisible = {}
+SelectionChanged = { manual = true, type = "I32" }
+CloseRequested = { manual = true, type = "Str" }
+AddTabButtonClick = {}
+
+["Microsoft.UI.Xaml.Controls.TeachingTip"]
+Title = {}
+Subtitle = {}
+IsOpen = {}
+IsLightDismissEnabled = {}
+PreferredPlacement = {}
+Closed = {}
+ActionButtonClick = {}
+
+["Microsoft.UI.Xaml.Controls.TextBlock"]
+Text = {}
+TextWrapping = {}
+IsTextSelectionEnabled = {}
+
+["Microsoft.UI.Xaml.Controls.TextBox"]
+PlaceholderText = {}
+Header = {}
+IsEnabled = {}
+AcceptsReturn = {}
+TextWrapping = {}
+TextChanged = { property = "Text" }
+
+["Microsoft.UI.Xaml.Controls.TimePicker"]
+Header = {}
+ClockIdentifier = {}
+MinuteIncrement = {}
+IsEnabled = {}
+SelectedTimeChanged = { manual = true, type = "TimeSpan" }
+
+["Microsoft.UI.Xaml.Controls.TitleBar"]
+Title = {}
+Subtitle = {}
+IsBackButtonVisible = {}
+IsBackButtonEnabled = {}
+IsPaneToggleButtonVisible = {}
+BackRequested = {}
+PaneToggleRequested = {}
+
+["Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"]
+IsChecked = {}
+Content = {}
+IsEnabled = {}
+Checked = { false_event = "Unchecked" }
+
+["Microsoft.UI.Xaml.Controls.ToggleSwitch"]
+IsOn = {}
+OnContent = {}
+OffContent = {}
+Header = {}
+IsEnabled = {}
+Toggled = { property = "IsOn" }
+
+["Microsoft.UI.Xaml.Controls.TreeView"]
+SelectionMode = {}
+ItemInvoked = { manual = true, type = "Str" }
+
+["Microsoft.UI.Xaml.Controls.Viewbox"]
+Stretch = {}

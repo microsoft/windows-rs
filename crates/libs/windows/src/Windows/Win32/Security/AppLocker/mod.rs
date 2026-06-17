@@ -27,7 +27,7 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut super::SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SaferIdentifyLevel(pcodeproperties.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.map_or(core::ptr::null(), |slice| slice.as_ptr())), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P1>(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: P1, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -142,13 +142,13 @@ impl core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         Self(self.0.not())
     }
 }
-pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
+pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32;
+pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8;
+pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4;
+pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1;
+pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096;
+pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2;
+pub const SAFER_CRITERIA_URLZONE: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -194,15 +194,15 @@ pub struct SAFER_IDENTIFICATION_HEADER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
-pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
-pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
-pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
-pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
-pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
-pub const SAFER_LEVEL_OPEN: u32 = 1u32;
-pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
-pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
-pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
+pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536;
+pub const SAFER_LEVELID_DISALLOWED: u32 = 0;
+pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144;
+pub const SAFER_LEVELID_NORMALUSER: u32 = 131072;
+pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096;
+pub const SAFER_LEVEL_OPEN: u32 = 1;
+pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256;
+pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256;
+pub const SAFER_MAX_HASH_SIZE: u32 = 64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
@@ -219,27 +219,27 @@ impl Default for SAFER_PATHNAME_IDENTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
-pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
+pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192;
+pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
-pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
-pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
-pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
-pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096u32;
-pub const SAFER_POLICY_ONLY_EXES: u32 = 65536u32;
-pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072u32;
-pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4u32;
-pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1u32;
-pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
-pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
-pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
-pub const SAFER_SCOPEID_USER: u32 = 2u32;
-pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
-pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
-pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
-pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
+pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864;
+pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080;
+pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648;
+pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096;
+pub const SAFER_POLICY_ONLY_EXES: u32 = 65536;
+pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072;
+pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4;
+pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1;
+pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255;
+pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2;
+pub const SAFER_SCOPEID_MACHINE: u32 = 1;
+pub const SAFER_SCOPEID_USER: u32 = 2;
+pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2);
+pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4);
+pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1);
+pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
@@ -258,31 +258,31 @@ pub const SRP_POLICY_SHELL: windows_core::PCWSTR = windows_core::w!("SHELL");
 pub const SRP_POLICY_WLDPCONFIGCI: windows_core::PCWSTR = windows_core::w!("WLDPCONFIGCI");
 pub const SRP_POLICY_WLDPMSI: windows_core::PCWSTR = windows_core::w!("WLDPMSI");
 pub const SRP_POLICY_WLDPSCRIPT: windows_core::PCWSTR = windows_core::w!("WLDPSCRIPT");
-pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
-pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
-pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
-pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(1i32);
-pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
-pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
-pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(5i32);
-pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(10i32);
-pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(9i32);
-pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(4i32);
-pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(7i32);
-pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(6i32);
-pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
-pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(3i32);
-pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(8i32);
-pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
-pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(13i32);
-pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(12i32);
-pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(2i32);
-pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(11i32);
-pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
-pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
-pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(3i32);
-pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
-pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(2i32);
-pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(4i32);
-pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
-pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
+pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0);
+pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4);
+pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2);
+pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(1);
+pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3);
+pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14);
+pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(5);
+pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(10);
+pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(9);
+pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(4);
+pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(7);
+pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(6);
+pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16);
+pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(3);
+pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(8);
+pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1);
+pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(13);
+pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(12);
+pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(2);
+pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(11);
+pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15);
+pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7);
+pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(3);
+pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6);
+pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(2);
+pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(4);
+pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1);
+pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5);

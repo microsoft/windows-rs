@@ -4,11 +4,11 @@ pub mod Preview;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
 impl AddPackageByAppInstallerOptions {
-    pub const None: Self = Self(0u32);
-    pub const InstallAllResources: Self = Self(32u32);
-    pub const ForceTargetAppShutdown: Self = Self(64u32);
-    pub const RequiredContentGroupOnly: Self = Self(256u32);
-    pub const LimitToExistingPackages: Self = Self(512u32);
+    pub const None: Self = Self(0);
+    pub const InstallAllResources: Self = Self(32);
+    pub const ForceTargetAppShutdown: Self = Self(64);
+    pub const RequiredContentGroupOnly: Self = Self(256);
+    pub const LimitToExistingPackages: Self = Self(512);
 }
 impl windows_core::TypeKind for AddPackageByAppInstallerOptions {
     type TypeKind = windows_core::CopyType;
@@ -608,15 +608,15 @@ unsafe impl Sync for DeleteSharedPackageContainerResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
-    pub const None: Self = Self(0u32);
-    pub const ForceApplicationShutdown: Self = Self(1u32);
-    pub const DevelopmentMode: Self = Self(2u32);
-    pub const InstallAllResources: Self = Self(32u32);
-    pub const ForceTargetApplicationShutdown: Self = Self(64u32);
-    pub const RequiredContentGroupOnly: Self = Self(256u32);
-    pub const ForceUpdateFromAnyVersion: Self = Self(262144u32);
-    pub const RetainFilesOnFailure: Self = Self(2097152u32);
-    pub const StageInPlace: Self = Self(4194304u32);
+    pub const None: Self = Self(0);
+    pub const ForceApplicationShutdown: Self = Self(1);
+    pub const DevelopmentMode: Self = Self(2);
+    pub const InstallAllResources: Self = Self(32);
+    pub const ForceTargetApplicationShutdown: Self = Self(64);
+    pub const RequiredContentGroupOnly: Self = Self(256);
+    pub const ForceUpdateFromAnyVersion: Self = Self(262144);
+    pub const RetainFilesOnFailure: Self = Self(2097152);
+    pub const StageInPlace: Self = Self(4194304);
 }
 impl windows_core::TypeKind for DeploymentOptions {
     type TypeKind = windows_core::CopyType;
@@ -675,8 +675,8 @@ impl windows_core::RuntimeType for DeploymentProgress {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
-    pub const Queued: Self = Self(0i32);
-    pub const Processing: Self = Self(1i32);
+    pub const Queued: Self = Self(0);
+    pub const Processing: Self = Self(1);
 }
 impl windows_core::TypeKind for DeploymentProgressState {
     type TypeKind = windows_core::CopyType;
@@ -1645,10 +1645,10 @@ unsafe impl Sync for PackageAllUserProvisioningOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
-    pub const NotInstalled: Self = Self(0i32);
-    pub const Staged: Self = Self(1i32);
-    pub const Installed: Self = Self(2i32);
-    pub const Paused: Self = Self(6i32);
+    pub const NotInstalled: Self = Self(0);
+    pub const Staged: Self = Self(1);
+    pub const Installed: Self = Self(2);
+    pub const Paused: Self = Self(6);
 }
 impl windows_core::TypeKind for PackageInstallState {
     type TypeKind = windows_core::CopyType;
@@ -2317,9 +2317,9 @@ unsafe impl Sync for PackageManagerDebugSettings {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageOperationPriority(pub i32);
 impl PackageOperationPriority {
-    pub const Low: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-    pub const High: Self = Self(2i32);
+    pub const Low: Self = Self(0);
+    pub const Normal: Self = Self(1);
+    pub const High: Self = Self(2);
 }
 impl windows_core::TypeKind for PackageOperationPriority {
     type TypeKind = windows_core::CopyType;
@@ -2332,10 +2332,10 @@ impl windows_core::RuntimeType for PackageOperationPriority {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageState(pub i32);
 impl PackageState {
-    pub const Normal: Self = Self(0i32);
-    pub const LicenseInvalid: Self = Self(1i32);
-    pub const Modified: Self = Self(2i32);
-    pub const Tampered: Self = Self(3i32);
+    pub const Normal: Self = Self(0);
+    pub const LicenseInvalid: Self = Self(1);
+    pub const Modified: Self = Self(2);
+    pub const Tampered: Self = Self(3);
 }
 impl windows_core::TypeKind for PackageState {
     type TypeKind = windows_core::CopyType;
@@ -2348,11 +2348,11 @@ impl windows_core::RuntimeType for PackageState {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
-    pub const OK: Self = Self(0u32);
-    pub const LicenseIssue: Self = Self(1u32);
-    pub const Modified: Self = Self(2u32);
-    pub const Tampered: Self = Self(4u32);
-    pub const Disabled: Self = Self(8u32);
+    pub const OK: Self = Self(0);
+    pub const LicenseIssue: Self = Self(1);
+    pub const Modified: Self = Self(2);
+    pub const Tampered: Self = Self(4);
+    pub const Disabled: Self = Self(8);
 }
 impl windows_core::TypeKind for PackageStatus {
     type TypeKind = windows_core::CopyType;
@@ -2398,8 +2398,8 @@ impl core::ops::Not for PackageStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
-    pub const Full: Self = Self(0i32);
-    pub const Stub: Self = Self(1i32);
+    pub const Full: Self = Self(0);
+    pub const Stub: Self = Self(1);
 }
 impl windows_core::TypeKind for PackageStubPreference {
     type TypeKind = windows_core::CopyType;
@@ -2412,14 +2412,14 @@ impl windows_core::RuntimeType for PackageStubPreference {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageTypes(pub u32);
 impl PackageTypes {
-    pub const None: Self = Self(0u32);
-    pub const Main: Self = Self(1u32);
-    pub const Framework: Self = Self(2u32);
-    pub const Resource: Self = Self(4u32);
-    pub const Bundle: Self = Self(8u32);
-    pub const Xap: Self = Self(16u32);
-    pub const Optional: Self = Self(32u32);
-    pub const All: Self = Self(4294967295u32);
+    pub const None: Self = Self(0);
+    pub const Main: Self = Self(1);
+    pub const Framework: Self = Self(2);
+    pub const Resource: Self = Self(4);
+    pub const Bundle: Self = Self(8);
+    pub const Xap: Self = Self(16);
+    pub const Optional: Self = Self(32);
+    pub const All: Self = Self(4294967295);
 }
 impl windows_core::TypeKind for PackageTypes {
     type TypeKind = windows_core::CopyType;
@@ -2808,11 +2808,11 @@ unsafe impl Sync for RegisterPackageOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
-    pub const None: Self = Self(0u32);
-    pub const PreserveApplicationData: Self = Self(4096u32);
-    pub const PreserveRoamableApplicationData: Self = Self(128u32);
-    pub const DeferRemovalWhenPackagesAreInUse: Self = Self(8192u32);
-    pub const RemoveForAllUsers: Self = Self(524288u32);
+    pub const None: Self = Self(0);
+    pub const PreserveApplicationData: Self = Self(4096);
+    pub const PreserveRoamableApplicationData: Self = Self(128);
+    pub const DeferRemovalWhenPackagesAreInUse: Self = Self(8192);
+    pub const RemoveForAllUsers: Self = Self(524288);
 }
 impl windows_core::TypeKind for RemovalOptions {
     type TypeKind = windows_core::CopyType;
@@ -2972,9 +2972,9 @@ unsafe impl Sync for SharedPackageContainer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
-    pub const FailIfExists: Self = Self(0i32);
-    pub const MergeWithExisting: Self = Self(1i32);
-    pub const ReplaceExisting: Self = Self(2i32);
+    pub const FailIfExists: Self = Self(0);
+    pub const MergeWithExisting: Self = Self(1);
+    pub const ReplaceExisting: Self = Self(2);
 }
 impl windows_core::TypeKind for SharedPackageContainerCreationCollisionOptions {
     type TypeKind = windows_core::CopyType;
@@ -3100,12 +3100,12 @@ unsafe impl Sync for SharedPackageContainerMember {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const BlockedByPolicy: Self = Self(1i32);
-    pub const AlreadyExists: Self = Self(2i32);
-    pub const PackageFamilyExistsInAnotherContainer: Self = Self(3i32);
-    pub const NotFound: Self = Self(4i32);
-    pub const UnknownFailure: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const BlockedByPolicy: Self = Self(1);
+    pub const AlreadyExists: Self = Self(2);
+    pub const PackageFamilyExistsInAnotherContainer: Self = Self(3);
+    pub const NotFound: Self = Self(4);
+    pub const UnknownFailure: Self = Self(5);
 }
 impl windows_core::TypeKind for SharedPackageContainerOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -3272,10 +3272,10 @@ unsafe impl Sync for StagePackageOptions {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {
-    pub const Default: Self = Self(0i32);
-    pub const InstallFull: Self = Self(1i32);
-    pub const InstallStub: Self = Self(2i32);
-    pub const UsePreference: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const InstallFull: Self = Self(1);
+    pub const InstallStub: Self = Self(2);
+    pub const UsePreference: Self = Self(3);
 }
 impl windows_core::TypeKind for StubPackageOption {
     type TypeKind = windows_core::CopyType;

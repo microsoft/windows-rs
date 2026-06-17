@@ -1,8 +1,13 @@
 use super::*;
 
 impl Vector4 {
-    pub fn new(X: f32, Y: f32, Z: f32, W: f32) -> Self {
-        Self { X, Y, Z, W }
+    pub fn new(x: f32, y: f32, z: f32, w: f32) -> Self {
+        Self {
+            X: x,
+            Y: y,
+            Z: z,
+            W: w,
+        }
     }
     pub fn zero() -> Self {
         Self {

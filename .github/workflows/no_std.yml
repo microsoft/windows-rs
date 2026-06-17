@@ -9,12 +9,14 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
       - 'crates/libs/rdl/rdl.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
@@ -25,15 +27,12 @@ concurrency:
 
 jobs:
   no_std:
-    name: ${{ matrix.rust }}
-    strategy:
-      matrix:
-        rust: [stable, nightly]
     runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Prepare
-        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+        run: rustup update --no-self-update stable && rustup default stable
+      - uses: Swatinem/rust-cache@v2
       - name: Check
         run: cargo check -p test_no_std

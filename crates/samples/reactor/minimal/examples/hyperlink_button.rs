@@ -1,4 +1,4 @@
-//! Minimal sample for the `HyperlinkButton` element.
+//! Sample for the `HyperlinkButton` element.
 
 use windows_reactor::*;
 
@@ -20,5 +20,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("HyperlinkButton", app)
 }

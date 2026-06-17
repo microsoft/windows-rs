@@ -18,23 +18,13 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type LOAD_LIBRARY_FLAGS = u32;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
 pub type PCSTR = *const u8;
 pub type RPC_STATUS = i32;
-pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824i32;
+pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824;
 pub type HSTRING = *mut core::ffi::c_void;

@@ -10,7 +10,7 @@ pub struct HARDWARE_COUNTER_DATA {
     pub Value: u64,
 }
 pub type HARDWARE_COUNTER_TYPE = i32;
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERFORMANCE_DATA {
@@ -29,4 +29,4 @@ impl Default for PERFORMANCE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0;

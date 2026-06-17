@@ -20,8 +20,8 @@ pub mod XboxLive;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
-    pub const Suffix: Self = Self(0i32);
-    pub const FullyQualified: Self = Self(1i32);
+    pub const Suffix: Self = Self(0);
+    pub const FullyQualified: Self = Self(1);
 }
 impl windows_core::TypeKind for DomainNameType {
     type TypeKind = windows_core::CopyType;
@@ -194,8 +194,8 @@ unsafe impl Sync for HostName {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
-    pub const None: Self = Self(0u32);
-    pub const OptimizeForLongConnections: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const OptimizeForLongConnections: Self = Self(2);
 }
 impl windows_core::TypeKind for HostNameSortOptions {
     type TypeKind = windows_core::CopyType;
@@ -241,10 +241,10 @@ impl core::ops::Not for HostNameSortOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
-    pub const DomainName: Self = Self(0i32);
-    pub const Ipv4: Self = Self(1i32);
-    pub const Ipv6: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
+    pub const DomainName: Self = Self(0);
+    pub const Ipv4: Self = Self(1);
+    pub const Ipv6: Self = Self(2);
+    pub const Bluetooth: Self = Self(3);
 }
 impl windows_core::TypeKind for HostNameType {
     type TypeKind = windows_core::CopyType;

@@ -2,8 +2,8 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
-    pub const Dark: Self = Self(0i32);
-    pub const Light: Self = Self(1i32);
+    pub const Dark: Self = Self(0);
+    pub const Light: Self = Self(1);
 }
 impl windows_core::TypeKind for ForegroundText {
     type TypeKind = windows_core::CopyType;
@@ -511,8 +511,8 @@ unsafe impl Sync for JumpListItem {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
-    pub const Arguments: Self = Self(0i32);
-    pub const Separator: Self = Self(1i32);
+    pub const Arguments: Self = Self(0);
+    pub const Separator: Self = Self(1);
 }
 impl windows_core::TypeKind for JumpListItemKind {
     type TypeKind = windows_core::CopyType;
@@ -525,9 +525,9 @@ impl windows_core::RuntimeType for JumpListItemKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
-    pub const None: Self = Self(0i32);
-    pub const Frequent: Self = Self(1i32);
-    pub const Recent: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Frequent: Self = Self(1);
+    pub const Recent: Self = Self(2);
 }
 impl windows_core::TypeKind for JumpListSystemGroupKind {
     type TypeKind = windows_core::CopyType;
@@ -1116,7 +1116,7 @@ impl TileMixedRealityModel {
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn SetBoundingBox(&self, value: Option<super::super::Perception::Spatial::SpatialBoundingBox>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetBoundingBox)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
@@ -1154,8 +1154,8 @@ unsafe impl Sync for TileMixedRealityModel {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const None: Self = Self(1i32);
+    pub const Default: Self = Self(0);
+    pub const None: Self = Self(1);
 }
 impl windows_core::TypeKind for TileMixedRealityModelActivationBehavior {
     type TypeKind = windows_core::CopyType;
@@ -1168,10 +1168,10 @@ impl windows_core::RuntimeType for TileMixedRealityModelActivationBehavior {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
-    pub const None: Self = Self(0u32);
-    pub const ShowNameOnLogo: Self = Self(1u32);
-    pub const ShowNameOnWideLogo: Self = Self(2u32);
-    pub const CopyOnDeployment: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const ShowNameOnLogo: Self = Self(1);
+    pub const ShowNameOnWideLogo: Self = Self(2);
+    pub const CopyOnDeployment: Self = Self(4);
 }
 impl windows_core::TypeKind for TileOptions {
     type TypeKind = windows_core::CopyType;
@@ -1217,14 +1217,14 @@ impl core::ops::Not for TileOptions {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileSize(pub i32);
 impl TileSize {
-    pub const Default: Self = Self(0i32);
-    pub const Square30x30: Self = Self(1i32);
-    pub const Square70x70: Self = Self(2i32);
-    pub const Square150x150: Self = Self(3i32);
-    pub const Wide310x150: Self = Self(4i32);
-    pub const Square310x310: Self = Self(5i32);
-    pub const Square71x71: Self = Self(6i32);
-    pub const Square44x44: Self = Self(7i32);
+    pub const Default: Self = Self(0);
+    pub const Square30x30: Self = Self(1);
+    pub const Square70x70: Self = Self(2);
+    pub const Square150x150: Self = Self(3);
+    pub const Wide310x150: Self = Self(4);
+    pub const Square310x310: Self = Self(5);
+    pub const Square71x71: Self = Self(6);
+    pub const Square44x44: Self = Self(7);
 }
 impl windows_core::TypeKind for TileSize {
     type TypeKind = windows_core::CopyType;

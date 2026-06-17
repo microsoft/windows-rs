@@ -104,10 +104,10 @@ pub struct EDefaultDevmodeType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintTicketScope(pub i32);
-pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
-pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
-pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
-pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
+pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797;
+pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796;
+pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798;
+pub const E_PRINTTICKET_FORMAT: u32 = 2147745795;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);
@@ -132,11 +132,11 @@ impl Default for HPTPROVIDER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
-pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
-pub const S_PT_NO_CONFLICT: u32 = 262145u32;
-pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
-pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
-pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
-pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
-pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
+pub const PRINTTICKET_ISTREAM_APIS: u32 = 1;
+pub const S_PT_CONFLICT_RESOLVED: u32 = 262146;
+pub const S_PT_NO_CONFLICT: u32 = 262145;
+pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1);
+pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2);
+pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0);
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1);
+pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0);

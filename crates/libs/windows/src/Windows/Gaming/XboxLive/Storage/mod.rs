@@ -320,21 +320,21 @@ unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Abort: Self = Self(-2147467260i32);
-    pub const InvalidContainerName: Self = Self(-2138898431i32);
-    pub const NoAccess: Self = Self(-2138898430i32);
-    pub const OutOfLocalStorage: Self = Self(-2138898429i32);
-    pub const UserCanceled: Self = Self(-2138898428i32);
-    pub const UpdateTooBig: Self = Self(-2138898427i32);
-    pub const QuotaExceeded: Self = Self(-2138898426i32);
-    pub const ProvidedBufferTooSmall: Self = Self(-2138898425i32);
-    pub const BlobNotFound: Self = Self(-2138898424i32);
-    pub const NoXboxLiveInfo: Self = Self(-2138898423i32);
-    pub const ContainerNotInSync: Self = Self(-2138898422i32);
-    pub const ContainerSyncFailed: Self = Self(-2138898421i32);
-    pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420i32);
-    pub const ObjectExpired: Self = Self(-2138898419i32);
+    pub const Ok: Self = Self(0);
+    pub const Abort: Self = Self(-2147467260);
+    pub const InvalidContainerName: Self = Self(-2138898431);
+    pub const NoAccess: Self = Self(-2138898430);
+    pub const OutOfLocalStorage: Self = Self(-2138898429);
+    pub const UserCanceled: Self = Self(-2138898428);
+    pub const UpdateTooBig: Self = Self(-2138898427);
+    pub const QuotaExceeded: Self = Self(-2138898426);
+    pub const ProvidedBufferTooSmall: Self = Self(-2138898425);
+    pub const BlobNotFound: Self = Self(-2138898424);
+    pub const NoXboxLiveInfo: Self = Self(-2138898423);
+    pub const ContainerNotInSync: Self = Self(-2138898422);
+    pub const ContainerSyncFailed: Self = Self(-2138898421);
+    pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420);
+    pub const ObjectExpired: Self = Self(-2138898419);
 }
 impl windows_core::TypeKind for GameSaveErrorStatus {
     type TypeKind = windows_core::CopyType;

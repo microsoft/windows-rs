@@ -1,4 +1,4 @@
-//! Minimal sample for `MenuFlyout` on a `Button`.
+//! Sample for `MenuFlyout` on a `Button`.
 
 use windows_reactor::*;
 
@@ -19,7 +19,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     vec![menu_item("Small"), menu_item("Medium"), menu_item("Large")],
                 ),
             ])
-            .on_menu_item_clicked(on_item),
+            .on_item_clicked(on_item),
         text_block(format!("Last action: {last_action}")),
     ))
     .spacing(8.0)
@@ -27,5 +27,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("MenuFlyout", app)
 }

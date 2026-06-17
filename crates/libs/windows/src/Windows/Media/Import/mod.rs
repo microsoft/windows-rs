@@ -322,9 +322,9 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
-    pub const ReadWrite: Self = Self(0i32);
-    pub const ReadOnly: Self = Self(1i32);
-    pub const ReadAndDelete: Self = Self(2i32);
+    pub const ReadWrite: Self = Self(0);
+    pub const ReadOnly: Self = Self(1);
+    pub const ReadAndDelete: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportAccessMode {
     type TypeKind = windows_core::CopyType;
@@ -337,10 +337,10 @@ impl windows_core::RuntimeType for PhotoImportAccessMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
-    pub const Unknown: Self = Self(0i32);
-    pub const Usb: Self = Self(1i32);
-    pub const IP: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
+    pub const Unknown: Self = Self(0);
+    pub const Usb: Self = Self(1);
+    pub const IP: Self = Self(2);
+    pub const Bluetooth: Self = Self(3);
 }
 impl windows_core::TypeKind for PhotoImportConnectionTransport {
     type TypeKind = windows_core::CopyType;
@@ -353,9 +353,9 @@ impl windows_core::RuntimeType for PhotoImportConnectionTransport {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Image: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Image: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportContentType {
     type TypeKind = windows_core::CopyType;
@@ -368,10 +368,10 @@ impl windows_core::RuntimeType for PhotoImportContentType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
-    pub const OnlyImages: Self = Self(0i32);
-    pub const OnlyVideos: Self = Self(1i32);
-    pub const ImagesAndVideos: Self = Self(2i32);
-    pub const ImagesAndVideosFromCameraRoll: Self = Self(3i32);
+    pub const OnlyImages: Self = Self(0);
+    pub const OnlyVideos: Self = Self(1);
+    pub const ImagesAndVideos: Self = Self(2);
+    pub const ImagesAndVideosFromCameraRoll: Self = Self(3);
 }
 impl windows_core::TypeKind for PhotoImportContentTypeFilter {
     type TypeKind = windows_core::CopyType;
@@ -793,10 +793,10 @@ unsafe impl Sync for PhotoImportImportItemsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
-    pub const ImportEverything: Self = Self(0i32);
-    pub const IgnoreSidecars: Self = Self(1i32);
-    pub const IgnoreSiblings: Self = Self(2i32);
-    pub const IgnoreSidecarsAndSiblings: Self = Self(3i32);
+    pub const ImportEverything: Self = Self(0);
+    pub const IgnoreSidecars: Self = Self(1);
+    pub const IgnoreSiblings: Self = Self(2);
+    pub const IgnoreSidecarsAndSiblings: Self = Self(3);
 }
 impl windows_core::TypeKind for PhotoImportImportMode {
     type TypeKind = windows_core::CopyType;
@@ -934,9 +934,9 @@ unsafe impl Sync for PhotoImportItemImportedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
-    pub const SelectAll: Self = Self(0i32);
-    pub const SelectNone: Self = Self(1i32);
-    pub const SelectNew: Self = Self(2i32);
+    pub const SelectAll: Self = Self(0);
+    pub const SelectNone: Self = Self(1);
+    pub const SelectNew: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportItemSelectionMode {
     type TypeKind = windows_core::CopyType;
@@ -1025,9 +1025,9 @@ unsafe impl Sync for PhotoImportOperation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
-    pub const Unknown: Self = Self(0i32);
-    pub const Battery: Self = Self(1i32);
-    pub const External: Self = Self(2i32);
+    pub const Unknown: Self = Self(0);
+    pub const Battery: Self = Self(1);
+    pub const External: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportPowerSource {
     type TypeKind = windows_core::CopyType;
@@ -1361,13 +1361,13 @@ unsafe impl Sync for PhotoImportSource {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
-    pub const Generic: Self = Self(0i32);
-    pub const Camera: Self = Self(1i32);
-    pub const MediaPlayer: Self = Self(2i32);
-    pub const Phone: Self = Self(3i32);
-    pub const Video: Self = Self(4i32);
-    pub const PersonalInfoManager: Self = Self(5i32);
-    pub const AudioRecorder: Self = Self(6i32);
+    pub const Generic: Self = Self(0);
+    pub const Camera: Self = Self(1);
+    pub const MediaPlayer: Self = Self(2);
+    pub const Phone: Self = Self(3);
+    pub const Video: Self = Self(4);
+    pub const PersonalInfoManager: Self = Self(5);
+    pub const AudioRecorder: Self = Self(6);
 }
 impl windows_core::TypeKind for PhotoImportSourceType {
     type TypeKind = windows_core::CopyType;
@@ -1380,10 +1380,10 @@ impl windows_core::RuntimeType for PhotoImportSourceType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
-    pub const NotStarted: Self = Self(0i32);
-    pub const FindingItems: Self = Self(1i32);
-    pub const ImportingItems: Self = Self(2i32);
-    pub const DeletingImportedItemsFromSource: Self = Self(3i32);
+    pub const NotStarted: Self = Self(0);
+    pub const FindingItems: Self = Self(1);
+    pub const ImportingItems: Self = Self(2);
+    pub const DeletingImportedItemsFromSource: Self = Self(3);
 }
 impl windows_core::TypeKind for PhotoImportStage {
     type TypeKind = windows_core::CopyType;
@@ -1459,9 +1459,9 @@ unsafe impl Sync for PhotoImportStorageMedium {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
-    pub const Undefined: Self = Self(0i32);
-    pub const Fixed: Self = Self(1i32);
-    pub const Removable: Self = Self(2i32);
+    pub const Undefined: Self = Self(0);
+    pub const Fixed: Self = Self(1);
+    pub const Removable: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportStorageMediumType {
     type TypeKind = windows_core::CopyType;
@@ -1474,10 +1474,10 @@ impl windows_core::RuntimeType for PhotoImportStorageMediumType {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
-    pub const DoNotCreateSubfolders: Self = Self(0i32);
-    pub const CreateSubfoldersFromFileDate: Self = Self(1i32);
-    pub const CreateSubfoldersFromExifDate: Self = Self(2i32);
-    pub const KeepOriginalFolderStructure: Self = Self(3i32);
+    pub const DoNotCreateSubfolders: Self = Self(0);
+    pub const CreateSubfoldersFromFileDate: Self = Self(1);
+    pub const CreateSubfoldersFromExifDate: Self = Self(2);
+    pub const KeepOriginalFolderStructure: Self = Self(3);
 }
 impl windows_core::TypeKind for PhotoImportSubfolderCreationMode {
     type TypeKind = windows_core::CopyType;
@@ -1490,9 +1490,9 @@ impl windows_core::RuntimeType for PhotoImportSubfolderCreationMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
-    pub const Year: Self = Self(0i32);
-    pub const YearMonth: Self = Self(1i32);
-    pub const YearMonthDay: Self = Self(2i32);
+    pub const Year: Self = Self(0);
+    pub const YearMonth: Self = Self(1);
+    pub const YearMonthDay: Self = Self(2);
 }
 impl windows_core::TypeKind for PhotoImportSubfolderDateFormat {
     type TypeKind = windows_core::CopyType;

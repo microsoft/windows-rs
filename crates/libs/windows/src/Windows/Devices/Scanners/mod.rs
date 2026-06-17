@@ -954,9 +954,9 @@ unsafe impl Sync for ImageScannerAutoConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const SingleRegion: Self = Self(1i32);
-    pub const MultipleRegion: Self = Self(2i32);
+    pub const Disabled: Self = Self(0);
+    pub const SingleRegion: Self = Self(1);
+    pub const MultipleRegion: Self = Self(2);
 }
 impl windows_core::TypeKind for ImageScannerAutoCroppingMode {
     type TypeKind = windows_core::CopyType;
@@ -969,10 +969,10 @@ impl windows_core::RuntimeType for ImageScannerAutoCroppingMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
-    pub const Color: Self = Self(0i32);
-    pub const Grayscale: Self = Self(1i32);
-    pub const Monochrome: Self = Self(2i32);
-    pub const AutoColor: Self = Self(3i32);
+    pub const Color: Self = Self(0);
+    pub const Grayscale: Self = Self(1);
+    pub const Monochrome: Self = Self(2);
+    pub const AutoColor: Self = Self(3);
 }
 impl windows_core::TypeKind for ImageScannerColorMode {
     type TypeKind = windows_core::CopyType;
@@ -1541,13 +1541,13 @@ unsafe impl Sync for ImageScannerFlatbedConfiguration {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
-    pub const Jpeg: Self = Self(0i32);
-    pub const Png: Self = Self(1i32);
-    pub const DeviceIndependentBitmap: Self = Self(2i32);
-    pub const Tiff: Self = Self(3i32);
-    pub const Xps: Self = Self(4i32);
-    pub const OpenXps: Self = Self(5i32);
-    pub const Pdf: Self = Self(6i32);
+    pub const Jpeg: Self = Self(0);
+    pub const Png: Self = Self(1);
+    pub const DeviceIndependentBitmap: Self = Self(2);
+    pub const Tiff: Self = Self(3);
+    pub const Xps: Self = Self(4);
+    pub const OpenXps: Self = Self(5);
+    pub const Pdf: Self = Self(6);
 }
 impl windows_core::TypeKind for ImageScannerFormat {
     type TypeKind = windows_core::CopyType;
@@ -1628,10 +1628,10 @@ unsafe impl Sync for ImageScannerScanResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {
-    pub const Default: Self = Self(0i32);
-    pub const Flatbed: Self = Self(1i32);
-    pub const Feeder: Self = Self(2i32);
-    pub const AutoConfigured: Self = Self(3i32);
+    pub const Default: Self = Self(0);
+    pub const Flatbed: Self = Self(1);
+    pub const Feeder: Self = Self(2);
+    pub const AutoConfigured: Self = Self(3);
 }
 impl windows_core::TypeKind for ImageScannerScanSource {
     type TypeKind = windows_core::CopyType;

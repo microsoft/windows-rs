@@ -1,4 +1,4 @@
-//! Minimal sample for the `ToggleSwitch` element.
+//! Sample for the `ToggleSwitch` element.
 
 use windows_reactor::*;
 
@@ -12,7 +12,7 @@ fn app(cx: &mut RenderCx) -> Element {
             .header("Notifications")
             .on_content("On")
             .off_content("Off")
-            .on_changed(toggle),
+            .on_toggled(toggle),
         text_block(if on {
             "Notifications enabled"
         } else {
@@ -27,5 +27,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("ToggleSwitch", app)
 }

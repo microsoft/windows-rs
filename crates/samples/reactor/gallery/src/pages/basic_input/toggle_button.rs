@@ -13,12 +13,12 @@ pub fn toggle_button_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Text Formatting Toggles",
                 vstack((
                     hstack((
-                        toggle_button("Bold", bold).on_changed({
+                        toggle_button("Bold", bold).on_checked({
                             let set_bold = set_bold;
                             move |v: bool| set_bold.call(v)
                         }),
                         toggle_button("Italic", italic)
-                            .on_changed(move |v: bool| set_italic.call(v)),
+                            .on_checked(move |v: bool| set_italic.call(v)),
                     ))
                     .spacing(8.0),
                     text_block(format!(
@@ -29,7 +29,7 @@ pub fn toggle_button_page(_: &(), cx: &mut RenderCx) -> Element {
                     .opacity(0.6),
                 ))
                 .spacing(8.0),
-                r#"toggle_button("Bold", toggled).on_changed(handler)"#,
+                r#"toggle_button("Bold", toggled).on_checked(handler)"#,
             ),
             sample_card(
                 "Disabled ToggleButton",

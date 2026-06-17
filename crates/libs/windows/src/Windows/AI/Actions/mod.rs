@@ -218,20 +218,20 @@ unsafe impl Sync for ActionEntityFactory {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActionEntityKind(pub i32);
 impl ActionEntityKind {
-    pub const None: Self = Self(0i32);
-    pub const Document: Self = Self(1i32);
-    pub const File: Self = Self(2i32);
-    pub const Photo: Self = Self(3i32);
-    pub const Text: Self = Self(4i32);
-    pub const StreamingText: Self = Self(5i32);
-    pub const RemoteFile: Self = Self(6i32);
-    pub const Table: Self = Self(7i32);
-    pub const Contact: Self = Self(8i32);
-    pub const Uri: Self = Self(9i32);
-    pub const Array: Self = Self(10i32);
-    pub const Appointment: Self = Self(11i32);
-    pub const Date: Self = Self(12i32);
-    pub const CustomText: Self = Self(13i32);
+    pub const None: Self = Self(0);
+    pub const Document: Self = Self(1);
+    pub const File: Self = Self(2);
+    pub const Photo: Self = Self(3);
+    pub const Text: Self = Self(4);
+    pub const StreamingText: Self = Self(5);
+    pub const RemoteFile: Self = Self(6);
+    pub const Table: Self = Self(7);
+    pub const Contact: Self = Self(8);
+    pub const Uri: Self = Self(9);
+    pub const Array: Self = Self(10);
+    pub const Appointment: Self = Self(11);
+    pub const Date: Self = Self(12);
+    pub const CustomText: Self = Self(13);
 }
 impl windows_core::TypeKind for ActionEntityKind {
     type TypeKind = windows_core::CopyType;
@@ -244,8 +244,8 @@ impl windows_core::RuntimeType for ActionEntityKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActionEntityTextFormat(pub i32);
 impl ActionEntityTextFormat {
-    pub const Plain: Self = Self(0i32);
-    pub const Markdown: Self = Self(1i32);
+    pub const Plain: Self = Self(0);
+    pub const Markdown: Self = Self(1);
 }
 impl windows_core::TypeKind for ActionEntityTextFormat {
     type TypeKind = windows_core::CopyType;
@@ -287,8 +287,8 @@ unsafe impl Sync for ActionFeedback {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActionFeedbackKind(pub i32);
 impl ActionFeedbackKind {
-    pub const Positive: Self = Self(0i32);
-    pub const Negative: Self = Self(1i32);
+    pub const Positive: Self = Self(0);
+    pub const Negative: Self = Self(1);
 }
 impl windows_core::TypeKind for ActionFeedbackKind {
     type TypeKind = windows_core::CopyType;
@@ -486,9 +486,9 @@ unsafe impl Sync for ActionInvocationHelpDetails {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActionInvocationHelpKind(pub i32);
 impl ActionInvocationHelpKind {
-    pub const None: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const Warning: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Error: Self = Self(1);
+    pub const Warning: Self = Self(2);
 }
 impl windows_core::TypeKind for ActionInvocationHelpKind {
     type TypeKind = windows_core::CopyType;
@@ -501,10 +501,10 @@ impl windows_core::RuntimeType for ActionInvocationHelpKind {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ActionInvocationResult(pub i32);
 impl ActionInvocationResult {
-    pub const Success: Self = Self(0i32);
-    pub const UserCanceled: Self = Self(1i32);
-    pub const Unsupported: Self = Self(2i32);
-    pub const Unavailable: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const UserCanceled: Self = Self(1);
+    pub const Unsupported: Self = Self(2);
+    pub const Unavailable: Self = Self(3);
 }
 impl windows_core::TypeKind for ActionInvocationResult {
     type TypeKind = windows_core::CopyType;
@@ -1850,7 +1850,7 @@ impl RemoteFileActionEntity {
     }
     pub fn SetLastUpdatedTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdatedTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SetContributors(&self, contributors: &[Option<ContactActionEntity>]) -> windows_core::Result<()> {
@@ -1881,9 +1881,9 @@ unsafe impl Sync for RemoteFileActionEntity {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteFileKind(pub i32);
 impl RemoteFileKind {
-    pub const Document: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const File: Self = Self(2i32);
+    pub const Document: Self = Self(0);
+    pub const Photo: Self = Self(1);
+    pub const File: Self = Self(2);
 }
 impl windows_core::TypeKind for RemoteFileKind {
     type TypeKind = windows_core::CopyType;

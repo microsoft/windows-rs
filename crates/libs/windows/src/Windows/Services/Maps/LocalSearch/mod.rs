@@ -309,14 +309,14 @@ unsafe impl Sync for LocalLocationFinderResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const InvalidCategory: Self = Self(3i32);
-    pub const InvalidSearchTerm: Self = Self(4i32);
-    pub const InvalidSearchArea: Self = Self(5i32);
-    pub const NetworkFailure: Self = Self(6i32);
-    pub const NotSupported: Self = Self(7i32);
+    pub const Success: Self = Self(0);
+    pub const UnknownError: Self = Self(1);
+    pub const InvalidCredentials: Self = Self(2);
+    pub const InvalidCategory: Self = Self(3);
+    pub const InvalidSearchTerm: Self = Self(4);
+    pub const InvalidSearchArea: Self = Self(5);
+    pub const NetworkFailure: Self = Self(6);
+    pub const NotSupported: Self = Self(7);
 }
 impl windows_core::TypeKind for LocalLocationFinderStatus {
     type TypeKind = windows_core::CopyType;

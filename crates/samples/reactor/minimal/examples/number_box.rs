@@ -1,4 +1,4 @@
-//! Minimal sample for the `NumberBox` element.
+//! Sample for the `NumberBox` element.
 
 use windows_reactor::*;
 
@@ -21,5 +21,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("Sample").render(app)
+    reactor_minimal::run("NumberBox", app)
 }

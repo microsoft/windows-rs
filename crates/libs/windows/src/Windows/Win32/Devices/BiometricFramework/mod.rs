@@ -31,24 +31,7 @@ pub unsafe fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICA
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::super::Foundation::HWND>, messagecode: Option<u32>, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: bool, sessionhandle: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation::HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_core::BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
-    unsafe {
-        WinBioAsyncOpenSession(
-            factor,
-            pooltype,
-            flags,
-            core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            databaseid.unwrap_or(core::mem::zeroed()) as _,
-            notificationmethod,
-            targetwindow.unwrap_or(core::mem::zeroed()) as _,
-            messagecode.unwrap_or(core::mem::zeroed()) as _,
-            callbackroutine,
-            userdata.unwrap_or(core::mem::zeroed()) as _,
-            asynchronousopen.into(),
-            sessionhandle.unwrap_or(core::mem::zeroed()) as _,
-        )
-        .ok()
-    }
+    unsafe { WinBioAsyncOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), sessionhandle.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> windows_core::Result<()> {
@@ -239,7 +222,7 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
     windows_core::link!("winbio.dll" "system" fn WinBioOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, sessionhandle : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -302,10 +285,10 @@ pub unsafe fn WinBioWait(sessionhandle: u32) -> windows_core::Result<()> {
     windows_core::link!("winbio.dll" "system" fn WinBioWait(sessionhandle : u32) -> windows_core::HRESULT);
     unsafe { WinBioWait(sessionhandle).ok() }
 }
-pub const FACILITY_NONE: u32 = 0u32;
-pub const FACILITY_WINBIO: u32 = 9u32;
+pub const FACILITY_NONE: u32 = 0;
+pub const FACILITY_WINBIO: u32 = 9;
 pub const GUID_DEVINTERFACE_BIOMETRIC_READER: windows_core::GUID = windows_core::GUID::from_u128(0xe2b5183a_99ea_4cc3_ad6b_80ca8d715b80);
-pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
+pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640;
 #[cfg(feature = "Win32_System_IO")]
 pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_System_IO")]
@@ -576,23 +559,23 @@ pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u16 = 4u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u16 = 5u16;
-pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u16 = 2u16;
-pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u16 = 0u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: u16 = 7u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u16 = 9u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u16 = 0u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u16 = 1u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u16 = 2u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u16 = 3u16;
-pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u16 = 8u16;
-pub const WINBIO_ANSI_381_PIXELS_PER_CM: u16 = 2u16;
-pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u16 = 1u16;
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
+pub const WINBIO_ANSI_381_IMG_BIT_PACKED: u16 = 1;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG: u16 = 3;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000: u16 = 4;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_PNG: u16 = 5;
+pub const WINBIO_ANSI_381_IMG_COMPRESSED_WSQ: u16 = 2;
+pub const WINBIO_ANSI_381_IMG_UNCOMPRESSED: u16 = 0;
+pub const WINBIO_ANSI_381_IMP_TYPE_LATENT: u16 = 7;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS: u16 = 9;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN: u16 = 0;
+pub const WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED: u16 = 1;
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN: u16 = 2;
+pub const WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED: u16 = 3;
+pub const WINBIO_ANSI_381_IMP_TYPE_SWIPE: u16 = 8;
+pub const WINBIO_ANSI_381_PIXELS_PER_CM: u16 = 2;
+pub const WINBIO_ANSI_381_PIXELS_PER_INCH: u16 = 1;
+pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0);
+pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
@@ -602,14 +585,14 @@ pub struct WINBIO_ANTI_SPOOF_POLICY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1);
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3);
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2);
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
@@ -914,8 +897,8 @@ pub struct WINBIO_BIR {
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
-pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
-pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
+pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8;
+pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_BIR_DATA {
@@ -992,22 +975,22 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_COMPONENT(pub u32);
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2);
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1);
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_CONNECTED_SENSOR {
     pub biometricType: u32,
     pub isEnhancedSignInSecurityCapable: windows_core::BOOL,
 }
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1);
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1);
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
@@ -1025,13 +1008,13 @@ impl Default for WINBIO_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1u16;
-pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64u16;
-pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8u16;
-pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2u16;
-pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128u16;
-pub const WINBIO_DATA_FLAG_RAW: u16 = 32u16;
-pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4u16;
+pub const WINBIO_DATA_FLAG_INTEGRITY: u16 = 1;
+pub const WINBIO_DATA_FLAG_INTERMEDIATE: u16 = 64;
+pub const WINBIO_DATA_FLAG_OPTION_MASK_PRESENT: u16 = 8;
+pub const WINBIO_DATA_FLAG_PRIVACY: u16 = 2;
+pub const WINBIO_DATA_FLAG_PROCESSED: u16 = 128;
+pub const WINBIO_DATA_FLAG_RAW: u16 = 32;
+pub const WINBIO_DATA_FLAG_SIGNED: u16 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_DIAGNOSTICS {
@@ -1100,22 +1083,22 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub CreateEnrollmentAuthenticated: PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN,
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
-pub const WINBIO_ESS_BLOCKED_NON_ESS_CAMERA: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16384i32);
-pub const WINBIO_ESS_BLOCKED_NON_ESS_FPR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8192i32);
-pub const WINBIO_ESS_MANAGED_BY_POLICY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(128i32);
-pub const WINBIO_ESS_REQUIRES_ENABLEMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(64i32);
-pub const WINBIO_ESS_REQUIRES_FACE_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1024i32);
-pub const WINBIO_ESS_REQUIRES_FPR_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2048i32);
-pub const WINBIO_ESS_REQUIRES_ISOLATED_PROCESS: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4096i32);
-pub const WINBIO_ESS_REQUIRES_NON_VBS_BIOMETRIC_ENROLLMENT_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(256i32);
-pub const WINBIO_ESS_REQUIRES_NON_VBS_WINDOWS_HELLO_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4i32);
-pub const WINBIO_ESS_REQUIRES_TPM2: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1i32);
-pub const WINBIO_ESS_REQUIRES_VBS_BIOMETRIC_ENROLLMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(512i32);
-pub const WINBIO_ESS_REQUIRES_VBS_CAPABLE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2i32);
-pub const WINBIO_ESS_REQUIRES_VBS_ENCRYPTION_KEY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32i32);
-pub const WINBIO_ESS_REQUIRES_VBS_RUNNING: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16i32);
-pub const WINBIO_ESS_REQUIRES_VBS_WINDOWS_HELLO: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8i32);
-pub const WINBIO_ESS_SOURCE_DEFAULT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32768i32);
+pub const WINBIO_ESS_BLOCKED_NON_ESS_CAMERA: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16384);
+pub const WINBIO_ESS_BLOCKED_NON_ESS_FPR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8192);
+pub const WINBIO_ESS_MANAGED_BY_POLICY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(128);
+pub const WINBIO_ESS_REQUIRES_ENABLEMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(64);
+pub const WINBIO_ESS_REQUIRES_FACE_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1024);
+pub const WINBIO_ESS_REQUIRES_FPR_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2048);
+pub const WINBIO_ESS_REQUIRES_ISOLATED_PROCESS: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4096);
+pub const WINBIO_ESS_REQUIRES_NON_VBS_BIOMETRIC_ENROLLMENT_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(256);
+pub const WINBIO_ESS_REQUIRES_NON_VBS_WINDOWS_HELLO_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4);
+pub const WINBIO_ESS_REQUIRES_TPM2: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1);
+pub const WINBIO_ESS_REQUIRES_VBS_BIOMETRIC_ENROLLMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(512);
+pub const WINBIO_ESS_REQUIRES_VBS_CAPABLE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2);
+pub const WINBIO_ESS_REQUIRES_VBS_ENCRYPTION_KEY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32);
+pub const WINBIO_ESS_REQUIRES_VBS_RUNNING: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16);
+pub const WINBIO_ESS_REQUIRES_VBS_WINDOWS_HELLO: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8);
+pub const WINBIO_ESS_SOURCE_DEFAULT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32768);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ESS_STATE_FLAGS(pub i32);
@@ -1640,7 +1623,7 @@ impl Default for WINBIO_IDENTITY_0_0 {
 }
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: windows_core::HRESULT = windows_core::HRESULT(0x90002_u32 as _);
 pub const WINBIO_I_MORE_DATA: windows_core::HRESULT = windows_core::HRESULT(0x90001_u32 as _);
-pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
+pub const WINBIO_MAX_STRING_LEN: u32 = 256;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_NOTIFY_WAKE {
@@ -1648,9 +1631,9 @@ pub struct WINBIO_NOTIFY_WAKE {
     pub WinBioHresult: windows_core::HRESULT,
     pub Reason: u32,
 }
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1);
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2);
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3);
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1672,18 +1655,18 @@ impl Default for WINBIO_PIPELINE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3);
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1);
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_POOL(pub u32);
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2);
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
@@ -1779,15 +1762,15 @@ pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
-pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
-pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
-pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
-pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
-pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
+pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32;
+pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32;
+pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16;
+pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32;
+pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32;
+pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65;
+pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32;
+pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64;
+pub const WINBIO_SCP_VERSION_1: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
@@ -1877,10 +1860,10 @@ pub struct WINBIO_SENSOR_INTERFACE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1);
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0);
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3);
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINBIO_SET_INDICATOR {
@@ -1998,8 +1981,8 @@ pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
-pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
+pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1;
+pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINIBIO_ENGINE_CONTEXT(pub isize);

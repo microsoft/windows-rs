@@ -247,8 +247,8 @@ pub unsafe fn DdqSetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SES
     windows_core::link!("diagnosticdataquery.dll" "system" fn DdqSetTranscriptConfiguration(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_core::HRESULT);
     unsafe { DdqSetTranscriptConfiguration(hsession, desiredconfig).ok() }
 }
-pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
-pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2);
+pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
@@ -532,4 +532,4 @@ impl Default for HDIAGNOSTIC_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
+pub const NoData: DdqAccessLevel = DdqAccessLevel(0);

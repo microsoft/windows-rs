@@ -1,7 +1,4 @@
-//! Minimal sample for the `cx.use_ref` hook.
-//!
-//! `use_ref` holds mutable state that never triggers a rerender on its own.
-//! Here we count renders without causing an infinite loop.
+//! Sample for the `cx.use_ref` hook.
 
 use windows_reactor::*;
 
@@ -30,5 +27,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("use_ref").render(app)
+    reactor_minimal::run("UseRef", app)
 }

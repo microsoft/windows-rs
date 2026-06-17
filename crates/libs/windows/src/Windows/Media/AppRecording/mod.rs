@@ -115,8 +115,8 @@ unsafe impl Sync for AppRecordingResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
-    pub const None: Self = Self(0i32);
-    pub const HdrContentVisible: Self = Self(1i32);
+    pub const None: Self = Self(0);
+    pub const HdrContentVisible: Self = Self(1);
 }
 impl windows_core::TypeKind for AppRecordingSaveScreenshotOption {
     type TypeKind = windows_core::CopyType;

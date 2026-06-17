@@ -1,0 +1,25 @@
+fn main() {
+    windows_bindgen::Bindgen::new()
+        .output("src/bindings.rs")
+        .flat()
+        .minimal()
+        .filters([
+            "Windows.Win32.UI.WindowsAndMessaging.RegisterClassA",
+            "Windows.Win32.UI.WindowsAndMessaging.CreateWindowExA",
+            "Windows.Win32.UI.WindowsAndMessaging.DefWindowProcA",
+            "Windows.Win32.UI.WindowsAndMessaging.TranslateMessage",
+            "Windows.Win32.UI.WindowsAndMessaging.DispatchMessageA",
+            "Windows.Win32.UI.WindowsAndMessaging.PeekMessageA",
+            "Windows.Win32.UI.WindowsAndMessaging.PostQuitMessage",
+            "Windows.Win32.UI.WindowsAndMessaging.WM_DESTROY",
+            "Windows.Win32.UI.WindowsAndMessaging.WM_QUIT",
+            "Windows.Win32.UI.WindowsAndMessaging.CW_USEDEFAULT",
+            "Windows.Win32.UI.WindowsAndMessaging.WS_OVERLAPPEDWINDOW",
+            "Windows.Win32.UI.WindowsAndMessaging.WS_VISIBLE",
+            "Windows.Win32.UI.WindowsAndMessaging.PM_REMOVE",
+            "Windows.Win32.UI.WindowsAndMessaging.CS_HREDRAW",
+            "Windows.Win32.UI.WindowsAndMessaging.CS_VREDRAW",
+        ])
+        .write()
+        .unwrap();
+}

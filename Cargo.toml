@@ -21,6 +21,7 @@ opt-level = 2
 [workspace.lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
 missing_unsafe_on_extern = "warn"
+unused_qualifications = "warn"
 
 [workspace.lints.clippy]
 type_complexity = "allow"
@@ -50,7 +51,9 @@ rustc-hash = { version = "2" }
 cppwinrt = { version = "0.3.4", path = "crates/libs/cppwinrt", default-features = false }
 riddle = { version = "0.0.0", path = "crates/libs/riddle", default-features = false }
 windows = { version = "0.62.2", path = "crates/libs/windows", default-features = false }
+windows-animation = { version = "0.0.0", path = "crates/libs/animation", default-features = false }
 windows-bindgen = { version = "0.66.0", path = "crates/libs/bindgen", default-features = false }
+windows-canvas = { version = "0.0.0", path = "crates/libs/canvas", default-features = false }
 windows-collections = { version = "0.3.2", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.62.2", path = "crates/libs/core", default-features = false }
 windows-future = { version = "0.3.2", path = "crates/libs/future", default-features = false }
@@ -61,6 +64,7 @@ windows-metadata = { version = "0.60.0", path = "crates/libs/metadata", default-
 windows-numerics = { version = "0.3.1", path = "crates/libs/numerics", default-features = false }
 windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }
 windows-reactor = { version = "0.0.0", path = "crates/libs/reactor", default-features = false }
+windows-reactor-setup = { version = "0.0.0", path = "crates/libs/reactor-setup", default-features = false }
 windows-reference = { version = "0.1.0", path = "crates/libs/reference", default-features = false }
 windows-registry = { version = "0.6.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.4.1", path = "crates/libs/result", default-features = false }

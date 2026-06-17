@@ -1,5 +1,9 @@
 # `windows-time`: idiomatic `TimeSpan` and `DateTime` for Rust
 
+> **Status**: Shipped as `windows-time` v0.1.0. This document records the
+> design decisions made during development and serves as a reference for the
+> crate's rationale and architecture.
+
 ## Background
 
 `Windows.Foundation.TimeSpan` and `Windows.Foundation.DateTime` are two of the
@@ -324,16 +328,16 @@ For fallible conversions, use the existing `windows_core::Error` /
 
 ### Versioning and rollout
 
-* Land `windows-time` at `0.1.0` alongside the next coordinated release.
+* `windows-time` shipped at `0.1.0` alongside the coordinated release.
 * It is sourced from metadata and re-exported by the umbrella `windows`
-  crate, so for users of the umbrella crate this is a non-breaking change:
+  crate, so for users of the umbrella crate this was a non-breaking change:
   `windows::Foundation::TimeSpan` and `DateTime` keep the same path, same
-  layout, same field names (the generated struct is unchanged), and merely
-  gain new inherent methods and trait impls.
-* The only breaking surface is for callers that depend directly on the buggy
+  layout, same field names (the generated struct is unchanged), and gained
+  new inherent methods and trait impls.
+* The only breaking surface was for callers that depended directly on the buggy
   `From<core::time::Duration> for TimeSpan` / `From<TimeSpan> for
   core::time::Duration` impls in `windows::extensions::Foundation::TimeSpan`,
-  which are replaced by `TryFrom`. Release notes should call this out.
+  which were replaced by `TryFrom`. Release notes called this out.
 * The `windows-reference` crate keeps working: with the bindgen routing
   change above, its `IPropertyValue` / `IReference` bindings reference
   `windows_time::{TimeSpan, DateTime}` instead of locally-emitted copies.

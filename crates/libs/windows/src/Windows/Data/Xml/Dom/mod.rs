@@ -2260,19 +2260,19 @@ pub struct IXmlText_Vtbl {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NodeType(pub i32);
 impl NodeType {
-    pub const Invalid: Self = Self(0i32);
-    pub const ElementNode: Self = Self(1i32);
-    pub const AttributeNode: Self = Self(2i32);
-    pub const TextNode: Self = Self(3i32);
-    pub const DataSectionNode: Self = Self(4i32);
-    pub const EntityReferenceNode: Self = Self(5i32);
-    pub const EntityNode: Self = Self(6i32);
-    pub const ProcessingInstructionNode: Self = Self(7i32);
-    pub const CommentNode: Self = Self(8i32);
-    pub const DocumentNode: Self = Self(9i32);
-    pub const DocumentTypeNode: Self = Self(10i32);
-    pub const DocumentFragmentNode: Self = Self(11i32);
-    pub const NotationNode: Self = Self(12i32);
+    pub const Invalid: Self = Self(0);
+    pub const ElementNode: Self = Self(1);
+    pub const AttributeNode: Self = Self(2);
+    pub const TextNode: Self = Self(3);
+    pub const DataSectionNode: Self = Self(4);
+    pub const EntityReferenceNode: Self = Self(5);
+    pub const EntityNode: Self = Self(6);
+    pub const ProcessingInstructionNode: Self = Self(7);
+    pub const CommentNode: Self = Self(8);
+    pub const DocumentNode: Self = Self(9);
+    pub const DocumentTypeNode: Self = Self(10);
+    pub const DocumentFragmentNode: Self = Self(11);
+    pub const NotationNode: Self = Self(12);
 }
 impl windows_core::TypeKind for NodeType {
     type TypeKind = windows_core::CopyType;

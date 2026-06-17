@@ -1,6 +1,6 @@
 use windows_reactor::ElementExt;
-use windows_reactor::core::element::{Element, HorizontalAlignment, Thickness};
-use windows_reactor::dsl::factories::{button, text_block, vstack};
+use windows_reactor::{Element, HorizontalAlignment, Thickness};
+use windows_reactor::{button, text_block, vstack};
 
 #[test]
 fn margin_chains_on_concrete_builder() {
@@ -40,7 +40,7 @@ fn multiple_modifiers_set_independently() {
 #[test]
 fn vstack_chains_spacing_and_margin() {
     let s = vstack(()).spacing(8.0).margin(10.0);
-    assert_eq!(s.spacing, Some(8.0));
+    assert_eq!(s.spacing, 8.0);
     assert_eq!(s.modifiers.margin, Some(Thickness::uniform(10.0)));
 }
 

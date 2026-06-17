@@ -897,17 +897,17 @@ unsafe impl Sync for SpatialGestureRecognizer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
-    pub const None: Self = Self(0u32);
-    pub const Tap: Self = Self(1u32);
-    pub const DoubleTap: Self = Self(2u32);
-    pub const Hold: Self = Self(4u32);
-    pub const ManipulationTranslate: Self = Self(8u32);
-    pub const NavigationX: Self = Self(16u32);
-    pub const NavigationY: Self = Self(32u32);
-    pub const NavigationZ: Self = Self(64u32);
-    pub const NavigationRailsX: Self = Self(128u32);
-    pub const NavigationRailsY: Self = Self(256u32);
-    pub const NavigationRailsZ: Self = Self(512u32);
+    pub const None: Self = Self(0);
+    pub const Tap: Self = Self(1);
+    pub const DoubleTap: Self = Self(2);
+    pub const Hold: Self = Self(4);
+    pub const ManipulationTranslate: Self = Self(8);
+    pub const NavigationX: Self = Self(16);
+    pub const NavigationY: Self = Self(32);
+    pub const NavigationZ: Self = Self(64);
+    pub const NavigationRailsX: Self = Self(128);
+    pub const NavigationRailsY: Self = Self(256);
+    pub const NavigationRailsZ: Self = Self(512);
 }
 impl windows_core::TypeKind for SpatialGestureSettings {
     type TypeKind = windows_core::CopyType;
@@ -1357,12 +1357,12 @@ unsafe impl Sync for SpatialInteractionManager {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
-    pub const None: Self = Self(0i32);
-    pub const Select: Self = Self(1i32);
-    pub const Menu: Self = Self(2i32);
-    pub const Grasp: Self = Self(3i32);
-    pub const Touchpad: Self = Self(4i32);
-    pub const Thumbstick: Self = Self(5i32);
+    pub const None: Self = Self(0);
+    pub const Select: Self = Self(1);
+    pub const Menu: Self = Self(2);
+    pub const Grasp: Self = Self(3);
+    pub const Touchpad: Self = Self(4);
+    pub const Thumbstick: Self = Self(5);
 }
 impl windows_core::TypeKind for SpatialInteractionPressKind {
     type TypeKind = windows_core::CopyType;
@@ -1498,9 +1498,9 @@ unsafe impl Sync for SpatialInteractionSourceEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Left: Self = Self(1i32);
-    pub const Right: Self = Self(2i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Left: Self = Self(1);
+    pub const Right: Self = Self(2);
 }
 impl windows_core::TypeKind for SpatialInteractionSourceHandedness {
     type TypeKind = windows_core::CopyType;
@@ -1513,10 +1513,10 @@ impl windows_core::RuntimeType for SpatialInteractionSourceHandedness {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
-    pub const Other: Self = Self(0i32);
-    pub const Hand: Self = Self(1i32);
-    pub const Voice: Self = Self(2i32);
-    pub const Controller: Self = Self(3i32);
+    pub const Other: Self = Self(0);
+    pub const Hand: Self = Self(1);
+    pub const Voice: Self = Self(2);
+    pub const Controller: Self = Self(3);
 }
 impl windows_core::TypeKind for SpatialInteractionSourceKind {
     type TypeKind = windows_core::CopyType;
@@ -1588,8 +1588,8 @@ unsafe impl Sync for SpatialInteractionSourceLocation {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Approximate: Self = Self(1i32);
+    pub const High: Self = Self(0);
+    pub const Approximate: Self = Self(1);
 }
 impl windows_core::TypeKind for SpatialInteractionSourcePositionAccuracy {
     type TypeKind = windows_core::CopyType;

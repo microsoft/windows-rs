@@ -2,9 +2,9 @@
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AccountPictureKind(pub i32);
 impl AccountPictureKind {
-    pub const SmallImage: Self = Self(0i32);
-    pub const LargeImage: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+    pub const SmallImage: Self = Self(0);
+    pub const LargeImage: Self = Self(1);
+    pub const Video: Self = Self(2);
 }
 impl windows_core::TypeKind for AccountPictureKind {
     type TypeKind = windows_core::CopyType;
@@ -728,12 +728,12 @@ impl windows_core::RuntimeName for LockScreen {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetAccountPictureResult(pub i32);
 impl SetAccountPictureResult {
-    pub const Success: Self = Self(0i32);
-    pub const ChangeDisabled: Self = Self(1i32);
-    pub const LargeOrDynamicError: Self = Self(2i32);
-    pub const VideoFrameSizeError: Self = Self(3i32);
-    pub const FileSizeError: Self = Self(4i32);
-    pub const Failure: Self = Self(5i32);
+    pub const Success: Self = Self(0);
+    pub const ChangeDisabled: Self = Self(1);
+    pub const LargeOrDynamicError: Self = Self(2);
+    pub const VideoFrameSizeError: Self = Self(3);
+    pub const FileSizeError: Self = Self(4);
+    pub const Failure: Self = Self(5);
 }
 impl windows_core::TypeKind for SetAccountPictureResult {
     type TypeKind = windows_core::CopyType;
@@ -746,9 +746,9 @@ impl windows_core::RuntimeType for SetAccountPictureResult {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
-    pub const Success: Self = Self(0i32);
-    pub const ChangeDisabled: Self = Self(1i32);
-    pub const UserCanceled: Self = Self(2i32);
+    pub const Success: Self = Self(0);
+    pub const ChangeDisabled: Self = Self(1);
+    pub const UserCanceled: Self = Self(2);
 }
 impl windows_core::TypeKind for SetImageFeedResult {
     type TypeKind = windows_core::CopyType;

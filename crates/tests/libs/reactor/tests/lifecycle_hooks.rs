@@ -1,13 +1,13 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows_reactor::core::backend::RecordingBackend;
-use windows_reactor::core::component::Component;
-use windows_reactor::core::component_element::component;
-use windows_reactor::core::element::{Element, TextBlock};
-use windows_reactor::core::reconciler::Reconciler;
-use windows_reactor::core::render_context::RenderCx;
-use windows_reactor::core::templated_list::list_view;
+use windows_reactor::Component;
+use windows_reactor::Reconciler;
+use windows_reactor::RecordingBackend;
+use windows_reactor::RenderCx;
+use windows_reactor::component;
+use windows_reactor::list_view;
+use windows_reactor::{Element, TextBlock};
 
 #[derive(Clone)]
 struct Hooked {

@@ -430,7 +430,7 @@ pub unsafe fn I_UuidCreate(uuid: *mut windows_core::GUID) -> windows_core::RPC_S
 #[inline]
 pub unsafe fn MesBufferHandleReset(handle: *const core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: Option<&[u8]>, pencodedsize: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn MesBufferHandleReset(handle : *const core::ffi::c_void, handlestyle : u32, operation : MIDL_ES_CODE, pbuffer : *const *const i8, buffersize : u32, pencodedsize : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { MesBufferHandleReset(handle, handlestyle, operation, core::mem::transmute(pbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencodedsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MesBufferHandleReset(handle, handlestyle, operation, core::mem::transmute(pbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), pencodedsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MesDecodeBufferHandleCreate(buffer: &[u8], phandle: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
@@ -3051,16 +3051,16 @@ pub type CS_TYPE_FROM_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding:
 pub type CS_TYPE_LOCAL_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_NET_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_TO_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32)>;
-pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
-pub const EEInfoGCCOM: u32 = 11u32;
-pub const EEInfoGCFRS: u32 = 12u32;
-pub const EEInfoNextRecordsMissing: u32 = 2u32;
-pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
-pub const EEInfoUseFileTime: u32 = 4u32;
-pub const EPT_S_CANT_CREATE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1899i32);
-pub const EPT_S_CANT_PERFORM_OP: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1752i32);
-pub const EPT_S_INVALID_ENTRY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1751i32);
-pub const EPT_S_NOT_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1753i32);
+pub const DCE_C_ERROR_STRING_LEN: u32 = 256;
+pub const EEInfoGCCOM: u32 = 11;
+pub const EEInfoGCFRS: u32 = 12;
+pub const EEInfoNextRecordsMissing: u32 = 2;
+pub const EEInfoPreviousRecordsMissing: u32 = 1;
+pub const EEInfoUseFileTime: u32 = 4;
+pub const EPT_S_CANT_CREATE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1899);
+pub const EPT_S_CANT_PERFORM_OP: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1752);
+pub const EPT_S_INVALID_ENTRY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1751);
+pub const EPT_S_NOT_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1753);
 #[cfg(feature = "Win32_System_Com")]
 pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[repr(transparent)]
@@ -3069,14 +3069,14 @@ pub struct EXPR_TOKEN(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedErrorParamTypes(pub i32);
-pub const FC_EXPR_CONST32: EXPR_TOKEN = EXPR_TOKEN(1i32);
-pub const FC_EXPR_CONST64: EXPR_TOKEN = EXPR_TOKEN(2i32);
-pub const FC_EXPR_END: EXPR_TOKEN = EXPR_TOKEN(6i32);
-pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = EXPR_TOKEN(0i32);
-pub const FC_EXPR_NOOP: EXPR_TOKEN = EXPR_TOKEN(5i32);
-pub const FC_EXPR_OPER: EXPR_TOKEN = EXPR_TOKEN(4i32);
-pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
-pub const FC_EXPR_VAR: EXPR_TOKEN = EXPR_TOKEN(3i32);
+pub const FC_EXPR_CONST32: EXPR_TOKEN = EXPR_TOKEN(1);
+pub const FC_EXPR_CONST64: EXPR_TOKEN = EXPR_TOKEN(2);
+pub const FC_EXPR_END: EXPR_TOKEN = EXPR_TOKEN(6);
+pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = EXPR_TOKEN(0);
+pub const FC_EXPR_NOOP: EXPR_TOKEN = EXPR_TOKEN(5);
+pub const FC_EXPR_OPER: EXPR_TOKEN = EXPR_TOKEN(4);
+pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0);
+pub const FC_EXPR_VAR: EXPR_TOKEN = EXPR_TOKEN(3);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FULL_PTR_XLAT_TABLES {
@@ -3117,10 +3117,10 @@ pub struct GROUP_NAME_SYNTAX(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDL_CS_CONVERT(pub i32);
-pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1i32);
-pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2i32);
-pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
-pub const INVALID_FRAGMENT_ID: u32 = 0u32;
+pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1);
+pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2);
+pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0);
+pub const INVALID_FRAGMENT_ID: u32 = 0;
 pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> windows_core::RPC_STATUS>;
 #[repr(C)]
@@ -3152,12 +3152,12 @@ pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
 }
-pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1i32);
-pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
-pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
-pub const MES_ENCODE_NDR64: MIDL_ES_CODE = MIDL_ES_CODE(2i32);
-pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1i32);
-pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
+pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1);
+pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2);
+pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0);
+pub const MES_ENCODE_NDR64: MIDL_ES_CODE = MIDL_ES_CODE(2);
+pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1);
+pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0);
 pub type MIDL_ES_ALLOC = Option<unsafe extern "system" fn(state: *mut core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3416,12 +3416,12 @@ impl Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
-pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
-pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
-pub const MaxNumberOfEEInfoParams: u32 = 4u32;
-pub const MidlInterceptionInfoVersionOne: i32 = 1i32;
-pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1i32;
+pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1;
+pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0);
+pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1);
+pub const MaxNumberOfEEInfoParams: u32 = 4;
+pub const MidlInterceptionInfoVersionOne: i32 = 1;
+pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NDR64_ARRAY_ELEMENT_INFO {
@@ -3688,12 +3688,12 @@ pub struct NDR64_EXPR_VAR {
     pub Reserved: u16,
     pub Offset: u32,
 }
-pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
-pub const NDR64_FC_BIND_GENERIC: u32 = 1u32;
-pub const NDR64_FC_BIND_PRIMITIVE: u32 = 2u32;
-pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4u32;
-pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0u32;
-pub const NDR64_FC_NO_HANDLE: u32 = 5u32;
+pub const NDR64_FC_AUTO_HANDLE: u32 = 3;
+pub const NDR64_FC_BIND_GENERIC: u32 = 1;
+pub const NDR64_FC_BIND_PRIMITIVE: u32 = 2;
+pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4;
+pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0;
+pub const NDR64_FC_NO_HANDLE: u32 = 5;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR64_FIXED_REPEAT_FORMAT {
@@ -4073,8 +4073,8 @@ pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
     pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
-pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
-pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
+pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456;
+pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NDR_EXPR_DESC {
@@ -4155,7 +4155,7 @@ impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const NT351_INTERFACE_SIZE: u32 = 64u32;
+pub const NT351_INTERFACE_SIZE: u32 = 64;
 #[cfg(feature = "Win32_System_IO")]
 pub type PFN_RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type PFN_RPC_ALLOCATE = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
@@ -4166,17 +4166,17 @@ pub struct PNDR_ASYNC_MESSAGE(pub isize);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PNDR_CORRELATION_INFO(pub isize);
-pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3i32);
-pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2i32);
-pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
-pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
-pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1i32);
-pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2i32);
+pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3);
+pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2);
+pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1);
+pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0);
+pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1);
+pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_PHASE(pub i32);
-pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3i32);
-pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4i32);
+pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3);
+pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4);
 pub type PRPC_RUNDOWN = Option<unsafe extern "system" fn(associationcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4201,26 +4201,26 @@ impl Default for RDR_CALLOUT_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
-pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152u32;
-pub const RPCFLG_ACCESS_LOCAL: u32 = 4194304u32;
-pub const RPCFLG_ASYNCHRONOUS: u32 = 1073741824u32;
-pub const RPCFLG_AUTO_COMPLETE: u32 = 134217728u32;
-pub const RPCFLG_HAS_CALLBACK: u32 = 67108864u32;
-pub const RPCFLG_HAS_GUARANTEE: u32 = 16u32;
-pub const RPCFLG_HAS_MULTI_SYNTAXES: u32 = 33554432u32;
-pub const RPCFLG_INPUT_SYNCHRONOUS: u32 = 536870912u32;
-pub const RPCFLG_LOCAL_CALL: u32 = 268435456u32;
-pub const RPCFLG_MESSAGE: u32 = 16777216u32;
-pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
-pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
-pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
-pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
-pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(2i32);
-pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(4i32);
-pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(5i32);
-pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
-pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(3i32);
+pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576;
+pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152;
+pub const RPCFLG_ACCESS_LOCAL: u32 = 4194304;
+pub const RPCFLG_ASYNCHRONOUS: u32 = 1073741824;
+pub const RPCFLG_AUTO_COMPLETE: u32 = 134217728;
+pub const RPCFLG_HAS_CALLBACK: u32 = 67108864;
+pub const RPCFLG_HAS_GUARANTEE: u32 = 16;
+pub const RPCFLG_HAS_MULTI_SYNTAXES: u32 = 33554432;
+pub const RPCFLG_INPUT_SYNCHRONOUS: u32 = 536870912;
+pub const RPCFLG_LOCAL_CALL: u32 = 268435456;
+pub const RPCFLG_MESSAGE: u32 = 16777216;
+pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864;
+pub const RPCFLG_NON_NDR: u32 = 2147483648;
+pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608;
+pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32;
+pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(2);
+pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(4);
+pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(5);
+pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1);
+pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(3);
 pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
 pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
 #[repr(transparent)]
@@ -4297,10 +4297,10 @@ impl Default for RPC_ASYNC_STATE {
     }
 }
 pub type RPC_AUTH_KEY_RETRIEVAL_FN = Option<unsafe extern "system" fn(arg: *const core::ffi::c_void, serverprincname: windows_core::PCWSTR, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut windows_core::RPC_STATUS)>;
-pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
-pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
-pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
-pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
+pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2);
+pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4;
+pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1);
+pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
@@ -4443,11 +4443,11 @@ impl Default for RPC_BINDING_VECTOR {
     }
 }
 pub type RPC_BLOCKING_FN = Option<unsafe extern "system" fn(hwnd: *mut core::ffi::c_void, context: *mut core::ffi::c_void, hsyncevent: *mut core::ffi::c_void) -> windows_core::RPC_STATUS>;
-pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
-pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
-pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
-pub const RPC_BUFFER_NONOTIFY: u32 = 65536u32;
-pub const RPC_BUFFER_PARTIAL: u32 = 8192u32;
+pub const RPC_BUFFER_ASYNC: u32 = 32768;
+pub const RPC_BUFFER_COMPLETE: u32 = 4096;
+pub const RPC_BUFFER_EXTRA: u32 = 16384;
+pub const RPC_BUFFER_NONOTIFY: u32 = 65536;
+pub const RPC_BUFFER_PARTIAL: u32 = 8192;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
@@ -4596,7 +4596,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V3_W {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
+pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
@@ -4610,8 +4610,8 @@ impl Default for RPC_CALL_LOCAL_ADDRESS_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
-pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
+pub const RPC_CALL_STATUS_CANCELLED: u32 = 1;
+pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2;
 pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: usize) -> *mut core::ffi::c_void>;
 pub type RPC_CLIENT_FREE = Option<unsafe extern "system" fn(ptr: *const core::ffi::c_void)>;
 #[repr(C)]
@@ -4645,57 +4645,57 @@ impl Default for RPC_CLIENT_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0u32;
-pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912u32;
-pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368u32;
-pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456u32;
-pub const RPC_C_AUTHN_CLOUD_AP: u32 = 36u32;
-pub const RPC_C_AUTHN_DCE_PRIVATE: u32 = 1u32;
-pub const RPC_C_AUTHN_DCE_PUBLIC: u32 = 2u32;
-pub const RPC_C_AUTHN_DEC_PUBLIC: u32 = 4u32;
-pub const RPC_C_AUTHN_DEFAULT: i32 = -1i32;
-pub const RPC_C_AUTHN_DIGEST: u32 = 21u32;
-pub const RPC_C_AUTHN_DPA: u32 = 17u32;
-pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16u32;
-pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
-pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
-pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
+pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0;
+pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912;
+pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368;
+pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456;
+pub const RPC_C_AUTHN_CLOUD_AP: u32 = 36;
+pub const RPC_C_AUTHN_DCE_PRIVATE: u32 = 1;
+pub const RPC_C_AUTHN_DCE_PUBLIC: u32 = 2;
+pub const RPC_C_AUTHN_DEC_PUBLIC: u32 = 4;
+pub const RPC_C_AUTHN_DEFAULT: i32 = -1;
+pub const RPC_C_AUTHN_DIGEST: u32 = 21;
+pub const RPC_C_AUTHN_DPA: u32 = 17;
+pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16;
+pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9;
+pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14;
+pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
-pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(1u32);
-pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
-pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35u32;
-pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32u32;
-pub const RPC_C_AUTHN_MQ: u32 = 100u32;
-pub const RPC_C_AUTHN_MSN: u32 = 18u32;
-pub const RPC_C_AUTHN_MSONLINE: u32 = 82u32;
-pub const RPC_C_AUTHN_NEGO_EXTENDER: u32 = 30u32;
-pub const RPC_C_AUTHN_NONE: u32 = 0u32;
-pub const RPC_C_AUTHN_PKU2U: u32 = 31u32;
-pub const RPC_C_AUTHN_WINNT: u32 = 10u32;
-pub const RPC_C_AUTHZ_DCE: u32 = 2u32;
-pub const RPC_C_AUTHZ_DEFAULT: u32 = 4294967295u32;
-pub const RPC_C_AUTHZ_NAME: u32 = 1u32;
-pub const RPC_C_AUTHZ_NONE: u32 = 0u32;
-pub const RPC_C_BINDING_DEFAULT_TIMEOUT: u32 = 5u32;
-pub const RPC_C_BINDING_INFINITE_TIMEOUT: u32 = 10u32;
-pub const RPC_C_BINDING_MAX_TIMEOUT: u32 = 9u32;
-pub const RPC_C_BINDING_MIN_TIMEOUT: u32 = 0u32;
-pub const RPC_C_BIND_TO_ALL_NICS: u32 = 1u32;
-pub const RPC_C_CANCEL_INFINITE_TIMEOUT: i32 = -1i32;
-pub const RPC_C_DONT_FAIL: u32 = 4u32;
-pub const RPC_C_EP_ALL_ELTS: u32 = 0u32;
-pub const RPC_C_EP_MATCH_BY_BOTH: u32 = 3u32;
-pub const RPC_C_EP_MATCH_BY_IF: u32 = 1u32;
-pub const RPC_C_EP_MATCH_BY_OBJ: u32 = 2u32;
-pub const RPC_C_FULL_CERT_CHAIN: u32 = 1u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_BASIC: u32 = 1u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_CERT: u32 = 65536u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
-pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
+pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(1);
+pub const RPC_C_AUTHN_KERNEL: u32 = 20;
+pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35;
+pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32;
+pub const RPC_C_AUTHN_MQ: u32 = 100;
+pub const RPC_C_AUTHN_MSN: u32 = 18;
+pub const RPC_C_AUTHN_MSONLINE: u32 = 82;
+pub const RPC_C_AUTHN_NEGO_EXTENDER: u32 = 30;
+pub const RPC_C_AUTHN_NONE: u32 = 0;
+pub const RPC_C_AUTHN_PKU2U: u32 = 31;
+pub const RPC_C_AUTHN_WINNT: u32 = 10;
+pub const RPC_C_AUTHZ_DCE: u32 = 2;
+pub const RPC_C_AUTHZ_DEFAULT: u32 = 4294967295;
+pub const RPC_C_AUTHZ_NAME: u32 = 1;
+pub const RPC_C_AUTHZ_NONE: u32 = 0;
+pub const RPC_C_BINDING_DEFAULT_TIMEOUT: u32 = 5;
+pub const RPC_C_BINDING_INFINITE_TIMEOUT: u32 = 10;
+pub const RPC_C_BINDING_MAX_TIMEOUT: u32 = 9;
+pub const RPC_C_BINDING_MIN_TIMEOUT: u32 = 0;
+pub const RPC_C_BIND_TO_ALL_NICS: u32 = 1;
+pub const RPC_C_CANCEL_INFINITE_TIMEOUT: i32 = -1;
+pub const RPC_C_DONT_FAIL: u32 = 4;
+pub const RPC_C_EP_ALL_ELTS: u32 = 0;
+pub const RPC_C_EP_MATCH_BY_BOTH: u32 = 3;
+pub const RPC_C_EP_MATCH_BY_IF: u32 = 1;
+pub const RPC_C_EP_MATCH_BY_OBJ: u32 = 2;
+pub const RPC_C_FULL_CERT_CHAIN: u32 = 1;
+pub const RPC_C_HTTP_AUTHN_SCHEME_BASIC: u32 = 1;
+pub const RPC_C_HTTP_AUTHN_SCHEME_CERT: u32 = 65536;
+pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8;
+pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16;
+pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2;
+pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
@@ -4732,8 +4732,8 @@ impl core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
         Self(self.0.not())
     }
 }
-pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(2u32);
-pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
+pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(2);
+pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
@@ -4770,71 +4770,71 @@ impl core::ops::Not for RPC_C_HTTP_FLAGS {
         Self(self.0.not())
     }
 }
-pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(16u32);
-pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(8u32);
-pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(2u32);
-pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
-pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
-pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0u32;
-pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1u32;
-pub const RPC_C_MGMT_INQ_STATS: u32 = 2u32;
-pub const RPC_C_MGMT_IS_SERVER_LISTEN: u32 = 3u32;
-pub const RPC_C_MGMT_STOP_SERVER_LISTEN: u32 = 4u32;
-pub const RPC_C_MQ_AUTHN_LEVEL_NONE: u32 = 0u32;
-pub const RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY: u32 = 8u32;
-pub const RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY: u32 = 16u32;
-pub const RPC_C_MQ_CLEAR_ON_OPEN: u32 = 2u32;
-pub const RPC_C_MQ_EXPRESS: u32 = 0u32;
-pub const RPC_C_MQ_JOURNAL_ALWAYS: u32 = 2u32;
-pub const RPC_C_MQ_JOURNAL_DEADLETTER: u32 = 1u32;
-pub const RPC_C_MQ_JOURNAL_NONE: u32 = 0u32;
-pub const RPC_C_MQ_PERMANENT: u32 = 1u32;
-pub const RPC_C_MQ_RECOVERABLE: u32 = 1u32;
-pub const RPC_C_MQ_TEMPORARY: u32 = 0u32;
-pub const RPC_C_MQ_USE_EXISTING_SECURITY: u32 = 4u32;
-pub const RPC_C_NOTIFY_ON_SEND_COMPLETE: u32 = 1u32;
-pub const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1i32;
-pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(3u32);
-pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
-pub const RPC_C_OPT_ASYNC_BLOCK: u32 = 15u32;
-pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
-pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
-pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
+pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(16);
+pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(8);
+pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(2);
+pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1);
+pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234;
+pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0;
+pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1;
+pub const RPC_C_MGMT_INQ_STATS: u32 = 2;
+pub const RPC_C_MGMT_IS_SERVER_LISTEN: u32 = 3;
+pub const RPC_C_MGMT_STOP_SERVER_LISTEN: u32 = 4;
+pub const RPC_C_MQ_AUTHN_LEVEL_NONE: u32 = 0;
+pub const RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY: u32 = 8;
+pub const RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY: u32 = 16;
+pub const RPC_C_MQ_CLEAR_ON_OPEN: u32 = 2;
+pub const RPC_C_MQ_EXPRESS: u32 = 0;
+pub const RPC_C_MQ_JOURNAL_ALWAYS: u32 = 2;
+pub const RPC_C_MQ_JOURNAL_DEADLETTER: u32 = 1;
+pub const RPC_C_MQ_JOURNAL_NONE: u32 = 0;
+pub const RPC_C_MQ_PERMANENT: u32 = 1;
+pub const RPC_C_MQ_RECOVERABLE: u32 = 1;
+pub const RPC_C_MQ_TEMPORARY: u32 = 0;
+pub const RPC_C_MQ_USE_EXISTING_SECURITY: u32 = 4;
+pub const RPC_C_NOTIFY_ON_SEND_COMPLETE: u32 = 1;
+pub const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1;
+pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(3);
+pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0);
+pub const RPC_C_OPT_ASYNC_BLOCK: u32 = 15;
+pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9;
+pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12;
+pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: windows_core::PSTR,
 }
-pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
-pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12u32;
-pub const RPC_C_OPT_MQ_ACKNOWLEDGE: u32 = 4u32;
-pub const RPC_C_OPT_MQ_AUTHN_LEVEL: u32 = 6u32;
-pub const RPC_C_OPT_MQ_AUTHN_SERVICE: u32 = 5u32;
-pub const RPC_C_OPT_MQ_DELIVERY: u32 = 1u32;
-pub const RPC_C_OPT_MQ_JOURNAL: u32 = 3u32;
-pub const RPC_C_OPT_MQ_PRIORITY: u32 = 2u32;
-pub const RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED: u32 = 8u32;
-pub const RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE: u32 = 7u32;
-pub const RPC_C_OPT_OPTIMIZE_TIME: u32 = 16u32;
-pub const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: u32 = 3u32;
-pub const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: u32 = 2u32;
-pub const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: u32 = 1u32;
-pub const RPC_C_OPT_RESOURCE_TYPE_UUID: u32 = 8u32;
-pub const RPC_C_OPT_SECURITY_CALLBACK: u32 = 10u32;
-pub const RPC_C_OPT_SESSION_ID: u32 = 6u32;
-pub const RPC_C_OPT_TRANS_SEND_BUFFER_SIZE: u32 = 5u32;
-pub const RPC_C_OPT_TRUST_PEER: u32 = 14u32;
-pub const RPC_C_OPT_UNIQUE_BINDING: u32 = 11u32;
-pub const RPC_C_PARM_BUFFER_LENGTH: u32 = 2u32;
-pub const RPC_C_PARM_MAX_PACKET_LENGTH: u32 = 1u32;
-pub const RPC_C_PROFILE_ALL_ELT: u32 = 1u32;
-pub const RPC_C_PROFILE_ALL_ELTS: u32 = 1u32;
-pub const RPC_C_PROFILE_DEFAULT_ELT: u32 = 0u32;
-pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4u32;
-pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2u32;
-pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
-pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
+pub const RPC_C_OPT_DONT_LINGER: u32 = 13;
+pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12;
+pub const RPC_C_OPT_MQ_ACKNOWLEDGE: u32 = 4;
+pub const RPC_C_OPT_MQ_AUTHN_LEVEL: u32 = 6;
+pub const RPC_C_OPT_MQ_AUTHN_SERVICE: u32 = 5;
+pub const RPC_C_OPT_MQ_DELIVERY: u32 = 1;
+pub const RPC_C_OPT_MQ_JOURNAL: u32 = 3;
+pub const RPC_C_OPT_MQ_PRIORITY: u32 = 2;
+pub const RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED: u32 = 8;
+pub const RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE: u32 = 7;
+pub const RPC_C_OPT_OPTIMIZE_TIME: u32 = 16;
+pub const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: u32 = 3;
+pub const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: u32 = 2;
+pub const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: u32 = 1;
+pub const RPC_C_OPT_RESOURCE_TYPE_UUID: u32 = 8;
+pub const RPC_C_OPT_SECURITY_CALLBACK: u32 = 10;
+pub const RPC_C_OPT_SESSION_ID: u32 = 6;
+pub const RPC_C_OPT_TRANS_SEND_BUFFER_SIZE: u32 = 5;
+pub const RPC_C_OPT_TRUST_PEER: u32 = 14;
+pub const RPC_C_OPT_UNIQUE_BINDING: u32 = 11;
+pub const RPC_C_PARM_BUFFER_LENGTH: u32 = 2;
+pub const RPC_C_PARM_MAX_PACKET_LENGTH: u32 = 1;
+pub const RPC_C_PROFILE_ALL_ELT: u32 = 1;
+pub const RPC_C_PROFILE_ALL_ELTS: u32 = 1;
+pub const RPC_C_PROFILE_DEFAULT_ELT: u32 = 0;
+pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4;
+pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2;
+pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3;
+pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_QOS_CAPABILITIES(pub u32);
@@ -4871,37 +4871,37 @@ impl core::ops::Not for RPC_C_QOS_CAPABILITIES {
         Self(self.0.not())
     }
 }
-pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(4u32);
-pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0u32);
-pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8u32);
-pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16u32);
-pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(2u32);
-pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(1u32);
-pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32u32);
+pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(4);
+pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0);
+pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8);
+pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16);
+pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(2);
+pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(1);
+pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
-pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(1u32);
-pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
-pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
-pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1i32;
-pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1i32;
-pub const RPC_C_SECURITY_QOS_VERSION_2: i32 = 2i32;
-pub const RPC_C_SECURITY_QOS_VERSION_3: i32 = 3i32;
-pub const RPC_C_SECURITY_QOS_VERSION_4: i32 = 4i32;
-pub const RPC_C_SECURITY_QOS_VERSION_5: i32 = 5i32;
-pub const RPC_C_STATS_CALLS_IN: u32 = 0u32;
-pub const RPC_C_STATS_CALLS_OUT: u32 = 1u32;
-pub const RPC_C_STATS_PKTS_IN: u32 = 2u32;
-pub const RPC_C_STATS_PKTS_OUT: u32 = 3u32;
-pub const RPC_C_TRY_ENFORCE_MAX_CALLS: u32 = 16u32;
-pub const RPC_C_USE_INTERNET_PORT: u32 = 1u32;
-pub const RPC_C_USE_INTRANET_PORT: u32 = 2u32;
-pub const RPC_C_VERS_ALL: u32 = 1u32;
-pub const RPC_C_VERS_COMPATIBLE: u32 = 2u32;
-pub const RPC_C_VERS_EXACT: u32 = 3u32;
-pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
-pub const RPC_C_VERS_UPTO: u32 = 5u32;
+pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(1);
+pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0);
+pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8;
+pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1;
+pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1;
+pub const RPC_C_SECURITY_QOS_VERSION_2: i32 = 2;
+pub const RPC_C_SECURITY_QOS_VERSION_3: i32 = 3;
+pub const RPC_C_SECURITY_QOS_VERSION_4: i32 = 4;
+pub const RPC_C_SECURITY_QOS_VERSION_5: i32 = 5;
+pub const RPC_C_STATS_CALLS_IN: u32 = 0;
+pub const RPC_C_STATS_CALLS_OUT: u32 = 1;
+pub const RPC_C_STATS_PKTS_IN: u32 = 2;
+pub const RPC_C_STATS_PKTS_OUT: u32 = 3;
+pub const RPC_C_TRY_ENFORCE_MAX_CALLS: u32 = 16;
+pub const RPC_C_USE_INTERNET_PORT: u32 = 1;
+pub const RPC_C_USE_INTRANET_PORT: u32 = 2;
+pub const RPC_C_VERS_ALL: u32 = 1;
+pub const RPC_C_VERS_COMPATIBLE: u32 = 2;
+pub const RPC_C_VERS_EXACT: u32 = 3;
+pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4;
+pub const RPC_C_VERS_UPTO: u32 = 5;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -4910,7 +4910,7 @@ pub struct RPC_DISPATCH_TABLE {
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
-pub const RPC_EEINFO_VERSION: u32 = 1u32;
+pub const RPC_EEINFO_VERSION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RPC_EE_INFO_PARAM {
@@ -5007,9 +5007,9 @@ impl Default for RPC_EXTENDED_ERROR_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
+pub const RPC_FLAGS_VALID_BIT: u32 = 32768;
 pub type RPC_FORWARD_FUNCTION = Option<unsafe extern "system" fn(interfaceid: *mut windows_core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut windows_core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS>;
-pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
+pub const RPC_FW_IF_FLAG_DCOM: u32 = 1;
 pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: windows_core::PCWSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5116,12 +5116,12 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16u32;
-pub const RPC_IF_ALLOW_LOCAL_ONLY: u32 = 32u32;
-pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
-pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
-pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
-pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
+pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16;
+pub const RPC_IF_ALLOW_LOCAL_ONLY: u32 = 32;
+pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8;
+pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4;
+pub const RPC_IF_ASYNC_CALLBACK: u32 = 256;
+pub const RPC_IF_AUTOLISTEN: u32 = 1;
 pub type RPC_IF_CALLBACK_FN = Option<unsafe extern "system" fn(interfaceuuid: *const core::ffi::c_void, context: *const core::ffi::c_void) -> windows_core::RPC_STATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -5141,9 +5141,9 @@ impl Default for RPC_IF_ID_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_IF_OLE: u32 = 2u32;
-pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
-pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
+pub const RPC_IF_OLE: u32 = 2;
+pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128;
+pub const RPC_IF_SEC_NO_CACHE: u32 = 64;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_IMPORT_CONTEXT_P {
@@ -5157,7 +5157,7 @@ impl Default for RPC_IMPORT_CONTEXT_P {
     }
 }
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = Option<unsafe extern "system" fn(ifgroup: *const core::ffi::c_void, idlecallbackcontext: *const core::ffi::c_void, isgroupidle: u32)>;
-pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
+pub const RPC_INTERFACE_HAS_PIPES: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct RPC_INTERFACE_TEMPLATEA {
@@ -5219,10 +5219,10 @@ impl Default for RPC_MESSAGE {
     }
 }
 pub type RPC_MGMT_AUTHORIZATION_FN = Option<unsafe extern "system" fn(clientbinding: *const core::ffi::c_void, requestedmgmtoperation: u32, status: *mut windows_core::RPC_STATUS) -> i32>;
-pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
-pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
-pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
-pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
+pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2;
+pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0;
+pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1;
+pub const RPC_NCA_FLAGS_MAYBE: u32 = 4;
 pub type RPC_NEW_HTTP_PROXY_CHANNEL = Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: windows_core::PCWSTR, serverport: windows_core::PCWSTR, remoteuser: windows_core::PCWSTR, authtype: windows_core::PCWSTR, resourceuuid: *mut core::ffi::c_void, sessionid: *mut core::ffi::c_void, interface: *const core::ffi::c_void, reserved: *const core::ffi::c_void, flags: u32, newservername: *mut windows_core::PWSTR, newserverport: *mut windows_core::PWSTR) -> windows_core::RPC_STATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5249,10 +5249,10 @@ impl Default for RPC_PROTSEQ_ENDPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_PROTSEQ_HTTP: u32 = 4u32;
-pub const RPC_PROTSEQ_LRPC: u32 = 3u32;
-pub const RPC_PROTSEQ_NMP: u32 = 2u32;
-pub const RPC_PROTSEQ_TCP: u32 = 1u32;
+pub const RPC_PROTSEQ_HTTP: u32 = 4;
+pub const RPC_PROTSEQ_LRPC: u32 = 3;
+pub const RPC_PROTSEQ_NMP: u32 = 2;
+pub const RPC_PROTSEQ_TCP: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_PROTSEQ_VECTORA {
@@ -5275,17 +5275,17 @@ impl Default for RPC_PROTSEQ_VECTORW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0u32;
-pub const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1u32;
-pub const RPC_P_ADDR_FORMAT_TCP_IPV4: u32 = 1u32;
-pub const RPC_P_ADDR_FORMAT_TCP_IPV6: u32 = 2u32;
-pub const RPC_QUERY_CALL_LOCAL_ADDRESS: u32 = 8u32;
-pub const RPC_QUERY_CLIENT_ID: u32 = 128u32;
-pub const RPC_QUERY_CLIENT_PID: u32 = 16u32;
-pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4u32;
-pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
-pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
-pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
+pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0;
+pub const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1;
+pub const RPC_P_ADDR_FORMAT_TCP_IPV4: u32 = 1;
+pub const RPC_P_ADDR_FORMAT_TCP_IPV6: u32 = 2;
+pub const RPC_QUERY_CALL_LOCAL_ADDRESS: u32 = 8;
+pub const RPC_QUERY_CLIENT_ID: u32 = 128;
+pub const RPC_QUERY_CLIENT_PID: u32 = 16;
+pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4;
+pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32;
+pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64;
+pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2;
 pub type RPC_SECURITY_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -5583,120 +5583,120 @@ pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: windows_core::GUID,
     pub SyntaxVersion: RPC_VERSION,
 }
-pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
-pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4u32;
-pub const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2u32;
-pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1u32;
-pub const RPC_S_ACCESS_DENIED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(5i32);
-pub const RPC_S_ADDRESS_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1768i32);
-pub const RPC_S_ALREADY_LISTENING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1713i32);
-pub const RPC_S_ALREADY_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1711i32);
-pub const RPC_S_ASYNC_CALL_PENDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(997i32);
-pub const RPC_S_BINDING_HAS_NO_AUTH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1746i32);
-pub const RPC_S_BINDING_INCOMPLETE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1819i32);
-pub const RPC_S_BUFFER_TOO_SMALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(122i32);
-pub const RPC_S_CALL_CANCELLED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1818i32);
-pub const RPC_S_CALL_FAILED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1726i32);
-pub const RPC_S_CALL_FAILED_DNE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1727i32);
-pub const RPC_S_CALL_IN_PROGRESS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1791i32);
-pub const RPC_S_CANNOT_SUPPORT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1764i32);
-pub const RPC_S_CANT_CREATE_ENDPOINT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1720i32);
-pub const RPC_S_COMM_FAILURE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1820i32);
-pub const RPC_S_COOKIE_AUTH_FAILED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1833i32);
-pub const RPC_S_DO_NOT_DISTURB: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1834i32);
-pub const RPC_S_DUPLICATE_ENDPOINT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1740i32);
-pub const RPC_S_ENTRY_ALREADY_EXISTS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1760i32);
-pub const RPC_S_ENTRY_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1761i32);
-pub const RPC_S_ENTRY_TYPE_MISMATCH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1922i32);
-pub const RPC_S_FP_DIV_ZERO: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1769i32);
-pub const RPC_S_FP_OVERFLOW: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1771i32);
-pub const RPC_S_FP_UNDERFLOW: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1770i32);
-pub const RPC_S_GROUP_MEMBER_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1898i32);
-pub const RPC_S_GRP_ELT_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1928i32);
-pub const RPC_S_GRP_ELT_NOT_REMOVED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1929i32);
-pub const RPC_S_INCOMPLETE_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1755i32);
-pub const RPC_S_INTERFACE_NOT_EXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1924i32);
-pub const RPC_S_INTERFACE_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1759i32);
-pub const RPC_S_INTERNAL_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1766i32);
-pub const RPC_S_INVALID_ARG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(87i32);
-pub const RPC_S_INVALID_ASYNC_CALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1915i32);
-pub const RPC_S_INVALID_ASYNC_HANDLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1914i32);
-pub const RPC_S_INVALID_AUTH_IDENTITY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1749i32);
-pub const RPC_S_INVALID_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1702i32);
-pub const RPC_S_INVALID_BOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1734i32);
-pub const RPC_S_INVALID_ENDPOINT_FORMAT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1706i32);
-pub const RPC_S_INVALID_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(87i32);
-pub const RPC_S_INVALID_NAF_ID: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1763i32);
-pub const RPC_S_INVALID_NAME_SYNTAX: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1736i32);
-pub const RPC_S_INVALID_NETWORK_OPTIONS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1724i32);
-pub const RPC_S_INVALID_NET_ADDR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1707i32);
-pub const RPC_S_INVALID_OBJECT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1900i32);
-pub const RPC_S_INVALID_RPC_PROTSEQ: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1704i32);
-pub const RPC_S_INVALID_SECURITY_DESC: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1338i32);
-pub const RPC_S_INVALID_STRING_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1700i32);
-pub const RPC_S_INVALID_STRING_UUID: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1705i32);
-pub const RPC_S_INVALID_TAG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1733i32);
-pub const RPC_S_INVALID_TIMEOUT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1709i32);
-pub const RPC_S_INVALID_VERS_OPTION: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1756i32);
-pub const RPC_S_MAX_CALLS_TOO_SMALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1742i32);
-pub const RPC_S_NAME_SERVICE_UNAVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1762i32);
-pub const RPC_S_NOTHING_TO_EXPORT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1754i32);
-pub const RPC_S_NOT_ALL_OBJS_EXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1923i32);
-pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1758i32);
-pub const RPC_S_NOT_CANCELLED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1826i32);
-pub const RPC_S_NOT_ENOUGH_QUOTA: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1816i32);
-pub const RPC_S_NOT_LISTENING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1715i32);
-pub const RPC_S_NOT_RPC_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1823i32);
-pub const RPC_S_NO_BINDINGS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1718i32);
-pub const RPC_S_NO_CALL_ACTIVE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1725i32);
-pub const RPC_S_NO_CONTEXT_AVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1765i32);
-pub const RPC_S_NO_ENDPOINT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1708i32);
-pub const RPC_S_NO_ENTRY_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1735i32);
-pub const RPC_S_NO_INTERFACES: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1817i32);
-pub const RPC_S_NO_MORE_BINDINGS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1806i32);
-pub const RPC_S_NO_MORE_MEMBERS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1757i32);
-pub const RPC_S_NO_PRINC_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1822i32);
-pub const RPC_S_NO_PROTSEQS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1719i32);
-pub const RPC_S_NO_PROTSEQS_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1714i32);
-pub const RPC_S_OBJECT_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1710i32);
-pub const RPC_S_OK: windows_core::RPC_STATUS = windows_core::RPC_STATUS(0i32);
-pub const RPC_S_OUT_OF_MEMORY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(14i32);
-pub const RPC_S_OUT_OF_RESOURCES: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1721i32);
-pub const RPC_S_OUT_OF_THREADS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(164i32);
-pub const RPC_S_PRF_ELT_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1926i32);
-pub const RPC_S_PRF_ELT_NOT_REMOVED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1927i32);
-pub const RPC_S_PROCNUM_OUT_OF_RANGE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1745i32);
-pub const RPC_S_PROFILE_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1925i32);
-pub const RPC_S_PROTOCOL_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1728i32);
-pub const RPC_S_PROTSEQ_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1744i32);
-pub const RPC_S_PROTSEQ_NOT_SUPPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1703i32);
-pub const RPC_S_PROXY_ACCESS_DENIED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1729i32);
-pub const RPC_S_RUNTIME_UNINITIALIZED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1i32);
-pub const RPC_S_SEC_PKG_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1825i32);
-pub const RPC_S_SEND_INCOMPLETE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1913i32);
-pub const RPC_S_SERVER_OUT_OF_MEMORY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1130i32);
-pub const RPC_S_SERVER_TOO_BUSY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1723i32);
-pub const RPC_S_SERVER_UNAVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1722i32);
-pub const RPC_S_STRING_TOO_LONG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1743i32);
-pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1835i32);
-pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1836i32);
-pub const RPC_S_TIMEOUT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1460i32);
-pub const RPC_S_TYPE_ALREADY_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1712i32);
-pub const RPC_S_UNKNOWN_AUTHN_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1748i32);
-pub const RPC_S_UNKNOWN_AUTHN_SERVICE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1747i32);
-pub const RPC_S_UNKNOWN_AUTHN_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1741i32);
-pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1750i32);
-pub const RPC_S_UNKNOWN_IF: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1717i32);
-pub const RPC_S_UNKNOWN_MGR_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1716i32);
-pub const RPC_S_UNKNOWN_PRINCIPAL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1332i32);
-pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1821i32);
-pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1737i32);
-pub const RPC_S_UNSUPPORTED_TRANS_SYN: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1730i32);
-pub const RPC_S_UNSUPPORTED_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1732i32);
-pub const RPC_S_UUID_LOCAL_ONLY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1824i32);
-pub const RPC_S_UUID_NO_ADDRESS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1739i32);
-pub const RPC_S_WRONG_KIND_OF_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1701i32);
-pub const RPC_S_ZERO_DIVIDE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1767i32);
+pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3;
+pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4;
+pub const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2;
+pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1;
+pub const RPC_S_ACCESS_DENIED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(5);
+pub const RPC_S_ADDRESS_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1768);
+pub const RPC_S_ALREADY_LISTENING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1713);
+pub const RPC_S_ALREADY_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1711);
+pub const RPC_S_ASYNC_CALL_PENDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(997);
+pub const RPC_S_BINDING_HAS_NO_AUTH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1746);
+pub const RPC_S_BINDING_INCOMPLETE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1819);
+pub const RPC_S_BUFFER_TOO_SMALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(122);
+pub const RPC_S_CALL_CANCELLED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1818);
+pub const RPC_S_CALL_FAILED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1726);
+pub const RPC_S_CALL_FAILED_DNE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1727);
+pub const RPC_S_CALL_IN_PROGRESS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1791);
+pub const RPC_S_CANNOT_SUPPORT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1764);
+pub const RPC_S_CANT_CREATE_ENDPOINT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1720);
+pub const RPC_S_COMM_FAILURE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1820);
+pub const RPC_S_COOKIE_AUTH_FAILED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1833);
+pub const RPC_S_DO_NOT_DISTURB: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1834);
+pub const RPC_S_DUPLICATE_ENDPOINT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1740);
+pub const RPC_S_ENTRY_ALREADY_EXISTS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1760);
+pub const RPC_S_ENTRY_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1761);
+pub const RPC_S_ENTRY_TYPE_MISMATCH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1922);
+pub const RPC_S_FP_DIV_ZERO: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1769);
+pub const RPC_S_FP_OVERFLOW: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1771);
+pub const RPC_S_FP_UNDERFLOW: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1770);
+pub const RPC_S_GROUP_MEMBER_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1898);
+pub const RPC_S_GRP_ELT_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1928);
+pub const RPC_S_GRP_ELT_NOT_REMOVED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1929);
+pub const RPC_S_INCOMPLETE_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1755);
+pub const RPC_S_INTERFACE_NOT_EXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1924);
+pub const RPC_S_INTERFACE_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1759);
+pub const RPC_S_INTERNAL_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1766);
+pub const RPC_S_INVALID_ARG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(87);
+pub const RPC_S_INVALID_ASYNC_CALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1915);
+pub const RPC_S_INVALID_ASYNC_HANDLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1914);
+pub const RPC_S_INVALID_AUTH_IDENTITY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1749);
+pub const RPC_S_INVALID_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1702);
+pub const RPC_S_INVALID_BOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1734);
+pub const RPC_S_INVALID_ENDPOINT_FORMAT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1706);
+pub const RPC_S_INVALID_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(87);
+pub const RPC_S_INVALID_NAF_ID: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1763);
+pub const RPC_S_INVALID_NAME_SYNTAX: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1736);
+pub const RPC_S_INVALID_NETWORK_OPTIONS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1724);
+pub const RPC_S_INVALID_NET_ADDR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1707);
+pub const RPC_S_INVALID_OBJECT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1900);
+pub const RPC_S_INVALID_RPC_PROTSEQ: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1704);
+pub const RPC_S_INVALID_SECURITY_DESC: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1338);
+pub const RPC_S_INVALID_STRING_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1700);
+pub const RPC_S_INVALID_STRING_UUID: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1705);
+pub const RPC_S_INVALID_TAG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1733);
+pub const RPC_S_INVALID_TIMEOUT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1709);
+pub const RPC_S_INVALID_VERS_OPTION: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1756);
+pub const RPC_S_MAX_CALLS_TOO_SMALL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1742);
+pub const RPC_S_NAME_SERVICE_UNAVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1762);
+pub const RPC_S_NOTHING_TO_EXPORT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1754);
+pub const RPC_S_NOT_ALL_OBJS_EXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1923);
+pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1758);
+pub const RPC_S_NOT_CANCELLED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1826);
+pub const RPC_S_NOT_ENOUGH_QUOTA: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1816);
+pub const RPC_S_NOT_LISTENING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1715);
+pub const RPC_S_NOT_RPC_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1823);
+pub const RPC_S_NO_BINDINGS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1718);
+pub const RPC_S_NO_CALL_ACTIVE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1725);
+pub const RPC_S_NO_CONTEXT_AVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1765);
+pub const RPC_S_NO_ENDPOINT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1708);
+pub const RPC_S_NO_ENTRY_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1735);
+pub const RPC_S_NO_INTERFACES: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1817);
+pub const RPC_S_NO_MORE_BINDINGS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1806);
+pub const RPC_S_NO_MORE_MEMBERS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1757);
+pub const RPC_S_NO_PRINC_NAME: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1822);
+pub const RPC_S_NO_PROTSEQS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1719);
+pub const RPC_S_NO_PROTSEQS_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1714);
+pub const RPC_S_OBJECT_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1710);
+pub const RPC_S_OK: windows_core::RPC_STATUS = windows_core::RPC_STATUS(0);
+pub const RPC_S_OUT_OF_MEMORY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(14);
+pub const RPC_S_OUT_OF_RESOURCES: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1721);
+pub const RPC_S_OUT_OF_THREADS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(164);
+pub const RPC_S_PRF_ELT_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1926);
+pub const RPC_S_PRF_ELT_NOT_REMOVED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1927);
+pub const RPC_S_PROCNUM_OUT_OF_RANGE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1745);
+pub const RPC_S_PROFILE_NOT_ADDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1925);
+pub const RPC_S_PROTOCOL_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1728);
+pub const RPC_S_PROTSEQ_NOT_FOUND: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1744);
+pub const RPC_S_PROTSEQ_NOT_SUPPORTED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1703);
+pub const RPC_S_PROXY_ACCESS_DENIED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1729);
+pub const RPC_S_RUNTIME_UNINITIALIZED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1);
+pub const RPC_S_SEC_PKG_ERROR: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1825);
+pub const RPC_S_SEND_INCOMPLETE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1913);
+pub const RPC_S_SERVER_OUT_OF_MEMORY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1130);
+pub const RPC_S_SERVER_TOO_BUSY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1723);
+pub const RPC_S_SERVER_UNAVAILABLE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1722);
+pub const RPC_S_STRING_TOO_LONG: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1743);
+pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1835);
+pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1836);
+pub const RPC_S_TIMEOUT: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1460);
+pub const RPC_S_TYPE_ALREADY_REGISTERED: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1712);
+pub const RPC_S_UNKNOWN_AUTHN_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1748);
+pub const RPC_S_UNKNOWN_AUTHN_SERVICE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1747);
+pub const RPC_S_UNKNOWN_AUTHN_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1741);
+pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1750);
+pub const RPC_S_UNKNOWN_IF: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1717);
+pub const RPC_S_UNKNOWN_MGR_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1716);
+pub const RPC_S_UNKNOWN_PRINCIPAL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1332);
+pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1821);
+pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1737);
+pub const RPC_S_UNSUPPORTED_TRANS_SYN: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1730);
+pub const RPC_S_UNSUPPORTED_TYPE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1732);
+pub const RPC_S_UUID_LOCAL_ONLY: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1824);
+pub const RPC_S_UUID_NO_ADDRESS: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1739);
+pub const RPC_S_WRONG_KIND_OF_BINDING: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1701);
+pub const RPC_S_ZERO_DIVIDE: windows_core::RPC_STATUS = windows_core::RPC_STATUS(1767);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_TRANSFER_SYNTAX {
@@ -5704,52 +5704,52 @@ pub struct RPC_TRANSFER_SYNTAX {
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
-pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824u32;
+pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648;
+pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-pub const RpcAttemptedLbsDecisions: RpcPerfCounters = RpcPerfCounters(8i32);
-pub const RpcAttemptedLbsMessages: RpcPerfCounters = RpcPerfCounters(10i32);
-pub const RpcBackEndConnectionAttempts: RpcPerfCounters = RpcPerfCounters(2i32);
-pub const RpcBackEndConnectionFailed: RpcPerfCounters = RpcPerfCounters(3i32);
+pub const RpcAttemptedLbsDecisions: RpcPerfCounters = RpcPerfCounters(8);
+pub const RpcAttemptedLbsMessages: RpcPerfCounters = RpcPerfCounters(10);
+pub const RpcBackEndConnectionAttempts: RpcPerfCounters = RpcPerfCounters(2);
+pub const RpcBackEndConnectionFailed: RpcPerfCounters = RpcPerfCounters(3);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcCallClientLocality(pub i32);
-pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
+pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcCallType(pub i32);
-pub const RpcClientCancel: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(4i32);
-pub const RpcClientDisconnect: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(3i32);
-pub const RpcCurrentUniqueUser: RpcPerfCounters = RpcPerfCounters(1i32);
-pub const RpcFailedLbsDecisions: RpcPerfCounters = RpcPerfCounters(9i32);
-pub const RpcFailedLbsMessages: RpcPerfCounters = RpcPerfCounters(11i32);
-pub const RpcIncomingBandwidth: RpcPerfCounters = RpcPerfCounters(6i32);
-pub const RpcIncomingConnections: RpcPerfCounters = RpcPerfCounters(5i32);
-pub const RpcLastCounter: RpcPerfCounters = RpcPerfCounters(12i32);
+pub const RpcClientCancel: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(4);
+pub const RpcClientDisconnect: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(3);
+pub const RpcCurrentUniqueUser: RpcPerfCounters = RpcPerfCounters(1);
+pub const RpcFailedLbsDecisions: RpcPerfCounters = RpcPerfCounters(9);
+pub const RpcFailedLbsMessages: RpcPerfCounters = RpcPerfCounters(11);
+pub const RpcIncomingBandwidth: RpcPerfCounters = RpcPerfCounters(6);
+pub const RpcIncomingConnections: RpcPerfCounters = RpcPerfCounters(5);
+pub const RpcLastCounter: RpcPerfCounters = RpcPerfCounters(12);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcLocalAddressFormat(pub i32);
-pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(2i32);
-pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
-pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(1i32);
-pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(2i32);
-pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5i32);
-pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(1i32);
-pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4i32);
-pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3i32);
-pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
-pub const RpcOutgoingBandwidth: RpcPerfCounters = RpcPerfCounters(7i32);
+pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(2);
+pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0);
+pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(1);
+pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(2);
+pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5);
+pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(1);
+pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4);
+pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3);
+pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0);
+pub const RpcOutgoingBandwidth: RpcPerfCounters = RpcPerfCounters(7);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RpcPerfCounters(pub i32);
-pub const RpcReceiveComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(2i32);
-pub const RpcRequestsPerSecond: RpcPerfCounters = RpcPerfCounters(4i32);
-pub const RpcSendComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(1i32);
+pub const RpcReceiveComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(2);
+pub const RpcRequestsPerSecond: RpcPerfCounters = RpcPerfCounters(4);
+pub const RpcSendComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCONTEXT_QUEUE {
@@ -5780,8 +5780,8 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_A {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
-pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(2u32);
+pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1);
+pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(2);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
@@ -5799,47 +5799,47 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_W {
     }
 }
 pub type SERVER_ROUTINE = Option<unsafe extern "system" fn() -> i32>;
-pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1i32);
-pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3i32);
-pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2i32);
+pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1);
+pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3);
+pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STUB_PHASE(pub i32);
 #[cfg(feature = "Win32_System_Com")]
 pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
-pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
-pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = system_handle_t(9i32);
-pub const SYSTEM_HANDLE_EVENT: system_handle_t = system_handle_t(2i32);
-pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0i32);
-pub const SYSTEM_HANDLE_INVALID: system_handle_t = system_handle_t(255i32);
-pub const SYSTEM_HANDLE_JOB: system_handle_t = system_handle_t(11i32);
-pub const SYSTEM_HANDLE_MAX: system_handle_t = system_handle_t(12i32);
-pub const SYSTEM_HANDLE_MUTEX: system_handle_t = system_handle_t(3i32);
-pub const SYSTEM_HANDLE_PIPE: system_handle_t = system_handle_t(12i32);
-pub const SYSTEM_HANDLE_PROCESS: system_handle_t = system_handle_t(4i32);
-pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = system_handle_t(7i32);
-pub const SYSTEM_HANDLE_SECTION: system_handle_t = system_handle_t(6i32);
-pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = system_handle_t(1i32);
-pub const SYSTEM_HANDLE_SOCKET: system_handle_t = system_handle_t(10i32);
-pub const SYSTEM_HANDLE_THREAD: system_handle_t = system_handle_t(8i32);
-pub const SYSTEM_HANDLE_TOKEN: system_handle_t = system_handle_t(5i32);
-pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT1012_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT102_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT50_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT51_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT60_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT61_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT62_OR_LATER: u32 = 1u32;
-pub const TARGET_IS_NT63_OR_LATER: u32 = 1u32;
-pub const TRANSPORT_TYPE_CN: u32 = 1u32;
-pub const TRANSPORT_TYPE_DG: u32 = 2u32;
-pub const TRANSPORT_TYPE_LPC: u32 = 4u32;
-pub const TRANSPORT_TYPE_WMSG: u32 = 8u32;
-pub const USER_CALL_IS_ASYNC: u32 = 256u32;
-pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512u32;
+pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0);
+pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = system_handle_t(9);
+pub const SYSTEM_HANDLE_EVENT: system_handle_t = system_handle_t(2);
+pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0);
+pub const SYSTEM_HANDLE_INVALID: system_handle_t = system_handle_t(255);
+pub const SYSTEM_HANDLE_JOB: system_handle_t = system_handle_t(11);
+pub const SYSTEM_HANDLE_MAX: system_handle_t = system_handle_t(12);
+pub const SYSTEM_HANDLE_MUTEX: system_handle_t = system_handle_t(3);
+pub const SYSTEM_HANDLE_PIPE: system_handle_t = system_handle_t(12);
+pub const SYSTEM_HANDLE_PROCESS: system_handle_t = system_handle_t(4);
+pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = system_handle_t(7);
+pub const SYSTEM_HANDLE_SECTION: system_handle_t = system_handle_t(6);
+pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = system_handle_t(1);
+pub const SYSTEM_HANDLE_SOCKET: system_handle_t = system_handle_t(10);
+pub const SYSTEM_HANDLE_THREAD: system_handle_t = system_handle_t(8);
+pub const SYSTEM_HANDLE_TOKEN: system_handle_t = system_handle_t(5);
+pub const TARGET_IS_NT100_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT1012_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT102_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT40_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT50_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT51_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT60_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT61_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT62_OR_LATER: u32 = 1;
+pub const TARGET_IS_NT63_OR_LATER: u32 = 1;
+pub const TRANSPORT_TYPE_CN: u32 = 1;
+pub const TRANSPORT_TYPE_DG: u32 = 2;
+pub const TRANSPORT_TYPE_LPC: u32 = 4;
+pub const TRANSPORT_TYPE_WMSG: u32 = 8;
+pub const USER_CALL_IS_ASYNC: u32 = 256;
+pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5858,25 +5858,25 @@ impl Default for USER_MARSHAL_CB {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0i32);
-pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(3i32);
-pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(1i32);
+pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0);
+pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(3);
+pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MARSHAL_CB_TYPE(pub i32);
-pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(2i32);
-pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
-pub const USER_MARSHAL_FC_CHAR: u32 = 2u32;
-pub const USER_MARSHAL_FC_DOUBLE: u32 = 12u32;
-pub const USER_MARSHAL_FC_FLOAT: u32 = 10u32;
-pub const USER_MARSHAL_FC_HYPER: u32 = 11u32;
-pub const USER_MARSHAL_FC_LONG: u32 = 8u32;
-pub const USER_MARSHAL_FC_SHORT: u32 = 6u32;
-pub const USER_MARSHAL_FC_SMALL: u32 = 3u32;
-pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
-pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
-pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
-pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
+pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(2);
+pub const USER_MARSHAL_FC_BYTE: u32 = 1;
+pub const USER_MARSHAL_FC_CHAR: u32 = 2;
+pub const USER_MARSHAL_FC_DOUBLE: u32 = 12;
+pub const USER_MARSHAL_FC_FLOAT: u32 = 10;
+pub const USER_MARSHAL_FC_HYPER: u32 = 11;
+pub const USER_MARSHAL_FC_LONG: u32 = 8;
+pub const USER_MARSHAL_FC_SHORT: u32 = 6;
+pub const USER_MARSHAL_FC_SMALL: u32 = 3;
+pub const USER_MARSHAL_FC_ULONG: u32 = 9;
+pub const USER_MARSHAL_FC_USHORT: u32 = 7;
+pub const USER_MARSHAL_FC_USMALL: u32 = 4;
+pub const USER_MARSHAL_FC_WCHAR: u32 = 5;
 pub type USER_MARSHAL_FREEING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[repr(C)]
@@ -5900,8 +5900,8 @@ impl Default for UUID_VECTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2i32);
-pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
+pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2);
+pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XLAT_SIDE(pub i32);
@@ -5919,26 +5919,26 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct _NDR_PROC_CONTEXT(pub isize);
-pub const __RPCPROXY_H_VERSION__: u32 = 477u32;
-pub const cbNDRContext: u32 = 20u32;
-pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
-pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7i32);
-pub const eeptLongVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(3i32);
-pub const eeptNone: ExtendedErrorParamTypes = ExtendedErrorParamTypes(6i32);
-pub const eeptPointerVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(5i32);
-pub const eeptShortVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(4i32);
-pub const eeptUnicodeString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(2i32);
-pub const rcclClientUnknownLocality: RpcCallClientLocality = RpcCallClientLocality(3i32);
-pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
-pub const rcclLocal: RpcCallClientLocality = RpcCallClientLocality(1i32);
-pub const rcclRemote: RpcCallClientLocality = RpcCallClientLocality(2i32);
-pub const rctGuaranteed: RpcCallType = RpcCallType(3i32);
-pub const rctInvalid: RpcCallType = RpcCallType(0i32);
-pub const rctNormal: RpcCallType = RpcCallType(1i32);
-pub const rctTraining: RpcCallType = RpcCallType(2i32);
-pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1i32);
-pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2i32);
-pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
+pub const __RPCPROXY_H_VERSION__: u32 = 477;
+pub const cbNDRContext: u32 = 20;
+pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1);
+pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7);
+pub const eeptLongVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(3);
+pub const eeptNone: ExtendedErrorParamTypes = ExtendedErrorParamTypes(6);
+pub const eeptPointerVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(5);
+pub const eeptShortVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(4);
+pub const eeptUnicodeString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(2);
+pub const rcclClientUnknownLocality: RpcCallClientLocality = RpcCallClientLocality(3);
+pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0);
+pub const rcclLocal: RpcCallClientLocality = RpcCallClientLocality(1);
+pub const rcclRemote: RpcCallClientLocality = RpcCallClientLocality(2);
+pub const rctGuaranteed: RpcCallType = RpcCallType(3);
+pub const rctInvalid: RpcCallType = RpcCallType(0);
+pub const rctNormal: RpcCallType = RpcCallType(1);
+pub const rctTraining: RpcCallType = RpcCallType(2);
+pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1);
+pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2);
+pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct system_handle_t(pub i32);

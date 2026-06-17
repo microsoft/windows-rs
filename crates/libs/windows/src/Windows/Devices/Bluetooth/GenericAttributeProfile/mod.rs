@@ -202,17 +202,17 @@ unsafe impl Sync for GattCharacteristic {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
-    pub const None: Self = Self(0u32);
-    pub const Broadcast: Self = Self(1u32);
-    pub const Read: Self = Self(2u32);
-    pub const WriteWithoutResponse: Self = Self(4u32);
-    pub const Write: Self = Self(8u32);
-    pub const Notify: Self = Self(16u32);
-    pub const Indicate: Self = Self(32u32);
-    pub const AuthenticatedSignedWrites: Self = Self(64u32);
-    pub const ExtendedProperties: Self = Self(128u32);
-    pub const ReliableWrites: Self = Self(256u32);
-    pub const WritableAuxiliaries: Self = Self(512u32);
+    pub const None: Self = Self(0);
+    pub const Broadcast: Self = Self(1);
+    pub const Read: Self = Self(2);
+    pub const WriteWithoutResponse: Self = Self(4);
+    pub const Write: Self = Self(8);
+    pub const Notify: Self = Self(16);
+    pub const Indicate: Self = Self(32);
+    pub const AuthenticatedSignedWrites: Self = Self(64);
+    pub const ExtendedProperties: Self = Self(128);
+    pub const ReliableWrites: Self = Self(256);
+    pub const WritableAuxiliaries: Self = Self(512);
 }
 impl windows_core::TypeKind for GattCharacteristicProperties {
     type TypeKind = windows_core::CopyType;
@@ -794,9 +794,9 @@ unsafe impl Sync for GattCharacteristicsResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
-    pub const None: Self = Self(0i32);
-    pub const Notify: Self = Self(1i32);
-    pub const Indicate: Self = Self(2i32);
+    pub const None: Self = Self(0);
+    pub const Notify: Self = Self(1);
+    pub const Indicate: Self = Self(2);
 }
 impl windows_core::TypeKind for GattClientCharacteristicConfigurationDescriptorValue {
     type TypeKind = windows_core::CopyType;
@@ -852,10 +852,10 @@ unsafe impl Sync for GattClientNotificationResult {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Unreachable: Self = Self(1i32);
-    pub const ProtocolError: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
+    pub const Success: Self = Self(0);
+    pub const Unreachable: Self = Self(1);
+    pub const ProtocolError: Self = Self(2);
+    pub const AccessDenied: Self = Self(3);
 }
 impl windows_core::TypeKind for GattCommunicationStatus {
     type TypeKind = windows_core::CopyType;
@@ -1759,12 +1759,12 @@ unsafe impl Sync for GattLocalService {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const AlreadyOpened: Self = Self(2i32);
-    pub const NotFound: Self = Self(3i32);
-    pub const SharingViolation: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Success: Self = Self(1);
+    pub const AlreadyOpened: Self = Self(2);
+    pub const NotFound: Self = Self(3);
+    pub const SharingViolation: Self = Self(4);
+    pub const AccessDenied: Self = Self(5);
 }
 impl windows_core::TypeKind for GattOpenStatus {
     type TypeKind = windows_core::CopyType;
@@ -2017,10 +2017,10 @@ impl windows_core::RuntimeName for GattPresentationFormatTypes {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
-    pub const Plain: Self = Self(0i32);
-    pub const AuthenticationRequired: Self = Self(1i32);
-    pub const EncryptionRequired: Self = Self(2i32);
-    pub const EncryptionAndAuthenticationRequired: Self = Self(3i32);
+    pub const Plain: Self = Self(0);
+    pub const AuthenticationRequired: Self = Self(1);
+    pub const EncryptionRequired: Self = Self(2);
+    pub const EncryptionAndAuthenticationRequired: Self = Self(3);
 }
 impl windows_core::TypeKind for GattProtectionLevel {
     type TypeKind = windows_core::CopyType;
@@ -2360,9 +2360,9 @@ unsafe impl Sync for GattReliableWriteTransaction {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
-    pub const Pending: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
+    pub const Pending: Self = Self(0);
+    pub const Completed: Self = Self(1);
+    pub const Canceled: Self = Self(2);
 }
 impl windows_core::TypeKind for GattRequestState {
     type TypeKind = windows_core::CopyType;
@@ -2476,11 +2476,11 @@ unsafe impl Sync for GattServiceProvider {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Stopped: Self = Self(1i32);
-    pub const Started: Self = Self(2i32);
-    pub const Aborted: Self = Self(3i32);
-    pub const StartedWithoutAllAdvertisementData: Self = Self(4i32);
+    pub const Created: Self = Self(0);
+    pub const Stopped: Self = Self(1);
+    pub const Started: Self = Self(2);
+    pub const Aborted: Self = Self(3);
+    pub const StartedWithoutAllAdvertisementData: Self = Self(4);
 }
 impl windows_core::TypeKind for GattServiceProviderAdvertisementStatus {
     type TypeKind = windows_core::CopyType;
@@ -2873,8 +2873,8 @@ unsafe impl Sync for GattSession {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Active: Self = Self(1i32);
+    pub const Closed: Self = Self(0);
+    pub const Active: Self = Self(1);
 }
 impl windows_core::TypeKind for GattSessionStatus {
     type TypeKind = windows_core::CopyType;
@@ -2917,10 +2917,10 @@ unsafe impl Sync for GattSessionStatusChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Exclusive: Self = Self(1i32);
-    pub const SharedReadOnly: Self = Self(2i32);
-    pub const SharedReadAndWrite: Self = Self(3i32);
+    pub const Unspecified: Self = Self(0);
+    pub const Exclusive: Self = Self(1);
+    pub const SharedReadOnly: Self = Self(2);
+    pub const SharedReadAndWrite: Self = Self(3);
 }
 impl windows_core::TypeKind for GattSharingMode {
     type TypeKind = windows_core::CopyType;
@@ -3006,8 +3006,8 @@ unsafe impl Sync for GattValueChangedEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
-    pub const WriteWithResponse: Self = Self(0i32);
-    pub const WriteWithoutResponse: Self = Self(1i32);
+    pub const WriteWithResponse: Self = Self(0);
+    pub const WriteWithoutResponse: Self = Self(1);
 }
 impl windows_core::TypeKind for GattWriteOption {
     type TypeKind = windows_core::CopyType;

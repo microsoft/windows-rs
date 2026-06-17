@@ -33,5 +33,5 @@ pub unsafe fn ZwUnmapViewOfSection(processhandle: super::super::super::Win32::Fo
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECTION_INHERIT(pub i32);
-pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
-pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
+pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1);
+pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2);

@@ -1,5 +1,6 @@
-use windows_reactor::core::element::{
-    Button, Color, Element, Modifiers, StackPanel, TextBlock, Thickness, can_skip_update,
+use windows_reactor::{
+    Button, Color, Element, Modifiers, Orientation, StackPanel, TextBlock, Thickness,
+    can_skip_update,
 };
 
 #[test]
@@ -19,12 +20,12 @@ fn content_difference_prevents_skip() {
 #[test]
 fn font_size_difference_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_size: Some(14.0),
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         font_size: Some(20.0),
         ..TextBlock::default()
     });
@@ -34,7 +35,7 @@ fn font_size_difference_prevents_skip() {
 #[test]
 fn modifier_difference_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(5.0)),
             ..Modifiers::default()
@@ -42,7 +43,7 @@ fn modifier_difference_prevents_skip() {
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             margin: Some(Thickness::uniform(10.0)),
             ..Modifiers::default()
@@ -62,7 +63,7 @@ fn variant_kind_mismatch_prevents_skip() {
 #[test]
 fn stack_with_matching_children_skips() {
     let a = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![
             Element::TextBlock(TextBlock::new("a")),
             Element::TextBlock(TextBlock::new("b")),
@@ -76,12 +77,12 @@ fn stack_with_matching_children_skips() {
 #[test]
 fn stack_with_different_child_does_not_skip() {
     let a = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::TextBlock(TextBlock::new("a"))],
         ..StackPanel::default()
     });
     let b = Element::StackPanel(StackPanel {
-        vertical: true,
+        orientation: Orientation::Vertical,
         children: vec![Element::TextBlock(TextBlock::new("B"))],
         ..StackPanel::default()
     });
@@ -90,15 +91,15 @@ fn stack_with_different_child_does_not_skip() {
 
 #[test]
 fn button_with_same_click_handler_skips() {
-    let cb = windows_reactor::core::callback::Callback::<()>::new(|()| {});
+    let cb = windows_reactor::Callback::<()>::new(|()| {});
     let a = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(cb.clone()),
         ..Button::default()
     });
     let b = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
         on_click: Some(cb),
         ..Button::default()
@@ -109,19 +110,15 @@ fn button_with_same_click_handler_skips() {
 #[test]
 fn button_with_independently_constructed_handlers_does_not_skip() {
     let a = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
-        on_click: Some(windows_reactor::core::callback::Callback::<()>::new(
-            |()| {},
-        )),
+        on_click: Some(windows_reactor::Callback::<()>::new(|()| {})),
         ..Button::default()
     });
     let b = Element::Button(Button {
-        label: "go".into(),
+        content: "go".into(),
         is_enabled: true,
-        on_click: Some(windows_reactor::core::callback::Callback::<()>::new(
-            |()| {},
-        )),
+        on_click: Some(windows_reactor::Callback::<()>::new(|()| {})),
         ..Button::default()
     });
     assert!(!can_skip_update(&a, &b));
@@ -144,17 +141,17 @@ fn text_attached_difference_prevents_skip() {
 #[test]
 fn foreground_brush_change_prevents_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
-            foreground: Some(Color::rgb(255, 0, 0).into()),
+            foreground: Some(Color::rgb(255, 0, 0)),
             ..Modifiers::default()
         },
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
-            foreground: Some(Color::rgb(0, 0, 255).into()),
+            foreground: Some(Color::rgb(0, 0, 255)),
             ..Modifiers::default()
         },
         ..TextBlock::default()
@@ -164,14 +161,14 @@ fn foreground_brush_change_prevents_skip() {
 
 #[test]
 fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
-    use windows_reactor::core::backend::Prop;
-    use windows_reactor::core::theme::ThemeRef;
+    use windows_reactor::Prop;
+    use windows_reactor::ThemeRef;
 
     let mut bindings = rustc_hash::FxHashMap::default();
     bindings.insert(Prop::Background, ThemeRef::Accent);
 
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::new(bindings.clone())),
             ..Modifiers::default()
@@ -179,7 +176,7 @@ fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
         ..TextBlock::default()
     });
     let b = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::new(bindings)),
             ..Modifiers::default()
@@ -198,7 +195,7 @@ fn theme_bindings_present_prevents_skip_even_when_otherwise_equal() {
 #[test]
 fn empty_theme_bindings_map_still_allows_skip() {
     let a = Element::TextBlock(TextBlock {
-        content: "x".into(),
+        text: "x".into(),
         modifiers: Modifiers {
             theme_bindings: Some(Box::default()),
             ..Modifiers::default()

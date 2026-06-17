@@ -20,9 +20,9 @@ impl Default for COMEVENTSYSCHANGEINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EOC_ChangeType(pub i32);
-pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
-pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
-pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
+pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2);
+pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1);
+pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0);
 pub const EventObjectChange: windows_core::GUID = windows_core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: windows_core::GUID = windows_core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
 windows_core::imp::define_interface!(IDontSupportEventSubscription, IDontSupportEventSubscription_Vtbl, 0x784121f1_62a6_4b89_855f_d65f296de83a);

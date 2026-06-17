@@ -67,8 +67,8 @@ unsafe impl Sync for Buffer {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
-    pub const LittleEndian: Self = Self(0i32);
-    pub const BigEndian: Self = Self(1i32);
+    pub const LittleEndian: Self = Self(0);
+    pub const BigEndian: Self = Self(1);
 }
 impl windows_core::TypeKind for ByteOrder {
     type TypeKind = windows_core::CopyType;
@@ -465,11 +465,11 @@ unsafe impl Sync for FileInputStream {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
-    pub const OpenExisting: Self = Self(0i32);
-    pub const OpenAlways: Self = Self(1i32);
-    pub const CreateNew: Self = Self(2i32);
-    pub const CreateAlways: Self = Self(3i32);
-    pub const TruncateExisting: Self = Self(4i32);
+    pub const OpenExisting: Self = Self(0);
+    pub const OpenAlways: Self = Self(1);
+    pub const CreateNew: Self = Self(2);
+    pub const CreateAlways: Self = Self(3);
+    pub const TruncateExisting: Self = Self(4);
 }
 impl windows_core::TypeKind for FileOpenDisposition {
     type TypeKind = windows_core::CopyType;
@@ -2688,9 +2688,9 @@ unsafe impl Sync for InMemoryRandomAccessStream {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
-    pub const None: Self = Self(0u32);
-    pub const Partial: Self = Self(1u32);
-    pub const ReadAhead: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Partial: Self = Self(1);
+    pub const ReadAhead: Self = Self(2);
 }
 impl windows_core::TypeKind for InputStreamOptions {
     type TypeKind = windows_core::CopyType;
@@ -2999,9 +2999,9 @@ unsafe impl Sync for RandomAccessStreamReference {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
-    pub const Utf8: Self = Self(0i32);
-    pub const Utf16LE: Self = Self(1i32);
-    pub const Utf16BE: Self = Self(2i32);
+    pub const Utf8: Self = Self(0);
+    pub const Utf16LE: Self = Self(1);
+    pub const Utf16BE: Self = Self(2);
 }
 impl windows_core::TypeKind for UnicodeEncoding {
     type TypeKind = windows_core::CopyType;

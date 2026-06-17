@@ -62,9 +62,9 @@ unsafe impl Sync for AcceleratorKeyEventArgs {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
-    pub const Visible: Self = Self(0i32);
-    pub const Collapsed: Self = Self(1i32);
-    pub const Disabled: Self = Self(2i32);
+    pub const Visible: Self = Self(0);
+    pub const Collapsed: Self = Self(1);
+    pub const Disabled: Self = Self(2);
 }
 impl windows_core::TypeKind for AppViewBackButtonVisibility {
     type TypeKind = windows_core::CopyType;
@@ -221,15 +221,15 @@ impl windows_core::RuntimeName for ClosestInteractiveBoundsRequestedEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
-    pub const Character: Self = Self(2i32);
-    pub const DeadCharacter: Self = Self(3i32);
-    pub const KeyDown: Self = Self(0i32);
-    pub const KeyUp: Self = Self(1i32);
-    pub const SystemCharacter: Self = Self(6i32);
-    pub const SystemDeadCharacter: Self = Self(7i32);
-    pub const SystemKeyDown: Self = Self(4i32);
-    pub const SystemKeyUp: Self = Self(5i32);
-    pub const UnicodeCharacter: Self = Self(8i32);
+    pub const Character: Self = Self(2);
+    pub const DeadCharacter: Self = Self(3);
+    pub const KeyDown: Self = Self(0);
+    pub const KeyUp: Self = Self(1);
+    pub const SystemCharacter: Self = Self(6);
+    pub const SystemDeadCharacter: Self = Self(7);
+    pub const SystemKeyDown: Self = Self(4);
+    pub const SystemKeyUp: Self = Self(5);
+    pub const UnicodeCharacter: Self = Self(8);
 }
 impl windows_core::TypeKind for CoreAcceleratorKeyEventType {
     type TypeKind = windows_core::CopyType;
@@ -620,22 +620,22 @@ unsafe impl Sync for CoreCursor {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
-    pub const Arrow: Self = Self(0i32);
-    pub const Cross: Self = Self(1i32);
-    pub const Custom: Self = Self(2i32);
-    pub const Hand: Self = Self(3i32);
-    pub const Help: Self = Self(4i32);
-    pub const IBeam: Self = Self(5i32);
-    pub const SizeAll: Self = Self(6i32);
-    pub const SizeNortheastSouthwest: Self = Self(7i32);
-    pub const SizeNorthSouth: Self = Self(8i32);
-    pub const SizeNorthwestSoutheast: Self = Self(9i32);
-    pub const SizeWestEast: Self = Self(10i32);
-    pub const UniversalNo: Self = Self(11i32);
-    pub const UpArrow: Self = Self(12i32);
-    pub const Wait: Self = Self(13i32);
-    pub const Pin: Self = Self(14i32);
-    pub const Person: Self = Self(15i32);
+    pub const Arrow: Self = Self(0);
+    pub const Cross: Self = Self(1);
+    pub const Custom: Self = Self(2);
+    pub const Hand: Self = Self(3);
+    pub const Help: Self = Self(4);
+    pub const IBeam: Self = Self(5);
+    pub const SizeAll: Self = Self(6);
+    pub const SizeNortheastSouthwest: Self = Self(7);
+    pub const SizeNorthSouth: Self = Self(8);
+    pub const SizeNorthwestSoutheast: Self = Self(9);
+    pub const SizeWestEast: Self = Self(10);
+    pub const UniversalNo: Self = Self(11);
+    pub const UpArrow: Self = Self(12);
+    pub const Wait: Self = Self(13);
+    pub const Pin: Self = Self(14);
+    pub const Person: Self = Self(15);
 }
 impl windows_core::TypeKind for CoreCursorType {
     type TypeKind = windows_core::CopyType;
@@ -757,10 +757,10 @@ unsafe impl Sync for CoreDispatcher {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
-    pub const Idle: Self = Self(-2i32);
-    pub const Low: Self = Self(-1i32);
-    pub const Normal: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
+    pub const Idle: Self = Self(-2);
+    pub const Low: Self = Self(-1);
+    pub const Normal: Self = Self(0);
+    pub const High: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreDispatcherPriority {
     type TypeKind = windows_core::CopyType;
@@ -773,12 +773,12 @@ impl windows_core::RuntimeType for CoreDispatcherPriority {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
-    pub const None: Self = Self(0u32);
-    pub const MouseButton: Self = Self(1u32);
-    pub const MouseWheel: Self = Self(2u32);
-    pub const MouseHover: Self = Self(4u32);
-    pub const PenWithBarrel: Self = Self(8u32);
-    pub const PenInverted: Self = Self(16u32);
+    pub const None: Self = Self(0);
+    pub const MouseButton: Self = Self(1);
+    pub const MouseWheel: Self = Self(2);
+    pub const MouseHover: Self = Self(4);
+    pub const PenWithBarrel: Self = Self(8);
+    pub const PenInverted: Self = Self(16);
 }
 impl windows_core::TypeKind for CoreIndependentInputFilters {
     type TypeKind = windows_core::CopyType;
@@ -1131,10 +1131,10 @@ unsafe impl Sync for CoreIndependentInputSourceController {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
-    pub const None: Self = Self(0u32);
-    pub const Touch: Self = Self(1u32);
-    pub const Pen: Self = Self(2u32);
-    pub const Mouse: Self = Self(4u32);
+    pub const None: Self = Self(0);
+    pub const Touch: Self = Self(1);
+    pub const Pen: Self = Self(2);
+    pub const Mouse: Self = Self(4);
 }
 impl windows_core::TypeKind for CoreInputDeviceTypes {
     type TypeKind = windows_core::CopyType;
@@ -1197,10 +1197,10 @@ impl windows_core::RuntimeType for CorePhysicalKeyStatus {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
-    pub const ProcessOneAndAllPending: Self = Self(0i32);
-    pub const ProcessOneIfPresent: Self = Self(1i32);
-    pub const ProcessUntilQuit: Self = Self(2i32);
-    pub const ProcessAllIfPresent: Self = Self(3i32);
+    pub const ProcessOneAndAllPending: Self = Self(0);
+    pub const ProcessOneIfPresent: Self = Self(1);
+    pub const ProcessUntilQuit: Self = Self(2);
+    pub const ProcessAllIfPresent: Self = Self(3);
 }
 impl windows_core::TypeKind for CoreProcessEventsOption {
     type TypeKind = windows_core::CopyType;
@@ -1226,8 +1226,8 @@ impl windows_core::RuntimeType for CoreProximityEvaluation {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
-    pub const Closest: Self = Self(0i32);
-    pub const Farthest: Self = Self(2147483647i32);
+    pub const Closest: Self = Self(0);
+    pub const Farthest: Self = Self(2147483647);
 }
 impl windows_core::TypeKind for CoreProximityEvaluationScore {
     type TypeKind = windows_core::CopyType;
@@ -1240,9 +1240,9 @@ impl windows_core::RuntimeType for CoreProximityEvaluationScore {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
-    pub const None: Self = Self(0u32);
-    pub const Down: Self = Self(1u32);
-    pub const Locked: Self = Self(2u32);
+    pub const None: Self = Self(0);
+    pub const Down: Self = Self(1);
+    pub const Locked: Self = Self(2);
 }
 impl windows_core::TypeKind for CoreVirtualKeyStates {
     type TypeKind = windows_core::CopyType;
@@ -1729,10 +1729,10 @@ impl windows_core::RuntimeName for CoreWindow {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
-    pub const None: Self = Self(0i32);
-    pub const Deactivated: Self = Self(1i32);
-    pub const ActivatedNotForeground: Self = Self(2i32);
-    pub const ActivatedInForeground: Self = Self(3i32);
+    pub const None: Self = Self(0);
+    pub const Deactivated: Self = Self(1);
+    pub const ActivatedNotForeground: Self = Self(2);
+    pub const ActivatedInForeground: Self = Self(3);
 }
 impl windows_core::TypeKind for CoreWindowActivationMode {
     type TypeKind = windows_core::CopyType;
@@ -1745,9 +1745,9 @@ impl windows_core::RuntimeType for CoreWindowActivationMode {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
-    pub const CodeActivated: Self = Self(0i32);
-    pub const Deactivated: Self = Self(1i32);
-    pub const PointerActivated: Self = Self(2i32);
+    pub const CodeActivated: Self = Self(0);
+    pub const Deactivated: Self = Self(1);
+    pub const PointerActivated: Self = Self(2);
 }
 impl windows_core::TypeKind for CoreWindowActivationState {
     type TypeKind = windows_core::CopyType;
@@ -1906,8 +1906,8 @@ impl windows_core::RuntimeName for CoreWindowEventArgs {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
-    pub const LeftToRight: Self = Self(0i32);
-    pub const RightToLeft: Self = Self(1i32);
+    pub const LeftToRight: Self = Self(0);
+    pub const RightToLeft: Self = Self(1);
 }
 impl windows_core::TypeKind for CoreWindowFlowDirection {
     type TypeKind = windows_core::CopyType;
@@ -2095,7 +2095,7 @@ impl windows_core::RuntimeType for DispatchedHandler {
 impl DispatchedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<DispatchedHandler, F>::new(&DispatchedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
@@ -4720,7 +4720,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
 impl IdleDispatchedHandler {
     pub fn new<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = windows_core::imp::DelegateBox::<IdleDispatchedHandler, F>::new(&IdleDispatchedHandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, e: P0) -> windows_core::Result<()>
     where

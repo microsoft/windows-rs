@@ -1,4 +1,4 @@
-use windows_reactor::core::element::{
+use windows_reactor::{
     Button, Canvas, ComboBox, Element, Modifiers, PasswordBox, PasswordRevealMode, PersonPicture,
     RadioButtons, StackPanel, TextBlock, Thickness,
 };
@@ -67,8 +67,8 @@ fn kind_name_distinguishes_all_variants() {
 #[test]
 fn person_picture_default_has_no_text() {
     let p = PersonPicture::new();
-    assert!(p.display_name.is_none());
-    assert!(p.initials.is_none());
+    assert!(p.display_name.is_empty());
+    assert!(p.initials.is_empty());
 }
 
 #[test]
@@ -76,14 +76,14 @@ fn person_picture_builder_sets_fields() {
     let p = PersonPicture::new()
         .display_name("Ada Lovelace")
         .initials("AL");
-    assert_eq!(p.display_name.as_deref(), Some("Ada Lovelace"));
-    assert_eq!(p.initials.as_deref(), Some("AL"));
+    assert_eq!(p.display_name, "Ada Lovelace");
+    assert_eq!(p.initials, "AL");
 }
 
 #[test]
 fn password_box_default_uses_peek_reveal_mode() {
     let p = PasswordBox::new();
-    assert_eq!(p.reveal_mode, PasswordRevealMode::Peek);
+    assert_eq!(p.password_reveal_mode, PasswordRevealMode::Peek);
     assert!(p.is_enabled);
 }
 

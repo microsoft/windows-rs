@@ -43,11 +43,7 @@ pub fn info_badge_page(_: &(), cx: &mut RenderCx) -> Element {
             ),
             sample_card(
                 "Dot InfoBadge",
-                hstack((
-                    button("Notifications").icon(SymbolGlyph::Mail),
-                    InfoBadge::dot(),
-                ))
-                .spacing(8.0),
+                hstack((button("Notifications").icon(Symbol::Mail), InfoBadge::dot())).spacing(8.0),
                 r#"InfoBadge::dot() // compact presence indicator"#,
             ),
         ],

@@ -37,6 +37,7 @@ impl Delegate {
             InterfaceKind::Default,
             &mut MethodNames::for_style(&config.bindgen.style),
             &mut MethodNames::for_style(&config.bindgen.style),
+            true,
         );
 
         // In minimal mode, delegates are invoked by the API, not by user code.
@@ -115,11 +116,16 @@ impl Delegate {
         let new_method = if is_event_only {
             quote! {}
         } else {
+            let vis = if config.bindgen.style.is_minimal() {
+                quote! { pub(crate) }
+            } else {
+                quote! { pub }
+            };
             quote! {
-                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                #vis fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
                     unsafe {
-                        core::mem::transmute(windows_core::imp::Box::new(com))
+                        core::mem::transmute(windows_core::imp::box_new(com))
                     }
                 }
             }
@@ -143,12 +149,18 @@ impl Delegate {
             }
         };
 
+        let hide_vtbl = if config.bindgen.style.is_minimal() {
+            quote! {}
+        } else {
+            quote! { #[doc(hidden)] }
+        };
+
         quote! {
             #definition
             #impl_block
             #cfg
             #[repr(C)]
-            #[doc(hidden)]
+            #hide_vtbl
             pub struct #vtbl_name<#generic_names> where #constraints {
                 base__: windows_core::IUnknown_Vtbl,
                 Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_core::HRESULT,
