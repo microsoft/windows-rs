@@ -113,6 +113,7 @@ pub enum Prop {
     AlignRightWithPanel,
     AlignTopWithPanel,
     AlignVCenterWithPanel,
+    AllowDrop,
     AttachedCanvasLeft,
     AttachedCanvasTop,
     AttachedCanvasZIndex,
@@ -517,6 +518,10 @@ pub trait Backend {
     /// Attach (or clear) per-element pointer / tap callbacks for `id`.
     /// `None` removes any prior handlers; `Some(_)` replaces them.
     fn set_pointer_handlers(&mut self, _id: ControlId, _handlers: Option<&PointerHandlers>) {}
+
+    /// Attach (or clear) per-element drag callbacks for `id`.
+    /// `None` removes any prior handlers; `Some(_)` replaces them.
+    fn set_drag_handlers(&mut self, _id: ControlId, _handlers: Option<&DragHandlers>) {}
 
     /// Retrieve the underlying platform element as an `IInspectable` for interop.
     /// Returns `None` on non-WinUI backends or if `id` is invalid.

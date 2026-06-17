@@ -34,6 +34,12 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                 .entry(iface.to_string())
                 .or_default()
                 .extend(methods);
+        } else if let Some((iface, method)) = line.rsplit_once("::") {
+            // Single method without braces: `Iface::Method`
+            base_iface_methods
+                .entry(iface.to_string())
+                .or_default()
+                .insert(method.to_string());
         }
     }
 
@@ -93,8 +99,12 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
     // Build sorted output
     let mut lines: Vec<String> = Vec::new();
     for (iface, methods) in &output {
-        let methods_str: Vec<&str> = methods.iter().map(|s| s.as_str()).collect();
-        lines.push(format!("{iface}::{{{}}}", methods_str.join(", ")));
+        if methods.len() == 1 {
+            lines.push(format!("{iface}::{}", methods.first().unwrap()));
+        } else {
+            let methods_str: Vec<&str> = methods.iter().map(|s| s.as_str()).collect();
+            lines.push(format!("{iface}::{{{}}}", methods_str.join(", ")));
+        }
     }
 
     if lines.is_empty() {
