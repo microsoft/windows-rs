@@ -449,6 +449,26 @@ impl Cursor {
         unsafe { clang_getEnumConstantDeclValue(self.0) }
     }
 
+    /// Evaluate this cursor as a compile-time constant expression and return
+    /// the unsigned integer result, or `None` if evaluation fails or the result
+    /// is not an integer.
+    pub fn evaluate_unsigned(&self) -> Option<u64> {
+        unsafe {
+            let result = clang_Cursor_Evaluate(self.0);
+            if result.is_null() {
+                return None;
+            }
+            let kind = clang_EvalResult_getKind(result);
+            let value = if kind == CXEval_Int {
+                Some(clang_EvalResult_getAsUnsigned(result))
+            } else {
+                None
+            };
+            clang_EvalResult_dispose(result);
+            value
+        }
+    }
+
     pub fn ty(&self) -> Type {
         Type(unsafe { clang_getCursorType(self.0) })
     }
