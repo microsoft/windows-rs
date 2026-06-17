@@ -59,7 +59,7 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
+                if !config.minimal_closure && !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
@@ -82,7 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
+            (!config.minimal_closure && !method.dependencies.included(config))
                 || !config.includes_method(type_name, def)
         })
     }

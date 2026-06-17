@@ -234,6 +234,34 @@ In minimal mode, they are *the mechanism that determines what gets included at a
 The `default_demote` flag on `Filter` (set to `true` in minimal mode) controls
 this behavior in `includes_method()`.
 
+### Remaining mode differences
+
+The following `is_minimal()` / `is_sys()` conditional behaviors remain in the
+codebase. They are grouped by category with notes on whether unification is
+feasible:
+
+| Category | Location(s) | Description | Unifiable? |
+|----------|-------------|-------------|------------|
+| **Visibility** | delegate.rs, method.rs, class.rs, cpp_method.rs, struct.rs | `pub(crate)` in minimal (Rust dead-code workaround), `pub` in default | Justified — minimal generates into a crate that controls visibility |
+| **Delegate signature** | delegate.rs (×4) | Minimal closures return nothing (S_OK injected by box); default closures return `Result` | Semantic — default mode preserves return propagation for hand-written callers |
+| **Method-dep filtering** | interface.rs, cpp_interface.rs (×4) | Default skips methods whose param types aren't in the type map; minimal never hits this (MinimalTypeMap ensures deps exist) | **Yes** — can unify by making MinimalTypeMap universal for specific filters |
+| **Hide vtbl / name constants** | interface.rs, cpp_interface.rs, delegate.rs | `#[doc(hidden)]` in minimal; public in default | Low priority — cosmetic |
+| **Event add/remove sugar** | method.rs (×5) | Minimal generates typed `add_`/`remove_` wrappers; default uses raw token | Could unify — but default callers expect the raw pattern |
+| **Class sugar** | class.rs (×10) | Default emits `Deref`, `IntoIterator`, constructor forwarders, interface hierarchy impls; minimal omits them | Largest gap — these are genuinely different abstraction levels |
+| **Struct field naming** | struct.rs (×3) | Minimal prefixes unused struct field names with `_` | Dead-code workaround — justified |
+| **Method param sugar** | method.rs (×8) | Default uses `Param<T>` trait, PCWSTR wrappers; minimal uses raw refs | Core ergonomic difference between tiers |
+| **Enum naming** | enum.rs, cpp_enum.rs | Sys/minimal use short names for non-scoped enums | Justified — default needs qualified names for compat |
+
+**Already unified (this session):**
+- ✅ MinimalTypeMap activation — now based on filter structure, not mode
+- ✅ Vtable truncation — unconditional for all WinRT interfaces
+- ✅ Event-only delegate suppression — filter-structure-based (no mode check for the algorithm itself)
+
+**Next targets:**
+1. Method-dep filtering — make MinimalTypeMap handle this universally so the "skip method if deps missing" heuristic in default mode becomes unnecessary
+2. Event add/remove sugar — evaluate making typed event wrappers available in default mode
+3. Class sugar — potentially opt-in via a flag rather than mode-gated
+
 ### `--deps` (internal)
 
 The `--deps` option exists for internal bootstrapping (e.g., `windows-core`
