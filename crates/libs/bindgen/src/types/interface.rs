@@ -317,18 +317,14 @@ impl Interface {
             // Even in `minimal` mode, exclusive instance interfaces still need their own-vtable
             // method block; otherwise WinRT class default interfaces would lose their callable
             // wrappers entirely. Exclusive factory interfaces (those referenced from the class
-            // via Activatable/Static/Composable) are already exposed through the class, so we
-            // can suppress their methods here to keep call sites concise.
-            //
-            // Types marked with `?Ns.Type` in `--filter` are "trait-only": their `_Impl` trait
-            // and vtable are still emitted (so implementers can stub the methods and the ABI is
-            // preserved), but the inherent `impl IFace { ... }` caller-side wrapper block is
-            // suppressed. This is used for required-but-uncalled interfaces (e.g.
-            // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
-            // the methods through this type.
-            let is_factory =
-                is_exclusive && config.bindgen.style.is_minimal() && self.is_factory(config.reader);
-            if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
+            // via Activatable/Static/Composable) are already exposed through the class, and
+            // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
+            // via the `_Impl` trait — not called. In both cases we suppress the caller-side
+            // method wrapper to avoid dead code.
+            let suppress_methods = is_exclusive
+                && config.bindgen.style.is_minimal()
+                && (self.is_factory(config.reader) || config.should_implement(type_name, false));
+            if !is_exclusive || (config.bindgen.style.is_minimal() && !suppress_methods) {
                 let method_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let mut method_tokens = TokenStream::new();

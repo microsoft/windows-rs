@@ -4154,20 +4154,6 @@ impl windows_core::RuntimeType for IApplicationOverrides {
     const NAME: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IApplicationOverrides");
 }
-impl IApplicationOverrides {
-    pub(crate) fn OnLaunched<P0>(&self, args: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<LaunchActivatedEventArgs>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).OnLaunched)(
-                windows_core::Interface::as_raw(self),
-                args.param().abi(),
-            )
-            .ok()
-        }
-    }
-}
 impl windows_core::RuntimeName for IApplicationOverrides {
     const NAME: &'static str = "Microsoft.UI.Xaml.IApplicationOverrides";
 }
