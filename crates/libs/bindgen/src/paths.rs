@@ -15,11 +15,14 @@ impl Config<'_> {
 
     fn write_specific(&self, specific: &str) -> TokenStream {
         if self.bindgen.style.is_sys() {
-            if self.bindgen.layout.is_package() || self.bindgen.resolved_deps() != DepMode::None {
+            if self.bindgen.layout.is_package() {
+                // Package mode generates the `windows-sys` crate itself.
                 quote! { windows_sys::core:: }
             } else if self.bindgen.layout.is_flat() {
+                // Flat sys bindings define core types inline (no prefix needed).
                 quote! {}
             } else {
+                // Module-based sys bindings reference root-level inline defs.
                 let mut path = String::new();
 
                 for _ in 0..self.namespace.split('.').count() {
