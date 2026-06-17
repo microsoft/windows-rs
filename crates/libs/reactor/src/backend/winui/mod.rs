@@ -2865,7 +2865,7 @@ impl Backend for WinUIBackend {
 
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
-                    std::thread::spawn(move || {
+                    windows_threading::submit(move || {
                         let Some(marshaller) = marshaller else {
                             if let Some(deferral) =
                                 agile_deferral.and_then(|agile_ref| agile_ref.resolve().ok())
@@ -2947,7 +2947,7 @@ impl Backend for WinUIBackend {
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
 
-                    std::thread::spawn(move || {
+                    windows_threading::submit(move || {
                         use crate::drag::DroppedItem;
 
                         let resolved_data_view = agile_data_view
