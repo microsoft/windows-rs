@@ -314,17 +314,19 @@ impl Interface {
                 }
             }
 
-            // Even in `minimal` mode, exclusive instance interfaces still need their own-vtable
-            // method block; otherwise WinRT class default interfaces would lose their callable
-            // wrappers entirely. Exclusive factory interfaces (those referenced from the class
-            // via Activatable/Static/Composable) are already exposed through the class, and
+            // Even in `minimal` mode (or when MinimalTypeMap is active), exclusive instance
+            // interfaces still need their own-vtable method block; otherwise WinRT class
+            // default interfaces would lose their callable wrappers entirely. Exclusive
+            // factory interfaces (those referenced from the class via
+            // Activatable/Static/Composable) are already exposed through the class, and
             // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
             // via the `_Impl` trait — not called. In both cases we suppress the caller-side
             // method wrapper to avoid dead code.
+            let use_minimal_methods = config.bindgen.style.is_minimal() || config.minimal_closure;
             let suppress_methods = is_exclusive
-                && config.bindgen.style.is_minimal()
+                && use_minimal_methods
                 && (self.is_factory(config.reader) || config.should_implement(type_name, false));
-            if !is_exclusive || (config.bindgen.style.is_minimal() && !suppress_methods) {
+            if !is_exclusive || (use_minimal_methods && !suppress_methods) {
                 let method_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let mut method_tokens = TokenStream::new();

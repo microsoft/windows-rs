@@ -566,7 +566,7 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        let (filter, types) = {
+        let (filter, types, use_minimal_closure) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -579,15 +579,32 @@ impl Bindgen {
                 all_parsed.extend(entries);
             }
             let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
+
+            // Decide whether to use bottom-up type closure (MinimalTypeMap).
+            // Use it when:
+            // - explicitly requested via --minimal, OR
+            // - the filter has method-level entries (requested_interfaces) and
+            //   no broad namespace/glob includes that MinimalTypeMap can't handle.
             let default_demote = self.style.is_minimal();
             let mut filter = Filter::from_resolved(&reader, &resolved, default_demote);
 
-            let types = if self.style.is_minimal() {
+            let use_minimal_closure = self.style.is_minimal()
+                || (!filter.has_broad_filter
+                    && !filter.requested_interfaces.is_empty()
+                    && !self.layout.is_package());
+
+            // If using MinimalTypeMap in non-minimal mode, enable method
+            // demotion so unspecified methods become usize vtable slots.
+            if use_minimal_closure && !self.style.is_minimal() {
+                filter.default_demote = true;
+            }
+
+            let types = if use_minimal_closure {
                 MinimalTypeMap::build(&reader, &mut filter, &references)
             } else {
                 TypeMap::filter(&reader, &filter, &references)
             };
-            (filter, types)
+            (filter, types, use_minimal_closure)
         };
 
         let derive = Derive::new(&reader, &types, &derive_str);
@@ -599,7 +616,7 @@ impl Bindgen {
             warnings.add(message.clone());
         }
 
-        let event_only_delegates = if self.style.is_minimal() {
+        let event_only_delegates = if use_minimal_closure {
             compute_event_only_delegates(&types, &reader)
         } else {
             HashSet::new()
@@ -617,6 +634,7 @@ impl Bindgen {
             warnings: &warnings,
             namespace: "",
             event_only_delegates: &event_only_delegates,
+            minimal_closure: use_minimal_closure,
         };
 
         let tree = TypeTree::new(&types);
