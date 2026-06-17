@@ -40,15 +40,19 @@ fn test() -> Result<()> {
 
     // Handlers without a stored revoker are immediately revoked on drop.
     // Use .forget() to keep them alive indefinitely.
-    class.Event(move |sender: Ref<Class>, args: i32| {
-        assert_eq!(sender.as_ref().unwrap(), class);
-        assert_eq!(args, 4);
-    })?.forget();
+    class
+        .Event(move |sender: Ref<Class>, args: i32| {
+            assert_eq!(sender.as_ref().unwrap(), class);
+            assert_eq!(args, 4);
+        })?
+        .forget();
 
-    class.Event(move |sender: Ref<Class>, args: i32| {
-        assert_eq!(sender.as_ref().unwrap(), class);
-        assert_eq!(args, 4);
-    })?.forget();
+    class
+        .Event(move |sender: Ref<Class>, args: i32| {
+            assert_eq!(sender.as_ref().unwrap(), class);
+            assert_eq!(args, 4);
+        })?
+        .forget();
 
     assert_eq!(2, class.Signal(4)?);
     Ok(())
@@ -69,11 +73,13 @@ fn test_static() -> Result<()> {
 
     Class::StaticEvent(move |_, args| {
         assert_eq!(args, 4);
-    })?.forget();
+    })?
+    .forget();
 
     Class::StaticEvent(move |_, args| {
         assert_eq!(args, 4);
-    })?.forget();
+    })?
+    .forget();
 
     assert_eq!(2, Class::StaticSignal(4)?);
     Ok(())
