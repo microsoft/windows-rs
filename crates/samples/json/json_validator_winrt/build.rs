@@ -14,7 +14,8 @@ fn main() {
         .input("src/sample.rdl")
         .input(&windows_foundation)
         .output("sample.winmd")
-        .write();
+        .write()
+        .unwrap();
 
     windows_bindgen::builder()
         .input("sample.winmd")

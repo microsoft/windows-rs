@@ -7,7 +7,8 @@ fn main() {
         .input("src/robot.rdl")
         .input(reference)
         .output("robot.winmd")
-        .write();
+        .write()
+        .unwrap();
 
     windows_bindgen::builder()
         .input("robot.winmd")

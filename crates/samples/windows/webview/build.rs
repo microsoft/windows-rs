@@ -25,13 +25,15 @@ fn main() {
         .output(rdl)
         .namespace(namespace)
         .library(library)
-        .write();
+        .write()
+        .unwrap();
 
     windows_rdl::reader()
         .input(rdl)
         .input(reference)
         .output(winmd)
-        .write();
+        .write()
+        .unwrap();
 
     windows_bindgen::builder()
         .input(winmd)
