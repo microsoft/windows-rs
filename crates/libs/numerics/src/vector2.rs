@@ -2,22 +2,22 @@ use super::*;
 
 impl Vector2 {
     pub fn new(x: f32, y: f32) -> Self {
-        Self { X: x, Y: y }
+        Self { x, y }
     }
     pub fn zero() -> Self {
-        Self { X: 0f32, Y: 0f32 }
+        Self { x: 0f32, y: 0f32 }
     }
     pub fn one() -> Self {
-        Self { X: 1f32, Y: 1f32 }
+        Self { x: 1f32, y: 1f32 }
     }
     pub fn unit_x() -> Self {
-        Self { X: 1.0, Y: 0.0 }
+        Self { x: 1.0, y: 0.0 }
     }
     pub fn unit_y() -> Self {
-        Self { X: 0.0, Y: 1.0 }
+        Self { x: 0.0, y: 1.0 }
     }
     pub fn dot(&self, rhs: &Self) -> f32 {
-        self.X * rhs.X + self.Y * rhs.Y
+        self.x * rhs.x + self.y * rhs.y
     }
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
@@ -40,44 +40,44 @@ impl Vector2 {
 
     fn impl_neg(&self) -> Self {
         Self {
-            X: -self.X,
-            Y: -self.Y,
+            x: -self.x,
+            y: -self.y,
         }
     }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
-            X: self.X + rhs.X,
-            Y: self.Y + rhs.Y,
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
         }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
         Self {
-            X: self.X - rhs.X,
-            Y: self.Y - rhs.Y,
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
         }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
         Self {
-            X: self.X / rhs.X,
-            Y: self.Y / rhs.Y,
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
         }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
         Self {
-            X: self.X / rhs,
-            Y: self.Y / rhs,
+            x: self.x / rhs,
+            y: self.y / rhs,
         }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
         Self {
-            X: self.X * rhs.X,
-            Y: self.Y * rhs.Y,
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
         }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
         Self {
-            X: self.X * rhs,
-            Y: self.Y * rhs,
+            x: self.x * rhs,
+            y: self.y * rhs,
         }
     }
 }

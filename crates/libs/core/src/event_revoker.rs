@@ -3,14 +3,17 @@ use core::ffi::c_void;
 
 /// A handle that automatically revokes an event registration when dropped.
 ///
-/// Obtained by calling an event-registration method generated with the
-/// `--minimal` bindgen option. The registration is revoked when the
-/// `EventRevoker` is dropped.
+/// Obtained by calling an event-registration method (e.g. `Click`, `Closed`).
+/// The registration is revoked when the `EventRevoker` is dropped.
+///
+/// To keep the event handler alive indefinitely, call [`forget`] to prevent
+/// the automatic revocation.
 ///
 /// Call [`into_token`] to take back the raw token and prevent the automatic
 /// revocation, which is useful for interoperating with code that manages
 /// registration tokens directly.
 ///
+/// [`forget`]: EventRevoker::forget
 /// [`into_token`]: EventRevoker::into_token
 #[must_use = "event registrations are revoked when the EventRevoker is dropped"]
 pub struct EventRevoker {
@@ -46,6 +49,15 @@ impl EventRevoker {
         // Release the source interface reference without calling Remove*.
         unsafe { core::ptr::drop_in_place(&mut this.source) };
         token
+    }
+
+    /// Consumes the revoker without revoking the event handler, keeping the
+    /// handler alive indefinitely.
+    ///
+    /// This is useful for "fire and forget" event registrations where the
+    /// handler should outlive any particular scope.
+    pub fn forget(self) {
+        core::mem::forget(self);
     }
 }
 

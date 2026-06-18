@@ -1,3 +1,0 @@
-kind = "bindgen"
-args = "--out {scratch}/out.rs --filter IMemoryBuffer"
-error_match = "contains"

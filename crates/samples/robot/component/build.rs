@@ -17,6 +17,5 @@ fn main() {
         .filter("Robotics")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }

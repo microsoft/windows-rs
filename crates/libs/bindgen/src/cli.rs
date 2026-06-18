@@ -10,7 +10,7 @@ use super::*;
 ///     "GetTickCount",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// Here is a list of supported arguments.
@@ -90,7 +90,7 @@ use super::*;
 ///     "MyApi",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// # `--flat`
@@ -108,7 +108,7 @@ use super::*;
 ///     "--flat",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// The resulting bindings now look something like this:
@@ -137,7 +137,7 @@ use super::*;
 ///     "Eq",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// # `--sys`
@@ -156,7 +156,7 @@ use super::*;
 ///     "--flat",
 /// ];
 ///
-/// windows_bindgen::bindgen(args).unwrap();
+/// windows_bindgen::bindgen(args);
 /// ```
 ///
 /// The resulting bindings now look something like this:
@@ -169,18 +169,8 @@ use super::*;
 /// You'll notice that the bindings are simpler as there's no wrapper functions and other
 /// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
 ///
-/// # `--deps`
-///
-/// Controls which `windows-*` crates the generated bindings depend on.
-///
-/// - `core` — depend on `windows-core` (default).
-/// - `specific` — depend on `windows-result`, `windows-strings`, and `windows-link` directly.
-/// - `none` — no `windows-*` dependencies; shared types like `PCWSTR` and `GUID` are emitted
-///   inline. Default for `--sys` bindings.
-///
 #[track_caller]
-#[must_use]
-pub fn bindgen<I, S>(args: I) -> Warnings
+pub fn bindgen<I, S>(args: I)
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
@@ -206,7 +196,6 @@ where
                 "--flat" => {
                     builder.flat();
                 }
-                "--deps" => kind = ArgKind::Deps,
                 "--no-toml" => {
                     builder.no_toml();
                 }
@@ -264,20 +253,10 @@ where
             ArgKind::Link => {
                 builder.link(arg);
             }
-            ArgKind::Deps => {
-                builder.deps(match arg.as_str() {
-                    "core" => DepMode::Core,
-                    "specific" => DepMode::Specific,
-                    "none" => DepMode::None,
-                    other => {
-                        panic!("invalid `--deps` value `{other}`; expected `core`, `specific`, or `none`")
-                    }
-                });
-            }
         }
     }
 
-    builder.write()
+    builder.write();
 }
 
 enum ArgKind {
@@ -290,7 +269,6 @@ enum ArgKind {
     Derive,
     Implement,
     Link,
-    Deps,
 }
 
 #[track_caller]

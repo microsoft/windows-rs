@@ -10,7 +10,6 @@ pub struct Config<'a> {
     pub implement: Option<&'a Implements>,
     pub derive: &'a Derive,
     pub link: &'a str,
-    pub warnings: &'a WarningBuilder,
     pub namespace: &'static str,
     /// Delegates that are exclusively used as parameters in `add_*` SpecialName
     /// methods (event handlers). In minimal mode these delegates have their

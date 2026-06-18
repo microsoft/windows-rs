@@ -1,3 +1,2 @@
 filter = "Test.Foo"
-deps = "specific"
 references = ["../../../libs/bindgen/default"]

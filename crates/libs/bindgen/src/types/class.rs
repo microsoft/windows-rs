@@ -124,7 +124,7 @@ impl Class {
             }
         }
 
-        let result = config.write_result();
+        let result = config.write_core();
 
         let vis = if config.bindgen.dead_code {
             quote! { pub(crate) }

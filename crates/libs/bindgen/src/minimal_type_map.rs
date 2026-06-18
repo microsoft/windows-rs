@@ -156,24 +156,19 @@ impl CombineMinimal for Type {
 
         match &ty_inner {
             Type::Struct(s) => {
-                // Pull in field types.
                 for field in s.def.fields() {
                     let field_ty = field.field_type(None, reader);
                     field_ty.combine_minimal(types, reader, references);
                 }
             }
             Type::CppStruct(s) => {
-                // Pull in field types.
                 for field in s.def.fields() {
                     let field_ty = field.field_type(Some(s), reader);
                     field_ty.combine_minimal(types, reader, references);
                 }
             }
-            Type::Enum(_) | Type::CppEnum(_) => {
-                // Enums are self-contained, no further deps needed.
-            }
+            Type::Enum(_) | Type::CppEnum(_) => {}
             Type::Delegate(d) => {
-                // Pull in the delegate's invoke signature types.
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(d.def.namespace(), &d.generics, reader);
@@ -208,15 +203,12 @@ impl CombineMinimal for Type {
                 Type::IUnknown.combine_minimal(types, reader, references);
             }
             Type::CppFn(f) => {
-                // Pull in the function's signature types.
                 let sig = f.method.method_signature(f.namespace, &[], reader);
                 for dep_ty in sig.types() {
                     dep_ty.combine_minimal(types, reader, references);
                 }
             }
-            Type::CppConst(_) => {
-                // Constants are self-contained.
-            }
+            Type::CppConst(_) => {}
             Type::Class(c) => {
                 // In minimal mode, only pull in the default interface (needed for
                 // Deref and class identity). All other instance/base interfaces are

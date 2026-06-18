@@ -399,48 +399,48 @@ impl Type {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::BSTR => {
-                let name = config.write_strings();
-                quote! { #name BSTR }
+                let core = config.write_core();
+                quote! { #core BSTR }
             }
             Self::IUnknown => {
-                let name = config.write_core();
-                quote! { #name IUnknown }
+                let core = config.write_core();
+                quote! { #core IUnknown }
             }
             Self::GUID => {
-                let name = config.write_core();
-                quote! { #name GUID }
+                let core = config.write_core();
+                quote! { #core GUID }
             }
             Self::HRESULT => {
-                let result = config.write_result();
-                quote! { #result HRESULT }
+                let core = config.write_core();
+                quote! { #core HRESULT }
             }
             Self::BOOL => {
-                let result = config.write_result();
-                quote! { #result BOOL }
+                let core = config.write_core();
+                quote! { #core BOOL }
             }
             Self::String => {
-                let name = config.write_strings();
-                quote! { #name HSTRING }
+                let core = config.write_core();
+                quote! { #core HSTRING }
             }
             Self::Object => {
-                let name = config.write_core();
-                quote! { #name IInspectable }
+                let core = config.write_core();
+                quote! { #core IInspectable }
             }
             Self::PSTR => {
-                let name = config.write_strings();
-                quote! { #name PSTR }
+                let core = config.write_core();
+                quote! { #core PSTR }
             }
             Self::PCSTR => {
-                let name = config.write_strings();
-                quote! { #name PCSTR }
+                let core = config.write_core();
+                quote! { #core PCSTR }
             }
             Self::PWSTR => {
-                let name = config.write_strings();
-                quote! { #name PWSTR }
+                let core = config.write_core();
+                quote! { #core PWSTR }
             }
             Self::PCWSTR => {
-                let name = config.write_strings();
-                quote! { #name PCWSTR }
+                let core = config.write_core();
+                quote! { #core PCWSTR }
             }
             Self::CppInterface(ty) => ty.write_name(config),
             Self::Struct(ty) => ty.write_name(config),
@@ -504,8 +504,8 @@ impl Type {
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
         match self {
             Self::IUnknown | Self::Object => {
-                let name = config.write_core();
-                quote! { #name IUnknownImpl }
+                let core = config.write_core();
+                quote! { #core IUnknownImpl }
             }
             Self::CppInterface(ty) => ty.write_impl_name(config),
             Self::Interface(ty) => ty.write_impl_name(config),
@@ -843,7 +843,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if config.bindgen.resolved_deps() != DepMode::None || !config.bindgen.style.is_sys() {
+        if !config.bindgen.uses_inline_core_types() {
             return quote! {};
         }
 

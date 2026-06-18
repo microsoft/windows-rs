@@ -1381,27 +1381,29 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     IObservableMap<K, V>
 {
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
+    pub fn MapChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<MapChangedEventHandler<K, V>>,
+        F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>)
+            + Send
+            + 'static,
     {
+        let vhnd = <MapChangedEventHandler<K, V>>::new(move |a0, a1| {
+            vhnd(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MapChanged)(
+            let token__ = (windows_core::Interface::vtable(self).MapChanged)(
                 windows_core::Interface::as_raw(self),
-                vhnd.param().abi(),
+                windows_core::Interface::as_raw(&vhnd),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).RemoveMapChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveMapChanged,
+            ))
         }
     }
     pub fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
@@ -1654,27 +1656,29 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
-    pub fn VectorChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
+    pub fn VectorChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<VectorChangedEventHandler<T>>,
+        F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>)
+            + Send
+            + 'static,
     {
+        let vhnd = <VectorChangedEventHandler<T>>::new(move |a0, a1| {
+            vhnd(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VectorChanged)(
+            let token__ = (windows_core::Interface::vtable(self).VectorChanged)(
                 windows_core::Interface::as_raw(self),
-                vhnd.param().abi(),
+                windows_core::Interface::as_raw(&vhnd),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).RemoveVectorChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveVectorChanged,
+            ))
         }
     }
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {

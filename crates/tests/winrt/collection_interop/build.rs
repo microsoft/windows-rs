@@ -33,8 +33,7 @@ fn msvc_main() {
         "--flat",
         "--reference",
         "windows_collections,flat,Windows",
-    ])
-    .unwrap();
+    ]);
 
     cppwinrt::cppwinrt(["-in", "test.winmd", &metadata_dir, "-out", &include]);
 

@@ -3,13 +3,9 @@ use std::io::Write;
 
 impl Config<'_> {
     pub fn format(&self, tokens: &str) -> String {
-        let formatted = if let Some(result) = self.rustfmt(tokens) {
-            result
-        } else {
-            self.warnings
-                .add("failed to format output with `rustfmt`".to_string());
-            tokens.to_string()
-        };
+        let formatted = self
+            .rustfmt(tokens)
+            .unwrap_or_else(|| panic!("failed to format output with `rustfmt`"));
 
         // `proc_macro2::TokenStream::to_string()` inserts a space between
         // most adjacent tokens (e.g. `link ! (`, `windows_core :: BOOL`).
@@ -47,18 +43,7 @@ impl Config<'_> {
     }
 }
 
-/// Tighten up whitespace inside macro invocations (and any other regions
-/// `rustfmt` left untouched).
-///
-/// `proc_macro2::TokenStream::to_string()` inserts a space between most
-/// adjacent tokens, e.g. `link ! (foo : Bar)`. `rustfmt` normalises that for
-/// regular Rust syntax but leaves the contents of macro invocations alone.
-/// We post-process the output so the generated source looks the way it did
-/// before this crate adopted the `quote` crate.
-///
-/// Replacements are applied outside of string literals only. A small subset
-/// of patterns (the `::` joiners) is also safe to apply globally because
-/// `rustfmt` has already normalised them everywhere else.
+/// Tighten whitespace inside macro invocations that `rustfmt` leaves untouched.
 fn tighten_macro_whitespace(src: &str) -> String {
     // Pass 1: globally tighten `::` joiners outside strings. These never
     // appear in `rustfmt`-formatted Rust code.
@@ -71,8 +56,6 @@ fn tighten_macro_whitespace(src: &str) -> String {
     apply_inside_macros(&pass1)
 }
 
-/// Run a sequence of substring replacements on `src`, skipping string
-/// literals.
 fn replace_outside_strings(src: &str, patterns: &[(&str, &str)]) -> String {
     let bytes = src.as_bytes();
     let mut out = String::with_capacity(src.len());
@@ -108,9 +91,6 @@ fn replace_outside_strings(src: &str, patterns: &[(&str, &str)]) -> String {
     out
 }
 
-/// Locate macro invocation regions (`<ident> ! (...)` etc., where `rustfmt`
-/// did not collapse the surrounding whitespace) and apply token-tightening
-/// fixups within. Everything outside macro regions is copied verbatim.
 fn apply_inside_macros(src: &str) -> String {
     let bytes = src.as_bytes();
     let mut out = String::with_capacity(src.len());
@@ -137,9 +117,6 @@ struct MacroOpen {
     close: u8,
 }
 
-/// Find the next macro invocation header at or after `start`. We only match
-/// `<ident> ! (` and `<ident> ! [` (skipping `<ident> ! {`) so that we don't
-/// mistake the `-> ! {` of a never-return function body for a macro call.
 fn find_macro_invocation(bytes: &[u8], start: usize) -> Option<MacroOpen> {
     let mut i = start;
     while i + 4 < bytes.len() {
@@ -172,8 +149,6 @@ fn find_macro_invocation(bytes: &[u8], start: usize) -> Option<MacroOpen> {
     None
 }
 
-/// Walk backwards from a `!` to the start of the preceding macro path
-/// (`foo`, `a::b`, etc.).
 fn macro_path_start(bytes: &[u8], bang: usize) -> usize {
     let mut i = bang;
     if i > 0 && bytes[i - 1] == b' ' {
@@ -190,7 +165,6 @@ fn macro_path_start(bytes: &[u8], bang: usize) -> usize {
     i
 }
 
-/// Find the closing delimiter matching the opener at `open_idx`.
 fn find_matching_delim(bytes: &[u8], open_idx: usize, open: u8, close: u8) -> usize {
     let mut depth: usize = 0;
     let mut i = open_idx;
@@ -220,8 +194,6 @@ fn find_matching_delim(bytes: &[u8], open_idx: usize, open: u8, close: u8) -> us
     bytes.len().saturating_sub(1)
 }
 
-/// Apply token-level whitespace fixups to a macro invocation segment.
-/// Skips string literals.
 fn tighten_macro_segment(segment: &str) -> String {
     let bytes = segment.as_bytes();
     let mut out = String::with_capacity(segment.len());
@@ -254,7 +226,6 @@ fn tighten_macro_segment(segment: &str) -> String {
     out
 }
 
-/// Apply substring replacements to a non-string chunk inside a macro region.
 fn tighten_non_literal(chunk: &str) -> String {
     chunk
         .replace(" ! (", "!(")
@@ -279,7 +250,7 @@ impl StrPipe for String {
     }
 }
 
-/// Drop a single space between an identifier-ish character and `(`.
+/// Collapse `name (` → `name(` after an identifier character.
 fn collapse_space_before_paren(s: String) -> String {
     let bytes = s.as_bytes();
     let mut out = String::with_capacity(s.len());

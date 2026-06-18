@@ -20,6 +20,5 @@ fn main() {
             "Windows.Win32.UI.WindowsAndMessaging.CS_HREDRAW",
             "Windows.Win32.UI.WindowsAndMessaging.CS_VREDRAW",
         ])
-        .write()
-        .unwrap();
+        .write();
 }

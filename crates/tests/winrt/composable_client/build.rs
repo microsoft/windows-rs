@@ -20,8 +20,7 @@ fn msvc_main() {
         "--filter",
         "test_composable",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 
     let include = std::env::var("OUT_DIR").unwrap();
 

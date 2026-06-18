@@ -3,7 +3,6 @@ fn main() {
         .output("src/bindings.rs")
         .flat()
         .sys()
-        .deps(windows_bindgen::DepMode::None)
         .filters([
             "SERVICE_ACCEPT_TIMECHANGE",
             "SERVICE_CONTROL_TIMECHANGE",
@@ -12,6 +11,5 @@ fn main() {
             "FileTimeToLocalFileTime",
         ])
         .derives(["SYSTEMTIME=Debug", "SERVICE_TIMECHANGE_INFO=Debug"])
-        .write()
-        .unwrap();
+        .write();
 }

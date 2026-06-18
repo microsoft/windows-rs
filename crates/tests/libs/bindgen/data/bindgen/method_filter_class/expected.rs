@@ -8,7 +8,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl Foo {
-        pub fn Direct(&self) -> windows_result::Result<i32> {
+        pub fn Direct(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Direct)(
@@ -18,7 +18,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn KeepFactory() -> windows_result::Result<Foo> {
+        pub fn KeepFactory() -> windows_core::Result<Foo> {
             Self::IFooFactory(|this| unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(this).KeepFactory)(
@@ -28,7 +28,7 @@ pub mod Test {
                 .and_then(|| windows_core::Type::from_abi(result__))
             })
         }
-        pub fn KeepStatic() -> windows_result::Result<i32> {
+        pub fn KeepStatic() -> windows_core::Result<i32> {
             Self::IFooStatics(|this| unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(this).KeepStatic)(
@@ -38,16 +38,16 @@ pub mod Test {
                 .map(|| result__)
             })
         }
-        fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(
+        fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_core::Result<R>>(
             callback: F,
-        ) -> windows_result::Result<R> {
+        ) -> windows_core::Result<R> {
             static SHARED: windows_core::imp::FactoryCache<Foo, IFooFactory> =
                 windows_core::imp::FactoryCache::new();
             SHARED.call(callback)
         }
-        fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_result::Result<R>>(
+        fn IFooStatics<R, F: FnOnce(&IFooStatics) -> windows_core::Result<R>>(
             callback: F,
-        ) -> windows_result::Result<R> {
+        ) -> windows_core::Result<R> {
             static SHARED: windows_core::imp::FactoryCache<Foo, IFooStatics> =
                 windows_core::imp::FactoryCache::new();
             SHARED.call(callback)
@@ -75,7 +75,7 @@ pub mod Test {
     pub struct IFoo_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     }
     windows_core::imp::define_interface!(
         IFooFactory,
@@ -94,7 +94,7 @@ pub mod Test {
         pub KeepFactory: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut *mut core::ffi::c_void,
-        ) -> windows_result::HRESULT,
+        ) -> windows_core::HRESULT,
     }
     windows_core::imp::define_interface!(
         IFooStatics,
@@ -111,6 +111,6 @@ pub mod Test {
     pub struct IFooStatics_Vtbl {
         pub base__: windows_core::IInspectable_Vtbl,
         pub KeepStatic:
-            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     }
 }

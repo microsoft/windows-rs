@@ -1,1 +1,1 @@
-args = "--deps none --filter Windows.Foundation.Numerics --reference windows,skip-root,Windows.Foundation.Numerics.Matrix4x4"
+args = "--filter Windows.Foundation.Numerics --reference windows,skip-root,Windows.Foundation.Numerics.Matrix4x4"

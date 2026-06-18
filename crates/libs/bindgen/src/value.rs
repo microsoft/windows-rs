@@ -76,7 +76,7 @@ impl Config<'_> {
     }
 
     pub fn write_guid_value(&self, value: &GUID) -> TokenStream {
-        if self.bindgen.resolved_deps() == DepMode::None {
+        if self.bindgen.uses_inline_core_types() {
             let crate_name = self.write_core();
             let data1 = format!("0x{:08x?}", value.0)
                 .parse::<TokenStream>()

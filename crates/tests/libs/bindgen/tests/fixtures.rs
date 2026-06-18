@@ -106,7 +106,6 @@ struct FixtureConfig {
     /// includes/excludes.
     filters: Vec<String>,
     minimal: bool,
-    deps: Option<String>,
     implement: bool,
     implements: Vec<String>,
     references: Vec<String>,
@@ -159,7 +158,6 @@ impl FixtureConfig {
                 "filter" => cfg.filter = Some(parse_string(value)),
                 "filters" => cfg.filters = parse_string_list(value),
                 "minimal" => cfg.minimal = parse_bool(value),
-                "deps" => cfg.deps = Some(parse_string(value)),
                 "implement" => cfg.implement = parse_bool(value),
                 "implements" => cfg.implements = parse_string_list(value),
                 "references" => cfg.references = parse_string_list(value),
@@ -340,11 +338,7 @@ fn run_bindgen(f: &Fixture) {
             .collect::<Vec<_>>();
         args.push("--out".into());
         args.push(actual_rs.to_string_lossy().into_owned());
-        // Discard warnings: tool_bindgen-style fixtures intentionally
-        // exercise filters that omit some dependencies, which the
-        // bindgen pipeline reports as warnings. The diff against
-        // `expected.rs` is what we actually care about.
-        let _ = windows_bindgen::bindgen(args);
+        windows_bindgen::bindgen(args);
         write_golden(&actual_rs, &f.input("expected.rs"));
         return;
     }
@@ -375,23 +369,10 @@ fn run_bindgen(f: &Fixture) {
     if cfg.minimal {
         bindgen.minimal();
     }
-    if let Some(mode) = &cfg.deps {
-        let mode = match mode.as_str() {
-            "core" => windows_bindgen::DepMode::Core,
-            "specific" => windows_bindgen::DepMode::Specific,
-            "none" => windows_bindgen::DepMode::None,
-            other => panic!("unknown deps mode {other:?}"),
-        };
-        bindgen.deps(mode);
-    }
     if cfg.implement || !cfg.implements.is_empty() {
         bindgen.implement(&cfg.implements);
     }
-    // Discard warnings: fixtures may intentionally exercise filters
-    // (including method-level `--filter` denylist / allowlist entries)
-    // that demote slots and therefore omit `_Impl` traits, which surface
-    // as warnings. The diff against `expected.rs` is what we care about.
-    let _ = bindgen.write();
+    bindgen.write();
 
     write_golden(&actual_rs, &f.input("expected.rs"));
 }
@@ -495,9 +476,9 @@ fn run_error_bindgen(f: &Fixture) {
     let prev_hook = std::panic::take_hook();
     std::panic::set_hook(Box::new(|_| {}));
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-        // `.unwrap()` panics on warnings as well as hard errors, matching
-        // what the legacy `panic.rs` cases asserted.
-        windows_bindgen::bindgen(&args).unwrap();
+        // `bindgen` panics internally on invalid inputs, matching what the
+        // legacy `panic.rs` cases asserted.
+        windows_bindgen::bindgen(&args);
     }));
     std::panic::set_hook(prev_hook);
 

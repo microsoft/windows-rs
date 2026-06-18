@@ -17,7 +17,7 @@ fn main() {
         "--flat",
         "--filter",
             "Windows.Win32.UI.WindowsAndMessaging.LoadCursorW",
-    ]).unwrap();
+    ]);
 }
 ```
 
@@ -36,7 +36,7 @@ fn main() {
         "--filter",
             "Windows.Win32.Graphics.Direct2D.ID2D1Factory1",
             "Windows.Win32.Graphics.Dxgi.IDXGIFactory2",
-    ]).unwrap();
+    ]);
 }
 ```
 
@@ -48,7 +48,7 @@ with smart pointers, `Interface` trait, vtable wrappers, etc.
 ```rust
 // build.rs
 fn main() {
-    windows_bindgen::bindgen(["--etc", "bindings.txt"]).unwrap();
+    windows_bindgen::bindgen(["--etc", "bindings.txt"]);
 }
 ```
 
@@ -189,7 +189,7 @@ included type, computes its full dependency set (`Dependencies::combine`) and
 checks that none of those dependencies are explicitly excluded. Methods on
 interfaces are then individually checked: if a method's parameter/return types
 aren't in the final `types` map (or references), it gets demoted to a `usize`
-vtable slot with a warning.
+vtable slot.
 
 **Minimal mode (`MinimalTypeMap::build`)** — bottom-up. Starts from explicitly
 requested methods (via `Interface::Method` filter syntax) and types, then walks
@@ -226,7 +226,7 @@ default and minimal modes, but with different defaults:
 | Type has no method filter entries | All methods included | All methods demoted |
 | Type has explicit `::Method` entries | Listed methods included, rest included too | Listed methods included, rest demoted |
 | Type has `::*` entry | All methods included | All methods included |
-| Method deps missing from types map | Method demoted (with warning) | N/A (MinimalTypeMap ensures deps exist) |
+| Method deps missing from types map | Method demoted | N/A (MinimalTypeMap ensures deps exist) |
 
 In default mode, method-level filters are *additive allow-list on top of include-all*.
 In minimal mode, they are *the mechanism that determines what gets included at all*.
@@ -279,20 +279,6 @@ can be used independently with any mode.
 | **Event sugar universal** | Medium | Typed `add_`/`remove_` wrappers could benefit default-mode users too |
 | **`--dead-code` for `--sys`** | Low | Now possible since it's mode-independent |
 | **Further filter intelligence** | Medium | `minimal_closure` could auto-detect more cases (e.g., flat + no broad filter even without method entries) |
-| **Remove `--deps` entirely** | Low | Already hidden; final step is wiring deps from style automatically |
-
-### `--deps` (internal)
-
-The `--deps` option exists for internal bootstrapping (e.g., `windows-core`
-generating its own sys-style bindings with `--deps none`). It controls whether
-core types reference external crates or are emitted inline.
-
-For `--sys` mode, `--deps none` is always the effective default — users should
-not need to specify it. For default/minimal modes, `--deps core` is the
-default. The `--deps specific` value is used internally by crates that depend
-on `windows-result`/`windows-strings` directly rather than through
-`windows-core`.
-
 ### `--package` (internal)
 
 The `--package` option generates a complete crate with `Cargo.toml` feature

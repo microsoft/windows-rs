@@ -11,9 +11,8 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "test_events",
+        "Windows.Foundation.TypedEventHandler",
+        "Windows.Foundation.EventHandler",
         "--flat",
-        "--reference",
-        "windows",
-    ])
-    .unwrap();
+    ]);
 }

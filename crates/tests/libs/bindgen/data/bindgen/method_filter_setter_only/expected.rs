@@ -12,7 +12,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IBar {
-        pub fn SetOther(&self, value: i32) -> windows_result::Result<()> {
+        pub fn SetOther(&self, value: i32) -> windows_core::Result<()> {
             unsafe {
                 (windows_core::Interface::vtable(self).SetOther)(
                     windows_core::Interface::as_raw(self),
@@ -30,7 +30,7 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         Other: usize,
         pub SetOther:
-            unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     }
     windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0xa2715897_a2fb_55df_90c3_93eb89fa1fc8);
     impl windows_core::RuntimeType for IFoo {
@@ -45,7 +45,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo {
-        pub fn SetValue(&self, value: i32) -> windows_result::Result<()> {
+        pub fn SetValue(&self, value: i32) -> windows_core::Result<()> {
             unsafe {
                 (windows_core::Interface::vtable(self).SetValue)(
                     windows_core::Interface::as_raw(self),
@@ -63,6 +63,6 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         Value: usize,
         pub SetValue:
-            unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_result::HRESULT,
+            unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     }
 }
