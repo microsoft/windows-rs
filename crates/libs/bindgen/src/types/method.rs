@@ -208,7 +208,7 @@ impl Method {
                 quote! { -> #return_type_tokens }
             }
         } else {
-            let result = config.write_result();
+            let result = config.write_core();
             quote! { -> #result Result<#return_type_tokens> }
         };
 
@@ -642,7 +642,7 @@ impl Method {
                 quote! { -> #return_type }
             }
         } else {
-            let result = config.write_result();
+            let result = config.write_core();
             quote! { -> #result Result<#return_type> }
         };
 
@@ -973,7 +973,6 @@ impl Method {
             };
 
             let core = config.write_core();
-            let result = config.write_result();
 
             // Body shared across all kinds: materialise the token then wrap it.
             let event_body = quote! {
@@ -988,7 +987,7 @@ impl Method {
 
             return match kind {
                 InterfaceKind::Default => quote! {
-                    #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                    #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #core Result<#core EventRevoker> #event_where_clause {
                         #event_prelude
                         unsafe {
                             #event_body
@@ -998,7 +997,7 @@ impl Method {
                 InterfaceKind::None | InterfaceKind::Base => {
                     let interface_name = interface.unwrap().write_name(config);
                     quote! {
-                        #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #core Result<#core EventRevoker> #event_where_clause {
                             let this = &windows_core::Interface::cast::<#interface_name>(self)?;
                             #event_prelude
                             unsafe {
@@ -1010,7 +1009,7 @@ impl Method {
                 InterfaceKind::Static => {
                     let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
                     quote! {
-                        #vis fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #vis fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #core Result<#core EventRevoker> #event_where_clause {
                             #event_prelude
                             Self::#factory_name(|this| unsafe {
                                 #event_body

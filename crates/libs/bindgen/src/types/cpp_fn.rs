@@ -140,7 +140,7 @@ impl CppFn {
         let params = method.write_params(config);
         let generics = method.write_generics();
         let abi_return_type = method.write_return(config);
-        let result = config.write_result();
+        let result = config.write_core();
 
         let wrapper = match method.return_hint {
             ReturnHint::Query(..) => {

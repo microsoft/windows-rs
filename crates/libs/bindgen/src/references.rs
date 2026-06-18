@@ -11,16 +11,6 @@ pub struct ReferenceStage {
     path: String,
 }
 
-impl Default for ReferenceStage {
-    fn default() -> Self {
-        Self {
-            name: String::new(),
-            style: ReferenceStyle::Full,
-            path: String::new(),
-        }
-    }
-}
-
 impl ReferenceStage {
     #[track_caller]
     pub fn parse(mut arg: &str) -> Self {

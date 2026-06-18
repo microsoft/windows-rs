@@ -24,14 +24,6 @@ impl Config<'_> {
         }
     }
 
-    pub fn write_result(&self) -> TokenStream {
-        self.write_core()
-    }
-
-    pub fn write_strings(&self) -> TokenStream {
-        self.write_core()
-    }
-
     pub fn write_generic_phantoms(&self, generics: &[Type]) -> TokenStream {
         if generics.is_empty() {
             quote! {}
