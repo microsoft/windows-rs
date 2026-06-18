@@ -16,9 +16,6 @@ pub struct Config<'a> {
     /// `new()` and `Invoke()` methods suppressed because the event-add wrapper
     /// inlines the DelegateBox construction directly.
     pub event_only_delegates: &'a HashSet<TypeName>,
-    /// Enables minimal-style codegen: suppresses class wrappers, inherited
-    /// forwarders, NAME constants, etc. Driven by the `--minimal` flag.
-    pub minimal_codegen: bool,
 }
 
 impl Config<'_> {
@@ -51,7 +48,8 @@ impl Config<'_> {
                 return true;
             }
         }
-        self.filter.includes_method(type_name, method)
+        self.filter
+            .includes_method(type_name, method, self.bindgen.style.is_minimal())
     }
 }
 

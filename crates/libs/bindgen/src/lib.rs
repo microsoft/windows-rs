@@ -499,7 +499,7 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        let (filter, types, minimal_codegen) = {
+        let (filter, types) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -519,22 +519,15 @@ impl Bindgen {
             // set and the filter has precise entries without broad patterns.
             // This walks only the signatures of requested methods to discover
             // the minimal set of required types.
-            let use_minimal_type_closure =
-                self.style.is_minimal() && !filter.has_broad_filter && !self.layout.is_package();
+            let types =
+                if self.style.is_minimal() && !filter.has_broad_filter && !self.layout.is_package()
+                {
+                    MinimalTypeMap::build(&reader, &mut filter, &references)
+                } else {
+                    TypeMap::filter(&reader, &filter, &references)
+                };
 
-            // In `--minimal` mode, methods on types with no explicit method
-            // filter are demoted (replaced with opaque vtable slots).
-            filter.default_demote = self.style.is_minimal();
-
-            let types = if use_minimal_type_closure {
-                MinimalTypeMap::build(&reader, &mut filter, &references)
-            } else {
-                TypeMap::filter(&reader, &filter, &references)
-            };
-
-            let minimal_codegen = self.style.is_minimal();
-
-            (filter, types, minimal_codegen)
+            (filter, types)
         };
 
         let derive = Derive::new(&reader, &types, &derive_str);
@@ -555,7 +548,6 @@ impl Bindgen {
             link,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_codegen,
         };
 
         let tree = TypeTree::new(&types);

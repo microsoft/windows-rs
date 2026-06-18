@@ -29,9 +29,6 @@ pub struct Filter {
     enum_variants: HashMap<(String, String), MethodSet>,
     /// Classes that explicitly requested `CreateInstance`.
     activatable: HashSet<(String, String)>,
-    /// When `true`, methods on types with no explicit MethodFilter entry are
-    /// demoted by default (minimal/opt-in mode).
-    pub default_demote: bool,
     /// Interfaces with specific methods requested (for type closure).
     /// Key: (namespace, type_name), Value: requested method names (or All).
     pub requested_interfaces: HashMap<(String, String), MethodSet>,
@@ -143,7 +140,10 @@ impl Filter {
     /// on the same type. Deny wins on overlap. When at least one allow entry
     /// exists, unlisted methods are demoted (allow-list mode); otherwise
     /// only listed deny entries are demoted (deny-only mode).
-    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
+    /// When `minimal` is true, methods on types with no explicit method
+    /// filter are demoted (replaced with opaque vtable slots), and overload
+    /// matching uses the disambiguated name exclusively.
+    pub fn includes_method(&self, type_name: TypeName, method: MethodDef, minimal: bool) -> bool {
         let key = (
             type_name.namespace().to_string(),
             type_name.name().to_string(),
@@ -153,23 +153,23 @@ impl Filter {
             // No explicit method filter for this type. In minimal mode,
             // check requested_interfaces — types registered with MethodSet::All
             // (e.g. composable factory interfaces) should include all methods.
-            if self.default_demote {
+            if minimal {
                 if let Some(MethodSet::All) = self.requested_interfaces.get(&key) {
                     return true;
                 }
             }
-            return !self.default_demote;
+            return !minimal;
         };
 
         let raw = method.name();
         let overload = method_overload_name(method);
 
-        // In minimal mode (default_demote), match by overload-disambiguated name
-        // when one exists — the raw metadata name is shared with other overloads
-        // and would include them all indiscriminately. In non-minimal mode,
+        // In minimal mode, match by overload-disambiguated name when one
+        // exists — the raw metadata name is shared with other overloads and
+        // would include them all indiscriminately. In non-minimal mode,
         // match either raw or overload for broader compatibility.
         let in_set = |set: &BTreeSet<String>| -> bool {
-            if self.default_demote {
+            if minimal {
                 if let Some(ref name) = overload {
                     set.contains(name.as_str())
                 } else {
@@ -210,8 +210,8 @@ impl Filter {
     }
 
     /// Create a filter for minimal/opt-in mode. Parses the same `::` syntax
-    /// as the standard filter but with `default_demote = true` — only
-    /// explicitly-requested methods are emitted.
+    /// as the standard filter but only explicitly-requested methods are
+    /// emitted (pass `minimal: true` to `includes_method`).
     ///
     /// Supported entry syntax:
     /// - `Namespace.Type` — include a type (function, struct, enum, class)
@@ -326,7 +326,6 @@ impl Filter {
             methods,
             enum_variants,
             activatable,
-            default_demote: false,
             requested_interfaces,
             direct_types,
             has_broad_filter,
