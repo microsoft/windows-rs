@@ -15,14 +15,17 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+        pub fn Name(&self) -> windows_core::Result<String> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Name)(
                     windows_core::Interface::as_raw(self),
                     &mut result__,
                 )
-                .map(|| core::mem::transmute(result__))
+                .map(|| {
+                    let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                    hstring.to_string_lossy()
+                })
             }
         }
     }

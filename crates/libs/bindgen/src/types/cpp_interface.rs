@@ -36,7 +36,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if !config.minimal_codegen && !method.dependencies.included(config) {
+                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
                     CppMethodOrName::Name(method.def)
                 } else if !config.includes_method(type_name, def) {
                     // Method-level filter demoted this slot to opaque.
@@ -57,7 +57,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            (!config.minimal_codegen && !method.dependencies.included(config))
+            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
                 || !config.includes_method(type_name, def)
         })
     }

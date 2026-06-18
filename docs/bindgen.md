@@ -248,18 +248,19 @@ abstraction-level difference between `--minimal` and default mode:
 | **Cpp method** (param patterns) | 3 | Same as above for COM |
 | **Naming** (method_names raw, struct snake_case, enum short) | 4 | Minimal uses metadata names |
 | **Raw FFI patterns** (cpp_fn, cpp_handle, cpp_enum, cpp_const) | 4 | `is_sys() \|\| is_minimal()` — no wrapper sugar |
-| **Structural** (lib.rs decision logic) | 1 | Defines what triggers `minimal_closure` |
+| **Structural** (lib.rs decision logic) | 1 | `--minimal` controls all minimal behavior |
 | **Interface** (forwarder skip, IntoIterator skip) | 2 | Class sugar related |
 
 **Already unified (no longer mode-gated):**
-- ✅ MinimalTypeMap activation — based on filter structure (`minimal_closure` flag)
+- ✅ MinimalTypeMap activation — `--minimal` + precise filter (no broad entries, not `--package`)
 - ✅ Vtable truncation — unconditional for all WinRT interfaces
 - ✅ Event-only delegate suppression — filter-structure-based
-- ✅ Method-dep filtering — gated on `minimal_closure`, not mode
+- ✅ Method-dep filtering — gated on `is_minimal()`
 - ✅ `#[doc(hidden)]` on vtbl structs — removed (only emitted in `--package`)
-- ✅ NAME constant suppression — gated on `minimal_closure`
-- ✅ `required_hierarchy!` filter — gated on `minimal_closure`
+- ✅ NAME constant suppression — gated on `is_minimal()`
+- ✅ `required_hierarchy!` filter — gated on `is_minimal()`
 - ✅ Visibility (`pub(crate)`) — decoupled into `--dead-code` option
+- ✅ Method demotion — driven solely by `--minimal` (passed explicitly to `Filter::includes_method`)
 
 ### `--dead-code`
 
@@ -277,7 +278,6 @@ Emits `pub(crate)` instead of `pub` on generated functions and methods so the
 | **Merge `--minimal` into default** | High | The remaining 33 differences define the tier. If they became opt-in flags (`--raw-names`, `--no-sugar`, `--no-forwarders`), `--minimal` could be eliminated entirely |
 | **Event sugar universal** | Medium | Typed `add_`/`remove_` wrappers could benefit default-mode users too |
 | **`--dead-code` for `--sys`** | Low | Now possible since it's mode-independent |
-| **Further filter intelligence** | Medium | `minimal_closure` could auto-detect more cases (e.g., flat + no broad filter even without method entries) |
 ### `--package` (internal)
 
 The `--package` option generates a complete crate with `Cargo.toml` feature

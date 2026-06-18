@@ -1,1 +1,1 @@
-args = "--in default --flat --filter IAsyncAction Windows.Foundation.IAsyncAction::GetResults"
+args = "--in default --flat --minimal --filter IAsyncAction Windows.Foundation.IAsyncAction::GetResults"
