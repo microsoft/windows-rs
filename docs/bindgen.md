@@ -252,15 +252,15 @@ abstraction-level difference between `--minimal` and default mode:
 | **Interface** (forwarder skip, IntoIterator skip) | 2 | Class sugar related |
 
 **Already unified (no longer mode-gated):**
-- ✅ MinimalTypeMap activation — `--minimal` + precise filter (no broad entries)
+- ✅ MinimalTypeMap activation — `--minimal` + precise filter (no broad entries, not `--package`)
 - ✅ Vtable truncation — unconditional for all WinRT interfaces
 - ✅ Event-only delegate suppression — filter-structure-based
-- ✅ Method-dep filtering — gated on `minimal_codegen`
+- ✅ Method-dep filtering — gated on `is_minimal()`
 - ✅ `#[doc(hidden)]` on vtbl structs — removed (only emitted in `--package`)
-- ✅ NAME constant suppression — gated on `minimal_codegen`
-- ✅ `required_hierarchy!` filter — gated on `minimal_codegen`
+- ✅ NAME constant suppression — gated on `is_minimal()`
+- ✅ `required_hierarchy!` filter — gated on `is_minimal()`
 - ✅ Visibility (`pub(crate)`) — decoupled into `--dead-code` option
-- ✅ `minimal_codegen` / `default_demote` — driven solely by `--minimal`, no auto-detection from filter shape
+- ✅ Method demotion — driven solely by `--minimal` (passed explicitly to `Filter::includes_method`)
 
 ### `--dead-code`
 
