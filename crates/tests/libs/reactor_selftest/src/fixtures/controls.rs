@@ -332,7 +332,7 @@ pub fn mount_rich_text(h: Harness) -> FixtureFuture {
         // Verify the RichTextBlock has paragraph content (Blocks collection non-empty).
         let has_content = !h
             .find_all::<bindings::RichTextBlock>(&|rtb| {
-                rtb.get_Blocks().is_ok_and(|b| b.Size().unwrap_or(0) > 0)
+                rtb.Blocks().is_ok_and(|b| b.Size().unwrap_or(0) > 0)
             })
             .is_empty();
         h.check("Reconciler_Mount_RichText_HasContent", has_content);
@@ -374,18 +374,18 @@ pub fn mount_reorderable_list_view(h: Harness) -> FixtureFuture {
         h.check_eq(
             "Reconciler_Mount_ReorderableListView_CanDragItems",
             true,
-            lvb.get_CanDragItems().unwrap(),
+            lvb.CanDragItems().unwrap(),
         );
         h.check_eq(
             "Reconciler_Mount_ReorderableListView_CanReorderItems",
             true,
-            lvb.get_CanReorderItems().unwrap(),
+            lvb.CanReorderItems().unwrap(),
         );
         let ui: bindings::IUIElement = lv.cast().unwrap();
         h.check_eq(
             "Reconciler_Mount_ReorderableListView_AllowDrop",
             true,
-            ui.get_AllowDrop().unwrap(),
+            ui.AllowDrop().unwrap(),
         );
     })
 }
@@ -425,18 +425,18 @@ pub fn mount_reorderable_grid_view(h: Harness) -> FixtureFuture {
         h.check_eq(
             "Reconciler_Mount_ReorderableGridView_CanDragItems",
             true,
-            lvb.get_CanDragItems().unwrap(),
+            lvb.CanDragItems().unwrap(),
         );
         h.check_eq(
             "Reconciler_Mount_ReorderableGridView_CanReorderItems",
             true,
-            lvb.get_CanReorderItems().unwrap(),
+            lvb.CanReorderItems().unwrap(),
         );
         let ui: bindings::IUIElement = gv.cast().unwrap();
         h.check_eq(
             "Reconciler_Mount_ReorderableGridView_AllowDrop",
             true,
-            ui.get_AllowDrop().unwrap(),
+            ui.AllowDrop().unwrap(),
         );
     })
 }

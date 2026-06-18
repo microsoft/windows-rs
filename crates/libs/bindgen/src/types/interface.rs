@@ -59,7 +59,7 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !config.minimal_closure && !method.dependencies.included(config) {
+                if !config.minimal_codegen && !method.dependencies.included(config) {
                     MethodOrName::Name(method.def)
                 } else if !config.includes_method(type_name, def) {
                     // Method-level filter demoted this slot to opaque.
@@ -79,7 +79,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            (!config.minimal_closure && !method.dependencies.included(config))
+            (!config.minimal_codegen && !method.dependencies.included(config))
                 || !config.includes_method(type_name, def)
         })
     }
@@ -189,7 +189,7 @@ impl Interface {
                 // In minimal mode, NAME is only needed for interfaces that are
                 // being implemented (for GetRuntimeClassName). The trait provides
                 // an empty default, so omitting it is safe.
-                let name_const = if config.minimal_closure
+                let name_const = if config.minimal_codegen
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
@@ -224,7 +224,7 @@ impl Interface {
                 // In minimal mode, NAME on parameterized interfaces is only needed
                 // when the interface is implemented (for GetRuntimeClassName via
                 // RUNTIME_CLASS_NAME). Skip it otherwise.
-                let name_const = if config.minimal_closure
+                let name_const = if config.minimal_codegen
                     && !config.should_implement(type_name, false)
                 {
                     quote! {}
@@ -279,7 +279,7 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            if config.minimal_closure {
+                            if config.minimal_codegen {
                                 let tn = Type::Interface((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {
@@ -317,7 +317,7 @@ impl Interface {
             // exclusive `--implement` interfaces (like overrides) are meant to be *implemented*
             // via the `_Impl` trait — not called. In both cases we suppress the caller-side
             // method wrapper to avoid dead code.
-            let use_minimal_methods = config.minimal_closure;
+            let use_minimal_methods = config.minimal_codegen;
             let suppress_methods = is_exclusive
                 && use_minimal_methods
                 && (self.is_factory(config.reader) || config.should_implement(type_name, false));

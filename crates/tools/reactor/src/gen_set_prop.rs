@@ -353,7 +353,7 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
             value_variant,
         } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             let arg = arg_tokens(value_variant);
             quote! { #cast.#m(#arg)?; }
         }
@@ -363,18 +363,18 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
             value_variant,
         } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             let arg = arg_tokens(value_variant);
             quote! { #cast.#m(Some(#arg))?; }
         }
         Body::CastNone { iface, method } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             quote! { #cast.#m(None)?; }
         }
         Body::IReference { iface, method } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             quote! {
                 let insp = windows_reference::IReference::from(v.as_str());
                 #cast.#m(&insp)?;
@@ -382,7 +382,7 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
         }
         Body::Textblock { iface, method } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             quote! {
                 let tb = string_as_textblock(v.as_str())?;
                 #cast.#m(&tb)?;
@@ -394,7 +394,7 @@ fn render_body(body: &Body, wildcard: bool, handle_name: Option<&str>) -> TokenS
             winui_type,
         } => {
             let cast = cast_tokens(iface, wildcard, handle_name);
-            let m = ident(method);
+            let m = ident(&method_to_rust(method));
             let wt = ident(winui_type);
             quote! {
                 #cast.#m(#wt(*v))?;

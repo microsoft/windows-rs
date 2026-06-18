@@ -66,8 +66,8 @@ pub fn create_reactor_application(
 pub fn install_xaml_controls_resources(app: &Application) -> Result<()> {
     let controls = XamlControlsResources::new()?;
     let as_rd: ResourceDictionary = controls.cast()?;
-    let resources = app.get_Resources()?;
-    let merged = resources.get_MergedDictionaries()?;
+    let resources = app.Resources()?;
+    let merged = resources.MergedDictionaries()?;
     merged.Append(&as_rd)?;
     Ok(())
 }

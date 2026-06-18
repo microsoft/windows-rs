@@ -30,8 +30,8 @@ impl DispatcherTimer {
     {
         let queue = DispatcherQueue::GetForCurrentThread()?;
         let timer = queue.CreateTimer()?;
-        timer.put_Interval(duration_to_timespan(interval))?;
-        timer.put_IsRepeating(repeating)?;
+        timer.SetInterval(duration_to_timespan(interval))?;
+        timer.SetIsRepeating(repeating)?;
 
         let tick_revoker = timer.Tick(move |_, _| {
             f();

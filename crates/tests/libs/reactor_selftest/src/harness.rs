@@ -57,7 +57,7 @@ impl Harness {
         let window = Window::new()?;
         window
             .cast::<crate::bindings::IWindow>()?
-            .put_Title(window_title)?;
+            .SetTitle(window_title)?;
 
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
 
@@ -65,16 +65,16 @@ impl Harness {
         let subtitle = TextBlock::new()?;
         subtitle
             .cast::<crate::bindings::ITextBlock>()?
-            .put_FontSize(12.0)?;
+            .SetFontSize(12.0)?;
         subtitle
             .cast::<crate::bindings::ITextBlock>()?
-            .put_Foreground(&solid_brush(255, 255, 255, 255)?)?;
+            .SetForeground(&solid_brush(255, 255, 255, 255)?)?;
         subtitle
             .cast::<crate::bindings::IFrameworkElement>()?
-            .put_VerticalAlignment(VerticalAlignment::Center)?;
+            .SetVerticalAlignment(VerticalAlignment::Center)?;
         subtitle
             .cast::<crate::bindings::IUIElement>()?
-            .put_IsHitTestVisible(false)?;
+            .SetIsHitTestVisible(false)?;
 
         let inner = HarnessInner {
             window,
@@ -101,10 +101,10 @@ impl Harness {
         let segment_bar = Grid::new()?;
         segment_bar
             .cast::<crate::bindings::IUIElement>()?
-            .put_IsHitTestVisible(false)?;
+            .SetIsHitTestVisible(false)?;
         let cols = segment_bar
             .cast::<crate::bindings::IGrid>()?
-            .get_ColumnDefinitions()?;
+            .ColumnDefinitions()?;
         let star_one = GridLength {
             value: 1.0,
             grid_unit_type: GridUnitType::Star,
@@ -112,17 +112,17 @@ impl Harness {
         for i in 0..total {
             let cd = ColumnDefinition::new()?;
             cd.cast::<crate::bindings::IColumnDefinition>()?
-                .put_Width(star_one)?;
+                .SetWidth(star_one)?;
             cols.cast::<windows_collections::IVector<ColumnDefinition>>()?
                 .Append(&cd)?;
             let seg = Border::new()?;
             seg.cast::<crate::bindings::IBorder>()?
-                .put_Background(&solid_brush(30, 200, 200, 200)?)?;
+                .SetBackground(&solid_brush(30, 200, 200, 200)?)?;
             Grid::SetColumn(&seg, i as i32)?;
             let seg_ui: UIElement = seg.cast()?;
             segment_bar
                 .cast::<crate::bindings::IPanel>()?
-                .get_Children()?
+                .Children()?
                 .cast::<windows_collections::IVector<UIElement>>()?
                 .Append(&seg_ui)?;
             inner.segments.borrow_mut().push(seg);
@@ -130,8 +130,8 @@ impl Harness {
 
         let pill = Border::new()?;
         pill.cast::<crate::bindings::IBorder>()?
-            .put_Background(&solid_brush(180, 0, 0, 0)?)?;
-        pill.cast::<crate::bindings::IBorder>()?.put_CornerRadius(
+            .SetBackground(&solid_brush(180, 0, 0, 0)?)?;
+        pill.cast::<crate::bindings::IBorder>()?.SetCornerRadius(
             crate::bindings::CornerRadius {
                 top_left: 4.0,
                 top_right: 4.0,
@@ -140,76 +140,74 @@ impl Harness {
             },
         )?;
         pill.cast::<crate::bindings::IBorder>()?
-            .put_Padding(Thickness {
+            .SetPadding(Thickness {
                 left: 8.0,
                 top: 2.0,
                 right: 8.0,
                 bottom: 2.0,
             })?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
-            .put_HorizontalAlignment(HorizontalAlignment::Left)?;
+            .SetHorizontalAlignment(HorizontalAlignment::Left)?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
-            .put_VerticalAlignment(VerticalAlignment::Center)?;
+            .SetVerticalAlignment(VerticalAlignment::Center)?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
-            .put_Margin(Thickness {
+            .SetMargin(Thickness {
                 left: 12.0,
                 top: 0.0,
                 right: 0.0,
                 bottom: 0.0,
             })?;
         pill.cast::<crate::bindings::IUIElement>()?
-            .put_IsHitTestVisible(false)?;
+            .SetIsHitTestVisible(false)?;
         let subtitle_ui: UIElement = inner.subtitle.cast()?;
         pill.cast::<crate::bindings::IBorder>()?
-            .put_Child(&subtitle_ui)?;
+            .SetChild(&subtitle_ui)?;
 
         let titlebar_area = Grid::new()?;
         titlebar_area
             .cast::<crate::bindings::IFrameworkElement>()?
-            .put_Height(48.0)?;
+            .SetHeight(48.0)?;
         let bar_ui: UIElement = segment_bar.cast()?;
         let pill_ui: UIElement = pill.cast()?;
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
-            .get_Children()?
+            .Children()?
             .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&bar_ui)?;
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
-            .get_Children()?
+            .Children()?
             .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&pill_ui)?;
 
         let root = Grid::new()?;
-        let rows = root
-            .cast::<crate::bindings::IGrid>()?
-            .get_RowDefinitions()?;
+        let rows = root.cast::<crate::bindings::IGrid>()?.RowDefinitions()?;
         let auto = GridLength {
             value: 0.0,
             grid_unit_type: GridUnitType::Auto,
         };
         let row0 = RowDefinition::new()?;
         row0.cast::<crate::bindings::IRowDefinition>()?
-            .put_Height(auto)?;
+            .SetHeight(auto)?;
         rows.cast::<windows_collections::IVector<RowDefinition>>()?
             .Append(&row0)?;
         let row1 = RowDefinition::new()?;
         row1.cast::<crate::bindings::IRowDefinition>()?
-            .put_Height(star_one)?;
+            .SetHeight(star_one)?;
         rows.cast::<windows_collections::IVector<RowDefinition>>()?
             .Append(&row1)?;
 
         let titlebar_ui: UIElement = titlebar_area.cast()?;
         Grid::SetRow(&titlebar_ui.cast::<FrameworkElement>()?, 0)?;
         root.cast::<crate::bindings::IPanel>()?
-            .get_Children()?
+            .Children()?
             .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&titlebar_ui)?;
 
         let content_ui: UIElement = inner.content_area.cast()?;
         Grid::SetRow(&content_ui.cast::<FrameworkElement>()?, 1)?;
         root.cast::<crate::bindings::IPanel>()?
-            .get_Children()?
+            .Children()?
             .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&content_ui)?;
 
@@ -217,11 +215,11 @@ impl Harness {
         inner
             .window
             .cast::<crate::bindings::IWindow>()?
-            .put_Content(&root_ui)?;
+            .SetContent(&root_ui)?;
         inner
             .window
             .cast::<crate::bindings::IWindow>()?
-            .put_ExtendsContentIntoTitleBar(true)?;
+            .SetExtendsContentIntoTitleBar(true)?;
 
         inner
             .window
@@ -258,7 +256,7 @@ impl Harness {
         inner
             .subtitle
             .cast::<crate::bindings::ITextBlock>()?
-            .put_Text(&label)?;
+            .SetText(&label)?;
         if let Some(tb) = inner.taskbar.borrow().as_ref() {
             unsafe {
                 let _ = tb.SetProgressValue(inner.hwnd.get(), current as u64, total as u64);
@@ -279,7 +277,7 @@ impl Harness {
             solid_brush(255, 244, 67, 54)?
         };
         seg.cast::<crate::bindings::IBorder>()?
-            .put_Background(&brush)?;
+            .SetBackground(&brush)?;
         Ok(())
     }
 
@@ -322,7 +320,7 @@ impl Harness {
                         let _ = content
                             .cast::<crate::bindings::IBorder>()
                             .unwrap()
-                            .put_Child(&ui);
+                            .SetChild(&ui);
                         last_attached.set(Some(rid));
                     }
                 }
@@ -350,7 +348,7 @@ impl Harness {
             .window
             .cast::<crate::bindings::IWindow>()
             .unwrap()
-            .get_Content()
+            .Content()
         {
             let _ = content
                 .cast::<crate::bindings::IUIElement>()
@@ -541,7 +539,7 @@ impl Harness {
             .content_area
             .cast::<crate::bindings::IBorder>()
             .unwrap()
-            .get_Child()
+            .Child()
         {
             Ok(ui) => ui.cast::<DependencyObject>().ok(),
             Err(_) => None,
@@ -552,7 +550,7 @@ impl Harness {
         self.find_first::<TextBlock>(&|tb| {
             tb.cast::<crate::bindings::ITextBlock>()
                 .unwrap()
-                .get_Text()
+                .Text()
                 .ok()
                 .is_some_and(|t| t == s)
         })
@@ -562,7 +560,7 @@ impl Harness {
         self.find_first::<TextBlock>(&|tb| {
             tb.cast::<crate::bindings::ITextBlock>()
                 .unwrap()
-                .get_Text()
+                .Text()
                 .ok()
                 .is_some_and(|t| t.contains(s))
         })
@@ -573,12 +571,12 @@ impl Harness {
             let Ok(content) = btn
                 .cast::<crate::bindings::IContentControl>()
                 .unwrap()
-                .get_Content()
+                .Content()
             else {
                 return false;
             };
             if let Ok(tb) = content.cast::<TextBlock>()
-                && let Ok(t) = tb.cast::<crate::bindings::ITextBlock>().unwrap().get_Text()
+                && let Ok(t) = tb.cast::<crate::bindings::ITextBlock>().unwrap().Text()
                 && t == label
             {
                 return true;
@@ -614,7 +612,7 @@ impl Harness {
         };
         if !btn
             .cast::<crate::bindings::IControl>()?
-            .get_IsEnabled()
+            .IsEnabled()
             .unwrap_or(false)
         {
             return Ok(());
@@ -638,7 +636,7 @@ impl Harness {
         };
         self.report_hresult("set_checkbox_value", || {
             cb.cast::<crate::bindings::IToggleButton>()?
-                .put_IsChecked(Some(checked))?;
+                .SetIsChecked(Some(checked))?;
             Ok(())
         })
     }
@@ -650,7 +648,7 @@ impl Harness {
             return Err(Error::empty());
         };
         self.report_hresult("set_toggle_switch_value", || {
-            ts.cast::<crate::bindings::IToggleSwitch>()?.put_IsOn(on)?;
+            ts.cast::<crate::bindings::IToggleSwitch>()?.SetIsOn(on)?;
             Ok(())
         })
     }
@@ -662,7 +660,7 @@ impl Harness {
             return Err(Error::empty());
         };
         self.report_hresult("set_slider_value", || {
-            s.cast::<crate::bindings::IRangeBase>()?.put_Value(value)?;
+            s.cast::<crate::bindings::IRangeBase>()?.SetValue(value)?;
             Ok(())
         })
     }
@@ -674,7 +672,7 @@ impl Harness {
             return Err(Error::empty());
         };
         self.report_hresult("set_text_field_value", || {
-            tb.cast::<crate::bindings::ITextBox>()?.put_Text(text)?;
+            tb.cast::<crate::bindings::ITextBox>()?.SetText(text)?;
             Ok(())
         })
     }
@@ -688,7 +686,7 @@ impl Harness {
         };
         self.report_hresult("set_password_box_value", || {
             pb.cast::<crate::bindings::IPasswordBox>()?
-                .put_Password(text)?;
+                .SetPassword(text)?;
             Ok(())
         })
     }
@@ -758,7 +756,7 @@ impl Harness {
         };
         self.report_hresult("set_combo_box_selected_index", || {
             c.cast::<crate::bindings::ISelector>()?
-                .put_SelectedIndex(index)?;
+                .SetSelectedIndex(index)?;
             Ok(())
         })
     }
@@ -814,21 +812,21 @@ fn dump_node(node: &DependencyObject, depth: usize, out: &mut String) {
     out.push_str(&class_name);
 
     if let Ok(tb) = node.cast::<crate::bindings::ITextBlock>()
-        && let Ok(t) = tb.get_Text()
+        && let Ok(t) = tb.Text()
     {
         out.push_str(&format!(" Text={t:?}"));
     }
     if let Ok(rb) = node.cast::<crate::bindings::IRadioButtons>() {
-        if let Ok(idx) = rb.get_SelectedIndex() {
+        if let Ok(idx) = rb.SelectedIndex() {
             out.push_str(&format!(" SelectedIndex={idx}"));
         }
     } else if let Ok(sel) = node.cast::<crate::bindings::ISelector>()
-        && let Ok(idx) = sel.get_SelectedIndex()
+        && let Ok(idx) = sel.SelectedIndex()
     {
         out.push_str(&format!(" SelectedIndex={idx}"));
     }
     if let Ok(tog) = node.cast::<crate::bindings::IToggleButton>()
-        && let Ok(v) = tog.get_IsChecked()
+        && let Ok(v) = tog.IsChecked()
     {
         out.push_str(&format!(" IsChecked={v:?}"));
     }
@@ -864,7 +862,7 @@ fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     let brush = SolidColorBrush::new()?;
     brush
         .cast::<crate::bindings::ISolidColorBrush>()?
-        .put_Color(Color { a, r, g, b })?;
+        .SetColor(Color { a, r, g, b })?;
     Ok(brush)
 }
 

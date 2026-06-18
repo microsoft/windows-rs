@@ -35,7 +35,7 @@ pub fn set_requested_theme(theme: RequestedTheme) {
 
     ROOT_FRAMEWORK_ELEMENT.with(|cell| {
         if let Some(ife) = cell.borrow().as_ref() {
-            let _ = ife.put_RequestedTheme(element_theme);
+            let _ = ife.SetRequestedTheme(element_theme);
             update_titlebar_theme();
         } else {
             PENDING_THEME.with(|p| p.set(Some(element_theme)));
@@ -46,7 +46,7 @@ pub fn set_requested_theme(theme: RequestedTheme) {
 fn update_titlebar_theme() {
     ROOT_FRAMEWORK_ELEMENT.with(|cell| {
         if let Some(ife) = cell.borrow().as_ref()
-            && let Ok(theme) = ife.get_ActualTheme()
+            && let Ok(theme) = ife.ActualTheme()
         {
             let titlebar_theme = match theme {
                 ElementTheme::Dark => TitleBarTheme::Dark,
@@ -57,13 +57,13 @@ fn update_titlebar_theme() {
             let _ = ROOT_WINDOW.with(|wcell| -> Option<()> {
                 let window = wcell.borrow();
                 let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-                let app_window = window_2.get_AppWindow().ok()?;
+                let app_window = window_2.AppWindow().ok()?;
                 let titlebar = app_window
-                    .get_TitleBar()
+                    .TitleBar()
                     .ok()?
                     .cast::<IAppWindowTitleBar3>()
                     .ok()?;
-                titlebar.put_PreferredTheme(titlebar_theme).ok()
+                titlebar.SetPreferredTheme(titlebar_theme).ok()
             });
         }
     });
@@ -73,9 +73,9 @@ pub fn set_titlebar_height(tall: bool) {
     let applied = ROOT_WINDOW.with(|wcell| -> Option<()> {
         let window = wcell.borrow();
         let window_2 = window.as_ref()?.cast::<IWindow2>().ok()?;
-        let app_window = window_2.get_AppWindow().ok()?;
+        let app_window = window_2.AppWindow().ok()?;
         let titlebar = app_window
-            .get_TitleBar()
+            .TitleBar()
             .ok()?
             .cast::<IAppWindowTitleBar2>()
             .ok()?;
@@ -84,7 +84,7 @@ pub fn set_titlebar_height(tall: bool) {
         } else {
             TitleBarHeightOption::Standard
         };
-        titlebar.put_PreferredHeightOption(option).ok()
+        titlebar.SetPreferredHeightOption(option).ok()
     });
     if applied.is_none() {
         PENDING_TALL.with(|p| p.set(Some(tall)));
@@ -99,7 +99,7 @@ pub fn set_backdrop(backdrop: Option<Backdrop>) {
                 let _ = b.apply_to(window);
             } else {
                 if let Ok(w2) = window.cast::<IWindow2>() {
-                    let _ = w2.put_SystemBackdrop(None);
+                    let _ = w2.SetSystemBackdrop(None);
                 }
             }
         }
@@ -146,14 +146,14 @@ impl Backdrop {
             Backdrop::Mica => MicaBackdrop::new()?.cast()?,
             Backdrop::MicaAlt => {
                 let mica = MicaBackdrop::new()?;
-                mica.put_Kind(MicaKind::BaseAlt)?;
+                mica.SetKind(MicaKind::BaseAlt)?;
                 mica.cast()?
             }
             Backdrop::Acrylic => DesktopAcrylicBackdrop::new()?.cast()?,
         };
         window
             .cast::<IWindow2>()?
-            .put_SystemBackdrop(&system_backdrop)
+            .SetSystemBackdrop(&system_backdrop)
     }
 }
 
@@ -217,7 +217,7 @@ impl ReactorHost {
                 Some(rid) => {
                     if let Some(ui) = state.render_host.with_backend(|b| b.get_ui_element(rid)) {
                         let ui_element: UIElement = ui.cast().unwrap();
-                        let _ = state.window.put_Content(&ui_element);
+                        let _ = state.window.SetContent(&ui_element);
                         last_attached_for_hook.set(Some(rid));
 
                         if !subscribed.get() {
@@ -242,7 +242,7 @@ impl ReactorHost {
                                 // root element existed (e.g. from a first-mount
                                 // use_effect).
                                 if let Some(theme) = PENDING_THEME.with(|p| p.take()) {
-                                    let _ = fe.put_RequestedTheme(theme);
+                                    let _ = fe.SetRequestedTheme(theme);
                                     update_titlebar_theme();
                                 }
                             }
@@ -250,7 +250,7 @@ impl ReactorHost {
 
                         // Wire TitleBar to window on every root change (mirrors C# mount behavior).
                         if let Some(tb) = state.render_host.with_backend(|b| b.find_titlebar()) {
-                            let _ = state.window.put_ExtendsContentIntoTitleBar(true);
+                            let _ = state.window.SetExtendsContentIntoTitleBar(true);
                             if let Ok(tb_ui) = tb.cast::<UIElement>() {
                                 let _ = state.window.SetTitleBar(&tb_ui);
                             }
@@ -298,11 +298,11 @@ impl ReactorHost {
             let _ = (|| -> Result<()> {
                 let mut hwnd: HWND = HWND::default();
                 if let Ok(native) = window.cast::<IWindowNative>() {
-                    let _ = unsafe { native.get_WindowHandle(&mut hwnd) };
+                    let _ = unsafe { native.WindowHandle(&mut hwnd) };
                 }
 
                 if let Some(native_kind) = presenter.to_native()
-                    && let Ok(app_window) = window.cast::<IWindow2>()?.get_AppWindow()
+                    && let Ok(app_window) = window.cast::<IWindow2>()?.AppWindow()
                 {
                     let _ = app_window.SetPresenterByKind(native_kind);
                 }
@@ -419,12 +419,12 @@ fn subscribe_size_and_dpi(
 ) {
     let mut hwnd: HWND = HWND::default();
     if let Ok(native) = window.cast::<IWindowNative>() {
-        let _ = unsafe { native.get_WindowHandle(&mut hwnd) };
+        let _ = unsafe { native.WindowHandle(&mut hwnd) };
     }
 
     let _ = fe
         .SizeChanged(move |_sender, args| {
-            let size = args.unwrap().get_NewSize().unwrap();
+            let size = args.unwrap().NewSize().unwrap();
             let new_dpi = unsafe { GetDpiForWindow(hwnd) };
             if new_dpi > 0 {
                 render_host.set_dpi(new_dpi);
@@ -448,14 +448,12 @@ fn create_window(
 
     let mut hwnd = HWND::default();
     unsafe {
-        window
-            .cast::<IWindowNative>()?
-            .get_WindowHandle(&mut hwnd)?;
+        window.cast::<IWindowNative>()?.WindowHandle(&mut hwnd)?;
     }
     let dpi = unsafe { GetDpiForWindow(hwnd) };
     let dpi = if dpi == 0 { 96 } else { dpi };
 
-    window.put_Title(title.as_ref())?;
+    window.SetTitle(title.as_ref())?;
 
     let dip_size = match size {
         Some(s) => s,
@@ -465,7 +463,7 @@ fn create_window(
     let dip_to_px = |dips: f64| (dips * dpi as f64 / 96.0).round() as i32;
 
     let window_2 = window.cast::<IWindow2>()?;
-    let app_window = window_2.get_AppWindow()?;
+    let app_window = window_2.AppWindow()?;
     let app_window_2 = app_window.cast::<IAppWindow2>()?;
     app_window_2.ResizeClient(SizeInt32 {
         width: dip_to_px(dip_size.width),
@@ -475,30 +473,28 @@ fn create_window(
     app_window.SetPresenterByKind(AppWindowPresenterKind::Overlapped)?;
     set_requested_theme(RequestedTheme::Default);
 
-    let outer_size = app_window.get_Size()?;
-    let inner_size = app_window_2.get_ClientSize()?;
+    let outer_size = app_window.Size()?;
+    let inner_size = app_window_2.ClientSize()?;
     let nc_width_px = outer_size.width.saturating_sub(inner_size.width);
     let nc_height_px = outer_size.height.saturating_sub(inner_size.height);
 
-    let overlapped = app_window
-        .get_Presenter()?
-        .cast::<IOverlappedPresenter3>()?;
+    let overlapped = app_window.Presenter()?.cast::<IOverlappedPresenter3>()?;
     if let Some(min_w) = constraints.min_width {
-        overlapped.put_PreferredMinimumWidth(Some(dip_to_px(min_w).saturating_add(nc_width_px)))?;
+        overlapped.SetPreferredMinimumWidth(Some(dip_to_px(min_w).saturating_add(nc_width_px)))?;
     }
     if let Some(min_h) = constraints.min_height {
         overlapped
-            .put_PreferredMinimumHeight(Some(dip_to_px(min_h).saturating_add(nc_height_px)))?;
+            .SetPreferredMinimumHeight(Some(dip_to_px(min_h).saturating_add(nc_height_px)))?;
     }
     if let Some(max_w) = constraints.max_width {
-        overlapped.put_PreferredMaximumWidth(Some(dip_to_px(max_w).saturating_add(nc_width_px)))?;
+        overlapped.SetPreferredMaximumWidth(Some(dip_to_px(max_w).saturating_add(nc_width_px)))?;
     }
     if let Some(max_h) = constraints.max_height {
         overlapped
-            .put_PreferredMaximumHeight(Some(dip_to_px(max_h).saturating_add(nc_height_px)))?;
+            .SetPreferredMaximumHeight(Some(dip_to_px(max_h).saturating_add(nc_height_px)))?;
     }
 
-    let actual_client_px = app_window_2.get_ClientSize()?;
+    let actual_client_px = app_window_2.ClientSize()?;
     let actual_dip_size = WindowSize {
         width: actual_client_px.width as f64 * 96.0 / dpi as f64,
         height: actual_client_px.height as f64 * 96.0 / dpi as f64,
@@ -525,31 +521,27 @@ fn apply_constraints_for_window(
     let dip_scale = dpi as f64 / 96.0;
     let dip_to_px = |dips: f64| (dips * dip_scale).round() as i32;
 
-    let app_window = window.cast::<IWindow2>()?.get_AppWindow()?;
+    let app_window = window.cast::<IWindow2>()?.AppWindow()?;
     let app_window_2 = app_window.cast::<IAppWindow2>()?;
 
-    let outer_size = app_window.get_Size()?;
-    let inner_size = app_window_2.get_ClientSize()?;
+    let outer_size = app_window.Size()?;
+    let inner_size = app_window_2.ClientSize()?;
     let nc_width_px = outer_size.width.saturating_sub(inner_size.width);
     let nc_height_px = outer_size.height.saturating_sub(inner_size.height);
 
-    let presenter = app_window
-        .get_Presenter()?
-        .cast::<IOverlappedPresenter3>()?;
+    let presenter = app_window.Presenter()?.cast::<IOverlappedPresenter3>()?;
 
     if let Some(min_w) = constraints.min_width {
-        presenter.put_PreferredMinimumWidth(Some(dip_to_px(min_w).saturating_add(nc_width_px)))?;
+        presenter.SetPreferredMinimumWidth(Some(dip_to_px(min_w).saturating_add(nc_width_px)))?;
     }
     if let Some(min_h) = constraints.min_height {
-        presenter
-            .put_PreferredMinimumHeight(Some(dip_to_px(min_h).saturating_add(nc_height_px)))?;
+        presenter.SetPreferredMinimumHeight(Some(dip_to_px(min_h).saturating_add(nc_height_px)))?;
     }
     if let Some(max_w) = constraints.max_width {
-        presenter.put_PreferredMaximumWidth(Some(dip_to_px(max_w).saturating_add(nc_width_px)))?;
+        presenter.SetPreferredMaximumWidth(Some(dip_to_px(max_w).saturating_add(nc_width_px)))?;
     }
     if let Some(max_h) = constraints.max_height {
-        presenter
-            .put_PreferredMaximumHeight(Some(dip_to_px(max_h).saturating_add(nc_height_px)))?;
+        presenter.SetPreferredMaximumHeight(Some(dip_to_px(max_h).saturating_add(nc_height_px)))?;
     }
     Ok(())
 }
@@ -580,7 +572,7 @@ fn subscribe_actual_theme_changed(
 }
 
 fn update_color_scheme_from(fe: &FrameworkElement) {
-    if let Ok(theme) = fe.get_ActualTheme() {
+    if let Ok(theme) = fe.ActualTheme() {
         let scheme = match theme {
             ElementTheme::Dark => ColorScheme::Dark,
             _ => ColorScheme::Light,

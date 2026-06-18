@@ -26,13 +26,13 @@ pub(super) fn to_xaml_gridlength(v: GridLength) -> Result<bindings::GridLength> 
 
 pub(super) fn solid_brush(c: Color) -> Result<bindings::SolidColorBrush> {
     let brush = bindings::SolidColorBrush::new()?;
-    brush.put_Color(c)?;
+    brush.SetColor(c)?;
     Ok(brush)
 }
 
 pub(super) fn string_as_textblock(s: &str) -> Result<bindings::TextBlock> {
     let tb = bindings::TextBlock::new()?;
-    tb.put_Text(s)?;
+    tb.SetText(s)?;
     Ok(tb)
 }
 
@@ -40,27 +40,27 @@ pub(super) fn build_nav_view_item(item: &NavViewItem) -> Result<windows_core::II
     if item.is_header {
         let h = bindings::NavigationViewItemHeader::new()?;
         let tb = string_as_textblock(&item.content)?;
-        h.cast::<bindings::IContentControl>()?.put_Content(&tb)?;
+        h.cast::<bindings::IContentControl>()?.SetContent(&tb)?;
         return h.cast();
     }
     let nv_item = bindings::NavigationViewItem::new()?;
     let tb = string_as_textblock(&item.content)?;
     nv_item
         .cast::<bindings::IContentControl>()?
-        .put_Content(&tb)?;
+        .SetContent(&tb)?;
     let tag = item.tag.clone().unwrap_or_else(|| item.content.clone());
     let tag_inspectable = windows_reference::IReference::from(tag.as_str());
     nv_item
         .cast::<bindings::IFrameworkElement>()?
-        .put_Tag(&tag_inspectable)?;
+        .SetTag(&tag_inspectable)?;
     if let Some(sym) = &item.icon {
         let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
-        nv_item.put_Icon(&icon_elem)?;
+        nv_item.SetIcon(&icon_elem)?;
     }
     if !item.children.is_empty() {
         let menu = nv_item
             .cast::<bindings::INavigationViewItem2>()?
-            .get_MenuItems()?;
+            .MenuItems()?;
         for child in &item.children {
             let child_obj = build_nav_view_item(child)?;
             menu.Append(&child_obj)?;
@@ -72,7 +72,7 @@ pub(super) fn build_nav_view_item(item: &NavViewItem) -> Result<windows_core::II
 fn nav_item_tag(item: &bindings::NavigationViewItem) -> Option<String> {
     item.cast::<bindings::IFrameworkElement>()
         .ok()?
-        .get_Tag()
+        .Tag()
         .ok()?
         .cast::<windows_reference::IReference<windows_core::HSTRING>>()
         .ok()?
@@ -82,7 +82,7 @@ fn nav_item_tag(item: &bindings::NavigationViewItem) -> Option<String> {
 }
 
 pub(super) fn select_nav_item_by_tag(nv: &bindings::NavigationView, tag: &str) -> Result<()> {
-    let menu = nv.get_MenuItems()?;
+    let menu = nv.MenuItems()?;
     let len = menu.Size()?;
 
     for i in 0..len {
@@ -92,12 +92,9 @@ pub(super) fn select_nav_item_by_tag(nv: &bindings::NavigationView, tag: &str) -
         };
         if nav_item_tag(&item).as_deref() == Some(tag) {
             let inspectable: windows_core::IInspectable = item.cast()?;
-            return nv.put_SelectedItem(&inspectable);
+            return nv.SetSelectedItem(&inspectable);
         }
-        if let Ok(children) = item
-            .cast::<bindings::INavigationViewItem2>()?
-            .get_MenuItems()
-        {
+        if let Ok(children) = item.cast::<bindings::INavigationViewItem2>()?.MenuItems() {
             let child_count = children.Size().unwrap_or(0);
             for j in 0..child_count {
                 let Ok(child_obj) = children.GetAt(j) else {
@@ -108,7 +105,7 @@ pub(super) fn select_nav_item_by_tag(nv: &bindings::NavigationView, tag: &str) -
                 };
                 if nav_item_tag(&child).as_deref() == Some(tag) {
                     let inspectable: windows_core::IInspectable = child.cast()?;
-                    return nv.put_SelectedItem(&inspectable);
+                    return nv.SetSelectedItem(&inspectable);
                 }
             }
         }
@@ -123,7 +120,7 @@ pub(super) fn build_menu_flyout_item_base(
     match def {
         MenuItemDef::Item { text } => {
             let item = bindings::MenuFlyoutItem::new()?;
-            item.put_Text(text)?;
+            item.SetText(text)?;
             item.cast()
         }
         MenuItemDef::Separator => {
@@ -132,8 +129,8 @@ pub(super) fn build_menu_flyout_item_base(
         }
         MenuItemDef::SubItem { text, children } => {
             let sub = bindings::MenuFlyoutSubItem::new()?;
-            sub.put_Text(text)?;
-            let sub_items = sub.get_Items()?;
+            sub.SetText(text)?;
+            let sub_items = sub.Items()?;
             for child in children {
                 let child_item = build_menu_flyout_item_base(child)?;
                 sub_items.Append(&child_item)?;
@@ -151,10 +148,10 @@ pub(super) fn build_tree_view_node(def: &TreeNodeDef) -> Result<bindings::TreeVi
             &def.text,
         ))
         .cast()?;
-    node.put_Content(&content)?;
-    node.put_IsExpanded(def.is_expanded)?;
+    node.SetContent(&content)?;
+    node.SetIsExpanded(def.is_expanded)?;
     if !def.children.is_empty() {
-        let children = node.get_Children()?;
+        let children = node.Children()?;
         for child_def in &def.children {
             let child_node = build_tree_view_node(child_def)?;
             children.Append(&child_node)?;
@@ -170,19 +167,19 @@ pub(super) fn build_command_bar_element(
     match def {
         CommandBarCommandDef::Button { label, icon } => {
             let btn = bindings::AppBarButton::new()?;
-            btn.put_Label(label)?;
+            btn.SetLabel(label)?;
             if let Some(sym) = icon {
                 let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
-                btn.put_Icon(&icon_elem)?;
+                btn.SetIcon(&icon_elem)?;
             }
             btn.cast()
         }
         CommandBarCommandDef::Toggle { label, icon } => {
             let btn = bindings::AppBarToggleButton::new()?;
-            btn.put_Label(label)?;
+            btn.SetLabel(label)?;
             if let Some(sym) = icon {
                 let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
-                btn.put_Icon(&icon_elem)?;
+                btn.SetIcon(&icon_elem)?;
             }
             btn.cast()
         }

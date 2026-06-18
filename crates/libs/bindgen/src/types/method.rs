@@ -784,13 +784,7 @@ impl Method {
             // since the remove method is suppressed and there's no ambiguity.
             let name = to_ident(event_part);
 
-            let remove_vname = if config.bindgen.style.is_minimal() {
-                // Raw mode: vtbl field is "remove_Click"
-                to_ident(&format!("remove_{event_part}"))
-            } else {
-                // Default mode: vtbl field is "RemoveClick"
-                to_ident(&format!("Remove{event_part}"))
-            };
+            let remove_vname = to_ident(&format!("Remove{event_part}"));
 
             // Promote the delegate parameter (typically the only input) to a
             // generic closure so callers can pass a closure directly without

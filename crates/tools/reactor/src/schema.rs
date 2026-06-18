@@ -317,12 +317,12 @@ pub struct EventDecl {
     /// How the handler is invoked. Required when `add_method` is set.
     pub invoke: Option<String>,
 
-    /// Property name on sender/args for extracting values (e.g. `"IsOn"`).
-    /// Code generation prepends `get_` to form the method name.
+    /// Rust binding method name on sender/args for extracting values (e.g. `"IsOn"`).
+    /// Used directly as the getter method identifier in generated code.
     pub property: Option<String>,
 
     /// Complement event that fires `false` for bool-dual patterns (e.g. `"Unchecked"`).
-    /// Code generation prepends `add_` to form the method name.
+    /// Used as the binding method identifier; metadata is resolved via `add_{name}`.
     pub false_event: Option<String>,
 }
 

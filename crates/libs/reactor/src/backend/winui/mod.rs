@@ -232,12 +232,12 @@ impl WinUIBackend {
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
         let mut revokers = Vec::new();
-        let Ok(bar_items) = mb.get_Items() else {
+        let Ok(bar_items) = mb.Items() else {
             return revokers;
         };
         for i in 0..bar_items.Size().unwrap_or(0) {
             if let Ok(mbi) = bar_items.GetAt(i)
-                && let Ok(flyout_items) = mbi.get_Items()
+                && let Ok(flyout_items) = mbi.Items()
             {
                 Self::wire_flyout_items_click(&flyout_items, handler, &mut revokers);
             }
@@ -252,7 +252,7 @@ impl WinUIBackend {
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
         let mut revokers = Vec::new();
-        if let Ok(items) = flyout.get_Items() {
+        if let Ok(items) = flyout.Items() {
             Self::wire_flyout_items_click(&items, handler, &mut revokers);
         }
         revokers
@@ -266,7 +266,7 @@ impl WinUIBackend {
         for i in 0..items.Size().unwrap_or(0) {
             let Ok(base) = items.GetAt(i) else { continue };
             if let Ok(item) = base.cast::<bindings::MenuFlyoutItem>() {
-                let text = item.get_Text().unwrap_or_default().clone();
+                let text = item.Text().unwrap_or_default().clone();
                 let handler = handler.clone();
                 if let Ok(rev) = item.Click(move |_s, _a| {
                     handler.invoke_string(text.clone());
@@ -274,7 +274,7 @@ impl WinUIBackend {
                     revokers.push(rev);
                 }
             } else if let Ok(sub) = base.cast::<bindings::MenuFlyoutSubItem>()
-                && let Ok(sub_items) = sub.get_Items()
+                && let Ok(sub_items) = sub.Items()
             {
                 Self::wire_flyout_items_click(&sub_items, handler, revokers);
             }
@@ -289,7 +289,7 @@ impl WinUIBackend {
         for i in 0..commands.Size().unwrap_or(0) {
             let Ok(el) = commands.GetAt(i) else { continue };
             if let Ok(btn) = el.cast::<bindings::AppBarButton>() {
-                let label = btn.get_Label().unwrap_or_default().clone();
+                let label = btn.Label().unwrap_or_default().clone();
                 let handler = handler.clone();
                 if let Ok(rev) = btn.cast::<bindings::ButtonBase>().and_then(|bb| {
                     bb.Click(move |_s, _a| {
@@ -372,7 +372,7 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
         Handle::StackPanel(s) => Some(ContainerChildren::Panel(
             s.cast::<bindings::IPanel>()
                 .ok()?
-                .get_Children()
+                .Children()
                 .ok()?
                 .cast()
                 .ok()?,
@@ -380,7 +380,7 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
         Handle::Grid(g) => Some(ContainerChildren::Panel(
             g.cast::<bindings::IPanel>()
                 .ok()?
-                .get_Children()
+                .Children()
                 .ok()?
                 .cast()
                 .ok()?,
@@ -388,7 +388,7 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
         Handle::Canvas(c) => Some(ContainerChildren::Panel(
             c.cast::<bindings::IPanel>()
                 .ok()?
-                .get_Children()
+                .Children()
                 .ok()?
                 .cast()
                 .ok()?,
@@ -396,7 +396,7 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
         Handle::RelativePanel(r) => Some(ContainerChildren::Panel(
             r.cast::<bindings::IPanel>()
                 .ok()?
-                .get_Children()
+                .Children()
                 .ok()?
                 .cast()
                 .ok()?,
@@ -408,13 +408,11 @@ fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
         Handle::NavigationView(nv) => Some(ContainerChildren::ContentControl(nv.cast().ok()?)),
         Handle::PivotItem(pi) => Some(ContainerChildren::ContentControl(pi.cast().ok()?)),
         Handle::ScrollView(_) | Handle::SplitView(_) => Some(ContainerChildren::DirectContent(h)),
-        Handle::TabView(tv) => Some(ContainerChildren::InspectableVector(
-            tv.get_TabItems().ok()?,
-        )),
+        Handle::TabView(tv) => Some(ContainerChildren::InspectableVector(tv.TabItems().ok()?)),
         Handle::Pivot(p) => Some(ContainerChildren::InspectableVector(
             p.cast::<bindings::IItemsControl>()
                 .ok()?
-                .get_Items()
+                .Items()
                 .ok()?
                 .cast()
                 .ok()?,
@@ -428,7 +426,7 @@ fn container_append(cc: &ContainerChildren<'_>, child: &bindings::UIElement) {
     match cc {
         ContainerChildren::Panel(vec) => vec.Append(child).unwrap(),
         ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
-        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::ContentControl(c) => c.SetContent(child).unwrap(),
         ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
         ContainerChildren::InspectableVector(vec) => {
             let insp: windows_core::IInspectable = child.cast().unwrap();
@@ -442,7 +440,7 @@ fn container_insert(cc: &ContainerChildren<'_>, index: usize, child: &bindings::
     match cc {
         ContainerChildren::Panel(vec) => vec.InsertAt(index as u32, child).unwrap(),
         ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
-        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::ContentControl(c) => c.SetContent(child).unwrap(),
         ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
         ContainerChildren::InspectableVector(vec) => {
             let insp: windows_core::IInspectable = child.cast().unwrap();
@@ -456,7 +454,7 @@ fn container_set(cc: &ContainerChildren<'_>, index: usize, child: &bindings::UIE
     match cc {
         ContainerChildren::Panel(vec) => vec.SetAt(index as u32, child).unwrap(),
         ContainerChildren::SingleChild(h) => put_single_child(h, Some(child)),
-        ContainerChildren::ContentControl(c) => c.put_Content(child).unwrap(),
+        ContainerChildren::ContentControl(c) => c.SetContent(child).unwrap(),
         ContainerChildren::DirectContent(h) => put_direct_content(h, Some(child)),
         ContainerChildren::InspectableVector(vec) => {
             let insp: windows_core::IInspectable = child.cast().unwrap();
@@ -475,7 +473,7 @@ fn container_remove(cc: &ContainerChildren<'_>, index: usize) {
         }
         ContainerChildren::ContentControl(c) => {
             debug_assert_eq!(index, 0);
-            c.put_Content(None::<&windows_core::IInspectable>).unwrap();
+            c.SetContent(None::<&windows_core::IInspectable>).unwrap();
         }
         ContainerChildren::DirectContent(h) => {
             debug_assert_eq!(index, 0);
@@ -507,16 +505,16 @@ fn container_move(cc: &ContainerChildren<'_>, from: usize, to: usize) {
 
 fn put_single_child(h: &Handle, child: Option<&bindings::UIElement>) {
     match h {
-        Handle::Border(b) => b.put_Child(child).unwrap(),
-        Handle::Viewbox(v) => v.put_Child(child).unwrap(),
+        Handle::Border(b) => b.SetChild(child).unwrap(),
+        Handle::Viewbox(v) => v.SetChild(child).unwrap(),
         _ => unreachable!(),
     }
 }
 
 fn put_direct_content(h: &Handle, child: Option<&bindings::UIElement>) {
     match h {
-        Handle::ScrollView(sv) => sv.put_Content(child).unwrap(),
-        Handle::SplitView(sv) => sv.put_Content(child).unwrap(),
+        Handle::ScrollView(sv) => sv.SetContent(child).unwrap(),
+        Handle::SplitView(sv) => sv.SetContent(child).unwrap(),
         _ => unreachable!(),
     }
 }
@@ -543,7 +541,7 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
     }
 
     if setters.is_empty() {
-        let _ = fe.put_Style(None);
+        let _ = fe.SetStyle(None);
         return;
     }
 
@@ -555,8 +553,8 @@ fn apply_theme_resource_style(handle: &Handle, bindings: &[(Prop, ThemeRef)]) {
         Ok(obj) => {
             if let Ok(style) = obj.cast::<bindings::Style>() {
                 // Clear first to force WinUI to re-resolve {ThemeResource} values
-                let _ = fe.put_Style(None);
-                let _ = fe.put_Style(&style);
+                let _ = fe.SetStyle(None);
+                let _ = fe.SetStyle(&style);
             }
         }
         Err(e) => {
@@ -623,12 +621,12 @@ fn apply_implicit_transitions(
     let obj2 = visual.cast::<bindings::ICompositionObject2>()?;
     // No transitions, or every slot empty: clear the implicit-animation collection.
     let Some(t) = transitions.filter(|t| !t.is_empty()) else {
-        obj2.put_ImplicitAnimations(None)?;
+        obj2.SetImplicitAnimations(None)?;
         return Ok(());
     };
     let compositor = visual
         .cast::<bindings::ICompositionObject>()?
-        .get_Compositor()?;
+        .Compositor()?;
     let icomp = compositor.cast::<bindings::ICompositor>()?;
     let icomp2 = compositor.cast::<bindings::ICompositor2>()?;
     let collection = icomp2.CreateImplicitAnimationCollection()?;
@@ -646,18 +644,18 @@ fn apply_implicit_transitions(
         let anim_base: bindings::ICompositionAnimationBase = if is_scalar {
             let a = icomp.CreateScalarKeyFrameAnimation()?;
             let kfa = a.cast::<bindings::IKeyFrameAnimation>()?;
-            kfa.put_Duration(anim_duration_to_timespan(duration))?;
+            kfa.SetDuration(anim_duration_to_timespan(duration))?;
             kfa.InsertExpressionKeyFrameWithEasingFunction(1.0, final_expr, &easing)?;
             let anim2 = a.cast::<bindings::ICompositionAnimation2>()?;
-            anim2.put_Target(target)?;
+            anim2.SetTarget(target)?;
             a.cast::<bindings::ICompositionAnimationBase>()?
         } else {
             let a = icomp.CreateVector3KeyFrameAnimation()?;
             let kfa = a.cast::<bindings::IKeyFrameAnimation>()?;
-            kfa.put_Duration(anim_duration_to_timespan(duration))?;
+            kfa.SetDuration(anim_duration_to_timespan(duration))?;
             kfa.InsertExpressionKeyFrameWithEasingFunction(1.0, final_expr, &easing)?;
             let anim2 = a.cast::<bindings::ICompositionAnimation2>()?;
-            anim2.put_Target(target)?;
+            anim2.SetTarget(target)?;
             a.cast::<bindings::ICompositionAnimationBase>()?
         };
         map.Insert(&target_hs, &anim_base)?;
@@ -678,21 +676,21 @@ fn apply_implicit_transitions(
         // correct target is the synthetic `Translation` channel.
         insert("Offset", v.duration, false)?;
     }
-    obj2.put_ImplicitAnimations(&collection)?;
+    obj2.SetImplicitAnimations(&collection)?;
     Ok(())
 }
 
 fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) -> Result<()> {
     let visual = bindings::ElementCompositionPreview::GetElementVisual(ui)?;
     let visual_obj = visual.cast::<bindings::ICompositionObject>()?;
-    let compositor = visual_obj.get_Compositor()?;
+    let compositor = visual_obj.Compositor()?;
     let icomp = compositor.cast::<bindings::ICompositor>()?;
 
     if let Some(opacity) = cfg.opacity {
         let a = icomp.CreateScalarKeyFrameAnimation()?;
         let ia = a.cast::<bindings::IScalarKeyFrameAnimation>()?;
         a.cast::<bindings::IKeyFrameAnimation>()?
-            .put_Duration(anim_duration_to_timespan(cfg.duration))?;
+            .SetDuration(anim_duration_to_timespan(cfg.duration))?;
         let easing = easing_for(&icomp, cfg.easing)?;
         ia.InsertKeyFrameWithEasingFunction(1.0, opacity as f32, &easing)?;
         let anim = a.cast::<bindings::CompositionAnimation>()?;
@@ -704,10 +702,10 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
         // previous CenterPoint is reused.
         let iv = visual.cast::<bindings::IVisual>()?;
         if let Ok(fe) = ui.cast::<bindings::IFrameworkElement>() {
-            let w = fe.get_ActualWidth().unwrap_or(0.0) as f32;
-            let h = fe.get_ActualHeight().unwrap_or(0.0) as f32;
+            let w = fe.ActualWidth().unwrap_or(0.0) as f32;
+            let h = fe.ActualHeight().unwrap_or(0.0) as f32;
             if w > 0.0 && h > 0.0 {
-                let _ = iv.put_CenterPoint(windows_numerics::Vector3 {
+                let _ = iv.SetCenterPoint(windows_numerics::Vector3 {
                     x: w / 2.0,
                     y: h / 2.0,
                     z: 0.0,
@@ -719,11 +717,11 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
             }
         }
         // Preserve current Scale.Z; cfg.scale is a uniform X/Y scalar.
-        let current_z = iv.get_Scale().map_or(1.0, |v| v.z);
+        let current_z = iv.Scale().map_or(1.0, |v| v.z);
         let a = icomp.CreateVector3KeyFrameAnimation()?;
         let ia = a.cast::<bindings::IVector3KeyFrameAnimation>()?;
         a.cast::<bindings::IKeyFrameAnimation>()?
-            .put_Duration(anim_duration_to_timespan(cfg.duration))?;
+            .SetDuration(anim_duration_to_timespan(cfg.duration))?;
         let easing = easing_for(&icomp, cfg.easing)?;
         let s = scale as f32;
         ia.InsertKeyFrameWithEasingFunction(
@@ -763,112 +761,112 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
             &bindings::FontFamily::CreateInstanceWithName("Segoe UI")?,
         ),
         (Prop::Margin, PropValue::Thickness(t)) => {
-            handle.as_framework_element().put_Margin(*t)?;
+            handle.as_framework_element().SetMargin(*t)?;
             Ok(true)
         }
         (Prop::Margin, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_Margin(Thickness::default())?;
+                .SetMargin(Thickness::default())?;
             Ok(true)
         }
         (Prop::Width, PropValue::F64(v)) => {
-            handle.as_framework_element().put_Width(*v)?;
+            handle.as_framework_element().SetWidth(*v)?;
             Ok(true)
         }
         (Prop::Width, PropValue::Unset) => {
-            handle.as_framework_element().put_Width(f64::NAN)?;
+            handle.as_framework_element().SetWidth(f64::NAN)?;
             Ok(true)
         }
         (Prop::Height, PropValue::F64(v)) => {
-            handle.as_framework_element().put_Height(*v)?;
+            handle.as_framework_element().SetHeight(*v)?;
             Ok(true)
         }
         (Prop::Height, PropValue::Unset) => {
-            handle.as_framework_element().put_Height(f64::NAN)?;
+            handle.as_framework_element().SetHeight(f64::NAN)?;
             Ok(true)
         }
         (Prop::MinWidth, PropValue::F64(v)) => {
-            handle.as_framework_element().put_MinWidth(*v)?;
+            handle.as_framework_element().SetMinWidth(*v)?;
             Ok(true)
         }
         (Prop::MinWidth, PropValue::Unset) => {
-            handle.as_framework_element().put_MinWidth(0.0)?;
+            handle.as_framework_element().SetMinWidth(0.0)?;
             Ok(true)
         }
         (Prop::MaxWidth, PropValue::F64(v)) => {
-            handle.as_framework_element().put_MaxWidth(*v)?;
+            handle.as_framework_element().SetMaxWidth(*v)?;
             Ok(true)
         }
         (Prop::MaxWidth, PropValue::Unset) => {
-            handle.as_framework_element().put_MaxWidth(f64::INFINITY)?;
+            handle.as_framework_element().SetMaxWidth(f64::INFINITY)?;
             Ok(true)
         }
         (Prop::MinHeight, PropValue::F64(v)) => {
-            handle.as_framework_element().put_MinHeight(*v)?;
+            handle.as_framework_element().SetMinHeight(*v)?;
             Ok(true)
         }
         (Prop::MinHeight, PropValue::Unset) => {
-            handle.as_framework_element().put_MinHeight(0.0)?;
+            handle.as_framework_element().SetMinHeight(0.0)?;
             Ok(true)
         }
         (Prop::MaxHeight, PropValue::F64(v)) => {
-            handle.as_framework_element().put_MaxHeight(*v)?;
+            handle.as_framework_element().SetMaxHeight(*v)?;
             Ok(true)
         }
         (Prop::MaxHeight, PropValue::Unset) => {
-            handle.as_framework_element().put_MaxHeight(f64::INFINITY)?;
+            handle.as_framework_element().SetMaxHeight(f64::INFINITY)?;
             Ok(true)
         }
         (Prop::HorizontalAlignment, PropValue::I32(v)) => {
             handle
                 .as_framework_element()
-                .put_HorizontalAlignment(HorizontalAlignment(*v))?;
+                .SetHorizontalAlignment(HorizontalAlignment(*v))?;
             Ok(true)
         }
         (Prop::HorizontalAlignment, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_HorizontalAlignment(HorizontalAlignment::Stretch)?;
+                .SetHorizontalAlignment(HorizontalAlignment::Stretch)?;
             Ok(true)
         }
         (Prop::VerticalAlignment, PropValue::I32(v)) => {
             handle
                 .as_framework_element()
-                .put_VerticalAlignment(VerticalAlignment(*v))?;
+                .SetVerticalAlignment(VerticalAlignment(*v))?;
             Ok(true)
         }
         (Prop::VerticalAlignment, PropValue::Unset) => {
             handle
                 .as_framework_element()
-                .put_VerticalAlignment(VerticalAlignment::Stretch)?;
+                .SetVerticalAlignment(VerticalAlignment::Stretch)?;
             Ok(true)
         }
         (Prop::Opacity, PropValue::F64(v)) => {
-            handle.as_ui_element().put_Opacity(*v)?;
+            handle.as_ui_element().SetOpacity(*v)?;
             Ok(true)
         }
         (Prop::Opacity, PropValue::Unset) => {
-            handle.as_ui_element().put_Opacity(1.0)?;
+            handle.as_ui_element().SetOpacity(1.0)?;
             Ok(true)
         }
         (Prop::AllowDrop, PropValue::Bool(v)) => {
-            handle.as_ui_element().put_AllowDrop(*v)?;
+            handle.as_ui_element().SetAllowDrop(*v)?;
             Ok(true)
         }
         (Prop::AllowDrop, PropValue::Unset) => {
-            handle.as_ui_element().put_AllowDrop(false)?;
+            handle.as_ui_element().SetAllowDrop(false)?;
             Ok(true)
         }
         (Prop::IsEnabled, PropValue::Unset) => {
             handle
                 .as_ui_element()
                 .cast::<bindings::IControl>()?
-                .put_IsEnabled(true)?;
+                .SetIsEnabled(true)?;
             Ok(true)
         }
         (Prop::Resources, PropValue::Resources(map)) => {
-            let rd = handle.as_framework_element().get_Resources()?;
+            let rd = handle.as_framework_element().Resources()?;
             let imap =
                 rd.cast::<windows_collections::IMap<
                     windows_core::IInspectable,
@@ -945,33 +943,33 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
         (Prop::Fill, PropValue::Color(b)) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_Fill(&solid_brush(*b)?)?;
+                .SetFill(&solid_brush(*b)?)?;
             Ok(true)
         }
         (Prop::Fill, PropValue::Unset) => {
-            handle.cast_inner::<bindings::IShape>()?.put_Fill(None)?;
+            handle.cast_inner::<bindings::IShape>()?.SetFill(None)?;
             Ok(true)
         }
         (Prop::Stroke, PropValue::Color(b)) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_Stroke(&solid_brush(*b)?)?;
+                .SetStroke(&solid_brush(*b)?)?;
             Ok(true)
         }
         (Prop::Stroke, PropValue::Unset) => {
-            handle.cast_inner::<bindings::IShape>()?.put_Stroke(None)?;
+            handle.cast_inner::<bindings::IShape>()?.SetStroke(None)?;
             Ok(true)
         }
         (Prop::StrokeThickness, PropValue::F64(v)) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_StrokeThickness(*v)?;
+                .SetStrokeThickness(*v)?;
             Ok(true)
         }
         (Prop::StrokeThickness, PropValue::Unset) => {
             handle
                 .cast_inner::<bindings::IShape>()?
-                .put_StrokeThickness(0.0)?;
+                .SetStrokeThickness(0.0)?;
             Ok(true)
         }
         _ => Ok(false),
@@ -980,9 +978,9 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
 
 fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
     if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.put_Padding(thickness)?;
+        border.SetPadding(thickness)?;
     } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.put_Padding(thickness)?;
+        ctl.SetPadding(thickness)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::Padding, handle);
     }
@@ -994,11 +992,11 @@ fn set_background(
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
     if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
-        panel.put_Background(brush)?;
+        panel.SetBackground(brush)?;
     } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.put_Background(brush)?;
+        ctl.SetBackground(brush)?;
     } else if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.put_Background(brush)?;
+        border.SetBackground(brush)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::Background, handle);
     }
@@ -1010,11 +1008,11 @@ fn set_foreground(
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
     if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.put_Foreground(brush)?;
+        ctl.SetForeground(brush)?;
     } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.put_Foreground(brush)?;
+        tb.SetForeground(brush)?;
     } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.put_Foreground(brush)?;
+        rtb.SetForeground(brush)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
     }
@@ -1023,11 +1021,11 @@ fn set_foreground(
 
 fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.put_FontSize(v)?;
+        ctrl.SetFontSize(v)?;
     } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.put_FontSize(v)?;
+        tb.SetFontSize(v)?;
     } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.put_FontSize(v)?;
+        rtb.SetFontSize(v)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
     }
@@ -1036,9 +1034,9 @@ fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
 
 fn set_font_weight(handle: &Handle, fw: bindings::FontWeight) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.put_FontWeight(fw)?;
+        ctrl.SetFontWeight(fw)?;
     } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.put_FontWeight(fw)?;
+        tb.SetFontWeight(fw)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
     }
@@ -1047,11 +1045,11 @@ fn set_font_weight(handle: &Handle, fw: bindings::FontWeight) -> Result<bool> {
 
 fn set_font_family(handle: &Handle, ff: &bindings::FontFamily) -> Result<bool> {
     if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.put_FontFamily(ff)?;
+        ctrl.SetFontFamily(ff)?;
     } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.put_FontFamily(ff)?;
+        tb.SetFontFamily(ff)?;
     } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.put_FontFamily(ff)?;
+        rtb.SetFontFamily(ff)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
     }
@@ -1104,71 +1102,71 @@ impl Backend for WinUIBackend {
             }
             match (prop, value, handle) {
                 (Prop::IsTextSelectionEnabled, PropValue::Bool(v), Handle::RichTextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(*v)
+                    tb.SetIsTextSelectionEnabled(*v)
                 }
                 (Prop::IsTextSelectionEnabled, PropValue::Unset, Handle::RichTextBlock(tb)) => {
-                    tb.put_IsTextSelectionEnabled(false)
+                    tb.SetIsTextSelectionEnabled(false)
                 }
                 (Prop::TextWrappingWrap, PropValue::I32(v), Handle::RichTextBlock(tb)) => {
-                    tb.put_TextWrapping(TextWrapping(*v))
+                    tb.SetTextWrapping(TextWrapping(*v))
                 }
                 (Prop::Content, PropValue::Str(s), Handle::Button(b)) => {
                     let cc = b.cast::<bindings::IContentControl>()?;
                     // If the button has an icon+text layout (StackPanel from
                     // Icon), update just the TextBlock child so the icon
                     // is preserved when only the label changes.
-                    if let Ok(existing) = cc.get_Content()
+                    if let Ok(existing) = cc.Content()
                         && let Ok(panel) = existing.cast::<bindings::IPanel>()
                     {
-                        let children = panel.get_Children()?;
+                        let children = panel.Children()?;
                         if children.Size()? >= 2
                             && let Ok(tb) = children.GetAt(1)?.cast::<bindings::ITextBlock>()
                         {
-                            return tb.put_Text(s);
+                            return tb.SetText(s);
                         }
                     }
                     let tb = string_as_textblock(s)?;
-                    cc.put_Content(&tb)
+                    cc.SetContent(&tb)
                 }
                 (Prop::Icon, PropValue::I32(v), Handle::Button(b)) => {
                     let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(Symbol(*v))?;
                     let cc = b.cast::<bindings::IContentControl>()?;
                     // If the button already has an icon+text StackPanel layout,
                     // replace just the icon child (index 0) to preserve the text.
-                    if let Ok(existing) = cc.get_Content()
+                    if let Ok(existing) = cc.Content()
                         && let Ok(panel) = existing.cast::<bindings::IPanel>()
                     {
-                        let children = panel.get_Children()?;
+                        let children = panel.Children()?;
                         if children.Size()? >= 2 {
                             children.SetAt(0, &icon_elem.cast::<bindings::UIElement>()?)?;
                             return Ok(());
                         }
                     }
-                    let use_icon_only = if let Ok(existing) = cc.get_Content() {
+                    let use_icon_only = if let Ok(existing) = cc.Content() {
                         // Already in icon-only mode (existing is a SymbolIcon).
                         existing.cast::<bindings::ISymbolIcon>().is_ok()
                             || existing
                                 .cast::<bindings::ITextBlock>()
                                 .ok()
-                                .and_then(|tb| tb.get_Text().ok())
+                                .and_then(|tb| tb.Text().ok())
                                 .is_some_and(|t| t.is_empty())
                     } else {
                         true
                     };
                     if use_icon_only {
-                        cc.put_Content(&icon_elem)
+                        cc.SetContent(&icon_elem)
                     } else {
                         let panel = bindings::StackPanel::new()?;
-                        panel.put_Orientation(Orientation::Horizontal)?;
-                        panel.put_Spacing(8.0)?;
-                        let children = panel.cast::<bindings::IPanel>()?.get_Children()?;
+                        panel.SetOrientation(Orientation::Horizontal)?;
+                        panel.SetSpacing(8.0)?;
+                        let children = panel.cast::<bindings::IPanel>()?.Children()?;
                         children.Append(&icon_elem.cast::<bindings::UIElement>()?)?;
-                        if let Ok(existing) = cc.get_Content()
+                        if let Ok(existing) = cc.Content()
                             && let Ok(ui) = existing.cast::<bindings::UIElement>()
                         {
                             children.Append(&ui)?;
                         }
-                        cc.put_Content(&panel)
+                        cc.SetContent(&panel)
                     }
                 }
                 (Prop::StyleVariant, PropValue::I32(v), Handle::Button(b)) => {
@@ -1180,8 +1178,8 @@ impl Backend for WinUIBackend {
                         _ => None, // 0 = Default
                     };
                     if let Some(key_str) = style_key {
-                        let resources = bindings::Application::get_Current()
-                            .and_then(|app| app.get_Resources())?;
+                        let resources =
+                            bindings::Application::Current().and_then(|app| app.Resources())?;
                         let key = windows_reference::IReference::from(windows_core::HSTRING::from(
                             key_str,
                         ));
@@ -1192,62 +1190,62 @@ impl Backend for WinUIBackend {
                         if let Ok(style_obj) = map.Lookup(&key)
                             && let Ok(s) = style_obj.cast::<bindings::Style>()
                         {
-                            fe.put_Style(&s)?;
+                            fe.SetStyle(&s)?;
                         }
                     } else {
-                        fe.put_Style(None)?;
+                        fe.SetStyle(None)?;
                     }
                     Ok(())
                 }
                 (Prop::Value, PropValue::Str(s), Handle::TextBox(t)) => {
-                    if t.get_Text().ok().as_deref() == Some(s.as_str()) {
+                    if t.Text().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
                     }
-                    t.put_Text(s.as_str())
+                    t.SetText(s.as_str())
                 }
                 (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
-                    let defs = g.get_RowDefinitions()?;
+                    let defs = g.RowDefinitions()?;
                     defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
                         .Clear()?;
                     for r in rows {
                         let rd = bindings::RowDefinition::new()?;
                         rd.cast::<bindings::IRowDefinition>()?
-                            .put_Height(to_xaml_gridlength(*r)?)?;
+                            .SetHeight(to_xaml_gridlength(*r)?)?;
                         defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
                             .Append(&rd)?;
                     }
                     Ok(())
                 }
                 (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
-                    let defs = g.get_ColumnDefinitions()?;
+                    let defs = g.ColumnDefinitions()?;
                     defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
                         .Clear()?;
                     for c in cols {
                         let cd = bindings::ColumnDefinition::new()?;
                         cd.cast::<bindings::IColumnDefinition>()?
-                            .put_Width(to_xaml_gridlength(*c)?)?;
+                            .SetWidth(to_xaml_gridlength(*c)?)?;
                         defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
                             .Append(&cd)?;
                     }
                     Ok(())
                 }
                 (Prop::Step, PropValue::F64(v), Handle::Slider(s)) => {
-                    s.put_StepFrequency(*v)?;
-                    s.cast::<bindings::IRangeBase>()?.put_SmallChange(*v)
+                    s.SetStepFrequency(*v)?;
+                    s.cast::<bindings::IRangeBase>()?.SetSmallChange(*v)
                 }
                 (Prop::Step, PropValue::Unset, Handle::Slider(s)) => {
-                    s.put_StepFrequency(1.0)?;
-                    s.cast::<bindings::IRangeBase>()?.put_SmallChange(1.0)
+                    s.SetStepFrequency(1.0)?;
+                    s.cast::<bindings::IRangeBase>()?.SetSmallChange(1.0)
                 }
                 (Prop::NavigateUri, PropValue::Str(s), Handle::HyperlinkButton(h)) => {
                     let uri = bindings::Uri::CreateUri(s.as_str())?;
-                    h.put_NavigateUri(&uri)
+                    h.SetNavigateUri(&uri)
                 }
                 (Prop::NavigateUri, PropValue::Unset, Handle::HyperlinkButton(h)) => {
-                    h.put_NavigateUri(None)
+                    h.SetNavigateUri(None)
                 }
                 (Prop::IsClosable, PropValue::Bool(v), Handle::TabViewItem(ti)) => {
-                    ti.put_IsClosable(*v)
+                    ti.SetIsClosable(*v)
                 }
                 // ContentDialog — modal popup hosted via ShowAsync.
                 (Prop::IsOpen, PropValue::Bool(v), Handle::ContentDialog(d)) => {
@@ -1264,13 +1262,12 @@ impl Backend for WinUIBackend {
                                     .as_ui_element()
                                     .cast::<bindings::IUIElement>()
                                     .ok()
-                                    .and_then(|u| u.get_XamlRoot().ok()),
+                                    .and_then(|u| u.XamlRoot().ok()),
                             })
                             .next();
                         match xroot {
                             Some(root) => {
-                                if let Err(e) =
-                                    d.cast::<bindings::IUIElement>()?.put_XamlRoot(&root)
+                                if let Err(e) = d.cast::<bindings::IUIElement>()?.SetXamlRoot(&root)
                                     && cfg!(debug_assertions)
                                 {
                                     eprintln!(
@@ -1300,23 +1297,23 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::Value, PropValue::I32(v), Handle::InfoBadge(ib)) => {
                     if *v < 0 {
-                        ib.put_Value(-1)
+                        ib.SetValue(-1)
                     } else {
-                        ib.put_Value(*v)
+                        ib.SetValue(*v)
                     }
                 }
                 (Prop::DisplayName, PropValue::Unset, Handle::PersonPicture(p)) => {
-                    p.put_DisplayName("")
+                    p.SetDisplayName("")
                 }
-                (Prop::Initials, PropValue::Unset, Handle::PersonPicture(p)) => p.put_Initials(""),
+                (Prop::Initials, PropValue::Unset, Handle::PersonPicture(p)) => p.SetInitials(""),
                 (Prop::CornerRadius, PropValue::F64(v), Handle::Rectangle(r)) => {
-                    r.put_RadiusX(*v).and_then(|_| r.put_RadiusY(*v))
+                    r.SetRadiusX(*v).and_then(|_| r.SetRadiusY(*v))
                 }
                 (Prop::CornerRadius, PropValue::Unset, Handle::Rectangle(r)) => {
-                    r.put_RadiusX(0.0).and_then(|_| r.put_RadiusY(0.0))
+                    r.SetRadiusX(0.0).and_then(|_| r.SetRadiusY(0.0))
                 }
                 (Prop::CornerRadius, PropValue::F64(v), Handle::Border(b)) => {
-                    b.put_CornerRadius(bindings::CornerRadius {
+                    b.SetCornerRadius(bindings::CornerRadius {
                         top_left: *v,
                         top_right: *v,
                         bottom_right: *v,
@@ -1324,56 +1321,56 @@ impl Backend for WinUIBackend {
                     })
                 }
                 (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_CornerRadius(bindings::CornerRadius::default())
+                    b.SetCornerRadius(bindings::CornerRadius::default())
                 }
                 (Prop::BorderBrush, PropValue::Color(br), Handle::Border(b)) => {
-                    b.put_BorderBrush(&solid_brush(*br)?)
+                    b.SetBorderBrush(&solid_brush(*br)?)
                 }
-                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.put_BorderBrush(None),
+                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.SetBorderBrush(None),
                 (Prop::BorderBrush, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
                     Ok(())
                 }
                 (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.put_BorderThickness(*t)
+                    b.SetBorderThickness(*t)
                 }
                 (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.put_BorderThickness(Thickness::default())
+                    b.SetBorderThickness(Thickness::default())
                 }
                 (Prop::BorderThickness, _, h) => {
                     diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
                     Ok(())
                 }
                 (Prop::LineEndpoints, PropValue::LineEndpoints(p), Handle::Line(l)) => l
-                    .put_X1(p.x1)
-                    .and_then(|_| l.put_Y1(p.y1))
-                    .and_then(|_| l.put_X2(p.x2))
-                    .and_then(|_| l.put_Y2(p.y2)),
+                    .SetX1(p.x1)
+                    .and_then(|_| l.SetY1(p.y1))
+                    .and_then(|_| l.SetX2(p.x2))
+                    .and_then(|_| l.SetY2(p.y2)),
                 (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
                     let uri = bindings::Uri::CreateUri(s.as_str())?;
                     let bmp = bindings::BitmapImage::new()?;
-                    bmp.cast::<bindings::IBitmapImage>()?.put_UriSource(&uri)?;
-                    img.put_Source(&bmp.cast::<bindings::ImageSource>()?)
+                    bmp.cast::<bindings::IBitmapImage>()?.SetUriSource(&uri)?;
+                    img.SetSource(&bmp.cast::<bindings::ImageSource>()?)
                 }
                 (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
-                    img.put_Source(&sis.image_source()?)
+                    img.SetSource(&sis.image_source()?)
                 }
-                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.put_Source(None),
+                (Prop::ImageSource, PropValue::Unset, Handle::Image(img)) => img.SetSource(None),
                 (Prop::Header, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tb = string_as_textblock(s)?;
-                    ti.put_Header(&tb)
+                    ti.SetHeader(&tb)
                 }
                 (Prop::Header, PropValue::Str(s), Handle::Expander(e)) => {
                     let tb = string_as_textblock(s)?;
-                    e.put_Header(&tb)
+                    e.SetHeader(&tb)
                 }
-                (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.put_Header(None),
+                (Prop::Header, PropValue::Unset, Handle::Expander(e)) => e.SetHeader(None),
                 (Prop::ItemKey, PropValue::Str(s), Handle::TabViewItem(ti)) => {
                     let tag = windows_reference::IReference::from(s.as_str());
-                    ti.cast::<bindings::IFrameworkElement>()?.put_Tag(&tag)
+                    ti.cast::<bindings::IFrameworkElement>()?.SetTag(&tag)
                 }
                 (Prop::MenuItems, PropValue::NavMenuItems(items), Handle::NavigationView(nv)) => {
-                    let menu = nv.get_MenuItems()?;
+                    let menu = nv.MenuItems()?;
                     menu.Clear()?;
                     for item in items {
                         let nv_item = build_nav_view_item(item)?;
@@ -1385,25 +1382,25 @@ impl Backend for WinUIBackend {
                     select_nav_item_by_tag(nv, tag)
                 }
                 (Prop::SelectedTag, PropValue::Unset, Handle::NavigationView(nv)) => {
-                    nv.put_SelectedItem(None)
+                    nv.SetSelectedItem(None)
                 }
                 (Prop::AutoSuggestBox, PropValue::Bool(true), Handle::NavigationView(nv)) => {
                     let asb = bindings::AutoSuggestBox::new()?;
-                    nv.put_AutoSuggestBox(&asb)
+                    nv.SetAutoSuggestBox(&asb)
                 }
                 (Prop::AutoSuggestBox, PropValue::Bool(false), Handle::NavigationView(nv)) => {
-                    nv.put_AutoSuggestBox(None)
+                    nv.SetAutoSuggestBox(None)
                 }
                 (Prop::AutoSuggestPlaceholder, PropValue::Str(s), Handle::NavigationView(nv)) => {
-                    if let Ok(asb) = nv.get_AutoSuggestBox() {
-                        asb.put_PlaceholderText(s.as_str())?;
+                    if let Ok(asb) = nv.AutoSuggestBox() {
+                        asb.SetPlaceholderText(s.as_str())?;
                     }
                     Ok(())
                 }
                 (Prop::AutoSuggestItems, PropValue::StrList(items), Handle::NavigationView(nv)) => {
-                    if let Ok(asb) = nv.get_AutoSuggestBox() {
+                    if let Ok(asb) = nv.AutoSuggestBox() {
                         asb.cast::<bindings::IItemsControl>()?
-                            .put_ItemsSource(&str_list_as_ivector(items))?;
+                            .SetItemsSource(&str_list_as_ivector(items))?;
                     }
                     Ok(())
                 }
@@ -1418,58 +1415,56 @@ impl Backend for WinUIBackend {
                         bindings::NavigationViewBackButtonVisible::Collapsed
                     };
                     nv.cast::<bindings::INavigationView2>()?
-                        .put_IsBackButtonVisible(val)
+                        .SetIsBackButtonVisible(val)
                 }
                 (Prop::ItemHeader, PropValue::Str(s), Handle::PivotItem(pi)) => {
                     let tb = string_as_textblock(s)?;
-                    pi.put_Header(&tb)
+                    pi.SetHeader(&tb)
                 }
                 (Prop::Items, PropValue::StrList(items), Handle::BreadcrumbBar(bc)) => {
-                    bc.put_ItemsSource(&str_list_as_ivector(items))
+                    bc.SetItemsSource(&str_list_as_ivector(items))
                 }
                 (Prop::Value, PropValue::Str(s), Handle::PasswordBox(p)) => {
-                    if p.get_Password().ok().as_deref() == Some(s.as_str()) {
+                    if p.Password().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
                     }
-                    p.put_Password(s.as_str())
+                    p.SetPassword(s.as_str())
                 }
-                (Prop::Value, PropValue::Unset, Handle::PasswordBox(p)) => p.put_Password(""),
+                (Prop::Value, PropValue::Unset, Handle::PasswordBox(p)) => p.SetPassword(""),
                 (Prop::Items, PropValue::StrList(items), Handle::RadioButtons(r)) => {
-                    set_str_items(&r.get_Items()?.cast()?, items)
+                    set_str_items(&r.Items()?.cast()?, items)
                 }
                 (Prop::Items, PropValue::StrList(items), Handle::ComboBox(c)) => set_str_items(
-                    &c.cast::<bindings::IItemsControl>()?.get_Items()?.cast()?,
+                    &c.cast::<bindings::IItemsControl>()?.Items()?.cast()?,
                     items,
                 ),
-                (Prop::ColorValue, PropValue::Color(c), Handle::ColorPicker(cp)) => {
-                    cp.put_Color(*c)
-                }
+                (Prop::ColorValue, PropValue::Color(c), Handle::ColorPicker(cp)) => cp.SetColor(*c),
                 (Prop::Items, PropValue::StrList(items), Handle::ListBox(lb)) => set_str_items(
-                    &lb.cast::<bindings::IItemsControl>()?.get_Items()?.cast()?,
+                    &lb.cast::<bindings::IItemsControl>()?.Items()?.cast()?,
                     items,
                 ),
                 (Prop::Text, PropValue::Str(s), Handle::AutoSuggestBox(asb)) => {
                     // Skip SetText when the control already has this value —
                     // calling SetText during a user-initiated TextChanged
                     // cycle steals focus from the input field.
-                    if asb.get_Text().ok().as_deref() == Some(s.as_str()) {
+                    if asb.Text().ok().as_deref() == Some(s.as_str()) {
                         return Ok(());
                     }
-                    asb.put_Text(s)
+                    asb.SetText(s)
                 }
                 (Prop::Items, PropValue::StrList(items), Handle::AutoSuggestBox(asb)) => asb
                     .cast::<bindings::IItemsControl>()?
-                    .put_ItemsSource(&str_list_as_ivector(items)),
+                    .SetItemsSource(&str_list_as_ivector(items)),
                 (Prop::DisplayMode, PropValue::I32(m), Handle::SplitView(sv)) => {
-                    sv.put_DisplayMode(bindings::SplitViewDisplayMode(*m))
+                    sv.SetDisplayMode(bindings::SplitViewDisplayMode(*m))
                 }
                 (Prop::Items, PropValue::MenuBarItems(items), Handle::MenuBar(mb)) => {
-                    let winui_items = mb.get_Items()?;
+                    let winui_items = mb.Items()?;
                     winui_items.Clear()?;
                     for bar_item_def in items {
                         let mbi = bindings::MenuBarItem::new()?;
-                        mbi.put_Title(&bar_item_def.title)?;
-                        let flyout_items = mbi.get_Items()?;
+                        mbi.SetTitle(&bar_item_def.title)?;
+                        let flyout_items = mbi.Items()?;
                         for menu_def in &bar_item_def.items {
                             let fi = build_menu_flyout_item_base(menu_def)?;
                             flyout_items.Append(&fi)?;
@@ -1493,12 +1488,12 @@ impl Backend for WinUIBackend {
                     Handle::DropDownButton(btn),
                 ) => {
                     let flyout = bindings::MenuFlyout::new()?;
-                    let flyout_items = flyout.get_Items()?;
+                    let flyout_items = flyout.Items()?;
                     for def in items {
                         let fi = build_menu_flyout_item_base(def)?;
                         flyout_items.Append(&fi)?;
                     }
-                    btn.cast::<bindings::IButton>()?.put_Flyout(&flyout)?;
+                    btn.cast::<bindings::IButton>()?.SetFlyout(&flyout)?;
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_flyout_clicks(&flyout, handler);
@@ -1512,12 +1507,12 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::MenuFlyoutItems, PropValue::MenuFlyoutItems(items), Handle::Button(btn)) => {
                     let flyout = bindings::MenuFlyout::new()?;
-                    let flyout_items = flyout.get_Items()?;
+                    let flyout_items = flyout.Items()?;
                     for def in items {
                         let fi = build_menu_flyout_item_base(def)?;
                         flyout_items.Append(&fi)?;
                     }
-                    btn.put_Flyout(&flyout)?;
+                    btn.SetFlyout(&flyout)?;
                     let handlers = self.menu_click_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let revs = Self::wire_flyout_clicks(&flyout, handler);
@@ -1535,8 +1530,8 @@ impl Backend for WinUIBackend {
                     Handle::Button(btn),
                 ) => {
                     let flyout = bindings::CommandBarFlyout::new()?;
-                    let primary_cmds = flyout.get_PrimaryCommands()?;
-                    let secondary_cmds = flyout.get_SecondaryCommands()?;
+                    let primary_cmds = flyout.PrimaryCommands()?;
+                    let secondary_cmds = flyout.SecondaryCommands()?;
                     for def in primary {
                         let el = build_command_bar_element(def)?;
                         primary_cmds.Append(&el)?;
@@ -1545,7 +1540,7 @@ impl Backend for WinUIBackend {
                         let el = build_command_bar_element(def)?;
                         secondary_cmds.Append(&el)?;
                     }
-                    btn.put_Flyout(&flyout)?;
+                    btn.SetFlyout(&flyout)?;
                     let handlers = self.command_bar_flyout_handlers.borrow();
                     if let Some(handler) = handlers.get(&id) {
                         let mut revs = Self::wire_command_bar_clicks(&primary_cmds, handler);
@@ -1559,7 +1554,7 @@ impl Backend for WinUIBackend {
                     Ok(())
                 }
                 (Prop::Nodes, PropValue::TreeViewNodes(nodes), Handle::TreeView(tv)) => {
-                    let root = tv.get_RootNodes()?;
+                    let root = tv.RootNodes()?;
                     root.Clear()?;
                     for node_def in nodes {
                         let node = build_tree_view_node(node_def)?;
@@ -1572,7 +1567,7 @@ impl Backend for WinUIBackend {
                     PropValue::CommandBarCommands(cmds),
                     Handle::CommandBar(cb),
                 ) => {
-                    let primary = cb.get_PrimaryCommands()?;
+                    let primary = cb.PrimaryCommands()?;
                     primary.Clear()?;
                     for def in cmds {
                         let el = build_command_bar_element(def)?;
@@ -1594,7 +1589,7 @@ impl Backend for WinUIBackend {
                     PropValue::CommandBarCommands(cmds),
                     Handle::CommandBar(cb),
                 ) => {
-                    let secondary = cb.get_SecondaryCommands()?;
+                    let secondary = cb.SecondaryCommands()?;
                     secondary.Clear()?;
                     for def in cmds {
                         let el = build_command_bar_element(def)?;
@@ -1616,7 +1611,7 @@ impl Backend for WinUIBackend {
                             windows_core::HSTRING::from(s.as_str()),
                         )
                         .cast()?;
-                    tt.put_ActionButtonContent(&boxed)
+                    tt.SetActionButtonContent(&boxed)
                 }
                 (Prop::CloseButton, PropValue::Str(s), Handle::TeachingTip(tt)) => {
                     let boxed: windows_core::IInspectable =
@@ -1624,24 +1619,24 @@ impl Backend for WinUIBackend {
                             windows_core::HSTRING::from(s.as_str()),
                         )
                         .cast()?;
-                    tt.put_CloseButtonContent(&boxed)
+                    tt.SetCloseButtonContent(&boxed)
                 }
                 (Prop::Items, PropValue::SelectorBarItems(items), Handle::SelectorBar(sb)) => {
-                    let vec = sb.get_Items()?;
+                    let vec = sb.Items()?;
                     vec.Clear()?;
                     for def in items {
                         let item = bindings::SelectorBarItem::new()?;
-                        item.put_Text(&def.text)?;
+                        item.SetText(&def.text)?;
                         if let Some(sym) = &def.icon {
                             let icon_elem = bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?;
-                            item.put_Icon(&icon_elem)?;
+                            item.SetIcon(&icon_elem)?;
                         }
                         vec.Append(&item)?;
                     }
                     Ok(())
                 }
                 (Prop::Text, PropValue::Str(s), Handle::RichEditBox(reb)) => {
-                    let doc = reb.get_Document()?;
+                    let doc = reb.Document()?;
                     let mut current = windows_core::HSTRING::default();
                     doc.GetText(bindings::TextGetOptions::None, &mut current)
                         .ok();
@@ -1652,22 +1647,22 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::Header, PropValue::Str(s), Handle::RichEditBox(reb)) => {
                     let tb = string_as_textblock(s)?;
-                    reb.put_Header(&tb)
+                    reb.SetHeader(&tb)
                 }
-                (Prop::Header, PropValue::Unset, Handle::RichEditBox(reb)) => reb.put_Header(None),
+                (Prop::Header, PropValue::Unset, Handle::RichEditBox(reb)) => reb.SetHeader(None),
                 (Prop::FlyoutContent, PropValue::Str(s), Handle::Button(b)) => {
                     let flyout = bindings::Flyout::new()?;
                     let tb = string_as_textblock(s)?;
-                    flyout.put_Content(&tb)?;
-                    b.put_Flyout(&flyout)?;
+                    flyout.SetContent(&tb)?;
+                    b.SetFlyout(&flyout)?;
                     Ok(())
                 }
                 (Prop::FlyoutPlacement, PropValue::I32(v), Handle::Button(b)) => {
                     // The flyout must already exist (FlyoutContent set first).
-                    if let Ok(fb) = b.get_Flyout() {
+                    if let Ok(fb) = b.Flyout() {
                         let _ = fb
                             .cast::<bindings::IFlyoutBase>()?
-                            .put_Placement(FlyoutPlacementMode(*v));
+                            .SetPlacement(FlyoutPlacementMode(*v));
                     }
                     Ok(())
                 }
@@ -1837,7 +1832,7 @@ impl Backend for WinUIBackend {
             ),
         };
         let items = items_control
-            .get_Items()
+            .Items()
             .unwrap()
             .cast::<windows_collections::IVector<windows_core::IInspectable>>()
             .unwrap();
@@ -1872,7 +1867,7 @@ impl Backend for WinUIBackend {
             Handle::FlipView(fv) => fv.cast().unwrap(),
             _ => return,
         };
-        let _ = selector.put_SelectedIndex(index);
+        let _ = selector.SetSelectedIndex(index);
     }
 
     fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
@@ -1891,7 +1886,7 @@ impl Backend for WinUIBackend {
             SelectionMode::Multiple => bindings::ListViewSelectionMode::Multiple,
             SelectionMode::Extended => bindings::ListViewSelectionMode::Extended,
         };
-        let _ = lvb.put_SelectionMode(winui_mode);
+        let _ = lvb.SetSelectionMode(winui_mode);
     }
 
     fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
@@ -1902,7 +1897,7 @@ impl Backend for WinUIBackend {
             Handle::GridView(gv) => gv.cast().unwrap(),
             _ => return,
         };
-        let _ = lvb.put_CanDragItems(value);
+        let _ = lvb.SetCanDragItems(value);
     }
 
     fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
@@ -1913,7 +1908,7 @@ impl Backend for WinUIBackend {
             Handle::GridView(gv) => gv.cast().unwrap(),
             _ => return,
         };
-        let _ = lvb.put_CanReorderItems(value);
+        let _ = lvb.SetCanReorderItems(value);
     }
 
     fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
@@ -1925,7 +1920,7 @@ impl Backend for WinUIBackend {
             Handle::FlipView(fv) => fv.cast().unwrap(),
             _ => return,
         };
-        let _ = ui.put_AllowDrop(value);
+        let _ = ui.SetAllowDrop(value);
     }
 
     fn set_header_element(&mut self, id: ControlId, header_id: Option<ControlId>) {
@@ -1935,19 +1930,19 @@ impl Backend for WinUIBackend {
             if let Some(hdr_id) = header_id {
                 if let Some(hdr_handle) = map.get(&hdr_id) {
                     let ui_elem = hdr_handle.as_ui_element();
-                    let _ = e.put_Header(&ui_elem);
+                    let _ = e.SetHeader(&ui_elem);
                 }
             } else {
-                let _ = e.put_Header(None);
+                let _ = e.SetHeader(None);
             }
         } else if let Handle::TitleBar(tb) = handle {
             if let Some(hdr_id) = header_id {
                 if let Some(hdr_handle) = map.get(&hdr_id) {
                     let ui_elem = hdr_handle.as_ui_element();
-                    let _ = tb.put_Content(&ui_elem);
+                    let _ = tb.SetContent(&ui_elem);
                 }
             } else {
-                let _ = tb.put_Content(None);
+                let _ = tb.SetContent(None);
             }
         }
     }
@@ -1959,19 +1954,19 @@ impl Backend for WinUIBackend {
             if let Some(pid) = pane_id {
                 if let Some(pane_handle) = map.get(&pid) {
                     let ui_elem = pane_handle.as_ui_element();
-                    let _ = sv.put_Pane(&ui_elem);
+                    let _ = sv.SetPane(&ui_elem);
                 }
             } else {
-                let _ = sv.put_Pane(None);
+                let _ = sv.SetPane(None);
             }
         } else if let Handle::TitleBar(tb) = handle {
             if let Some(pid) = pane_id {
                 if let Some(pane_handle) = map.get(&pid) {
                     let ui_elem = pane_handle.as_ui_element();
-                    let _ = tb.put_RightHeader(&ui_elem);
+                    let _ = tb.SetRightHeader(&ui_elem);
                 }
             } else {
-                let _ = tb.put_RightHeader(None);
+                let _ = tb.SetRightHeader(None);
             }
         }
     }
@@ -1991,7 +1986,7 @@ impl Backend for WinUIBackend {
                 let _ = fv
                     .cast::<bindings::ISelector>()
                     .unwrap()
-                    .put_SelectedIndex(index);
+                    .SetSelectedIndex(index);
                 None
             }
             _ => return,
@@ -2002,7 +1997,7 @@ impl Backend for WinUIBackend {
                 Handle::GridView(gv) => gv.cast().unwrap(),
                 _ => return,
             };
-            if let Ok(items) = items_control.get_Items()
+            if let Ok(items) = items_control.Items()
                 && let Ok(coll) =
                     items.cast::<windows_collections::IVector<windows_core::IInspectable>>()
             {
@@ -2033,7 +2028,7 @@ impl Backend for WinUIBackend {
                 let idx = sender
                     .as_ref()
                     .and_then(|s| s.cast::<bindings::ISelector>().ok())
-                    .and_then(|sel| sel.get_SelectedIndex().ok())
+                    .and_then(|sel| sel.SelectedIndex().ok())
                     .unwrap_or(-1);
                 handler.invoke(idx);
             })
@@ -2096,7 +2091,7 @@ impl Backend for WinUIBackend {
                     d.Closed(move |_sender, args| {
                         let result = args
                             .as_ref()
-                            .and_then(|a| a.get_Result().ok())
+                            .and_then(|a| a.Result().ok())
                             .unwrap_or(bindings::ContentDialogResult(0));
                         handler.invoke_i32(result.0);
                     })
@@ -2109,7 +2104,7 @@ impl Backend for WinUIBackend {
                         let idx = sender
                             .as_ref()
                             .and_then(|s| s.cast::<bindings::TabView>().ok())
-                            .and_then(|t| t.get_SelectedIndex().ok())
+                            .and_then(|t| t.SelectedIndex().ok())
                             .unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
@@ -2123,11 +2118,11 @@ impl Backend for WinUIBackend {
                     tv.TabCloseRequested(move |_sender, args| {
                         let key = args
                             .as_ref()
-                            .and_then(|a| a.get_Tab().ok())
+                            .and_then(|a| a.Tab().ok())
                             .and_then(|tab| {
                                 tab.cast::<bindings::IFrameworkElement>()
                                     .unwrap()
-                                    .get_Tag()
+                                    .Tag()
                                     .ok()
                             })
                             .and_then(|tag_obj| {
@@ -2151,14 +2146,14 @@ impl Backend for WinUIBackend {
                             .and_then(|a| {
                                 a.cast::<bindings::INavigationViewSelectionChangedEventArgs>()
                                     .unwrap()
-                                    .get_SelectedItem()
+                                    .SelectedItem()
                                     .ok()
                             })
                             .and_then(|item| item.cast::<bindings::NavigationViewItem>().ok())
                             .and_then(|nvi| {
                                 nvi.cast::<bindings::IFrameworkElement>()
                                     .unwrap()
-                                    .get_Tag()
+                                    .Tag()
                                     .ok()
                             })
                             .and_then(|tag_obj| {
@@ -2175,12 +2170,12 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::QuerySubmitted, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
+                if let Ok(asb) = nv.AutoSuggestBox() {
                     revokers.push(
                         asb.QuerySubmitted(move |_sender, args| {
                             let query = args
                                 .as_ref()
-                                .and_then(|a| a.get_QueryText().ok())
+                                .and_then(|a| a.QueryText().ok())
                                 .unwrap_or_default();
                             handler.invoke_string(query);
                         })
@@ -2189,12 +2184,12 @@ impl Backend for WinUIBackend {
                 }
             }
             (Event::TextChanged, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
+                if let Ok(asb) = nv.AutoSuggestBox() {
                     revokers.push(
                         asb.TextChanged(move |sender, _args| {
                             let text = sender
                                 .as_ref()
-                                .and_then(|s| s.get_Text().ok())
+                                .and_then(|s| s.Text().ok())
                                 .unwrap_or_default();
                             handler.invoke_string(text);
                         })
@@ -2203,12 +2198,12 @@ impl Backend for WinUIBackend {
                 }
             }
             (Event::SuggestionChosen, Handle::NavigationView(nv)) => {
-                if let Ok(asb) = nv.get_AutoSuggestBox() {
+                if let Ok(asb) = nv.AutoSuggestBox() {
                     revokers.push(
                         asb.SuggestionChosen(move |_sender, args| {
                             let item = args
                                 .as_ref()
-                                .and_then(|a| a.get_SelectedItem().ok())
+                                .and_then(|a| a.SelectedItem().ok())
                                 .and_then(|insp| {
                                     insp.cast::<windows_reference::IReference<
                                         windows_core::HSTRING,
@@ -2233,7 +2228,7 @@ impl Backend for WinUIBackend {
                             .and_then(|sel| {
                                 sel.cast::<bindings::ISelector>()
                                     .unwrap()
-                                    .get_SelectedIndex()
+                                    .SelectedIndex()
                                     .ok()
                             })
                             .unwrap_or(-1);
@@ -2255,7 +2250,7 @@ impl Backend for WinUIBackend {
                                 .and_then(|sel| {
                                     sel.cast::<bindings::ISelector>()
                                         .unwrap()
-                                        .get_SelectedIndex()
+                                        .SelectedIndex()
                                         .ok()
                                 })
                                 .unwrap_or(-1);
@@ -2269,7 +2264,7 @@ impl Backend for WinUIBackend {
                     cp.ColorChanged(move |_sender, args| {
                         let color =
                             args.as_ref()
-                                .and_then(|a| a.get_NewColor().ok())
+                                .and_then(|a| a.NewColor().ok())
                                 .unwrap_or(Color {
                                     a: 255,
                                     r: 0,
@@ -2285,7 +2280,7 @@ impl Backend for WinUIBackend {
                 revokers.push(
                     dp.SelectedDateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
-                            && let Ok(dt) = a.get_NewDate()
+                            && let Ok(dt) = a.NewDate()
                         {
                             handler.invoke_datetime(dt);
                         }
@@ -2297,7 +2292,7 @@ impl Backend for WinUIBackend {
                 revokers.push(
                     tp.SelectedTimeChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
-                            && let Ok(ts) = a.get_NewTime()
+                            && let Ok(ts) = a.NewTime()
                         {
                             handler.invoke_timespan(TimeSpan::from_ticks(ts.duration));
                         }
@@ -2309,7 +2304,7 @@ impl Backend for WinUIBackend {
                 revokers.push(
                     cdp.DateChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
-                            && let Ok(dt) = a.get_NewDate()
+                            && let Ok(dt) = a.NewDate()
                         {
                             handler.invoke_datetime(dt);
                         }
@@ -2325,7 +2320,7 @@ impl Backend for WinUIBackend {
                             if let Some(sel) = _sender.as_ref()
                                 && let Ok(idx) = sel
                                     .cast::<bindings::ISelector>()
-                                    .and_then(|s| s.get_SelectedIndex())
+                                    .and_then(|s| s.SelectedIndex())
                             {
                                 handler.invoke_i32(idx);
                             }
@@ -2339,14 +2334,14 @@ impl Backend for WinUIBackend {
                         // Only fire for user input, not programmatic changes.
                         let is_user_input = args
                             .as_ref()
-                            .and_then(|a| a.get_Reason().ok())
+                            .and_then(|a| a.Reason().ok())
                             .is_some_and(|r| {
                                 r == bindings::AutoSuggestionBoxTextChangeReason::UserInput
                             });
                         if is_user_input {
                             let text = sender
                                 .as_ref()
-                                .and_then(|s| s.get_Text().ok())
+                                .and_then(|s| s.Text().ok())
                                 .unwrap_or_default();
                             handler.invoke_string(text);
                         }
@@ -2359,7 +2354,7 @@ impl Backend for WinUIBackend {
                     asb.QuerySubmitted(move |_sender, args| {
                         let text = args
                             .as_ref()
-                            .and_then(|a| a.get_QueryText().ok())
+                            .and_then(|a| a.QueryText().ok())
                             .unwrap_or_default();
                         handler.invoke_string(text);
                     })
@@ -2371,7 +2366,7 @@ impl Backend for WinUIBackend {
                     asb.SuggestionChosen(move |_sender, args| {
                         let item = args
                             .as_ref()
-                            .and_then(|a| a.get_SelectedItem().ok())
+                            .and_then(|a| a.SelectedItem().ok())
                             .and_then(|insp| {
                                 insp.cast::<windows_reference::IReference<windows_core::HSTRING>>()
                                     .ok()
@@ -2407,11 +2402,11 @@ impl Backend for WinUIBackend {
                     tv.ItemInvoked(move |_sender, args| {
                         let text = args
                             .as_ref()
-                            .and_then(|a| a.get_InvokedItem().ok())
+                            .and_then(|a| a.InvokedItem().ok())
                             .and_then(|insp| {
                                 insp.cast::<bindings::ITreeViewNode>()
                                     .ok()
-                                    .and_then(|node| node.get_Content().ok())
+                                    .and_then(|node| node.Content().ok())
                             })
                             .and_then(|content| {
                                 content
@@ -2431,11 +2426,11 @@ impl Backend for WinUIBackend {
                 self.menu_click_handlers
                     .borrow_mut()
                     .insert(id, handler.clone());
-                if let Ok(primary) = cb.get_PrimaryCommands() {
+                if let Ok(primary) = cb.PrimaryCommands() {
                     let revs = Self::wire_command_bar_clicks(&primary, &handler);
                     revokers.extend(revs);
                 }
-                if let Ok(secondary) = cb.get_SecondaryCommands() {
+                if let Ok(secondary) = cb.SecondaryCommands() {
                     let revs = Self::wire_command_bar_clicks(&secondary, &handler);
                     revokers.extend(revs);
                 }
@@ -2444,8 +2439,8 @@ impl Backend for WinUIBackend {
                 let sb2 = sb.clone();
                 revokers.push(
                     sb.SelectionChanged(move |_sender, _args| {
-                        if let Ok(selected) = sb2.get_SelectedItem()
-                            && let Ok(text) = selected.get_Text()
+                        if let Ok(selected) = sb2.SelectedItem()
+                            && let Ok(text) = selected.Text()
                         {
                             handler.invoke_string(text);
                         }
@@ -2460,7 +2455,7 @@ impl Backend for WinUIBackend {
                             .as_ref()
                             .and_then(|s| s.cast::<bindings::RichEditBox>().ok())
                             .and_then(|reb| {
-                                let doc = reb.get_Document().ok()?;
+                                let doc = reb.Document().ok()?;
                                 let mut buf = windows_core::HSTRING::default();
                                 doc.GetText(bindings::TextGetOptions::None, &mut buf).ok()?;
                                 Some(buf.to_string_lossy())
@@ -2505,7 +2500,7 @@ impl Backend for WinUIBackend {
             if let Some(handle) = map.get(&id)
                 && let Some((_, fe)) = style_target_for_handle(handle)
             {
-                let _ = fe.put_Style(None);
+                let _ = fe.SetStyle(None);
             }
             return;
         }
@@ -2572,14 +2567,14 @@ impl Backend for WinUIBackend {
             Err(_) => return,
         };
         let vec: windows_collections::IVector<bindings::KeyboardAccelerator> =
-            match iue.get_KeyboardAccelerators() {
+            match iue.KeyboardAccelerators() {
                 Ok(v) => v,
                 Err(_) => return,
             };
         let _ = vec.Clear();
 
         // Suppress the default accelerator tooltip that WinUI would otherwise show.
-        let _ = iue.put_KeyboardAcceleratorPlacementMode(
+        let _ = iue.SetKeyboardAcceleratorPlacementMode(
             bindings::KeyboardAcceleratorPlacementMode::Hidden,
         );
 
@@ -2590,15 +2585,15 @@ impl Backend for WinUIBackend {
             let Ok(ika) = ka.cast::<bindings::IKeyboardAccelerator>() else {
                 continue;
             };
-            let _ = ika.put_Key(accel.key);
-            let _ = ika.put_Modifiers(accel.modifiers);
+            let _ = ika.SetKey(accel.key);
+            let _ = ika.SetModifiers(accel.modifiers);
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .Invoked(move |_sender, args| {
                     if let Some(a) = args.as_ref()
                         && let Ok(ia) = a.cast::<bindings::IKeyboardAcceleratorInvokedEventArgs>()
                     {
-                        let _ = ia.put_Handled(true);
+                        let _ = ia.SetHandled(true);
                     }
                     cb.invoke(());
                 })
@@ -2650,13 +2645,13 @@ impl Backend for WinUIBackend {
         let Handle::RichTextBlock(rtb) = handle else {
             return;
         };
-        let Ok(blocks) = rtb.get_Blocks() else { return };
+        let Ok(blocks) = rtb.Blocks() else { return };
         let _ = blocks.Clear();
         for para_def in paragraphs {
             let Ok(para) = bindings::Paragraph::new() else {
                 continue;
             };
-            let Ok(inlines) = para.get_Inlines() else {
+            let Ok(inlines) = para.Inlines() else {
                 continue;
             };
             for inline in &para_def.inlines {
@@ -2665,10 +2660,10 @@ impl Backend for WinUIBackend {
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.put_Text(&r.text);
+                        let _ = run.SetText(&r.text);
                         if r.is_bold {
                             let _ = run.cast::<bindings::ITextElement>().and_then(|te| {
-                                te.put_FontWeight(bindings::FontWeight { weight: 700 })
+                                te.SetFontWeight(bindings::FontWeight { weight: 700 })
                             });
                         }
                         let _ = run
@@ -2680,7 +2675,7 @@ impl Backend for WinUIBackend {
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.put_Text("\n");
+                        let _ = run.SetText("\n");
                         let _ = run
                             .cast::<bindings::Inline>()
                             .and_then(|i| inlines.Append(&i));
@@ -2690,7 +2685,7 @@ impl Backend for WinUIBackend {
                         let Ok(run) = bindings::Run::new() else {
                             continue;
                         };
-                        let _ = run.put_Text(&h.text);
+                        let _ = run.SetText(&h.text);
                         let _ = run
                             .cast::<bindings::Inline>()
                             .and_then(|i| inlines.Append(&i));
@@ -2736,7 +2731,7 @@ impl Backend for WinUIBackend {
                     if let Some(ui) = mount_static_tooltip_element(elem)
                         && let Ok(cc) = tt.cast::<bindings::IContentControl>()
                     {
-                        let _ = cc.put_Content(&ui);
+                        let _ = cc.SetContent(&ui);
                     }
                     Some(tt.into())
                 }
@@ -2847,7 +2842,7 @@ impl Backend for WinUIBackend {
                     };
 
                     let formats = drag_event_args
-                        .get_DataView()
+                        .DataView()
                         .ok()
                         .and_then(|dv| dv.cast::<bindings::IDataPackageView>().ok())
                         .map(|data_package_view| read_available_formats(&data_package_view))
@@ -2917,13 +2912,12 @@ impl Backend for WinUIBackend {
                         return;
                     };
 
-                    let data_view =
-                        drag_event_args
-                            .get_DataView()
-                            .ok()
-                            .and_then(|data_package_view| {
-                                data_package_view.cast::<bindings::IDataPackageView>().ok()
-                            });
+                    let data_view = drag_event_args
+                        .DataView()
+                        .ok()
+                        .and_then(|data_package_view| {
+                            data_package_view.cast::<bindings::IDataPackageView>().ok()
+                        });
 
                     let formats = data_view
                         .as_ref()
@@ -2965,9 +2959,9 @@ impl Backend for WinUIBackend {
                                     (0..size)
                                         .filter_map(|i| v.GetAt(i).ok())
                                         .map(|item| DroppedItem {
-                                            path: item.get_Path().unwrap_or_default(),
-                                            name: item.get_Name().unwrap_or_default(),
-                                            is_folder: item.get_Attributes().is_ok_and(|attrs| {
+                                            path: item.Path().unwrap_or_default(),
+                                            name: item.Name().unwrap_or_default(),
+                                            is_folder: item.Attributes().is_ok_and(|attrs| {
                                                 attrs.contains(bindings::FileAttributes::Directory)
                                             }),
                                         })
@@ -3040,7 +3034,7 @@ struct AvailableFormats {
 
 fn read_available_formats(data_package_view: &bindings::IDataPackageView) -> AvailableFormats {
     let mut available_formats = AvailableFormats::default();
-    let Ok(formats) = data_package_view.get_AvailableFormats() else {
+    let Ok(formats) = data_package_view.AvailableFormats() else {
         return available_formats;
     };
 
@@ -3086,7 +3080,7 @@ fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
     let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
         return ctx;
     };
-    let Ok(dv) = iargs.get_DataView() else {
+    let Ok(dv) = iargs.DataView() else {
         return ctx;
     };
     let Ok(idv) = dv.cast::<bindings::IDataPackageView>() else {
@@ -3118,10 +3112,10 @@ fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
         (0..size)
             .filter_map(|i| items.GetAt(i).ok())
             .map(|item| DroppedItem {
-                path: item.get_Path().unwrap_or_default(),
-                name: item.get_Name().unwrap_or_default(),
+                path: item.Path().unwrap_or_default(),
+                name: item.Name().unwrap_or_default(),
                 is_folder: item
-                    .get_Attributes()
+                    .Attributes()
                     .is_ok_and(|a| a.contains(bindings::FileAttributes::Directory)),
             })
             .collect()
@@ -3172,20 +3166,20 @@ fn dispatch_accept(
                 DragOperation::Move => bindings::DataPackageOperation::Move,
                 DragOperation::Link => bindings::DataPackageOperation::Link,
             };
-            let _ = iargs.put_AcceptedOperation(accepted);
+            let _ = iargs.SetAcceptedOperation(accepted);
             if (ctx.caption.is_some()
                 || ctx.glyph_visible.is_some()
                 || ctx.content_visible.is_some())
-                && let Ok(ui) = iargs.get_DragUIOverride()
+                && let Ok(ui) = iargs.DragUIOverride()
             {
                 if let Some(v) = ctx.caption {
-                    let _ = ui.put_Caption(&v);
+                    let _ = ui.SetCaption(&v);
                 }
                 if let Some(v) = ctx.glyph_visible {
-                    let _ = ui.put_IsGlyphVisible(v);
+                    let _ = ui.SetIsGlyphVisible(v);
                 }
                 if let Some(v) = ctx.content_visible {
-                    let _ = ui.put_IsContentVisible(v);
+                    let _ = ui.SetIsContentVisible(v);
                 }
             }
         }
@@ -3226,19 +3220,19 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
         DragOperation::Move => bindings::DataPackageOperation::Move,
         DragOperation::Link => bindings::DataPackageOperation::Link,
     };
-    let _ = iargs.put_AcceptedOperation(accepted);
+    let _ = iargs.SetAcceptedOperation(accepted);
 
     if (ctx.caption.is_some() || ctx.glyph_visible.is_some() || ctx.content_visible.is_some())
-        && let Ok(ui) = iargs.get_DragUIOverride()
+        && let Ok(ui) = iargs.DragUIOverride()
     {
         if let Some(v) = ctx.caption {
-            let _ = ui.put_Caption(&v);
+            let _ = ui.SetCaption(&v);
         }
         if let Some(v) = ctx.glyph_visible {
-            let _ = ui.put_IsGlyphVisible(v);
+            let _ = ui.SetIsGlyphVisible(v);
         }
         if let Some(v) = ctx.content_visible {
-            let _ = ui.put_IsContentVisible(v);
+            let _ = ui.SetIsContentVisible(v);
         }
     }
 }
@@ -3269,15 +3263,15 @@ fn pointer_event_info(
     let Ok(ipoint) = point.cast::<bindings::IPointerPoint>() else {
         return info;
     };
-    let Ok(props) = ipoint.get_Properties() else {
+    let Ok(props) = ipoint.Properties() else {
         return info;
     };
     let Ok(iprops) = props.cast::<bindings::IPointerPointProperties>() else {
         return info;
     };
-    info.is_left_button_pressed = iprops.get_IsLeftButtonPressed().unwrap_or(false);
-    info.is_right_button_pressed = iprops.get_IsRightButtonPressed().unwrap_or(false);
-    info.is_middle_button_pressed = iprops.get_IsMiddleButtonPressed().unwrap_or(false);
+    info.is_left_button_pressed = iprops.IsLeftButtonPressed().unwrap_or(false);
+    info.is_right_button_pressed = iprops.IsRightButtonPressed().unwrap_or(false);
+    info.is_middle_button_pressed = iprops.IsMiddleButtonPressed().unwrap_or(false);
     info
 }
 
@@ -3299,17 +3293,17 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
     match el {
         Element::TextBlock(t) => {
             let tb = bindings::TextBlock::new().ok()?;
-            tb.put_Text(t.text.as_str()).ok()?;
+            tb.SetText(t.text.as_str()).ok()?;
             tb.cast::<bindings::UIElement>().ok()
         }
         Element::StackPanel(s) => {
             let sp = bindings::StackPanel::new().ok()?;
-            sp.put_Orientation(s.orientation).ok()?;
-            sp.put_Spacing(s.spacing).ok()?;
+            sp.SetOrientation(s.orientation).ok()?;
+            sp.SetSpacing(s.spacing).ok()?;
             let children = sp
                 .cast::<bindings::IPanel>()
                 .ok()?
-                .get_Children()
+                .Children()
                 .ok()?
                 .cast::<windows_collections::IVector<bindings::UIElement>>()
                 .ok()?;
@@ -3328,16 +3322,16 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
                         && let Ok(bmp) = bindings::BitmapImage::new()
                     {
                         if let Ok(ibmp) = bmp.cast::<bindings::IBitmapImage>() {
-                            let _ = ibmp.put_UriSource(&uri);
+                            let _ = ibmp.SetUriSource(&uri);
                         }
                         if let Ok(src) = bmp.cast::<bindings::ImageSource>() {
-                            let _ = i.put_Source(&src);
+                            let _ = i.SetSource(&src);
                         }
                     }
                 }
                 ImageSource::Surface(sis) => {
                     if let Ok(src) = sis.image_source() {
-                        let _ = i.put_Source(&src);
+                        let _ = i.SetSource(&src);
                     }
                 }
                 ImageSource::None => {}
@@ -3348,7 +3342,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
             // Fallback: surface the kind_name so the developer sees a
             // hint rather than an empty popup.
             let tb = bindings::TextBlock::new().ok()?;
-            tb.put_Text(el.kind_name()).ok()?;
+            tb.SetText(el.kind_name()).ok()?;
             tb.cast::<bindings::UIElement>().ok()
         }
     }

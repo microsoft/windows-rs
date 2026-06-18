@@ -128,7 +128,7 @@ pub mod Test {
             };
             unsafe {
                 let mut result__ = core::mem::zeroed();
-                let token__ = (windows_core::Interface::vtable(self).add_Click)(
+                let token__ = (windows_core::Interface::vtable(self).Click)(
                     windows_core::Interface::as_raw(self),
                     windows_core::Interface::as_raw(&handler),
                     &mut result__,
@@ -137,7 +137,7 @@ pub mod Test {
                 Ok(windows_core::EventRevoker::new(
                     self.clone(),
                     token__,
-                    windows_core::Interface::vtable(self).remove_Click,
+                    windows_core::Interface::vtable(self).RemoveClick,
                 ))
             }
         }
@@ -159,8 +159,8 @@ pub mod Test {
     }
     pub trait IFoo_Impl: windows_core::IUnknownImpl {
         fn Bar(&self) -> windows_core::Result<i32>;
-        fn add_Click(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i64>;
-        fn remove_Click(&self, token: i64) -> windows_core::Result<()>;
+        fn Click(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i64>;
+        fn RemoveClick(&self, token: i64) -> windows_core::Result<()>;
         fn SetCompleted(
             &self,
             callback: windows_core::Ref<CompletedCallback>,
@@ -184,7 +184,7 @@ pub mod Test {
                     }
                 }
             }
-            unsafe extern "system" fn add_Click<Identity: IFoo_Impl, const OFFSET: isize>(
+            unsafe extern "system" fn Click<Identity: IFoo_Impl, const OFFSET: isize>(
                 this: *mut core::ffi::c_void,
                 handler: *mut core::ffi::c_void,
                 result__: *mut i64,
@@ -192,7 +192,7 @@ pub mod Test {
                 unsafe {
                     let this: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    match IFoo_Impl::add_Click(this, core::mem::transmute_copy(&handler)) {
+                    match IFoo_Impl::Click(this, core::mem::transmute_copy(&handler)) {
                         Ok(ok__) => {
                             result__.write(ok__);
                             windows_core::HRESULT(0)
@@ -201,14 +201,14 @@ pub mod Test {
                     }
                 }
             }
-            unsafe extern "system" fn remove_Click<Identity: IFoo_Impl, const OFFSET: isize>(
+            unsafe extern "system" fn RemoveClick<Identity: IFoo_Impl, const OFFSET: isize>(
                 this: *mut core::ffi::c_void,
                 token: i64,
             ) -> windows_core::HRESULT {
                 unsafe {
                     let this: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                    IFoo_Impl::remove_Click(this, token).into()
+                    IFoo_Impl::RemoveClick(this, token).into()
                 }
             }
             unsafe extern "system" fn SetCompleted<Identity: IFoo_Impl, const OFFSET: isize>(
@@ -224,8 +224,8 @@ pub mod Test {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IFoo, OFFSET>(),
                 Bar: Bar::<Identity, OFFSET>,
-                add_Click: add_Click::<Identity, OFFSET>,
-                remove_Click: remove_Click::<Identity, OFFSET>,
+                Click: Click::<Identity, OFFSET>,
+                RemoveClick: RemoveClick::<Identity, OFFSET>,
                 SetCompleted: SetCompleted::<Identity, OFFSET>,
             }
         }
@@ -238,12 +238,12 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Bar:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-        pub add_Click: unsafe extern "system" fn(
+        pub Click: unsafe extern "system" fn(
             *mut core::ffi::c_void,
             *mut core::ffi::c_void,
             *mut i64,
         ) -> windows_core::HRESULT,
-        pub remove_Click:
+        pub RemoveClick:
             unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
         pub SetCompleted: unsafe extern "system" fn(
             *mut core::ffi::c_void,
