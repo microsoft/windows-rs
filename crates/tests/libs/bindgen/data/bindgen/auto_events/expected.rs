@@ -9,7 +9,7 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     impl CompletedCallback {
-        pub(crate) fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
+        pub fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
             let com = windows_core::imp::DelegateBox::<CompletedCallback, F>::new(
                 &CompletedCallbackBox::<F>::VTABLE,
                 invoke,
@@ -102,7 +102,7 @@ pub mod Test {
         windows_core::IInspectable
     );
     impl IFoo {
-        pub(crate) fn Bar(&self) -> windows_core::Result<i32> {
+        pub fn Bar(&self) -> windows_core::Result<i32> {
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 (windows_core::Interface::vtable(self).Bar)(
@@ -112,10 +112,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub(crate) fn Click<F>(
-            &self,
-            handler: F,
-        ) -> windows_core::Result<windows_core::EventRevoker>
+        pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
         where
             F: Fn(windows_core::Ref<IFoo>, i32) + 'static,
         {
@@ -141,7 +138,7 @@ pub mod Test {
                 ))
             }
         }
-        pub(crate) fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
+        pub fn SetCompleted<P0>(&self, callback: P0) -> windows_core::Result<()>
         where
             P0: windows_core::Param<CompletedCallback>,
         {

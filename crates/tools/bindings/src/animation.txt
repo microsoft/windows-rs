@@ -1,5 +1,5 @@
 --out crates/libs/animation/src/bindings.rs
---flat --minimal
+--flat --minimal --dead-code
 
 --filter
     Windows::Win32::System::Com::{CoCreateInstance, CLSCTX_INPROC_SERVER}

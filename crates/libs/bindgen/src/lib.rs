@@ -332,8 +332,6 @@ impl Bindgen {
             panic!("cannot combine `--sys` and `--minimal`");
         }
         self.style = Style::Minimal;
-        // --minimal implies --dead-code for backward compatibility.
-        self.dead_code = true;
         self
     }
 

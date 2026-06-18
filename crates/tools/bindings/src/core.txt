@@ -1,5 +1,5 @@
 --out crates/libs/core/src/imp/bindings.rs
---flat --minimal
+--flat --minimal --dead-code
 
 --filter
     AGILEREFERENCE_DEFAULT
