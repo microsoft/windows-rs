@@ -1,5 +1,5 @@
 --out crates/libs/canvas/src/bindings.rs
---flat --minimal
+--flat --minimal --dead-code
 
 --filter
     Windows::Win32::Foundation::{D2DERR_RECREATE_TARGET, GENERIC_READ}

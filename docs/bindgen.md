@@ -268,8 +268,7 @@ Emits `pub(crate)` instead of `pub` on generated functions and methods so the
 [rust-lang/rust#157961](https://github.com/rust-lang/rust/issues/157961) where
 `pub` items in non-public modules do not trigger dead-code warnings.
 
-`--minimal` implies `--dead-code` for backward compatibility, but the option
-can be used independently with any mode.
+`--dead-code` is independent of `--minimal` and can be combined with any mode.
 
 ### Future possibilities
 
