@@ -513,18 +513,18 @@ impl Bindgen {
             }
             let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
 
-            // Use bottom-up type closure (MinimalTypeMap) when the filter has
-            // precise entries without broad patterns (namespaces, name-globs).
-            // The type closure strategy is determined by filter precision, not
-            // the `--minimal` flag alone — adding `--minimal` to a broad filter
-            // should produce the same types, just emitted differently.
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            let use_minimal_type_closure = !filter.has_broad_filter
-                && !self.layout.is_package()
-                && (self.style.is_minimal() || !filter.requested_interfaces.is_empty());
+            // Use bottom-up type closure (MinimalTypeMap) when `--minimal` is
+            // set and the filter has precise entries without broad patterns.
+            // This walks only the signatures of requested methods to discover
+            // the minimal set of required types.
+            let use_minimal_type_closure =
+                self.style.is_minimal() && !filter.has_broad_filter && !self.layout.is_package();
 
-            filter.default_demote = use_minimal_type_closure;
+            // In `--minimal` mode, methods on types with no explicit method
+            // filter are demoted (replaced with opaque vtable slots).
+            filter.default_demote = self.style.is_minimal();
 
             let types = if use_minimal_type_closure {
                 MinimalTypeMap::build(&reader, &mut filter, &references)
@@ -532,11 +532,7 @@ impl Bindgen {
                 TypeMap::filter(&reader, &filter, &references)
             };
 
-            // Minimal codegen style: suppress class wrappers, inherited
-            // forwarders, NAME constants, etc. Enabled by `--minimal` or
-            // auto-detected when all filter entries are precise (no broad
-            // patterns like namespaces or name-globs).
-            let minimal_codegen = self.style.is_minimal() || use_minimal_type_closure;
+            let minimal_codegen = self.style.is_minimal();
 
             (filter, types, minimal_codegen)
         };

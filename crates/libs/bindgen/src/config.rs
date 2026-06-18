@@ -17,8 +17,7 @@ pub struct Config<'a> {
     /// inlines the DelegateBox construction directly.
     pub event_only_delegates: &'a HashSet<TypeName>,
     /// Enables minimal-style codegen: suppresses class wrappers, inherited
-    /// forwarders, NAME constants, etc. Driven by `--minimal` flag or
-    /// auto-detected when all filter entries are precise (method-level).
+    /// forwarders, NAME constants, etc. Driven by the `--minimal` flag.
     pub minimal_codegen: bool,
 }
 
