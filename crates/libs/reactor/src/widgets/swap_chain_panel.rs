@@ -25,8 +25,8 @@ impl SwapChainPanelHandle {
     /// Typically both values are equal (e.g., 1.5 at 150% display scaling).
     pub fn composition_scale(&self) -> Result<(f32, f32)> {
         let panel: bindings::ISwapChainPanel = self.0.cast()?;
-        let x = panel.get_CompositionScaleX()?;
-        let y = panel.get_CompositionScaleY()?;
+        let x = panel.CompositionScaleX()?;
+        let y = panel.CompositionScaleY()?;
         Ok((x, y))
     }
 
@@ -41,8 +41,8 @@ impl SwapChainPanelHandle {
         panel.CompositionScaleChanged(move |sender, _| {
             if let Some(sender) = sender.as_ref() {
                 let scp: &bindings::ISwapChainPanel = sender;
-                let x = scp.get_CompositionScaleX().unwrap_or(1.0);
-                let y = scp.get_CompositionScaleY().unwrap_or(1.0);
+                let x = scp.CompositionScaleX().unwrap_or(1.0);
+                let y = scp.CompositionScaleY().unwrap_or(1.0);
                 f(x, y);
             }
         })
@@ -124,7 +124,7 @@ impl SwapChainPanel {
                     Rc::new(RefCell::new(None));
                 let r = fe.SizeChanged(move |_sender, args| {
                     if let Some(args) = args.as_ref()
-                        && let Ok(s) = args.get_NewSize()
+                        && let Ok(s) = args.NewSize()
                     {
                         f(s.width as f64, s.height as f64);
                     }

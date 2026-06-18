@@ -39,7 +39,7 @@ pub fn grid_row_column_layout(h: Harness) -> FixtureFuture {
         let g = h.find_all::<XamlGrid>(&|g| {
             g.cast::<crate::bindings::IGrid>()
                 .unwrap()
-                .get_ColumnDefinitions()
+                .ColumnDefinitions()
                 .map_or(0, |c| {
                     c.cast::<windows_collections::IVector<crate::bindings::ColumnDefinition>>()
                         .unwrap()
@@ -49,7 +49,7 @@ pub fn grid_row_column_layout(h: Harness) -> FixtureFuture {
                 == 2
                 && g.cast::<crate::bindings::IGrid>()
                     .unwrap()
-                    .get_RowDefinitions()
+                    .RowDefinitions()
                     .map_or(0, |r| {
                         r.cast::<windows_collections::IVector<crate::bindings::RowDefinition>>()
                             .unwrap()

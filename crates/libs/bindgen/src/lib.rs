@@ -536,7 +536,8 @@ impl Bindgen {
 
             // Minimal codegen style: suppress class wrappers, inherited
             // forwarders, NAME constants, etc. Enabled by `--minimal` or
-            // auto-detected from method-level filter syntax.
+            // auto-detected when all filter entries are precise (no broad
+            // patterns like namespaces or name-globs).
             let minimal_codegen = self.style.is_minimal() || use_minimal_type_closure;
 
             (filter, types, minimal_codegen)
@@ -560,7 +561,7 @@ impl Bindgen {
             link,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_closure: minimal_codegen,
+            minimal_codegen,
         };
 
         let tree = TypeTree::new(&types);

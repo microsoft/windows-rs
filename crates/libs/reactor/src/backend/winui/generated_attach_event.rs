@@ -15,7 +15,7 @@ pub fn dispatch(
             revokers.push(
                 h.ItemClicked(move |_sender, args| {
                     if let Some(a) = args.as_ref()
-                        && let Ok(v) = a.get_Index()
+                        && let Ok(v) = a.Index()
                     {
                         handler.invoke_i32(v);
                     }
@@ -126,7 +126,7 @@ pub fn dispatch(
             revokers.push(
                 h.ValueChanged(move |_sender, args| {
                     if let Some(a) = args.as_ref()
-                        && let Ok(v) = a.get_NewValue()
+                        && let Ok(v) = a.NewValue()
                     {
                         handler.invoke_f64(v);
                     }
@@ -141,7 +141,7 @@ pub fn dispatch(
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::PasswordBox>().ok())
-                        .and_then(|s| s.get_Password().ok())
+                        .and_then(|s| s.Password().ok())
                         .unwrap_or(Default::default());
                     handler.invoke_string(v);
                 })
@@ -193,7 +193,7 @@ pub fn dispatch(
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::RadioButtons>().ok())
-                        .and_then(|s| s.get_SelectedIndex().ok())
+                        .and_then(|s| s.SelectedIndex().ok())
                         .unwrap_or(-1);
                     handler.invoke_i32(v);
                 })
@@ -207,7 +207,7 @@ pub fn dispatch(
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::RatingControl>().ok())
-                        .and_then(|s| s.get_Value().ok())
+                        .and_then(|s| s.Value().ok())
                         .unwrap_or(-1.0);
                     handler.invoke_f64(v);
                 })
@@ -221,7 +221,7 @@ pub fn dispatch(
                     .unwrap()
                     .ValueChanged(move |_sender, args| {
                         if let Some(a) = args.as_ref()
-                            && let Ok(v) = a.get_NewValue()
+                            && let Ok(v) = a.NewValue()
                         {
                             handler.invoke_f64(v);
                         }
@@ -281,7 +281,7 @@ pub fn dispatch(
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::TextBox>().ok())
-                        .and_then(|s| s.get_Text().ok())
+                        .and_then(|s| s.Text().ok())
                         .unwrap_or(Default::default());
                     handler.invoke_string(v);
                 })
@@ -313,7 +313,7 @@ pub fn dispatch(
                     let v = sender
                         .as_ref()
                         .and_then(|s| s.cast::<bindings::ToggleSwitch>().ok())
-                        .and_then(|s| s.get_IsOn().ok())
+                        .and_then(|s| s.IsOn().ok())
                         .unwrap_or(false);
                     handler.invoke_bool(v);
                 })

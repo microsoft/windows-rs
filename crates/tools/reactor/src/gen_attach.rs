@@ -120,7 +120,7 @@ fn require_property(e: &EventDecl, handle_name: &str, pattern: &str) -> String {
             e.event()
         )
     });
-    format!("get_{prop}")
+    prop.to_string()
 }
 
 fn gen_event_arm(

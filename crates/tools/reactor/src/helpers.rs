@@ -6,6 +6,22 @@ pub fn ident(s: &str) -> Ident {
     Ident::new(s, Span::call_site())
 }
 
+/// Convert a metadata method name (e.g. `put_Text`, `get_Value`, `add_Click`)
+/// to its Rust binding name (`SetText`, `Value`, `Click`, `RemoveClick`).
+pub fn method_to_rust(name: &str) -> String {
+    if let Some(prop) = name.strip_prefix("get_") {
+        prop.to_string()
+    } else if let Some(prop) = name.strip_prefix("put_") {
+        format!("Set{prop}")
+    } else if let Some(event) = name.strip_prefix("add_") {
+        event.to_string()
+    } else if let Some(event) = name.strip_prefix("remove_") {
+        format!("Remove{event}")
+    } else {
+        name.to_string()
+    }
+}
+
 /// Convert `PascalCase` to `snake_case`.
 pub fn to_snake_case(s: &str) -> String {
     let mut out = String::with_capacity(s.len() + 4);

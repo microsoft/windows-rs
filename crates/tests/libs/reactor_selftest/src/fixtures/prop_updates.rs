@@ -84,7 +84,7 @@ pub fn slider_value_update(h: Harness) -> FixtureFuture {
         let winui_val = sliders
             .first()
             .and_then(|s| s.cast::<crate::bindings::IRangeBase>().ok())
-            .and_then(|rb| rb.get_Value().ok())
+            .and_then(|rb| rb.Value().ok())
             .unwrap_or(0.0);
         h.check_eq("PropUpdate_Slider_WinUIValue", 75.0, winui_val);
 
@@ -130,7 +130,7 @@ pub fn progress_bar_value_update(h: Harness) -> FixtureFuture {
         let winui_val = pbs
             .first()
             .and_then(|p| p.cast::<crate::bindings::IRangeBase>().ok())
-            .and_then(|rb| rb.get_Value().ok())
+            .and_then(|rb| rb.Value().ok())
             .unwrap_or(0.0);
         h.check_eq("PropUpdate_ProgressBar_WinUIValue", 90.0, winui_val);
 
@@ -216,7 +216,7 @@ pub fn button_enabled_update(h: Harness) -> FixtureFuture {
         let is_enabled = target
             .as_ref()
             .and_then(|b| b.cast::<crate::bindings::IControl>().ok())
-            .and_then(|c| c.get_IsEnabled().ok())
+            .and_then(|c| c.IsEnabled().ok())
             .unwrap_or(false);
         h.check("PropUpdate_ButtonEnabled_WinUIValue", is_enabled);
     })

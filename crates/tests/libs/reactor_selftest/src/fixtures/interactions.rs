@@ -136,7 +136,7 @@ pub fn button_disabled_to_enabled_prop_update(h: Harness) -> FixtureFuture {
             .and_then(|btn| {
                 btn.cast::<crate::bindings::IControl>()
                     .ok()
-                    .and_then(|c| c.get_IsEnabled().ok())
+                    .and_then(|c| c.IsEnabled().ok())
             })
             .unwrap_or(true);
         h.check(
@@ -152,7 +152,7 @@ pub fn button_disabled_to_enabled_prop_update(h: Harness) -> FixtureFuture {
             .and_then(|btn| {
                 btn.cast::<crate::bindings::IControl>()
                     .ok()
-                    .and_then(|c| c.get_IsEnabled().ok())
+                    .and_then(|c| c.IsEnabled().ok())
             })
             .unwrap_or(false);
         h.check("Interaction_PropUpdate_NowEnabled", now_enabled);
@@ -279,12 +279,7 @@ pub fn radio_buttons_change_selection(h: Harness) -> FixtureFuture {
 
         let initial = h
             .find_text_containing("radio-idx=")
-            .and_then(|tb| {
-                tb.cast::<crate::bindings::ITextBlock>()
-                    .ok()?
-                    .get_Text()
-                    .ok()
-            })
+            .and_then(|tb| tb.cast::<crate::bindings::ITextBlock>().ok()?.Text().ok())
             .unwrap_or_else(|| "<no radio-idx= text block found>".into());
         h.check_eq(
             "Interaction_RadioButtons_InitialZero",
@@ -313,12 +308,7 @@ pub fn radio_buttons_change_selection(h: Harness) -> FixtureFuture {
 
         let after = h
             .find_text_containing("radio-idx=")
-            .and_then(|tb| {
-                tb.cast::<crate::bindings::ITextBlock>()
-                    .ok()?
-                    .get_Text()
-                    .ok()
-            })
+            .and_then(|tb| tb.cast::<crate::bindings::ITextBlock>().ok()?.Text().ok())
             .unwrap_or_else(|| "<no radio-idx= text block found>".into());
         let h2 = h.clone();
         h.check_with(
@@ -448,7 +438,7 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
         let initial_symbol = icons_before[0]
             .cast::<crate::bindings::ISymbolIcon>()
             .unwrap()
-            .get_Symbol()
+            .Symbol()
             .unwrap();
         h.check(
             "Interaction_ButtonIconGlyph_InitialIsFavorite",
@@ -485,7 +475,7 @@ pub fn button_icon_glyph_change_preserves_text(h: Harness) -> FixtureFuture {
         let new_symbol = icons_after[0]
             .cast::<crate::bindings::ISymbolIcon>()
             .unwrap()
-            .get_Symbol()
+            .Symbol()
             .unwrap();
         h.check(
             "Interaction_ButtonIconGlyph_ChangedToSave",

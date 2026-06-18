@@ -16,10 +16,10 @@ pub struct Config<'a> {
     /// `new()` and `Invoke()` methods suppressed because the event-add wrapper
     /// inlines the DelegateBox construction directly.
     pub event_only_delegates: &'a HashSet<TypeName>,
-    /// `true` when MinimalTypeMap was used for type closure — enables
-    /// minimal-style method emission on exclusive interfaces (since their
-    /// owning class may not be in the type map).
-    pub minimal_closure: bool,
+    /// Enables minimal-style codegen: suppresses class wrappers, inherited
+    /// forwarders, NAME constants, etc. Driven by `--minimal` flag or
+    /// auto-detected when all filter entries are precise (method-level).
+    pub minimal_codegen: bool,
 }
 
 impl Config<'_> {
