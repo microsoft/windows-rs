@@ -1,30 +1,240 @@
-windows_link::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> HRESULT);
-windows_link::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
-windows_link::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
-windows_link::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_link::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : PCSTR) -> FARPROC);
-windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
-windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : HSTRING, iid : *const GUID, factory : *mut *mut core::ffi::c_void) -> HRESULT);
-windows_link::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut GUID) -> RPC_STATUS);
-pub type BOOL = i32;
+windows_core::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
+windows_core::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
+windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
+windows_core::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
+windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : windows_core::PCSTR) -> FARPROC);
+windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
+windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : *mut core::ffi::c_void, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("combase.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : *mut core::ffi::c_void, ppagilereference : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
+pub type AgileReferenceOptions = i32;
+pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
+pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
+pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
+pub const E_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80004003_u32 as _);
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID {
-    pub data1: u32,
-    pub data2: u16,
-    pub data3: u16,
-    pub data4: [u8; 8],
-}
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
-pub type HRESULT = i32;
+windows_core::imp::define_interface!(
+    IAgileObject,
+    IAgileObject_Vtbl,
+    0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90
+);
+windows_core::imp::interface_hierarchy!(IAgileObject, windows_core::IUnknown);
+#[repr(C)]
+pub struct IAgileObject_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait IAgileObject_Impl: windows_core::IUnknownImpl {}
+impl IAgileObject_Vtbl {
+    pub const fn new<Identity: IAgileObject_Impl, const OFFSET: isize>() -> Self {
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAgileObject as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IAgileObject {}
+windows_core::imp::define_interface!(
+    IAgileReference,
+    IAgileReference_Vtbl,
+    0xc03f6a43_65a4_9818_987e_e0b810d2a6f2
+);
+windows_core::imp::interface_hierarchy!(IAgileReference, windows_core::IUnknown);
+impl IAgileReference {
+    pub(crate) unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe {
+            (windows_core::Interface::vtable(self).Resolve)(
+                windows_core::Interface::as_raw(self),
+                &T::IID,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IAgileReference_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Resolve: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const windows_core::GUID,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait IAgileReference_Impl: windows_core::IUnknownImpl {
+    fn Resolve(
+        &self,
+        riid: *const windows_core::GUID,
+        ppvobjectreference: *mut *mut core::ffi::c_void,
+    ) -> windows_core::Result<()>;
+}
+impl IAgileReference_Vtbl {
+    pub const fn new<Identity: IAgileReference_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Resolve<Identity: IAgileReference_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            riid: *const windows_core::GUID,
+            ppvobjectreference: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAgileReference_Impl::Resolve(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&ppvobjectreference),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Resolve: Resolve::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAgileReference as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IAgileReference {}
+windows_core::imp::define_interface!(
+    IWeakReference,
+    IWeakReference_Vtbl,
+    0x00000037_0000_0000_c000_000000000046
+);
+windows_core::imp::interface_hierarchy!(IWeakReference, windows_core::IUnknown);
+impl IWeakReference {
+    pub(crate) unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe {
+            (windows_core::Interface::vtable(self).Resolve)(
+                windows_core::Interface::as_raw(self),
+                &T::IID,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IWeakReference_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Resolve: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const windows_core::GUID,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
+    fn Resolve(
+        &self,
+        riid: *const windows_core::GUID,
+        objectreference: *mut *mut core::ffi::c_void,
+    ) -> windows_core::Result<()>;
+}
+impl IWeakReference_Vtbl {
+    pub const fn new<Identity: IWeakReference_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Resolve<Identity: IWeakReference_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            riid: *const windows_core::GUID,
+            objectreference: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWeakReference_Impl::Resolve(
+                    this,
+                    core::mem::transmute_copy(&riid),
+                    core::mem::transmute_copy(&objectreference),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Resolve: Resolve::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWeakReference as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IWeakReference {}
+windows_core::imp::define_interface!(
+    IWeakReferenceSource,
+    IWeakReferenceSource_Vtbl,
+    0x00000038_0000_0000_c000_000000000046
+);
+windows_core::imp::interface_hierarchy!(IWeakReferenceSource, windows_core::IUnknown);
+impl IWeakReferenceSource {
+    pub(crate) unsafe fn GetWeakReference(&self) -> windows_core::Result<IWeakReference> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetWeakReference)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IWeakReferenceSource_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetWeakReference: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait IWeakReferenceSource_Impl: windows_core::IUnknownImpl {
+    fn GetWeakReference(&self) -> windows_core::Result<IWeakReference>;
+}
+impl IWeakReferenceSource_Vtbl {
+    pub const fn new<Identity: IWeakReferenceSource_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetWeakReference<
+            Identity: IWeakReferenceSource_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            weakreference: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWeakReferenceSource_Impl::GetWeakReference(this) {
+                    Ok(ok__) => {
+                        weakreference.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetWeakReference: GetWeakReference::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWeakReferenceSource as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IWeakReferenceSource {}
+pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
 pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
-pub type PCSTR = *const u8;
-pub type RPC_STATUS = i32;
-pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824;
-pub type HSTRING = *mut core::ffi::c_void;
+pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
+pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
+pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);

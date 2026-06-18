@@ -22,6 +22,5 @@ fn main() {
         "Windows.Foundation.TimeSpan",
         "Windows.Foundation.Numerics.Vector2",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

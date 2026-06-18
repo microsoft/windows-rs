@@ -7,7 +7,7 @@ fn main() {
     // (those skipped methods are reported as warnings and printed via
     // `cargo:warning`); the sample itself never calls them, so the resulting
     // bindings still compile and exercise the round-trip we want.
-    _ = windows_bindgen::builder()
+    windows_bindgen::builder()
         .input(reference)
         .output("src/bindings.rs")
         .filter("Windows.UI.Xaml.Application")

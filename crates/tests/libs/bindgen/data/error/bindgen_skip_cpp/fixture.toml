@@ -1,3 +1,0 @@
-kind = "bindgen"
-args = "--out {scratch}/out.rs --filter IPersistFile"
-error_match = "contains"

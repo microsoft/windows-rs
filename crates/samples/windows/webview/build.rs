@@ -43,6 +43,5 @@ fn main() {
         .reference("windows")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }

@@ -24,6 +24,5 @@ fn main() {
         .filter("Sample")
         .flat()
         .implement(std::iter::empty::<&str>())
-        .write()
-        .unwrap();
+        .write();
 }

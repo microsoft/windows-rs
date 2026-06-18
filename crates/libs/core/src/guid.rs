@@ -24,10 +24,14 @@ impl GUID {
         let mut guid = Self::zeroed();
         let result = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) };
 
-        if matches!(result, 0 | imp::RPC_S_UUID_LOCAL_ONLY) {
+        // RPC_S_UUID_LOCAL_ONLY (1824) indicates a locally-generated UUID,
+        // which is fine for our purposes.
+        if result.is_ok() || result == RPC_STATUS(1824) {
             Ok(guid)
         } else {
-            Err(Error::from_hresult(WIN32_ERROR(result as u32).to_hresult()))
+            Err(Error::from_hresult(
+                WIN32_ERROR(result.0 as u32).to_hresult(),
+            ))
         }
     }
 

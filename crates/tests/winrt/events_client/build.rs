@@ -14,6 +14,5 @@ fn main() {
         "Windows.Foundation.TypedEventHandler",
         "Windows.Foundation.EventHandler",
         "--flat",
-    ])
-    .unwrap();
+    ]);
 }

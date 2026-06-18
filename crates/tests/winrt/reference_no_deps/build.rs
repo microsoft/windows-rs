@@ -8,7 +8,7 @@ fn main() {
         .write()
         .unwrap();
 
-    _ = windows_bindgen::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "default",
         "test.winmd",

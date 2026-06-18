@@ -1,15 +1,28 @@
 --out crates/libs/core/src/imp/bindings.rs
---flat --sys
+--flat --minimal
 
 --filter
+    AGILEREFERENCE_DEFAULT
+    CO_E_NOTINITIALIZED
     CoIncrementMTAUsage
     CoTaskMemAlloc
     CoTaskMemFree
+    E_INVALIDARG
+    E_NOINTERFACE
+    E_POINTER
     EncodePointer
     FreeLibrary
     GetProcAddress
+    IAgileObject
+    Windows.Win32.System.WinRT.IAgileReference.Resolve
+    Windows.Win32.System.WinRT.IWeakReference.Resolve
+    Windows.Win32.System.WinRT.IWeakReferenceSource.GetWeakReference
+    JSCRIPT_E_CANTEXECUTE
     LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     LoadLibraryExA
+    REGDB_E_CLASSNOTREG
     RoGetActivationFactory
-    RPC_S_UUID_LOCAL_ONLY
+    RoGetAgileReference
+    RPC_E_DISCONNECTED
+    S_OK
     UuidCreate

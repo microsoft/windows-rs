@@ -28,7 +28,7 @@ let args = [
     "GetTickCount",
 ];
 
-windows_bindgen::bindgen(args).unwrap();
+windows_bindgen::bindgen(args);
 ```
 
 And then use the bindings as follows:

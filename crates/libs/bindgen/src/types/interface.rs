@@ -60,9 +60,6 @@ impl Interface {
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
                 if !config.minimal_closure && !method.dependencies.included(config) {
-                    config
-                        .warnings
-                        .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
                 } else if !config.includes_method(type_name, def) {
                     // Method-level filter demoted this slot to opaque.
@@ -505,7 +502,6 @@ impl Interface {
                         .any(|ty| ty.has_skipped_methods(config));
 
                 if has_skipped_methods {
-                    config.warnings.skip_implement(self.def);
                 } else {
                     let mut names = MethodNames::for_style(&config.bindgen.style);
 

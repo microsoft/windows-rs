@@ -18,6 +18,5 @@ fn msvc_main() {
         "--flat",
         "--reference",
         "windows",
-    ])
-    .unwrap();
+    ]);
 }

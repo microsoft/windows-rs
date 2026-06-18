@@ -126,7 +126,7 @@ crates/libs/time/
        Windows.Foundation.TimeSpan
    ```
 
-2. Add `bindgen(["--etc", "crates/tools/bindings/src/time.txt"]).unwrap();`
+2. Add `bindgen(["--etc", "crates/tools/bindings/src/time.txt"]);`
    to `crates/tools/bindings/src/main.rs` in the same block as the other
    small crates.
 

@@ -3,13 +3,9 @@ use std::io::Write;
 
 impl Config<'_> {
     pub fn format(&self, tokens: &str) -> String {
-        let formatted = if let Some(result) = self.rustfmt(tokens) {
-            result
-        } else {
-            self.warnings
-                .add("failed to format output with `rustfmt`".to_string());
-            tokens.to_string()
-        };
+        let formatted = self
+            .rustfmt(tokens)
+            .unwrap_or_else(|| panic!("failed to format output with `rustfmt`"));
 
         // `proc_macro2::TokenStream::to_string()` inserts a space between
         // most adjacent tokens (e.g. `link ! (`, `windows_core :: BOOL`).
