@@ -501,7 +501,7 @@ impl Bindgen {
 
         let references = References::new(&reader, references);
 
-        let (filter, types, use_minimal_closure) = {
+        let (filter, types, minimal_codegen) = {
             let mut all_parsed = Vec::new();
             for entry in &include {
                 all_parsed.extend(filter_parser::parse_filter_entry(entry));
@@ -515,23 +515,31 @@ impl Bindgen {
             }
             let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
 
-            // Use bottom-up type closure (MinimalTypeMap) when --minimal
-            // or when the filter has method-level entries without broad globs.
+            // Use bottom-up type closure (MinimalTypeMap) when the filter has
+            // precise entries without broad patterns (namespaces, name-globs).
+            // The type closure strategy is determined by filter precision, not
+            // the `--minimal` flag alone — adding `--minimal` to a broad filter
+            // should produce the same types, just emitted differently.
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            let use_minimal_closure = self.style.is_minimal()
-                || (!filter.has_broad_filter
-                    && !filter.requested_interfaces.is_empty()
-                    && !self.layout.is_package());
+            let use_minimal_type_closure = !filter.has_broad_filter
+                && !self.layout.is_package()
+                && (self.style.is_minimal() || !filter.requested_interfaces.is_empty());
 
-            filter.default_demote = use_minimal_closure;
+            filter.default_demote = use_minimal_type_closure;
 
-            let types = if use_minimal_closure {
+            let types = if use_minimal_type_closure {
                 MinimalTypeMap::build(&reader, &mut filter, &references)
             } else {
                 TypeMap::filter(&reader, &filter, &references)
             };
-            (filter, types, use_minimal_closure)
+
+            // Minimal codegen style: suppress class wrappers, inherited
+            // forwarders, NAME constants, etc. Enabled by `--minimal` or
+            // auto-detected from method-level filter syntax.
+            let minimal_codegen = self.style.is_minimal() || use_minimal_type_closure;
+
+            (filter, types, minimal_codegen)
         };
 
         let derive = Derive::new(&reader, &types, &derive_str);
@@ -552,7 +560,7 @@ impl Bindgen {
             link,
             namespace: "",
             event_only_delegates: &event_only_delegates,
-            minimal_closure: use_minimal_closure,
+            minimal_closure: minimal_codegen,
         };
 
         let tree = TypeTree::new(&types);
