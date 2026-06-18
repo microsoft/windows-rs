@@ -260,7 +260,7 @@ impl CppMethod {
         let params = self.write_params(config);
         let generics = self.write_generics();
         let abi_return_type = self.write_return(config);
-        let result = config.write_result();
+        let result = config.write_core();
 
         // Use pub(crate) when --dead-code is set so the dead_code lint can
         // detect unused methods. See https://github.com/rust-lang/rust/issues/157961
@@ -489,7 +489,7 @@ impl CppMethod {
             }
         }
 
-        let result = config.write_result();
+        let result = config.write_core();
 
         let return_type = match self.return_hint {
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {

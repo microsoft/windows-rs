@@ -208,7 +208,7 @@ impl Method {
                 quote! { -> #return_type_tokens }
             }
         } else {
-            let result = config.write_result();
+            let result = config.write_core();
             quote! { -> #result Result<#return_type_tokens> }
         };
 
@@ -642,7 +642,7 @@ impl Method {
                 quote! { -> #return_type }
             }
         } else {
-            let result = config.write_result();
+            let result = config.write_core();
             quote! { -> #result Result<#return_type> }
         };
 
@@ -973,7 +973,7 @@ impl Method {
             };
 
             let core = config.write_core();
-            let result = config.write_result();
+            let result = config.write_core();
 
             // Body shared across all kinds: materialise the token then wrap it.
             let event_body = quote! {

@@ -104,7 +104,7 @@ impl Interface {
 
         let vtbl = {
             let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
-            let result = config.write_result();
+            let result = config.write_core();
 
             // Drop trailing usize slots — nothing indexes past the last real
             // method, so they waste space and compile time.

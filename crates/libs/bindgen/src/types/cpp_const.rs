@@ -85,7 +85,7 @@ impl CppConst {
                             }
                         }
                     } else {
-                        let crate_name = config.write_strings();
+                        let crate_name = config.write_core();
                         let value = constant.value().write();
 
                         if is_ansi_encoding(self.field) {

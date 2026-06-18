@@ -84,15 +84,10 @@ pub struct Bindgen {
     layout: Layout,
     style: Style,
     index: bool,
-    // Emit `pub(crate)` instead of `pub` on generated functions and methods
-    // to surface unused bindings as dead-code warnings. Works around
-    // https://github.com/rust-lang/rust/issues/157961
     dead_code: bool,
 }
 
-/// Output layout for the generated bindings. Mutually exclusive variants
-/// replace the legacy `flat: bool` + `package: bool` + `no_toml: bool`
-/// triple, making invalid combinations unrepresentable.
+/// Output layout for the generated bindings.
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Layout {
     /// One Rust module per metadata namespace (the default).
@@ -119,9 +114,7 @@ impl Layout {
     }
 }
 
-/// Code-style mode for the generated bindings. Mutually exclusive variants
-/// replace the legacy `sys: bool` + `minimal: bool` + `sys_fn_extern: bool`
-/// triple, making invalid combinations unrepresentable.
+/// Code-style mode for the generated bindings.
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 enum Style {
     /// Full-fidelity bindings (the default).
@@ -328,34 +321,11 @@ impl Bindgen {
 
     /// Generate minimal-mode Rust bindings.
     ///
-    /// In `minimal` mode, the per-class wrapper methods on WinRT runtime
-    /// classes are omitted (only static/composable factory helpers and the
-    /// `new()` activation helper are kept), and inherited / forwarding wrapper
-    /// methods on interfaces are omitted (only methods that dispatch on the
-    /// interface's own vtable are kept). Callers must explicitly
-    /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
+    /// Drops per-class wrapper methods, inherited interface forwarders, handle
+    /// ergonomics, and free-function wrappers. Event accessor pairs are replaced
+    /// by a single auto-revoking wrapper returning `EventRevoker`.
     ///
-    /// Handle types are emitted as bare `pub type` aliases over their
-    /// underlying primitive (matching `--sys`), without the
-    /// `is_invalid`, `Free`, or `AlsoUsableFor` machinery. Free functions are
-    /// emitted as their `link!` (or extern) declaration only, without the
-    /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
-    /// matching `--sys`).
-    ///
-    /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
-    /// auto-revoking wrapper that returns a `windows_core::EventRevoker`.
-    /// The `Remove*` wrapper is suppressed. Callers can call
-    /// `windows_core::EventRevoker::into_token` to recover the raw token when interoperating
-    /// with code that manages registration tokens directly.
-    ///
-    /// This is a build-time / disk / memory optimization: the generated source
-    /// is dramatically smaller and rustc does much less type-checking and
-    /// codegen work, at the cost of API ergonomics. Vtable layout, ABI, GUIDs,
-    /// `RuntimeType` signatures, and `interface_hierarchy!` invocations are
-    /// preserved bit-for-bit, so existing `windows-implement` consumers and
-    /// raw-vtable callers are unaffected.
-    ///
-    /// `--minimal` is mutually exclusive with `--sys`.
+    /// Mutually exclusive with `--sys`.
     #[track_caller]
     pub fn minimal(&mut self) -> &mut Self {
         if matches!(self.style, Style::Sys { .. }) {
@@ -385,17 +355,11 @@ impl Bindgen {
         self
     }
 
-    /// Emit `pub(crate)` instead of `pub` on generated functions and methods to
-    /// surface unused bindings as dead-code warnings. Works around
-    /// <https://github.com/rust-lang/rust/issues/157961> where `pub` items in
-    /// non-public modules do not trigger dead-code warnings.
+    /// Emit `pub(crate)` instead of `pub` on generated items to surface unused
+    /// bindings as dead-code warnings.
     pub fn dead_code(&mut self) -> &mut Self {
         self.dead_code = true;
         self
-    }
-
-    fn is_sys(&self) -> bool {
-        self.style.is_sys()
     }
 
     /// Generate the bindings.
@@ -421,7 +385,7 @@ impl Bindgen {
 
         assert!(!include.is_empty(), "at least one `--filter` required");
 
-        let sys = self.is_sys();
+        let sys = self.style.is_sys();
 
         let link = if let Some(link) = self.link.as_deref() {
             link
@@ -447,13 +411,8 @@ impl Bindgen {
             .collect();
 
         if !sys {
-            // Implicit references onto sibling `windows-*` crates that
-            // re-export common WinRT / Win32 types. Each group is registered
-            // only when its source namespace is actually present in the
-            // current metadata input. Stages are *prepended* via
-            // `prepend_default_refs` so they take precedence over any
-            // user-supplied `--reference` entries (matching the historical
-            // `references.insert(0, …)` ordering).
+            // Register implicit references to sibling windows-* crates for
+            // common WinRT / Win32 types present in the input metadata.
             for (probe_namespace, crate_name, paths) in [
                 (
                     "Windows.Foundation",
@@ -556,11 +515,8 @@ impl Bindgen {
             }
             let resolved = filter_parser::resolve_entries(&reader, &all_parsed);
 
-            // Decide whether to use bottom-up type closure (MinimalTypeMap).
-            // Use it when:
-            // - explicitly requested via --minimal, OR
-            // - the filter has method-level entries (requested_interfaces) and
-            //   no broad namespace/glob includes that MinimalTypeMap can't handle.
+            // Use bottom-up type closure (MinimalTypeMap) when --minimal
+            // or when the filter has method-level entries without broad globs.
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
             let use_minimal_closure = self.style.is_minimal()
@@ -568,8 +524,6 @@ impl Bindgen {
                     && !filter.requested_interfaces.is_empty()
                     && !self.layout.is_package());
 
-            // When MinimalTypeMap is active, unspecified methods become usize
-            // vtable slots (method demotion).
             filter.default_demote = use_minimal_closure;
 
             let types = if use_minimal_closure {
@@ -687,17 +641,6 @@ fn expand_input(input: &[&str]) -> Vec<File> {
 /// delegates never need a public `new()` or `Invoke()` because the event-add
 /// wrapper inlines the DelegateBox construction directly.
 fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<TypeName> {
-    // Collect all delegates in the type map.
-    let mut all_delegates: HashSet<TypeName> = HashSet::new();
-    for type_set in types.values() {
-        for ty in type_set {
-            if let Type::Delegate(d) = ty {
-                all_delegates.insert(d.type_name());
-            }
-        }
-    }
-
-    // Track delegates that appear in event contexts and non-event contexts.
     let mut event_delegates: HashSet<TypeName> = HashSet::new();
     let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
 
@@ -705,15 +648,7 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
         for ty in type_set {
             let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
                 Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
-                Type::Class(c) => {
-                    // Classes reference interfaces; the interfaces' own methods
-                    // will be visited when we process the Interface variant.
-                    // However, some classes have factory/static methods on
-                    // exclusive interfaces that may take delegate params.
-                    // Those interfaces are in the type map separately, so skip.
-                    let _ = c;
-                    continue;
-                }
+                Type::Class(_) => continue,
                 _ => continue,
             };
 
@@ -735,9 +670,6 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
         }
     }
 
-    // Event-only = delegates that appear in events but never in non-event contexts.
-    // Delegates not referenced by any interface at all are NOT event-only (they're
-    // standalone and need new()/Invoke()).
     event_delegates
         .difference(&non_event_delegates)
         .copied()
@@ -750,16 +682,9 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-/// Prepend a group of default `ReferenceStage` entries onto `refs`, in the
-/// same order historically produced by repeated `refs.insert(0, …)` calls
-/// over each path in source order. Reads as: "register this list of paths
-/// as a `Flat`-style reference onto `crate_name`, taking precedence over
-/// any user-supplied `--reference` entries already in `refs`".
+/// Prepend `Flat`-style reference entries so they take precedence over
+/// user-supplied `--reference` entries.
 fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
-    // `paths` is iterated in reverse so the resulting prefix matches the
-    // historical order produced by repeated `refs.insert(0, p)` calls (which
-    // reverses `paths` as a side effect). `splice(0..0, …)` does a single
-    // O(n) shift instead of one shift per element.
     refs.splice(
         0..0,
         paths
