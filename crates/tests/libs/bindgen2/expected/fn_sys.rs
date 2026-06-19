@@ -1,1 +1,1 @@
-windows_link::link!("test.dll" "system" fn Function() -> u32);
+windows_link::link!("test.dll" "system" fn SysFunction() -> u32);

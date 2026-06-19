@@ -1,1 +1,1 @@
-windows_core::link!("test.dll" "system" fn Function() -> u32);
+windows_core::link!("test.dll" "system" fn MinimalFunction() -> u32);

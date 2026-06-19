@@ -1,4 +1,4 @@
-pub type Function = unsafe extern "system" fn() -> u32;
+pub type ExternFunction = unsafe extern "system" fn() -> u32;
 unsafe extern "system" {
-    pub fn Function() -> u32;
+    pub fn ExternFunction() -> u32;
 }

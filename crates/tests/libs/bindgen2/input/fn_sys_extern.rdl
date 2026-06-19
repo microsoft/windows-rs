@@ -2,5 +2,5 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern fn Function() -> u32;
+    extern fn ExternFunction() -> u32;
 }
