@@ -30,7 +30,7 @@ jobs:
     runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85

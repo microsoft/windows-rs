@@ -30,7 +30,7 @@ jobs:
     runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target

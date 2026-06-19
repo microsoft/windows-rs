@@ -19,7 +19,7 @@ jobs:
       contents: read
     steps:
       - name: Get sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup node
         uses: actions/setup-node@v6

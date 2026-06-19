@@ -38,7 +38,7 @@ jobs:
         tool: [bindings, package, reactor, yml, license, workspace]
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Install rustfmt
