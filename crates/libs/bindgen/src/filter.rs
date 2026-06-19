@@ -378,7 +378,7 @@ impl Filter {
     }
 
     /// Register a specific member (method/variant) on a type.
-    #[allow(clippy::too_many_arguments, clippy::redundant_clone)]
+    #[expect(clippy::too_many_arguments, clippy::redundant_clone)]
     fn register_member(
         reader: &Reader,
         methods: &mut HashMap<(String, String), MethodFilter>,
@@ -568,7 +568,6 @@ impl Filter {
 }
 
 #[track_caller]
-#[allow(clippy::too_many_arguments)]
 fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
     // Accessor-only sugar: `get:Prop` / `set:Prop` / `add:Evt` / `remove:Evt`
     // expand to a single accessor name, letting callers opt in to just the

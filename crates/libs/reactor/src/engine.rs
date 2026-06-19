@@ -1125,7 +1125,7 @@ impl StatsAccumulator {
         }
     }
 
-    #[allow(clippy::too_many_arguments)]
+    #[expect(clippy::too_many_arguments)]
     fn record(
         &self,
         prev: RenderStats,

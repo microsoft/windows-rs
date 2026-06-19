@@ -1087,7 +1087,6 @@ impl Backend for WinUIBackend {
         self.controls.borrow_mut().insert(id, handle);
         id
     }
-    #[allow(clippy::match_same_arms)] // large dispatch table with semantically distinct no-op arms
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue) {
         let map = self.controls.borrow();
         let handle = map

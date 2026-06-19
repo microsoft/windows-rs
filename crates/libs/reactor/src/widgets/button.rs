@@ -6,7 +6,7 @@ use super::*;
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ButtonStyle(pub i32);
-#[allow(non_upper_case_globals)]
+#[expect(non_upper_case_globals)]
 impl ButtonStyle {
     /// Standard button (framework default).
     pub const Default: Self = Self(0);
