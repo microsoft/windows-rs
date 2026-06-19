@@ -21,11 +21,6 @@ jobs:
       - name: Get sources
         uses: actions/checkout@v7
 
-      - name: Setup node
-        uses: actions/setup-node@v6
-        with:
-          node-version: "latest"
-
       - name: Setup mdBook
         run: |
           cargo install mdbook
@@ -33,7 +28,7 @@ jobs:
       - name: Build
         working-directory: web
         run: |
-          mkdir -p .build/features .build/book
+          mkdir -p .build/book
 
           # Copy static files
           cp -r static/* .build/
@@ -41,13 +36,6 @@ jobs:
           # Build book
           pushd book
           mdbook build --dest-dir ../.build/book
-          popd
-
-          # Build feature tool
-          pushd features
-          npm ci
-          npm run build
-          cp -r build/* ../.build/features/
           popd
 
       - name: Upload Pages artifact

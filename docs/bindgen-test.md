@@ -16,6 +16,14 @@ data-driven tests.
   references (windows_future, windows_collections, etc.) which are auto-registered
   based on input metadata.
 
+### `--index` — REMOVED
+
+- Removed alongside `--reference`. Was only used by `tool_package` for the
+  `windows` crate's `features.json` (a 13MB JSON file consumed by the
+  `web/features` search tool).
+- `web/features` has been removed.
+- `serde` and `serde_json` dependencies dropped from windows-bindgen.
+
 ## Production-Only Code (not testable from test_bindgen2)
 
 These modules are used in production but require full Win32/WinRT metadata
@@ -23,9 +31,7 @@ These modules are used in production but require full Win32/WinRT metadata
 
 | Module | Coverage | Used By |
 |--------|----------|---------|
-| `index.rs` (99 lines) | 0% | `tool_package` → `windows` crate `features.json` |
 | `package_writer.rs` (129 lines) | 10.9% | `tool_package` → `windows` and `windows-sys` |
-| `guid.rs` (4 lines) | 0% | `index.rs` (GUID Display for JSON) |
 
 These are implicitly tested by `tool_package` running successfully.
 
@@ -68,10 +74,8 @@ Files below 60% (actionable, excluding package/index/reference):
 
 ## Recommendations
 
-1. **Remove `--index`** — only used for VS Code extension feature lookup, can be
-   regenerated if needed
-3. **Keep `--package`** — used by tool_package for published crates
-4. **Accept ~65% as practical ceiling** for test_bindgen2 — remaining gaps need
+1. **Keep `--package`** — used by tool_package for published crates
+2. **Accept ~65% as practical ceiling** for test_bindgen2 — remaining gaps need
    real metadata or RDL extensions
 5. **Consider RDL extensions** if we want to push coverage higher:
    - Support for `ScopedEnumAttribute`
