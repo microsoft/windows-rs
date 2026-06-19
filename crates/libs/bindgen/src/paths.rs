@@ -67,22 +67,6 @@ impl Config<'_> {
         } {
             path.push_str(&reference.name);
             path.push_str("::");
-
-            if reference.style == ReferenceStyle::Flat {
-                return path.parse().unwrap();
-            }
-
-            let mut namespace = type_name.namespace().split('.').peekable();
-
-            if reference.style == ReferenceStyle::SkipRoot {
-                namespace.next();
-            }
-
-            for namespace in namespace {
-                path.push_str(namespace);
-                path.push_str("::");
-            }
-
             path.parse().unwrap()
         } else {
             if self.bindgen.layout.is_flat() || type_name.namespace() == self.namespace {

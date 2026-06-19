@@ -1,1 +1,0 @@
-args = "--filter IMemoryBuffer --reference crate::reference_dependency_flat,flat,IMemoryBufferReference"

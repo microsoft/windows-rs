@@ -192,7 +192,6 @@ where
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
-                "--reference" => kind = ArgKind::Reference,
                 "--derive" => kind = ArgKind::Derive,
                 "--flat" => {
                     builder.flat();
@@ -236,9 +235,6 @@ where
             ArgKind::Filter => {
                 builder.filter(arg);
             }
-            ArgKind::Reference => {
-                builder.reference(arg);
-            }
             ArgKind::Derive => {
                 builder.derive(arg);
             }
@@ -266,7 +262,6 @@ enum ArgKind {
     Output,
     Filter,
     Rustfmt,
-    Reference,
     Derive,
     Implement,
     Link,

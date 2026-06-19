@@ -76,7 +76,6 @@ pub struct Bindgen {
     input: Vec<String>,
     filter: Vec<String>,
     output: String,
-    references: Vec<String>,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
     rustfmt: Option<String>,
@@ -212,23 +211,6 @@ impl Bindgen {
     {
         for derive in derives {
             self.derive.push(derive.as_ref().to_string());
-        }
-        self
-    }
-
-    /// Add a reference dependency.
-    pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.references(std::iter::once(reference))
-    }
-
-    /// Add multiple reference dependencies.
-    pub fn references<I, S>(&mut self, references: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for reference in references {
-            self.references.push(reference.as_ref().to_string());
         }
         self
     }
@@ -402,11 +384,7 @@ impl Bindgen {
 
         let reader = Reader::new(expand_input(&input));
 
-        let mut references: Vec<ReferenceStage> = self
-            .references
-            .iter()
-            .map(|s| ReferenceStage::parse(s))
-            .collect();
+        let mut references: Vec<ReferenceStage> = Vec::new();
 
         if !sys {
             // Register implicit references to sibling windows-* crates for
@@ -677,15 +655,14 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-/// Prepend `Flat`-style reference entries so they take precedence over
-/// user-supplied `--reference` entries.
+/// Prepend reference entries so they take precedence.
 fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
     refs.splice(
         0..0,
         paths
             .iter()
             .rev()
-            .map(|path| ReferenceStage::new(crate_name, ReferenceStyle::Flat, path)),
+            .map(|path| ReferenceStage::new(crate_name, path)),
     );
 }
 

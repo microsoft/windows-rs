@@ -8,14 +8,13 @@ data-driven tests.
 
 ## Removal Candidates
 
-### `--reference` (references.rs, 58 lines)
+### `--reference` — REMOVED
 
-- **NOT used by any production tool** (tool_bindings, tool_reactor, tool_package)
-- Only used in test crates: `tests/winrt/reference*`, `tests/winrt/events`,
-  `tests/misc/component*`, `tests/winrt/collection_interop`
-- These tests exercise multi-crate scenarios where one crate references types
-  from another crate's bindings
-- **Candidate for removal** — simplifies bindgen and removes an obscure feature
+- Removed in this PR. Was not used by any production tool.
+- Test crates and samples that depended on it have been removed.
+- The internal `References` infrastructure remains for implicit sibling crate
+  references (windows_future, windows_collections, etc.) which are auto-registered
+  based on input metadata.
 
 ## Production-Only Code (not testable from test_bindgen2)
 
@@ -69,11 +68,28 @@ Files below 60% (actionable, excluding package/index/reference):
 
 ## Recommendations
 
-1. **Remove `--reference`** — unused in production, adds complexity
-2. **Keep package/index** — used by tool_package for published crates
-3. **Accept ~64% as practical ceiling** for test_bindgen2 — remaining gaps need
+1. **Remove `--index`** — only used for VS Code extension feature lookup, can be
+   regenerated if needed
+3. **Keep `--package`** — used by tool_package for published crates
+4. **Accept ~65% as practical ceiling** for test_bindgen2 — remaining gaps need
    real metadata or RDL extensions
-4. **Consider RDL extensions** if we want to push coverage higher:
+5. **Consider RDL extensions** if we want to push coverage higher:
    - Support for `ScopedEnumAttribute`
    - Support for `NativeArrayInfoAttribute` / `MemorySizeAttribute`
    - Support for `AlsoUsableForAttribute`
+
+## Tests Ported from test_bindgen
+
+The following old test_bindgen fixtures were ported to test_bindgen2:
+
+- `class_hierarchy` — multi-level class inheritance with `required_hierarchy!`
+- `auto_events` — event revoker pattern, `#[special]` add/remove, delegate params
+- `enum_name_conflict` — variant name collision with enum name (appends `_`)
+
+Not ported (need real metadata):
+
+- `ireference_sugar` — `IReference<T>` generic sugar (needs `windows-reference` crate)
+- `composable_class` — composable factory (needs default refs)
+- `method_filter_*` (class/mixed/overload/property/setter_only) — need real metadata
+- Generic interfaces/delegates — need real WinRT metadata
+- Arch-specific structs — need real Win32 metadata
