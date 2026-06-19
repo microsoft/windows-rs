@@ -1,0 +1,8 @@
+//! --flat --derive Test.Struct=Eq,Hash
+#[win32]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+}

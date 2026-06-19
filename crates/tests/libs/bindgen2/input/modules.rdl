@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 0,
+        Second = 1,
+        Third = 2,
+    }
+    mod Inner {
+        #[repr(i32)]
+        enum Enum {
+            First = 0,
+            Second = 1,
+        }
+    }
+}

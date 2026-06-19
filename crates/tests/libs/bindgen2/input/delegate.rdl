@@ -1,0 +1,5 @@
+//! --flat
+#[winrt]
+mod Test {
+    delegate fn Delegate(sender: i32, args: i32);
+}

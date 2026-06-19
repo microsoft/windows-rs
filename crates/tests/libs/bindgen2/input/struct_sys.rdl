@@ -1,0 +1,8 @@
+//! --sys --flat
+#[win32]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+}
