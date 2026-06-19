@@ -262,9 +262,16 @@ impl<'a> Parser<'a> {
                 let name = child.name();
                 if let Some(iface_name) = name.strip_prefix("IID_") {
                     if is_guid_type(&child.ty()) {
-                        let tokens = self.tu.tokenize(self.tu.to_expansion_range(child.extent()));
-                        if let Some(uuid) = parse_guid_initializer(&tokens) {
+                        if let Some(uuid) = parse_guid_initializer_ast(&child) {
                             self.iid_vars.insert(iface_name.to_string(), uuid);
+                        } else {
+                            // Fallback to token-based parsing for simple cases
+                            // where the AST shape doesn't match (e.g. no init-list children).
+                            let tokens =
+                                self.tu.tokenize(self.tu.to_expansion_range(child.extent()));
+                            if let Some(uuid) = parse_guid_initializer_tokens(&tokens) {
+                                self.iid_vars.insert(iface_name.to_string(), uuid);
+                            }
                         }
                     }
                 }
@@ -762,6 +769,76 @@ fn is_guid_type(ty: &Type) -> bool {
     matches!(name.as_str(), "GUID" | "_GUID" | "IID")
 }
 
+/// Parse a GUID struct initializer from the AST using `clang_Cursor_Evaluate`.
+///
+/// This handles cases where macro constants or expressions are used in the
+/// GUID initializer (e.g. 7zip's `Z7_DEFINE_GUID` pattern) — the compiler
+/// evaluates the expressions after macro expansion so the values are always
+/// available regardless of how the initializer was spelled in source.
+///
+/// The VarDecl cursor for a GUID variable has the shape:
+/// - `CXCursor_InitListExpr` (top-level, containing 4 children):
+///   - `CXCursor_IntegerLiteral` × 3 (data1, data2, data3)
+///   - `CXCursor_InitListExpr` (data4, containing 8 children):
+///     - `CXCursor_IntegerLiteral` × 8
+fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
+    // Find the top-level InitListExpr child of the VarDecl.
+    let init_list = cursor
+        .children()
+        .into_iter()
+        .find(|c| c.kind() == CXCursor_InitListExpr)?;
+
+    let children = init_list.children();
+    if children.len() != 4 {
+        return None;
+    }
+
+    // Evaluate data1, data2, data3.
+    let data1 = children[0].evaluate_unsigned()?;
+    let data2 = children[1].evaluate_unsigned()?;
+    let data3 = children[2].evaluate_unsigned()?;
+
+    // Range-check: data1 ≤ u32, data2/data3 ≤ u16.
+    if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
+        return None;
+    }
+
+    // The 4th child should be an InitListExpr for data4[8].
+    let data4_cursor = &children[3];
+    if data4_cursor.kind() != CXCursor_InitListExpr {
+        return None;
+    }
+
+    let data4_children = data4_cursor.children();
+    if data4_children.len() != 8 {
+        return None;
+    }
+
+    let mut data4 = [0u8; 8];
+    for (i, child) in data4_children.iter().enumerate() {
+        let v = child.evaluate_unsigned()?;
+        if v > u8::MAX as u64 {
+            return None;
+        }
+        data4[i] = v as u8;
+    }
+
+    Some(format!(
+        "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+        data1,
+        data2,
+        data3,
+        data4[0],
+        data4[1],
+        data4[2],
+        data4[3],
+        data4[4],
+        data4[5],
+        data4[6],
+        data4[7],
+    ))
+}
+
 /// Parse a GUID struct initializer from a token stream.
 ///
 /// Expects the token stream for a variable declaration like:
@@ -775,7 +852,7 @@ fn is_guid_type(ty: &Type) -> bool {
 ///
 /// Returns the UUID in standard `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` format,
 /// or `None` if the token sequence does not match the expected shape.
-fn parse_guid_initializer(tokens: &[(CXTokenKind, String)]) -> Option<String> {
+fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) -> Option<String> {
     // Find the `=` that starts the initializer.
     let eq_pos = tokens
         .iter()
