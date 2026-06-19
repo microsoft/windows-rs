@@ -1,69 +1,23 @@
 use super::*;
 
-#[track_caller]
-fn invalid_reference() -> ! {
-    panic!("`--reference` must be `<crate>,<full/flat/skip-root>,<type name>");
-}
-
 pub struct ReferenceStage {
     name: String,
-    style: ReferenceStyle,
     path: String,
 }
 
 impl ReferenceStage {
-    #[track_caller]
-    pub fn parse(mut arg: &str) -> Self {
-        if arg == "windows" {
-            arg = "windows,skip-root,Windows";
-        }
-
-        let arg: Vec<_> = arg.split(',').collect();
-
-        if arg.len() != 3 {
-            invalid_reference();
-        }
-
-        Self {
-            name: arg[0].to_string(),
-            style: ReferenceStyle::parse(arg[1]),
-            path: arg[2].to_string(),
-        }
-    }
-
-    pub fn new(name: &str, style: ReferenceStyle, path: &str) -> Self {
+    pub fn new(name: &str, path: &str) -> Self {
         Self {
             name: name.to_string(),
-            style,
             path: path.to_string(),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq)]
-pub enum ReferenceStyle {
-    Full,
-    Flat,
-    SkipRoot, // used by windows and windows-sys crates
-}
-
-impl ReferenceStyle {
-    #[track_caller]
-    fn parse(arg: &str) -> Self {
-        match arg {
-            "full" => Self::Full,
-            "flat" => Self::Flat,
-            "skip-root" => Self::SkipRoot,
-            _ => invalid_reference(),
         }
     }
 }
 
 #[derive(Debug)]
 pub struct Reference {
-    pub name: String,          // crate name like "windows"
-    pub filter: Filter,        // what this reference provides
-    pub style: ReferenceStyle, // how to generate the type path
+    pub name: String,   // crate name like "windows_future"
+    pub filter: Filter, // what this reference provides
 }
 
 #[derive(Debug, Default)]
@@ -81,7 +35,6 @@ impl References {
 
                     Reference {
                         name: stage.name,
-                        style: stage.style,
                         filter,
                     }
                 })
