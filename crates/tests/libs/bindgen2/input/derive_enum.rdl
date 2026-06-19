@@ -1,0 +1,9 @@
+//! --filter Test --flat --derive Test.Enum=Eq,Hash
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+    }
+}

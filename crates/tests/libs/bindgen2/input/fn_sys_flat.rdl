@@ -1,0 +1,10 @@
+//! --filter Test --flat --sys
+#[win32]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+    #[library("test.dll")]
+    extern fn Function(s: *const Struct) -> i32;
+}

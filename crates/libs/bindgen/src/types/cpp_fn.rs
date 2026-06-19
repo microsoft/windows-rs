@@ -109,12 +109,9 @@ impl CppFn {
             // The `link!` macro provided by `windows-link` (and re-exported by
             // `windows-core`) already emits a `pub type Name = unsafe extern
             // "abi" fn(...)` alias next to the `extern` declaration, so we
-            // only need to emit a standalone alias when we are bypassing that
-            // macro (either via `--extern`, or because the user has
-            // pointed `--link` at a different crate whose `link!` does not
-            // emit the alias, such as `windows-targets`).
-            let link_emits_fn_ptr = !config.bindgen.style.sys_fn_extern()
-                && (config.link == "windows_link" || config.link == "windows_core");
+            // only need to emit a standalone alias when bypassing that macro
+            // via `--extern`.
+            let link_emits_fn_ptr = !config.bindgen.style.sys_fn_extern();
 
             let fn_ptr = if config.bindgen.style.is_sys() && !link_emits_fn_ptr {
                 let fn_ptr = self.write_fn_ptr(config, false);

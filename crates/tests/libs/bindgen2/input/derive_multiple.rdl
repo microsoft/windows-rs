@@ -1,0 +1,13 @@
+//! --filter Test --flat --derive Test.Struct=Eq,Hash --derive Test.Enum=Eq,Hash,Ord,PartialOrd
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+    }
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+}

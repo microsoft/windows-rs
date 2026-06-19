@@ -28,7 +28,6 @@ use super::*;
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
 /// | `--dead-code` | Emits `pub(crate)` instead of `pub` on generated items so the compiler's dead-code lint can flag unused bindings. |
-/// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 /// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
 ///
 ///
@@ -196,9 +195,6 @@ where
                 "--flat" => {
                     builder.flat();
                 }
-                "--no-toml" => {
-                    builder.no_toml();
-                }
                 "--package" => {
                     builder.package();
                 }
@@ -218,7 +214,6 @@ where
                     builder.implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
-                "--link" => kind = ArgKind::Link,
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -244,9 +239,6 @@ where
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
             }
-            ArgKind::Link => {
-                builder.link(arg);
-            }
         }
     }
 
@@ -261,7 +253,6 @@ enum ArgKind {
     Rustfmt,
     Derive,
     Implement,
-    Link,
 }
 
 #[track_caller]

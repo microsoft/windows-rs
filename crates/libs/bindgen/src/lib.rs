@@ -78,7 +78,6 @@ pub struct Bindgen {
     derive: Vec<String>,
     implement: Option<Vec<String>>,
     rustfmt: Option<String>,
-    link: Option<String>,
     layout: Layout,
     style: Style,
     dead_code: bool,
@@ -93,10 +92,7 @@ enum Layout {
     /// A single flat list of items (no namespace modules).
     Flat,
     /// One file per namespace + `Cargo.toml` features.
-    Package {
-        /// When `true`, skip rewriting `Cargo.toml`.
-        no_toml: bool,
-    },
+    Package,
 }
 
 impl Layout {
@@ -104,10 +100,7 @@ impl Layout {
         matches!(self, Layout::Flat)
     }
     fn is_package(self) -> bool {
-        matches!(self, Layout::Package { .. })
-    }
-    fn no_toml(self) -> bool {
-        matches!(self, Layout::Package { no_toml: true })
+        matches!(self, Layout::Package)
     }
 }
 
@@ -219,16 +212,10 @@ impl Bindgen {
         self
     }
 
-    /// Override the default `windows-link` implementation for system calls.
-    pub fn link(&mut self, link: &str) -> &mut Self {
-        self.link = Some(link.to_string());
-        self
-    }
-
     /// Avoid the default namespace-to-module conversion.
     #[track_caller]
     pub fn flat(&mut self) -> &mut Self {
-        if matches!(self.layout, Layout::Package { .. }) {
+        if matches!(self.layout, Layout::Package) {
             panic!("cannot combine `--package` and `--flat`");
         }
         self.layout = Layout::Flat;
@@ -239,26 +226,13 @@ impl Bindgen {
         self.style.is_sys() && !self.layout.is_package()
     }
 
-    /// Avoid generating the Cargo.toml features when using `package` mode.
-    ///
-    /// Only valid in combination with [`Bindgen::package`]; panics otherwise.
-    #[track_caller]
-    pub fn no_toml(&mut self) -> &mut Self {
-        match &mut self.layout {
-            Layout::Package { no_toml } => *no_toml = true,
-            _ => panic!("`--no-toml` requires `--package`"),
-        }
-        self
-    }
-
     /// Generate bindings as a package with one file per namespace.
     #[track_caller]
     pub fn package(&mut self) -> &mut Self {
-        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
         if matches!(self.layout, Layout::Flat) {
             panic!("cannot combine `--package` and `--flat`");
         }
-        self.layout = Layout::Package { no_toml };
+        self.layout = Layout::Package;
         self
     }
 
@@ -358,14 +332,7 @@ impl Bindgen {
         assert!(!include.is_empty(), "at least one `--filter` required");
 
         let sys = self.style.is_sys();
-
-        let link = if let Some(link) = self.link.as_deref() {
-            link
-        } else if sys {
-            "windows_link"
-        } else {
-            "windows_core"
-        };
+        let link = if sys { "windows_link" } else { "windows_core" };
 
         let default_input = ["default"];
         let input: Vec<&str> = if self.input.is_empty() {
