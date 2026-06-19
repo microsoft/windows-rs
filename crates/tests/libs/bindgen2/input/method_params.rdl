@@ -1,0 +1,17 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type BOOL = i32;
+
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+
+    interface Interface {
+        fn IntoParam(&self, value: *const Struct);
+        fn Optional(&self, #[opt] value: *const Struct);
+        fn BoolParam(&self, value: BOOL);
+        fn ValueType(&self, value: u32);
+    }
+}

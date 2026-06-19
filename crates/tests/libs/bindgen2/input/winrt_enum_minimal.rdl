@@ -1,0 +1,10 @@
+//! --filter Test --flat --minimal
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 0,
+        Second = 1,
+        Third = 2,
+    }
+}

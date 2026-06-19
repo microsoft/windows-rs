@@ -1,0 +1,10 @@
+//! --filter Test --flat --implement Test.Interface
+#[win32]
+mod Test {
+    interface Interface {
+        fn Method(&self) -> i32;
+    }
+    interface Other {
+        fn OtherMethod(&self) -> i32;
+    }
+}

@@ -1,0 +1,16 @@
+//! --filter Test.Interface::Method --flat --minimal
+#[winrt]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+    #[repr(i32)]
+    enum Enum {
+        First = 0,
+        Second = 1,
+    }
+    interface Interface {
+        fn Method(&self, value: Struct) -> Enum;
+    }
+}

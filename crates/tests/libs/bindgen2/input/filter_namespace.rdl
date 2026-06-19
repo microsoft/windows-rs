@@ -1,0 +1,20 @@
+//! --filter Test.One Test.Two !Test.Two.Excluded
+#[win32]
+mod Test {
+    mod One {
+        #[library("test.dll")]
+        extern fn First() -> u32;
+    }
+    mod Two {
+        #[library("test.dll")]
+        extern fn Second() -> u32;
+        mod Excluded {
+            #[library("test.dll")]
+            extern fn Third() -> u32;
+        }
+    }
+    mod Three {
+        #[library("test.dll")]
+        extern fn Fourth() -> u32;
+    }
+}

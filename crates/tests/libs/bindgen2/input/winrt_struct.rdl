@@ -1,0 +1,8 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+}

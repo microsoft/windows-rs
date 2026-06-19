@@ -1,0 +1,17 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type MyI32 = i32;
+    type MyU64 = u64;
+
+    const A_U8: u8 = 255;
+    const B_I8: i8 = -1;
+    const C_U16: u16 = 1000;
+    const D_I16: i16 = -500;
+    const E_U32: u32 = 100000;
+    const F_I32: i32 = -100000;
+    const G_U64: u64 = 1000000;
+    const H_I64: i64 = -1000000;
+    const I_TYPED: MyI32 = 42;
+    const J_TYPED: MyU64 = 999;
+}
