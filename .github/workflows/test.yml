@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable-${{ matrix.host }}
       - name: Add toolchain target
