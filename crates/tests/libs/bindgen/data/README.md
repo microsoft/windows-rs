@@ -1,12 +1,12 @@
 # Test fixture format
 
 This directory holds the data-driven fixtures consumed by the
-`test_fixtures` harness (`crates/tests/fixtures/harness`).
+`test_bindgen` harness (`crates/tests/libs/bindgen`).
 
 ## Layout
 
 ```
-crates/tests/fixtures/harness/data/
+crates/tests/libs/bindgen/data/
     <group>/
         <name>/
             input.rdl | input.h | input-*.rdl   # required
@@ -52,7 +52,7 @@ Supported keys:
 1. Make a new directory under `data/<group>/<your-name>/`.
 2. Drop the `input.*` files in. For `bindgen`, also drop a
    `fixture.toml` that records the CLI options.
-3. Run `cargo test -p test_fixtures` to regenerate
+3. Run `cargo test -p test_bindgen` to regenerate
    the `expected.*` files.
 4. Inspect the generated goldens, commit everything together.
 
@@ -66,9 +66,9 @@ clean diff to review.
 Each fixture is a normal `#[test]`, so standard Cargo filtering works:
 
 ```sh
-cargo test -p test_fixtures              # everything
-cargo test -p test_fixtures bindgen_     # just the bindgen group
-cargo test -p test_fixtures rdl_enum     # a single fixture
+cargo test -p test_bindgen              # everything
+cargo test -p test_bindgen bindgen_     # just the bindgen group
+cargo test -p test_bindgen rdl_enum     # a single fixture
 ```
 
 ## What stays bespoke
