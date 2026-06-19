@@ -1,0 +1,11 @@
+//! --filter Test --flat --sys
+#[win32]
+mod Test {
+    #[repr(u32)]
+    #[flags]
+    enum Flags {
+        First = 1,
+        Second = 2,
+        Third = 4,
+    }
+}

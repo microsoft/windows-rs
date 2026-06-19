@@ -1,0 +1,6 @@
+//! --filter Test --minimal --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn MinimalFunction() -> u32;
+}

@@ -198,17 +198,22 @@ impl Reader {
     }
 }
 
-/// Replace `#[in]` with `#[r#in]` so that syn can parse it.
-///
-/// `in` is a Rust keyword and cannot appear as a bare identifier in attribute
-/// position. The RDL format uses `#[in]` as a parameter attribute, so we
-/// normalise it to the raw-identifier form before handing the source to syn.
+/// Replace `#[in]` with `#[r#in]` so that syn can parse it and replace
+/// `//!` with `//` so that inner doc comments don't confuse the parser.
 fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
-    if contents.contains("#[in]") {
-        std::borrow::Cow::Owned(contents.replace("#[in]", "#[r#in]"))
-    } else {
-        std::borrow::Cow::Borrowed(contents)
+    let needs_in = contents.contains("#[in]");
+    let needs_doc = contents.contains("//!");
+    if !needs_in && !needs_doc {
+        return std::borrow::Cow::Borrowed(contents);
     }
+    let mut result = contents.to_string();
+    if needs_in {
+        result = result.replace("#[in]", "#[r#in]");
+    }
+    if needs_doc {
+        result = result.replace("//!", "//");
+    }
+    std::borrow::Cow::Owned(result)
 }
 
 fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {

@@ -1,0 +1,12 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type Handle = isize;
+    const INVALID: Handle = -1;
+
+    #[library("test.dll")]
+    extern fn CloseHandle(handle: Handle) -> i32;
+
+    #[library("test.dll")]
+    extern fn OpenHandle(name: u32) -> Handle;
+}

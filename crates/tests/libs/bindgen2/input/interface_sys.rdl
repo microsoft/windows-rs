@@ -1,0 +1,8 @@
+//! --filter Test --sys --flat
+#[winrt]
+mod Test {
+    interface Interface {
+        fn Method(&self, value: i32) -> i32;
+        Name: String;
+    }
+}

@@ -1,0 +1,8 @@
+//! --flat --filter Test.Interface::First
+#[winrt]
+mod Test {
+    interface Interface {
+        fn First(&self) -> i32;
+        fn Second(&self) -> i32;
+    }
+}

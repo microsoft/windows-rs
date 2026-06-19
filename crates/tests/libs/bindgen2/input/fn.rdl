@@ -1,0 +1,6 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn Function() -> u32;
+}

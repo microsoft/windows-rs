@@ -1,0 +1,5 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    extern fn Callback(value: u32) -> u32;
+}

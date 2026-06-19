@@ -1,0 +1,6 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type Handle = *mut void;
+    const INVALID: Handle = -1;
+}

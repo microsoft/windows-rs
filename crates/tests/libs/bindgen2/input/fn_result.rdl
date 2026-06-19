@@ -1,0 +1,11 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type BOOL = i32;
+
+    #[library("test.dll")]
+    extern fn HresultFunction(value: u32) -> HRESULT;
+
+    #[library("test.dll", last_error = true)]
+    extern fn BoolFunction(value: u32) -> BOOL;
+}

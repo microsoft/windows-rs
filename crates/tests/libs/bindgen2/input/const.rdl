@@ -1,0 +1,7 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type TestHRESULT = i32;
+    const CONSTANT: u32 = 260;
+    const OK: TestHRESULT = 0;
+}

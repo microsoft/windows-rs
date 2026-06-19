@@ -1,0 +1,13 @@
+//! --filter Test --flat --implement
+#[win32]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+
+    interface Interface {
+        fn Method(&self, value: u32) -> HRESULT;
+        fn GetValue(&self, result: *mut Struct) -> HRESULT;
+    }
+}

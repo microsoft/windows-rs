@@ -1,0 +1,8 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    interface Interface {
+        fn GetName(&self) -> String;
+        fn SetName(&self, value: String);
+    }
+}
