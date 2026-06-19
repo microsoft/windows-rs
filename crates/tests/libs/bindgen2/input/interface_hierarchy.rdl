@@ -1,0 +1,10 @@
+//! --flat
+#[winrt]
+mod Test {
+    interface IBase {
+        fn First(&self) -> i32;
+    }
+    interface IDerived: IBase {
+        fn Second(&self) -> i32;
+    }
+}

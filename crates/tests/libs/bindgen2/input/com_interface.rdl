@@ -1,0 +1,7 @@
+//! --flat
+#[win32]
+mod Test {
+    interface Interface {
+        fn Method(&self) -> i32;
+    }
+}
