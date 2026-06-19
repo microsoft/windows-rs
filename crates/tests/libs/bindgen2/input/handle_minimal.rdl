@@ -1,4 +1,4 @@
-//! --flat --minimal
+//! --filter Test --flat --minimal
 #[win32]
 mod Test {
     type Handle = *mut void;

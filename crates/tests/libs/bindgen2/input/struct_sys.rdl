@@ -1,4 +1,4 @@
-//! --sys --flat
+//! --filter Test --sys --flat
 #[win32]
 mod Test {
     struct Struct {

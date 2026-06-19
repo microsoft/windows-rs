@@ -2,7 +2,7 @@
 #[winrt]
 mod Test {
     interface Interface {
-        fn Method(&self, value: i32) -> i32;
-        Name: String;
+        fn GetName(&self) -> String;
+        fn SetName(&self, value: String);
     }
 }

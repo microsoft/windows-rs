@@ -1,4 +1,4 @@
-//! --flat --implement
+//! --filter Test --flat --implement
 #[winrt]
 mod Windows {
     mod Foundation {

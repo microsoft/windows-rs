@@ -1,4 +1,4 @@
-//! --flat
+//! --filter Test --flat
 #[win32]
 mod Test {
     type TestHRESULT = i32;

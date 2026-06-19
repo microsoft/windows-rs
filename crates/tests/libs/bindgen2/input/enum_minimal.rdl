@@ -1,4 +1,4 @@
-//! --minimal --flat
+//! --filter Test --minimal --flat
 #[win32]
 mod Test {
     #[repr(i32)]

@@ -27,7 +27,7 @@ fn run(name: &str) {
         .unwrap();
 
     let out_rs = format!("{scratch}/out.rs");
-    let mut cli: Vec<String> = vec!["--in".into(), winmd, "--filter".into(), "Test".into()];
+    let mut cli: Vec<String> = vec!["--in".into(), winmd];
     cli.extend(args);
     cli.push("--out".into());
     cli.push(out_rs.clone());

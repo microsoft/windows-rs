@@ -1,4 +1,4 @@
-//! --sys --flat
+//! --filter Test --sys --flat
 #[winrt]
 mod Test {
     interface Interface {

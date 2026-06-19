@@ -1,10 +1,8 @@
-//! --filter Test --flat
+//! --flat --filter Test --filter !Test.Interface::Second
 #[winrt]
 mod Test {
-    interface IBase {
+    interface Interface {
         fn First(&self) -> i32;
-    }
-    interface IDerived: IBase {
         fn Second(&self) -> i32;
     }
 }

@@ -1,0 +1,12 @@
+//! --filter Test --flat --minimal
+#[winrt]
+mod Test {
+    interface Interface {
+        fn Method(&self) -> i32;
+        #[special]
+        fn add_Changed(&self, handler: Delegate) -> i64;
+        #[special]
+        fn remove_Changed(&self, token: i64);
+    }
+    delegate fn Delegate(sender: i32);
+}
