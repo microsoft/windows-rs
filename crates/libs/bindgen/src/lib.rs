@@ -8,7 +8,6 @@ mod filter;
 mod format;
 mod guid;
 mod implements;
-mod index;
 mod io;
 mod libraries;
 mod package_writer;
@@ -82,7 +81,6 @@ pub struct Bindgen {
     link: Option<String>,
     layout: Layout,
     style: Style,
-    index: bool,
     dead_code: bool,
 }
 
@@ -329,12 +327,6 @@ impl Bindgen {
         self
     }
 
-    /// Generate a `features.json` index alongside the output file.
-    pub fn index(&mut self) -> &mut Self {
-        self.index = true;
-        self
-    }
-
     /// Emit `pub(crate)` instead of `pub` on generated items to surface unused
     /// bindings as dead-code warnings.
     pub fn dead_code(&mut self) -> &mut Self {
@@ -530,10 +522,6 @@ impl Bindgen {
 
         let tree = TypeTree::new(&types);
         config.write(tree);
-
-        if self.index {
-            index::write(&types, &format!("{}/features.json", self.output), &reader);
-        }
     }
 }
 

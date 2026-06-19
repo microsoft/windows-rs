@@ -219,9 +219,6 @@ where
                     kind = ArgKind::Implement;
                 }
                 "--link" => kind = ArgKind::Link,
-                "--index" => {
-                    builder.index();
-                }
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
