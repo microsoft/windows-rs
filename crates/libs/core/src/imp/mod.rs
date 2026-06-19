@@ -119,26 +119,23 @@ macro_rules! define_interface {
 #[doc(hidden)]
 pub use define_interface;
 
-// Box is not in the prelude for no_std crates. These helpers let generated code
-// avoid `windows_core::imp::Box` which triggers the unused_qualifications lint.
+// These helpers let generated code use `windows_core::imp::box_new` etc. without
+// depending on `Box` being in scope at the call site.
 
-#[allow(unused_qualifications)]
 #[inline(always)]
 #[doc(hidden)]
-pub fn box_new<T>(value: T) -> alloc::boxed::Box<T> {
-    alloc::boxed::Box::new(value)
+pub fn box_new<T>(value: T) -> Box<T> {
+    Box::new(value)
 }
 
-#[allow(unused_qualifications)]
 #[inline(always)]
 #[doc(hidden)]
-pub unsafe fn box_from_raw<T>(raw: *mut T) -> alloc::boxed::Box<T> {
-    unsafe { alloc::boxed::Box::from_raw(raw) }
+pub unsafe fn box_from_raw<T>(raw: *mut T) -> Box<T> {
+    unsafe { Box::from_raw(raw) }
 }
 
-#[allow(unused_qualifications)]
 #[inline(always)]
 #[doc(hidden)]
-pub fn box_into_raw<T>(b: alloc::boxed::Box<T>) -> *mut T {
-    alloc::boxed::Box::into_raw(b)
+pub fn box_into_raw<T>(b: Box<T>) -> *mut T {
+    Box::into_raw(b)
 }

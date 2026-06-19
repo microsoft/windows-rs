@@ -102,7 +102,7 @@ impl OSVERSIONINFOEXW {
 }
 
 #[cfg(test)]
-#[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
+#[expect(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 mod test {
     use super::*;
     use std::sync::RwLock;

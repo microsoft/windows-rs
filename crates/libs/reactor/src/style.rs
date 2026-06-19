@@ -382,7 +382,7 @@ impl From<ThemeRef> for BrushBinding {
     }
 }
 
-#[allow(non_upper_case_globals)]
+#[expect(non_upper_case_globals)]
 pub mod tokens {
     use super::ThemeRef;
 

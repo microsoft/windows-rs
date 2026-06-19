@@ -252,7 +252,7 @@ fn reconcile_keyed_live<B: Backend + 'static>(
     );
 }
 
-#[allow(clippy::too_many_arguments, clippy::needless_range_loop)]
+#[expect(clippy::too_many_arguments, clippy::needless_range_loop)]
 fn reconcile_keyed_middle<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,

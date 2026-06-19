@@ -1,4 +1,5 @@
 use super::*;
+use alloc::vec::Vec;
 use core::ops::Deref;
 
 /// A BSTR string ([BSTR](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/string-manipulation-functions))
@@ -80,8 +81,7 @@ impl Clone for BSTR {
 
 impl From<&str> for BSTR {
     fn from(value: &str) -> Self {
-        #[allow(unused_qualifications)]
-        let value: alloc::vec::Vec<u16> = value.encode_utf16().collect();
+        let value: Vec<u16> = value.encode_utf16().collect();
         Self::from_wide(&value)
     }
 }
