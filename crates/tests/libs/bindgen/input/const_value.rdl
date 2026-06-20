@@ -1,9 +1,9 @@
 //! --filter Test --flat
 #[win32]
 mod Test {
-    const PI: f32 = 3.14159;
+    const SCALE: f32 = 1.25;
     const NEG_RATE: f32 = -0.5;
-    const E: f64 = 2.718281828459045;
+    const RATE: f64 = 4.5;
     const NEG_EPSILON: f64 = -0.0001;
     const GREETING: String = "hello";
 }

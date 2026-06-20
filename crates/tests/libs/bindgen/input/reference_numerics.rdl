@@ -1,0 +1,26 @@
+//! --filter Test --flat
+// Exercises the implicit sibling-crate reference path: a type from the
+// `Windows.Foundation.Numerics` namespace is detected in the input metadata, so
+// bindgen registers a `windows_numerics` reference and emits the referenced type
+// as `windows_numerics::Vector3` rather than generating it locally. This drives
+// references.rs (contains/matching_rule) and the reference-skip branches in
+// type_map.rs.
+#[winrt]
+mod Test {
+    struct Transform {
+        position: Windows::Foundation::Numerics::Vector3,
+        scale: Windows::Foundation::Numerics::Vector3,
+    }
+}
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Numerics {
+            struct Vector3 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+            }
+        }
+    }
+}

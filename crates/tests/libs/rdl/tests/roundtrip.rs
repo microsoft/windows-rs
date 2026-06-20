@@ -8,12 +8,14 @@ use std::path::Path;
 // If a test fails, the input file is overwritten with the canonical form so
 // you can review the diff and commit it.
 
+include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
+
 fn run(name: &str) {
     let input_path = format!("input/{name}.rdl");
     let original = std::fs::read_to_string(&input_path)
         .unwrap_or_else(|e| panic!("failed to read {input_path}: {e}"));
 
-    let out_dir = Path::new("../../../../target/test_rdl");
+    let out_dir = Path::new(env!("OUT_DIR"));
     std::fs::create_dir_all(out_dir).unwrap();
 
     let winmd_path = out_dir.join(format!("{name}.winmd"));
@@ -48,8 +50,3 @@ fn run(name: &str) {
         );
     }
 }
-
-include!(concat!(
-    env!("CARGO_MANIFEST_DIR"),
-    "/../../../../target/test_rdl/generated_tests.rs"
-));

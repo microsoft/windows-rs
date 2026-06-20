@@ -1,0 +1,12 @@
+//! --flat --filter Test.Color::{Red,Green}
+// Drives the enum-variant member branch of filter.rs register_member /
+// enum_variant_filter: only the named variants are emitted, not the whole enum.
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+}
