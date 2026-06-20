@@ -1,2 +1,0 @@
-
-error: method-level filter on `Windows.Foundation.IStringable` conflicts with `--implement`: methods on implemented interfaces are always emitted

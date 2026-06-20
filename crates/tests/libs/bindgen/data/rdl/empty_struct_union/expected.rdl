@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    struct S {}
-    union U {}
-}

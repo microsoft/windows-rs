@@ -8,46 +8,14 @@ publish = false
 doc = false
 doctest = false
 
-# Goldens reference these crates; depending on them here lets `build.rs`
-# `include!` every `expected.rs` from `src/lib.rs` and have it really
-# compile, not just parse.
 [dependencies]
-windows-collections = { workspace = true }
 windows-core = { workspace = true }
-windows-future = { workspace = true }
 windows-link = { workspace = true }
-windows-numerics = { workspace = true }
-windows-reference = { workspace = true }
 windows-result = { workspace = true }
-windows-targets = { workspace = true }
-windows-time = { workspace = true }
-
-# The compiled goldens (under `cfg(windows)`) reference the umbrella
-# `windows` crate and the namespaced `windows-sys` crate. Gate those
-# deps to Windows so the harness still builds on non-Windows hosts
-# (where `cfg(windows)` skips the `include!`).
-[target.'cfg(windows)'.dependencies.windows]
-workspace = true
-features = [
-    "Foundation",
-    "Win32_Foundation",
-    "Win32_Security",
-]
-
-[target.'cfg(windows)'.dependencies.windows-reference]
-workspace = true
-features = ["std"]
-
-[target.'cfg(windows)'.dependencies.windows-sys]
-workspace = true
-features = [
-    "Win32_Gaming",
-]
 
 [dev-dependencies]
-windows-rdl = { workspace = true }
 windows-bindgen = { workspace = true }
-windows-metadata = { workspace = true }
+windows-rdl = { workspace = true }
 
 [lints]
 workspace = true

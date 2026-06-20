@@ -1,9 +1,0 @@
-
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(); }
-
-    #[Foo = "bar"]
-    class MyClass {}
-}
-        

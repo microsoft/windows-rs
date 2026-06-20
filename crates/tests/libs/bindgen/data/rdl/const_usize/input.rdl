@@ -1,8 +1,0 @@
-#[win32]
-mod Test {
-    const INVALID_SOCKET: SOCKET = -1;
-    const NULL_SOCKET: SOCKET = 0;
-    struct SOCKET {
-        Value: usize,
-    }
-}

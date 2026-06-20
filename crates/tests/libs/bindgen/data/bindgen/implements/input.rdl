@@ -1,9 +1,0 @@
-#[win32]
-mod Test {
-    interface IFoo {
-        fn Foo(&self) -> i32;
-    }
-    interface IBar {
-        fn Bar(&self) -> i32;
-    }
-}

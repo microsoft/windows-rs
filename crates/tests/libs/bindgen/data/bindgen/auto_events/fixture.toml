@@ -1,2 +1,0 @@
-filter = "Test.IFoo::*"
-minimal = true

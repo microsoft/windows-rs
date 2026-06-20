@@ -1,7 +1,10 @@
-//! Compile every fixture's `expected.rs` so stale goldens break the build.
-//! `build.rs` emits the include file. Test-execution logic lives in
-//! `tests/fixtures.rs`. Gated on `cfg(windows)` because some goldens
-//! reference Windows-only items.
+#![expect(
+    dead_code,
+    non_snake_case,
+    non_camel_case_types,
+    non_upper_case_globals,
+    clippy::upper_case_acronyms,
+    clippy::missing_transmute_annotations
+)]
 
-#[cfg(windows)]
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));

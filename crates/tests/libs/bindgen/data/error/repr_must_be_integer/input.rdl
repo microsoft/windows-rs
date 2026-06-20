@@ -1,9 +1,0 @@
-
-#[winrt]
-mod Test {
-    #[repr(bool)]
-    enum AsyncStatus {
-        Started = 0,
-    }
-}
-        

@@ -1,4 +1,0 @@
-kind = "bindgen"
-args = "--out {setup}/out.txt --in default --filter POINT"
-setup = "create_file"
-error_match = "contains"

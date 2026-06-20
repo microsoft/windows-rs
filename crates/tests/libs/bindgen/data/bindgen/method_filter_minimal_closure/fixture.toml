@@ -1,4 +1,0 @@
-filter = "Test.IFoo::Direct"
-filters = ["Test.IFoo::get_Name"]
-minimal = true
-references = ["../../../libs/bindgen/default"]

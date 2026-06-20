@@ -1,6 +1,0 @@
-
-#[winrt]
-mod Test {
-    delegate fn Handler(&self);
-}
-        

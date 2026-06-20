@@ -1,7 +1,0 @@
-#[win32]
-mod Test {
-    #[repr(i32)]
-    enum NameConflict {
-        NameConflict = 123,
-    }
-}

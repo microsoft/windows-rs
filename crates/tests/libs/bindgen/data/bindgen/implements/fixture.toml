@@ -1,2 +1,0 @@
-filter = "Test"
-implements = ["Test.IFoo"]

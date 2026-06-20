@@ -1,9 +1,0 @@
-#[winrt]
-mod Test {
-    #[repr(i32)]
-    enum Status {
-        Active = 1,
-        Inactive = 2,
-        Pending = 3,
-    }
-}

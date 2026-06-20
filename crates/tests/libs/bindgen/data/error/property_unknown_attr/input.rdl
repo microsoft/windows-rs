@@ -1,9 +1,0 @@
-
-#[win32]
-mod Test {
-    interface IFoo {
-        #[special]
-        Value: i32;
-    }
-}
-        

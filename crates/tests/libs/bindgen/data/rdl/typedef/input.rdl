@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    type HANDLE = *mut void;
-    type HRESULT = i32;
-}

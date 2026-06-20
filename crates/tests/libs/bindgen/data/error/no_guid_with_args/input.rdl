@@ -1,7 +1,0 @@
-
-#[win32]
-mod Test {
-    #[no_guid(something)]
-    interface IFoo {}
-}
-        

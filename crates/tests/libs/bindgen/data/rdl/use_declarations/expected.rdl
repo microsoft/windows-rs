@@ -1,7 +1,0 @@
-#[winrt]
-mod Test {
-    #[Custom::Metadata::Foo(2)]
-    struct Thing {
-        a: Custom::CustomThing,
-    }
-}

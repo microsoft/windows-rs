@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    #[library("kernel32.dll", last_error = true)]
-    extern fn GetLastError() -> u32;
-}

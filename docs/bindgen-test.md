@@ -1,8 +1,8 @@
 # windows-bindgen Test Coverage Analysis
 
-## test_bindgen2 Coverage Summary
+## test_bindgen Coverage Summary
 
-As of June 2026, `test_bindgen2` has **61 data-driven tests** covering all
+As of June 2026, `test_bindgen` has **61 data-driven tests** covering all
 remaining CLI options and all type categories expressible in RDL.
 
 ### CLI Options — All Tested
@@ -47,7 +47,7 @@ remaining CLI options and all type categories expressible in RDL.
 | `--no-toml` | REMOVED | Was dead code (never used) |
 | `--link` | REMOVED | Hardcoded to `windows_link` (sys) / `windows_core` (non-sys) |
 
-## Not Testable via RDL (covered by test_bindgen + tool_package)
+## Not Testable via RDL (covered by real metadata + tool_package)
 
 These require real `.winmd` metadata that cannot be mocked in RDL:
 
@@ -62,24 +62,23 @@ These require real `.winmd` metadata that cannot be mocked in RDL:
 - **Arch-specific structs** — real Win32 metadata with arch attributes
 
 These are implicitly tested by:
-- `test_bindgen` (305 tests using `--in default` with real Windows metadata)
-- `tool_package` running successfully (exercises package mode end-to-end)
+- `tool_package` running successfully (exercises package mode against real
+  Windows metadata end-to-end)
 
 ## No Dead Code Remaining
 
 After removing `--reference`, `--index`, `--no-toml`, and `--link`, all remaining
 code in windows-bindgen is reachable through:
-1. `test_bindgen2` (RDL-based, 61 tests)
-2. `test_bindgen` (real winmd, 305 tests)
-3. `tool_package` (package-mode generation)
+1. `test_bindgen` (RDL-based, 61 tests)
+2. `tool_package` (package-mode generation against real winmd)
 
 ## Recommendations
 
 1. **Keep `--package`** — used by tool_package for published crates
-2. **Accept current coverage as practical ceiling** for test_bindgen2 — remaining
+2. **Accept current coverage as practical ceiling** for test_bindgen — remaining
    gaps need real metadata or RDL extensions
-3. **Consider RDL extensions** if we want to push test_bindgen2 coverage higher:
+3. **Consider RDL extensions** if we want to push test_bindgen coverage higher:
    - Support for `ScopedEnumAttribute`
    - Support for `NativeArrayInfoAttribute` / `MemorySizeAttribute`
    - Support for `AlsoUsableForAttribute`
-4. **Old test_bindgen still provides value** for generics/async/package paths
+4. **`tool_package`** still exercises generics/async/package paths against real metadata

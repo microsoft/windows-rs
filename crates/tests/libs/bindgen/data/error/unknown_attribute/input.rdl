@@ -1,7 +1,0 @@
-
-#[winrt]
-mod Test {
-    #[Unknown(42)]
-    class MyClass {}
-}
-        

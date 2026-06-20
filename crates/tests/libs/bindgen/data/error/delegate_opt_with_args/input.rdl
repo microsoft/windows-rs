@@ -1,6 +1,0 @@
-
-#[winrt]
-mod Test {
-    delegate fn Handler(#[opt(42)] value: i32);
-}
-        

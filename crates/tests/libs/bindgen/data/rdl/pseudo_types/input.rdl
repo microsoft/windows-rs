@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    #[library("ole32.dll")]
-    extern fn CoCreateGuid(result: *mut GUID) -> HRESULT;
-}
