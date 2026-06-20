@@ -1,0 +1,12 @@
+//! --flat --filter Test.Widget::get:Value --filter Test.Widget::set:Value
+// Drives the accessor-only sugar branch of filter.rs expand_method_part:
+// `get:Prop` maps to get_Prop and `set:Prop` maps to put_Prop, letting callers
+// opt in to a single accessor by intent rather than the raw metadata name.
+#[winrt]
+mod Test {
+    interface Widget {
+        fn get_Value(&self) -> i32;
+        fn put_Value(&self, value: i32);
+        fn Other(&self) -> i32;
+    }
+}

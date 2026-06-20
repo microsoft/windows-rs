@@ -31,6 +31,17 @@ impl Interface {
             result__
         }
     }
+    pub unsafe fn ReturnValue(&self, value: u32) -> Struct {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReturnValue)(
+                windows_core::Interface::as_raw(self),
+                value,
+                &mut result__,
+            );
+            result__
+        }
+    }
 }
 #[repr(C)]
 pub struct Interface_Vtbl {
@@ -41,11 +52,13 @@ pub struct Interface_Vtbl {
         *mut Struct,
     ) -> windows_core::HRESULT,
     pub ReturnStruct: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut Struct),
+    pub ReturnValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut Struct),
 }
 pub trait Interface_Impl {
     fn ResultVoid(&self, value: u32) -> windows_core::Result<()>;
     fn ResultValue(&self, value: u32) -> windows_core::Result<Struct>;
     fn ReturnStruct(&self, value: u32, result: *mut Struct);
+    fn ReturnValue(&self, value: u32, result: *mut Struct);
 }
 impl Interface_Vtbl {
     pub const fn new<Identity: Interface_Impl>() -> Self {
@@ -91,10 +104,26 @@ impl Interface_Vtbl {
                 );
             }
         }
+        unsafe extern "system" fn ReturnValue<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: u32,
+            result: *mut Struct,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::ReturnValue(
+                    this,
+                    core::mem::transmute_copy(&value),
+                    core::mem::transmute_copy(&result),
+                );
+            }
+        }
         Self {
             ResultVoid: ResultVoid::<Identity>,
             ResultValue: ResultValue::<Identity>,
             ReturnStruct: ReturnStruct::<Identity>,
+            ReturnValue: ReturnValue::<Identity>,
         }
     }
 }

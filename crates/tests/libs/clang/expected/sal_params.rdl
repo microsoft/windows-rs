@@ -1,0 +1,25 @@
+#[win32]
+mod Test {
+    type BOOL = i32;
+    #[library("kernel32.dll")]
+    extern "C" fn CloseObject(object: HANDLE) -> BOOL;
+    type DWORD = u32;
+    #[library("kernel32.dll")]
+    extern "C" fn GetValue(result: *mut DWORD) -> BOOL;
+    type HANDLE = *mut void;
+    type LPCSTR = *const i8;
+    #[library("kernel32.dll")]
+    extern "C" fn OpenByName(#[opt] name: LPCSTR, object: *mut HANDLE) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ReadBuffer(buffer: *const void, size: DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn ScanValue(#[r#in] value: *mut DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn TryGetValue(#[opt] result: *mut DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateOptional(#[r#in] #[out] #[opt] value: *mut DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn UpdateValue(#[r#in] #[out] value: *mut DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteBuffer(buffer: *mut void, size: DWORD) -> BOOL;
+}

@@ -1,0 +1,5 @@
+//! --filter Test --flat --sys
+#[win32]
+mod Test {
+    const GREETING: String = "hello";
+}

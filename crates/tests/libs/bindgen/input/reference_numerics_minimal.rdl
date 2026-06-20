@@ -1,0 +1,22 @@
+//! --filter Test.Transform --flat --minimal
+// Minimal-mode counterpart to reference_numerics: drives the reference-skip
+// branch in minimal_type_map.rs (combine_minimal) where a struct field's type is
+// owned by a sibling reference and must not be pulled into the local closure.
+#[winrt]
+mod Test {
+    struct Transform {
+        position: Windows::Foundation::Numerics::Vector3,
+    }
+}
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Numerics {
+            struct Vector3 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+            }
+        }
+    }
+}

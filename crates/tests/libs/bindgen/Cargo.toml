@@ -11,6 +11,7 @@ doctest = false
 [dependencies]
 windows-core = { workspace = true }
 windows-link = { workspace = true }
+windows-numerics = { workspace = true }
 windows-result = { workspace = true }
 
 [dev-dependencies]

@@ -1,14 +1,15 @@
 use std::path::Path;
 
 fn rust_ident(name: &str) -> String {
-    match name {
+    let ident = name.replace('-', "_");
+    match ident.as_str() {
         "as" | "break" | "const" | "continue" | "crate" | "else" | "enum" | "extern" | "false"
         | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "match" | "mod" | "move"
         | "mut" | "pub" | "ref" | "return" | "self" | "Self" | "static" | "struct" | "super"
         | "trait" | "true" | "type" | "unsafe" | "use" | "where" | "while" | "async" | "await"
         | "dyn" | "abstract" | "become" | "box" | "do" | "final" | "macro" | "override"
-        | "priv" | "typeof" | "unsized" | "virtual" | "yield" | "try" => format!("r#{name}"),
-        _ => name.to_string(),
+        | "priv" | "typeof" | "unsized" | "virtual" | "yield" | "try" => format!("r#{ident}"),
+        _ => ident,
     }
 }
 

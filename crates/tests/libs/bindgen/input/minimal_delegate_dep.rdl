@@ -1,0 +1,11 @@
+//! --filter Test.Sink::Subscribe --flat --minimal
+// Drives the Delegate branch of minimal_type_map.rs combine_minimal: the
+// requested method's signature references a delegate, whose Invoke signature is
+// walked to pull in its own dependencies under the minimal closure.
+#[winrt]
+mod Test {
+    delegate fn Handler(value: i32);
+    interface Sink {
+        fn Subscribe(&self, handler: Handler) -> i32;
+    }
+}

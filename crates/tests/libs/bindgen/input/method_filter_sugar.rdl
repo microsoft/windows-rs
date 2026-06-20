@@ -1,0 +1,12 @@
+//! --flat --filter Test.Widget::Value
+// Drives the bare-name property sugar branch of filter.rs expand_method_part: a
+// bare member name with no `get_`/`put_` prefix expands to both the getter and
+// setter accessors when they exist.
+#[winrt]
+mod Test {
+    interface Widget {
+        fn get_Value(&self) -> i32;
+        fn put_Value(&self, value: i32);
+        fn Other(&self) -> i32;
+    }
+}
