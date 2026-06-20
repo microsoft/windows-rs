@@ -1,0 +1,12 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Outer {
+        kind: u32,
+        value: Inner,
+    }
+    union Inner {
+        offset: u32,
+        text: String,
+    }
+}

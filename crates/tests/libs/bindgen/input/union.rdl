@@ -1,0 +1,9 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    union Value {
+        i: i32,
+        f: f32,
+        p: *mut u8,
+    }
+}
