@@ -1,4 +1,4 @@
-windows_link::link!("test.dll" "system" fn Function(s : *const Struct) -> i32);
+windows_link::link!("test.dll" "system" fn SysFunction(s : *const Struct) -> i32);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct Struct {
