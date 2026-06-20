@@ -1,0 +1,11 @@
+#[winrt]
+mod Test {
+    mod Inner {
+        struct Data {
+            Value: i32,
+        }
+    }
+    interface IConsumer {
+        fn Process(&self, data: Inner::Data) -> i32;
+    }
+}

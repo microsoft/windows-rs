@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    interface IWidget {
+        fn Name(&self) -> String;
+    }
+    class Widget {
+        IWidget,
+    }
+}

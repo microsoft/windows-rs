@@ -51,7 +51,6 @@ remaining CLI options and all type categories expressible in RDL.
 
 These require real `.winmd` metadata that cannot be mocked in RDL:
 
-- **Generic delegates/interfaces** — `IAsyncOperation<T>`, `TypedEventHandler<S,A>`, etc.
 - **Async class alias** — special metadata attribute triggers `pub type Class = Interface`
 - **Composable/exclusive classes** — WinUI-style activation with compose
 - **`--package` layout** — per-namespace files + Cargo.toml features (used by `tool_package`)

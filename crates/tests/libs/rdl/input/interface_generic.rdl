@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    interface IVector<T> {
+        fn GetAt(&self, index: u32) -> T;
+        fn Append(&self, value: T);
+    }
+}

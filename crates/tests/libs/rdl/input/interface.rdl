@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    interface IInterface {
+        fn Method(&self, value: i32) -> i32;
+        Name: String;
+    }
+}

@@ -1,7 +1,0 @@
-#[win32]
-mod Test {
-    struct Point {
-        X: i32,
-        Y: i32,
-    }
-}

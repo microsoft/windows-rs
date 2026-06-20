@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Status {
+        Ok = 0,
+        Error = 1,
+        Pending = 2,
+    }
+}

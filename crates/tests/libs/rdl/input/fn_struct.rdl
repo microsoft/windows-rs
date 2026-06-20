@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn GetPoint() -> Point;
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+}

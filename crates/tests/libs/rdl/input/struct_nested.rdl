@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct Inner {
+        x: i32,
+        y: i32,
+    }
+    struct Outer {
+        position: Inner,
+        size: Inner,
+    }
+}
