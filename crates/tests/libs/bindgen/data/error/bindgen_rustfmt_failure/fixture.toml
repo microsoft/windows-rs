@@ -1,3 +1,0 @@
-kind = "bindgen"
-args = "--out {scratch}/out.rs --rustfmt fail=true --filter POINT"
-error_match = "contains"

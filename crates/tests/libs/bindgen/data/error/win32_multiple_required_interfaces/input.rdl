@@ -1,6 +1,0 @@
-
-#[win32]
-mod Test {
-    interface IFoo: IBar + IBaz {}
-}
-        

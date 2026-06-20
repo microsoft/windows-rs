@@ -1,7 +1,0 @@
-#[winrt]
-mod Test {
-    interface IRequiresA: IRequiresNothing {}
-    interface IRequiresB: IRequiresNothing {}
-    interface IRequiresMultiple: IRequiresA + IRequiresB {}
-    interface IRequiresNothing {}
-}

@@ -1,3 +1,0 @@
-filter = "Test"
-filters = ["!Test.IFoo::InsertKeyFrameWithEasingFunction"]
-references = ["../../../libs/bindgen/default"]

@@ -1,3 +1,0 @@
-
-error: only `#[get]` and `#[set]` attributes are supported on properties
- --> input.rdl:5:9

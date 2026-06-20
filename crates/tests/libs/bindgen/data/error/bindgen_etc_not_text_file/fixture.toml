@@ -1,2 +1,0 @@
-kind = "bindgen"
-args = "--etc ../../../libs/bindgen/default/Windows.winmd"

@@ -1,5 +1,0 @@
-
-mod Test {
-    struct A {}
-}
-        

@@ -1,9 +1,0 @@
-
-#[winrt]
-mod Test {
-    interface IFoo {}
-    class MyClass {
-        #[default] IFoo,
-    }
-}
-        

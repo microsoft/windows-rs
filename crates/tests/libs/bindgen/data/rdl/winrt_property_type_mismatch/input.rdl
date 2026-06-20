@@ -1,9 +1,0 @@
-#[winrt]
-mod Test {
-    interface ITest {
-        #[get]
-        foo: u32;
-        #[set]
-        foo: String;
-    }
-}

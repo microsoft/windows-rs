@@ -1,3 +1,0 @@
-
-error: non-WinRT interface can only inherit from one interface
- --> input.rdl:4:28

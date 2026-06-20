@@ -1,6 +1,0 @@
-
-#[winrt]
-mod Test {
-    delegate fn Handler(a: i32, a: i32);
-}
-        

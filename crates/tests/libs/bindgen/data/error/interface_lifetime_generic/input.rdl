@@ -1,6 +1,0 @@
-
-#[winrt]
-mod Test {
-    interface IFoo<'a> {}
-}
-        

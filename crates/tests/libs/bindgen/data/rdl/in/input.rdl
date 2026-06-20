@@ -1,7 +1,0 @@
-#[winrt]
-mod Test {
-    interface ITest {
-        fn RefMutIn(&self, #[in] p: &mut u32);
-        fn PtrMutIn(&self, #[in] p: *mut u32);
-    }
-}

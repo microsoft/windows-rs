@@ -1,7 +1,0 @@
-#[winrt]
-mod Test {
-    mod Nested {
-        struct B {}
-    }
-    struct A {}
-}

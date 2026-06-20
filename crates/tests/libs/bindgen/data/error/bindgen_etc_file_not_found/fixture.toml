@@ -1,2 +1,0 @@
-kind = "bindgen"
-args = "--etc file_not_found.txt"

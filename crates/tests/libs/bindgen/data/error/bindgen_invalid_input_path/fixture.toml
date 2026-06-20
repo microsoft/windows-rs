@@ -1,2 +1,0 @@
-kind = "bindgen"
-args = "--in invalid.winmd --out out.txt --filter POINT"

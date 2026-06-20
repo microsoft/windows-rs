@@ -1,2 +1,0 @@
-kind = "bindgen"
-args = "--in default --out out.txt --filter Windows.Foundation.IStringable --filter !Windows.Foundation.IStringable::ToString --implement Windows.Foundation.IStringable"

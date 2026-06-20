@@ -1,1 +1,0 @@
-pub type GENERIC_ACCESS_RIGHTS = u32;

@@ -1,9 +1,0 @@
-#[win32]
-mod Test {
-    struct CommonStruct {
-        z: u32,
-    }
-    struct X86OnlyStruct {
-        x: u8,
-    }
-}

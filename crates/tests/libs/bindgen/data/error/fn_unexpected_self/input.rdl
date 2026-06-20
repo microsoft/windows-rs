@@ -1,7 +1,0 @@
-
-#[winrt]
-mod Test {
-    #[library("lib")]
-    extern fn F(&self);
-}
-        

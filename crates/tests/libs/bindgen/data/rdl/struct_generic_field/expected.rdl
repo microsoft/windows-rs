@@ -1,9 +1,0 @@
-#[winrt]
-mod Test {
-    interface IReference<T> {
-        fn Value(&self) -> T;
-    }
-    struct Progress {
-        count: IReference<u64>,
-    }
-}

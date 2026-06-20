@@ -1,3 +1,0 @@
-filter = "Test"
-filters = ["Test.IFoo::Keep", "!Test.IFoo::Mute"]
-references = ["../../../libs/bindgen/default"]

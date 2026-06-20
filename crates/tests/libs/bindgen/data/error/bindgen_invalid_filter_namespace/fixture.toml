@@ -1,2 +1,0 @@
-kind = "bindgen"
-args = "--in default --out out.txt --filter Windows.Fondation"

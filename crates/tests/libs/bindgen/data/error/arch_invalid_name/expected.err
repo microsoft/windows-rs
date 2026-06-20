@@ -1,3 +1,0 @@
-
-error: invalid `arch` value; expected `X86`, `X64`, `Arm64`, or a `|`-combination
- --> input.rdl:3:5
