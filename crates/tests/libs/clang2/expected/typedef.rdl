@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    type BOOL = i32;
+    type DWORD = u32;
+    type HANDLE = *mut void;
+}
