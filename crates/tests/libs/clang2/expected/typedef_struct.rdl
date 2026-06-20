@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    struct Size {
+        width: i32,
+        height: i32,
+    }
+    struct Widget {
+        handle: *mut void,
+        refcount: i32,
+    }
+}

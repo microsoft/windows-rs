@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    #[flags]
+    enum FileAccess {
+        FileAccess_Read = 1,
+        FileAccess_Write = 2,
+        FileAccess_Execute = 4,
+    }
+}

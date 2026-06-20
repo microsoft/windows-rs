@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    type BOOL = i32;
+    #[library("kernel32.dll")]
+    extern "C" fn CloseFile(file: HANDLE) -> BOOL;
+    type DWORD = u32;
+    type HANDLE = *mut void;
+    type LPCSTR = *const i8;
+    #[library("kernel32.dll")]
+    extern "C" fn OpenFile(name: LPCSTR, flags: DWORD) -> HANDLE;
+    #[library("kernel32.dll")]
+    extern "C" fn ReadFile(file: HANDLE, buffer: *mut void, size: DWORD, bytesRead: *mut DWORD) -> BOOL;
+    #[library("kernel32.dll")]
+    extern "C" fn WriteFile(file: HANDLE, buffer: *const void, size: DWORD, bytesWritten: *mut DWORD) -> BOOL;
+}
