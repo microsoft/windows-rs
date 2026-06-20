@@ -15,7 +15,7 @@ version = "0.1"
 
 Make use of Windows version information as needed:
 
-```rust,ignore
+```rust,no_run
 use windows_version::*;
 
 println!("Current version: {:?}", OsVersion::current());

@@ -9,7 +9,7 @@ Windows Reactor is a declarative UI library for Rust developers, backed by WinUI
 
 A minimal app defines a render function `fn(&mut RenderCx) -> Element` and passes it to `App::render`:
 
-```rust,ignore
+```rust,no_run
 use windows_reactor::*;
 
 fn app(cx: &mut RenderCx) -> Element {

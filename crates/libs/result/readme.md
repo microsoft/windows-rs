@@ -15,7 +15,7 @@ version = "0.4"
 
 Use the `HRESULT`, `Error`, and specialized `Result` types as needed:
 
-```rust,ignore
+```rust
 use windows_result::*;
 
 const S_OK: HRESULT = HRESULT(0);

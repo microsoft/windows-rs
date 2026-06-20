@@ -15,7 +15,7 @@ version = "0.1"
 
 Use the Windows reference type as needed:
 
-```rust,ignore
+```rust
 use windows_reference::*;
 
 let value = IReference::<i32>::from(42);
