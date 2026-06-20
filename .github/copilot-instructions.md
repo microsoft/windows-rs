@@ -126,14 +126,10 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 
 ## Documentation
 
-The `docs/` folder contains both user-facing and contributor-facing docs.
-When making changes to a crate, check if its docs need updating:
+The `docs/` folder is organized as one page per crate under two trees:
 
-- `docs/reactor.md` — user guide (getting started, hooks, controls)
-- `docs/reactor-internals.md` — contributor guide (codegen, TOML, threading, COM pitfalls)
-- `docs/canvas.md` — user guide (API reference, samples)
-- `docs/canvas-internals.md` — contributor guide (architecture, Win2D comparison)
-- `docs/animation.md` — all three animation layers
-- `docs/bindgen.md` — windows-bindgen usage and options
-- `docs/crates.md` — reference for all utility crates
-- `docs/time.md` — windows-time design decisions
+- **`docs/guide/<crate>.md`** — user-facing guide for each crate (start at `docs/guide/readme.md`).
+- **`docs/internals/<crate>.md`** — contributor notes on how each crate is built and maintained (start at `docs/internals/readme.md`).
+- **`docs/readme.md`** — the documentation hub and crate index.
+
+When making changes to a crate, update both its guide and internals pages as needed. For example, `windows-reactor` changes touch `docs/guide/windows-reactor.md` (getting started, hooks, controls) and `docs/internals/windows-reactor.md` (codegen, TOML, threading, COM pitfalls).
