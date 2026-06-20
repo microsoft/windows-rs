@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+    const NARROW: String = "hello";
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+    const PARENS_STRING: String = "paren";
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("utf-16")]
+    const WIDE: String = "wide";
+}

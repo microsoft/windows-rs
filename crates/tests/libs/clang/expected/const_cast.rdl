@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    const CAST_DOUBLE: DWORD = 2147500037;
+    const CAST_NEG_DOUBLE: LONG = -2;
+    const CAST_NEG_SINGLE: LONG = -1;
+    const CAST_SINGLE: DWORD = 2147500037;
+    type DWORD = u32;
+    type LONG = i32;
+}
