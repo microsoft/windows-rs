@@ -1,0 +1,14 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    attribute ScopedEnumAttribute {
+        fn();
+    }
+    #[ScopedEnum]
+    #[repr(i32)]
+    enum Color {
+        Red = 1,
+        Green = 2,
+        Blue = 3,
+    }
+}
