@@ -1,11 +1,11 @@
 #![cfg(target_pointer_width = "64")]
 
-include!("../../../../../target/test_clang2/generated_tests.rs");
+include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 fn run(name: &str) {
     let input_path = format!("input/{name}.h");
     let expected_path = format!("expected/{name}.rdl");
-    let scratch = format!("../../../../target/test_clang2/{name}");
+    let scratch = format!("{}/{name}", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
     // Extract directives from `//!` comment lines at the top of the .h file.

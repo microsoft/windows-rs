@@ -373,6 +373,6 @@ Standard windows-rs flow:
 * `cargo clippy -p windows-time --all-targets`
 * `cargo test -p windows-time`
 * Regenerate bindings: `cargo run -p bindings`
-* `cargo test -p test_bindgen --test fixtures` and
+* `cargo test -p test_bindgen` and
   `cargo check --all --target x86_64-pc-windows-gnu --tests` to confirm the
   routing change doesn't regress generated code anywhere in the workspace.

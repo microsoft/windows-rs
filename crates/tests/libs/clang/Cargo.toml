@@ -1,5 +1,5 @@
 [package]
-name = "test_clang2"
+name = "test_clang"
 version = "0.0.0"
 edition = "2024"
 publish = false

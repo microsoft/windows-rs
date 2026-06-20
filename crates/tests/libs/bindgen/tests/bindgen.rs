@@ -1,9 +1,9 @@
-include!("../../../../../target/test_bindgen2/generated_tests.rs");
+include!(concat!(env!("OUT_DIR"), "/generated_tests.rs"));
 
 fn run(name: &str) {
     let input_path = format!("input/{name}.rdl");
     let expected_path = format!("expected/{name}.rs");
-    let scratch = format!("../../../../target/test_bindgen2/{name}");
+    let scratch = format!("{}/{name}", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
     // Extract args from `//!` comment lines at the top.

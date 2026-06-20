@@ -7,4 +7,4 @@
     clippy::missing_transmute_annotations
 )]
 
-include!("../../../../../target/test_bindgen2/compile_fixtures.rs");
+include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
