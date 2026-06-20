@@ -6,5 +6,5 @@ mod Test {
         y: i32,
     }
     #[library("test.dll")]
-    extern fn SysFunction(s: *const Struct) -> i32;
+    extern fn SysFlatFunction(s: *const Struct) -> i32;
 }
