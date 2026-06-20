@@ -1,4 +1,0 @@
-#[winrt]
-mod Test {
-    struct Base {}
-}

@@ -1,0 +1,23 @@
+#[winrt]
+mod Test {
+    interface IWidget {
+        fn Name(&self) -> String;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    interface IWidgetInternal {
+        fn InternalMethod(&self) -> i32;
+    }
+    class Widget {
+        IWidget,
+    }
+}
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            attribute ExclusiveToAttribute {
+                fn(r#type: Type);
+            }
+        }
+    }
+}

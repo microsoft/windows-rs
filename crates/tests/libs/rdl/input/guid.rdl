@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    #[guid(0x00000001_0002_0003_0004_000000000005)]
+    interface ICustom {
+        fn Method(&self) -> i32;
+    }
+}

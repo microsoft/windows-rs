@@ -1,0 +1,8 @@
+#[winrt]
+mod Test {
+    delegate fn ClickHandler(sender: Object, args: i32);
+    interface IButton {
+        event Click: ClickHandler;
+        fn Press(&self);
+    }
+}

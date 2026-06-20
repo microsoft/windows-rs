@@ -3,17 +3,15 @@ name = "test_rdl"
 version = "0.0.0"
 edition = "2024"
 publish = false
+build = "build.rs"
 
 [lib]
 doc = false
 doctest = false
+test = false
 
-[dependencies]
-windows-bindgen = { workspace = true }
-windows-metadata = { workspace = true }
-windows-core = { workspace = true }
+[dev-dependencies]
 windows-rdl = { workspace = true }
-windows-link = { workspace = true }
 
 [lints]
 workspace = true

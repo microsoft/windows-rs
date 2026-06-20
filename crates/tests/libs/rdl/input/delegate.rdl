@@ -1,0 +1,4 @@
+#[winrt]
+mod Test {
+    delegate fn Handler(sender: Object, args: i32);
+}

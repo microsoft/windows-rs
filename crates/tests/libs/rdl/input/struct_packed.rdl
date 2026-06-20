@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[packed(1)]
+    struct Packed {
+        a: u8,
+        b: i32,
+        c: u16,
+    }
+}

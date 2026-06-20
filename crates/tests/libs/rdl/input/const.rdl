@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    const A: i32 = 1;
+    const B: u32 = 42;
+    const C: f64 = 3.14;
+}

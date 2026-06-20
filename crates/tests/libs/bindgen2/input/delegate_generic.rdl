@@ -1,0 +1,5 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    delegate fn Handler<T>(sender: T, args: i32);
+}
