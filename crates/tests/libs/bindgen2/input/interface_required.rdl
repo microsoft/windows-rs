@@ -1,0 +1,10 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    interface IBase {
+        fn BaseMethod(&self) -> HRESULT;
+    }
+    interface IInterface: IBase {
+        fn Method(&self) -> HRESULT;
+    }
+}

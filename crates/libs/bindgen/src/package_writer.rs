@@ -143,10 +143,6 @@ impl Config<'_> {
             write_to_file(&path, self.format(&tokens.into_string()));
         });
 
-        if self.bindgen.layout.no_toml() {
-            return;
-        }
-
         let toml_path = format!("{output}/Cargo.toml");
         let mut toml = String::new();
 

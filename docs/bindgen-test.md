@@ -2,98 +2,85 @@
 
 ## test_bindgen2 Coverage Summary
 
-As of June 2026, `test_bindgen2` provides **64.1% line coverage** of actionable
-windows-bindgen code (excluding legacy package/index/reference modules) with 51
-data-driven tests.
+As of June 2026, `test_bindgen2` has **61 data-driven tests** covering all
+remaining CLI options and all type categories expressible in RDL.
 
-## Removal Candidates
+### CLI Options — All Tested
 
-### `--reference` — REMOVED
+| Option | Tests |
+|--------|-------|
+| `--flat` | Most tests (54+) |
+| `--sys` | `enum_sys`, `fn_sys`, `fn_sys_flat`, `struct_sys`, `interface_sys`, `method_return_sys`, `enum_flags_sys` |
+| `--extern` | `fn_sys_extern` |
+| `--minimal` | `class_minimal`, `delegate_minimal`, `enum_minimal`, `event_minimal`, `fn_minimal`, `handle_minimal`, `interface_minimal`, `minimal_deps`, `winrt_enum_minimal`, `winrt_struct_minimal` |
+| `--implement` | `class_implement`, `com_implement`, `implement_pattern` |
+| `--dead-code` | `dead_code` |
+| `--derive` | `derive_enum`, `derive_multiple`, `derive_suppress`, `struct_derive` |
+| `--filter` | All tests; method-level in `method_filter_*` |
+| Namespace modules | `modules`, `enum_default`, `enum_name_conflict`, `class_hierarchy`, `filter_namespace` |
 
-- Removed in this PR. Was not used by any production tool.
-- Test crates and samples that depended on it have been removed.
-- The internal `References` infrastructure remains for implicit sibling crate
-  references (windows_future, windows_collections, etc.) which are auto-registered
-  based on input metadata.
+### Type Categories — All Covered
 
-### `--index` — REMOVED
+**Win32 (`#[win32]` in RDL):**
+- Functions: `fn`, `fn_sys`, `fn_sys_flat`, `fn_sys_extern`, `fn_result`, `fn_minimal`
+- Structs: `struct`, `struct_sys`, `struct_nested`, `struct_derive`
+- Enums: `enum_flags`, `enum_flags_sys`
+- COM interfaces: `com_interface`, `com_implement`, `interface_required`
+- Handles: `handle`, `handle_free`, `handle_minimal`
+- Constants: `const`, `const_guid`, `const_types`
+- Callbacks: `callback`
 
-- Removed alongside `--reference`. Was only used by `tool_package` for the
-  `windows` crate's `features.json` (a 13MB JSON file consumed by the
-  `web/features` search tool).
-- `web/features` has been removed.
-- `serde` and `serde_json` dependencies dropped from windows-bindgen.
+**WinRT (`#[winrt]` in RDL):**
+- Interfaces: `interface`, `interface_hierarchy`, `interface_minimal`, `interface_string`, `interface_void`, `interface_sys`
+- Delegates: `delegate`, `delegate_minimal`
+- Classes: `class`, `class_hierarchy`, `class_implement`, `class_minimal`, `class_static`
+- Enums: `winrt_enum`, `winrt_enum_minimal`
+- Structs: `winrt_struct`, `winrt_struct_minimal`
+- Events: `event`, `event_minimal`, `auto_events`
 
-## Production-Only Code (not testable from test_bindgen2)
+## Removed Options
 
-These modules are used in production but require full Win32/WinRT metadata
-(impractical to mock with RDL):
+| Option | Status | Notes |
+|--------|--------|-------|
+| `--reference` | REMOVED | Internal `References` infra remains for implicit sibling refs |
+| `--index` | REMOVED | `features.json` and `web/features` removed; serde deps dropped |
+| `--no-toml` | REMOVED | Was dead code (never used) |
+| `--link` | REMOVED | Hardcoded to `windows_link` (sys) / `windows_core` (non-sys) |
 
-| Module | Coverage | Used By |
-|--------|----------|---------|
-| `package_writer.rs` (129 lines) | 10.9% | `tool_package` → `windows` and `windows-sys` |
+## Not Testable via RDL (covered by test_bindgen + tool_package)
 
-These are implicitly tested by `tool_package` running successfully.
+These require real `.winmd` metadata that cannot be mocked in RDL:
 
-## Hard-to-Test Patterns
+- **Generic delegates/interfaces** — `IAsyncOperation<T>`, `TypedEventHandler<S,A>`, etc.
+- **Async class alias** — special metadata attribute triggers `pub type Class = Interface`
+- **Composable/exclusive classes** — WinUI-style activation with compose
+- **`--package` layout** — per-namespace files + Cargo.toml features (used by `tool_package`)
+- **Query return hint** — `QueryInterface`-shaped params (GUID + void**)
+- **Array params** — `NativeArrayInfoAttribute` / `MemorySizeAttribute`
+- **Scoped enums** — `ScopedEnumAttribute`
+- **String constants** — `PCSTR`/`PCWSTR` + string constant values
+- **AlsoUsableFor handles** — `AlsoUsableForAttribute`
+- **Arch-specific structs** — real Win32 metadata with arch attributes
 
-The following require metadata patterns difficult to express in RDL:
+These are implicitly tested by:
+- `test_bindgen` (305 tests using `--in default` with real Windows metadata)
+- `tool_package` running successfully (exercises package mode end-to-end)
 
-- **Query return hint** (`cpp_method.rs`) — needs `QueryInterface`-shaped params
-  (GUID + void** with specific attributes)
-- **Array params** (`cpp_method.rs`) — needs `NativeArrayInfoAttribute` /
-  `MemorySizeAttribute` on params
-- **Composable classes** (`minimal_type_map.rs`) — needs class hierarchies with
-  composable interfaces referencing external types
-- **Scoped enums** (`cpp_enum.rs`) — needs `ScopedEnumAttribute` (not supported
-  in RDL)
-- **String constants** (`cpp_const.rs`) — needs `PCSTR`/`PCWSTR` type + string
-  constant values
-- **AlsoUsableFor handles** (`cpp_handle.rs`) — needs `AlsoUsableForAttribute`
-- **Free functions on handles** (`cpp_handle.rs`) — needs RAIIFree metadata
+## No Dead Code Remaining
 
-## Current Coverage by File
-
-Files below 60% (actionable, excluding package/index/reference):
-
-| File | Coverage | Notes |
-|------|----------|-------|
-| `minimal_type_map.rs` | 35% | Needs complex class hierarchies |
-| `io.rs` | 37% | File I/O utilities, package-mode specific |
-| `paths.rs` | 37% | Path utilities, package-mode specific |
-| `cpp_handle.rs` | 46% | Pointer handles, AlsoUsableFor |
-| `filter.rs` | 47% | Complex wildcard/method/enum filters |
-| `cpp_enum.rs` | 47% | Scoped enums (not mockable in RDL) |
-| `value.rs` | 48% | String constants, GUID struct fields |
-| `cpp_const.rs` | 50% | GUID constants, string constants |
-| `cpp_interface.rs` | 54% | More interface patterns |
-| `filter_parser.rs` | 57% | Complex filter syntax parsing |
-| `method_names.rs` | 57% | Overload disambiguation |
-| `types/mod.rs` | 58% | Type dispatch |
-| `cpp_method.rs` | 59% | Query, array, optional patterns |
+After removing `--reference`, `--index`, `--no-toml`, and `--link`, all remaining
+code in windows-bindgen is reachable through:
+1. `test_bindgen2` (RDL-based, 61 tests)
+2. `test_bindgen` (real winmd, 305 tests)
+3. `tool_package` (package-mode generation)
 
 ## Recommendations
 
 1. **Keep `--package`** — used by tool_package for published crates
-2. **Accept ~65% as practical ceiling** for test_bindgen2 — remaining gaps need
-   real metadata or RDL extensions
-5. **Consider RDL extensions** if we want to push coverage higher:
+2. **Accept current coverage as practical ceiling** for test_bindgen2 — remaining
+   gaps need real metadata or RDL extensions
+3. **Consider RDL extensions** if we want to push test_bindgen2 coverage higher:
    - Support for `ScopedEnumAttribute`
    - Support for `NativeArrayInfoAttribute` / `MemorySizeAttribute`
    - Support for `AlsoUsableForAttribute`
-
-## Tests Ported from test_bindgen
-
-The following old test_bindgen fixtures were ported to test_bindgen2:
-
-- `class_hierarchy` — multi-level class inheritance with `required_hierarchy!`
-- `auto_events` — event revoker pattern, `#[special]` add/remove, delegate params
-- `enum_name_conflict` — variant name collision with enum name (appends `_`)
-
-Not ported (need real metadata):
-
-- `ireference_sugar` — `IReference<T>` generic sugar (needs `windows-reference` crate)
-- `composable_class` — composable factory (needs default refs)
-- `method_filter_*` (class/mixed/overload/property/setter_only) — need real metadata
-- Generic interfaces/delegates — need real WinRT metadata
-- Arch-specific structs — need real Win32 metadata
+4. **Old test_bindgen still provides value** for generics/async/package paths

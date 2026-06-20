@@ -1,0 +1,12 @@
+//! --filter Test --flat --sys --derive Test.Struct=Debug,Eq,PartialEq,Ord,PartialOrd --derive Test.Plain=
+#[win32]
+mod Test {
+    struct Struct {
+        x: i32,
+        y: i32,
+    }
+    struct Plain {
+        a: i32,
+        b: i32,
+    }
+}

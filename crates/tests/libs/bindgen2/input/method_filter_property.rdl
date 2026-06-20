@@ -1,0 +1,9 @@
+//! --flat --filter Test.Interface::{get_Value,put_Value}
+#[winrt]
+mod Test {
+    interface Interface {
+        fn get_Value(&self) -> i32;
+        fn put_Value(&self, value: i32);
+        fn Other(&self) -> i32;
+    }
+}
