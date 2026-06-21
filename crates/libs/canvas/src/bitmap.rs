@@ -42,11 +42,13 @@ impl Bitmap {
         }
     }
 
+    /// Returns the width of the bitmap, in device-independent pixels.
     pub fn width(&self) -> f32 {
         let size = unsafe { self.0.GetSize() };
         size.width
     }
 
+    /// Returns the height of the bitmap, in device-independent pixels.
     pub fn height(&self) -> f32 {
         let size = unsafe { self.0.GetSize() };
         size.height

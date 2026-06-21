@@ -95,6 +95,7 @@ impl SwapChain {
         Ok(result)
     }
 
+    /// Resizes the swap chain buffers. A zero width or height is ignored.
     pub fn resize(&mut self, width: u32, height: u32) -> Result<()> {
         if width == 0 || height == 0 {
             return Ok(());
@@ -109,6 +110,7 @@ impl SwapChain {
         self.set_target()
     }
 
+    /// Begins drawing a frame, returning a [`DrawingSession`].
     pub fn begin_draw(&mut self) -> Result<DrawingSession<'_>> {
         self.device_lost_flag.set(false);
         DrawingSession::new(&self.d2d_context, &self.device_lost_flag)
@@ -127,23 +129,28 @@ impl SwapChain {
         result.map(|()| true)
     }
 
+    /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 
+    /// Loads a bitmap from an image file.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(&self.d2d_context, path.as_ref())
     }
 
+    /// Returns the underlying `IDXGISwapChain1`.
     pub fn raw_swap_chain(&self) -> &IDXGISwapChain1 {
         &self.swap_chain
     }
 
+    /// Returns the width of the swap chain, in pixels.
     pub fn width(&self) -> u32 {
         self.width
     }
 
+    /// Returns the height of the swap chain, in pixels.
     pub fn height(&self) -> u32 {
         self.height
     }
@@ -175,6 +182,7 @@ impl SwapChain {
         }
     }
 
+    /// Returns `true` if the device was lost during the last frame.
     pub fn is_device_lost(&self) -> bool {
         self.device_lost_flag.get()
     }

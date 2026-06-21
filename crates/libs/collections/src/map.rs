@@ -185,6 +185,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
+    /// Creates a mutable `IMap<K, V>` from the given key/value pairs.
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
         ComObject::new(StockMap {
             map: std::sync::RwLock::new(map),

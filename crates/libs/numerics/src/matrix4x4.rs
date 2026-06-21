@@ -1,6 +1,7 @@
 use super::*;
 
 impl Matrix4x4 {
+    /// Returns a matrix that translates by `(x, y, z)`.
     pub const fn translation(x: f32, y: f32, z: f32) -> Self {
         Self {
             m11: 1.0,
@@ -21,6 +22,7 @@ impl Matrix4x4 {
             m44: 1.0,
         }
     }
+    /// Returns a matrix that rotates by `degree` degrees about the y-axis.
     #[cfg(feature = "std")]
     pub fn rotation_y(degree: f32) -> Self {
         let (sin, cos) = degree.to_radians().sin_cos();
@@ -43,6 +45,8 @@ impl Matrix4x4 {
             m44: 1.0,
         }
     }
+    /// Returns a perspective projection matrix for the given `depth`. A
+    /// non-positive `depth` produces no perspective foreshortening.
     pub fn perspective_projection(depth: f32) -> Self {
         let projection = if depth > 0.0 { -1.0 / depth } else { 0.0 };
         Self {

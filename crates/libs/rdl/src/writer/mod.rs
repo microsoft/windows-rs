@@ -26,6 +26,7 @@ use r#struct::*;
 // generating rdl for backfilling definitions and for testing.
 
 #[derive(Default)]
+/// Builder that converts `.winmd` metadata into RDL.
 pub struct Writer {
     input: Vec<String>,
     filter: Vec<String>,
@@ -34,20 +35,24 @@ pub struct Writer {
 }
 
 impl Writer {
+    /// Creates a new builder with default options.
     pub fn new() -> Self {
         Self::default()
     }
 
+    /// Adds an input `.winmd` file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
         self
     }
 
+    /// Sets the output `.rdl` file or directory path.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
+    /// Adds multiple input `.winmd` files.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -60,6 +65,7 @@ impl Writer {
         self
     }
 
+    /// Adds multiple filter rules. See [`filter`][Self::filter].
     pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -86,11 +92,13 @@ impl Writer {
         self
     }
 
+    /// Writes each namespace to a separate file when `true`.
     pub fn split(&mut self, split: bool) -> &mut Self {
         self.split = split;
         self
     }
 
+    /// Converts the inputs and writes the RDL to the configured output.
     pub fn write(&self) -> Result<(), Error> {
         let mut files = vec![];
 

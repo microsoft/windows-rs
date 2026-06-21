@@ -10,6 +10,7 @@ pub struct GpuDevice {
 }
 
 impl GpuDevice {
+    /// Creates a new hardware-accelerated GPU device.
     pub fn new() -> Result<Self> {
         unsafe { Self::create(false) }
     }
@@ -74,6 +75,7 @@ impl GpuDevice {
         })
     }
 
+    /// Creates a swap chain for off-screen or composition rendering.
     pub fn create_swap_chain(&self, width: u32, height: u32) -> Result<SwapChain> {
         SwapChain::new(self, width, height)
     }
@@ -92,18 +94,22 @@ impl GpuDevice {
         SwapChain::new_for_hwnd(self, hwnd, width, height)
     }
 
+    /// Returns the underlying `ID3D11Device`.
     pub fn d3d_device(&self) -> &ID3D11Device {
         &self.d3d_device
     }
 
+    /// Returns the underlying `ID2D1Device`.
     pub fn d2d_device(&self) -> &ID2D1Device {
         &self.d2d_device
     }
 
+    /// Returns the underlying `ID2D1Factory1`.
     pub fn d2d_factory(&self) -> &ID2D1Factory1 {
         &self.d2d_factory
     }
 
+    /// Creates a stroke style from the given builder.
     pub fn create_stroke_style(&self, builder: &StrokeStyleBuilder) -> Result<StrokeStyle> {
         let props = builder.to_abi();
         unsafe {
@@ -113,10 +119,12 @@ impl GpuDevice {
         }
     }
 
+    /// Returns the underlying `IDXGIFactory2`.
     pub fn dxgi_factory(&self) -> &IDXGIFactory2 {
         &self.dxgi_factory
     }
 
+    /// Returns the underlying `IDWriteFactory`.
     pub fn dwrite_factory(&self) -> &IDWriteFactory {
         &self.dwrite_factory
     }

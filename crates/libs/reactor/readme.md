@@ -1,1 +1,31 @@
-## Windows Reactor is a UI library for Rust developers backed by WinUI
+## Windows Reactor
+
+Windows Reactor is a declarative UI library for Rust developers, backed by WinUI 3. It uses a React-like component model — render functions, hooks for state, and a builder-pattern DSL for composing UI elements.
+
+> **Status:** experimental and pre-release (`0.0.0`). The API is evolving and the crate is not yet published to crates.io.
+
+* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
+* [Reactor guide](https://github.com/microsoft/windows-rs/blob/master/docs/guide/windows-reactor.md)
+
+A minimal app defines a render function `fn(&mut RenderCx) -> Element` and passes it to `App::render`:
+
+```rust,no_run
+use windows_reactor::*;
+
+fn app(cx: &mut RenderCx) -> Element {
+    let (count, set_count) = cx.use_state(0_i32);
+
+    vstack((
+        text_block(format!("count = {count}")).font_size(18.0).bold(),
+        button("Click").on_click(move || set_count.call(count + 1)),
+    ))
+    .spacing(12.0)
+    .into()
+}
+
+fn main() -> windows_core::Result<()> {
+    App::new().title("My App").render(app)
+}
+```
+
+Widget builders convert to `Element` via `.into()`, and `cx.use_state` returns the current value plus a handle whose `call` schedules a rerender. See the [reactor guide](https://github.com/microsoft/windows-rs/blob/master/docs/guide/windows-reactor.md) for components, hooks, layout, styling, and the full widget catalog.

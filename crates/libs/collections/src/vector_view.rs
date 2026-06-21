@@ -147,6 +147,7 @@ where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
 {
+    /// Creates a read-only `IVectorView<T>` over the given values.
     fn from(values: Vec<T::Default>) -> Self {
         ComObject::new(StockVectorView { values }).into_interface()
     }

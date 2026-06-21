@@ -1,5 +1,6 @@
 #![doc = include_str!("../readme.md")]
 #![expect(non_snake_case, non_upper_case_globals, non_camel_case_types)]
+#![allow(missing_docs)]
 
 use std::cmp::Ordering;
 use std::collections::*;

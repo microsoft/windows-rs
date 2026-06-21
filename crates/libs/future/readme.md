@@ -15,7 +15,7 @@ version = "0.3"
 
 Use the Windows async types as needed:
 
-```rust,ignore
+```rust,no_run
 use windows_future::*;
 
 // This result will be available immediately.

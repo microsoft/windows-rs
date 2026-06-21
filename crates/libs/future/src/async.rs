@@ -1,35 +1,39 @@
 use super::*;
 
-// An `Async` represents a WinRT async execution object or type. There are precisely four such types:
-// - IAsyncAction
-// - IAsyncActionWithProgress
-// - IAsyncOperation
-// - IAsyncOperationWithProgress
-//
-// All four implementations are provided here and there is thus no need to implement this trait.
-// This trait provides an abstraction over the relevant differences so that the various async
-// capabilities in this crate can be reused for all implementations.
+/// Represents a WinRT async execution object or type. There are precisely four
+/// such types:
+/// - [`IAsyncAction`]
+/// - [`IAsyncActionWithProgress`]
+/// - [`IAsyncOperation`]
+/// - [`IAsyncOperationWithProgress`]
+///
+/// All four implementations are provided by this crate, so there is no need to
+/// implement this trait yourself. It abstracts over the relevant differences so
+/// that the crate's async capabilities can be reused across all four.
 pub trait Async: Interface {
-    // The type of value produced on completion.
+    /// The type of value produced on completion.
     type Output: Clone;
 
-    // The type of the delegate use for completion notification.
+    /// The type of the delegate used for completion notification.
     type CompletedHandler: Interface;
 
-    // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
+    /// Sets the handler to invoke when execution completes. This handler can
+    /// only be set once.
     fn set_completed<F: Fn(&Self) + Send + 'static>(&self, handler: F) -> Result<()>;
 
-    // Calls the given handler with the current object and status.
+    /// Calls the given handler with the current object and status.
     #[cfg(feature = "std")]
     fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus);
 
-    // Returns the value produced on completion. This should only be called when execution completes.
+    /// Returns the value produced on completion. This should only be called once
+    /// execution completes.
     fn get_results(&self) -> Result<Self::Output>;
 
-    // Gets the current status of async execution. This calls `QueryInterface` so should be used sparingly.
+    /// Gets the current status of async execution. This calls `QueryInterface`
+    /// so should be used sparingly.
     fn status(&self) -> Result<AsyncStatus>;
 
-    // Waits for the async execution to finish and then returns the results.
+    /// Waits for the async execution to finish and then returns the results.
     fn join(&self) -> Result<Self::Output> {
         if self.status()? == AsyncStatus::Started {
             let (waiter, signaler) = Waiter::new()?;
@@ -44,7 +48,7 @@ pub trait Async: Interface {
         self.get_results()
     }
 
-    // Calls `op(result)` when async execution completes.
+    /// Calls `op(result)` when async execution completes.
     fn when<F>(&self, op: F) -> Result<()>
     where
         F: FnOnce(Result<Self::Output>) + Send + 'static,

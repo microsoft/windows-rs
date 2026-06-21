@@ -1,11 +1,17 @@
+/// An error produced while reading, writing, or formatting RDL.
 pub struct Error {
+    /// Human-readable description of what went wrong.
     pub message: String,
+    /// Name of the file in which the error occurred, if known.
     pub file_name: String,
+    /// Line number of the error, or `0` if not applicable.
     pub line: usize,
+    /// Zero-based column number of the error, or `0` if not applicable.
     pub column: usize,
 }
 
 impl Error {
+    /// Creates a new error with the given message and source location.
     pub fn new(message: &str, file_name: &str, line: usize, column: usize) -> Self {
         Self {
             message: message.to_string(),

@@ -1,0 +1,77 @@
+[package]
+name = "test_docs"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+# This crate exists solely to compile-verify the code samples in `docs/guide/*.md`
+# as rustdoc doctests. Each guide page is included as documentation below, so
+# `cargo test --doc -p test_docs` typechecks every non-`ignore` sample against
+# the real crate APIs.
+
+[dependencies.windows-animation]
+workspace = true
+
+[dependencies.windows-bindgen]
+workspace = true
+
+[dependencies.windows-canvas]
+workspace = true
+
+[dependencies.windows-collections]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-core]
+workspace = true
+features = ["std", "proc-macros"]
+
+[dependencies.windows-future]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-link]
+workspace = true
+
+[dependencies.windows-metadata]
+workspace = true
+
+[dependencies.windows-numerics]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-reactor]
+workspace = true
+
+[dependencies.windows-reference]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-registry]
+workspace = true
+
+[dependencies.windows-result]
+workspace = true
+
+[dependencies.windows-services]
+workspace = true
+
+[dependencies.windows-strings]
+workspace = true
+
+[dependencies.windows-targets]
+workspace = true
+
+[dependencies.windows-threading]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-time]
+workspace = true
+features = ["std"]
+
+[dependencies.windows-version]
+workspace = true
+
+[lints]
+workspace = true

@@ -54,6 +54,7 @@ mod minimal_type_map;
 use method_names::*;
 use minimal_type_map::*;
 
+/// Creates a new [`Bindgen`] builder for generating Windows API bindings.
 pub fn builder() -> Bindgen {
     Bindgen::new()
 }
@@ -133,6 +134,7 @@ impl Style {
 }
 
 impl Bindgen {
+    /// Creates a new builder with default options.
     pub fn new() -> Self {
         Self::default()
     }

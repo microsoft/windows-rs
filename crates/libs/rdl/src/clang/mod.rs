@@ -313,6 +313,7 @@ impl<'a> Parser<'a> {
 }
 
 #[derive(Default)]
+/// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
     input: Vec<String>,
     input_str: Vec<String>,
@@ -325,15 +326,18 @@ pub struct Clang {
 }
 
 impl Clang {
+    /// Creates a new builder with default options.
     pub fn new() -> Self {
         Self::default()
     }
 
+    /// Adds an input header (`.h`) or `.winmd` file or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
         self
     }
 
+    /// Adds multiple input headers or `.winmd` files.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -345,21 +349,25 @@ impl Clang {
         self
     }
 
+    /// Adds inline source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
         self
     }
 
+    /// Sets the output `.rdl` file path.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
+    /// Sets the namespace for the generated types.
     pub fn namespace(&mut self, namespace: &str) -> &mut Self {
         self.namespace = namespace.to_string();
         self
     }
 
+    /// Sets the library name recorded for imported functions.
     pub fn library(&mut self, library: &str) -> &mut Self {
         self.library = library.to_string();
         self
@@ -402,6 +410,7 @@ impl Clang {
         self
     }
 
+    /// Adds multiple compiler arguments to pass to libclang.
     pub fn args<I>(&mut self, args: I) -> &mut Self
     where
         I: IntoIterator,
@@ -431,6 +440,7 @@ impl Clang {
         Ok(lib.version())
     }
 
+    /// Generates the RDL and writes it to the configured output.
     pub fn write(&self) -> Result<(), Error> {
         let (h_paths, winmd_paths) = expand_input_paths(&self.input, "h", "winmd")?;
 

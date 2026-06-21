@@ -15,7 +15,7 @@ version = "0.2"
 
 Use the `link` macro to define the external functions you wish to call:
 
-```rust,ignore
+```rust,no_run
 windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
 windows_link::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 
@@ -30,7 +30,7 @@ alias of the same name describing the function's signature. This is handy
 when you need to store or pass around the function pointer (for example,
 after resolving the symbol at runtime via `GetProcAddress`):
 
-```rust,ignore
+```rust,no_run
 windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
 // `GetTickCount` is also available as a function-pointer type:
 let f: GetTickCount = GetTickCount;

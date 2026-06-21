@@ -285,6 +285,7 @@ where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
 {
+    /// Creates an `IObservableVector<T>` containing the given values.
     fn from(values: Vec<T::Default>) -> Self {
         ComObject::new(StockObservableVector {
             values: std::sync::RwLock::new(values),
