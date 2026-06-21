@@ -6,7 +6,6 @@
 - 📖 [API reference (docs.rs)](https://docs.rs/windows)
 - 🛠 [Internals](../internals/windows.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
-- 🔎 [Feature search](https://microsoft.github.io/windows-rs/features)
 
 ## Overview
 
@@ -26,8 +25,8 @@ features = [
 ]
 ```
 
-Use the [feature search](https://microsoft.github.io/windows-rs/features) to find
-which feature enables a given type or function.
+The [API reference](https://docs.rs/windows) shows which feature enables a given
+type or function.
 
 ## Example
 

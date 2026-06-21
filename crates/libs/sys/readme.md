@@ -5,7 +5,6 @@ The `windows-sys` crate is a zero-overhead fallback for the most demanding situa
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
-* [Feature search](https://microsoft.github.io/windows-rs/features)
 
 Start by adding the following to your Cargo.toml file:
 

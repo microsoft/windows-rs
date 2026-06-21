@@ -5,7 +5,6 @@ This repo provides a comprehensive set of Rust crates for building Windows appli
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
-* [Feature search](https://microsoft.github.io/windows-rs/features)
 
 ## How these docs are organized
 

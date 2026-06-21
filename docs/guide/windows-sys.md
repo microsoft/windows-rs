@@ -6,7 +6,6 @@
 - 📖 [API reference (docs.rs)](https://docs.rs/windows-sys)
 - 🛠 [Internals](../internals/windows-sys.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
-- 🔎 [Feature search](https://microsoft.github.io/windows-rs/features)
 
 ## Overview
 

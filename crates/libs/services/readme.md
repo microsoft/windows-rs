@@ -16,13 +16,11 @@ version = "0.26"
 Use the Windows services support as needed. Here is how you might write a simple Windows services process:
 
 ```rust,no_run
-fn main() {
-    windows_services::Service::new()
-        .can_pause()
-        .can_stop()
-        .run(|service, command| {
-            // Respond to service commands...
-        })
-        .unwrap();
-}
+windows_services::Service::new()
+    .can_pause()
+    .can_stop()
+    .run(|service, command| {
+        // Respond to service commands...
+    })
+    .unwrap();
 ```
