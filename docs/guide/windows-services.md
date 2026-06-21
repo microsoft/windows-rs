@@ -17,13 +17,11 @@ manager. Your closure receives the service handle and each incoming command.
 ## Example
 
 ```rust,no_run
-fn main() {
-    windows_services::Service::new()
-        .can_pause()
-        .can_stop()
-        .run(|_service, _command| {
-            // Respond to service commands...
-        })
-        .unwrap();
-}
+windows_services::Service::new()
+    .can_pause()
+    .can_stop()
+    .run(|_service, _command| {
+        // Respond to service commands...
+    })
+    .unwrap();
 ```
