@@ -13,6 +13,20 @@ Direct3D 11, DXGI, DirectWrite, and WIC. The safe wrappers (`GpuDevice`,
 optional `reactor` feature integrates with `windows-reactor` through
 `animated_canvas`.
 
+## Design
+
+- **No WinRT layer** — the safe types wrap Direct2D/Direct3D/DXGI directly, not
+  Win2D's WinRT projections.
+- **Single-threaded rendering** — a `SwapChain` owns one D2D device context;
+  there is no context pool. Rendering happens on whichever thread owns the swap
+  chain.
+- **One built-in render loop** — `animated_canvas` (reactor feature) drives
+  frames on the UI thread via `CompositionTarget::Rendering`. There is no
+  dedicated render-thread variant.
+- **Automatic device-lost recovery** — `device_lost.rs` classifies the DXGI/D2D
+  device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain
+  recreates its device and resources on the next frame.
+
 ## Testing
 
 Tests render with the WARP software rasterizer, so they need no GPU:
