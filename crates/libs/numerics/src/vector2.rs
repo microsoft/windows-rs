@@ -1,38 +1,50 @@
 use super::*;
 
 impl Vector2 {
+    /// Creates a vector from its `x` and `y` components.
     pub fn new(x: f32, y: f32) -> Self {
         Self { x, y }
     }
+    /// Returns the vector `(0, 0)`.
     pub fn zero() -> Self {
         Self { x: 0f32, y: 0f32 }
     }
+    /// Returns the vector `(1, 1)`.
     pub fn one() -> Self {
         Self { x: 1f32, y: 1f32 }
     }
+    /// Returns the unit vector `(1, 0)`.
     pub fn unit_x() -> Self {
         Self { x: 1.0, y: 0.0 }
     }
+    /// Returns the unit vector `(0, 1)`.
     pub fn unit_y() -> Self {
         Self { x: 0.0, y: 1.0 }
     }
+    /// Returns the dot product of `self` and `rhs`.
     pub fn dot(&self, rhs: &Self) -> f32 {
         self.x * rhs.x + self.y * rhs.y
     }
+    /// Returns the squared length of the vector, avoiding the square root
+    /// computed by [`length`](Self::length).
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
     }
+    /// Returns the length (magnitude) of the vector.
     #[cfg(feature = "std")]
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
+    /// Returns the distance between the points `self` and `value`.
     #[cfg(feature = "std")]
     pub fn distance(&self, value: &Self) -> f32 {
         (self - value).length()
     }
+    /// Returns the squared distance between the points `self` and `value`.
     pub fn distance_squared(&self, value: &Self) -> f32 {
         (self - value).length_squared()
     }
+    /// Returns a unit vector pointing in the same direction as `self`.
     #[cfg(feature = "std")]
     pub fn normalize(&self) -> Self {
         self / self.length()

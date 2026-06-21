@@ -1,6 +1,7 @@
 use super::*;
 
 impl Matrix3x2 {
+    /// Returns the identity matrix (no transform).
     pub const fn identity() -> Self {
         Self {
             m11: 1.0,
@@ -11,6 +12,7 @@ impl Matrix3x2 {
             m32: 0.0,
         }
     }
+    /// Returns a matrix that translates by `(x, y)`.
     pub const fn translation(x: f32, y: f32) -> Self {
         Self {
             m11: 1.0,
@@ -21,10 +23,12 @@ impl Matrix3x2 {
             m32: y,
         }
     }
+    /// Returns a matrix that rotates by `angle` degrees about the origin.
     #[cfg(feature = "std")]
     pub fn rotation(angle: f32) -> Self {
         Self::rotation_around(angle, Vector2::zero())
     }
+    /// Returns a matrix that rotates by `angle` degrees about `center`.
     #[cfg(feature = "std")]
     pub fn rotation_around(angle: f32, center: Vector2) -> Self {
         let (sin, cos) = angle.to_radians().sin_cos();
@@ -37,9 +41,11 @@ impl Matrix3x2 {
             m32: center.y * (1.0 - cos) - center.x * sin,
         }
     }
+    /// Returns a matrix that scales by `scale_x` and `scale_y` about the origin.
     pub fn scale(scale_x: f32, scale_y: f32) -> Self {
         Self::scale_around(scale_x, scale_y, Vector2::zero())
     }
+    /// Returns a matrix that scales by `scale_x` and `scale_y` about `center`.
     pub fn scale_around(scale_x: f32, scale_y: f32, center: Vector2) -> Self {
         Self {
             m11: scale_x,
@@ -50,10 +56,14 @@ impl Matrix3x2 {
             m32: center.y - scale_y * center.y,
         }
     }
+    /// Returns a matrix that skews by `angle_x` and `angle_y` degrees about
+    /// the origin.
     #[cfg(feature = "std")]
     pub fn skew(angle_x: f32, angle_y: f32) -> Self {
         Self::skew_around(angle_x, angle_y, Vector2::zero())
     }
+    /// Returns a matrix that skews by `angle_x` and `angle_y` degrees about
+    /// `center`.
     #[cfg(feature = "std")]
     pub fn skew_around(angle_x: f32, angle_y: f32, center: Vector2) -> Self {
         let tan_x = angle_x.to_radians().tan();

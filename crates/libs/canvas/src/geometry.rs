@@ -16,6 +16,7 @@ pub struct Path {
 }
 
 impl Path {
+    /// Returns the underlying `ID2D1PathGeometry1`.
     pub fn raw(&self) -> &ID2D1PathGeometry1 {
         &self.raw
     }
@@ -37,6 +38,7 @@ pub struct PathBuilder {
 }
 
 impl PathBuilder {
+    /// Creates a new path builder for the given device.
     pub fn new(device: &GpuDevice) -> Result<Self> {
         let geometry = unsafe { device.d2d_factory().CreatePathGeometry()? };
         let sink = unsafe { geometry.Open()? };
@@ -83,11 +85,13 @@ pub struct PathFigure {
 }
 
 impl PathFigure {
+    /// Adds a straight line segment to the given point.
     pub fn line_to(self, point: Vector2) -> Self {
         unsafe { self.sink.AddLine(point) };
         self
     }
 
+    /// Adds a cubic Bézier segment with the given control points and end point.
     pub fn bezier_to(self, control1: Vector2, control2: Vector2, end: Vector2) -> Self {
         let segment = D2D1_BEZIER_SEGMENT {
             point1: control1,

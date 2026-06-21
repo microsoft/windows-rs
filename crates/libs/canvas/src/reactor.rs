@@ -7,12 +7,15 @@ use windows_reactor::*;
 pub struct DrawContext<'a> {
     session: DrawingSession<'a>,
     device: &'a GpuDevice,
+    /// Width of the drawing surface, in device-independent pixels.
     pub width: f32,
+    /// Height of the drawing surface, in device-independent pixels.
     pub height: f32,
     changed: bool,
 }
 
 impl<'a> DrawContext<'a> {
+    /// Returns the GPU device backing this context.
     pub fn device(&self) -> &GpuDevice {
         self.device
     }
@@ -22,6 +25,7 @@ impl<'a> DrawContext<'a> {
         self.changed
     }
 
+    /// Clears the surface to the given color.
     pub fn clear(&self, color: ColorF) {
         self.session.clear(color);
     }

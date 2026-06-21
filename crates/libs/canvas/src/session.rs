@@ -18,11 +18,13 @@ impl<'a> DrawingSession<'a> {
         })
     }
 
+    /// Clears the entire session to the given color.
     pub fn clear(&self, color: ColorF) {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.Clear(Some(&c)) };
     }
 
+    /// Draws a straight line between two points.
     pub fn draw_line(&self, p0: Vector2, p1: Vector2, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -30,6 +32,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a straight line using the given stroke style.
     pub fn draw_line_styled(
         &self,
         p0: Vector2,
@@ -44,6 +47,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a rectangle.
     pub fn draw_rect(&self, rect: &Rect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -51,6 +55,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a rectangle using the given stroke style.
     pub fn draw_rect_styled(
         &self,
         rect: &Rect,
@@ -64,6 +69,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a rectangle.
     pub fn fill_rect(&self, rect: &Rect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -71,6 +77,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a rounded rectangle.
     pub fn draw_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -78,6 +85,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a rounded rectangle using the given stroke style.
     pub fn draw_rounded_rect_styled(
         &self,
         rect: &RoundedRect,
@@ -95,6 +103,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a rounded rectangle.
     pub fn fill_rounded_rect(&self, rect: &RoundedRect, brush: &impl Paint) {
         unsafe {
             self.context
@@ -102,6 +111,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of an ellipse.
     pub fn draw_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -109,6 +119,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of an ellipse using the given stroke style.
     pub fn draw_ellipse_styled(
         &self,
         ellipse: &Ellipse,
@@ -122,6 +133,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills an ellipse.
     pub fn fill_ellipse(&self, ellipse: &Ellipse, brush: &impl Paint) {
         unsafe {
             self.context
@@ -129,6 +141,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
         let c: D2D1_COLOR_F = color.into();
         unsafe { self.context.CreateSolidColorBrush(&c, None).map(Brush) }
@@ -185,6 +198,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws text within a rectangle using the given format and brush.
     pub fn draw_text(&self, text: &str, format: &TextFormat, rect: &Rect, brush: &impl Paint) {
         let wide: Vec<u16> = text.encode_utf16().collect();
         unsafe {
@@ -199,6 +213,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a path.
     pub fn draw_path(&self, path: &Path, brush: &impl Paint, width: f32) {
         unsafe {
             self.context
@@ -206,6 +221,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the outline of a path using the given stroke style.
     pub fn draw_path_styled(
         &self,
         path: &Path,
@@ -219,6 +235,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Fills a path.
     pub fn fill_path(&self, path: &Path, brush: &impl Paint) {
         unsafe {
             self.context
@@ -226,6 +243,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws a bitmap into the destination rectangle with the given opacity.
     pub fn draw_bitmap(&self, bitmap: &Bitmap, dest: &Rect, opacity: f32) {
         unsafe {
             self.context.DrawBitmap(
@@ -239,14 +257,17 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Loads a bitmap from an image file.
     pub fn load_bitmap(&self, path: impl AsRef<std::path::Path>) -> Result<Bitmap> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
 
+    /// Sets the current transform.
     pub fn set_transform(&self, transform: &Matrix3x2) {
         unsafe { self.context.SetTransform(transform) };
     }
 
+    /// Returns the current transform.
     pub fn get_transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
@@ -261,10 +282,12 @@ impl<'a> DrawingSession<'a> {
         self.set_transform(&prev);
     }
 
+    /// Returns the underlying `ID2D1DeviceContext`.
     pub fn raw(&self) -> &ID2D1DeviceContext {
         self.context
     }
 
+    /// Creates a bitmap suitable for use as a render target.
     pub fn create_bitmap_target(&self) -> Result<Bitmap> {
         unsafe {
             let mut dpi_x = 0.0f32;
@@ -289,6 +312,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Creates a shadow effect from the given bitmap.
     pub fn create_shadow(&self, source: &Bitmap) -> Result<Effect> {
         unsafe {
             let effect = self.context.CreateEffect(&CLSID_D2D1Shadow)?;
@@ -323,6 +347,7 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Draws the output of an effect.
     pub fn draw_effect(&self, effect: &Effect) {
         if let Ok(output) = unsafe { effect.0.GetOutput() } {
             unsafe {

@@ -267,6 +267,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
+    /// Creates an `IObservableMap<K, V>` from the given key/value pairs.
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
         ComObject::new(StockObservableMap {
             map: std::sync::RwLock::new(map),

@@ -155,6 +155,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
+    /// Creates a read-only `IMapView<K, V>` from the given key/value pairs.
     fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
         ComObject::new(StockMapView { map }).into_interface()
     }

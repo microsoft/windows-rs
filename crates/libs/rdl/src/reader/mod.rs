@@ -40,6 +40,7 @@ use union::*;
 use windows_metadata as metadata;
 
 #[derive(Default)]
+/// Builder that compiles RDL files into `.winmd` metadata.
 pub struct Reader {
     input: Vec<String>,
     input_str: Vec<String>,
@@ -47,20 +48,24 @@ pub struct Reader {
 }
 
 impl Reader {
+    /// Creates a new builder with default options.
     pub fn new() -> Self {
         Self::default()
     }
 
+    /// Adds an input `.rdl` file (or `.winmd` reference) or directory.
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
         self
     }
 
+    /// Adds inline RDL source text to compile instead of a file on disk.
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
         self
     }
 
+    /// Adds multiple input `.rdl` files or `.winmd` references.
     pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
@@ -73,11 +78,13 @@ impl Reader {
         self
     }
 
+    /// Sets the output `.winmd` file path.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
+    /// Compiles the inputs and writes the `.winmd` to the configured output.
     pub fn write(&self) -> Result<(), Error> {
         if self.output.is_empty() {
             return Err(Error::new("output is required", "", 0, 0));

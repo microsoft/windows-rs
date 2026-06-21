@@ -6,6 +6,7 @@ pub enum TextAlignment {
     /// Align to the leading edge (left in LTR).
     #[default]
     Leading,
+    /// Center horizontally.
     Center,
     /// Align to the trailing edge (right in LTR).
     Trailing,
@@ -14,9 +15,12 @@ pub enum TextAlignment {
 /// Vertical paragraph alignment.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum ParagraphAlignment {
+    /// Align to the top edge.
     #[default]
     Top,
+    /// Center vertically.
     Center,
+    /// Align to the bottom edge.
     Bottom,
 }
 
@@ -25,7 +29,9 @@ pub enum ParagraphAlignment {
 pub struct FontWeight(pub i32);
 
 impl FontWeight {
+    /// Normal (regular) weight, 400.
     pub const NORMAL: Self = Self(400);
+    /// Bold weight, 700.
     pub const BOLD: Self = Self(700);
 }
 
@@ -47,14 +53,17 @@ pub struct TextFormat {
 }
 
 impl TextFormat {
+    /// Creates a text format with normal weight.
     pub fn new(family: &str, size: f32) -> Result<Self> {
         Self::with_weight(family, size, FontWeight::NORMAL)
     }
 
+    /// Creates a text format with bold weight.
     pub fn new_bold(family: &str, size: f32) -> Result<Self> {
         Self::with_weight(family, size, FontWeight::BOLD)
     }
 
+    /// Creates a text format with the given font weight.
     pub fn with_weight(family: &str, size: f32, weight: FontWeight) -> Result<Self> {
         let factory = dwrite_factory()?;
 
@@ -76,6 +85,7 @@ impl TextFormat {
         Ok(Self { raw })
     }
 
+    /// Sets the horizontal text alignment.
     pub fn with_alignment(self, alignment: TextAlignment) -> Self {
         let value = match alignment {
             TextAlignment::Leading => DWRITE_TEXT_ALIGNMENT_LEADING,
@@ -86,6 +96,7 @@ impl TextFormat {
         self
     }
 
+    /// Sets the vertical paragraph alignment.
     pub fn with_paragraph_alignment(self, alignment: ParagraphAlignment) -> Self {
         let value = match alignment {
             ParagraphAlignment::Top => DWRITE_PARAGRAPH_ALIGNMENT_NEAR,
@@ -96,6 +107,7 @@ impl TextFormat {
         self
     }
 
+    /// Returns the underlying `IDWriteTextFormat`.
     pub fn raw(&self) -> &IDWriteTextFormat {
         &self.raw
     }

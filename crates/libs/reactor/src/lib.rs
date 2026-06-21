@@ -1,4 +1,5 @@
 #![doc = include_str!("../readme.md")]
+#![allow(missing_docs)]
 
 #[allow(
     non_snake_case,

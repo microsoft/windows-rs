@@ -59,12 +59,19 @@ unsafe impl Sync for ExtendedCommand {}
 /// the `set_state` function.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum State {
+    /// The service continue is pending.
     ContinuePending,
+    /// The service is paused.
     Paused,
+    /// The service pause is pending.
     PausePending,
+    /// The service is running.
     Running,
+    /// The service start is pending.
     StartPending,
+    /// The service is stopped.
     Stopped,
+    /// The service stop is pending.
     StopPending,
 }
 

@@ -2,6 +2,7 @@
 
 mod clang;
 mod error;
+/// Helpers for formatting generated RDL source.
 pub mod formatter;
 mod reader;
 mod writer;
@@ -17,14 +18,17 @@ use quote::{format_ident, quote};
 pub use reader::Reader;
 pub use writer::Writer;
 
+/// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
 pub fn reader() -> Reader {
     Reader::new()
 }
 
+/// Creates a [`Writer`] that converts `.winmd` metadata into RDL.
 pub fn writer() -> Writer {
     Writer::new()
 }
 
+/// Creates a [`Clang`] that generates RDL from C/C++ headers using libclang.
 pub fn clang() -> Clang {
     Clang::new()
 }

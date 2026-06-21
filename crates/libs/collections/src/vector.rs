@@ -215,6 +215,7 @@ where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
 {
+    /// Creates a mutable `IVector<T>` containing the given values.
     fn from(values: Vec<T::Default>) -> Self {
         ComObject::new(StockVector {
             values: std::sync::RwLock::new(values),

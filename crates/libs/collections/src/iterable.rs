@@ -105,6 +105,7 @@ where
     T: RuntimeType,
     T::Default: Clone,
 {
+    /// Creates an `IIterable<T>` that yields the given values.
     fn from(values: Vec<T::Default>) -> Self {
         ComObject::new(StockIterable { values }).into_interface()
     }

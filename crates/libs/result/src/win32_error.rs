@@ -29,6 +29,7 @@ impl WIN32_ERROR {
         } as i32)
     }
 
+    /// Returns the Win32 error contained in `error`, if it represents one.
     #[inline]
     pub fn from_error(error: &Error) -> Option<Self> {
         let hresult = error.code().0 as u32;
@@ -40,6 +41,7 @@ impl WIN32_ERROR {
         }
     }
 
+    /// Converts the error to a [`Result`], treating a successful code as `Ok`.
     #[inline]
     pub fn ok(self) -> Result<()> {
         self.to_hresult().ok()

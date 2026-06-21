@@ -1,5 +1,6 @@
 use proc_macro2::{Delimiter, Group, Spacing, TokenStream, TokenTree};
 
+/// Formats RDL source into canonical indented form.
 pub fn format(input: &str) -> String {
     let stream: TokenStream = input.parse().unwrap_or_default();
     let tokens: Vec<TokenTree> = stream.into_iter().collect();
