@@ -25,6 +25,7 @@ impl DownloadState {
 
 /// Why a [`DownloadOperation`] was [interrupted](DownloadState::Interrupted).
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
 pub enum DownloadInterruptReason {
     /// No interruption; the download is progressing or completed.
     None,

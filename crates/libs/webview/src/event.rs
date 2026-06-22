@@ -148,6 +148,7 @@ impl NewWindowRequestedArgs {
 /// The kind of capability a page is requesting in a
 /// [`PermissionRequestedArgs`].
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
 pub enum PermissionKind {
     Unknown,
     Microphone,
