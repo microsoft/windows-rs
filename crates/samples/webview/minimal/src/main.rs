@@ -14,7 +14,7 @@ mod bindings;
 use bindings::*;
 use std::cell::RefCell;
 use windows_core::*;
-use windows_webview::Controller;
+use windows_webview::{Controller, Environment};
 
 thread_local! {
     static CONTROLLER: RefCell<Option<Controller>> = const { RefCell::new(None) };
@@ -83,25 +83,14 @@ fn main() -> Result<()> {
             std::ptr::null_mut(),
         );
 
-        windows_webview::create_environment(move |environment| {
-            let Ok(environment) = environment else {
-                return;
-            };
+        let environment = Environment::new()?;
+        let controller = environment.create_controller(window)?;
 
-            let _ = environment.create_controller(window, move |controller| {
-                let Ok(controller) = controller else {
-                    return;
-                };
-
-                resize(&controller, window);
-
-                if let Ok(webview) = controller.webview() {
-                    let _ = webview.navigate("https://github.com/microsoft/windows-rs");
-                }
-
-                CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
-            });
-        })?;
+        resize(&controller, window);
+        controller
+            .webview()?
+            .navigate("https://github.com/microsoft/windows-rs")?;
+        CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
 
         let mut message = MSG::default();
         while GetMessageA(&mut message, std::ptr::null_mut(), 0, 0).as_bool() {

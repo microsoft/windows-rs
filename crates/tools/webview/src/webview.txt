@@ -14,3 +14,8 @@
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
+
+    Windows.Win32.UI.WindowsAndMessaging.GetMessageW
+    Windows.Win32.UI.WindowsAndMessaging.TranslateMessage
+    Windows.Win32.UI.WindowsAndMessaging.DispatchMessageW
+    Windows.Win32.UI.WindowsAndMessaging.MSG

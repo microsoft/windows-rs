@@ -43,6 +43,7 @@ Contributor notes on how each crate is built and maintained — the codegen pipe
 - [windows-reactor](windows-reactor.md) — A declarative UI library for Rust, backed by WinUI 3.
 - [windows-canvas](windows-canvas.md) — A safe, fast 2D graphics library backed by Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC.
 - [windows-animation](windows-animation.md) — A safe wrapper around the Windows Animation Manager (`IUIAnimationManager`).
+- [windows-webview](windows-webview.md) — A safe wrapper around the WebView2 COM APIs for hosting the Edge (Chromium) browser.
 - [windows-reactor-setup](windows-reactor-setup.md) — Installs the Windows App Runtime dependency required by `windows-reactor` apps.
 
 ## Codegen & metadata tooling

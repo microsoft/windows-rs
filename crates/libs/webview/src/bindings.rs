@@ -1,4 +1,7 @@
 windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
+windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type HWND = *mut core::ffi::c_void;
 windows_core::imp::define_interface!(
     ICoreWebView2,
@@ -446,7 +449,25 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
+pub type LPARAM = isize;
 pub type LPCWSTR = *const WCHAR;
+pub type LRESULT = isize;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MSG {
+    pub hwnd: HWND,
+    pub message: u32,
+    pub wParam: WPARAM,
+    pub lParam: LPARAM,
+    pub time: u32,
+    pub pt: POINT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECT {
@@ -456,3 +477,4 @@ pub struct RECT {
     pub bottom: i32,
 }
 pub type WCHAR = u16;
+pub type WPARAM = usize;
