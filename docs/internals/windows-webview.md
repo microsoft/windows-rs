@@ -44,6 +44,18 @@ The same filter also pulls a few Win32 symbols from the bundled `default` winmd
 synchronous pump (see below), so the crate needs no dependency on the `windows`
 crate.
 
+The filter also passes `--dead-code`, which emits the generated methods as
+`pub(crate)` instead of `pub` so the compiler's dead-code lint flags any binding
+the crate stops using. (Free functions go through the `link!` macro and can't be
+`pub(crate)`, but interface methods can.) Implemented interfaces (the handlers and
+`ICoreWebView2EnvironmentOptions`) are listed only in `--implement`, never in
+`--filter`: they are reached as parameters of the `add_*`/factory methods, and
+`--minimal` + `--implement` emits each one's `_Impl` trait and vtable **without**
+a caller-side method wrapper — so there are no dead `Invoke` getters to lint
+around. (This caller-side suppression for implemented C++/COM interfaces was added
+to `windows-bindgen`'s `cpp_interface` path to match the existing WinRT
+`interface` path; see `crates/libs/bindgen/src/types/cpp_interface.rs`.)
+
 ## Implementing handlers without proc-macros
 
 The completion handlers (`EnvironmentCompleted`, `ControllerCompleted`,

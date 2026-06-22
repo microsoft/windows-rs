@@ -1,6 +1,6 @@
 --in target/webview default
 --out crates/libs/webview/src/bindings.rs
---flat --minimal
+--flat --minimal --dead-code
 --implement
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
@@ -28,21 +28,9 @@
     WebView2.ICoreWebView2NavigationStartingEventArgs::{get_Uri, get_IsUserInitiated, get_IsRedirected, get_Cancel, put_Cancel, get_NavigationId}
     WebView2.ICoreWebView2WebMessageReceivedEventArgs::{get_Source, get_WebMessageAsJson, TryGetWebMessageAsString}
     WebView2.ICoreWebView2ContentLoadingEventArgs::{get_IsErrorPage, get_NavigationId}
-    WebView2.ICoreWebView2NewWindowRequestedEventArgs::{get_Uri, get_IsUserInitiated, get_Handled, put_Handled, get_NewWindow, put_NewWindow, GetDeferral}
+    WebView2.ICoreWebView2NewWindowRequestedEventArgs::{get_Uri, get_IsUserInitiated, get_Handled, put_Handled, put_NewWindow, GetDeferral}
     WebView2.ICoreWebView2PermissionRequestedEventArgs::{get_Uri, get_PermissionKind, get_IsUserInitiated, get_State, put_State, GetDeferral}
     WebView2.ICoreWebView2Deferral::Complete
-    WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
-    WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
-    WebView2.ICoreWebView2ExecuteScriptCompletedHandler
-    WebView2.ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
-    WebView2.ICoreWebView2NavigationCompletedEventHandler
-    WebView2.ICoreWebView2WebMessageReceivedEventHandler
-    WebView2.ICoreWebView2NavigationStartingEventHandler
-    WebView2.ICoreWebView2ContentLoadingEventHandler
-    WebView2.ICoreWebView2DocumentTitleChangedEventHandler
-    WebView2.ICoreWebView2WindowCloseRequestedEventHandler
-    WebView2.ICoreWebView2NewWindowRequestedEventHandler
-    WebView2.ICoreWebView2PermissionRequestedEventHandler
 
     Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree
