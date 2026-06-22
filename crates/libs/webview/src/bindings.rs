@@ -3478,6 +3478,421 @@ pub struct ICoreWebView2Settings_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings2_Vtbl,
+    0xee9a0f68_f46c_4e32_ac23_ef8cac224d2a
+);
+impl core::ops::Deref for ICoreWebView2Settings2 {
+    type Target = ICoreWebView2Settings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings2,
+    windows_core::IUnknown,
+    ICoreWebView2Settings
+);
+impl ICoreWebView2Settings2 {
+    pub(crate) unsafe fn UserAgent(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).UserAgent)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetUserAgent(&self, value: LPCWSTR) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetUserAgent)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings2_Vtbl {
+    pub base__: ICoreWebView2Settings_Vtbl,
+    pub UserAgent:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub SetUserAgent:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings3_Vtbl,
+    0xfdb5ab74_af33_4854_84f0_0a631deb5eba
+);
+impl core::ops::Deref for ICoreWebView2Settings3 {
+    type Target = ICoreWebView2Settings2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings3,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2
+);
+impl ICoreWebView2Settings3 {
+    pub(crate) unsafe fn AreBrowserAcceleratorKeysEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AreBrowserAcceleratorKeysEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetAreBrowserAcceleratorKeysEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAreBrowserAcceleratorKeysEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings3_Vtbl {
+    pub base__: ICoreWebView2Settings2_Vtbl,
+    pub AreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings4,
+    ICoreWebView2Settings4_Vtbl,
+    0xcb56846c_4168_4d53_b04f_03b6d6796ff2
+);
+impl core::ops::Deref for ICoreWebView2Settings4 {
+    type Target = ICoreWebView2Settings3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings4,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3
+);
+impl ICoreWebView2Settings4 {
+    pub(crate) unsafe fn IsPasswordAutosaveEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsPasswordAutosaveEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsPasswordAutosaveEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsPasswordAutosaveEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn IsGeneralAutofillEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsGeneralAutofillEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsGeneralAutofillEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsGeneralAutofillEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings4_Vtbl {
+    pub base__: ICoreWebView2Settings3_Vtbl,
+    pub IsPasswordAutosaveEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsPasswordAutosaveEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsGeneralAutofillEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsGeneralAutofillEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings5,
+    ICoreWebView2Settings5_Vtbl,
+    0x183e7052_1d03_43a0_ab99_98e043b66b39
+);
+impl core::ops::Deref for ICoreWebView2Settings5 {
+    type Target = ICoreWebView2Settings4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings5,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings4
+);
+impl ICoreWebView2Settings5 {
+    pub(crate) unsafe fn IsPinchZoomEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsPinchZoomEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsPinchZoomEnabled(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsPinchZoomEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings5_Vtbl {
+    pub base__: ICoreWebView2Settings4_Vtbl,
+    pub IsPinchZoomEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsPinchZoomEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings6,
+    ICoreWebView2Settings6_Vtbl,
+    0x11cb3acd_9bc8_43b8_83bf_f40753714f87
+);
+impl core::ops::Deref for ICoreWebView2Settings6 {
+    type Target = ICoreWebView2Settings5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings6,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings4,
+    ICoreWebView2Settings5
+);
+impl ICoreWebView2Settings6 {
+    pub(crate) unsafe fn IsSwipeNavigationEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsSwipeNavigationEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsSwipeNavigationEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsSwipeNavigationEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings6_Vtbl {
+    pub base__: ICoreWebView2Settings5_Vtbl,
+    pub IsSwipeNavigationEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsSwipeNavigationEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings7,
+    ICoreWebView2Settings7_Vtbl,
+    0x488dc902_35ef_42d2_bc7d_94b65c4bc49c
+);
+impl core::ops::Deref for ICoreWebView2Settings7 {
+    type Target = ICoreWebView2Settings6;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings7,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings4,
+    ICoreWebView2Settings5,
+    ICoreWebView2Settings6
+);
+#[repr(C)]
+pub struct ICoreWebView2Settings7_Vtbl {
+    pub base__: ICoreWebView2Settings6_Vtbl,
+    HiddenPdfToolbarItems: usize,
+    SetHiddenPdfToolbarItems: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings8,
+    ICoreWebView2Settings8_Vtbl,
+    0x9e6b0e8f_86ad_4e81_8147_a9b5edb68650
+);
+impl core::ops::Deref for ICoreWebView2Settings8 {
+    type Target = ICoreWebView2Settings7;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings8,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings4,
+    ICoreWebView2Settings5,
+    ICoreWebView2Settings6,
+    ICoreWebView2Settings7
+);
+#[repr(C)]
+pub struct ICoreWebView2Settings8_Vtbl {
+    pub base__: ICoreWebView2Settings7_Vtbl,
+    IsReputationCheckingRequired: usize,
+    SetIsReputationCheckingRequired: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings9,
+    ICoreWebView2Settings9_Vtbl,
+    0x0528a73b_e92d_49f4_927a_e547dddaa37d
+);
+impl core::ops::Deref for ICoreWebView2Settings9 {
+    type Target = ICoreWebView2Settings8;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Settings9,
+    windows_core::IUnknown,
+    ICoreWebView2Settings,
+    ICoreWebView2Settings2,
+    ICoreWebView2Settings3,
+    ICoreWebView2Settings4,
+    ICoreWebView2Settings5,
+    ICoreWebView2Settings6,
+    ICoreWebView2Settings7,
+    ICoreWebView2Settings8
+);
+impl ICoreWebView2Settings9 {
+    pub(crate) unsafe fn IsNonClientRegionSupportEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsNonClientRegionSupportEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsNonClientRegionSupportEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsNonClientRegionSupportEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings9_Vtbl {
+    pub base__: ICoreWebView2Settings8_Vtbl,
+    pub IsNonClientRegionSupportEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsNonClientRegionSupportEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICoreWebView2StateChangedEventHandler,
     ICoreWebView2StateChangedEventHandler_Vtbl,
     0x81336594_7ede_4ba9_bf71_acf0a95b58dd

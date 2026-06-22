@@ -108,6 +108,13 @@ returns a `Deferral`, letting a handler resolve the decision asynchronously; the
 `set_status_bar_enabled`, `set_zoom_control_enabled`, and so on — each a
 getter / `set_*` pair.
 
+The later WebView2 settings interfaces are exposed too, each reached by an
+internal `cast` so they return `Result`: `user_agent()` / `set_user_agent(..)`,
+`set_browser_accelerator_keys_enabled`, `set_general_autofill_enabled`,
+`set_password_autosave_enabled`, `set_pinch_zoom_enabled`,
+`set_swipe_navigation_enabled`, and `set_non_client_region_support_enabled` (the
+`app-region: drag` support a custom title bar needs).
+
 ## Host ↔ JavaScript messaging
 
 - **Host → page:** `post_web_message_as_json(json)` /
@@ -213,9 +220,32 @@ Tracked gaps, roughly by impact:
 | `ProcessFailed` (renderer-crash detection) | ✅ Done | `on_process_failed` delivers a `ProcessFailedArgs` with `kind()`. |
 | Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ✅ Done | `Controller::on_got_focus`/`on_lost_focus`/`on_move_focus_requested`/`on_accelerator_key_pressed` plus `move_focus`. |
 | `SetVirtualHostNameToFolderMapping` | ✅ Done | `WebView::set_virtual_host_name_to_folder_mapping` / `clear_virtual_host_name_to_folder_mapping`. |
-| Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ✅ Done | `Controller::zoom_factor`/`set_zoom_factor`, `default_background_color`/`set_default_background_color`, `rasterization_scale`/`set_rasterization_scale`, `should_detect_monitor_scale_changes`. |
-| Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | ⬜ Planned | `wry` sets these through the later settings interfaces. |
-| Cookies, `Profile`/themes, `NavigateWithWebResourceRequest` (headers), incognito, browser extensions | ⬜ Planned | Breadth `wry` covers that this crate does not yet. |
+| Controller polish (zoom factor, default background colour/transparency, DPI/rasterization scale) | ✅ Done | `Controller::zoom_factor`/`set_zoom_factor`, `default_background_color`/`set_default_background_color`, `rasterization_scale`/`set_rasterization_scale`, `should_detect_monitor_scale_changes`. |
+
+#### wry / Tauri parity
+
+The remaining gaps below are exactly what the top dependents (`wry` → `tauri`)
+call that this crate does not yet expose. Clearing them makes the crate a viable
+WebView2 backend for that ecosystem.
+
+| Gap | Used by | Status | Notes |
+|-----|---------|--------|-------|
+| Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | wry | ✅ Done | `Settings::user_agent`, `are_browser_accelerator_keys_enabled`, `is_general_autofill_enabled`, `is_password_autosave_enabled`, `is_pinch_zoom_enabled`, `is_swipe_navigation_enabled`, `is_non_client_region_support_enabled`. |
+| Cookie manager (`GetCookies`/`AddOrUpdateCookie`/`DeleteCookie`) | wry | ⬜ Planned | `GetCookies` completes asynchronously (pump-and-wait). |
+| Controller creation options (`ICoreWebView2ControllerOptions`/`Options3`) | tauri | ⬜ Planned | Incognito/private mode, profile name, default background at create. Needs a `create_controller_with_options`. |
+| Profile (`ICoreWebView2Profile`/`Profile2`) | tauri | ⬜ Planned | Theme, `ClearBrowsingDataAll`, add browser extension. |
+| `NavigateWithWebResourceRequest` (`ICoreWebView2_10`) | wry | ⬜ Planned | Navigate with custom request headers. |
+| `OpenDevToolsWindow` | wry | ⬜ Planned | Devtools feature. |
+| `NotifyParentWindowPositionChanged` (Controller) | wry | ⬜ Planned | Called on `WM_MOVE`. |
+| `SetAllowExternalDrop` (`Controller4`) | wry | ⬜ Planned | Drag-and-drop control. |
+| `ContainsFullScreenElementChanged` event | tauri-runtime-wry | ⬜ Planned | HTML fullscreen handling. |
+| Environment options breadth (`AreBrowserExtensionsEnabled`, scrollbar style) | wry | ⬜ Planned | Extends the existing `EnvironmentOptions` builder. |
+| `SetMemoryUsageTargetLevel` (`ICoreWebView2_19`) | wry | ⬜ Planned | Background-tab memory trimming. |
+
+Out of scope for parity (wry feature-gates or works around them):
+`AddWebResourceRequestedFilterWithRequestSourceKinds` (`_22`),
+`AddHostObjectToScript`, `CallDevToolsProtocolMethod`, `TrySuspend`/`Resume`,
+`CapturePreview`.
 
 ### How it's built
 
