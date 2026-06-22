@@ -5,13 +5,17 @@
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
+    WebView2.ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
     WebView2.ICoreWebView2WebMessageReceivedEventHandler
     WebView2.ICoreWebView2NavigationStartingEventHandler
+    WebView2.ICoreWebView2EnvironmentOptions
 
 --filter
     WebView2.CreateCoreWebView2Environment
-    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, get_Settings, ExecuteScript, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived}
+    WebView2.CreateCoreWebView2EnvironmentWithOptions
+    WebView2.ICoreWebView2EnvironmentOptions
+    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, get_Settings, ExecuteScript, AddScriptToExecuteOnDocumentCreated, RemoveScriptToExecuteOnDocumentCreated, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived}
     WebView2.ICoreWebView2Settings::{get_IsScriptEnabled, put_IsScriptEnabled, get_IsWebMessageEnabled, put_IsWebMessageEnabled, get_AreDefaultScriptDialogsEnabled, put_AreDefaultScriptDialogsEnabled, get_IsStatusBarEnabled, put_IsStatusBarEnabled, get_AreDevToolsEnabled, put_AreDevToolsEnabled, get_AreDefaultContextMenusEnabled, put_AreDefaultContextMenusEnabled, get_AreHostObjectsAllowed, put_AreHostObjectsAllowed, get_IsZoomControlEnabled, put_IsZoomControlEnabled, get_IsBuiltInErrorPageEnabled, put_IsBuiltInErrorPageEnabled}
     WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2}
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
@@ -21,11 +25,14 @@
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
+    WebView2.ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
     WebView2.ICoreWebView2WebMessageReceivedEventHandler
     WebView2.ICoreWebView2NavigationStartingEventHandler
 
+    Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree
+    Windows.Win32.Foundation.E_OUTOFMEMORY
     Windows.Win32.UI.WindowsAndMessaging.GetMessageW
     Windows.Win32.UI.WindowsAndMessaging.TranslateMessage
     Windows.Win32.UI.WindowsAndMessaging.DispatchMessageW

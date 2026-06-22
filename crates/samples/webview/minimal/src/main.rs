@@ -14,7 +14,7 @@ mod bindings;
 use bindings::*;
 use std::cell::RefCell;
 use windows_core::*;
-use windows_webview::{Controller, Environment, EventRegistration};
+use windows_webview::{Controller, Environment, EnvironmentOptions, EventRegistration};
 
 thread_local! {
     static CONTROLLER: RefCell<Option<Controller>> = const { RefCell::new(None) };
@@ -85,7 +85,9 @@ fn main() -> Result<()> {
             std::ptr::null_mut(),
         );
 
-        let environment = Environment::new()?;
+        let options = EnvironmentOptions::new()
+            .additional_browser_arguments("--disable-features=msSmartScreenProtection");
+        let environment = Environment::with_options(&options)?;
         let controller = environment.create_controller(window)?;
 
         resize(&controller, window);
@@ -94,6 +96,10 @@ fn main() -> Result<()> {
         let settings = webview.settings()?;
         settings.set_dev_tools_enabled(true)?;
         settings.set_status_bar_enabled(false)?;
+
+        webview.add_script_to_execute_on_document_created(
+            "window.chrome.webview.postMessage('document created: ' + location.href);",
+        )?;
 
         let message_registration = webview.on_web_message_received(|args| {
             println!("page sent: {}", args.web_message_as_json());

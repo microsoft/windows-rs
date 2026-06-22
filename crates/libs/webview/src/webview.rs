@@ -70,6 +70,32 @@ impl WebView {
         unsafe { self.0.ExecuteScript(javascript.as_ptr(), &handler) }
     }
 
+    /// Registers JavaScript to run before any other script each time a document
+    /// is created, returning a [`ScriptId`] that can later be passed to
+    /// [`remove_script_to_execute_on_document_created`](Self::remove_script_to_execute_on_document_created).
+    ///
+    /// This is the way to inject code (for example a host-communication
+    /// bootstrap) before the page's own scripts run. It pumps the calling
+    /// thread's message loop until registration completes, so call it during
+    /// setup before handing control to your own message loop.
+    pub fn add_script_to_execute_on_document_created(&self, javascript: &str) -> Result<ScriptId> {
+        let javascript = string::encode(javascript);
+        let slot = pump::slot();
+        let handler = handler::AddScriptCompleted::create(pump::slot_handler(&slot));
+        unsafe {
+            self.0
+                .AddScriptToExecuteOnDocumentCreated(javascript.as_ptr(), &handler)?;
+        }
+        Ok(ScriptId(pump::wait(&slot)?))
+    }
+
+    /// Removes a script previously registered with
+    /// [`add_script_to_execute_on_document_created`](Self::add_script_to_execute_on_document_created).
+    pub fn remove_script_to_execute_on_document_created(&self, id: &ScriptId) -> Result<()> {
+        let id = string::encode(&id.0);
+        unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(id.as_ptr()) }
+    }
+
     /// Subscribes to the navigation-starting event, raised before each
     /// navigation. The handler may inspect the target and cancel it via
     /// [`NavigationStartingArgs::set_cancel`]. The returned [`EventRegistration`]

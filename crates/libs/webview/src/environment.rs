@@ -12,7 +12,18 @@ impl Environment {
     /// thread with a message loop.
     pub fn new() -> Result<Environment> {
         let slot = pump::slot();
-        create_environment(slot_handler(&slot))?;
+        create_environment(pump::slot_handler(&slot))?;
+        pump::wait(&slot)
+    }
+
+    /// Creates a WebView2 environment configured by `options`, pumping the
+    /// calling thread's message loop until it is ready.
+    ///
+    /// This requires an installed WebView2 runtime and must be called on a UI
+    /// thread with a message loop.
+    pub fn with_options(options: &EnvironmentOptions) -> Result<Environment> {
+        let slot = pump::slot();
+        options.create_environment(pump::slot_handler(&slot))?;
         pump::wait(&slot)
     }
 
@@ -25,7 +36,7 @@ impl Environment {
     /// `parent` must be a valid window handle that outlives the controller.
     pub unsafe fn create_controller(&self, parent: HWND) -> Result<Controller> {
         let slot = pump::slot();
-        unsafe { self.create_controller_async(parent, slot_handler(&slot))? };
+        unsafe { self.create_controller_async(parent, pump::slot_handler(&slot))? };
         pump::wait(&slot)
     }
 
@@ -42,10 +53,4 @@ impl Environment {
 fn create_environment<F: FnOnce(Result<Environment>) + 'static>(handler: F) -> Result<()> {
     let handler = handler::EnvironmentCompleted::create(handler);
     unsafe { CreateCoreWebView2Environment(Interface::as_raw(&handler)).ok() }
-}
-
-/// Builds a completion handler that stores its result in `slot` for [`pump::wait`].
-fn slot_handler<T: 'static>(slot: &pump::Slot<T>) -> impl FnOnce(Result<T>) + 'static {
-    let slot = slot.clone();
-    move |result| slot.set(Some(result))
 }

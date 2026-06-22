@@ -46,14 +46,41 @@ crate.
 
 ## Implementing handlers without proc-macros
 
-The three completion handlers (`EnvironmentCompleted`, `ControllerCompleted`,
-`ExecuteScriptCompleted` in `handler.rs`) wrap a Rust `FnOnce` closure and
-implement the corresponding `ICoreWebView2…Handler` COM interface. They use
-`implement_decl!` rather than `#[implement]`, exactly like `windows-reactor`, so
-the crate depends on `windows-core` with **default features off** — no
-`syn`/`quote`/`proc-macro2` build cost. This requires the interface's `_Impl`
-trait and vtable, which `windows-bindgen` emits via the `--implement` entries in
-`webview.txt`.
+The completion handlers (`EnvironmentCompleted`, `ControllerCompleted`,
+`ExecuteScriptCompleted`, `AddScriptCompleted` in `handler.rs`) wrap a Rust
+`FnOnce` closure and implement the corresponding `ICoreWebView2…Handler` COM
+interface. They use `implement_decl!` rather than `#[implement]`, exactly like
+`windows-reactor`, so the crate depends on `windows-core` with **default features
+off** — no `syn`/`quote`/`proc-macro2` build cost. This requires the interface's
+`_Impl` trait and vtable, which `windows-bindgen` emits via the `--implement`
+entries in `webview.txt`.
+
+The event handlers (`NavigationStarting`, `NavigationCompleted`,
+`WebMessageReceived`) follow the same approach with an `FnMut` in a `RefCell`.
+
+## Caller-implemented interfaces (environment options)
+
+`implement_decl!` is not only for callbacks. `CreateCoreWebView2EnvironmentWithOptions`
+takes an `ICoreWebView2EnvironmentOptions` that **WebView2 has no concrete class
+for** — the caller must supply one, and WebView2 reads the configuration through
+its getters. `options.rs` therefore implements that interface in Rust:
+
+- The public `EnvironmentOptions` is a plain fluent builder (`user_data_folder`,
+  `additional_browser_arguments`, `language`, …), in the reactor's consuming-self
+  style because it is constructed once and then consumed — unlike the live,
+  `set_*`-mutated `Settings`.
+- A private `OptionsObject` implements `ICoreWebView2EnvironmentOptions` via
+  `implement_decl!`. Its string getters return `CoTaskMemAlloc`-allocated buffers
+  (`string::allocate`) that WebView2 frees — the mirror image of `string::take`.
+  The interface's setters are required by the vtable but never called by
+  WebView2, so they are inert.
+- Listing an implemented multi-method interface in `webview.txt` must be **bare**
+  (`WebView2.ICoreWebView2EnvironmentOptions`); a `::{…}` method filter on an
+  `--implement` interface is rejected because implemented interfaces always emit
+  all methods.
+
+`Environment::with_options` runs the same pump-and-wait as `Environment::new`,
+just through the with-options factory.
 
 ## Synchronous creation (pump-and-wait)
 
@@ -65,7 +92,8 @@ thread's message loop. To present a straight-line API (`Environment::new()`,
 - The async primitives (`create_environment`, `create_controller_async` in
   `environment.rs`) are private and take a closure handler.
 - `pump::slot::<T>()` allocates an `Rc<Cell<Option<Result<T>>>>` one-shot slot;
-  `slot_handler` builds a `FnOnce` that stores the completion result into it.
+  `pump::slot_handler` builds a `FnOnce` that stores the completion result into
+  it. Both live in `pump.rs` so every sync wrapper shares them.
 - `pump::wait` blocks in a `GetMessageW`/`TranslateMessage`/`DispatchMessageW`
   loop until the slot is filled, then returns the result. `-1` maps to
   `Error::from_thread()`, `0` (`WM_QUIT`) to `Error::empty()`.
@@ -74,8 +102,21 @@ This is the same idea as wravery's `wait_with_pump`, but with no `mpsc` and no
 `WM_APP` thread-kick: because creation runs on the same UI thread, the slot is a
 plain `Rc<Cell<…>>`. The pump dispatches all pending messages while waiting, so
 it should only run during startup, before the app's own message loop takes over.
+`WebView::add_script_to_execute_on_document_created` reuses this pump (it is a
+setup-time operation, like creation) and returns the resulting `ScriptId`.
 Per-operation scripting (`WebView::execute_script`) stays callback-based to
 avoid re-entrant pumping during normal app run.
+
+## Document-created scripts
+
+`add_script_to_execute_on_document_created` registers JavaScript that runs before
+any page script on every new document — the standard way to inject a
+host-communication bootstrap. Its COM completion handler has the same shape as
+`ExecuteScript` (`Invoke(errorCode, result)`), so `handler::AddScriptCompleted`
+mirrors `ExecuteScriptCompleted`; the difference is the `result` string is the
+script's **id** rather than an eval result. The id is wrapped in a `ScriptId`
+newtype (`script.rs`) and round-tripped to
+`remove_script_to_execute_on_document_created`, which is synchronous.
 
 ## Events (RAII subscriptions)
 

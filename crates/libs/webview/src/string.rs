@@ -35,3 +35,21 @@ pub unsafe fn take(value: LPWSTR) -> String {
 
     result
 }
+
+/// Allocates a null-terminated UTF-16 copy of `value` with `CoTaskMemAlloc`,
+/// transferring ownership to the caller (WebView2). Used to return strings from
+/// `[out]` getters of COM interfaces the crate implements, where WebView2 frees
+/// the buffer with `CoTaskMemFree`.
+pub unsafe fn allocate(value: &str) -> Result<LPWSTR> {
+    let encoded: Vec<u16> = value.encode_utf16().chain(std::iter::once(0)).collect();
+    let bytes = encoded.len() * size_of::<u16>();
+
+    let buffer = unsafe { CoTaskMemAlloc(bytes) } as LPWSTR;
+
+    if buffer.is_null() {
+        return Err(Error::from_hresult(E_OUTOFMEMORY));
+    }
+
+    unsafe { std::ptr::copy_nonoverlapping(encoded.as_ptr(), buffer, encoded.len()) };
+    Ok(buffer)
+}

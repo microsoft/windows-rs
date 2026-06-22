@@ -10,6 +10,12 @@ pub(crate) fn slot<T>() -> Slot<T> {
     Rc::new(Cell::new(None))
 }
 
+/// Builds a completion handler that stores its result in `slot` for [`wait`].
+pub(crate) fn slot_handler<T: 'static>(slot: &Slot<T>) -> impl FnOnce(Result<T>) + 'static {
+    let slot = slot.clone();
+    move |result| slot.set(Some(result))
+}
+
 /// Pumps the calling thread's message loop until `slot` is filled, then returns
 /// its result.
 ///

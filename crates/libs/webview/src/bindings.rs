@@ -1,8 +1,11 @@
+windows_core::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
 windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
+pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
 pub type HWND = *mut core::ffi::c_void;
 windows_core::imp::define_interface!(
     ICoreWebView2,
@@ -91,6 +94,35 @@ impl ICoreWebView2 {
             (windows_core::Interface::vtable(self).remove_NavigationCompleted)(
                 windows_core::Interface::as_raw(self),
                 token,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AddScriptToExecuteOnDocumentCreated<P1>(
+        &self,
+        javascript: LPCWSTR,
+        handler: P1,
+    ) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AddScriptToExecuteOnDocumentCreated)(
+                windows_core::Interface::as_raw(self),
+                javascript,
+                handler.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn RemoveScriptToExecuteOnDocumentCreated(
+        &self,
+        id: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).RemoveScriptToExecuteOnDocumentCreated)(
+                windows_core::Interface::as_raw(self),
+                id,
             )
             .ok()
         }
@@ -236,8 +268,14 @@ pub struct ICoreWebView2_Vtbl {
     remove_PermissionRequested: usize,
     add_ProcessFailed: usize,
     remove_ProcessFailed: usize,
-    AddScriptToExecuteOnDocumentCreated: usize,
-    RemoveScriptToExecuteOnDocumentCreated: usize,
+    pub AddScriptToExecuteOnDocumentCreated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        *mut core::ffi::c_void,
+    )
+        -> windows_core::HRESULT,
+    pub RemoveScriptToExecuteOnDocumentCreated:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
     pub ExecuteScript: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         LPCWSTR,
@@ -282,6 +320,83 @@ pub struct ICoreWebView2_Vtbl {
     RemoveWebResourceRequestedFilter: usize,
     add_WindowCloseRequested: usize,
     remove_WindowCloseRequested: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
+    0xb99369f3_9b11_47b5_bc6f_8e7895fcea17
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
+    pub unsafe fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                errorcode,
+                result,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        LPCWSTR,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
+    windows_core::IUnknownImpl
+{
+    fn Invoke(&self, errorcode: windows_core::HRESULT, result: LPCWSTR)
+    -> windows_core::Result<()>;
+}
+impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            errorcode: windows_core::HRESULT,
+            result: LPCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&errorcode),
+                    core::mem::transmute_copy(&result),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == & < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID
+    }
+}
+impl windows_core::RuntimeName
+    for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
+{
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Controller,
@@ -556,6 +671,309 @@ pub struct ICoreWebView2Environment_Vtbl {
     add_NewBrowserVersionAvailable: usize,
     remove_NewBrowserVersionAvailable: usize,
 }
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions,
+    ICoreWebView2EnvironmentOptions_Vtbl,
+    0x2fde08a8_1e9a_4766_8c05_95a9ceb9d1c5
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions, windows_core::IUnknown);
+impl ICoreWebView2EnvironmentOptions {
+    pub unsafe fn AdditionalBrowserArguments(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AdditionalBrowserArguments)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAdditionalBrowserArguments(&self, value: LPCWSTR) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAdditionalBrowserArguments)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn Language(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Language)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetLanguage(&self, value: LPCWSTR) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetLanguage)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn TargetCompatibleBrowserVersion(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TargetCompatibleBrowserVersion)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetTargetCompatibleBrowserVersion(
+        &self,
+        value: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTargetCompatibleBrowserVersion)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AllowSingleSignOnUsingOSPrimaryAccount(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AllowSingleSignOnUsingOSPrimaryAccount)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAllowSingleSignOnUsingOSPrimaryAccount(
+        &self,
+        allow: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAllowSingleSignOnUsingOSPrimaryAccount)(
+                windows_core::Interface::as_raw(self),
+                allow.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2EnvironmentOptions_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub AdditionalBrowserArguments:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub SetAdditionalBrowserArguments:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub Language:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub SetLanguage:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub TargetCompatibleBrowserVersion:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub SetTargetCompatibleBrowserVersion:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub AllowSingleSignOnUsingOSPrimaryAccount: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    )
+        -> windows_core::HRESULT,
+    pub SetAllowSingleSignOnUsingOSPrimaryAccount:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            windows_core::BOOL,
+        ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
+    fn AdditionalBrowserArguments(&self) -> windows_core::Result<LPWSTR>;
+    fn SetAdditionalBrowserArguments(&self, value: LPCWSTR) -> windows_core::Result<()>;
+    fn Language(&self) -> windows_core::Result<LPWSTR>;
+    fn SetLanguage(&self, value: LPCWSTR) -> windows_core::Result<()>;
+    fn TargetCompatibleBrowserVersion(&self) -> windows_core::Result<LPWSTR>;
+    fn SetTargetCompatibleBrowserVersion(&self, value: LPCWSTR) -> windows_core::Result<()>;
+    fn AllowSingleSignOnUsingOSPrimaryAccount(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAllowSingleSignOnUsingOSPrimaryAccount(
+        &self,
+        allow: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2EnvironmentOptions_Vtbl {
+    pub const fn new<Identity: ICoreWebView2EnvironmentOptions_Impl, const OFFSET: isize>() -> Self
+    {
+        unsafe extern "system" fn AdditionalBrowserArguments<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut LPWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions_Impl::AdditionalBrowserArguments(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetAdditionalBrowserArguments<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: LPCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions_Impl::SetAdditionalBrowserArguments(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn Language<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut LPWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions_Impl::Language(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetLanguage<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: LPCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions_Impl::SetLanguage(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn TargetCompatibleBrowserVersion<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut LPWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions_Impl::TargetCompatibleBrowserVersion(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetTargetCompatibleBrowserVersion<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: LPCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions_Impl::SetTargetCompatibleBrowserVersion(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn AllowSingleSignOnUsingOSPrimaryAccount<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            allow: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions_Impl::AllowSingleSignOnUsingOSPrimaryAccount(
+                    this,
+                ) {
+                    Ok(ok__) => {
+                        allow.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetAllowSingleSignOnUsingOSPrimaryAccount<
+            Identity: ICoreWebView2EnvironmentOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            allow: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions_Impl::SetAllowSingleSignOnUsingOSPrimaryAccount(
+                    this,
+                    core::mem::transmute_copy(&allow),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            AdditionalBrowserArguments: AdditionalBrowserArguments::<Identity, OFFSET>,
+            SetAdditionalBrowserArguments: SetAdditionalBrowserArguments::<Identity, OFFSET>,
+            Language: Language::<Identity, OFFSET>,
+            SetLanguage: SetLanguage::<Identity, OFFSET>,
+            TargetCompatibleBrowserVersion: TargetCompatibleBrowserVersion::<Identity, OFFSET>,
+            SetTargetCompatibleBrowserVersion: SetTargetCompatibleBrowserVersion::<Identity, OFFSET>,
+            AllowSingleSignOnUsingOSPrimaryAccount: AllowSingleSignOnUsingOSPrimaryAccount::<
+                Identity,
+                OFFSET,
+            >,
+            SetAllowSingleSignOnUsingOSPrimaryAccount: SetAllowSingleSignOnUsingOSPrimaryAccount::<
+                Identity,
+                OFFSET,
+            >,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2EnvironmentOptions as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions {}
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptCompletedHandler,
     ICoreWebView2ExecuteScriptCompletedHandler_Vtbl,
@@ -1327,6 +1745,7 @@ pub struct MSG {
     pub time: u32,
     pub pt: POINT,
 }
+pub type PCWSTR = *const WCHAR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINT {

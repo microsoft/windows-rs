@@ -93,6 +93,38 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_
     }
 }
 
+/// Adapts a Rust closure to the
+/// `ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler` COM
+/// interface. The completion result is the registered script's id.
+pub(crate) struct AddScriptCompleted(Cell<Option<Box<dyn FnOnce(Result<String>)>>>);
+
+implement_decl! {
+    impl AddScriptCompleted as pub(crate) AddScriptCompleted_Impl:
+        [ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler]
+}
+
+impl AddScriptCompleted {
+    pub(crate) fn create<F: FnOnce(Result<String>) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
+        Self(Cell::new(Some(Box::new(handler)))).into()
+    }
+}
+
+impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
+    for AddScriptCompleted_Impl
+{
+    fn Invoke(&self, errorcode: HRESULT, id: LPCWSTR) -> Result<()> {
+        let outcome = errorcode.ok().map(|()| unsafe { string::decode(id) });
+
+        if let Some(handler) = self.0.take() {
+            handler(outcome);
+        }
+
+        Ok(())
+    }
+}
+
 /// Adapts a Rust closure to the `ICoreWebView2NavigationCompletedEventHandler`
 /// COM interface.
 pub(crate) struct NavigationCompleted(RefCell<Box<dyn FnMut(NavigationCompletedArgs)>>);
