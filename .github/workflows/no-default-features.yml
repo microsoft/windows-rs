@@ -130,3 +130,5 @@ jobs:
         run:  cargo check -p windows-time --no-default-features
       - name: Check windows-version
         run:  cargo check -p windows-version --no-default-features
+      - name: Check windows-window
+        run:  cargo check -p windows-window --no-default-features

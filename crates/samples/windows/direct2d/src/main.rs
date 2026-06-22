@@ -7,14 +7,17 @@ fn main() -> windows::core::Result<()> {
         Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*, Win32::Graphics::Direct2D::*,
         Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
         Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*,
-        Win32::System::Com::*, Win32::System::LibraryLoader::*, Win32::System::Performance::*,
+        Win32::System::Com::*, Win32::System::Performance::*,
         Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*,
         Win32::UI::WindowsAndMessaging::*, core::*,
     };
 
+    use std::cell::RefCell;
+    use std::rc::Rc;
     use windows_numerics::*;
+    use windows_window::{Window, run_with};
 
-    struct Window {
+    struct App {
         handle: HWND,
         factory: ID2D1Factory1,
         dxfactory: IDXGIFactory2,
@@ -57,7 +60,7 @@ fn main() -> windows::core::Result<()> {
         }
     }
 
-    impl Window {
+    impl App {
         fn new() -> Result<Self> {
             let factory = create_factory()?;
             let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
@@ -81,7 +84,7 @@ fn main() -> windows::core::Result<()> {
                 variable
             };
 
-            Ok(Window {
+            Ok(App {
                 handle: Default::default(),
                 factory,
                 dxfactory,
@@ -366,91 +369,6 @@ fn main() -> windows::core::Result<()> {
                 }
             }
         }
-
-        fn run(&mut self) -> Result<()> {
-            unsafe {
-                let instance = GetModuleHandleA(None)?;
-                let window_class = s!("window");
-
-                let wc = WNDCLASSA {
-                    hCursor: LoadCursorW(None, IDC_HAND)?,
-                    hInstance: instance.into(),
-                    lpszClassName: window_class,
-
-                    style: CS_HREDRAW | CS_VREDRAW,
-                    lpfnWndProc: Some(Self::wndproc),
-                    ..Default::default()
-                };
-
-                let atom = RegisterClassA(&wc);
-                debug_assert!(atom != 0);
-
-                let handle = CreateWindowExA(
-                    WINDOW_EX_STYLE::default(),
-                    window_class,
-                    s!("Sample Window"),
-                    WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    None,
-                    None,
-                    None,
-                    Some(self as *mut _ as _),
-                )?;
-
-                debug_assert!(!handle.is_invalid());
-                debug_assert!(handle == self.handle);
-                let mut message = MSG::default();
-
-                loop {
-                    if self.visible {
-                        self.render()?;
-
-                        while PeekMessageA(&mut message, None, 0, 0, PM_REMOVE).into() {
-                            if message.message == WM_QUIT {
-                                return Ok(());
-                            }
-                            DispatchMessageA(&message);
-                        }
-                    } else {
-                        _ = GetMessageA(&mut message, None, 0, 0);
-
-                        if message.message == WM_QUIT {
-                            return Ok(());
-                        }
-
-                        DispatchMessageA(&message);
-                    }
-                }
-            }
-        }
-
-        extern "system" fn wndproc(
-            window: HWND,
-            message: u32,
-            wparam: WPARAM,
-            lparam: LPARAM,
-        ) -> LRESULT {
-            unsafe {
-                if message == WM_NCCREATE {
-                    let cs = lparam.0 as *const CREATESTRUCTA;
-                    let this = (*cs).lpCreateParams as *mut Self;
-                    (*this).handle = window;
-
-                    SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
-                } else {
-                    let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
-
-                    if !this.is_null() {
-                        return (*this).message_handler(message, wparam, lparam);
-                    }
-                }
-
-                DefWindowProcA(window, message, wparam, lparam)
-            }
-        }
     }
 
     fn get_time(frequency: i64) -> Result<f64> {
@@ -617,6 +535,30 @@ fn main() -> windows::core::Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
     }
-    let mut window = Window::new()?;
-    window.run()
+
+    let app = Rc::new(RefCell::new(App::new()?));
+
+    let handler = app.clone();
+    let window = Window::new("Sample Window")
+        .on_message(move |_, message, wparam, lparam| {
+            Some(
+                handler
+                    .borrow_mut()
+                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
+                    .0,
+            )
+        })
+        .create()?;
+
+    app.borrow_mut().handle = HWND(window.hwnd());
+
+    run_with(move || {
+        let mut app = app.borrow_mut();
+        if app.visible {
+            app.render()?;
+            Ok(true)
+        } else {
+            Ok(false)
+        }
+    })
 }

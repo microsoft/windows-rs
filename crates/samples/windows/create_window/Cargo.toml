@@ -4,13 +4,8 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies.windows]
+[dependencies.windows-window]
 workspace = true
-features = [
-    "Win32_Graphics_Gdi",
-    "Win32_System_LibraryLoader",
-    "Win32_UI_WindowsAndMessaging",
-]
 
 [lints]
 workspace = true

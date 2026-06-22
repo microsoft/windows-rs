@@ -274,6 +274,19 @@ impl CppFn {
         }
     }
 
+    /// On 32-bit targets `GetWindowLongPtr*` / `SetWindowLongPtr*` are aliased
+    /// to the non-`Ptr` variants (which is what `write_window_long` emits), so
+    /// those siblings must be generated alongside them.
+    pub fn window_long_dependency(&self) -> Option<&'static str> {
+        match self.method.name() {
+            "GetWindowLongPtrA" => Some("GetWindowLongA"),
+            "GetWindowLongPtrW" => Some("GetWindowLongW"),
+            "SetWindowLongPtrA" => Some("SetWindowLongA"),
+            "SetWindowLongPtrW" => Some("SetWindowLongW"),
+            _ => None,
+        }
+    }
+
     fn write_window_long(&self) -> TokenStream {
         match self.method.name() {
             "GetWindowLongPtrA" => quote! {
@@ -303,13 +316,7 @@ impl Dependencies for CppFn {
             .method_signature(self.namespace, &[], reader)
             .combine(dependencies, reader);
 
-        let dependency = match self.method.name() {
-            "GetWindowLongPtrA" => Some("GetWindowLongA"),
-            "GetWindowLongPtrW" => Some("GetWindowLongW"),
-            "SetWindowLongPtrA" => Some("SetWindowLongA"),
-            "SetWindowLongPtrW" => Some("SetWindowLongW"),
-            _ => None,
-        };
+        let dependency = self.window_long_dependency();
 
         if let Some(dependency) = dependency {
             reader
