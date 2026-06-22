@@ -156,6 +156,44 @@ handler can veto a navigation by calling `set_cancel(true)`.
 The sample subscribes before navigating and parks the `EventRegistration` in a
 `thread_local` so it outlives the call; dropping it on `WM_DESTROY` unsubscribes.
 
+### Events without args interfaces
+
+Two events carry no dedicated args interface — their `Invoke` receives a bare
+`IUnknown`. The handler adapters reshape them into natural Rust closures rather
+than surfacing the `IUnknown`:
+
+- `DocumentTitleChanged` reads the new title from the `sender`
+  (`ICoreWebView2::DocumentTitle`) inside `Invoke` and hands the closure a
+  `String`, so consumers write `on_document_title_changed(|title| …)`.
+- `WindowCloseRequested` has nothing to report, so its closure is `FnMut()`
+  (`on_window_close_requested(|| …)`); the host typically closes its window.
+
+`ContentLoading` is an ordinary args event (`ContentLoadingArgs::is_error_page`,
+`navigation_id`).
+
+### Deferral-based events
+
+`NewWindowRequested` and `PermissionRequested` follow the same subscription shape
+but their args expose **mutable decisions** and a **deferral**:
+
+- `NewWindowRequestedArgs` — `uri()`, `is_user_initiated()`, `is_handled()` /
+  `set_handled(bool)` (block the popup), and `set_new_window(&WebView)` to redirect
+  the content into an existing view (`put_NewWindow` takes our `WebView`'s inner
+  `ICoreWebView2`).
+- `PermissionRequestedArgs` — `uri()`, `kind()`, `is_user_initiated()`, and
+  `state()` / `set_state(PermissionState)`.
+
+Both expose `defer() -> Result<Deferral>`. `deferral::Deferral` is a `#[must_use]`
+RAII wrapper over `ICoreWebView2Deferral`: `complete()` consumes it and calls
+`Complete`, and `Drop` completes it automatically so a forgotten deferral can
+never hang the request. This lets a handler return immediately while the decision
+(set via `set_state` / `set_handled` before completing) is made asynchronously.
+
+The two COM enums (`COREWEBVIEW2_PERMISSION_KIND` / `_STATE`) arrive as bare `i32`
+aliases under `--minimal` (the named constants are stripped), so `PermissionKind`
+and `PermissionState` are hand-written Rust enums with `from_raw` / `to_raw`
+mappings keyed on the documented integer values.
+
 ## Navigation and document state
 
 `WebView` exposes the navigation verbs directly off `ICoreWebView2`:

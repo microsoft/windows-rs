@@ -14,7 +14,9 @@ mod bindings;
 use bindings::*;
 use std::cell::RefCell;
 use windows_core::*;
-use windows_webview::{Controller, Environment, EnvironmentOptions, EventRegistration};
+use windows_webview::{
+    Controller, Environment, EnvironmentOptions, EventRegistration, PermissionState,
+};
 
 thread_local! {
     static CONTROLLER: RefCell<Option<Controller>> = const { RefCell::new(None) };
@@ -130,6 +132,32 @@ fn main() -> Result<()> {
             }
         })?;
 
+        let title_registration = webview.on_document_title_changed(|title| {
+            println!("document title changed: {title}");
+        })?;
+
+        let loading_registration = webview.on_content_loading(|args| {
+            println!(
+                "content loading: navigation {} (error page = {})",
+                args.navigation_id(),
+                args.is_error_page()
+            );
+        })?;
+
+        let close_registration = webview.on_window_close_requested(|| {
+            println!("page requested window close");
+        })?;
+
+        let new_window_registration = webview.on_new_window_requested(|args| {
+            println!("blocking new window for: {}", args.uri());
+            let _ = args.set_handled(true);
+        })?;
+
+        let permission_registration = webview.on_permission_requested(|args| {
+            println!("denying {:?} permission for {}", args.kind(), args.uri());
+            let _ = args.set_state(PermissionState::Deny);
+        })?;
+
         webview.navigate("https://github.com/microsoft/windows-rs")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
         REGISTRATIONS.with(|slot| {
@@ -137,6 +165,11 @@ fn main() -> Result<()> {
                 message_registration,
                 starting_registration,
                 navigation_registration,
+                title_registration,
+                loading_registration,
+                close_registration,
+                new_window_registration,
+                permission_registration,
             ]);
         });
 

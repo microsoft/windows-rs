@@ -211,3 +211,144 @@ impl ICoreWebView2NavigationStartingEventHandler_Impl for NavigationStarting_Imp
         Ok(())
     }
 }
+
+/// Adapts a Rust closure to the `ICoreWebView2ContentLoadingEventHandler`
+/// COM interface.
+pub(crate) struct ContentLoading(RefCell<Box<dyn FnMut(ContentLoadingArgs)>>);
+
+implement_decl! {
+    impl ContentLoading as pub(crate) ContentLoading_Impl:
+        [ICoreWebView2ContentLoadingEventHandler]
+}
+
+impl ContentLoading {
+    pub(crate) fn create<F: FnMut(ContentLoadingArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2ContentLoadingEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2ContentLoadingEventHandler_Impl for ContentLoading_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2ContentLoadingEventArgs>,
+    ) -> Result<()> {
+        let args = ContentLoadingArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2DocumentTitleChangedEventHandler`
+/// COM interface. The event carries no args, so the new document title is read
+/// from the sender and handed to the closure.
+pub(crate) struct DocumentTitleChanged(RefCell<Box<dyn FnMut(String)>>);
+
+implement_decl! {
+    impl DocumentTitleChanged as pub(crate) DocumentTitleChanged_Impl:
+        [ICoreWebView2DocumentTitleChangedEventHandler]
+}
+
+impl DocumentTitleChanged {
+    pub(crate) fn create<F: FnMut(String) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2DocumentTitleChangedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged_Impl {
+    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+        let title = sender
+            .ok()
+            .and_then(|sender| unsafe { sender.DocumentTitle() })
+            .map(|value| unsafe { string::take(value) })
+            .unwrap_or_default();
+        (*self.0.borrow_mut())(title);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2WindowCloseRequestedEventHandler`
+/// COM interface. The event carries no args, so the closure takes none.
+pub(crate) struct WindowCloseRequested(RefCell<Box<dyn FnMut()>>);
+
+implement_decl! {
+    impl WindowCloseRequested as pub(crate) WindowCloseRequested_Impl:
+        [ICoreWebView2WindowCloseRequestedEventHandler]
+}
+
+impl WindowCloseRequested {
+    pub(crate) fn create<F: FnMut() + 'static>(
+        handler: F,
+    ) -> ICoreWebView2WindowCloseRequestedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2WindowCloseRequestedEventHandler_Impl for WindowCloseRequested_Impl {
+    fn Invoke(&self, _sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+        (*self.0.borrow_mut())();
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2NewWindowRequestedEventHandler`
+/// COM interface.
+pub(crate) struct NewWindowRequested(RefCell<Box<dyn FnMut(NewWindowRequestedArgs)>>);
+
+implement_decl! {
+    impl NewWindowRequested as pub(crate) NewWindowRequested_Impl:
+        [ICoreWebView2NewWindowRequestedEventHandler]
+}
+
+impl NewWindowRequested {
+    pub(crate) fn create<F: FnMut(NewWindowRequestedArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2NewWindowRequestedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2NewWindowRequestedEventHandler_Impl for NewWindowRequested_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2NewWindowRequestedEventArgs>,
+    ) -> Result<()> {
+        let args = NewWindowRequestedArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2PermissionRequestedEventHandler`
+/// COM interface.
+pub(crate) struct PermissionRequested(RefCell<Box<dyn FnMut(PermissionRequestedArgs)>>);
+
+implement_decl! {
+    impl PermissionRequested as pub(crate) PermissionRequested_Impl:
+        [ICoreWebView2PermissionRequestedEventHandler]
+}
+
+impl PermissionRequested {
+    pub(crate) fn create<F: FnMut(PermissionRequestedArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2PermissionRequestedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2PermissionRequestedEventHandler_Impl for PermissionRequested_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2PermissionRequestedEventArgs>,
+    ) -> Result<()> {
+        let args = PermissionRequestedArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}

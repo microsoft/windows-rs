@@ -159,4 +159,88 @@ impl WebView {
             let _ = unsafe { source.remove_WebMessageReceived(token) };
         }))
     }
+
+    /// Subscribes to the content-loading event, raised when the browser starts
+    /// loading content for a new document. The returned [`EventRegistration`]
+    /// keeps the subscription alive; dropping it (or calling
+    /// [`EventRegistration::remove`]) unsubscribes the handler.
+    pub fn on_content_loading<F: FnMut(ContentLoadingArgs) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::ContentLoading::create(handler);
+        let token = unsafe { self.0.add_ContentLoading(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_ContentLoading(token) };
+        }))
+    }
+
+    /// Subscribes to the document-title-changed event. The handler receives the
+    /// new [`document_title`](Self::document_title). The returned
+    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
+    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
+    pub fn on_document_title_changed<F: FnMut(String) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::DocumentTitleChanged::create(handler);
+        let token = unsafe { self.0.add_DocumentTitleChanged(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_DocumentTitleChanged(token) };
+        }))
+    }
+
+    /// Subscribes to the window-close-requested event, raised when the hosted
+    /// page calls `window.close()`. The host typically responds by closing its
+    /// window. The returned [`EventRegistration`] keeps the subscription alive;
+    /// dropping it (or calling [`EventRegistration::remove`]) unsubscribes the
+    /// handler.
+    pub fn on_window_close_requested<F: FnMut() + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::WindowCloseRequested::create(handler);
+        let token = unsafe { self.0.add_WindowCloseRequested(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_WindowCloseRequested(token) };
+        }))
+    }
+
+    /// Subscribes to the new-window-requested event, raised when the page tries
+    /// to open a new window (for example via `window.open`). The handler may
+    /// suppress, redirect, or [defer](NewWindowRequestedArgs::defer) the request.
+    /// The returned [`EventRegistration`] keeps the subscription alive; dropping
+    /// it (or calling [`EventRegistration::remove`]) unsubscribes the handler.
+    pub fn on_new_window_requested<F: FnMut(NewWindowRequestedArgs) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::NewWindowRequested::create(handler);
+        let token = unsafe { self.0.add_NewWindowRequested(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_NewWindowRequested(token) };
+        }))
+    }
+
+    /// Subscribes to the permission-requested event, raised when the page
+    /// requests access to a capability such as the camera or geolocation. The
+    /// handler decides the outcome via [`PermissionRequestedArgs::set_state`] and
+    /// may [defer](PermissionRequestedArgs::defer) the decision. The returned
+    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
+    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
+    pub fn on_permission_requested<F: FnMut(PermissionRequestedArgs) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::PermissionRequested::create(handler);
+        let token = unsafe { self.0.add_PermissionRequested(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_PermissionRequested(token) };
+        }))
+    }
 }
