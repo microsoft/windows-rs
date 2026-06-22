@@ -2,6 +2,7 @@ use std::rc::Rc;
 
 use std::cell::Cell;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::Thickness;
@@ -11,7 +12,6 @@ use windows_reactor::{
     ScrollingScrollBarVisibility, SplitView, Stretch, Viewbox,
 };
 use windows_reactor::{ControlKind, Event, Prop, PropValue};
-use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

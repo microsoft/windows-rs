@@ -1,6 +1,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Component;
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
@@ -8,7 +9,6 @@ use windows_reactor::RenderCx;
 use windows_reactor::component;
 use windows_reactor::error_boundary;
 use windows_reactor::text_block;
-use windows_reactor::{Op, RecordingBackend};
 
 struct Boom {
     boom: Rc<Cell<bool>>,

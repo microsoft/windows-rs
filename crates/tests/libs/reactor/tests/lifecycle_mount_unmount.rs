@@ -1,9 +1,10 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Backend, Callback, ControlId, ControlKind, Event, EventHandler, Modifiers, Op, Prop,
-    PropBindings, PropValue, Reconciler, RecordingBackend, Widget,
+    Backend, Callback, ControlId, ControlKind, Event, EventHandler, Modifiers, Prop, PropBindings,
+    PropValue, Reconciler, Widget,
 };
 
 type Log = Rc<RefCell<Vec<(&'static str, bool)>>>;

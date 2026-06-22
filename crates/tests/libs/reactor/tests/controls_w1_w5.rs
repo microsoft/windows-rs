@@ -12,6 +12,7 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
 use windows_reactor::list_view;
@@ -20,7 +21,6 @@ use windows_reactor::{
     Canvas, CanvasPosition, ComboBox, PasswordBox, PasswordRevealMode, RadioButtons,
 };
 use windows_reactor::{Element, TextBlock};
-use windows_reactor::{Op, RecordingBackend};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
     let mut r = Reconciler::new(RecordingBackend::new());

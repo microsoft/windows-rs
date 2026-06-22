@@ -104,6 +104,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.marshaller = marshaller;
     }
 
+    #[cfg(feature = "test")]
     pub fn flush_deferred_unmounts(&mut self) {
         let drained = std::mem::take(&mut self.deferred_unmounts);
         for cid in drained {
@@ -131,6 +132,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created = 0;
     }
 
+    #[cfg(feature = "test")]
     pub fn debug_forced_components_len(&self) -> usize {
         self.forced_components.len()
     }
@@ -192,10 +194,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
+    #[cfg(feature = "test")]
     pub fn debug_appeared_listener_count(&self) -> usize {
         self.appeared_listener_count
     }
 
+    #[cfg(feature = "test")]
     pub fn debug_disappeared_listener_count(&self) -> usize {
         self.disappeared_listener_count
     }
@@ -494,14 +498,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_tooltip_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(tt) = mods.tooltip.as_deref() else {
             return;
         };
         self.backend.set_tooltip(id, Some(tt));
     }
 
-    pub fn apply_pointer_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_pointer_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(ph) = mods.pointer_handlers.as_deref() else {
             return;
         };
@@ -511,7 +515,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_pointer_handlers(id, Some(ph));
     }
 
-    pub fn apply_drag_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_drag_handlers_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(dh) = mods.drag_handlers.as_deref() else {
             return;
         };
@@ -521,7 +525,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_drag_handlers(id, Some(dh));
     }
 
-    pub fn apply_accessibility_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_accessibility_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(acc) = mods.accessibility.as_deref() else {
             return;
         };
@@ -531,7 +535,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_accessibility(id, acc);
     }
 
-    pub fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_keyboard_accelerators_for(&mut self, id: ControlId, mods: &Modifiers) {
         if mods.keyboard_accelerators.is_empty() {
             return;
         }
@@ -539,7 +543,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             .set_keyboard_accelerators(id, &mods.keyboard_accelerators);
     }
 
-    pub fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_animations_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(anim) = mods.animations.as_deref() else {
             return;
         };
@@ -562,7 +566,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn diff_animations_for(
+    fn diff_animations_for(
         &mut self,
         id: ControlId,
         old: Option<&AnimationModifiers>,
@@ -587,7 +591,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn apply_theme_bindings_for(&mut self, id: ControlId, mods: &Modifiers) {
+    fn apply_theme_bindings_for(&mut self, id: ControlId, mods: &Modifiers) {
         let Some(map) = mods.theme_bindings.as_deref() else {
             return;
         };

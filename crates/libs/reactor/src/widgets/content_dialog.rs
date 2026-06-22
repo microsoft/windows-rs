@@ -31,7 +31,7 @@ pub enum ContentDialogResult {
 }
 
 impl ContentDialogResult {
-    pub fn from_i32(v: i32) -> Self {
+    fn from_i32(v: i32) -> Self {
         match v {
             1 => Self::Primary,
             2 => Self::Secondary,
