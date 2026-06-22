@@ -15,11 +15,18 @@ optionally, `raw-dylib`.
 > `raw-dylib` and needs no import `.lib` files. `windows-targets` remains for
 > scenarios that require import libraries.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-targets`**.
+
+### How it's built
 
 Hand-written shim that selects the matching `windows_<arch>_<abi>` import-lib
 crate. The precursor to `windows-link`.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-targets`; see also the workspace test crates.

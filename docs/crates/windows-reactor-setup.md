@@ -5,8 +5,6 @@
 - 📦 Not published to crates.io
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor-setup)
 
-## Overview
-
 `windows-reactor-setup` is used from the `build.rs` of a
 [`windows-reactor`](windows-reactor.md) application. It downloads and stages the
 Windows App SDK runtime bootstrap files next to the built executable so the app
@@ -25,11 +23,18 @@ See the
 [samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 for complete project layouts.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-reactor-setup`**.
+
+### How it's built
 
 A small unpublished helper crate that drives the Windows App Runtime
 installer/bootstrapper.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-reactor-setup`; see also the workspace test crates.
