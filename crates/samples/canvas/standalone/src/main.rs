@@ -12,7 +12,9 @@ fn main() -> Result<()> {
     let window = Window::new("Canvas Standalone").size(800, 600).create()?;
 
     let device = GpuDevice::new()?;
-    let mut chain = unsafe { device.create_swap_chain_for_hwnd(window.hwnd(), 800, 600)? };
+    let (width, height) = window.client_size();
+    let mut chain =
+        unsafe { device.create_swap_chain_for_hwnd(window.hwnd(), width as u32, height as u32)? };
 
     run_with(|| {
         let width = chain.width() as f32;
