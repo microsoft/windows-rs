@@ -155,6 +155,33 @@ impl ICoreWebView2GetCookiesCompletedHandler_Impl for GetCookiesCompleted_Impl {
     }
 }
 
+/// Adapts a Rust closure to the
+/// `ICoreWebView2ClearBrowsingDataCompletedHandler` COM interface.
+pub(crate) struct ClearBrowsingDataCompleted(Cell<Option<Box<dyn FnOnce(Result<()>)>>>);
+
+implement_decl! {
+    impl ClearBrowsingDataCompleted as pub(crate) ClearBrowsingDataCompleted_Impl:
+        [ICoreWebView2ClearBrowsingDataCompletedHandler]
+}
+
+impl ClearBrowsingDataCompleted {
+    pub(crate) fn create<F: FnOnce(Result<()>) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2ClearBrowsingDataCompletedHandler {
+        Self(Cell::new(Some(Box::new(handler)))).into()
+    }
+}
+
+impl ICoreWebView2ClearBrowsingDataCompletedHandler_Impl for ClearBrowsingDataCompleted_Impl {
+    fn Invoke(&self, errorcode: HRESULT) -> Result<()> {
+        if let Some(handler) = self.0.take() {
+            handler(errorcode.ok());
+        }
+
+        Ok(())
+    }
+}
+
 /// Defines an event-handler adapter that forwards a WebView2 event to a Rust
 /// `FnMut` closure. The default form wraps the event's args interface with an
 /// `ICoreWebView2` sender; passing a sender type handles events raised on a
@@ -269,6 +296,38 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged
         let title =
             unsafe { string::take_result(sender.ok().and_then(|sender| sender.DocumentTitle())) };
         (*self.0.borrow_mut())(title);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the
+/// `ICoreWebView2ContainsFullScreenElementChangedEventHandler` COM interface.
+/// The event carries no args, so the new fullscreen state is read from the
+/// sender and handed to the closure.
+pub(crate) struct ContainsFullScreenElementChanged(RefCell<Box<dyn FnMut(bool)>>);
+
+implement_decl! {
+    impl ContainsFullScreenElementChanged as pub(crate) ContainsFullScreenElementChanged_Impl:
+        [ICoreWebView2ContainsFullScreenElementChangedEventHandler]
+}
+
+impl ContainsFullScreenElementChanged {
+    pub(crate) fn create<F: FnMut(bool) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2ContainsFullScreenElementChangedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl
+    for ContainsFullScreenElementChanged_Impl
+{
+    fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
+        let contains = sender
+            .ok()
+            .and_then(|sender| unsafe { sender.ContainsFullScreenElement() })
+            .is_ok_and(|value| value.as_bool());
+        (*self.0.borrow_mut())(contains);
         Ok(())
     }
 }

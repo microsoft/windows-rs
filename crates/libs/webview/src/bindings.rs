@@ -20,11 +20,15 @@ pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
 pub type COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND = i32;
 pub type COREWEBVIEW2_KEY_EVENT_KIND = i32;
+pub type COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL = i32;
 pub type COREWEBVIEW2_MOVE_FOCUS_REASON = i32;
 pub type COREWEBVIEW2_PERMISSION_KIND = i32;
 pub type COREWEBVIEW2_PERMISSION_STATE = i32;
+pub type COREWEBVIEW2_PREFERRED_COLOR_SCHEME = i32;
 pub type COREWEBVIEW2_PROCESS_FAILED_KIND = i32;
+pub type COREWEBVIEW2_SCROLLBAR_STYLE = i32;
 pub type COREWEBVIEW2_WEB_RESOURCE_CONTEXT = i32;
+pub type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = i32;
 pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
 pub type HWND = *mut core::ffi::c_void;
 windows_core::imp::define_interface!(
@@ -388,6 +392,47 @@ impl ICoreWebView2 {
             .ok()
         }
     }
+    pub(crate) unsafe fn add_ContainsFullScreenElementChanged<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_ContainsFullScreenElementChanged)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_ContainsFullScreenElementChanged(
+        &self,
+        token: i64,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_ContainsFullScreenElementChanged)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn ContainsFullScreenElement(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ContainsFullScreenElement)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) unsafe fn add_WebResourceRequested<P0>(
         &self,
         eventhandler: P0,
@@ -587,9 +632,18 @@ pub struct ICoreWebView2_Vtbl {
     RemoveHostObjectFromScript: usize,
     pub OpenDevToolsWindow:
         unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    add_ContainsFullScreenElementChanged: usize,
-    remove_ContainsFullScreenElementChanged: usize,
-    ContainsFullScreenElement: usize,
+    pub add_ContainsFullScreenElementChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    )
+        -> windows_core::HRESULT,
+    pub remove_ContainsFullScreenElementChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub ContainsFullScreenElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub add_WebResourceRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
@@ -864,6 +918,119 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2BytesReceivedChangedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2ClearBrowsingDataCompletedHandler,
+    ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
+    0xe9710a06_1d1d_49b2_8234_226f35846ae5
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2ClearBrowsingDataCompletedHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+}
+impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            errorcode: windows_core::HRESULT,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ClearBrowsingDataCompletedHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&errorcode),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2ClearBrowsingDataCompletedHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl,
+    0xe45d98b1_afef_45be_8baf_6c7728867f73
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
+    windows_core::IUnknownImpl
+{
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == & < ICoreWebView2ContainsFullScreenElementChangedEventHandler as windows_core::Interface >::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2ContainsFullScreenElementChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContentLoadingEventArgs,
     ICoreWebView2ContentLoadingEventArgs_Vtbl,
@@ -1338,6 +1505,57 @@ pub struct ICoreWebView2Controller3_Vtbl {
     remove_RasterizationScaleChanged: usize,
     BoundsMode: usize,
     SetBoundsMode: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Controller4,
+    ICoreWebView2Controller4_Vtbl,
+    0x97d418d5_a426_4e49_a151_e1a10f327d9e
+);
+impl core::ops::Deref for ICoreWebView2Controller4 {
+    type Target = ICoreWebView2Controller3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Controller4,
+    windows_core::IUnknown,
+    ICoreWebView2Controller,
+    ICoreWebView2Controller2,
+    ICoreWebView2Controller3
+);
+impl ICoreWebView2Controller4 {
+    pub(crate) unsafe fn AllowExternalDrop(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AllowExternalDrop)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetAllowExternalDrop(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAllowExternalDrop)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Controller4_Vtbl {
+    pub base__: ICoreWebView2Controller3_Vtbl,
+    pub AllowExternalDrop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAllowExternalDrop: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2ControllerOptions,
@@ -2557,10 +2775,42 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     ICoreWebView2Environment
 );
+impl ICoreWebView2Environment2 {
+    pub(crate) unsafe fn CreateWebResourceRequest<P2>(
+        &self,
+        uri: LPCWSTR,
+        method: LPCWSTR,
+        postdata: P2,
+        headers: LPCWSTR,
+    ) -> windows_core::Result<ICoreWebView2WebResourceRequest>
+    where
+        P2: windows_core::Param<IStream>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateWebResourceRequest)(
+                windows_core::Interface::as_raw(self),
+                uri,
+                method,
+                postdata.param().abi(),
+                headers,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
 #[repr(C)]
 pub struct ICoreWebView2Environment2_Vtbl {
     pub base__: ICoreWebView2Environment_Vtbl,
-    CreateWebResourceRequest: usize,
+    pub CreateWebResourceRequest: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        LPCWSTR,
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2Environment3,
@@ -2958,6 +3208,151 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions {}
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions6,
+    ICoreWebView2EnvironmentOptions6_Vtbl,
+    0x57d29cc3_c84f_42a0_b0e2_effbd5e179de
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions6, windows_core::IUnknown);
+#[repr(C)]
+pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub AreBrowserExtensionsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreBrowserExtensionsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
+    fn AreBrowserExtensionsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL)
+    -> windows_core::Result<()>;
+}
+impl ICoreWebView2EnvironmentOptions6_Vtbl {
+    pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
+    {
+        unsafe extern "system" fn AreBrowserExtensionsEnabled<
+            Identity: ICoreWebView2EnvironmentOptions6_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions6_Impl::AreBrowserExtensionsEnabled(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetAreBrowserExtensionsEnabled<
+            Identity: ICoreWebView2EnvironmentOptions6_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions6_Impl::SetAreBrowserExtensionsEnabled(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            AreBrowserExtensionsEnabled: AreBrowserExtensionsEnabled::<Identity, OFFSET>,
+            SetAreBrowserExtensionsEnabled: SetAreBrowserExtensionsEnabled::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2EnvironmentOptions6 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions6 {}
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions8,
+    ICoreWebView2EnvironmentOptions8_Vtbl,
+    0x7c7ecf51_e918_5caf_853c_e9a2bcc27775
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions8, windows_core::IUnknown);
+#[repr(C)]
+pub struct ICoreWebView2EnvironmentOptions8_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ScrollBarStyle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_SCROLLBAR_STYLE,
+    ) -> windows_core::HRESULT,
+    pub SetScrollBarStyle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_SCROLLBAR_STYLE,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2EnvironmentOptions8_Impl: windows_core::IUnknownImpl {
+    fn ScrollBarStyle(&self) -> windows_core::Result<COREWEBVIEW2_SCROLLBAR_STYLE>;
+    fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
+}
+impl ICoreWebView2EnvironmentOptions8_Vtbl {
+    pub const fn new<Identity: ICoreWebView2EnvironmentOptions8_Impl, const OFFSET: isize>() -> Self
+    {
+        unsafe extern "system" fn ScrollBarStyle<
+            Identity: ICoreWebView2EnvironmentOptions8_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut COREWEBVIEW2_SCROLLBAR_STYLE,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2EnvironmentOptions8_Impl::ScrollBarStyle(this) {
+                    Ok(ok__) => {
+                        value.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetScrollBarStyle<
+            Identity: ICoreWebView2EnvironmentOptions8_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: COREWEBVIEW2_SCROLLBAR_STYLE,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2EnvironmentOptions8_Impl::SetScrollBarStyle(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            ScrollBarStyle: ScrollBarStyle::<Identity, OFFSET>,
+            SetScrollBarStyle: SetScrollBarStyle::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2EnvironmentOptions8 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptCompletedHandler,
     ICoreWebView2ExecuteScriptCompletedHandler_Vtbl,
@@ -4002,6 +4397,154 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2Profile,
+    ICoreWebView2Profile_Vtbl,
+    0x79110ad3_cd5d_4373_8bc3_c60658f17a5f
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2Profile, windows_core::IUnknown);
+impl ICoreWebView2Profile {
+    pub(crate) unsafe fn ProfileName(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProfileName)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn IsInPrivateModeEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsInPrivateModeEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn ProfilePath(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProfilePath)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn DefaultDownloadFolderPath(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DefaultDownloadFolderPath)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetDefaultDownloadFolderPath(
+        &self,
+        value: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDefaultDownloadFolderPath)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn PreferredColorScheme(
+        &self,
+    ) -> windows_core::Result<COREWEBVIEW2_PREFERRED_COLOR_SCHEME> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).PreferredColorScheme)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetPreferredColorScheme(
+        &self,
+        value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPreferredColorScheme)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Profile_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ProfileName:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub IsInPrivateModeEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub ProfilePath:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub DefaultDownloadFolderPath:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub SetDefaultDownloadFolderPath:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub PreferredColorScheme: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
+    ) -> windows_core::HRESULT,
+    pub SetPreferredColorScheme: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Profile2,
+    ICoreWebView2Profile2_Vtbl,
+    0xfa740d4b_5eae_4344_a8ad_74be31925397
+);
+impl core::ops::Deref for ICoreWebView2Profile2 {
+    type Target = ICoreWebView2Profile;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Profile2,
+    windows_core::IUnknown,
+    ICoreWebView2Profile
+);
+impl ICoreWebView2Profile2 {
+    pub(crate) unsafe fn ClearBrowsingDataAll<P0>(&self, handler: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearBrowsingDataAll)(
+                windows_core::Interface::as_raw(self),
+                handler.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Profile2_Vtbl {
+    pub base__: ICoreWebView2Profile_Vtbl,
+    ClearBrowsingData: usize,
+    ClearBrowsingDataInTimeRange: usize,
+    pub ClearBrowsingDataAll: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings,
     ICoreWebView2Settings_Vtbl,
@@ -5107,6 +5650,402 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
 }
 impl windows_core::RuntimeName for ICoreWebView2WindowCloseRequestedEventHandler {}
 windows_core::imp::define_interface!(
+    ICoreWebView2_10,
+    ICoreWebView2_10_Vtbl,
+    0xb1690564_6f5a_4983_8e48_31d1143fecdb
+);
+impl core::ops::Deref for ICoreWebView2_10 {
+    type Target = ICoreWebView2_9;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_10,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9
+);
+#[repr(C)]
+pub struct ICoreWebView2_10_Vtbl {
+    pub base__: ICoreWebView2_9_Vtbl,
+    add_BasicAuthenticationRequested: usize,
+    remove_BasicAuthenticationRequested: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_11,
+    ICoreWebView2_11_Vtbl,
+    0x0be78e56_c193_4051_b943_23b460c08bdb
+);
+impl core::ops::Deref for ICoreWebView2_11 {
+    type Target = ICoreWebView2_10;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_11,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10
+);
+#[repr(C)]
+pub struct ICoreWebView2_11_Vtbl {
+    pub base__: ICoreWebView2_10_Vtbl,
+    CallDevToolsProtocolMethodForSession: usize,
+    add_ContextMenuRequested: usize,
+    remove_ContextMenuRequested: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_12,
+    ICoreWebView2_12_Vtbl,
+    0x35d69927_bcfa_4566_9349_6b3e0d154cac
+);
+impl core::ops::Deref for ICoreWebView2_12 {
+    type Target = ICoreWebView2_11;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_12,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11
+);
+#[repr(C)]
+pub struct ICoreWebView2_12_Vtbl {
+    pub base__: ICoreWebView2_11_Vtbl,
+    add_StatusBarTextChanged: usize,
+    remove_StatusBarTextChanged: usize,
+    StatusBarText: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_13,
+    ICoreWebView2_13_Vtbl,
+    0xf75f09a8_667e_4983_88d6_c8773f315e84
+);
+impl core::ops::Deref for ICoreWebView2_13 {
+    type Target = ICoreWebView2_12;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_13,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12
+);
+impl ICoreWebView2_13 {
+    pub(crate) unsafe fn Profile(&self) -> windows_core::Result<ICoreWebView2Profile> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Profile)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2_13_Vtbl {
+    pub base__: ICoreWebView2_12_Vtbl,
+    pub Profile: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_14,
+    ICoreWebView2_14_Vtbl,
+    0x6daa4f10_4a90_4753_8898_77c5df534165
+);
+impl core::ops::Deref for ICoreWebView2_14 {
+    type Target = ICoreWebView2_13;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_14,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13
+);
+#[repr(C)]
+pub struct ICoreWebView2_14_Vtbl {
+    pub base__: ICoreWebView2_13_Vtbl,
+    add_ServerCertificateErrorDetected: usize,
+    remove_ServerCertificateErrorDetected: usize,
+    ClearServerCertificateErrorActions: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_15,
+    ICoreWebView2_15_Vtbl,
+    0x517b2d1d_7dae_4a66_a4f4_10352ffb9518
+);
+impl core::ops::Deref for ICoreWebView2_15 {
+    type Target = ICoreWebView2_14;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_15,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14
+);
+#[repr(C)]
+pub struct ICoreWebView2_15_Vtbl {
+    pub base__: ICoreWebView2_14_Vtbl,
+    add_FaviconChanged: usize,
+    remove_FaviconChanged: usize,
+    FaviconUri: usize,
+    GetFavicon: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_16,
+    ICoreWebView2_16_Vtbl,
+    0x0eb34dc9_9f91_41e1_8639_95cd5943906b
+);
+impl core::ops::Deref for ICoreWebView2_16 {
+    type Target = ICoreWebView2_15;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_16,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15
+);
+#[repr(C)]
+pub struct ICoreWebView2_16_Vtbl {
+    pub base__: ICoreWebView2_15_Vtbl,
+    Print: usize,
+    ShowPrintUI: usize,
+    PrintToPdfStream: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_17,
+    ICoreWebView2_17_Vtbl,
+    0x702e75d4_fd44_434d_9d70_1a68a6b1192a
+);
+impl core::ops::Deref for ICoreWebView2_17 {
+    type Target = ICoreWebView2_16;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_17,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16
+);
+#[repr(C)]
+pub struct ICoreWebView2_17_Vtbl {
+    pub base__: ICoreWebView2_16_Vtbl,
+    PostSharedBufferToScript: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_18,
+    ICoreWebView2_18_Vtbl,
+    0x7a626017_28be_49b2_b865_3ba2b3522d90
+);
+impl core::ops::Deref for ICoreWebView2_18 {
+    type Target = ICoreWebView2_17;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_18,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17
+);
+#[repr(C)]
+pub struct ICoreWebView2_18_Vtbl {
+    pub base__: ICoreWebView2_17_Vtbl,
+    add_LaunchingExternalUriScheme: usize,
+    remove_LaunchingExternalUriScheme: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_19,
+    ICoreWebView2_19_Vtbl,
+    0x6921f954_79b0_437f_a997_c85811897c68
+);
+impl core::ops::Deref for ICoreWebView2_19 {
+    type Target = ICoreWebView2_18;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_19,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17,
+    ICoreWebView2_18
+);
+impl ICoreWebView2_19 {
+    pub(crate) unsafe fn MemoryUsageTargetLevel(
+        &self,
+    ) -> windows_core::Result<COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MemoryUsageTargetLevel)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetMemoryUsageTargetLevel(
+        &self,
+        value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMemoryUsageTargetLevel)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2_19_Vtbl {
+    pub base__: ICoreWebView2_18_Vtbl,
+    pub MemoryUsageTargetLevel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+    ) -> windows_core::HRESULT,
+    pub SetMemoryUsageTargetLevel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICoreWebView2_2,
     ICoreWebView2_2_Vtbl,
     0x9e8f0cf8_e670_4b5e_b2bc_73e061e3184c
@@ -5119,6 +6058,21 @@ impl core::ops::Deref for ICoreWebView2_2 {
 }
 windows_core::imp::interface_hierarchy!(ICoreWebView2_2, windows_core::IUnknown, ICoreWebView2);
 impl ICoreWebView2_2 {
+    pub(crate) unsafe fn NavigateWithWebResourceRequest<P0>(
+        &self,
+        request: P0,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2WebResourceRequest>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).NavigateWithWebResourceRequest)(
+                windows_core::Interface::as_raw(self),
+                request.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) unsafe fn CookieManager(&self) -> windows_core::Result<ICoreWebView2CookieManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5145,7 +6099,10 @@ pub struct ICoreWebView2_2_Vtbl {
     pub base__: ICoreWebView2_Vtbl,
     add_WebResourceResponseReceived: usize,
     remove_WebResourceResponseReceived: usize,
-    NavigateWithWebResourceRequest: usize,
+    pub NavigateWithWebResourceRequest: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     add_DOMContentLoaded: usize,
     remove_DOMContentLoaded: usize,
     pub CookieManager: unsafe extern "system" fn(
@@ -5156,6 +6113,175 @@ pub struct ICoreWebView2_2_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_20,
+    ICoreWebView2_20_Vtbl,
+    0xb4bc1926_7305_11ee_b962_0242ac120002
+);
+impl core::ops::Deref for ICoreWebView2_20 {
+    type Target = ICoreWebView2_19;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_20,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17,
+    ICoreWebView2_18,
+    ICoreWebView2_19
+);
+#[repr(C)]
+pub struct ICoreWebView2_20_Vtbl {
+    pub base__: ICoreWebView2_19_Vtbl,
+    FrameId: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_21,
+    ICoreWebView2_21_Vtbl,
+    0xc4980dea_587b_43b9_8143_3ef3bf552d95
+);
+impl core::ops::Deref for ICoreWebView2_21 {
+    type Target = ICoreWebView2_20;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_21,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17,
+    ICoreWebView2_18,
+    ICoreWebView2_19,
+    ICoreWebView2_20
+);
+#[repr(C)]
+pub struct ICoreWebView2_21_Vtbl {
+    pub base__: ICoreWebView2_20_Vtbl,
+    ExecuteScriptWithResult: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_22,
+    ICoreWebView2_22_Vtbl,
+    0xdb75dfc7_a857_4632_a398_6969dde26c0a
+);
+impl core::ops::Deref for ICoreWebView2_22 {
+    type Target = ICoreWebView2_21;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_22,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17,
+    ICoreWebView2_18,
+    ICoreWebView2_19,
+    ICoreWebView2_20,
+    ICoreWebView2_21
+);
+impl ICoreWebView2_22 {
+    pub(crate) unsafe fn AddWebResourceRequestedFilterWithRequestSourceKinds(
+        &self,
+        uri: LPCWSTR,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+        requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self)
+                .AddWebResourceRequestedFilterWithRequestSourceKinds)(
+                windows_core::Interface::as_raw(self),
+                uri,
+                resourcecontext,
+                requestsourcekinds,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn RemoveWebResourceRequestedFilterWithRequestSourceKinds(
+        &self,
+        uri: LPCWSTR,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+        requestsourcekinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self)
+                .RemoveWebResourceRequestedFilterWithRequestSourceKinds)(
+                windows_core::Interface::as_raw(self),
+                uri,
+                resourcecontext,
+                requestsourcekinds,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2_22_Vtbl {
+    pub base__: ICoreWebView2_21_Vtbl,
+    pub AddWebResourceRequestedFilterWithRequestSourceKinds:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            LPCWSTR,
+            COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+            COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+        ) -> windows_core::HRESULT,
+    pub RemoveWebResourceRequestedFilterWithRequestSourceKinds:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            LPCWSTR,
+            COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+            COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+        ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_3,
@@ -5277,6 +6403,151 @@ pub struct ICoreWebView2_4_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_DownloadStarting:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_5,
+    ICoreWebView2_5_Vtbl,
+    0xbedb11b8_d63c_11eb_b8bc_0242ac130003
+);
+impl core::ops::Deref for ICoreWebView2_5 {
+    type Target = ICoreWebView2_4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_5,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4
+);
+#[repr(C)]
+pub struct ICoreWebView2_5_Vtbl {
+    pub base__: ICoreWebView2_4_Vtbl,
+    add_ClientCertificateRequested: usize,
+    remove_ClientCertificateRequested: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_6,
+    ICoreWebView2_6_Vtbl,
+    0x499aadac_d92c_4589_8a75_111bfc167795
+);
+impl core::ops::Deref for ICoreWebView2_6 {
+    type Target = ICoreWebView2_5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_6,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5
+);
+#[repr(C)]
+pub struct ICoreWebView2_6_Vtbl {
+    pub base__: ICoreWebView2_5_Vtbl,
+    OpenTaskManagerWindow: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_7,
+    ICoreWebView2_7_Vtbl,
+    0x79c24d83_09a3_45ae_9418_487f32a58740
+);
+impl core::ops::Deref for ICoreWebView2_7 {
+    type Target = ICoreWebView2_6;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_7,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6
+);
+#[repr(C)]
+pub struct ICoreWebView2_7_Vtbl {
+    pub base__: ICoreWebView2_6_Vtbl,
+    PrintToPdf: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_8,
+    ICoreWebView2_8_Vtbl,
+    0xe9632730_6e1e_43ab_b7b8_7b2c9e62e094
+);
+impl core::ops::Deref for ICoreWebView2_8 {
+    type Target = ICoreWebView2_7;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_8,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7
+);
+#[repr(C)]
+pub struct ICoreWebView2_8_Vtbl {
+    pub base__: ICoreWebView2_7_Vtbl,
+    add_IsMutedChanged: usize,
+    remove_IsMutedChanged: usize,
+    IsMuted: usize,
+    SetIsMuted: usize,
+    add_IsDocumentPlayingAudioChanged: usize,
+    remove_IsDocumentPlayingAudioChanged: usize,
+    IsDocumentPlayingAudio: usize,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2_9,
+    ICoreWebView2_9_Vtbl,
+    0x4d7b2eab_9fdc_468d_b998_a9260b5ed651
+);
+impl core::ops::Deref for ICoreWebView2_9 {
+    type Target = ICoreWebView2_8;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_9,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8
+);
+#[repr(C)]
+pub struct ICoreWebView2_9_Vtbl {
+    pub base__: ICoreWebView2_8_Vtbl,
+    add_IsDefaultDownloadDialogOpenChanged: usize,
+    remove_IsDefaultDownloadDialogOpenChanged: usize,
+    IsDefaultDownloadDialogOpen: usize,
+    OpenDefaultDownloadDialog: usize,
+    CloseDefaultDownloadDialog: usize,
+    DefaultDownloadDialogCornerAlignment: usize,
+    SetDefaultDownloadDialogCornerAlignment: usize,
+    DefaultDownloadDialogMargin: usize,
+    SetDefaultDownloadDialogMargin: usize,
 }
 pub type INT64 = i64;
 windows_core::imp::define_interface!(

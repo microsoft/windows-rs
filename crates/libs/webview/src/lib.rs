@@ -10,6 +10,7 @@ mod environment;
 mod event;
 mod handler;
 mod options;
+mod profile;
 mod protocol;
 mod pump;
 mod script;
@@ -34,9 +35,10 @@ pub use event::{
     NewWindowRequestedArgs, PermissionKind, PermissionRequestedArgs, PermissionState,
     ProcessFailedArgs, ProcessFailedKind, WebMessageReceivedArgs,
 };
-pub use options::EnvironmentOptions;
+pub use options::{EnvironmentOptions, ScrollBarStyle};
+pub use profile::{PreferredColorScheme, Profile};
 pub use protocol::{WebResourceRequest, WebResourceResponse};
 pub use script::ScriptId;
 pub use settings::Settings;
-pub use webview::{HostResourceAccessKind, WebView};
+pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};
 pub use windows_core::Result;

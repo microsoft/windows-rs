@@ -140,6 +140,20 @@ impl Controller {
         unsafe { self.0.NotifyParentWindowPositionChanged() }
     }
 
+    /// Returns `true` if files dragged from outside the application can be
+    /// dropped onto the browser.
+    pub fn allow_external_drop(&self) -> Result<bool> {
+        let source: ICoreWebView2Controller4 = self.0.cast()?;
+        Ok(unsafe { source.AllowExternalDrop()? }.as_bool())
+    }
+
+    /// Sets whether files dragged from outside the application can be dropped
+    /// onto the browser. Disable it when the host wants to handle drops itself.
+    pub fn set_allow_external_drop(&self, allow: bool) -> Result<()> {
+        let source: ICoreWebView2Controller4 = self.0.cast()?;
+        unsafe { source.SetAllowExternalDrop(allow) }
+    }
+
     /// Returns the zoom factor applied to the page, where `1.0` is 100%.
     pub fn zoom_factor(&self) -> f64 {
         unsafe { self.0.ZoomFactor() }.unwrap_or(1.0)

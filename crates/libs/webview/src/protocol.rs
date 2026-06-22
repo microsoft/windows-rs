@@ -5,6 +5,41 @@ use windows_core::implement_decl;
 /// Filter context matching every resource type (`COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL`).
 pub(crate) const WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0;
 
+/// Request sources matching every kind (`COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL`),
+/// so a filter also intercepts requests from iframes and workers.
+const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = -1;
+
+/// Registers a web-resource-requested filter for `uri`. On runtimes that support
+/// it (`ICoreWebView2_22`) the filter covers every request source — including
+/// iframes and workers — falling back to the document-only filter otherwise.
+pub(crate) unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) -> Result<()> {
+    unsafe {
+        match webview.cast::<ICoreWebView2_22>() {
+            Ok(webview) => webview.AddWebResourceRequestedFilterWithRequestSourceKinds(
+                uri,
+                WEB_RESOURCE_CONTEXT_ALL,
+                WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL,
+            ),
+            Err(_) => webview.AddWebResourceRequestedFilter(uri, WEB_RESOURCE_CONTEXT_ALL),
+        }
+    }
+}
+
+/// Removes a filter registered with [`add_requested_filter`], matching whichever
+/// API registered it.
+pub(crate) unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) {
+    let _ = unsafe {
+        match webview.cast::<ICoreWebView2_22>() {
+            Ok(webview) => webview.RemoveWebResourceRequestedFilterWithRequestSourceKinds(
+                uri,
+                WEB_RESOURCE_CONTEXT_ALL,
+                WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL,
+            ),
+            Err(_) => webview.RemoveWebResourceRequestedFilter(uri, WEB_RESOURCE_CONTEXT_ALL),
+        }
+    };
+}
+
 /// A resource request intercepted by [`WebView::on_web_resource_requested`],
 /// exposing the requested URI, HTTP method, and headers.
 pub struct WebResourceRequest(pub(crate) ICoreWebView2WebResourceRequest);

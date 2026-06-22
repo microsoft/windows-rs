@@ -1,6 +1,26 @@
 use super::*;
 use windows_core::implement_decl;
 
+/// The scrollbar appearance WebView2 uses for pages, set with
+/// [`EnvironmentOptions::scrollbar_style`].
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ScrollBarStyle {
+    /// The browser default scrollbars.
+    #[default]
+    Default,
+    /// Thin overlay scrollbars in the Fluent style.
+    FluentOverlay,
+}
+
+impl ScrollBarStyle {
+    fn to_raw(self) -> COREWEBVIEW2_SCROLLBAR_STYLE {
+        match self {
+            Self::Default => 0,
+            Self::FluentOverlay => 1,
+        }
+    }
+}
+
 /// Configures the WebView2 [`Environment`], including the user data folder, the
 /// browser executable folder, additional browser command-line arguments, and the
 /// UI language. Build one with the fluent setters and pass it to
@@ -22,6 +42,8 @@ pub struct EnvironmentOptions {
     language: Option<String>,
     target_compatible_browser_version: Option<String>,
     allow_single_sign_on_using_os_primary_account: bool,
+    are_browser_extensions_enabled: bool,
+    scrollbar_style: ScrollBarStyle,
 }
 
 impl EnvironmentOptions {
@@ -67,6 +89,18 @@ impl EnvironmentOptions {
         self
     }
 
+    /// Enables loading and running browser extensions in the environment.
+    pub fn are_browser_extensions_enabled(mut self, value: bool) -> Self {
+        self.are_browser_extensions_enabled = value;
+        self
+    }
+
+    /// Sets the scrollbar style pages render with.
+    pub fn scrollbar_style(mut self, value: ScrollBarStyle) -> Self {
+        self.scrollbar_style = value;
+        self
+    }
+
     pub(crate) fn create_environment<F: FnOnce(Result<Environment>) + 'static>(
         &self,
         handler: F,
@@ -107,11 +141,13 @@ pub(crate) struct OptionsObject {
     language: String,
     target_compatible_browser_version: String,
     allow_single_sign_on_using_os_primary_account: BOOL,
+    are_browser_extensions_enabled: BOOL,
+    scrollbar_style: COREWEBVIEW2_SCROLLBAR_STYLE,
 }
 
 implement_decl! {
     impl OptionsObject as pub(crate) OptionsObject_Impl:
-        [ICoreWebView2EnvironmentOptions]
+        [ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions6, ICoreWebView2EnvironmentOptions8]
 }
 
 impl OptionsObject {
@@ -129,6 +165,8 @@ impl OptionsObject {
             allow_single_sign_on_using_os_primary_account: options
                 .allow_single_sign_on_using_os_primary_account
                 .into(),
+            are_browser_extensions_enabled: options.are_browser_extensions_enabled.into(),
+            scrollbar_style: options.scrollbar_style.to_raw(),
         }
     }
 }
@@ -163,6 +201,26 @@ impl ICoreWebView2EnvironmentOptions_Impl for OptionsObject_Impl {
     }
 
     fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, _allow: BOOL) -> Result<()> {
+        Ok(())
+    }
+}
+
+impl ICoreWebView2EnvironmentOptions6_Impl for OptionsObject_Impl {
+    fn AreBrowserExtensionsEnabled(&self) -> Result<BOOL> {
+        Ok(self.are_browser_extensions_enabled)
+    }
+
+    fn SetAreBrowserExtensionsEnabled(&self, _value: BOOL) -> Result<()> {
+        Ok(())
+    }
+}
+
+impl ICoreWebView2EnvironmentOptions8_Impl for OptionsObject_Impl {
+    fn ScrollBarStyle(&self) -> Result<COREWEBVIEW2_SCROLLBAR_STYLE> {
+        Ok(self.scrollbar_style)
+    }
+
+    fn SetScrollBarStyle(&self, _value: COREWEBVIEW2_SCROLLBAR_STYLE) -> Result<()> {
         Ok(())
     }
 }

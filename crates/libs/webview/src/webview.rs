@@ -1,6 +1,73 @@
 use super::*;
 use crate::handler::subscription;
 
+/// The level WebView2 should target for the browser's memory usage, set with
+/// [`WebView::set_memory_usage_target_level`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MemoryUsageTargetLevel {
+    /// Normal memory usage.
+    Normal,
+    /// Reduced memory usage, suitable for a hidden or background `WebView`.
+    Low,
+}
+
+impl MemoryUsageTargetLevel {
+    fn from_raw(value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL) -> Self {
+        match value {
+            1 => Self::Low,
+            _ => Self::Normal,
+        }
+    }
+
+    fn to_raw(self) -> COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL {
+        match self {
+            Self::Normal => 0,
+            Self::Low => 1,
+        }
+    }
+}
+
+/// A request to navigate with a custom HTTP method, headers, or body, passed to
+/// [`WebView::navigate_with_request`]. Defaults to a `GET` with no extra headers
+/// or body.
+#[derive(Clone, Debug)]
+pub struct NavigationRequest {
+    uri: String,
+    method: String,
+    headers: Vec<(String, String)>,
+    body: Vec<u8>,
+}
+
+impl NavigationRequest {
+    /// Creates a `GET` request for `uri`.
+    pub fn new(uri: &str) -> Self {
+        Self {
+            uri: uri.to_string(),
+            method: "GET".to_string(),
+            headers: Vec::new(),
+            body: Vec::new(),
+        }
+    }
+
+    /// Sets the HTTP method, for example `POST`.
+    pub fn method(mut self, method: &str) -> Self {
+        self.method = method.to_string();
+        self
+    }
+
+    /// Adds a request header, such as an `Authorization` token.
+    pub fn header(mut self, name: &str, value: &str) -> Self {
+        self.headers.push((name.to_string(), value.to_string()));
+        self
+    }
+
+    /// Sets the request body bytes.
+    pub fn body(mut self, body: impl Into<Vec<u8>>) -> Self {
+        self.body = body.into();
+        self
+    }
+}
+
 /// How a folder mapped with
 /// [`WebView::set_virtual_host_name_to_folder_mapping`] may be accessed.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -40,6 +107,41 @@ impl WebView {
     pub fn navigate_to_string(&self, html: &str) -> Result<()> {
         let html = string::encode(html);
         unsafe { self.0.NavigateToString(html.as_ptr()) }
+    }
+
+    /// Navigates the browser using a [`NavigationRequest`], allowing a custom
+    /// HTTP method, request headers, or body — for example a `POST` or an
+    /// `Authorization` header that a plain [`navigate`](Self::navigate) cannot
+    /// supply.
+    pub fn navigate_with_request(&self, request: &NavigationRequest) -> Result<()> {
+        let source: ICoreWebView2_2 = self.0.cast()?;
+        let environment: ICoreWebView2Environment2 = unsafe { source.Environment()? }.cast()?;
+
+        let uri = string::encode(&request.uri);
+        let method = string::encode(&request.method);
+        let mut headers = String::new();
+        for (name, value) in &request.headers {
+            headers.push_str(name);
+            headers.push_str(": ");
+            headers.push_str(value);
+            headers.push_str("\r\n");
+        }
+        let headers = string::encode(&headers);
+        let stream = if request.body.is_empty() {
+            None
+        } else {
+            unsafe { SHCreateMemStream(request.body.as_ptr(), request.body.len() as u32) }
+        };
+
+        unsafe {
+            let request = environment.CreateWebResourceRequest(
+                uri.as_ptr(),
+                method.as_ptr(),
+                stream.as_ref(),
+                headers.as_ptr(),
+            )?;
+            source.NavigateWithWebResourceRequest(&request)
+        }
     }
 
     /// Reloads the current page.
@@ -116,6 +218,35 @@ impl WebView {
         Ok(CookieManager(unsafe { source.CookieManager()? }))
     }
 
+    /// Returns the [`Profile`] this browser belongs to, exposing its colour
+    /// scheme, download folder, and browsing-data controls.
+    pub fn profile(&self) -> Result<Profile> {
+        let source: ICoreWebView2_13 = self.0.cast()?;
+        Ok(Profile(unsafe { source.Profile()? }))
+    }
+
+    /// Returns `true` if the page currently has an element displayed full screen
+    /// (for example a video using the HTML Fullscreen API).
+    pub fn contains_fullscreen_element(&self) -> bool {
+        unsafe { self.0.ContainsFullScreenElement() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Returns the memory-usage level WebView2 is targeting.
+    pub fn memory_usage_target_level(&self) -> Result<MemoryUsageTargetLevel> {
+        let source: ICoreWebView2_19 = self.0.cast()?;
+        Ok(MemoryUsageTargetLevel::from_raw(unsafe {
+            source.MemoryUsageTargetLevel()?
+        }))
+    }
+
+    /// Hints the memory-usage level WebView2 should target. Set
+    /// [`MemoryUsageTargetLevel::Low`] when the `WebView` is hidden so the
+    /// browser can trim memory, and back to `Normal` when it is shown again.
+    pub fn set_memory_usage_target_level(&self, level: MemoryUsageTargetLevel) -> Result<()> {
+        let source: ICoreWebView2_19 = self.0.cast()?;
+        unsafe { source.SetMemoryUsageTargetLevel(level.to_raw()) }
+    }
+
     /// Returns the [`Settings`] controlling features such as JavaScript, the dev
     /// tools, and context menus.
     pub fn settings(&self) -> Result<Settings> {
@@ -182,6 +313,23 @@ impl WebView {
         /// exit). Without a handler a crash leaves a blank page with no notice.
         on_process_failed(ProcessFailedArgs) =>
             ProcessFailed, add_ProcessFailed / remove_ProcessFailed
+    }
+
+    /// Subscribes to the contains-fullscreen-element-changed event, raised when
+    /// the page enters or leaves HTML fullscreen (for example a video going full
+    /// screen). The handler receives the new
+    /// [`contains_fullscreen_element`](Self::contains_fullscreen_element) state
+    /// so the host can resize or restore its window to match.
+    pub fn on_contains_fullscreen_element_changed<F: FnMut(bool) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let handler = handler::ContainsFullScreenElementChanged::create(handler);
+        let token = unsafe { self.0.add_ContainsFullScreenElementChanged(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_ContainsFullScreenElementChanged(token) };
+        }))
     }
 
     /// Posts a message to the hosted page as a JSON value. The page receives it
@@ -286,23 +434,13 @@ impl WebView {
     {
         let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
         let filter = string::encode(uri_filter);
-        unsafe {
-            self.0.AddWebResourceRequestedFilter(
-                filter.as_ptr(),
-                protocol::WEB_RESOURCE_CONTEXT_ALL,
-            )?;
-        }
+        unsafe { protocol::add_requested_filter(&self.0, filter.as_ptr())? };
         let handler = protocol::WebResourceRequested::create(environment, handler);
         let token = unsafe { self.0.add_WebResourceRequested(&handler)? };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_WebResourceRequested(token) };
-            let _ = unsafe {
-                source.RemoveWebResourceRequestedFilter(
-                    filter.as_ptr(),
-                    protocol::WEB_RESOURCE_CONTEXT_ALL,
-                )
-            };
+            unsafe { protocol::remove_requested_filter(&source, filter.as_ptr()) };
         }))
     }
 }
