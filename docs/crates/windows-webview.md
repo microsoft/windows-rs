@@ -62,6 +62,10 @@ for as long as you want the handler to fire.
 - `on_permission_requested` — grant/deny/`defer()` a capability request.
 - `on_download_starting` — inspect and control downloads (see below).
 - `on_web_resource_requested` — serve responses from memory (see below).
+- `on_process_failed` — a browser process crashed, exited, or hung;
+  `ProcessFailedArgs::kind()` distinguishes a render-process crash (reload the
+  page) from a browser-process exit (recreate the `WebView`). Without a handler a
+  crash silently leaves a blank page.
 
 `NewWindowRequestedArgs` and `PermissionRequestedArgs` expose a `defer()` that
 returns a `Deferral`, letting a handler resolve the decision asynchronously; the
@@ -136,6 +140,30 @@ page from memory, and round-trips a host ↔ page message.
 
 The remainder of this page covers how the crate is built and maintained. It is
 for contributors and is **not needed to use `windows-webview`**.
+
+### Coverage and roadmap
+
+Priorities are grounded in what the top `webview2-com` dependents (`wry` →
+`tauri`, ~60M downloads) actually use, and in the concrete reliability and
+accessibility gaps they hit. A deliberate non-goal is a Rust `Future`/`async`
+layer: the entire production ecosystem runs on the same callback + pump-and-wait
+model this crate already uses, with no community demand for futures and a
+single-threaded COM apartment that makes them awkward.
+
+Covered: synchronous creation, navigation and document state, settings, host ↔
+page messaging, custom protocols (serve from memory), downloads, environment
+options, and the navigation/title/window/permission/new-window events.
+
+Tracked gaps, roughly by impact:
+
+| Gap | Status | Notes |
+|-----|--------|-------|
+| `ProcessFailed` (renderer-crash detection) | ✅ Done | `on_process_failed` delivers a `ProcessFailedArgs` with `kind()`. |
+| Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ⬜ Planned | Active accessibility bug in shipping Tauri apps (`wry` #1754): screen readers go silent, Tab stops working. Controller-level. |
+| `SetVirtualHostNameToFolderMapping` | ⬜ Planned | First-class local-asset serving; `wry` resorts to a URL-rewriting workaround. Pairs with the custom-protocol slice. |
+| Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ⬜ Planned | `wry` uses all of these. |
+| Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | ⬜ Planned | `wry` sets these through the later settings interfaces. |
+| Cookies, `Profile`/themes, `NavigateWithWebResourceRequest` (headers), incognito, browser extensions | ⬜ Planned | Breadth `wry` covers that this crate does not yet. |
 
 ### How it's built
 

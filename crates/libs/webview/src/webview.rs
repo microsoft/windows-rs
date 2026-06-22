@@ -111,6 +111,16 @@ impl WebView {
             NavigationCompleted, add_NavigationCompleted / remove_NavigationCompleted
     }
 
+    subscription! {
+        /// Subscribes to the process-failed event, raised when a browser process
+        /// crashes, exits unexpectedly, or becomes unresponsive. Inspect
+        /// [`ProcessFailedArgs::kind`] to decide whether to reload the page (a
+        /// render-process crash) or recreate the `WebView` (a browser-process
+        /// exit). Without a handler a crash leaves a blank page with no notice.
+        on_process_failed(ProcessFailedArgs) =>
+            ProcessFailed, add_ProcessFailed / remove_ProcessFailed
+    }
+
     /// Posts a message to the hosted page as a JSON value. The page receives it
     /// via the `window.chrome.webview.addEventListener("message", …)` event,
     /// with `event.data` set to the parsed JSON.

@@ -10,6 +10,7 @@ pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
 pub type COREWEBVIEW2_PERMISSION_KIND = i32;
 pub type COREWEBVIEW2_PERMISSION_STATE = i32;
+pub type COREWEBVIEW2_PROCESS_FAILED_KIND = i32;
 pub type COREWEBVIEW2_WEB_RESOURCE_CONTEXT = i32;
 pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
 pub type HWND = *mut core::ffi::c_void;
@@ -156,6 +157,29 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn remove_PermissionRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).remove_PermissionRequested)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn add_ProcessFailed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2ProcessFailedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_ProcessFailed)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_ProcessFailed(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_ProcessFailed)(
                 windows_core::Interface::as_raw(self),
                 token,
             )
@@ -481,8 +505,13 @@ pub struct ICoreWebView2_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_PermissionRequested:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    add_ProcessFailed: usize,
-    remove_ProcessFailed: usize,
+    pub add_ProcessFailed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_ProcessFailed:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub AddScriptToExecuteOnDocumentCreated: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         LPCWSTR,
@@ -2471,6 +2500,94 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventArgs,
+    ICoreWebView2ProcessFailedEventArgs_Vtbl,
+    0x8155a9a4_1474_4a86_8cae_151b0fa6b8ca
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2ProcessFailedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2ProcessFailedEventArgs {
+    pub(crate) unsafe fn ProcessFailedKind(
+        &self,
+    ) -> windows_core::Result<COREWEBVIEW2_PROCESS_FAILED_KIND> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProcessFailedKind)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2ProcessFailedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ProcessFailedKind: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventHandler,
+    ICoreWebView2ProcessFailedEventHandler_Vtbl,
+    0x79e0aea4_990b_42d9_aa1d_0fcc2e5bc7f1
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2ProcessFailedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
+    pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2ProcessFailedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ProcessFailedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2ProcessFailedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings,
     ICoreWebView2Settings_Vtbl,

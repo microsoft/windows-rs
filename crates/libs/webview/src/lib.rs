@@ -29,7 +29,7 @@ pub use environment::Environment;
 pub use event::{
     ContentLoadingArgs, EventRegistration, NavigationCompletedArgs, NavigationStartingArgs,
     NewWindowRequestedArgs, PermissionKind, PermissionRequestedArgs, PermissionState,
-    WebMessageReceivedArgs,
+    ProcessFailedArgs, ProcessFailedKind, WebMessageReceivedArgs,
 };
 pub use options::EnvironmentOptions;
 pub use protocol::{WebResourceRequest, WebResourceResponse};

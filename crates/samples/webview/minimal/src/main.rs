@@ -187,6 +187,10 @@ fn main() -> Result<()> {
             }
         })?;
 
+        let process_registration = webview.on_process_failed(|args| {
+            println!("process failed: {:?}", args.kind());
+        })?;
+
         let protocol_registration =
             webview.on_web_resource_requested("https://app.example/*", |request| {
                 println!("serving from memory: {}", request.uri());
@@ -211,6 +215,7 @@ fn main() -> Result<()> {
                 new_window_registration,
                 permission_registration,
                 download_registration,
+                process_registration,
                 protocol_registration,
             ]);
         });

@@ -182,6 +182,7 @@ event_handler!(PermissionRequested / PermissionRequested_Impl, ICoreWebView2Perm
 event_handler!(DownloadStarting / DownloadStarting_Impl, ICoreWebView2DownloadStartingEventHandler / ICoreWebView2DownloadStartingEventHandler_Impl, ICoreWebView2DownloadStartingEventArgs => DownloadStartingArgs);
 event_handler!(DownloadStateChanged / DownloadStateChanged_Impl, ICoreWebView2StateChangedEventHandler / ICoreWebView2StateChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(BytesReceivedChanged / BytesReceivedChanged_Impl, ICoreWebView2BytesReceivedChangedEventHandler / ICoreWebView2BytesReceivedChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
+event_handler!(ProcessFailed / ProcessFailed_Impl, ICoreWebView2ProcessFailedEventHandler / ICoreWebView2ProcessFailedEventHandler_Impl, ICoreWebView2ProcessFailedEventArgs => ProcessFailedArgs);
 
 /// Adapts a Rust closure to the `ICoreWebView2DocumentTitleChangedEventHandler`
 /// COM interface. The event carries no args, so the new document title is read

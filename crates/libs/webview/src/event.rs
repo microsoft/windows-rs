@@ -255,6 +255,57 @@ impl PermissionRequestedArgs {
     }
 }
 
+/// The kind of process that failed, reported by [`ProcessFailedArgs::kind`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum ProcessFailedKind {
+    Unknown,
+    /// The browser process ended unexpectedly; the `WebView` is no longer usable.
+    BrowserProcessExited,
+    /// A render process ended unexpectedly (a renderer crash); the page is gone
+    /// but the `WebView` can be reloaded.
+    RenderProcessExited,
+    /// A render process is unresponsive (hung).
+    RenderProcessUnresponsive,
+    FrameRenderProcessExited,
+    UtilityProcessExited,
+    SandboxHelperProcessExited,
+    GpuProcessExited,
+    PpapiPluginProcessExited,
+    PpapiBrokerProcessExited,
+    UnknownProcessExited,
+}
+
+impl ProcessFailedKind {
+    fn from_raw(value: COREWEBVIEW2_PROCESS_FAILED_KIND) -> Self {
+        match value {
+            0 => Self::BrowserProcessExited,
+            1 => Self::RenderProcessExited,
+            2 => Self::RenderProcessUnresponsive,
+            3 => Self::FrameRenderProcessExited,
+            4 => Self::UtilityProcessExited,
+            5 => Self::SandboxHelperProcessExited,
+            6 => Self::GpuProcessExited,
+            7 => Self::PpapiPluginProcessExited,
+            8 => Self::PpapiBrokerProcessExited,
+            9 => Self::UnknownProcessExited,
+            _ => Self::Unknown,
+        }
+    }
+}
+
+/// Details about a failed or unresponsive browser process, delivered to a
+/// [`WebView::on_process_failed`] handler.
+pub struct ProcessFailedArgs(pub(crate) ICoreWebView2ProcessFailedEventArgs);
+
+impl ProcessFailedArgs {
+    /// Returns which kind of process failed.
+    pub fn kind(&self) -> ProcessFailedKind {
+        unsafe { self.0.ProcessFailedKind() }
+            .map_or(ProcessFailedKind::Unknown, ProcessFailedKind::from_raw)
+    }
+}
+
 /// An RAII guard for an event subscription. The handler stays registered until
 /// this value is dropped or [`EventRegistration::remove`] is called.
 #[must_use]
