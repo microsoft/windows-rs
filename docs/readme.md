@@ -12,18 +12,11 @@ Each crate has one page under [`crates/`](crates) covering both usage and intern
 
 ## Crates
 
-### Core & projection
+### Core & error handling
 
 | Crate | Description |
 | --- | --- |
-| [windows](crates/windows.md) | Safer projection of C-style, COM, and WinRT APIs. |
-| [windows-sys](crates/windows-sys.md) | Zero-overhead raw bindings for C-style Windows APIs. |
 | [windows-core](crates/windows-core.md) | Fundamental COM and Windows type support. |
-
-### Error handling & strings
-
-| Crate | Description |
-| --- | --- |
 | [windows-result](crates/windows-result.md) | Windows error handling and propagation. |
 | [windows-strings](crates/windows-strings.md) | Windows string interop types and macros. |
 
@@ -78,3 +71,12 @@ Each crate has one page under [`crates/`](crates) covering both usage and intern
 | [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
 | [riddle](crates/riddle.md) | Windows metadata compiler. |
 | [cppwinrt](crates/cppwinrt.md) | Bundles the C++/WinRT compiler. |
+
+### Full Windows API projection
+
+These crates project the entire Windows API surface. For new projects, prefer a focused binding generated with [windows-bindgen](crates/windows-bindgen.md), or compose the smaller crates above.
+
+| Crate | Description |
+| --- | --- |
+| [windows](crates/windows.md) | Safer projection of C-style, COM, and WinRT APIs. |
+| [windows-sys](crates/windows-sys.md) | Zero-overhead raw bindings for C-style Windows APIs. |
