@@ -11,11 +11,53 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2, windows_core::IUnknown);
 impl ICoreWebView2 {
+    pub unsafe fn Source(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Source)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub unsafe fn Navigate(&self, uri: LPCWSTR) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Navigate)(
                 windows_core::Interface::as_raw(self),
                 uri,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn NavigateToString(&self, htmlcontent: LPCWSTR) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).NavigateToString)(
+                windows_core::Interface::as_raw(self),
+                htmlcontent,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn add_NavigationStarting<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2NavigationStartingEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_NavigationStarting)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn remove_NavigationStarting(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_NavigationStarting)(
+                windows_core::Interface::as_raw(self),
+                token,
             )
             .ok()
         }
@@ -58,6 +100,12 @@ impl ICoreWebView2 {
                 handler.param().abi(),
             )
             .ok()
+        }
+    }
+    pub unsafe fn Reload(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self))
+                .ok()
         }
     }
     pub unsafe fn PostWebMessageAsJson(
@@ -107,17 +155,51 @@ impl ICoreWebView2 {
             .ok()
         }
     }
+    pub unsafe fn GoBack(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GoBack)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub unsafe fn GoForward(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GoForward)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+    pub unsafe fn DocumentTitle(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DocumentTitle)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
 }
 #[repr(C)]
 pub struct ICoreWebView2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     Settings: usize,
-    Source: usize,
+    pub Source:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
     pub Navigate:
         unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
-    NavigateToString: usize,
-    add_NavigationStarting: usize,
-    remove_NavigationStarting: usize,
+    pub NavigateToString:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub add_NavigationStarting: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_NavigationStarting:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_ContentLoading: usize,
     remove_ContentLoading: usize,
     add_SourceChanged: usize,
@@ -149,7 +231,7 @@ pub struct ICoreWebView2_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     CapturePreview: usize,
-    Reload: usize,
+    pub Reload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PostWebMessageAsJson:
         unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
     pub PostWebMessageAsString:
@@ -165,15 +247,16 @@ pub struct ICoreWebView2_Vtbl {
     BrowserProcessId: usize,
     CanGoBack: usize,
     CanGoForward: usize,
-    GoBack: usize,
-    GoForward: usize,
+    pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     GetDevToolsProtocolEventReceiver: usize,
-    Stop: usize,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     add_NewWindowRequested: usize,
     remove_NewWindowRequested: usize,
     add_DocumentTitleChanged: usize,
     remove_DocumentTitleChanged: usize,
-    DocumentTitle: usize,
+    pub DocumentTitle:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
     AddHostObjectToScript: usize,
     RemoveHostObjectFromScript: usize,
     OpenDevToolsWindow: usize,
@@ -649,6 +732,176 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventArgs,
+    ICoreWebView2NavigationStartingEventArgs_Vtbl,
+    0x5b495469_e119_438a_9b18_7604f25f2e49
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2NavigationStartingEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2NavigationStartingEventArgs {
+    pub unsafe fn Uri(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Uri)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn IsUserInitiated(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsUserInitiated)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn IsRedirected(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsRedirected)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Cancel)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetCancel)(
+                windows_core::Interface::as_raw(self),
+                cancel.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn NavigationId(&self) -> windows_core::Result<UINT64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).NavigationId)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Uri:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub IsUserInitiated: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsRedirected: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    RequestHeaders: usize,
+    pub Cancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetCancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub NavigationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventHandler,
+    ICoreWebView2NavigationStartingEventHandler_Vtbl,
+    0x9adbe429_f36d_432b_9ddc_f8881fbd76e3
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2NavigationStartingEventHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2NavigationStartingEventHandler {
+    pub unsafe fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2>,
+        P1: windows_core::Param<ICoreWebView2NavigationStartingEventArgs>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2NavigationStartingEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2NavigationStartingEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2NavigationStartingEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2NavigationStartingEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2NavigationStartingEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs,
     ICoreWebView2WebMessageReceivedEventArgs_Vtbl,

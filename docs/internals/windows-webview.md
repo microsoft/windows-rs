@@ -99,13 +99,29 @@ this as an idiomatic subscription returning an RAII guard:
   intentionally left out for now to avoid pulling enum variants into the minimal
   bindings).
 
-The same pattern backs the second event, `WebMessageReceived`
+The same pattern backs the other events, `WebMessageReceived`
 (`handler::WebMessageReceived` + `WebView::on_web_message_received` +
-`event::WebMessageReceivedArgs`), demonstrating that the subscription shape
+`event::WebMessageReceivedArgs`) and `NavigationStarting`
+(`handler::NavigationStarting` + `WebView::on_navigation_starting` +
+`event::NavigationStartingArgs`), demonstrating that the subscription shape
 generalizes across events with only the args newtype changing.
+
+`NavigationStartingArgs` is also the first **cancelable** event: alongside the
+read-only getters (`uri()`, `is_user_initiated()`, `is_redirected()`,
+`navigation_id()`) it exposes `is_cancelled()` / `set_cancel(bool)`, which map to
+the COM `get_Cancel` / `put_Cancel` (projected as `Cancel()` / `SetCancel`). A
+handler can veto a navigation by calling `set_cancel(true)`.
 
 The sample subscribes before navigating and parks the `EventRegistration` in a
 `thread_local` so it outlives the call; dropping it on `WM_DESTROY` unsubscribes.
+
+## Navigation and document state
+
+`WebView` exposes the navigation verbs directly off `ICoreWebView2`:
+`navigate`, `navigate_to_string` (load HTML from a string), `reload`, `stop`,
+`go_back`, `go_forward`. The two document getters, `source()` (current URI) and
+`document_title()`, return owned `[out]` strings and so go through
+`string::take` (decode + `CoTaskMemFree`).
 
 ## Host ↔ JavaScript messaging
 

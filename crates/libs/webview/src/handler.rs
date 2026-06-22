@@ -150,3 +150,32 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Impl for WebMessageReceived_Imp
         Ok(())
     }
 }
+
+/// Adapts a Rust closure to the `ICoreWebView2NavigationStartingEventHandler`
+/// COM interface.
+pub(crate) struct NavigationStarting(RefCell<Box<dyn FnMut(NavigationStartingArgs)>>);
+
+implement_decl! {
+    impl NavigationStarting as pub(crate) NavigationStarting_Impl:
+        [ICoreWebView2NavigationStartingEventHandler]
+}
+
+impl NavigationStarting {
+    pub(crate) fn create<F: FnMut(NavigationStartingArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2NavigationStartingEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2NavigationStartingEventHandler_Impl for NavigationStarting_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2NavigationStartingEventArgs>,
+    ) -> Result<()> {
+        let args = NavigationStartingArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}

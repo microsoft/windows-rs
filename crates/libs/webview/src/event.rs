@@ -16,6 +16,46 @@ impl NavigationCompletedArgs {
     }
 }
 
+/// Details about a navigation that is about to start, delivered to a
+/// [`WebView::on_navigation_starting`] handler. The navigation can be cancelled
+/// with [`set_cancel`](Self::set_cancel).
+pub struct NavigationStartingArgs(pub(crate) ICoreWebView2NavigationStartingEventArgs);
+
+impl NavigationStartingArgs {
+    /// Returns the URI the navigation is targeting.
+    pub fn uri(&self) -> String {
+        unsafe { self.0.Uri() }
+            .map(|value| unsafe { string::take(value) })
+            .unwrap_or_default()
+    }
+
+    /// Returns `true` if the navigation was initiated by the user (for example a
+    /// link click) rather than by script.
+    pub fn is_user_initiated(&self) -> bool {
+        unsafe { self.0.IsUserInitiated() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Returns `true` if the navigation is a redirect.
+    pub fn is_redirected(&self) -> bool {
+        unsafe { self.0.IsRedirected() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Returns the unique identifier for the navigation.
+    pub fn navigation_id(&self) -> u64 {
+        unsafe { self.0.NavigationId() }.unwrap_or(0)
+    }
+
+    /// Returns `true` if the navigation is currently marked to be cancelled.
+    pub fn is_cancelled(&self) -> bool {
+        unsafe { self.0.Cancel() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Cancels (or un-cancels) the navigation.
+    pub fn set_cancel(&self, cancel: bool) -> Result<()> {
+        unsafe { self.0.SetCancel(cancel) }
+    }
+}
+
 /// A message posted from the hosted page's JavaScript, delivered to a
 /// [`WebView::on_web_message_received`] handler.
 pub struct WebMessageReceivedArgs(pub(crate) ICoreWebView2WebMessageReceivedEventArgs);

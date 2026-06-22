@@ -7,19 +7,22 @@
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
     WebView2.ICoreWebView2WebMessageReceivedEventHandler
+    WebView2.ICoreWebView2NavigationStartingEventHandler
 
 --filter
     WebView2.CreateCoreWebView2Environment
-    WebView2.ICoreWebView2::{Navigate, ExecuteScript, add_NavigationCompleted, remove_NavigationCompleted, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived}
+    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, ExecuteScript, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived}
     WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2}
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
     WebView2.ICoreWebView2NavigationCompletedEventArgs::{get_IsSuccess, get_NavigationId}
+    WebView2.ICoreWebView2NavigationStartingEventArgs::{get_Uri, get_IsUserInitiated, get_IsRedirected, get_Cancel, put_Cancel, get_NavigationId}
     WebView2.ICoreWebView2WebMessageReceivedEventArgs::{get_Source, get_WebMessageAsJson, TryGetWebMessageAsString}
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
     WebView2.ICoreWebView2WebMessageReceivedEventHandler
+    WebView2.ICoreWebView2NavigationStartingEventHandler
 
     Windows.Win32.System.Com.CoTaskMemFree
     Windows.Win32.UI.WindowsAndMessaging.GetMessageW

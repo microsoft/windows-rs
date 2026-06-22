@@ -95,12 +95,22 @@ fn main() -> Result<()> {
             println!("page sent: {}", args.web_message_as_json());
         })?;
 
+        let starting_registration = webview.on_navigation_starting(|args| {
+            println!(
+                "navigation {} starting: {} (user initiated = {})",
+                args.navigation_id(),
+                args.uri(),
+                args.is_user_initiated()
+            );
+        })?;
+
         let post = webview.clone();
         let navigation_registration = webview.on_navigation_completed(move |args| {
             println!(
-                "navigation {} completed: success = {}",
+                "navigation {} completed: success = {}, title = {:?}",
                 args.navigation_id(),
-                args.is_success()
+                args.is_success(),
+                post.document_title()
             );
             if args.is_success() {
                 let _ = post.execute_script(
@@ -113,8 +123,11 @@ fn main() -> Result<()> {
         webview.navigate("https://github.com/microsoft/windows-rs")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
         REGISTRATIONS.with(|slot| {
-            slot.borrow_mut()
-                .extend([message_registration, navigation_registration]);
+            slot.borrow_mut().extend([
+                message_registration,
+                starting_registration,
+                navigation_registration,
+            ]);
         });
 
         let mut message = MSG::default();
