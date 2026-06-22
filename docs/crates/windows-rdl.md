@@ -13,12 +13,19 @@ authored in a readable text format and then compiled into the same metadata that
 [`windows-bindgen`](windows-bindgen.md) consumes. RDL sits at the front of the
 metadata authoring pipeline.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-rdl`**.
+
+### How it's built
 
 Uses `syn`/`quote`/`proc-macro2` for the RDL grammar and `clang-sys` for the C++
 header-parsing path. Exercised by the `test_rdl` and `test_clang` crates and the
 `rdl_roundtrip` tool.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-rdl`; see also the workspace test crates.

@@ -4,6 +4,7 @@
 
 - 📦 [crates.io](https://crates.io/crates/windows-implement)
 - 📖 [docs.rs](https://docs.rs/windows-implement)
+- 🚀 [Getting started](../../crates/libs/implement/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
 
 `windows-implement` provides the `#[implement]` attribute macro that lets a Rust
@@ -47,11 +48,18 @@ fn main() {
 }
 ```
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-implement`**.
+
+### How it's built
 
 A `proc-macro` crate. The crate-level docs live inline in `src/lib.rs`. Uses
 `syn`/`quote`/`proc-macro2` to parse the attribute and emit the vtable plumbing.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-implement`; see also the workspace test crates.

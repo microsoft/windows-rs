@@ -13,11 +13,18 @@ functions. It uses `raw-dylib`, so — unlike the equivalent macro in
 The macro declares the function and also emits a `pub type` alias of the same
 name describing the function-pointer signature.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-link`**.
+
+### How it's built
 
 Entirely hand-written — a single `link!` macro with per-architecture expansions.
 No generated code.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-link`; see also the workspace test crates.

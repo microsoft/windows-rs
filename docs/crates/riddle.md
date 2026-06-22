@@ -12,11 +12,18 @@
 authoring front end for the metadata that drives code generation. It is a
 developer tool rather than a runtime library.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `riddle`**.
+
+### How it's built
 
 Builds on `windows-rdl` and `windows-metadata`. Internal tooling, not intended
 for direct application use.
 
-## Testing
+### Testing
 
 Run `cargo test -p riddle`; see also the workspace test crates.

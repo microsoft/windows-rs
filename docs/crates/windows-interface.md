@@ -4,6 +4,7 @@
 
 - 📦 [crates.io](https://crates.io/crates/windows-interface)
 - 📖 [docs.rs](https://docs.rs/windows-interface)
+- 🚀 [Getting started](../../crates/libs/interface/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/interface)
 
 `windows-interface` provides the `#[interface]` attribute macro used to declare a
@@ -44,11 +45,18 @@ fn main() {
 }
 ```
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-interface`**.
+
+### How it's built
 
 A `proc-macro` crate. The crate-level docs live inline in `src/lib.rs`. Uses
 `syn`/`quote`/`proc-macro2`.
 
-## Testing
+### Testing
 
 Run `cargo test -p windows-interface`; see also the workspace test crates.

@@ -7,24 +7,164 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 
-## Overview
-
 `windows-reactor` lets you describe a WinUI 3 user interface as a function of
 state. You write a render function that takes a `RenderCx` and returns an
 `Element`; the reactor diffs the result against the live visual tree and applies
 only the changes. State lives in hooks such as `cx.use_state`, and updating it
-schedules a re-render. Elements are built with plain functions and builder
-methods — `text_block`, `button`, `vstack`, `hstack`, `grid`, and so on — and an
-`App` drives the render loop. See the
-[readme](../../crates/libs/reactor/readme.md) for a runnable counter example.
+schedules a re-render.
 
-Building a real app also needs a `build.rs` that calls
-[`windows-reactor-setup`](windows-reactor-setup.md) to stage the Windows App SDK
-runtime. See the
-[samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
-for complete, runnable projects.
+## Getting started
 
-## How it's built
+A reactor app needs three things: the crate dependency, a render function, and a
+`build.rs` that stages the Windows App SDK runtime via
+[`windows-reactor-setup`](windows-reactor-setup.md).
+
+`Cargo.toml`:
+
+```toml
+[dependencies]
+windows-reactor = "..."
+
+[build-dependencies]
+windows-reactor-setup = "..."
+```
+
+`build.rs` — pick the helper that matches your deployment model:
+
+```rust,ignore
+fn main() {
+    // For a self-contained app that carries its own runtime:
+    windows_reactor_setup::as_self_contained();
+    // Other options: as_framework_dependent(), as_example().
+}
+```
+
+`src/main.rs` — a render function plus `App`:
+
+```rust,ignore
+use windows_reactor::*;
+
+fn app(cx: &mut RenderCx) -> Element {
+    let (count, set_count) = cx.use_state(0_i32);
+
+    vstack((
+        text_block(format!("Count: {count}")).font_size(28.0).bold(),
+        button("+").on_click(move || set_count.call(count + 1)),
+    ))
+    .spacing(12.0)
+    .into()
+}
+
+fn main() -> Result<()> {
+    bootstrap()?;
+    App::new().title("Counter").render(app)
+}
+```
+
+`bootstrap()` initializes the Windows App SDK runtime and must be called once at
+startup. `App::new()` is then a builder — `title`, `inner_size`, `backdrop`
+(e.g. `Backdrop::Mica`), `fullscreen`, and `presenter` are common. `render(app)`
+takes your `Fn(&mut RenderCx) -> Element` and runs the message loop.
+
+## State with hooks
+
+Hooks are methods on `RenderCx`. They give a render function persistent state
+without globals or `thread_local!`. The most common:
+
+- **`use_state(initial)` → `(value, SetState)`** — a value plus a setter. Calling
+  `set.call(new_value)` updates the slot and schedules a re-render.
+- **`use_ref(initial)` → `HookRef`** — mutable storage that does *not* trigger a
+  re-render; read with `.borrow()`, write with `.borrow_mut()` or `.set(v)`. Good
+  for animation frame counters and cached resources.
+- **`use_memo(deps, factory)`** — recompute a value only when `deps` change.
+- **`use_effect(deps, f)`** / **`use_effect_with_cleanup`** — run side effects when
+  `deps` change.
+- **`use_reducer`** / **`use_reducer_fn`** — state driven by an update or
+  action/reducer instead of a plain setter.
+- **`use_resource(fetcher, deps)` → `Resource<T>`** — async data loading with
+  loading/error states; a `Resource` converts straight into an `Element`.
+- **`use_context(&context)`** — read a value provided higher in the tree.
+
+```rust,ignore
+fn counter(cx: &mut RenderCx) -> Element {
+    let (count, set_count) = cx.use_state(0_i32);
+    button(format!("Clicks: {count}"))
+        .on_click(move || set_count.call(count + 1))
+        .into()
+}
+```
+
+The `apps/examples` and `minimal/examples` directories include focused samples for
+each hook (`use_state`, `use_ref`, `use_memo`, `use_effect`, `use_reducer`,
+`use_resource`, `use_callback`, `use_color_scheme`, …).
+
+## Building the UI
+
+Elements are built with plain builder functions, each returning a widget that
+becomes an `Element` via `.into()`. Containers take a tuple of children:
+
+- **Text:** `text_block(content)` with `.bold()`, `.semibold()`, `.font_size(..)`,
+  `.wrap()`, `.selectable()`, and type-ramp helpers (`title`, `subtitle`, `body`,
+  `caption`, …).
+- **Buttons:** `button(content)` with `.on_click(..)`, `.accent()`, `.subtle()`,
+  `.enabled(..)`, `.icon(..)`, `.flyout(..)`, `.menu_flyout(..)`.
+- **Layout:** `vstack((..))` / `hstack((..))` with `.spacing(..)`; `grid((..))`
+  with `.rows([..])` / `.columns([..])` (using `GridLength::STAR`,
+  `GridLength::Auto`) and per-child `.grid_row(n)` / `.grid_column(n)`.
+
+Roughly 60 WinUI controls are wrapped, including `check_box`, `combo_box`,
+`slider`, `list_view`, `tree_view`, `navigation_view`, `tab_view`, `pivot`,
+`text_box`, `number_box`, `color_picker`, `calendar_view`, `content_dialog`,
+`info_bar`, `teaching_tip`, `command_bar`, and more — see the
+[full catalog](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor/src/widgets).
+
+Layout and appearance modifiers are available on any `Element` (the `ElementExt`
+trait): `.margin(..)`, `.padding(..)`, `.width(..)` / `.height(..)`,
+`.horizontal_alignment(..)` / `.vertical_alignment(..)` (with
+`HorizontalAlignment` / `VerticalAlignment`), `.background(..)`,
+`.foreground(..)`, `.opacity(..)`, and transition helpers such as
+`.with_opacity_transition(..)`. Spacing values use `Thickness` (with
+`Thickness::uniform(..)`).
+
+## Handling events
+
+Event handlers take closures. `button(..).on_click(move || …)` is the most
+common; pointer and keyboard handlers live on `ElementExt`: `.on_tapped(..)`,
+`.on_pointer_pressed(..)`, `.on_pointer_released(..)`,
+`.keyboard_accelerator(..)`. A `SetState` or `Dispatch` can be passed directly
+wherever a handler is expected (via `IntoCallback`).
+
+## Graphics integration
+
+For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
+`animated_canvas(draw)` (enable the `reactor` feature on `windows-canvas`). It
+returns a `SwapChainPanel` element that redraws every frame and recovers from
+device loss automatically — see the `canvas` samples. For raw Direct3D, the
+`swap_chain_panel` sample drives a `SwapChainPanel` with `on_rendering`.
+
+## Samples
+
+The [`crates/samples/reactor`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
+tree is the best reference:
+
+- **`minimal`** — the smallest app plus an `examples/` folder with ~90 focused
+  per-control and per-hook examples (`counter`, `calculator`, `navigation_view`,
+  `list_view`, `content_dialog`, `color_picker`, and many more).
+- **`apps`** — complete applications: `notepad`, `solitaire`, `minesweeper`,
+  `tictactoe`, `dotsweeper`, `diagnostics_demo`.
+- **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
+- **`direct2d`** / **`swap_chain_panel`** — hosting Direct2D / Direct3D content.
+- **`framework-dependent`** / **`self-contained`** — the two deployment models,
+  differing only in `build.rs`.
+
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `windows-reactor`**.
+
+### How it's built
 
 The hooks runtime, element tree, reconciler, and WinUI backend are hand-written.
 The per-widget dispatch is generated by `tool_reactor` from
@@ -47,7 +187,7 @@ too complex to express declaratively (Button icon+text layout, NavigationView
 menu items, ContentDialog modal popup, and similar). Never edit the generated
 files or `generated.txt` by hand.
 
-## Bindings
+### Bindings
 
 `src/bindings.rs` is generated by `windows-bindgen` (`cargo run -p tool_bindings`)
 from `crates/tools/bindings/src/reactor.txt` using `--minimal` mode — list
@@ -60,7 +200,7 @@ them as `Ns.IFace::{put_X, get_Y}`. This also covers the Win32 COM interfaces
 (DXGI, D2D, DWrite) — listed methods get full vtable entries, unlisted methods
 become `usize` slots, and the type closure is computed automatically.
 
-## COM pitfalls
+### COM pitfalls
 
 These bite anyone editing the backend by hand. The generated code already
 follows them.
@@ -82,7 +222,7 @@ follows them.
   backend access.
 - **Font properties are shared** across `IControl`/`ITextBlock`/`IRichTextBlock`.
 
-## Known quirks
+### Known quirks
 
 `.padding()` is silently ignored on `vstack`/`hstack`: `Padding` belongs to
 `Control`, but `StackPanel` derives from `Panel`, so the call compiles with no
@@ -90,7 +230,7 @@ effect. Use `.margin(...)` instead. With the `diagnostics` feature,
 `diag::unhandled_modifier` warns when a modifier is applied to an element that
 can't honor it.
 
-## Threading
+### Threading
 
 Reactor runs on a WinUI STA thread and keeps per-thread state in `thread_local!`
 slots. Two categories exist, and the distinction matters when refactoring:
@@ -104,7 +244,7 @@ slots. Two categories exist, and the distinction matters when refactoring:
   as free functions (`set_requested_theme`, etc.). They could move onto the host
   struct if those functions took a host reference.
 
-## Performance notes
+### Performance notes
 
 The reconciler skips unchanged controls (kind-matching plus shallow compare), so
 at steady state it creates no new WinUI controls — the diff/patch cost is
@@ -122,14 +262,14 @@ with the C# `microsoft-ui-reactor` `stress_perf` benchmarks; compare against its
 `ReactorOptimized` variant (which caches cells like Rust does), not the base
 `Reactor`.
 
-## Reactor / canvas naming
+### Reactor / canvas naming
 
 `windows-reactor` and `windows-canvas` define some of the same short names for
 different domains. The rule: canvas keeps the short name (it owns user-facing draw
 loops) and reactor takes a domain-prefixed alternative. `Color` → `ColorF` in
 canvas is done; `Brush`, `Ellipse`, and `FontWeight` still overlap.
 
-## Testing
+### Testing
 
 Unit tests live in `test_reactor` (headless). Integration tests live in
 `test_reactor_selftest`, which launches a real WinUI window — pass `--headless`

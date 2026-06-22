@@ -13,11 +13,18 @@ the bundled `cppwinrt.exe` with the arguments you provide, returning its output.
 This is primarily useful for interop scenarios that also generate C++/WinRT
 projection headers.
 
-## How it's built
+---
+
+## Internal documentation
+
+The remainder of this page covers how the crate is built and maintained. It is
+for contributors and is **not needed to use `cppwinrt`**.
+
+### How it's built
 
 Packages the prebuilt `cppwinrt.exe` and exposes a path to it from build scripts.
 No generated Rust bindings.
 
-## Testing
+### Testing
 
 Run `cargo test -p cppwinrt`; see also the workspace test crates.
