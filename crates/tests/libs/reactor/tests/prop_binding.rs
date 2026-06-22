@@ -1,9 +1,9 @@
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::{ControlId, Prop, PropValue};
 use windows_reactor::{Element, TextBlock};
-use windows_reactor::{Op, RecordingBackend};
 
 fn noop_rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})

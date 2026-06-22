@@ -1,9 +1,10 @@
 use std::rc::Rc;
 
 use rustc_hash::FxHashMap;
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Button, Callback, ControlId, ControlKind, Element, Event, Op, Prop, PropValue, Reconciler,
-    RecordingBackend, StackPanel, TextBlock, compute_lis,
+    Button, Callback, ControlId, ControlKind, Element, Event, Prop, PropValue, Reconciler,
+    StackPanel, TextBlock, compute_lis,
 };
 
 #[test]

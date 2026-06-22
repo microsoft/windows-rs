@@ -389,10 +389,12 @@ impl TemplatedListElement {
         self.items_impl.raw_selection_callback()
     }
 
+    #[cfg(feature = "test")]
     pub fn fully_keyed(&self) -> bool {
         (0..self.item_count()).all(|i| self.items_impl.item_key(i).is_some())
     }
 
+    #[cfg(feature = "test")]
     pub fn collect_keys(&self) -> Vec<String> {
         (0..self.item_count())
             .map(|i| {

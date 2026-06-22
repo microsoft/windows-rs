@@ -12,6 +12,7 @@ readme = "readme.md"
 [features]
 default = ["diagnostics"]
 diagnostics = []
+test = []
 
 [dependencies]
 rustc-hash = { workspace = true }

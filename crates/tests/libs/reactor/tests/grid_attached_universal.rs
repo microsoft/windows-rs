@@ -13,6 +13,7 @@
 
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
 use windows_reactor::{
@@ -25,7 +26,6 @@ use windows_reactor::{
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{Prop, PropValue};
 
 /// One `Element` per widget variant. Use real, mountable instances so the

@@ -1,5 +1,6 @@
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Callback;
 use windows_reactor::Reconciler;
 use windows_reactor::ToggleSwitch;
@@ -8,7 +9,6 @@ use windows_reactor::{
     TextBlock, TextBox, Thickness,
 };
 use windows_reactor::{ControlId, Event, Prop, PropValue};
-use windows_reactor::{Op, RecordingBackend};
 
 fn noop_rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})

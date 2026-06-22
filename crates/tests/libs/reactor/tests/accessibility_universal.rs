@@ -11,6 +11,7 @@
 
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
@@ -24,7 +25,6 @@ use windows_reactor::{
     ProgressBar, ProgressRing, RadioButton, RadioButtons, Shape, Slider, TabItem, TabView,
     TitleBar, ToggleSwitch,
 };
-use windows_reactor::{Op, RecordingBackend};
 
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![

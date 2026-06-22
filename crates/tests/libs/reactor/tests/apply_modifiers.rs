@@ -1,9 +1,9 @@
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::{Color, Element, HorizontalAlignment, Modifiers, TextBlock, Thickness};
 use windows_reactor::{ControlKind, Prop, PropValue};
-use windows_reactor::{Op, RecordingBackend};
 
 fn rr() -> Rc<dyn Fn()> {
     Rc::new(|| {})
