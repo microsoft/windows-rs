@@ -18,7 +18,7 @@ use windows_webview::{Controller, Environment, EventRegistration};
 
 thread_local! {
     static CONTROLLER: RefCell<Option<Controller>> = const { RefCell::new(None) };
-    static REGISTRATION: RefCell<Option<EventRegistration>> = const { RefCell::new(None) };
+    static REGISTRATIONS: RefCell<Vec<EventRegistration>> = const { RefCell::new(Vec::new()) };
 }
 
 fn resize(controller: &Controller, window: HWND) {
@@ -46,7 +46,7 @@ unsafe extern "system" fn wndproc(
             0
         }
         WM_DESTROY => {
-            REGISTRATION.with(|registration| registration.borrow_mut().take());
+            REGISTRATIONS.with(|registrations| registrations.borrow_mut().clear());
             CONTROLLER.with(|controller| controller.borrow_mut().take());
             unsafe { PostQuitMessage(0) };
             0
@@ -90,16 +90,32 @@ fn main() -> Result<()> {
 
         resize(&controller, window);
         let webview = controller.webview()?;
-        let registration = webview.on_navigation_completed(|args| {
+
+        let message_registration = webview.on_web_message_received(|args| {
+            println!("page sent: {}", args.web_message_as_json());
+        })?;
+
+        let post = webview.clone();
+        let navigation_registration = webview.on_navigation_completed(move |args| {
             println!(
                 "navigation {} completed: success = {}",
                 args.navigation_id(),
                 args.is_success()
             );
+            if args.is_success() {
+                let _ = post.execute_script(
+                    "window.chrome.webview.postMessage('hello from ' + document.title);",
+                    |_| {},
+                );
+            }
         })?;
+
         webview.navigate("https://github.com/microsoft/windows-rs")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
-        REGISTRATION.with(|slot| *slot.borrow_mut() = Some(registration));
+        REGISTRATIONS.with(|slot| {
+            slot.borrow_mut()
+                .extend([message_registration, navigation_registration]);
+        });
 
         let mut message = MSG::default();
         while GetMessageA(&mut message, std::ptr::null_mut(), 0, 0).as_bool() {

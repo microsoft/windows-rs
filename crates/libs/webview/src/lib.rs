@@ -16,6 +16,6 @@ use windows_core::*;
 pub use bindings::HWND;
 pub use controller::Controller;
 pub use environment::Environment;
-pub use event::{EventRegistration, NavigationCompletedArgs};
+pub use event::{EventRegistration, NavigationCompletedArgs, WebMessageReceivedArgs};
 pub use webview::WebView;
 pub use windows_core::Result;

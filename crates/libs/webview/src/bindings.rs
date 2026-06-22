@@ -1,3 +1,4 @@
+windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
@@ -59,6 +60,53 @@ impl ICoreWebView2 {
             .ok()
         }
     }
+    pub unsafe fn PostWebMessageAsJson(
+        &self,
+        webmessageasjson: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).PostWebMessageAsJson)(
+                windows_core::Interface::as_raw(self),
+                webmessageasjson,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn PostWebMessageAsString(
+        &self,
+        webmessageasstring: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).PostWebMessageAsString)(
+                windows_core::Interface::as_raw(self),
+                webmessageasstring,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn add_WebMessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2WebMessageReceivedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_WebMessageReceived)(
+                windows_core::Interface::as_raw(self),
+                handler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn remove_WebMessageReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_WebMessageReceived)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct ICoreWebView2_Vtbl {
@@ -102,10 +150,17 @@ pub struct ICoreWebView2_Vtbl {
     ) -> windows_core::HRESULT,
     CapturePreview: usize,
     Reload: usize,
-    PostWebMessageAsJson: usize,
-    PostWebMessageAsString: usize,
-    add_WebMessageReceived: usize,
-    remove_WebMessageReceived: usize,
+    pub PostWebMessageAsJson:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub PostWebMessageAsString:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
+    pub add_WebMessageReceived: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_WebMessageReceived:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     CallDevToolsProtocolMethod: usize,
     BrowserProcessId: usize,
     CanGoBack: usize,
@@ -594,8 +649,135 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2WebMessageReceivedEventArgs,
+    ICoreWebView2WebMessageReceivedEventArgs_Vtbl,
+    0x0f99a40c_e962_4207_9e92_e3d542eff849
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2WebMessageReceivedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2WebMessageReceivedEventArgs {
+    pub unsafe fn Source(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Source)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn WebMessageAsJson(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WebMessageAsJson)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn TryGetWebMessageAsString(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TryGetWebMessageAsString)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Source:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub WebMessageAsJson:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub TryGetWebMessageAsString:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2WebMessageReceivedEventHandler,
+    ICoreWebView2WebMessageReceivedEventHandler_Vtbl,
+    0x57213f19_00e6_49fa_8e07_898ea01ecbd2
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2WebMessageReceivedEventHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2WebMessageReceivedEventHandler {
+    pub unsafe fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2>,
+        P1: windows_core::Param<ICoreWebView2WebMessageReceivedEventArgs>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2WebMessageReceivedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2WebMessageReceivedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2WebMessageReceivedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2WebMessageReceivedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventHandler {}
 pub type LPARAM = isize;
 pub type LPCWSTR = *const WCHAR;
+pub type LPWSTR = *mut WCHAR;
 pub type LRESULT = isize;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

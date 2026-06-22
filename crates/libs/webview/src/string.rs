@@ -22,3 +22,16 @@ pub unsafe fn decode(value: LPCWSTR) -> String {
         String::from_utf16_lossy(std::slice::from_raw_parts(value, len))
     }
 }
+
+/// Decodes a caller-owned `LPWSTR` returned by WebView2 into an owned `String`
+/// and frees the original buffer with `CoTaskMemFree`, as required for WebView2
+/// `[out]` string parameters.
+pub unsafe fn take(value: LPWSTR) -> String {
+    let result = unsafe { decode(value) };
+
+    if !value.is_null() {
+        unsafe { CoTaskMemFree(value as *const _) };
+    }
+
+    result
+}

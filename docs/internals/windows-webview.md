@@ -99,15 +99,44 @@ this as an idiomatic subscription returning an RAII guard:
   intentionally left out for now to avoid pulling enum variants into the minimal
   bindings).
 
+The same pattern backs the second event, `WebMessageReceived`
+(`handler::WebMessageReceived` + `WebView::on_web_message_received` +
+`event::WebMessageReceivedArgs`), demonstrating that the subscription shape
+generalizes across events with only the args newtype changing.
+
 The sample subscribes before navigating and parks the `EventRegistration` in a
 `thread_local` so it outlives the call; dropping it on `WM_DESTROY` unsubscribes.
 
+## Host ↔ JavaScript messaging
+
+Two directions, both on `ICoreWebView2`:
+
+- **Host → page**: `WebView::post_web_message_as_json` /
+  `post_web_message_as_string` encode a `&str` to UTF-16 and call
+  `PostWebMessageAsJson` / `PostWebMessageAsString`. The page receives them via
+  `window.chrome.webview.addEventListener("message", …)`.
+- **Page → host**: `WebView::on_web_message_received` is the RAII subscription
+  above; the page sends with `window.chrome.webview.postMessage(...)`.
+  `WebMessageReceivedArgs` exposes `source()`, `web_message_as_json()`, and
+  `try_web_message_as_string()` (the last returns `Result` because it genuinely
+  fails when the page posted a non-string value).
+
+The sample wires the full round-trip: it subscribes to incoming messages, and on
+`NavigationCompleted` runs `execute_script` to have the page call
+`postMessage`, which then arrives back on the host handler.
+
 ## Strings
 
-`string.rs` has `encode` (`&str` → null-terminated UTF-16 `Vec<u16>` for
-`LPCWSTR` IN params) and `decode` (caller-owned `LPCWSTR` → `String`). It does
-**not** yet handle `CoTaskMemAlloc`/`CoTaskMemFree` OUT strings — adding string
-getters (title, source, `WebMessageAsJson`) will need an RAII free wrapper.
+`string.rs` has three helpers:
+
+- `encode` (`&str` → null-terminated UTF-16 `Vec<u16>` for `LPCWSTR` IN params),
+- `decode` (borrowed `LPCWSTR` → `String`, used for callback strings that
+  WebView2 owns for the duration of the call, e.g. the `ExecuteScript` result),
+- `take` (caller-owned `LPWSTR` → `String`, then `CoTaskMemFree`). WebView2
+  `[out]` string getters (`get_Source`, `get_WebMessageAsJson`,
+  `TryGetWebMessageAsString`) allocate with the COM task allocator and transfer
+  ownership to the caller, so each must be freed. `CoTaskMemFree` is pulled into
+  the minimal bindings via the filter.
 
 ## Lint policy
 

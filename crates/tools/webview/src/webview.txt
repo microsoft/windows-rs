@@ -6,18 +6,22 @@
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
+    WebView2.ICoreWebView2WebMessageReceivedEventHandler
 
 --filter
     WebView2.CreateCoreWebView2Environment
-    WebView2.ICoreWebView2::{Navigate, ExecuteScript, add_NavigationCompleted, remove_NavigationCompleted}
+    WebView2.ICoreWebView2::{Navigate, ExecuteScript, add_NavigationCompleted, remove_NavigationCompleted, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived}
     WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2}
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
     WebView2.ICoreWebView2NavigationCompletedEventArgs::{get_IsSuccess, get_NavigationId}
+    WebView2.ICoreWebView2WebMessageReceivedEventArgs::{get_Source, get_WebMessageAsJson, TryGetWebMessageAsString}
     WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
     WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
     WebView2.ICoreWebView2ExecuteScriptCompletedHandler
     WebView2.ICoreWebView2NavigationCompletedEventHandler
+    WebView2.ICoreWebView2WebMessageReceivedEventHandler
 
+    Windows.Win32.System.Com.CoTaskMemFree
     Windows.Win32.UI.WindowsAndMessaging.GetMessageW
     Windows.Win32.UI.WindowsAndMessaging.TranslateMessage
     Windows.Win32.UI.WindowsAndMessaging.DispatchMessageW

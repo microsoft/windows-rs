@@ -16,6 +16,34 @@ impl NavigationCompletedArgs {
     }
 }
 
+/// A message posted from the hosted page's JavaScript, delivered to a
+/// [`WebView::on_web_message_received`] handler.
+pub struct WebMessageReceivedArgs(pub(crate) ICoreWebView2WebMessageReceivedEventArgs);
+
+impl WebMessageReceivedArgs {
+    /// Returns the URI of the document that sent the message.
+    pub fn source(&self) -> String {
+        unsafe { self.0.Source() }
+            .map(|value| unsafe { string::take(value) })
+            .unwrap_or_default()
+    }
+
+    /// Returns the message serialized as a JSON string. Messages sent with
+    /// `window.chrome.webview.postMessage` arrive here regardless of type.
+    pub fn web_message_as_json(&self) -> String {
+        unsafe { self.0.WebMessageAsJson() }
+            .map(|value| unsafe { string::take(value) })
+            .unwrap_or_default()
+    }
+
+    /// Returns the message as a string. Fails if the page posted a value that is
+    /// not a JavaScript string.
+    pub fn try_web_message_as_string(&self) -> Result<String> {
+        let value = unsafe { self.0.TryGetWebMessageAsString()? };
+        Ok(unsafe { string::take(value) })
+    }
+}
+
 /// An RAII guard for an event subscription. The handler stays registered until
 /// this value is dropped or [`EventRegistration::remove`] is called.
 #[must_use]

@@ -2,7 +2,7 @@
 
 Windows WebView2 is a safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs. It hosts the Microsoft Edge (Chromium) browser inside a window so you can render web content and run JavaScript from Rust.
 
-> **Status:** experimental and pre-release (`0.0.0`). The API is evolving and the crate is not yet published to crates.io. It currently covers environment and controller creation, navigation, and script execution; more of the WebView2 surface will follow.
+> **Status:** experimental and pre-release (`0.0.0`). The API is evolving and the crate is not yet published to crates.io. It currently covers environment and controller creation, navigation, script execution, events (navigation completed, web message received), and host ↔ JavaScript messaging; more of the WebView2 surface will follow.
 
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [WebView2 guide](https://github.com/microsoft/windows-rs/blob/master/docs/guide/windows-webview.md)

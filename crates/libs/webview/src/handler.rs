@@ -121,3 +121,32 @@ impl ICoreWebView2NavigationCompletedEventHandler_Impl for NavigationCompleted_I
         Ok(())
     }
 }
+
+/// Adapts a Rust closure to the `ICoreWebView2WebMessageReceivedEventHandler`
+/// COM interface.
+pub(crate) struct WebMessageReceived(RefCell<Box<dyn FnMut(WebMessageReceivedArgs)>>);
+
+implement_decl! {
+    impl WebMessageReceived as pub(crate) WebMessageReceived_Impl:
+        [ICoreWebView2WebMessageReceivedEventHandler]
+}
+
+impl WebMessageReceived {
+    pub(crate) fn create<F: FnMut(WebMessageReceivedArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2WebMessageReceivedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2WebMessageReceivedEventHandler_Impl for WebMessageReceived_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2WebMessageReceivedEventArgs>,
+    ) -> Result<()> {
+        let args = WebMessageReceivedArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}
