@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use std::time::Duration;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Element;
 use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
@@ -10,7 +11,6 @@ use windows_reactor::{
     AnimationConfig, Easing, ImplicitTransitions, LayoutAnimationConfig, ScalarTransition,
     Vector3Axes, Vector3Transition,
 };
-use windows_reactor::{Op, RecordingBackend};
 
 fn fresh() -> Reconciler<RecordingBackend> {
     Reconciler::new(RecordingBackend::new())

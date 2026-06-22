@@ -1,10 +1,10 @@
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::ControlKind;
 use windows_reactor::Reconciler;
 use windows_reactor::list_view;
 use windows_reactor::{Element, TextBlock};
-use windows_reactor::{Op, RecordingBackend};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})

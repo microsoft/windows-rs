@@ -15,11 +15,11 @@ use std::any::Any;
 use std::cell::Cell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
 use windows_reactor::{Backend, ControlId, ControlKind, Prop, PropValue};
 use windows_reactor::{CustomElement, CustomElementHandle};
 use windows_reactor::{Element, Orientation, StackPanel, TextBlock};
-use windows_reactor::{Op, RecordingBackend};
 
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})

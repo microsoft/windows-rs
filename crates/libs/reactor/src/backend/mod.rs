@@ -415,7 +415,7 @@ impl EventHandler {
     }
 }
 
-/// UI backend the reconciler drives. Implemented by [`RecordingBackend`]
+/// UI backend the reconciler drives. Implemented by `RecordingBackend`
 /// for tests and by `WinUIBackend` for production. New methods must have
 /// default implementations so existing backends keep compiling.
 pub trait Backend {

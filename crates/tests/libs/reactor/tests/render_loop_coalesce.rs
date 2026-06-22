@@ -1,8 +1,8 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+use test_reactor::RecordingBackend;
 use windows_reactor::Component;
-use windows_reactor::RecordingBackend;
 use windows_reactor::RenderHost;
 use windows_reactor::RunOnDemandDispatcher;
 use windows_reactor::WindowSize;

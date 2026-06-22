@@ -4,12 +4,11 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dev-dependencies]
+[dependencies]
 rustc-hash = { workspace = true }
 windows-core = { workspace = true }
-
-[dependencies]
 windows-reactor = { workspace = true, features = ["test-util"] }
+windows-reference = { workspace = true, features = ["std"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

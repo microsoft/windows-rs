@@ -5,10 +5,10 @@
 
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::GroupElement;
 use windows_reactor::Reconciler;
 use windows_reactor::{Button, Element, Orientation, StackPanel, TextBlock, group};
-use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{Prop, PropValue};
 
 fn noop() -> Rc<dyn Fn()> {

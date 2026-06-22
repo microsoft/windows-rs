@@ -1,10 +1,10 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::ControlKind;
 use windows_reactor::Reconciler;
 use windows_reactor::{Element, TextBlock};
-use windows_reactor::{Op, RecordingBackend};
 use windows_reactor::{TemplatedKind, grid_view, list_view};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {

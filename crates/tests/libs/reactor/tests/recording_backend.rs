@@ -1,8 +1,8 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{Backend, ControlId, ControlKind, Event, EventHandler, Prop, PropValue};
-use windows_reactor::{Op, RecordingBackend};
 
 #[test]
 fn recording_backend_assigns_sequential_ids() {

@@ -12,8 +12,8 @@ readme = "readme.md"
 [features]
 default = ["diagnostics"]
 diagnostics = []
-# Test-only support surface (RecordingBackend harness and engine/reconciler
-# inspectors). Enabled by the test crates; excluded from normal/published builds.
+# Test-only support surface: engine/reconciler/widget inspectors used by the
+# test crates. Excluded from normal/published builds.
 test-util = []
 
 [dependencies]

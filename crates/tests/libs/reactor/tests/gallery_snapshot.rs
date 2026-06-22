@@ -1,6 +1,7 @@
 use std::rc::Rc;
 use std::sync::LazyLock;
 
+use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Component;
 use windows_reactor::Context;
 use windows_reactor::ControlKind;
@@ -14,7 +15,6 @@ use windows_reactor::{
     Expander, HyperlinkButton, InfoBar, ProgressBar, ProgressRing, RadioButton, Shape, Slider,
     TabItem, TabView, ToggleSwitch,
 };
-use windows_reactor::{Op, RecordingBackend};
 
 static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".to_string()));
 
