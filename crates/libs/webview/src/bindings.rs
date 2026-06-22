@@ -1,3 +1,4 @@
+windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
 windows_core::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
 windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -7,6 +8,8 @@ windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd 
 windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < IStream >);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type BYTE = u8;
+pub type COINIT = i32;
+pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COREWEBVIEW2_COLOR {
@@ -6616,6 +6619,7 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
+pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
 pub type UINT = u32;
 pub type UINT32 = u32;
 pub type UINT64 = u64;

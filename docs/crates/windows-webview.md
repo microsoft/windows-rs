@@ -23,7 +23,11 @@ once each step is ready — letting you write setup as straight-line code.
 ## Getting started
 
 Requires the Microsoft Edge WebView2 runtime to be installed, a window, and a
-running message loop.
+running message loop. `Environment::new` initializes the calling thread's COM
+apartment as single-threaded (STA) if it is not already, so you don't have to
+call `CoInitializeEx` yourself; it returns an error if the thread is already a
+multi-threaded apartment. The samples pair this with
+[`windows-window`](windows-window.md) for the window and message loop.
 
 ```rust,ignore
 use windows_webview::*;
@@ -260,11 +264,28 @@ download, override its destination, or take its `DownloadOperation`. The
 
 ## Samples
 
-[`crates/samples/webview/minimal`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview)
-hosts WebView2 in a plain Win32 message loop using only `windows-webview` and
-`windows-core` (no `windows` crate). It wires navigation, document-title, content,
-permission, new-window, download, and custom-protocol events, serves an embedded
-page from memory, and round-trips a host ↔ page message.
+The [`crates/samples/webview/minimal`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/minimal)
+crate has one example per capability under `examples/`, mirroring
+`reactor/minimal`. A shared `run` helper in `src/lib.rs` holds the hosting
+boilerplate — a [`windows-window`](windows-window.md) window whose `on_resize`
+forwards to `Controller::set_bounds`, an `Environment`, and a `Controller` — so
+each example stays focused on its feature. The only dependencies are
+`windows-webview` and `windows-window`; there is no hand-rolled Win32 message
+loop and no `windows` crate. All of them require the Microsoft Edge WebView2
+runtime.
+
+Run one with `cargo run -p webview_minimal --example <name>`:
+
+| Example | Demonstrates |
+| --- | --- |
+| `minimal` | The smallest host: create a window, environment, and controller, then navigate. |
+| `events` | The navigation lifecycle plus window-close, new-window, permission, and process-failed events. |
+| `ipc` | Host ↔ page messaging: an injected bootstrap script, received messages, replies, and `execute_script`. |
+| `custom_protocol` | Serving an app entirely from memory with `on_web_resource_requested`. |
+| `local_files` | Serving a folder on disk through `set_virtual_host_name_to_folder_mapping`. |
+| `downloads` | Watching downloads and reporting per-operation progress and state. |
+| `cookies` | Adding a cookie and enumerating cookies with the cookie manager. |
+| `profile` | An in-private controller, the dark color scheme, and clearing browsing data. |
 
 ---
 
