@@ -274,6 +274,47 @@ The sample wires the full round-trip: it subscribes to incoming messages, and on
 `NavigationCompleted` runs `execute_script` to have the page call
 `postMessage`, which then arrives back on the host handler.
 
+## Custom protocols (serving responses from memory)
+
+`protocol.rs` lets an app intercept resource loads and answer them from Rust,
+which is how a self-contained app serves its bundled HTML/JS/CSS without a local
+server. The three moving parts all live on **base** interfaces, so no `cast` is
+needed for the event itself: `AddWebResourceRequestedFilter` and
+`add_WebResourceRequested` are on `ICoreWebView2`, and
+`CreateWebResourceResponse` is on `ICoreWebView2Environment`.
+
+`WebView::on_web_resource_requested(uri_filter, handler)` registers a filter (a
+wildcard URI such as `https://app.example/*`, always with
+`COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL` so sub-resources are covered too) and the
+event. The handler is `FnMut(WebResourceRequest) -> Option<WebResourceResponse>`,
+run **synchronously on the UI thread**: it returns `Some(response)` to fulfil the
+request or `None` to let WebView2 handle it normally. There is no deferral or
+threading in this slice — serving in-memory bytes is synchronous, which keeps the
+adapter free of `Send`/dispatch machinery (async deferral can be added later).
+
+The returned `EventRegistration` removes *both* the event handler and the filter
+on drop, so dropping it fully unsubscribes (and re-subscribing won't stack
+duplicate filters).
+
+**Hiding `IStream`.** `CreateWebResourceResponse` takes the body as a COM
+`IStream`, but that type never reaches the public surface. `WebResourceResponse`
+is a plain builder (`new(bytes)`, `status`, `header`, `content_type`); when the
+handler returns one, the adapter calls `SHCreateMemStream` (shlwapi) to copy the
+bytes into a system-provided stream and passes it straight to
+`CreateWebResourceResponse`. `SHCreateMemStream` was chosen over
+`CreateStreamOnHGlobal` (which needs a manual seek-to-start or WebView2 reads an
+empty body) and over a hand-rolled `implement_decl!` `IStream` (~13 unsafe vtable
+methods, with `Stat` having to report the size correctly) — the system stream is
+one call, correct by construction, and keeps `IStream` entirely inside
+`mod bindings`. `SHCreateMemStream` returns `Option<IStream>` (null on OOM); an
+empty body passes `None`, matching WebView2's "no content" contract.
+
+`WebResourceRequest` is a read-only view: `uri()`, `method()`, and `headers()`.
+Header enumeration walks `ICoreWebView2HttpRequestHeaders::GetIterator` with the
+`HasCurrentHeader` / `GetCurrentHeader` / `MoveNext` cursor, taking each
+caller-owned `LPWSTR` pair through `string::take`. The request POST body (another
+`IStream`) is deferred to a later slice.
+
 ## Strings
 
 `string.rs` has three helpers:

@@ -16,6 +16,7 @@ use std::cell::RefCell;
 use windows_core::*;
 use windows_webview::{
     Controller, Environment, EnvironmentOptions, EventRegistration, PermissionState,
+    WebResourceResponse,
 };
 
 thread_local! {
@@ -186,7 +187,18 @@ fn main() -> Result<()> {
             }
         })?;
 
-        webview.navigate("https://github.com/microsoft/windows-rs")?;
+        let protocol_registration =
+            webview.on_web_resource_requested("https://app.example/*", |request| {
+                println!("serving from memory: {}", request.uri());
+                let html = "<!DOCTYPE html><html><body>\
+                    <h1>Served from Rust memory</h1>\
+                    <p>This page was produced by a windows-webview custom protocol \
+                    handler, not fetched from the network.</p>\
+                    </body></html>";
+                Some(WebResourceResponse::new(html).content_type("text/html"))
+            })?;
+
+        webview.navigate("https://app.example/")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
         REGISTRATIONS.with(|slot| {
             slot.borrow_mut().extend([
@@ -199,6 +211,7 @@ fn main() -> Result<()> {
                 new_window_registration,
                 permission_registration,
                 download_registration,
+                protocol_registration,
             ]);
         });
 

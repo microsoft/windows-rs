@@ -196,4 +196,40 @@ impl WebView {
             let _ = unsafe { source.remove_DownloadStarting(token) };
         }))
     }
+
+    /// Subscribes to the web-resource-requested event, raised when the page
+    /// requests a resource whose URI matches `uri_filter`, a wildcard pattern
+    /// such as `https://app.example/*`. The handler runs synchronously on the UI
+    /// thread; return a [`WebResourceResponse`] to fulfil the request from memory
+    /// (typically serving embedded assets under a custom host), or `None` to let
+    /// WebView2 handle it normally.
+    pub fn on_web_resource_requested<F>(
+        &self,
+        uri_filter: &str,
+        handler: F,
+    ) -> Result<EventRegistration>
+    where
+        F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
+    {
+        let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
+        let filter = string::encode(uri_filter);
+        unsafe {
+            self.0.AddWebResourceRequestedFilter(
+                filter.as_ptr(),
+                protocol::WEB_RESOURCE_CONTEXT_ALL,
+            )?;
+        }
+        let handler = protocol::WebResourceRequested::create(environment, handler);
+        let token = unsafe { self.0.add_WebResourceRequested(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_WebResourceRequested(token) };
+            let _ = unsafe {
+                source.RemoveWebResourceRequestedFilter(
+                    filter.as_ptr(),
+                    protocol::WEB_RESOURCE_CONTEXT_ALL,
+                )
+            };
+        }))
+    }
 }

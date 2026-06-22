@@ -9,6 +9,7 @@ mod environment;
 mod event;
 mod handler;
 mod options;
+mod protocol;
 mod pump;
 mod script;
 mod settings;
@@ -31,6 +32,7 @@ pub use event::{
     WebMessageReceivedArgs,
 };
 pub use options::EnvironmentOptions;
+pub use protocol::{WebResourceRequest, WebResourceResponse};
 pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::WebView;

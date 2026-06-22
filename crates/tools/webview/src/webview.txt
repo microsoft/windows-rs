@@ -18,12 +18,13 @@
     WebView2.ICoreWebView2DownloadStartingEventHandler
     WebView2.ICoreWebView2StateChangedEventHandler
     WebView2.ICoreWebView2BytesReceivedChangedEventHandler
+    WebView2.ICoreWebView2WebResourceRequestedEventHandler
 
 --filter
     WebView2.CreateCoreWebView2Environment
     WebView2.CreateCoreWebView2EnvironmentWithOptions
     WebView2.ICoreWebView2EnvironmentOptions
-    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, get_Settings, ExecuteScript, AddScriptToExecuteOnDocumentCreated, RemoveScriptToExecuteOnDocumentCreated, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived, add_ContentLoading, remove_ContentLoading, add_DocumentTitleChanged, remove_DocumentTitleChanged, add_WindowCloseRequested, remove_WindowCloseRequested, add_NewWindowRequested, remove_NewWindowRequested, add_PermissionRequested, remove_PermissionRequested}
+    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, get_Settings, ExecuteScript, AddScriptToExecuteOnDocumentCreated, RemoveScriptToExecuteOnDocumentCreated, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived, add_ContentLoading, remove_ContentLoading, add_DocumentTitleChanged, remove_DocumentTitleChanged, add_WindowCloseRequested, remove_WindowCloseRequested, add_NewWindowRequested, remove_NewWindowRequested, add_PermissionRequested, remove_PermissionRequested, add_WebResourceRequested, remove_WebResourceRequested, AddWebResourceRequestedFilter, RemoveWebResourceRequestedFilter}
     WebView2.ICoreWebView2Settings::{get_IsScriptEnabled, put_IsScriptEnabled, get_IsWebMessageEnabled, put_IsWebMessageEnabled, get_AreDefaultScriptDialogsEnabled, put_AreDefaultScriptDialogsEnabled, get_IsStatusBarEnabled, put_IsStatusBarEnabled, get_AreDevToolsEnabled, put_AreDevToolsEnabled, get_AreDefaultContextMenusEnabled, put_AreDefaultContextMenusEnabled, get_AreHostObjectsAllowed, put_AreHostObjectsAllowed, get_IsZoomControlEnabled, put_IsZoomControlEnabled, get_IsBuiltInErrorPageEnabled, put_IsBuiltInErrorPageEnabled}
     WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2}
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
@@ -33,10 +34,20 @@
     WebView2.ICoreWebView2ContentLoadingEventArgs::{get_IsErrorPage, get_NavigationId}
     WebView2.ICoreWebView2NewWindowRequestedEventArgs::{get_Uri, get_IsUserInitiated, get_Handled, put_Handled, put_NewWindow, GetDeferral}
     WebView2.ICoreWebView2PermissionRequestedEventArgs::{get_Uri, get_PermissionKind, get_IsUserInitiated, get_State, put_State, GetDeferral}
+    WebView2.ICoreWebView2_2::{get_Environment}
     WebView2.ICoreWebView2_4::{add_DownloadStarting, remove_DownloadStarting}
     WebView2.ICoreWebView2DownloadStartingEventArgs::{get_DownloadOperation, get_Cancel, put_Cancel, get_ResultFilePath, put_ResultFilePath, get_Handled, put_Handled, GetDeferral}
     WebView2.ICoreWebView2DownloadOperation::{add_BytesReceivedChanged, remove_BytesReceivedChanged, add_StateChanged, remove_StateChanged, get_Uri, get_ContentDisposition, get_MimeType, get_TotalBytesToReceive, get_BytesReceived, get_ResultFilePath, get_State, get_InterruptReason, get_CanResume, Cancel, Pause, Resume}
     WebView2.ICoreWebView2Deferral::Complete
+    WebView2.ICoreWebView2Environment::CreateWebResourceResponse
+    WebView2.ICoreWebView2WebResourceRequestedEventArgs::{get_Request, put_Response}
+    WebView2.ICoreWebView2WebResourceRequest::{get_Uri, get_Method, get_Headers}
+    WebView2.ICoreWebView2WebResourceResponse
+    WebView2.ICoreWebView2HttpRequestHeaders::{GetIterator}
+    WebView2.ICoreWebView2HttpHeadersCollectionIterator::{GetCurrentHeader, get_HasCurrentHeader, MoveNext}
+    WebView2.COREWEBVIEW2_WEB_RESOURCE_CONTEXT
+
+    Windows.Win32.UI.Shell.SHCreateMemStream
 
     Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree
