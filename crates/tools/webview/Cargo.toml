@@ -1,11 +1,13 @@
 [package]
-name = "tool_bindings"
+name = "tool_webview"
 version = "0.0.0"
 edition = "2024"
+rust-version = "1.95"
 publish = false
 
 [dependencies]
 windows-bindgen = { workspace = true }
+windows-rdl = { workspace = true }
 
 [lints]
 workspace = true

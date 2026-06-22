@@ -1,12 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-#[allow(
-    dead_code,
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    clippy::upper_case_acronyms
-)]
+#[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 mod bindings;
 mod controller;
 mod environment;

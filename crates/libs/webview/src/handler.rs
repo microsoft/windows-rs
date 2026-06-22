@@ -1,11 +1,15 @@
 use super::*;
 use std::cell::Cell;
-use windows_core::implement;
+use windows_core::implement_decl;
 
 /// Adapts a Rust closure to the `ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler`
 /// COM interface.
-#[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
 pub(crate) struct EnvironmentCompleted(Cell<Option<Box<dyn FnOnce(Result<Environment>)>>>);
+
+implement_decl! {
+    impl EnvironmentCompleted as pub(crate) EnvironmentCompleted_Impl:
+        [ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler]
+}
 
 impl EnvironmentCompleted {
     pub(crate) fn create<F: FnOnce(Result<Environment>) + 'static>(
@@ -31,8 +35,12 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for Environ
 
 /// Adapts a Rust closure to the `ICoreWebView2CreateCoreWebView2ControllerCompletedHandler`
 /// COM interface.
-#[implement(ICoreWebView2CreateCoreWebView2ControllerCompletedHandler)]
 pub(crate) struct ControllerCompleted(Cell<Option<Box<dyn FnOnce(Result<Controller>)>>>);
+
+implement_decl! {
+    impl ControllerCompleted as pub(crate) ControllerCompleted_Impl:
+        [ICoreWebView2CreateCoreWebView2ControllerCompletedHandler]
+}
 
 impl ControllerCompleted {
     pub(crate) fn create<F: FnOnce(Result<Controller>) + 'static>(
@@ -58,8 +66,12 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for Controll
 
 /// Adapts a Rust closure to the `ICoreWebView2ExecuteScriptCompletedHandler`
 /// COM interface.
-#[implement(ICoreWebView2ExecuteScriptCompletedHandler)]
 pub(crate) struct ExecuteScriptCompleted(Cell<Option<Box<dyn FnOnce(Result<String>)>>>);
+
+implement_decl! {
+    impl ExecuteScriptCompleted as pub(crate) ExecuteScriptCompleted_Impl:
+        [ICoreWebView2ExecuteScriptCompletedHandler]
+}
 
 impl ExecuteScriptCompleted {
     pub(crate) fn create<F: FnOnce(Result<String>) + 'static>(

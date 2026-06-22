@@ -10,7 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [dependencies]
-windows-core = { workspace = true, features = ["proc-macros"] }
+windows-core = { workspace = true }
 
 [lints]
 workspace = true
