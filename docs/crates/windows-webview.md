@@ -176,6 +176,28 @@ webview.navigate("https://app.example/index.html")?;
 Reach for `on_web_resource_requested` instead when responses are generated in
 memory rather than read from disk.
 
+## Cookies
+
+`webview.cookie_manager()` returns a `CookieManager`. Reading cookies is
+asynchronous and callback-based, mirroring `execute_script`:
+
+```rust,ignore
+let manager = webview.cookie_manager()?;
+manager.get_cookies("https://example.com", |result| {
+    if let Ok(cookies) = result {
+        for cookie in cookies {
+            println!("{} = {}", cookie.name, cookie.value);
+        }
+    }
+})?;
+```
+
+Write with `add_or_update_cookie(&Cookie)` — build one with
+`Cookie::new(name, value, domain, path)` and set the public fields (`is_secure`,
+`is_http_only`, `same_site`, `expires`). Remove cookies with
+`delete_cookies(name, uri)`, `delete_cookies_with_domain_and_path(..)`, or
+`delete_all_cookies()`. The COM cookie and cookie-list types stay internal.
+
 ## Downloads
 
 `on_download_starting` delivers a `DownloadStartingArgs` to inspect or cancel the
@@ -231,7 +253,7 @@ WebView2 backend for that ecosystem.
 | Gap | Used by | Status | Notes |
 |-----|---------|--------|-------|
 | Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | wry | ✅ Done | `Settings::user_agent`, `are_browser_accelerator_keys_enabled`, `is_general_autofill_enabled`, `is_password_autosave_enabled`, `is_pinch_zoom_enabled`, `is_swipe_navigation_enabled`, `is_non_client_region_support_enabled`. |
-| Cookie manager (`GetCookies`/`AddOrUpdateCookie`/`DeleteCookie`) | wry | ⬜ Planned | `GetCookies` completes asynchronously (pump-and-wait). |
+| Cookie manager (`GetCookies`/`AddOrUpdateCookie`/`DeleteCookies`) | wry | ✅ Done | `WebView::cookie_manager` returns a `CookieManager`; `get_cookies` is callback-based, plus `add_or_update_cookie` and the delete verbs. |
 | Controller creation options (`ICoreWebView2ControllerOptions`/`Options3`) | tauri | ⬜ Planned | Incognito/private mode, profile name, default background at create. Needs a `create_controller_with_options`. |
 | Profile (`ICoreWebView2Profile`/`Profile2`) | tauri | ⬜ Planned | Theme, `ClearBrowsingDataAll`, add browser extension. |
 | `NavigateWithWebResourceRequest` (`ICoreWebView2_10`) | wry | ⬜ Planned | Navigate with custom request headers. |

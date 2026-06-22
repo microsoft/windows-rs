@@ -15,6 +15,7 @@ pub struct COREWEBVIEW2_COLOR {
     pub G: BYTE,
     pub B: BYTE,
 }
+pub type COREWEBVIEW2_COOKIE_SAME_SITE_KIND = i32;
 pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
 pub type COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND = i32;
@@ -1321,6 +1322,363 @@ pub struct ICoreWebView2Controller3_Vtbl {
     SetBoundsMode: usize,
 }
 windows_core::imp::define_interface!(
+    ICoreWebView2Cookie,
+    ICoreWebView2Cookie_Vtbl,
+    0xad26d6be_1486_43e6_bf87_a2034006ca21
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2Cookie, windows_core::IUnknown);
+impl ICoreWebView2Cookie {
+    pub(crate) unsafe fn Name(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Name)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Value(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Domain(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Domain)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Path(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Path)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Expires(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Expires)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetExpires(&self, expires: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetExpires)(
+                windows_core::Interface::as_raw(self),
+                expires,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn IsHttpOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsHttpOnly)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsHttpOnly(&self, ishttponly: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsHttpOnly)(
+                windows_core::Interface::as_raw(self),
+                ishttponly.into(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn SameSite(
+        &self,
+    ) -> windows_core::Result<COREWEBVIEW2_COOKIE_SAME_SITE_KIND> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SameSite)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetSameSite(
+        &self,
+        samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSameSite)(
+                windows_core::Interface::as_raw(self),
+                samesite,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn IsSecure(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsSecure)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetIsSecure(&self, issecure: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsSecure)(
+                windows_core::Interface::as_raw(self),
+                issecure.into(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn IsSession(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsSession)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Cookie_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Name:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub Value:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    SetValue: usize,
+    pub Domain:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub Path:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+    pub Expires:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetExpires: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub IsHttpOnly: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsHttpOnly: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SameSite: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
+    ) -> windows_core::HRESULT,
+    pub SetSameSite: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
+    ) -> windows_core::HRESULT,
+    pub IsSecure: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsSecure: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsSession: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2CookieList,
+    ICoreWebView2CookieList_Vtbl,
+    0xf7f6f714_5d2a_43c6_9503_346ece02d186
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2CookieList, windows_core::IUnknown);
+impl ICoreWebView2CookieList {
+    pub(crate) unsafe fn Count(&self) -> windows_core::Result<UINT32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Count)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn GetValueAtIndex(
+        &self,
+        index: UINT32,
+    ) -> windows_core::Result<ICoreWebView2Cookie> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetValueAtIndex)(
+                windows_core::Interface::as_raw(self),
+                index,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2CookieList_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Count:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT32) -> windows_core::HRESULT,
+    pub GetValueAtIndex: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        UINT32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2CookieManager,
+    ICoreWebView2CookieManager_Vtbl,
+    0x177cd9e7_b6f5_451a_94a0_5d7a3a4c4141
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2CookieManager, windows_core::IUnknown);
+impl ICoreWebView2CookieManager {
+    pub(crate) unsafe fn CreateCookie(
+        &self,
+        name: LPCWSTR,
+        value: LPCWSTR,
+        domain: LPCWSTR,
+        path: LPCWSTR,
+    ) -> windows_core::Result<ICoreWebView2Cookie> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateCookie)(
+                windows_core::Interface::as_raw(self),
+                name,
+                value,
+                domain,
+                path,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) unsafe fn GetCookies<P1>(
+        &self,
+        uri: LPCWSTR,
+        handler: P1,
+    ) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<ICoreWebView2GetCookiesCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetCookies)(
+                windows_core::Interface::as_raw(self),
+                uri,
+                handler.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn AddOrUpdateCookie<P0>(&self, cookie: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2Cookie>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AddOrUpdateCookie)(
+                windows_core::Interface::as_raw(self),
+                cookie.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn DeleteCookies(
+        &self,
+        name: LPCWSTR,
+        uri: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).DeleteCookies)(
+                windows_core::Interface::as_raw(self),
+                name,
+                uri,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn DeleteCookiesWithDomainAndPath(
+        &self,
+        name: LPCWSTR,
+        domain: LPCWSTR,
+        path: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).DeleteCookiesWithDomainAndPath)(
+                windows_core::Interface::as_raw(self),
+                name,
+                domain,
+                path,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn DeleteAllCookies(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).DeleteAllCookies)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2CookieManager_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub CreateCookie: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        LPCWSTR,
+        LPCWSTR,
+        LPCWSTR,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    CopyCookie: usize,
+    pub GetCookies: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub AddOrUpdateCookie: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    DeleteCookie: usize,
+    pub DeleteCookies: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        LPCWSTR,
+    ) -> windows_core::HRESULT,
+    pub DeleteCookiesWithDomainAndPath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        LPCWSTR,
+        LPCWSTR,
+    ) -> windows_core::HRESULT,
+    pub DeleteAllCookies:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl,
     0x6c4819f3_c9b7_4260_8127_c9f5bde7f68c
@@ -2320,6 +2678,65 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2FocusChangedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2GetCookiesCompletedHandler,
+    ICoreWebView2GetCookiesCompletedHandler_Vtbl,
+    0x5a4f5069_5c15_47c3_8646_f4de1c116670
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2GetCookiesCompletedHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::Ref<ICoreWebView2CookieList>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            errorcode: windows_core::HRESULT,
+            result: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2GetCookiesCompletedHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&errorcode),
+                    core::mem::transmute_copy(&result),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2GetCookiesCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2HttpHeadersCollectionIterator,
     ICoreWebView2HttpHeadersCollectionIterator_Vtbl,
@@ -4309,6 +4726,16 @@ impl core::ops::Deref for ICoreWebView2_2 {
 }
 windows_core::imp::interface_hierarchy!(ICoreWebView2_2, windows_core::IUnknown, ICoreWebView2);
 impl ICoreWebView2_2 {
+    pub(crate) unsafe fn CookieManager(&self) -> windows_core::Result<ICoreWebView2CookieManager> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CookieManager)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) unsafe fn Environment(&self) -> windows_core::Result<ICoreWebView2Environment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4328,7 +4755,10 @@ pub struct ICoreWebView2_2_Vtbl {
     NavigateWithWebResourceRequest: usize,
     add_DOMContentLoaded: usize,
     remove_DOMContentLoaded: usize,
-    CookieManager: usize,
+    pub CookieManager: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub Environment: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -4523,6 +4953,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 pub type UINT = u32;
+pub type UINT32 = u32;
 pub type UINT64 = u64;
 pub type WCHAR = u16;
 pub type WPARAM = usize;

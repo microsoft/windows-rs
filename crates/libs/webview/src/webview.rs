@@ -107,6 +107,13 @@ impl WebView {
         unsafe { source.ClearVirtualHostNameToFolderMapping(host_name.as_ptr()) }
     }
 
+    /// Returns the [`CookieManager`] for reading, writing, and deleting the
+    /// browser's cookies.
+    pub fn cookie_manager(&self) -> Result<CookieManager> {
+        let source: ICoreWebView2_2 = self.0.cast()?;
+        Ok(CookieManager(unsafe { source.CookieManager()? }))
+    }
+
     /// Returns the [`Settings`] controlling features such as JavaScript, the dev
     /// tools, and context menus.
     pub fn settings(&self) -> Result<Settings> {

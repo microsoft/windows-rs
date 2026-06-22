@@ -125,6 +125,36 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl
     }
 }
 
+/// Adapts a Rust closure to the `ICoreWebView2GetCookiesCompletedHandler` COM
+/// interface. The completion result is the retrieved cookies, converted from the
+/// COM cookie list so the list type never reaches the public surface.
+pub(crate) struct GetCookiesCompleted(Cell<Option<Box<dyn FnOnce(Result<Vec<Cookie>>)>>>);
+
+implement_decl! {
+    impl GetCookiesCompleted as pub(crate) GetCookiesCompleted_Impl:
+        [ICoreWebView2GetCookiesCompletedHandler]
+}
+
+impl GetCookiesCompleted {
+    pub(crate) fn create<F: FnOnce(Result<Vec<Cookie>>) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2GetCookiesCompletedHandler {
+        Self(Cell::new(Some(Box::new(handler)))).into()
+    }
+}
+
+impl ICoreWebView2GetCookiesCompletedHandler_Impl for GetCookiesCompleted_Impl {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2CookieList>) -> Result<()> {
+        let outcome = errorcode.ok().and_then(|()| cookie::collect(result.ok()?));
+
+        if let Some(handler) = self.0.take() {
+            handler(outcome);
+        }
+
+        Ok(())
+    }
+}
+
 /// Defines an event-handler adapter that forwards a WebView2 event to a Rust
 /// `FnMut` closure. The `args` form wraps the event's args interface; the
 /// `sender` form (for events with no args interface) wraps the sender instead.

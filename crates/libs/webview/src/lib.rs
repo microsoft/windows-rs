@@ -3,6 +3,7 @@
 #[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 mod bindings;
 mod controller;
+mod cookie;
 mod deferral;
 mod download;
 mod environment;
@@ -21,6 +22,7 @@ use windows_core::*;
 
 pub use bindings::HWND;
 pub use controller::{Color, Controller};
+pub use cookie::{Cookie, CookieManager, SameSite};
 pub use deferral::Deferral;
 pub use download::{
     DownloadInterruptReason, DownloadOperation, DownloadStartingArgs, DownloadState,
