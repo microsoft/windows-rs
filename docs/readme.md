@@ -8,75 +8,73 @@ This repo provides a comprehensive set of Rust crates for building Windows appli
 
 ## How these docs are organized
 
-- **[User guide](guide/readme.md)** — one task-oriented page per crate.
-- **[Internals](internals/readme.md)** — one page per crate on how it is built and maintained (the `tool_bindings` / `tool_reactor` / `tool_package` codegen pipeline, generated files, and conventions).
-- **API reference** — generated rustdoc on [docs.rs](https://docs.rs); follow the link on any guide page.
+Each crate has one page under [`crates/`](crates) covering both usage and internals — how the crate is built and maintained (the `tool_bindings` / `tool_reactor` / `tool_package` codegen pipeline, generated files, and conventions). Each crate's own `readme.md` is the user-facing introduction with a quick example, and the per-crate page links to it. Item-level API reference is the generated rustdoc on [docs.rs](https://docs.rs), linked from every page.
 
 ## Crates
 
 ### Core & projection
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows](https://crates.io/crates/windows) | Safer projection of C-style, COM, and WinRT APIs. | [guide](guide/windows.md) | [internals](internals/windows.md) |
-| [windows-sys](https://crates.io/crates/windows-sys) | Zero-overhead raw bindings for C-style Windows APIs. | [guide](guide/windows-sys.md) | [internals](internals/windows-sys.md) |
-| [windows-core](https://crates.io/crates/windows-core) | Fundamental COM and Windows type support. | [guide](guide/windows-core.md) | [internals](internals/windows-core.md) |
+| Crate | Description |
+| --- | --- |
+| [windows](crates/windows.md) | Safer projection of C-style, COM, and WinRT APIs. |
+| [windows-sys](crates/windows-sys.md) | Zero-overhead raw bindings for C-style Windows APIs. |
+| [windows-core](crates/windows-core.md) | Fundamental COM and Windows type support. |
 
 ### Error handling & strings
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-result](https://crates.io/crates/windows-result) | Windows error handling and propagation. | [guide](guide/windows-result.md) | [internals](internals/windows-result.md) |
-| [windows-strings](https://crates.io/crates/windows-strings) | Windows string interop types and macros. | [guide](guide/windows-strings.md) | [internals](internals/windows-strings.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-result](crates/windows-result.md) | Windows error handling and propagation. |
+| [windows-strings](crates/windows-strings.md) | Windows string interop types and macros. |
 
 ### Values & collections
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-numerics](https://crates.io/crates/windows-numerics) | Graphics math types (vectors and matrices). | [guide](guide/windows-numerics.md) | [internals](internals/windows-numerics.md) |
-| [windows-collections](https://crates.io/crates/windows-collections) | Stock WinRT collection types. | [guide](guide/windows-collections.md) | [internals](internals/windows-collections.md) |
-| [windows-reference](https://crates.io/crates/windows-reference) | Stock `IReference<T>` implementation. | [guide](guide/windows-reference.md) | [internals](internals/windows-reference.md) |
-| [windows-time](https://crates.io/crates/windows-time) | WinRT `TimeSpan` and `DateTime`. | [guide](guide/windows-time.md) | [internals](internals/windows-time.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-numerics](crates/windows-numerics.md) | Graphics math types (vectors and matrices). |
+| [windows-collections](crates/windows-collections.md) | Stock WinRT collection types. |
+| [windows-reference](crates/windows-reference.md) | Stock `IReference<T>` implementation. |
+| [windows-time](crates/windows-time.md) | WinRT `TimeSpan` and `DateTime`. |
 
 ### Async & threading
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-future](https://crates.io/crates/windows-future) | WinRT async bridged to Rust futures. | [guide](guide/windows-future.md) | [internals](internals/windows-future.md) |
-| [windows-threading](https://crates.io/crates/windows-threading) | Safe wrapper over the Win32 thread pool. | [guide](guide/windows-threading.md) | [internals](internals/windows-threading.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-future](crates/windows-future.md) | WinRT async bridged to Rust futures. |
+| [windows-threading](crates/windows-threading.md) | Safe wrapper over the Win32 thread pool. |
 
 ### System services
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-registry](https://crates.io/crates/windows-registry) | Safe Windows registry access. | [guide](guide/windows-registry.md) | [internals](internals/windows-registry.md) |
-| [windows-services](https://crates.io/crates/windows-services) | Author Windows services in Rust. | [guide](guide/windows-services.md) | [internals](internals/windows-services.md) |
-| [windows-version](https://crates.io/crates/windows-version) | Query the Windows version at runtime. | [guide](guide/windows-version.md) | [internals](internals/windows-version.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-registry](crates/windows-registry.md) | Safe Windows registry access. |
+| [windows-services](crates/windows-services.md) | Author Windows services in Rust. |
+| [windows-version](crates/windows-version.md) | Query the Windows version at runtime. |
 
 ### COM macros & linking
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-implement](https://crates.io/crates/windows-implement) | `#[implement]` proc macro for COM/WinRT. | [guide](guide/windows-implement.md) | [internals](internals/windows-implement.md) |
-| [windows-interface](https://crates.io/crates/windows-interface) | `#[interface]` proc macro for COM interfaces. | [guide](guide/windows-interface.md) | [internals](internals/windows-interface.md) |
-| [windows-link](https://crates.io/crates/windows-link) | Raw-dylib import support (`link!`). | [guide](guide/windows-link.md) | [internals](internals/windows-link.md) |
-| [windows-targets](https://crates.io/crates/windows-targets) | Import libs for older compilers. | [guide](guide/windows-targets.md) | [internals](internals/windows-targets.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-implement](crates/windows-implement.md) | `#[implement]` proc macro for COM/WinRT. |
+| [windows-interface](crates/windows-interface.md) | `#[interface]` proc macro for COM interfaces. |
+| [windows-link](crates/windows-link.md) | Raw-dylib import support (`link!`). |
+| [windows-targets](crates/windows-targets.md) | Import libs for older compilers. |
 
-### UI & graphics (experimental)
+### UI & graphics
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| windows-reactor | Declarative UI library backed by WinUI 3. | [guide](guide/windows-reactor.md) | [internals](internals/windows-reactor.md) |
-| windows-canvas | 2D graphics built on Direct2D. | [guide](guide/windows-canvas.md) | [internals](internals/windows-canvas.md) |
-| windows-animation | Wrapper around the Windows Animation Manager. | [guide](guide/windows-animation.md) | [internals](internals/windows-animation.md) |
-| windows-reactor-setup | Windows App Runtime installer for reactor apps. | [guide](guide/windows-reactor-setup.md) | [internals](internals/windows-reactor-setup.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-reactor](crates/windows-reactor.md) | Declarative UI library backed by WinUI 3. |
+| [windows-canvas](crates/windows-canvas.md) | 2D graphics built on Direct2D. |
+| [windows-animation](crates/windows-animation.md) | Wrapper around the Windows Animation Manager. |
+| [windows-reactor-setup](crates/windows-reactor-setup.md) | Windows App Runtime installer for reactor apps. |
 
 ### Codegen & metadata tooling
 
-| Crate | Description | Guide | Internals |
-| --- | --- | --- | --- |
-| [windows-bindgen](https://crates.io/crates/windows-bindgen) | Code generator for Windows metadata. | [guide](guide/windows-bindgen.md) | [internals](internals/windows-bindgen.md) |
-| [windows-metadata](https://crates.io/crates/windows-metadata) | Low-level ECMA-335 metadata library. | [guide](guide/windows-metadata.md) | [internals](internals/windows-metadata.md) |
-| [windows-rdl](https://crates.io/crates/windows-rdl) | RDL parser and ECMA-335 generator. | [guide](guide/windows-rdl.md) | [internals](internals/windows-rdl.md) |
-| [riddle](https://crates.io/crates/riddle) | Windows metadata compiler. | [guide](guide/riddle.md) | [internals](internals/riddle.md) |
-| [cppwinrt](https://crates.io/crates/cppwinrt) | Bundles the C++/WinRT compiler. | [guide](guide/cppwinrt.md) | [internals](internals/cppwinrt.md) |
+| Crate | Description |
+| --- | --- |
+| [windows-bindgen](crates/windows-bindgen.md) | Code generator for Windows metadata. |
+| [windows-metadata](crates/windows-metadata.md) | Low-level ECMA-335 metadata library. |
+| [windows-rdl](crates/windows-rdl.md) | RDL parser and ECMA-335 generator. |
+| [riddle](crates/riddle.md) | Windows metadata compiler. |
+| [cppwinrt](crates/cppwinrt.md) | Bundles the C++/WinRT compiler. |
