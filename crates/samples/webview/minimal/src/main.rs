@@ -91,6 +91,10 @@ fn main() -> Result<()> {
         resize(&controller, window);
         let webview = controller.webview()?;
 
+        let settings = webview.settings()?;
+        settings.set_dev_tools_enabled(true)?;
+        settings.set_status_bar_enabled(false)?;
+
         let message_registration = webview.on_web_message_received(|args| {
             println!("page sent: {}", args.web_message_as_json());
         })?;

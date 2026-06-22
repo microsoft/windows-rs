@@ -52,6 +52,12 @@ impl WebView {
             .unwrap_or_default()
     }
 
+    /// Returns the [`Settings`] controlling features such as JavaScript, the dev
+    /// tools, and context menus.
+    pub fn settings(&self) -> Result<Settings> {
+        unsafe { Ok(Settings(self.0.Settings()?)) }
+    }
+
     /// Asynchronously runs JavaScript in the context of the current page. The
     /// `handler` closure receives the JSON-encoded result on the UI thread.
     pub fn execute_script<F: FnOnce(Result<String>) + 'static>(

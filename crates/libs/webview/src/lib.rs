@@ -7,6 +7,7 @@ mod environment;
 mod event;
 mod handler;
 mod pump;
+mod settings;
 mod string;
 mod webview;
 
@@ -19,5 +20,6 @@ pub use environment::Environment;
 pub use event::{
     EventRegistration, NavigationCompletedArgs, NavigationStartingArgs, WebMessageReceivedArgs,
 };
+pub use settings::Settings;
 pub use webview::WebView;
 pub use windows_core::Result;

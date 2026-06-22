@@ -11,6 +11,16 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2, windows_core::IUnknown);
 impl ICoreWebView2 {
+    pub unsafe fn Settings(&self) -> windows_core::Result<ICoreWebView2Settings> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Settings)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub unsafe fn Source(&self) -> windows_core::Result<LPWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -186,7 +196,10 @@ impl ICoreWebView2 {
 #[repr(C)]
 pub struct ICoreWebView2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    Settings: usize,
+    pub Settings: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub Source:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
     pub Navigate:
@@ -902,6 +915,278 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2Settings,
+    ICoreWebView2Settings_Vtbl,
+    0xe562e4f0_d7fa_43ac_8d71_c05150499f00
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2Settings, windows_core::IUnknown);
+impl ICoreWebView2Settings {
+    pub unsafe fn IsScriptEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsScriptEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetIsScriptEnabled(&self, isscriptenabled: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsScriptEnabled)(
+                windows_core::Interface::as_raw(self),
+                isscriptenabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn IsWebMessageEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsWebMessageEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetIsWebMessageEnabled(
+        &self,
+        iswebmessageenabled: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsWebMessageEnabled)(
+                windows_core::Interface::as_raw(self),
+                iswebmessageenabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AreDefaultScriptDialogsEnabled(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AreDefaultScriptDialogsEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAreDefaultScriptDialogsEnabled(
+        &self,
+        aredefaultscriptdialogsenabled: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAreDefaultScriptDialogsEnabled)(
+                windows_core::Interface::as_raw(self),
+                aredefaultscriptdialogsenabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn IsStatusBarEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsStatusBarEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetIsStatusBarEnabled(
+        &self,
+        isstatusbarenabled: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsStatusBarEnabled)(
+                windows_core::Interface::as_raw(self),
+                isstatusbarenabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AreDevToolsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AreDevToolsEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAreDevToolsEnabled(
+        &self,
+        aredevtoolsenabled: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAreDevToolsEnabled)(
+                windows_core::Interface::as_raw(self),
+                aredevtoolsenabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AreDefaultContextMenusEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AreDefaultContextMenusEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAreDefaultContextMenusEnabled(
+        &self,
+        enabled: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAreDefaultContextMenusEnabled)(
+                windows_core::Interface::as_raw(self),
+                enabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn AreHostObjectsAllowed(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AreHostObjectsAllowed)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetAreHostObjectsAllowed(&self, allowed: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAreHostObjectsAllowed)(
+                windows_core::Interface::as_raw(self),
+                allowed.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn IsZoomControlEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsZoomControlEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetIsZoomControlEnabled(&self, enabled: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsZoomControlEnabled)(
+                windows_core::Interface::as_raw(self),
+                enabled.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn IsBuiltInErrorPageEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsBuiltInErrorPageEnabled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn SetIsBuiltInErrorPageEnabled(&self, enabled: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsBuiltInErrorPageEnabled)(
+                windows_core::Interface::as_raw(self),
+                enabled.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Settings_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub IsScriptEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsScriptEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsWebMessageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsWebMessageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub AreDefaultScriptDialogsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreDefaultScriptDialogsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsStatusBarEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsStatusBarEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub AreDevToolsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreDevToolsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub AreDefaultContextMenusEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreDefaultContextMenusEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub AreHostObjectsAllowed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAreHostObjectsAllowed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsZoomControlEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsZoomControlEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub IsBuiltInErrorPageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsBuiltInErrorPageEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs,
     ICoreWebView2WebMessageReceivedEventArgs_Vtbl,

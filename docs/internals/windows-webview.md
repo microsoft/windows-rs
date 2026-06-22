@@ -123,6 +123,24 @@ The sample subscribes before navigating and parks the `EventRegistration` in a
 `document_title()`, return owned `[out]` strings and so go through
 `string::take` (decode + `CoTaskMemFree`).
 
+## Settings
+
+`WebView::settings()` returns a `settings::Settings` newtype over
+`ICoreWebView2Settings`, grouping the browser's feature toggles behind one
+cohesive type (the reactor lesson: hide a sprawling COM surface behind a single,
+clearly-named Rust object). The base interface is entirely boolean properties, so
+`settings.rs` defines a small `settings_bool!` macro that expands each COM
+`get_X` / `put_X` pair into an idiomatic getter / `set_*` pair — e.g.
+`AreDevToolsEnabled` / `put_AreDevToolsEnabled` becomes `are_dev_tools_enabled()`
+/ `set_dev_tools_enabled(bool)`. Getters swallow errors to `bool` (matching the
+event-args convention); setters return `Result<()>` (matching `Controller`). The
+macro keeps the nine properties declarative and uniform without per-property
+boilerplate.
+
+Versioned settings (`ICoreWebView2Settings2`–`9`: user agent, autofill, pinch
+zoom, swipe navigation, …) require `cast`-ing to later interfaces and are left
+for a future slice.
+
 ## Host ↔ JavaScript messaging
 
 Two directions, both on `ICoreWebView2`:
