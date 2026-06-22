@@ -41,6 +41,11 @@ fn host(window: HWND) -> Result<()> {
 user-data folder, additional browser arguments, and language. Resize the browser
 with `controller.set_bounds(..)` from your window's `WM_SIZE` handler.
 
+For a controller with a specific profile, private (incognito) mode, or a
+background colour from the first frame, use
+`create_controller_with_options(window, &ControllerOptions::new().profile_name("work").in_private_mode(true))`
+instead of `create_controller`.
+
 ## Zoom, background, and DPI
 
 The `Controller` also exposes the browser's display properties:
@@ -254,7 +259,7 @@ WebView2 backend for that ecosystem.
 |-----|---------|--------|-------|
 | Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | wry | ✅ Done | `Settings::user_agent`, `are_browser_accelerator_keys_enabled`, `is_general_autofill_enabled`, `is_password_autosave_enabled`, `is_pinch_zoom_enabled`, `is_swipe_navigation_enabled`, `is_non_client_region_support_enabled`. |
 | Cookie manager (`GetCookies`/`AddOrUpdateCookie`/`DeleteCookies`) | wry | ✅ Done | `WebView::cookie_manager` returns a `CookieManager`; `get_cookies` is callback-based, plus `add_or_update_cookie` and the delete verbs. |
-| Controller creation options (`ICoreWebView2ControllerOptions`/`Options3`) | tauri | ⬜ Planned | Incognito/private mode, profile name, default background at create. Needs a `create_controller_with_options`. |
+| Controller creation options (`ICoreWebView2ControllerOptions`/`Options3`) | tauri | ✅ Done | `Environment::create_controller_with_options` + `ControllerOptions` builder (profile name, private mode, background-at-create). |
 | Profile (`ICoreWebView2Profile`/`Profile2`) | tauri | ⬜ Planned | Theme, `ClearBrowsingDataAll`, add browser extension. |
 | `NavigateWithWebResourceRequest` (`ICoreWebView2_10`) | wry | ⬜ Planned | Navigate with custom request headers. |
 | `OpenDevToolsWindow` | wry | ⬜ Planned | Devtools feature. |

@@ -46,6 +46,9 @@
     WebView2.COREWEBVIEW2_MOVE_FOCUS_REASON
     WebView2.COREWEBVIEW2_KEY_EVENT_KIND
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
+    WebView2.ICoreWebView2Environment10::{CreateCoreWebView2ControllerOptions, CreateCoreWebView2ControllerWithOptions}
+    WebView2.ICoreWebView2ControllerOptions::{put_ProfileName, put_IsInPrivateModeEnabled}
+    WebView2.ICoreWebView2ControllerOptions3::{put_DefaultBackgroundColor}
     WebView2.ICoreWebView2NavigationCompletedEventArgs::{get_IsSuccess, get_NavigationId}
     WebView2.ICoreWebView2NavigationStartingEventArgs::{get_Uri, get_IsUserInitiated, get_IsRedirected, get_Cancel, put_Cancel, get_NavigationId}
     WebView2.ICoreWebView2WebMessageReceivedEventArgs::{get_Source, get_WebMessageAsJson, TryGetWebMessageAsString}

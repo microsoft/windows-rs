@@ -48,6 +48,23 @@ impl Environment {
         let handler = handler::ControllerCompleted::create(handler);
         unsafe { self.0.CreateCoreWebView2Controller(parent, &handler) }
     }
+
+    /// Creates a [`Controller`] configured by `options` (profile, private mode,
+    /// background colour) that hosts a WebView2 browser in the given parent
+    /// window, pumping the calling thread's message loop until it is ready.
+    ///
+    /// # Safety
+    ///
+    /// `parent` must be a valid window handle that outlives the controller.
+    pub unsafe fn create_controller_with_options(
+        &self,
+        parent: HWND,
+        options: &ControllerOptions,
+    ) -> Result<Controller> {
+        let slot = pump::slot();
+        options.create_controller(&self.0, parent, pump::slot_handler(&slot))?;
+        pump::wait(&slot)
+    }
 }
 
 fn create_environment<F: FnOnce(Result<Environment>) + 'static>(handler: F) -> Result<()> {

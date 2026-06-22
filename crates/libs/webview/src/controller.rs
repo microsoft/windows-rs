@@ -40,6 +40,68 @@ impl Color {
     }
 }
 
+/// Configures a [`Controller`] at creation time — its profile, whether it runs
+/// in private mode, and the colour painted before content loads. Build one with
+/// the fluent setters and pass it to
+/// [`Environment::create_controller_with_options`].
+#[derive(Clone, Debug, Default)]
+pub struct ControllerOptions {
+    profile_name: Option<String>,
+    is_in_private_mode: bool,
+    default_background_color: Option<Color>,
+}
+
+impl ControllerOptions {
+    /// Creates options with all WebView2 defaults.
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// Sets the name of the profile the controller uses, isolating its cookies,
+    /// storage, and cache from other profiles in the same user-data folder.
+    pub fn profile_name(mut self, value: impl Into<String>) -> Self {
+        self.profile_name = Some(value.into());
+        self
+    }
+
+    /// Runs the controller in private (incognito) mode, leaving no profile data
+    /// on disk.
+    pub fn in_private_mode(mut self, value: bool) -> Self {
+        self.is_in_private_mode = value;
+        self
+    }
+
+    /// Sets the colour painted behind the page before content loads. Use
+    /// [`Color::TRANSPARENT`] for a transparent browser from the first frame.
+    pub fn default_background_color(mut self, color: Color) -> Self {
+        self.default_background_color = Some(color);
+        self
+    }
+
+    pub(crate) fn create_controller<F: FnOnce(Result<Controller>) + 'static>(
+        &self,
+        environment: &ICoreWebView2Environment,
+        parent: HWND,
+        handler: F,
+    ) -> Result<()> {
+        let environment: ICoreWebView2Environment10 = environment.cast()?;
+        let options = unsafe { environment.CreateCoreWebView2ControllerOptions()? };
+
+        if let Some(profile_name) = &self.profile_name {
+            let profile_name = string::encode(profile_name);
+            unsafe { options.SetProfileName(profile_name.as_ptr())? };
+        }
+        unsafe { options.SetIsInPrivateModeEnabled(self.is_in_private_mode)? };
+        if let Some(color) = self.default_background_color {
+            let options: ICoreWebView2ControllerOptions3 = options.cast()?;
+            unsafe { options.SetDefaultBackgroundColor(color.to_raw())? };
+        }
+
+        let handler = handler::ControllerCompleted::create(handler);
+        unsafe { environment.CreateCoreWebView2ControllerWithOptions(parent, &options, &handler) }
+    }
+}
+
 /// Hosts a WebView2 browser inside a parent window, controlling its bounds,
 /// visibility, and lifetime.
 pub struct Controller(pub(crate) ICoreWebView2Controller);

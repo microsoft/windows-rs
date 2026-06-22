@@ -21,7 +21,7 @@ use bindings::*;
 use windows_core::*;
 
 pub use bindings::HWND;
-pub use controller::{Color, Controller};
+pub use controller::{Color, Controller, ControllerOptions};
 pub use cookie::{Cookie, CookieManager, SameSite};
 pub use deferral::Deferral;
 pub use download::{
