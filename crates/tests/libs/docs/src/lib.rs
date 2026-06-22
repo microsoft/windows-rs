@@ -69,3 +69,6 @@ mod windows_time {}
 
 #[doc = include_str!("../../../../../docs/crates/windows-version.md")]
 mod windows_version {}
+
+#[doc = include_str!("../../../../../docs/crates/windows-window.md")]
+mod windows_window {}

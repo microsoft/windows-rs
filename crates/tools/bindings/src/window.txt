@@ -1,0 +1,34 @@
+--out crates/libs/window/src/bindings.rs
+--flat --minimal --dead-code
+
+--filter
+    Windows::Win32::Foundation::RECT
+    Windows::Win32::UI::WindowsAndMessaging::CreateWindowExW
+    Windows::Win32::UI::WindowsAndMessaging::CS_HREDRAW
+    Windows::Win32::UI::WindowsAndMessaging::CS_VREDRAW
+    Windows::Win32::UI::WindowsAndMessaging::CW_USEDEFAULT
+    Windows::Win32::UI::WindowsAndMessaging::DefWindowProcW
+    Windows::Win32::UI::WindowsAndMessaging::DestroyWindow
+    Windows::Win32::UI::WindowsAndMessaging::DispatchMessageW
+    Windows::Win32::UI::WindowsAndMessaging::GetClientRect
+    Windows::Win32::UI::WindowsAndMessaging::GetMessageW
+    Windows::Win32::UI::WindowsAndMessaging::GetWindowLongPtrW
+    Windows::Win32::UI::WindowsAndMessaging::GWLP_USERDATA
+    Windows::Win32::UI::WindowsAndMessaging::IDC_ARROW
+    Windows::Win32::UI::WindowsAndMessaging::IsWindow
+    Windows::Win32::UI::WindowsAndMessaging::LoadCursorW
+    Windows::Win32::UI::WindowsAndMessaging::MSG
+    Windows::Win32::UI::WindowsAndMessaging::PeekMessageW
+    Windows::Win32::UI::WindowsAndMessaging::PM_REMOVE
+    Windows::Win32::UI::WindowsAndMessaging::PostQuitMessage
+    Windows::Win32::UI::WindowsAndMessaging::RegisterClassW
+    Windows::Win32::UI::WindowsAndMessaging::SetWindowLongPtrW
+    Windows::Win32::UI::WindowsAndMessaging::ShowWindow
+    Windows::Win32::UI::WindowsAndMessaging::SW_SHOWNORMAL
+    Windows::Win32::UI::WindowsAndMessaging::TranslateMessage
+    Windows::Win32::UI::WindowsAndMessaging::WM_DESTROY
+    Windows::Win32::UI::WindowsAndMessaging::WM_NCDESTROY
+    Windows::Win32::UI::WindowsAndMessaging::WM_QUIT
+    Windows::Win32::UI::WindowsAndMessaging::WM_SIZE
+    Windows::Win32::UI::WindowsAndMessaging::WNDCLASSW
+    Windows::Win32::UI::WindowsAndMessaging::WS_OVERLAPPEDWINDOW
