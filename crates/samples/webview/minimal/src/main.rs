@@ -158,6 +158,34 @@ fn main() -> Result<()> {
             let _ = args.set_state(PermissionState::Deny);
         })?;
 
+        let download_registration = webview.on_download_starting(|args| {
+            if let Ok(operation) = args.download_operation() {
+                println!(
+                    "download starting: {} ({} bytes) -> {}",
+                    operation.uri(),
+                    operation.total_bytes_to_receive(),
+                    operation.result_file_path()
+                );
+                let bytes = operation
+                    .on_bytes_received_changed(|operation| {
+                        println!(
+                            "download progress: {} / {} bytes",
+                            operation.bytes_received(),
+                            operation.total_bytes_to_receive()
+                        );
+                    })
+                    .ok();
+                let state = operation
+                    .on_state_changed(|operation| {
+                        println!("download state: {:?}", operation.state());
+                    })
+                    .ok();
+                REGISTRATIONS.with(|slot| {
+                    slot.borrow_mut().extend(bytes.into_iter().chain(state));
+                });
+            }
+        })?;
+
         webview.navigate("https://github.com/microsoft/windows-rs")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
         REGISTRATIONS.with(|slot| {
@@ -170,6 +198,7 @@ fn main() -> Result<()> {
                 close_registration,
                 new_window_registration,
                 permission_registration,
+                download_registration,
             ]);
         });
 

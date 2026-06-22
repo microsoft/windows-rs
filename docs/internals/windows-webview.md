@@ -206,6 +206,30 @@ aliases under `--minimal` (the named constants are stripped), so `PermissionKind
 and `PermissionState` are hand-written Rust enums with `from_raw` / `to_raw`
 mappings keyed on the documented integer values.
 
+### Downloads (versioned interface + a sender-carried object)
+
+`download.rs` adds the first **versioned** subscription and the first wrapped COM
+object that is not an args bag. `DownloadStarting` lives on `ICoreWebView2_4`, not
+the base `ICoreWebView2`, so `WebView::on_download_starting` `cast`s its inner
+interface (`let source: ICoreWebView2_4 = self.0.cast()?;`) before subscribing —
+the same pattern the versioned settings will use. The cast pulls in the
+`ICoreWebView2_4` GUID, so the filter requests only its two `add_/remove_` methods
+(every other slot stays a `usize` placeholder under `--minimal --flat`).
+
+`DownloadStartingArgs` is a normal args type (cancel, result-file-path override,
+handled, `defer()`), but `download_operation()` hands back a `DownloadOperation`
+newtype over `ICoreWebView2DownloadOperation`. It is `#[derive(Clone)]` (it wraps a
+refcounted interface) and exposes the progress getters (`bytes_received`,
+`total_bytes_to_receive`, `state`, `interrupt_reason`, …) plus control verbs
+(`cancel`, `pause`, `resume`). Its own `BytesReceivedChanged` / `StateChanged`
+events carry **no args** and an `IUnknown` placeholder — the changed object is the
+*sender*. The handler adapters (`BytesReceivedChanged`, `DownloadStateChanged`)
+rebuild a `DownloadOperation` from `sender` and pass it to an
+`FnMut(DownloadOperation)` closure, so callers read the new bytes/state straight
+off the operation they were handed. `COREWEBVIEW2_DOWNLOAD_STATE` and
+`_INTERRUPT_REASON` are again bare `i32` aliases, mapped to the hand-written
+`DownloadState` / `DownloadInterruptReason` enums.
+
 ## Navigation and document state
 
 `WebView` exposes the navigation verbs directly off `ICoreWebView2`:

@@ -352,3 +352,92 @@ impl ICoreWebView2PermissionRequestedEventHandler_Impl for PermissionRequested_I
         Ok(())
     }
 }
+
+/// Adapts a Rust closure to the `ICoreWebView2DownloadStartingEventHandler`
+/// COM interface.
+pub(crate) struct DownloadStarting(RefCell<Box<dyn FnMut(DownloadStartingArgs)>>);
+
+implement_decl! {
+    impl DownloadStarting as pub(crate) DownloadStarting_Impl:
+        [ICoreWebView2DownloadStartingEventHandler]
+}
+
+impl DownloadStarting {
+    pub(crate) fn create<F: FnMut(DownloadStartingArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2DownloadStartingEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2DownloadStartingEventHandler_Impl for DownloadStarting_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2DownloadStartingEventArgs>,
+    ) -> Result<()> {
+        let args = DownloadStartingArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2StateChangedEventHandler` COM
+/// interface. The event carries no args, so the [`DownloadOperation`] that
+/// changed is read from the sender and handed to the closure.
+pub(crate) struct DownloadStateChanged(RefCell<Box<dyn FnMut(DownloadOperation)>>);
+
+implement_decl! {
+    impl DownloadStateChanged as pub(crate) DownloadStateChanged_Impl:
+        [ICoreWebView2StateChangedEventHandler]
+}
+
+impl DownloadStateChanged {
+    pub(crate) fn create<F: FnMut(DownloadOperation) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2StateChangedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2StateChangedEventHandler_Impl for DownloadStateChanged_Impl {
+    fn Invoke(
+        &self,
+        sender: Ref<ICoreWebView2DownloadOperation>,
+        _args: Ref<IUnknown>,
+    ) -> Result<()> {
+        let operation = DownloadOperation(sender.ok()?.clone());
+        (*self.0.borrow_mut())(operation);
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2BytesReceivedChangedEventHandler`
+/// COM interface. The event carries no args, so the [`DownloadOperation`] that
+/// changed is read from the sender and handed to the closure.
+pub(crate) struct BytesReceivedChanged(RefCell<Box<dyn FnMut(DownloadOperation)>>);
+
+implement_decl! {
+    impl BytesReceivedChanged as pub(crate) BytesReceivedChanged_Impl:
+        [ICoreWebView2BytesReceivedChangedEventHandler]
+}
+
+impl BytesReceivedChanged {
+    pub(crate) fn create<F: FnMut(DownloadOperation) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2BytesReceivedChangedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2BytesReceivedChangedEventHandler_Impl for BytesReceivedChanged_Impl {
+    fn Invoke(
+        &self,
+        sender: Ref<ICoreWebView2DownloadOperation>,
+        _args: Ref<IUnknown>,
+    ) -> Result<()> {
+        let operation = DownloadOperation(sender.ok()?.clone());
+        (*self.0.borrow_mut())(operation);
+        Ok(())
+    }
+}

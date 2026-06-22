@@ -4,6 +4,7 @@
 mod bindings;
 mod controller;
 mod deferral;
+mod download;
 mod environment;
 mod event;
 mod handler;
@@ -20,6 +21,9 @@ use windows_core::*;
 pub use bindings::HWND;
 pub use controller::Controller;
 pub use deferral::Deferral;
+pub use download::{
+    DownloadInterruptReason, DownloadOperation, DownloadStartingArgs, DownloadState,
+};
 pub use environment::Environment;
 pub use event::{
     ContentLoadingArgs, EventRegistration, NavigationCompletedArgs, NavigationStartingArgs,

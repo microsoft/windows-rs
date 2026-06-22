@@ -243,4 +243,21 @@ impl WebView {
             let _ = unsafe { source.remove_PermissionRequested(token) };
         }))
     }
+
+    /// Subscribes to the download-starting event, raised when a download begins.
+    /// The handler receives a [`DownloadStartingArgs`] to inspect or control the
+    /// [`DownloadOperation`], change its destination, or cancel it. The returned
+    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
+    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
+    pub fn on_download_starting<F: FnMut(DownloadStartingArgs) + 'static>(
+        &self,
+        handler: F,
+    ) -> Result<EventRegistration> {
+        let source: ICoreWebView2_4 = self.0.cast()?;
+        let handler = handler::DownloadStarting::create(handler);
+        let token = unsafe { source.add_DownloadStarting(&handler)? };
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_DownloadStarting(token) };
+        }))
+    }
 }
