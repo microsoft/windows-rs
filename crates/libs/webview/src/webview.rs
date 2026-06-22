@@ -1,6 +1,29 @@
 use super::*;
 use crate::handler::subscription;
 
+/// How a folder mapped with
+/// [`WebView::set_virtual_host_name_to_folder_mapping`] may be accessed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HostResourceAccessKind {
+    /// Resources from other origins cannot access the mapped content.
+    Deny,
+    /// Resources from any origin may access the mapped content.
+    Allow,
+    /// Like [`Deny`](Self::Deny), but cross-origin requests are allowed through
+    /// CORS.
+    DenyCors,
+}
+
+impl HostResourceAccessKind {
+    fn to_raw(self) -> COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND {
+        match self {
+            Self::Deny => 0,
+            Self::Allow => 1,
+            Self::DenyCors => 2,
+        }
+    }
+}
+
 /// A WebView2 browser. Navigate to URLs and run JavaScript against the hosted
 /// page.
 #[derive(Clone)]
@@ -51,6 +74,37 @@ impl WebView {
         unsafe { self.0.DocumentTitle() }
             .map(|value| unsafe { string::take(value) })
             .unwrap_or_default()
+    }
+
+    /// Maps a virtual host name to a local folder so the page can load its files
+    /// over a normal URL such as `https://app.example/index.html`. This is the
+    /// simplest way to serve a bundled web app: map a host to the asset folder
+    /// once, then navigate to it. `access_kind` controls cross-origin access to
+    /// the mapped files.
+    pub fn set_virtual_host_name_to_folder_mapping(
+        &self,
+        host_name: &str,
+        folder_path: &str,
+        access_kind: HostResourceAccessKind,
+    ) -> Result<()> {
+        let source: ICoreWebView2_3 = self.0.cast()?;
+        let host_name = string::encode(host_name);
+        let folder_path = string::encode(folder_path);
+        unsafe {
+            source.SetVirtualHostNameToFolderMapping(
+                host_name.as_ptr(),
+                folder_path.as_ptr(),
+                access_kind.to_raw(),
+            )
+        }
+    }
+
+    /// Removes a mapping previously created with
+    /// [`set_virtual_host_name_to_folder_mapping`](Self::set_virtual_host_name_to_folder_mapping).
+    pub fn clear_virtual_host_name_to_folder_mapping(&self, host_name: &str) -> Result<()> {
+        let source: ICoreWebView2_3 = self.0.cast()?;
+        let host_name = string::encode(host_name);
+        unsafe { source.ClearVirtualHostNameToFolderMapping(host_name.as_ptr()) }
     }
 
     /// Returns the [`Settings`] controlling features such as JavaScript, the dev

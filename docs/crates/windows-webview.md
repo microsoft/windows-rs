@@ -134,6 +134,28 @@ webview.navigate("https://app.example/")?;
 `.header(name, value)`, and `.content_type(value)`. The COM `IStream` body is built
 internally and never appears in the API.
 
+## Serving local files
+
+When the assets already live in a folder on disk, mapping a virtual host is
+simpler than intercepting each request:
+`set_virtual_host_name_to_folder_mapping(host, folder, access)` makes the files
+under `folder` load over an ordinary URL such as `https://app.example/index.html`,
+with correct MIME types and no per-request handler. `HostResourceAccessKind`
+controls cross-origin access (`Deny`, `Allow`, or `DenyCors`), and
+`clear_virtual_host_name_to_folder_mapping(host)` removes the mapping.
+
+```rust,ignore
+webview.set_virtual_host_name_to_folder_mapping(
+    "app.example",
+    r"C:\path\to\assets",
+    HostResourceAccessKind::Deny,
+)?;
+webview.navigate("https://app.example/index.html")?;
+```
+
+Reach for `on_web_resource_requested` instead when responses are generated in
+memory rather than read from disk.
+
 ## Downloads
 
 `on_download_starting` delivers a `DownloadStartingArgs` to inspect or cancel the
@@ -177,7 +199,7 @@ Tracked gaps, roughly by impact:
 |-----|--------|-------|
 | `ProcessFailed` (renderer-crash detection) | ✅ Done | `on_process_failed` delivers a `ProcessFailedArgs` with `kind()`. |
 | Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ✅ Done | `Controller::on_got_focus`/`on_lost_focus`/`on_move_focus_requested`/`on_accelerator_key_pressed` plus `move_focus`. |
-| `SetVirtualHostNameToFolderMapping` | ⬜ Planned | First-class local-asset serving; `wry` resorts to a URL-rewriting workaround. Pairs with the custom-protocol slice. |
+| `SetVirtualHostNameToFolderMapping` | ✅ Done | `WebView::set_virtual_host_name_to_folder_mapping` / `clear_virtual_host_name_to_folder_mapping`. |
 | Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ⬜ Planned | `wry` uses all of these. |
 | Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | ⬜ Planned | `wry` sets these through the later settings interfaces. |
 | Cookies, `Profile`/themes, `NavigateWithWebResourceRequest` (headers), incognito, browser extensions | ⬜ Planned | Breadth `wry` covers that this crate does not yet. |

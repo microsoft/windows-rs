@@ -8,6 +8,7 @@ windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
+pub type COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND = i32;
 pub type COREWEBVIEW2_KEY_EVENT_KIND = i32;
 pub type COREWEBVIEW2_MOVE_FOCUS_REASON = i32;
 pub type COREWEBVIEW2_PERMISSION_KIND = i32;
@@ -3771,14 +3772,50 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2,
     ICoreWebView2_2
 );
+impl ICoreWebView2_3 {
+    pub(crate) unsafe fn SetVirtualHostNameToFolderMapping(
+        &self,
+        hostname: LPCWSTR,
+        folderpath: LPCWSTR,
+        accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetVirtualHostNameToFolderMapping)(
+                windows_core::Interface::as_raw(self),
+                hostname,
+                folderpath,
+                accesskind,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn ClearVirtualHostNameToFolderMapping(
+        &self,
+        hostname: LPCWSTR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearVirtualHostNameToFolderMapping)(
+                windows_core::Interface::as_raw(self),
+                hostname,
+            )
+            .ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct ICoreWebView2_3_Vtbl {
     pub base__: ICoreWebView2_2_Vtbl,
     TrySuspend: usize,
     Resume: usize,
     IsSuspended: usize,
-    SetVirtualHostNameToFolderMapping: usize,
-    ClearVirtualHostNameToFolderMapping: usize,
+    pub SetVirtualHostNameToFolderMapping: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        LPCWSTR,
+        LPCWSTR,
+        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
+    ) -> windows_core::HRESULT,
+    pub ClearVirtualHostNameToFolderMapping:
+        unsafe extern "system" fn(*mut core::ffi::c_void, LPCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2_4,

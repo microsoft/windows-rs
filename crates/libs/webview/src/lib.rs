@@ -36,5 +36,5 @@ pub use options::EnvironmentOptions;
 pub use protocol::{WebResourceRequest, WebResourceResponse};
 pub use script::ScriptId;
 pub use settings::Settings;
-pub use webview::WebView;
+pub use webview::{HostResourceAccessKind, WebView};
 pub use windows_core::Result;
