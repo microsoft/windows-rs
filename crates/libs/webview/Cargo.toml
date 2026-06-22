@@ -1,0 +1,16 @@
+[package]
+name = "windows-webview"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Windows WebView2 library"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[dependencies]
+windows-core = { workspace = true, features = ["proc-macros"] }
+
+[lints]
+workspace = true

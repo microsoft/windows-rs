@@ -1,0 +1,16 @@
+--in target/webview default
+--out crates/libs/webview/src/bindings.rs
+--flat --minimal
+--implement
+    WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
+    WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
+    WebView2.ICoreWebView2ExecuteScriptCompletedHandler
+
+--filter
+    WebView2.CreateCoreWebView2Environment
+    WebView2.ICoreWebView2::{Navigate, ExecuteScript}
+    WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2}
+    WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
+    WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
+    WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
+    WebView2.ICoreWebView2ExecuteScriptCompletedHandler
