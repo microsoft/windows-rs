@@ -126,10 +126,10 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 
 ## Documentation
 
-The `docs/` folder is organized as one page per crate under two trees:
+The `docs/` folder has one page per crate:
 
-- **`docs/guide/<crate>.md`** — user-facing guide for each crate (start at `docs/guide/readme.md`).
-- **`docs/internals/<crate>.md`** — contributor notes on how each crate is built and maintained (start at `docs/internals/readme.md`).
+- **`docs/crates/<crate>.md`** — a single page per crate covering both usage and internals (how the crate is built and maintained: codegen pipeline, generated files, conventions). It links to the crate's own `readme.md` for the user-facing intro and quick example.
+- **`crates/libs/<crate>/readme.md`** — the user-facing introduction with a quick example (also the crates.io / docs.rs landing).
 - **`docs/readme.md`** — the documentation hub and crate index.
 
-When making changes to a crate, update both its guide and internals pages as needed. For example, `windows-reactor` changes touch `docs/guide/windows-reactor.md` (getting started, hooks, controls) and `docs/internals/windows-reactor.md` (codegen, TOML, threading, COM pitfalls).
+When making changes to a crate, update its `docs/crates/<crate>.md` page and its `readme.md` as needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (codegen, TOML, threading, COM pitfalls, plus the conceptual overview) and `crates/libs/reactor/readme.md` (getting started and the quick example).
