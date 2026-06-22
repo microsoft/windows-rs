@@ -137,3 +137,7 @@ jobs:
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-version
         run:  cargo check -p windows-version --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-window
+        run:  cargo check -p windows-window --all-features

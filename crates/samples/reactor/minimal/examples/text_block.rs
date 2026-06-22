@@ -18,5 +18,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Text", app)
+    reactor_minimal::run("Text Block", app)
 }

@@ -207,6 +207,11 @@ impl CombineMinimal for Type {
                 for dep_ty in sig.types() {
                     dep_ty.combine_minimal(types, reader, references);
                 }
+                if let Some(dependency) = f.window_long_dependency() {
+                    reader
+                        .unwrap_full_name(f.namespace, dependency)
+                        .combine_minimal(types, reader, references);
+                }
             }
             Type::CppConst(_) => {}
             Type::Class(c) => {
