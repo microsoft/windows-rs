@@ -1,4 +1,5 @@
 use super::*;
+use crate::handler::subscription;
 
 /// A WebView2 browser. Navigate to URLs and run JavaScript against the hosted
 /// page.
@@ -96,36 +97,18 @@ impl WebView {
         unsafe { self.0.RemoveScriptToExecuteOnDocumentCreated(id.as_ptr()) }
     }
 
-    /// Subscribes to the navigation-starting event, raised before each
-    /// navigation. The handler may inspect the target and cancel it via
-    /// [`NavigationStartingArgs::set_cancel`]. The returned [`EventRegistration`]
-    /// keeps the subscription alive; dropping it (or calling
-    /// [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_navigation_starting<F: FnMut(NavigationStartingArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::NavigationStarting::create(handler);
-        let token = unsafe { self.0.add_NavigationStarting(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_NavigationStarting(token) };
-        }))
+    subscription! {
+        /// Subscribes to the navigation-starting event, raised before each
+        /// navigation. The handler may inspect the target and cancel it via
+        /// [`NavigationStartingArgs::set_cancel`].
+        on_navigation_starting(NavigationStartingArgs) =>
+            NavigationStarting, add_NavigationStarting / remove_NavigationStarting
     }
 
-    /// Subscribes to the navigation-completed event. The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_navigation_completed<F: FnMut(NavigationCompletedArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::NavigationCompleted::create(handler);
-        let token = unsafe { self.0.add_NavigationCompleted(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_NavigationCompleted(token) };
-        }))
+    subscription! {
+        /// Subscribes to the navigation-completed event.
+        on_navigation_completed(NavigationCompletedArgs) =>
+            NavigationCompleted, add_NavigationCompleted / remove_NavigationCompleted
     }
 
     /// Posts a message to the hosted page as a JSON value. The page receives it
@@ -144,59 +127,30 @@ impl WebView {
         unsafe { self.0.PostWebMessageAsString(message.as_ptr()) }
     }
 
-    /// Subscribes to the web-message-received event, raised when the hosted page
-    /// calls `window.chrome.webview.postMessage`. The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_web_message_received<F: FnMut(WebMessageReceivedArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::WebMessageReceived::create(handler);
-        let token = unsafe { self.0.add_WebMessageReceived(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_WebMessageReceived(token) };
-        }))
+    subscription! {
+        /// Subscribes to the web-message-received event, raised when the hosted
+        /// page calls `window.chrome.webview.postMessage`.
+        on_web_message_received(WebMessageReceivedArgs) =>
+            WebMessageReceived, add_WebMessageReceived / remove_WebMessageReceived
     }
 
-    /// Subscribes to the content-loading event, raised when the browser starts
-    /// loading content for a new document. The returned [`EventRegistration`]
-    /// keeps the subscription alive; dropping it (or calling
-    /// [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_content_loading<F: FnMut(ContentLoadingArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::ContentLoading::create(handler);
-        let token = unsafe { self.0.add_ContentLoading(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_ContentLoading(token) };
-        }))
+    subscription! {
+        /// Subscribes to the content-loading event, raised when the browser
+        /// starts loading content for a new document.
+        on_content_loading(ContentLoadingArgs) =>
+            ContentLoading, add_ContentLoading / remove_ContentLoading
     }
 
-    /// Subscribes to the document-title-changed event. The handler receives the
-    /// new [`document_title`](Self::document_title). The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_document_title_changed<F: FnMut(String) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::DocumentTitleChanged::create(handler);
-        let token = unsafe { self.0.add_DocumentTitleChanged(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_DocumentTitleChanged(token) };
-        }))
+    subscription! {
+        /// Subscribes to the document-title-changed event. The handler receives
+        /// the new [`document_title`](Self::document_title).
+        on_document_title_changed(String) =>
+            DocumentTitleChanged, add_DocumentTitleChanged / remove_DocumentTitleChanged
     }
 
     /// Subscribes to the window-close-requested event, raised when the hosted
     /// page calls `window.close()`. The host typically responds by closing its
-    /// window. The returned [`EventRegistration`] keeps the subscription alive;
-    /// dropping it (or calling [`EventRegistration::remove`]) unsubscribes the
-    /// handler.
+    /// window.
     pub fn on_window_close_requested<F: FnMut() + 'static>(
         &self,
         handler: F,
@@ -209,46 +163,28 @@ impl WebView {
         }))
     }
 
-    /// Subscribes to the new-window-requested event, raised when the page tries
-    /// to open a new window (for example via `window.open`). The handler may
-    /// suppress, redirect, or [defer](NewWindowRequestedArgs::defer) the request.
-    /// The returned [`EventRegistration`] keeps the subscription alive; dropping
-    /// it (or calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_new_window_requested<F: FnMut(NewWindowRequestedArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::NewWindowRequested::create(handler);
-        let token = unsafe { self.0.add_NewWindowRequested(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_NewWindowRequested(token) };
-        }))
+    subscription! {
+        /// Subscribes to the new-window-requested event, raised when the page
+        /// tries to open a new window (for example via `window.open`). The
+        /// handler may suppress, redirect, or
+        /// [defer](NewWindowRequestedArgs::defer) the request.
+        on_new_window_requested(NewWindowRequestedArgs) =>
+            NewWindowRequested, add_NewWindowRequested / remove_NewWindowRequested
     }
 
-    /// Subscribes to the permission-requested event, raised when the page
-    /// requests access to a capability such as the camera or geolocation. The
-    /// handler decides the outcome via [`PermissionRequestedArgs::set_state`] and
-    /// may [defer](PermissionRequestedArgs::defer) the decision. The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_permission_requested<F: FnMut(PermissionRequestedArgs) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::PermissionRequested::create(handler);
-        let token = unsafe { self.0.add_PermissionRequested(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_PermissionRequested(token) };
-        }))
+    subscription! {
+        /// Subscribes to the permission-requested event, raised when the page
+        /// requests access to a capability such as the camera or geolocation.
+        /// The handler decides the outcome via
+        /// [`PermissionRequestedArgs::set_state`] and may
+        /// [defer](PermissionRequestedArgs::defer) the decision.
+        on_permission_requested(PermissionRequestedArgs) =>
+            PermissionRequested, add_PermissionRequested / remove_PermissionRequested
     }
 
     /// Subscribes to the download-starting event, raised when a download begins.
     /// The handler receives a [`DownloadStartingArgs`] to inspect or control the
-    /// [`DownloadOperation`], change its destination, or cancel it. The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
+    /// [`DownloadOperation`], change its destination, or cancel it.
     pub fn on_download_starting<F: FnMut(DownloadStartingArgs) + 'static>(
         &self,
         handler: F,

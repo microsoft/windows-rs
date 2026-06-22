@@ -1,4 +1,5 @@
 use super::*;
+use crate::handler::subscription;
 
 /// The state of a [`DownloadOperation`].
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -183,38 +184,20 @@ impl DownloadOperation {
         unsafe { self.0.Resume() }
     }
 
-    /// Subscribes to the bytes-received-changed event, raised as the download
-    /// makes progress. The handler receives this operation so it can read the
-    /// updated [`bytes_received`](Self::bytes_received). The returned
-    /// [`EventRegistration`] keeps the subscription alive; dropping it (or
-    /// calling [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_bytes_received_changed<F: FnMut(DownloadOperation) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::BytesReceivedChanged::create(handler);
-        let token = unsafe { self.0.add_BytesReceivedChanged(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_BytesReceivedChanged(token) };
-        }))
+    subscription! {
+        /// Subscribes to the bytes-received-changed event, raised as the
+        /// download makes progress. The handler receives this operation so it
+        /// can read the updated [`bytes_received`](Self::bytes_received).
+        on_bytes_received_changed(DownloadOperation) =>
+            BytesReceivedChanged, add_BytesReceivedChanged / remove_BytesReceivedChanged
     }
 
-    /// Subscribes to the state-changed event, raised when the download's
-    /// [`state`](Self::state) changes (for example to completed or interrupted).
-    /// The handler receives this operation. The returned [`EventRegistration`]
-    /// keeps the subscription alive; dropping it (or calling
-    /// [`EventRegistration::remove`]) unsubscribes the handler.
-    pub fn on_state_changed<F: FnMut(DownloadOperation) + 'static>(
-        &self,
-        handler: F,
-    ) -> Result<EventRegistration> {
-        let handler = handler::DownloadStateChanged::create(handler);
-        let token = unsafe { self.0.add_StateChanged(&handler)? };
-        let source = self.0.clone();
-        Ok(EventRegistration::new(move || {
-            let _ = unsafe { source.remove_StateChanged(token) };
-        }))
+    subscription! {
+        /// Subscribes to the state-changed event, raised when the download's
+        /// [`state`](Self::state) changes (for example to completed or
+        /// interrupted). The handler receives this operation.
+        on_state_changed(DownloadOperation) =>
+            DownloadStateChanged, add_StateChanged / remove_StateChanged
     }
 }
 
