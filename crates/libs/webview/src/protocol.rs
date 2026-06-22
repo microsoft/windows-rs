@@ -12,16 +12,12 @@ pub struct WebResourceRequest(pub(crate) ICoreWebView2WebResourceRequest);
 impl WebResourceRequest {
     /// Returns the absolute URI of the requested resource.
     pub fn uri(&self) -> String {
-        unsafe { self.0.Uri() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Uri()) }
     }
 
     /// Returns the HTTP method of the request, such as `GET` or `POST`.
     pub fn method(&self) -> String {
-        unsafe { self.0.Method() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Method()) }
     }
 
     /// Returns the request headers as `(name, value)` pairs.

@@ -23,6 +23,15 @@ pub(crate) unsafe fn decode(value: LPCWSTR) -> String {
     }
 }
 
+/// Decodes a caller-owned `LPWSTR` returned by a fallible WebView2 getter into
+/// an owned `String`, freeing the buffer and treating a failed call as empty.
+/// See [`take`] for the ownership and freeing contract.
+pub(crate) unsafe fn take_result(value: Result<LPWSTR>) -> String {
+    value
+        .map(|value| unsafe { take(value) })
+        .unwrap_or_default()
+}
+
 /// Decodes a caller-owned `LPWSTR` returned by WebView2 into an owned `String`
 /// and frees the original buffer with `CoTaskMemFree`, as required for WebView2
 /// `[out]` string parameters.

@@ -24,9 +24,7 @@ pub struct NavigationStartingArgs(pub(crate) ICoreWebView2NavigationStartingEven
 impl NavigationStartingArgs {
     /// Returns the URI the navigation is targeting.
     pub fn uri(&self) -> String {
-        unsafe { self.0.Uri() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Uri()) }
     }
 
     /// Returns `true` if the navigation was initiated by the user (for example a
@@ -63,17 +61,13 @@ pub struct WebMessageReceivedArgs(pub(crate) ICoreWebView2WebMessageReceivedEven
 impl WebMessageReceivedArgs {
     /// Returns the URI of the document that sent the message.
     pub fn source(&self) -> String {
-        unsafe { self.0.Source() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Source()) }
     }
 
     /// Returns the message serialized as a JSON string. Messages sent with
     /// `window.chrome.webview.postMessage` arrive here regardless of type.
     pub fn web_message_as_json(&self) -> String {
-        unsafe { self.0.WebMessageAsJson() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.WebMessageAsJson()) }
     }
 
     /// Returns the message as a string. Fails if the page posted a value that is
@@ -109,9 +103,7 @@ pub struct NewWindowRequestedArgs(pub(crate) ICoreWebView2NewWindowRequestedEven
 impl NewWindowRequestedArgs {
     /// Returns the URI the new window would navigate to.
     pub fn uri(&self) -> String {
-        unsafe { self.0.Uri() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Uri()) }
     }
 
     /// Returns `true` if the request was initiated by the user rather than by
@@ -222,9 +214,7 @@ pub struct PermissionRequestedArgs(pub(crate) ICoreWebView2PermissionRequestedEv
 impl PermissionRequestedArgs {
     /// Returns the URI of the page requesting the permission.
     pub fn uri(&self) -> String {
-        unsafe { self.0.Uri() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Uri()) }
     }
 
     /// Returns the kind of permission being requested.

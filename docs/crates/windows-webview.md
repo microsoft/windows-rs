@@ -81,7 +81,11 @@ correct for keyboard and screen-reader users:
 `WebView` exposes the navigation verbs directly: `navigate(uri)`,
 `navigate_to_string(html)` (load HTML from a string), `reload`, `stop`,
 `go_back`, `go_forward`. The document getters `source()` (current URI) and
-`document_title()` return owned strings.
+`document_title()` return owned strings. `open_dev_tools_window()` opens the
+browser DevTools.
+
+Call `controller.notify_parent_window_position_changed()` from your window's
+`WM_MOVE` handler so the browser repositions any popups and dialogs it owns.
 
 ## Events
 
@@ -262,8 +266,8 @@ WebView2 backend for that ecosystem.
 | Controller creation options (`ICoreWebView2ControllerOptions`/`Options3`) | tauri | ✅ Done | `Environment::create_controller_with_options` + `ControllerOptions` builder (profile name, private mode, background-at-create). |
 | Profile (`ICoreWebView2Profile`/`Profile2`) | tauri | ⬜ Planned | Theme, `ClearBrowsingDataAll`, add browser extension. |
 | `NavigateWithWebResourceRequest` (`ICoreWebView2_10`) | wry | ⬜ Planned | Navigate with custom request headers. |
-| `OpenDevToolsWindow` | wry | ⬜ Planned | Devtools feature. |
-| `NotifyParentWindowPositionChanged` (Controller) | wry | ⬜ Planned | Called on `WM_MOVE`. |
+| `OpenDevToolsWindow` | wry | ✅ Done | `WebView::open_dev_tools_window`. |
+| `NotifyParentWindowPositionChanged` (Controller) | wry | ✅ Done | `Controller::notify_parent_window_position_changed`; call it from `WM_MOVE`. |
 | `SetAllowExternalDrop` (`Controller4`) | wry | ⬜ Planned | Drag-and-drop control. |
 | `ContainsFullScreenElementChanged` event | tauri-runtime-wry | ⬜ Planned | HTML fullscreen handling. |
 | Environment options breadth (`AreBrowserExtensionsEnabled`, scrollbar style) | wry | ⬜ Planned | Extends the existing `EnvironmentOptions` builder. |

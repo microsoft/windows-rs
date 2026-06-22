@@ -156,31 +156,15 @@ impl ICoreWebView2GetCookiesCompletedHandler_Impl for GetCookiesCompleted_Impl {
 }
 
 /// Defines an event-handler adapter that forwards a WebView2 event to a Rust
-/// `FnMut` closure. The `args` form wraps the event's args interface; the
-/// `sender` form (for events with no args interface) wraps the sender instead.
+/// `FnMut` closure. The default form wraps the event's args interface with an
+/// `ICoreWebView2` sender; passing a sender type handles events raised on a
+/// different sender (such as the controller); the `sender` form (for events with
+/// no args interface) wraps the sender instead.
 macro_rules! event_handler {
     ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, $args:ident => $wrapper:ident) => {
-        pub(crate) struct $name(RefCell<Box<dyn FnMut($wrapper)>>);
-
-        implement_decl! {
-            impl $name as pub(crate) $impl: [$handler]
-        }
-
-        impl $name {
-            pub(crate) fn create<F: FnMut($wrapper) + 'static>(handler: F) -> $handler {
-                Self(RefCell::new(Box::new(handler))).into()
-            }
-        }
-
-        impl $handler_trait for $impl {
-            fn Invoke(&self, _sender: Ref<ICoreWebView2>, args: Ref<$args>) -> Result<()> {
-                let args = $wrapper(args.ok()?.clone());
-                (*self.0.borrow_mut())(args);
-                Ok(())
-            }
-        }
+        event_handler!($name / $impl, $handler / $handler_trait, ICoreWebView2, $args => $wrapper);
     };
-    ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, controller $args:ident => $wrapper:ident) => {
+    ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, $sender:ident, $args:ident => $wrapper:ident) => {
         pub(crate) struct $name(RefCell<Box<dyn FnMut($wrapper)>>);
 
         implement_decl! {
@@ -194,11 +178,7 @@ macro_rules! event_handler {
         }
 
         impl $handler_trait for $impl {
-            fn Invoke(
-                &self,
-                _sender: Ref<ICoreWebView2Controller>,
-                args: Ref<$args>,
-            ) -> Result<()> {
+            fn Invoke(&self, _sender: Ref<$sender>, args: Ref<$args>) -> Result<()> {
                 let args = $wrapper(args.ok()?.clone());
                 (*self.0.borrow_mut())(args);
                 Ok(())
@@ -238,8 +218,8 @@ event_handler!(DownloadStarting / DownloadStarting_Impl, ICoreWebView2DownloadSt
 event_handler!(DownloadStateChanged / DownloadStateChanged_Impl, ICoreWebView2StateChangedEventHandler / ICoreWebView2StateChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(BytesReceivedChanged / BytesReceivedChanged_Impl, ICoreWebView2BytesReceivedChangedEventHandler / ICoreWebView2BytesReceivedChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(ProcessFailed / ProcessFailed_Impl, ICoreWebView2ProcessFailedEventHandler / ICoreWebView2ProcessFailedEventHandler_Impl, ICoreWebView2ProcessFailedEventArgs => ProcessFailedArgs);
-event_handler!(MoveFocusRequested / MoveFocusRequested_Impl, ICoreWebView2MoveFocusRequestedEventHandler / ICoreWebView2MoveFocusRequestedEventHandler_Impl, controller ICoreWebView2MoveFocusRequestedEventArgs => MoveFocusRequestedArgs);
-event_handler!(AcceleratorKeyPressed / AcceleratorKeyPressed_Impl, ICoreWebView2AcceleratorKeyPressedEventHandler / ICoreWebView2AcceleratorKeyPressedEventHandler_Impl, controller ICoreWebView2AcceleratorKeyPressedEventArgs => AcceleratorKeyPressedArgs);
+event_handler!(MoveFocusRequested / MoveFocusRequested_Impl, ICoreWebView2MoveFocusRequestedEventHandler / ICoreWebView2MoveFocusRequestedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2MoveFocusRequestedEventArgs => MoveFocusRequestedArgs);
+event_handler!(AcceleratorKeyPressed / AcceleratorKeyPressed_Impl, ICoreWebView2AcceleratorKeyPressedEventHandler / ICoreWebView2AcceleratorKeyPressedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2AcceleratorKeyPressedEventArgs => AcceleratorKeyPressedArgs);
 
 /// Adapts a Rust closure to the `ICoreWebView2FocusChangedEventHandler` COM
 /// interface, shared by the controller's got-focus and lost-focus events. The
@@ -286,11 +266,8 @@ impl DocumentTitleChanged {
 
 impl ICoreWebView2DocumentTitleChangedEventHandler_Impl for DocumentTitleChanged_Impl {
     fn Invoke(&self, sender: Ref<ICoreWebView2>, _args: Ref<IUnknown>) -> Result<()> {
-        let title = sender
-            .ok()
-            .and_then(|sender| unsafe { sender.DocumentTitle() })
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default();
+        let title =
+            unsafe { string::take_result(sender.ok().and_then(|sender| sender.DocumentTitle())) };
         (*self.0.borrow_mut())(title);
         Ok(())
     }

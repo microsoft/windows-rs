@@ -380,6 +380,14 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
+    pub(crate) unsafe fn OpenDevToolsWindow(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).OpenDevToolsWindow)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
     pub(crate) unsafe fn add_WebResourceRequested<P0>(
         &self,
         eventhandler: P0,
@@ -577,7 +585,8 @@ pub struct ICoreWebView2_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
     AddHostObjectToScript: usize,
     RemoveHostObjectFromScript: usize,
-    OpenDevToolsWindow: usize,
+    pub OpenDevToolsWindow:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     add_ContainsFullScreenElementChanged: usize,
     remove_ContainsFullScreenElementChanged: usize,
     ContainsFullScreenElement: usize,
@@ -1112,6 +1121,14 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
+    pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).NotifyParentWindowPositionChanged)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
     pub(crate) unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
@@ -1180,7 +1197,8 @@ pub struct ICoreWebView2Controller_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     ParentWindow: usize,
     SetParentWindow: usize,
-    NotifyParentWindowPositionChanged: usize,
+    pub NotifyParentWindowPositionChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CoreWebView2: unsafe extern "system" fn(
         *mut core::ffi::c_void,

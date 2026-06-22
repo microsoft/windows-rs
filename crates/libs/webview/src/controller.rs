@@ -134,6 +134,12 @@ impl Controller {
         unsafe { self.0.Close() }
     }
 
+    /// Tells the browser that the parent window moved, so it can reposition any
+    /// popups and dialogs it owns. Call this from the host's `WM_MOVE` handler.
+    pub fn notify_parent_window_position_changed(&self) -> Result<()> {
+        unsafe { self.0.NotifyParentWindowPositionChanged() }
+    }
+
     /// Returns the zoom factor applied to the page, where `1.0` is 100%.
     pub fn zoom_factor(&self) -> f64 {
         unsafe { self.0.ZoomFactor() }.unwrap_or(1.0)

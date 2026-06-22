@@ -47,6 +47,12 @@ impl WebView {
         unsafe { self.0.Reload() }
     }
 
+    /// Opens the DevTools window for the page, the same view shown by the
+    /// browser's "Inspect" command.
+    pub fn open_dev_tools_window(&self) -> Result<()> {
+        unsafe { self.0.OpenDevToolsWindow() }
+    }
+
     /// Stops any in-progress navigation or download.
     pub fn stop(&self) -> Result<()> {
         unsafe { self.0.Stop() }
@@ -64,16 +70,12 @@ impl WebView {
 
     /// Returns the URI of the current top-level document.
     pub fn source(&self) -> String {
-        unsafe { self.0.Source() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Source()) }
     }
 
     /// Returns the title of the current top-level document.
     pub fn document_title(&self) -> String {
-        unsafe { self.0.DocumentTitle() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.DocumentTitle()) }
     }
 
     /// Maps a virtual host name to a local folder so the page can load its files

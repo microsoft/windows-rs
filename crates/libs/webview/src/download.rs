@@ -111,24 +111,18 @@ pub struct DownloadOperation(pub(crate) ICoreWebView2DownloadOperation);
 impl DownloadOperation {
     /// Returns the URI the content is being downloaded from.
     pub fn uri(&self) -> String {
-        unsafe { self.0.Uri() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.Uri()) }
     }
 
     /// Returns the `Content-Disposition` header value from the download's HTTP
     /// response, if any.
     pub fn content_disposition(&self) -> String {
-        unsafe { self.0.ContentDisposition() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.ContentDisposition()) }
     }
 
     /// Returns the MIME type of the downloaded content.
     pub fn mime_type(&self) -> String {
-        unsafe { self.0.MimeType() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.MimeType()) }
     }
 
     /// Returns the expected total size of the download in bytes, or `0` if it is
@@ -144,9 +138,7 @@ impl DownloadOperation {
 
     /// Returns the absolute path the download is being written to.
     pub fn result_file_path(&self) -> String {
-        unsafe { self.0.ResultFilePath() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.ResultFilePath()) }
     }
 
     /// Returns the current [`DownloadState`].
@@ -227,9 +219,7 @@ impl DownloadStartingArgs {
 
     /// Returns the absolute path the download will be written to.
     pub fn result_file_path(&self) -> String {
-        unsafe { self.0.ResultFilePath() }
-            .map(|value| unsafe { string::take(value) })
-            .unwrap_or_default()
+        unsafe { string::take_result(self.0.ResultFilePath()) }
     }
 
     /// Overrides the absolute path the download is written to, choosing a custom
