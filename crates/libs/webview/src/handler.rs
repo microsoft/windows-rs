@@ -1,5 +1,5 @@
 use super::*;
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use windows_core::implement_decl;
 
 /// Adapts a Rust closure to the `ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler`
@@ -89,6 +89,35 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Impl for ExecuteScriptCompleted_
             handler(outcome);
         }
 
+        Ok(())
+    }
+}
+
+/// Adapts a Rust closure to the `ICoreWebView2NavigationCompletedEventHandler`
+/// COM interface.
+pub(crate) struct NavigationCompleted(RefCell<Box<dyn FnMut(NavigationCompletedArgs)>>);
+
+implement_decl! {
+    impl NavigationCompleted as pub(crate) NavigationCompleted_Impl:
+        [ICoreWebView2NavigationCompletedEventHandler]
+}
+
+impl NavigationCompleted {
+    pub(crate) fn create<F: FnMut(NavigationCompletedArgs) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2NavigationCompletedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2NavigationCompletedEventHandler_Impl for NavigationCompleted_Impl {
+    fn Invoke(
+        &self,
+        _sender: Ref<ICoreWebView2>,
+        args: Ref<ICoreWebView2NavigationCompletedEventArgs>,
+    ) -> Result<()> {
+        let args = NavigationCompletedArgs(args.ok()?.clone());
+        (*self.0.borrow_mut())(args);
         Ok(())
     }
 }

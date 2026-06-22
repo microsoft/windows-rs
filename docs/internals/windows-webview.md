@@ -77,6 +77,31 @@ it should only run during startup, before the app's own message loop takes over.
 Per-operation scripting (`WebView::execute_script`) stays callback-based to
 avoid re-entrant pumping during normal app run.
 
+## Events (RAII subscriptions)
+
+WebView2 events follow the COM `add_X`/`remove_X` token pattern. The crate wraps
+this as an idiomatic subscription returning an RAII guard:
+
+- `handler::NavigationCompleted` adapts an `FnMut(NavigationCompletedArgs)` to the
+  `ICoreWebView2NavigationCompletedEventHandler` COM interface. Unlike the
+  one-shot completion handlers (`FnOnce` in a `Cell<Option<…>>`), an event may
+  fire repeatedly, so the closure lives in a `RefCell<Box<dyn FnMut(…)>>` and is
+  invoked through `(*self.0.borrow_mut())(args)`.
+- `WebView::on_navigation_completed` registers the handler with
+  `add_NavigationCompleted` (which returns the registration token as an `i64`),
+  clones the `ICoreWebView2` source, and returns an `EventRegistration` whose
+  removal closure calls `remove_NavigationCompleted(token)`.
+- `event::EventRegistration` is `#[must_use]` and holds an
+  `Option<Box<dyn FnOnce()>>`. Its `Drop` calls the removal closure, and the
+  explicit `remove(self)` takes the closure first so it never runs twice.
+- `event::NavigationCompletedArgs` is a thin newtype over the COM args interface,
+  exposing `is_success()` and `navigation_id()` (the `WebErrorStatus` enum is
+  intentionally left out for now to avoid pulling enum variants into the minimal
+  bindings).
+
+The sample subscribes before navigating and parks the `EventRegistration` in a
+`thread_local` so it outlives the call; dropping it on `WM_DESTROY` unsubscribes.
+
 ## Strings
 
 `string.rs` has `encode` (`&str` → null-terminated UTF-16 `Vec<u16>` for

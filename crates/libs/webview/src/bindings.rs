@@ -19,6 +19,29 @@ impl ICoreWebView2 {
             .ok()
         }
     }
+    pub unsafe fn add_NavigationCompleted<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2NavigationCompletedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_NavigationCompleted)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn remove_NavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_NavigationCompleted)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
     pub unsafe fn ExecuteScript<P1>(
         &self,
         javascript: LPCWSTR,
@@ -53,8 +76,13 @@ pub struct ICoreWebView2_Vtbl {
     remove_SourceChanged: usize,
     add_HistoryChanged: usize,
     remove_HistoryChanged: usize,
-    add_NavigationCompleted: usize,
-    remove_NavigationCompleted: usize,
+    pub add_NavigationCompleted: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_NavigationCompleted:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     add_FrameNavigationStarting: usize,
     remove_FrameNavigationStarting: usize,
     add_FrameNavigationCompleted: usize,
@@ -449,6 +477,123 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationCompletedEventArgs,
+    ICoreWebView2NavigationCompletedEventArgs_Vtbl,
+    0x30d68b7d_20d9_4752_a9ca_ec8448fbb5c1
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2NavigationCompletedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2NavigationCompletedEventArgs {
+    pub unsafe fn IsSuccess(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsSuccess)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn NavigationId(&self) -> windows_core::Result<UINT64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).NavigationId)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub IsSuccess: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    WebErrorStatus: usize,
+    pub NavigationId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationCompletedEventHandler,
+    ICoreWebView2NavigationCompletedEventHandler_Vtbl,
+    0xd33a35bf_1c49_4f98_93ab_006e0533fe1c
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2NavigationCompletedEventHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2NavigationCompletedEventHandler {
+    pub unsafe fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2>,
+        P1: windows_core::Param<ICoreWebView2NavigationCompletedEventArgs>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2NavigationCompletedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2NavigationCompletedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2NavigationCompletedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2NavigationCompletedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventHandler {}
 pub type LPARAM = isize;
 pub type LPCWSTR = *const WCHAR;
 pub type LRESULT = isize;
@@ -476,5 +621,6 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
+pub type UINT64 = u64;
 pub type WCHAR = u16;
 pub type WPARAM = usize;

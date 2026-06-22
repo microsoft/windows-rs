@@ -6,7 +6,7 @@
 //!
 //! Requires the Microsoft Edge WebView2 runtime to be installed.
 
-#![windows_subsystem = "windows"]
+//#![windows_subsystem = "windows"]
 
 #[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 mod bindings;
@@ -14,10 +14,11 @@ mod bindings;
 use bindings::*;
 use std::cell::RefCell;
 use windows_core::*;
-use windows_webview::{Controller, Environment};
+use windows_webview::{Controller, Environment, EventRegistration};
 
 thread_local! {
     static CONTROLLER: RefCell<Option<Controller>> = const { RefCell::new(None) };
+    static REGISTRATION: RefCell<Option<EventRegistration>> = const { RefCell::new(None) };
 }
 
 fn resize(controller: &Controller, window: HWND) {
@@ -45,6 +46,7 @@ unsafe extern "system" fn wndproc(
             0
         }
         WM_DESTROY => {
+            REGISTRATION.with(|registration| registration.borrow_mut().take());
             CONTROLLER.with(|controller| controller.borrow_mut().take());
             unsafe { PostQuitMessage(0) };
             0
@@ -87,10 +89,17 @@ fn main() -> Result<()> {
         let controller = environment.create_controller(window)?;
 
         resize(&controller, window);
-        controller
-            .webview()?
-            .navigate("https://github.com/microsoft/windows-rs")?;
+        let webview = controller.webview()?;
+        let registration = webview.on_navigation_completed(|args| {
+            println!(
+                "navigation {} completed: success = {}",
+                args.navigation_id(),
+                args.is_success()
+            );
+        })?;
+        webview.navigate("https://github.com/microsoft/windows-rs")?;
         CONTROLLER.with(|slot| *slot.borrow_mut() = Some(controller));
+        REGISTRATION.with(|slot| *slot.borrow_mut() = Some(registration));
 
         let mut message = MSG::default();
         while GetMessageA(&mut message, std::ptr::null_mut(), 0, 0).as_bool() {
