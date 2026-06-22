@@ -8,6 +8,8 @@ windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
 pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
+pub type COREWEBVIEW2_KEY_EVENT_KIND = i32;
+pub type COREWEBVIEW2_MOVE_FOCUS_REASON = i32;
 pub type COREWEBVIEW2_PERMISSION_KIND = i32;
 pub type COREWEBVIEW2_PERMISSION_STATE = i32;
 pub type COREWEBVIEW2_PROCESS_FAILED_KIND = i32;
@@ -594,6 +596,135 @@ pub struct ICoreWebView2_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICoreWebView2AcceleratorKeyPressedEventArgs,
+    ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl,
+    0x9f760f8a_fb79_42be_9990_7b56900fa9c7
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2AcceleratorKeyPressedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2AcceleratorKeyPressedEventArgs {
+    pub(crate) unsafe fn KeyEventKind(&self) -> windows_core::Result<COREWEBVIEW2_KEY_EVENT_KIND> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).KeyEventKind)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn VirtualKey(&self) -> windows_core::Result<UINT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).VirtualKey)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Handled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHandled)(
+                windows_core::Interface::as_raw(self),
+                handled.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub KeyEventKind: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_KEY_EVENT_KIND,
+    ) -> windows_core::HRESULT,
+    pub VirtualKey:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINT) -> windows_core::HRESULT,
+    KeyEventLParam: usize,
+    PhysicalKeyStatus: usize,
+    pub Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2AcceleratorKeyPressedEventHandler,
+    ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl,
+    0xb29c7e28_fa79_41a8_8e44_65811c76dcb2
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2AcceleratorKeyPressedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2AcceleratorKeyPressedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2AcceleratorKeyPressedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2AcceleratorKeyPressedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2AcceleratorKeyPressedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2AcceleratorKeyPressedEventHandler {}
+windows_core::imp::define_interface!(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
     0xb99369f3_9b11_47b5_bc6f_8e7895fcea17
@@ -838,6 +969,119 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
+    pub(crate) unsafe fn MoveFocus(
+        &self,
+        reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).MoveFocus)(
+                windows_core::Interface::as_raw(self),
+                reason,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn add_MoveFocusRequested<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2MoveFocusRequestedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_MoveFocusRequested)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_MoveFocusRequested)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn add_GotFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_GotFocus)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_GotFocus(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_GotFocus)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn add_LostFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_LostFocus)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_LostFocus(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_LostFocus)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn add_AcceleratorKeyPressed<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2AcceleratorKeyPressedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_AcceleratorKeyPressed)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_AcceleratorKeyPressed(
+        &self,
+        token: i64,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_AcceleratorKeyPressed)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
     pub(crate) unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self))
@@ -870,15 +1114,38 @@ pub struct ICoreWebView2Controller_Vtbl {
     add_ZoomFactorChanged: usize,
     remove_ZoomFactorChanged: usize,
     SetBoundsAndZoomFactor: usize,
-    MoveFocus: usize,
-    add_MoveFocusRequested: usize,
-    remove_MoveFocusRequested: usize,
-    add_GotFocus: usize,
-    remove_GotFocus: usize,
-    add_LostFocus: usize,
-    remove_LostFocus: usize,
-    add_AcceleratorKeyPressed: usize,
-    remove_AcceleratorKeyPressed: usize,
+    pub MoveFocus: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_MOVE_FOCUS_REASON,
+    ) -> windows_core::HRESULT,
+    pub add_MoveFocusRequested: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_MoveFocusRequested:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_GotFocus: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_GotFocus:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_LostFocus: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_LostFocus:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_AcceleratorKeyPressed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_AcceleratorKeyPressed:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     ParentWindow: usize,
     SetParentWindow: usize,
     NotifyParentWindowPositionChanged: usize,
@@ -1832,6 +2099,63 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
 }
 impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
 windows_core::imp::define_interface!(
+    ICoreWebView2FocusChangedEventHandler,
+    ICoreWebView2FocusChangedEventHandler_Vtbl,
+    0x05ea24bd_6452_4926_9014_4b82b498135d
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2FocusChangedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<windows_core::IUnknown>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2FocusChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2FocusChangedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FocusChangedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2FocusChangedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2FocusChangedEventHandler {}
+windows_core::imp::define_interface!(
     ICoreWebView2HttpHeadersCollectionIterator,
     ICoreWebView2HttpHeadersCollectionIterator_Vtbl,
     0x0702fc30_f43b_47bb_ab52_a42cb552ad9f
@@ -1926,6 +2250,121 @@ pub struct ICoreWebView2HttpRequestHeaders_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(
+    ICoreWebView2MoveFocusRequestedEventArgs,
+    ICoreWebView2MoveFocusRequestedEventArgs_Vtbl,
+    0x2d6aa13b_3839_4a15_92fc_d88b3c0d9c9d
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2MoveFocusRequestedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2MoveFocusRequestedEventArgs {
+    pub(crate) unsafe fn Reason(&self) -> windows_core::Result<COREWEBVIEW2_MOVE_FOCUS_REASON> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Reason)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Handled)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHandled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Reason: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_MOVE_FOCUS_REASON,
+    ) -> windows_core::HRESULT,
+    pub Handled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2MoveFocusRequestedEventHandler,
+    ICoreWebView2MoveFocusRequestedEventHandler_Vtbl,
+    0x69035451_6dc7_4cb8_9bce_b2bd70ad289f
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2MoveFocusRequestedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2MoveFocusRequestedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2MoveFocusRequestedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2MoveFocusRequestedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2MoveFocusRequestedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2MoveFocusRequestedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventArgs,
     ICoreWebView2NavigationCompletedEventArgs_Vtbl,
@@ -3467,6 +3906,7 @@ pub struct RECT {
     pub right: i32,
     pub bottom: i32,
 }
+pub type UINT = u32;
 pub type UINT64 = u64;
 pub type WCHAR = u16;
 pub type WPARAM = usize;

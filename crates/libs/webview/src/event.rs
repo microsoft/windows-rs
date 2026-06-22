@@ -306,6 +306,113 @@ impl ProcessFailedArgs {
     }
 }
 
+/// The reason focus is moving, reported by [`MoveFocusRequestedArgs::reason`]
+/// and passed to [`Controller::move_focus`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MoveFocusReason {
+    /// Focus is being set programmatically.
+    Programmatic,
+    /// Focus is moving forward (for example Tab).
+    Next,
+    /// Focus is moving backward (for example Shift+Tab).
+    Previous,
+}
+
+impl MoveFocusReason {
+    fn from_raw(value: COREWEBVIEW2_MOVE_FOCUS_REASON) -> Self {
+        match value {
+            1 => Self::Next,
+            2 => Self::Previous,
+            _ => Self::Programmatic,
+        }
+    }
+
+    pub(crate) fn to_raw(self) -> COREWEBVIEW2_MOVE_FOCUS_REASON {
+        match self {
+            Self::Programmatic => 0,
+            Self::Next => 1,
+            Self::Previous => 2,
+        }
+    }
+}
+
+/// The request to move focus out of the browser (for example the user tabbed
+/// past the last element), delivered to a [`Controller::on_move_focus_requested`]
+/// handler. Move focus to the appropriate host control and call
+/// [`set_handled(true)`](Self::set_handled) to suppress the default behaviour.
+pub struct MoveFocusRequestedArgs(pub(crate) ICoreWebView2MoveFocusRequestedEventArgs);
+
+impl MoveFocusRequestedArgs {
+    /// Returns the direction focus is moving.
+    pub fn reason(&self) -> MoveFocusReason {
+        unsafe { self.0.Reason() }.map_or(MoveFocusReason::Programmatic, MoveFocusReason::from_raw)
+    }
+
+    /// Returns `true` if the request has been marked as handled.
+    pub fn is_handled(&self) -> bool {
+        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Marks the request as handled, indicating the host moved focus itself and
+    /// WebView2 should not apply its default focus behaviour.
+    pub fn set_handled(&self, handled: bool) -> Result<()> {
+        unsafe { self.0.SetHandled(handled) }
+    }
+}
+
+/// The kind of key event reported by [`AcceleratorKeyPressedArgs::key_event_kind`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum KeyEventKind {
+    KeyDown,
+    KeyUp,
+    /// A system key was pressed (for example a key combined with Alt).
+    SystemKeyDown,
+    /// A system key was released.
+    SystemKeyUp,
+}
+
+impl KeyEventKind {
+    fn from_raw(value: COREWEBVIEW2_KEY_EVENT_KIND) -> Self {
+        match value {
+            1 => Self::KeyUp,
+            2 => Self::SystemKeyDown,
+            3 => Self::SystemKeyUp,
+            _ => Self::KeyDown,
+        }
+    }
+}
+
+/// An accelerator (browser-level) key press, delivered to a
+/// [`Controller::on_accelerator_key_pressed`] handler before the page sees it —
+/// the place to implement application keyboard shortcuts. Call
+/// [`set_handled(true)`](Self::set_handled) to stop WebView2 from acting on the
+/// key.
+pub struct AcceleratorKeyPressedArgs(pub(crate) ICoreWebView2AcceleratorKeyPressedEventArgs);
+
+impl AcceleratorKeyPressedArgs {
+    /// Returns whether the key was pressed or released, and whether it is a
+    /// system key.
+    pub fn key_event_kind(&self) -> KeyEventKind {
+        unsafe { self.0.KeyEventKind() }.map_or(KeyEventKind::KeyDown, KeyEventKind::from_raw)
+    }
+
+    /// Returns the Win32 virtual-key code of the key.
+    pub fn virtual_key(&self) -> u32 {
+        unsafe { self.0.VirtualKey() }.unwrap_or(0)
+    }
+
+    /// Returns `true` if the key has been marked as handled.
+    pub fn is_handled(&self) -> bool {
+        unsafe { self.0.Handled() }.is_ok_and(|value| value.as_bool())
+    }
+
+    /// Marks the key as handled, preventing WebView2's default processing so the
+    /// host can act on the shortcut itself.
+    pub fn set_handled(&self, handled: bool) -> Result<()> {
+        unsafe { self.0.SetHandled(handled) }
+    }
+}
+
 /// An RAII guard for an event subscription. The handler stays registered until
 /// this value is dropped or [`EventRegistration::remove`] is called.
 #[must_use]

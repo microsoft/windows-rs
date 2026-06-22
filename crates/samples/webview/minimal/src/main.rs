@@ -108,6 +108,18 @@ fn main() -> Result<()> {
             println!("page sent: {}", args.web_message_as_json());
         })?;
 
+        let accelerator_registration = controller.on_accelerator_key_pressed(|args| {
+            println!(
+                "accelerator key: {:?} virtual-key {}",
+                args.key_event_kind(),
+                args.virtual_key()
+            );
+        })?;
+
+        let move_focus_registration = controller.on_move_focus_requested(|args| {
+            println!("focus leaving browser: {:?}", args.reason());
+        })?;
+
         let starting_registration = webview.on_navigation_starting(|args| {
             println!(
                 "navigation {} starting: {} (user initiated = {})",
@@ -207,6 +219,8 @@ fn main() -> Result<()> {
         REGISTRATIONS.with(|slot| {
             slot.borrow_mut().extend([
                 message_registration,
+                accelerator_registration,
+                move_focus_registration,
                 starting_registration,
                 navigation_registration,
                 title_registration,

@@ -27,7 +27,8 @@ pub use download::{
 };
 pub use environment::Environment;
 pub use event::{
-    ContentLoadingArgs, EventRegistration, NavigationCompletedArgs, NavigationStartingArgs,
+    AcceleratorKeyPressedArgs, ContentLoadingArgs, EventRegistration, KeyEventKind,
+    MoveFocusReason, MoveFocusRequestedArgs, NavigationCompletedArgs, NavigationStartingArgs,
     NewWindowRequestedArgs, PermissionKind, PermissionRequestedArgs, PermissionState,
     ProcessFailedArgs, ProcessFailedKind, WebMessageReceivedArgs,
 };

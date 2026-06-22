@@ -41,6 +41,23 @@ fn host(window: HWND) -> Result<()> {
 user-data folder, additional browser arguments, and language. Resize the browser
 with `controller.set_bounds(..)` from your window's `WM_SIZE` handler.
 
+## Focus and keyboard
+
+Focus and accelerator keys are managed by the `Controller`, since they concern
+the browser's placement in the host window's focus chain. Call
+`controller.move_focus(MoveFocusReason::Programmatic)` from your `WM_SETFOCUS`
+handler to give the browser keyboard focus. The focus events keep embedding
+correct for keyboard and screen-reader users:
+
+- `on_got_focus` / `on_lost_focus` — the browser gained or lost focus (`FnMut()`).
+- `on_move_focus_requested` — focus is leaving the browser (the user tabbed past
+  the last element); move focus to the next host control and call
+  `MoveFocusRequestedArgs::set_handled(true)`.
+- `on_accelerator_key_pressed` — browser-level keys (function keys, or a key with
+  Ctrl/Alt) arrive before the page sees them; inspect
+  `AcceleratorKeyPressedArgs` (`key_event_kind()`, `virtual_key()`) to implement
+  application shortcuts, and `set_handled(true)` to consume the key.
+
 ## Navigation and document state
 
 `WebView` exposes the navigation verbs directly: `navigate(uri)`,
@@ -159,7 +176,7 @@ Tracked gaps, roughly by impact:
 | Gap | Status | Notes |
 |-----|--------|-------|
 | `ProcessFailed` (renderer-crash detection) | ✅ Done | `on_process_failed` delivers a `ProcessFailedArgs` with `kind()`. |
-| Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ⬜ Planned | Active accessibility bug in shipping Tauri apps (`wry` #1754): screen readers go silent, Tab stops working. Controller-level. |
+| Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ✅ Done | `Controller::on_got_focus`/`on_lost_focus`/`on_move_focus_requested`/`on_accelerator_key_pressed` plus `move_focus`. |
 | `SetVirtualHostNameToFolderMapping` | ⬜ Planned | First-class local-asset serving; `wry` resorts to a URL-rewriting workaround. Pairs with the custom-protocol slice. |
 | Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ⬜ Planned | `wry` uses all of these. |
 | Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | ⬜ Planned | `wry` sets these through the later settings interfaces. |

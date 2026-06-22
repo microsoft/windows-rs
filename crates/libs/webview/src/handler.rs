@@ -150,6 +150,31 @@ macro_rules! event_handler {
             }
         }
     };
+    ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, controller $args:ident => $wrapper:ident) => {
+        pub(crate) struct $name(RefCell<Box<dyn FnMut($wrapper)>>);
+
+        implement_decl! {
+            impl $name as pub(crate) $impl: [$handler]
+        }
+
+        impl $name {
+            pub(crate) fn create<F: FnMut($wrapper) + 'static>(handler: F) -> $handler {
+                Self(RefCell::new(Box::new(handler))).into()
+            }
+        }
+
+        impl $handler_trait for $impl {
+            fn Invoke(
+                &self,
+                _sender: Ref<ICoreWebView2Controller>,
+                args: Ref<$args>,
+            ) -> Result<()> {
+                let args = $wrapper(args.ok()?.clone());
+                (*self.0.borrow_mut())(args);
+                Ok(())
+            }
+        }
+    };
     ($name:ident / $impl:ident, $handler:ident / $handler_trait:ident, sender $sender:ident => $wrapper:ident) => {
         pub(crate) struct $name(RefCell<Box<dyn FnMut($wrapper)>>);
 
@@ -183,6 +208,33 @@ event_handler!(DownloadStarting / DownloadStarting_Impl, ICoreWebView2DownloadSt
 event_handler!(DownloadStateChanged / DownloadStateChanged_Impl, ICoreWebView2StateChangedEventHandler / ICoreWebView2StateChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(BytesReceivedChanged / BytesReceivedChanged_Impl, ICoreWebView2BytesReceivedChangedEventHandler / ICoreWebView2BytesReceivedChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(ProcessFailed / ProcessFailed_Impl, ICoreWebView2ProcessFailedEventHandler / ICoreWebView2ProcessFailedEventHandler_Impl, ICoreWebView2ProcessFailedEventArgs => ProcessFailedArgs);
+event_handler!(MoveFocusRequested / MoveFocusRequested_Impl, ICoreWebView2MoveFocusRequestedEventHandler / ICoreWebView2MoveFocusRequestedEventHandler_Impl, controller ICoreWebView2MoveFocusRequestedEventArgs => MoveFocusRequestedArgs);
+event_handler!(AcceleratorKeyPressed / AcceleratorKeyPressed_Impl, ICoreWebView2AcceleratorKeyPressedEventHandler / ICoreWebView2AcceleratorKeyPressedEventHandler_Impl, controller ICoreWebView2AcceleratorKeyPressedEventArgs => AcceleratorKeyPressedArgs);
+
+/// Adapts a Rust closure to the `ICoreWebView2FocusChangedEventHandler` COM
+/// interface, shared by the controller's got-focus and lost-focus events. The
+/// event carries no args, so the closure takes none.
+pub(crate) struct FocusChanged(RefCell<Box<dyn FnMut()>>);
+
+implement_decl! {
+    impl FocusChanged as pub(crate) FocusChanged_Impl:
+        [ICoreWebView2FocusChangedEventHandler]
+}
+
+impl FocusChanged {
+    pub(crate) fn create<F: FnMut() + 'static>(
+        handler: F,
+    ) -> ICoreWebView2FocusChangedEventHandler {
+        Self(RefCell::new(Box::new(handler))).into()
+    }
+}
+
+impl ICoreWebView2FocusChangedEventHandler_Impl for FocusChanged_Impl {
+    fn Invoke(&self, _sender: Ref<ICoreWebView2Controller>, _args: Ref<IUnknown>) -> Result<()> {
+        (*self.0.borrow_mut())();
+        Ok(())
+    }
+}
 
 /// Adapts a Rust closure to the `ICoreWebView2DocumentTitleChangedEventHandler`
 /// COM interface. The event carries no args, so the new document title is read
