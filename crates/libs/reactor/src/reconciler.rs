@@ -104,7 +104,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.marshaller = marshaller;
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn flush_deferred_unmounts(&mut self) {
         let drained = std::mem::take(&mut self.deferred_unmounts);
         for cid in drained {
@@ -132,7 +132,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.debug_ui_elements_created = 0;
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn debug_forced_components_len(&self) -> usize {
         self.forced_components.len()
     }
@@ -194,12 +194,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn debug_appeared_listener_count(&self) -> usize {
         self.appeared_listener_count
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn debug_disappeared_listener_count(&self) -> usize {
         self.disappeared_listener_count
     }

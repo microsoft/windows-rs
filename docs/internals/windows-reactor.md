@@ -119,5 +119,5 @@ for CI.
 The `RecordingBackend` harness (and its `Op` log) lives in the `test_reactor`
 crate, not in `windows-reactor`, so it adds no weight to normal builds. The few
 engine/reconciler/widget inspectors that need access to private fields stay in
-`windows-reactor` behind the `test-util` feature, which the test crates enable
+`windows-reactor` behind the `test` feature, which the test crates enable
 and normal/published builds leave off.

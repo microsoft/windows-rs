@@ -535,7 +535,7 @@ impl RenderCx {
         context.default.clone()
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn for_test() -> Self {
         Self::new(Rc::new(|| {}))
     }
@@ -1311,12 +1311,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         self.inner.render_count.get()
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn is_render_pending(&self) -> bool {
         self.inner.render_state.get() != RenderState::Idle
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn is_rendering(&self) -> bool {
         matches!(
             self.inner.render_state.get(),
@@ -1324,7 +1324,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         )
     }
 
-    #[cfg(feature = "test-util")]
+    #[cfg(feature = "test")]
     pub fn needs_rerender(&self) -> bool {
         matches!(
             self.inner.render_state.get(),

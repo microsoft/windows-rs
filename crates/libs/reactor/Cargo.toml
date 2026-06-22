@@ -12,9 +12,7 @@ readme = "readme.md"
 [features]
 default = ["diagnostics"]
 diagnostics = []
-# Test-only support surface: engine/reconciler/widget inspectors used by the
-# test crates. Excluded from normal/published builds.
-test-util = []
+test = []
 
 [dependencies]
 rustc-hash = { workspace = true }
