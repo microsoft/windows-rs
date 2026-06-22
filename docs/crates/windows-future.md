@@ -3,7 +3,7 @@
 > Stock async types for Windows APIs.
 
 - 📦 [crates.io](https://crates.io/crates/windows-future)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-future)
+- 📖 [docs.rs](https://docs.rs/windows-future)
 - 🚀 [Getting started](../../crates/libs/future/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/future)
 

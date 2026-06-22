@@ -3,7 +3,7 @@
 > Import libraries and the `link!` macro for Windows.
 
 - 📦 [crates.io](https://crates.io/crates/windows-targets)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-targets)
+- 📖 [docs.rs](https://docs.rs/windows-targets)
 - 🚀 [Getting started](../../crates/libs/targets/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/targets)
 

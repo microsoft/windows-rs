@@ -3,7 +3,7 @@
 > Stock WinRT collection types backed by Rust containers.
 
 - 📦 [crates.io](https://crates.io/crates/windows-collections)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-collections)
+- 📖 [docs.rs](https://docs.rs/windows-collections)
 - 🚀 [Getting started](../../crates/libs/collections/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/collections)
 

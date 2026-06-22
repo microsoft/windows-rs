@@ -3,7 +3,7 @@
 > Efficient Windows error handling and propagation for Win32, COM, and WinRT.
 
 - 📦 [crates.io](https://crates.io/crates/windows-result)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-result)
+- 📖 [docs.rs](https://docs.rs/windows-result)
 - 🚀 [Getting started](../../crates/libs/result/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/result)
 

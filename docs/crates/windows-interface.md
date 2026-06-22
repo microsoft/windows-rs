@@ -3,7 +3,7 @@
 > The `#[interface]` macro for declaring COM interfaces in Rust.
 
 - 📦 [crates.io](https://crates.io/crates/windows-interface)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-interface)
+- 📖 [docs.rs](https://docs.rs/windows-interface)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/interface)
 
 `windows-interface` provides the `#[interface]` attribute macro used to declare a

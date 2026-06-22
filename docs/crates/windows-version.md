@@ -3,7 +3,7 @@
 > Reliable OS version information without an application manifest.
 
 - 📦 [crates.io](https://crates.io/crates/windows-version)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-version)
+- 📖 [docs.rs](https://docs.rs/windows-version)
 - 🚀 [Getting started](../../crates/libs/version/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/version)
 

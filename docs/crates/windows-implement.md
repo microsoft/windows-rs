@@ -3,7 +3,7 @@
 > The `#[implement]` macro for implementing COM and WinRT interfaces in Rust.
 
 - 📦 [crates.io](https://crates.io/crates/windows-implement)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-implement)
+- 📖 [docs.rs](https://docs.rs/windows-implement)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/implement)
 
 `windows-implement` provides the `#[implement]` attribute macro that lets a Rust

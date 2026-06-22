@@ -3,7 +3,7 @@
 > A parser for RDL (Rust Definition Language) and an ECMA-335 metadata generator.
 
 - 📦 [crates.io](https://crates.io/crates/windows-rdl)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-rdl)
+- 📖 [docs.rs](https://docs.rs/windows-rdl)
 - 🚀 [Getting started](../../crates/libs/rdl/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 

@@ -3,7 +3,7 @@
 > A stock implementation of the WinRT `IReference<T>` interface.
 
 - 📦 [crates.io](https://crates.io/crates/windows-reference)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-reference)
+- 📖 [docs.rs](https://docs.rs/windows-reference)
 - 🚀 [Getting started](../../crates/libs/reference/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reference)
 

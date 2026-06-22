@@ -3,7 +3,7 @@
 > WinRT `TimeSpan` and `DateTime` with idiomatic Rust conversions.
 
 - 📦 [crates.io](https://crates.io/crates/windows-time)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-time)
+- 📖 [docs.rs](https://docs.rs/windows-time)
 - 🚀 [Getting started](../../crates/libs/time/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/time)
 

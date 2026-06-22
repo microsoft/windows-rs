@@ -3,7 +3,7 @@
 > Simple, safe, and efficient access to the Windows registry.
 
 - 📦 [crates.io](https://crates.io/crates/windows-registry)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-registry)
+- 📖 [docs.rs](https://docs.rs/windows-registry)
 - 🚀 [Getting started](../../crates/libs/registry/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/registry)
 

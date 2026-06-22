@@ -3,7 +3,7 @@
 > Zero-overhead raw bindings (externs, structs, constants) for Windows APIs.
 
 - 📦 [crates.io](https://crates.io/crates/windows-sys)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-sys)
+- 📖 [docs.rs](https://docs.rs/windows-sys)
 - 🚀 [Getting started](../../crates/libs/sys/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 

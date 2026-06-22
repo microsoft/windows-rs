@@ -3,7 +3,7 @@
 > The umbrella crate for calling Windows APIs from Rust.
 
 - 📦 [crates.io](https://crates.io/crates/windows)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows)
+- 📖 [docs.rs](https://docs.rs/windows)
 - 🚀 [Getting started](../../crates/libs/windows/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
 

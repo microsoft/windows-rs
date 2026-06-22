@@ -3,7 +3,7 @@
 > The Windows metadata compiler.
 
 - 📦 [crates.io](https://crates.io/crates/riddle)
-- 📖 [API reference (docs.rs)](https://docs.rs/riddle)
+- 📖 [docs.rs](https://docs.rs/riddle)
 - 🚀 [Getting started](../../crates/libs/riddle/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/riddle)
 

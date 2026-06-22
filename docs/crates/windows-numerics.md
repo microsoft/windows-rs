@@ -3,7 +3,7 @@
 > Graphics-oriented vector and matrix math from `Windows.Foundation.Numerics`.
 
 - 📦 [crates.io](https://crates.io/crates/windows-numerics)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-numerics)
+- 📖 [docs.rs](https://docs.rs/windows-numerics)
 - 🚀 [Getting started](../../crates/libs/numerics/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/numerics)
 

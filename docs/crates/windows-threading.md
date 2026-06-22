@@ -3,7 +3,7 @@
 > Simple, safe access to the Windows thread pool.
 
 - 📦 [crates.io](https://crates.io/crates/windows-threading)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-threading)
+- 📖 [docs.rs](https://docs.rs/windows-threading)
 - 🚀 [Getting started](../../crates/libs/threading/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/threading)
 

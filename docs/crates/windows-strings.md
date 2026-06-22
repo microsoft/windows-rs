@@ -3,7 +3,7 @@
 > The string types used across the Windows APIs.
 
 - 📦 [crates.io](https://crates.io/crates/windows-strings)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-strings)
+- 📖 [docs.rs](https://docs.rs/windows-strings)
 - 🚀 [Getting started](../../crates/libs/strings/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/strings)
 

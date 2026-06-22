@@ -3,7 +3,7 @@
 > Core COM and WinRT type support shared by the windows-* crates.
 
 - 📦 [crates.io](https://crates.io/crates/windows-core)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-core)
+- 📖 [docs.rs](https://docs.rs/windows-core)
 - 🚀 [Getting started](../../crates/libs/core/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/core)
 

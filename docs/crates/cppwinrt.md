@@ -3,7 +3,7 @@
 > The C++/WinRT compiler, bundled for use from Rust.
 
 - 📦 [crates.io](https://crates.io/crates/cppwinrt)
-- 📖 [API reference (docs.rs)](https://docs.rs/cppwinrt)
+- 📖 [docs.rs](https://docs.rs/cppwinrt)
 - 🚀 [Getting started](../../crates/libs/cppwinrt/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/cppwinrt)
 

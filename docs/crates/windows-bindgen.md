@@ -3,7 +3,7 @@
 > The code generator that turns Windows metadata (`.winmd`) into Rust bindings.
 
 - 📦 [crates.io](https://crates.io/crates/windows-bindgen)
-- 📖 [API reference (docs.rs)](https://docs.rs/windows-bindgen)
+- 📖 [docs.rs](https://docs.rs/windows-bindgen)
 - 🚀 [Getting started](../../crates/libs/bindgen/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/bindgen)
 
