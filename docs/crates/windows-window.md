@@ -70,7 +70,11 @@ fall through to default processing. This keeps shared state behind an
 ## Samples
 
 - [`windows/create_window`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/create_window)
-  the minimal case — open a window and pump messages with `run`.
+  the minimal case — open a window and pump messages with `run_with`, depending
+  only on `windows-window` (no `windows` crate).
+- [`windows/window_message`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/window_message)
+  handles raw messages (`WM_PAINT`, mouse, keyboard) via `on_message`, with
+  direct access to `wparam`/`lparam`.
 - [`canvas/standalone`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone)
   hosts a `windows-canvas` swap chain in a `windows-window` window driven by
   `run_with`.
