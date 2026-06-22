@@ -1,0 +1,16 @@
+[package]
+name = "webview_minimal"
+version = "0.0.0"
+edition = "2024"
+publish = false
+build = "build.rs"
+
+[dependencies]
+windows-webview = { workspace = true }
+windows-core = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true
