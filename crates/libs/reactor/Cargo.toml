@@ -12,6 +12,9 @@ readme = "readme.md"
 [features]
 default = ["diagnostics"]
 diagnostics = []
+# Test-only support surface (RecordingBackend harness and engine/reconciler
+# inspectors). Enabled by the test crates; excluded from normal/published builds.
+test-util = []
 
 [dependencies]
 rustc-hash = { workspace = true }

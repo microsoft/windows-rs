@@ -240,7 +240,7 @@ type Cleanup = Box<dyn FnOnce()>;
 
 type PendingEffect = Box<dyn FnOnce() -> Option<Cleanup>>;
 
-pub enum HookSlot {
+enum HookSlot {
     State {
         cell: Rc<RefCell<Box<dyn Any>>>,
         type_name: &'static str,
@@ -443,14 +443,14 @@ impl<T: fmt::Debug> fmt::Debug for HookRef<T> {
 
 /// Stable `ContextId` used to track which components subscribed to
 /// [`RenderCx::use_inner_size`].
-pub fn inner_size_context_id() -> ContextId {
+fn inner_size_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
 
 /// Stable `ContextId` used to track which components subscribed to
 /// [`RenderCx::use_dpi`].
-pub fn dpi_context_id() -> ContextId {
+fn dpi_context_id() -> ContextId {
     static ID: OnceLock<ContextId> = OnceLock::new();
     *ID.get_or_init(ContextId::new)
 }
@@ -535,6 +535,7 @@ impl RenderCx {
         context.default.clone()
     }
 
+    #[cfg(feature = "test-util")]
     pub fn for_test() -> Self {
         Self::new(Rc::new(|| {}))
     }
@@ -550,7 +551,7 @@ impl RenderCx {
         self.hooks.borrow().len()
     }
 
-    pub fn set_request_rerender(&mut self, request_rerender: Rc<dyn Fn()>) {
+    fn set_request_rerender(&mut self, request_rerender: Rc<dyn Fn()>) {
         self.request_rerender = request_rerender;
     }
 
@@ -1310,10 +1311,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         self.inner.render_count.get()
     }
 
+    #[cfg(feature = "test-util")]
     pub fn is_render_pending(&self) -> bool {
         self.inner.render_state.get() != RenderState::Idle
     }
 
+    #[cfg(feature = "test-util")]
     pub fn is_rendering(&self) -> bool {
         matches!(
             self.inner.render_state.get(),
@@ -1321,6 +1324,7 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         )
     }
 
+    #[cfg(feature = "test-util")]
     pub fn needs_rerender(&self) -> bool {
         matches!(
             self.inner.render_state.get(),

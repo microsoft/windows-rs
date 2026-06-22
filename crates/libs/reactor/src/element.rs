@@ -265,7 +265,7 @@ macro_rules! define_element {
                     | Element::Empty => return None,
                 })
             }
-            pub fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
+            fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
                 match self {
                     $( Element::$variant(v) => Some(&mut v.modifiers), )*
                     Element::TemplatedList(tl) => Some(&mut tl.modifiers),
@@ -530,7 +530,7 @@ impl Element {
         }
         self
     }
-    pub fn accessibility_mut(&mut self) -> Option<&mut AccessibilityModifiers> {
+    fn accessibility_mut(&mut self) -> Option<&mut AccessibilityModifiers> {
         let m = self.modifiers_mut()?;
         Some(
             m.accessibility

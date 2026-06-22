@@ -24,6 +24,8 @@ mod host;
 mod interaction;
 mod reconciler;
 mod style;
+#[cfg(feature = "test-util")]
+mod test;
 mod widget;
 mod widgets;
 
@@ -60,6 +62,8 @@ pub use host::*;
 pub use interaction::*;
 pub use reconciler::*;
 pub use style::*;
+#[cfg(feature = "test-util")]
+pub use test::*;
 pub use widget::*;
 pub use widgets::*;
 pub use windows_core::{Error, Interface, Result};

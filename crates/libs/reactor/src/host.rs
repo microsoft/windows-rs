@@ -171,11 +171,7 @@ impl ReactorHost {
         Self::new_with(title, root, |_| {})
     }
 
-    pub fn new_with<F>(
-        title: impl AsRef<str>,
-        root: Box<dyn Component>,
-        configure: F,
-    ) -> Result<Self>
+    fn new_with<F>(title: impl AsRef<str>, root: Box<dyn Component>, configure: F) -> Result<Self>
     where
         F: FnOnce(&mut Reconciler<WinUIBackend>),
     {

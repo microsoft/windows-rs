@@ -9,7 +9,7 @@ rustc-hash = { workspace = true }
 windows-core = { workspace = true }
 
 [dependencies]
-windows-reactor = { workspace = true }
+windows-reactor = { workspace = true, features = ["test-util"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

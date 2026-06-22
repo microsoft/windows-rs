@@ -297,7 +297,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
+    fn apply_attached(&mut self, id: ControlId, attached: Option<&AttachedProps>) {
         let Some(att) = attached else { return };
         // GridPlacement is now on Modifiers::grid — handled by apply_modifiers.
         if let Some(p) = att.get::<CanvasPosition>() {
@@ -346,7 +346,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         );
     }
 
-    pub fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
+    fn apply_canvas_position(&mut self, id: ControlId, p: CanvasPosition) {
         // Canvas defaults are 0.0 — only emit when non-zero on mount;
         // the diff path always emits to overwrite the previous value.
         if p.left != 0.0 {
@@ -363,7 +363,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn diff_attached(
+    fn diff_attached(
         &mut self,
         id: ControlId,
         old: Option<&AttachedProps>,
@@ -391,7 +391,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn apply_relative_panel_alignment(&mut self, id: ControlId, p: RelativePanelAlignment) {
+    fn apply_relative_panel_alignment(&mut self, id: ControlId, p: RelativePanelAlignment) {
         if p.align_left_with_panel {
             self.backend
                 .set_prop(id, Prop::AlignLeftWithPanel, &PropValue::Bool(true));
