@@ -17,13 +17,16 @@ fn main() -> windows::core::Result<()> {
                 Imaging::{D2D::*, *},
             },
             Security::Cryptography::{BCRYPT_USE_SYSTEM_PREFERRED_RNG, BCryptGenRandom},
-            System::{Com::*, LibraryLoader::*},
+            System::Com::*,
             UI::{Animation::*, HiDpi::*, Shell::*, WindowsAndMessaging::*},
         },
         core::*,
     };
 
+    use std::cell::RefCell;
+    use std::rc::Rc;
     use windows_numerics::*;
+    use windows_window::{Window, run};
 
     const CARD_ROWS: usize = 3;
     const CARD_COLUMNS: usize = 6;
@@ -48,7 +51,7 @@ fn main() -> windows::core::Result<()> {
         rotation: Option<IDCompositionRotateTransform3D>,
     }
 
-    struct Window {
+    struct App {
         handle: HWND,
         dpi: (f32, f32),
         format: IDWriteTextFormat,
@@ -62,7 +65,7 @@ fn main() -> windows::core::Result<()> {
         target: Option<IDCompositionTarget>,
     }
 
-    impl Window {
+    impl App {
         fn new() -> Result<Self> {
             unsafe {
                 let manager: IUIAnimationManager2 =
@@ -115,7 +118,7 @@ fn main() -> windows::core::Result<()> {
                 let library =
                     CoCreateInstance(&UIAnimationTransitionLibrary2, None, CLSCTX_INPROC_SERVER)?;
 
-                Ok(Window {
+                Ok(App {
                     handle: Default::default(),
                     dpi: (0.0, 0.0),
                     format: create_text_format()?,
@@ -422,7 +425,6 @@ fn main() -> windows::core::Result<()> {
                     WM_DPICHANGED => self
                         .dpi_changed_handler(wparam, lparam)
                         .expect("WM_DPICHANGED"),
-                    WM_CREATE => self.create_handler().expect("WM_CREATE"),
                     WM_WINDOWPOSCHANGING => {
                         // Prevents window resizing due to device loss
                     }
@@ -432,76 +434,6 @@ fn main() -> windows::core::Result<()> {
             }
 
             LRESULT(0)
-        }
-
-        fn run(&mut self) -> Result<()> {
-            unsafe {
-                let instance = GetModuleHandleA(None)?;
-                let window_class = s!("window");
-
-                let wc = WNDCLASSA {
-                    hCursor: LoadCursorW(None, IDC_ARROW)?,
-                    hInstance: instance.into(),
-                    lpszClassName: window_class,
-
-                    style: CS_HREDRAW | CS_VREDRAW,
-                    lpfnWndProc: Some(Self::wndproc),
-                    ..Default::default()
-                };
-
-                let atom = RegisterClassA(&wc);
-                debug_assert!(atom != 0);
-
-                let handle = CreateWindowExA(
-                    WS_EX_NOREDIRECTIONBITMAP,
-                    window_class,
-                    s!("Sample Window"),
-                    WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_VISIBLE,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    CW_USEDEFAULT,
-                    None,
-                    None,
-                    None,
-                    Some(self as *mut _ as _),
-                )?;
-
-                debug_assert!(!handle.is_invalid());
-                debug_assert!(handle == self.handle);
-                let mut message = MSG::default();
-
-                while GetMessageA(&mut message, None, 0, 0).into() {
-                    DispatchMessageA(&message);
-                }
-
-                Ok(())
-            }
-        }
-
-        extern "system" fn wndproc(
-            window: HWND,
-            message: u32,
-            wparam: WPARAM,
-            lparam: LPARAM,
-        ) -> LRESULT {
-            unsafe {
-                if message == WM_NCCREATE {
-                    let cs = lparam.0 as *const CREATESTRUCTA;
-                    let this = (*cs).lpCreateParams as *mut Self;
-                    (*this).handle = window;
-
-                    SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
-                } else {
-                    let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
-
-                    if !this.is_null() {
-                        return (*this).message_handler(message, wparam, lparam);
-                    }
-                }
-
-                DefWindowProcA(window, message, wparam, lparam)
-            }
         }
     }
 
@@ -777,6 +709,26 @@ fn main() -> windows::core::Result<()> {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
         SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
     }
-    let mut window = Window::new()?;
-    window.run()
+
+    let app = Rc::new(RefCell::new(App::new()?));
+
+    let handler = app.clone();
+    let window = Window::new("Sample Window")
+        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX).0)
+        .ex_style(WS_EX_NOREDIRECTIONBITMAP.0)
+        .on_message(move |_, message, wparam, lparam| {
+            Some(
+                handler
+                    .borrow_mut()
+                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
+                    .0,
+            )
+        })
+        .create()?;
+
+    app.borrow_mut().handle = HWND(window.hwnd());
+    app.borrow_mut().create_handler()?;
+
+    run();
+    Ok(())
 }

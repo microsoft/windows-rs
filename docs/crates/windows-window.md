@@ -37,31 +37,50 @@ run(); // blocking, event-driven message loop
 ## The API
 
 - **`Window::new(title)`** returns a `WindowBuilder`. Configure it with
-  `.size(width, height)`, `.on_message(..)`, and `.on_resize(..)`, then
-  `.create()` to open and show the window.
+  `.size(width, height)`, `.style(..)`, `.ex_style(..)`, `.on_message(..)`, and
+  `.on_resize(..)`, then `.create()` to open and show the window.
 - **`Window::hwnd()`** returns the raw `*mut c_void` handle for interop.
 - **`Window::client_size()`** returns the current client area as `(width, height)`.
+- **`style(WS_*)` / `ex_style(WS_EX_*)`** override the window styles (raw `u32`).
+  They default to `WS_OVERLAPPEDWINDOW` and none — pass Win32 style constants for
+  custom chrome (e.g. `WS_EX_NOREDIRECTIONBITMAP` for a DirectComposition target).
 - **`on_message(|hwnd, message, wparam, lparam| -> Option<isize>)`** handles raw
   window messages; return `Some(result)` to handle a message or `None` to fall
   through to default processing.
 - **`on_resize(|width, height|)`** is a convenience for `WM_SIZE`, giving the new
   client size in pixels.
 
+Handlers are detached while they run, so a handler that triggers reentrant
+dispatch (for example calling `SetWindowPos`, which synchronously sends
+`WM_WINDOWPOSCHANGING` / `WM_SIZE`) won't re-enter itself — the nested messages
+fall through to default processing. This keeps shared state behind an
+`Rc<RefCell<..>>` safe from reentrant borrows.
+
 ## The message loop
 
 - **`run()`** — a blocking, event-driven loop (`GetMessage`) until the window
   closes. Best for interactive apps such as a WebView2 host.
-- **`run_with(render)`** — drains pending messages and calls `render` whenever the
-  queue is empty, for continuous animation. Returns `Ok(())` when the window
-  closes, or early if `render` returns an error.
+- **`run_with(render)`** — calls `render` whenever the queue is empty; `render`
+  returns `Ok(true)` to keep rendering immediately (continuous animation) or
+  `Ok(false)` to wait for the next message (event-driven/occluded). Returns
+  `Ok(())` when the window closes, or early if `render` returns an error.
 - **`quit()`** — posts a quit message. An unhandled `WM_DESTROY` posts one
   automatically, so closing the window ends the loop without extra code.
 
 ## Samples
 
+- [`windows/create_window`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/create_window)
+  the minimal case — open a window and pump messages with `run`.
 - [`canvas/standalone`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/standalone)
   hosts a `windows-canvas` swap chain in a `windows-window` window driven by
   `run_with`.
+- [`windows/direct2d`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/direct2d)
+  drives a Direct2D swap chain with `run_with`, rendering only while visible.
+- [`windows/direct3d12`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/direct3d12)
+  binds a Direct3D 12 swap chain to `window.hwnd()` and renders on `WM_PAINT`.
+- [`windows/dcomp`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows/dcomp)
+  hosts a DirectComposition target (custom `ex_style`) and pumps with `run`,
+  relying on reentrancy-safe handlers for its DPI handling.
 
 ---
 
@@ -87,6 +106,9 @@ build.
 - **State in `GWLP_USERDATA`** — the boxed message/resize handlers are stored in
   the window's user data, set after `CreateWindowExW` returns, and reclaimed on
   `WM_NCDESTROY`. `Window::drop` calls `DestroyWindow` if the window still exists.
+- **Reentrancy-safe** — `wndproc` moves the handlers out of the state before
+  invoking them and restores them afterward, so a handler that pumps nested
+  messages can't alias (or, behind `RefCell`, panic on re-borrowing) itself.
 - **Not a kitchen sink** — the crate covers window creation, a resize hook, and a
   message loop only. Anything beyond that (menus, input, multiple monitors, etc.)
   belongs in the consuming app or a focused [`windows-bindgen`](windows-bindgen.md)

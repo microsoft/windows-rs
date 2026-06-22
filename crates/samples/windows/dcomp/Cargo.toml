@@ -18,7 +18,6 @@ features = [
     "Win32_Graphics_Imaging_D2D",
     "Win32_Security_Cryptography",
     "Win32_System_Com",
-    "Win32_System_LibraryLoader",
     "Win32_System_Performance",
     "Win32_System_SystemInformation",
     "Win32_System_SystemServices",
@@ -29,6 +28,9 @@ features = [
 ]
 
 [dependencies.windows-numerics]
+workspace = true
+
+[dependencies.windows-window]
 workspace = true
 
 [lints]

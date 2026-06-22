@@ -42,6 +42,6 @@ fn main() -> Result<()> {
 
         drop(session);
         chain.present()?;
-        Ok(())
+        Ok(true)
     })
 }

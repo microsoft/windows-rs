@@ -14,7 +14,6 @@ features = [
     "Win32_Graphics_Direct3D11",
     "Win32_Graphics_Dxgi_Common",
     "Win32_Graphics_Gdi",
-    "Win32_System_LibraryLoader",
     "Win32_System_Performance",
     "Win32_System_SystemInformation",
     "Win32_UI_Animation",
@@ -22,6 +21,9 @@ features = [
 ]
 
 [dependencies.windows-numerics]
+workspace = true
+
+[dependencies.windows-window]
 workspace = true
 
 [lints]

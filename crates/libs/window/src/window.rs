@@ -29,6 +29,8 @@ impl Window {
             title: title.to_string(),
             width: CW_USEDEFAULT,
             height: CW_USEDEFAULT,
+            style: WS_OVERLAPPEDWINDOW,
+            ex_style: 0,
             state: State {
                 message: None,
                 resize: None,
@@ -69,6 +71,8 @@ pub struct WindowBuilder {
     title: String,
     width: i32,
     height: i32,
+    style: u32,
+    ex_style: u32,
     state: State,
 }
 
@@ -77,6 +81,18 @@ impl WindowBuilder {
     pub fn size(mut self, width: i32, height: i32) -> Self {
         self.width = width;
         self.height = height;
+        self
+    }
+
+    /// Sets the window style (`WS_*`). Defaults to `WS_OVERLAPPEDWINDOW`.
+    pub fn style(mut self, style: u32) -> Self {
+        self.style = style;
+        self
+    }
+
+    /// Sets the extended window style (`WS_EX_*`). Defaults to none.
+    pub fn ex_style(mut self, ex_style: u32) -> Self {
+        self.ex_style = ex_style;
         self
     }
 
@@ -109,10 +125,10 @@ impl WindowBuilder {
             title.push(0);
 
             let hwnd = CreateWindowExW(
-                0,
+                self.ex_style,
                 class_name(),
                 PCWSTR(title.as_ptr()),
-                WS_OVERLAPPEDWINDOW,
+                self.style,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 self.width,
@@ -147,24 +163,37 @@ pub fn run() {
     }
 }
 
-/// Runs a message loop that calls `render` whenever no messages are pending,
-/// suitable for continuous animation. Returns when the window is closed, or
-/// early if `render` returns an error.
+/// Runs a message loop driven by `render`. `render` is called whenever no
+/// messages are pending; return `Ok(true)` to keep rendering immediately (for
+/// continuous animation) or `Ok(false)` to wait for the next message before
+/// rendering again (event-driven, e.g. when occluded or idle). Returns when the
+/// window is closed, or early if `render` returns an error.
 pub fn run_with<F>(mut render: F) -> Result<()>
 where
-    F: FnMut() -> Result<()>,
+    F: FnMut() -> Result<bool>,
 {
     unsafe {
         let mut message = MSG::default();
+        let mut animating = true;
         loop {
-            while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE).as_bool() {
+            if animating {
+                while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE).as_bool() {
+                    if message.message == WM_QUIT {
+                        return Ok(());
+                    }
+                    _ = TranslateMessage(&message);
+                    DispatchMessageW(&message);
+                }
+            } else if GetMessageW(&mut message, core::ptr::null_mut(), 0, 0).as_bool() {
                 if message.message == WM_QUIT {
                     return Ok(());
                 }
                 _ = TranslateMessage(&message);
                 DispatchMessageW(&message);
+            } else {
+                return Ok(());
             }
-            render()?;
+            animating = render()?;
         }
     }
 }
@@ -205,21 +234,29 @@ unsafe extern "system" fn wndproc(
         let mut handled = None;
 
         if !state.is_null() {
-            let state = &mut *state;
+            // Detach the handlers before invoking them so that any reentrant
+            // dispatch (e.g. a handler that calls SetWindowPos) sees empty slots
+            // and falls through to default processing rather than aliasing a
+            // handler that is already running.
+            let mut message_handler = (*state).message.take();
+            let mut resize_handler = (*state).resize.take();
 
-            if let Some(handler) = state.message.as_mut() {
+            if let Some(handler) = message_handler.as_mut() {
                 handled = handler(hwnd, message, wparam, lparam);
             }
 
             if handled.is_none()
                 && message == WM_SIZE
-                && let Some(handler) = state.resize.as_mut()
+                && let Some(handler) = resize_handler.as_mut()
             {
                 let width = (lparam & 0xffff) as i32;
                 let height = ((lparam >> 16) & 0xffff) as i32;
                 handler(width, height);
                 handled = Some(0);
             }
+
+            (*state).message = message_handler;
+            (*state).resize = resize_handler;
         }
 
         if message == WM_NCDESTROY && !state.is_null() {
