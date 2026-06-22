@@ -41,6 +41,19 @@ fn host(window: HWND) -> Result<()> {
 user-data folder, additional browser arguments, and language. Resize the browser
 with `controller.set_bounds(..)` from your window's `WM_SIZE` handler.
 
+## Zoom, background, and DPI
+
+The `Controller` also exposes the browser's display properties:
+
+- `zoom_factor()` / `set_zoom_factor(1.25)` — the page zoom, where `1.0` is 100%.
+- `set_default_background_color(Color::TRANSPARENT)` — the colour painted before
+  content loads and wherever the page is transparent; `Color::TRANSPARENT` lets
+  the host window show through (only fully opaque or fully transparent are
+  supported).
+- `rasterization_scale()` / `set_rasterization_scale(..)` plus
+  `set_should_detect_monitor_scale_changes(false)` — control the DPI scale
+  manually instead of letting the browser follow the monitor.
+
 ## Focus and keyboard
 
 Focus and accelerator keys are managed by the `Controller`, since they concern
@@ -200,7 +213,7 @@ Tracked gaps, roughly by impact:
 | `ProcessFailed` (renderer-crash detection) | ✅ Done | `on_process_failed` delivers a `ProcessFailedArgs` with `kind()`. |
 | Focus & keyboard events (`GotFocus`/`LostFocus`/`MoveFocusRequested`/`AcceleratorKeyPressed`) | ✅ Done | `Controller::on_got_focus`/`on_lost_focus`/`on_move_focus_requested`/`on_accelerator_key_pressed` plus `move_focus`. |
 | `SetVirtualHostNameToFolderMapping` | ✅ Done | `WebView::set_virtual_host_name_to_folder_mapping` / `clear_virtual_host_name_to_folder_mapping`. |
-| Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ⬜ Planned | `wry` uses all of these. |
+| Controller polish (zoom factor, default background colour/transparency, focus, DPI/rasterization scale) | ✅ Done | `Controller::zoom_factor`/`set_zoom_factor`, `default_background_color`/`set_default_background_color`, `rasterization_scale`/`set_rasterization_scale`, `should_detect_monitor_scale_changes`. |
 | Versioned `Settings2..9` (user agent, swipe nav, pinch zoom, autofill, …) | ⬜ Planned | `wry` sets these through the later settings interfaces. |
 | Cookies, `Profile`/themes, `NavigateWithWebResourceRequest` (headers), incognito, browser extensions | ⬜ Planned | Breadth `wry` covers that this crate does not yet. |
 

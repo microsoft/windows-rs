@@ -6,6 +6,15 @@ windows_core::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG
 windows_core::link!("user32.dll" "system" fn GetMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_core::BOOL);
 windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < IStream >);
 windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_core::BOOL);
+pub type BYTE = u8;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct COREWEBVIEW2_COLOR {
+    pub A: BYTE,
+    pub R: BYTE,
+    pub G: BYTE,
+    pub B: BYTE,
+}
 pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
 pub type COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND = i32;
@@ -970,6 +979,25 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
+    pub(crate) unsafe fn ZoomFactor(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ZoomFactor)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetZoomFactor)(
+                windows_core::Interface::as_raw(self),
+                zoomfactor,
+            )
+            .ok()
+        }
+    }
     pub(crate) unsafe fn MoveFocus(
         &self,
         reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
@@ -1110,8 +1138,10 @@ pub struct ICoreWebView2Controller_Vtbl {
     ) -> windows_core::HRESULT,
     Bounds: usize,
     pub SetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    ZoomFactor: usize,
-    SetZoomFactor: usize,
+    pub ZoomFactor:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetZoomFactor:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     add_ZoomFactorChanged: usize,
     remove_ZoomFactorChanged: usize,
     SetBoundsAndZoomFactor: usize,
@@ -1155,6 +1185,140 @@ pub struct ICoreWebView2Controller_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Controller2,
+    ICoreWebView2Controller2_Vtbl,
+    0xc979903e_d4ca_4228_92eb_47ee3fa96eab
+);
+impl core::ops::Deref for ICoreWebView2Controller2 {
+    type Target = ICoreWebView2Controller;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Controller2,
+    windows_core::IUnknown,
+    ICoreWebView2Controller
+);
+impl ICoreWebView2Controller2 {
+    pub(crate) unsafe fn DefaultBackgroundColor(&self) -> windows_core::Result<COREWEBVIEW2_COLOR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DefaultBackgroundColor)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetDefaultBackgroundColor(
+        &self,
+        value: COREWEBVIEW2_COLOR,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDefaultBackgroundColor)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Controller2_Vtbl {
+    pub base__: ICoreWebView2Controller_Vtbl,
+    pub DefaultBackgroundColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT,
+    pub SetDefaultBackgroundColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        COREWEBVIEW2_COLOR,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2Controller3,
+    ICoreWebView2Controller3_Vtbl,
+    0xf9614724_5d2b_41dc_aef7_73d62b51543b
+);
+impl core::ops::Deref for ICoreWebView2Controller3 {
+    type Target = ICoreWebView2Controller2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Controller3,
+    windows_core::IUnknown,
+    ICoreWebView2Controller,
+    ICoreWebView2Controller2
+);
+impl ICoreWebView2Controller3 {
+    pub(crate) unsafe fn RasterizationScale(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RasterizationScale)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetRasterizationScale(&self, scale: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRasterizationScale)(
+                windows_core::Interface::as_raw(self),
+                scale,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn ShouldDetectMonitorScaleChanges(
+        &self,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ShouldDetectMonitorScaleChanges)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn SetShouldDetectMonitorScaleChanges(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShouldDetectMonitorScaleChanges)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Controller3_Vtbl {
+    pub base__: ICoreWebView2Controller2_Vtbl,
+    pub RasterizationScale:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetRasterizationScale:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub ShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    add_RasterizationScaleChanged: usize,
+    remove_RasterizationScaleChanged: usize,
+    BoundsMode: usize,
+    SetBoundsMode: usize,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,

@@ -1,6 +1,45 @@
 use super::*;
 use crate::handler::subscription;
 
+/// A 32-bit RGBA colour, used for the browser's
+/// [default background](Controller::set_default_background_color).
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Color {
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+    pub a: u8,
+}
+
+impl Color {
+    /// A fully transparent colour, letting the host window show through where the
+    /// page has not painted.
+    pub const TRANSPARENT: Self = Self {
+        r: 0,
+        g: 0,
+        b: 0,
+        a: 0,
+    };
+
+    fn from_raw(value: COREWEBVIEW2_COLOR) -> Self {
+        Self {
+            r: value.R,
+            g: value.G,
+            b: value.B,
+            a: value.A,
+        }
+    }
+
+    fn to_raw(self) -> COREWEBVIEW2_COLOR {
+        COREWEBVIEW2_COLOR {
+            A: self.a,
+            R: self.r,
+            G: self.g,
+            B: self.b,
+        }
+    }
+}
+
 /// Hosts a WebView2 browser inside a parent window, controlling its bounds,
 /// visibility, and lifetime.
 pub struct Controller(pub(crate) ICoreWebView2Controller);
@@ -31,6 +70,63 @@ impl Controller {
     /// Closes the browser and releases its resources.
     pub fn close(&self) -> Result<()> {
         unsafe { self.0.Close() }
+    }
+
+    /// Returns the zoom factor applied to the page, where `1.0` is 100%.
+    pub fn zoom_factor(&self) -> f64 {
+        unsafe { self.0.ZoomFactor() }.unwrap_or(1.0)
+    }
+
+    /// Sets the zoom factor applied to the page, where `1.0` is 100%.
+    pub fn set_zoom_factor(&self, zoom_factor: f64) -> Result<()> {
+        unsafe { self.0.SetZoomFactor(zoom_factor) }
+    }
+
+    /// Returns the colour painted behind the page before content loads and
+    /// wherever the page is transparent.
+    pub fn default_background_color(&self) -> Result<Color> {
+        let source: ICoreWebView2Controller2 = self.0.cast()?;
+        Ok(Color::from_raw(unsafe { source.DefaultBackgroundColor()? }))
+    }
+
+    /// Sets the colour painted behind the page before content loads and wherever
+    /// the page is transparent. Use [`Color::TRANSPARENT`] to let the host window
+    /// show through; only fully opaque (`a = 255`) and fully transparent
+    /// (`a = 0`) colours are supported.
+    pub fn set_default_background_color(&self, color: Color) -> Result<()> {
+        let source: ICoreWebView2Controller2 = self.0.cast()?;
+        unsafe { source.SetDefaultBackgroundColor(color.to_raw()) }
+    }
+
+    /// Returns the scale used to rasterize page content, which the browser
+    /// derives from the monitor DPI.
+    pub fn rasterization_scale(&self) -> Result<f64> {
+        let source: ICoreWebView2Controller3 = self.0.cast()?;
+        unsafe { source.RasterizationScale() }
+    }
+
+    /// Sets the scale used to rasterize page content. Set
+    /// [`set_should_detect_monitor_scale_changes(false)`](Self::set_should_detect_monitor_scale_changes)
+    /// first to stop the browser overriding this when the monitor DPI changes.
+    pub fn set_rasterization_scale(&self, scale: f64) -> Result<()> {
+        let source: ICoreWebView2Controller3 = self.0.cast()?;
+        unsafe { source.SetRasterizationScale(scale) }
+    }
+
+    /// Returns `true` if the browser updates the
+    /// [rasterization scale](Self::rasterization_scale) automatically as the
+    /// monitor DPI changes.
+    pub fn should_detect_monitor_scale_changes(&self) -> Result<bool> {
+        let source: ICoreWebView2Controller3 = self.0.cast()?;
+        Ok(unsafe { source.ShouldDetectMonitorScaleChanges()? }.as_bool())
+    }
+
+    /// Sets whether the browser updates the
+    /// [rasterization scale](Self::rasterization_scale) automatically as the
+    /// monitor DPI changes. Disable it to manage the scale yourself.
+    pub fn set_should_detect_monitor_scale_changes(&self, detect: bool) -> Result<()> {
+        let source: ICoreWebView2Controller3 = self.0.cast()?;
+        unsafe { source.SetShouldDetectMonitorScaleChanges(detect) }
     }
 
     /// Moves focus into the browser, as if focus arrived for the given

@@ -20,7 +20,7 @@ use bindings::*;
 use windows_core::*;
 
 pub use bindings::HWND;
-pub use controller::Controller;
+pub use controller::{Color, Controller};
 pub use deferral::Deferral;
 pub use download::{
     DownloadInterruptReason, DownloadOperation, DownloadStartingArgs, DownloadState,
