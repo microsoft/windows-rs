@@ -31,4 +31,6 @@ pub fn private_mode(harness: &Harness) {
         Ok(profile) => harness.check("Profile_PrivateMode", profile.is_in_private_mode()),
         Err(_) => harness.check("Profile_PrivateMode", false),
     }
+
+    let _ = controller.close();
 }

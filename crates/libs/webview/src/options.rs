@@ -78,6 +78,9 @@ impl EnvironmentOptions {
     }
 
     /// Sets the minimum compatible browser version the environment requires.
+    ///
+    /// When unset, the environment uses the WebView2 GA baseline
+    /// (`86.0.616.0`), which every supported runtime satisfies.
     pub fn target_compatible_browser_version(mut self, value: impl Into<String>) -> Self {
         self.target_compatible_browser_version = Some(value.into());
         self
@@ -150,6 +153,12 @@ implement_decl! {
         [ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions6, ICoreWebView2EnvironmentOptions8]
 }
 
+/// The WebView2 general-availability baseline (`CORE_WEBVIEW_TARGET_PRODUCT_VERSION`).
+/// Used as the default `TargetCompatibleBrowserVersion`; WebView2 rejects an empty
+/// or null value with `E_INVALIDARG`, so a valid baseline that every supported
+/// runtime satisfies is supplied when the caller does not set one.
+const DEFAULT_TARGET_COMPATIBLE_BROWSER_VERSION: &str = "86.0.616.0";
+
 impl OptionsObject {
     fn new(options: &EnvironmentOptions) -> Self {
         Self {
@@ -161,7 +170,7 @@ impl OptionsObject {
             target_compatible_browser_version: options
                 .target_compatible_browser_version
                 .clone()
-                .unwrap_or_default(),
+                .unwrap_or_else(|| DEFAULT_TARGET_COMPATIBLE_BROWSER_VERSION.to_string()),
             allow_single_sign_on_using_os_primary_account: options
                 .allow_single_sign_on_using_os_primary_account
                 .into(),

@@ -1,5 +1,6 @@
 pub mod controller;
 pub mod cookies;
+pub mod environment;
 pub mod ipc;
 pub mod navigation;
 pub mod profile;

@@ -147,3 +147,17 @@ impl Harness {
         slot.borrow_mut().take()
     }
 }
+
+impl Drop for Harness {
+    /// Closes the controller and pumps briefly so Chromium tears its windows
+    /// down in order, avoiding the benign `Failed to unregister class` warning
+    /// it logs when the process exits with live browser windows.
+    fn drop(&mut self) {
+        if self.controller.close().is_ok() {
+            let deadline = Instant::now() + Duration::from_millis(250);
+            while Instant::now() < deadline && windows_window::pump() {
+                std::thread::sleep(Duration::from_millis(1));
+            }
+        }
+    }
+}

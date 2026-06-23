@@ -32,4 +32,8 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         settings::disable_script_blocks_execution,
     ),
     ("Profile_PrivateMode", profile::private_mode),
+    (
+        "Environment_WithOptions",
+        environment::with_options_creates_environment,
+    ),
 ];
