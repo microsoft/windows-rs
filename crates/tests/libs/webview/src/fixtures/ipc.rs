@@ -75,3 +75,41 @@ pub fn host_to_page_round_trip(harness: &Harness) {
 
     drop(registration);
 }
+
+/// A JSON message posted from the host is delivered to the page as a parsed
+/// object, which reads a field and posts it back.
+pub fn json_round_trip(harness: &Harness) {
+    let received: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
+    let sink = received.clone();
+    let webview = harness.webview();
+
+    let Ok(registration) = webview.on_web_message_received(move |args| {
+        if let Ok(message) = args.try_web_message_as_string() {
+            *sink.borrow_mut() = Some(message);
+        }
+    }) else {
+        harness.check("Ipc_Json_Subscribe", false);
+        return;
+    };
+
+    let page = "<!DOCTYPE html><html><body><script>\
+        window.chrome.webview.addEventListener('message', e => {\
+            window.chrome.webview.postMessage('n=' + e.data.value);\
+        });\
+        </script></body></html>";
+    harness.check("Ipc_Json_Nav", harness.navigate_html(page));
+
+    if webview.post_web_message_as_json("{\"value\":42}").is_err() {
+        harness.check("Ipc_Json_Post", false);
+        drop(registration);
+        return;
+    }
+
+    let got = harness.wait(|| received.borrow().is_some());
+    harness.check(
+        "Ipc_Json_Received",
+        got && received.borrow().as_deref() == Some("n=42"),
+    );
+
+    drop(registration);
+}

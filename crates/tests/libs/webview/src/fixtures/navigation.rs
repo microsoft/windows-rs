@@ -81,3 +81,80 @@ pub fn data_uri(harness: &Harness) {
     let ok = harness.navigate_uri("data:text/html,<h1>ok</h1>");
     harness.check("Navigation_DataUri_Success", ok);
 }
+
+/// `go_back` and `go_forward` move through the session history.
+pub fn history_back_forward(harness: &Harness) {
+    let page_a = "<!DOCTYPE html><html><head><title>HistoryA</title></head></html>";
+    let page_b = "<!DOCTYPE html><html><head><title>HistoryB</title></head></html>";
+    harness.check("History_NavA", harness.navigate_html(page_a));
+    harness.check("History_NavB", harness.navigate_html(page_b));
+
+    // Wait for NavigationCompleted (not just the title), so the back/forward
+    // navigations fully settle before the fixture returns and the next
+    // navigation begins.
+    let completed: Rc<RefCell<u32>> = Rc::new(RefCell::new(0));
+    let sink = completed.clone();
+    let Ok(registration) = harness
+        .webview()
+        .on_navigation_completed(move |_| *sink.borrow_mut() += 1)
+    else {
+        harness.check("History_Subscribe", false);
+        return;
+    };
+
+    let base = *completed.borrow();
+    if harness.webview().go_back().is_err() {
+        harness.check("History_GoBack", false);
+        drop(registration);
+        return;
+    }
+    harness.check(
+        "History_BackShowsA",
+        harness.wait(|| *completed.borrow() > base)
+            && harness.webview().document_title() == "HistoryA",
+    );
+
+    let base = *completed.borrow();
+    if harness.webview().go_forward().is_err() {
+        harness.check("History_GoForward", false);
+        drop(registration);
+        return;
+    }
+    harness.check(
+        "History_ForwardShowsB",
+        harness.wait(|| *completed.borrow() > base)
+            && harness.webview().document_title() == "HistoryB",
+    );
+
+    drop(registration);
+}
+
+/// `reload` triggers a fresh navigation of the current page.
+pub fn reload(harness: &Harness) {
+    harness.check(
+        "Reload_Nav",
+        harness.navigate_html("<!DOCTYPE html><html><head><title>Reload</title></head></html>"),
+    );
+
+    let completed: Rc<RefCell<u32>> = Rc::new(RefCell::new(0));
+    let sink = completed.clone();
+    let Ok(registration) = harness
+        .webview()
+        .on_navigation_completed(move |_| *sink.borrow_mut() += 1)
+    else {
+        harness.check("Reload_Subscribe", false);
+        return;
+    };
+
+    if harness.webview().reload().is_err() {
+        harness.check("Reload_Call", false);
+        drop(registration);
+        return;
+    }
+    harness.check(
+        "Reload_Completed",
+        harness.wait(|| *completed.borrow() >= 1),
+    );
+
+    drop(registration);
+}

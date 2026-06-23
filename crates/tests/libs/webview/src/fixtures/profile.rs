@@ -1,6 +1,6 @@
-//! Profile fixture: a controller created in private mode reports it.
+//! Profile fixtures: private mode, colour scheme, and download folder.
 
-use windows_webview::ControllerOptions;
+use windows_webview::{ControllerOptions, PreferredColorScheme};
 use windows_window::Window;
 
 use crate::harness::Harness;
@@ -33,4 +33,37 @@ pub fn private_mode(harness: &Harness) {
     }
 
     let _ = controller.close();
+}
+
+/// The preferred colour scheme round-trips through the setter and getter.
+pub fn color_scheme_round_trip(harness: &Harness) {
+    let Ok(profile) = harness.webview().profile() else {
+        harness.check("Profile_ColorScheme_Get", false);
+        return;
+    };
+
+    let original = profile.preferred_color_scheme();
+    harness.check(
+        "Profile_ColorScheme_Set",
+        profile
+            .set_preferred_color_scheme(PreferredColorScheme::Dark)
+            .is_ok(),
+    );
+    harness.check(
+        "Profile_ColorScheme_Getter",
+        profile.preferred_color_scheme() == PreferredColorScheme::Dark,
+    );
+    let _ = profile.set_preferred_color_scheme(original);
+}
+
+/// The profile exposes a non-empty default download folder path.
+pub fn default_download_folder_path(harness: &Harness) {
+    let Ok(profile) = harness.webview().profile() else {
+        harness.check("Profile_DownloadFolder_Get", false);
+        return;
+    };
+    harness.check(
+        "Profile_DownloadFolder_NonEmpty",
+        !profile.default_download_folder_path().is_empty(),
+    );
 }
