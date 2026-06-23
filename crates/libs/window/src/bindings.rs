@@ -18,6 +18,7 @@ windows_core::link!("user32.dll" "system" fn LoadCursorW(hinstance : HINSTANCE, 
 windows_core::link!("user32.dll" "system" fn PeekMessageW(lpmsg : *mut MSG, hwnd : HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : PEEK_MESSAGE_REMOVE_TYPE) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
 windows_core::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> u16);
+windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
@@ -32,6 +33,8 @@ windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG
 pub const CS_HREDRAW: WNDCLASS_STYLES = 2;
 pub const CS_VREDRAW: WNDCLASS_STYLES = 1;
 pub const CW_USEDEFAULT: i32 = -2147483648;
+pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = -21;
 pub type HBRUSH = *mut core::ffi::c_void;
 pub type HCURSOR = *mut core::ffi::c_void;

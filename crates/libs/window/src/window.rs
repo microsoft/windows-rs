@@ -212,6 +212,7 @@ fn class_name() -> PCWSTR {
 unsafe fn register_class() {
     static REGISTER: OnceLock<()> = OnceLock::new();
     REGISTER.get_or_init(|| unsafe {
+        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         let wc = WNDCLASSW {
             style: CS_HREDRAW | CS_VREDRAW,
             lpfnWndProc: Some(wndproc),

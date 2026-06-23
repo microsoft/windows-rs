@@ -3,6 +3,8 @@
 
 --filter
     Windows::Win32::Foundation::RECT
+    Windows::Win32::UI::HiDpi::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+    Windows::Win32::UI::HiDpi::SetProcessDpiAwarenessContext
     Windows::Win32::UI::WindowsAndMessaging::CreateWindowExW
     Windows::Win32::UI::WindowsAndMessaging::CS_HREDRAW
     Windows::Win32::UI::WindowsAndMessaging::CS_VREDRAW

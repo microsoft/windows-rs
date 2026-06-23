@@ -139,5 +139,9 @@ jobs:
         run:  cargo check -p windows-version --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.95 && rustup default 1.95
+      - name: Check windows-webview
+        run:  cargo check -p windows-webview --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-window
         run:  cargo check -p windows-window --all-features
