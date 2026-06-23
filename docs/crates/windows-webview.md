@@ -2,13 +2,11 @@
 
 > A safe Rust wrapper around the [WebView2](https://aka.ms/webview2) COM APIs for hosting the Microsoft Edge (Chromium) browser in a window.
 
-- 📦 Not published to crates.io
+- 📦 [crates.io](https://crates.io/crates/windows-webview)
+- 📖 [docs.rs](https://docs.rs/windows-webview)
 - 🚀 [Getting started](../../crates/libs/webview/readme.md)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/webview)
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview)
-
-> **Status:** experimental and pre-release (`0.0.0`). The API is evolving and the
-> crate is not yet published to crates.io.
 
 `windows-webview` hosts WebView2 inside a Win32 window so you can render web
 content and run JavaScript from Rust. The three core types are `Environment`
