@@ -349,6 +349,7 @@ define_element! {
     RelativePanel,
     ToggleButton,
     SwapChainPanel,
+    WebView2,
 }
 
 macro_rules! non_widget_from_table {
@@ -1179,6 +1180,7 @@ impl_element_ext!(
     RelativePanel,
     ToggleButton,
     SwapChainPanel,
+    WebView2,
 );
 
 impl ElementExt for RichTextBlock {

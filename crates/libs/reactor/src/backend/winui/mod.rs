@@ -122,6 +122,7 @@ define_handles! {
     ToggleSwitch,
     TreeView,
     Viewbox,
+    WebView2,
 }
 
 /// [`Backend`] implementation that creates real `Microsoft.UI.Xaml`

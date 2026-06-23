@@ -16444,6 +16444,38 @@ pub struct IVisual_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IWebView2,
+    IWebView2_Vtbl,
+    0x2b2c76c2_997c_5069_a8f0_9b84cd7e624b
+);
+impl windows_core::RuntimeType for IWebView2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebView2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IWebView2Factory,
+    IWebView2Factory_Vtbl,
+    0xfb4ec2ce_3074_5c42_b655_64fb81fbd040
+);
+impl windows_core::RuntimeType for IWebView2Factory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebView2Factory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IWindow,
     IWindow_Vtbl,
     0x61f0ec79_5d52_56b5_86fb_40fa4af288b0
@@ -23422,6 +23454,55 @@ pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562949953486848;
 pub const WM_MOUSEMOVE: u32 = 512;
 pub const WM_SETCURSOR: u32 = 32;
 pub type WPARAM = usize;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WebView2(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    WebView2,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(WebView2, FrameworkElement, UIElement, DependencyObject);
+impl WebView2 {
+    pub(crate) fn new() -> windows_core::Result<WebView2> {
+        Self::IWebView2Factory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWebView2Factory<R, F: FnOnce(&IWebView2Factory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebView2, IWebView2Factory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WebView2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IWebView2>();
+}
+unsafe impl windows_core::Interface for WebView2 {
+    type Vtable = <IWebView2 as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWebView2 as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for WebView2 {
+    type Target = IWebView2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for WebView2 {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.WebView2";
+}
+unsafe impl Send for WebView2 {}
+unsafe impl Sync for WebView2 {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Window(windows_core::IUnknown);

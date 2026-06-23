@@ -285,6 +285,41 @@ Run one with `cargo run -p webview_minimal --example <name>`:
 | `cookies` | Adding a cookie and enumerating cookies with the cookie manager. |
 | `profile` | An in-private controller, the dark color scheme, and clearing browsing data. |
 
+## Reactor integration
+
+With the optional `reactor` feature, `windows-webview` can host a browser inside a
+[`windows-reactor`](windows-reactor.md) UI tree instead of a bare `windows-window`
+HWND. The feature adds one function, `webview`, that returns a reactor `WebView2`
+control element and hands you a fully-wired [`WebView`] once the browser is ready:
+
+```rust,ignore
+use windows_reactor::*;
+use windows_webview::webview;
+
+fn app(_cx: &mut RenderCx) -> Element {
+    webview(|web| {
+        web.navigate("https://learn.microsoft.com/windows/apps/").unwrap();
+    })
+    .into()
+}
+
+fn main() -> Result<()> {
+    App::new().title("WebView2").render(app)
+}
+```
+
+The `WebView` passed to the closure is the *same* type used for HWND hosting, so
+navigation, scripting, IPC, cookies, settings, profiles, and every other wrapper
+work identically — the reactor path is just a second front-end over the one COM
+surface. Enable it with `windows-webview = { version = "...", features = ["reactor"] }`.
+
+Because the reactor hosts the WinUI XAML `WebView2` control, the app must deploy
+`Microsoft.Web.WebView2.Core.dll` next to the executable (the COM-only path does not
+need it — see the internals below). The self-contained reactor setup does this for
+you: `windows_reactor_setup::as_self_contained()` carries that DLL alongside the
+other runtime files, so no extra build step is required. The runnable sample is
+[`crates/samples/reactor/webview`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/webview).
+
 ---
 
 ## Internal documentation
@@ -355,22 +390,92 @@ and the frame, composition (windowless), print, and audio interface families.
 
 ### How it's built
 
-WebView2 ships only a C/C++ SDK header (`WebView2.h`), not an `.rdl` or `.winmd`,
-so the bindings start from the header and run the full pipeline. This is driven by
-a dedicated `tool_webview` crate (like `tool_reactor`), not `tool_bindings`:
+WebView2 ships only C/C++ SDK headers, not an `.rdl` or `.winmd`, so the bindings
+start from the headers and run the full pipeline. This is driven by a dedicated
+`tool_webview` crate (like `tool_reactor`), not `tool_bindings`:
 
 | Stage | Tool | Output |
 |-------|------|--------|
-| `WebView2.h` → `.rdl` | `windows_rdl::clang()` (libclang) | `target/webview/WebView2.rdl` |
+| `WebView2*.h` → `.rdl` | `windows_rdl::clang()` (libclang) | `target/webview/WebView2.rdl` |
 | `.rdl` → `.winmd` | `windows_rdl::reader()` | `target/webview/WebView2.winmd` |
 | `.winmd` → `bindings.rs` | `windows_bindgen` | `crates/libs/webview/src/bindings.rs` |
 
-The clang step needs `WebView2.h` plus `Windows.Win32.winmd` (for the Win32 types
-the header references), targets `x86_64-pc-windows-msvc` with `-fms-extensions`,
-and emits into the `WebView2` namespace against `WebView2Loader.dll`. Regenerate
-with `cargo run -p tool_webview`. Keeping the header (rather than a checked-in
-`.rdl`) means SDK updates are a header drop plus a regenerate. Never hand-edit
-`src/bindings.rs`.
+The clang step needs the SDK headers plus `Windows.Win32.winmd` (for the Win32
+types the headers reference), targets `x86_64-pc-windows-msvc` with
+`-fms-extensions`, and emits into the `WebView2` namespace against
+`WebView2Loader.dll`. Regenerate with `cargo run -p tool_webview`. Keeping the
+headers (rather than a checked-in `.rdl`) means SDK updates are a header drop plus a
+regenerate. Never hand-edit `src/bindings.rs`.
+
+Two headers are passed as separate `.input()` calls — `WebView2.h` (the core COM
+API) and `WebView2Interop.h` (the COM ↔ WinRT bridge, see below). They must be
+listed individually because the clang step only emits each input's *own*
+top-level declarations, not the types it `#include`s; `WebView2Interop.h`
+`#include`s `WebView2.h`, but pointing clang at the interop header alone yields an
+`.rdl` that references `ICoreWebView2` without defining it ("type not found"). The
+shared collector merges both translation units into one `WebView2.rdl`.
+
+### The COM ↔ WinRT interop bridge
+
+`WebView2Interop.h` contributes one interface to the bindings:
+`ICoreWebView2Interop2`, whose single method
+`GetComICoreWebView2() -> ICoreWebView2` is implemented by the **WinRT**
+`Microsoft.Web.WebView2.Core.CoreWebView2` runtime class. This is the supported,
+documented path from the WinRT projection down to the COM `ICoreWebView2` that this
+crate wraps — the two are distinct COM identities and do **not** plain-QI to each
+other. It is what lets the WinUI/WinRT XAML `WebView2` control (whose `CoreWebView2`
+getter returns the WinRT type) be driven through these COM wrappers via
+`WebView::from_core`, so the reactor integration reuses the entire crate instead of
+duplicating it against a WinRT projection.
+
+The canonical WinRT metadata, `winmd/Microsoft.Web.WebView2.Core.winmd`, is vendored
+in the repo's shared `winmd/` directory (the same place the WinUI metadata lives) so
+that both `tool_webview` and `tool_reactor` can resolve the WinRT `CoreWebView2` type
+through `windows-metadata` when generating the reactor-facing bindings.
+
+### Reactor hosting (the `reactor` feature)
+
+The optional `reactor` feature lives entirely behind `#[cfg(feature = "reactor")]`,
+so the default crate stays lean and free of the WinUI/`windows-reactor` dependency.
+It is composed of:
+
+- **A reactor widget.** `windows-reactor` exposes a thin native-handle `WebView2`
+  control (`crates/libs/reactor/src/widgets/web_view2.rs`), mirroring its
+  `SwapChainPanel`. It wraps the XAML `Microsoft.UI.Xaml.Controls.WebView2` and
+  exposes the raw control as an `IInspectable` via `WebView2Handle::as_inspectable`.
+- **A second bindgen pass.** `tool_webview` runs a *second* `windows_bindgen` pass
+  (filter `crates/tools/webview/src/reactor.txt`) over the shared `winmd/` directory,
+  emitting `crates/libs/webview/src/reactor_bindings.rs`. This minimal WinRT surface
+  has just `IWebView2` (`EnsureCoreWebView2Async`, `CoreWebView2`,
+  `CoreWebView2Initialized`), `IFrameworkElement` (`Loaded`, `IsLoaded`), and the
+  opaque `CoreWebView2`/`WebView2` types — referencing `windows_future::IAsyncAction`
+  rather than re-emitting the async machinery.
+- **The bridge.** `src/reactor.rs`'s `webview()` configures the reactor widget's
+  `on_mounted` to cast the control to `IWebView2`, call `EnsureCoreWebView2Async`,
+  and on `CoreWebView2Initialized` convert the WinRT `CoreWebView2` to the COM
+  `ICoreWebView2` through `ICoreWebView2Interop2::GetComICoreWebView2` (the interop
+  bridge above) and wrap it with the feature-gated `WebView::from_core`.
+
+Two runtime subtleties are worth knowing:
+
+- **Deferred to `Loaded`.** The XAML `WebView2` control can only create its
+  `CoreWebView2` once it is attached to a live visual tree. Reactor calls
+  `on_mounted` *before* the control is parented, so calling
+  `EnsureCoreWebView2Async` there fails the async with `HRESULT(0x8007007E)`
+  ("module could not be found") and `CoreWebView2Initialized` never fires. The
+  bridge therefore defers creation to the control's `Loaded` event (running
+  immediately only if `IsLoaded()` is already true). The `Loaded` revoker, the
+  `CoreWebView2Initialized` revoker, and the in-flight `IAsyncAction` are all kept
+  alive in a per-control `Mounted` struct and dropped in `on_unmounted` — dropping
+  the action early can cancel initialization.
+- **`Microsoft.Web.WebView2.Core.dll` must be deployed.** The COM-only path is
+  served by `webview2loader.dll` from the Evergreen runtime, but the XAML control
+  additionally loads the WinRT projection assembly `Microsoft.Web.WebView2.Core.dll`,
+  which ships only in the `Microsoft.Web.WebView2` NuGet package (not the
+  WindowsAppSDK runtime). `windows_reactor_setup::as_self_contained()` stages that
+  package and copies the per-arch `native_uap` DLL next to the executable alongside
+  the WindowsAppSDK runtime, so a self-contained reactor app needs no extra build
+  step.
 
 ### Bindings
 

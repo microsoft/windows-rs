@@ -9,8 +9,19 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[features]
+reactor = ["dep:windows-reactor", "dep:windows-future"]
+
 [dependencies]
 windows-core = { workspace = true }
+
+[dependencies.windows-reactor]
+workspace = true
+optional = true
+
+[dependencies.windows-future]
+workspace = true
+optional = true
 
 [lints]
 workspace = true

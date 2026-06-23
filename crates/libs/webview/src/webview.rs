@@ -97,6 +97,14 @@ impl HostResourceAccessKind {
 pub struct WebView(pub(crate) ICoreWebView2);
 
 impl WebView {
+    /// Wraps an existing `ICoreWebView2`. Used by the optional `reactor` feature
+    /// to build a `WebView` from the WinUI XAML `WebView2` control's bridged COM
+    /// core, so every wrapper here is reusable when hosting inside a reactor tree.
+    #[cfg(feature = "reactor")]
+    pub(crate) fn from_core(core: ICoreWebView2) -> Self {
+        Self(core)
+    }
+
     /// Navigates the browser to the given URI.
     pub fn navigate(&self, uri: &str) -> Result<()> {
         let uri = string::encode(uri);

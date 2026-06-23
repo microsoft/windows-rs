@@ -3624,6 +3624,32 @@ pub struct ICoreWebView2HttpRequestHeaders_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICoreWebView2Interop2,
+    ICoreWebView2Interop2_Vtbl,
+    0xb151ad7c_cfb0_4ecf_b9b2_afca868581a6
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2Interop2, windows_core::IUnknown);
+impl ICoreWebView2Interop2 {
+    pub(crate) unsafe fn GetComICoreWebView2(&self) -> windows_core::Result<ICoreWebView2> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetComICoreWebView2)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2Interop2_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetComICoreWebView2: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICoreWebView2MoveFocusRequestedEventArgs,
     ICoreWebView2MoveFocusRequestedEventArgs_Vtbl,
     0x2d6aa13b_3839_4a15_92fc_d88b3c0d9c9d

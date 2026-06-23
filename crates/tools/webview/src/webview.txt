@@ -92,6 +92,7 @@
     WebView2.COREWEBVIEW2_WEB_RESOURCE_CONTEXT
     WebView2.ICoreWebView2ProcessFailedEventArgs::{get_ProcessFailedKind}
     WebView2.COREWEBVIEW2_PROCESS_FAILED_KIND
+    WebView2.ICoreWebView2Interop2::{GetComICoreWebView2}
 
     Windows.Win32.UI.Shell.SHCreateMemStream
 
