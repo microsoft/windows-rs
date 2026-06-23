@@ -98,6 +98,7 @@ pub enum ControlKind {
     RelativePanel,
     ToggleButton,
     SwapChainPanel,
+    WebView2,
 }
 
 /// Closed enum of every property that can be set on a control. Each

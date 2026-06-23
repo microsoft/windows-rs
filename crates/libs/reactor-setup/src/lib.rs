@@ -8,6 +8,9 @@ const RUNTIME_VER: &str = "2.1.3";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
+const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
+const WEBVIEW2_VER: &str = "1.0.4022.49";
+const WEBVIEW2_CORE_DLL: &str = "Microsoft.Web.WebView2.Core.dll";
 
 fn assert_windows() {
     match env::var("CARGO_CFG_TARGET_OS").as_deref() {
@@ -53,6 +56,7 @@ pub fn as_self_contained() {
     let runtime = stage_pkg(RUNTIME_PKG, RUNTIME_VER, &temp_dir);
     let extract = ensure_msix_extracted(&runtime);
     copy_runtime_to(&extract, &target_dir_from_out(&out_dir));
+    deploy_webview2(&temp_dir, &target_dir_from_out(&out_dir));
 
     let manifest_path = out_dir.join("app.manifest");
     fs::write(&manifest_path, APP_MANIFEST).unwrap_or_else(|e| {
@@ -80,6 +84,22 @@ pub fn as_self_contained() {
         }
         _ => panic!("unsupported target environment: {target_env}{target_abi}"),
     }
+}
+
+/// Deploys `Microsoft.Web.WebView2.Core.dll` next to the executable.
+///
+/// The XAML `WebView2` control hosted by `windows-webview`'s `reactor` feature
+/// loads this WinRT projection assembly at runtime. Unlike the COM-only path
+/// (`webview2loader.dll`, supplied by the Evergreen runtime), it is not present
+/// on the machine by default, so a self-contained app must carry it alongside
+/// the other runtime DLLs.
+fn deploy_webview2(temp: &Path, dest: &Path) {
+    let pkg = stage_pkg(WEBVIEW2_PKG, WEBVIEW2_VER, temp);
+    let src = pkg
+        .join(format!("win-{}", target_arch()))
+        .join("native_uap")
+        .join(WEBVIEW2_CORE_DLL);
+    copy_file(&src, dest, WEBVIEW2_CORE_DLL);
 }
 
 fn out_dir() -> PathBuf {

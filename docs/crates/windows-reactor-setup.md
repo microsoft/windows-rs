@@ -35,6 +35,16 @@ for contributors and is **not needed to use `windows-reactor-setup`**.
 A small unpublished helper crate that drives the Windows App Runtime
 installer/bootstrapper.
 
+`as_self_contained()` also stages `Microsoft.Web.WebView2.Core.dll` from the
+`Microsoft.Web.WebView2` NuGet package and copies the per-architecture
+`native_uap` build next to the executable. The XAML `WebView2` control used by
+[`windows-webview`](windows-webview.md)'s `reactor` feature loads that WinRT
+projection assembly at runtime, and — unlike the COM-only `webview2loader.dll`
+supplied by the Evergreen runtime — it is not present on the machine by default.
+Bundling it unconditionally keeps reactor apps that host a WebView2 working with
+no extra build step. The allow-list of WindowsAppSDK runtime files lives in
+`assets/runtime.txt`.
+
 ### Testing
 
 Run `cargo test -p windows-reactor-setup`; see also the workspace test crates.

@@ -89,4 +89,5 @@ widget_modules! {
     toggle_switch,
     tree_view,
     viewbox,
+    web_view2,
 }

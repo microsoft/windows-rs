@@ -212,6 +212,7 @@ Microsoft::UI::Xaml::Controls::ToolTipService::{SetPlacement, SetToolTip}
 Microsoft::UI::Xaml::Controls::TreeViewItemInvokedEventArgs
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeViewSelectionMode
+Microsoft::UI::Xaml::Controls::WebView2::CreateInstance
 Microsoft::UI::Xaml::Controls::UIElementCollection
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
 Microsoft::UI::Xaml::CornerRadius

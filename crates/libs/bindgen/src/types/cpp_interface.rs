@@ -200,21 +200,31 @@ impl CppInterface {
                 });
             }
 
-            let method_names = &mut MethodNames::for_style(&config.bindgen.style);
-            let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
+            // In minimal mode, interfaces listed in `--implement` are meant to be
+            // implemented via their `_Impl` trait rather than called, so suppress the
+            // caller-side method wrappers to avoid emitting dead code. This mirrors the
+            // WinRT interface path (see `interface.rs`).
+            let suppress_methods = config.bindgen.style.is_minimal()
+                && config.should_implement(self.def.type_name(), false);
+
             let mut methods_tokens = quote! {};
 
-            for method in methods.iter().filter_map(|method| match &method {
-                CppMethodOrName::Method(method) => Some(method),
-                _ => None,
-            }) {
-                let cfg = method.write_cfg(config, &class_cfg, false);
-                let method = method.write(config, method_names, virtual_names);
+            if !suppress_methods {
+                let method_names = &mut MethodNames::for_style(&config.bindgen.style);
+                let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
 
-                methods_tokens.combine(quote! {
-                    #cfg
-                    #method
-                });
+                for method in methods.iter().filter_map(|method| match &method {
+                    CppMethodOrName::Method(method) => Some(method),
+                    _ => None,
+                }) {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
+                    let method = method.write(config, method_names, virtual_names);
+
+                    methods_tokens.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
             }
 
             if !methods_tokens.is_empty() {

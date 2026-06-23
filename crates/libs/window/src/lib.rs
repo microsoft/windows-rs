@@ -4,5 +4,5 @@
 mod bindings;
 mod window;
 
-pub use window::{Window, WindowBuilder, quit, run, run_with};
+pub use window::{Window, WindowBuilder, pump, quit, run, run_with};
 pub use windows_core::Result;

@@ -142,6 +142,19 @@ returns a `SwapChainPanel` element that redraws every frame and recovers from
 device loss automatically — see the `canvas` samples. For raw Direct3D, the
 `swap_chain_panel` sample drives a `SwapChainPanel` with `on_rendering`.
 
+## Web content integration
+
+To host a browser, use [`windows-webview`](windows-webview.md)'s `webview(on_ready)`
+(enable the `reactor` feature on `windows-webview`). It returns a `WebView2` element
+backed by the WinUI XAML `WebView2` control and hands you a ready-to-drive `WebView`
+once the browser initializes — see the `reactor/webview` sample. Reactor exposes the
+control as a thin native-handle widget (mirroring `SwapChainPanel`): the widget owns
+the XAML control, and `windows-webview` attaches to it through its `IInspectable`
+handle, defers `EnsureCoreWebView2Async` to the control's `Loaded` event, and bridges
+the WinRT `CoreWebView2` to the COM `ICoreWebView2` the crate wraps. The
+`as_self_contained()` setup carries the required `Microsoft.Web.WebView2.Core.dll`
+automatically.
+
 ## Samples
 
 The [`crates/samples/reactor`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
@@ -154,6 +167,7 @@ tree is the best reference:
   `tictactoe`, `dotsweeper`, `diagnostics_demo`.
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
 - **`direct2d`** / **`swap_chain_panel`** — hosting Direct2D / Direct3D content.
+- **`webview`** — hosting a WebView2 browser via `windows-webview`'s `reactor` feature.
 - **`framework-dependent`** / **`self-contained`** — the two deployment models,
   differing only in `build.rs`.
 

@@ -1,0 +1,9 @@
+--in winmd
+--out crates/libs/webview/src/reactor_bindings.rs
+--flat --minimal
+--implement
+    Windows.Foundation.TypedEventHandler
+    Microsoft.UI.Xaml.RoutedEventHandler
+--filter
+    Microsoft.UI.Xaml.Controls.IWebView2::{EnsureCoreWebView2Async, get_CoreWebView2, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
+    Microsoft.UI.Xaml.IFrameworkElement::{add_Loaded, remove_Loaded, get_IsLoaded}

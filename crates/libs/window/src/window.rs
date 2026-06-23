@@ -203,6 +203,27 @@ pub fn quit() {
     unsafe { PostQuitMessage(0) };
 }
 
+/// Dispatches all currently-pending messages without blocking, then returns.
+///
+/// Returns `false` if a quit message was received (the caller should stop
+/// pumping) or `true` otherwise. Unlike [`run`], this never blocks waiting for
+/// the next message, so callers can drive the message loop while waiting on an
+/// external condition — for example pumping until an asynchronous callback
+/// completes.
+pub fn pump() -> bool {
+    unsafe {
+        let mut message = MSG::default();
+        while PeekMessageW(&mut message, core::ptr::null_mut(), 0, 0, PM_REMOVE).as_bool() {
+            if message.message == WM_QUIT {
+                return false;
+            }
+            _ = TranslateMessage(&message);
+            DispatchMessageW(&message);
+        }
+        true
+    }
+}
+
 fn class_name() -> PCWSTR {
     static NAME: OnceLock<Vec<u16>> = OnceLock::new();
     let name = NAME.get_or_init(|| "windows-window.Window\0".encode_utf16().collect());
@@ -212,6 +233,7 @@ fn class_name() -> PCWSTR {
 unsafe fn register_class() {
     static REGISTER: OnceLock<()> = OnceLock::new();
     REGISTER.get_or_init(|| unsafe {
+        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         let wc = WNDCLASSW {
             style: CS_HREDRAW | CS_VREDRAW,
             lpfnWndProc: Some(wndproc),

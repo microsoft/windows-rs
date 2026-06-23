@@ -1,0 +1,108 @@
+--in target/webview default
+--out crates/libs/webview/src/bindings.rs
+--flat --minimal --dead-code
+--implement
+    WebView2.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
+    WebView2.ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
+    WebView2.ICoreWebView2ExecuteScriptCompletedHandler
+    WebView2.ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
+    WebView2.ICoreWebView2NavigationCompletedEventHandler
+    WebView2.ICoreWebView2WebMessageReceivedEventHandler
+    WebView2.ICoreWebView2NavigationStartingEventHandler
+    WebView2.ICoreWebView2EnvironmentOptions
+    WebView2.ICoreWebView2ContentLoadingEventHandler
+    WebView2.ICoreWebView2DocumentTitleChangedEventHandler
+    WebView2.ICoreWebView2WindowCloseRequestedEventHandler
+    WebView2.ICoreWebView2NewWindowRequestedEventHandler
+    WebView2.ICoreWebView2PermissionRequestedEventHandler
+    WebView2.ICoreWebView2DownloadStartingEventHandler
+    WebView2.ICoreWebView2StateChangedEventHandler
+    WebView2.ICoreWebView2BytesReceivedChangedEventHandler
+    WebView2.ICoreWebView2WebResourceRequestedEventHandler
+    WebView2.ICoreWebView2ProcessFailedEventHandler
+    WebView2.ICoreWebView2FocusChangedEventHandler
+    WebView2.ICoreWebView2MoveFocusRequestedEventHandler
+    WebView2.ICoreWebView2AcceleratorKeyPressedEventHandler
+    WebView2.ICoreWebView2GetCookiesCompletedHandler
+    WebView2.ICoreWebView2ContainsFullScreenElementChangedEventHandler
+    WebView2.ICoreWebView2ClearBrowsingDataCompletedHandler
+    WebView2.ICoreWebView2EnvironmentOptions6
+    WebView2.ICoreWebView2EnvironmentOptions8
+
+--filter
+    WebView2.CreateCoreWebView2Environment
+    WebView2.CreateCoreWebView2EnvironmentWithOptions
+    WebView2.ICoreWebView2EnvironmentOptions
+    WebView2.ICoreWebView2::{Navigate, NavigateToString, Reload, Stop, GoBack, GoForward, get_Source, get_DocumentTitle, get_Settings, ExecuteScript, AddScriptToExecuteOnDocumentCreated, RemoveScriptToExecuteOnDocumentCreated, OpenDevToolsWindow, get_ContainsFullScreenElement, add_ContainsFullScreenElementChanged, remove_ContainsFullScreenElementChanged, add_NavigationCompleted, remove_NavigationCompleted, add_NavigationStarting, remove_NavigationStarting, PostWebMessageAsJson, PostWebMessageAsString, add_WebMessageReceived, remove_WebMessageReceived, add_ContentLoading, remove_ContentLoading, add_DocumentTitleChanged, remove_DocumentTitleChanged, add_WindowCloseRequested, remove_WindowCloseRequested, add_NewWindowRequested, remove_NewWindowRequested, add_PermissionRequested, remove_PermissionRequested, add_WebResourceRequested, remove_WebResourceRequested, AddWebResourceRequestedFilter, RemoveWebResourceRequestedFilter, add_ProcessFailed, remove_ProcessFailed}
+    WebView2.ICoreWebView2Settings::{get_IsScriptEnabled, put_IsScriptEnabled, get_IsWebMessageEnabled, put_IsWebMessageEnabled, get_AreDefaultScriptDialogsEnabled, put_AreDefaultScriptDialogsEnabled, get_IsStatusBarEnabled, put_IsStatusBarEnabled, get_AreDevToolsEnabled, put_AreDevToolsEnabled, get_AreDefaultContextMenusEnabled, put_AreDefaultContextMenusEnabled, get_AreHostObjectsAllowed, put_AreHostObjectsAllowed, get_IsZoomControlEnabled, put_IsZoomControlEnabled, get_IsBuiltInErrorPageEnabled, put_IsBuiltInErrorPageEnabled}
+    WebView2.ICoreWebView2Settings2::{get_UserAgent, put_UserAgent}
+    WebView2.ICoreWebView2Settings3::{get_AreBrowserAcceleratorKeysEnabled, put_AreBrowserAcceleratorKeysEnabled}
+    WebView2.ICoreWebView2Settings4::{get_IsGeneralAutofillEnabled, put_IsGeneralAutofillEnabled, get_IsPasswordAutosaveEnabled, put_IsPasswordAutosaveEnabled}
+    WebView2.ICoreWebView2Settings5::{get_IsPinchZoomEnabled, put_IsPinchZoomEnabled}
+    WebView2.ICoreWebView2Settings6::{get_IsSwipeNavigationEnabled, put_IsSwipeNavigationEnabled}
+    WebView2.ICoreWebView2Settings9::{get_IsNonClientRegionSupportEnabled, put_IsNonClientRegionSupportEnabled}
+    WebView2.ICoreWebView2Controller::{put_IsVisible, put_Bounds, Close, get_CoreWebView2, MoveFocus, NotifyParentWindowPositionChanged, add_GotFocus, remove_GotFocus, add_LostFocus, remove_LostFocus, add_MoveFocusRequested, remove_MoveFocusRequested, add_AcceleratorKeyPressed, remove_AcceleratorKeyPressed, get_ZoomFactor, put_ZoomFactor}
+    WebView2.ICoreWebView2Controller2::{get_DefaultBackgroundColor, put_DefaultBackgroundColor}
+    WebView2.ICoreWebView2Controller3::{get_RasterizationScale, put_RasterizationScale, get_ShouldDetectMonitorScaleChanges, put_ShouldDetectMonitorScaleChanges}
+    WebView2.COREWEBVIEW2_COLOR
+    WebView2.ICoreWebView2MoveFocusRequestedEventArgs::{get_Reason, get_Handled, put_Handled}
+    WebView2.ICoreWebView2AcceleratorKeyPressedEventArgs::{get_KeyEventKind, get_VirtualKey, get_Handled, put_Handled}
+    WebView2.COREWEBVIEW2_MOVE_FOCUS_REASON
+    WebView2.COREWEBVIEW2_KEY_EVENT_KIND
+    WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
+    WebView2.ICoreWebView2Environment10::{CreateCoreWebView2ControllerOptions, CreateCoreWebView2ControllerWithOptions}
+    WebView2.ICoreWebView2ControllerOptions::{put_ProfileName, put_IsInPrivateModeEnabled}
+    WebView2.ICoreWebView2ControllerOptions3::{put_DefaultBackgroundColor}
+    WebView2.ICoreWebView2NavigationCompletedEventArgs::{get_IsSuccess, get_NavigationId}
+    WebView2.ICoreWebView2NavigationStartingEventArgs::{get_Uri, get_IsUserInitiated, get_IsRedirected, get_Cancel, put_Cancel, get_NavigationId}
+    WebView2.ICoreWebView2WebMessageReceivedEventArgs::{get_Source, get_WebMessageAsJson, TryGetWebMessageAsString}
+    WebView2.ICoreWebView2ContentLoadingEventArgs::{get_IsErrorPage, get_NavigationId}
+    WebView2.ICoreWebView2NewWindowRequestedEventArgs::{get_Uri, get_IsUserInitiated, get_Handled, put_Handled, put_NewWindow, GetDeferral}
+    WebView2.ICoreWebView2PermissionRequestedEventArgs::{get_Uri, get_PermissionKind, get_IsUserInitiated, get_State, put_State, GetDeferral}
+    WebView2.ICoreWebView2_2::{get_Environment, get_CookieManager, NavigateWithWebResourceRequest}
+    WebView2.ICoreWebView2_13::get_Profile
+    WebView2.ICoreWebView2_19::{get_MemoryUsageTargetLevel, put_MemoryUsageTargetLevel}
+    WebView2.COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL
+    WebView2.ICoreWebView2Controller4::{get_AllowExternalDrop, put_AllowExternalDrop}
+    WebView2.ICoreWebView2Environment2::CreateWebResourceRequest
+    WebView2.ICoreWebView2EnvironmentOptions6
+    WebView2.ICoreWebView2EnvironmentOptions8
+    WebView2.COREWEBVIEW2_SCROLLBAR_STYLE
+    WebView2.ICoreWebView2Profile::{get_ProfileName, get_IsInPrivateModeEnabled, get_ProfilePath, get_DefaultDownloadFolderPath, put_DefaultDownloadFolderPath, get_PreferredColorScheme, put_PreferredColorScheme}
+    WebView2.ICoreWebView2Profile2::ClearBrowsingDataAll
+    WebView2.COREWEBVIEW2_PREFERRED_COLOR_SCHEME
+    WebView2.ICoreWebView2CookieManager::{CreateCookie, GetCookies, AddOrUpdateCookie, DeleteCookies, DeleteCookiesWithDomainAndPath, DeleteAllCookies}
+    WebView2.ICoreWebView2CookieList::{get_Count, GetValueAtIndex}
+    WebView2.ICoreWebView2Cookie::{get_Name, get_Value, get_Domain, get_Path, get_IsHttpOnly, put_IsHttpOnly, get_SameSite, put_SameSite, get_IsSecure, put_IsSecure, get_IsSession, get_Expires, put_Expires}
+    WebView2.COREWEBVIEW2_COOKIE_SAME_SITE_KIND
+    WebView2.ICoreWebView2_3::{SetVirtualHostNameToFolderMapping, ClearVirtualHostNameToFolderMapping}
+    WebView2.COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND
+    WebView2.ICoreWebView2_4::{add_DownloadStarting, remove_DownloadStarting}
+    WebView2.ICoreWebView2_22::{AddWebResourceRequestedFilterWithRequestSourceKinds, RemoveWebResourceRequestedFilterWithRequestSourceKinds}
+    WebView2.COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS
+    WebView2.ICoreWebView2DownloadStartingEventArgs::{get_DownloadOperation, get_Cancel, put_Cancel, get_ResultFilePath, put_ResultFilePath, get_Handled, put_Handled, GetDeferral}
+    WebView2.ICoreWebView2DownloadOperation::{add_BytesReceivedChanged, remove_BytesReceivedChanged, add_StateChanged, remove_StateChanged, get_Uri, get_ContentDisposition, get_MimeType, get_TotalBytesToReceive, get_BytesReceived, get_ResultFilePath, get_State, get_InterruptReason, get_CanResume, Cancel, Pause, Resume}
+    WebView2.ICoreWebView2Deferral::Complete
+    WebView2.ICoreWebView2Environment::CreateWebResourceResponse
+    WebView2.ICoreWebView2WebResourceRequestedEventArgs::{get_Request, put_Response}
+    WebView2.ICoreWebView2WebResourceRequest::{get_Uri, get_Method, get_Headers}
+    WebView2.ICoreWebView2WebResourceResponse
+    WebView2.ICoreWebView2HttpRequestHeaders::{GetIterator}
+    WebView2.ICoreWebView2HttpHeadersCollectionIterator::{GetCurrentHeader, get_HasCurrentHeader, MoveNext}
+    WebView2.COREWEBVIEW2_WEB_RESOURCE_CONTEXT
+    WebView2.ICoreWebView2ProcessFailedEventArgs::{get_ProcessFailedKind}
+    WebView2.COREWEBVIEW2_PROCESS_FAILED_KIND
+    WebView2.ICoreWebView2Interop2::{GetComICoreWebView2}
+
+    Windows.Win32.UI.Shell.SHCreateMemStream
+
+    Windows.Win32.System.Com.CoTaskMemAlloc
+    Windows.Win32.System.Com.CoTaskMemFree
+    Windows.Win32.System.Com.CoInitializeEx
+    Windows.Win32.System.Com.COINIT_APARTMENTTHREADED
+    Windows.Win32.Foundation.RPC_E_CHANGED_MODE
+    Windows.Win32.Foundation.E_OUTOFMEMORY
+    Windows.Win32.UI.WindowsAndMessaging.GetMessageW
+    Windows.Win32.UI.WindowsAndMessaging.TranslateMessage
+    Windows.Win32.UI.WindowsAndMessaging.DispatchMessageW
+    Windows.Win32.UI.WindowsAndMessaging.MSG
