@@ -277,10 +277,8 @@ impl WebView {
     /// is created, returning a [`ScriptId`] that can later be passed to
     /// [`remove_script_to_execute_on_document_created`](Self::remove_script_to_execute_on_document_created).
     ///
-    /// This is the way to inject code (for example a host-communication
-    /// bootstrap) before the page's own scripts run. It pumps the calling
-    /// thread's message loop until registration completes, so call it during
-    /// setup before handing control to your own message loop.
+    /// Pumps the calling thread's message loop until registration completes, so
+    /// call it during setup before handing control to your own message loop.
     pub fn add_script_to_execute_on_document_created(&self, javascript: &str) -> Result<ScriptId> {
         let javascript = string::encode(javascript);
         let slot = pump::slot();
@@ -444,7 +442,13 @@ impl WebView {
         let filter = string::encode(uri_filter);
         unsafe { protocol::add_requested_filter(&self.0, filter.as_ptr())? };
         let handler = protocol::WebResourceRequested::create(environment, handler);
-        let token = unsafe { self.0.add_WebResourceRequested(&handler)? };
+        let token = match unsafe { self.0.add_WebResourceRequested(&handler) } {
+            Ok(token) => token,
+            Err(err) => {
+                unsafe { protocol::remove_requested_filter(&self.0, filter.as_ptr()) };
+                return Err(err);
+            }
+        };
         let source = self.0.clone();
         Ok(EventRegistration::new(move || {
             let _ = unsafe { source.remove_WebResourceRequested(token) };

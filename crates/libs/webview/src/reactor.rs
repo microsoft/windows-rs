@@ -8,9 +8,8 @@ use std::rc::Rc;
 /// Returns the reactor [`WebView2`](windows_reactor::WebView2) control element.
 /// Once the underlying browser is ready, `on_ready` is called with a [`WebView`]
 /// that drives the same COM `ICoreWebView2` surface as the standalone crate, so
-/// navigation, scripting, IPC, cookies, settings, and every other wrapper work
-/// identically whether the browser is hosted by `windows-window` or by a reactor
-/// XAML tree.
+/// every wrapper behaves identically whether the browser is hosted by
+/// `windows-window` or by a reactor XAML tree.
 ///
 /// ```ignore
 /// webview(|web| {
