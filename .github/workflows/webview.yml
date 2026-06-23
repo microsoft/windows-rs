@@ -1,0 +1,43 @@
+name: test_webview
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: webview-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  RUST_BACKTRACE: "1"
+  CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
+
+jobs:
+  selftest:
+    name: cargo run -p test_webview
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install WebView2 Evergreen runtime
+        shell: pwsh
+        run: |
+          $installerUrl = "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
+          $installerPath = "$env:TEMP\MicrosoftEdgeWebview2Setup.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          Start-Process -FilePath $installerPath -ArgumentList "/silent", "/install" -Wait -PassThru | Out-Null
+
+      - name: cargo run -p test_webview -- --headless
+        run: cargo run -p test_webview -- --headless
+        shell: pwsh

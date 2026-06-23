@@ -66,6 +66,10 @@ fall through to default processing. This keeps shared state behind an
   `Ok(())` when the window closes, or early if `render` returns an error.
 - **`quit()`** — posts a quit message. An unhandled `WM_DESTROY` posts one
   automatically, so closing the window ends the loop without extra code.
+- **`pump()`** — dispatches all currently-pending messages without blocking and
+  returns `false` if a quit was received. Lets a caller drive the loop while
+  waiting on an external condition, such as pumping until an asynchronous
+  callback completes.
 
 ## Samples
 
