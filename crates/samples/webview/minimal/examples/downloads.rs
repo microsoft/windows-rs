@@ -34,7 +34,19 @@ fn main() -> Result<()> {
             downloads.extend(bytes.into_iter().chain(state));
         })?;
 
-        webview.navigate("https://learn.microsoft.com/windows/dev-environment/")?;
+        // Trigger a download as soon as the page loads so the handler fires
+        // without any user interaction. The blob is saved to the default
+        // downloads folder.
+        webview.navigate_to_string(
+            "<!DOCTYPE html><html><body><script>\
+             const blob = new Blob(['hello from windows-rs'], { type: 'application/octet-stream' });\
+             const link = document.createElement('a');\
+             link.href = URL.createObjectURL(blob);\
+             link.download = 'windows-rs-sample.txt';\
+             document.body.appendChild(link);\
+             link.click();\
+             </script></body></html>",
+        )?;
         Ok(vec![download])
     })
 }

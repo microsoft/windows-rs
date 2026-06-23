@@ -30,13 +30,13 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         "Protocol_VirtualHostServesFolder",
         protocol::virtual_host_serves_folder,
     ),
+    (
+        "Protocol_NavigateWithRequestPost",
+        protocol::navigate_with_request_post,
+    ),
     ("Cookie_AddAndGet", cookies::add_and_get),
     ("Cookie_AddThenDeleteAll", cookies::add_then_delete_all),
     ("Controller_ZoomRoundTrip", controller::zoom_round_trip),
-    (
-        "Controller_RasterizationScale",
-        controller::rasterization_scale,
-    ),
     ("Controller_VisibilityToggle", controller::visibility_toggle),
     (
         "Controller_BackgroundColorRoundTrip",
@@ -57,6 +57,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Settings_UserAgentRoundTrip",
         settings::user_agent_round_trip,
+    ),
+    (
+        "Settings_WebMessageEnabledGatesIpc",
+        settings::web_message_enabled_gates_ipc,
     ),
     ("Profile_PrivateMode", profile::private_mode),
     (

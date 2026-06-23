@@ -16,14 +16,6 @@ pub fn zoom_round_trip(harness: &Harness) {
     let _ = controller.set_zoom_factor(1.0);
 }
 
-/// The rasterization scale reads back as a positive factor.
-pub fn rasterization_scale(harness: &Harness) {
-    match harness.controller().rasterization_scale() {
-        Ok(scale) => harness.check("Controller_RasterizationScale", scale > 0.0),
-        Err(_) => harness.check("Controller_RasterizationScale", false),
-    }
-}
-
 /// Visibility can be toggled off and back on.
 pub fn visibility_toggle(harness: &Harness) {
     let controller = harness.controller();

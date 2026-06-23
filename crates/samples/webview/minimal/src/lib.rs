@@ -56,8 +56,18 @@ where
         })
         .create()?;
 
-    let environment = Environment::new()?;
-    let handle = create(&environment, window.hwnd())?;
+    let environment = match Environment::new() {
+        Ok(environment) => environment,
+        // The window was closed before WebView2 finished initializing.
+        Err(error) if error.code().0 == E_ABORT || error.code().is_ok() => return Ok(()),
+        Err(error) => return Err(error),
+    };
+    let handle = match create(&environment, window.hwnd()) {
+        Ok(handle) => handle,
+        // WebView2 reports E_ABORT when its host window is destroyed mid-startup.
+        Err(error) if error.code().0 == E_ABORT || error.code().is_ok() => return Ok(()),
+        Err(error) => return Err(error),
+    };
     let (width, height) = window.client_size();
     handle.set_bounds(0, 0, width, height)?;
 
@@ -69,3 +79,10 @@ where
     drop(registrations);
     Ok(())
 }
+
+/// `E_ABORT`: WebView2 destroys controller creation when its host window is
+/// closed mid-startup. Draining the resulting `WM_QUIT` surfaces a
+/// success-coded "empty" error from the message loop. Either signal means the
+/// app is shutting down, so the example exits cleanly instead of reporting a
+/// failure.
+const E_ABORT: i32 = 0x8000_4004u32 as i32;

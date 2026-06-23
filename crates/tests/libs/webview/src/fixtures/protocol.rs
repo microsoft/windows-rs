@@ -4,7 +4,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use windows_webview::{HostResourceAccessKind, WebResourceResponse};
+use windows_webview::{HostResourceAccessKind, NavigationRequest, WebResourceResponse};
 
 use crate::harness::Harness;
 
@@ -88,4 +88,57 @@ pub fn virtual_host_serves_folder(harness: &Harness) {
     );
 
     let _ = webview.clear_virtual_host_name_to_folder_mapping("vhost.example");
+}
+
+/// `navigate_with_request` sends the chosen HTTP method and body, which the
+/// `on_web_resource_requested` handler reads back from the intercepted request.
+pub fn navigate_with_request_post(harness: &Harness) {
+    let webview = harness.webview();
+    let request: Rc<RefCell<Option<String>>> = Rc::new(RefCell::new(None));
+    let sink = request.clone();
+
+    let Ok(registration) =
+        webview.on_web_resource_requested("https://selftest.post/*", move |request| {
+            *sink.borrow_mut() = Some(request.method());
+            Some(
+                WebResourceResponse::new(
+                    "<!DOCTYPE html><html><head><title>Posted</title></head></html>",
+                )
+                .content_type("text/html"),
+            )
+        })
+    else {
+        harness.check("Post_Subscribe", false);
+        return;
+    };
+
+    // Wait for the navigation to fully complete so it does not bleed into the
+    // next fixture's navigation.
+    let completed: Rc<RefCell<Option<bool>>> = Rc::new(RefCell::new(None));
+    let sink = completed.clone();
+    let Ok(nav_registration) =
+        webview.on_navigation_completed(move |args| *sink.borrow_mut() = Some(args.is_success()))
+    else {
+        harness.check("Post_NavSubscribe", false);
+        return;
+    };
+
+    let nav = NavigationRequest::new("https://selftest.post/submit")
+        .method("POST")
+        .header("Content-Type", "text/plain")
+        .body(b"payload".to_vec());
+    if webview.navigate_with_request(&nav).is_err() {
+        harness.check("Post_Navigate", false);
+        return;
+    }
+
+    let done = harness.wait(|| completed.borrow().is_some());
+    harness.check(
+        "Post_NavCompleted",
+        done && completed.borrow().unwrap_or(false),
+    );
+    harness.check("Post_Method", request.borrow().as_deref() == Some("POST"));
+
+    drop(nav_registration);
+    drop(registration);
 }
