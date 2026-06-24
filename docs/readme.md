@@ -1,5 +1,3 @@
-# Rust for Windows — documentation
-
 This repo provides a comprehensive set of Rust crates for building Windows applications — from low-level API access to high-level declarative UI.
 
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
