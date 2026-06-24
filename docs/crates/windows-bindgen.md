@@ -13,6 +13,13 @@
 APIs you call. The generator ships with the standard Windows metadata bundled, so
 you usually only need to choose an output file and a filter.
 
+`windows-bindgen` is the back half of the metadata pipeline: it expects a
+`.winmd` and produces Rust. When an API has no metadata yet — because it ships
+only as a C/C++ header, or because you are authoring types by hand — use
+[`windows-rdl`](windows-rdl.md) to manufacture a `.winmd` first, then point
+`windows-bindgen` at it. `tool_webview` and `tool_reactor` chain the two crates
+exactly this way.
+
 ## Getting started
 
 Add `windows-bindgen` as a build dependency, and `windows-link` (or `windows-core`)
