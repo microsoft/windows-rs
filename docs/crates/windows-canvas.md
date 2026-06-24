@@ -279,7 +279,7 @@ Tests render with the WARP software rasterizer, so they need no GPU:
 
 `windows-canvas` is an idiomatic Rust port of Win2D, but it deliberately covers
 only the most common drawing path so far. This section catalogs the gaps against
-Win2D's full surface (`D:\git\win2d\winrt\lib\*.abi.idl`) so contributors can see
+Win2D's full surface ([Win2D](https://github.com/microsoft/Win2D), `winrt/lib/*.abi.idl`) so contributors can see
 where the crate is headed. The goal is **not** a 1:1 port — Win2D is ~400K lines
 of C++ and wraps ~100 effects — but to reach the capabilities real apps need, in
 a smaller, safe, idiomatic API.

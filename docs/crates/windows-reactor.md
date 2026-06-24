@@ -298,7 +298,7 @@ normal/published builds leave off.
 ### Future work — C# reactor parity
 
 `windows-reactor` is the Rust counterpart of the C# **`microsoft-ui-reactor`**
-framework (`D:\git\microsoft-ui-reactor`), already referenced above for the
+framework ([microsoft-ui-reactor](https://github.com/microsoft/microsoft-ui-reactor)), already referenced above for the
 `stress_perf` performance benchmarks. The C# project is considerably more mature —
 ~50 hooks, ~80 control factories, and whole subsystems for validation, charting,
 docking, and localization. This section catalogs the gaps so contributors can see
