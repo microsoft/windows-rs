@@ -591,3 +591,98 @@ and a message pump, which is awkward in headless CI. Verify with
 `cargo run -p tool_webview`, `cargo check -p windows-webview`,
 `cargo clippy -p windows-webview --all-targets`, and `cargo test -p windows-webview`
 (doctest).
+
+### Future work — WebView2 parity and family fit
+
+`windows-webview` exposes a curated, minimal slice of the large WebView2 COM
+surface (see *Capabilities* above for what is covered and *out of scope*). This
+section reframes those gaps as prioritized future work and, like the other crates
+in the family, sets out how webview complements
+[`windows-reactor`](windows-reactor.md) and [`windows-canvas`](windows-canvas.md).
+
+Ordered roughly by impact; "present" notes what already exists.
+
+#### 1. Windowless (Composition) hosting *(high)*
+
+Present: HWND hosting (`Controller`) and the WinUI XAML control (reactor feature) —
+both put the browser in its own window/airspace.
+
+Missing: `ICoreWebView2CompositionController` /
+`CreateCoreWebView2CompositionController`, which host the browser in a
+**Composition visual** instead of an HWND. This is the single biggest
+complementarity gap: an HWND overlay can't be clipped, transformed, rounded,
+z-ordered, or animated with the surrounding UI. Windowless hosting would let
+webview participate in the same visual tree as canvas and reactor — true
+transparency, transforms, and animation — rather than floating above it.
+
+#### 2. Host objects and richer IPC *(medium-high)*
+
+Present: `postMessage` string/JSON both directions, plus document-created script
+injection and `execute_script`.
+
+Missing: `AddHostObjectToScript` (expose typed host objects so page script can
+call host methods directly, beyond message passing) and
+`PostSharedBufferToScript` / shared buffers for **zero-copy** transfer of large
+data (e.g. handing a dataset — or canvas-produced bytes — to the page without
+serializing through JSON).
+
+#### 3. DevTools Protocol *(medium)*
+
+`CallDevToolsProtocolMethod` and `GetDevToolsProtocolEventReceiver` expose the
+Chrome DevTools Protocol — automation, performance tracing, network inspection,
+emulation, and scripted control. Valuable for testing and tooling.
+
+#### 4. Print and capture *(medium)*
+
+`PrintToPdf` / `PrintToPdfStream` / `Print` render a page to PDF (pairs with the
+canvas printing gap), and `CapturePreview` captures the page as a bitmap — which
+could feed a canvas `Bitmap` for thumbnails or compositing.
+
+#### 5. More events and page state *(medium)*
+
+Present: navigation lifecycle, content-loading, document-title, window-close,
+new-window, permission, process-failed, fullscreen, download, and web-resource
+events.
+
+Missing app-relevant events: **`HistoryChanged`** (to enable/disable back/forward
+buttons — useful for a reactor toolbar), **`ContextMenuRequested`** (replace the
+browser context menu with a native one), the authentication flows
+(`BasicAuthenticationRequested`, `ClientCertificateRequested`,
+`ServerCertificateError`), `SourceChanged`, `WebResourceResponseReceived`,
+`FaviconChanged`, and audio state (`IsMuted` / `IsDocumentPlayingAudio`).
+
+#### 6. Frames and lifecycle *(low-medium)*
+
+`ICoreWebView2Frame` (iframe navigation and events) and `TrySuspend`/`Resume` (the
+crate currently exposes only the `MemoryUsageTargetLevel` hint).
+
+#### How it fits with reactor and canvas
+
+webview is already a first-class reactor content surface (the `reactor` feature),
+so the relationship is about division of labor:
+
+- **webview as a gap-filler for reactor.** The C# `microsoft-ui-reactor` ships
+  whole Markdown and charting subsystems that `windows-reactor` lacks (see its
+  *Future work* §5 and §10). A webview can host web-based markdown renderers and
+  chart/visualization libraries **today**, so rich documents, dashboards, charts,
+  and maps are reachable without writing native control wrappers — the
+  `postMessage`, custom-protocol, and virtual-host plumbing to drive them already
+  exists.
+- **webview vs. canvas — two content surfaces, not competitors.** In a reactor
+  tree both `SwapChainPanel` (canvas: GPU 2D, native) and `WebView2` (the web
+  stack) are content hosts. Choose **canvas** for high-performance custom drawing,
+  games, and low-latency visualizations; choose **webview** for web content, rich
+  text / markdown, HTML/CSS layout, and existing JavaScript ecosystems. They are
+  siblings serving different content models.
+- **Interop bridges.** The shared-buffer (§2) and capture (§4) gaps are what would
+  let the two cooperate — capture a page into a canvas bitmap, or push
+  canvas-produced data into a page — and windowless composition (§1) is what makes
+  webview a true visual peer of canvas and reactor rather than an HWND overlay.
+
+#### Suggested sequencing
+
+Windowless composition (§1) is the highest-leverage but largest piece. Host
+objects / IPC (§2) and the app-relevant events — context menus and authentication
+(§5) — are smaller and independently shippable. Print/capture (§4) and the DevTools
+protocol (§3) are self-contained add-ons that can land whenever a concrete need
+arises, behind the same minimal-binding pattern the crate already uses.

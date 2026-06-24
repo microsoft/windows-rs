@@ -294,3 +294,140 @@ crate, not in `windows-reactor`, so it adds no weight to normal builds. The few
 engine/reconciler/widget inspectors that need access to private fields stay in
 `windows-reactor` behind the `test` feature, which the test crates enable and
 normal/published builds leave off.
+
+### Future work — C# reactor parity
+
+`windows-reactor` is the Rust counterpart of the C# **`microsoft-ui-reactor`**
+framework (`D:\git\microsoft-ui-reactor`), already referenced above for the
+`stress_perf` performance benchmarks. The C# project is considerably more mature —
+~50 hooks, ~80 control factories, and whole subsystems for validation, charting,
+docking, and localization. This section catalogs the gaps so contributors can see
+the intended direction. As with canvas, the goal is idiomatic Rust coverage of
+what real apps need, not a mechanical 1:1 port.
+
+Ordered roughly by user impact; "present" notes what already exists.
+
+#### 1. Hooks breadth *(high)*
+
+Present: `use_state`, `use_ref`, `use_memo`, `use_effect`
+(+`use_effect_with_cleanup`), `use_reducer`/`use_reducer_fn`, `use_resource`,
+`use_context`, `use_callback`, `use_color_scheme` — the core ~11.
+
+The C# framework exposes ~50. Notable missing groups:
+
+- **Async / data** — `use_mutation`, `use_infinite_resource`, `use_data_source`.
+- **Observable binding** — `use_observable`, `use_observable_tree`,
+  `use_observable_property`, `use_collection` (INPC / observable-collection
+  integration).
+- **Window / system** — `use_window_size`, `use_breakpoint`, `use_dpi`,
+  `use_window`/`use_window_state`/`use_is_active`, `use_window_position`,
+  `use_displays`, `use_closing_guard`, `use_file_picker`/`use_folder_picker`,
+  `use_window_drag_move`, `use_tray_icon`, `use_open_window`.
+- **Theme / a11y / environment** — `use_is_dark_theme`, `use_high_contrast`,
+  `use_reduced_motion`, `use_announce`, `use_intl`, `use_persisted`.
+- **Focus** — `use_focus`, `use_focus_trap`, `use_element_focus`,
+  `use_element_ref`.
+- **Commanding** — `use_command` (see §3).
+- **Tooling** — `use_devtools`, the `use_memo_cells` family.
+
+Each is independently shippable; the window/system and focus groups likely have the
+broadest appeal.
+
+#### 2. Multi-window, system tray, and pickers *(high)*
+
+Present: a single `App` window builder (`title`, `inner_size`, `backdrop`,
+`presenter`, `fullscreen`).
+
+Missing: secondary windows (`ReactorWindow` / `use_open_window`), tray icons,
+window drag-move, multi-display awareness, window position/state persistence,
+close-guard confirmation, and file/folder pickers. These turn the crate from
+"single-window app shell" into a general desktop-app framework.
+
+#### 3. Commanding *(medium-high)*
+
+Present: direct `on_click` and `keyboard_accelerator` per control.
+
+Missing: a `Command` abstraction (`Command`, `StandardCommand`,
+`CommandBindings`, `use_command`) — a reusable, enable/disable-aware action bound
+once and shared across buttons, menu items, and accelerators. The C# control
+factories all accept a command (`button(command)`, `menu_item(command)`, …); the
+Rust equivalents accept only closures.
+
+#### 4. Data binding, observables, and validation *(medium-high)*
+
+Present: state hooks and one-way rendering from state.
+
+Missing the entire form/validation and observable stack: `FormField`,
+`ValidationRule`, `ValidationContext`, `ValidationVisualizer`, and the
+observable-collection hooks from §1. This is what makes data-entry UIs ergonomic.
+
+#### 5. Higher-level controls *(medium)*
+
+Present: ~60 wrapped WinUI controls (text, buttons, inputs, layout, navigation,
+lists, dialogs).
+
+Missing the C# composite controls built *on top* of WinUI:
+
+- **`VirtualList`** — large-collection virtualization beyond raw `ListView`.
+- **`DataGrid`** and **`PropertyGrid`** — tabular / reflection-driven editing
+  (`TypeRegistry`, `TypeMetadata`).
+- **`MaskedTextBox` / `AutoSuggest`** input controls and input formatters.
+- **Flexbox layout** — the C# project embeds a Yoga flexbox engine
+  (`Flex`/`FlexRow`/`FlexColumn`, `UniformGrid`, `WrapGrid`); Rust currently relies
+  on WinUI `StackPanel`/`Grid` only.
+
+#### 6. Animations *(medium)*
+
+Present: implicit transitions (`with_opacity_transition`, `with_scale_transition`).
+
+Missing the richer animation system: keyframe animations, layout animations,
+interaction-state animations, stagger configuration, and connected / scroll-linked
+animations (`AnimationConfig`, `KeyframeAnimations`, `InteractionStates`,
+`StaggerConfig`). These belong on Windows.UI.Composition (the backend behind
+reactor's existing transitions), which animates retained visuals off-thread;
+sampling-based [`windows-animation`](windows-animation.md) is intentionally *not*
+the fit here — it targets immediate-mode canvas drawing (see that crate's *Future
+work*).
+
+#### 7. Navigation framework *(medium)*
+
+Present: the `navigation_view` control wrapper.
+
+Missing: a navigation/routing layer — `NavigationHandle`, `use_navigation`,
+`use_navigation_lifecycle`, `use_system_back_button` — that manages a page stack
+and lifecycle rather than just rendering the chrome.
+
+#### 8. Theming and resources *(medium-low)*
+
+Present: `background`/`foreground` brush bindings and `use_color_scheme`.
+
+Missing: a general theme/resource system — theme-keyed bindings (`ThemeRef`,
+`ThemeBindings`), per-control resource overrides, and a resource builder
+(`ResourceBuilder`, `ResourceOverrides`).
+
+#### 9. Gestures and drag-and-drop *(medium-low)*
+
+Present: pointer and tap handlers (and the coordinate/keyboard work tracked in
+[`windows-canvas`](windows-canvas.md)'s *Input and hit-testing*).
+
+Missing: a gesture-recognition and drag-and-drop layer (the C# `Reconciler.Gestures`
+/ `DragDrop` / `DragAttached` machinery).
+
+#### 10. Lower-priority subsystems
+
+- **Localization** — `LocaleProvider`, intl accessors, `.resw` providers,
+  pseudo-localization.
+- **Accessibility tooling** — `use_announce`, an accessibility scanner, semantic
+  panels.
+- **Feature modules** — Markdown rendering, charting, and docking are whole
+  optional subsystems in the C# project with no Rust equivalent yet.
+
+#### Suggested sequencing
+
+The hook breadth (§1) is the highest-leverage area and decomposes into many small,
+independent additions — the window/system and focus groups first. Multi-window and
+pickers (§2) and commanding (§3) round out the desktop-app shell. The validation /
+observable stack (§4) and composite controls (§5) are larger efforts best taken
+once the hook and commanding foundations exist. Animations (§6), navigation (§7),
+theming (§8), and the remaining subsystems can land independently as demand
+arises.

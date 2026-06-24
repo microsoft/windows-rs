@@ -176,7 +176,259 @@ optional `reactor` feature integrates with `windows-reactor` through
   device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain recreates
   its device and resources on the next frame.
 
+### Input and hit-testing
+
+Drawing into a canvas is only half of an interactive app such as a map or tile
+editor. The other half is *input* — and two separate concerns are easily
+conflated under "hit-testing":
+
+- **Input routing** — delivering pointer and keyboard events, *with
+  coordinates*, to application code.
+- **Geometry hit-testing** — asking whether a point lies inside a shape's fill
+  or along its stroke (or which glyph/caret a point maps to, for text).
+
+#### Current state
+
+- `animated_canvas` returns a `SwapChainPanel`, which is a full
+  [`windows-reactor`](windows-reactor.md) element, so the element pointer
+  callbacks (`on_pointer_pressed`, `on_pointer_released`, `on_pointer_exited`,
+  `on_tapped`, `on_right_tapped`) already attach to the canvas surface.
+- **The pointer position is not surfaced.** The `PointerEventInfo` passed to
+  those callbacks carries only button state
+  (`is_left`/`is_right`/`is_middle_button_pressed`). The backend calls
+  `GetCurrentPoint` but never reads `.Position`, so an app can tell *that* the
+  canvas was clicked but not *where*.
+- `PointerMoved` and `PointerEntered` are unwired (the WinUI vtable slots are
+  unused stubs), so there is no drag or hover tracking.
+- There is **no keyboard surface** — `KeyDown`/`KeyUp` exist in the bindings but
+  no `on_key_down`/`on_key_up` is exposed on elements.
+- Geometry is **write-only**: `PathBuilder` produces a `Path` for drawing. There
+  is no `FillContainsPoint`/`StrokeContainsPoint`/`ComputeBounds`/combine. The
+  `ID2D1Geometry` query methods exist in `bindings.rs` only as `usize` stubs.
+
+#### Reference: Win2D
+
+`windows-canvas` is an idiomatic Rust port of Win2D, which is the design
+reference for the gaps above:
+
+- Win2D's `CanvasControl`/`CanvasAnimatedControl` are XAML `UIElement`s, so input
+  is just the standard XAML `PointerPressed`/`PointerMoved`/`PointerReleased` and
+  `KeyDown` events, reading the pointer `Position` relative to the control.
+  `CanvasAnimatedControl` pairs that input with an `Update`/`Draw` game loop —
+  essentially the model an interactive editor wants. `animated_canvas` already
+  matches that render model (it draws every frame via `CompositionTarget::Rendering`);
+  the missing pieces are input plumbing and geometry queries.
+- `CanvasGeometry` exposes `FillContainsPoint`, `StrokeContainsPoint`,
+  `ComputeBounds`, and `CombineWith`; `CanvasTextLayout` exposes glyph/caret
+  hit-testing. These are the geometry/text features still marked as gaps.
+
+#### A good design
+
+The guiding split is **input lives in the reactor; geometry queries live in
+canvas**. The reactor owns the XAML element surface and event lifetimes, so it is
+the natural home for pointer/keyboard plumbing; canvas stays a pure rendering +
+geometry library and gains no input system of its own.
+
+- **Reactor input.** Extend `PointerEventInfo` with the pointer position in DIPs
+  relative to the element (read from `GetCurrentPoint(element).Position`), plus
+  pointer kind / modifier state as needed. Wire `PointerMoved` (and
+  `PointerEntered`) for drag and hover. Add `on_key_down`/`on_key_up` to the
+  element surface with a small virtual-key + modifier payload; because keyboard
+  events require focus, document the `IsTabStop`/focus story for a
+  `SwapChainPanel`.
+- **One coordinate convention.** Pointer coordinates are DIPs; the app converts
+  to canvas space using the same `width`/`height`/scale the draw closure already
+  receives. Keep DIPs end to end so screen → canvas mapping is a single, obvious
+  transform.
+- **Canvas geometry queries.** Add thin safe wrappers over the existing
+  `ID2D1Geometry1`: `Path::fill_contains_point(point, transform?)`,
+  `stroke_contains_point(point, stroke_style?, transform?)`, `compute_bounds()`,
+  and `combine(other, op)`. This requires un-stubbing the corresponding methods
+  in `crates/tools/bindings/src/canvas.txt` and regenerating `bindings.rs`.
+- **Grid vs. free-form.** For a grid/tile editor, geometry hit-testing is not
+  required at all — a cell is `floor(pos / cell_size)` — so coordinate-carrying
+  pointer events alone unblock the common case. Geometry hit-testing is for
+  free-form shapes (which arbitrary polygon did the pointer land in).
+
+#### Phases
+
+Each phase is independently shippable; phase 1 alone unblocks the common
+tile/grid interaction case.
+
+1. **Pointer coordinates** *(reactor)* — add `position` to `PointerEventInfo` and
+   read `.Position` in `pointer_event_info`. Unblocks tile/grid hit-testing.
+2. **Continuous pointer** *(reactor)* — wire `PointerMoved`/`PointerEntered` for
+   drag and hover.
+3. **Keyboard** *(reactor)* — `on_key_down`/`on_key_up` plus the focus story for
+   `SwapChainPanel`.
+4. **Geometry queries** *(canvas)* — fill/stroke contains-point, bounds, and
+   combine on `Path`, regenerating the minimal bindings to expose the D2D
+   methods.
+5. **Text hit-testing** *(canvas)* — DirectWrite `HitTestPoint` /
+   `HitTestTextPosition`, once a text-layout type exists (this depends on the
+   broader text-layout/metrics gap).
+6. **Sample** — a map/tile editor sample exercising phases 1–4 end to end, as a
+   worked reference for interactive canvas input.
+
 ### Testing
 
 Tests render with the WARP software rasterizer, so they need no GPU:
 `cargo test -p windows-canvas`.
+
+### Future work — Win2D parity
+
+`windows-canvas` is an idiomatic Rust port of Win2D, but it deliberately covers
+only the most common drawing path so far. This section catalogs the gaps against
+Win2D's full surface (`D:\git\win2d\winrt\lib\*.abi.idl`) so contributors can see
+where the crate is headed. The goal is **not** a 1:1 port — Win2D is ~400K lines
+of C++ and wraps ~100 effects — but to reach the capabilities real apps need, in
+a smaller, safe, idiomatic API.
+
+The list is ordered roughly by user impact. "Present" notes what already exists so
+the delta is clear.
+
+#### 1. Geometry operations *(high)*
+
+Present: `PathBuilder` (lines + cubic Bézier, filled/hollow figures) producing a
+`Path` for drawing.
+
+Missing vs Win2D's `CanvasGeometry`/`CanvasPathBuilder`:
+
+- **Hit-testing** — `FillContainsPoint`, `StrokeContainsPoint` (see *Input and
+  hit-testing* above).
+- **Bounds & measurement** — `ComputeBounds`, `ComputeStrokeBounds`,
+  `ComputeArea`, `ComputePathLength`, `ComputePointOnPath`.
+- **Boolean / shape ops** — `CombineWith` (union/intersect/xor/exclude),
+  `Outline`, `Simplify`, `Stroke` (geometry realization), `Tessellate`.
+- **Richer path building** — arcs, quadratic Béziers, `SetFilledRegionDetermination`,
+  `SetSegmentOptions`, `AddGeometry`.
+- **Geometry factories** — build geometries directly from rect / rounded-rect /
+  ellipse / circle / polygon / geometry group / text / glyph run / ink.
+- **`CanvasCachedGeometry`** — pre-realized fill/stroke for fast repeated draws.
+
+Most are thin wraps over `ID2D1Geometry1` / `ID2D1Factory1`, gated on un-stubbing
+those methods in `canvas.txt` (currently `usize` stubs in `bindings.rs`).
+
+#### 2. Text layout, metrics, and fonts *(high)*
+
+Present: `TextFormat` (family, size, weight, horizontal/vertical alignment) and
+single-shot `draw_text`.
+
+Missing vs Win2D's `CanvasTextLayout`/`CanvasFontSet`/`CanvasFontFace`:
+
+- **`TextLayout` type** — measured, reusable layout with `LayoutBounds`,
+  `DrawBounds`, `LineMetrics`, `ClusterMetrics`, `LineCount`.
+- **Text hit-testing** — `HitTest`, `GetCaretPosition`, `GetCharacterRegions`
+  (caret placement, selection, click-to-character).
+- **Per-range formatting** — color/brush/font/size/weight/underline/strikethrough/
+  typography over character ranges.
+- **Format options** — word wrapping, trimming + trimming sign, line spacing,
+  optical alignment, vertical text.
+- **Font enumeration** — system font families, font matching, glyph metrics,
+  supported typographic features (`CanvasFontSet`, `CanvasFontFace`).
+- **Custom text rendering & glyph runs** — `CanvasTextRenderer`, `DrawGlyphRun`,
+  `CanvasTypography`, `CanvasTextAnalyzer`.
+
+This is consistently Win2D's most-used feature beyond basic drawing.
+
+#### 3. Drawing session state, layers, and image draw *(medium-high)*
+
+Present: clear; draw/fill of rect, rounded-rect, ellipse, line, path; `draw_text`;
+`draw_bitmap`/`draw_image`; transform get/set/scoped; `with_target`.
+
+Missing vs `CanvasDrawingSession`:
+
+- **Layers & clipping** — `CreateLayer`/`ActiveLayer` (opacity masks, geometric
+  clips), push/pop clip rectangles.
+- **Render state** — `Blend`, `Antialiasing`, `TextAntialiasing`, `Units`
+  (pixels vs DIPs), per-session `Dpi`.
+- **Full `DrawImage` overloads** — source rect, offset/dest rect, opacity,
+  interpolation mode, composite mode, perspective.
+- **`CanvasSpriteBatch`** — high-throughput batched sprite drawing (directly
+  relevant to tile/game scenarios).
+- **`DrawCachedGeometry`**, ink, gradient mesh, SVG drawing.
+
+#### 4. Effects *(medium)*
+
+Present: an opaque `Effect` wrapper, drop shadow (`create_shadow`), and
+`draw_effect`.
+
+Missing: a real effect graph. Win2D exposes ~54 generated effects
+(`GaussianBlur`, `ColorMatrix`, `Blend`, `Composite`, `Crop`, `Transform2D/3D`,
+`HueRotation`, `Saturation`, `Tint`, `Vignette`, lighting/transfer/morphology,
+…), typed parameters, chained inputs, `CacheOutput`/`BufferPrecision`, and custom
+`PixelShaderEffect`. A pragmatic port wraps ~10 common effects plus a
+`Effect::custom(clsid)` escape hatch rather than all ~100 D2D effects.
+
+#### 5. Bitmaps, render targets, and I/O *(medium)*
+
+Present: load a bitmap from a file path (WIC); `create_bitmap_target` for
+off-screen draws; `width`/`height`.
+
+Missing vs `CanvasBitmap`/`CanvasRenderTarget`/`CanvasImage`:
+
+- **Saving** — `SaveToFile`/`SaveToStream` as PNG/JPEG/BMP/TIFF/GIF/JpegXR.
+- **Pixel access** — get/set pixel bytes/colors, copy regions.
+- **Construction** — from bytes, from colors, from a D3D11 surface / software
+  bitmap; explicit pixel format and `CanvasAlphaMode`.
+- **`CanvasRenderTarget`** — first-class off-screen target with size/DPI/format.
+- **`CanvasCommandList`** — record drawing commands and replay / use as an effect
+  input.
+- **`CanvasVirtualBitmap`** and histogram / `GetBounds` helpers.
+
+#### 6. Brushes *(medium-low)*
+
+Present: solid color, linear gradient, radial gradient (stops fixed at creation),
+`set_color` on solid brushes.
+
+Missing: `CanvasImageBrush` (sample/tile an image or command list), brush
+`Opacity` and `Transform`, gradient `EdgeBehavior` / interpolation space / alpha
+mode / pre-interpolation, and HDR color variants.
+
+#### 7. Hosting surfaces *(medium-low)*
+
+Present: `animated_canvas` — a per-frame UI-thread loop on a `SwapChainPanel`
+(architecturally Win2D's `CanvasAnimatedControl` render model), plus the
+standalone `HWND` swap-chain path.
+
+Missing vs Win2D's XAML controls:
+
+- **Invalidation-only mode** (`CanvasControl`) — redraw on demand instead of every
+  frame; ideal for static or rarely-changing content. This was tracked as a
+  prospective `canvas()` builder.
+- **Dedicated game-loop thread** (`CanvasAnimatedControl`'s independent loop with
+  `Update`/`Draw`, fixed time step, input source) — a prospective
+  `threaded_canvas()`.
+- **Virtualized / tiled surfaces** (`CanvasVirtualControl`,
+  `CanvasVirtualImageSource`) for very large content.
+- **XAML image-source targets** (`CanvasImageSource`) and **composition interop**
+  (`CanvasComposition`) for drawing into the visual layer.
+
+#### 8. Lower-priority parity
+
+- **Swap chain controls** — rotation, source size, transform matrix, buffer
+  count/format/alpha, `WaitForVerticalBlank`.
+- **Device management** — shared-device cache (`GetSharedDevice`), a `DeviceLost`
+  event (today loss is polled), interop from an existing D3D11 device, debug
+  level, capability queries.
+- **Printing** — `CanvasPrintDocument`.
+- **SVG** — `CanvasSvgDocument` / `CanvasSvgElement`.
+- **Color management / HDR** — ICC profiles, `EffectTransferTable3D`, HDR color
+  paths.
+
+#### Suggested sequencing
+
+Geometry ops (1) and text layout (2) unblock the most-requested scenarios
+(hit-testing, measured/interactive text) and pair naturally with the reactor input
+work in *Input and hit-testing*. Layers/clipping and sprite batch (3) follow for
+richer and higher-performance drawing. Effects (4) and bitmap I/O (5) are
+self-contained and can land independently. Brushes (6) are incremental. Alternate
+hosting surfaces (7) are larger architectural pieces best taken once the drawing
+API is fuller.
+
+Note that *animation* is not in this list: Win2D has no animation engine of its
+own (its `CanvasAnimatedControl` only provides the loop, which `animated_canvas`
+already matches). Smooth motion in the frame loop is best driven by
+[`windows-animation`](windows-animation.md), sampled each frame, rather than
+reinvented here — a small helper wiring its animated variables into
+`animated_canvas` is the intended integration.
