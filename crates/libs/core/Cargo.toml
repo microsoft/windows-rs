@@ -24,6 +24,12 @@ std = ["windows-result/std", "windows-strings/std"]
 # Bindgen-generated bindings do not require this feature; only hand-written
 # uses of `#[implement]` / `#[interface]` do.
 proc-macros = ["dep:windows-implement", "dep:windows-interface"]
+# Opt-in, debug-only diagnostic: warns (to stderr) when `Interface::cast` performs
+# a `QueryInterface` that returns the same interface pointer it started from — i.e.
+# a redundant cast to an interface the source already exposes (typically a class
+# cast to its own default interface, which `Deref` already provides for free).
+# Off by default; has zero effect in release builds. Implies `std` for stderr.
+cast_diagnostics = ["std"]
 
 [lints]
 workspace = true
