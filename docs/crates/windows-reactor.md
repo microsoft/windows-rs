@@ -300,6 +300,32 @@ of stable identity exist: `use_callback` (memoized closure) and — because stat
 setters are themselves memoized per hook slot — a `use_state`/`use_reducer` setter
 passed straight to an `on_*` handler.
 
+#### Interface-cast dispatch (avoid QI probing)
+
+Each control is held as a `Handle` enum whose variant *is* the concrete WinUI
+class (`Handle::TextBlock(bindings::TextBlock)`, …). `cast_inner::<T>()` matches
+the variant and calls `windows_core::Interface::cast`, which is a COM
+`QueryInterface` — and on XAML's aggregated objects a QI is comparatively
+expensive, especially a *failing* one.
+
+Shared modifiers that apply across many control families (`padding`, `foreground`,
+`font_size`/`font_weight`/`font_family`) used to **probe** interfaces with an
+`if let Ok(_) = cast_inner::<IControl>() … else if … ITextBlock … else …` chain.
+For a `TextBlock` that meant 1–2 *failed* QIs before the successful one. A perf
+run (80×60 grid of text cells whose foreground flips each frame) showed ~44 % of
+all `cast_inner` calls failing — ~9,400 wasted QIs/second, every one an
+`IControl` probe against a `TextBlock` (which derives from `FrameworkElement`,
+not `Control`).
+
+Because the variant already names the concrete type, these setters now `match`
+the handle instead of probing. A class derefs to its **default** interface
+(`bindings::TextBlock: Deref<Target = ITextBlock>`), so the common text cases call
+the setter directly at **zero** QI; everything else falls through to a single
+`IControl` cast. After the change the same perf run drops to **<100 failed QIs in
+5 seconds** (effectively zero), with no behavior change (all self-test fixtures
+pass). `set_background` keeps a short probe: its targets span `IPanel` (five panel
+variants), `IControl`, and `IBorder`, and it is not on a measured hot path.
+
 ### Investigation backlog
 
 Health/efficiency leads surfaced while profiling event-handler churn. Items 1–2

@@ -978,18 +978,18 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
 }
 
 fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
-    if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.SetPadding(thickness)?;
-    } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetPadding(thickness)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetPadding(thickness)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetPadding(thickness)?;
-    } else if let Ok(sp) = handle.cast_inner::<bindings::IStackPanel>() {
-        sp.SetPadding(thickness)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Padding, handle);
+    match handle {
+        Handle::Border(h) => h.SetPadding(thickness)?,
+        Handle::StackPanel(h) => h.SetPadding(thickness)?,
+        Handle::TextBlock(h) => h.SetPadding(thickness)?,
+        Handle::RichTextBlock(h) => h.SetPadding(thickness)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetPadding(thickness)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Padding, handle);
+            }
+        }
     }
     Ok(true)
 }
@@ -1014,51 +1014,60 @@ fn set_foreground(
     handle: &Handle,
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
-    if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetForeground(brush)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetForeground(brush)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetForeground(brush)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetForeground(brush)?,
+        Handle::RichTextBlock(h) => h.SetForeground(brush)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetForeground(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontSize(v)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontSize(v)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetFontSize(v)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontSize(v)?,
+        Handle::RichTextBlock(h) => h.SetFontSize(v)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontSize(v)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_weight(handle: &Handle, fw: bindings::FontWeight) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontWeight(fw)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontWeight(fw)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontWeight(fw)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontWeight(fw)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_family(handle: &Handle, ff: &bindings::FontFamily) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontFamily(ff)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontFamily(ff)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetFontFamily(ff)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontFamily(ff)?,
+        Handle::RichTextBlock(h) => h.SetFontFamily(ff)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontFamily(ff)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
+            }
+        }
     }
     Ok(true)
 }
