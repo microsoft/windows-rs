@@ -155,6 +155,8 @@ struct PointerRevokerSet {
     right_tapped: Option<windows_core::EventRevoker>,
     pressed: Option<windows_core::EventRevoker>,
     released: Option<windows_core::EventRevoker>,
+    moved: Option<windows_core::EventRevoker>,
+    entered: Option<windows_core::EventRevoker>,
     exited: Option<windows_core::EventRevoker>,
 }
 
@@ -2736,10 +2738,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let iue: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2748,7 +2746,7 @@ impl Backend for WinUIBackend {
         let mut tokens = PointerRevokerSet::default();
 
         if let Some(cb) = handlers.on_tapped.clone() {
-            tokens.tapped = iue
+            tokens.tapped = ui
                 .Tapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2756,7 +2754,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_right_tapped.clone() {
-            tokens.right_tapped = iue
+            tokens.right_tapped = ui
                 .RightTapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2765,7 +2763,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_pointer_pressed.clone() {
             let element = ui.clone();
-            tokens.pressed = iue
+            tokens.pressed = ui
                 .PointerPressed(move |_sender, args| {
                     let info = pointer_event_info(&element, args);
                     cb.invoke(info);
@@ -2774,8 +2772,8 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_pointer_released.clone() {
-            let element = ui;
-            tokens.released = iue
+            let element = ui.clone();
+            tokens.released = ui
                 .PointerReleased(move |_sender, args| {
                     let info = pointer_event_info(&element, args);
                     cb.invoke(info);
@@ -2783,8 +2781,28 @@ impl Backend for WinUIBackend {
                 .ok();
         }
 
+        if let Some(cb) = handlers.on_pointer_moved.clone() {
+            let element = ui.clone();
+            tokens.moved = ui
+                .PointerMoved(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_entered.clone() {
+            let element = ui.clone();
+            tokens.entered = ui
+                .PointerEntered(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
         if let Some(cb) = handlers.on_pointer_exited.clone() {
-            tokens.exited = iue
+            tokens.exited = ui
                 .PointerExited(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2801,10 +2819,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let ui_element: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2817,7 +2831,7 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.enter = ui_element
+            tokens.enter = ui
                 .DragEnter(move |_sender, args| {
                     let Some(drag_event_args) = args.as_ref() else {
                         return;
@@ -2862,7 +2876,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_leave.clone() {
-            tokens.leave = ui_element
+            tokens.leave = ui
                 .DragLeave(move |_sender, args| {
                     let ctx = build_drag_context(args.as_ref());
                     cb.call(&ctx);
@@ -2871,7 +2885,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_over.clone() {
-            tokens.over = ui_element
+            tokens.over = ui
                 .DragOver(move |_sender, args| {
                     accept_or_reject(&cb, args.as_ref());
                 })
@@ -2883,7 +2897,7 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.drop = ui_element
+            tokens.drop = ui
                 .Drop(move |_sender, args| {
                     let Some(drag_event_args) = args.as_ref() else {
                         return;

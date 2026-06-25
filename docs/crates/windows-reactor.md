@@ -130,8 +130,9 @@ trait): `.margin(..)`, `.padding(..)`, `.width(..)` / `.height(..)`,
 
 Event handlers take closures. `button(..).on_click(move || …)` is the most
 common; pointer and keyboard handlers live on `ElementExt`: `.on_tapped(..)`,
-`.on_pointer_pressed(..)`, `.on_pointer_released(..)`,
-`.keyboard_accelerator(..)`. A `SetState` or `Dispatch` can be passed directly
+`.on_pointer_pressed(..)`, `.on_pointer_released(..)`, `.on_pointer_moved(..)`,
+`.on_pointer_entered(..)`, `.on_pointer_exited(..)`, `.keyboard_accelerator(..)`.
+A `SetState` or `Dispatch` can be passed directly
 wherever a handler is expected (via `IntoCallback`).
 
 ## Graphics integration

@@ -243,7 +243,7 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsGlyphVisible, put_IsCo
 Microsoft::UI::Xaml::IFrameworkElement::{put_VerticalAlignment, put_HorizontalAlignment, put_Margin, put_Height, put_Width, put_MinWidth, put_MaxWidth, put_MinHeight, put_MaxHeight, put_RequestedTheme, get_ActualTheme, ActualThemeChanged, put_Tag, get_Tag, get_ActualWidth, get_ActualHeight, put_Style, SizeChanged, get_Resources}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, PointerPressed, PointerReleased, PointerExited, Tapped, RightTapped, DragEnter, DragLeave, DragOver, Drop}
+Microsoft::UI::Xaml::IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, PointerPressed, PointerReleased, PointerMoved, PointerEntered, PointerExited, Tapped, RightTapped, DragEnter, DragLeave, DragOver, Drop}
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft::UI::Xaml::IWindow::{put_Title, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, Closed}
 Microsoft::UI::Xaml::IWindowEventArgs
