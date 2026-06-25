@@ -12,22 +12,22 @@ fn app(cx: &mut RenderCx) -> Element {
         (false, _) => "Move the pointer into the box".to_string(),
     };
 
-    let on_enter = {
+    let on_enter = cx.use_callback((), {
         let set_inside = set_inside.clone();
         let set_pos = set_pos.clone();
         move |info: PointerEventInfo| {
             set_inside.call(true);
             set_pos.call(Some((info.x, info.y)));
         }
-    };
-    let on_move = {
+    });
+    let on_move = cx.use_callback((), {
         let set_pos = set_pos.clone();
         move |info: PointerEventInfo| set_pos.call(Some((info.x, info.y)))
-    };
-    let on_exit = move || {
+    });
+    let on_exit = cx.use_callback((), move |()| {
         set_inside.call(false);
         set_pos.call(None);
-    };
+    });
 
     let fill = if inside {
         Color::rgb(40, 160, 90)
