@@ -29,12 +29,13 @@ fn main() {
         }
     }
 
-    let mut log = std::fs::File::create("D:\\service.txt").unwrap();
+    let path = std::env::temp_dir().join("windows-service.txt");
+    let mut log = std::fs::File::create(&path).unwrap();
 
     Service::new()
         .can_stop()
         .can_accept(SERVICE_ACCEPT_TIMECHANGE)
-        .run(|_service, command| {
+        .run(move |_service, command| {
             writeln!(log, "Command: {command:?}").unwrap();
 
             if let Command::Extended(command) = command
@@ -51,6 +52,5 @@ fn main() {
                     writeln!(log, "{old:#?}\n{new:#?}").unwrap();
                 }
             }
-        })
-        .unwrap();
+        });
 }

@@ -10,7 +10,10 @@
 `windows-services` lets you write a Windows service process with a builder. Use
 `Service::new` to declare which control commands the service accepts (`can_stop`,
 `can_pause`, …), then `run` to hand control to the service control manager. Your
-closure receives the service handle and each incoming command.
+closure receives a copyable `ServiceHandle` and each incoming command. `run`
+blocks for the life of the service and terminates the process when it stops.
+Because a process hosts a single service, the handle is `'static` and can be
+moved into a worker thread to run the service and update its state.
 
 ---
 
@@ -27,4 +30,6 @@ are hand-written.
 
 ### Testing
 
-Run `cargo test -p windows-services`; see also the workspace test crates.
+Run `cargo test -p windows-services` to build the crate and its doc example.
+There is no integration test crate: a service can only be driven by the service
+control manager, so the dispatch logic cannot be exercised in-process.

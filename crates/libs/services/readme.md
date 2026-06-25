@@ -21,6 +21,5 @@ windows_services::Service::new()
     .can_stop()
     .run(|service, command| {
         // Respond to service commands...
-    })
-    .unwrap();
+    });
 ```
