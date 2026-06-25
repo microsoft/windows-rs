@@ -472,12 +472,13 @@ measurement on representative trees before investing.
    (`ICompositor2`, `INavigationView2`), `IInspectable`→class downcasts, and
    collection interfaces — none are removable. Keep new hand-written handlers to
    the capture-at-attach pattern so this does not regress. To hunt for redundant
-   casts dynamically, enable the opt-in `cast_diagnostics` feature on
+   casts dynamically, enable the opt-in `windows_cast_diagnostics` cfg on
    `windows-core` (debug-only, off by default, zero release impact): it warns to
    stderr — with the exact `#[track_caller]` call site — whenever `cast`'s
    `QueryInterface` returns the same interface pointer it started from (i.e. the
-   source already exposes that interface). Run e.g.
-   `cargo run -p test_reactor_selftest --features windows-core/cast_diagnostics -- --headless`
+   source already exposes that interface). Set it via `RUSTFLAGS` (or uncomment the
+   line in `.cargo/config.toml`), e.g.
+   `$env:RUSTFLAGS = "--cfg windows_cast_diagnostics"; cargo run -p test_reactor_selftest -- --headless`
    and grep the output. A hit is usually a class cast to its own default interface
    (replace with `Deref`); a cast to `IUnknown`/`IInspectable` is reported too
    (prefer `.into()`), though in practice this codebase has ~none since it already
