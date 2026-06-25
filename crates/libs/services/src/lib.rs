@@ -108,16 +108,6 @@ impl ServiceHandle {
     pub fn handle(&self) -> *mut c_void {
         HANDLE.load(Ordering::Relaxed)
     }
-
-    /// Low-level dispatcher to send control commands directly to the service.
-    pub fn handler(&self, control: u32, event_type: u32, event_data: *const c_void) -> u32 {
-        handler(
-            control,
-            event_type,
-            event_data as *mut _,
-            std::ptr::null_mut(),
-        )
-    }
 }
 
 /// A service builder, providing control over what commands the service supports before the service begins to run.
