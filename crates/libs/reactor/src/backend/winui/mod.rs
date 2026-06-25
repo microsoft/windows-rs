@@ -982,6 +982,12 @@ fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
         border.SetPadding(thickness)?;
     } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
         ctl.SetPadding(thickness)?;
+    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
+        tb.SetPadding(thickness)?;
+    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
+        rtb.SetPadding(thickness)?;
+    } else if let Ok(sp) = handle.cast_inner::<bindings::IStackPanel>() {
+        sp.SetPadding(thickness)?;
     } else {
         diag::unhandled_modifier("set_prop", Prop::Padding, handle);
     }

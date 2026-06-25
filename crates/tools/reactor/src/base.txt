@@ -125,13 +125,14 @@ Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_Sel
 Microsoft::UI::Xaml::Controls::INumberBox::ValueChanged
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::{get_Children, put_Background}
+Microsoft::UI::Xaml::Controls::IStackPanel::put_Padding
 Microsoft::UI::Xaml::Controls::IPasswordBox::{get_Password, put_Password, PasswordChanged}
 Microsoft::UI::Xaml::Controls::IPivot::SelectionChanged
 Microsoft::UI::Xaml::Controls::IPivotItem::put_Header
 Microsoft::UI::Xaml::Controls::IRadioButtons::{SelectionChanged, get_Items, get_SelectedIndex}
 Microsoft::UI::Xaml::Controls::IRatingControl::{get_Value, ValueChanged}
 Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, TextChanged}
-Microsoft::UI::Xaml::Controls::IRichTextBlock::{put_FontSize, put_FontFamily, put_IsTextSelectionEnabled, put_TextWrapping, put_Foreground, get_Blocks}
+Microsoft::UI::Xaml::Controls::IRichTextBlock::{put_FontSize, put_FontFamily, put_IsTextSelectionEnabled, put_TextWrapping, put_Foreground, put_Padding, get_Blocks}
 Microsoft::UI::Xaml::Controls::IRowDefinition::put_Height
 Microsoft::UI::Xaml::Controls::IScrollView::put_Content
 Microsoft::UI::Xaml::Controls::ISelectorBar::{get_Items, get_SelectedItem, SelectionChanged}
@@ -144,7 +145,7 @@ Microsoft::UI::Xaml::Controls::ITabView::{get_TabItems, get_SelectedIndex, Selec
 Microsoft::UI::Xaml::Controls::ITabViewItem::{put_Header, put_IsClosable}
 Microsoft::UI::Xaml::Controls::ITabViewTabCloseRequestedEventArgs::get_Tab
 Microsoft::UI::Xaml::Controls::ITeachingTip::{put_ActionButtonContent, put_CloseButtonContent, Closed, ActionButtonClick}
-Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground}
+Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground, put_Padding}
 Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::SelectedTimeChanged
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime

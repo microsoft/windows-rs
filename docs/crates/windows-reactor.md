@@ -238,11 +238,13 @@ follows them.
 
 ### Known quirks
 
-`.padding()` is silently ignored on `vstack`/`hstack`: `Padding` belongs to
-`Control`, but `StackPanel` derives from `Panel`, so the call compiles with no
-effect. Use `.margin(...)` instead. With the `diagnostics` feature,
-`diag::unhandled_modifier` warns when a modifier is applied to an element that
-can't honor it.
+`Padding` has no single owning interface: `Control`, `Border`, `StackPanel`,
+`TextBlock`, and `RichTextBlock` each declare their own. `set_padding`
+(`backend/winui/mod.rs`) therefore tries each cast in turn, so `.padding(...)`
+works on controls, borders, stack panels, and text blocks. Containers that
+genuinely lack a `Padding` property (e.g. bare `Panel`/`Grid`) still fall through
+to `diag::unhandled_modifier`, which warns under debug builds; use `.margin(...)`
+there instead.
 
 ### Threading
 
@@ -342,11 +344,15 @@ representative trees before investing.
    (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
    handful of bindings most controls carry; profile the binding-count distribution
    on real trees before considering sorted bindings / a small-map.
-4. **Silently-dropped props *(low, clarity)*.** Unsupported `(prop, control)`
-   combos (e.g. `Padding` on `TextBlock`) hit `diag::unhandled_modifier`
-   (`backend/winui/diag.rs`), which both floods debug output per control creation
-   and silently no-ops a prop the author thinks applies. Audit the dropped set and
-   either support or surface it once rather than per-control.
+4. **Silently-dropped props *(partly fixed)*.** Unsupported `(prop, control)`
+   combos hit `diag::unhandled_modifier` (`backend/winui/diag.rs`), which both
+   floods debug output per control creation and silently no-ops a prop the author
+   thinks applies. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
+   both types own a `Padding` property WinUI supports, but the bindings filter and
+   `set_padding` only covered `Control`/`Border`; `set_padding` now also casts to
+   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
+   the dropped set and either support each combo or surface it once rather than
+   per-control.
 5. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
    synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
    offender observed). "Diff cost dominated by COM property-set calls" can be made
