@@ -2152,12 +2152,7 @@ impl Backend for WinUIBackend {
                     nv.SelectionChanged(move |_sender, args| {
                         let tag = args
                             .as_ref()
-                            .and_then(|a| {
-                                a.cast::<bindings::INavigationViewSelectionChangedEventArgs>()
-                                    .unwrap()
-                                    .SelectedItem()
-                                    .ok()
-                            })
+                            .and_then(|a| a.SelectedItem().ok())
                             .and_then(|item| item.cast::<bindings::NavigationViewItem>().ok())
                             .and_then(|nvi| {
                                 nvi.cast::<bindings::IFrameworkElement>()
@@ -2580,10 +2575,8 @@ impl Backend for WinUIBackend {
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .Invoked(move |_sender, args| {
-                    if let Some(a) = args.as_ref()
-                        && let Ok(ia) = a.cast::<bindings::IKeyboardAcceleratorInvokedEventArgs>()
-                    {
-                        let _ = ia.SetHandled(true);
+                    if let Some(a) = args.as_ref() {
+                        let _ = a.SetHandled(true);
                     }
                     cb.invoke(());
                 })
@@ -2828,27 +2821,22 @@ impl Backend for WinUIBackend {
 
             tokens.enter = ui_element
                 .DragEnter(move |_sender, args| {
-                    let Some(args) = args.as_ref() else { return };
-                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                    let Some(drag_event_args) = args.as_ref() else {
                         return;
                     };
 
                     let formats = drag_event_args
                         .DataView()
                         .ok()
-                        .and_then(|dv| dv.cast::<bindings::IDataPackageView>().ok())
                         .map(|data_package_view| read_available_formats(&data_package_view))
                         .unwrap_or_default();
 
                     let agile_deferral = drag_event_args
                         .GetDeferral()
                         .ok()
-                        .and_then(|deferral| {
-                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
-                        })
                         .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
 
-                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+                    let agile_args = windows_core::AgileReference::new(drag_event_args).ok();
 
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
@@ -2899,17 +2887,11 @@ impl Backend for WinUIBackend {
 
             tokens.drop = ui_element
                 .Drop(move |_sender, args| {
-                    let Some(args) = args.as_ref() else { return };
-                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                    let Some(drag_event_args) = args.as_ref() else {
                         return;
                     };
 
-                    let data_view = drag_event_args
-                        .DataView()
-                        .ok()
-                        .and_then(|data_package_view| {
-                            data_package_view.cast::<bindings::IDataPackageView>().ok()
-                        });
+                    let data_view = drag_event_args.DataView().ok();
 
                     let formats = data_view
                         .as_ref()
@@ -2919,16 +2901,13 @@ impl Backend for WinUIBackend {
                     let agile_deferral = drag_event_args
                         .GetDeferral()
                         .ok()
-                        .and_then(|deferral| {
-                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
-                        })
                         .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
 
                     let agile_data_view = data_view.and_then(|data_package_view| {
                         windows_core::AgileReference::new(&data_package_view).ok()
                     });
 
-                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+                    let agile_args = windows_core::AgileReference::new(drag_event_args).ok();
 
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
@@ -3024,7 +3003,7 @@ struct AvailableFormats {
     application_link: bool,
 }
 
-fn read_available_formats(data_package_view: &bindings::IDataPackageView) -> AvailableFormats {
+fn read_available_formats(data_package_view: &bindings::DataPackageView) -> AvailableFormats {
     let mut available_formats = AvailableFormats::default();
     let Ok(formats) = data_package_view.AvailableFormats() else {
         return available_formats;
@@ -3069,17 +3048,11 @@ fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
         get_storage_items_fn: None,
     };
     let Some(a) = args else { return ctx };
-    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
-        return ctx;
-    };
-    let Ok(dv) = iargs.DataView() else {
-        return ctx;
-    };
-    let Ok(idv) = dv.cast::<bindings::IDataPackageView>() else {
+    let Ok(dv) = a.DataView() else {
         return ctx;
     };
 
-    let formats = read_available_formats(&idv);
+    let formats = read_available_formats(&dv);
     ctx.has_text = formats.text;
     ctx.has_html = formats.html;
     ctx.has_rtf = formats.rtf;
@@ -3120,8 +3093,8 @@ fn dispatch_accept(
     m: UiMarshaller,
     cb: DragAsyncCallback,
     formats: AvailableFormats,
-    iargs_agile: Option<windows_core::AgileReference<bindings::IDragEventArgs>>,
-    deferral_agile: Option<windows_core::AgileReference<bindings::IDragOperationDeferral>>,
+    iargs_agile: Option<windows_core::AgileReference<bindings::DragEventArgs>>,
+    deferral_agile: Option<windows_core::AgileReference<bindings::DragOperationDeferral>>,
     items: Vec<DroppedItem>,
     text: Option<String>,
 ) {
@@ -3198,9 +3171,6 @@ impl CallAccept for DragAsyncCallback {
 fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs>) {
     use crate::drag::DragOperation;
     let Some(a) = args else { return };
-    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
-        return;
-    };
 
     let mut ctx = build_drag_context(Some(a));
 
@@ -3212,10 +3182,10 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
         DragOperation::Move => bindings::DataPackageOperation::Move,
         DragOperation::Link => bindings::DataPackageOperation::Link,
     };
-    let _ = iargs.SetAcceptedOperation(accepted);
+    let _ = a.SetAcceptedOperation(accepted);
 
     if (ctx.caption.is_some() || ctx.glyph_visible.is_some() || ctx.content_visible.is_some())
-        && let Ok(ui) = iargs.DragUIOverride()
+        && let Ok(ui) = a.DragUIOverride()
     {
         if let Some(v) = ctx.caption {
             let _ = ui.SetCaption(&v);
