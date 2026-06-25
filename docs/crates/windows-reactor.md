@@ -145,15 +145,12 @@ device loss automatically — see the `canvas` samples. For raw Direct3D, the
 ## Web content integration
 
 To host a browser, use [`windows-webview`](windows-webview.md)'s `webview(on_ready)`
-(enable the `reactor` feature on `windows-webview`). It returns a `WebView2` element
-backed by the WinUI XAML `WebView2` control and hands you a ready-to-drive `WebView`
-once the browser initializes — see the `reactor/webview` sample. Reactor exposes the
-control as a thin native-handle widget (mirroring `SwapChainPanel`): the widget owns
-the XAML control, and `windows-webview` attaches to it through its `IInspectable`
-handle, defers `EnsureCoreWebView2Async` to the control's `Loaded` event, and bridges
-the WinRT `CoreWebView2` to the COM `ICoreWebView2` the crate wraps. The
-`as_self_contained()` setup carries the required `Microsoft.Web.WebView2.Core.dll`
-automatically.
+(enable its `reactor` feature). It returns a `WebView2` element backed by the WinUI
+XAML `WebView2` control and hands you a ready-to-drive `WebView` once the browser
+initializes — see the `reactor/webview` sample. The `as_self_contained()` setup
+carries the required `Microsoft.Web.WebView2.Core.dll` automatically. (How the
+widget bridges the WinRT control to the COM `ICoreWebView2` is covered in
+[`windows-webview`](windows-webview.md).)
 
 ## Samples
 
@@ -221,8 +218,16 @@ follows them.
 
 - **Classes Deref to their default interface.** Don't `cast` to it — call the
   method directly (`button.SetFlyout(&flyout)`, not
-  `button.cast::<IButton>()?.SetFlyout(...)`). Only cast to **non-default parent**
-  interfaces (e.g. `Button` → `IContentControl`/`IControl`).
+  `button.cast::<IButton>()?.SetFlyout(...)`). This applies to **event-handler
+  `sender`/`args`** too: the delegate hands you the concrete arg class and the
+  `sender` is the control, both of which already `Deref` to their default
+  interface — so `args.SelectedItem()` and a control captured at attach
+  (`let control = h.clone();`) read at **zero** per-event QI, versus
+  `args.cast::<I…Args>()` / `sender.cast::<TextBox>()` on every fire. Only cast to
+  **non-default parent** interfaces (e.g. `Button` → `IContentControl`/`IControl`).
+  Watch the *static* type, not the name: `DropDownButton.cast::<IButton>()` looks
+  redundant but `IButton` is a parent there (the default is `IDropDownButton`), so
+  it is a genuine cast.
 - **`Param<T>` eliminates parent-class casts.** A method taking
   `impl Param<Brush>` accepts a `SolidColorBrush` directly — no `cast::<Brush>()`.
 - **Use `From`/`into()`, not `cast`, for `IInspectable`,** and plain `None` for
@@ -324,7 +329,6 @@ median of two runs) — refresh when the workload or either framework changes:
 
 Both hold `renders/tick ≈ 1.0`, so the throughput gap tracks reconcile cost: the
 Rust diff fits inside the frame tick while the C# reconcile gates its frame rate.
-This is the *optimized* C# variant (cached cells), the fair comparison for Rust.
 Both stacks are framework-dependent and bootstrap into the **same** installed
 WinAppSDK 2.0 runtime (`Microsoft.WindowsAppRuntime.2`), so the XAML/WinUI layer is
 identical — only the language runtime above it (native Rust vs .NET CoreCLR) differs.
@@ -379,9 +383,9 @@ variants), `IControl`, and `IBorder`, and it is not on a measured hot path.
 
 ### Investigation backlog
 
-Health/efficiency leads surfaced while profiling event-handler churn. Items 1–2
-have since landed; the rest are not committed work and each needs measurement on
-representative trees before investing.
+Health/efficiency leads surfaced while profiling event-handler churn. Items 1, 2,
+and 6 have since landed; the rest are not committed work and each needs
+measurement on representative trees before investing.
 
 1. **`use_callback` now skips unchanged controls *(fixed)*.** Previously every
    `on_*` builder re-wrapped its closure in a fresh `Callback::new`, so even a
@@ -430,11 +434,62 @@ representative trees before investing.
    `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
    the dropped set and either support each combo or surface it once rather than
    per-control.
-5. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
-   synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
-   offender observed). "Diff cost dominated by COM property-set calls" can be made
-   concrete by timing per-`Prop` set cost and flagging the expensive ones for
-   batching/deferral.
+5. **Per-prop WinUI set cost *(measured — no steady-state lever)*.** `set_prop`
+   was instrumented to time each call keyed by `Prop` and run against the
+   `test_reactor_perf` grid (the headless self-test does not commit to the WinUI
+   backend, so it never calls `set_prop` — the perf app is the only set-prop
+   workload). Findings: steady state is dominated entirely by `Text` and
+   `Foreground` *volume* (~2.4 µs/call each, one set per genuinely-changed cell —
+   no redundant sets), and those are irreducible thin COM property sets, so there
+   is **no batching/deferral win on the hot path**. The expensive-per-call props
+   are all one-shot at creation: `Button.Content` ~300 µs/call (confirms the
+   measure/arrange hypothesis — ~125× a `Text` set, but only paid when a button's
+   label changes), and `GridRows`/`GridColumns` ~800 µs/call (each rebuilds N
+   row/column definitions in a loop). None sit on a steady-state path, so the lead
+   is closed: the reconciler already issues the minimum number of sets and the
+   costly props are rare creation-time operations.
+6. **Redundant default-interface QIs eliminated *(fixed)*.** A sweep of the WinUI
+   backend removed `cast`s that re-`QueryInterface` an object to an interface it
+   already `Deref`s to (see *COM pitfalls*). Three buckets: (a) **event-handler
+   `sender` casts** — value-change handlers (`TextChanged`, `PasswordChanged`,
+   `Toggled`, `SelectionChanged`, `ValueChanged`, RichEditBox, Pivot/ComboBox,
+   etc.) cast `sender` to the control on every fire; they now capture the typed
+   handle at attach and read through `Deref` at 0 QI. The generator
+   (`gen_attach.rs::gen_sender_getter`) emits this capture pattern, so the five
+   generated handlers are fixed at the source. (b) **event-handler `args` casts** —
+   `DragEventArgs`/`NavigationViewSelectionChangedEventArgs`/
+   `KeyboardAcceleratorInvokedEventArgs` each `Deref` to the interface the code was
+   casting to; the drag path (`build_drag_context`/`accept_or_reject`, hot on every
+   `DragOver`, plus `DragEnter`/`Drop`) dropped its `IDragEventArgs`/
+   `IDataPackageView`/`IDragOperationDeferral` casts and two private helpers were
+   retyped to the concrete classes. (c) **hand-written `set_prop`/build casts** —
+   `RowDefinition`/`ColumnDefinition`/`BitmapImage` cast to their own default
+   interface. Capturing a control in its own handler creates a delegate→control
+   cycle; this is severed by the existing revoker teardown (validated by the
+   `event_detachment` and `repro_leak_header_pane` self-test fixtures). The
+   remaining casts are all genuine: parent interfaces (`IPanel`, `IControl`,
+   `IFrameworkElement`, `DropDownButton`→`IButton`), versioned interfaces
+   (`ICompositor2`, `INavigationView2`), `IInspectable`→class downcasts, and
+   collection interfaces — none are removable. Keep new hand-written handlers to
+   the capture-at-attach pattern so this does not regress. To hunt for redundant
+   casts dynamically, enable the opt-in `windows_cast_diagnostics` cfg on
+   `windows-core` (debug-only, off by default, zero release impact): it warns to
+   stderr — with the exact `#[track_caller]` call site — whenever `cast`'s
+   `QueryInterface` returns the same interface pointer it started from (i.e. the
+   source already exposes that interface). Set it via `RUSTFLAGS` (or uncomment the
+   line in `.cargo/config.toml`), e.g.
+   `$env:RUSTFLAGS = "--cfg windows_cast_diagnostics"; cargo run -p test_reactor_selftest -- --headless`
+   and grep the output. A hit is usually a class cast to its own default interface
+   (replace with `Deref`); a cast to `IUnknown`/`IInspectable` is reported too
+   (prefer `.into()`), though in practice this codebase has ~none since it already
+   uses `.into()`. The report counts every invocation, so sort/unique by call site.
+   Acting on it once took the self-test from ~1000 hits across ~36 sites down to 4:
+   the leads it surfaced beyond the backend — `app_shim.rs` (`IXamlMetadataProvider`)
+   and the self-test harness/`exec.rs` (`IDispatcherQueue` and ~30 builder casts) —
+   are all cleaned. The 4 residual hits are genuine false positives the heuristic
+   cannot distinguish: `factory_cache.rs`'s runtime `IAgileObject` agility probe and
+   `generic_factory.rs`'s type-erased `IInspectable`→class activation, where the
+   same-pointer result is incidental and the cast is not statically removable.
 
 ### Reactor / canvas naming
 
@@ -459,11 +514,11 @@ normal/published builds leave off.
 
 `windows-reactor` is the Rust counterpart of the C# **`microsoft-ui-reactor`**
 framework ([microsoft-ui-reactor](https://github.com/microsoft/microsoft-ui-reactor)), already referenced above for the
-`stress_perf` performance benchmarks. The C# project is considerably more mature —
-~50 hooks, ~80 control factories, and whole subsystems for validation, charting,
-docking, and localization. This section catalogs the gaps so contributors can see
-the intended direction. As with canvas, the goal is idiomatic Rust coverage of
-what real apps need, not a mechanical 1:1 port.
+`stress_perf` performance benchmarks. The C# project covers considerably more
+surface area — ~50 hooks, ~80 control factories, and whole subsystems for
+validation, charting, docking, and localization. This section catalogs those gaps
+so contributors can see the intended direction. As with canvas, the goal is
+idiomatic Rust coverage of what real apps need, not a mechanical 1:1 port.
 
 Ordered roughly by user impact; "present" notes what already exists.
 
@@ -490,8 +545,7 @@ The C# framework exposes ~50. Notable missing groups:
 - **Commanding** — `use_command` (see §3).
 - **Tooling** — `use_devtools`, the `use_memo_cells` family.
 
-Each is independently shippable; the window/system and focus groups likely have the
-broadest appeal.
+Each is independently shippable.
 
 #### 2. Multi-window, system tray, and pickers *(high)*
 
@@ -585,9 +639,8 @@ Missing: a gesture-recognition and drag-and-drop layer (the C# `Reconciler.Gestu
 #### Suggested sequencing
 
 The hook breadth (§1) is the highest-leverage area and decomposes into many small,
-independent additions — the window/system and focus groups first. Multi-window and
-pickers (§2) and commanding (§3) round out the desktop-app shell. The validation /
-observable stack (§4) and composite controls (§5) are larger efforts best taken
-once the hook and commanding foundations exist. Animations (§6), navigation (§7),
-theming (§8), and the remaining subsystems can land independently as demand
-arises.
+independent additions — start with the window/system and focus groups. Multi-window
+and pickers (§2) and commanding (§3) complete the desktop-app shell; the
+validation/observable stack (§4) and composite controls (§5) are larger efforts
+best taken once those foundations exist. Animations (§6), navigation (§7), theming
+(§8), and the remaining subsystems can land independently as demand arises.

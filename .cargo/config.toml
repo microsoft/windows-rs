@@ -2,6 +2,7 @@
 rustflags = [
     # "--cfg", "windows_raw_dylib",
     # "--cfg", "windows_slim_errors",
+    # "--cfg", "windows_cast_diagnostics",
     # "-C", "target-feature=+crt-static",
 ]
 

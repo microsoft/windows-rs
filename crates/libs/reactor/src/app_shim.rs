@@ -41,19 +41,16 @@ impl IApplicationOverrides_Impl for ReactorApplicationOverrides_Impl {
 
 impl IXamlMetadataProvider_Impl for ReactorApplicationOverrides_Impl {
     fn GetXamlType(&self, r#type: &TypeName) -> Result<IXamlType> {
-        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
-        provider.GetXamlType(r#type)
+        self.provider()?.GetXamlType(r#type)
     }
 
     fn GetXamlTypeByFullName(&self, full_name: &HSTRING) -> Result<IXamlType> {
-        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
         let full_name = full_name.to_string_lossy();
-        provider.GetXamlTypeByFullName(&full_name)
+        self.provider()?.GetXamlTypeByFullName(&full_name)
     }
 
     fn GetXmlnsDefinitions(&self) -> Result<Array<XmlnsDefinition>> {
-        let provider: IXamlMetadataProvider = self.provider()?.cast()?;
-        provider.GetXmlnsDefinitions()
+        self.provider()?.GetXmlnsDefinitions()
     }
 }
 

@@ -10930,6 +10930,16 @@ impl windows_core::RuntimeType for IPointerPoint {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IPointerPoint {
+    pub(crate) fn Position(&self) -> windows_core::Result<Point> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Position)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn Properties(&self) -> windows_core::Result<PointerPointProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10948,7 +10958,8 @@ pub struct IPointerPoint_Vtbl {
     IsInContact: usize,
     PointerDeviceType: usize,
     PointerId: usize,
-    Position: usize,
+    pub Position:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut Point) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
@@ -19052,6 +19063,19 @@ impl windows_core::RuntimeType for PlacementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
         b"enum(Microsoft.UI.Xaml.Controls.Primitives.PlacementMode;i4)",
     );
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Point {
+    pub x: f32,
+    pub y: f32,
+}
+impl windows_core::TypeKind for Point {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Point {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
 }
 windows_core::imp::define_interface!(
     PointerEventHandler,

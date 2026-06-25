@@ -55,20 +55,14 @@ struct HarnessInner {
 impl Harness {
     pub fn new(window_title: &str) -> Result<Self> {
         let window = Window::new()?;
-        window
-            .cast::<crate::bindings::IWindow>()?
-            .SetTitle(window_title)?;
+        window.SetTitle(window_title)?;
 
         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
 
         let content_area = Border::new()?;
         let subtitle = TextBlock::new()?;
-        subtitle
-            .cast::<crate::bindings::ITextBlock>()?
-            .SetFontSize(12.0)?;
-        subtitle
-            .cast::<crate::bindings::ITextBlock>()?
-            .SetForeground(&solid_brush(255, 255, 255, 255)?)?;
+        subtitle.SetFontSize(12.0)?;
+        subtitle.SetForeground(&solid_brush(255, 255, 255, 255)?)?;
         subtitle
             .cast::<crate::bindings::IFrameworkElement>()?
             .SetVerticalAlignment(VerticalAlignment::Center)?;
@@ -102,50 +96,40 @@ impl Harness {
         segment_bar
             .cast::<crate::bindings::IUIElement>()?
             .SetIsHitTestVisible(false)?;
-        let cols = segment_bar
-            .cast::<crate::bindings::IGrid>()?
-            .ColumnDefinitions()?;
+        let cols = segment_bar.ColumnDefinitions()?;
         let star_one = GridLength {
             value: 1.0,
             grid_unit_type: GridUnitType::Star,
         };
         for i in 0..total {
             let cd = ColumnDefinition::new()?;
-            cd.cast::<crate::bindings::IColumnDefinition>()?
-                .SetWidth(star_one)?;
-            cols.cast::<windows_collections::IVector<ColumnDefinition>>()?
-                .Append(&cd)?;
+            cd.SetWidth(star_one)?;
+            cols.Append(&cd)?;
             let seg = Border::new()?;
-            seg.cast::<crate::bindings::IBorder>()?
-                .SetBackground(&solid_brush(30, 200, 200, 200)?)?;
+            seg.SetBackground(&solid_brush(30, 200, 200, 200)?)?;
             Grid::SetColumn(&seg, i as i32)?;
             let seg_ui: UIElement = seg.cast()?;
             segment_bar
                 .cast::<crate::bindings::IPanel>()?
                 .Children()?
-                .cast::<windows_collections::IVector<UIElement>>()?
                 .Append(&seg_ui)?;
             inner.segments.borrow_mut().push(seg);
         }
 
         let pill = Border::new()?;
-        pill.cast::<crate::bindings::IBorder>()?
-            .SetBackground(&solid_brush(180, 0, 0, 0)?)?;
-        pill.cast::<crate::bindings::IBorder>()?.SetCornerRadius(
-            crate::bindings::CornerRadius {
-                top_left: 4.0,
-                top_right: 4.0,
-                bottom_right: 4.0,
-                bottom_left: 4.0,
-            },
-        )?;
-        pill.cast::<crate::bindings::IBorder>()?
-            .SetPadding(Thickness {
-                left: 8.0,
-                top: 2.0,
-                right: 8.0,
-                bottom: 2.0,
-            })?;
+        pill.SetBackground(&solid_brush(180, 0, 0, 0)?)?;
+        pill.SetCornerRadius(crate::bindings::CornerRadius {
+            top_left: 4.0,
+            top_right: 4.0,
+            bottom_right: 4.0,
+            bottom_left: 4.0,
+        })?;
+        pill.SetPadding(Thickness {
+            left: 8.0,
+            top: 2.0,
+            right: 8.0,
+            bottom: 2.0,
+        })?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
             .SetHorizontalAlignment(HorizontalAlignment::Left)?;
         pill.cast::<crate::bindings::IFrameworkElement>()?
@@ -160,8 +144,7 @@ impl Harness {
         pill.cast::<crate::bindings::IUIElement>()?
             .SetIsHitTestVisible(false)?;
         let subtitle_ui: UIElement = inner.subtitle.cast()?;
-        pill.cast::<crate::bindings::IBorder>()?
-            .SetChild(&subtitle_ui)?;
+        pill.SetChild(&subtitle_ui)?;
 
         let titlebar_area = Grid::new()?;
         titlebar_area
@@ -172,58 +155,43 @@ impl Harness {
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
             .Children()?
-            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&bar_ui)?;
         titlebar_area
             .cast::<crate::bindings::IPanel>()?
             .Children()?
-            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&pill_ui)?;
 
         let root = Grid::new()?;
-        let rows = root.cast::<crate::bindings::IGrid>()?.RowDefinitions()?;
+        let rows = root.RowDefinitions()?;
         let auto = GridLength {
             value: 0.0,
             grid_unit_type: GridUnitType::Auto,
         };
         let row0 = RowDefinition::new()?;
-        row0.cast::<crate::bindings::IRowDefinition>()?
-            .SetHeight(auto)?;
-        rows.cast::<windows_collections::IVector<RowDefinition>>()?
-            .Append(&row0)?;
+        row0.SetHeight(auto)?;
+        rows.Append(&row0)?;
         let row1 = RowDefinition::new()?;
-        row1.cast::<crate::bindings::IRowDefinition>()?
-            .SetHeight(star_one)?;
-        rows.cast::<windows_collections::IVector<RowDefinition>>()?
-            .Append(&row1)?;
+        row1.SetHeight(star_one)?;
+        rows.Append(&row1)?;
 
         let titlebar_ui: UIElement = titlebar_area.cast()?;
         Grid::SetRow(&titlebar_ui.cast::<FrameworkElement>()?, 0)?;
         root.cast::<crate::bindings::IPanel>()?
             .Children()?
-            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&titlebar_ui)?;
 
         let content_ui: UIElement = inner.content_area.cast()?;
         Grid::SetRow(&content_ui.cast::<FrameworkElement>()?, 1)?;
         root.cast::<crate::bindings::IPanel>()?
             .Children()?
-            .cast::<windows_collections::IVector<UIElement>>()?
             .Append(&content_ui)?;
 
         let root_ui: UIElement = root.cast()?;
-        inner
-            .window
-            .cast::<crate::bindings::IWindow>()?
-            .SetContent(&root_ui)?;
-        inner
-            .window
-            .cast::<crate::bindings::IWindow>()?
-            .SetExtendsContentIntoTitleBar(true)?;
+        inner.window.SetContent(&root_ui)?;
+        inner.window.SetExtendsContentIntoTitleBar(true)?;
 
         inner
             .window
-            .cast::<crate::bindings::IWindow>()?
             .SetTitleBar(&titlebar_area.cast::<UIElement>()?)?;
 
         if let Ok(hwnd) = window_hwnd(&inner.window) {
@@ -243,20 +211,14 @@ impl Harness {
     }
 
     pub fn activate(&self) -> Result<()> {
-        self.inner
-            .window
-            .cast::<crate::bindings::IWindow>()?
-            .Activate()
+        self.inner.window.Activate()
     }
 
     pub fn update_progress(&self, current: usize, fixture: &str) -> Result<()> {
         let inner = &*self.inner;
         let total = inner.total.get();
         let label = format!("{current}/{total} \u{2014} {fixture}");
-        inner
-            .subtitle
-            .cast::<crate::bindings::ITextBlock>()?
-            .SetText(&label)?;
+        inner.subtitle.SetText(&label)?;
         if let Some(tb) = inner.taskbar.borrow().as_ref() {
             unsafe {
                 let _ = tb.SetProgressValue(inner.hwnd.get(), current as u64, total as u64);
@@ -276,8 +238,7 @@ impl Harness {
         } else {
             solid_brush(255, 244, 67, 54)?
         };
-        seg.cast::<crate::bindings::IBorder>()?
-            .SetBackground(&brush)?;
+        seg.SetBackground(&brush)?;
         Ok(())
     }
 
@@ -343,17 +304,8 @@ impl Harness {
             YieldLow::new(self.inner.dispatcher.clone()).await;
         }
 
-        if let Ok(content) = self
-            .inner
-            .window
-            .cast::<crate::bindings::IWindow>()
-            .unwrap()
-            .Content()
-        {
-            let _ = content
-                .cast::<crate::bindings::IUIElement>()
-                .unwrap()
-                .UpdateLayout();
+        if let Ok(content) = self.inner.window.Content() {
+            let _ = content.UpdateLayout();
         }
 
         for _ in 0..3 {
@@ -860,9 +812,7 @@ fn collect_in_tree<T: Interface>(
 
 fn solid_brush(a: u8, r: u8, g: u8, b: u8) -> Result<SolidColorBrush> {
     let brush = SolidColorBrush::new()?;
-    brush
-        .cast::<crate::bindings::ISolidColorBrush>()?
-        .SetColor(Color { a, r, g, b })?;
+    brush.SetColor(Color { a, r, g, b })?;
     Ok(brush)
 }
 

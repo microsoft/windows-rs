@@ -5,6 +5,24 @@ use core::marker::PhantomData;
 use core::mem::{MaybeUninit, forget, transmute_copy};
 use core::ptr::NonNull;
 
+/// Debug-only diagnostic helper: reports a `cast` whose `QueryInterface` returned the
+/// same interface pointer it started from — i.e. the source already exposes the target
+/// interface, so the cast is redundant (use `Deref` or `.into()` instead). Compiled in
+/// only in debug builds when `RUSTFLAGS=--cfg windows_cast_diagnostics` is set.
+#[cfg(all(debug_assertions, windows_cast_diagnostics))]
+#[cold]
+#[inline(never)]
+fn warn_redundant_cast<T: Interface>(location: &core::panic::Location<'_>) {
+    extern crate std;
+
+    std::eprintln!(
+        "windows-core: cast::<{}> at {} returned the same interface pointer; the source \
+         already exposes this interface (use Deref or .into() instead of .cast())",
+        core::any::type_name::<T>(),
+        location,
+    );
+}
+
 /// Provides low-level access to an interface vtable.
 ///
 /// This trait is automatically implemented by the generated bindings and should not be
@@ -88,6 +106,7 @@ pub unsafe trait Interface: Sized + Clone {
     ///
     /// The name `cast` is preferred over `query` because there is a WinRT method named `query`
     /// but not one named `cast`.
+    #[cfg_attr(all(debug_assertions, windows_cast_diagnostics), track_caller)]
     #[inline(always)]
     fn cast<T: Interface>(&self) -> Result<T> {
         // SAFETY: `result` is valid for writing an interface pointer, and casting the result
@@ -103,6 +122,10 @@ pub unsafe trait Interface: Sized + Clone {
 
             // `query()` succeeded; still double-check that the output pointer is non-null.
             if let Some(obj) = result.assume_init() {
+                #[cfg(all(debug_assertions, windows_cast_diagnostics))]
+                if core::ptr::eq(self.as_raw(), obj.as_raw()) {
+                    warn_redundant_cast::<T>(core::panic::Location::caller());
+                }
                 Ok(obj)
             } else {
                 Err(imp::E_POINTER.into())
