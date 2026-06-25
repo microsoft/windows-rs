@@ -240,11 +240,13 @@ follows them.
 
 `Padding` has no single owning interface: `Control`, `Border`, `StackPanel`,
 `TextBlock`, and `RichTextBlock` each declare their own. `set_padding`
-(`backend/winui/mod.rs`) therefore tries each cast in turn, so `.padding(...)`
-works on controls, borders, stack panels, and text blocks. Containers that
-genuinely lack a `Padding` property (e.g. bare `Panel`/`Grid`) still fall through
-to `diag::unhandled_modifier`, which warns under debug builds; use `.margin(...)`
-there instead.
+(`backend/winui/mod.rs`) therefore dispatches on the `Handle` variant — calling
+the setter directly on `Border`, `StackPanel`, `TextBlock`, and `RichTextBlock`
+through their default interface, and falling back to a single `IControl` cast for
+everything else — so `.padding(...)` works on controls, borders, stack panels,
+and text blocks. Containers that genuinely lack a `Padding` property (e.g. bare
+`Panel`/`Grid`) still fall through to `diag::unhandled_modifier`, which warns
+under debug builds; use `.margin(...)` there instead.
 
 ### Threading
 
