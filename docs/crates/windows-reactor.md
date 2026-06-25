@@ -218,8 +218,16 @@ follows them.
 
 - **Classes Deref to their default interface.** Don't `cast` to it — call the
   method directly (`button.SetFlyout(&flyout)`, not
-  `button.cast::<IButton>()?.SetFlyout(...)`). Only cast to **non-default parent**
-  interfaces (e.g. `Button` → `IContentControl`/`IControl`).
+  `button.cast::<IButton>()?.SetFlyout(...)`). This applies to **event-handler
+  `sender`/`args`** too: the delegate hands you the concrete arg class and the
+  `sender` is the control, both of which already `Deref` to their default
+  interface — so `args.SelectedItem()` and a control captured at attach
+  (`let control = h.clone();`) read at **zero** per-event QI, versus
+  `args.cast::<I…Args>()` / `sender.cast::<TextBox>()` on every fire. Only cast to
+  **non-default parent** interfaces (e.g. `Button` → `IContentControl`/`IControl`).
+  Watch the *static* type, not the name: `DropDownButton.cast::<IButton>()` looks
+  redundant but `IButton` is a parent there (the default is `IDropDownButton`), so
+  it is a genuine cast.
 - **`Param<T>` eliminates parent-class casts.** A method taking
   `impl Param<Brush>` accepts a `SolidColorBrush` directly — no `cast::<Brush>()`.
 - **Use `From`/`into()`, not `cast`, for `IInspectable`,** and plain `None` for
@@ -375,9 +383,9 @@ variants), `IControl`, and `IBorder`, and it is not on a measured hot path.
 
 ### Investigation backlog
 
-Health/efficiency leads surfaced while profiling event-handler churn. Items 1–2
-have since landed; the rest are not committed work and each needs measurement on
-representative trees before investing.
+Health/efficiency leads surfaced while profiling event-handler churn. Items 1, 2,
+and 6 have since landed; the rest are not committed work and each needs
+measurement on representative trees before investing.
 
 1. **`use_callback` now skips unchanged controls *(fixed)*.** Previously every
    `on_*` builder re-wrapped its closure in a fresh `Callback::new`, so even a
@@ -440,6 +448,30 @@ representative trees before investing.
    row/column definitions in a loop). None sit on a steady-state path, so the lead
    is closed: the reconciler already issues the minimum number of sets and the
    costly props are rare creation-time operations.
+6. **Redundant default-interface QIs eliminated *(fixed)*.** A sweep of the WinUI
+   backend removed `cast`s that re-`QueryInterface` an object to an interface it
+   already `Deref`s to (see *COM pitfalls*). Three buckets: (a) **event-handler
+   `sender` casts** — value-change handlers (`TextChanged`, `PasswordChanged`,
+   `Toggled`, `SelectionChanged`, `ValueChanged`, RichEditBox, Pivot/ComboBox,
+   etc.) cast `sender` to the control on every fire; they now capture the typed
+   handle at attach and read through `Deref` at 0 QI. The generator
+   (`gen_attach.rs::gen_sender_getter`) emits this capture pattern, so the five
+   generated handlers are fixed at the source. (b) **event-handler `args` casts** —
+   `DragEventArgs`/`NavigationViewSelectionChangedEventArgs`/
+   `KeyboardAcceleratorInvokedEventArgs` each `Deref` to the interface the code was
+   casting to; the drag path (`build_drag_context`/`accept_or_reject`, hot on every
+   `DragOver`, plus `DragEnter`/`Drop`) dropped its `IDragEventArgs`/
+   `IDataPackageView`/`IDragOperationDeferral` casts and two private helpers were
+   retyped to the concrete classes. (c) **hand-written `set_prop`/build casts** —
+   `RowDefinition`/`ColumnDefinition`/`BitmapImage` cast to their own default
+   interface. Capturing a control in its own handler creates a delegate→control
+   cycle; this is severed by the existing revoker teardown (validated by the
+   `event_detachment` and `repro_leak_header_pane` self-test fixtures). The
+   remaining casts are all genuine: parent interfaces (`IPanel`, `IControl`,
+   `IFrameworkElement`, `DropDownButton`→`IButton`), versioned interfaces
+   (`ICompositor2`, `INavigationView2`), `IInspectable`→class downcasts, and
+   collection interfaces — none are removable. Keep new hand-written handlers to
+   the capture-at-attach pattern so this does not regress.
 
 ### Reactor / canvas naming
 

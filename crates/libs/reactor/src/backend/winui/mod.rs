@@ -1224,8 +1224,7 @@ impl Backend for WinUIBackend {
                         .Clear()?;
                     for r in rows {
                         let rd = bindings::RowDefinition::new()?;
-                        rd.cast::<bindings::IRowDefinition>()?
-                            .SetHeight(to_xaml_gridlength(*r)?)?;
+                        rd.SetHeight(to_xaml_gridlength(*r)?)?;
                         defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
                             .Append(&rd)?;
                     }
@@ -1237,8 +1236,7 @@ impl Backend for WinUIBackend {
                         .Clear()?;
                     for c in cols {
                         let cd = bindings::ColumnDefinition::new()?;
-                        cd.cast::<bindings::IColumnDefinition>()?
-                            .SetWidth(to_xaml_gridlength(*c)?)?;
+                        cd.SetWidth(to_xaml_gridlength(*c)?)?;
                         defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
                             .Append(&cd)?;
                     }
@@ -1364,7 +1362,7 @@ impl Backend for WinUIBackend {
                 (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
                     let uri = bindings::Uri::CreateUri(s.as_str())?;
                     let bmp = bindings::BitmapImage::new()?;
-                    bmp.cast::<bindings::IBitmapImage>()?.SetUriSource(&uri)?;
+                    bmp.SetUriSource(&uri)?;
                     img.SetSource(&bmp.cast::<bindings::ImageSource>()?)
                 }
                 (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
@@ -3276,9 +3274,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
                     if let Ok(uri) = bindings::Uri::CreateUri(uri_str.as_str())
                         && let Ok(bmp) = bindings::BitmapImage::new()
                     {
-                        if let Ok(ibmp) = bmp.cast::<bindings::IBitmapImage>() {
-                            let _ = ibmp.SetUriSource(&uri);
-                        }
+                        let _ = bmp.SetUriSource(&uri);
                         if let Ok(src) = bmp.cast::<bindings::ImageSource>() {
                             let _ = i.SetSource(&src);
                         }
