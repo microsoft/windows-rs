@@ -98,6 +98,46 @@ fn callback_identity_changes_when_deps_change() {
     assert_ne!(cb1, cb2, "deps changed → new callback");
 }
 
+// The setter returned by `use_state` is memoized per slot, so passing it
+// straight to an `on_*` handler (via `IntoCallback`) keeps a stable identity
+// across renders and lets `can_skip_update` skip the control.
+#[test]
+fn state_setter_identity_is_stable_across_renders() {
+    use windows_reactor::IntoCallback;
+
+    let mut cx = RenderCx::for_test();
+    cx.begin_render();
+    let (_v, set1) = cx.use_state(0_i32);
+    let cb1: Callback<i32> = set1.into_callback();
+
+    cx.begin_render();
+    let (_v, set2) = cx.use_state(0_i32);
+    let cb2: Callback<i32> = set2.into_callback();
+
+    assert_eq!(
+        cb1, cb2,
+        "memoized setter must keep identity across renders"
+    );
+}
+
+#[test]
+fn memoized_setter_still_writes_latest_slot() {
+    let mut cx = RenderCx::for_test();
+    cx.begin_render();
+    let (v0, set) = cx.use_state(0_i32);
+    assert_eq!(v0, 0);
+    set.call(5);
+
+    cx.begin_render();
+    let (v1, set2) = cx.use_state(0_i32);
+    assert_eq!(v1, 5, "cached setter must write the slot");
+    set2.call(9);
+
+    cx.begin_render();
+    let (v2, _) = cx.use_state(0_i32);
+    assert_eq!(v2, 9);
+}
+
 #[test]
 fn callback_dispatches_captured_closure() {
     let counter = Rc::new(Cell::new(0));

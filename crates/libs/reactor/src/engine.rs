@@ -244,6 +244,7 @@ enum HookSlot {
     State {
         cell: Rc<RefCell<Box<dyn Any>>>,
         type_name: &'static str,
+        setter: Option<Box<dyn Any>>,
     },
     Memo {
         value: Rc<RefCell<Box<dyn Any>>>,
@@ -646,8 +647,34 @@ impl RenderCx {
         T: 'static + Clone + PartialEq,
     {
         let (current, cell, slot_index) = self.state_slot(initial);
-        let setter = self.make_state_setter::<T>(cell, slot_index);
+        let setter = self.memo_state_setter::<T>(slot_index, cell);
         (current, setter)
+    }
+
+    fn memo_state_setter<T>(
+        &self,
+        slot_index: usize,
+        cell: Rc<RefCell<Box<dyn Any>>>,
+    ) -> SetState<T>
+    where
+        T: 'static + Clone + PartialEq,
+    {
+        {
+            let hooks = self.hooks.borrow();
+            if let HookSlot::State {
+                setter: Some(cached),
+                ..
+            } = &hooks[slot_index]
+                && let Some(existing) = cached.downcast_ref::<SetState<T>>()
+            {
+                return existing.clone();
+            }
+        }
+        let setter = self.make_state_setter::<T>(cell, slot_index);
+        if let HookSlot::State { setter: slot, .. } = &mut self.hooks.borrow_mut()[slot_index] {
+            *slot = Some(Box::new(setter.clone()));
+        }
+        setter
     }
 
     pub fn use_reducer<T>(&mut self, initial: T) -> (T, Updater<T>)
@@ -685,12 +712,15 @@ impl RenderCx {
             hooks.push(HookSlot::State {
                 cell: Rc::new(RefCell::new(boxed)),
                 type_name: std::any::type_name::<HookRef<T>>(),
+                setter: None,
             });
             return h;
         }
 
         match &hooks[slot_index] {
-            HookSlot::State { cell, type_name } => {
+            HookSlot::State {
+                cell, type_name, ..
+            } => {
                 let slot = cell.borrow();
                 let h = slot.downcast_ref::<HookRef<T>>().unwrap_or_else(|| {
                     panic!(
@@ -934,11 +964,14 @@ impl RenderCx {
                 hooks.push(HookSlot::State {
                     cell: Rc::clone(&cell),
                     type_name,
+                    setter: None,
                 });
                 (cell, type_name)
             } else {
                 match &hooks[slot_index] {
-                    HookSlot::State { cell, type_name } => (Rc::clone(cell), *type_name),
+                    HookSlot::State {
+                        cell, type_name, ..
+                    } => (Rc::clone(cell), *type_name),
                     _ => panic!(
                         "hook called in different order: slot {slot_index} held a \
                          non-State slot, now called as `use_state`/`use_reducer`"

@@ -292,14 +292,16 @@ That only matters under pathological churn (thousands of inline handlers
 re-binding per frame); a normal app rebinds a handful per frame, where the
 absolute saving is negligible. The trampoline was **rejected** — it adds
 per-control slot state and codegen across every event arm without a practical
-win. The real lever for hot handlers is `use_callback`, which gives the handler a
-stable identity *and* lets `can_skip_update` skip the control's whole diff, not
-just the rebind.
+win. The real lever for hot handlers is a *stable handler identity*, which lets
+`can_skip_update` skip the control's whole diff, not just the rebind. Two sources
+of stable identity exist: `use_callback` (memoized closure) and — because state
+setters are themselves memoized per hook slot — a `use_state`/`use_reducer` setter
+passed straight to an `on_*` handler.
 
 ### Investigation backlog
 
-Health/efficiency leads surfaced while profiling event-handler churn. Item 1 has
-since landed; the rest are not committed work and each needs measurement on
+Health/efficiency leads surfaced while profiling event-handler churn. Items 1–2
+have since landed; the rest are not committed work and each needs measurement on
 representative trees before investing.
 
 1. **`use_callback` now skips unchanged controls *(fixed)*.** Previously every
@@ -316,16 +318,26 @@ representative trees before investing.
    diffed (still re-wrapped, so no effect); `use_callback` passed directly
    0.10 ms / 0 diffed (the unchanged subtree is pruned at the root in one
    compare — ~24×).
-2. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
+2. **State setters are memoized so passing them directly skips too *(fixed)*.**
+   `make_state_setter` used to allocate a fresh `Rc` every render, so even though
+   `IntoCallback for SetState` reuses that `Rc` (`from_rc`, not a fresh
+   `Callback::new`), the identity still changed each frame and
+   `on_text_changed(set_name)` never skipped. The setter is now cached in its hook
+   slot (`HookSlot::State { setter, .. }`) and cloned each render, so the common
+   "handler just calls a setter" pattern skips *without* `use_callback`. Same bench
+   (`setter` mode, `on_text_changed(set_text)`): 0.10 ms / 0 diffed — matching the
+   `use_callback` path. `use_callback` is now only needed for handlers that close
+   over render-derived data (where deps must gate the rebuild).
+3. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
    (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
    handful of bindings most controls carry; profile the binding-count distribution
    on real trees before considering sorted bindings / a small-map.
-3. **Silently-dropped props *(low, clarity)*.** Unsupported `(prop, control)`
+4. **Silently-dropped props *(low, clarity)*.** Unsupported `(prop, control)`
    combos (e.g. `Padding` on `TextBlock`) hit `diag::unhandled_modifier`
    (`backend/winui/diag.rs`), which both floods debug output per control creation
    and silently no-ops a prop the author thinks applies. Audit the dropped set and
    either support or surface it once rather than per-control.
-4. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
+5. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
    synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
    offender observed). "Diff cost dominated by COM property-set calls" can be made
    concrete by timing per-`Prop` set cost and flagging the expensive ones for
