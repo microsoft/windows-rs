@@ -354,8 +354,9 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (`IVector<UIElement>`).
-    Panel(windows_collections::IVector<bindings::UIElement>),
+    /// by `IPanel::Children` — a `UIElementCollection` (which derefs to
+    /// `IVector<UIElement>`).
+    Panel(bindings::UIElementCollection),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
     /// Single-child `IContentControl` (ScrollViewer, Expander,
@@ -373,36 +374,16 @@ enum ContainerChildren<'a> {
 fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
     match h {
         Handle::StackPanel(s) => Some(ContainerChildren::Panel(
-            s.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            s.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Grid(g) => Some(ContainerChildren::Panel(
-            g.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            g.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Canvas(c) => Some(ContainerChildren::Panel(
-            c.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            c.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::RelativePanel(r) => Some(ContainerChildren::Panel(
-            r.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            r.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Border(_) | Handle::Viewbox(_) => Some(ContainerChildren::SingleChild(h)),
         Handle::ScrollViewer(s) => Some(ContainerChildren::ContentControl(s.cast().ok()?)),
@@ -1222,25 +1203,21 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
                     let defs = g.RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for r in rows {
                         let rd = bindings::RowDefinition::new()?;
                         rd.SetHeight(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                            .Append(&rd)?;
+                        defs.Append(&rd)?;
                     }
                     Ok(())
                 }
                 (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
                     let defs = g.ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for c in cols {
                         let cd = bindings::ColumnDefinition::new()?;
                         cd.SetWidth(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                            .Append(&cd)?;
+                        defs.Append(&cd)?;
                     }
                     Ok(())
                 }
@@ -3267,13 +3244,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
             let sp = bindings::StackPanel::new().ok()?;
             sp.SetOrientation(s.orientation).ok()?;
             sp.SetSpacing(s.spacing).ok()?;
-            let children = sp
-                .cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast::<windows_collections::IVector<bindings::UIElement>>()
-                .ok()?;
+            let children = sp.cast::<bindings::IPanel>().ok()?.Children().ok()?;
             for child in &s.children {
                 if let Some(cui) = mount_static_tooltip_element(child) {
                     let _ = children.Append(&cui);
