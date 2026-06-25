@@ -981,14 +981,17 @@ fn set_background(
     handle: &Handle,
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
-    if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
-        panel.SetBackground(brush)?;
-    } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetBackground(brush)?;
-    } else if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.SetBackground(brush)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Background, handle);
+    match handle {
+        Handle::Border(b) => b.SetBackground(brush)?,
+        _ => {
+            if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
+                panel.SetBackground(brush)?;
+            } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetBackground(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Background, handle);
+            }
+        }
     }
     Ok(true)
 }
