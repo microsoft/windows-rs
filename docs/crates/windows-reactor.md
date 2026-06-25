@@ -481,10 +481,14 @@ measurement on representative trees before investing.
    and grep the output. A hit is usually a class cast to its own default interface
    (replace with `Deref`); a cast to `IUnknown`/`IInspectable` is reported too
    (prefer `.into()`), though in practice this codebase has ~none since it already
-   uses `.into()`. The report counts every invocation, so expect heavy duplication
-   (a self-test run is ~1000 hits across only ~36 unique call sites — sort/unique by
-   site). It surfaced further leads outside the backend (`app_shim.rs`, the
-   self-test harness) not yet cleaned.
+   uses `.into()`. The report counts every invocation, so sort/unique by call site.
+   Acting on it once took the self-test from ~1000 hits across ~36 sites down to 4:
+   the leads it surfaced beyond the backend — `app_shim.rs` (`IXamlMetadataProvider`)
+   and the self-test harness/`exec.rs` (`IDispatcherQueue` and ~30 builder casts) —
+   are all cleaned. The 4 residual hits are genuine false positives the heuristic
+   cannot distinguish: `factory_cache.rs`'s runtime `IAgileObject` agility probe and
+   `generic_factory.rs`'s type-erased `IInspectable`→class activation, where the
+   same-pointer result is incidental and the cast is not statically removable.
 
 ### Reactor / canvas naming
 
