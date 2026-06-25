@@ -238,11 +238,15 @@ follows them.
 
 ### Known quirks
 
-`.padding()` is silently ignored on `vstack`/`hstack`: `Padding` belongs to
-`Control`, but `StackPanel` derives from `Panel`, so the call compiles with no
-effect. Use `.margin(...)` instead. With the `diagnostics` feature,
-`diag::unhandled_modifier` warns when a modifier is applied to an element that
-can't honor it.
+`Padding` has no single owning interface: `Control`, `Border`, `StackPanel`,
+`TextBlock`, and `RichTextBlock` each declare their own. `set_padding`
+(`backend/winui/mod.rs`) therefore dispatches on the `Handle` variant — calling
+the setter directly on `Border`, `StackPanel`, `TextBlock`, and `RichTextBlock`
+through their default interface, and falling back to a single `IControl` cast for
+everything else — so `.padding(...)` works on controls, borders, stack panels,
+and text blocks. Containers that genuinely lack a `Padding` property (e.g. bare
+`Panel`/`Grid`) still fall through to `diag::unhandled_modifier`, which warns
+under debug builds; use `.margin(...)` there instead.
 
 ### Threading
 
@@ -275,6 +279,113 @@ turn produce a single render). The `reactor_perf` test app emits CSV compatible
 with the C# `microsoft-ui-reactor` `stress_perf` benchmarks; compare against its
 `ReactorOptimized` variant (which caches cells like Rust does), not the base
 `Reactor`.
+
+#### Event-handler rebind (why there is no trampoline)
+
+Inline handlers (`button("x").on_click(|| …)`) allocate a fresh `Callback` every
+render, so their identity always differs and the reconciler rebinds the WinUI
+event each time a control is diffed: revoke the old delegate, QI-cast to the
+event interface (e.g. `IButtonBase`), and add a new one. A *trampoline* — bind the
+WinUI delegate once and have it read the current handler from an
+`Rc<RefCell<…>>` slot, so a change becomes a slot write — was prototyped and
+measured against this cost.
+
+An isolated microbenchmark (1000 buttons, handler-only churn, no layout) put the
+WinUI rebind at ~2.7 µs and the slot-write at ~1.7 µs: ~0.95 µs saved per rebind.
+That only matters under pathological churn (thousands of inline handlers
+re-binding per frame); a normal app rebinds a handful per frame, where the
+absolute saving is negligible. The trampoline was **rejected** — it adds
+per-control slot state and codegen across every event arm without a practical
+win. The real lever for hot handlers is a *stable handler identity*, which lets
+`can_skip_update` skip the control's whole diff, not just the rebind. Two sources
+of stable identity exist: `use_callback` (memoized closure) and — because state
+setters are themselves memoized per hook slot — a `use_state`/`use_reducer` setter
+passed straight to an `on_*` handler.
+
+#### Interface-cast dispatch (avoid QI probing)
+
+Each control is held as a `Handle` enum whose variant *is* the concrete WinUI
+class (`Handle::TextBlock(bindings::TextBlock)`, …). `cast_inner::<T>()` matches
+the variant and calls `windows_core::Interface::cast`, which is a COM
+`QueryInterface` — and on XAML's aggregated objects a QI is comparatively
+expensive, especially a *failing* one.
+
+Shared modifiers that apply across many control families (`padding`, `foreground`,
+`font_size`/`font_weight`/`font_family`) used to **probe** interfaces with an
+`if let Ok(_) = cast_inner::<IControl>() … else if … ITextBlock … else …` chain.
+For a `TextBlock` that meant 1–2 *failed* QIs before the successful one. A perf
+run (80×60 grid of text cells whose foreground flips each frame) showed ~44 % of
+all `cast_inner` calls failing — ~9,400 wasted QIs/second, every one an
+`IControl` probe against a `TextBlock` (which derives from `FrameworkElement`,
+not `Control`).
+
+Because the variant already names the concrete type, these setters now `match`
+the handle instead of probing. A class derefs to its **default** interface
+(`bindings::TextBlock: Deref<Target = ITextBlock>`), so the common text cases call
+the setter directly at **zero** QI; everything else falls through to a single
+`IControl` cast. After the change the same perf run drops to **<100 failed QIs in
+5 seconds** (effectively zero), with no behavior change (all self-test fixtures
+pass). `set_background` keeps a short probe: its targets span `IPanel` (five panel
+variants), `IControl`, and `IBorder`, and it is not on a measured hot path.
+
+### Investigation backlog
+
+Health/efficiency leads surfaced while profiling event-handler churn. Items 1–2
+have since landed; the rest are not committed work and each needs measurement on
+representative trees before investing.
+
+1. **`use_callback` now skips unchanged controls *(fixed)*.** Previously every
+   `on_*` builder re-wrapped its closure in a fresh `Callback::new`, so even a
+   stable `use_callback` result got a new identity each render and
+   `can_skip_update` never skipped the control — `use_callback` was inert for
+   widget events. The setters now accept `impl IntoCallback<T>` (or
+   `impl IntoUnitCallback` for parameterless handlers like `Button::on_click`) and
+   call `.into_callback()`, so an existing `Callback` flows through with its
+   identity preserved while bare closures still work unchanged. Pass a
+   `use_callback` result straight to `on_click` to get the win. Measured on a
+   1000-button handler-churn bench (reconcile ms per frame): inline `on_click`
+   2.50 ms / 1001 diffed; `use_callback` wrapped in a closure 2.49 ms / 1001
+   diffed (still re-wrapped, so no effect); `use_callback` passed directly
+   0.10 ms / 0 diffed (the unchanged subtree is pruned at the root in one
+   compare — ~24×).
+2. **State/reducer setters are memoized so passing them directly skips too
+   *(fixed)*.** `make_state_setter`/`make_updater` used to allocate a fresh `Rc`
+   every render, so even though `IntoCallback for SetState` reuses that `Rc`
+   (`from_rc`, not a fresh `Callback::new`), the identity still changed each frame
+   and `on_text_changed(set_name)` never skipped. Each slot now caches its handle
+   (`HookSlot::State { handle, .. }`) and a single generic `memo_handle` helper
+   builds it once and clones it each render, so the common "handler just calls a
+   setter" pattern skips *without* `use_callback`. The same helper backs both
+   `use_state` (`SetState`) and `use_reducer` (`Updater`). `use_reducer_fn`'s
+   `Dispatch` is deliberately *not* memoized: it captures the user `reducer`
+   (memoizing would pin the first render's closure), and it is almost always
+   wrapped at the call site (`on_click(move || dispatch.call(Action::X))`), so a
+   stable identity would not help skipping anyway. Reconcile bench (`setter` mode,
+   `on_text_changed(set_text)`): 0.10 ms / 0 diffed — matching the `use_callback`
+   path. The `alloc_bench` tool (counting global allocator + `RenderCx`, no WinUI)
+   measures steady-state heap allocations per render: `use_state` 0, `use_reducer`
+   0 (was 1 before memoization), `use_callback`/`use_ref` 0, `use_reducer_fn` 2
+   (the un-memoized reducer + dispatch `Rc`s). `use_callback` is now only needed
+   for handlers that close over render-derived data (where deps must gate the
+   rebuild).
+3. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
+   (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
+   handful of bindings most controls carry; profile the binding-count distribution
+   on real trees before considering sorted bindings / a small-map.
+4. **Silently-dropped props *(partly fixed)*.** Unsupported `(prop, control)`
+   combos hit `diag::unhandled_modifier` (`backend/winui/diag.rs`), which both
+   floods debug output per control creation and silently no-ops a prop the author
+   thinks applies. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
+   both types own a `Padding` property WinUI supports, but the bindings filter and
+   `set_padding` only covered `Control`/`Border`; `set_padding` now also casts to
+   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
+   the dropped set and either support each combo or surface it once rather than
+   per-control.
+5. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
+   synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
+   offender observed). "Diff cost dominated by COM property-set calls" can be made
+   concrete by timing per-`Prop` set cost and flagging the expensive ones for
+   batching/deferral.
 
 ### Reactor / canvas naming
 

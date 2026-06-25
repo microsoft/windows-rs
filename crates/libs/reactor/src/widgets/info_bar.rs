@@ -66,8 +66,8 @@ impl InfoBar {
         self.is_closable = v;
         self
     }
-    pub fn on_closed<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_closed = Some(Callback::new(move |()| f()));
+    pub fn on_closed(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_closed = Some(f.into_unit_callback());
         self
     }
 }

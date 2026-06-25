@@ -18,8 +18,8 @@ impl BreadcrumbBar {
             ..Default::default()
         }
     }
-    pub fn on_item_clicked<F: Fn(i32) + 'static>(mut self, f: F) -> Self {
-        self.on_item_clicked = Some(Callback::new(f));
+    pub fn on_item_clicked(mut self, f: impl IntoCallback<i32>) -> Self {
+        self.on_item_clicked = Some(f.into_callback());
         self
     }
 }

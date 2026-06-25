@@ -54,13 +54,13 @@ impl TeachingTip {
         self
     }
 
-    pub fn on_closed<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_closed = Some(Callback::new(move |()| f()));
+    pub fn on_closed(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_closed = Some(f.into_unit_callback());
         self
     }
 
-    pub fn on_action_button_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_action_button_click = Some(Callback::new(move |()| f()));
+    pub fn on_action_button_click(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_action_button_click = Some(f.into_unit_callback());
         self
     }
 }

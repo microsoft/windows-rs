@@ -205,3 +205,35 @@ fn empty_theme_bindings_map_still_allows_skip() {
     let b = a.clone();
     assert!(can_skip_update(&a, &b));
 }
+
+// A stable `Callback` (e.g. from `use_callback`) passed through the `on_click`
+// setter must keep its identity so the control is skippable — unlike the tests
+// above, this exercises the setter, where re-wrapping would silently regress.
+#[test]
+fn on_click_setter_preserves_callback_identity() {
+    use windows_reactor::{Callback, button};
+
+    let cb = Callback::<()>::new(|()| {});
+    let a: Element = button("go").on_click(cb.clone()).into();
+    let b: Element = button("go").on_click(cb).into();
+    assert!(can_skip_update(&a, &b));
+}
+
+#[test]
+fn on_click_setter_with_closures_does_not_skip() {
+    use windows_reactor::button;
+
+    let a: Element = button("go").on_click(|| {}).into();
+    let b: Element = button("go").on_click(|| {}).into();
+    assert!(!can_skip_update(&a, &b));
+}
+
+#[test]
+fn on_text_changed_setter_preserves_callback_identity() {
+    use windows_reactor::{Callback, text_box};
+
+    let cb = Callback::<String>::new(|_| {});
+    let a: Element = text_box("x").on_text_changed(cb.clone()).into();
+    let b: Element = text_box("x").on_text_changed(cb).into();
+    assert!(can_skip_update(&a, &b));
+}

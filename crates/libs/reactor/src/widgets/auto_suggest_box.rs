@@ -49,18 +49,18 @@ impl AutoSuggestBox {
         self
     }
 
-    pub fn on_text_changed<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_text_changed = Some(Callback::new(f));
+    pub fn on_text_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_text_changed = Some(f.into_callback());
         self
     }
 
-    pub fn on_query_submitted<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_query_submitted = Some(Callback::new(f));
+    pub fn on_query_submitted(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_query_submitted = Some(f.into_callback());
         self
     }
 
-    pub fn on_suggestion_chosen<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_suggestion_chosen = Some(Callback::new(f));
+    pub fn on_suggestion_chosen(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_suggestion_chosen = Some(f.into_callback());
         self
     }
 }

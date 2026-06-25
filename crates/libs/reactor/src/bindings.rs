@@ -12118,6 +12118,15 @@ impl IRichTextBlock {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn SetPadding(&self, value: Thickness) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPadding)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetIsTextSelectionEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsTextSelectionEnabled)(
@@ -12162,7 +12171,8 @@ pub struct IRichTextBlock_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     Padding: usize,
-    SetPadding: usize,
+    pub SetPadding:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
     LineHeight: usize,
     SetLineHeight: usize,
     LineStackingStrategy: usize,
@@ -13238,6 +13248,15 @@ impl IStackPanel {
             .ok()
         }
     }
+    pub(crate) fn SetPadding(&self, value: Thickness) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPadding)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetSpacing(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetSpacing)(
@@ -13265,7 +13284,8 @@ pub struct IStackPanel_Vtbl {
     CornerRadius: usize,
     SetCornerRadius: usize,
     Padding: usize,
-    SetPadding: usize,
+    pub SetPadding:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
     Spacing: usize,
     pub SetSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
@@ -14351,6 +14371,15 @@ impl ITextBlock {
             .ok()
         }
     }
+    pub(crate) fn SetPadding(&self, value: Thickness) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPadding)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetIsTextSelectionEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsTextSelectionEnabled)(
@@ -14403,7 +14432,8 @@ pub struct ITextBlock_Vtbl {
     ) -> windows_core::HRESULT,
     Inlines: usize,
     Padding: usize,
-    SetPadding: usize,
+    pub SetPadding:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
     LineHeight: usize,
     SetLineHeight: usize,
     LineStackingStrategy: usize,

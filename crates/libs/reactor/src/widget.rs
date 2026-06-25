@@ -455,8 +455,8 @@ impl<T: 'static> TemplatedListBuilder<T> {
         self
     }
 
-    pub fn on_selection_changed(mut self, cb: impl Fn(i32) + 'static) -> Self {
-        self.on_selection_changed = Some(Callback::new(cb));
+    pub fn on_selection_changed(mut self, cb: impl IntoCallback<i32>) -> Self {
+        self.on_selection_changed = Some(cb.into_callback());
         self
     }
 

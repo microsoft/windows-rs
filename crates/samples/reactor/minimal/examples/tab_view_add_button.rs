@@ -41,7 +41,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 set_tabs_add.call(next);
                 set_selected_add.call(new_idx);
             })
-            .on_close_requested(move |key| {
+            .on_close_requested(move |key: String| {
                 let idx: usize = key.parse().unwrap_or(0);
                 let next: Vec<_> = tabs_for_close
                     .iter()
