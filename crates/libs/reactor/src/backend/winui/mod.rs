@@ -2038,13 +2038,10 @@ impl Backend for WinUIBackend {
         // Drop any prior registration so repeated attaches don't
         // accumulate handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
+        let control = selector.clone();
         let revoker = selector
-            .SelectionChanged(move |sender, _args| {
-                let idx = sender
-                    .as_ref()
-                    .and_then(|s| s.cast::<bindings::ISelector>().ok())
-                    .and_then(|sel| sel.SelectedIndex().ok())
-                    .unwrap_or(-1);
+            .SelectionChanged(move |_sender, _args| {
+                let idx = control.SelectedIndex().unwrap_or(-1);
                 handler.invoke(idx);
             })
             .unwrap_or_else(|e| {
@@ -2114,13 +2111,10 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::TabView(tv)) => {
+                let control = tv.clone();
                 revokers.push(
-                    tv.SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::TabView>().ok())
-                            .and_then(|t| t.SelectedIndex().ok())
-                            .unwrap_or(-1);
+                    tv.SelectionChanged(move |_sender, _args| {
+                        let idx = control.SelectedIndex().unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
                         }
@@ -2235,18 +2229,10 @@ impl Backend for WinUIBackend {
                 }
             }
             (Event::SelectionChanged, Handle::Pivot(p)) => {
+                let selector: bindings::ISelector = p.cast().unwrap();
                 revokers.push(
-                    p.SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::Selector>().ok())
-                            .and_then(|sel| {
-                                sel.cast::<bindings::ISelector>()
-                                    .unwrap()
-                                    .SelectedIndex()
-                                    .ok()
-                            })
-                            .unwrap_or(-1);
+                    p.SelectionChanged(move |_sender, _args| {
+                        let idx = selector.SelectedIndex().unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
                         }
@@ -2255,20 +2241,12 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::ComboBox(c)) => {
+                let selector: bindings::ISelector = c.cast().unwrap();
+                let control = selector.clone();
                 revokers.push(
-                    c.cast::<bindings::ISelector>()
-                        .unwrap()
-                        .SelectionChanged(move |sender, _args| {
-                            let idx = sender
-                                .as_ref()
-                                .and_then(|s| s.cast::<bindings::Selector>().ok())
-                                .and_then(|sel| {
-                                    sel.cast::<bindings::ISelector>()
-                                        .unwrap()
-                                        .SelectedIndex()
-                                        .ok()
-                                })
-                                .unwrap_or(-1);
+                    selector
+                        .SelectionChanged(move |_sender, _args| {
+                            let idx = control.SelectedIndex().unwrap_or(-1);
                             handler.invoke_i32(idx);
                         })
                         .unwrap(),
@@ -2328,15 +2306,12 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::ListBox(lb)) => {
+                let selector: bindings::ISelector = lb.cast().unwrap();
+                let control = selector.clone();
                 revokers.push(
-                    lb.cast::<bindings::ISelector>()
-                        .unwrap()
+                    selector
                         .SelectionChanged(move |_sender, _args| {
-                            if let Some(sel) = _sender.as_ref()
-                                && let Ok(idx) = sel
-                                    .cast::<bindings::ISelector>()
-                                    .and_then(|s| s.SelectedIndex())
-                            {
+                            if let Ok(idx) = control.SelectedIndex() {
                                 handler.invoke_i32(idx);
                             }
                         })
@@ -2464,13 +2439,13 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::TextChanged, Handle::RichEditBox(reb)) => {
+                let control = reb.clone();
                 revokers.push(
-                    reb.TextChanged(move |sender, _args| {
-                        let text = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::RichEditBox>().ok())
-                            .and_then(|reb| {
-                                let doc = reb.Document().ok()?;
+                    reb.TextChanged(move |_sender, _args| {
+                        let text = control
+                            .Document()
+                            .ok()
+                            .and_then(|doc| {
                                 let mut buf = windows_core::HSTRING::default();
                                 doc.GetText(bindings::TextGetOptions::None, &mut buf).ok()?;
                                 Some(buf.to_string_lossy())
