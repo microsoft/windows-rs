@@ -275,10 +275,59 @@ dominated by COM property-set calls. Two deliberate non-features follow from thi
   dispatcher rather than re-entering, so unbounded recursion is impossible.
 
 State writes are coalesced through the dispatcher (many `set_state` calls in one
-turn produce a single render). The `reactor_perf` test app emits CSV compatible
-with the C# `microsoft-ui-reactor` `stress_perf` benchmarks; compare against its
-`ReactorOptimized` variant (which caches cells like Rust does), not the base
-`Reactor`.
+turn produce a single render).
+
+#### Comparing against the C# reactor
+
+The `test_reactor_perf` app (`crates/tests/libs/reactor_perf`) is a deliberate
+port of the C# **`microsoft-ui-reactor`** `stress_perf` harness: same stocks-grid
+workload (~4,800 cells here, 80×60; ~4,900 in C#, 70×70), the same
+`--headless --percent N --duration S` CLI, and the same report — both write
+`<AppName>.report.txt` with `Total Renders` and `Renders/sec`, so the numbers are
+directly comparable on the same machine and power state.
+
+The C# harness ships **two** reactor variants; the Rust crate has only one because
+its idioms (cached cells, memoized setters) are always on:
+
+- `StressPerf.Reactor` — naive baseline, "what an unaware user writes."
+- `StressPerf.ReactorOptimized` — spec-034 perf idioms (direct record-initializer
+  construction + `UseMemoCells`). **This is the fair comparison for Rust**, since
+  `windows-reactor` already caches cells and skips unchanged subtrees by default.
+
+Run both (from each repo root) and diff the `Renders/sec` line:
+
+```powershell
+# Rust (this repo)
+cargo run -q --release -p test_reactor_perf --bin test_reactor_perf -- `
+  --headless --percent 50 --duration 10
+
+# C# (D:\git\microsoft-ui-reactor) — match your platform (x64 / ARM64)
+dotnet run --project tests/stress_perf/StressPerf.ReactorOptimized -c Release `
+  -p:Platform=x64 -- --headless --percent 50 --duration 10
+```
+
+`--percent` is the fraction of cells mutated per tick; hold it (and `--duration`)
+equal across both runs. `Renders/sec` is a render-count throughput proxy — good for
+cross-framework comparison but not the same as the user-perceived ETW Present rate;
+see the C# `stress_perf/METHODOLOGY.md` for that distinction and the admin-mode
+present-tracer harness.
+
+A point-in-time snapshot (same x64 Release box, `--percent 50 --duration 10`,
+median of two runs) — refresh when the workload or either framework changes:
+
+| Metric        | Rust `windows-reactor` | C# `ReactorOptimized` |
+| ------------- | ---------------------- | --------------------- |
+| Renders/sec   | ~8.7                   | ~4.1                  |
+| Avg Reconcile | ~7.9 ms                | ~46 ms                |
+| Avg Diff      | ~7.1 ms                | ~39 ms                |
+| Avg Memory    | ~190 MB                | ~285 MB               |
+
+Both hold `renders/tick ≈ 1.0`, so the throughput gap tracks reconcile cost: the
+Rust diff fits inside the frame tick while the C# reconcile gates its frame rate.
+This is the *optimized* C# variant (cached cells), the fair comparison for Rust.
+Both stacks are framework-dependent and bootstrap into the **same** installed
+WinAppSDK 2.0 runtime (`Microsoft.WindowsAppRuntime.2`), so the XAML/WinUI layer is
+identical — only the language runtime above it (native Rust vs .NET CoreCLR) differs.
 
 #### Event-handler rebind (why there is no trampoline)
 
