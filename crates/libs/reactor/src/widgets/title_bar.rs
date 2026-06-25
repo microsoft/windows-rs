@@ -40,12 +40,12 @@ impl TitleBar {
         self.is_pane_toggle_button_visible = v;
         self
     }
-    pub fn on_back_requested<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_back_requested = Some(Callback::new(move |()| f()));
+    pub fn on_back_requested(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_back_requested = Some(f.into_unit_callback());
         self
     }
-    pub fn on_pane_toggle_requested<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_pane_toggle_requested = Some(Callback::new(move |()| f()));
+    pub fn on_pane_toggle_requested(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_pane_toggle_requested = Some(f.into_unit_callback());
         self
     }
     pub fn content(mut self, el: impl Into<Element>) -> Self {

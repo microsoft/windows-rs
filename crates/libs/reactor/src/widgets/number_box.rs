@@ -37,8 +37,8 @@ impl NumberBox {
         self.maximum = max;
         self
     }
-    pub fn on_value_changed<F: Fn(f64) + 'static>(mut self, f: F) -> Self {
-        self.on_value_changed = Some(Callback::new(f));
+    pub fn on_value_changed(mut self, f: impl IntoCallback<f64>) -> Self {
+        self.on_value_changed = Some(f.into_callback());
         self
     }
     pub fn header(mut self, s: impl Into<String>) -> Self {

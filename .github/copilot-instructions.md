@@ -9,6 +9,30 @@ Do not create git commits automatically. The maintainer reviews all changes firs
 and handles commits manually. Make changes locally, run fmt/clippy/tests to verify,
 and report back.
 
+## Repository Layout
+
+Cargo workspace (`resolver = "3"`). Members are globbed from:
+
+- `crates/libs/*` — the published/library crates (`windows`, `windows-sys`,
+  `windows-core`, plus `windows-bindgen`, `metadata`, `rdl`, `riddle`, and the
+  newer `reactor`/`canvas`/`webview`/`window` crates). See `docs/readme.md` for
+  the full categorized crate index, and `docs/crates/<crate>.md` per crate.
+- `crates/tools/*` — code generators and CI helpers, run via `cargo run -p tool_*`.
+- `crates/tests/*/*` — test crates; `crates/tests/libs/<crate>` mirrors each
+  library crate (e.g. `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
+- `crates/samples/*/*` — runnable examples.
+- `crates/targets/*` — the per-architecture import-lib crates (`windows_x86_64_msvc`,
+  etc.); `crates/targets/baseline` is excluded from the workspace.
+
+The crates fall into rough groups (see `docs/readme.md` for the authoritative list):
+core & errors (`windows-core`, `windows-result`, `windows-strings`); values &
+collections (`numerics`, `collections`, `reference`, `time`); async & threading
+(`future`, `threading`); system services (`registry`, `services`, `version`); COM
+macros & linking (`implement`, `interface`, `link`, `targets`); UI & graphics
+(`reactor`, `canvas`, `webview`, `window`, `animation`, `reactor-setup`); codegen &
+metadata tooling (`bindgen`, `metadata`, `rdl`, `riddle`, `cppwinrt`); and the full
+API projection (`windows`, `windows-sys`).
+
 ## Before Finalizing Changes
 
 ```sh
@@ -26,7 +50,15 @@ cargo check -p windows-core --quiet
 cargo check -p windows --quiet
 cargo clippy -p <crate> --all-targets
 cargo test -p <crate>
+
+# Run a single test by name filter
+cargo test -p <crate> <test_name_substring>
 ```
+
+CI sets `RUSTFLAGS: -D warnings`, so any warning fails the build. Workspace-wide
+lints are configured in the root `Cargo.toml` (`[workspace.lints]`) — clippy lints
+like `uninlined_format_args`, `redundant_clone`, and `semicolon_if_nothing_returned`
+are promoted to warnings and therefore enforced.
 
 ### Reactor
 
@@ -68,7 +100,15 @@ cargo run -p tool_clippy_all    # runs clippy across all crates
 
 ## Code Generation Pipeline
 
-**Never hand-edit generated files.** The pipeline is:
+**Never hand-edit generated files.** Generated outputs are committed, and CI fails
+if regenerating produces a diff (the `gen` workflow runs each `cargo run -p tool_*`
+and rejects any change; the `test` workflow likewise fails if tests modify tracked
+files). After editing generators or filters, re-run the tool and commit the result.
+
+The core `windows` / `windows-sys` crates are generated from Windows metadata
+(`.winmd`) via `windows-bindgen` (driven by `tool_package`). `windows-metadata`,
+`windows-rdl`, and `riddle` support reading/authoring that metadata. The reactor /
+canvas / webview pipelines layer on top:
 
 1. **`tool_reactor`** — reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd`
    metadata → generates `generated.rs`, `generated_set_prop.rs`,
@@ -131,5 +171,7 @@ The `docs/` folder has one page per crate:
 - **`docs/crates/<crate>.md`** — a single page per crate covering both usage and internals (how the crate is built and maintained: codegen pipeline, generated files, conventions). It links to the crate's own `readme.md` for the user-facing intro and quick example.
 - **`crates/libs/<crate>/readme.md`** — the user-facing introduction with a quick example (also the crates.io / docs.rs landing).
 - **`docs/readme.md`** — the documentation hub and crate index.
+
+`docs/` also holds `contributing.md`, `code_of_conduct.md`, and `security.md`.
 
 When making changes to a crate, update its `docs/crates/<crate>.md` page and its `readme.md` as needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (codegen, TOML, threading, COM pitfalls, plus the conceptual overview) and `crates/libs/reactor/readme.md` (getting started and the quick example).

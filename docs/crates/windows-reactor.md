@@ -276,6 +276,61 @@ with the C# `microsoft-ui-reactor` `stress_perf` benchmarks; compare against its
 `ReactorOptimized` variant (which caches cells like Rust does), not the base
 `Reactor`.
 
+#### Event-handler rebind (why there is no trampoline)
+
+Inline handlers (`button("x").on_click(|| …)`) allocate a fresh `Callback` every
+render, so their identity always differs and the reconciler rebinds the WinUI
+event each time a control is diffed: revoke the old delegate, QI-cast to the
+event interface (e.g. `IButtonBase`), and add a new one. A *trampoline* — bind the
+WinUI delegate once and have it read the current handler from an
+`Rc<RefCell<…>>` slot, so a change becomes a slot write — was prototyped and
+measured against this cost.
+
+An isolated microbenchmark (1000 buttons, handler-only churn, no layout) put the
+WinUI rebind at ~2.7 µs and the slot-write at ~1.7 µs: ~0.95 µs saved per rebind.
+That only matters under pathological churn (thousands of inline handlers
+re-binding per frame); a normal app rebinds a handful per frame, where the
+absolute saving is negligible. The trampoline was **rejected** — it adds
+per-control slot state and codegen across every event arm without a practical
+win. The real lever for hot handlers is `use_callback`, which gives the handler a
+stable identity *and* lets `can_skip_update` skip the control's whole diff, not
+just the rebind.
+
+### Investigation backlog
+
+Health/efficiency leads surfaced while profiling event-handler churn. Item 1 has
+since landed; the rest are not committed work and each needs measurement on
+representative trees before investing.
+
+1. **`use_callback` now skips unchanged controls *(fixed)*.** Previously every
+   `on_*` builder re-wrapped its closure in a fresh `Callback::new`, so even a
+   stable `use_callback` result got a new identity each render and
+   `can_skip_update` never skipped the control — `use_callback` was inert for
+   widget events. The setters now accept `impl IntoCallback<T>` (or
+   `impl IntoUnitCallback` for parameterless handlers like `Button::on_click`) and
+   call `.into_callback()`, so an existing `Callback` flows through with its
+   identity preserved while bare closures still work unchanged. Pass a
+   `use_callback` result straight to `on_click` to get the win. Measured on a
+   1000-button handler-churn bench (reconcile ms per frame): inline `on_click`
+   2.50 ms / 1001 diffed; `use_callback` wrapped in a closure 2.49 ms / 1001
+   diffed (still re-wrapped, so no effect); `use_callback` passed directly
+   0.10 ms / 0 diffed (the unchanged subtree is pruned at the root in one
+   compare — ~24×).
+2. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
+   (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
+   handful of bindings most controls carry; profile the binding-count distribution
+   on real trees before considering sorted bindings / a small-map.
+3. **Silently-dropped props *(low, clarity)*.** Unsupported `(prop, control)`
+   combos (e.g. `Padding` on `TextBlock`) hit `diag::unhandled_modifier`
+   (`backend/winui/diag.rs`), which both floods debug output per control creation
+   and silently no-ops a prop the author thinks applies. Audit the dropped set and
+   either support or surface it once rather than per-control.
+4. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
+   synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
+   offender observed). "Diff cost dominated by COM property-set calls" can be made
+   concrete by timing per-`Prop` set cost and flagging the expensive ones for
+   batching/deferral.
+
 ### Reactor / canvas naming
 
 `windows-reactor` and `windows-canvas` define some of the same short names for

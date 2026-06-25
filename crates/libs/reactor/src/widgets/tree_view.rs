@@ -75,8 +75,8 @@ impl TreeView {
         self
     }
 
-    pub fn on_item_invoked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_item_invoked = Some(Callback::new(f));
+    pub fn on_item_invoked(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_item_invoked = Some(f.into_callback());
         self
     }
 }

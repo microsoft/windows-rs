@@ -61,13 +61,13 @@ impl TabView {
         self.on_selection_changed = Some(f.into_callback());
         self
     }
-    pub fn on_close_requested<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_close_requested = Some(Callback::new(f));
+    pub fn on_close_requested(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_close_requested = Some(f.into_callback());
         self
     }
     /// Handle the built-in "+" add-tab button click (`ITabView::AddTabButtonClick`).
-    pub fn on_add_tab_button_click<F: Fn(()) + 'static>(mut self, f: F) -> Self {
-        self.on_add_tab_button_click = Some(Callback::new(f));
+    pub fn on_add_tab_button_click(mut self, f: impl IntoCallback<()>) -> Self {
+        self.on_add_tab_button_click = Some(f.into_callback());
         self
     }
 }
