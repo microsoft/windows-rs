@@ -193,13 +193,15 @@ conflated under "hit-testing":
   [`windows-reactor`](windows-reactor.md) element, so the element pointer
   callbacks (`on_pointer_pressed`, `on_pointer_released`, `on_pointer_exited`,
   `on_tapped`, `on_right_tapped`) already attach to the canvas surface.
-- **Pointer position is surfaced on press/release.** The `PointerEventInfo`
-  passed to `on_pointer_pressed`/`on_pointer_released` carries the position
-  (`x`/`y`, in DIPs relative to the element) alongside button state. See the
-  `pointer_position` reactor sample. Hover/drag positions still need
-  `PointerMoved` (below).
-- `PointerMoved` and `PointerEntered` are unwired (the WinUI vtable slots are
-  unused stubs), so there is no drag or hover tracking.
+- **Pointer position is surfaced on press/release and during movement.** The
+  `PointerEventInfo` passed to `on_pointer_pressed`/`on_pointer_released`/
+  `on_pointer_moved`/`on_pointer_entered` carries the position (`x`/`y`, in DIPs
+  relative to the element) alongside button state. See the `pointer_position`
+  and `pointer_tracking` reactor samples.
+- **Continuous pointer is wired.** `on_pointer_moved` (drag/hover) and
+  `on_pointer_entered` deliver `PointerEventInfo`; `on_pointer_exited` signals
+  the pointer leaving the element. The previously-stubbed `PointerMoved`/
+  `PointerEntered` vtable slots are now generated.
 - There is **no keyboard surface** — `KeyDown`/`KeyUp` exist in the bindings but
   no `on_key_down`/`on_key_up` is exposed on elements.
 - Geometry is **write-only**: `PathBuilder` produces a `Path` for drawing. There
@@ -229,10 +231,10 @@ canvas**. The reactor owns the XAML element surface and event lifetimes, so it i
 the natural home for pointer/keyboard plumbing; canvas stays a pure rendering +
 geometry library and gains no input system of its own.
 
-- **Reactor input.** `PointerEventInfo` now carries the pointer position
-  (`x`/`y`, DIPs relative to the element, read from
-  `GetCurrentPoint(element).Position`) on press/release. Still to do: wire
-  `PointerMoved` (and `PointerEntered`) for drag and hover, and add
+- **Reactor input.** `PointerEventInfo` carries the pointer position (`x`/`y`,
+  DIPs relative to the element, read from `GetCurrentPoint(element).Position`)
+  on press/release **and** during movement via `on_pointer_moved` /
+  `on_pointer_entered` (with `on_pointer_exited` for leave). Still to do: add
   `on_key_down`/`on_key_up` to the element surface with a small virtual-key +
   modifier payload; because keyboard events require focus, document the
   `IsTabStop`/focus story for a `SwapChainPanel`.
@@ -252,15 +254,18 @@ geometry library and gains no input system of its own.
 
 #### Phases
 
-Each phase is independently shippable. Phase 1 is **done**; it alone unblocks
-the common tile/grid interaction case.
+Each phase is independently shippable. Phases 1–2 are **done**; phase 1 alone
+unblocks the common tile/grid interaction case.
 
 1. **Pointer coordinates** *(reactor)* — **done.** `PointerEventInfo` carries
    `x`/`y` (DIPs relative to the element), read from `.Position` in
    `pointer_event_info`; see the `pointer_position` sample. Unblocks tile/grid
    hit-testing.
-2. **Continuous pointer** *(reactor)* — wire `PointerMoved`/`PointerEntered` for
-   drag and hover.
+2. **Continuous pointer** *(reactor)* — **done.** `on_pointer_moved` /
+   `on_pointer_entered` deliver `PointerEventInfo` (reusing `pointer_event_info`)
+   for drag and hover, with `on_pointer_exited` for leave; the `PointerMoved`/
+   `PointerEntered` `IUIElement` vtable slots are now generated. See the
+   `pointer_tracking` sample.
 3. **Keyboard** *(reactor)* — `on_key_down`/`on_key_up` plus the focus story for
    `SwapChainPanel`.
 4. **Geometry queries** *(canvas)* — fill/stroke contains-point, bounds, and

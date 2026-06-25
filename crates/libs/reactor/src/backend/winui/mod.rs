@@ -155,6 +155,8 @@ struct PointerRevokerSet {
     right_tapped: Option<windows_core::EventRevoker>,
     pressed: Option<windows_core::EventRevoker>,
     released: Option<windows_core::EventRevoker>,
+    moved: Option<windows_core::EventRevoker>,
+    entered: Option<windows_core::EventRevoker>,
     exited: Option<windows_core::EventRevoker>,
 }
 
@@ -352,8 +354,9 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (`IVector<UIElement>`).
-    Panel(windows_collections::IVector<bindings::UIElement>),
+    /// by `IPanel::Children` — a `UIElementCollection` (which derefs to
+    /// `IVector<UIElement>`).
+    Panel(bindings::UIElementCollection),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
     /// Single-child `IContentControl` (ScrollViewer, Expander,
@@ -371,36 +374,16 @@ enum ContainerChildren<'a> {
 fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
     match h {
         Handle::StackPanel(s) => Some(ContainerChildren::Panel(
-            s.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            s.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Grid(g) => Some(ContainerChildren::Panel(
-            g.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            g.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Canvas(c) => Some(ContainerChildren::Panel(
-            c.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            c.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::RelativePanel(r) => Some(ContainerChildren::Panel(
-            r.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            r.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Border(_) | Handle::Viewbox(_) => Some(ContainerChildren::SingleChild(h)),
         Handle::ScrollViewer(s) => Some(ContainerChildren::ContentControl(s.cast().ok()?)),
@@ -998,14 +981,17 @@ fn set_background(
     handle: &Handle,
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
-    if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
-        panel.SetBackground(brush)?;
-    } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetBackground(brush)?;
-    } else if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.SetBackground(brush)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Background, handle);
+    match handle {
+        Handle::Border(b) => b.SetBackground(brush)?,
+        _ => {
+            if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
+                panel.SetBackground(brush)?;
+            } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetBackground(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Background, handle);
+            }
+        }
     }
     Ok(true)
 }
@@ -1220,25 +1206,21 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
                     let defs = g.RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for r in rows {
                         let rd = bindings::RowDefinition::new()?;
                         rd.SetHeight(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                            .Append(&rd)?;
+                        defs.Append(&rd)?;
                     }
                     Ok(())
                 }
                 (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
                     let defs = g.ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for c in cols {
                         let cd = bindings::ColumnDefinition::new()?;
                         cd.SetWidth(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                            .Append(&cd)?;
+                        defs.Append(&cd)?;
                     }
                     Ok(())
                 }
@@ -2736,10 +2718,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let iue: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2748,7 +2726,7 @@ impl Backend for WinUIBackend {
         let mut tokens = PointerRevokerSet::default();
 
         if let Some(cb) = handlers.on_tapped.clone() {
-            tokens.tapped = iue
+            tokens.tapped = ui
                 .Tapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2756,7 +2734,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_right_tapped.clone() {
-            tokens.right_tapped = iue
+            tokens.right_tapped = ui
                 .RightTapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2765,7 +2743,7 @@ impl Backend for WinUIBackend {
 
         if let Some(cb) = handlers.on_pointer_pressed.clone() {
             let element = ui.clone();
-            tokens.pressed = iue
+            tokens.pressed = ui
                 .PointerPressed(move |_sender, args| {
                     let info = pointer_event_info(&element, args);
                     cb.invoke(info);
@@ -2774,8 +2752,8 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_pointer_released.clone() {
-            let element = ui;
-            tokens.released = iue
+            let element = ui.clone();
+            tokens.released = ui
                 .PointerReleased(move |_sender, args| {
                     let info = pointer_event_info(&element, args);
                     cb.invoke(info);
@@ -2783,8 +2761,28 @@ impl Backend for WinUIBackend {
                 .ok();
         }
 
+        if let Some(cb) = handlers.on_pointer_moved.clone() {
+            let element = ui.clone();
+            tokens.moved = ui
+                .PointerMoved(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_entered.clone() {
+            let element = ui.clone();
+            tokens.entered = ui
+                .PointerEntered(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
         if let Some(cb) = handlers.on_pointer_exited.clone() {
-            tokens.exited = iue
+            tokens.exited = ui
                 .PointerExited(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2801,10 +2799,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let ui_element: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2817,7 +2811,7 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.enter = ui_element
+            tokens.enter = ui
                 .DragEnter(move |_sender, args| {
                     let Some(drag_event_args) = args.as_ref() else {
                         return;
@@ -2862,7 +2856,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_leave.clone() {
-            tokens.leave = ui_element
+            tokens.leave = ui
                 .DragLeave(move |_sender, args| {
                     let ctx = build_drag_context(args.as_ref());
                     cb.call(&ctx);
@@ -2871,7 +2865,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_over.clone() {
-            tokens.over = ui_element
+            tokens.over = ui
                 .DragOver(move |_sender, args| {
                     accept_or_reject(&cb, args.as_ref());
                 })
@@ -2883,7 +2877,7 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.drop = ui_element
+            tokens.drop = ui
                 .Drop(move |_sender, args| {
                     let Some(drag_event_args) = args.as_ref() else {
                         return;
@@ -3253,13 +3247,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
             let sp = bindings::StackPanel::new().ok()?;
             sp.SetOrientation(s.orientation).ok()?;
             sp.SetSpacing(s.spacing).ok()?;
-            let children = sp
-                .cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast::<windows_collections::IVector<bindings::UIElement>>()
-                .ok()?;
+            let children = sp.cast::<bindings::IPanel>().ok()?.Children().ok()?;
             for child in &s.children {
                 if let Some(cui) = mount_static_tooltip_element(child) {
                     let _ = children.Append(&cui);

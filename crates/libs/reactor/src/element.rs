@@ -869,6 +869,25 @@ pub trait ElementExt: Sized {
         self
     }
 
+    /// Register a `PointerMoved` handler; the callback receives the current
+    /// pointer position and button state. Fires continuously while the pointer
+    /// is over the element — use it for drag and hover tracking.
+    fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_moved = Some(f.into_callback());
+        }
+        self
+    }
+
+    /// Register a `PointerEntered` handler (pointer enters hit-test bounds);
+    /// the callback receives the entry position and button state.
+    fn on_pointer_entered(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_entered = Some(f.into_callback());
+        }
+        self
+    }
+
     /// Register a `PointerExited` handler (pointer leaves hit-test bounds).
     fn on_pointer_exited(mut self, f: impl IntoUnitCallback) -> Self {
         if let Some(m) = self.modifiers_mut() {
