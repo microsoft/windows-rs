@@ -244,7 +244,7 @@ enum HookSlot {
     State {
         cell: Rc<RefCell<Box<dyn Any>>>,
         type_name: &'static str,
-        setter: Option<Box<dyn Any>>,
+        handle: Option<Box<dyn Any>>,
     },
     Memo {
         value: Rc<RefCell<Box<dyn Any>>>,
@@ -647,34 +647,36 @@ impl RenderCx {
         T: 'static + Clone + PartialEq,
     {
         let (current, cell, slot_index) = self.state_slot(initial);
-        let setter = self.memo_state_setter::<T>(slot_index, cell);
+        let setter = self.memo_handle(slot_index, || self.make_state_setter::<T>(cell, slot_index));
         (current, setter)
     }
 
-    fn memo_state_setter<T>(
-        &self,
-        slot_index: usize,
-        cell: Rc<RefCell<Box<dyn Any>>>,
-    ) -> SetState<T>
+    /// Returns a per-slot handle (`SetState`, `Updater`, …) that is built once
+    /// and reused for the life of the slot, so re-renders hand out the same
+    /// `Rc` instead of allocating a fresh one each time. Stable identity also
+    /// lets the reconciler skip subtrees whose handlers are unchanged. Only
+    /// safe for handles that capture nothing render-specific (the synchronous
+    /// state/reducer setters capture only the slot's stable context).
+    fn memo_handle<H>(&self, slot_index: usize, build: impl FnOnce() -> H) -> H
     where
-        T: 'static + Clone + PartialEq,
+        H: Clone + 'static,
     {
         {
             let hooks = self.hooks.borrow();
             if let HookSlot::State {
-                setter: Some(cached),
+                handle: Some(cached),
                 ..
             } = &hooks[slot_index]
-                && let Some(existing) = cached.downcast_ref::<SetState<T>>()
+                && let Some(existing) = cached.downcast_ref::<H>()
             {
                 return existing.clone();
             }
         }
-        let setter = self.make_state_setter::<T>(cell, slot_index);
-        if let HookSlot::State { setter: slot, .. } = &mut self.hooks.borrow_mut()[slot_index] {
-            *slot = Some(Box::new(setter.clone()));
+        let built = build();
+        if let HookSlot::State { handle, .. } = &mut self.hooks.borrow_mut()[slot_index] {
+            *handle = Some(Box::new(built.clone()));
         }
-        setter
+        built
     }
 
     pub fn use_reducer<T>(&mut self, initial: T) -> (T, Updater<T>)
@@ -682,7 +684,7 @@ impl RenderCx {
         T: 'static + Clone + PartialEq,
     {
         let (current, cell, slot_index) = self.state_slot(initial);
-        let updater = self.make_updater::<T>(cell, slot_index);
+        let updater = self.memo_handle(slot_index, || self.make_updater::<T>(cell, slot_index));
         (current, updater)
     }
 
@@ -712,7 +714,7 @@ impl RenderCx {
             hooks.push(HookSlot::State {
                 cell: Rc::new(RefCell::new(boxed)),
                 type_name: std::any::type_name::<HookRef<T>>(),
-                setter: None,
+                handle: None,
             });
             return h;
         }
@@ -964,7 +966,7 @@ impl RenderCx {
                 hooks.push(HookSlot::State {
                     cell: Rc::clone(&cell),
                     type_name,
-                    setter: None,
+                    handle: None,
                 });
                 (cell, type_name)
             } else {

@@ -138,6 +138,42 @@ fn memoized_setter_still_writes_latest_slot() {
     assert_eq!(v2, 9);
 }
 
+// The `Updater` returned by `use_reducer` is memoized per slot like the
+// `use_state` setter, so it keeps a stable identity across renders (one fewer
+// allocation per render and a skippable handler).
+#[test]
+fn reducer_updater_identity_is_stable_across_renders() {
+    let mut cx = RenderCx::for_test();
+    cx.begin_render();
+    let (_v, up1) = cx.use_reducer(0_i32);
+
+    cx.begin_render();
+    let (_v, up2) = cx.use_reducer(0_i32);
+
+    assert_eq!(
+        up1, up2,
+        "memoized updater must keep identity across renders"
+    );
+}
+
+#[test]
+fn memoized_updater_still_writes_latest_slot() {
+    let mut cx = RenderCx::for_test();
+    cx.begin_render();
+    let (v0, up) = cx.use_reducer(0_i32);
+    assert_eq!(v0, 0);
+    up.call(|n| n + 5);
+
+    cx.begin_render();
+    let (v1, up2) = cx.use_reducer(0_i32);
+    assert_eq!(v1, 5, "cached updater must write the slot");
+    up2.call(|n| n + 4);
+
+    cx.begin_render();
+    let (v2, _) = cx.use_reducer(0_i32);
+    assert_eq!(v2, 9);
+}
+
 #[test]
 fn callback_dispatches_captured_closure() {
     let counter = Rc::new(Cell::new(0));

@@ -318,16 +318,26 @@ representative trees before investing.
    diffed (still re-wrapped, so no effect); `use_callback` passed directly
    0.10 ms / 0 diffed (the unchanged subtree is pruned at the root in one
    compare — ~24×).
-2. **State setters are memoized so passing them directly skips too *(fixed)*.**
-   `make_state_setter` used to allocate a fresh `Rc` every render, so even though
-   `IntoCallback for SetState` reuses that `Rc` (`from_rc`, not a fresh
-   `Callback::new`), the identity still changed each frame and
-   `on_text_changed(set_name)` never skipped. The setter is now cached in its hook
-   slot (`HookSlot::State { setter, .. }`) and cloned each render, so the common
-   "handler just calls a setter" pattern skips *without* `use_callback`. Same bench
-   (`setter` mode, `on_text_changed(set_text)`): 0.10 ms / 0 diffed — matching the
-   `use_callback` path. `use_callback` is now only needed for handlers that close
-   over render-derived data (where deps must gate the rebuild).
+2. **State/reducer setters are memoized so passing them directly skips too
+   *(fixed)*.** `make_state_setter`/`make_updater` used to allocate a fresh `Rc`
+   every render, so even though `IntoCallback for SetState` reuses that `Rc`
+   (`from_rc`, not a fresh `Callback::new`), the identity still changed each frame
+   and `on_text_changed(set_name)` never skipped. Each slot now caches its handle
+   (`HookSlot::State { handle, .. }`) and a single generic `memo_handle` helper
+   builds it once and clones it each render, so the common "handler just calls a
+   setter" pattern skips *without* `use_callback`. The same helper backs both
+   `use_state` (`SetState`) and `use_reducer` (`Updater`). `use_reducer_fn`'s
+   `Dispatch` is deliberately *not* memoized: it captures the user `reducer`
+   (memoizing would pin the first render's closure), and it is almost always
+   wrapped at the call site (`on_click(move || dispatch.call(Action::X))`), so a
+   stable identity would not help skipping anyway. Reconcile bench (`setter` mode,
+   `on_text_changed(set_text)`): 0.10 ms / 0 diffed — matching the `use_callback`
+   path. The `alloc_bench` tool (counting global allocator + `RenderCx`, no WinUI)
+   measures steady-state heap allocations per render: `use_state` 0, `use_reducer`
+   0 (was 1 before memoization), `use_callback`/`use_ref` 0, `use_reducer_fn` 2
+   (the un-memoized reducer + dispatch `Rc`s). `use_callback` is now only needed
+   for handlers that close over render-derived data (where deps must gate the
+   rebuild).
 3. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
    (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
    handful of bindings most controls carry; profile the binding-count distribution
