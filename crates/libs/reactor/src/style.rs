@@ -630,10 +630,14 @@ impl PointerHandlers {
     }
 }
 
-/// Button state captured at a `PointerPressed` / `PointerReleased`
-/// callback. Non-mouse pointer kinds report all three as `false`.
-#[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
+/// Pointer state captured at a `PointerPressed` / `PointerReleased`
+/// callback. `x`/`y` are the pointer position in DIPs, relative to the
+/// top-left of the element the handler is attached to. Non-mouse pointer
+/// kinds report all three button flags as `false`.
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PointerEventInfo {
+    pub x: f64,
+    pub y: f64,
     pub is_left_button_pressed: bool,
     pub is_right_button_pressed: bool,
     pub is_middle_button_pressed: bool,

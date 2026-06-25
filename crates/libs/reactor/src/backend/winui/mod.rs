@@ -2798,18 +2798,20 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_pointer_pressed.clone() {
+            let element = ui.clone();
             tokens.pressed = iue
-                .PointerPressed(move |sender, args| {
-                    let info = pointer_event_info(sender, args);
+                .PointerPressed(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
                     cb.invoke(info);
                 })
                 .ok();
         }
 
         if let Some(cb) = handlers.on_pointer_released.clone() {
+            let element = ui;
             tokens.released = iue
-                .PointerReleased(move |sender, args| {
-                    let info = pointer_event_info(sender, args);
+                .PointerReleased(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
                     cb.invoke(info);
                 })
                 .ok();
@@ -3252,41 +3254,34 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
     }
 }
 
-/// Extract the button state for a `PointerPressed` / `PointerReleased`
-/// callback; falls back to all-`false` on any null hop.
+/// Extract the pointer position and button state for a `PointerPressed` /
+/// `PointerReleased` callback; falls back to defaults on any null hop.
+///
+/// `element` is captured once at attach time (the handler's own element), so
+/// there is no per-event `QueryInterface`: the arg/point/properties classes
+/// each `Deref` to their default interface, and the coordinates are read
+/// relative to `element` directly.
 fn pointer_event_info(
-    sender: windows_core::InRef<'_, windows_core::IInspectable>,
+    element: &bindings::UIElement,
     args: windows_core::InRef<'_, bindings::PointerRoutedEventArgs>,
 ) -> PointerEventInfo {
     let mut info = PointerEventInfo::default();
     let Some(args) = args.as_ref() else {
         return info;
     };
-    let Ok(iargs) = args.cast::<bindings::IPointerRoutedEventArgs>() else {
+    let Ok(point) = args.GetCurrentPoint(element) else {
         return info;
     };
-    let relative: Option<bindings::UIElement> = sender
-        .as_ref()
-        .and_then(|s| s.cast::<bindings::UIElement>().ok());
-    let point = match relative.as_ref() {
-        Some(ue) => iargs.GetCurrentPoint(ue),
-        None => iargs.GetCurrentPoint(None),
-    };
-    let Ok(point) = point else {
+    if let Ok(pos) = point.Position() {
+        info.x = pos.x as f64;
+        info.y = pos.y as f64;
+    }
+    let Ok(props) = point.Properties() else {
         return info;
     };
-    let Ok(ipoint) = point.cast::<bindings::IPointerPoint>() else {
-        return info;
-    };
-    let Ok(props) = ipoint.Properties() else {
-        return info;
-    };
-    let Ok(iprops) = props.cast::<bindings::IPointerPointProperties>() else {
-        return info;
-    };
-    info.is_left_button_pressed = iprops.IsLeftButtonPressed().unwrap_or(false);
-    info.is_right_button_pressed = iprops.IsRightButtonPressed().unwrap_or(false);
-    info.is_middle_button_pressed = iprops.IsMiddleButtonPressed().unwrap_or(false);
+    info.is_left_button_pressed = props.IsLeftButtonPressed().unwrap_or(false);
+    info.is_right_button_pressed = props.IsRightButtonPressed().unwrap_or(false);
+    info.is_middle_button_pressed = props.IsMiddleButtonPressed().unwrap_or(false);
     info
 }
 

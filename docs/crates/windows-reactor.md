@@ -145,15 +145,12 @@ device loss automatically — see the `canvas` samples. For raw Direct3D, the
 ## Web content integration
 
 To host a browser, use [`windows-webview`](windows-webview.md)'s `webview(on_ready)`
-(enable the `reactor` feature on `windows-webview`). It returns a `WebView2` element
-backed by the WinUI XAML `WebView2` control and hands you a ready-to-drive `WebView`
-once the browser initializes — see the `reactor/webview` sample. Reactor exposes the
-control as a thin native-handle widget (mirroring `SwapChainPanel`): the widget owns
-the XAML control, and `windows-webview` attaches to it through its `IInspectable`
-handle, defers `EnsureCoreWebView2Async` to the control's `Loaded` event, and bridges
-the WinRT `CoreWebView2` to the COM `ICoreWebView2` the crate wraps. The
-`as_self_contained()` setup carries the required `Microsoft.Web.WebView2.Core.dll`
-automatically.
+(enable its `reactor` feature). It returns a `WebView2` element backed by the WinUI
+XAML `WebView2` control and hands you a ready-to-drive `WebView` once the browser
+initializes — see the `reactor/webview` sample. The `as_self_contained()` setup
+carries the required `Microsoft.Web.WebView2.Core.dll` automatically. (How the
+widget bridges the WinRT control to the COM `ICoreWebView2` is covered in
+[`windows-webview`](windows-webview.md).)
 
 ## Samples
 
@@ -324,7 +321,6 @@ median of two runs) — refresh when the workload or either framework changes:
 
 Both hold `renders/tick ≈ 1.0`, so the throughput gap tracks reconcile cost: the
 Rust diff fits inside the frame tick while the C# reconcile gates its frame rate.
-This is the *optimized* C# variant (cached cells), the fair comparison for Rust.
 Both stacks are framework-dependent and bootstrap into the **same** installed
 WinAppSDK 2.0 runtime (`Microsoft.WindowsAppRuntime.2`), so the XAML/WinUI layer is
 identical — only the language runtime above it (native Rust vs .NET CoreCLR) differs.
@@ -430,11 +426,20 @@ representative trees before investing.
    `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
    the dropped set and either support each combo or surface it once rather than
    per-control.
-5. **Per-prop WinUI set cost *(medium)*.** Setting some properties forces a
-   synchronous measure/arrange subtree rebuild (`Button.Content` is the worst
-   offender observed). "Diff cost dominated by COM property-set calls" can be made
-   concrete by timing per-`Prop` set cost and flagging the expensive ones for
-   batching/deferral.
+5. **Per-prop WinUI set cost *(measured — no steady-state lever)*.** `set_prop`
+   was instrumented to time each call keyed by `Prop` and run against the
+   `test_reactor_perf` grid (the headless self-test does not commit to the WinUI
+   backend, so it never calls `set_prop` — the perf app is the only set-prop
+   workload). Findings: steady state is dominated entirely by `Text` and
+   `Foreground` *volume* (~2.4 µs/call each, one set per genuinely-changed cell —
+   no redundant sets), and those are irreducible thin COM property sets, so there
+   is **no batching/deferral win on the hot path**. The expensive-per-call props
+   are all one-shot at creation: `Button.Content` ~300 µs/call (confirms the
+   measure/arrange hypothesis — ~125× a `Text` set, but only paid when a button's
+   label changes), and `GridRows`/`GridColumns` ~800 µs/call (each rebuilds N
+   row/column definitions in a loop). None sit on a steady-state path, so the lead
+   is closed: the reconciler already issues the minimum number of sets and the
+   costly props are rare creation-time operations.
 
 ### Reactor / canvas naming
 
@@ -459,11 +464,11 @@ normal/published builds leave off.
 
 `windows-reactor` is the Rust counterpart of the C# **`microsoft-ui-reactor`**
 framework ([microsoft-ui-reactor](https://github.com/microsoft/microsoft-ui-reactor)), already referenced above for the
-`stress_perf` performance benchmarks. The C# project is considerably more mature —
-~50 hooks, ~80 control factories, and whole subsystems for validation, charting,
-docking, and localization. This section catalogs the gaps so contributors can see
-the intended direction. As with canvas, the goal is idiomatic Rust coverage of
-what real apps need, not a mechanical 1:1 port.
+`stress_perf` performance benchmarks. The C# project covers considerably more
+surface area — ~50 hooks, ~80 control factories, and whole subsystems for
+validation, charting, docking, and localization. This section catalogs those gaps
+so contributors can see the intended direction. As with canvas, the goal is
+idiomatic Rust coverage of what real apps need, not a mechanical 1:1 port.
 
 Ordered roughly by user impact; "present" notes what already exists.
 
@@ -490,8 +495,7 @@ The C# framework exposes ~50. Notable missing groups:
 - **Commanding** — `use_command` (see §3).
 - **Tooling** — `use_devtools`, the `use_memo_cells` family.
 
-Each is independently shippable; the window/system and focus groups likely have the
-broadest appeal.
+Each is independently shippable.
 
 #### 2. Multi-window, system tray, and pickers *(high)*
 
@@ -585,9 +589,8 @@ Missing: a gesture-recognition and drag-and-drop layer (the C# `Reconciler.Gestu
 #### Suggested sequencing
 
 The hook breadth (§1) is the highest-leverage area and decomposes into many small,
-independent additions — the window/system and focus groups first. Multi-window and
-pickers (§2) and commanding (§3) round out the desktop-app shell. The validation /
-observable stack (§4) and composite controls (§5) are larger efforts best taken
-once the hook and commanding foundations exist. Animations (§6), navigation (§7),
-theming (§8), and the remaining subsystems can land independently as demand
-arises.
+independent additions — start with the window/system and focus groups. Multi-window
+and pickers (§2) and commanding (§3) complete the desktop-app shell; the
+validation/observable stack (§4) and composite controls (§5) are larger efforts
+best taken once those foundations exist. Animations (§6), navigation (§7), theming
+(§8), and the remaining subsystems can land independently as demand arises.
