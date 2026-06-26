@@ -50,8 +50,8 @@ impl Expander {
         self.is_expanded = v;
         self
     }
-    pub fn on_expanding<F: Fn(bool) + 'static>(mut self, f: F) -> Self {
-        self.on_expanding = Some(Callback::new(f));
+    pub fn on_expanding(mut self, f: impl IntoCallback<bool>) -> Self {
+        self.on_expanding = Some(f.into_callback());
         self
     }
 }

@@ -71,8 +71,8 @@ impl MenuBar {
         }
     }
 
-    pub fn on_item_clicked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_item_clicked = Some(Callback::new(f));
+    pub fn on_item_clicked(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_item_clicked = Some(f.into_callback());
         self
     }
 }

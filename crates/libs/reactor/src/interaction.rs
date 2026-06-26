@@ -189,6 +189,31 @@ impl<T: 'static> IntoCallback<T> for Dispatch<T> {
     }
 }
 
+/// Trait for types that can be converted into a parameterless
+/// [`Callback<()>`]. The sibling of [`IntoCallback`] for `on_*` handlers
+/// that take no argument (e.g. `Button::on_click`): a bare `Fn()` closure
+/// is wrapped, while an existing `Callback<()>` (e.g. from
+/// [`RenderCx::use_callback`]) is passed through unchanged so its identity
+/// is preserved and `can_skip_update` can skip the control.
+pub trait IntoUnitCallback {
+    fn into_unit_callback(self) -> Callback<()>;
+}
+
+impl<F> IntoUnitCallback for F
+where
+    F: Fn() + 'static,
+{
+    fn into_unit_callback(self) -> Callback<()> {
+        Callback::new(move |()| self())
+    }
+}
+
+impl IntoUnitCallback for Callback<()> {
+    fn into_unit_callback(self) -> Callback<()> {
+        self
+    }
+}
+
 // ─── Keyboard ───────────────────────────────────────────────────────────
 
 /// A single keyboard shortcut bound to an element via

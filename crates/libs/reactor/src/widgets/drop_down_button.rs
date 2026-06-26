@@ -26,8 +26,8 @@ impl DropDownButton {
         self
     }
 
-    pub fn on_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_click = Some(Callback::new(move |()| f()));
+    pub fn on_click(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_click = Some(f.into_unit_callback());
         self
     }
 
@@ -38,8 +38,8 @@ impl DropDownButton {
     }
 
     /// Callback invoked when any flyout item is clicked (receives item text).
-    pub fn on_item_clicked<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_item_clicked = Some(Callback::new(f));
+    pub fn on_item_clicked(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_item_clicked = Some(f.into_callback());
         self
     }
 }

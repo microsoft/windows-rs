@@ -26,7 +26,7 @@ Microsoft::UI::Dispatching::DispatcherQueuePriority
 Microsoft::UI::Dispatching::DispatcherQueueTimer
 Microsoft::UI::Dispatching::IDispatcherQueue::{CreateTimer, TryEnqueueWithPriority}
 Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, Tick, Start, Stop}
-Microsoft::UI::Input::IPointerPoint::get_Properties
+Microsoft::UI::Input::IPointerPoint::{get_Position, get_Properties}
 Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsRightButtonPressed, get_IsMiddleButtonPressed}
 Microsoft::UI::Input::PointerPoint
 Microsoft::UI::Input::PointerPointProperties
@@ -125,13 +125,14 @@ Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_Sel
 Microsoft::UI::Xaml::Controls::INumberBox::ValueChanged
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::{get_Children, put_Background}
+Microsoft::UI::Xaml::Controls::IStackPanel::put_Padding
 Microsoft::UI::Xaml::Controls::IPasswordBox::{get_Password, put_Password, PasswordChanged}
 Microsoft::UI::Xaml::Controls::IPivot::SelectionChanged
 Microsoft::UI::Xaml::Controls::IPivotItem::put_Header
 Microsoft::UI::Xaml::Controls::IRadioButtons::{SelectionChanged, get_Items, get_SelectedIndex}
 Microsoft::UI::Xaml::Controls::IRatingControl::{get_Value, ValueChanged}
 Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, TextChanged}
-Microsoft::UI::Xaml::Controls::IRichTextBlock::{put_FontSize, put_FontFamily, put_IsTextSelectionEnabled, put_TextWrapping, put_Foreground, get_Blocks}
+Microsoft::UI::Xaml::Controls::IRichTextBlock::{put_FontSize, put_FontFamily, put_IsTextSelectionEnabled, put_TextWrapping, put_Foreground, put_Padding, get_Blocks}
 Microsoft::UI::Xaml::Controls::IRowDefinition::put_Height
 Microsoft::UI::Xaml::Controls::IScrollView::put_Content
 Microsoft::UI::Xaml::Controls::ISelectorBar::{get_Items, get_SelectedItem, SelectionChanged}
@@ -144,7 +145,7 @@ Microsoft::UI::Xaml::Controls::ITabView::{get_TabItems, get_SelectedIndex, Selec
 Microsoft::UI::Xaml::Controls::ITabViewItem::{put_Header, put_IsClosable}
 Microsoft::UI::Xaml::Controls::ITabViewTabCloseRequestedEventArgs::get_Tab
 Microsoft::UI::Xaml::Controls::ITeachingTip::{put_ActionButtonContent, put_CloseButtonContent, Closed, ActionButtonClick}
-Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground}
+Microsoft::UI::Xaml::Controls::ITextBlock::{get_Text, put_FontSize, put_FontWeight, put_FontFamily, put_Foreground, put_Padding}
 Microsoft::UI::Xaml::Controls::ITextBox::{get_Text, put_Text, TextChanged}
 Microsoft::UI::Xaml::Controls::ITimePicker::SelectedTimeChanged
 Microsoft::UI::Xaml::Controls::ITimePickerSelectedValueChangedEventArgs::get_NewTime
@@ -242,7 +243,7 @@ Microsoft::UI::Xaml::IDragUIOverride::{put_Caption, put_IsGlyphVisible, put_IsCo
 Microsoft::UI::Xaml::IFrameworkElement::{put_VerticalAlignment, put_HorizontalAlignment, put_Margin, put_Height, put_Width, put_MinWidth, put_MaxWidth, put_MinHeight, put_MaxHeight, put_RequestedTheme, get_ActualTheme, ActualThemeChanged, put_Tag, get_Tag, get_ActualWidth, get_ActualHeight, put_Style, SizeChanged, get_Resources}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, PointerPressed, PointerReleased, PointerExited, Tapped, RightTapped, DragEnter, DragLeave, DragOver, Drop}
+Microsoft::UI::Xaml::IUIElement::{put_AllowDrop, put_Opacity, put_XamlRoot, get_XamlRoot, get_KeyboardAccelerators, put_KeyboardAcceleratorPlacementMode, PointerPressed, PointerReleased, PointerMoved, PointerEntered, PointerExited, Tapped, RightTapped, DragEnter, DragLeave, DragOver, Drop}
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft::UI::Xaml::IWindow::{put_Title, put_Content, put_ExtendsContentIntoTitleBar, SetTitleBar, Activate, Closed}
 Microsoft::UI::Xaml::IWindowEventArgs

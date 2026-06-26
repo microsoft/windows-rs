@@ -78,8 +78,8 @@ impl SplitView {
         self
     }
 
-    pub fn on_pane_closed<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_pane_closed = Some(Callback::new(move |()| f()));
+    pub fn on_pane_closed(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_pane_closed = Some(f.into_unit_callback());
         self
     }
 }

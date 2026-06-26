@@ -34,8 +34,8 @@ impl RepeatButton {
         }
     }
 
-    pub fn on_click<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_click = Some(Callback::new(move |()| f()));
+    pub fn on_click(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_click = Some(f.into_unit_callback());
         self
     }
 

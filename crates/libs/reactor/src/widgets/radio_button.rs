@@ -22,8 +22,8 @@ impl RadioButton {
         self.is_checked = v;
         self
     }
-    pub fn on_checked<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_checked = Some(Callback::new(move |()| f()));
+    pub fn on_checked(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_checked = Some(f.into_unit_callback());
         self
     }
     pub fn group(mut self, s: impl Into<String>) -> Self {

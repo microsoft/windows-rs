@@ -155,6 +155,8 @@ struct PointerRevokerSet {
     right_tapped: Option<windows_core::EventRevoker>,
     pressed: Option<windows_core::EventRevoker>,
     released: Option<windows_core::EventRevoker>,
+    moved: Option<windows_core::EventRevoker>,
+    entered: Option<windows_core::EventRevoker>,
     exited: Option<windows_core::EventRevoker>,
 }
 
@@ -352,8 +354,9 @@ impl WinUIBackend {
 /// determines how children are appended, removed, moved, etc.
 enum ContainerChildren<'a> {
     /// Multi-child panel (StackPanel, Grid, Canvas, RelativePanel) backed
-    /// by `IPanel::Children` — a `UIElementCollection` (`IVector<UIElement>`).
-    Panel(windows_collections::IVector<bindings::UIElement>),
+    /// by `IPanel::Children` — a `UIElementCollection` (which derefs to
+    /// `IVector<UIElement>`).
+    Panel(bindings::UIElementCollection),
     /// Single-child container (Border, Viewbox) that uses `put_Child`.
     SingleChild(&'a Handle),
     /// Single-child `IContentControl` (ScrollViewer, Expander,
@@ -371,36 +374,16 @@ enum ContainerChildren<'a> {
 fn classify_container(h: &Handle) -> Option<ContainerChildren<'_>> {
     match h {
         Handle::StackPanel(s) => Some(ContainerChildren::Panel(
-            s.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            s.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Grid(g) => Some(ContainerChildren::Panel(
-            g.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            g.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Canvas(c) => Some(ContainerChildren::Panel(
-            c.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            c.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::RelativePanel(r) => Some(ContainerChildren::Panel(
-            r.cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast()
-                .ok()?,
+            r.cast::<bindings::IPanel>().ok()?.Children().ok()?,
         )),
         Handle::Border(_) | Handle::Viewbox(_) => Some(ContainerChildren::SingleChild(h)),
         Handle::ScrollViewer(s) => Some(ContainerChildren::ContentControl(s.cast().ok()?)),
@@ -978,12 +961,18 @@ fn try_universal_prop(handle: &Handle, prop: Prop, value: &PropValue) -> Result<
 }
 
 fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
-    if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.SetPadding(thickness)?;
-    } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetPadding(thickness)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Padding, handle);
+    match handle {
+        Handle::Border(h) => h.SetPadding(thickness)?,
+        Handle::StackPanel(h) => h.SetPadding(thickness)?,
+        Handle::TextBlock(h) => h.SetPadding(thickness)?,
+        Handle::RichTextBlock(h) => h.SetPadding(thickness)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetPadding(thickness)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Padding, handle);
+            }
+        }
     }
     Ok(true)
 }
@@ -992,14 +981,17 @@ fn set_background(
     handle: &Handle,
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
-    if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
-        panel.SetBackground(brush)?;
-    } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetBackground(brush)?;
-    } else if let Ok(border) = handle.cast_inner::<bindings::IBorder>() {
-        border.SetBackground(brush)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Background, handle);
+    match handle {
+        Handle::Border(b) => b.SetBackground(brush)?,
+        _ => {
+            if let Ok(panel) = handle.cast_inner::<bindings::IPanel>() {
+                panel.SetBackground(brush)?;
+            } else if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetBackground(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Background, handle);
+            }
+        }
     }
     Ok(true)
 }
@@ -1008,51 +1000,60 @@ fn set_foreground(
     handle: &Handle,
     brush: impl windows_core::Param<bindings::Brush>,
 ) -> Result<bool> {
-    if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
-        ctl.SetForeground(brush)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetForeground(brush)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetForeground(brush)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetForeground(brush)?,
+        Handle::RichTextBlock(h) => h.SetForeground(brush)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetForeground(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::Foreground, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontSize(v)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontSize(v)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetFontSize(v)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontSize(v)?,
+        Handle::RichTextBlock(h) => h.SetFontSize(v)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontSize(v)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontSize, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_weight(handle: &Handle, fw: bindings::FontWeight) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontWeight(fw)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontWeight(fw)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontWeight(fw)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontWeight(fw)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontWeight, handle);
+            }
+        }
     }
     Ok(true)
 }
 
 fn set_font_family(handle: &Handle, ff: &bindings::FontFamily) -> Result<bool> {
-    if let Ok(ctrl) = handle.cast_inner::<bindings::IControl>() {
-        ctrl.SetFontFamily(ff)?;
-    } else if let Ok(tb) = handle.cast_inner::<bindings::ITextBlock>() {
-        tb.SetFontFamily(ff)?;
-    } else if let Ok(rtb) = handle.cast_inner::<bindings::IRichTextBlock>() {
-        rtb.SetFontFamily(ff)?;
-    } else {
-        diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
+    match handle {
+        Handle::TextBlock(h) => h.SetFontFamily(ff)?,
+        Handle::RichTextBlock(h) => h.SetFontFamily(ff)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetFontFamily(ff)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::FontFamily, handle);
+            }
+        }
     }
     Ok(true)
 }
@@ -1205,27 +1206,21 @@ impl Backend for WinUIBackend {
                 }
                 (Prop::GridRows, PropValue::GridLengths(rows), Handle::Grid(g)) => {
                     let defs = g.RowDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for r in rows {
                         let rd = bindings::RowDefinition::new()?;
-                        rd.cast::<bindings::IRowDefinition>()?
-                            .SetHeight(to_xaml_gridlength(*r)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::RowDefinition>>()?
-                            .Append(&rd)?;
+                        rd.SetHeight(to_xaml_gridlength(*r)?)?;
+                        defs.Append(&rd)?;
                     }
                     Ok(())
                 }
                 (Prop::GridColumns, PropValue::GridLengths(cols), Handle::Grid(g)) => {
                     let defs = g.ColumnDefinitions()?;
-                    defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                        .Clear()?;
+                    defs.Clear()?;
                     for c in cols {
                         let cd = bindings::ColumnDefinition::new()?;
-                        cd.cast::<bindings::IColumnDefinition>()?
-                            .SetWidth(to_xaml_gridlength(*c)?)?;
-                        defs.cast::<windows_collections::IVector<bindings::ColumnDefinition>>()?
-                            .Append(&cd)?;
+                        cd.SetWidth(to_xaml_gridlength(*c)?)?;
+                        defs.Append(&cd)?;
                     }
                     Ok(())
                 }
@@ -1349,7 +1344,7 @@ impl Backend for WinUIBackend {
                 (Prop::ImageSource, PropValue::Str(s), Handle::Image(img)) => {
                     let uri = bindings::Uri::CreateUri(s.as_str())?;
                     let bmp = bindings::BitmapImage::new()?;
-                    bmp.cast::<bindings::IBitmapImage>()?.SetUriSource(&uri)?;
+                    bmp.SetUriSource(&uri)?;
                     img.SetSource(&bmp.cast::<bindings::ImageSource>()?)
                 }
                 (Prop::ImageSource, PropValue::SurfaceImageSource(sis), Handle::Image(img)) => {
@@ -2023,13 +2018,10 @@ impl Backend for WinUIBackend {
         // Drop any prior registration so repeated attaches don't
         // accumulate handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
+        let control = selector.clone();
         let revoker = selector
-            .SelectionChanged(move |sender, _args| {
-                let idx = sender
-                    .as_ref()
-                    .and_then(|s| s.cast::<bindings::ISelector>().ok())
-                    .and_then(|sel| sel.SelectedIndex().ok())
-                    .unwrap_or(-1);
+            .SelectionChanged(move |_sender, _args| {
+                let idx = control.SelectedIndex().unwrap_or(-1);
                 handler.invoke(idx);
             })
             .unwrap_or_else(|e| {
@@ -2099,13 +2091,10 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::TabView(tv)) => {
+                let control = tv.clone();
                 revokers.push(
-                    tv.SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::TabView>().ok())
-                            .and_then(|t| t.SelectedIndex().ok())
-                            .unwrap_or(-1);
+                    tv.SelectionChanged(move |_sender, _args| {
+                        let idx = control.SelectedIndex().unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
                         }
@@ -2143,12 +2132,7 @@ impl Backend for WinUIBackend {
                     nv.SelectionChanged(move |_sender, args| {
                         let tag = args
                             .as_ref()
-                            .and_then(|a| {
-                                a.cast::<bindings::INavigationViewSelectionChangedEventArgs>()
-                                    .unwrap()
-                                    .SelectedItem()
-                                    .ok()
-                            })
+                            .and_then(|a| a.SelectedItem().ok())
                             .and_then(|item| item.cast::<bindings::NavigationViewItem>().ok())
                             .and_then(|nvi| {
                                 nvi.cast::<bindings::IFrameworkElement>()
@@ -2220,18 +2204,10 @@ impl Backend for WinUIBackend {
                 }
             }
             (Event::SelectionChanged, Handle::Pivot(p)) => {
+                let selector: bindings::ISelector = p.cast().unwrap();
                 revokers.push(
-                    p.SelectionChanged(move |sender, _args| {
-                        let idx = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::Selector>().ok())
-                            .and_then(|sel| {
-                                sel.cast::<bindings::ISelector>()
-                                    .unwrap()
-                                    .SelectedIndex()
-                                    .ok()
-                            })
-                            .unwrap_or(-1);
+                    p.SelectionChanged(move |_sender, _args| {
+                        let idx = selector.SelectedIndex().unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
                         }
@@ -2240,20 +2216,12 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::ComboBox(c)) => {
+                let selector: bindings::ISelector = c.cast().unwrap();
+                let control = selector.clone();
                 revokers.push(
-                    c.cast::<bindings::ISelector>()
-                        .unwrap()
-                        .SelectionChanged(move |sender, _args| {
-                            let idx = sender
-                                .as_ref()
-                                .and_then(|s| s.cast::<bindings::Selector>().ok())
-                                .and_then(|sel| {
-                                    sel.cast::<bindings::ISelector>()
-                                        .unwrap()
-                                        .SelectedIndex()
-                                        .ok()
-                                })
-                                .unwrap_or(-1);
+                    selector
+                        .SelectionChanged(move |_sender, _args| {
+                            let idx = control.SelectedIndex().unwrap_or(-1);
                             handler.invoke_i32(idx);
                         })
                         .unwrap(),
@@ -2313,15 +2281,12 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::SelectionChanged, Handle::ListBox(lb)) => {
+                let selector: bindings::ISelector = lb.cast().unwrap();
+                let control = selector.clone();
                 revokers.push(
-                    lb.cast::<bindings::ISelector>()
-                        .unwrap()
+                    selector
                         .SelectionChanged(move |_sender, _args| {
-                            if let Some(sel) = _sender.as_ref()
-                                && let Ok(idx) = sel
-                                    .cast::<bindings::ISelector>()
-                                    .and_then(|s| s.SelectedIndex())
-                            {
+                            if let Ok(idx) = control.SelectedIndex() {
                                 handler.invoke_i32(idx);
                             }
                         })
@@ -2449,13 +2414,13 @@ impl Backend for WinUIBackend {
                 );
             }
             (Event::TextChanged, Handle::RichEditBox(reb)) => {
+                let control = reb.clone();
                 revokers.push(
-                    reb.TextChanged(move |sender, _args| {
-                        let text = sender
-                            .as_ref()
-                            .and_then(|s| s.cast::<bindings::RichEditBox>().ok())
-                            .and_then(|reb| {
-                                let doc = reb.Document().ok()?;
+                    reb.TextChanged(move |_sender, _args| {
+                        let text = control
+                            .Document()
+                            .ok()
+                            .and_then(|doc| {
                                 let mut buf = windows_core::HSTRING::default();
                                 doc.GetText(bindings::TextGetOptions::None, &mut buf).ok()?;
                                 Some(buf.to_string_lossy())
@@ -2590,10 +2555,8 @@ impl Backend for WinUIBackend {
             let cb = accel.on_invoked.clone();
             let _ = ika
                 .Invoked(move |_sender, args| {
-                    if let Some(a) = args.as_ref()
-                        && let Ok(ia) = a.cast::<bindings::IKeyboardAcceleratorInvokedEventArgs>()
-                    {
-                        let _ = ia.SetHandled(true);
+                    if let Some(a) = args.as_ref() {
+                        let _ = a.SetHandled(true);
                     }
                     cb.invoke(());
                 })
@@ -2755,10 +2718,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let iue: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2767,7 +2726,7 @@ impl Backend for WinUIBackend {
         let mut tokens = PointerRevokerSet::default();
 
         if let Some(cb) = handlers.on_tapped.clone() {
-            tokens.tapped = iue
+            tokens.tapped = ui
                 .Tapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2775,7 +2734,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_right_tapped.clone() {
-            tokens.right_tapped = iue
+            tokens.right_tapped = ui
                 .RightTapped(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2783,25 +2742,47 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_pointer_pressed.clone() {
-            tokens.pressed = iue
-                .PointerPressed(move |sender, args| {
-                    let info = pointer_event_info(sender, args);
+            let element = ui.clone();
+            tokens.pressed = ui
+                .PointerPressed(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
                     cb.invoke(info);
                 })
                 .ok();
         }
 
         if let Some(cb) = handlers.on_pointer_released.clone() {
-            tokens.released = iue
-                .PointerReleased(move |sender, args| {
-                    let info = pointer_event_info(sender, args);
+            let element = ui.clone();
+            tokens.released = ui
+                .PointerReleased(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_moved.clone() {
+            let element = ui.clone();
+            tokens.moved = ui
+                .PointerMoved(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
+                    cb.invoke(info);
+                })
+                .ok();
+        }
+
+        if let Some(cb) = handlers.on_pointer_entered.clone() {
+            let element = ui.clone();
+            tokens.entered = ui
+                .PointerEntered(move |_sender, args| {
+                    let info = pointer_event_info(&element, args);
                     cb.invoke(info);
                 })
                 .ok();
         }
 
         if let Some(cb) = handlers.on_pointer_exited.clone() {
-            tokens.exited = iue
+            tokens.exited = ui
                 .PointerExited(move |_sender, _args| {
                     cb.invoke(());
                 })
@@ -2818,10 +2799,6 @@ impl Backend for WinUIBackend {
             return;
         };
         let ui = handle.as_ui_element();
-        let ui_element: bindings::IUIElement = match ui.cast() {
-            Ok(i) => i,
-            Err(_) => return,
-        };
         drop(prev);
 
         let Some(handlers) = handlers else {
@@ -2834,29 +2811,24 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.enter = ui_element
+            tokens.enter = ui
                 .DragEnter(move |_sender, args| {
-                    let Some(args) = args.as_ref() else { return };
-                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                    let Some(drag_event_args) = args.as_ref() else {
                         return;
                     };
 
                     let formats = drag_event_args
                         .DataView()
                         .ok()
-                        .and_then(|dv| dv.cast::<bindings::IDataPackageView>().ok())
                         .map(|data_package_view| read_available_formats(&data_package_view))
                         .unwrap_or_default();
 
                     let agile_deferral = drag_event_args
                         .GetDeferral()
                         .ok()
-                        .and_then(|deferral| {
-                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
-                        })
                         .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
 
-                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+                    let agile_args = windows_core::AgileReference::new(drag_event_args).ok();
 
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
@@ -2884,7 +2856,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_leave.clone() {
-            tokens.leave = ui_element
+            tokens.leave = ui
                 .DragLeave(move |_sender, args| {
                     let ctx = build_drag_context(args.as_ref());
                     cb.call(&ctx);
@@ -2893,7 +2865,7 @@ impl Backend for WinUIBackend {
         }
 
         if let Some(cb) = handlers.on_drag_over.clone() {
-            tokens.over = ui_element
+            tokens.over = ui
                 .DragOver(move |_sender, args| {
                     accept_or_reject(&cb, args.as_ref());
                 })
@@ -2905,19 +2877,13 @@ impl Backend for WinUIBackend {
                 .map(|dispatcher| dispatcher.marshaller())
                 .ok();
 
-            tokens.drop = ui_element
+            tokens.drop = ui
                 .Drop(move |_sender, args| {
-                    let Some(args) = args.as_ref() else { return };
-                    let Ok(drag_event_args) = args.cast::<bindings::IDragEventArgs>() else {
+                    let Some(drag_event_args) = args.as_ref() else {
                         return;
                     };
 
-                    let data_view = drag_event_args
-                        .DataView()
-                        .ok()
-                        .and_then(|data_package_view| {
-                            data_package_view.cast::<bindings::IDataPackageView>().ok()
-                        });
+                    let data_view = drag_event_args.DataView().ok();
 
                     let formats = data_view
                         .as_ref()
@@ -2927,16 +2893,13 @@ impl Backend for WinUIBackend {
                     let agile_deferral = drag_event_args
                         .GetDeferral()
                         .ok()
-                        .and_then(|deferral| {
-                            deferral.cast::<bindings::IDragOperationDeferral>().ok()
-                        })
                         .and_then(|deferral| windows_core::AgileReference::new(&deferral).ok());
 
                     let agile_data_view = data_view.and_then(|data_package_view| {
                         windows_core::AgileReference::new(&data_package_view).ok()
                     });
 
-                    let agile_args = windows_core::AgileReference::new(&drag_event_args).ok();
+                    let agile_args = windows_core::AgileReference::new(drag_event_args).ok();
 
                     let callback = callback.clone();
                     let marshaller = marshaller.clone();
@@ -3032,7 +2995,7 @@ struct AvailableFormats {
     application_link: bool,
 }
 
-fn read_available_formats(data_package_view: &bindings::IDataPackageView) -> AvailableFormats {
+fn read_available_formats(data_package_view: &bindings::DataPackageView) -> AvailableFormats {
     let mut available_formats = AvailableFormats::default();
     let Ok(formats) = data_package_view.AvailableFormats() else {
         return available_formats;
@@ -3077,17 +3040,11 @@ fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
         get_storage_items_fn: None,
     };
     let Some(a) = args else { return ctx };
-    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
-        return ctx;
-    };
-    let Ok(dv) = iargs.DataView() else {
-        return ctx;
-    };
-    let Ok(idv) = dv.cast::<bindings::IDataPackageView>() else {
+    let Ok(dv) = a.DataView() else {
         return ctx;
     };
 
-    let formats = read_available_formats(&idv);
+    let formats = read_available_formats(&dv);
     ctx.has_text = formats.text;
     ctx.has_html = formats.html;
     ctx.has_rtf = formats.rtf;
@@ -3128,8 +3085,8 @@ fn dispatch_accept(
     m: UiMarshaller,
     cb: DragAsyncCallback,
     formats: AvailableFormats,
-    iargs_agile: Option<windows_core::AgileReference<bindings::IDragEventArgs>>,
-    deferral_agile: Option<windows_core::AgileReference<bindings::IDragOperationDeferral>>,
+    iargs_agile: Option<windows_core::AgileReference<bindings::DragEventArgs>>,
+    deferral_agile: Option<windows_core::AgileReference<bindings::DragOperationDeferral>>,
     items: Vec<DroppedItem>,
     text: Option<String>,
 ) {
@@ -3206,9 +3163,6 @@ impl CallAccept for DragAsyncCallback {
 fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs>) {
     use crate::drag::DragOperation;
     let Some(a) = args else { return };
-    let Ok(iargs) = a.cast::<bindings::IDragEventArgs>() else {
-        return;
-    };
 
     let mut ctx = build_drag_context(Some(a));
 
@@ -3220,10 +3174,10 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
         DragOperation::Move => bindings::DataPackageOperation::Move,
         DragOperation::Link => bindings::DataPackageOperation::Link,
     };
-    let _ = iargs.SetAcceptedOperation(accepted);
+    let _ = a.SetAcceptedOperation(accepted);
 
     if (ctx.caption.is_some() || ctx.glyph_visible.is_some() || ctx.content_visible.is_some())
-        && let Ok(ui) = iargs.DragUIOverride()
+        && let Ok(ui) = a.DragUIOverride()
     {
         if let Some(v) = ctx.caption {
             let _ = ui.SetCaption(&v);
@@ -3237,41 +3191,34 @@ fn accept_or_reject<C: CallAccept>(cb: &C, args: Option<&bindings::DragEventArgs
     }
 }
 
-/// Extract the button state for a `PointerPressed` / `PointerReleased`
-/// callback; falls back to all-`false` on any null hop.
+/// Extract the pointer position and button state for a `PointerPressed` /
+/// `PointerReleased` callback; falls back to defaults on any null hop.
+///
+/// `element` is captured once at attach time (the handler's own element), so
+/// there is no per-event `QueryInterface`: the arg/point/properties classes
+/// each `Deref` to their default interface, and the coordinates are read
+/// relative to `element` directly.
 fn pointer_event_info(
-    sender: windows_core::InRef<'_, windows_core::IInspectable>,
+    element: &bindings::UIElement,
     args: windows_core::InRef<'_, bindings::PointerRoutedEventArgs>,
 ) -> PointerEventInfo {
     let mut info = PointerEventInfo::default();
     let Some(args) = args.as_ref() else {
         return info;
     };
-    let Ok(iargs) = args.cast::<bindings::IPointerRoutedEventArgs>() else {
+    let Ok(point) = args.GetCurrentPoint(element) else {
         return info;
     };
-    let relative: Option<bindings::UIElement> = sender
-        .as_ref()
-        .and_then(|s| s.cast::<bindings::UIElement>().ok());
-    let point = match relative.as_ref() {
-        Some(ue) => iargs.GetCurrentPoint(ue),
-        None => iargs.GetCurrentPoint(None),
-    };
-    let Ok(point) = point else {
+    if let Ok(pos) = point.Position() {
+        info.x = pos.x as f64;
+        info.y = pos.y as f64;
+    }
+    let Ok(props) = point.Properties() else {
         return info;
     };
-    let Ok(ipoint) = point.cast::<bindings::IPointerPoint>() else {
-        return info;
-    };
-    let Ok(props) = ipoint.Properties() else {
-        return info;
-    };
-    let Ok(iprops) = props.cast::<bindings::IPointerPointProperties>() else {
-        return info;
-    };
-    info.is_left_button_pressed = iprops.IsLeftButtonPressed().unwrap_or(false);
-    info.is_right_button_pressed = iprops.IsRightButtonPressed().unwrap_or(false);
-    info.is_middle_button_pressed = iprops.IsMiddleButtonPressed().unwrap_or(false);
+    info.is_left_button_pressed = props.IsLeftButtonPressed().unwrap_or(false);
+    info.is_right_button_pressed = props.IsRightButtonPressed().unwrap_or(false);
+    info.is_middle_button_pressed = props.IsMiddleButtonPressed().unwrap_or(false);
     info
 }
 
@@ -3300,13 +3247,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
             let sp = bindings::StackPanel::new().ok()?;
             sp.SetOrientation(s.orientation).ok()?;
             sp.SetSpacing(s.spacing).ok()?;
-            let children = sp
-                .cast::<bindings::IPanel>()
-                .ok()?
-                .Children()
-                .ok()?
-                .cast::<windows_collections::IVector<bindings::UIElement>>()
-                .ok()?;
+            let children = sp.cast::<bindings::IPanel>().ok()?.Children().ok()?;
             for child in &s.children {
                 if let Some(cui) = mount_static_tooltip_element(child) {
                     let _ = children.Append(&cui);
@@ -3321,9 +3262,7 @@ fn mount_static_tooltip_element(el: &Element) -> Option<bindings::UIElement> {
                     if let Ok(uri) = bindings::Uri::CreateUri(uri_str.as_str())
                         && let Ok(bmp) = bindings::BitmapImage::new()
                     {
-                        if let Ok(ibmp) = bmp.cast::<bindings::IBitmapImage>() {
-                            let _ = ibmp.SetUriSource(&uri);
-                        }
+                        let _ = bmp.SetUriSource(&uri);
                         if let Ok(src) = bmp.cast::<bindings::ImageSource>() {
                             let _ = i.SetSource(&src);
                         }

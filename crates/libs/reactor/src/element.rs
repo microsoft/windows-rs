@@ -835,50 +835,63 @@ pub trait ElementExt: Sized {
     }
 
     /// Register a `Tapped` (left-tap) handler.
-    fn on_tapped<F: Fn() + 'static>(mut self, f: F) -> Self {
+    fn on_tapped(mut self, f: impl IntoUnitCallback) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_tapped = Some(Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_tapped = Some(f.into_unit_callback());
         }
         self
     }
 
     /// Register a `RightTapped` handler (right-click / barrel button /
     /// touch-and-hold).
-    fn on_right_tapped<F: Fn() + 'static>(mut self, f: F) -> Self {
+    fn on_right_tapped(mut self, f: impl IntoUnitCallback) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_right_tapped = Some(Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_right_tapped = Some(f.into_unit_callback());
         }
         self
     }
 
     /// Register a `PointerPressed` handler; the callback receives the
     /// current button state.
-    fn on_pointer_pressed<F>(mut self, f: F) -> Self
-    where
-        F: Fn(PointerEventInfo) + 'static,
-    {
+    fn on_pointer_pressed(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_pressed = Some(Callback::new(f));
+            ensure_pointer_handlers(m).on_pointer_pressed = Some(f.into_callback());
         }
         self
     }
 
     /// Register a `PointerReleased` handler; the callback receives the
     /// button state at release.
-    fn on_pointer_released<F>(mut self, f: F) -> Self
-    where
-        F: Fn(PointerEventInfo) + 'static,
-    {
+    fn on_pointer_released(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_released = Some(Callback::new(f));
+            ensure_pointer_handlers(m).on_pointer_released = Some(f.into_callback());
+        }
+        self
+    }
+
+    /// Register a `PointerMoved` handler; the callback receives the current
+    /// pointer position and button state. Fires continuously while the pointer
+    /// is over the element — use it for drag and hover tracking.
+    fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_moved = Some(f.into_callback());
+        }
+        self
+    }
+
+    /// Register a `PointerEntered` handler (pointer enters hit-test bounds);
+    /// the callback receives the entry position and button state.
+    fn on_pointer_entered(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
+        if let Some(m) = self.modifiers_mut() {
+            ensure_pointer_handlers(m).on_pointer_entered = Some(f.into_callback());
         }
         self
     }
 
     /// Register a `PointerExited` handler (pointer leaves hit-test bounds).
-    fn on_pointer_exited<F: Fn() + 'static>(mut self, f: F) -> Self {
+    fn on_pointer_exited(mut self, f: impl IntoUnitCallback) -> Self {
         if let Some(m) = self.modifiers_mut() {
-            ensure_pointer_handlers(m).on_pointer_exited = Some(Callback::new(move |()| f()));
+            ensure_pointer_handlers(m).on_pointer_exited = Some(f.into_unit_callback());
         }
         self
     }

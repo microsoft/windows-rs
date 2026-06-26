@@ -617,6 +617,8 @@ pub struct PointerHandlers {
     pub on_right_tapped: Option<Callback<()>>,
     pub on_pointer_pressed: Option<Callback<PointerEventInfo>>,
     pub on_pointer_released: Option<Callback<PointerEventInfo>>,
+    pub on_pointer_moved: Option<Callback<PointerEventInfo>>,
+    pub on_pointer_entered: Option<Callback<PointerEventInfo>>,
     pub on_pointer_exited: Option<Callback<()>>,
 }
 
@@ -626,14 +628,21 @@ impl PointerHandlers {
             && self.on_right_tapped.is_none()
             && self.on_pointer_pressed.is_none()
             && self.on_pointer_released.is_none()
+            && self.on_pointer_moved.is_none()
+            && self.on_pointer_entered.is_none()
             && self.on_pointer_exited.is_none()
     }
 }
 
-/// Button state captured at a `PointerPressed` / `PointerReleased`
-/// callback. Non-mouse pointer kinds report all three as `false`.
-#[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
+/// Pointer state captured at a pointer callback (`PointerPressed`,
+/// `PointerReleased`, `PointerMoved`, or `PointerEntered`). `x`/`y` are the
+/// pointer position in DIPs, relative to the top-left of the element the
+/// handler is attached to. Non-mouse pointer kinds report all three button
+/// flags as `false`.
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PointerEventInfo {
+    pub x: f64,
+    pub y: f64,
     pub is_left_button_pressed: bool,
     pub is_right_button_pressed: bool,
     pub is_middle_button_pressed: bool,

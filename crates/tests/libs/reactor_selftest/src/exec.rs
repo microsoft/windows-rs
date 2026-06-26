@@ -4,7 +4,6 @@ use std::pin::Pin;
 use std::sync::Arc;
 use std::task::{Context, Poll, Wake};
 use std::thread::ThreadId;
-use windows_core::Interface as _;
 
 use windows::core::Result;
 
@@ -53,11 +52,7 @@ impl Wake for Task {
         let handler = DispatcherQueueHandler::new(move || {
             task.poll();
         });
-        let _ = self
-            .dispatcher
-            .cast::<crate::bindings::IDispatcherQueue>()
-            .unwrap()
-            .TryEnqueue(&handler);
+        let _ = self.dispatcher.TryEnqueue(&handler);
     }
 }
 
@@ -111,8 +106,6 @@ impl Future for YieldLow {
                 });
                 let r: Result<bool> = self
                     .dispatcher
-                    .cast::<crate::bindings::IDispatcherQueue>()
-                    .unwrap()
                     .TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler);
                 if let Ok(true) = r {
                     self.state = YieldState::Enqueued;

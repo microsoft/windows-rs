@@ -58,7 +58,9 @@ fn generate_control_event_arms(ctrl: &Control, resolver: &MetadataResolver) -> V
         .collect()
 }
 
-/// Generate a sender-getter pattern: cast sender to handle type, call getter, invoke handler.
+/// Generate a captured-control getter pattern: capture the typed control
+/// handle at attach time and read the getter through it on each event, so
+/// there is no per-event `QueryInterface` on `sender`.
 fn gen_sender_getter(
     iface: &proc_macro2::Ident,
     add_ident: &proc_macro2::Ident,
@@ -68,17 +70,14 @@ fn gen_sender_getter(
     default: TokenStream,
 ) -> TokenStream {
     let getter_ident = ident(getter);
-    let handle_ident = ident(handle_name);
     let receiver = event_receiver(iface, handle_name);
     quote! {
         let handler = handler.clone();
+        let control = h.clone();
         revokers.push(
             #receiver
-                .#add_ident(move |sender, _args| {
-                    let v = sender.as_ref()
-                        .and_then(|s| s.cast::<bindings::#handle_ident>().ok())
-                        .and_then(|s| s.#getter_ident().ok())
-                        .unwrap_or(#default);
+                .#add_ident(move |_sender, _args| {
+                    let v = control.#getter_ident().unwrap_or(#default);
                     handler.#invoke_call;
                 })
                 .unwrap(),

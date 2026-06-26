@@ -136,13 +136,10 @@ pub fn dispatch(
         }
         (Event::PasswordChanged, Handle::PasswordBox(h)) => {
             let handler = handler.clone();
+            let control = h.clone();
             revokers.push(
-                h.PasswordChanged(move |sender, _args| {
-                    let v = sender
-                        .as_ref()
-                        .and_then(|s| s.cast::<bindings::PasswordBox>().ok())
-                        .and_then(|s| s.Password().ok())
-                        .unwrap_or(Default::default());
+                h.PasswordChanged(move |_sender, _args| {
+                    let v = control.Password().unwrap_or(Default::default());
                     handler.invoke_string(v);
                 })
                 .unwrap(),
@@ -188,13 +185,10 @@ pub fn dispatch(
         }
         (Event::SelectionChanged, Handle::RadioButtons(h)) => {
             let handler = handler.clone();
+            let control = h.clone();
             revokers.push(
-                h.SelectionChanged(move |sender, _args| {
-                    let v = sender
-                        .as_ref()
-                        .and_then(|s| s.cast::<bindings::RadioButtons>().ok())
-                        .and_then(|s| s.SelectedIndex().ok())
-                        .unwrap_or(-1);
+                h.SelectionChanged(move |_sender, _args| {
+                    let v = control.SelectedIndex().unwrap_or(-1);
                     handler.invoke_i32(v);
                 })
                 .unwrap(),
@@ -202,13 +196,10 @@ pub fn dispatch(
         }
         (Event::ValueChanged, Handle::RatingControl(h)) => {
             let handler = handler.clone();
+            let control = h.clone();
             revokers.push(
-                h.ValueChanged(move |sender, _args| {
-                    let v = sender
-                        .as_ref()
-                        .and_then(|s| s.cast::<bindings::RatingControl>().ok())
-                        .and_then(|s| s.Value().ok())
-                        .unwrap_or(-1.0);
+                h.ValueChanged(move |_sender, _args| {
+                    let v = control.Value().unwrap_or(-1.0);
                     handler.invoke_f64(v);
                 })
                 .unwrap(),
@@ -276,13 +267,10 @@ pub fn dispatch(
         }
         (Event::TextChanged, Handle::TextBox(h)) => {
             let handler = handler.clone();
+            let control = h.clone();
             revokers.push(
-                h.TextChanged(move |sender, _args| {
-                    let v = sender
-                        .as_ref()
-                        .and_then(|s| s.cast::<bindings::TextBox>().ok())
-                        .and_then(|s| s.Text().ok())
-                        .unwrap_or(Default::default());
+                h.TextChanged(move |_sender, _args| {
+                    let v = control.Text().unwrap_or(Default::default());
                     handler.invoke_string(v);
                 })
                 .unwrap(),
@@ -308,13 +296,10 @@ pub fn dispatch(
         }
         (Event::Toggled, Handle::ToggleSwitch(h)) => {
             let handler = handler.clone();
+            let control = h.clone();
             revokers.push(
-                h.Toggled(move |sender, _args| {
-                    let v = sender
-                        .as_ref()
-                        .and_then(|s| s.cast::<bindings::ToggleSwitch>().ok())
-                        .and_then(|s| s.IsOn().ok())
-                        .unwrap_or(false);
+                h.Toggled(move |_sender, _args| {
+                    let v = control.IsOn().unwrap_or(false);
                     handler.invoke_bool(v);
                 })
                 .unwrap(),

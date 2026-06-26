@@ -115,8 +115,8 @@ impl NavigationView {
         self.is_back_enabled = v;
         self
     }
-    pub fn on_back_requested<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_back_requested = Some(Callback::new(move |()| f()));
+    pub fn on_back_requested(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_back_requested = Some(f.into_unit_callback());
         self
     }
     pub fn settings_visible(mut self, v: bool) -> Self {
@@ -143,16 +143,16 @@ impl NavigationView {
         self.auto_suggest_items = items.into_iter().map(Into::into).collect();
         self
     }
-    pub fn on_query_submitted<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_query_submitted = Some(Callback::new(f));
+    pub fn on_query_submitted(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_query_submitted = Some(f.into_callback());
         self
     }
-    pub fn on_text_changed<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_text_changed = Some(Callback::new(f));
+    pub fn on_text_changed(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_text_changed = Some(f.into_callback());
         self
     }
-    pub fn on_suggestion_chosen<F: Fn(String) + 'static>(mut self, f: F) -> Self {
-        self.on_suggestion_chosen = Some(Callback::new(f));
+    pub fn on_suggestion_chosen(mut self, f: impl IntoCallback<String>) -> Self {
+        self.on_suggestion_chosen = Some(f.into_callback());
         self
     }
     pub fn pane_toggle_button_visible(mut self, v: bool) -> Self {

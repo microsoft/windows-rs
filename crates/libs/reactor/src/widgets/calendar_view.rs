@@ -35,8 +35,8 @@ impl CalendarView {
         self
     }
 
-    pub fn on_selected_dates_changed<F: Fn() + 'static>(mut self, f: F) -> Self {
-        self.on_selected_dates_changed = Some(Callback::new(move |()| f()));
+    pub fn on_selected_dates_changed(mut self, f: impl IntoUnitCallback) -> Self {
+        self.on_selected_dates_changed = Some(f.into_unit_callback());
         self
     }
 }
