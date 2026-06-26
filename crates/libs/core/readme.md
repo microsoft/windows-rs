@@ -2,7 +2,7 @@
 
 The [windows-core](https://crates.io/crates/windows-core) crate provides core type support for the windows-* family of crates.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 

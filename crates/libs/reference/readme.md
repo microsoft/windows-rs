@@ -2,7 +2,7 @@
 
 The [windows-reference](https://crates.io/crates/windows-reference) crate provides a stock implementation of the `IReference<T>` interface used by Windows APIs to box and pass optional or reference values.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 

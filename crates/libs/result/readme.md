@@ -2,7 +2,7 @@
 
 The [windows-result](https://crates.io/crates/windows-result) crate provides efficient Windows error handling and propagation with support for Win32, COM, and WinRT APIs.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
