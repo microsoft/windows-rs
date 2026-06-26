@@ -27,7 +27,7 @@ pub fn number_box_page(_: &(), cx: &mut RenderCx) -> Element {
                     NumberBox::new(clamped)
                         .header("Rating (1-10)")
                         .range(1.0, 10.0)
-                        .on_value_changed(move |v| set_clamped.call(v)),
+                        .on_value_changed(set_clamped),
                     text_block(format!("Clamped value: {clamped}")).opacity(0.6),
                 ))
                 .spacing(8.0),

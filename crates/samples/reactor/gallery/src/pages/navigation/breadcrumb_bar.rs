@@ -17,7 +17,7 @@ pub fn breadcrumb_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                 "Interactive BreadcrumbBar",
                 vstack((
                     BreadcrumbBar::new(["Root", "Users", "Settings", "Profile"])
-                        .on_item_clicked(move |i| set_clicked.call(i)),
+                        .on_item_clicked(set_clicked),
                     text_block(format!("Clicked index: {clicked}")).opacity(0.6),
                 ))
                 .spacing(8.0),

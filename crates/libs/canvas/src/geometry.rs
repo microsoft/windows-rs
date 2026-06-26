@@ -112,6 +112,22 @@ impl PathBuilder {
         unsafe { self.sink.Close()? };
         Ok(Path { raw: self.geometry })
     }
+
+    /// Builds a closed, filled polygon from a sequence of points.
+    ///
+    /// Convenience for `begin(first).line_to(rest)…close().build()`. Returns an
+    /// error if `points` yields no points.
+    pub fn polygon(self, points: impl IntoIterator<Item = Vector2>) -> Result<Path> {
+        let mut points = points.into_iter();
+        let Some(first) = points.next() else {
+            return Err(Error::empty());
+        };
+        let mut figure = self.begin(first);
+        for point in points {
+            figure = figure.line_to(point);
+        }
+        figure.close().build()
+    }
 }
 
 /// A figure within a path being built.

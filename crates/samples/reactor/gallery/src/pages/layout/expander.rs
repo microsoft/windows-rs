@@ -20,7 +20,7 @@ pub fn expander_page(_: &(), cx: &mut RenderCx) -> Element {
                     )
                     .header("Click to expand/collapse")
                     .expanded(is_expanded)
-                    .on_expanding(move |v| set_expanded.call(v)),
+                    .on_expanding(set_expanded),
                     text_block(format!(
                         "State: {}",
                         if is_expanded { "expanded" } else { "collapsed" }

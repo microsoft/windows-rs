@@ -2,7 +2,7 @@ use crate::fixtures::reconciler::FixtureFuture;
 use crate::fixtures::{
     all_layouts, backdrop, controls, controls_extended, dynamic, error_boundary, event_detachment,
     grid_attached, hooks, interactions, layout, pointer_input, prop_updates, reconciler,
-    reconciler_stress, tooltip, universal_props,
+    reconciler_stress, timers, tooltip, universal_props,
 };
 use crate::harness::Harness;
 
@@ -299,6 +299,13 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Hook_UseContext_ReadsProvided",
         hooks::use_context_reads_provided,
+    ),
+    // ── Dispatcher-thread hook fixtures (timers + rendering) ────────────
+    ("Timer_Repeating_Fires", timers::timer_repeating_fires),
+    ("Timer_OneShot_Fires", timers::timer_one_shot_fires_once),
+    (
+        "Rendering_Subscription_Fires",
+        timers::rendering_subscription_fires,
     ),
     // ── Prop update fixtures (control diff without recreate) ────────────
     ("PropUpdate_TextBlock", prop_updates::text_block_update),

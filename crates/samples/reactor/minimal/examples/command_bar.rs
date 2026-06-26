@@ -14,7 +14,7 @@ fn app(cx: &mut RenderCx) -> Element {
             app_bar_button_icon("Delete", Symbol::Delete),
         ])
         .secondary_commands(vec![app_bar_button("Select All"), app_bar_button("Share")])
-        .on_click(move |label| set_last_click.call(label)),
+        .on_click(set_last_click),
         text_block(format!("Last clicked: {last_click}")),
     ))
     .spacing(12.0)

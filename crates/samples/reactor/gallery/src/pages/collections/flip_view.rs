@@ -22,12 +22,12 @@ pub fn flip_view_page(_: &(), cx: &mut RenderCx) -> Element {
                     .padding(Thickness::uniform(24.0))
                     .corner_radius(8.0)
                 })
-                .on_selection_changed(move |idx| set_selected.call(idx))
+                .on_selection_changed(set_selected)
                 .height(200.0),
                 text_block(format!("Current slide: {}", selected + 1)).opacity(0.6),
             ))
             .spacing(8.0),
-            r#"flip_view(items, |item, idx| ...).on_selection_changed(move |idx| set.call(idx))"#,
+            r#"flip_view(items, |item, idx| ...).on_selection_changed(set_selected)"#,
         )],
     )
 }

@@ -5,7 +5,7 @@ use windows_reactor::*;
 fn app(cx: &mut RenderCx) -> Element {
     let (clicks, set_clicks) = cx.use_state(0_u32);
 
-    let bump = move || set_clicks.call(clicks + 1);
+    let bump = set_clicks.setter(clicks + 1);
 
     vstack((
         button(format!("Clicked {clicks} times")).on_click(bump),

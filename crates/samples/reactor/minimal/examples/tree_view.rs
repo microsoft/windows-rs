@@ -15,7 +15,7 @@ fn app(cx: &mut RenderCx) -> Element {
     ];
 
     vstack((
-        tree_view(nodes).on_item_invoked(move |text| set_last_invoked.call(text)),
+        tree_view(nodes).on_item_invoked(set_last_invoked),
         text_block(format!("Last invoked: {last_invoked}")),
     ))
     .spacing(12.0)

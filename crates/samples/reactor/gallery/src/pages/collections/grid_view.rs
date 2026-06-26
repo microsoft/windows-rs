@@ -16,7 +16,7 @@ pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> Element {
                         .padding(16.0)
                         .corner_radius(4.0)
                 })
-                .on_selection_changed(move |idx| set_selected.call(idx))
+                .on_selection_changed(set_selected)
                 .height(300.0),
                 text_block(if selected >= 0 {
                     format!("Selected: Item {}", selected + 1)
@@ -26,7 +26,7 @@ pub fn grid_view_page(_: &(), cx: &mut RenderCx) -> Element {
                 .opacity(0.6),
             ))
             .spacing(8.0),
-            r#"grid_view(items, |item, _| ...).on_selection_changed(move |idx| set.call(idx))"#,
+            r#"grid_view(items, |item, _| ...).on_selection_changed(set_selected)"#,
         )],
     )
 }

@@ -101,6 +101,8 @@ points use `Vector2` (re-exported from `windows-numerics`).
 Freeform paths are built with `PathBuilder::new(&device)`, then `.begin(start)`
 (filled) or `.begin_hollow(start)` (open), adding segments with `line_to`,
 `bezier_to`, and finishing with `close` or `end_open`; `build()` yields a `Path`.
+For a closed, filled polygon, `PathBuilder::new(&device)?.polygon(points)` does
+the whole begin/`line_to`/close/build sequence in one call.
 
 Strokes are configured with `StrokeStyleBuilder` — `start_cap`, `end_cap`,
 `caps`, `line_join`, `miter_limit`, `dash_style`, `dash_offset` (see `CapStyle`,

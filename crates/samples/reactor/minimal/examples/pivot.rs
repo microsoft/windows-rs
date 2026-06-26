@@ -22,7 +22,7 @@ fn app(cx: &mut RenderCx) -> Element {
         ])
         .title("Demo")
         .selected_index(selected)
-        .on_selection_changed(move |i| set_selected.call(i)),
+        .on_selection_changed(set_selected),
         text_block(format!("selected_index = {selected}")),
     ))
     .spacing(8.0)

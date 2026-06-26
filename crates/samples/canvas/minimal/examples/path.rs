@@ -12,12 +12,11 @@ fn draw(ctx: &DrawContext) {
     let r = cx.min(cy) * 0.8;
 
     let Ok(path) = (|| -> Result<Path> {
-        let mut builder = PathBuilder::new(ctx.device())?.begin(star_point(cx, cy, r, 0));
-        for i in 1..10 {
+        let points = (0..10).map(|i| {
             let radius = if i % 2 == 0 { r } else { r * 0.5 };
-            builder = builder.line_to(star_point(cx, cy, radius, i));
-        }
-        builder.close().build()
+            star_point(cx, cy, radius, i)
+        });
+        PathBuilder::new(ctx.device())?.polygon(points)
     })() else {
         return;
     };
