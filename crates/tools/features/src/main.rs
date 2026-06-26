@@ -272,7 +272,7 @@ function run() {
     if (own) features.push(own);
     if (extras) for (const ei of extras) { const f = featureOf(DATA.namespaces[ei]); if (f) features.push(f); }
     const cell = features.length
-      ? features.map(f => '<code class="feature">' + f + '</code>').join(' + ')
+      ? '<code class="feature">' + features.map(f => '"' + f + '"').join(', ') + '</code>'
       : '<span class="none">(no feature required)</span>';
     rows.push('<tr><td><code>' + full + '</code></td><td>' + cell + '</td></tr>');
   }
