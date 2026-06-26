@@ -50,7 +50,7 @@ impl ContactPickerUI {
     }
     pub fn ContactRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactRemovedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

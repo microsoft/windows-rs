@@ -126,7 +126,7 @@ impl ICallFrame {
             (windows_core::Interface::vtable(self).GetParam)(windows_core::Interface::as_raw(self), iparam, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Copy<P1>(&self, copycontrol: CALLFRAME_COPY, pwalker: P1) -> windows_core::Result<ICallFrame>
+    pub unsafe fn Copy<P1>(&self, copycontrol: CALLFRAME_COPY, pwalker: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<ICallFrameWalker>,
     {
@@ -137,7 +137,7 @@ impl ICallFrame {
     }
     pub unsafe fn Free<P0, P1, P2, P4>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P4, nullflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ICallFrame>,
+        P0: windows_core::Param<Self>,
         P1: windows_core::Param<ICallFrameWalker>,
         P2: windows_core::Param<ICallFrameWalker>,
         P4: windows_core::Param<ICallFrameWalker>,

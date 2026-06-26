@@ -38,6 +38,7 @@ manual_string_new = "warn"
 manual_assert = "warn"
 assigning_clones = "warn"
 explicit_iter_loop = "warn"
+use_self = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }

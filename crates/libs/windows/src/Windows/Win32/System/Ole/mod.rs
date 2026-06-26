@@ -5639,13 +5639,13 @@ pub const ID_DEFAULTINST: i32 = -2;
 windows_core::imp::define_interface!(IDispError, IDispError_Vtbl, 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
 windows_core::imp::interface_hierarchy!(IDispError, windows_core::IUnknown);
 impl IDispError {
-    pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID) -> windows_core::Result<IDispError> {
+    pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(guiderrortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNext(&self) -> windows_core::Result<IDispError> {
+    pub unsafe fn GetNext(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6220,7 +6220,7 @@ impl IEnumOLEVERB {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOLEVERB> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6305,7 +6305,7 @@ impl IEnumOleDocumentViews {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOleDocumentViews> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6384,7 +6384,7 @@ impl IEnumOleUndoUnits {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOleUndoUnits> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6464,7 +6464,7 @@ impl IEnumVARIANT {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumVARIANT> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6621,7 +6621,7 @@ impl IFont {
             (windows_core::Interface::vtable(self).hFont)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IFont> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6629,7 +6629,7 @@ impl IFont {
     }
     pub unsafe fn IsEqual<P0>(&self, pfontother: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IFont>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pfontother.param().abi()).ok() }
     }
@@ -8235,7 +8235,7 @@ impl IOleDocumentView {
     {
         unsafe { (windows_core::Interface::vtable(self).ApplyViewState)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok() }
     }
-    pub unsafe fn Clone<P0>(&self, pipsitenew: P0) -> windows_core::Result<IOleDocumentView>
+    pub unsafe fn Clone<P0>(&self, pipsitenew: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IOleInPlaceSite>,
     {
@@ -10047,13 +10047,13 @@ windows_core::imp::interface_hierarchy!(IOleParentUndoUnit, windows_core::IUnkno
 impl IOleParentUndoUnit {
     pub unsafe fn Open<P0>(&self, ppuu: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IOleParentUndoUnit>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), ppuu.param().abi()).ok() }
     }
     pub unsafe fn Close<P0>(&self, ppuu: P0, fcommit: bool) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IOleParentUndoUnit>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), ppuu.param().abi(), fcommit.into()).ok() }
     }
@@ -12947,7 +12947,7 @@ impl IRecordInfo {
     }
     pub unsafe fn IsMatchingType<P0>(&self, precordinfo: P0) -> windows_core::BOOL
     where
-        P0: windows_core::Param<IRecordInfo>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsMatchingType)(windows_core::Interface::as_raw(self), precordinfo.param().abi()) }
     }

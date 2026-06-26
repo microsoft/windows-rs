@@ -3038,7 +3038,7 @@ impl IDataCollectorCollection {
     }
     pub unsafe fn AddRange<P0>(&self, collectors: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDataCollectorCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), collectors.param().abi()).ok() }
     }
@@ -4294,7 +4294,7 @@ impl IDataCollectorSetCollection {
     }
     pub unsafe fn AddRange<P0>(&self, sets: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDataCollectorSetCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), sets.param().abi()).ok() }
     }
@@ -5088,7 +5088,7 @@ impl IFolderActionCollection {
     }
     pub unsafe fn AddRange<P0>(&self, actions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IFolderActionCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), actions.param().abi()).ok() }
     }
@@ -5843,7 +5843,7 @@ impl IScheduleCollection {
     }
     pub unsafe fn AddRange<P0>(&self, pschedules: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IScheduleCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pschedules.param().abi()).ok() }
     }
@@ -8805,7 +8805,7 @@ impl ITraceDataProviderCollection {
     }
     pub unsafe fn AddRange<P0>(&self, providers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITraceDataProviderCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), providers.param().abi()).ok() }
     }
@@ -9038,7 +9038,7 @@ impl IValueMap {
     }
     pub unsafe fn AddRange<P0>(&self, map: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IValueMap>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), map.param().abi()).ok() }
     }

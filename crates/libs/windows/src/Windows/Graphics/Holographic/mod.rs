@@ -428,7 +428,7 @@ impl HolographicDisplay {
             (windows_core::Interface::vtable(this).TryGetViewConfiguration)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<HolographicDisplay> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IHolographicDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -833,14 +833,14 @@ impl HolographicQuadLayer {
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(size: super::super::Foundation::Size) -> windows_core::Result<HolographicQuadLayer> {
+    pub fn Create(size: super::super::Foundation::Size) -> windows_core::Result<Self> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateWithPixelFormat(size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> windows_core::Result<HolographicQuadLayer> {
+    pub fn CreateWithPixelFormat(size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> windows_core::Result<Self> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithPixelFormat)(windows_core::Interface::as_raw(this), size, pixelformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -958,7 +958,7 @@ impl HolographicSpace {
     }
     pub fn CameraAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraAddedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -970,7 +970,7 @@ impl HolographicSpace {
     }
     pub fn CameraRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraRemovedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -995,7 +995,7 @@ impl HolographicSpace {
     }
     pub fn UserPresenceChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1030,7 +1030,7 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn CreateForCoreWindow<P0>(window: P0) -> windows_core::Result<HolographicSpace>
+    pub fn CreateForCoreWindow<P0>(window: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::UI::Core::CoreWindow>,
     {

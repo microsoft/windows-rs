@@ -1980,7 +1980,7 @@ impl IWdsTransportNamespace {
     pub unsafe fn Deregister(&self, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Deregister)(windows_core::Interface::as_raw(self), bterminatesessions).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IWdsTransportNamespace> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

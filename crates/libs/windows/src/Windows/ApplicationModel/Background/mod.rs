@@ -30,7 +30,7 @@ impl ActivitySensorTrigger {
             (windows_core::Interface::vtable(self).MinimumReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(reportintervalinmilliseconds: u32) -> windows_core::Result<ActivitySensorTrigger> {
+    pub fn Create(reportintervalinmilliseconds: u32) -> windows_core::Result<Self> {
         Self::IActivitySensorTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), reportintervalinmilliseconds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -109,7 +109,7 @@ impl AppBroadcastTrigger {
             (windows_core::Interface::vtable(self).ProviderInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAppBroadcastTrigger(providerkey: &windows_core::HSTRING) -> windows_core::Result<AppBroadcastTrigger> {
+    pub fn CreateAppBroadcastTrigger(providerkey: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppBroadcastTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAppBroadcastTrigger)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -559,7 +559,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
 }
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<BackgroundTaskCanceledEventHandler, F>::new(&BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
@@ -649,7 +649,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
 }
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<BackgroundTaskCompletedEventHandler, F>::new(&BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
@@ -740,7 +740,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
 }
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<BackgroundTaskProgressEventHandler, F>::new(&BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
@@ -906,7 +906,7 @@ impl BackgroundTaskRegistrationGroup {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Activation::BackgroundActivatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -922,13 +922,13 @@ impl BackgroundTaskRegistrationGroup {
             (windows_core::Interface::vtable(self).AllTasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(id: &windows_core::HSTRING) -> windows_core::Result<BackgroundTaskRegistrationGroup> {
+    pub fn Create(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithName(id: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTaskRegistrationGroup> {
+    pub fn CreateWithName(id: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1437,7 +1437,7 @@ impl ContentPrefetchTrigger {
             (windows_core::Interface::vtable(self).WaitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(waitinterval: windows_time::TimeSpan) -> windows_core::Result<ContentPrefetchTrigger> {
+    pub fn Create(waitinterval: windows_time::TimeSpan) -> windows_core::Result<Self> {
         Self::IContentPrefetchTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), waitinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1499,7 +1499,7 @@ impl CustomSystemEventTrigger {
             (windows_core::Interface::vtable(self).Recurrence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(triggerid: &windows_core::HSTRING, recurrence: CustomSystemEventTriggerRecurrence) -> windows_core::Result<CustomSystemEventTrigger> {
+    pub fn Create(triggerid: &windows_core::HSTRING, recurrence: CustomSystemEventTriggerRecurrence) -> windows_core::Result<Self> {
         Self::ICustomSystemEventTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerid), recurrence, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1561,7 +1561,7 @@ impl DeviceConnectionChangeTrigger {
     pub fn SetMaintainConnection(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaintainConnection)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceConnectionChangeTrigger>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IDeviceConnectionChangeTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1602,7 +1602,7 @@ impl DeviceManufacturerNotificationTrigger {
             (windows_core::Interface::vtable(self).OneShot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(triggerqualifier: &windows_core::HSTRING, oneshot: bool) -> windows_core::Result<DeviceManufacturerNotificationTrigger> {
+    pub fn Create(triggerqualifier: &windows_core::HSTRING, oneshot: bool) -> windows_core::Result<Self> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerqualifier), oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1794,7 +1794,7 @@ impl GattCharacteristicNotificationTrigger {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn Create<P0>(characteristic: P0) -> windows_core::Result<GattCharacteristicNotificationTrigger>
+    pub fn Create<P0>(characteristic: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
     {
@@ -1804,7 +1804,7 @@ impl GattCharacteristicNotificationTrigger {
         })
     }
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
-    pub fn CreateWithEventTriggeringMode<P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> windows_core::Result<GattCharacteristicNotificationTrigger>
+    pub fn CreateWithEventTriggeringMode<P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
     {
@@ -4071,7 +4071,7 @@ impl LocationTrigger {
             (windows_core::Interface::vtable(self).TriggerType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(triggertype: LocationTriggerType) -> windows_core::Result<LocationTrigger> {
+    pub fn Create(triggertype: LocationTriggerType) -> windows_core::Result<Self> {
         Self::ILocationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4125,7 +4125,7 @@ impl MaintenanceTrigger {
             (windows_core::Interface::vtable(self).OneShot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<MaintenanceTrigger> {
+    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<Self> {
         Self::IMaintenanceTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4388,7 +4388,7 @@ impl NetworkOperatorNotificationTrigger {
             (windows_core::Interface::vtable(self).NetworkAccountId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorNotificationTrigger> {
+    pub fn Create(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::INetworkOperatorNotificationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4454,7 +4454,7 @@ impl PhoneTrigger {
         }
     }
     #[cfg(feature = "ApplicationModel_Calls_Background")]
-    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> windows_core::Result<PhoneTrigger> {
+    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> windows_core::Result<Self> {
         Self::IPhoneTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4489,7 +4489,7 @@ impl PushNotificationTrigger {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<PushNotificationTrigger> {
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPushNotificationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4643,7 +4643,7 @@ windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, windows_core
 windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
 impl SensorDataThresholdTrigger {
     #[cfg(feature = "Devices_Sensors")]
-    pub fn Create<P0>(threshold: P0) -> windows_core::Result<SensorDataThresholdTrigger>
+    pub fn Create<P0>(threshold: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Sensors::ISensorDataThreshold>,
     {
@@ -4683,7 +4683,7 @@ impl SmartCardTrigger {
         }
     }
     #[cfg(feature = "Devices_SmartCards")]
-    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> windows_core::Result<SmartCardTrigger> {
+    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> windows_core::Result<Self> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4710,7 +4710,7 @@ pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
-    pub fn Create<P0>(filterrules: P0) -> windows_core::Result<SmsMessageReceivedTrigger>
+    pub fn Create<P0>(filterrules: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Sms::SmsFilterRules>,
     {
@@ -4774,7 +4774,7 @@ pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
-    pub fn Create<P0>(tracker: P0) -> windows_core::Result<StorageLibraryChangeTrackerTrigger>
+    pub fn Create<P0>(tracker: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::StorageLibraryChangeTracker>,
     {
@@ -4807,7 +4807,7 @@ windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, win
 windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
 impl StorageLibraryContentChangedTrigger {
     #[cfg(feature = "Storage")]
-    pub fn Create<P0>(storagelibrary: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
+    pub fn Create<P0>(storagelibrary: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::StorageLibrary>,
     {
@@ -4817,7 +4817,7 @@ impl StorageLibraryContentChangedTrigger {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
+    pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::StorageLibrary>>,
     {
@@ -4853,7 +4853,7 @@ impl SystemCondition {
             (windows_core::Interface::vtable(self).ConditionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(conditiontype: SystemConditionType) -> windows_core::Result<SystemCondition> {
+    pub fn Create(conditiontype: SystemConditionType) -> windows_core::Result<Self> {
         Self::ISystemConditionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), conditiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4913,7 +4913,7 @@ impl SystemTrigger {
             (windows_core::Interface::vtable(self).TriggerType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> windows_core::Result<SystemTrigger> {
+    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> windows_core::Result<Self> {
         Self::ISystemTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5005,7 +5005,7 @@ impl TimeTrigger {
             (windows_core::Interface::vtable(self).OneShot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<TimeTrigger> {
+    pub fn Create(freshnesstime: u32, oneshot: bool) -> windows_core::Result<Self> {
         Self::ITimeTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5038,7 +5038,7 @@ impl ToastNotificationActionTrigger {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationActionTrigger> {
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IToastNotificationActionTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5073,7 +5073,7 @@ impl ToastNotificationHistoryChangedTrigger {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotificationHistoryChangedTrigger> {
+    pub fn Create(applicationid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IToastNotificationHistoryChangedTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5102,7 +5102,7 @@ pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl UserNotificationChangedTrigger {
     #[cfg(feature = "UI_Notifications")]
-    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> windows_core::Result<UserNotificationChangedTrigger> {
+    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> windows_core::Result<Self> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), notificationkinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

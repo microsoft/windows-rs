@@ -435,7 +435,7 @@ impl SearchPane {
     }
     pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SearchPaneVisibilityChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -447,7 +447,7 @@ impl SearchPane {
     }
     pub fn QueryChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SearchPaneQueryChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -459,7 +459,7 @@ impl SearchPane {
     }
     pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SearchPaneSuggestionsRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -471,7 +471,7 @@ impl SearchPane {
     }
     pub fn QuerySubmitted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SearchPaneQuerySubmittedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -483,7 +483,7 @@ impl SearchPane {
     }
     pub fn ResultSuggestionChosen<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SearchPaneResultSuggestionChosenEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -520,7 +520,7 @@ impl SearchPane {
             (windows_core::Interface::vtable(self).TrySetQueryText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(query), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SearchPane> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISearchPaneStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -831,7 +831,7 @@ impl SearchQueryLinguisticDetails {
             (windows_core::Interface::vtable(self).QueryTextCompositionLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance<P0>(querytextalternatives: P0, querytextcompositionstart: u32, querytextcompositionlength: u32) -> windows_core::Result<SearchQueryLinguisticDetails>
+    pub fn CreateInstance<P0>(querytextalternatives: P0, querytextcompositionstart: u32, querytextcompositionlength: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {

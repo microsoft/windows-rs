@@ -453,7 +453,7 @@ impl ActionInvocationHelpDetails {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ActionInvocationHelpDetails, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IActionInvocationHelpDetails2>(self)?;
         unsafe {
@@ -592,7 +592,7 @@ impl ActionRuntime {
             (windows_core::Interface::vtable(this).CustomEntityStore)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<ActionRuntime> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IActionRuntimeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1943,7 +1943,7 @@ impl StreamingTextActionEntity {
     }
     pub fn TextChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StreamingTextActionEntity, StreamingTextActionEntityTextChangedArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, StreamingTextActionEntityTextChangedArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

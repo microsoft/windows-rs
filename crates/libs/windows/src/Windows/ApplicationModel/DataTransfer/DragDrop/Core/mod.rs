@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(CoreDragDropManager, windows_core::IUnkn
 impl CoreDragDropManager {
     pub fn TargetRequested<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreDropOperationTargetRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -24,7 +24,7 @@ impl CoreDragDropManager {
     pub fn SetAreConcurrentOperationsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAreConcurrentOperationsEnabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<CoreDragDropManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICoreDragDropManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

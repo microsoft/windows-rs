@@ -123,7 +123,7 @@ impl GameChatOverlay {
     pub fn AddMessage(&self, sender: &windows_core::HSTRING, message: &windows_core::HSTRING, origin: GameChatMessageOrigin) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sender), core::mem::transmute_copy(message), origin).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<GameChatOverlay> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IGameChatOverlayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -160,7 +160,7 @@ impl GameChatOverlayMessageSource {
     }
     pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GameChatMessageReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

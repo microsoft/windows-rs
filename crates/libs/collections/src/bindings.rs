@@ -1132,8 +1132,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn Split(
         &self,
-        first: &mut Option<IMapView<K, V>>,
-        second: &mut Option<IMapView<K, V>>,
+        first: &mut Option<Self>,
+        second: &mut Option<Self>,
     ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Split)(
@@ -1383,9 +1383,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 {
     pub fn MapChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>)
-            + Send
-            + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IMapChangedEventArgs<K>>) + Send + 'static,
     {
         let vhnd = <MapChangedEventHandler<K, V>>::new(move |a0, a1| {
             vhnd(a0, a1);
@@ -1658,9 +1656,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn VectorChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>)
-            + Send
-            + 'static,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<IVectorChangedEventArgs>) + Send + 'static,
     {
         let vhnd = <VectorChangedEventHandler<T>>::new(move |a0, a1| {
             vhnd(a0, a1);
@@ -2883,7 +2879,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<MapChangedEventHandler<K, V>, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &MapChangedEventHandlerBox::<K, V, F>::VTABLE,
             invoke,
         );
@@ -3002,7 +2998,7 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<VectorChangedEventHandler<T>, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &VectorChangedEventHandlerBox::<T, F>::VTABLE,
             invoke,
         );

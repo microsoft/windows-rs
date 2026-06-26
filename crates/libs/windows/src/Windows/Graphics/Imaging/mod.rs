@@ -213,7 +213,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -223,7 +223,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithIdAsync<P1>(decoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapDecoder>>
+    pub fn CreateWithIdAsync<P1>(decoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -500,7 +500,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateAsync<P1>(encoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateAsync<P1>(encoderid: windows_core::GUID, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -510,7 +510,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithEncodingOptionsAsync<P1, P2>(encoderid: windows_core::GUID, stream: P1, encodingoptions: P2) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateWithEncodingOptionsAsync<P1, P2>(encoderid: windows_core::GUID, stream: P1, encodingoptions: P2) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P2: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>>,
@@ -521,7 +521,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateForTranscodingAsync<P0, P1>(stream: P0, bitmapdecoder: P1) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateForTranscodingAsync<P0, P1>(stream: P0, bitmapdecoder: P1) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<BitmapDecoder>,
@@ -531,7 +531,7 @@ impl BitmapEncoder {
             (windows_core::Interface::vtable(this).CreateForTranscodingAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), bitmapdecoder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateForInPlacePropertyEncodingAsync<P0>(bitmapdecoder: P0) -> windows_core::Result<windows_future::IAsyncOperation<BitmapEncoder>>
+    pub fn CreateForInPlacePropertyEncodingAsync<P0>(bitmapdecoder: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<BitmapDecoder>,
     {
@@ -1036,7 +1036,7 @@ impl BitmapTypedValue {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> windows_core::Result<BitmapTypedValue>
+    pub fn Create<P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -2170,7 +2170,7 @@ impl SoftwareBitmap {
     }
     pub fn CopyTo<P0>(&self, bitmap: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<SoftwareBitmap>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), bitmap.param().abi()).ok() }
     }
@@ -2188,45 +2188,45 @@ impl SoftwareBitmap {
     {
         unsafe { (windows_core::Interface::vtable(self).CopyToBuffer)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok() }
     }
-    pub fn GetReadOnlyView(&self) -> windows_core::Result<SoftwareBitmap> {
+    pub fn GetReadOnlyView(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetReadOnlyView)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<SoftwareBitmap> {
+    pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<Self> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), format, width, height, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> windows_core::Result<SoftwareBitmap> {
+    pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> windows_core::Result<Self> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithAlpha)(windows_core::Interface::as_raw(this), format, width, height, alpha, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Copy<P0>(source: P0) -> windows_core::Result<SoftwareBitmap>
+    pub fn Copy<P0>(source: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<SoftwareBitmap>,
+        P0: windows_core::Param<Self>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copy)(windows_core::Interface::as_raw(this), source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Convert<P0>(source: P0, format: BitmapPixelFormat) -> windows_core::Result<SoftwareBitmap>
+    pub fn Convert<P0>(source: P0, format: BitmapPixelFormat) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<SoftwareBitmap>,
+        P0: windows_core::Param<Self>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Convert)(windows_core::Interface::as_raw(this), source.param().abi(), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ConvertWithAlpha<P0>(source: P0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> windows_core::Result<SoftwareBitmap>
+    pub fn ConvertWithAlpha<P0>(source: P0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<SoftwareBitmap>,
+        P0: windows_core::Param<Self>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2234,7 +2234,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<SoftwareBitmap>
+    pub fn CreateCopyFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2244,7 +2244,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyWithAlphaFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> windows_core::Result<SoftwareBitmap>
+    pub fn CreateCopyWithAlphaFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2254,7 +2254,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateCopyFromSurfaceAsync<P0>(surface: P0) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyFromSurfaceAsync<P0>(surface: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DSurface>,
     {
@@ -2264,7 +2264,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateCopyWithAlphaFromSurfaceAsync<P0>(surface: P0, alpha: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyWithAlphaFromSurfaceAsync<P0>(surface: P0, alpha: BitmapAlphaMode) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DSurface>,
     {

@@ -69,7 +69,7 @@ impl AdvancedPhotoCapture {
     }
     pub fn OptionalReferencePhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, OptionalReferencePhotoCapturedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -81,7 +81,7 @@ impl AdvancedPhotoCapture {
     }
     pub fn AllPhotosCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -174,7 +174,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn HeartbeatRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastHeartbeatRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -218,7 +218,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastTitleChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
@@ -232,7 +232,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastLanguageChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
@@ -246,7 +246,7 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastChannelChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
@@ -322,7 +322,7 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn SignInStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastSignInStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -334,7 +334,7 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn UserNameChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
         unsafe {
@@ -403,7 +403,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastStreamStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -415,7 +415,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingResolutionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -427,7 +427,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -869,14 +869,14 @@ impl AppBroadcastPlugInManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultPlugIn)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<AppBroadcastPlugInManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IAppBroadcastPlugInManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppBroadcastPlugInManager>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -967,7 +967,7 @@ impl AppBroadcastPreview {
     }
     pub fn PreviewStateChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastPreviewStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1086,7 +1086,7 @@ impl AppBroadcastPreviewStreamReader {
     }
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1545,7 +1545,7 @@ impl AppBroadcastState {
     }
     pub fn ViewerCountChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastViewerCountChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1557,7 +1557,7 @@ impl AppBroadcastState {
     }
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1569,7 +1569,7 @@ impl AppBroadcastState {
     }
     pub fn CameraCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastCameraCaptureStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1581,7 +1581,7 @@ impl AppBroadcastState {
     }
     pub fn PlugInStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastPlugInStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1593,7 +1593,7 @@ impl AppBroadcastState {
     }
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppBroadcastStreamStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1605,7 +1605,7 @@ impl AppBroadcastState {
     }
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1765,7 +1765,7 @@ impl AppBroadcastStreamReader {
     }
     pub fn AudioFrameArrived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1777,7 +1777,7 @@ impl AppBroadcastStreamReader {
     }
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2033,7 +2033,7 @@ impl AppCapture {
     }
     pub fn CapturingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2043,7 +2043,7 @@ impl AppCapture {
     pub fn RemoveCapturingChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveCapturingChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<AppCapture> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IAppCaptureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2422,7 +2422,7 @@ impl AppCaptureMetadataWriter {
     }
     pub fn MetadataPurged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2535,7 +2535,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn StateChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppCaptureRecordingStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2547,7 +2547,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn DurationGenerated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppCaptureDurationGeneratedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2559,7 +2559,7 @@ impl AppCaptureRecordOperation {
     }
     pub fn FileGenerated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppCaptureFileGeneratedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2997,7 +2997,7 @@ impl AppCaptureState {
     }
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppCaptureMicrophoneCaptureStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3009,7 +3009,7 @@ impl AppCaptureState {
     }
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureState, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3727,7 +3727,7 @@ impl GameBarServices {
     }
     pub fn CommandReceived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GameBarServicesCommandEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3801,7 +3801,7 @@ windows_core::imp::interface_hierarchy!(GameBarServicesManager, windows_core::IU
 impl GameBarServicesManager {
     pub fn GameBarServicesCreated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GameBarServicesManagerGameBarServicesCreatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3811,7 +3811,7 @@ impl GameBarServicesManager {
     pub fn RemoveGameBarServicesCreated(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveGameBarServicesCreated)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<GameBarServicesManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IGameBarServicesManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6077,7 +6077,7 @@ impl LowLagPhotoSequenceCapture {
     }
     pub fn PhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhotoCapturedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6396,7 +6396,7 @@ impl MediaCapture {
     }
     pub fn FocusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MediaCaptureFocusChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
@@ -6410,7 +6410,7 @@ impl MediaCapture {
     }
     pub fn PhotoConfirmationCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhotoConfirmationCapturedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
@@ -6461,7 +6461,7 @@ impl MediaCapture {
     }
     pub fn CameraStreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
@@ -6500,7 +6500,7 @@ impl MediaCapture {
     }
     pub fn ThermalStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
@@ -6598,7 +6598,7 @@ impl MediaCapture {
     }
     pub fn CaptureDeviceExclusiveControlStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
@@ -6801,7 +6801,7 @@ impl windows_core::RuntimeType for MediaCaptureFailedEventHandler {
 }
 impl MediaCaptureFailedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<MediaCaptureFailedEventHandler, F>::new(&MediaCaptureFailedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&MediaCaptureFailedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, erroreventargs: P1) -> windows_core::Result<()>
@@ -7176,7 +7176,7 @@ impl MediaCaptureRelativePanelWatcher {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7411,7 +7411,7 @@ impl MediaCaptureVideoProfile {
             (windows_core::Interface::vtable(self).SupportedPhotoMediaDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConcurrency(&self) -> windows_core::Result<windows_collections::IVectorView<MediaCaptureVideoProfile>> {
+    pub fn GetConcurrency(&self) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConcurrency)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7681,7 +7681,7 @@ impl windows_core::RuntimeType for RecordLimitationExceededEventHandler {
 }
 impl RecordLimitationExceededEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<RecordLimitationExceededEventHandler, F>::new(&RecordLimitationExceededEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&RecordLimitationExceededEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>

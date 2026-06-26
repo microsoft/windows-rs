@@ -26,7 +26,7 @@ impl AccessibilitySettings {
     }
     pub fn HighContrastChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AccessibilitySettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -146,7 +146,7 @@ impl ApplicationView {
     }
     pub fn Consolidated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ApplicationViewConsolidatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -176,7 +176,7 @@ impl ApplicationView {
     }
     pub fn VisibleBoundsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ApplicationView, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
@@ -346,7 +346,7 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).TryUnsnap)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ApplicationView> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IApplicationViewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1559,7 +1559,7 @@ windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windo
 impl InputPane {
     pub fn Showing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1571,7 +1571,7 @@ impl InputPane {
     }
     pub fn Hiding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1612,13 +1612,13 @@ impl InputPane {
         let this = &windows_core::Interface::cast::<IInputPaneControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<InputPane> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IInputPaneStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<InputPane>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::UIContext>,
     {
@@ -1929,7 +1929,7 @@ impl UISettings {
     }
     pub fn TextScaleFactorChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
         unsafe {
@@ -1950,7 +1950,7 @@ impl UISettings {
     }
     pub fn ColorValuesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
         unsafe {
@@ -1971,7 +1971,7 @@ impl UISettings {
     }
     pub fn AdvancedEffectsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
         unsafe {
@@ -1992,7 +1992,7 @@ impl UISettings {
     }
     pub fn AutoHideScrollBarsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsAutoHideScrollBarsChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
         unsafe {
@@ -2006,7 +2006,7 @@ impl UISettings {
     }
     pub fn AnimationsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsAnimationsEnabledChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
@@ -2020,7 +2020,7 @@ impl UISettings {
     }
     pub fn MessageDurationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsMessageDurationChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
@@ -2113,7 +2113,7 @@ impl UIViewSettings {
     }
     pub fn PreferredInteractionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UIViewSettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
         unsafe {
@@ -2125,7 +2125,7 @@ impl UIViewSettings {
         let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<UIViewSettings> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IUIViewSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2185,7 +2185,7 @@ impl ViewModePreferences {
     pub fn SetCustomSize(&self, value: super::super::Foundation::Size) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCustomSize)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateDefault(mode: ApplicationViewMode) -> windows_core::Result<ViewModePreferences> {
+    pub fn CreateDefault(mode: ApplicationViewMode) -> windows_core::Result<Self> {
         Self::IViewModePreferencesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDefault)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

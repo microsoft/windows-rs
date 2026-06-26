@@ -112,7 +112,7 @@ impl PartialEq<u32> for MyApp {
 }
 
 impl PartialEq for MyApp {
-    fn eq(&self, other: &MyApp) -> bool {
+    fn eq(&self, other: &Self) -> bool {
         self.x == other.x
     }
 }

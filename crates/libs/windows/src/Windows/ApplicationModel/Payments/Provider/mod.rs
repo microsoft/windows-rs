@@ -126,7 +126,7 @@ impl PaymentAppManager {
             (windows_core::Interface::vtable(self).UnregisterAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<PaymentAppManager> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IPaymentAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -217,7 +217,7 @@ impl PaymentTransaction {
     pub fn Reject(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn FromIdAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PaymentTransaction>> {
+    pub fn FromIdAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPaymentTransactionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

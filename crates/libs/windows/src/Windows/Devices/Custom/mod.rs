@@ -47,7 +47,7 @@ impl CustomDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), classguid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<CustomDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), desiredaccess, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -359,7 +359,7 @@ impl IOControlCode {
             (windows_core::Interface::vtable(self).ControlCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> windows_core::Result<IOControlCode> {
+    pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> windows_core::Result<Self> {
         Self::IIOControlCodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateIOControlCode)(windows_core::Interface::as_raw(this), devicetype, function, accessmode, bufferingmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

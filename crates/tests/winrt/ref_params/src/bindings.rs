@@ -9,7 +9,7 @@ windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_c
 impl ITest {
     pub fn Input<P0>(&self, input: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITest>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -21,7 +21,7 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn Output(&self, value: i32, output: &mut Option<ITest>) -> windows_core::Result<()> {
+    pub fn Output(&self, value: i32, output: &mut Option<Self>) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Output)(
                 windows_core::Interface::as_raw(self),

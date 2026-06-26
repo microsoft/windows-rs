@@ -35,7 +35,7 @@ impl Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
 #[derive(Clone, Copy)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
-    pub next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+    pub next: *mut Self,
     pub schemaVersion: u16,
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
 }

@@ -1359,7 +1359,7 @@ impl IEnumSTATPROPSETSTG {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSETSTG> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1439,7 +1439,7 @@ impl IEnumSTATPROPSTG {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATPROPSTG> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1524,7 +1524,7 @@ impl IEnumSTATSTG {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATSTG> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2548,7 +2548,7 @@ impl IStorage {
             (windows_core::Interface::vtable(self).OpenStream)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), reserved1.unwrap_or(core::mem::zeroed()) as _, grfmode, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateStorage<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<IStorage>
+    pub unsafe fn CreateStorage<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2557,10 +2557,10 @@ impl IStorage {
             (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), grfmode, reserved1, reserved2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OpenStorage<P0, P1>(&self, pwcsname: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> windows_core::Result<IStorage>
+    pub unsafe fn OpenStorage<P0, P1>(&self, pwcsname: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IStorage>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2569,14 +2569,14 @@ impl IStorage {
     }
     pub unsafe fn CopyTo<P3>(&self, rgiidexclude: Option<&[windows_core::GUID]>, snbexclude: Option<*const *const u16>, pstgdest: P3) -> windows_core::Result<()>
     where
-        P3: windows_core::Param<IStorage>,
+        P3: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr())), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()).ok() }
     }
     pub unsafe fn MoveElementTo<P0, P1, P2>(&self, pwcsname: P0, pstgdest: P1, pwcsnewname: P2, grfflags: STGMOVE) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IStorage>,
+        P1: windows_core::Param<Self>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveElementTo)(windows_core::Interface::as_raw(self), pwcsname.param().abi(), pstgdest.param().abi(), pwcsnewname.param().abi(), grfflags.0 as _).ok() }

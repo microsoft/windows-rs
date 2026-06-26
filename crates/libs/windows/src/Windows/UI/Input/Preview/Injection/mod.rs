@@ -277,7 +277,7 @@ impl InjectedInputGamepadInfo {
         unsafe { (windows_core::Interface::vtable(self).SetRightTrigger)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Gaming_Input")]
-    pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> windows_core::Result<InjectedInputGamepadInfo> {
+    pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> windows_core::Result<Self> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromGamepadReading)(windows_core::Interface::as_raw(this), reading, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1019,13 +1019,13 @@ impl InputInjector {
         let this = &windows_core::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UninitializeGamepadInjection)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn TryCreate() -> windows_core::Result<InputInjector> {
+    pub fn TryCreate() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateForAppBroadcastOnly() -> windows_core::Result<InputInjector> {
+    pub fn TryCreateForAppBroadcastOnly() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

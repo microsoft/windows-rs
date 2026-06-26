@@ -253,7 +253,7 @@ impl RfcommDeviceService {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<RfcommDeviceService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IRfcommDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -380,49 +380,49 @@ impl RfcommServiceId {
             (windows_core::Interface::vtable(self).AsString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromUuid(uuid: windows_core::GUID) -> windows_core::Result<RfcommServiceId> {
+    pub fn FromUuid(uuid: windows_core::GUID) -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromUuid)(windows_core::Interface::as_raw(this), uuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromShortId(shortid: u32) -> windows_core::Result<RfcommServiceId> {
+    pub fn FromShortId(shortid: u32) -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromShortId)(windows_core::Interface::as_raw(this), shortid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SerialPort() -> windows_core::Result<RfcommServiceId> {
+    pub fn SerialPort() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SerialPort)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ObexObjectPush() -> windows_core::Result<RfcommServiceId> {
+    pub fn ObexObjectPush() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ObexObjectPush)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ObexFileTransfer() -> windows_core::Result<RfcommServiceId> {
+    pub fn ObexFileTransfer() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ObexFileTransfer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PhoneBookAccessPce() -> windows_core::Result<RfcommServiceId> {
+    pub fn PhoneBookAccessPce() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneBookAccessPce)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PhoneBookAccessPse() -> windows_core::Result<RfcommServiceId> {
+    pub fn PhoneBookAccessPse() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneBookAccessPse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GenericFileTransfer() -> windows_core::Result<RfcommServiceId> {
+    pub fn GenericFileTransfer() -> windows_core::Result<Self> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenericFileTransfer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -481,7 +481,7 @@ impl RfcommServiceProvider {
         let this = &windows_core::Interface::cast::<IRfcommServiceProvider2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAdvertisingWithRadioDiscoverability)(windows_core::Interface::as_raw(this), listener.param().abi(), radiodiscoverable).ok() }
     }
-    pub fn CreateAsync<P0>(serviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<RfcommServiceProvider>>
+    pub fn CreateAsync<P0>(serviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<RfcommServiceId>,
     {

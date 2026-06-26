@@ -128,7 +128,7 @@ impl RemoteTextConnection {
         let this = &windows_core::Interface::cast::<IRemoteTextConnection2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReportPredictedKeyEvent)(windows_core::Interface::as_raw(this), scancode, attributes).ok() }
     }
-    pub fn CreateInstance<P1>(connectionid: windows_core::GUID, pduforwarder: P1) -> windows_core::Result<RemoteTextConnection>
+    pub fn CreateInstance<P1>(connectionid: windows_core::GUID, pduforwarder: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<RemoteTextConnectionDataHandler>,
     {
@@ -137,7 +137,7 @@ impl RemoteTextConnection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P1>(connectionid: windows_core::GUID, pduforwarder: P1, options: RemoteTextConnectionOptions) -> windows_core::Result<RemoteTextConnection>
+    pub fn CreateInstance2<P1>(connectionid: windows_core::GUID, pduforwarder: P1, options: RemoteTextConnectionOptions) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<RemoteTextConnectionDataHandler>,
     {
@@ -173,7 +173,7 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
 }
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<RemoteTextConnectionDataHandler, F>::new(&RemoteTextConnectionDataHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&RemoteTextConnectionDataHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {

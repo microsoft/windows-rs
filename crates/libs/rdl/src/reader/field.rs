@@ -12,6 +12,6 @@ impl syn::parse::Parse for Field {
         let name: syn::Ident = input.parse()?;
         input.parse::<syn::Token![:]>()?;
         let ty = input.parse()?;
-        Ok(Field { attrs, name, ty })
+        Ok(Self { attrs, name, ty })
     }
 }

@@ -292,7 +292,7 @@ impl HidDevice {
     }
     pub fn InputReportReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HidInputReportReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -315,7 +315,7 @@ impl HidDevice {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<HidDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

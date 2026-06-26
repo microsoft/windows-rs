@@ -16,7 +16,7 @@ pub enum Value {
     Utf8(String),
     Utf16(String),
     TypeName(TypeName),
-    EnumValue(TypeName, Box<Value>),
+    EnumValue(TypeName, Box<Self>),
 }
 
 impl Value {

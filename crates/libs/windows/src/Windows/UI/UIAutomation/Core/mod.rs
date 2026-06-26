@@ -482,7 +482,7 @@ impl RemoteAutomationClientSession {
     }
     pub fn ConnectionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, RemoteAutomationConnectionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -494,7 +494,7 @@ impl RemoteAutomationClientSession {
     }
     pub fn Disconnected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, RemoteAutomationDisconnectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -504,13 +504,13 @@ impl RemoteAutomationClientSession {
     pub fn RemoveDisconnected(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveDisconnected)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<RemoteAutomationClientSession> {
+    pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2(name: &windows_core::HSTRING, sessionid: windows_core::GUID) -> windows_core::Result<RemoteAutomationClientSession> {
+    pub fn CreateInstance2(name: &windows_core::HSTRING, sessionid: windows_core::GUID) -> windows_core::Result<Self> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), sessionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

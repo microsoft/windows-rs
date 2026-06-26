@@ -45,7 +45,7 @@ impl Geofence {
             (windows_core::Interface::vtable(self).SingleUse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P1>(id: &windows_core::HSTRING, geoshape: P1) -> windows_core::Result<Geofence>
+    pub fn Create<P1>(id: &windows_core::HSTRING, geoshape: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::IGeoshape>,
     {
@@ -54,7 +54,7 @@ impl Geofence {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithMonitorStates<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> windows_core::Result<Geofence>
+    pub fn CreateWithMonitorStates<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::IGeoshape>,
     {
@@ -63,7 +63,7 @@ impl Geofence {
             (windows_core::Interface::vtable(this).CreateWithMonitorStates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithMonitorStatesAndDwellTime<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: windows_time::TimeSpan) -> windows_core::Result<Geofence>
+    pub fn CreateWithMonitorStatesAndDwellTime<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: windows_time::TimeSpan) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::IGeoshape>,
     {
@@ -72,7 +72,7 @@ impl Geofence {
             (windows_core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: windows_time::TimeSpan, starttime: windows_time::DateTime, duration: windows_time::TimeSpan) -> windows_core::Result<Geofence>
+    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P1>(id: &windows_core::HSTRING, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: windows_time::TimeSpan, starttime: windows_time::DateTime, duration: windows_time::TimeSpan) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::IGeoshape>,
     {
@@ -123,7 +123,7 @@ impl GeofenceMonitor {
     }
     pub fn GeofenceStateChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -141,7 +141,7 @@ impl GeofenceMonitor {
     }
     pub fn StatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,7 +151,7 @@ impl GeofenceMonitor {
     pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn Current() -> windows_core::Result<GeofenceMonitor> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IGeofenceMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

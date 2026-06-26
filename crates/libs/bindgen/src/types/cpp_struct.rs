@@ -4,7 +4,7 @@ use super::*;
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: &'static str,
-    pub nested: BTreeMap<&'static str, CppStruct>,
+    pub nested: BTreeMap<&'static str, Self>,
 }
 
 impl Ord for CppStruct {
@@ -93,6 +93,8 @@ impl CppStruct {
 
         let is_copyable = self.is_copyable(config.reader);
 
+        let field_config = &config.with_self_ty(self.type_name(), &[]);
+
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
@@ -100,19 +102,19 @@ impl CppStruct {
                 let ty =
                     if !config.bindgen.style.is_sys() && is_union && !ty.is_copyable(config.reader)
                     {
-                        let ty = ty.write_default(config);
+                        let ty = ty.write_default(field_config);
                         quote! { core::mem::ManuallyDrop<#ty> }
                     } else if !config.bindgen.style.is_sys() && ty.is_dropped(config.reader) {
                         if let Type::ArrayFixed(ty, len) = ty {
-                            let ty = ty.write_default(config);
+                            let ty = ty.write_default(field_config);
                             let len = Literal::usize_unsuffixed(*len);
                             quote! { [core::mem::ManuallyDrop<#ty>; #len] }
                         } else {
-                            let ty = ty.write_default(config);
+                            let ty = ty.write_default(field_config);
                             quote! { core::mem::ManuallyDrop<#ty> }
                         }
                     } else {
-                        ty.write_default(config)
+                        ty.write_default(field_config)
                     };
 
                 quote! { pub #name: #ty, }

@@ -100,7 +100,7 @@ impl CachedFileUpdaterUI {
     }
     pub fn FileUpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, FileUpdateRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -112,7 +112,7 @@ impl CachedFileUpdaterUI {
     }
     pub fn UIRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -562,7 +562,7 @@ impl IStorageProviderKnownFolderSyncInfoSource {
     }
     pub fn KnownFolderSyncInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,7 +1299,7 @@ impl IStorageProviderStatusUISource {
     }
     pub fn StatusUIChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1908,7 +1908,7 @@ impl StorageProviderFileTypeInfo {
             (windows_core::Interface::vtable(self).IconResource)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(fileextension: &windows_core::HSTRING, iconresource: &windows_core::HSTRING) -> windows_core::Result<StorageProviderFileTypeInfo> {
+    pub fn CreateInstance(fileextension: &windows_core::HSTRING, iconresource: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(iconresource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2443,7 +2443,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
 }
 impl StorageProviderKnownFolderSyncRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<StorageProviderKnownFolderSyncRequestedHandler, F>::new(&StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
@@ -2594,7 +2594,7 @@ impl StorageProviderQueryResultSet {
     pub fn SetStatus(&self, value: StorageProviderSearchQueryStatus) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance(results: &[Option<IStorageProviderQueryResult>]) -> windows_core::Result<StorageProviderQueryResultSet> {
+    pub fn CreateInstance(results: &[Option<IStorageProviderQueryResult>]) -> windows_core::Result<Self> {
         Self::IStorageProviderQueryResultSetFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), results.len().try_into().unwrap(), core::mem::transmute(results.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

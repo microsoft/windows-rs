@@ -11,7 +11,7 @@ pub enum MenuItemDef {
     /// A submenu containing nested items.
     SubItem {
         text: String,
-        children: Vec<MenuItemDef>,
+        children: Vec<Self>,
     },
 }
 

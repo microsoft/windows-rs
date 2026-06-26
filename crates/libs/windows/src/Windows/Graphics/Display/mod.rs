@@ -142,7 +142,7 @@ impl BrightnessOverride {
     }
     pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BrightnessOverride, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -154,7 +154,7 @@ impl BrightnessOverride {
     }
     pub fn IsOverrideActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BrightnessOverride, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -166,7 +166,7 @@ impl BrightnessOverride {
     }
     pub fn BrightnessLevelChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BrightnessOverride, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -176,13 +176,13 @@ impl BrightnessOverride {
     pub fn RemoveBrightnessLevelChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveBrightnessLevelChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefaultForSystem() -> windows_core::Result<BrightnessOverride> {
+    pub fn GetDefaultForSystem() -> windows_core::Result<Self> {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultForSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<BrightnessOverride> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -190,7 +190,7 @@ impl BrightnessOverride {
     }
     pub fn SaveForSystemAsync<P0>(value: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<BrightnessOverride>,
+        P0: windows_core::Param<Self>,
     {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -231,19 +231,19 @@ impl BrightnessOverrideSettings {
             (windows_core::Interface::vtable(self).DesiredNits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateFromLevel(level: f64) -> windows_core::Result<BrightnessOverrideSettings> {
+    pub fn CreateFromLevel(level: f64) -> windows_core::Result<Self> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromLevel)(windows_core::Interface::as_raw(this), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromNits(nits: f32) -> windows_core::Result<BrightnessOverrideSettings> {
+    pub fn CreateFromNits(nits: f32) -> windows_core::Result<Self> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNits)(windows_core::Interface::as_raw(this), nits, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromDisplayBrightnessOverrideScenario(overridescenario: DisplayBrightnessOverrideScenario) -> windows_core::Result<BrightnessOverrideSettings> {
+    pub fn CreateFromDisplayBrightnessOverrideScenario(overridescenario: DisplayBrightnessOverrideScenario) -> windows_core::Result<Self> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromDisplayBrightnessOverrideScenario)(windows_core::Interface::as_raw(this), overridescenario, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -277,7 +277,7 @@ impl ColorOverrideSettings {
             (windows_core::Interface::vtable(self).DesiredDisplayColorOverrideScenario)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateFromDisplayColorOverrideScenario(overridescenario: DisplayColorOverrideScenario) -> windows_core::Result<ColorOverrideSettings> {
+    pub fn CreateFromDisplayColorOverrideScenario(overridescenario: DisplayColorOverrideScenario) -> windows_core::Result<Self> {
         Self::IColorOverrideSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromDisplayColorOverrideScenario)(windows_core::Interface::as_raw(this), overridescenario, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -446,7 +446,7 @@ impl DisplayEnhancementOverride {
     }
     pub fn CanOverrideChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -458,7 +458,7 @@ impl DisplayEnhancementOverride {
     }
     pub fn IsOverrideActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -470,7 +470,7 @@ impl DisplayEnhancementOverride {
     }
     pub fn DisplayEnhancementOverrideCapabilitiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -480,7 +480,7 @@ impl DisplayEnhancementOverride {
     pub fn RemoveDisplayEnhancementOverrideCapabilitiesChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveDisplayEnhancementOverrideCapabilitiesChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<DisplayEnhancementOverride> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IDisplayEnhancementOverrideStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -582,7 +582,7 @@ impl DisplayInformation {
     }
     pub fn OrientationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -618,7 +618,7 @@ impl DisplayInformation {
     }
     pub fn DpiChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -636,7 +636,7 @@ impl DisplayInformation {
     }
     pub fn StereoEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -655,7 +655,7 @@ impl DisplayInformation {
     }
     pub fn ColorProfileChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -702,7 +702,7 @@ impl DisplayInformation {
     }
     pub fn AdvancedColorInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayInformation5>(self)?;
         unsafe {
@@ -714,7 +714,7 @@ impl DisplayInformation {
         let this = &windows_core::Interface::cast::<IDisplayInformation5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdvancedColorInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<DisplayInformation> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IDisplayInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -731,7 +731,7 @@ impl DisplayInformation {
     }
     pub fn DisplayContentsInvalidated<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         Self::IDisplayInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -930,7 +930,7 @@ impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
 }
 impl DisplayPropertiesEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DisplayPropertiesEventHandler, F>::new(&DisplayPropertiesEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DisplayPropertiesEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>

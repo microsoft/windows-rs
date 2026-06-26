@@ -93,7 +93,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -105,7 +105,7 @@ impl AdaptiveMediaSource {
     }
     pub fn PlaybackBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -117,7 +117,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -129,7 +129,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -141,7 +141,7 @@ impl AdaptiveMediaSource {
     }
     pub fn DownloadFailed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadFailedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -541,7 +541,7 @@ windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_
 impl AdaptiveMediaSourceDiagnostics {
     pub fn DiagnosticAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -33,7 +33,7 @@ impl AnimationDescription {
             (windows_core::Interface::vtable(self).ZOrder)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> windows_core::Result<AnimationDescription> {
+    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> windows_core::Result<Self> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effect, target, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

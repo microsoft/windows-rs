@@ -11,7 +11,7 @@ impl HttpDiagnosticProvider {
     }
     pub fn RequestSent<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, HttpDiagnosticProviderRequestSentEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -23,7 +23,7 @@ impl HttpDiagnosticProvider {
     }
     pub fn ResponseReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, HttpDiagnosticProviderResponseReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -35,7 +35,7 @@ impl HttpDiagnosticProvider {
     }
     pub fn RequestResponseCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -46,7 +46,7 @@ impl HttpDiagnosticProvider {
         unsafe { (windows_core::Interface::vtable(self).RemoveRequestResponseCompleted)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "System_Diagnostics")]
-    pub fn CreateFromProcessDiagnosticInfo<P0>(processdiagnosticinfo: P0) -> windows_core::Result<HttpDiagnosticProvider>
+    pub fn CreateFromProcessDiagnosticInfo<P0>(processdiagnosticinfo: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::System::Diagnostics::ProcessDiagnosticInfo>,
     {

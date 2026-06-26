@@ -15056,7 +15056,7 @@ impl IMF2DBuffer2 {
     }
     pub unsafe fn Copy2DTo<P0>(&self, pdestbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMF2DBuffer2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Copy2DTo)(windows_core::Interface::as_raw(self), pdestbuffer.param().abi()).ok() }
     }
@@ -15692,7 +15692,7 @@ impl IMFASFMutualExclusion {
             (windows_core::Interface::vtable(self).AddRecord)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFASFMutualExclusion> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15912,7 +15912,7 @@ impl IMFASFProfile {
             (windows_core::Interface::vtable(self).CreateStreamPrioritization)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFASFProfile> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16340,7 +16340,7 @@ impl IMFASFStreamConfig {
     pub unsafe fn RemoveAllPayloadExtensions(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllPayloadExtensions)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFASFStreamConfig> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16500,7 +16500,7 @@ impl IMFASFStreamPrioritization {
     pub unsafe fn RemoveStream(&self, dwstreamindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), dwstreamindex).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFASFStreamPrioritization> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17156,7 +17156,7 @@ impl IMFAttributes {
     }
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> windows_core::Result<windows_core::BOOL>
     where
-        P0: windows_core::Param<IMFAttributes>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17273,7 +17273,7 @@ impl IMFAttributes {
     }
     pub unsafe fn CopyAllItems<P0>(&self, pdest: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMFAttributes>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyAllItems)(windows_core::Interface::as_raw(self), pdest.param().abi()).ok() }
     }
@@ -28830,7 +28830,7 @@ impl IMFMediaType {
     }
     pub unsafe fn IsEqual<P0>(&self, pimediatype: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::Param<IMFMediaType>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -29893,7 +29893,7 @@ impl IMFNetProxyLocator {
     pub unsafe fn GetCurrentProxy(&self, pszstr: Option<windows_core::PWSTR>, pcchstr: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentProxy)(windows_core::Interface::as_raw(self), pszstr.unwrap_or(core::mem::zeroed()) as _, pcchstr as _).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFNetProxyLocator> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -32062,7 +32062,7 @@ impl IMFPresentationDescriptor {
     pub unsafe fn DeselectStream(&self, dwdescriptorindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeselectStream)(windows_core::Interface::as_raw(self), dwdescriptorindex).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMFPresentationDescriptor> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -35145,7 +35145,7 @@ impl IMFSensorStream {
             (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CloneSensorStream(&self) -> windows_core::Result<IMFSensorStream> {
+    pub unsafe fn CloneSensorStream(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CloneSensorStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -39673,7 +39673,7 @@ impl IMFTopology {
     }
     pub unsafe fn CloneFrom<P0>(&self, ptopology: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMFTopology>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CloneFrom)(windows_core::Interface::as_raw(self), ptopology.param().abi()).ok() }
     }
@@ -39893,17 +39893,17 @@ impl IMFTopologyNode {
     }
     pub unsafe fn ConnectOutput<P1>(&self, dwoutputindex: u32, pdownstreamnode: P1, dwinputindexondownstreamnode: u32) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IMFTopologyNode>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConnectOutput)(windows_core::Interface::as_raw(self), dwoutputindex, pdownstreamnode.param().abi(), dwinputindexondownstreamnode).ok() }
     }
     pub unsafe fn DisconnectOutput(&self, dwoutputindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisconnectOutput)(windows_core::Interface::as_raw(self), dwoutputindex).ok() }
     }
-    pub unsafe fn GetInput(&self, dwinputindex: u32, ppupstreamnode: *mut Option<IMFTopologyNode>, pdwoutputindexonupstreamnode: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetInput(&self, dwinputindex: u32, ppupstreamnode: *mut Option<Self>, pdwoutputindexonupstreamnode: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetInput)(windows_core::Interface::as_raw(self), dwinputindex, core::mem::transmute(ppupstreamnode), pdwoutputindexonupstreamnode as _).ok() }
     }
-    pub unsafe fn GetOutput(&self, dwoutputindex: u32, ppdownstreamnode: *mut Option<IMFTopologyNode>, pdwinputindexondownstreamnode: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetOutput(&self, dwoutputindex: u32, ppdownstreamnode: *mut Option<Self>, pdwinputindexondownstreamnode: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetOutput)(windows_core::Interface::as_raw(self), dwoutputindex, core::mem::transmute(ppdownstreamnode), pdwinputindexondownstreamnode as _).ok() }
     }
     pub unsafe fn SetOutputPrefType<P1>(&self, dwoutputindex: u32, ptype: P1) -> windows_core::Result<()>
@@ -39932,7 +39932,7 @@ impl IMFTopologyNode {
     }
     pub unsafe fn CloneFrom<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMFTopologyNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CloneFrom)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
     }

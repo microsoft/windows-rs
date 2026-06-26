@@ -80,7 +80,7 @@ fn main() -> windows::core::Result<()> {
                 variable
             };
 
-            Ok(App {
+            Ok(Self {
                 handle: Default::default(),
                 factory,
                 dxfactory,

@@ -166,7 +166,7 @@ windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderConnection, wind
 impl UserDataTaskDataProviderConnection {
     pub fn CreateOrUpdateTaskRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -178,7 +178,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSyncManagerSyncRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListSyncManagerSyncRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -190,7 +190,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn SkipOccurrenceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSkipOccurrenceRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListSkipOccurrenceRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -202,7 +202,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn CompleteTaskRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCompleteTaskRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListCompleteTaskRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -214,7 +214,7 @@ impl UserDataTaskDataProviderConnection {
     }
     pub fn DeleteTaskRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListDeleteTaskRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, UserDataTaskListDeleteTaskRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

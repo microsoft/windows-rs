@@ -1464,7 +1464,7 @@ impl InkDrawingAttributes {
             (windows_core::Interface::vtable(this).ModelerAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateForPencil() -> windows_core::Result<InkDrawingAttributes> {
+    pub fn CreateForPencil() -> windows_core::Result<Self> {
         Self::IInkDrawingAttributesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForPencil)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1969,13 +1969,13 @@ impl InkPoint {
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInkPoint(position: super::super::super::Foundation::Point, pressure: f32) -> windows_core::Result<InkPoint> {
+    pub fn CreateInkPoint(position: super::super::super::Foundation::Point, pressure: f32) -> windows_core::Result<Self> {
         Self::IInkPointFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInkPoint)(windows_core::Interface::as_raw(this), position, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInkPointWithTiltAndTimestamp(position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64) -> windows_core::Result<InkPoint> {
+    pub fn CreateInkPointWithTiltAndTimestamp(position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64) -> windows_core::Result<Self> {
         Self::IInkPointFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInkPointWithTiltAndTimestamp)(windows_core::Interface::as_raw(this), position, pressure, tiltx, tilty, timestamp, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2080,7 +2080,7 @@ impl InkPresenter {
     }
     pub fn StrokesCollected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, InkStrokesCollectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2092,7 +2092,7 @@ impl InkPresenter {
     }
     pub fn StrokesErased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, InkStrokesErasedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2216,7 +2216,7 @@ impl InkPresenterProtractor {
     pub fn SetAccentColor(&self, value: super::super::Color) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAccentColor)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<InkPresenterProtractor>
+    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<InkPresenter>,
     {
@@ -2339,7 +2339,7 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterRuler2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsCompassVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<InkPresenterRuler>
+    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<InkPresenter>,
     {
@@ -2592,7 +2592,7 @@ impl InkStroke {
             (windows_core::Interface::vtable(self).GetRenderingSegments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<InkStroke> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2903,7 +2903,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2916,7 +2916,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeContinued<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2929,7 +2929,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2942,7 +2942,7 @@ impl InkStrokeInput {
     #[cfg(feature = "UI_Core")]
     pub fn StrokeCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3108,7 +3108,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3121,7 +3121,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerHovered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3134,7 +3134,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3147,7 +3147,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3160,7 +3160,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3173,7 +3173,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3186,7 +3186,7 @@ impl InkUnprocessedInput {
     #[cfg(feature = "UI_Core")]
     pub fn PointerLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3260,7 +3260,7 @@ impl PenAndInkSettings {
         let this = &windows_core::Interface::cast::<IPenAndInkSettings2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPenHandedness)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<PenAndInkSettings> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPenAndInkSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

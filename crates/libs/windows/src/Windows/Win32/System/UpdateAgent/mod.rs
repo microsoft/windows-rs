@@ -752,7 +752,7 @@ impl ICategory {
             (windows_core::Interface::vtable(self).Order)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Parent(&self) -> windows_core::Result<ICategory> {
+    pub unsafe fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2912,7 +2912,7 @@ impl IStringCollection {
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn Copy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4464,7 +4464,7 @@ impl IUpdateCollection {
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Copy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

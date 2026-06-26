@@ -37,7 +37,7 @@ impl PalmRejectionDelayZonePreview {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Composition::Visual>,
     {
@@ -47,7 +47,7 @@ impl PalmRejectionDelayZonePreview {
         })
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisualWithViewportClip<P0, P2>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P2, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisualWithViewportClip<P0, P2>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P2, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Composition::Visual>,
         P2: windows_core::Param<super::super::super::Composition::Visual>,

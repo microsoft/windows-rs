@@ -81,7 +81,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Playlist>>
+    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {

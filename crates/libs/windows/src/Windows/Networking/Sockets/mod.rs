@@ -91,13 +91,13 @@ impl ControlChannelTrigger {
             (windows_core::Interface::vtable(this).IsWakeFromLowPowerSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateControlChannelTrigger(channelid: &windows_core::HSTRING, serverkeepaliveintervalinminutes: u32) -> windows_core::Result<ControlChannelTrigger> {
+    pub fn CreateControlChannelTrigger(channelid: &windows_core::HSTRING, serverkeepaliveintervalinminutes: u32) -> windows_core::Result<Self> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateControlChannelTrigger)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateControlChannelTriggerEx(channelid: &windows_core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> windows_core::Result<ControlChannelTrigger> {
+    pub fn CreateControlChannelTriggerEx(channelid: &windows_core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> windows_core::Result<Self> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateControlChannelTriggerEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -266,7 +266,7 @@ impl DatagramSocket {
     }
     pub fn MessageReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DatagramSocketMessageReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1493,7 +1493,7 @@ impl IWebSocket {
     }
     pub fn Closed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2222,7 +2222,7 @@ impl MessageWebSocket {
     }
     pub fn MessageReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2234,7 +2234,7 @@ impl MessageWebSocket {
     }
     pub fn ServerCustomValidationRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMessageWebSocket2>(self)?;
         unsafe {
@@ -2615,7 +2615,7 @@ impl ServerMessageWebSocket {
     }
     pub fn MessageReceived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2646,7 +2646,7 @@ impl ServerMessageWebSocket {
     }
     pub fn Closed<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2767,7 +2767,7 @@ impl ServerStreamWebSocket {
     }
     pub fn Closed<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2856,7 +2856,7 @@ impl SocketActivityContext {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P0>(data: P0) -> windows_core::Result<SocketActivityContext>
+    pub fn Create<P0>(data: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2929,7 +2929,7 @@ impl SocketActivityInformation {
             (windows_core::Interface::vtable(self).StreamSocketListener)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AllSockets() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, SocketActivityInformation>> {
+    pub fn AllSockets() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, Self>> {
         Self::ISocketActivityInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllSockets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3573,7 +3573,7 @@ impl StreamSocketListener {
     }
     pub fn ConnectionReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, StreamSocketListenerConnectionReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3797,7 +3797,7 @@ impl StreamWebSocket {
     }
     pub fn ServerCustomValidationRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IStreamWebSocket2>(self)?;
         unsafe {

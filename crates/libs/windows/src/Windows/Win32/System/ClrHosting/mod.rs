@@ -5196,7 +5196,7 @@ impl windows_core::RuntimeName for IHostPolicyManager {}
 windows_core::imp::define_interface!(IHostSecurityContext, IHostSecurityContext_Vtbl, 0x7e573ce4_0343_4423_98d7_6318348a1d3c);
 windows_core::imp::interface_hierarchy!(IHostSecurityContext, windows_core::IUnknown);
 impl IHostSecurityContext {
-    pub unsafe fn Capture(&self) -> windows_core::Result<IHostSecurityContext> {
+    pub unsafe fn Capture(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Capture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6249,7 +6249,7 @@ impl ITypeName {
             (windows_core::Interface::vtable(self).GetTypeArgumentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut Option<ITypeName>) -> windows_core::Result<u32> {
+    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut Option<Self>) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTypeArguments)(windows_core::Interface::as_raw(self), count, core::mem::transmute(rgparguments), &mut result__).map(|| result__)

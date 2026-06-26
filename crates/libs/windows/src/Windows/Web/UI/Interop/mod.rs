@@ -507,7 +507,7 @@ impl WebViewControl {
     }
     pub fn MoveFocusRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WebViewControlMoveFocusRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -521,7 +521,7 @@ impl WebViewControl {
     }
     pub fn AcceleratorKeyPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WebViewControlAcceleratorKeyPressedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -535,7 +535,7 @@ impl WebViewControl {
     }
     pub fn GotFocus<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebViewControl, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
@@ -549,7 +549,7 @@ impl WebViewControl {
     }
     pub fn LostFocus<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebViewControl, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
@@ -722,7 +722,7 @@ impl WebViewControlProcess {
     }
     pub fn ProcessExited<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -732,7 +732,7 @@ impl WebViewControlProcess {
     pub fn RemoveProcessExited(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveProcessExited)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateWithOptions<P0>(processoptions: P0) -> windows_core::Result<WebViewControlProcess>
+    pub fn CreateWithOptions<P0>(processoptions: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<WebViewControlProcessOptions>,
     {

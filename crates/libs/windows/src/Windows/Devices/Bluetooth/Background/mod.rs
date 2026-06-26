@@ -171,7 +171,7 @@ impl GattServiceProviderConnection {
         let this = &windows_core::Interface::cast::<IGattServiceProviderConnection2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
     }
-    pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
+    pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, Self>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

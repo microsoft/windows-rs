@@ -127,7 +127,7 @@ impl ESim {
     }
     pub fn ProfileChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESim, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -651,7 +651,7 @@ impl ESimProfileMetadata {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimProfileMetadata, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -859,7 +859,7 @@ impl ESimWatcher {
     }
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimAddedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -871,7 +871,7 @@ impl ESimWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -883,7 +883,7 @@ impl ESimWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimRemovedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -895,7 +895,7 @@ impl ESimWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -907,7 +907,7 @@ impl ESimWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1003,7 +1003,7 @@ impl HotspotAuthenticationContext {
             (windows_core::Interface::vtable(this).IssueCredentialsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), core::mem::transmute_copy(password), core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetAuthenticationContext(eventoken: &windows_core::HSTRING, context: &mut Option<HotspotAuthenticationContext>) -> windows_core::Result<bool> {
+    pub fn TryGetAuthenticationContext(eventoken: &windows_core::HSTRING, context: &mut Option<Self>) -> windows_core::Result<bool> {
         Self::IHotspotAuthenticationContextStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetAuthenticationContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventoken), context as *mut _ as _, &mut result__).map(|| result__)
@@ -2985,7 +2985,7 @@ impl MobileBroadbandAccount {
             (windows_core::Interface::vtable(this).AvailableNetworkAccountIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandAccount> {
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3076,7 +3076,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3088,7 +3088,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3100,7 +3100,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn AccountRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3112,7 +3112,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3124,7 +3124,7 @@ impl MobileBroadbandAccountWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3191,7 +3191,7 @@ impl MobileBroadbandAntennaSar {
             (windows_core::Interface::vtable(self).SarBackoffIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> windows_core::Result<MobileBroadbandAntennaSar> {
+    pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> windows_core::Result<Self> {
         Self::IMobileBroadbandAntennaSarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithIndex)(windows_core::Interface::as_raw(this), antennaindex, sarbackoffindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4022,7 +4022,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
     }
     pub fn CommandReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceCommandSession, MobileBroadbandDeviceServiceCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceCommandEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
         unsafe {
@@ -4092,7 +4092,7 @@ impl MobileBroadbandDeviceServiceDataSession {
     }
     pub fn DataReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4306,7 +4306,7 @@ impl MobileBroadbandModem {
     }
     pub fn IsInEmergencyCallModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandModem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
@@ -4352,13 +4352,13 @@ impl MobileBroadbandModem {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModem> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<MobileBroadbandModem> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4452,7 +4452,7 @@ impl MobileBroadbandModemIsolation {
             (windows_core::Interface::vtable(self).ClearConfigurationAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(modemdeviceid: &windows_core::HSTRING, rulegroupid: &windows_core::HSTRING) -> windows_core::Result<MobileBroadbandModemIsolation> {
+    pub fn Create(modemdeviceid: &windows_core::HSTRING, rulegroupid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(modemdeviceid), core::mem::transmute_copy(rulegroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5070,7 +5070,7 @@ impl MobileBroadbandSarManager {
     }
     pub fn TransmissionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandTransmissionStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5230,7 +5230,7 @@ impl MobileBroadbandSlotManager {
     }
     pub fn SlotInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandSlotInfoChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5242,7 +5242,7 @@ impl MobileBroadbandSlotManager {
     }
     pub fn CurrentSlotIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandCurrentSlotIndexChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5858,7 +5858,7 @@ impl NetworkOperatorTetheringManager {
             (windows_core::Interface::vtable(this).GetTetheringCapability)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<NetworkOperatorTetheringManager> {
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5875,7 +5875,7 @@ impl NetworkOperatorTetheringManager {
         })
     }
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<NetworkOperatorTetheringManager>
+    pub fn CreateFromConnectionProfile<P0>(profile: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
     {
@@ -5885,7 +5885,7 @@ impl NetworkOperatorTetheringManager {
         })
     }
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfileWithTargetAdapter<P0, P1>(profile: P0, adapter: P1) -> windows_core::Result<NetworkOperatorTetheringManager>
+    pub fn CreateFromConnectionProfileWithTargetAdapter<P0, P1>(profile: P0, adapter: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Connectivity::ConnectionProfile>,
         P1: windows_core::Param<super::Connectivity::NetworkAdapter>,
@@ -6189,7 +6189,7 @@ impl ProvisioningAgent {
             (windows_core::Interface::vtable(self).GetProvisionedProfile)(windows_core::Interface::as_raw(self), mediatype, core::mem::transmute_copy(profilename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<ProvisioningAgent> {
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IProvisioningAgentStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6431,7 +6431,7 @@ impl UssdMessage {
     pub fn SetPayloadAsText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPayloadAsText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateMessage(messagetext: &windows_core::HSTRING) -> windows_core::Result<UssdMessage> {
+    pub fn CreateMessage(messagetext: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUssdMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6517,13 +6517,13 @@ impl UssdSession {
     pub fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
+    pub fn CreateFromNetworkAccountId(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &windows_core::HSTRING) -> windows_core::Result<UssdSession> {
+    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromNetworkInterfaceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -213,12 +213,16 @@ impl CppInterface {
                 let method_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
 
+                // These methods live in `impl #name`, so references to this
+                // interface are emitted as `Self` (clippy::use_self).
+                let self_config = config.with_self_ty(self.type_name(), &[]);
+
                 for method in methods.iter().filter_map(|method| match &method {
                     CppMethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
-                    let method = method.write(config, method_names, virtual_names);
+                    let method = method.write(&self_config, method_names, virtual_names);
 
                     methods_tokens.combine(quote! {
                         #cfg

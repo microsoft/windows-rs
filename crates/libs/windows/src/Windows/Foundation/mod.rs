@@ -19,7 +19,7 @@ impl Deferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Complete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn Create<P0>(handler: P0) -> windows_core::Result<Deferral>
+    pub fn Create<P0>(handler: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<DeferralCompletedHandler>,
     {
@@ -51,7 +51,7 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 }
 impl DeferralCompletedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DeferralCompletedHandler, F>::new(&DeferralCompletedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeferralCompletedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
@@ -95,7 +95,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<EventHandler<T>, F>::new(&EventHandlerBox::<T, F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&EventHandlerBox::<T, F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
@@ -365,7 +365,7 @@ impl IMemoryBufferReference {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>,
+        P0: windows_core::Param<TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1673,7 +1673,7 @@ impl MemoryBuffer {
             (windows_core::Interface::vtable(self).CreateReference)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(capacity: u32) -> windows_core::Result<MemoryBuffer> {
+    pub fn Create(capacity: u32) -> windows_core::Result<Self> {
         Self::IMemoryBufferFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), capacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2052,7 +2052,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
 }
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<TypedEventHandler<TSender, TResult>, F>::new(&TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
@@ -2214,26 +2214,26 @@ impl Uri {
     }
     pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<Uri>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Equals)(windows_core::Interface::as_raw(self), puri.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CombineUri)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(uri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithRelativeUri(baseuri: &windows_core::HSTRING, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+    pub fn CreateWithRelativeUri(baseuri: &windows_core::HSTRING, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithRelativeUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(baseuri), core::mem::transmute_copy(relativeuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2324,7 +2324,7 @@ impl WwwFormUrlDecoder {
             (windows_core::Interface::vtable(self).GetFirstValueByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateWwwFormUrlDecoder(query: &windows_core::HSTRING) -> windows_core::Result<WwwFormUrlDecoder> {
+    pub fn CreateWwwFormUrlDecoder(query: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(query), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

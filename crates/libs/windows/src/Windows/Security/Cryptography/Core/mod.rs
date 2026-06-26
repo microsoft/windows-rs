@@ -209,7 +209,7 @@ impl AsymmetricKeyAlgorithmProvider {
             (windows_core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(windows_core::Interface::as_raw(this), parameters.len().try_into().unwrap(), parameters.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<AsymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAsymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -927,7 +927,7 @@ impl HashAlgorithmProvider {
             (windows_core::Interface::vtable(self).CreateHash)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<HashAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHashAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1688,7 +1688,7 @@ impl KeyDerivationAlgorithmProvider {
             (windows_core::Interface::vtable(self).CreateKey)(windows_core::Interface::as_raw(self), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<KeyDerivationAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IKeyDerivationAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1748,7 +1748,7 @@ impl KeyDerivationParameters {
         unsafe { (windows_core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1758,7 +1758,7 @@ impl KeyDerivationParameters {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1769,7 +1769,7 @@ impl KeyDerivationParameters {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1782,7 +1782,7 @@ impl KeyDerivationParameters {
             (windows_core::Interface::vtable(this).BuildForSP80056a)(windows_core::Interface::as_raw(this), algorithmid.param().abi(), partyuinfo.param().abi(), partyvinfo.param().abi(), supppubinfo.param().abi(), suppprivinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> windows_core::Result<KeyDerivationParameters> {
+    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> windows_core::Result<Self> {
         Self::IKeyDerivationParametersStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildForCapi1Kdf)(windows_core::Interface::as_raw(this), capi1kdftargetalgorithm, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1893,7 +1893,7 @@ impl MacAlgorithmProvider {
             (windows_core::Interface::vtable(this).CreateHash)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<MacAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMacAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2097,7 +2097,7 @@ impl SymmetricKeyAlgorithmProvider {
             (windows_core::Interface::vtable(self).CreateSymmetricKey)(windows_core::Interface::as_raw(self), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<SymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

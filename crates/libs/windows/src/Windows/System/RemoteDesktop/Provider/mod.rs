@@ -148,7 +148,7 @@ impl RemoteDesktopConnectionInfo {
         unsafe { (windows_core::Interface::vtable(this).PerformLocalActionFromRemote)(windows_core::Interface::as_raw(this), action).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn GetForLaunchUri<P0>(launchuri: P0, windowid: super::super::super::UI::WindowId) -> windows_core::Result<RemoteDesktopConnectionInfo>
+    pub fn GetForLaunchUri<P0>(launchuri: P0, windowid: super::super::super::UI::WindowId) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -189,7 +189,7 @@ impl RemoteDesktopConnectionRemoteInfo {
     }
     pub fn SwitchToLocalSessionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteDesktopConnectionRemoteInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -201,7 +201,7 @@ impl RemoteDesktopConnectionRemoteInfo {
     }
     pub fn PerformLocalActionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteDesktopConnectionRemoteInfo, PerformLocalActionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PerformLocalActionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -217,7 +217,7 @@ impl RemoteDesktopConnectionRemoteInfo {
             (windows_core::Interface::vtable(this).IsSwitchSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GetForLaunchUri<P0>(launchuri: P0) -> windows_core::Result<RemoteDesktopConnectionRemoteInfo>
+    pub fn GetForLaunchUri<P0>(launchuri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -276,7 +276,7 @@ impl RemoteDesktopInfo {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<RemoteDesktopInfo> {
+    pub fn CreateInstance(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IRemoteDesktopInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -182,7 +182,7 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(self).IndexFileContentsAsync)(windows_core::Interface::as_raw(self), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateResourceIndexer<P0>(projectroot: P0) -> windows_core::Result<ResourceIndexer>
+    pub fn CreateResourceIndexer<P0>(projectroot: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -191,7 +191,7 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(this).CreateResourceIndexer)(windows_core::Interface::as_raw(this), projectroot.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResourceIndexerWithExtension<P0, P1>(projectroot: P0, extensiondllpath: P1) -> windows_core::Result<ResourceIndexer>
+    pub fn CreateResourceIndexerWithExtension<P0, P1>(projectroot: P0, extensiondllpath: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,

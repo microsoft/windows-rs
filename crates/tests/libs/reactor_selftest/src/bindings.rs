@@ -63,7 +63,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl AppBarButton {
-    pub(crate) fn new() -> windows_core::Result<AppBarButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IAppBarButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -119,7 +119,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl AppBarSeparator {
-    pub(crate) fn new() -> windows_core::Result<AppBarSeparator> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IAppBarSeparatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -181,7 +181,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl AppBarToggleButton {
-    pub(crate) fn new() -> windows_core::Result<AppBarToggleButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IAppBarToggleButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -332,7 +332,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Application {
-    pub(crate) fn new() -> windows_core::Result<Application> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IApplicationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -344,7 +344,7 @@ impl Application {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn Current() -> windows_core::Result<Application> {
+    pub(crate) fn Current() -> windows_core::Result<Self> {
         Self::IApplicationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(
@@ -415,7 +415,7 @@ impl ApplicationInitializationCallback {
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<ApplicationInitializationCallback, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &ApplicationInitializationCallbackBox::<F>::VTABLE,
             invoke,
         );
@@ -1287,7 +1287,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl BreadcrumbBar {
-    pub(crate) fn new() -> windows_core::Result<BreadcrumbBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IBreadcrumbBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1392,7 +1392,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl Button {
-    pub(crate) fn new() -> windows_core::Result<Button> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1448,9 +1448,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ButtonAutomationPeer {
-    pub(crate) fn CreateInstanceWithOwner<P0>(
-        owner: P0,
-    ) -> windows_core::Result<ButtonAutomationPeer>
+    pub(crate) fn CreateInstanceWithOwner<P0>(owner: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<Button>,
     {
@@ -1586,7 +1584,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl CalendarDatePicker {
-    pub(crate) fn new() -> windows_core::Result<CalendarDatePicker> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICalendarDatePickerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1675,7 +1673,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl CalendarView {
-    pub(crate) fn new() -> windows_core::Result<CalendarView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICalendarViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1757,7 +1755,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl Canvas {
-    pub(crate) fn new() -> windows_core::Result<Canvas> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICanvasFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1889,7 +1887,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl CheckBox {
-    pub(crate) fn new() -> windows_core::Result<CheckBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICheckBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -1986,7 +1984,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ColorPicker {
-    pub(crate) fn new() -> windows_core::Result<ColorPicker> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IColorPickerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2120,7 +2118,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ComboBox {
-    pub(crate) fn new() -> windows_core::Result<ComboBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IComboBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2177,7 +2175,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl CommandBar {
-    pub(crate) fn new() -> windows_core::Result<CommandBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICommandBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2242,7 +2240,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(CommandBarFlyout, FlyoutBase, DependencyObject);
 impl CommandBarFlyout {
-    pub(crate) fn new() -> windows_core::Result<CommandBarFlyout> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ICommandBarFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2520,7 +2518,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ContentDialog {
-    pub(crate) fn new() -> windows_core::Result<ContentDialog> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IContentDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2800,7 +2798,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl DatePicker {
-    pub(crate) fn new() -> windows_core::Result<DatePicker> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IDatePickerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -2938,7 +2936,7 @@ impl DependencyPropertyChangedCallback {
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<DependencyPropertyChangedCallback, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &DependencyPropertyChangedCallbackBox::<F>::VTABLE,
             invoke,
         );
@@ -3000,7 +2998,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(DesktopAcrylicBackdrop, SystemBackdrop, DependencyObject);
 impl DesktopAcrylicBackdrop {
-    pub(crate) fn new() -> windows_core::Result<DesktopAcrylicBackdrop> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IDesktopAcrylicBackdropFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -3053,7 +3051,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl DispatcherQueue {
-    pub(crate) fn GetForCurrentThread() -> windows_core::Result<DispatcherQueue> {
+    pub(crate) fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::IDispatcherQueueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(
@@ -3104,7 +3102,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
 }
 impl DispatcherQueueHandler {
     pub(crate) fn new<F: Fn() + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &DispatcherQueueHandlerBox::<F>::VTABLE,
             invoke,
         );
@@ -3329,7 +3327,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl DropDownButton {
-    pub(crate) fn new() -> windows_core::Result<DropDownButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IDropDownButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -3573,7 +3571,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl Expander {
-    pub(crate) fn new() -> windows_core::Result<Expander> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IExpanderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -3735,7 +3733,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl FlipView {
-    pub(crate) fn new() -> windows_core::Result<FlipView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IFlipViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -3780,7 +3778,7 @@ pub struct Flyout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Flyout, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Flyout, FlyoutBase, DependencyObject);
 impl Flyout {
-    pub(crate) fn new() -> windows_core::Result<Flyout> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -3883,7 +3881,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl FontFamily {
-    pub(crate) fn CreateInstanceWithName(familyname: &str) -> windows_core::Result<FontFamily> {
+    pub(crate) fn CreateInstanceWithName(familyname: &str) -> windows_core::Result<Self> {
         Self::IFontFamilyFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceWithName)(
@@ -3977,9 +3975,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl FrameworkElementAutomationPeer {
-    pub(crate) fn CreateInstanceWithOwner<P0>(
-        owner: P0,
-    ) -> windows_core::Result<FrameworkElementAutomationPeer>
+    pub(crate) fn CreateInstanceWithOwner<P0>(owner: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<FrameworkElement>,
     {
@@ -4074,7 +4070,7 @@ pub struct Grid(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Grid, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Grid, Panel, FrameworkElement, UIElement, DependencyObject);
 impl Grid {
-    pub(crate) fn new() -> windows_core::Result<Grid> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IGridFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -4234,7 +4230,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl GridView {
-    pub(crate) fn new() -> windows_core::Result<GridView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IGridViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -4311,7 +4307,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl HyperlinkButton {
-    pub(crate) fn new() -> windows_core::Result<HyperlinkButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IHyperlinkButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -20875,7 +20871,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl InfoBadge {
-    pub(crate) fn new() -> windows_core::Result<InfoBadge> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IInfoBadgeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -20930,7 +20926,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl InfoBar {
-    pub(crate) fn new() -> windows_core::Result<InfoBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IInfoBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -21310,7 +21306,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl InputInjector {
-    pub(crate) fn TryCreate() -> windows_core::Result<InputInjector> {
+    pub(crate) fn TryCreate() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreate)(
@@ -21320,7 +21316,7 @@ impl InputInjector {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn TryCreateForAppBroadcastOnly() -> windows_core::Result<InputInjector> {
+    pub(crate) fn TryCreateForAppBroadcastOnly() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(
@@ -21505,7 +21501,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(KeyboardAccelerator, DependencyObject);
 impl KeyboardAccelerator {
-    pub(crate) fn new() -> windows_core::Result<KeyboardAccelerator> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IKeyboardAcceleratorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -21709,7 +21705,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ListBox {
-    pub(crate) fn new() -> windows_core::Result<ListBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IListBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -21767,7 +21763,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ListView {
-    pub(crate) fn new() -> windows_core::Result<ListView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IListViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -21935,7 +21931,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl MenuBar {
-    pub(crate) fn new() -> windows_core::Result<MenuBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMenuBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -21990,7 +21986,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl MenuBarItem {
-    pub(crate) fn new() -> windows_core::Result<MenuBarItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMenuBarItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22039,7 +22035,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(MenuFlyout, FlyoutBase, DependencyObject);
 impl MenuFlyout {
-    pub(crate) fn new() -> windows_core::Result<MenuFlyout> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMenuFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22095,7 +22091,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl MenuFlyoutItem {
-    pub(crate) fn new() -> windows_core::Result<MenuFlyoutItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMenuFlyoutItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22185,7 +22181,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl MenuFlyoutSeparator {
-    pub(crate) fn new() -> windows_core::Result<MenuFlyoutSeparator> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMenuFlyoutSeparatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22291,7 +22287,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(MicaBackdrop, SystemBackdrop, DependencyObject);
 impl MicaBackdrop {
-    pub(crate) fn new() -> windows_core::Result<MicaBackdrop> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IMicaBackdropFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22362,7 +22358,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl NavigationView {
-    pub(crate) fn new() -> windows_core::Result<NavigationView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::INavigationViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22462,7 +22458,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl NavigationViewItem {
-    pub(crate) fn new() -> windows_core::Result<NavigationViewItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::INavigationViewItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22559,7 +22555,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl NavigationViewItemHeader {
-    pub(crate) fn new() -> windows_core::Result<NavigationViewItemHeader> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::INavigationViewItemHeaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22667,7 +22663,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl NumberBox {
-    pub(crate) fn new() -> windows_core::Result<NumberBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::INumberBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -22983,7 +22979,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl PersonPicture {
-    pub(crate) fn new() -> windows_core::Result<PersonPicture> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IPersonPictureFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23035,7 +23031,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl Pivot {
-    pub(crate) fn new() -> windows_core::Result<Pivot> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IPivotFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23091,7 +23087,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl PivotItem {
-    pub(crate) fn new() -> windows_core::Result<PivotItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IPivotItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23336,7 +23332,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ProgressBar {
-    pub(crate) fn new() -> windows_core::Result<ProgressBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IProgressBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23391,7 +23387,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ProgressRing {
-    pub(crate) fn new() -> windows_core::Result<ProgressRing> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IProgressRingFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23458,7 +23454,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl RadioButton {
-    pub(crate) fn new() -> windows_core::Result<RadioButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IRadioButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23513,7 +23509,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl RadioButtons {
-    pub(crate) fn new() -> windows_core::Result<RadioButtons> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IRadioButtonsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23693,7 +23689,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl RatingControl {
-    pub(crate) fn new() -> windows_core::Result<RatingControl> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IRatingControlFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -23814,7 +23810,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl RelativePanel {
-    pub(crate) fn new() -> windows_core::Result<RelativePanel> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IRelativePanelFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -24041,7 +24037,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl RichEditBox {
-    pub(crate) fn new() -> windows_core::Result<RichEditBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IRichEditBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -24508,7 +24504,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ScrollView {
-    pub(crate) fn new() -> windows_core::Result<ScrollView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IScrollViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -24750,7 +24746,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SelectorBar {
-    pub(crate) fn new() -> windows_core::Result<SelectorBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISelectorBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -24806,7 +24802,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SelectorBarItem {
-    pub(crate) fn new() -> windows_core::Result<SelectorBarItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISelectorBarItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25082,7 +25078,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl Slider {
-    pub(crate) fn new() -> windows_core::Result<Slider> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISliderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25183,7 +25179,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SplitButton {
-    pub(crate) fn new() -> windows_core::Result<SplitButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISplitButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25265,7 +25261,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SplitView {
-    pub(crate) fn new() -> windows_core::Result<SplitView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISplitViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25337,7 +25333,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl StackPanel {
-    pub(crate) fn new() -> windows_core::Result<StackPanel> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IStackPanelFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25429,7 +25425,7 @@ impl SurfaceImageSource {
     pub(crate) fn CreateInstanceWithDimensions(
         pixelwidth: i32,
         pixelheight: i32,
-    ) -> windows_core::Result<SurfaceImageSource> {
+    ) -> windows_core::Result<Self> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceWithDimensions)(
@@ -25492,7 +25488,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SwapChainPanel {
-    pub(crate) fn new() -> windows_core::Result<SwapChainPanel> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ISwapChainPanelFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25756,7 +25752,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl SymbolIcon {
-    pub(crate) fn CreateInstanceWithSymbol(symbol: Symbol) -> windows_core::Result<SymbolIcon> {
+    pub(crate) fn CreateInstanceWithSymbol(symbol: Symbol) -> windows_core::Result<Self> {
         Self::ISymbolIconFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceWithSymbol)(
@@ -25842,7 +25838,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TabView {
-    pub(crate) fn new() -> windows_core::Result<TabView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITabViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -25900,7 +25896,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TabViewItem {
-    pub(crate) fn new() -> windows_core::Result<TabViewItem> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITabViewItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26065,7 +26061,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TeachingTip {
-    pub(crate) fn new() -> windows_core::Result<TeachingTip> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITeachingTipFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26219,7 +26215,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TextBox {
-    pub(crate) fn new() -> windows_core::Result<TextBox> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITextBoxFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26519,7 +26515,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TimePicker {
-    pub(crate) fn new() -> windows_core::Result<TimePicker> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITimePickerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26604,7 +26600,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TitleBar {
-    pub(crate) fn new() -> windows_core::Result<TitleBar> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITitleBarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26692,7 +26688,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ToggleButton {
-    pub(crate) fn new() -> windows_core::Result<ToggleButton> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IToggleButtonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26799,7 +26795,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl ToolTip {
-    pub(crate) fn new() -> windows_core::Result<ToolTip> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IToolTipFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -26945,7 +26941,7 @@ windows_core::imp::required_hierarchy!(
     DependencyObject
 );
 impl TreeView {
-    pub(crate) fn new() -> windows_core::Result<TreeView> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITreeViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -27021,7 +27017,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(TreeViewNode, DependencyObject);
 impl TreeViewNode {
-    pub(crate) fn new() -> windows_core::Result<TreeViewNode> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::ITreeViewNodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -27270,7 +27266,7 @@ unsafe impl Sync for UIElementCollection {}
 pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 impl Uri {
-    pub(crate) fn CreateUri(uri: &str) -> windows_core::Result<Uri> {
+    pub(crate) fn CreateUri(uri: &str) -> windows_core::Result<Self> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUri)(
@@ -27885,7 +27881,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(WebView2, FrameworkElement, UIElement, DependencyObject);
 impl WebView2 {
-    pub(crate) fn new() -> windows_core::Result<WebView2> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IWebView2Factory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -27929,7 +27925,7 @@ unsafe impl Sync for WebView2 {}
 pub struct Window(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Window, windows_core::IUnknown, windows_core::IInspectable);
 impl Window {
-    pub(crate) fn new() -> windows_core::Result<Window> {
+    pub(crate) fn new() -> windows_core::Result<Self> {
         Self::IWindowFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(

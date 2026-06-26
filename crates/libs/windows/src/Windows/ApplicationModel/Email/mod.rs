@@ -116,7 +116,7 @@ impl EmailAttachment {
         unsafe { (windows_core::Interface::vtable(this).SetMimeType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P1>(filename: &windows_core::HSTRING, data: P1) -> windows_core::Result<EmailAttachment>
+    pub fn Create<P1>(filename: &windows_core::HSTRING, data: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -126,7 +126,7 @@ impl EmailAttachment {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create2<P1>(filename: &windows_core::HSTRING, data: P1, mimetype: &windows_core::HSTRING) -> windows_core::Result<EmailAttachment>
+    pub fn Create2<P1>(filename: &windows_core::HSTRING, data: P1, mimetype: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -453,7 +453,7 @@ impl EmailFolder {
             (windows_core::Interface::vtable(self).Kind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateFolderAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<EmailFolder>> {
+    pub fn CreateFolderAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFolderAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -465,7 +465,7 @@ impl EmailFolder {
             (windows_core::Interface::vtable(self).DeleteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindChildFoldersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<EmailFolder>>> {
+    pub fn FindChildFoldersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindChildFoldersAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -515,7 +515,7 @@ impl EmailFolder {
     }
     pub fn TryMoveAsync<P0>(&self, newparentfolder: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<EmailFolder>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -524,7 +524,7 @@ impl EmailFolder {
     }
     pub fn TryMoveWithNewNameAsync<P0>(&self, newparentfolder: P0, newfoldername: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
-        P0: windows_core::Param<EmailFolder>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -697,7 +697,7 @@ impl EmailIrmInfo {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTemplate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P1>(expiration: windows_time::DateTime, irmtemplate: P1) -> windows_core::Result<EmailIrmInfo>
+    pub fn Create<P1>(expiration: windows_time::DateTime, irmtemplate: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<EmailIrmTemplate>,
     {
@@ -762,7 +762,7 @@ impl EmailIrmTemplate {
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create(id: &windows_core::HSTRING, name: &windows_core::HSTRING, description: &windows_core::HSTRING) -> windows_core::Result<EmailIrmTemplate> {
+    pub fn Create(id: &windows_core::HSTRING, name: &windows_core::HSTRING, description: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IEmailIrmTemplateFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(name), core::mem::transmute_copy(description), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1114,7 +1114,7 @@ impl EmailMailbox {
     }
     pub fn MailboxChanged<P0>(&self, phandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EmailMailboxChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2036,7 +2036,7 @@ impl EmailMailboxSyncManager {
     }
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2925,13 +2925,13 @@ impl EmailQueryOptions {
             (windows_core::Interface::vtable(self).FolderIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithText(text: &windows_core::HSTRING) -> windows_core::Result<EmailQueryOptions> {
+    pub fn CreateWithText(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTextAndFields(text: &windows_core::HSTRING, fields: EmailQuerySearchFields) -> windows_core::Result<EmailQueryOptions> {
+    pub fn CreateWithTextAndFields(text: &windows_core::HSTRING, fields: EmailQuerySearchFields) -> windows_core::Result<Self> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTextAndFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), fields, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3121,13 +3121,13 @@ impl EmailRecipient {
     pub fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create(address: &windows_core::HSTRING) -> windows_core::Result<EmailRecipient> {
+    pub fn Create(address: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithName(address: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<EmailRecipient> {
+    pub fn CreateWithName(address: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

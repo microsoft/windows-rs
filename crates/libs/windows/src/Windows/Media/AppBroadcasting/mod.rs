@@ -18,7 +18,7 @@ impl AppBroadcastingMonitor {
     }
     pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,14 +151,14 @@ impl AppBroadcastingUI {
     pub fn ShowBroadcastUI(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShowBroadcastUI)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<AppBroadcastingUI> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IAppBroadcastingUIStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppBroadcastingUI>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

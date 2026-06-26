@@ -155,20 +155,20 @@ impl CombineMinimal for Type {
         }
 
         match &ty_inner {
-            Type::Struct(s) => {
+            Self::Struct(s) => {
                 for field in s.def.fields() {
                     let field_ty = field.field_type(None, reader);
                     field_ty.combine_minimal(types, reader, references);
                 }
             }
-            Type::CppStruct(s) => {
+            Self::CppStruct(s) => {
                 for field in s.def.fields() {
                     let field_ty = field.field_type(Some(s), reader);
                     field_ty.combine_minimal(types, reader, references);
                 }
             }
-            Type::Enum(_) | Type::CppEnum(_) => {}
-            Type::Delegate(d) => {
+            Self::Enum(_) | Self::CppEnum(_) => {}
+            Self::Delegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(d.def.namespace(), &d.generics, reader);
@@ -178,7 +178,7 @@ impl CombineMinimal for Type {
                     }
                 }
             }
-            Type::CppDelegate(d) => {
+            Self::CppDelegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(d.def.namespace(), &[], reader);
@@ -188,21 +188,21 @@ impl CombineMinimal for Type {
                     }
                 }
             }
-            Type::Interface(_iface) => {
+            Self::Interface(_iface) => {
                 // For interfaces pulled in as dependencies (not explicitly
                 // requested), we only need the struct/IID/hierarchy — no need
                 // to recursively pull in all their method signature types.
                 // The hierarchy is handled by the caller.
-                Type::Object.combine_minimal(types, reader, references);
+                Self::Object.combine_minimal(types, reader, references);
             }
-            Type::CppInterface(iface) => {
+            Self::CppInterface(iface) => {
                 // Pull in base interfaces so vtable/Deref/hierarchy work.
                 for base in iface.base_interfaces(reader) {
                     base.combine_minimal(types, reader, references);
                 }
-                Type::IUnknown.combine_minimal(types, reader, references);
+                Self::IUnknown.combine_minimal(types, reader, references);
             }
-            Type::CppFn(f) => {
+            Self::CppFn(f) => {
                 let sig = f.method.method_signature(f.namespace, &[], reader);
                 for dep_ty in sig.types() {
                     dep_ty.combine_minimal(types, reader, references);
@@ -213,8 +213,8 @@ impl CombineMinimal for Type {
                         .combine_minimal(types, reader, references);
                 }
             }
-            Type::CppConst(_) => {}
-            Type::Class(c) => {
+            Self::CppConst(_) => {}
+            Self::Class(c) => {
                 // In minimal mode, only pull in the default interface (needed for
                 // Deref and class identity). All other instance/base interfaces are
                 // only included if they appear explicitly in the filter's interfaces
@@ -229,7 +229,7 @@ impl CombineMinimal for Type {
                     if iface.kind != InterfaceKind::Default {
                         continue;
                     }
-                    let iface_ty = Type::Interface(iface.clone());
+                    let iface_ty = Self::Interface(iface.clone());
                     let iface_tn = iface_ty.type_name();
                     if references.contains(iface_tn).is_some() {
                         for g in &iface.generics {
@@ -248,19 +248,19 @@ impl CombineMinimal for Type {
                     }
                     let base = reader.unwrap_full_name(extends.namespace(), extends.name());
                     base.combine_minimal(types, reader, references);
-                    if let Type::Class(base_class) = &base {
+                    if let Self::Class(base_class) = &base {
                         def = base_class.def;
                     } else {
                         break;
                     }
                 }
             }
-            Type::IUnknown => {
-                Type::GUID.combine_minimal(types, reader, references);
-                Type::HRESULT.combine_minimal(types, reader, references);
+            Self::IUnknown => {
+                Self::GUID.combine_minimal(types, reader, references);
+                Self::HRESULT.combine_minimal(types, reader, references);
             }
-            Type::Object => {
-                Type::IUnknown.combine_minimal(types, reader, references);
+            Self::Object => {
+                Self::IUnknown.combine_minimal(types, reader, references);
             }
             _ => {}
         }

@@ -446,19 +446,19 @@ impl UserActivity {
         let this = &windows_core::Interface::cast::<IUserActivity3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsRoamable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateWithActivityId(activityid: &windows_core::HSTRING) -> windows_core::Result<UserActivity> {
+    pub fn CreateWithActivityId(activityid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithActivityId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryParseFromJson(json: &windows_core::HSTRING) -> windows_core::Result<UserActivity> {
+    pub fn TryParseFromJson(json: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParseFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryParseFromJsonArray(json: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<UserActivity>> {
+    pub fn TryParseFromJsonArray(json: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<Self>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParseFromJsonArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -466,7 +466,7 @@ impl UserActivity {
     }
     pub fn ToJsonArray<P0>(activities: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::Param<windows_collections::IIterable<UserActivity>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
     {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -536,7 +536,7 @@ impl UserActivityAttribution {
     pub fn SetAddImageQuery(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAddImageQuery)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateWithUri<P0>(iconuri: P0) -> windows_core::Result<UserActivityAttribution>
+    pub fn CreateWithUri<P0>(iconuri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -599,7 +599,7 @@ impl UserActivityChannel {
             (windows_core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activityid), starttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<UserActivityChannel> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IUserActivityChannelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -609,7 +609,7 @@ impl UserActivityChannel {
         Self::IUserActivityChannelStatics2(|this| unsafe { (windows_core::Interface::vtable(this).DisableAutoSessionCreation)(windows_core::Interface::as_raw(this)).ok() })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn TryGetForWebAccount<P0>(account: P0) -> windows_core::Result<UserActivityChannel>
+    pub fn TryGetForWebAccount<P0>(account: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Security::Credentials::WebAccount>,
     {
@@ -619,7 +619,7 @@ impl UserActivityChannel {
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<UserActivityChannel>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -664,7 +664,7 @@ impl UserActivityContentInfo {
             (windows_core::Interface::vtable(self).ToJson)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromJson(value: &windows_core::HSTRING) -> windows_core::Result<UserActivityContentInfo> {
+    pub fn FromJson(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -718,7 +718,7 @@ windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core
 impl UserActivityRequestManager {
     pub fn UserActivityRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UserActivityRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -728,7 +728,7 @@ impl UserActivityRequestManager {
     pub fn RemoveUserActivityRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveUserActivityRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<UserActivityRequestManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

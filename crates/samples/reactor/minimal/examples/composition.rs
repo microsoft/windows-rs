@@ -48,7 +48,7 @@ impl CustomElement for BadgeButton {
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
         other
             .as_any()
-            .downcast_ref::<BadgeButton>()
+            .downcast_ref::<Self>()
             .is_some_and(|o| self.key == o.key && self.label == o.label && self.count == o.count)
     }
     fn clone_dyn(&self) -> Box<dyn CustomElement> {
@@ -60,7 +60,7 @@ impl CustomElement for BadgeButton {
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
-        let prev = prev.as_any().downcast_ref::<BadgeButton>().unwrap();
+        let prev = prev.as_any().downcast_ref::<Self>().unwrap();
         if prev.rendered() != self.rendered() {
             backend.set_prop(id, Prop::Content, &PropValue::Str(self.rendered()));
         }
@@ -69,7 +69,7 @@ impl CustomElement for BadgeButton {
 
 impl From<BadgeButton> for Element {
     fn from(b: BadgeButton) -> Self {
-        Element::Custom(CustomElementHandle::new(b))
+        Self::Custom(CustomElementHandle::new(b))
     }
 }
 

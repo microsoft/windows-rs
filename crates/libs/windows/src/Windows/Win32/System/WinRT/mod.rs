@@ -1734,7 +1734,7 @@ impl core::ops::Deref for ILanguageExceptionErrorInfo2 {
 }
 windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo2, windows_core::IUnknown, ILanguageExceptionErrorInfo);
 impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2> {
+    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1746,7 +1746,7 @@ impl ILanguageExceptionErrorInfo2 {
     {
         unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()).ok() }
     }
-    pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2> {
+    pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropagationContextHead)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

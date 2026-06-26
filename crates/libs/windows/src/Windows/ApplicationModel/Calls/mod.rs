@@ -65,7 +65,7 @@ impl AcceptedVoipPhoneCallOptions {
             (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<AcceptedVoipPhoneCallOptions>
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -154,7 +154,7 @@ impl AppInitiatedVoipPhoneCallOptions {
             (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<AppInitiatedVoipPhoneCallOptions>
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1391,7 +1391,7 @@ impl IncomingVoipPhoneCallOptions {
             (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<IncomingVoipPhoneCallOptions>
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1478,7 +1478,7 @@ impl LockScreenCallUI {
     }
     pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, LockScreenCallEndRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1490,7 +1490,7 @@ impl LockScreenCallUI {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenCallUI, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1600,7 +1600,7 @@ impl OutgoingVoipPhoneCallOptions {
             (windows_core::Interface::vtable(self).AssociatedDeviceIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<OutgoingVoipPhoneCallOptions>
+    pub fn CreateInstance<P0>(associateddeviceids: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1648,7 +1648,7 @@ windows_core::imp::interface_hierarchy!(PhoneCall, windows_core::IUnknown, windo
 impl PhoneCall {
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1660,7 +1660,7 @@ impl PhoneCall {
     }
     pub fn AudioDeviceChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1672,7 +1672,7 @@ impl PhoneCall {
     }
     pub fn IsMutedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneCall, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1826,7 +1826,7 @@ impl PhoneCall {
             (windows_core::Interface::vtable(self).ChangeAudioDeviceAsync)(windows_core::Interface::as_raw(self), endpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFromId(callid: &windows_core::HSTRING) -> windows_core::Result<PhoneCall> {
+    pub fn GetFromId(callid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPhoneCallStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(callid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2149,7 +2149,7 @@ impl PhoneCallHistoryEntryAddress {
     pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRawAddressKind)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create(rawaddress: &windows_core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<PhoneCallHistoryEntryAddress> {
+    pub fn Create(rawaddress: &windows_core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> windows_core::Result<Self> {
         Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(rawaddress), rawaddresskind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2887,7 +2887,7 @@ windows_core::imp::interface_hierarchy!(PhoneLine, windows_core::IUnknown, windo
 impl PhoneLine {
     pub fn LineChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLine, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3024,7 +3024,7 @@ impl PhoneLine {
             (windows_core::Interface::vtable(this).GetAllActivePhoneCallsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(lineid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<PhoneLine>> {
+    pub fn FromIdAsync(lineid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPhoneLineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), lineid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3274,7 +3274,7 @@ impl PhoneLineTransportDevice {
     }
     pub fn AudioRoutingStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -3295,7 +3295,7 @@ impl PhoneLineTransportDevice {
     }
     pub fn InBandRingingEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -3307,7 +3307,7 @@ impl PhoneLineTransportDevice {
         let this = &windows_core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveInBandRingingEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromId(id: &windows_core::HSTRING) -> windows_core::Result<PhoneLineTransportDevice> {
+    pub fn FromId(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3355,7 +3355,7 @@ impl PhoneLineWatcher {
     }
     pub fn LineAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhoneLineWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3367,7 +3367,7 @@ impl PhoneLineWatcher {
     }
     pub fn LineRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhoneLineWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3379,7 +3379,7 @@ impl PhoneLineWatcher {
     }
     pub fn LineUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhoneLineWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3391,7 +3391,7 @@ impl PhoneLineWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3403,7 +3403,7 @@ impl PhoneLineWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3611,7 +3611,7 @@ impl VoipCallCoordinator {
     }
     pub fn MuteStateChanged<P0>(&self, mutechangehandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MuteChangeEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3740,7 +3740,7 @@ impl VoipCallCoordinator {
             (windows_core::Interface::vtable(this).RequestNewAppInitiatedCallWithOptions)(windows_core::Interface::as_raw(this), calloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<VoipCallCoordinator> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IVoipCallCoordinatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3786,7 +3786,7 @@ windows_core::imp::interface_hierarchy!(VoipPhoneCall, windows_core::IUnknown, w
 impl VoipPhoneCall {
     pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CallStateChangeEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3798,7 +3798,7 @@ impl VoipPhoneCall {
     }
     pub fn HoldRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CallStateChangeEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3810,7 +3810,7 @@ impl VoipPhoneCall {
     }
     pub fn ResumeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CallStateChangeEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3822,7 +3822,7 @@ impl VoipPhoneCall {
     }
     pub fn AnswerRequested<P0>(&self, accepthandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CallAnswerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3834,7 +3834,7 @@ impl VoipPhoneCall {
     }
     pub fn RejectRequested<P0>(&self, rejecthandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CallRejectEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

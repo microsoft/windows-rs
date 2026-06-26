@@ -444,7 +444,7 @@ impl FileInformationFactory {
         }
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithMode<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode) -> windows_core::Result<FileInformationFactory>
+    pub fn CreateWithMode<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
@@ -454,7 +454,7 @@ impl FileInformationFactory {
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSize<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> windows_core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSize<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
@@ -464,7 +464,7 @@ impl FileInformationFactory {
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSizeAndOptions<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> windows_core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSizeAndOptions<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
@@ -474,7 +474,7 @@ impl FileInformationFactory {
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub fn CreateWithModeAndSizeAndOptionsAndFlags<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> windows_core::Result<FileInformationFactory>
+    pub fn CreateWithModeAndSizeAndOptionsAndFlags<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
@@ -1060,7 +1060,7 @@ impl IStorageItemInformation {
     }
     pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1072,7 +1072,7 @@ impl IStorageItemInformation {
     }
     pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

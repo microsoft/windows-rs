@@ -826,7 +826,7 @@ impl PreviewBuildsManager {
             (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<PreviewBuildsManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1032,7 +1032,7 @@ impl WindowsSoftwareUpdate {
             (windows_core::Interface::vtable(self).OptionalInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P5, P8, P9, P10, P11, P12>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, sourceversion: P8, targetversion: P9, apppackageinfo: P10, executioninfo: P11, optionalinfo: P12) -> windows_core::Result<WindowsSoftwareUpdate>
+    pub fn CreateInstance<P5, P8, P9, P10, P11, P12>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, sourceversion: P8, targetversion: P9, apppackageinfo: P10, executioninfo: P11, optionalinfo: P12) -> windows_core::Result<Self>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
         P8: windows_core::Param<WindowsSoftwareUpdateVersion>,
@@ -1046,7 +1046,7 @@ impl WindowsSoftwareUpdate {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerid), installationtype, core::mem::transmute_copy(updateid), core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.param().abi(), downloadsizeinbytes, installsizeinbytes, sourceversion.param().abi(), targetversion.param().abi(), apppackageinfo.param().abi(), executioninfo.param().abi(), optionalinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P5, P10, P11, P12, P13, P14>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, productcode: Option<windows_core::GUID>, packagefamilyname: &windows_core::HSTRING, sourceversion: P10, targetversion: P11, apppackageinfo: P12, executioninfo: P13, optionalinfo: P14) -> windows_core::Result<WindowsSoftwareUpdate>
+    pub fn CreateInstance2<P5, P10, P11, P12, P13, P14>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, productcode: Option<windows_core::GUID>, packagefamilyname: &windows_core::HSTRING, sourceversion: P10, targetversion: P11, apppackageinfo: P12, executioninfo: P13, optionalinfo: P14) -> windows_core::Result<Self>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
         P10: windows_core::Param<WindowsSoftwareUpdateVersion>,
@@ -1120,7 +1120,7 @@ impl WindowsSoftwareUpdateActionInfo {
             (windows_core::Interface::vtable(self).ActionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(filename: &windows_core::HSTRING, filearguments: &windows_core::HSTRING, actiontype: WindowsSoftwareUpdateActionType) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+    pub fn CreateInstance(filename: &windows_core::HSTRING, filearguments: &windows_core::HSTRING, actiontype: WindowsSoftwareUpdateActionType) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateActionInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(filearguments), actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1284,7 +1284,7 @@ impl WindowsSoftwareUpdateAppPackageInfo {
             (windows_core::Interface::vtable(self).InstallUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P2>(packagefamilyname: &windows_core::HSTRING, packagearchitecture: WindowsSoftwareUpdateArchitecture, installuri: P2) -> windows_core::Result<WindowsSoftwareUpdateAppPackageInfo>
+    pub fn CreateInstance<P2>(packagefamilyname: &windows_core::HSTRING, packagearchitecture: WindowsSoftwareUpdateArchitecture, installuri: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1339,7 +1339,7 @@ impl WindowsSoftwareUpdateApprovalInfo {
             (windows_core::Interface::vtable(self).Seeker)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(userinitiated: bool, appclosure: bool, meterednetwork: bool, seeker: bool) -> windows_core::Result<WindowsSoftwareUpdateApprovalInfo> {
+    pub fn CreateInstance(userinitiated: bool, appclosure: bool, meterednetwork: bool, seeker: bool) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateApprovalInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), userinitiated, appclosure, meterednetwork, seeker, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1408,7 +1408,7 @@ impl WindowsSoftwareUpdateExecutionInfo {
             (windows_core::Interface::vtable(self).OptionalActionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0, P1, P2>(downloadinfo: P0, installinfo: P1, actions: P2) -> windows_core::Result<WindowsSoftwareUpdateExecutionInfo>
+    pub fn CreateInstance<P0, P1, P2>(downloadinfo: P0, installinfo: P1, actions: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
         P1: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
@@ -1419,7 +1419,7 @@ impl WindowsSoftwareUpdateExecutionInfo {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), downloadinfo.param().abi(), installinfo.param().abi(), actions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P0, P1>(deployinfo: P0, actions: P1) -> windows_core::Result<WindowsSoftwareUpdateExecutionInfo>
+    pub fn CreateInstance2<P0, P1>(deployinfo: P0, actions: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
         P1: windows_core::Param<WindowsSoftwareUpdateOptionalActionInfo>,
@@ -1491,7 +1491,7 @@ impl WindowsSoftwareUpdateLocalizationInfo {
             (windows_core::Interface::vtable(self).MoreInfoUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P3>(languageid: u32, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P3) -> windows_core::Result<WindowsSoftwareUpdateLocalizationInfo>
+    pub fn CreateInstance<P3>(languageid: u32, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P3) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1540,7 +1540,7 @@ impl WindowsSoftwareUpdateOptionalActionInfo {
             (windows_core::Interface::vtable(self).CloseAndRestartInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0, P1, P2>(closeanddeployinfo: P0, closeandinstallinfo: P1, closeandrestartinfo: P2) -> windows_core::Result<WindowsSoftwareUpdateOptionalActionInfo>
+    pub fn CreateInstance<P0, P1, P2>(closeanddeployinfo: P0, closeandinstallinfo: P1, closeandrestartinfo: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
         P1: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
@@ -1591,7 +1591,7 @@ impl WindowsSoftwareUpdateOptionalInfo {
             (windows_core::Interface::vtable(self).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn CreateInstance(compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo> {
+    pub fn CreateInstance(compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<Self> {
         let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as From<_>>::from);
         let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as From<_>>::from);
         Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
@@ -1599,7 +1599,7 @@ impl WindowsSoftwareUpdateOptionalInfo {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), windows_core::Param::param(compliancedeadlineindays__.as_ref()).abi(), windows_core::Param::param(compliancegraceperiodindays__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P0>(localizationinfo: P0, compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
+    pub fn CreateInstance2<P0>(localizationinfo: P0, compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>>,
     {
@@ -1723,7 +1723,7 @@ impl WindowsSoftwareUpdateProvider {
             (windows_core::Interface::vtable(self).GetPropertyValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(folderpath: &windows_core::HSTRING) -> windows_core::Result<WindowsSoftwareUpdateProvider> {
+    pub fn CreateInstance(folderpath: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1775,7 +1775,7 @@ impl WindowsSoftwareUpdateProviderActionResult {
             (windows_core::Interface::vtable(self).ExtendedError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(actionresult: WindowsSoftwareUpdateActionResult, restartreason: WindowsSoftwareUpdateRestartReason, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateProviderActionResult> {
+    pub fn CreateInstance(actionresult: WindowsSoftwareUpdateActionResult, restartreason: WindowsSoftwareUpdateRestartReason, resultcode: u32, extendederror: u64) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateProviderActionResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), actionresult, restartreason, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1865,7 +1865,7 @@ windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProviderStatus, win
 impl WindowsSoftwareUpdateProviderStatus {
     pub fn CancelRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsSoftwareUpdateProviderStatus, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1899,7 +1899,7 @@ impl WindowsSoftwareUpdateProviderStatus {
             (windows_core::Interface::vtable(self).SetActionResult)(windows_core::Interface::as_raw(self), actionresult.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(providerid: &windows_core::HSTRING) -> windows_core::Result<WindowsSoftwareUpdateProviderStatus> {
+    pub fn CreateInstance(providerid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateProviderStatusFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1997,19 +1997,19 @@ impl WindowsSoftwareUpdateResult {
             (windows_core::Interface::vtable(self).ExtendedError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(succeeded: bool, resultcode: u32) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+    pub fn CreateInstance(succeeded: bool, resultcode: u32) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, resultcode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2(succeeded: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+    pub fn CreateInstance2(succeeded: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), succeeded, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance3(succeeded: bool, cancelrequested: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+    pub fn CreateInstance3(succeeded: bool, cancelrequested: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance3)(windows_core::Interface::as_raw(this), succeeded, cancelrequested, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2061,7 +2061,7 @@ impl WindowsSoftwareUpdateScanResult {
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P2>(succeeded: bool, resultcode: u32, updates: P2) -> windows_core::Result<WindowsSoftwareUpdateScanResult>
+    pub fn CreateInstance<P2>(succeeded: bool, resultcode: u32, updates: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdate>>,
     {
@@ -2070,7 +2070,7 @@ impl WindowsSoftwareUpdateScanResult {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, resultcode, updates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P3>(succeeded: bool, resultcode: u32, extendederror: u64, updates: P3) -> windows_core::Result<WindowsSoftwareUpdateScanResult>
+    pub fn CreateInstance2<P3>(succeeded: bool, resultcode: u32, extendederror: u64, updates: P3) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdate>>,
     {
@@ -2125,7 +2125,7 @@ impl WindowsSoftwareUpdateVersion {
             (windows_core::Interface::vtable(self).RevisionMinor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(major: u32, minor: u32, revisionmajor: u32, revisionminor: u32) -> windows_core::Result<WindowsSoftwareUpdateVersion> {
+    pub fn CreateInstance(major: u32, minor: u32, revisionmajor: u32, revisionminor: u32) -> windows_core::Result<Self> {
         Self::IWindowsSoftwareUpdateVersionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), major, minor, revisionmajor, revisionminor, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2853,7 +2853,7 @@ windows_core::imp::interface_hierarchy!(WindowsUpdateManager, windows_core::IUnk
 impl WindowsUpdateManager {
     pub fn ScanningStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2865,7 +2865,7 @@ impl WindowsUpdateManager {
     }
     pub fn WorkingStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2877,7 +2877,7 @@ impl WindowsUpdateManager {
     }
     pub fn ProgressChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowsUpdateProgressChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2889,7 +2889,7 @@ impl WindowsUpdateManager {
     }
     pub fn AttentionRequiredReasonChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2901,7 +2901,7 @@ impl WindowsUpdateManager {
     }
     pub fn ActionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowsUpdateActionCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2913,7 +2913,7 @@ impl WindowsUpdateManager {
     }
     pub fn ScanCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowsUpdateScanCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2993,13 +2993,13 @@ impl WindowsUpdateManager {
             (windows_core::Interface::vtable(this).PerformScan)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(clientid: &windows_core::HSTRING) -> windows_core::Result<WindowsUpdateManager> {
+    pub fn CreateInstance(clientid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWindowsUpdateManagerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2(clientid: &windows_core::HSTRING, provideridfilter: &[windows_core::HSTRING]) -> windows_core::Result<WindowsUpdateManager> {
+    pub fn CreateInstance2(clientid: &windows_core::HSTRING, provideridfilter: &[windows_core::HSTRING]) -> windows_core::Result<Self> {
         Self::IWindowsUpdateManagerFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), provideridfilter.len().try_into().unwrap(), core::mem::transmute(provideridfilter.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3065,7 +3065,7 @@ impl WindowsUpdateManagerScanOptions {
     pub fn SetPerformUpdateActions(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPerformUpdateActions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance(isuserinitiated: bool) -> windows_core::Result<WindowsUpdateManagerScanOptions> {
+    pub fn CreateInstance(isuserinitiated: bool) -> windows_core::Result<Self> {
         Self::IWindowsUpdateManagerScanOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), isuserinitiated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3196,7 +3196,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn SetOptOutOfAutoReboot(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance<P2>(title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P2, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> windows_core::Result<WindowsUpdateRestartRequestOptions>
+    pub fn CreateInstance<P2>(title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P2, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {

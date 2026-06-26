@@ -54,50 +54,50 @@ impl AudioEncodingProperties {
             (windows_core::Interface::vtable(this).IsSpatial)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Copy(&self) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn Copy(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IAudioEncodingProperties3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copy)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAac)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAacAdts)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMp3)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePcm)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWma)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAlac)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<AudioEncodingProperties> {
+    pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> windows_core::Result<Self> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFlac)(windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -268,7 +268,7 @@ impl ContainerEncodingProperties {
         static SHARED: windows_core::imp::FactoryCache<ContainerEncodingProperties, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Copy(&self) -> windows_core::Result<ContainerEncodingProperties> {
+    pub fn Copy(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IContainerEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1310,44 +1310,44 @@ impl ImageEncodingProperties {
             (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Copy(&self) -> windows_core::Result<ImageEncodingProperties> {
+    pub fn Copy(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IImageEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copy)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateJpeg() -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreateJpeg() -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateJpeg)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePng() -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreatePng() -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePng)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateJpegXR() -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreateJpegXR() -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateJpegXR)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUncompressed(format: MediaPixelFormat) -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreateUncompressed(format: MediaPixelFormat) -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUncompressed)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateBmp() -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreateBmp() -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBmp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateHeif() -> windows_core::Result<ImageEncodingProperties> {
+    pub fn CreateHeif() -> windows_core::Result<Self> {
         Self::IImageEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateHeif)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1499,38 +1499,38 @@ impl MediaEncodingProfile {
             (windows_core::Interface::vtable(this).GetTimedMetadataTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateM4a(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateM4a(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateM4a)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMp3(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateMp3(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMp3)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWma(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateWma(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWma)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMp4(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateMp4(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMp4)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWmv(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateWmv(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWmv)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1540,7 +1540,7 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStreamAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaEncodingProfile>>
+    pub fn CreateFromStreamAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -1549,43 +1549,43 @@ impl MediaEncodingProfile {
             (windows_core::Interface::vtable(this).CreateFromStreamAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWav(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateWav(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWav)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAvi(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateAvi(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAvi)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAlac(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateAlac(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAlac)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFlac(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateFlac(quality: AudioEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFlac)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateHevc(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateHevc(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateHevc)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateVp9(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateVp9(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateVp9)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAv1(quality: VideoEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
+    pub fn CreateAv1(quality: VideoEncodingQuality) -> windows_core::Result<Self> {
         Self::IMediaEncodingProfileStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAv1)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2298,32 +2298,32 @@ impl TimedMetadataEncodingProperties {
         let this = &windows_core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GetFormatUserData)(windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    pub fn Copy(&self) -> windows_core::Result<TimedMetadataEncodingProperties> {
+    pub fn Copy(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copy)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePgs() -> windows_core::Result<TimedMetadataEncodingProperties> {
+    pub fn CreatePgs() -> windows_core::Result<Self> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePgs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSrt() -> windows_core::Result<TimedMetadataEncodingProperties> {
+    pub fn CreateSrt() -> windows_core::Result<Self> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSrt)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSsa(formatuserdata: &[u8]) -> windows_core::Result<TimedMetadataEncodingProperties> {
+    pub fn CreateSsa(formatuserdata: &[u8]) -> windows_core::Result<Self> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSsa)(windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateVobSub(formatuserdata: &[u8]) -> windows_core::Result<TimedMetadataEncodingProperties> {
+    pub fn CreateVobSub(formatuserdata: &[u8]) -> windows_core::Result<Self> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateVobSub)(windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2456,44 +2456,44 @@ impl VideoEncodingProperties {
             (windows_core::Interface::vtable(this).SphericalVideoFrameFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Copy(&self) -> windows_core::Result<VideoEncodingProperties> {
+    pub fn Copy(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IVideoEncodingProperties5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Copy)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateH264() -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateH264() -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateH264)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMpeg2() -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateMpeg2() -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMpeg2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUncompressed(subtype: &windows_core::HSTRING, width: u32, height: u32) -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateUncompressed(subtype: &windows_core::HSTRING, width: u32, height: u32) -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUncompressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), width, height, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateHevc() -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateHevc() -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateHevc)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateVp9() -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateVp9() -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateVp9)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateAv1() -> windows_core::Result<VideoEncodingProperties> {
+    pub fn CreateAv1() -> windows_core::Result<Self> {
         Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAv1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

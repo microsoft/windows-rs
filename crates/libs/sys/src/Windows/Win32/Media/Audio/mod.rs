@@ -313,7 +313,7 @@ pub struct ACMDRVSTREAMHEADER {
     pub cbDstLengthUsed: u32,
     pub dwDstUser: usize,
     pub fdwConvert: u32,
-    pub padshNext: *mut ACMDRVSTREAMHEADER,
+    pub padshNext: *mut Self,
     pub fdwDriver: u32,
     pub dwDriver: usize,
     pub fdwPrepared: u32,
@@ -1171,7 +1171,7 @@ pub struct MIDIHDR {
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
     pub dwFlags: u32,
-    pub lpNext: *mut MIDIHDR,
+    pub lpNext: *mut Self,
     pub reserved: usize,
     pub dwOffset: u32,
     pub dwReserved: [usize; 8],
@@ -2225,7 +2225,7 @@ pub struct WAVEHDR {
     pub dwUser: usize,
     pub dwFlags: u32,
     pub dwLoops: u32,
-    pub lpNext: *mut WAVEHDR,
+    pub lpNext: *mut Self,
     pub reserved: usize,
 }
 impl Default for WAVEHDR {

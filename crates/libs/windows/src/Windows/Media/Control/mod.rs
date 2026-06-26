@@ -135,7 +135,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -147,7 +147,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn PlaybackInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -159,7 +159,7 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     pub fn MediaPropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -201,7 +201,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
     pub fn CurrentSessionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -213,7 +213,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     }
     pub fn SessionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -223,7 +223,7 @@ impl GlobalSystemMediaTransportControlsSessionManager {
     pub fn RemoveSessionsChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveSessionsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn RequestAsync() -> windows_core::Result<windows_future::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>> {
+    pub fn RequestAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGlobalSystemMediaTransportControlsSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

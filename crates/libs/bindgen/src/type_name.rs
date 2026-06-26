@@ -43,6 +43,13 @@ impl TypeName {
     }
 
     pub fn write(&self, config: &Config, generics: &[Type]) -> TokenStream {
+        // Inside this type's own `impl` block, refer to it as `Self` (clippy::use_self).
+        // Only substitute when the generics match the enclosing block's exactly, so a
+        // differently-parameterized specialization of the same type is left untouched.
+        if config.self_ty == Some(*self) && generics == config.self_generics.as_slice() {
+            return quote! { Self };
+        }
+
         let name = to_ident(self.name());
         let namespace = config.write_namespace(*self);
 

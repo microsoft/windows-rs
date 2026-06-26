@@ -8,7 +8,7 @@ pub struct TreeNodeDef {
     /// Whether this node is expanded by default.
     pub is_expanded: bool,
     /// Child nodes.
-    pub children: Vec<TreeNodeDef>,
+    pub children: Vec<Self>,
 }
 
 impl TreeNodeDef {
@@ -25,12 +25,12 @@ impl TreeNodeDef {
         self
     }
 
-    pub fn child(mut self, node: TreeNodeDef) -> Self {
+    pub fn child(mut self, node: Self) -> Self {
         self.children.push(node);
         self
     }
 
-    pub fn children(mut self, nodes: Vec<TreeNodeDef>) -> Self {
+    pub fn children(mut self, nodes: Vec<Self>) -> Self {
         self.children = nodes;
         self
     }

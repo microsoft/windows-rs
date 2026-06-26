@@ -114,7 +114,7 @@ fn main() -> windows::core::Result<()> {
                 let library =
                     CoCreateInstance(&UIAnimationTransitionLibrary2, None, CLSCTX_INPROC_SERVER)?;
 
-                Ok(App {
+                Ok(Self {
                     handle: Default::default(),
                     dpi: (0.0, 0.0),
                     format: create_text_format()?,

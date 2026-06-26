@@ -67,7 +67,7 @@ impl XsltProcessor {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateInstance<P0>(document: P0) -> windows_core::Result<XsltProcessor>
+    pub fn CreateInstance<P0>(document: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Dom::XmlDocument>,
     {

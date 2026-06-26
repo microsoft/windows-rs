@@ -233,13 +233,13 @@ impl InputHapticsManager {
             (windows_core::Interface::vtable(this).IsHapticDevicePresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GetForCurrentThread() -> windows_core::Result<InputHapticsManager> {
+    pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::IInputHapticsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryGetForThread(threadid: u32) -> windows_core::Result<InputHapticsManager> {
+    pub fn TryGetForThread(threadid: u32) -> windows_core::Result<Self> {
         Self::IInputHapticsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetForThread)(windows_core::Interface::as_raw(this), threadid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -522,19 +522,19 @@ impl VibrationDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VibrationDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<VibrationDevice>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<VibrationDevice>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

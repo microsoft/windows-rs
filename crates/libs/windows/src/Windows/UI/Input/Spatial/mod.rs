@@ -683,7 +683,7 @@ windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::
 impl SpatialGestureRecognizer {
     pub fn RecognitionStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -695,7 +695,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn RecognitionEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionEndedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -707,7 +707,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialTappedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -719,7 +719,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -731,7 +731,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -743,7 +743,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCanceledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -755,7 +755,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -767,7 +767,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -779,7 +779,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -791,7 +791,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCanceledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -803,7 +803,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -815,7 +815,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,7 +827,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -839,7 +839,7 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCanceledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -870,7 +870,7 @@ impl SpatialGestureRecognizer {
             (windows_core::Interface::vtable(self).GestureSettings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(settings: SpatialGestureSettings) -> windows_core::Result<SpatialGestureRecognizer> {
+    pub fn Create(settings: SpatialGestureSettings) -> windows_core::Result<Self> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1240,7 +1240,7 @@ windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core:
 impl SpatialInteractionManager {
     pub fn SourceDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1252,7 +1252,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1264,7 +1264,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1276,7 +1276,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourcePressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1288,7 +1288,7 @@ impl SpatialInteractionManager {
     }
     pub fn SourceReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1300,7 +1300,7 @@ impl SpatialInteractionManager {
     }
     pub fn InteractionDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionDetectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1320,7 +1320,7 @@ impl SpatialInteractionManager {
             (windows_core::Interface::vtable(self).GetDetectedSourcesAtTimestamp)(windows_core::Interface::as_raw(self), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SpatialInteractionManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISpatialInteractionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2120,7 +2120,7 @@ impl SpatialPointerPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetAtTimestamp<P0, P1>(coordinatesystem: P0, timestamp: P1) -> windows_core::Result<SpatialPointerPose>
+    pub fn TryGetAtTimestamp<P0, P1>(coordinatesystem: P0, timestamp: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
         P1: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,

@@ -123,7 +123,7 @@ impl OcrEngine {
         })
     }
     #[cfg(feature = "Globalization")]
-    pub fn TryCreateFromLanguage<P0>(language: P0) -> windows_core::Result<OcrEngine>
+    pub fn TryCreateFromLanguage<P0>(language: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Globalization::Language>,
     {
@@ -132,7 +132,7 @@ impl OcrEngine {
             (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateFromUserProfileLanguages() -> windows_core::Result<OcrEngine> {
+    pub fn TryCreateFromUserProfileLanguages() -> windows_core::Result<Self> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromUserProfileLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

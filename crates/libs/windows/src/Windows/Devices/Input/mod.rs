@@ -361,7 +361,7 @@ windows_core::imp::interface_hierarchy!(MouseDevice, windows_core::IUnknown, win
 impl MouseDevice {
     pub fn MouseMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MouseEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -371,7 +371,7 @@ impl MouseDevice {
     pub fn RemoveMouseMoved(&self, cookie: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveMouseMoved)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<MouseDevice> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IMouseDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -427,7 +427,7 @@ impl PenButtonListener {
     }
     pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -439,7 +439,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PenTailButtonClickedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -451,7 +451,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonDoubleClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PenTailButtonDoubleClickedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -463,7 +463,7 @@ impl PenButtonListener {
     }
     pub fn TailButtonLongPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PenTailButtonLongPressedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -473,7 +473,7 @@ impl PenButtonListener {
     pub fn RemoveTailButtonLongPressed(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveTailButtonLongPressed)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<PenButtonListener> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPenButtonListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -515,7 +515,7 @@ impl PenDevice {
             (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFromPointerId(pointerid: u32) -> windows_core::Result<PenDevice> {
+    pub fn GetFromPointerId(pointerid: u32) -> windows_core::Result<Self> {
         Self::IPenDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFromPointerId)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -551,7 +551,7 @@ impl PenDockListener {
     }
     pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -563,7 +563,7 @@ impl PenDockListener {
     }
     pub fn Docked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PenDockedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -575,7 +575,7 @@ impl PenDockListener {
     }
     pub fn Undocked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PenUndockedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -585,7 +585,7 @@ impl PenDockListener {
     pub fn RemoveUndocked(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveUndocked)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<PenDockListener> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPenDockListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -736,13 +736,13 @@ impl PointerDevice {
             (windows_core::Interface::vtable(this).MaxPointersWithZDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPointerDevice(pointerid: u32) -> windows_core::Result<PointerDevice> {
+    pub fn GetPointerDevice(pointerid: u32) -> windows_core::Result<Self> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPointerDevice)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPointerDevices() -> windows_core::Result<windows_collections::IVectorView<PointerDevice>> {
+    pub fn GetPointerDevices() -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -961,7 +961,7 @@ pub const DNS_RCODE_YXRRSET: u32 = 7;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORDA {
-    pub pNext: *mut DNS_RECORDA,
+    pub pNext: *mut Self,
     pub pName: windows_sys::core::PSTR,
     pub wType: u16,
     pub wDataLength: u16,
@@ -1084,7 +1084,7 @@ impl Default for DNS_RECORDA_1 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
-    pub pNext: *mut DNS_RECORDW,
+    pub pNext: *mut Self,
     pub pName: windows_sys::core::PWSTR,
     pub wType: u16,
     pub wDataLength: u16,

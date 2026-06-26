@@ -392,9 +392,9 @@ impl Cursor {
         // cursor node and only that node has CXCursor_CXXMethod children.
         let defn = unsafe { clang_getCursorDefinition(self.0) };
         let cursor = if unsafe { clang_Cursor_isNull(defn) } == 0 {
-            Cursor(defn)
+            Self(defn)
         } else {
-            Cursor(self.0)
+            Self(self.0)
         };
         cursor
             .children()

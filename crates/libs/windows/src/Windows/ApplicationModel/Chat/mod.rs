@@ -176,7 +176,7 @@ impl ChatConversation {
     }
     pub fn RemoteParticipantComposingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RemoteParticipantComposingChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -724,7 +724,7 @@ impl ChatMessageAttachment {
         unsafe { (windows_core::Interface::vtable(this).SetOriginalFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateChatMessageAttachment<P1>(mimetype: &windows_core::HSTRING, datastreamreference: P1) -> windows_core::Result<ChatMessageAttachment>
+    pub fn CreateChatMessageAttachment<P1>(mimetype: &windows_core::HSTRING, datastreamreference: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1197,7 +1197,7 @@ impl ChatMessageStore {
     }
     pub fn MessageChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ChatMessageChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1338,7 +1338,7 @@ impl ChatMessageStore {
     }
     pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ChatMessageStoreChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
@@ -2887,7 +2887,7 @@ windows_core::imp::interface_hierarchy!(RcsEndUserMessageManager, windows_core::
 impl RcsEndUserMessageManager {
     pub fn MessageAvailableChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RcsEndUserMessageAvailableEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3052,7 +3052,7 @@ impl RcsTransport {
     }
     pub fn ServiceKindSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RcsServiceKindSupportedChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

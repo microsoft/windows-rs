@@ -18,6 +18,9 @@ impl Class {
         let required_interfaces = self.required_interfaces(config.reader);
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
+        // Methods flattened onto the class live in `impl #name`, so references to the
+        // class (e.g. constructor return types) are emitted as `Self`.
+        let self_config = config.with_self_ty(type_name, &[]);
         let (class_cfg, cfg) = self.write_cfg(config);
         let runtime_name = format!("{type_name}");
 
@@ -48,7 +51,7 @@ impl Class {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
-                        config,
+                        &self_config,
                         Some(interface),
                         interface.kind,
                         &mut method_names,
@@ -108,7 +111,7 @@ impl Class {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
-                        config,
+                        &self_config,
                         Some(interface),
                         interface.kind,
                         &mut method_names,

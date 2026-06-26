@@ -5008,7 +5008,7 @@ impl IEnumCATEGORYINFO {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumCATEGORYINFO> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5087,7 +5087,7 @@ impl IEnumConnectionPoints {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumConnectionPoints> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5166,7 +5166,7 @@ impl IEnumConnections {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumConnections> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5245,7 +5245,7 @@ impl IEnumContextProps {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumContextProps> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5345,7 +5345,7 @@ impl IEnumFORMATETC {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumFORMATETC> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5424,7 +5424,7 @@ impl IEnumGUID {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumGUID> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5503,7 +5503,7 @@ impl IEnumMoniker {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMoniker> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5582,7 +5582,7 @@ impl IEnumSTATDATA {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATDATA> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5661,7 +5661,7 @@ impl IEnumString {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumString> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5740,7 +5740,7 @@ impl IEnumUnknown {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumUnknown> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6682,7 +6682,7 @@ impl IMoniker {
     pub unsafe fn BindToObject<P0, P1, T>(&self, pbc: P0, pmktoleft: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
@@ -6691,21 +6691,21 @@ impl IMoniker {
     pub unsafe fn BindToStorage<P0, P1, T>(&self, pbc: P0, pmktoleft: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).BindToStorage)(windows_core::Interface::as_raw(self), pbc.param().abi(), pmktoleft.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn Reduce<P0>(&self, pbc: P0, dwreducehowfar: u32, ppmktoleft: *mut Option<IMoniker>, ppmkreduced: *mut Option<IMoniker>) -> windows_core::Result<()>
+    pub unsafe fn Reduce<P0>(&self, pbc: P0, dwreducehowfar: u32, ppmktoleft: *mut Option<Self>, ppmkreduced: *mut Option<Self>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBindCtx>,
     {
         unsafe { (windows_core::Interface::vtable(self).Reduce)(windows_core::Interface::as_raw(self), pbc.param().abi(), dwreducehowfar, core::mem::transmute(ppmktoleft), core::mem::transmute(ppmkreduced)).ok() }
     }
-    pub unsafe fn ComposeWith<P0>(&self, pmkright: P0, fonlyifnotgeneric: bool) -> windows_core::Result<IMoniker>
+    pub unsafe fn ComposeWith<P0>(&self, pmkright: P0, fonlyifnotgeneric: bool) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IMoniker>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6720,7 +6720,7 @@ impl IMoniker {
     }
     pub unsafe fn IsEqual<P0>(&self, pmkothermoniker: P0) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<IMoniker>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pmkothermoniker.param().abi()) }
     }
@@ -6733,39 +6733,39 @@ impl IMoniker {
     pub unsafe fn IsRunning<P0, P1, P2>(&self, pbc: P0, pmktoleft: P1, pmknewlyrunning: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
-        P2: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsRunning)(windows_core::Interface::as_raw(self), pbc.param().abi(), pmktoleft.param().abi(), pmknewlyrunning.param().abi()).ok() }
     }
     pub unsafe fn GetTimeOfLastChange<P0, P1>(&self, pbc: P0, pmktoleft: P1) -> windows_core::Result<super::super::Foundation::FILETIME>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTimeOfLastChange)(windows_core::Interface::as_raw(self), pbc.param().abi(), pmktoleft.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Inverse(&self) -> windows_core::Result<IMoniker> {
+    pub unsafe fn Inverse(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Inverse)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonPrefixWith<P0>(&self, pmkother: P0) -> windows_core::Result<IMoniker>
+    pub unsafe fn CommonPrefixWith<P0>(&self, pmkother: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IMoniker>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonPrefixWith)(windows_core::Interface::as_raw(self), pmkother.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RelativePathTo<P0>(&self, pmkother: P0) -> windows_core::Result<IMoniker>
+    pub unsafe fn RelativePathTo<P0>(&self, pmkother: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IMoniker>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6775,17 +6775,17 @@ impl IMoniker {
     pub unsafe fn GetDisplayName<P0, P1>(&self, pbc: P0, pmktoleft: P1) -> windows_core::Result<windows_core::PWSTR>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), pbc.param().abi(), pmktoleft.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ParseDisplayName<P0, P1, P2>(&self, pbc: P0, pmktoleft: P1, pszdisplayname: P2, pcheaten: *mut u32, ppmkout: *mut Option<IMoniker>) -> windows_core::Result<()>
+    pub unsafe fn ParseDisplayName<P0, P1, P2>(&self, pbc: P0, pmktoleft: P1, pszdisplayname: P2, pcheaten: *mut u32, ppmkout: *mut Option<Self>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBindCtx>,
-        P1: windows_core::Param<IMoniker>,
+        P1: windows_core::Param<Self>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), pbc.param().abi(), pmktoleft.param().abi(), pszdisplayname.param().abi(), pcheaten as _, core::mem::transmute(ppmkout)).ok() }
@@ -8399,7 +8399,7 @@ impl IRpcStubBuffer {
     {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), _prpcmsg as _, _prpcchannelbuffer.param().abi()).ok() }
     }
-    pub unsafe fn IsIIDSupported(&self, riid: *const windows_core::GUID) -> Option<IRpcStubBuffer> {
+    pub unsafe fn IsIIDSupported(&self, riid: *const windows_core::GUID) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).IsIIDSupported)(windows_core::Interface::as_raw(self), riid) }
     }
     pub unsafe fn CountRefs(&self) -> u32 {
@@ -8979,7 +8979,7 @@ impl IStream {
     }
     pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: Option<*mut u64>, pcbwritten: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IStream>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), pstm.param().abi(), cb, pcbread.unwrap_or(core::mem::zeroed()) as _, pcbwritten.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
@@ -8998,7 +8998,7 @@ impl IStream {
     pub unsafe fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stat)(windows_core::Interface::as_raw(self), pstatstg as _, grfstatflag.0 as _).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IStream> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9688,7 +9688,7 @@ impl ITypeComp {
     {
         unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), szname.param().abi(), lhashval, wflags, core::mem::transmute(pptinfo), pdesckind as _, core::mem::transmute(pbindptr)).ok() }
     }
-    pub unsafe fn BindType<P0>(&self, szname: P0, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, pptcomp: *mut Option<ITypeComp>) -> windows_core::Result<()>
+    pub unsafe fn BindType<P0>(&self, szname: P0, lhashval: u32, pptinfo: *mut Option<ITypeInfo>, pptcomp: *mut Option<Self>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -9791,7 +9791,7 @@ impl ITypeInfo {
     pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: Option<*mut windows_core::BSTR>, pbstrname: Option<*mut windows_core::BSTR>, pwordinal: *mut u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDllEntry)(windows_core::Interface::as_raw(self), memid, invkind, pbstrdllname.unwrap_or(core::mem::zeroed()) as _, pbstrname.unwrap_or(core::mem::zeroed()) as _, pwordinal as _).ok() }
     }
-    pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> windows_core::Result<ITypeInfo> {
+    pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRefTypeInfo)(windows_core::Interface::as_raw(self), hreftype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11138,7 +11138,7 @@ impl IUri {
     }
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> windows_core::Result<windows_core::BOOL>
     where
-        P0: windows_core::Param<IUri>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

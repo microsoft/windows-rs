@@ -124,7 +124,7 @@ impl AudioFrame {
             (windows_core::Interface::vtable(self).LockBuffer)(windows_core::Interface::as_raw(self), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(capacity: u32) -> windows_core::Result<AudioFrame> {
+    pub fn Create(capacity: u32) -> windows_core::Result<Self> {
         Self::IAudioFrameFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), capacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1737,7 +1737,7 @@ impl MediaTimelineController {
     }
     pub fn PositionChanged<P0>(&self, positionchangedeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<MediaTimelineController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1749,7 +1749,7 @@ impl MediaTimelineController {
     }
     pub fn StateChanged<P0>(&self, statechangedeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<MediaTimelineController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1784,7 +1784,7 @@ impl MediaTimelineController {
     }
     pub fn Failed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, MediaTimelineControllerFailedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -1798,7 +1798,7 @@ impl MediaTimelineController {
     }
     pub fn Ended<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<MediaTimelineController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2162,7 +2162,7 @@ impl SystemMediaTransportControls {
     }
     pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsButtonPressedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2174,7 +2174,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PropertyChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsPropertyChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2226,7 +2226,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PlaybackPositionChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PlaybackPositionChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -2240,7 +2240,7 @@ impl SystemMediaTransportControls {
     }
     pub fn PlaybackRateChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -2254,7 +2254,7 @@ impl SystemMediaTransportControls {
     }
     pub fn ShuffleEnabledChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, ShuffleEnabledChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -2268,7 +2268,7 @@ impl SystemMediaTransportControls {
     }
     pub fn AutoRepeatModeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AutoRepeatModeChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -2280,7 +2280,7 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SystemMediaTransportControls> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemMediaTransportControlsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2687,7 +2687,7 @@ impl VideoFrame {
     }
     pub fn CopyToAsync<P0>(&self, frame: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<VideoFrame>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2704,7 +2704,7 @@ impl VideoFrame {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CopyToWithBoundsAsync<P0>(&self, frame: P0, sourcebounds: Option<super::Graphics::Imaging::BitmapBounds>, destinationbounds: Option<super::Graphics::Imaging::BitmapBounds>) -> windows_core::Result<windows_future::IAsyncAction>
     where
-        P0: windows_core::Param<VideoFrame>,
+        P0: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<IVideoFrame2>(self)?;
         let sourcebounds__ = sourcebounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as From<_>>::from);
@@ -2715,28 +2715,28 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<VideoFrame> {
+    pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> windows_core::Result<Self> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), format, width, height, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> windows_core::Result<VideoFrame> {
+    pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> windows_core::Result<Self> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithAlpha)(windows_core::Interface::as_raw(this), format, width, height, alpha, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> windows_core::Result<VideoFrame> {
+    pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> windows_core::Result<Self> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(windows_core::Interface::as_raw(this), format, width, height, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<P3>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: P3) -> windows_core::Result<VideoFrame>
+    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<P3>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: P3) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -2746,7 +2746,7 @@ impl VideoFrame {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CreateWithSoftwareBitmap<P0>(bitmap: P0) -> windows_core::Result<VideoFrame>
+    pub fn CreateWithSoftwareBitmap<P0>(bitmap: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -2756,7 +2756,7 @@ impl VideoFrame {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateWithDirect3D11Surface<P0>(surface: P0) -> windows_core::Result<VideoFrame>
+    pub fn CreateWithDirect3D11Surface<P0>(surface: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {

@@ -1942,7 +1942,7 @@ pub const GLOBAL_LOGGER_NAMEW: windows_core::PCWSTR = windows_core::w!("GlobalLo
 windows_core::imp::define_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 windows_core::imp::interface_hierarchy!(ITraceEvent, windows_core::IUnknown);
 impl ITraceEvent {
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITraceEvent> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

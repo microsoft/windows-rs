@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_c
 impl ContactDataProviderConnection {
     pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListSyncManagerSyncRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17,7 +17,7 @@ impl ContactDataProviderConnection {
     }
     pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListServerSearchReadBatchRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -32,7 +32,7 @@ impl ContactDataProviderConnection {
     }
     pub fn CreateOrUpdateContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListCreateOrUpdateContactRequestEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe {
@@ -46,7 +46,7 @@ impl ContactDataProviderConnection {
     }
     pub fn DeleteContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListDeleteContactRequestEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe {

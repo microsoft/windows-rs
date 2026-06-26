@@ -46,7 +46,7 @@ impl I2cConnectionSettings {
     pub fn SetSharingMode(&self, value: I2cSharingMode) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSharingMode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create(slaveaddress: i32) -> windows_core::Result<I2cConnectionSettings> {
+    pub fn Create(slaveaddress: i32) -> windows_core::Result<Self> {
         Self::II2cConnectionSettingsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), slaveaddress, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -84,7 +84,7 @@ impl I2cController {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<I2cController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>>
     where
         P0: windows_core::Param<Provider::II2cProvider>,
     {
@@ -93,7 +93,7 @@ impl I2cController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<I2cController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -177,7 +177,7 @@ impl I2cDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>
+    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P1: windows_core::Param<I2cConnectionSettings>,
     {

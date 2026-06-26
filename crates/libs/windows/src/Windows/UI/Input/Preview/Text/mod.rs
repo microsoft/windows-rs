@@ -544,7 +544,7 @@ impl KeyboardInputProcessor {
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -556,7 +556,7 @@ impl KeyboardInputProcessor {
     }
     pub fn Deactivated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -568,7 +568,7 @@ impl KeyboardInputProcessor {
     }
     pub fn KeyEventReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, KeyEventReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, KeyEventReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -580,7 +580,7 @@ impl KeyboardInputProcessor {
     }
     pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, FocusEnteredEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -592,7 +592,7 @@ impl KeyboardInputProcessor {
     }
     pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -604,7 +604,7 @@ impl KeyboardInputProcessor {
     }
     pub fn ConversionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ConversionModeChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ConversionModeChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -616,7 +616,7 @@ impl KeyboardInputProcessor {
     }
     pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxInfoChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -628,7 +628,7 @@ impl KeyboardInputProcessor {
     }
     pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxContentChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -640,7 +640,7 @@ impl KeyboardInputProcessor {
     }
     pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -652,7 +652,7 @@ impl KeyboardInputProcessor {
     }
     pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ReconversionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1097,13 +1097,13 @@ impl TextCompositionSegment {
     pub fn SetConversionState(&self, value: super::super::super::Text::Core::CoreTextFormatUpdatingReason) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetConversionState)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Next(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn Next(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Previous(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn Previous(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Previous)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1318,7 +1318,7 @@ impl TextInputProvider {
     }
     pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, FocusEnteredEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1330,7 +1330,7 @@ impl TextInputProvider {
     }
     pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1342,7 +1342,7 @@ impl TextInputProvider {
     }
     pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxInfoChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1354,7 +1354,7 @@ impl TextInputProvider {
     }
     pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxContentChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1366,7 +1366,7 @@ impl TextInputProvider {
     }
     pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1378,7 +1378,7 @@ impl TextInputProvider {
     }
     pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, ReconversionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1390,7 +1390,7 @@ impl TextInputProvider {
     }
     pub fn InputDelegationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, InputDelegationModeChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, InputDelegationModeChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1430,7 +1430,7 @@ impl TextInputService {
             (windows_core::Interface::vtable(self).CreateTextInputProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentThread() -> windows_core::Result<TextInputService> {
+    pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::ITextInputServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

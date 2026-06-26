@@ -793,7 +793,7 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_
 impl PrintWorkflowBackgroundSession {
     pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -805,7 +805,7 @@ impl PrintWorkflowBackgroundSession {
     }
     pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -924,7 +924,7 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_
 impl PrintWorkflowForegroundSession {
     pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -936,7 +936,7 @@ impl PrintWorkflowForegroundSession {
     }
     pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1095,7 +1095,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1107,7 +1107,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn PdlModificationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlModificationRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1122,7 +1122,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobIssueDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobIssueDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobIssueDetectedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession2>(self)?;
         unsafe {
@@ -1136,7 +1136,7 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPrinterJobStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPrinterJobStatusChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession3>(self)?;
         unsafe {
@@ -1382,7 +1382,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn PdlDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlDataAvailableEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1394,7 +1394,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn JobNotification<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobNotificationEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1409,7 +1409,7 @@ impl PrintWorkflowJobUISession {
     }
     pub fn VirtualPrinterUIDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowVirtualPrinterUIEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterUIEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobUISession2>(self)?;
         unsafe {
@@ -1440,7 +1440,7 @@ pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P0>(xpsstream: P0) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
+    pub fn CreateInstance<P0>(xpsstream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
@@ -2351,7 +2351,7 @@ impl PrintWorkflowVirtualPrinterSession {
     }
     pub fn VirtualPrinterDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowVirtualPrinterSession, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -8349,7 +8349,7 @@ impl IWMPLibrary {
     }
     pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPLibrary>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).isIdentical)(windows_core::Interface::as_raw(self), piwmplibrary.param().abi(), pvbool as _).ok() }
     }
@@ -8588,7 +8588,7 @@ windows_core::imp::interface_hierarchy!(IWMPMedia, windows_core::IUnknown, super
 impl IWMPMedia {
     pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPMedia>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).get_isIdentical)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi(), pvbool as _).ok() }
     }
@@ -11138,7 +11138,7 @@ impl IWMPPlaylist {
     }
     pub unsafe fn get_isIdentical<P0>(&self, piwmpplaylist: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPPlaylist>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).get_isIdentical)(windows_core::Interface::as_raw(self), piwmpplaylist.param().abi(), pvbool as _).ok() }
     }
@@ -12546,7 +12546,7 @@ windows_core::imp::interface_hierarchy!(IWMPStringCollection2, windows_core::IUn
 impl IWMPStringCollection2 {
     pub unsafe fn isIdentical<P0>(&self, piwmpstringcollection2: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPStringCollection2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).isIdentical)(windows_core::Interface::as_raw(self), piwmpstringcollection2.param().abi(), pvbool as _).ok() }
     }
@@ -12882,7 +12882,7 @@ impl IWMPSyncDevice {
     }
     pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPSyncDevice>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).isIdentical)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pvbool as _).ok() }
     }

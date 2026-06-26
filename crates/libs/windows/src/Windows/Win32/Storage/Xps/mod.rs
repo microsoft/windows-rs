@@ -446,7 +446,7 @@ impl IXpsOMCanvas {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDictionaryResource)(windows_core::Interface::as_raw(self), remotedictionaryresource.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMCanvas> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1061,7 +1061,7 @@ impl IXpsOMCoreProperties {
     {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), version.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMCoreProperties> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1679,7 +1679,7 @@ impl IXpsOMDictionary {
     {
         unsafe { (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), index, key.param().abi(), entry.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMDictionary> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1881,7 +1881,7 @@ impl IXpsOMDocument {
             (windows_core::Interface::vtable(self).GetSignatureBlockResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMDocument> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2647,7 +2647,7 @@ impl IXpsOMGeometry {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTransformLookup)(windows_core::Interface::as_raw(self), lookup.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMGeometry> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2855,7 +2855,7 @@ impl IXpsOMGeometryFigure {
             (windows_core::Interface::vtable(self).GetSegmentStrokePattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMGeometryFigure> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3328,7 +3328,7 @@ impl IXpsOMGlyphs {
             (windows_core::Interface::vtable(self).GetGlyphsEditor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMGlyphs> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4246,7 +4246,7 @@ impl IXpsOMGradientStop {
     {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMGradientStop> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4503,7 +4503,7 @@ impl IXpsOMImageBrush {
     {
         unsafe { (windows_core::Interface::vtable(self).SetColorProfileResource)(windows_core::Interface::as_raw(self), colorprofileresource.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMImageBrush> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4867,7 +4867,7 @@ impl IXpsOMLinearGradientBrush {
     pub unsafe fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEndPoint)(windows_core::Interface::as_raw(self), endpoint).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMLinearGradientBrush> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4973,7 +4973,7 @@ impl IXpsOMMatrixTransform {
     pub unsafe fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMatrix)(windows_core::Interface::as_raw(self), matrix).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMMatrixTransform> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7099,7 +7099,7 @@ impl IXpsOMPage {
             (windows_core::Interface::vtable(self).GenerateUnusedLookupKey)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMPage> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7566,7 +7566,7 @@ impl IXpsOMPageReference {
             (windows_core::Interface::vtable(self).HasRestrictedFonts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMPageReference> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8447,7 +8447,7 @@ impl IXpsOMPath {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFillBrushLookup)(windows_core::Interface::as_raw(self), lookup.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMPath> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9042,7 +9042,7 @@ impl IXpsOMRadialGradientBrush {
     pub unsafe fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGradientOrigin)(windows_core::Interface::as_raw(self), origin).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMRadialGradientBrush> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9800,7 +9800,7 @@ impl IXpsOMSolidColorBrush {
     {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color, colorprofile.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMSolidColorBrush> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10763,7 +10763,7 @@ impl IXpsOMVisualBrush {
     {
         unsafe { (windows_core::Interface::vtable(self).SetVisualLookup)(windows_core::Interface::as_raw(self), lookup.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IXpsOMVisualBrush> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

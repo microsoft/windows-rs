@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(CoreFrameworkInputView, windows_core::IU
 impl CoreFrameworkInputView {
     pub fn PrimaryViewAnimationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreFrameworkInputViewAnimationStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17,7 +17,7 @@ impl CoreFrameworkInputView {
     }
     pub fn OcclusionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreFrameworkInputViewOcclusionsChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -27,7 +27,7 @@ impl CoreFrameworkInputView {
     pub fn RemoveOcclusionsChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveOcclusionsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<CoreFrameworkInputView>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::UIContext>,
     {
@@ -36,7 +36,7 @@ impl CoreFrameworkInputView {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<CoreFrameworkInputView> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -132,7 +132,7 @@ windows_core::imp::interface_hierarchy!(CoreInputView, windows_core::IUnknown, w
 impl CoreInputView {
     pub fn OcclusionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewOcclusionsChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -162,7 +162,7 @@ impl CoreInputView {
     }
     pub fn XYFocusTransferringFromPrimaryView<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewTransferringXYFocusEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -176,7 +176,7 @@ impl CoreInputView {
     }
     pub fn XYFocusTransferredToPrimaryView<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -218,7 +218,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewShowing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewShowingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
@@ -232,7 +232,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewHiding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewHidingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
@@ -253,7 +253,7 @@ impl CoreInputView {
     }
     pub fn SupportedKindsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
@@ -267,7 +267,7 @@ impl CoreInputView {
     }
     pub fn PrimaryViewAnimationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreInputViewAnimationStartingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
@@ -279,13 +279,13 @@ impl CoreInputView {
         let this = &windows_core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePrimaryViewAnimationStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<CoreInputView> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICoreInputViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<CoreInputView>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::UIContext>,
     {
@@ -832,7 +832,7 @@ impl UISettingsController {
     pub fn SetTextScaleFactor(&self, value: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTextScaleFactor)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn RequestDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<UISettingsController>> {
+    pub fn RequestDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

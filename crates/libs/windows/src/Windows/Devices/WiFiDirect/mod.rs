@@ -347,7 +347,7 @@ impl WiFiDirectAdvertisementPublisher {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectAdvertisementPublisher, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -451,7 +451,7 @@ impl WiFiDirectConnectionListener {
     }
     pub fn ConnectionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectConnectionListener, WiFiDirectConnectionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WiFiDirectConnectionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -638,7 +638,7 @@ impl WiFiDirectDevice {
     }
     pub fn ConnectionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -661,7 +661,7 @@ impl WiFiDirectDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IWiFiDirectDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -674,7 +674,7 @@ impl WiFiDirectDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn FromIdAsync2<P1>(deviceid: &windows_core::HSTRING, connectionparameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectDevice>>
+    pub fn FromIdAsync2<P1>(deviceid: &windows_core::HSTRING, connectionparameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P1: windows_core::Param<WiFiDirectConnectionParameters>,
     {
@@ -783,7 +783,7 @@ impl WiFiDirectInformationElement {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(buffer: P0) -> windows_core::Result<windows_collections::IVector<WiFiDirectInformationElement>>
+    pub fn CreateFromBuffer<P0>(buffer: P0) -> windows_core::Result<windows_collections::IVector<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -793,7 +793,7 @@ impl WiFiDirectInformationElement {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn CreateFromDeviceInformation<P0>(deviceinformation: P0) -> windows_core::Result<windows_collections::IVector<WiFiDirectInformationElement>>
+    pub fn CreateFromDeviceInformation<P0>(deviceinformation: P0) -> windows_core::Result<windows_collections::IVector<Self>>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {

@@ -162,7 +162,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(self).DenySessionAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(useraccountid), core::mem::transmute_copy(sessionid), sessionauthenticationtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<MicrosoftAccountMultiFactorAuthenticationManager> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IMicrosoftAccountMultiFactorAuthenticatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -294,7 +294,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> windows_core::Result<LowLevelDevicesAggregateProvider>
+    pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<Adc::Provider::IAdcControllerProvider>,
         P1: windows_core::Param<Pwm::Provider::IPwmControllerProvider>,

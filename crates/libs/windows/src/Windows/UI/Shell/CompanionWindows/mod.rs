@@ -20,7 +20,7 @@ impl CompanionWindowCoordinator {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CompanionWindowCoordinator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -30,7 +30,7 @@ impl CompanionWindowCoordinator {
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForWindow(windowid: super::super::WindowId) -> windows_core::Result<CompanionWindowCoordinator> {
+    pub fn GetForWindow(windowid: super::super::WindowId) -> windows_core::Result<Self> {
         Self::ICompanionWindowCoordinatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -79,7 +79,7 @@ impl CompanionWindowRequest {
             (windows_core::Interface::vtable(self).RequestingWindowId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetFromLaunchUri<P0>(launchuri: P0) -> windows_core::Result<CompanionWindowRequest>
+    pub fn GetFromLaunchUri<P0>(launchuri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {

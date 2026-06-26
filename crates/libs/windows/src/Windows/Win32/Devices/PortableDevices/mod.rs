@@ -137,7 +137,7 @@ impl IEnumPortableDeviceConnectors {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumPortableDeviceConnectors> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -216,7 +216,7 @@ impl IEnumPortableDeviceObjectIDs {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumPortableDeviceObjectIDs> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3178,11 +3178,11 @@ impl IPortableDeviceValues {
     }
     pub unsafe fn SetIPortableDeviceValuesValue<P1>(&self, key: *const super::super::Foundation::PROPERTYKEY, pvalue: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IPortableDeviceValues>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIPortableDeviceValuesValue)(windows_core::Interface::as_raw(self), key, pvalue.param().abi()).ok() }
     }
-    pub unsafe fn GetIPortableDeviceValuesValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<IPortableDeviceValues> {
+    pub unsafe fn GetIPortableDeviceValuesValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIPortableDeviceValuesValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

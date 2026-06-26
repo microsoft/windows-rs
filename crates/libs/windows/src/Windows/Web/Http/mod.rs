@@ -15,7 +15,7 @@ impl HttpBufferContent {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P0>(content: P0) -> windows_core::Result<HttpBufferContent>
+    pub fn CreateFromBuffer<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -25,7 +25,7 @@ impl HttpBufferContent {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBufferWithOffset<P0>(content: P0, offset: u32, count: u32) -> windows_core::Result<HttpBufferContent>
+    pub fn CreateFromBufferWithOffset<P0>(content: P0, offset: u32, count: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -339,7 +339,7 @@ impl HttpClient {
         unsafe { (windows_core::Interface::vtable(this).SetDefaultPrivacyAnnotation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Web_Http_Filters")]
-    pub fn Create<P0>(filter: P0) -> windows_core::Result<HttpClient>
+    pub fn Create<P0>(filter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<Filters::IHttpFilter>,
     {
@@ -447,7 +447,7 @@ impl HttpCookie {
     pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create(name: &windows_core::HSTRING, domain: &windows_core::HSTRING, path: &windows_core::HSTRING) -> windows_core::Result<HttpCookie> {
+    pub fn Create(name: &windows_core::HSTRING, domain: &windows_core::HSTRING, path: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpCookieFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(domain), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -654,7 +654,7 @@ impl HttpFormUrlEncodedContent {
             (windows_core::Interface::vtable(self).WriteToStreamAsync)(windows_core::Interface::as_raw(self), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(content: P0) -> windows_core::Result<HttpFormUrlEncodedContent>
+    pub fn Create<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -881,49 +881,49 @@ impl HttpMethod {
             (windows_core::Interface::vtable(self).Method)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(method: &windows_core::HSTRING) -> windows_core::Result<HttpMethod> {
+    pub fn Create(method: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpMethodFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(method), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Delete() -> windows_core::Result<HttpMethod> {
+    pub fn Delete() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delete)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Get() -> windows_core::Result<HttpMethod> {
+    pub fn Get() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Get)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Head() -> windows_core::Result<HttpMethod> {
+    pub fn Head() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Head)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Options() -> windows_core::Result<HttpMethod> {
+    pub fn Options() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Patch() -> windows_core::Result<HttpMethod> {
+    pub fn Patch() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Patch)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Post() -> windows_core::Result<HttpMethod> {
+    pub fn Post() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Post)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Put() -> windows_core::Result<HttpMethod> {
+    pub fn Put() -> windows_core::Result<Self> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Put)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1030,13 +1030,13 @@ impl HttpMultipartContent {
         let this = &windows_core::Interface::cast::<IHttpMultipartContent>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), content.param().abi()).ok() }
     }
-    pub fn CreateWithSubtype(subtype: &windows_core::HSTRING) -> windows_core::Result<HttpMultipartContent> {
+    pub fn CreateWithSubtype(subtype: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithSubtype)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithSubtypeAndBoundary(subtype: &windows_core::HSTRING, boundary: &windows_core::HSTRING) -> windows_core::Result<HttpMultipartContent> {
+    pub fn CreateWithSubtypeAndBoundary(subtype: &windows_core::HSTRING, boundary: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithSubtypeAndBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subtype), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1174,7 +1174,7 @@ impl HttpMultipartFormDataContent {
         let this = &windows_core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddWithNameAndFileName)(windows_core::Interface::as_raw(this), content.param().abi(), core::mem::transmute_copy(name), core::mem::transmute_copy(filename)).ok() }
     }
-    pub fn CreateWithBoundary(boundary: &windows_core::HSTRING) -> windows_core::Result<HttpMultipartFormDataContent> {
+    pub fn CreateWithBoundary(boundary: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpMultipartFormDataContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithBoundary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1347,7 +1347,7 @@ impl HttpRequestMessage {
         let this = &windows_core::Interface::cast::<IHttpRequestMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPrivacyAnnotation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create<P0, P1>(method: P0, uri: P1) -> windows_core::Result<HttpRequestMessage>
+    pub fn Create<P0, P1>(method: P0, uri: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<HttpMethod>,
         P1: windows_core::Param<super::super::Foundation::Uri>,
@@ -1525,13 +1525,13 @@ impl HttpResponseMessage {
     pub fn SetVersion(&self, value: HttpVersion) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn EnsureSuccessStatusCode(&self) -> windows_core::Result<HttpResponseMessage> {
+    pub fn EnsureSuccessStatusCode(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnsureSuccessStatusCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(statuscode: HttpStatusCode) -> windows_core::Result<HttpResponseMessage> {
+    pub fn Create(statuscode: HttpStatusCode) -> windows_core::Result<Self> {
         Self::IHttpResponseMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), statuscode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1706,7 +1706,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromInputStream<P0>(content: P0) -> windows_core::Result<HttpStreamContent>
+    pub fn CreateFromInputStream<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
@@ -1798,21 +1798,21 @@ impl HttpStringContent {
             (windows_core::Interface::vtable(self).WriteToStreamAsync)(windows_core::Interface::as_raw(self), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromString(content: &windows_core::HSTRING) -> windows_core::Result<HttpStringContent> {
+    pub fn CreateFromString(content: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStringWithEncoding(content: &windows_core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding) -> windows_core::Result<HttpStringContent> {
+    pub fn CreateFromStringWithEncoding(content: &windows_core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding) -> windows_core::Result<Self> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromStringWithEncoding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStringWithEncodingAndMediaType(content: &windows_core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: &windows_core::HSTRING) -> windows_core::Result<HttpStringContent> {
+    pub fn CreateFromStringWithEncodingAndMediaType(content: &windows_core::HSTRING, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromStringWithEncodingAndMediaType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), encoding, core::mem::transmute_copy(mediatype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

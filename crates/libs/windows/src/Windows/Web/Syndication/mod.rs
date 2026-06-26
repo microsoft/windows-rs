@@ -585,7 +585,7 @@ impl ISyndicationNode {
             (windows_core::Interface::vtable(self).AttributeExtensions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElementExtensions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1126,7 +1126,7 @@ impl SyndicationAttribute {
     pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateSyndicationAttribute(attributename: &windows_core::HSTRING, attributenamespace: &windows_core::HSTRING, attributevalue: &windows_core::HSTRING) -> windows_core::Result<SyndicationAttribute> {
+    pub fn CreateSyndicationAttribute(attributename: &windows_core::HSTRING, attributenamespace: &windows_core::HSTRING, attributevalue: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationAttributeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationAttribute)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(attributename), core::mem::transmute_copy(attributenamespace), core::mem::transmute_copy(attributevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1189,13 +1189,13 @@ impl SyndicationCategory {
     pub fn SetTerm(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTerm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateSyndicationCategory(term: &windows_core::HSTRING) -> windows_core::Result<SyndicationCategory> {
+    pub fn CreateSyndicationCategory(term: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationCategoryFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationCategory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(term), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationCategoryEx(term: &windows_core::HSTRING, scheme: &windows_core::HSTRING, label: &windows_core::HSTRING) -> windows_core::Result<SyndicationCategory> {
+    pub fn CreateSyndicationCategoryEx(term: &windows_core::HSTRING, scheme: &windows_core::HSTRING, label: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationCategoryFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationCategoryEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(term), core::mem::transmute_copy(scheme), core::mem::transmute_copy(label), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1378,7 +1378,7 @@ impl SyndicationClient {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateSyndicationClient<P0>(servercredential: P0) -> windows_core::Result<SyndicationClient>
+    pub fn CreateSyndicationClient<P0>(servercredential: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
@@ -1429,13 +1429,13 @@ impl SyndicationContent {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSourceUri)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateSyndicationContent(text: &windows_core::HSTRING, r#type: SyndicationTextType) -> windows_core::Result<SyndicationContent> {
+    pub fn CreateSyndicationContent(text: &windows_core::HSTRING, r#type: SyndicationTextType) -> windows_core::Result<Self> {
         Self::ISyndicationContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationContentWithSourceUri<P0>(sourceuri: P0) -> windows_core::Result<SyndicationContent>
+    pub fn CreateSyndicationContentWithSourceUri<P0>(sourceuri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1786,7 +1786,7 @@ impl SyndicationFeed {
     {
         unsafe { (windows_core::Interface::vtable(self).LoadFromXml)(windows_core::Interface::as_raw(self), feeddocument.param().abi()).ok() }
     }
-    pub fn CreateSyndicationFeed<P2>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, uri: P2) -> windows_core::Result<SyndicationFeed>
+    pub fn CreateSyndicationFeed<P2>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, uri: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1953,7 +1953,7 @@ impl SyndicationGenerator {
     pub fn SetVersion(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateSyndicationGenerator(text: &windows_core::HSTRING) -> windows_core::Result<SyndicationGenerator> {
+    pub fn CreateSyndicationGenerator(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationGeneratorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationGenerator)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2226,7 +2226,7 @@ impl SyndicationItem {
     {
         unsafe { (windows_core::Interface::vtable(self).LoadFromXml)(windows_core::Interface::as_raw(self), itemdocument.param().abi()).ok() }
     }
-    pub fn CreateSyndicationItem<P1, P2>(title: &windows_core::HSTRING, content: P1, uri: P2) -> windows_core::Result<SyndicationItem>
+    pub fn CreateSyndicationItem<P1, P2>(title: &windows_core::HSTRING, content: P1, uri: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<SyndicationContent>,
         P2: windows_core::Param<super::super::Foundation::Uri>,
@@ -2403,7 +2403,7 @@ impl SyndicationLink {
     pub fn SetResourceLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResourceLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateSyndicationLink<P0>(uri: P0) -> windows_core::Result<SyndicationLink>
+    pub fn CreateSyndicationLink<P0>(uri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2412,7 +2412,7 @@ impl SyndicationLink {
             (windows_core::Interface::vtable(this).CreateSyndicationLink)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationLinkEx<P0>(uri: P0, relationship: &windows_core::HSTRING, title: &windows_core::HSTRING, mediatype: &windows_core::HSTRING, length: u32) -> windows_core::Result<SyndicationLink>
+    pub fn CreateSyndicationLinkEx<P0>(uri: P0, relationship: &windows_core::HSTRING, title: &windows_core::HSTRING, mediatype: &windows_core::HSTRING, length: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2597,7 +2597,7 @@ impl SyndicationNode {
             (windows_core::Interface::vtable(self).GetXmlDocument)(windows_core::Interface::as_raw(self), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateSyndicationNode(nodename: &windows_core::HSTRING, nodenamespace: &windows_core::HSTRING, nodevalue: &windows_core::HSTRING) -> windows_core::Result<SyndicationNode> {
+    pub fn CreateSyndicationNode(nodename: &windows_core::HSTRING, nodenamespace: &windows_core::HSTRING, nodevalue: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationNodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodename), core::mem::transmute_copy(nodenamespace), core::mem::transmute_copy(nodevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2743,13 +2743,13 @@ impl SyndicationPerson {
     {
         unsafe { (windows_core::Interface::vtable(self).SetUri)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateSyndicationPerson(name: &windows_core::HSTRING) -> windows_core::Result<SyndicationPerson> {
+    pub fn CreateSyndicationPerson(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationPersonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationPerson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationPersonEx<P2>(name: &windows_core::HSTRING, email: &windows_core::HSTRING, uri: P2) -> windows_core::Result<SyndicationPerson>
+    pub fn CreateSyndicationPersonEx<P2>(name: &windows_core::HSTRING, email: &windows_core::HSTRING, uri: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2900,13 +2900,13 @@ impl SyndicationText {
     {
         unsafe { (windows_core::Interface::vtable(self).SetXml)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateSyndicationText(text: &windows_core::HSTRING) -> windows_core::Result<SyndicationText> {
+    pub fn CreateSyndicationText(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISyndicationTextFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationTextEx(text: &windows_core::HSTRING, r#type: SyndicationTextType) -> windows_core::Result<SyndicationText> {
+    pub fn CreateSyndicationTextEx(text: &windows_core::HSTRING, r#type: SyndicationTextType) -> windows_core::Result<Self> {
         Self::ISyndicationTextFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSyndicationTextEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

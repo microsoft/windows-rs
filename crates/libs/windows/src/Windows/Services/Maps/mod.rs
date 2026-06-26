@@ -23,7 +23,7 @@ impl EnhancedWaypoint {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<P0>(point: P0, kind: WaypointKind) -> windows_core::Result<EnhancedWaypoint>
+    pub fn Create<P0>(point: P0, kind: WaypointKind) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -1752,7 +1752,7 @@ impl PlaceInfo {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<P0>(referencepoint: P0) -> windows_core::Result<PlaceInfo>
+    pub fn Create<P0>(referencepoint: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -1762,7 +1762,7 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateWithGeopointAndOptions<P0, P1>(referencepoint: P0, options: P1) -> windows_core::Result<PlaceInfo>
+    pub fn CreateWithGeopointAndOptions<P0, P1>(referencepoint: P0, options: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<PlaceInfoCreateOptions>,
@@ -1772,14 +1772,14 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateWithGeopointAndOptions)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIdentifier(identifier: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromIdentifier(identifier: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromIdentifier)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P2: windows_core::Param<PlaceInfoCreateOptions>,
@@ -1789,7 +1789,7 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateFromIdentifierWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), defaultpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromMapLocation<P0>(location: P0) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromMapLocation<P0>(location: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<MapLocation>,
     {
@@ -1804,13 +1804,13 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).IsShowSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateFromAddress(displayaddress: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromAddress(displayaddress: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromAddressWithName(displayaddress: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromAddressWithName(displayaddress: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromAddressWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

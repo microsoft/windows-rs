@@ -152,7 +152,7 @@ impl Print3DWorkflow {
     }
     pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrintRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -164,7 +164,7 @@ impl Print3DWorkflow {
     }
     pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrinterChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
@@ -347,7 +347,7 @@ impl PrintTaskConfiguration {
     }
     pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintTaskConfigurationSaveRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -88,13 +88,13 @@ impl IInkAnalysisNode {
             (windows_core::Interface::vtable(self).RotatedBoundingRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Children(&self) -> windows_core::Result<windows_collections::IVectorView<IInkAnalysisNode>> {
+    pub fn Children(&self) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Parent(&self) -> windows_core::Result<IInkAnalysisNode> {
+    pub fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

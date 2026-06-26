@@ -153,7 +153,7 @@ pub struct MI_ClassDecl {
     pub numProperties: u32,
     pub size: u32,
     pub superClass: *const u16,
-    pub superClassDecl: *const MI_ClassDecl,
+    pub superClassDecl: *const Self,
     pub methods: *const *const MI_MethodDecl,
     pub numMethods: u32,
     pub schema: *const MI_SchemaDecl,

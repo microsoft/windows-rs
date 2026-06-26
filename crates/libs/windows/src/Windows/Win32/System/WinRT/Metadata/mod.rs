@@ -1699,7 +1699,7 @@ impl IMetaDataEmit {
         P0: windows_core::Param<IMetaDataAssemblyImport>,
         P3: windows_core::Param<IMetaDataImport>,
         P6: windows_core::Param<IMetaDataAssemblyEmit>,
-        P7: windows_core::Param<IMetaDataEmit>,
+        P7: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).TranslateSigWithScope)(windows_core::Interface::as_raw(self), passemimport.param().abi(), pbhashvalue, cbhashvalue, import.param().abi(), pbsigblob as _, cbsigblob, passememit.param().abi(), emit.param().abi(), pvtranslatedsig as _, cbtranslatedsigmax, pcbtranslatedsig as _).ok() }
     }
