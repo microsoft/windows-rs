@@ -2,7 +2,7 @@
 
 The [windows-link](https://crates.io/crates/windows-link) crate provides the `link` macro that simplifies linking. The `link` macro is much the same as the one provided by [windows-targets](https://crates.io/crates/windows-targets) but uses `raw-dylib` and thus does not require import lib files.
 
-* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/readme.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
