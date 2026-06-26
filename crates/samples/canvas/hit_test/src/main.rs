@@ -19,6 +19,9 @@ fn app(cx: &mut RenderCx) -> Element {
     // `use_ref` does not trigger a re-render; the per-frame draw loop reads it.
     let pointer = cx.use_ref(None::<(f32, f32)>);
 
+    // Cache the star geometry; rebuilding a `Path` every frame is wasteful.
+    let star_cache = cx.use_ref(None::<(f32, f32, Path)>);
+
     let on_move = cx.use_callback((), {
         let pointer = pointer.clone();
         move |info: PointerEventInfo| pointer.set(Some((info.x as f32, info.y as f32)))
@@ -36,7 +39,20 @@ fn app(cx: &mut RenderCx) -> Element {
             let center_y = ctx.height / 2.0;
             let radius = center_x.min(center_y) * 0.8;
 
-            let Ok(star) = build_star(ctx.device(), center_x, center_y, radius) else {
+            // Rebuild the star only on resize or device loss, not every frame.
+            let stale = ctx.device_changed()
+                || match &*star_cache.borrow() {
+                    Some((w, h, _)) => {
+                        (*w - ctx.width).abs() > 0.5 || (*h - ctx.height).abs() > 0.5
+                    }
+                    None => true,
+                };
+            if stale && let Ok(path) = build_star(ctx.device(), center_x, center_y, radius) {
+                star_cache.set(Some((ctx.width, ctx.height, path)));
+            }
+
+            let cache = star_cache.borrow();
+            let Some((_, _, star)) = &*cache else {
                 return;
             };
 
@@ -55,7 +71,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 ColorF::new(1.0, 0.8, 0.0, 1.0)
             };
             if let Ok(brush) = ctx.create_solid_brush(fill) {
-                ctx.fill_path(&star, &brush);
+                ctx.fill_path(star, &brush);
             }
 
             if let Ok(format) = TextFormat::with_weight("Segoe UI", 18.0, FontWeight::BOLD)

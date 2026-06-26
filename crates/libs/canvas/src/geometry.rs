@@ -29,7 +29,8 @@ impl Path {
         unsafe {
             self.raw
                 .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE)
-                .is_ok_and(|contains| contains.as_bool())
+                .unwrap()
+                .as_bool()
         }
     }
 
@@ -44,13 +45,14 @@ impl Path {
                     None,
                     DEFAULT_FLATTENING_TOLERANCE,
                 )
-                .is_ok_and(|contains| contains.as_bool())
+                .unwrap()
+                .as_bool()
         }
     }
 
     /// Returns the axis-aligned bounding rectangle of the path.
     pub fn compute_bounds(&self) -> Rect {
-        let bounds = unsafe { self.raw.GetBounds(None).unwrap_or_default() };
+        let bounds = unsafe { self.raw.GetBounds(None).unwrap() };
         Rect {
             left: bounds.left,
             top: bounds.top,
