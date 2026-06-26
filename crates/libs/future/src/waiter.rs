@@ -1,4 +1,3 @@
-#[cfg(windows)]
 mod imp {
     use super::super::*;
 
@@ -49,41 +48,4 @@ mod imp {
     }
 }
 
-// Non-Windows fallback using std primitives.
-#[cfg(all(not(windows), feature = "std"))]
-mod imp {
-    pub struct Waiter(std::sync::Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>);
-
-    pub struct WaiterSignaler(std::sync::Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>);
-
-    impl Waiter {
-        pub fn new() -> crate::Result<(Self, WaiterSignaler)> {
-            let state =
-                std::sync::Arc::new((std::sync::Mutex::new(false), std::sync::Condvar::new()));
-            Ok((Self(state.clone()), WaiterSignaler(state)))
-        }
-
-        pub fn wait(self) {
-            let (lock, cvar) = &*self.0;
-            let mut signaled = lock.lock().unwrap();
-            while !*signaled {
-                signaled = cvar.wait(signaled).unwrap();
-            }
-        }
-    }
-
-    impl WaiterSignaler {
-        /// # Safety
-        /// Matches the Windows signature. The non-Windows implementation is itself safe because the
-        /// state is reference counted, but the function is kept `unsafe` for API parity.
-        pub unsafe fn signal(&self) {
-            let (lock, cvar) = &*self.0;
-            let mut signaled = lock.lock().unwrap();
-            *signaled = true;
-            cvar.notify_all();
-        }
-    }
-}
-
-#[cfg(any(windows, feature = "std"))]
 pub use imp::*;
