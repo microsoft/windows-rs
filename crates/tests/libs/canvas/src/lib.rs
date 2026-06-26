@@ -832,4 +832,35 @@ mod tests {
         )));
         assert!(!check_device_lost(&other));
     }
+
+    #[test]
+    fn new_or_warp_produces_working_device() {
+        let device = GpuDevice::new_or_warp().unwrap();
+        let chain = device.create_swap_chain(64, 64).unwrap();
+        let _raw = chain.raw_swap_chain();
+    }
+
+    #[test]
+    fn set_dpi_recreates_target_and_still_draws() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+        chain.set_dpi(192.0, 192.0);
+        {
+            let session = chain.begin_draw().unwrap();
+            session.clear(ColorF::WHITE);
+        }
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn set_composition_scale_is_applied() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+        chain.set_composition_scale(2.0, 2.0);
+        {
+            let session = chain.begin_draw().unwrap();
+            session.clear(ColorF::BLACK);
+        }
+        chain.present().unwrap();
+    }
 }

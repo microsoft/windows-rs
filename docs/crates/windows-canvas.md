@@ -185,6 +185,11 @@ optional `reactor` feature integrates with `windows-reactor` through
   its device and resources on the next frame. The classifier is exported as
   `is_device_lost(HRESULT)` / `check_device_lost(&Result<T>)` for callers driving
   their own draw loop.
+- **Hardware-with-WARP fallback** — `GpuDevice::new_or_warp()` tries a hardware
+  device and falls back to the WARP software rasterizer when no GPU is available
+  (headless sessions, VMs, RDP). `animated_canvas` uses it on both the initial
+  mount and device-lost rebuild so the render loop still produces output on
+  GPU-less machines instead of silently drawing nothing.
 
 ### Input and hit-testing
 
@@ -320,8 +325,8 @@ which is the natural place to motivate keyboard (phase 3) with a concrete need.
 
 ### Testing
 
-Tests render with the WARP software rasterizer, so they need no GPU:
-`cargo test -p windows-canvas`.
+Tests render with the WARP software rasterizer, so they need no GPU. The
+integration suite lives in the `test_canvas` crate: `cargo test -p test_canvas`.
 
 ### Future work — Win2D parity
 

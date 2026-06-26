@@ -89,7 +89,6 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn mount_error_boundary(&mut self, eb: &ErrorBoundaryElement) -> Option<ControlId> {
-        let _expect = diagnostics::ExpectPanicGuard::new();
         let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&eb.child)));
         match result {
             Ok(id) => id,
@@ -113,7 +112,6 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) -> Option<ControlId> {
         if self.error_boundary_fallbacks.remove(&id) {
             self.unmount(id);
-            let _expect = diagnostics::ExpectPanicGuard::new();
             let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&new.child)));
             return match result {
                 Ok(nid) => nid,
@@ -129,7 +127,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             };
         }
 
-        let _expect = diagnostics::ExpectPanicGuard::new();
         let result =
             std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
         match result {

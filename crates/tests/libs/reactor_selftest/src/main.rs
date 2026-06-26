@@ -4,7 +4,7 @@
 use std::io::{IsTerminal, Write};
 use std::time::Duration;
 
-use windows::core::Result;
+use windows_core::Result;
 
 use windows_reactor::*;
 

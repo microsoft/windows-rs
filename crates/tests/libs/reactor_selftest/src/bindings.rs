@@ -1,9 +1,15 @@
+windows_core::link!("user32.dll" "system" fn BringWindowToTop(hwnd : HWND) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn ClientToScreen(hwnd : HWND, lppoint : *mut POINT) -> windows_core::BOOL);
+windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
+windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : *mut RECT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : SYSTEM_METRICS_INDEX) -> i32);
 windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapInitialize2(majorminorversion : u32, versiontag : *const u16, minversion : PACKAGE_VERSION, options : MddBootstrapInitializeOptions) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : SET_WINDOW_POS_FLAGS) -> windows_core::BOOL);
 #[repr(transparent)]
@@ -1560,6 +1566,8 @@ impl windows_core::RuntimeName for ButtonBaseAutomationPeer {
 }
 unsafe impl Send for ButtonBaseAutomationPeer {}
 unsafe impl Sync for ButtonBaseAutomationPeer {}
+pub type CLSCTX = u32;
+pub const CLSCTX_INPROC_SERVER: CLSCTX = 1;
 pub type COINIT = i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(transparent)]
@@ -11360,6 +11368,193 @@ pub struct IInfoBarFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IInjectedInputGamepadInfo,
+    IInjectedInputGamepadInfo_Vtbl,
+    0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad
+);
+impl windows_core::RuntimeType for IInjectedInputGamepadInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInjectedInputGamepadInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IInjectedInputKeyboardInfo,
+    IInjectedInputKeyboardInfo_Vtbl,
+    0x4b46d140_2b6a_5ffa_7eae_bd077b052acd
+);
+impl windows_core::RuntimeType for IInjectedInputKeyboardInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInjectedInputKeyboardInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IInjectedInputMouseInfo,
+    IInjectedInputMouseInfo_Vtbl,
+    0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d
+);
+impl windows_core::RuntimeType for IInjectedInputMouseInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IInjectedInputMouseInfo {
+    pub(crate) fn MouseOptions(&self) -> windows_core::Result<InjectedInputMouseOptions> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MouseOptions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetMouseOptions(
+        &self,
+        value: InjectedInputMouseOptions,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMouseOptions)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn MouseData(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MouseData)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetMouseData(&self, value: u32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMouseData)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn DeltaY(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DeltaY)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetDeltaY(&self, value: i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDeltaY)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn DeltaX(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DeltaX)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetDeltaX(&self, value: i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDeltaX)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn TimeOffsetInMilliseconds(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).TimeOffsetInMilliseconds)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetTimeOffsetInMilliseconds(&self, value: u32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTimeOffsetInMilliseconds)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IInjectedInputMouseInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MouseOptions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut InjectedInputMouseOptions,
+    ) -> windows_core::HRESULT,
+    pub SetMouseOptions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        InjectedInputMouseOptions,
+    ) -> windows_core::HRESULT,
+    pub MouseData:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetMouseData:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub DeltaY:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetDeltaY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub DeltaX:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetDeltaX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub TimeOffsetInMilliseconds:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetTimeOffsetInMilliseconds:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IInjectedInputPenInfo,
+    IInjectedInputPenInfo_Vtbl,
+    0x6b40ad03_ca1e_5527_7e02_2828540bb1d4
+);
+impl windows_core::RuntimeType for IInjectedInputPenInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInjectedInputPenInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IInjectedInputTouchInfo,
+    IInjectedInputTouchInfo_Vtbl,
+    0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28
+);
+impl windows_core::RuntimeType for IInjectedInputTouchInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInjectedInputTouchInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IInline,
     IInline_Vtbl,
     0x813d427a_8980_5a79_a8fa_f27919cfb24f
@@ -11371,6 +11566,238 @@ impl windows_core::RuntimeType for IInline {
 #[repr(C)]
 pub struct IInline_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IInputInjector,
+    IInputInjector_Vtbl,
+    0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18
+);
+impl windows_core::RuntimeType for IInputInjector {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IInputInjector {
+    pub(crate) fn InjectKeyboardInput<P0>(&self, input: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputKeyboardInfo>>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectKeyboardInput)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InjectMouseInput<P0>(&self, input: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputMouseInfo>>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectMouseInput)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InitializeTouchInjection(
+        &self,
+        visualmode: InjectedInputVisualizationMode,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeTouchInjection)(
+                windows_core::Interface::as_raw(self),
+                visualmode,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InjectTouchInput<P0>(&self, input: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<InjectedInputTouchInfo>>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectTouchInput)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn UninitializeTouchInjection(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).UninitializeTouchInjection)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InitializePenInjection(
+        &self,
+        visualmode: InjectedInputVisualizationMode,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializePenInjection)(
+                windows_core::Interface::as_raw(self),
+                visualmode,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InjectPenInput<P0>(&self, input: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<InjectedInputPenInfo>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectPenInput)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn UninitializePenInjection(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).UninitializePenInjection)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InjectShortcut(
+        &self,
+        shortcut: InjectedInputShortcut,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectShortcut)(
+                windows_core::Interface::as_raw(self),
+                shortcut,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IInputInjector_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InjectKeyboardInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub InjectMouseInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub InitializeTouchInjection: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        InjectedInputVisualizationMode,
+    ) -> windows_core::HRESULT,
+    pub InjectTouchInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub UninitializeTouchInjection:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InitializePenInjection: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        InjectedInputVisualizationMode,
+    ) -> windows_core::HRESULT,
+    pub InjectPenInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub UninitializePenInjection:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InjectShortcut: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        InjectedInputShortcut,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IInputInjector2,
+    IInputInjector2_Vtbl,
+    0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7
+);
+impl windows_core::RuntimeType for IInputInjector2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IInputInjector2 {
+    pub(crate) fn InitializeGamepadInjection(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeGamepadInjection)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn InjectGamepadInput<P0>(&self, input: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<InjectedInputGamepadInfo>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InjectGamepadInput)(
+                windows_core::Interface::as_raw(self),
+                input.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn UninitializeGamepadInjection(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).UninitializeGamepadInjection)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IInputInjector2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InitializeGamepadInjection:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InjectGamepadInput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub UninitializeGamepadInjection:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IInputInjectorStatics,
+    IInputInjectorStatics_Vtbl,
+    0xdeae6943_7402_4141_a5c6_0c01aa57b16a
+);
+impl windows_core::RuntimeType for IInputInjectorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInputInjectorStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryCreate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IInputInjectorStatics2,
+    IInputInjectorStatics2_Vtbl,
+    0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c
+);
+impl windows_core::RuntimeType for IInputInjectorStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInputInjectorStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IInvokeProvider,
@@ -16956,6 +17383,116 @@ pub struct ITappedRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    ITaskbarList,
+    ITaskbarList_Vtbl,
+    0x56fdf342_fd6d_11d0_958a_006097c9a090
+);
+windows_core::imp::interface_hierarchy!(ITaskbarList, windows_core::IUnknown);
+impl ITaskbarList {
+    pub(crate) unsafe fn HrInit(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).HrInit)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ITaskbarList_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub HrInit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    AddTab: usize,
+    DeleteTab: usize,
+    ActivateTab: usize,
+    SetActiveAlt: usize,
+}
+impl windows_core::RuntimeName for ITaskbarList {}
+windows_core::imp::define_interface!(
+    ITaskbarList2,
+    ITaskbarList2_Vtbl,
+    0x602d4995_b13a_429b_a66e_1935e44f4317
+);
+impl core::ops::Deref for ITaskbarList2 {
+    type Target = ITaskbarList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ITaskbarList2, windows_core::IUnknown, ITaskbarList);
+#[repr(C)]
+pub struct ITaskbarList2_Vtbl {
+    pub base__: ITaskbarList_Vtbl,
+    MarkFullscreenWindow: usize,
+}
+impl windows_core::RuntimeName for ITaskbarList2 {}
+windows_core::imp::define_interface!(
+    ITaskbarList3,
+    ITaskbarList3_Vtbl,
+    0xea1afb91_9e28_4b86_90e9_9e9f8a5eefaf
+);
+impl core::ops::Deref for ITaskbarList3 {
+    type Target = ITaskbarList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ITaskbarList3,
+    windows_core::IUnknown,
+    ITaskbarList,
+    ITaskbarList2
+);
+impl ITaskbarList3 {
+    pub(crate) unsafe fn SetProgressValue(
+        &self,
+        hwnd: HWND,
+        ullcompleted: u64,
+        ulltotal: u64,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProgressValue)(
+                windows_core::Interface::as_raw(self),
+                hwnd,
+                ullcompleted,
+                ulltotal,
+            )
+            .ok()
+        }
+    }
+    pub(crate) unsafe fn SetProgressState(
+        &self,
+        hwnd: HWND,
+        tbpflags: TBPFLAG,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProgressState)(
+                windows_core::Interface::as_raw(self),
+                hwnd,
+                tbpflags,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ITaskbarList3_Vtbl {
+    pub base__: ITaskbarList2_Vtbl,
+    pub SetProgressValue:
+        unsafe extern "system" fn(*mut core::ffi::c_void, HWND, u64, u64) -> windows_core::HRESULT,
+    pub SetProgressState:
+        unsafe extern "system" fn(*mut core::ffi::c_void, HWND, TBPFLAG) -> windows_core::HRESULT,
+    RegisterTab: usize,
+    UnregisterTab: usize,
+    SetTabOrder: usize,
+    SetTabActive: usize,
+    ThumbBarAddButtons: usize,
+    ThumbBarUpdateButtons: usize,
+    ThumbBarSetImageList: usize,
+    SetOverlayIcon: usize,
+    SetThumbnailTooltip: usize,
+    SetThumbnailClip: usize,
+}
+impl windows_core::RuntimeName for ITaskbarList3 {}
+windows_core::imp::define_interface!(
     ITeachingTip,
     ITeachingTip_Vtbl,
     0xdaebd5f7_3b47_5b12_b804_f4e1442b2113
@@ -20478,6 +21015,241 @@ impl windows_core::RuntimeType for InfoBarSeverity {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InjectedInputGamepadInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InjectedInputGamepadInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for InjectedInputGamepadInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputGamepadInfo>();
+}
+unsafe impl windows_core::Interface for InjectedInputGamepadInfo {
+    type Vtable = <IInjectedInputGamepadInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInjectedInputGamepadInfo as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InjectedInputGamepadInfo {
+    type Target = IInjectedInputGamepadInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InjectedInputGamepadInfo {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InjectedInputKeyboardInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InjectedInputKeyboardInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for InjectedInputKeyboardInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputKeyboardInfo>();
+}
+unsafe impl windows_core::Interface for InjectedInputKeyboardInfo {
+    type Vtable = <IInjectedInputKeyboardInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInjectedInputKeyboardInfo as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InjectedInputKeyboardInfo {
+    type Target = IInjectedInputKeyboardInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InjectedInputKeyboardInfo {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InjectedInputMouseInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InjectedInputMouseInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl InjectedInputMouseInfo {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            InjectedInputMouseInfo,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for InjectedInputMouseInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputMouseInfo>();
+}
+unsafe impl windows_core::Interface for InjectedInputMouseInfo {
+    type Vtable = <IInjectedInputMouseInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInjectedInputMouseInfo as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InjectedInputMouseInfo {
+    type Target = IInjectedInputMouseInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InjectedInputMouseInfo {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InjectedInputMouseOptions(pub u32);
+impl InjectedInputMouseOptions {
+    pub const None: Self = Self(0);
+    pub const Move: Self = Self(1);
+    pub const LeftDown: Self = Self(2);
+    pub const LeftUp: Self = Self(4);
+    pub const RightDown: Self = Self(8);
+    pub const RightUp: Self = Self(16);
+    pub const MiddleDown: Self = Self(32);
+    pub const MiddleUp: Self = Self(64);
+    pub const XDown: Self = Self(128);
+    pub const XUp: Self = Self(256);
+    pub const Wheel: Self = Self(2048);
+    pub const HWheel: Self = Self(4096);
+    pub const MoveNoCoalesce: Self = Self(8192);
+    pub const VirtualDesk: Self = Self(16384);
+    pub const Absolute: Self = Self(32768);
+}
+impl windows_core::TypeKind for InjectedInputMouseOptions {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for InjectedInputMouseOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)",
+    );
+}
+impl InjectedInputMouseOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for InjectedInputMouseOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for InjectedInputMouseOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for InjectedInputMouseOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0);
+    }
+}
+impl core::ops::BitAndAssign for InjectedInputMouseOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0);
+    }
+}
+impl core::ops::Not for InjectedInputMouseOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InjectedInputPenInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InjectedInputPenInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for InjectedInputPenInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputPenInfo>();
+}
+unsafe impl windows_core::Interface for InjectedInputPenInfo {
+    type Vtable = <IInjectedInputPenInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInjectedInputPenInfo as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InjectedInputPenInfo {
+    type Target = IInjectedInputPenInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InjectedInputPenInfo {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InjectedInputShortcut(pub i32);
+impl InjectedInputShortcut {
+    pub const Back: Self = Self(0);
+    pub const Start: Self = Self(1);
+    pub const Search: Self = Self(2);
+}
+impl windows_core::TypeKind for InjectedInputShortcut {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for InjectedInputShortcut {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InjectedInputTouchInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InjectedInputTouchInfo,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for InjectedInputTouchInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputTouchInfo>();
+}
+unsafe impl windows_core::Interface for InjectedInputTouchInfo {
+    type Vtable = <IInjectedInputTouchInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInjectedInputTouchInfo as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InjectedInputTouchInfo {
+    type Target = IInjectedInputTouchInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InjectedInputTouchInfo {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InjectedInputVisualizationMode(pub i32);
+impl InjectedInputVisualizationMode {
+    pub const None: Self = Self(0);
+    pub const Default: Self = Self(1);
+    pub const Indirect: Self = Self(2);
+}
+impl windows_core::TypeKind for InjectedInputVisualizationMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for InjectedInputVisualizationMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Inline(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Inline, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Inline, TextElement, DependencyObject);
@@ -20529,6 +21301,67 @@ impl windows_core::RuntimeName for InlineCollection {
 }
 unsafe impl Send for InlineCollection {}
 unsafe impl Sync for InlineCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InputInjector(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    InputInjector,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl InputInjector {
+    pub(crate) fn TryCreate() -> windows_core::Result<InputInjector> {
+        Self::IInputInjectorStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryCreate)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn TryCreateForAppBroadcastOnly() -> windows_core::Result<InputInjector> {
+        Self::IInputInjectorStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IInputInjectorStatics<R, F: FnOnce(&IInputInjectorStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<InputInjector, IInputInjectorStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IInputInjectorStatics2<R, F: FnOnce(&IInputInjectorStatics2) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<InputInjector, IInputInjectorStatics2> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for InputInjector {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IInputInjector>();
+}
+unsafe impl windows_core::Interface for InputInjector {
+    type Vtable = <IInputInjector as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInputInjector as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for InputInjector {
+    type Target = IInputInjector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for InputInjector {
+    const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ItemCollection(windows_core::IUnknown);
@@ -23600,9 +24433,14 @@ impl windows_core::RuntimeName for Run {
 unsafe impl Send for Run {}
 unsafe impl Sync for Run {}
 pub type SET_WINDOW_POS_FLAGS = u32;
+pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 78;
+pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 79;
+pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 76;
+pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 77;
 pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16;
 pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1;
 pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4;
+pub type SYSTEM_METRICS_INDEX = i32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
@@ -24984,6 +25822,10 @@ impl windows_core::RuntimeName for SystemBackdrop {
 }
 unsafe impl Send for SystemBackdrop {}
 unsafe impl Sync for SystemBackdrop {}
+pub type TBPFLAG = i32;
+pub const TBPF_ERROR: TBPFLAG = 4;
+pub const TBPF_NOPROGRESS: TBPFLAG = 0;
+pub const TBPF_NORMAL: TBPFLAG = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TabView(windows_core::IUnknown);
@@ -25204,6 +26046,8 @@ impl windows_core::RuntimeName for TappedRoutedEventArgs {
 }
 unsafe impl Send for TappedRoutedEventArgs {}
 unsafe impl Sync for TappedRoutedEventArgs {}
+pub const TaskbarList: windows_core::GUID =
+    windows_core::GUID::from_u128(0x56fdf344_fd6d_11d0_958a_006097c9a090);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TeachingTip(windows_core::IUnknown);

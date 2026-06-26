@@ -15,3 +15,25 @@
     Microsoft::UI::Xaml::IUIElement::{get_AllowDrop, put_IsHitTestVisible, UpdateLayout}
     Microsoft::UI::Xaml::IWindow::get_Content
     Microsoft::UI::Xaml::Media::VisualTreeHelper::*
+    Windows::UI::Input::Preview::Injection::InjectedInputMouseInfo::*
+    Windows::UI::Input::Preview::Injection::InjectedInputMouseOptions
+    Windows::UI::Input::Preview::Injection::InputInjector::*
+    Windows::Win32::Foundation::POINT
+    Windows::Win32::Foundation::RECT
+    Windows::Win32::Graphics::Gdi::ClientToScreen
+    Windows::Win32::System::Com::CLSCTX_INPROC_SERVER
+    Windows::Win32::System::Com::CoCreateInstance
+    Windows::Win32::UI::Shell::ITaskbarList::HrInit
+    Windows::Win32::UI::Shell::ITaskbarList3::{SetProgressState, SetProgressValue}
+    Windows::Win32::UI::Shell::TBPF_ERROR
+    Windows::Win32::UI::Shell::TBPF_NOPROGRESS
+    Windows::Win32::UI::Shell::TBPF_NORMAL
+    Windows::Win32::UI::Shell::TaskbarList
+    Windows::Win32::UI::WindowsAndMessaging::BringWindowToTop
+    Windows::Win32::UI::WindowsAndMessaging::GetClientRect
+    Windows::Win32::UI::WindowsAndMessaging::GetSystemMetrics
+    Windows::Win32::UI::WindowsAndMessaging::SM_CXVIRTUALSCREEN
+    Windows::Win32::UI::WindowsAndMessaging::SM_CYVIRTUALSCREEN
+    Windows::Win32::UI::WindowsAndMessaging::SM_XVIRTUALSCREEN
+    Windows::Win32::UI::WindowsAndMessaging::SM_YVIRTUALSCREEN
+    Windows::Win32::UI::WindowsAndMessaging::SetForegroundWindow

@@ -1,8 +1,8 @@
 use crate::fixtures::reconciler::FixtureFuture;
 use crate::fixtures::{
     all_layouts, backdrop, controls, controls_extended, dynamic, error_boundary, event_detachment,
-    grid_attached, hooks, interactions, layout, prop_updates, reconciler, reconciler_stress,
-    tooltip, universal_props,
+    grid_attached, hooks, interactions, layout, pointer_input, prop_updates, reconciler,
+    reconciler_stress, tooltip, universal_props,
 };
 use crate::harness::Harness;
 
@@ -185,6 +185,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Interaction_ButtonIcon_GlyphChangePreservesText",
         interactions::button_icon_glyph_change_preserves_text,
+    ),
+    (
+        "Pointer_Injection_Gesture",
+        pointer_input::pointer_injection_gesture,
     ),
     ("Tooltip_Text_AppliedToButton", tooltip::tooltip_text),
     (

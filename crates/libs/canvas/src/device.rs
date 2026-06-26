@@ -20,6 +20,13 @@ impl GpuDevice {
         unsafe { Self::create(true) }
     }
 
+    /// Creates a hardware device, falling back to a software (WARP) device when
+    /// no GPU is available (headless sessions, VMs, or RDP). Use this for render
+    /// loops that must produce output on any machine.
+    pub fn new_or_warp() -> Result<Self> {
+        Self::new().or_else(|_| Self::new_warp())
+    }
+
     unsafe fn create(software: bool) -> Result<Self> {
         let driver_type = if software {
             D3D_DRIVER_TYPE_WARP
