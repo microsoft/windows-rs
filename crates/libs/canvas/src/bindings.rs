@@ -831,13 +831,90 @@ impl core::ops::Deref for ID2D1Geometry {
     }
 }
 windows_core::imp::interface_hierarchy!(ID2D1Geometry, windows_core::IUnknown, ID2D1Resource);
+impl ID2D1Geometry {
+    pub(crate) unsafe fn GetBounds(
+        &self,
+        worldtransform: Option<*const windows_numerics::Matrix3x2>,
+    ) -> windows_core::Result<D2D_RECT_F> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBounds)(
+                windows_core::Interface::as_raw(self),
+                worldtransform.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn StrokeContainsPoint<P2>(
+        &self,
+        point: windows_numerics::Vector2,
+        strokewidth: f32,
+        strokestyle: P2,
+        worldtransform: Option<*const windows_numerics::Matrix3x2>,
+        flatteningtolerance: f32,
+    ) -> windows_core::Result<windows_core::BOOL>
+    where
+        P2: windows_core::Param<ID2D1StrokeStyle>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).StrokeContainsPoint)(
+                windows_core::Interface::as_raw(self),
+                point,
+                strokewidth,
+                strokestyle.param().abi(),
+                worldtransform.unwrap_or(core::mem::zeroed()) as _,
+                flatteningtolerance,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn FillContainsPoint(
+        &self,
+        point: windows_numerics::Vector2,
+        worldtransform: Option<*const windows_numerics::Matrix3x2>,
+        flatteningtolerance: f32,
+    ) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillContainsPoint)(
+                windows_core::Interface::as_raw(self),
+                point,
+                worldtransform.unwrap_or(core::mem::zeroed()) as _,
+                flatteningtolerance,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
 #[repr(C)]
 pub struct ID2D1Geometry_Vtbl {
     pub base__: ID2D1Resource_Vtbl,
-    GetBounds: usize,
+    pub GetBounds: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const windows_numerics::Matrix3x2,
+        *mut D2D_RECT_F,
+    ) -> windows_core::HRESULT,
     GetWidenedBounds: usize,
-    StrokeContainsPoint: usize,
-    FillContainsPoint: usize,
+    pub StrokeContainsPoint: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_numerics::Vector2,
+        f32,
+        *mut core::ffi::c_void,
+        *const windows_numerics::Matrix3x2,
+        f32,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub FillContainsPoint: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_numerics::Vector2,
+        *const windows_numerics::Matrix3x2,
+        f32,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     CompareWithGeometry: usize,
     Simplify: usize,
     Tessellate: usize,

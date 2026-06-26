@@ -15,10 +15,48 @@ pub struct Path {
     raw: ID2D1PathGeometry1,
 }
 
+/// Direct2D's default flattening tolerance for hit-testing and bounds queries.
+const DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25;
+
 impl Path {
     /// Returns the underlying `ID2D1PathGeometry1`.
     pub fn raw(&self) -> &ID2D1PathGeometry1 {
         &self.raw
+    }
+
+    /// Returns whether the point lies within the filled area of the path.
+    pub fn fill_contains_point(&self, point: Vector2) -> bool {
+        unsafe {
+            self.raw
+                .FillContainsPoint(point, None, DEFAULT_FLATTENING_TOLERANCE)
+                .is_ok_and(|contains| contains.as_bool())
+        }
+    }
+
+    /// Returns whether the point lies on the path's stroke at the given width.
+    pub fn stroke_contains_point(&self, point: Vector2, stroke_width: f32) -> bool {
+        unsafe {
+            self.raw
+                .StrokeContainsPoint(
+                    point,
+                    stroke_width,
+                    None,
+                    None,
+                    DEFAULT_FLATTENING_TOLERANCE,
+                )
+                .is_ok_and(|contains| contains.as_bool())
+        }
+    }
+
+    /// Returns the axis-aligned bounding rectangle of the path.
+    pub fn compute_bounds(&self) -> Rect {
+        let bounds = unsafe { self.raw.GetBounds(None).unwrap_or_default() };
+        Rect {
+            left: bounds.left,
+            top: bounds.top,
+            right: bounds.right,
+            bottom: bounds.bottom,
+        }
     }
 }
 

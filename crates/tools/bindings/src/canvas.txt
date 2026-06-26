@@ -43,6 +43,7 @@
     Windows::Win32::Graphics::Direct2D::ID2D1Effect::{SetInput, GetOutput}
     Windows::Win32::Graphics::Direct2D::ID2D1Factory1::{CreateDevice, CreateStrokeStyle}
     Windows::Win32::Graphics::Direct2D::ID2D1Factory1::CreatePathGeometry
+    Windows::Win32::Graphics::Direct2D::ID2D1Geometry::{GetBounds, FillContainsPoint, StrokeContainsPoint}
     Windows::Win32::Graphics::Direct2D::ID2D1GeometrySink::{AddLine, AddBezier}
     Windows::Win32::Graphics::Direct2D::ID2D1PathGeometry::Open
     Windows::Win32::Graphics::Direct2D::ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
