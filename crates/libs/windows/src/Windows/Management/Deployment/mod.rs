@@ -268,13 +268,13 @@ impl AppInstallerManager {
     pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &windows_core::HSTRING, datetime: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PauseAutoUpdatesUntil)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packagefamilyname), datetime).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<AppInstallerManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForSystem() -> windows_core::Result<AppInstallerManager> {
+    pub fn GetForSystem() -> windows_core::Result<Self> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -420,7 +420,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn CreateFromAppInstallerInfo<P0>(appinstallerinfo: P0) -> windows_core::Result<AutoUpdateSettingsOptions>
+    pub fn CreateFromAppInstallerInfo<P0>(appinstallerinfo: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::ApplicationModel::AppInstallerInfo>,
     {
@@ -3027,19 +3027,19 @@ impl SharedPackageContainerManager {
             (windows_core::Interface::vtable(self).FindContainersWithOptions)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser(usersid: &windows_core::HSTRING) -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetForUser(usersid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForProvisioning() -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetForProvisioning() -> windows_core::Result<Self> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForProvisioning)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3073,7 +3073,7 @@ impl SharedPackageContainerMember {
             (windows_core::Interface::vtable(self).PackageFamilyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<SharedPackageContainerMember> {
+    pub fn CreateInstance(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISharedPackageContainerMemberFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

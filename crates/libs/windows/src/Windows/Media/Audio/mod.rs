@@ -281,7 +281,7 @@ impl AudioEffectsPackConfiguration {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioEffectsPackConfiguration, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -291,7 +291,7 @@ impl AudioEffectsPackConfiguration {
     pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForDeviceId(effectspackid: &windows_core::HSTRING, deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioEffectsPackConfiguration> {
+    pub fn GetForDeviceId(effectspackid: &windows_core::HSTRING, deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioEffectsPackConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(effectspackid), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -404,7 +404,7 @@ impl AudioFileInputNode {
     }
     pub fn FileCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFileInputNode, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -715,7 +715,7 @@ impl AudioFrameInputNode {
     }
     pub fn AudioFrameCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AudioFrameCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -727,7 +727,7 @@ impl AudioFrameInputNode {
     }
     pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, FrameInputNodeQuantumStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1080,7 +1080,7 @@ impl AudioGraph {
     }
     pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1092,7 +1092,7 @@ impl AudioGraph {
     }
     pub fn QuantumProcessed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1104,7 +1104,7 @@ impl AudioGraph {
     }
     pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1414,7 +1414,7 @@ impl AudioGraphSettings {
         }
     }
     #[cfg(feature = "Media_Render")]
-    pub fn Create(audiorendercategory: super::Render::AudioRenderCategory) -> windows_core::Result<AudioGraphSettings> {
+    pub fn Create(audiorendercategory: super::Render::AudioRenderCategory) -> windows_core::Result<Self> {
         Self::IAudioGraphSettingsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiorendercategory, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1572,7 +1572,7 @@ impl AudioNodeEmitter {
         let this = &windows_core::Interface::cast::<IAudioNodeEmitter2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSpatialAudioModel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAudioNodeEmitter<P0, P1>(shape: P0, decaymodel: P1, settings: AudioNodeEmitterSettings) -> windows_core::Result<AudioNodeEmitter>
+    pub fn CreateAudioNodeEmitter<P0, P1>(shape: P0, decaymodel: P1, settings: AudioNodeEmitterSettings) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<AudioNodeEmitterShape>,
         P1: windows_core::Param<AudioNodeEmitterDecayModel>,
@@ -1678,13 +1678,13 @@ impl AudioNodeEmitterDecayModel {
             (windows_core::Interface::vtable(self).NaturalProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateNatural(mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64) -> windows_core::Result<AudioNodeEmitterDecayModel> {
+    pub fn CreateNatural(mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64) -> windows_core::Result<Self> {
         Self::IAudioNodeEmitterDecayModelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNatural)(windows_core::Interface::as_raw(this), mingain, maxgain, unitygaindistance, cutoffdistance, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCustom(mingain: f64, maxgain: f64) -> windows_core::Result<AudioNodeEmitterDecayModel> {
+    pub fn CreateCustom(mingain: f64, maxgain: f64) -> windows_core::Result<Self> {
         Self::IAudioNodeEmitterDecayModelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCustom)(windows_core::Interface::as_raw(this), mingain, maxgain, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1801,13 +1801,13 @@ impl AudioNodeEmitterShape {
             (windows_core::Interface::vtable(self).ConeProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateCone(innerangle: f64, outerangle: f64, outeranglegain: f64) -> windows_core::Result<AudioNodeEmitterShape> {
+    pub fn CreateCone(innerangle: f64, outerangle: f64, outeranglegain: f64) -> windows_core::Result<Self> {
         Self::IAudioNodeEmitterShapeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCone)(windows_core::Interface::as_raw(this), innerangle, outerangle, outeranglegain, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateOmnidirectional() -> windows_core::Result<AudioNodeEmitterShape> {
+    pub fn CreateOmnidirectional() -> windows_core::Result<Self> {
         Self::IAudioNodeEmitterShapeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOmnidirectional)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1948,7 +1948,7 @@ impl AudioPlaybackConnection {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1964,7 +1964,7 @@ impl AudioPlaybackConnection {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TryCreateFromId(id: &windows_core::HSTRING) -> windows_core::Result<AudioPlaybackConnection> {
+    pub fn TryCreateFromId(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioPlaybackConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2058,7 +2058,7 @@ windows_core::imp::interface_hierarchy!(AudioStateMonitor, windows_core::IUnknow
 impl AudioStateMonitor {
     pub fn SoundLevelChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioStateMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2074,55 +2074,55 @@ impl AudioStateMonitor {
             (windows_core::Interface::vtable(self).SoundLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateForRenderMonitoring() -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForRenderMonitoring() -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForRenderMonitoring)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Render")]
-    pub fn CreateForRenderMonitoringWithCategory(category: super::Render::AudioRenderCategory) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForRenderMonitoringWithCategory(category: super::Render::AudioRenderCategory) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForRenderMonitoringWithCategory)(windows_core::Interface::as_raw(this), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Media_Devices", feature = "Media_Render"))]
-    pub fn CreateForRenderMonitoringWithCategoryAndDeviceRole(category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForRenderMonitoringWithCategoryAndDeviceRole(category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceRole)(windows_core::Interface::as_raw(this), category, role, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Render")]
-    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId(category: super::Render::AudioRenderCategory, deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId(category: super::Render::AudioRenderCategory, deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceId)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateForCaptureMonitoring() -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForCaptureMonitoring() -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCaptureMonitoring)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateForCaptureMonitoringWithCategory(category: super::Capture::MediaCategory) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForCaptureMonitoringWithCategory(category: super::Capture::MediaCategory) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCaptureMonitoringWithCategory)(windows_core::Interface::as_raw(this), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices"))]
-    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceRole)(windows_core::Interface::as_raw(this), category, role, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId(category: super::Capture::MediaCategory, deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioStateMonitor> {
+    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId(category: super::Capture::MediaCategory, deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2539,7 +2539,7 @@ impl EchoEffectDefinition {
             (windows_core::Interface::vtable(self).Delay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<EchoEffectDefinition>
+    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<AudioGraph>,
     {
@@ -2646,7 +2646,7 @@ impl EqualizerEffectDefinition {
             (windows_core::Interface::vtable(self).Bands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<EqualizerEffectDefinition>
+    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<AudioGraph>,
     {
@@ -4478,7 +4478,7 @@ impl LimiterEffectDefinition {
             (windows_core::Interface::vtable(self).Loudness)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<LimiterEffectDefinition>
+    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<AudioGraph>,
     {
@@ -4683,7 +4683,7 @@ impl MediaSourceAudioInputNode {
     }
     pub fn MediaSourceCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4983,7 +4983,7 @@ impl ReverbEffectDefinition {
             (windows_core::Interface::vtable(self).DisableLateField)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<ReverbEffectDefinition>
+    pub fn Create<P0>(audiograph: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<AudioGraph>,
     {
@@ -5099,7 +5099,7 @@ impl SpatialAudioDeviceConfiguration {
     }
     pub fn ConfigurationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5109,7 +5109,7 @@ impl SpatialAudioDeviceConfiguration {
     pub fn RemoveConfigurationChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveConfigurationChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<SpatialAudioDeviceConfiguration> {
+    pub fn GetForDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISpatialAudioDeviceConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5158,7 +5158,7 @@ impl SpatialAudioFormatConfiguration {
     pub fn SetMixedRealityExclusiveModePolicy(&self, value: MixedRealitySpatialAudioFormatPolicy) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMixedRealityExclusiveModePolicy)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<SpatialAudioFormatConfiguration> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::ISpatialAudioFormatConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

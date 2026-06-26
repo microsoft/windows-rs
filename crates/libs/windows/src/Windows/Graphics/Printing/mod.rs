@@ -989,7 +989,7 @@ windows_core::imp::interface_hierarchy!(PrintManager, windows_core::IUnknown, wi
 impl PrintManager {
     pub fn PrintTaskRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -999,7 +999,7 @@ impl PrintManager {
     pub fn RemovePrintTaskRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemovePrintTaskRequested)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<PrintManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IPrintManagerStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1388,13 +1388,13 @@ impl PrintPageRange {
             (windows_core::Interface::vtable(self).LastPageNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(firstpage: i32, lastpage: i32) -> windows_core::Result<PrintPageRange> {
+    pub fn Create(firstpage: i32, lastpage: i32) -> windows_core::Result<Self> {
         Self::IPrintPageRangeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), firstpage, lastpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithSinglePage(page: i32) -> windows_core::Result<PrintPageRange> {
+    pub fn CreateWithSinglePage(page: i32) -> windows_core::Result<Self> {
         Self::IPrintPageRangeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithSinglePage)(windows_core::Interface::as_raw(this), page, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1535,7 +1535,7 @@ impl PrintTask {
     }
     pub fn Previewing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PrintTask, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1547,7 +1547,7 @@ impl PrintTask {
     }
     pub fn Submitting<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PrintTask, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1559,7 +1559,7 @@ impl PrintTask {
     }
     pub fn Progressing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskProgressingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1571,7 +1571,7 @@ impl PrintTask {
     }
     pub fn Completed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2041,7 +2041,7 @@ impl windows_core::RuntimeType for PrintTaskSourceRequestedHandler {
 }
 impl PrintTaskSourceRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<PrintTaskSourceRequestedHandler, F>::new(&PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>

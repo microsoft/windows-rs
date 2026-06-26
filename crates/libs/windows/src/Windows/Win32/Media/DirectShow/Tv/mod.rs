@@ -462,7 +462,7 @@ pub struct DSMCC_ELEMENT {
     pub bComponentTag: u8,
     pub dwCarouselId: u32,
     pub dwTransactionId: u32,
-    pub pNext: *mut DSMCC_ELEMENT,
+    pub pNext: *mut Self,
 }
 impl Default for DSMCC_ELEMENT {
     fn default() -> Self {
@@ -4055,7 +4055,7 @@ impl ICAT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<ICAT> {
+    pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4512,7 +4512,7 @@ impl IComponent {
     pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IComponent> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4739,7 +4739,7 @@ impl IComponentType {
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(mediatype)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IComponentType> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5041,7 +5041,7 @@ impl IComponentTypes {
     pub unsafe fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IComponentTypes> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5246,7 +5246,7 @@ impl IComponents {
     pub unsafe fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IComponents> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7436,7 +7436,7 @@ impl IDVB_BAT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_BAT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7823,7 +7823,7 @@ impl IDVB_EIT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_EIT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8279,7 +8279,7 @@ impl IDVB_NIT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_NIT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8780,7 +8780,7 @@ impl IDVB_SDT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IDVB_SDT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9124,7 +9124,7 @@ impl IDVB_SIT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<IDVB_SIT> {
+    pub unsafe fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), dwtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10865,7 +10865,7 @@ impl IDvbExtendedEventDescriptor {
     }
     pub unsafe fn GetConcatenatedItemW<P0>(&self, pfollowingdescriptor: P0, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut windows_core::BSTR, pbstritem: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDvbExtendedEventDescriptor>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetConcatenatedItemW)(windows_core::Interface::as_raw(self), pfollowingdescriptor.param().abi(), convmode, core::mem::transmute(pbstrdesc), core::mem::transmute(pbstritem)).ok() }
     }
@@ -10877,7 +10877,7 @@ impl IDvbExtendedEventDescriptor {
     }
     pub unsafe fn GetConcatenatedTextW<P0>(&self, followingdescriptor: P0, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<IDvbExtendedEventDescriptor>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -15564,7 +15564,7 @@ impl IEnumComponentTypes {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumComponentTypes> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15650,7 +15650,7 @@ impl IEnumComponents {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumComponents> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15735,7 +15735,7 @@ impl IEnumGuideDataProperties {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumGuideDataProperties> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15815,7 +15815,7 @@ impl IEnumMSVidGraphSegment {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMSVidGraphSegment> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15900,7 +15900,7 @@ impl IEnumStreamBufferRecordingAttrib {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumStreamBufferRecordingAttrib> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15980,7 +15980,7 @@ impl IEnumTuneRequests {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTuneRequests> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16066,7 +16066,7 @@ impl IEnumTuningSpaces {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTuningSpaces> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22060,7 +22060,7 @@ impl ILocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolRate)(windows_core::Interface::as_raw(self), rate).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ILocator> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -24721,7 +24721,7 @@ impl IMSVidDevice {
     }
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::Param<IMSVidDevice>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -27136,7 +27136,7 @@ impl IMSVidRect {
     }
     pub unsafe fn SetRect<P0>(&self, rectval: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMSVidRect>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), rectval.param().abi()).ok() }
     }
@@ -33296,7 +33296,7 @@ impl IPAT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IPAT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -34095,7 +34095,7 @@ impl IPMT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<IPMT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -34798,7 +34798,7 @@ impl ISBE2EnumStream {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ISBE2EnumStream> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -37295,7 +37295,7 @@ impl ITSDT {
     pub unsafe fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterForNextTable)(windows_core::Interface::as_raw(self), hnexttableavailable).ok() }
     }
-    pub unsafe fn GetNextTable(&self) -> windows_core::Result<ITSDT> {
+    pub unsafe fn GetNextTable(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -37456,7 +37456,7 @@ impl ITuneRequest {
             (windows_core::Interface::vtable(self).Components)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITuneRequest> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -38250,7 +38250,7 @@ impl ITuningSpace {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultLocator)(windows_core::Interface::as_raw(self), locatorval.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITuningSpace> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -40471,7 +40471,7 @@ pub struct MPEG_WINSOCK {
 pub struct MPE_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
-    pub pNext: *mut MPE_ELEMENT,
+    pub pNext: *mut Self,
 }
 impl Default for MPE_ELEMENT {
     fn default() -> Self {

@@ -997,7 +997,7 @@ pub struct ACMDRVSTREAMHEADER {
     pub cbDstLengthUsed: u32,
     pub dwDstUser: usize,
     pub fdwConvert: u32,
-    pub padshNext: *mut ACMDRVSTREAMHEADER,
+    pub padshNext: *mut Self,
     pub fdwDriver: u32,
     pub dwDriver: usize,
     pub fdwPrepared: u32,
@@ -4852,7 +4852,7 @@ impl IConnector {
     }
     pub unsafe fn ConnectTo<P0>(&self, pconnectto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IConnector>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), pconnectto.param().abi()).ok() }
     }
@@ -4865,7 +4865,7 @@ impl IConnector {
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectedTo(&self) -> windows_core::Result<IConnector> {
+    pub unsafe fn GetConnectedTo(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConnectedTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7903,7 +7903,7 @@ pub struct MIDIHDR {
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
     pub dwFlags: u32,
-    pub lpNext: *mut MIDIHDR,
+    pub lpNext: *mut Self,
     pub reserved: usize,
     pub dwOffset: u32,
     pub dwReserved: [usize; 8],
@@ -9072,7 +9072,7 @@ pub struct WAVEHDR {
     pub dwUser: usize,
     pub dwFlags: u32,
     pub dwLoops: u32,
-    pub lpNext: *mut WAVEHDR,
+    pub lpNext: *mut Self,
     pub reserved: usize,
 }
 impl Default for WAVEHDR {

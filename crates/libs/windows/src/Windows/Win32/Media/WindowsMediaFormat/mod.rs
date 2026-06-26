@@ -4630,7 +4630,7 @@ impl IWMPropertyVault {
     }
     pub unsafe fn CopyPropertiesFrom<P0>(&self, piwmpropertyvault: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMPropertyVault>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyPropertiesFrom)(windows_core::Interface::as_raw(self), piwmpropertyvault.param().abi()).ok() }
     }
@@ -7921,7 +7921,7 @@ impl IWMSecureChannel {
     }
     pub unsafe fn WMSC_Connect<P0>(&self, potherside: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IWMSecureChannel>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).WMSC_Connect)(windows_core::Interface::as_raw(self), potherside.param().abi()).ok() }
     }

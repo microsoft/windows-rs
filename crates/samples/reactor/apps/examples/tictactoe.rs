@@ -15,9 +15,9 @@ enum Cell {
 impl Cell {
     fn label(&self) -> &'static str {
         match self {
-            Cell::Empty => " ",
-            Cell::X => "X",
-            Cell::O => "O",
+            Self::Empty => " ",
+            Self::X => "X",
+            Self::O => "O",
         }
     }
 }
@@ -31,22 +31,22 @@ enum Player {
 impl Player {
     fn cell(&self) -> Cell {
         match self {
-            Player::X => Cell::X,
-            Player::O => Cell::O,
+            Self::X => Cell::X,
+            Self::O => Cell::O,
         }
     }
 
-    fn next(&self) -> Player {
+    fn next(&self) -> Self {
         match self {
-            Player::X => Player::O,
-            Player::O => Player::X,
+            Self::X => Self::O,
+            Self::O => Self::X,
         }
     }
 
     fn label(&self) -> &'static str {
         match self {
-            Player::X => "X",
-            Player::O => "O",
+            Self::X => "X",
+            Self::O => "O",
         }
     }
 }

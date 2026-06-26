@@ -31,7 +31,7 @@ impl Pool {
     where
         F: for<'scope> FnOnce(&'scope Scope<'scope, 'env>),
     {
-        let pool = Pool::new();
+        let pool = Self::new();
         pool.scope(f);
     }
 

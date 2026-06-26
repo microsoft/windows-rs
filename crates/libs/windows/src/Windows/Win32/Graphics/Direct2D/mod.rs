@@ -2390,7 +2390,7 @@ impl ID2D1Bitmap {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CopyFromBitmap<P1>(&self, destpoint: Option<*const Common::D2D_POINT_2U>, bitmap: P1, srcrect: Option<*const Common::D2D_RECT_U>) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<ID2D1Bitmap>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyFromBitmap)(windows_core::Interface::as_raw(self), destpoint.unwrap_or(core::mem::zeroed()) as _, bitmap.param().abi(), srcrect.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
@@ -8883,7 +8883,7 @@ impl ID2D1Geometry {
     }
     pub unsafe fn CompareWithGeometry<P0>(&self, inputgeometry: P0, inputgeometrytransform: Option<*const windows_numerics::Matrix3x2>, flatteningtolerance: f32) -> windows_core::Result<D2D1_GEOMETRY_RELATION>
     where
-        P0: windows_core::Param<ID2D1Geometry>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8906,7 +8906,7 @@ impl ID2D1Geometry {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CombineWithGeometry<P0, P4>(&self, inputgeometry: P0, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: Option<*const windows_numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1Geometry>,
+        P0: windows_core::Param<Self>,
         P4: windows_core::Param<Common::ID2D1SimplifiedGeometrySink>,
     {
         unsafe { (windows_core::Interface::vtable(self).CombineWithGeometry)(windows_core::Interface::as_raw(self), inputgeometry.param().abi(), combinemode, inputgeometrytransform.unwrap_or(core::mem::zeroed()) as _, flatteningtolerance, geometrysink.param().abi()).ok() }
@@ -10893,7 +10893,7 @@ impl ID2D1Properties {
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetValueSize)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetSubProperties(&self, index: u32) -> windows_core::Result<ID2D1Properties> {
+    pub unsafe fn GetSubProperties(&self, index: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubProperties)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12871,7 +12871,7 @@ impl ID2D1SvgAttribute {
             windows_core::Type::from_abi(result__)
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ID2D1SvgAttribute> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13206,7 +13206,7 @@ impl ID2D1SvgElement {
     pub unsafe fn IsTextContent(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsTextContent)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<ID2D1SvgElement> {
+    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__);
@@ -13216,32 +13216,32 @@ impl ID2D1SvgElement {
     pub unsafe fn HasChildren(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).HasChildren)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetFirstChild(&self) -> windows_core::Result<ID2D1SvgElement> {
+    pub unsafe fn GetFirstChild(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFirstChild)(windows_core::Interface::as_raw(self), &mut result__);
             windows_core::Type::from_abi(result__)
         }
     }
-    pub unsafe fn GetLastChild(&self) -> windows_core::Result<ID2D1SvgElement> {
+    pub unsafe fn GetLastChild(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastChild)(windows_core::Interface::as_raw(self), &mut result__);
             windows_core::Type::from_abi(result__)
         }
     }
-    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0) -> windows_core::Result<ID2D1SvgElement>
+    pub unsafe fn GetPreviousChild<P0>(&self, referencechild: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPreviousChild)(windows_core::Interface::as_raw(self), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0) -> windows_core::Result<ID2D1SvgElement>
+    pub unsafe fn GetNextChild<P0>(&self, referencechild: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13250,31 +13250,31 @@ impl ID2D1SvgElement {
     }
     pub unsafe fn InsertChildBefore<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
-        P1: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).InsertChildBefore)(windows_core::Interface::as_raw(self), newchild.param().abi(), referencechild.param().abi()).ok() }
     }
     pub unsafe fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AppendChild)(windows_core::Interface::as_raw(self), newchild.param().abi()).ok() }
     }
     pub unsafe fn ReplaceChild<P0, P1>(&self, newchild: P0, oldchild: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
-        P1: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ReplaceChild)(windows_core::Interface::as_raw(self), newchild.param().abi(), oldchild.param().abi()).ok() }
     }
     pub unsafe fn RemoveChild<P0>(&self, oldchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID2D1SvgElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveChild)(windows_core::Interface::as_raw(self), oldchild.param().abi()).ok() }
     }
-    pub unsafe fn CreateChild<P0>(&self, tagname: P0) -> windows_core::Result<ID2D1SvgElement>
+    pub unsafe fn CreateChild<P0>(&self, tagname: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {

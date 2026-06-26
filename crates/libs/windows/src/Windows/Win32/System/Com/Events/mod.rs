@@ -45,7 +45,7 @@ impl windows_core::RuntimeName for IDontSupportEventSubscription {}
 windows_core::imp::define_interface!(IEnumEventObject, IEnumEventObject_Vtbl, 0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
 windows_core::imp::interface_hierarchy!(IEnumEventObject, windows_core::IUnknown);
 impl IEnumEventObject {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumEventObject> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

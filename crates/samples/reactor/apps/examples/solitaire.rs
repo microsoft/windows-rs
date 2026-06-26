@@ -20,20 +20,20 @@ enum Suit {
 }
 
 impl Suit {
-    fn all() -> [Suit; 4] {
-        [Suit::Spades, Suit::Hearts, Suit::Diamonds, Suit::Clubs]
+    fn all() -> [Self; 4] {
+        [Self::Spades, Self::Hearts, Self::Diamonds, Self::Clubs]
     }
 
     fn is_red(self) -> bool {
-        matches!(self, Suit::Hearts | Suit::Diamonds)
+        matches!(self, Self::Hearts | Self::Diamonds)
     }
 
     fn symbol(self) -> &'static str {
         match self {
-            Suit::Spades => "♠",
-            Suit::Hearts => "♥",
-            Suit::Diamonds => "♦",
-            Suit::Clubs => "♣",
+            Self::Spades => "♠",
+            Self::Hearts => "♥",
+            Self::Diamonds => "♦",
+            Self::Clubs => "♣",
         }
     }
 }

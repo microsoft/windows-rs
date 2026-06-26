@@ -13,7 +13,7 @@ impl File {
     }
 
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
-        let mut result = File {
+        let mut result = Self {
             bytes,
             strings: 0,
             blobs: 0,

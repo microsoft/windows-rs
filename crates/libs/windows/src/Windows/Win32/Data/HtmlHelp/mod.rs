@@ -858,13 +858,13 @@ impl IITResultSet {
     }
     pub unsafe fn Copy<P0>(&self, prscopy: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IITResultSet>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), prscopy.param().abi()).ok() }
     }
     pub unsafe fn AppendRows<P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IITResultSet>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), lrowsrcfirst, csrcrows, lrowfirstdest as _).ok() }
     }

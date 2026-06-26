@@ -26,12 +26,12 @@ pub enum ImageSource {
 }
 impl From<SurfaceImageSource> for ImageSource {
     fn from(source: SurfaceImageSource) -> Self {
-        ImageSource::Surface(source)
+        Self::Surface(source)
     }
 }
 impl From<Option<SurfaceImageSource>> for ImageSource {
     fn from(source: Option<SurfaceImageSource>) -> Self {
-        source.map_or(ImageSource::None, ImageSource::Surface)
+        source.map_or(Self::None, ImageSource::Surface)
     }
 }
 impl Image {

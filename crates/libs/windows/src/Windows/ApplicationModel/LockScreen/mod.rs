@@ -104,7 +104,7 @@ impl LockApplicationHost {
     }
     pub fn Unlocking<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, LockScreenUnlockingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -114,7 +114,7 @@ impl LockApplicationHost {
     pub fn RemoveUnlocking(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveUnlocking)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<LockApplicationHost> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ILockApplicationHostStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -191,7 +191,7 @@ windows_core::imp::interface_hierarchy!(LockScreenInfo, windows_core::IUnknown, 
 impl LockScreenInfo {
     pub fn LockScreenImageChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -210,7 +210,7 @@ impl LockScreenInfo {
     }
     pub fn BadgesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -228,7 +228,7 @@ impl LockScreenInfo {
     }
     pub fn DetailTextChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -246,7 +246,7 @@ impl LockScreenInfo {
     }
     pub fn AlarmIconChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -4160,7 +4160,7 @@ pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct CACHE_UNINITIALIZE_EVENT {
-    pub Next: *mut CACHE_UNINITIALIZE_EVENT,
+    pub Next: *mut Self,
     pub Event: super::super::Foundation::KEVENT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -7053,7 +7053,7 @@ impl Default for PREFIX_TABLE {
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
-    pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
+    pub NextPrefixTree: *mut Self,
     pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
     pub Prefix: *mut super::super::super::Win32::System::Kernel::STRING,
 }
@@ -8081,8 +8081,8 @@ impl Default for UNICODE_PREFIX_TABLE {
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
-    pub NextPrefixTree: *mut UNICODE_PREFIX_TABLE_ENTRY,
-    pub CaseMatch: *mut UNICODE_PREFIX_TABLE_ENTRY,
+    pub NextPrefixTree: *mut Self,
+    pub CaseMatch: *mut Self,
     pub Links: super::super::Foundation::RTL_SPLAY_LINKS,
     pub Prefix: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }

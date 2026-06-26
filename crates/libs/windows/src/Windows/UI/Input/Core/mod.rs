@@ -68,7 +68,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn CreateForView<P0>(view: P0) -> windows_core::Result<RadialControllerIndependentInputSource>
+    pub fn CreateForView<P0>(view: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::ApplicationModel::Core::CoreApplicationView>,
     {

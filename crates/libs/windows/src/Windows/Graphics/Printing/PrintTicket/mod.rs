@@ -823,9 +823,9 @@ impl WorkflowPrintTicket {
             (windows_core::Interface::vtable(self).SetParameterInitializerAsString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(xmlnamespace), core::mem::transmute_copy(stringvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MergeAndValidateTicket<P0>(&self, deltashematicket: P0) -> windows_core::Result<WorkflowPrintTicket>
+    pub fn MergeAndValidateTicket<P0>(&self, deltashematicket: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<WorkflowPrintTicket>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -833,7 +833,7 @@ impl WorkflowPrintTicket {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P1>(printername: &windows_core::HSTRING, printticketstream: P1) -> windows_core::Result<WorkflowPrintTicket>
+    pub fn CreateInstance<P1>(printername: &windows_core::HSTRING, printticketstream: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {

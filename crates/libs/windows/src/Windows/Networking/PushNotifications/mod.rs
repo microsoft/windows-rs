@@ -193,7 +193,7 @@ impl PushNotificationChannel {
     }
     pub fn PushNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PushNotificationReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

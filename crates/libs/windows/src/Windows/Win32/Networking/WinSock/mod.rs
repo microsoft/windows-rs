@@ -1294,7 +1294,7 @@ pub struct ADDRINFOA {
     pub ai_addrlen: usize,
     pub ai_canonname: windows_core::PSTR,
     pub ai_addr: *mut SOCKADDR,
-    pub ai_next: *mut ADDRINFOA,
+    pub ai_next: *mut Self,
 }
 impl Default for ADDRINFOA {
     fn default() -> Self {
@@ -1314,7 +1314,7 @@ pub struct ADDRINFOEX2A {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX2A,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PSTR,
 }
@@ -1336,7 +1336,7 @@ pub struct ADDRINFOEX2W {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX2W,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
 }
@@ -1358,7 +1358,7 @@ pub struct ADDRINFOEX3 {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX3,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
@@ -1381,7 +1381,7 @@ pub struct ADDRINFOEX4 {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX4,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
@@ -1405,7 +1405,7 @@ pub struct ADDRINFOEX5 {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX5,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
@@ -1458,7 +1458,7 @@ pub struct ADDRINFOEX7 {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEX7,
+    pub ai_next: *mut Self,
     pub ai_version: i32,
     pub ai_fqdn: windows_core::PWSTR,
     pub ai_interfaceindex: i32,
@@ -1487,7 +1487,7 @@ pub struct ADDRINFOEXA {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEXA,
+    pub ai_next: *mut Self,
 }
 impl Default for ADDRINFOEXA {
     fn default() -> Self {
@@ -1507,7 +1507,7 @@ pub struct ADDRINFOEXW {
     pub ai_blob: *mut core::ffi::c_void,
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_core::GUID,
-    pub ai_next: *mut ADDRINFOEXW,
+    pub ai_next: *mut Self,
 }
 impl Default for ADDRINFOEXW {
     fn default() -> Self {
@@ -1530,7 +1530,7 @@ pub struct ADDRINFOW {
     pub ai_addrlen: usize,
     pub ai_canonname: windows_core::PWSTR,
     pub ai_addr: *mut SOCKADDR,
-    pub ai_next: *mut ADDRINFOW,
+    pub ai_next: *mut Self,
 }
 impl Default for ADDRINFOW {
     fn default() -> Self {

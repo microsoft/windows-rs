@@ -352,7 +352,7 @@ pub struct CRYPT_PROVIDER_SGNR {
     pub psSigner: *mut super::Cryptography::CMSG_SIGNER_INFO,
     pub dwError: u32,
     pub csCounterSigners: u32,
-    pub pasCounterSigners: *mut CRYPT_PROVIDER_SGNR,
+    pub pasCounterSigners: *mut Self,
     pub pChainContext: *mut super::Cryptography::CERT_CHAIN_CONTEXT,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1256,7 +1256,7 @@ pub struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     pub pMsgSignerInfo: *mut super::Cryptography::CMSG_SIGNER_INFO,
     pub dwError: u32,
     pub cCounterSigner: u32,
-    pub rgpCounterSigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO,
+    pub rgpCounterSigner: *mut *mut Self,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {

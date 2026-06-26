@@ -3234,7 +3234,7 @@ impl IInkDisp {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteStroke)(windows_core::Interface::as_raw(self), stroke.param().abi()).ok() }
     }
-    pub unsafe fn ExtractStrokes<P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
+    pub unsafe fn ExtractStrokes<P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -3243,7 +3243,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).ExtractStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi(), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtractWithRectangle<P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
+    pub unsafe fn ExtractWithRectangle<P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
@@ -3258,7 +3258,7 @@ impl IInkDisp {
     {
         unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4278,7 +4278,7 @@ impl IInkDrawingAttributes {
             (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9504,7 +9504,7 @@ impl IInkRecognizerContext {
     pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(customdata)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkRecognizerContext> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10885,7 +10885,7 @@ impl IInkStrokeDisp {
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NearestPoint)(windows_core::Interface::as_raw(self), x, y, distance as _, point as _).ok() }
     }
-    pub unsafe fn Split(&self, splitat: f32) -> windows_core::Result<IInkStrokeDisp> {
+    pub unsafe fn Split(&self, splitat: f32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Split)(windows_core::Interface::as_raw(self), splitat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11514,7 +11514,7 @@ impl IInkStrokes {
     }
     pub unsafe fn AddStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IInkStrokes>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
     }
@@ -11526,7 +11526,7 @@ impl IInkStrokes {
     }
     pub unsafe fn RemoveStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IInkStrokes>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
     }
@@ -12629,7 +12629,7 @@ impl IInkWordList {
     }
     pub unsafe fn Merge<P0>(&self, mergewordlist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IInkWordList>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), mergewordlist.param().abi()).ok() }
     }
@@ -13759,7 +13759,7 @@ impl IRealTimeStylus {
             (windows_core::Interface::vtable(self).GetStylusAsyncPluginCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ChildRealTimeStylusPlugin(&self) -> windows_core::Result<IRealTimeStylus> {
+    pub unsafe fn ChildRealTimeStylusPlugin(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13767,7 +13767,7 @@ impl IRealTimeStylus {
     }
     pub unsafe fn putref_ChildRealTimeStylusPlugin<P0>(&self, pirts: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IRealTimeStylus>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), pirts.param().abi()).ok() }
     }
@@ -14679,7 +14679,7 @@ impl IStylusPlugin {
     pub unsafe fn Error<P0, P1>(&self, pirtssrc: P0, piplugin: P1, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
-        P1: windows_core::Param<IStylusPlugin>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), piplugin.param().abi(), datainterest, hrerrorcode, lptrkey as _).ok() }
     }

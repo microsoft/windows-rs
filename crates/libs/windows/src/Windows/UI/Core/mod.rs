@@ -276,7 +276,7 @@ windows_core::imp::required_hierarchy!(CoreComponentInputSource, ICorePointerInp
 impl CoreComponentInputSource {
     pub fn ClosestInteractiveBoundsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClosestInteractiveBoundsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
         unsafe {
@@ -593,7 +593,7 @@ impl CoreCursor {
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> windows_core::Result<CoreCursor> {
+    pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> windows_core::Result<Self> {
         Self::ICoreCursorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCursor)(windows_core::Interface::as_raw(this), r#type, id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -652,7 +652,7 @@ windows_core::imp::required_hierarchy!(CoreDispatcher, ICoreAcceleratorKeys);
 impl CoreDispatcher {
     pub fn AcceleratorKeyActivated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AcceleratorKeyEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
         unsafe {
@@ -1091,7 +1091,7 @@ impl CoreIndependentInputSourceController {
         unsafe { (windows_core::Interface::vtable(self).SetControlledInputWithFilters)(windows_core::Interface::as_raw(self), inputtypes, required, excluded).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisual<P0>(visual: P0) -> windows_core::Result<CoreIndependentInputSourceController>
+    pub fn CreateForVisual<P0>(visual: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Composition::Visual>,
     {
@@ -1101,7 +1101,7 @@ impl CoreIndependentInputSourceController {
         })
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForIVisualElement<P0>(visualelement: P0) -> windows_core::Result<CoreIndependentInputSourceController>
+    pub fn CreateForIVisualElement<P0>(visualelement: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Composition::IVisualElement>,
     {
@@ -1427,7 +1427,7 @@ impl CoreWindow {
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowActivatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1439,7 +1439,7 @@ impl CoreWindow {
     }
     pub fn AutomationProviderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AutomationProviderRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1451,7 +1451,7 @@ impl CoreWindow {
     }
     pub fn CharacterReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CharacterReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1463,7 +1463,7 @@ impl CoreWindow {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CoreWindowEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1475,7 +1475,7 @@ impl CoreWindow {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputEnabledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1487,7 +1487,7 @@ impl CoreWindow {
     }
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, KeyEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1499,7 +1499,7 @@ impl CoreWindow {
     }
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, KeyEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1511,7 +1511,7 @@ impl CoreWindow {
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1523,7 +1523,7 @@ impl CoreWindow {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1535,7 +1535,7 @@ impl CoreWindow {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1547,7 +1547,7 @@ impl CoreWindow {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1559,7 +1559,7 @@ impl CoreWindow {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1571,7 +1571,7 @@ impl CoreWindow {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1583,7 +1583,7 @@ impl CoreWindow {
     }
     pub fn TouchHitTesting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TouchHitTestingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1595,7 +1595,7 @@ impl CoreWindow {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1607,7 +1607,7 @@ impl CoreWindow {
     }
     pub fn SizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowSizeChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1619,7 +1619,7 @@ impl CoreWindow {
     }
     pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VisibilityChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1635,7 +1635,7 @@ impl CoreWindow {
     }
     pub fn ClosestInteractiveBoundsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClosestInteractiveBoundsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe {
@@ -1656,7 +1656,7 @@ impl CoreWindow {
     }
     pub fn ResizeStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
@@ -1670,7 +1670,7 @@ impl CoreWindow {
     }
     pub fn ResizeCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
@@ -1697,7 +1697,7 @@ impl CoreWindow {
             (windows_core::Interface::vtable(this).ActivationMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentThread() -> windows_core::Result<CoreWindow> {
+    pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::ICoreWindowStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1856,7 +1856,7 @@ impl CoreWindowDialog {
             (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithTitle(title: &windows_core::HSTRING) -> windows_core::Result<CoreWindowDialog> {
+    pub fn CreateWithTitle(title: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICoreWindowDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2000,13 +2000,13 @@ impl CoreWindowFlyout {
             (windows_core::Interface::vtable(self).ShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(position: super::super::Foundation::Point) -> windows_core::Result<CoreWindowFlyout> {
+    pub fn Create(position: super::super::Foundation::Point) -> windows_core::Result<Self> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTitle(position: super::super::Foundation::Point, title: &windows_core::HSTRING) -> windows_core::Result<CoreWindowFlyout> {
+    pub fn CreateWithTitle(position: super::super::Foundation::Point, title: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICoreWindowFlyoutFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), position, core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2065,7 +2065,7 @@ impl CoreWindowResizeManager {
             (windows_core::Interface::vtable(this).ShouldWaitForLayoutCompletion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<CoreWindowResizeManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICoreWindowResizeManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2094,7 +2094,7 @@ impl windows_core::RuntimeType for DispatchedHandler {
 }
 impl DispatchedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DispatchedHandler, F>::new(&DispatchedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DispatchedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
@@ -3125,7 +3125,7 @@ windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IU
 impl ICorePointerRedirector {
     pub fn PointerRoutedAway<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3137,7 +3137,7 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedTo<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3149,7 +3149,7 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4719,7 +4719,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
 }
 impl IdleDispatchedHandler {
     pub fn new<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<IdleDispatchedHandler, F>::new(&IdleDispatchedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IdleDispatchedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, e: P0) -> windows_core::Result<()>
@@ -4933,7 +4933,7 @@ impl SystemNavigationManager {
         let this = &windows_core::Interface::cast::<ISystemNavigationManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAppViewBackButtonVisibility)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SystemNavigationManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemNavigationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -1307,7 +1307,7 @@ impl SceneMesh {
     {
         unsafe { (windows_core::Interface::vtable(self).FillMeshAttribute)(windows_core::Interface::as_raw(self), semantic, format, memory.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneMesh>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -1671,7 +1671,7 @@ impl SceneMeshRendererComponent {
             (windows_core::Interface::vtable(self).UVMappings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneMeshRendererComponent>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -1860,7 +1860,7 @@ impl SceneMetallicRoughnessMaterial {
     pub fn SetRoughnessFactor(&self, value: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRoughnessFactor)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneMetallicRoughnessMaterial>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -2299,7 +2299,7 @@ impl SceneNode {
             (windows_core::Interface::vtable(self).Components)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Parent(&self) -> windows_core::Result<SceneNode> {
+    pub fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2317,7 +2317,7 @@ impl SceneNode {
             (windows_core::Interface::vtable(self).FindFirstComponentOfType)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneNode>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -3175,7 +3175,7 @@ impl SceneSurfaceMaterialInput {
     pub fn SetWrappingVMode(&self, value: SceneWrappingMode) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWrappingVMode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneSurfaceMaterialInput>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -3332,7 +3332,7 @@ impl SceneVisual {
     {
         unsafe { (windows_core::Interface::vtable(self).SetRoot)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<SceneVisual>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {

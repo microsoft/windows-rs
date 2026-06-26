@@ -5733,7 +5733,7 @@ impl IDCompositionVisual {
     }
     pub unsafe fn SetTransformParent<P0>(&self, visual: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDCompositionVisual>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTransformParent)(windows_core::Interface::as_raw(self), visual.param().abi()).ok() }
     }
@@ -5767,14 +5767,14 @@ impl IDCompositionVisual {
     }
     pub unsafe fn AddVisual<P0, P2>(&self, visual: P0, insertabove: bool, referencevisual: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDCompositionVisual>,
-        P2: windows_core::Param<IDCompositionVisual>,
+        P0: windows_core::Param<Self>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddVisual)(windows_core::Interface::as_raw(self), visual.param().abi(), insertabove.into(), referencevisual.param().abi()).ok() }
     }
     pub unsafe fn RemoveVisual<P0>(&self, visual: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDCompositionVisual>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveVisual)(windows_core::Interface::as_raw(self), visual.param().abi()).ok() }
     }

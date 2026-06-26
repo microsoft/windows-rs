@@ -138,7 +138,7 @@ impl IWebViewControl {
     }
     pub fn NavigationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -150,7 +150,7 @@ impl IWebViewControl {
     }
     pub fn ContentLoading<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlContentLoadingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlContentLoadingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -162,7 +162,7 @@ impl IWebViewControl {
     }
     pub fn DOMContentLoaded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlDOMContentLoadedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlDOMContentLoadedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -174,7 +174,7 @@ impl IWebViewControl {
     }
     pub fn NavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -186,7 +186,7 @@ impl IWebViewControl {
     }
     pub fn FrameNavigationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -198,7 +198,7 @@ impl IWebViewControl {
     }
     pub fn FrameContentLoading<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlContentLoadingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlContentLoadingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -210,7 +210,7 @@ impl IWebViewControl {
     }
     pub fn FrameDOMContentLoaded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlDOMContentLoadedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlDOMContentLoadedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -222,7 +222,7 @@ impl IWebViewControl {
     }
     pub fn FrameNavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlNavigationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -234,7 +234,7 @@ impl IWebViewControl {
     }
     pub fn ScriptNotify<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlScriptNotifyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlScriptNotifyEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -246,7 +246,7 @@ impl IWebViewControl {
     }
     pub fn LongRunningScriptDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlLongRunningScriptDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlLongRunningScriptDetectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -258,7 +258,7 @@ impl IWebViewControl {
     }
     pub fn UnsafeContentWarningDisplaying<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -270,7 +270,7 @@ impl IWebViewControl {
     }
     pub fn UnviewableContentIdentified<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlUnviewableContentIdentifiedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlUnviewableContentIdentifiedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -282,7 +282,7 @@ impl IWebViewControl {
     }
     pub fn PermissionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlPermissionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlPermissionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -294,7 +294,7 @@ impl IWebViewControl {
     }
     pub fn UnsupportedUriSchemeIdentified<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -306,7 +306,7 @@ impl IWebViewControl {
     }
     pub fn NewWindowRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNewWindowRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlNewWindowRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -318,7 +318,7 @@ impl IWebViewControl {
     }
     pub fn ContainsFullScreenElementChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -330,7 +330,7 @@ impl IWebViewControl {
     }
     pub fn WebResourceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlWebResourceRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WebViewControlWebResourceRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

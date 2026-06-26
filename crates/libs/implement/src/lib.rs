@@ -202,7 +202,7 @@ struct InterfaceChain {
 
 struct ImplementType {
     type_name: String,
-    generics: Vec<ImplementType>,
+    generics: Vec<Self>,
 
     /// The best span for diagnostics.
     span: proc_macro2::Span,

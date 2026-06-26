@@ -267,16 +267,16 @@ enum HookSlot {
 impl fmt::Debug for HookSlot {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            HookSlot::State { type_name, .. } => write!(f, "State({type_name})"),
-            HookSlot::Memo { .. } => f.write_str("Memo { .. }"),
-            HookSlot::Effect {
+            Self::State { type_name, .. } => write!(f, "State({type_name})"),
+            Self::Memo { .. } => f.write_str("Memo { .. }"),
+            Self::Effect {
                 pending, cleanup, ..
             } => f
                 .debug_struct("Effect")
                 .field("pending", &pending.is_some())
                 .field("has_cleanup", &cleanup.is_some())
                 .finish(),
-            HookSlot::AsyncState { type_name, .. } => write!(f, "AsyncState({type_name})"),
+            Self::AsyncState { type_name, .. } => write!(f, "AsyncState({type_name})"),
         }
     }
 }

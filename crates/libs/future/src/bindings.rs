@@ -15,7 +15,7 @@ impl AsyncActionCompletedHandler {
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<AsyncActionCompletedHandler, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncActionCompletedHandlerBox::<F>::VTABLE,
             invoke,
         );
@@ -107,7 +107,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<AsyncActionProgressHandler<TProgress>, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE,
             invoke,
         );
@@ -231,10 +231,7 @@ impl<TProgress: windows_core::RuntimeType + 'static>
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<
-            AsyncActionWithProgressCompletedHandler<TProgress>,
-            F,
-        >::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE,
             invoke,
         );
@@ -354,7 +351,7 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<AsyncOperationCompletedHandler<TResult>, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE,
             invoke,
         );
@@ -477,10 +474,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<
-            AsyncOperationProgressHandler<TResult, TProgress>,
-            F,
-        >::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
         );
@@ -622,10 +616,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     >(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<
-            AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
-            F,
-        >::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE,
             invoke,
         );

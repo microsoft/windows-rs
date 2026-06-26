@@ -548,7 +548,7 @@ impl UserDataAccountStore {
     }
     pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UserDataAccountStoreChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {

@@ -6349,16 +6349,16 @@ impl ID3D10EffectType {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
-    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D10EffectType> {
+    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<ID3D10EffectType>
+    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
-    pub unsafe fn GetMemberTypeBySemantic<P0>(&self, semantic: P0) -> Option<ID3D10EffectType>
+    pub unsafe fn GetMemberTypeBySemantic<P0>(&self, semantic: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -6485,31 +6485,31 @@ impl ID3D10EffectVariable {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
-    pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> Option<ID3D10EffectVariable> {
+    pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetAnnotationByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> Option<ID3D10EffectVariable>
+    pub unsafe fn GetAnnotationByName<P0>(&self, name: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
-    pub unsafe fn GetMemberByIndex(&self, index: u32) -> Option<ID3D10EffectVariable> {
+    pub unsafe fn GetMemberByIndex(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> Option<ID3D10EffectVariable>
+    pub unsafe fn GetMemberByName<P0>(&self, name: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetMemberByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
-    pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> Option<ID3D10EffectVariable>
+    pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetMemberBySemantic)(windows_core::Interface::as_raw(self), semantic.param().abi()) }
     }
-    pub unsafe fn GetElement(&self, index: u32) -> Option<ID3D10EffectVariable> {
+    pub unsafe fn GetElement(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), index) }
     }
     pub unsafe fn GetParentConstantBuffer(&self) -> Option<ID3D10EffectConstantBuffer> {
@@ -8414,10 +8414,10 @@ impl ID3D10ShaderReflectionType {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
-    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D10ShaderReflectionType> {
+    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<ID3D10ShaderReflectionType>
+    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {

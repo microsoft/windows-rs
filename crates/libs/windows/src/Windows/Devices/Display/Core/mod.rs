@@ -59,7 +59,7 @@ impl DisplayAdapter {
             (windows_core::Interface::vtable(this).IsIndirectDisplayDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreferredRenderAdapter(&self) -> windows_core::Result<DisplayAdapter> {
+    pub fn PreferredRenderAdapter(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IDisplayAdapter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -67,7 +67,7 @@ impl DisplayAdapter {
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> windows_core::Result<DisplayAdapter> {
+    pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> windows_core::Result<Self> {
         Self::IDisplayAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -348,7 +348,7 @@ impl DisplayManager {
     }
     pub fn Enabled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DisplayManagerEnabledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -360,7 +360,7 @@ impl DisplayManager {
     }
     pub fn Disabled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DisplayManagerDisabledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -372,7 +372,7 @@ impl DisplayManager {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DisplayManagerChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -384,7 +384,7 @@ impl DisplayManager {
     }
     pub fn PathsFailedOrInvalidated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DisplayManagerPathsFailedOrInvalidatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -418,7 +418,7 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).CreateDisplayDeviceForIndirectAdapter)(windows_core::Interface::as_raw(this), indirectadapter.param().abi(), renderadapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(options: DisplayManagerOptions) -> windows_core::Result<DisplayManager> {
+    pub fn Create(options: DisplayManagerOptions) -> windows_core::Result<Self> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -871,7 +871,7 @@ impl DisplayMuxDevice {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayMuxDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -887,7 +887,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DisplayMuxDevice>> {
+    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IDisplayMuxDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1192,14 +1192,14 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateInstance(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<DisplayPrimaryDescription> {
+    pub fn CreateInstance(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<Self> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateWithProperties<P0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<DisplayPrimaryDescription>
+    pub fn CreateWithProperties<P0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {
@@ -1342,7 +1342,7 @@ impl DisplaySource {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplaySource, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
@@ -1484,7 +1484,7 @@ impl DisplayState {
             (windows_core::Interface::vtable(self).TryApply)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<DisplayState> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1745,7 +1745,7 @@ impl DisplayTarget {
     }
     pub fn IsSame<P0>(&self, othertarget: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<DisplayTarget>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1754,7 +1754,7 @@ impl DisplayTarget {
     }
     pub fn IsEqual<P0>(&self, othertarget: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<DisplayTarget>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2006,13 +2006,13 @@ impl DisplayWireFormat {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<DisplayWireFormat> {
+    pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<Self> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithProperties<P0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<DisplayWireFormat>
+    pub fn CreateWithProperties<P0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {

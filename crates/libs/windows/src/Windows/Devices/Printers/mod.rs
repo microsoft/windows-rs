@@ -597,7 +597,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(self).GetRangeOfIntegerArray)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCollectionArray(&self) -> windows_core::Result<windows_collections::IVector<windows_collections::IMapView<windows_core::HSTRING, IppAttributeValue>>> {
+    pub fn GetCollectionArray(&self) -> windows_core::Result<windows_collections::IVector<windows_collections::IMapView<windows_core::HSTRING, Self>>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCollectionArray)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -663,31 +663,31 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(self).GetMimeMediaTypeArray)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateUnsupported() -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateUnsupported() -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUnsupported)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUnknown() -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateUnknown() -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUnknown)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNoValue() -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateNoValue() -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNoValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInteger(value: i32) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateInteger(value: i32) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInteger)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateIntegerArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateIntegerArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<i32>>,
     {
@@ -696,13 +696,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateIntegerArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateBoolean(value: bool) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateBoolean(value: bool) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBoolean)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateBooleanArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateBooleanArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<bool>>,
     {
@@ -711,13 +711,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateBooleanArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateEnum(value: i32) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateEnum(value: i32) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateEnum)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateEnumArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateEnumArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<i32>>,
     {
@@ -727,7 +727,7 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateOctetString<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateOctetString<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -737,7 +737,7 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateOctetStringArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateOctetStringArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::Streams::IBuffer>>,
     {
@@ -746,13 +746,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateOctetStringArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateDateTime(value: windows_time::DateTime) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateDateTime(value: windows_time::DateTime) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDateTime)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateDateTimeArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateDateTimeArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_time::DateTime>>,
     {
@@ -761,7 +761,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateDateTimeArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResolution<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateResolution<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IppResolution>,
     {
@@ -770,7 +770,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateResolution)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResolutionArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateResolutionArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<IppResolution>>,
     {
@@ -779,7 +779,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateResolutionArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateRangeOfInteger<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateRangeOfInteger<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IppIntegerRange>,
     {
@@ -788,7 +788,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateRangeOfInteger)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateRangeOfIntegerArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateRangeOfIntegerArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<IppIntegerRange>>,
     {
@@ -797,25 +797,25 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateRangeOfIntegerArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCollection<P0>(memberattributes: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateCollection<P0>(memberattributes: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, Self>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCollection)(windows_core::Interface::as_raw(this), memberattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCollectionArray<P0>(memberattributesarray: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateCollectionArray<P0>(memberattributesarray: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>>,
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, Self>>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCollectionArray)(windows_core::Interface::as_raw(this), memberattributesarray.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTextWithLanguage<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateTextWithLanguage<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IppTextWithLanguage>,
     {
@@ -824,7 +824,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateTextWithLanguage)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTextWithLanguageArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateTextWithLanguageArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<IppTextWithLanguage>>,
     {
@@ -833,7 +833,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateTextWithLanguageArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNameWithLanguage<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateNameWithLanguage<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IppTextWithLanguage>,
     {
@@ -842,7 +842,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateNameWithLanguage)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNameWithLanguageArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateNameWithLanguageArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<IppTextWithLanguage>>,
     {
@@ -851,13 +851,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateNameWithLanguageArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTextWithoutLanguage(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateTextWithoutLanguage(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTextWithoutLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTextWithoutLanguageArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateTextWithoutLanguageArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -866,13 +866,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateTextWithoutLanguageArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNameWithoutLanguage(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateNameWithoutLanguage(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNameWithoutLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNameWithoutLanguageArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateNameWithoutLanguageArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -881,13 +881,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateNameWithoutLanguageArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateKeyword(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateKeyword(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateKeyword)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateKeywordArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateKeywordArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -896,7 +896,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateKeywordArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUri<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateUri<P0>(value: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -905,7 +905,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateUri)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUriArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateUriArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
@@ -914,13 +914,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateUriArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUriSchema(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateUriSchema(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUriSchema)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateUriSchemaArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateUriSchemaArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -929,13 +929,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateUriSchemaArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCharset(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateCharset(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCharset)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCharsetArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateCharsetArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -944,13 +944,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateCharsetArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNaturalLanguage(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateNaturalLanguage(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNaturalLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNaturalLanguageArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateNaturalLanguageArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -959,13 +959,13 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateNaturalLanguageArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMimeMedia(value: &windows_core::HSTRING) -> windows_core::Result<IppAttributeValue> {
+    pub fn CreateMimeMedia(value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMimeMedia)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMimeMediaArray<P0>(values: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateMimeMediaArray<P0>(values: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1041,7 +1041,7 @@ impl IppIntegerRange {
             (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(start: i32, end: i32) -> windows_core::Result<IppIntegerRange> {
+    pub fn CreateInstance(start: i32, end: i32) -> windows_core::Result<Self> {
         Self::IIppIntegerRangeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), start, end, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1219,13 +1219,13 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
+    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1369,7 +1369,7 @@ impl IppResolution {
             (windows_core::Interface::vtable(self).Unit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(width: i32, height: i32, unit: IppResolutionUnit) -> windows_core::Result<IppResolution> {
+    pub fn CreateInstance(width: i32, height: i32, unit: IppResolutionUnit) -> windows_core::Result<Self> {
         Self::IIppResolutionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), width, height, unit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1453,7 +1453,7 @@ impl IppTextWithLanguage {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(language: &windows_core::HSTRING, text: &windows_core::HSTRING) -> windows_core::Result<IppTextWithLanguage> {
+    pub fn CreateInstance(language: &windows_core::HSTRING, text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIppTextWithLanguageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1629,7 +1629,7 @@ impl Print3DDevice {
             (windows_core::Interface::vtable(self).PrintSchema)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Print3DDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1995,7 +1995,7 @@ impl VirtualPrinterSupportedFormat {
     pub fn SetMaxSupportedVersion(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxSupportedVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateInstance(contenttype: &windows_core::HSTRING, maxsupportedversion: &windows_core::HSTRING) -> windows_core::Result<VirtualPrinterSupportedFormat> {
+    pub fn CreateInstance(contenttype: &windows_core::HSTRING, maxsupportedversion: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IVirtualPrinterSupportedFormatFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contenttype), core::mem::transmute_copy(maxsupportedversion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

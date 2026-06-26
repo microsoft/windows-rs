@@ -338,7 +338,7 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(self).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(self), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
+    pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::IGameController>,
     {
@@ -348,7 +348,7 @@ impl LegacyGipGameControllerProvider {
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn FromGameControllerProvider<P0>(provider: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
+    pub fn FromGameControllerProvider<P0>(provider: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {

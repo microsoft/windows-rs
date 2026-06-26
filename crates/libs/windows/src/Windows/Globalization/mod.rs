@@ -65,7 +65,7 @@ impl Calendar {
         static SHARED: windows_core::imp::FactoryCache<Calendar, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Clone(&self) -> windows_core::Result<Calendar> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -511,7 +511,7 @@ impl Calendar {
     }
     pub fn Compare<P0>(&self, other: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<Calendar>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -526,7 +526,7 @@ impl Calendar {
     }
     pub fn CopyTo<P0>(&self, other: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<Calendar>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), other.param().abi()).ok() }
     }
@@ -578,7 +578,7 @@ impl Calendar {
             (windows_core::Interface::vtable(self).IsDaylightSavingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCalendarDefaultCalendarAndClock<P0>(languages: P0) -> windows_core::Result<Calendar>
+    pub fn CreateCalendarDefaultCalendarAndClock<P0>(languages: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -587,7 +587,7 @@ impl Calendar {
             (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Calendar>
+    pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -596,7 +596,7 @@ impl Calendar {
             (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Calendar>
+    pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -798,7 +798,7 @@ impl CurrencyAmount {
             (windows_core::Interface::vtable(self).Currency)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(amount: &windows_core::HSTRING, currency: &windows_core::HSTRING) -> windows_core::Result<CurrencyAmount> {
+    pub fn Create(amount: &windows_core::HSTRING, currency: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICurrencyAmountFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(amount), core::mem::transmute_copy(currency), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1884,7 +1884,7 @@ impl GeographicRegion {
             (windows_core::Interface::vtable(self).CurrenciesInUse)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateGeographicRegion(geographicregioncode: &windows_core::HSTRING) -> windows_core::Result<GeographicRegion> {
+    pub fn CreateGeographicRegion(geographicregioncode: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IGeographicRegionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateGeographicRegion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(geographicregioncode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2692,7 +2692,7 @@ impl Language {
             (windows_core::Interface::vtable(this).GetExtensionSubtags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(singleton), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateLanguage(languagetag: &windows_core::HSTRING) -> windows_core::Result<Language> {
+    pub fn CreateLanguage(languagetag: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ILanguageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

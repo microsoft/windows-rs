@@ -2756,7 +2756,7 @@ impl IPlayReadyServiceRequest {
             (windows_core::Interface::vtable(self).BeginServiceRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextServiceRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3095,7 +3095,7 @@ windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, window
 impl NDClient {
     pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3107,7 +3107,7 @@ impl NDClient {
     }
     pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3119,7 +3119,7 @@ impl NDClient {
     }
     pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3131,7 +3131,7 @@ impl NDClient {
     }
     pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3143,7 +3143,7 @@ impl NDClient {
     }
     pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3185,7 +3185,7 @@ impl NDClient {
     pub fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreateInstance<P0, P1, P2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> windows_core::Result<NDClient>
+    pub fn CreateInstance<P0, P1, P2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<INDDownloadEngine>,
         P1: windows_core::Param<INDStreamParser>,
@@ -3258,7 +3258,7 @@ impl NDCustomData {
             (windows_core::Interface::vtable(self).CustomData)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> windows_core::Result<NDCustomData> {
+    pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> windows_core::Result<Self> {
         Self::INDCustomDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), customdatatypeidbytes.len().try_into().unwrap(), customdatatypeidbytes.as_ptr(), customdatabytes.len().try_into().unwrap(), customdatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3352,7 +3352,7 @@ impl NDLicenseFetchDescriptor {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), licensefetchchallengecustomdata.param().abi()).ok() }
     }
-    pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<NDLicenseFetchDescriptor>
+    pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<INDCustomData>,
     {
@@ -3532,7 +3532,7 @@ impl NDTCPMessenger {
             (windows_core::Interface::vtable(self).SendLicenseFetchRequestAsync)(windows_core::Interface::as_raw(self), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(remotehostname: &windows_core::HSTRING, remotehostport: u32) -> windows_core::Result<NDTCPMessenger> {
+    pub fn CreateInstance(remotehostname: &windows_core::HSTRING, remotehostport: u32) -> windows_core::Result<Self> {
         Self::INDTCPMessengerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(remotehostname), remotehostport, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3612,7 +3612,7 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(self).GetSerializedHeader)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn HeaderWithEmbeddedUpdates(&self) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn HeaderWithEmbeddedUpdates(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HeaderWithEmbeddedUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3632,7 +3632,7 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).KeyIdStrings)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
         P2: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3642,7 +3642,7 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromComponents<P3, P4>(contentkeyid: windows_core::GUID, contentkeyidstring: &windows_core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P3, licenseacquisitionuserinterfaceurl: P4, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents<P3, P4>(contentkeyid: windows_core::GUID, contentkeyidstring: &windows_core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P3, licenseacquisitionuserinterfaceurl: P4, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::super::super::Foundation::Uri>,
         P4: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3652,13 +3652,13 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).CreateInstanceFromComponents)(windows_core::Interface::as_raw(this), contentkeyid, core::mem::transmute_copy(contentkeyidstring), contentencryptionalgorithm, licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> windows_core::Result<Self> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromPlayReadyHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromComponents2<P4, P5>(dwflags: u32, contentkeyids: &[windows_core::GUID], contentkeyidstrings: &[windows_core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P4, licenseacquisitionuserinterfaceurl: P5, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents2<P4, P5>(dwflags: u32, contentkeyids: &[windows_core::GUID], contentkeyidstrings: &[windows_core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P4, licenseacquisitionuserinterfaceurl: P5, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<Self>
     where
         P4: windows_core::Param<super::super::super::Foundation::Uri>,
         P5: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3777,7 +3777,7 @@ impl PlayReadyDomainIterable {
             (windows_core::Interface::vtable(self).First)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(domainaccountid: windows_core::GUID) -> windows_core::Result<PlayReadyDomainIterable> {
+    pub fn CreateInstance(domainaccountid: windows_core::GUID) -> windows_core::Result<Self> {
         Self::IPlayReadyDomainIterableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), domainaccountid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4511,7 +4511,7 @@ impl PlayReadyLicenseIterable {
             (windows_core::Interface::vtable(self).First)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
+    pub fn CreateInstance<P0>(contentheader: P0, fullyevaluated: bool) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4637,7 +4637,7 @@ impl PlayReadyLicenseSession {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<P0>(configuration: P0) -> windows_core::Result<PlayReadyLicenseSession>
+    pub fn CreateInstance<P0>(configuration: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IPropertySet>,
     {
@@ -4877,7 +4877,7 @@ impl PlayReadySecureStopIterable {
             (windows_core::Interface::vtable(self).First)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopIterable> {
+    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<Self> {
         Self::IPlayReadySecureStopIterableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5002,13 +5002,13 @@ impl PlayReadySecureStopServiceRequest {
             (windows_core::Interface::vtable(self).PublisherCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopServiceRequest> {
+    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<Self> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromSessionID(sessionid: windows_core::GUID, publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopServiceRequest> {
+    pub fn CreateInstanceFromSessionID(sessionid: windows_core::GUID, publishercertbytes: &[u8]) -> windows_core::Result<Self> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromSessionID)(windows_core::Interface::as_raw(this), sessionid, publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

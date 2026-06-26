@@ -79,7 +79,7 @@ impl Direct3D11CaptureFramePool {
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -106,7 +106,7 @@ impl Direct3D11CaptureFramePool {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Create<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
+    pub fn Create<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -116,7 +116,7 @@ impl Direct3D11CaptureFramePool {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFreeThreaded<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
+    pub fn CreateFreeThreaded<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -210,7 +210,7 @@ impl GraphicsCaptureItem {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -221,7 +221,7 @@ impl GraphicsCaptureItem {
         unsafe { (windows_core::Interface::vtable(self).RemoveClosed)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateFromVisual<P0>(visual: P0) -> windows_core::Result<GraphicsCaptureItem>
+    pub fn CreateFromVisual<P0>(visual: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::UI::Composition::Visual>,
     {
@@ -231,13 +231,13 @@ impl GraphicsCaptureItem {
         })
     }
     #[cfg(feature = "UI")]
-    pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> windows_core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> windows_core::Result<Self> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromWindowId)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> windows_core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> windows_core::Result<Self> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

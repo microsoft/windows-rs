@@ -2561,7 +2561,7 @@ impl IEnumNetCfgBindingInterface {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumNetCfgBindingInterface>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -2631,7 +2631,7 @@ impl IEnumNetCfgBindingPath {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumNetCfgBindingPath>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -2701,7 +2701,7 @@ impl IEnumNetCfgComponent {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumNetCfgComponent>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -2933,13 +2933,13 @@ windows_core::imp::interface_hierarchy!(INetCfgBindingPath, windows_core::IUnkno
 impl INetCfgBindingPath {
     pub unsafe fn IsSamePathAs<P0>(&self, ppath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<INetCfgBindingPath>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsSamePathAs)(windows_core::Interface::as_raw(self), ppath.param().abi()).ok() }
     }
     pub unsafe fn IsSubPathOf<P0>(&self, ppath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<INetCfgBindingPath>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsSubPathOf)(windows_core::Interface::as_raw(self), ppath.param().abi()).ok() }
     }

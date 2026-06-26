@@ -19,10 +19,8 @@ impl<T: windows_core::RuntimeType + 'static> Handler<T> {
     pub fn new<F: Fn(windows_core::Ref<T>, i32) -> windows_core::Result<()> + Send + 'static>(
         invoke: F,
     ) -> Self {
-        let com = windows_core::imp::DelegateBox::<Handler<T>, F>::new(
-            &HandlerBox::<T, F>::VTABLE,
-            invoke,
-        );
+        let com =
+            windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<T, F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, args: i32) -> windows_core::Result<()>

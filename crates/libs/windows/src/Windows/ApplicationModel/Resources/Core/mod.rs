@@ -452,7 +452,7 @@ impl ResourceContext {
     {
         unsafe { (windows_core::Interface::vtable(self).OverrideToMatch)(windows_core::Interface::as_raw(self), result.param().abi()).ok() }
     }
-    pub fn Clone(&self) -> windows_core::Result<ResourceContext> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -470,7 +470,7 @@ impl ResourceContext {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLanguages)(windows_core::Interface::as_raw(self), languages.param().abi()).ok() }
     }
-    pub fn CreateMatchingContext<P0>(result: P0) -> windows_core::Result<ResourceContext>
+    pub fn CreateMatchingContext<P0>(result: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<ResourceQualifier>>,
     {
@@ -479,7 +479,7 @@ impl ResourceContext {
             (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), result.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ResourceContext> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -497,7 +497,7 @@ impl ResourceContext {
     {
         Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() })
     }
-    pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceContext> {
+    pub fn GetForViewIndependentUse() -> windows_core::Result<Self> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -507,7 +507,7 @@ impl ResourceContext {
         Self::IResourceContextStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetGlobalQualifierValueWithPersistence)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), persistence).ok() })
     }
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceContext>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::UI::UIContext>,
     {
@@ -676,7 +676,7 @@ impl ResourceManager {
             (windows_core::Interface::vtable(this).GetAllSubtreesForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), resourcelayoutinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<ResourceManager> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IResourceManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -764,7 +764,7 @@ impl ResourceMap {
             (windows_core::Interface::vtable(self).GetValueForContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
+    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubtree)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(reference), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

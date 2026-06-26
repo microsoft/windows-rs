@@ -43,7 +43,7 @@ impl Task {
 
 impl Wake for Task {
     fn wake(self: Arc<Self>) {
-        Task::wake_by_ref(&self);
+        Self::wake_by_ref(&self);
     }
 
     fn wake_by_ref(self: &Arc<Self>) {

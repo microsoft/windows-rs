@@ -8577,7 +8577,7 @@ impl IPrintSchemaTicket {
     }
     pub unsafe fn CommitAsync<P0>(&self, pprintticketcommit: P0) -> windows_core::Result<IPrintSchemaAsyncOperation>
     where
-        P0: windows_core::Param<IPrintSchemaTicket>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

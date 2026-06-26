@@ -153,7 +153,7 @@ impl windows_core::RuntimeType for DeploymentSessionHeartbeatRequested {
 }
 impl DeploymentSessionHeartbeatRequested {
     pub fn new<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DeploymentSessionHeartbeatRequested, F>::new(&DeploymentSessionHeartbeatRequestedBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeploymentSessionHeartbeatRequestedBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, eventargs: P0) -> windows_core::Result<()>
@@ -348,7 +348,7 @@ impl DeploymentWorkload {
     pub fn SetStateDetails(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStateDetails)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateInstance(id: &windows_core::HSTRING) -> windows_core::Result<DeploymentWorkload> {
+    pub fn CreateInstance(id: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IDeploymentWorkloadFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -395,7 +395,7 @@ impl DeploymentWorkloadBatch {
             (windows_core::Interface::vtable(self).BatchWorkloads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(id: u32) -> windows_core::Result<DeploymentWorkloadBatch> {
+    pub fn CreateInstance(id: u32) -> windows_core::Result<Self> {
         Self::IDeploymentWorkloadBatchFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -648,7 +648,7 @@ impl MachineProvisioningProgressReporter {
     }
     pub fn SessionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MachineProvisioningProgressReporter, DeploymentSessionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DeploymentSessionStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -660,7 +660,7 @@ impl MachineProvisioningProgressReporter {
     }
     pub fn SessionConnectionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MachineProvisioningProgressReporter, DeploymentSessionConnectionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DeploymentSessionConnectionChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -682,7 +682,7 @@ impl MachineProvisioningProgressReporter {
             (windows_core::Interface::vtable(self).GetDevicePreparationExecutionContextAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForLaunchUri<P0, P1>(launchuri: P0, heartbeathandler: P1) -> windows_core::Result<MachineProvisioningProgressReporter>
+    pub fn GetForLaunchUri<P0, P1>(launchuri: P0, heartbeathandler: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<DeploymentSessionHeartbeatRequested>,

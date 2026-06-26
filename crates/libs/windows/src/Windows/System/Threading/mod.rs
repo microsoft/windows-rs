@@ -97,7 +97,7 @@ impl ThreadPoolTimer {
     pub fn Cancel(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreatePeriodicTimer<P0>(handler: P0, period: windows_time::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreatePeriodicTimer<P0>(handler: P0, period: windows_time::TimeSpan) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
     {
@@ -106,7 +106,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreatePeriodicTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), period, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimer<P0>(handler: P0, delay: windows_time::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreateTimer<P0>(handler: P0, delay: windows_time::TimeSpan) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
     {
@@ -115,7 +115,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreateTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), delay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePeriodicTimerWithCompletion<P0, P2>(handler: P0, period: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreatePeriodicTimerWithCompletion<P0, P2>(handler: P0, period: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
         P2: windows_core::Param<TimerDestroyedHandler>,
@@ -125,7 +125,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(windows_core::Interface::as_raw(this), handler.param().abi(), period, destroyed.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTimerWithCompletion<P0, P2>(handler: P0, delay: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
+    pub fn CreateTimerWithCompletion<P0, P2>(handler: P0, delay: windows_time::TimeSpan, destroyed: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<TimerElapsedHandler>,
         P2: windows_core::Param<TimerDestroyedHandler>,
@@ -158,7 +158,7 @@ impl windows_core::RuntimeType for TimerDestroyedHandler {
 }
 impl TimerDestroyedHandler {
     pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<TimerDestroyedHandler, F>::new(&TimerDestroyedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&TimerDestroyedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
@@ -197,7 +197,7 @@ impl windows_core::RuntimeType for TimerElapsedHandler {
 }
 impl TimerElapsedHandler {
     pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<TimerElapsedHandler, F>::new(&TimerElapsedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&TimerElapsedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, timer: P0) -> windows_core::Result<()>
@@ -236,7 +236,7 @@ impl windows_core::RuntimeType for WorkItemHandler {
 }
 impl WorkItemHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<WorkItemHandler, F>::new(&WorkItemHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&WorkItemHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>

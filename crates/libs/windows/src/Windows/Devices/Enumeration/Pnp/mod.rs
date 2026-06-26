@@ -92,7 +92,7 @@ impl PnpObject {
     {
         unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), updateinfo.param().abi()).ok() }
     }
-    pub fn CreateFromIdAsync<P2>(r#type: PnpObjectType, id: &windows_core::HSTRING, requestedproperties: P2) -> windows_core::Result<windows_future::IAsyncOperation<PnpObject>>
+    pub fn CreateFromIdAsync<P2>(r#type: PnpObjectType, id: &windows_core::HSTRING, requestedproperties: P2) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P2: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -286,7 +286,7 @@ windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown
 impl PnpObjectWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObject>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -298,7 +298,7 @@ impl PnpObjectWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -310,7 +310,7 @@ impl PnpObjectWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -322,7 +322,7 @@ impl PnpObjectWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -334,7 +334,7 @@ impl PnpObjectWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

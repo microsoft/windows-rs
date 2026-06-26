@@ -86,7 +86,7 @@ impl CameraIntrinsics {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UndistortPoints)(windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    pub fn Create(focallength: windows_numerics::Vector2, principalpoint: windows_numerics::Vector2, radialdistortion: windows_numerics::Vector3, tangentialdistortion: windows_numerics::Vector2, imagewidth: u32, imageheight: u32) -> windows_core::Result<CameraIntrinsics> {
+    pub fn Create(focallength: windows_numerics::Vector2, principalpoint: windows_numerics::Vector2, radialdistortion: windows_numerics::Vector3, tangentialdistortion: windows_numerics::Vector2, imagewidth: u32, imageheight: u32) -> windows_core::Result<Self> {
         Self::ICameraIntrinsicsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

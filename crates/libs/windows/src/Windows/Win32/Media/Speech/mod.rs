@@ -505,7 +505,7 @@ impl IEnumSpObjectTokens {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSpObjectTokens> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -994,7 +994,7 @@ impl ISpDataKey {
     {
         unsafe { (windows_core::Interface::vtable(self).GetDWORD)(windows_core::Interface::as_raw(self), pszvaluename.param().abi(), pdwvalue as _).ok() }
     }
-    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> windows_core::Result<ISpDataKey>
+    pub unsafe fn OpenKey<P0>(&self, pszsubkeyname: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1003,7 +1003,7 @@ impl ISpDataKey {
             (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), pszsubkeyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> windows_core::Result<ISpDataKey>
+    pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -8646,13 +8646,13 @@ impl ISpeechDataKey {
             (windows_core::Interface::vtable(self).GetLongValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(valuename), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OpenKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<ISpeechDataKey> {
+    pub unsafe fn OpenKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(subkeyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<ISpeechDataKey> {
+    pub unsafe fn CreateKey(&self, subkeyname: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(subkeyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9104,14 +9104,14 @@ impl ISpeechGrammarRuleState {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &windows_core::BSTR, separators: &windows_core::BSTR, r#type: SpeechGrammarWordType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISpeechGrammarRuleState>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), deststate.param().abi(), core::mem::transmute_copy(words), core::mem::transmute_copy(separators), r#type, core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISpeechGrammarRuleState>,
+        P0: windows_core::Param<Self>,
         P1: windows_core::Param<ISpeechGrammarRule>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), rule.param().abi(), core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight).ok() }
@@ -9119,7 +9119,7 @@ impl ISpeechGrammarRuleState {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Variant::VARIANT, weight: f32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISpeechGrammarRuleState>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddSpecialTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), r#type, core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight).ok() }
     }
@@ -12437,7 +12437,7 @@ impl ISpeechPhraseProperty {
             (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Parent(&self) -> windows_core::Result<ISpeechPhraseProperty> {
+    pub unsafe fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12866,7 +12866,7 @@ impl ISpeechPhraseRule {
             (windows_core::Interface::vtable(self).NumberOfElements)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Parent(&self) -> windows_core::Result<ISpeechPhraseRule> {
+    pub unsafe fn Parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17376,8 +17376,8 @@ pub struct SPPHRASEPROPERTY {
     pub vValue: super::super::System::Variant::VARIANT,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
-    pub pNextSibling: *const SPPHRASEPROPERTY,
-    pub pFirstChild: *const SPPHRASEPROPERTY,
+    pub pNextSibling: *const Self,
+    pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
@@ -17448,8 +17448,8 @@ pub struct SPPHRASERULE {
     pub ulId: u32,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
-    pub pNextSibling: *const SPPHRASERULE,
-    pub pFirstChild: *const SPPHRASERULE,
+    pub pNextSibling: *const Self,
+    pub pFirstChild: *const Self,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
@@ -17841,7 +17841,7 @@ pub const SPSFunction: SpeechPartOfSpeech = SpeechPartOfSpeech(16384);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSHORTCUTPAIR {
-    pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
+    pub pNextSHORTCUTPAIR: *mut Self,
     pub LangID: u16,
     pub shType: SPSHORTCUTTYPE,
     pub pszDisplay: windows_core::PWSTR,
@@ -18147,7 +18147,7 @@ pub const SPVST_SENTENCE: SPVSKIPTYPE = SPVSKIPTYPE(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVTEXTFRAG {
-    pub pNext: *mut SPVTEXTFRAG,
+    pub pNext: *mut Self,
     pub State: SPVSTATE,
     pub pTextStart: windows_core::PCWSTR,
     pub ulTextLen: u32,
@@ -18166,7 +18166,7 @@ pub const SPWIO_WANT_TEXT: SPWORDINFOOPT = SPWORDINFOOPT(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORD {
-    pub pNextWord: *mut SPWORD,
+    pub pNextWord: *mut Self,
     pub LangID: u16,
     pub wReserved: u16,
     pub eWordType: SPWORDTYPE,
@@ -18227,7 +18227,7 @@ pub struct SPWORDPRONOUNCEABLE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
-    pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
+    pub pNextWordPronunciation: *mut Self,
     pub eLexiconType: SPLEXICONTYPE,
     pub LangID: u16,
     pub wPronunciationFlags: u16,

@@ -94,7 +94,7 @@ impl GattCharacteristic {
     }
     pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1044,7 +1044,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(self).GetCharacteristics)(windows_core::Interface::as_raw(self), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIncludedServices)(windows_core::Interface::as_raw(self), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1075,7 +1075,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ParentServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn ParentServices(&self) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1089,7 +1089,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetAllCharacteristics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllIncludedServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn GetAllIncludedServices(&self) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1189,7 +1189,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1213,7 +1213,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdWithSharingModeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1383,7 +1383,7 @@ impl GattLocalCharacteristic {
     }
     pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1395,7 +1395,7 @@ impl GattLocalCharacteristic {
     }
     pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1407,7 +1407,7 @@ impl GattLocalCharacteristic {
     }
     pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1594,7 +1594,7 @@ impl GattLocalDescriptor {
     }
     pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1606,7 +1606,7 @@ impl GattLocalDescriptor {
     }
     pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1814,7 +1814,7 @@ impl GattPresentationFormat {
             (windows_core::Interface::vtable(this).BluetoothSigAssignedNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> windows_core::Result<GattPresentationFormat> {
+    pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> windows_core::Result<Self> {
         Self::IGattPresentationFormatStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromParts)(windows_core::Interface::as_raw(this), formattype, exponent, unit, namespaceid, description, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2203,7 +2203,7 @@ impl GattReadRequest {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2420,7 +2420,7 @@ impl GattServiceProvider {
     }
     pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattServiceProviderAdvertisementStatusChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2821,7 +2821,7 @@ impl GattSession {
     }
     pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSession, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2833,7 +2833,7 @@ impl GattSession {
     }
     pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattSessionStatusChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2843,7 +2843,7 @@ impl GattSession {
     pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattSession>>
+    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -2948,7 +2948,7 @@ impl GattSubscribedClient {
     }
     pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3048,7 +3048,7 @@ impl GattWriteRequest {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

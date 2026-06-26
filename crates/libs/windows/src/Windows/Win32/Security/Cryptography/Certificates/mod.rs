@@ -9335,7 +9335,7 @@ impl ICryptAttributes {
     }
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ICryptAttributes>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()).ok() }
     }
@@ -12576,7 +12576,7 @@ impl IEnumCERTVIEWATTRIBUTE {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWATTRIBUTE> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12706,7 +12706,7 @@ impl IEnumCERTVIEWCOLUMN {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12866,7 +12866,7 @@ impl IEnumCERTVIEWEXTENSION {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWEXTENSION> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13007,7 +13007,7 @@ impl IEnumCERTVIEWROW {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWROW> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -14670,7 +14670,7 @@ impl IObjectIds {
     }
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IObjectIds>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()).ok() }
     }
@@ -16774,7 +16774,7 @@ impl IX509CertificateRequest {
     pub unsafe fn ResetForEncode(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResetForEncode)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> windows_core::Result<IX509CertificateRequest> {
+    pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInnerRequest)(windows_core::Interface::as_raw(self), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -20037,7 +20037,7 @@ impl IX509CertificateRevocationListEntries {
     }
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IX509CertificateRevocationListEntries>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()).ok() }
     }
@@ -23511,7 +23511,7 @@ impl IX509Extensions {
     }
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IX509Extensions>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pvalue.param().abi()).ok() }
     }

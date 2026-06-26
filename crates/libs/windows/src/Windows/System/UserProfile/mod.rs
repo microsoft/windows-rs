@@ -95,13 +95,13 @@ impl AssignedAccessSettings {
             (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<AssignedAccessSettings> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AssignedAccessSettings>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::User>,
     {
@@ -144,13 +144,13 @@ impl DiagnosticsSettings {
             (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<DiagnosticsSettings> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<DiagnosticsSettings>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::User>,
     {
@@ -182,7 +182,7 @@ pub struct FirstSignInSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FirstSignInSettings, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMapView < windows_core::HSTRING, windows_core::IInspectable >);
 impl FirstSignInSettings {
-    pub fn GetDefault() -> windows_core::Result<FirstSignInSettings> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -903,7 +903,7 @@ impl UserProfilePersonalizationSettings {
             (windows_core::Interface::vtable(self).TrySetWallpaperImageAsync)(windows_core::Interface::as_raw(self), imagefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<UserProfilePersonalizationSettings> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

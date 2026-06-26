@@ -558,7 +558,7 @@ impl VoiceCommandResponse {
             (windows_core::Interface::vtable(this).MaxSupportedVoiceCommandContentTiles)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateResponse<P0>(usermessage: P0) -> windows_core::Result<VoiceCommandResponse>
+    pub fn CreateResponse<P0>(usermessage: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<VoiceCommandUserMessage>,
     {
@@ -567,7 +567,7 @@ impl VoiceCommandResponse {
             (windows_core::Interface::vtable(this).CreateResponse)(windows_core::Interface::as_raw(this), usermessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResponseWithTiles<P0, P1>(message: P0, contenttiles: P1) -> windows_core::Result<VoiceCommandResponse>
+    pub fn CreateResponseWithTiles<P0, P1>(message: P0, contenttiles: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<VoiceCommandUserMessage>,
         P1: windows_core::Param<windows_collections::IIterable<VoiceCommandContentTile>>,
@@ -577,7 +577,7 @@ impl VoiceCommandResponse {
             (windows_core::Interface::vtable(this).CreateResponseWithTiles)(windows_core::Interface::as_raw(this), message.param().abi(), contenttiles.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResponseForPrompt<P0, P1>(message: P0, repeatmessage: P1) -> windows_core::Result<VoiceCommandResponse>
+    pub fn CreateResponseForPrompt<P0, P1>(message: P0, repeatmessage: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<VoiceCommandUserMessage>,
         P1: windows_core::Param<VoiceCommandUserMessage>,
@@ -587,7 +587,7 @@ impl VoiceCommandResponse {
             (windows_core::Interface::vtable(this).CreateResponseForPrompt)(windows_core::Interface::as_raw(this), message.param().abi(), repeatmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateResponseForPromptWithTiles<P0, P1, P2>(message: P0, repeatmessage: P1, contenttiles: P2) -> windows_core::Result<VoiceCommandResponse>
+    pub fn CreateResponseForPromptWithTiles<P0, P1, P2>(message: P0, repeatmessage: P1, contenttiles: P2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<VoiceCommandUserMessage>,
         P1: windows_core::Param<VoiceCommandUserMessage>,
@@ -689,7 +689,7 @@ impl VoiceCommandServiceConnection {
     }
     pub fn VoiceCommandCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VoiceCommandCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -700,7 +700,7 @@ impl VoiceCommandServiceConnection {
         unsafe { (windows_core::Interface::vtable(self).RemoveVoiceCommandCompleted)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn FromAppServiceTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<VoiceCommandServiceConnection>
+    pub fn FromAppServiceTriggerDetails<P0>(triggerdetails: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::AppService::AppServiceTriggerDetails>,
     {

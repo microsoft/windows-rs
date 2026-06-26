@@ -433,7 +433,7 @@ impl FileUnprotectOptions {
             (windows_core::Interface::vtable(self).Audit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(audit: bool) -> windows_core::Result<FileUnprotectOptions> {
+    pub fn Create(audit: bool) -> windows_core::Result<Self> {
         Self::IFileUnprotectOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1175,13 +1175,13 @@ impl ProtectionPolicyAuditInfo {
             (windows_core::Interface::vtable(self).TargetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING, sourcedescription: &windows_core::HSTRING, targetdescription: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyAuditInfo> {
+    pub fn Create(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING, sourcedescription: &windows_core::HSTRING, targetdescription: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), action, core::mem::transmute_copy(datadescription), core::mem::transmute_copy(sourcedescription), core::mem::transmute_copy(targetdescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithActionAndDataDescription(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyAuditInfo> {
+    pub fn CreateWithActionAndDataDescription(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithActionAndDataDescription)(windows_core::Interface::as_raw(this), action, core::mem::transmute_copy(datadescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1278,7 +1278,7 @@ impl ProtectionPolicyManager {
     pub fn RevokeContent(identity: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RevokeContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity)).ok() })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ProtectionPolicyManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

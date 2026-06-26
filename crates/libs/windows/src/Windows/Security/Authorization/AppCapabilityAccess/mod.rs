@@ -30,7 +30,7 @@ impl AppCapability {
     }
     pub fn AccessChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppCapabilityAccessChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -71,14 +71,14 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), capabilitynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create(capabilityname: &windows_core::HSTRING) -> windows_core::Result<AppCapability> {
+    pub fn Create(capabilityname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &windows_core::HSTRING, pid: u32) -> windows_core::Result<AppCapability>
+    pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &windows_core::HSTRING, pid: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {

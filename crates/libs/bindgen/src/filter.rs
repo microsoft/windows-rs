@@ -13,8 +13,8 @@ pub enum MethodSet {
 impl MethodSet {
     pub fn includes(&self, name: &str) -> bool {
         match self {
-            MethodSet::All => true,
-            MethodSet::Names(set) => set.contains(name),
+            Self::All => true,
+            Self::Names(set) => set.contains(name),
         }
     }
 }

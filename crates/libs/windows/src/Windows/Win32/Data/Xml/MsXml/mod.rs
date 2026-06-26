@@ -3780,7 +3780,7 @@ impl ISchemaElement {
             (windows_core::Interface::vtable(self).identityConstraints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn substitutionGroup(&self) -> windows_core::Result<ISchemaElement> {
+    pub unsafe fn substitutionGroup(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).substitutionGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4023,7 +4023,7 @@ impl ISchemaIdentityConstraint {
             (windows_core::Interface::vtable(self).fields)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn referencedKey(&self) -> windows_core::Result<ISchemaIdentityConstraint> {
+    pub unsafe fn referencedKey(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).referencedKey)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9073,7 +9073,7 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).nodeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn parentNode(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn parentNode(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).parentNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9085,25 +9085,25 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).childNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn firstChild(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn firstChild(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).firstChild)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn lastChild(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn lastChild(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).lastChild)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn previousSibling(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn previousSibling(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).previousSibling)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn nextSibling(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn nextSibling(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).nextSibling)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9116,37 +9116,37 @@ impl IXMLDOMNode {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IXMLDOMNode>
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).insertBefore)(windows_core::Interface::as_raw(self), newchild.param().abi(), core::mem::transmute_copy(refchild), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn replaceChild<P0, P1>(&self, newchild: P0, oldchild: P1) -> windows_core::Result<IXMLDOMNode>
+    pub unsafe fn replaceChild<P0, P1>(&self, newchild: P0, oldchild: P1) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
-        P1: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).replaceChild)(windows_core::Interface::as_raw(self), newchild.param().abi(), oldchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn removeChild<P0>(&self, childnode: P0) -> windows_core::Result<IXMLDOMNode>
+    pub unsafe fn removeChild<P0>(&self, childnode: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn appendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXMLDOMNode>
+    pub unsafe fn appendChild<P0>(&self, newchild: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9165,7 +9165,7 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).ownerDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn cloneNode(&self, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn cloneNode(&self, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).cloneNode)(windows_core::Interface::as_raw(self), deep, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9192,7 +9192,7 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).specified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn definition(&self) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn definition(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).definition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9227,7 +9227,7 @@ impl IXMLDOMNode {
     }
     pub unsafe fn transformNode<P0>(&self, stylesheet: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -9240,7 +9240,7 @@ impl IXMLDOMNode {
             (windows_core::Interface::vtable(self).selectNodes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(querystring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn selectSingleNode(&self, querystring: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode> {
+    pub unsafe fn selectSingleNode(&self, querystring: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).selectSingleNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(querystring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9273,7 +9273,7 @@ impl IXMLDOMNode {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLDOMNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).transformNodeToObject)(windows_core::Interface::as_raw(self), stylesheet.param().abi(), core::mem::transmute_copy(outputobject)).ok() }
     }
@@ -10610,7 +10610,7 @@ impl IXMLDOMSchemaCollection {
     }
     pub unsafe fn addCollection<P0>(&self, othercollection: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLDOMSchemaCollection>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).addCollection)(windows_core::Interface::as_raw(self), othercollection.param().abi()).ok() }
     }
@@ -10917,7 +10917,7 @@ impl IXMLDOMSelection {
     pub unsafe fn removeAll(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).removeAll)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn clone(&self) -> windows_core::Result<IXMLDOMSelection> {
+    pub unsafe fn clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11117,7 +11117,7 @@ impl core::ops::Deref for IXMLDOMText {
 windows_core::imp::interface_hierarchy!(IXMLDOMText, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMText {
-    pub unsafe fn splitText(&self, offset: i32) -> windows_core::Result<IXMLDOMText> {
+    pub unsafe fn splitText(&self, offset: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).splitText)(windows_core::Interface::as_raw(self), offset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11971,7 +11971,7 @@ impl IXMLElement {
     pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
     }
-    pub unsafe fn parent(&self) -> windows_core::Result<IXMLElement> {
+    pub unsafe fn parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12014,13 +12014,13 @@ impl IXMLElement {
     }
     pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok() }
     }
     pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLElement>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()).ok() }
     }
@@ -12219,7 +12219,7 @@ impl IXMLElement2 {
     pub unsafe fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(p)).ok() }
     }
-    pub unsafe fn parent(&self) -> windows_core::Result<IXMLElement2> {
+    pub unsafe fn parent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12262,13 +12262,13 @@ impl IXMLElement2 {
     }
     pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLElement2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok() }
     }
     pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IXMLElement2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()).ok() }
     }

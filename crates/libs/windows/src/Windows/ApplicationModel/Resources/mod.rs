@@ -113,7 +113,7 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetStringForUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IResourceLoaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateResourceLoaderByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -128,32 +128,32 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetStringForReference)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ResourceLoader> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentViewWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn GetForCurrentViewWithName(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentViewWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceLoader> {
+    pub fn GetForViewIndependentUse() -> windows_core::Result<Self> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForViewIndependentUseWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn GetForViewIndependentUseWithName(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUseWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceLoader>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::UI::UIContext>,
     {

@@ -497,7 +497,7 @@ impl PrintSupportAppInfo {
             (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         })
     }
-    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<PrintSupportAppInfo> {
+    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPrintSupportAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -601,7 +601,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrintTicketValidationRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -613,7 +613,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -628,7 +628,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn PrinterSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintSupportPrinterSelectedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe {
@@ -642,7 +642,7 @@ impl PrintSupportExtensionSession {
     }
     pub fn CommunicationErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportCommunicationErrorDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintSupportCommunicationErrorDetectedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         unsafe {
@@ -953,13 +953,13 @@ unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    pub fn CreatePeriodicRefresh(updateperiod: windows_time::TimeSpan) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
+    pub fn CreatePeriodicRefresh(updateperiod: windows_time::TimeSpan) -> windows_core::Result<Self> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePeriodicRefresh)(windows_core::Interface::as_raw(this), updateperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePrintJobRefresh(numberofjobs: u32) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
+    pub fn CreatePrintJobRefresh(numberofjobs: u32) -> windows_core::Result<Self> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePrintJobRefresh)(windows_core::Interface::as_raw(this), numberofjobs, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

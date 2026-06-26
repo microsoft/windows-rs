@@ -46,7 +46,7 @@ impl UserNotificationListener {
     }
     pub fn NotificationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, super::UserNotificationChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -74,7 +74,7 @@ impl UserNotificationListener {
     pub fn RemoveNotification(&self, notificationid: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveNotification)(windows_core::Interface::as_raw(self), notificationid).ok() }
     }
-    pub fn Current() -> windows_core::Result<UserNotificationListener> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IUserNotificationListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

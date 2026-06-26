@@ -26,7 +26,7 @@ impl windows_core::RuntimeType for ActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<ActivatedEventHandler, F>::new(&ActivatedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ActivatedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
@@ -127,7 +127,7 @@ impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<BackgroundActivatedEventHandler, F>::new(&BackgroundActivatedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&BackgroundActivatedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
@@ -205,7 +205,7 @@ impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<EnteredBackgroundEventHandler, F>::new(&EnteredBackgroundEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&EnteredBackgroundEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -787,7 +787,7 @@ impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<LeavingBackgroundEventHandler, F>::new(&LeavingBackgroundEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&LeavingBackgroundEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -830,7 +830,7 @@ impl windows_core::RuntimeType for NavigatedEventHandler {
 }
 impl NavigatedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<NavigatedEventHandler, F>::new(&NavigatedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&NavigatedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -928,7 +928,7 @@ impl windows_core::RuntimeType for ResumingEventHandler {
 }
 impl ResumingEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<ResumingEventHandler, F>::new(&ResumingEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ResumingEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -1023,7 +1023,7 @@ impl windows_core::RuntimeType for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<SuspendingEventHandler, F>::new(&SuspendingEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&SuspendingEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -4437,7 +4437,7 @@ impl WebUIView {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WebUIView, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4450,7 +4450,7 @@ impl WebUIView {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4469,13 +4469,13 @@ impl WebUIView {
     pub fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIgnoreApplicationContentUriRulesNavigationRestrictions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<WebUIView>> {
+    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IWebUIViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebUIView>>
+    pub fn CreateWithUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {

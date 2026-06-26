@@ -117,7 +117,7 @@ impl BluetoothLEAdvertisementBytePattern {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P2>(datatype: u8, offset: i16, data: P2) -> windows_core::Result<BluetoothLEAdvertisementBytePattern>
+    pub fn Create<P2>(datatype: u8, offset: i16, data: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -179,7 +179,7 @@ impl BluetoothLEAdvertisementDataSection {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P1>(datatype: u8, data: P1) -> windows_core::Result<BluetoothLEAdvertisementDataSection>
+    pub fn Create<P1>(datatype: u8, data: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -489,7 +489,7 @@ impl BluetoothLEAdvertisementPublisher {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -566,7 +566,7 @@ impl BluetoothLEAdvertisementPublisher {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(advertisement: P0) -> windows_core::Result<BluetoothLEAdvertisementPublisher>
+    pub fn Create<P0>(advertisement: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<BluetoothLEAdvertisement>,
     {
@@ -775,13 +775,13 @@ impl BluetoothLEAdvertisementScanParameters {
             (windows_core::Interface::vtable(self).ScanInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CoexistenceOptimized() -> windows_core::Result<BluetoothLEAdvertisementScanParameters> {
+    pub fn CoexistenceOptimized() -> windows_core::Result<Self> {
         Self::IBluetoothLEAdvertisementScanParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoexistenceOptimized)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LowLatency() -> windows_core::Result<BluetoothLEAdvertisementScanParameters> {
+    pub fn LowLatency() -> windows_core::Result<Self> {
         Self::IBluetoothLEAdvertisementScanParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LowLatency)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -905,7 +905,7 @@ impl BluetoothLEAdvertisementWatcher {
     }
     pub fn Received<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -917,7 +917,7 @@ impl BluetoothLEAdvertisementWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BluetoothLEAdvertisementWatcherStoppedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -985,7 +985,7 @@ impl BluetoothLEAdvertisementWatcher {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcher3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUseHardwareFilter)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(advertisementfilter: P0) -> windows_core::Result<BluetoothLEAdvertisementWatcher>
+    pub fn Create<P0>(advertisementfilter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<BluetoothLEAdvertisementFilter>,
     {
@@ -1088,7 +1088,7 @@ impl BluetoothLEManufacturerData {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P1>(companyid: u16, data: P1) -> windows_core::Result<BluetoothLEManufacturerData>
+    pub fn Create<P1>(companyid: u16, data: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {

@@ -728,7 +728,7 @@ impl ISettingsItem {
             (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetChild<P0>(&self, name: P0) -> windows_core::Result<ISettingsItem>
+    pub unsafe fn GetChild<P0>(&self, name: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -737,7 +737,7 @@ impl ISettingsItem {
             (windows_core::Interface::vtable(self).GetChild)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSettingByPath<P0>(&self, path: P0) -> windows_core::Result<ISettingsItem>
+    pub unsafe fn GetSettingByPath<P0>(&self, path: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -746,7 +746,7 @@ impl ISettingsItem {
             (windows_core::Interface::vtable(self).GetSettingByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateSettingByPath<P0>(&self, path: P0) -> windows_core::Result<ISettingsItem>
+    pub unsafe fn CreateSettingByPath<P0>(&self, path: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -768,7 +768,7 @@ impl ISettingsItem {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateListElement(&self, keydata: *const super::Variant::VARIANT) -> windows_core::Result<ISettingsItem> {
+    pub unsafe fn CreateListElement(&self, keydata: *const super::Variant::VARIANT) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateListElement)(windows_core::Interface::as_raw(self), core::mem::transmute(keydata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

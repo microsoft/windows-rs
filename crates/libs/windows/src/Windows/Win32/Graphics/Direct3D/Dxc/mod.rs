@@ -2087,7 +2087,7 @@ impl IDxcPdbUtils2 {
     pub unsafe fn GetLibraryPDBCount(&self, pcount: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLibraryPDBCount)(windows_core::Interface::as_raw(self), pcount as _).ok() }
     }
-    pub unsafe fn GetLibraryPDB(&self, uindex: u32, ppoutpdbutils: *mut Option<IDxcPdbUtils2>, pplibraryname: Option<*mut Option<IDxcBlobUtf16>>) -> windows_core::Result<()> {
+    pub unsafe fn GetLibraryPDB(&self, uindex: u32, ppoutpdbutils: *mut Option<Self>, pplibraryname: Option<*mut Option<IDxcBlobUtf16>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLibraryPDB)(windows_core::Interface::as_raw(self), uindex, core::mem::transmute(ppoutpdbutils), pplibraryname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetFlagCount(&self) -> windows_core::Result<u32> {

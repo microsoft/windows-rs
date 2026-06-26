@@ -218,7 +218,7 @@ pub struct WSDUdpRetransmitParams {
 #[derive(Clone, Copy)]
 pub struct WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
-    pub Next: *mut WSDXML_ATTRIBUTE,
+    pub Next: *mut Self,
     pub Name: *mut WSDXML_NAME,
     pub Value: windows_sys::core::PWSTR,
 }
@@ -244,7 +244,7 @@ impl Default for WSDXML_ELEMENT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSDXML_ELEMENT_LIST {
-    pub Next: *mut WSDXML_ELEMENT_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSDXML_ELEMENT,
 }
 impl Default for WSDXML_ELEMENT_LIST {
@@ -282,7 +282,7 @@ impl Default for WSDXML_NAMESPACE {
 pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
-    pub Next: *mut WSDXML_NODE,
+    pub Next: *mut Self,
 }
 impl WSDXML_NODE {
     pub const ElementType: i32 = 0;
@@ -298,7 +298,7 @@ pub type WSDXML_OP = i32;
 #[derive(Clone, Copy)]
 pub struct WSDXML_PREFIX_MAPPING {
     pub Refs: u32,
-    pub Next: *mut WSDXML_PREFIX_MAPPING,
+    pub Next: *mut Self,
     pub Space: *mut WSDXML_NAMESPACE,
     pub Prefix: windows_sys::core::PWSTR,
 }
@@ -429,7 +429,7 @@ impl Default for WSD_ENDPOINT_REFERENCE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
-    pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
 }
 impl Default for WSD_ENDPOINT_REFERENCE_LIST {
@@ -571,7 +571,7 @@ impl Default for WSD_LOCALIZED_STRING {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_LOCALIZED_STRING_LIST {
-    pub Next: *mut WSD_LOCALIZED_STRING_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSD_LOCALIZED_STRING,
 }
 impl Default for WSD_LOCALIZED_STRING_LIST {
@@ -597,7 +597,7 @@ impl Default for WSD_METADATA_SECTION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_METADATA_SECTION_LIST {
-    pub Next: *mut WSD_METADATA_SECTION_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSD_METADATA_SECTION,
 }
 impl Default for WSD_METADATA_SECTION_LIST {
@@ -608,7 +608,7 @@ impl Default for WSD_METADATA_SECTION_LIST {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_NAME_LIST {
-    pub Next: *mut WSD_NAME_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSDXML_NAME,
 }
 impl Default for WSD_NAME_LIST {
@@ -682,7 +682,7 @@ impl Default for WSD_PROBE_MATCHES {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCH_LIST {
-    pub Next: *mut WSD_PROBE_MATCH_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSD_PROBE_MATCH,
 }
 impl Default for WSD_PROBE_MATCH_LIST {
@@ -853,7 +853,7 @@ impl Default for WSD_SERVICE_METADATA {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_SERVICE_METADATA_LIST {
-    pub Next: *mut WSD_SERVICE_METADATA_LIST,
+    pub Next: *mut Self,
     pub Element: *mut WSD_SERVICE_METADATA,
 }
 impl Default for WSD_SERVICE_METADATA_LIST {
@@ -900,7 +900,7 @@ impl Default for WSD_SOAP_FAULT_REASON {
 #[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
-    pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
+    pub Subcode: *mut Self,
 }
 impl Default for WSD_SOAP_FAULT_SUBCODE {
     fn default() -> Self {
@@ -993,7 +993,7 @@ impl Default for WSD_UNKNOWN_LOOKUP {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSD_URI_LIST {
-    pub Next: *mut WSD_URI_LIST,
+    pub Next: *mut Self,
     pub Element: windows_sys::core::PCWSTR,
 }
 impl Default for WSD_URI_LIST {

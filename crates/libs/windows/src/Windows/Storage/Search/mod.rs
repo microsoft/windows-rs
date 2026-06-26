@@ -132,13 +132,13 @@ impl ContentIndexer {
             (windows_core::Interface::vtable(this).CreateQuery)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchfilter), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIndexerWithName(indexname: &windows_core::HSTRING) -> windows_core::Result<ContentIndexer> {
+    pub fn GetIndexerWithName(indexname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IContentIndexerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIndexerWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(indexname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetIndexer() -> windows_core::Result<ContentIndexer> {
+    pub fn GetIndexer() -> windows_core::Result<Self> {
         Self::IContentIndexerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIndexer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1048,7 +1048,7 @@ impl IStorageQueryResultBase {
     }
     pub fn ContentsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1060,7 +1060,7 @@ impl IStorageQueryResultBase {
     }
     pub fn OptionsChanged<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1443,7 +1443,7 @@ impl QueryOptions {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyPrefetch)(windows_core::Interface::as_raw(self), options, propertiestoretrieve.param().abi()).ok() }
     }
-    pub fn CreateCommonFileQuery<P1>(query: CommonFileQuery, filetypefilter: P1) -> windows_core::Result<QueryOptions>
+    pub fn CreateCommonFileQuery<P1>(query: CommonFileQuery, filetypefilter: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1452,7 +1452,7 @@ impl QueryOptions {
             (windows_core::Interface::vtable(this).CreateCommonFileQuery)(windows_core::Interface::as_raw(this), query, filetypefilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCommonFolderQuery(query: CommonFolderQuery) -> windows_core::Result<QueryOptions> {
+    pub fn CreateCommonFolderQuery(query: CommonFolderQuery) -> windows_core::Result<Self> {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCommonFolderQuery)(windows_core::Interface::as_raw(this), query, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

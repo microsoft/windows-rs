@@ -235,7 +235,7 @@ impl WiFiAdapter {
     }
     pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiAdapter, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -301,7 +301,7 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, passwordcredential.param().abi(), core::mem::transmute_copy(ssid), connectionmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllAdaptersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WiFiAdapter>>> {
+    pub fn FindAllAdaptersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAdaptersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -313,7 +313,7 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiAdapter>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -679,7 +679,7 @@ impl WiFiOnDemandHotspotNetwork {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetOrCreateById(networkid: windows_core::GUID) -> windows_core::Result<WiFiOnDemandHotspotNetwork> {
+    pub fn GetOrCreateById(networkid: windows_core::GUID) -> windows_core::Result<Self> {
         Self::IWiFiOnDemandHotspotNetworkStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOrCreateById)(windows_core::Interface::as_raw(this), networkid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

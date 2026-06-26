@@ -377,13 +377,13 @@ impl Element {
             return w.key();
         }
         match self {
-            Element::Component(c) => c.key.as_deref(),
-            Element::ErrorBoundary(eb) => eb.key.as_deref(),
-            Element::Provider(p) => p.key.as_deref(),
-            Element::TemplatedList(tl) => tl.key.as_deref(),
-            Element::Group(g) => g.key.as_deref(),
-            Element::Custom(c) => c.0.key(),
-            Element::Empty => None,
+            Self::Component(c) => c.key.as_deref(),
+            Self::ErrorBoundary(eb) => eb.key.as_deref(),
+            Self::Provider(p) => p.key.as_deref(),
+            Self::TemplatedList(tl) => tl.key.as_deref(),
+            Self::Group(g) => g.key.as_deref(),
+            Self::Custom(c) => c.0.key(),
+            Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
         }
     }
@@ -392,13 +392,13 @@ impl Element {
             return Some(w.modifiers());
         }
         match self {
-            Element::TemplatedList(tl) => Some(&tl.modifiers),
-            Element::Component(_)
-            | Element::ErrorBoundary(_)
-            | Element::Provider(_)
-            | Element::Group(_)
-            | Element::Custom(_)
-            | Element::Empty => None,
+            Self::TemplatedList(tl) => Some(&tl.modifiers),
+            Self::Component(_)
+            | Self::ErrorBoundary(_)
+            | Self::Provider(_)
+            | Self::Group(_)
+            | Self::Custom(_)
+            | Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
         }
     }
@@ -579,29 +579,29 @@ impl Element {
     }
     /// `true` when both elements are the same variant (and same shape /
     /// custom type id), so an update can be considered.
-    pub fn kind_matches(&self, other: &Element) -> bool {
+    pub fn kind_matches(&self, other: &Self) -> bool {
         if std::mem::discriminant(self) != std::mem::discriminant(other) {
             return false;
         }
-        if let (Element::Shape(a), Element::Shape(b)) = (self, other) {
+        if let (Self::Shape(a), Self::Shape(b)) = (self, other) {
             return a.kind == b.kind;
         }
-        if let (Element::Custom(a), Element::Custom(b)) = (self, other) {
+        if let (Self::Custom(a), Self::Custom(b)) = (self, other) {
             return CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0);
         }
         true
     }
     /// `true` when the reconciler may diff `self` against `other` in place
     /// rather than unmounting and remounting.
-    pub fn can_update(&self, other: &Element) -> bool {
+    pub fn can_update(&self, other: &Self) -> bool {
         if !self.kind_matches(other) {
             return false;
         }
         match (self, other) {
-            (Element::Component(a), Element::Component(b)) => {
+            (Self::Component(a), Self::Component(b)) => {
                 a.obj.component_type_id() == b.obj.component_type_id()
             }
-            (Element::Custom(a), Element::Custom(b)) => {
+            (Self::Custom(a), Self::Custom(b)) => {
                 CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0)
             }
             _ => true,
@@ -1208,71 +1208,71 @@ impl ElementExt for RichTextBlock {
 
 impl ElementExt for Element {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers> {
-        Element::modifiers_mut(self)
+        Self::modifiers_mut(self)
     }
 
     fn with_key(mut self, key: impl Into<String>) -> Self {
         let key = key.into();
         match &mut self {
-            Element::TextBlock(t) => t.key = Some(key),
-            Element::Button(b) => b.key = Some(key),
-            Element::StackPanel(s) => s.key = Some(key),
-            Element::Border(b) => b.key = Some(key),
-            Element::CheckBox(c) => c.key = Some(key),
-            Element::TextBox(t) => t.key = Some(key),
-            Element::Grid(g) => g.key = Some(key),
-            Element::ScrollViewer(s) => s.key = Some(key),
-            Element::ToggleSwitch(v) => v.key = Some(key),
-            Element::Slider(v) => v.key = Some(key),
-            Element::RadioButton(v) => v.key = Some(key),
-            Element::NumberBox(v) => v.key = Some(key),
-            Element::ProgressBar(v) => v.key = Some(key),
-            Element::ProgressRing(v) => v.key = Some(key),
-            Element::Expander(v) => v.key = Some(key),
-            Element::HyperlinkButton(v) => v.key = Some(key),
-            Element::InfoBar(v) => v.key = Some(key),
-            Element::InfoBadge(v) => v.key = Some(key),
-            Element::PersonPicture(v) => v.key = Some(key),
-            Element::Shape(v) => v.key = Some(key),
-            Element::Image(v) => v.key = Some(key),
-            Element::TabView(v) => v.key = Some(key),
-            Element::NavigationView(v) => v.key = Some(key),
-            Element::TitleBar(v) => v.key = Some(key),
-            Element::Pivot(v) => v.key = Some(key),
-            Element::BreadcrumbBar(v) => v.key = Some(key),
-            Element::PasswordBox(v) => v.key = Some(key),
-            Element::RadioButtons(v) => v.key = Some(key),
-            Element::ComboBox(v) => v.key = Some(key),
-            Element::Canvas(v) => v.key = Some(key),
-            Element::ContentDialog(v) => v.key = Some(key),
-            Element::RichTextBlock(v) => v.key = Some(key),
-            Element::Viewbox(v) => v.key = Some(key),
-            Element::RepeatButton(v) => v.key = Some(key),
-            Element::RatingControl(v) => v.key = Some(key),
-            Element::ColorPicker(v) => v.key = Some(key),
-            Element::DatePicker(v) => v.key = Some(key),
-            Element::TimePicker(v) => v.key = Some(key),
-            Element::CalendarDatePicker(v) => v.key = Some(key),
-            Element::CalendarView(v) => v.key = Some(key),
-            Element::ListBox(v) => v.key = Some(key),
-            Element::DropDownButton(v) => v.key = Some(key),
-            Element::SplitButton(v) => v.key = Some(key),
-            Element::AutoSuggestBox(v) => v.key = Some(key),
-            Element::SplitView(v) => v.key = Some(key),
-            Element::MenuBar(v) => v.key = Some(key),
-            Element::ScrollView(v) => v.key = Some(key),
-            Element::TreeView(v) => v.key = Some(key),
-            Element::CommandBar(v) => v.key = Some(key),
-            Element::TeachingTip(v) => v.key = Some(key),
-            Element::SelectorBar(v) => v.key = Some(key),
-            Element::RichEditBox(v) => v.key = Some(key),
-            Element::RelativePanel(v) => v.key = Some(key),
-            Element::ToggleButton(v) => v.key = Some(key),
-            Element::Component(c) => c.key = Some(key),
-            Element::ErrorBoundary(eb) => eb.key = Some(key),
-            Element::Provider(pe) => pe.key = Some(key),
-            Element::TemplatedList(tl) => tl.key = Some(key),
-            Element::Group(g) => g.key = Some(key),
+            Self::TextBlock(t) => t.key = Some(key),
+            Self::Button(b) => b.key = Some(key),
+            Self::StackPanel(s) => s.key = Some(key),
+            Self::Border(b) => b.key = Some(key),
+            Self::CheckBox(c) => c.key = Some(key),
+            Self::TextBox(t) => t.key = Some(key),
+            Self::Grid(g) => g.key = Some(key),
+            Self::ScrollViewer(s) => s.key = Some(key),
+            Self::ToggleSwitch(v) => v.key = Some(key),
+            Self::Slider(v) => v.key = Some(key),
+            Self::RadioButton(v) => v.key = Some(key),
+            Self::NumberBox(v) => v.key = Some(key),
+            Self::ProgressBar(v) => v.key = Some(key),
+            Self::ProgressRing(v) => v.key = Some(key),
+            Self::Expander(v) => v.key = Some(key),
+            Self::HyperlinkButton(v) => v.key = Some(key),
+            Self::InfoBar(v) => v.key = Some(key),
+            Self::InfoBadge(v) => v.key = Some(key),
+            Self::PersonPicture(v) => v.key = Some(key),
+            Self::Shape(v) => v.key = Some(key),
+            Self::Image(v) => v.key = Some(key),
+            Self::TabView(v) => v.key = Some(key),
+            Self::NavigationView(v) => v.key = Some(key),
+            Self::TitleBar(v) => v.key = Some(key),
+            Self::Pivot(v) => v.key = Some(key),
+            Self::BreadcrumbBar(v) => v.key = Some(key),
+            Self::PasswordBox(v) => v.key = Some(key),
+            Self::RadioButtons(v) => v.key = Some(key),
+            Self::ComboBox(v) => v.key = Some(key),
+            Self::Canvas(v) => v.key = Some(key),
+            Self::ContentDialog(v) => v.key = Some(key),
+            Self::RichTextBlock(v) => v.key = Some(key),
+            Self::Viewbox(v) => v.key = Some(key),
+            Self::RepeatButton(v) => v.key = Some(key),
+            Self::RatingControl(v) => v.key = Some(key),
+            Self::ColorPicker(v) => v.key = Some(key),
+            Self::DatePicker(v) => v.key = Some(key),
+            Self::TimePicker(v) => v.key = Some(key),
+            Self::CalendarDatePicker(v) => v.key = Some(key),
+            Self::CalendarView(v) => v.key = Some(key),
+            Self::ListBox(v) => v.key = Some(key),
+            Self::DropDownButton(v) => v.key = Some(key),
+            Self::SplitButton(v) => v.key = Some(key),
+            Self::AutoSuggestBox(v) => v.key = Some(key),
+            Self::SplitView(v) => v.key = Some(key),
+            Self::MenuBar(v) => v.key = Some(key),
+            Self::ScrollView(v) => v.key = Some(key),
+            Self::TreeView(v) => v.key = Some(key),
+            Self::CommandBar(v) => v.key = Some(key),
+            Self::TeachingTip(v) => v.key = Some(key),
+            Self::SelectorBar(v) => v.key = Some(key),
+            Self::RichEditBox(v) => v.key = Some(key),
+            Self::RelativePanel(v) => v.key = Some(key),
+            Self::ToggleButton(v) => v.key = Some(key),
+            Self::Component(c) => c.key = Some(key),
+            Self::ErrorBoundary(eb) => eb.key = Some(key),
+            Self::Provider(pe) => pe.key = Some(key),
+            Self::TemplatedList(tl) => tl.key = Some(key),
+            Self::Group(g) => g.key = Some(key),
             _ => {}
         }
         self

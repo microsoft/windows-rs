@@ -15,13 +15,13 @@ impl AppTaskContent {
     pub fn SetQuestion(&self, question: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetQuestion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(question)).ok() }
     }
-    pub fn CreateSequenceOfSteps(completedsteps: &[windows_core::HSTRING], executingstep: &windows_core::HSTRING) -> windows_core::Result<AppTaskContent> {
+    pub fn CreateSequenceOfSteps(completedsteps: &[windows_core::HSTRING], executingstep: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSequenceOfSteps)(windows_core::Interface::as_raw(this), completedsteps.len().try_into().unwrap(), core::mem::transmute(completedsteps.as_ptr()), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePreviewThumbnail<P0>(imageuri: P0, executingstep: &windows_core::HSTRING) -> windows_core::Result<AppTaskContent>
+    pub fn CreatePreviewThumbnail<P0>(imageuri: P0, executingstep: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -30,13 +30,13 @@ impl AppTaskContent {
             (windows_core::Interface::vtable(this).CreatePreviewThumbnail)(windows_core::Interface::as_raw(this), imageuri.param().abi(), core::mem::transmute_copy(executingstep), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTextSummaryResult(text: &windows_core::HSTRING) -> windows_core::Result<AppTaskContent> {
+    pub fn CreateTextSummaryResult(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTextSummaryResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateGeneratedAssetsResult(assets: &[Option<AppTaskResultAsset>]) -> windows_core::Result<AppTaskContent> {
+    pub fn CreateGeneratedAssetsResult(assets: &[Option<AppTaskResultAsset>]) -> windows_core::Result<Self> {
         Self::IAppTaskContentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateGeneratedAssetsResult)(windows_core::Interface::as_raw(this), assets.len().try_into().unwrap(), core::mem::transmute(assets.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -166,13 +166,13 @@ impl AppTaskInfo {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FindAll() -> windows_core::Result<windows_core::Array<AppTaskInfo>> {
+    pub fn FindAll() -> windows_core::Result<windows_core::Array<Self>> {
         Self::IAppTaskInfoStatics(|this| unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<AppTaskInfo>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<Self>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
-    pub fn Create<P2, P3, P4>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, deeplink: P2, iconuri: P3, content: P4) -> windows_core::Result<AppTaskInfo>
+    pub fn Create<P2, P3, P4>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, deeplink: P2, iconuri: P3, content: P4) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::super::Foundation::Uri>,
         P3: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -205,7 +205,7 @@ unsafe impl Sync for AppTaskInfo {}
 pub struct AppTaskResultAsset(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppTaskResultAsset, windows_core::IUnknown, windows_core::IInspectable);
 impl AppTaskResultAsset {
-    pub fn CreateInstance<P2, P3>(name: &windows_core::HSTRING, context: &windows_core::HSTRING, iconuri: P2, asseturi: P3) -> windows_core::Result<AppTaskResultAsset>
+    pub fn CreateInstance<P2, P3>(name: &windows_core::HSTRING, context: &windows_core::HSTRING, iconuri: P2, asseturi: P3) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::super::Foundation::Uri>,
         P3: windows_core::Param<super::super::super::Foundation::Uri>,

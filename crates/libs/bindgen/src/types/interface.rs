@@ -325,6 +325,9 @@ impl Interface {
                 let method_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
                 let mut method_tokens = TokenStream::new();
+                // These methods live in `impl<..> #name`, so references to this
+                // interface (with matching generics) are emitted as `Self`.
+                let self_config = config.with_self_ty(self.type_name(), &self.generics);
 
                 for method in methods.iter().filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
@@ -333,7 +336,7 @@ impl Interface {
                     let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
-                        config,
+                        &self_config,
                         Some(self),
                         InterfaceKind::Default,
                         method_names,
@@ -366,7 +369,7 @@ impl Interface {
                         let cfg = method.write_cfg(config, &class_cfg, false);
 
                         let method = method.write(
-                            config,
+                            &self_config,
                             Some(interface),
                             interface.kind,
                             method_names,

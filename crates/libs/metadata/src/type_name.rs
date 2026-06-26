@@ -9,7 +9,7 @@ pub struct TypeName {
 
 impl TypeName {
     pub fn named(namespace: &str, name: &str) -> Self {
-        TypeName {
+        Self {
             namespace: namespace.to_string(),
             name: name.to_string(),
             generics: vec![],

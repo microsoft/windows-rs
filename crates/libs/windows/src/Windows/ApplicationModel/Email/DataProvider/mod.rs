@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(EmailDataProviderConnection, windows_cor
 impl EmailDataProviderConnection {
     pub fn MailboxSyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSyncManagerSyncRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17,7 +17,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DownloadMessageRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadMessageRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -29,7 +29,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DownloadAttachmentRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadAttachmentRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadAttachmentRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -41,7 +41,7 @@ impl EmailDataProviderConnection {
     }
     pub fn CreateFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxCreateFolderRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxCreateFolderRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -53,7 +53,7 @@ impl EmailDataProviderConnection {
     }
     pub fn DeleteFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDeleteFolderRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDeleteFolderRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -65,7 +65,7 @@ impl EmailDataProviderConnection {
     }
     pub fn EmptyFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxEmptyFolderRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxEmptyFolderRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -77,7 +77,7 @@ impl EmailDataProviderConnection {
     }
     pub fn MoveFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxMoveFolderRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxMoveFolderRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -89,7 +89,7 @@ impl EmailDataProviderConnection {
     }
     pub fn UpdateMeetingResponseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxUpdateMeetingResponseRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxUpdateMeetingResponseRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -101,7 +101,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ForwardMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxForwardMeetingRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxForwardMeetingRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -113,7 +113,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ProposeNewTimeForMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -125,7 +125,7 @@ impl EmailDataProviderConnection {
     }
     pub fn SetAutoReplySettingsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSetAutoReplySettingsRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSetAutoReplySettingsRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -137,7 +137,7 @@ impl EmailDataProviderConnection {
     }
     pub fn GetAutoReplySettingsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxGetAutoReplySettingsRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxGetAutoReplySettingsRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -149,7 +149,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ResolveRecipientsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxResolveRecipientsRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxResolveRecipientsRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,7 +161,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ValidateCertificatesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxValidateCertificatesRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxValidateCertificatesRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -173,7 +173,7 @@ impl EmailDataProviderConnection {
     }
     pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxServerSearchReadBatchRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxServerSearchReadBatchRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -387,7 +387,7 @@ impl JumpList {
             (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LoadCurrentAsync() -> windows_core::Result<windows_future::IAsyncOperation<JumpList>> {
+    pub fn LoadCurrentAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IJumpListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadCurrentAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -478,13 +478,13 @@ impl JumpListItem {
     {
         unsafe { (windows_core::Interface::vtable(self).SetLogo)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateWithArguments(arguments: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<JumpListItem> {
+    pub fn CreateWithArguments(arguments: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IJumpListItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithArguments)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(arguments), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSeparator() -> windows_core::Result<JumpListItem> {
+    pub fn CreateSeparator() -> windows_core::Result<Self> {
         Self::IJumpListItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSeparator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -755,7 +755,7 @@ impl SecondaryTile {
     }
     pub fn VisualElementsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VisualElementsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
@@ -767,7 +767,7 @@ impl SecondaryTile {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveVisualElementsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateTile<P5>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5) -> windows_core::Result<SecondaryTile>
+    pub fn CreateTile<P5>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5) -> windows_core::Result<Self>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -776,7 +776,7 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWideTile<P5, P6>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5, widelogoreference: P6) -> windows_core::Result<SecondaryTile>
+    pub fn CreateWideTile<P5, P6>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5, widelogoreference: P6) -> windows_core::Result<Self>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
         P6: windows_core::Param<super::super::Foundation::Uri>,
@@ -786,13 +786,13 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).CreateWideTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), widelogoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithId(tileid: &windows_core::HSTRING) -> windows_core::Result<SecondaryTile> {
+    pub fn CreateWithId(tileid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateMinimalTile<P3>(tileid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, square150x150logo: P3, desiredsize: TileSize) -> windows_core::Result<SecondaryTile>
+    pub fn CreateMinimalTile<P3>(tileid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, square150x150logo: P3, desiredsize: TileSize) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -807,19 +807,19 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).Exists)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).map(|| result__)
         })
     }
-    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllForApplicationAsync(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllForApplicationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllForPackageAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllForPackageAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllForPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1064,14 +1064,14 @@ impl StartScreenManager {
             (windows_core::Interface::vtable(this).TryRemoveSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<StartScreenManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<StartScreenManager>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

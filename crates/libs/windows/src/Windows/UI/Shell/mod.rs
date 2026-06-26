@@ -79,7 +79,7 @@ impl FocusSessionManager {
     }
     pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<FocusSessionManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -89,7 +89,7 @@ impl FocusSessionManager {
     pub fn RemoveIsFocusActiveChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveIsFocusActiveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<FocusSessionManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -685,7 +685,7 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -697,7 +697,7 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandInvoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -707,7 +707,7 @@ impl ShareWindowCommandSource {
     pub fn RemoveCommandInvoked(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveCommandInvoked)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ShareWindowCommandSource> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -804,7 +804,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<TaskbarManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::ITaskbarManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1105,13 +1105,13 @@ unsafe impl Sync for WindowTabGroup {}
 pub struct WindowTabIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabIcon, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabIcon {
-    pub fn CreateFromFontGlyph(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<WindowTabIcon> {
+    pub fn CreateFromFontGlyph(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyphWithUri<P2>(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P2) -> windows_core::Result<WindowTabIcon>
+    pub fn CreateFromFontGlyphWithUri<P2>(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1121,7 +1121,7 @@ impl WindowTabIcon {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromImage<P0>(image: P0) -> windows_core::Result<WindowTabIcon>
+    pub fn CreateFromImage<P0>(image: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1166,7 +1166,7 @@ impl WindowTabManager {
     }
     pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabSwitchRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabSwitchRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1178,7 +1178,7 @@ impl WindowTabManager {
     }
     pub fn TabCloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabCloseRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabCloseRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1190,7 +1190,7 @@ impl WindowTabManager {
     }
     pub fn TabTearOutRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabTearOutRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabTearOutRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1202,7 +1202,7 @@ impl WindowTabManager {
     }
     pub fn TabThumbnailRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabThumbnailRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabThumbnailRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1212,7 +1212,7 @@ impl WindowTabManager {
     pub fn RemoveTabThumbnailRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveTabThumbnailRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForWindow(id: super::WindowId) -> windows_core::Result<WindowTabManager> {
+    pub fn GetForWindow(id: super::WindowId) -> windows_core::Result<Self> {
         Self::IWindowTabManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

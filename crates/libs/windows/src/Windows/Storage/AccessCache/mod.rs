@@ -887,7 +887,7 @@ impl StorageItemMostRecentlyUsedList {
     }
     pub fn ItemRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ItemRemovedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -172,7 +172,7 @@ where
 }
 
 impl<T: 'static> IntoCallback<T> for Callback<T> {
-    fn into_callback(self) -> Callback<T> {
+    fn into_callback(self) -> Self {
         self
     }
 }
@@ -522,7 +522,7 @@ where
 
 impl<T, F> From<ResourceView<'_, T, F>> for Element
 where
-    F: FnOnce(&T) -> Element,
+    F: FnOnce(&T) -> Self,
 {
     fn from(rv: ResourceView<'_, T, F>) -> Self {
         match rv.resource {

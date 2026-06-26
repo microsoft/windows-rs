@@ -5657,7 +5657,7 @@ impl IFsrmMutableCollection {
     pub unsafe fn RemoveById(&self, id: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveById)(windows_core::Interface::as_raw(self), core::mem::transmute(id)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

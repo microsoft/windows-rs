@@ -257,13 +257,13 @@ impl MessageDialog {
     pub fn SetOptions(&self, value: MessageDialogOptions) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create(content: &windows_core::HSTRING) -> windows_core::Result<MessageDialog> {
+    pub fn Create(content: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTitle(content: &windows_core::HSTRING, title: &windows_core::HSTRING) -> windows_core::Result<MessageDialog> {
+    pub fn CreateWithTitle(content: &windows_core::HSTRING, title: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -440,13 +440,13 @@ impl UICommand {
     {
         unsafe { (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create(label: &windows_core::HSTRING) -> windows_core::Result<UICommand> {
+    pub fn Create(label: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandler<P1>(label: &windows_core::HSTRING, action: P1) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandler<P1>(label: &windows_core::HSTRING, action: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<UICommandInvokedHandler>,
     {
@@ -455,7 +455,7 @@ impl UICommand {
             (windows_core::Interface::vtable(this).CreateWithHandler)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandlerAndId<P1, P2>(label: &windows_core::HSTRING, action: P1, commandid: P2) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandlerAndId<P1, P2>(label: &windows_core::HSTRING, action: P1, commandid: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<UICommandInvokedHandler>,
         P2: windows_core::Param<windows_core::IInspectable>,
@@ -488,7 +488,7 @@ impl windows_core::RuntimeType for UICommandInvokedHandler {
 }
 impl UICommandInvokedHandler {
     pub fn new<F: Fn(windows_core::Ref<IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<UICommandInvokedHandler, F>::new(&UICommandInvokedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&UICommandInvokedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>

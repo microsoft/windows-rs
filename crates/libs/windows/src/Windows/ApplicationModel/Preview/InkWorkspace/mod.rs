@@ -38,7 +38,7 @@ impl InkWorkspaceHostedAppManager {
             (windows_core::Interface::vtable(self).SetThumbnailAsync)(windows_core::Interface::as_raw(self), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentApp() -> windows_core::Result<InkWorkspaceHostedAppManager> {
+    pub fn GetForCurrentApp() -> windows_core::Result<Self> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -336,7 +336,7 @@ impl Harness {
     /// observable condition you actually need.
     pub async fn render_until<F>(&self, label: &str, mut pred: F) -> bool
     where
-        F: FnMut(&Harness) -> bool,
+        F: FnMut(&Self) -> bool,
     {
         // 30 iterations × (10 low-priority yields per `render` + UpdateLayout
         // + 3 trailing yields) is enough budget for every ItemsRepeater-backed
@@ -367,7 +367,7 @@ impl Harness {
     /// expected to time out (e.g. known-flaky WinUI programmatic input).
     pub async fn render_until_quiet<F>(&self, _label: &str, mut pred: F) -> bool
     where
-        F: FnMut(&Harness) -> bool,
+        F: FnMut(&Self) -> bool,
     {
         const MAX_ITERATIONS: u32 = 30;
         self.render().await;

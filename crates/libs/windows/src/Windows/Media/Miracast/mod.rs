@@ -377,7 +377,7 @@ impl MiracastReceiver {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -636,7 +636,7 @@ impl MiracastReceiverCursorImageChannel {
     }
     pub fn ImageStreamChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -648,7 +648,7 @@ impl MiracastReceiverCursorImageChannel {
     }
     pub fn PositionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -790,7 +790,7 @@ impl MiracastReceiverGameControllerDevice {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -885,7 +885,7 @@ impl MiracastReceiverKeyboardDevice {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -981,7 +981,7 @@ impl MiracastReceiverSession {
     }
     pub fn ConnectionCreated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MiracastReceiverConnectionCreatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -993,7 +993,7 @@ impl MiracastReceiverSession {
     }
     pub fn MediaSourceCreated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MiracastReceiverMediaSourceCreatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1005,7 +1005,7 @@ impl MiracastReceiverSession {
     }
     pub fn Disconnected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MiracastReceiverDisconnectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

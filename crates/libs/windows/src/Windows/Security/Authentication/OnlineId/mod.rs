@@ -265,13 +265,13 @@ impl OnlineIdServiceTicketRequest {
             (windows_core::Interface::vtable(self).Policy)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateOnlineIdServiceTicketRequest(service: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequest(service: &windows_core::HSTRING, policy: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(service), core::mem::transmute_copy(policy), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateOnlineIdServiceTicketRequestAdvanced(service: &windows_core::HSTRING) -> windows_core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequestAdvanced(service: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(service), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

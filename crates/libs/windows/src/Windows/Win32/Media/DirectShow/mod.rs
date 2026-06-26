@@ -22254,7 +22254,7 @@ impl IEnumFilters {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumFilters> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22340,7 +22340,7 @@ impl IEnumMediaTypes {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMediaTypes> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22425,7 +22425,7 @@ impl IEnumPIDMap {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumPIDMap> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22504,7 +22504,7 @@ impl IEnumPins {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumPins> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22583,7 +22583,7 @@ impl IEnumRegFilters {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegFilters> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -22662,7 +22662,7 @@ impl IEnumStreamIdMap {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumStreamIdMap> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -26701,7 +26701,7 @@ impl IMediaStream {
     }
     pub unsafe fn SetSameFormat<P0>(&self, pstreamthathasdesiredformat: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IMediaStream>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSameFormat)(windows_core::Interface::as_raw(self), pstreamthathasdesiredformat.param().abi(), dwflags).ok() }
     }
@@ -28791,21 +28791,21 @@ impl IPin {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn Connect<P0>(&self, preceivepin: P0, pmt: Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IPin>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), preceivepin.param().abi(), pmt.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ReceiveConnection<P0>(&self, pconnector: P0, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IPin>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ReceiveConnection)(windows_core::Interface::as_raw(self), pconnector.param().abi(), core::mem::transmute(pmt)).ok() }
     }
     pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ConnectedTo(&self) -> windows_core::Result<IPin> {
+    pub unsafe fn ConnectedTo(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectedTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -28841,7 +28841,7 @@ impl IPin {
             (windows_core::Interface::vtable(self).EnumMediaTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryInternalConnections(&self, appin: Option<*mut Option<IPin>>, npin: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn QueryInternalConnections(&self, appin: Option<*mut Option<Self>>, npin: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QueryInternalConnections)(windows_core::Interface::as_raw(self), appin.unwrap_or(core::mem::zeroed()) as _, npin as _).ok() }
     }
     pub unsafe fn EndOfStream(&self) -> windows_core::Result<()> {
@@ -29594,7 +29594,7 @@ impl IQualityControl {
     }
     pub unsafe fn SetSink<P0>(&self, piqc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IQualityControl>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSink)(windows_core::Interface::as_raw(self), piqc.param().abi()).ok() }
     }

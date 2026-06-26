@@ -14,7 +14,7 @@ impl ConditionForceEffect {
         let this = &windows_core::Interface::cast::<IConditionForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParameters)(windows_core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
-    pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> windows_core::Result<ConditionForceEffect> {
+    pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> windows_core::Result<Self> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -539,7 +539,7 @@ impl PeriodicForceEffect {
         let this = &windows_core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
-    pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> windows_core::Result<PeriodicForceEffect> {
+    pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> windows_core::Result<Self> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

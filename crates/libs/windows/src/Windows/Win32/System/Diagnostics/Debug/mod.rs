@@ -3406,7 +3406,7 @@ impl Default for EXCEPTION_POINTERS {
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: windows_core::NTSTATUS,
     pub ExceptionFlags: u32,
-    pub ExceptionRecord: *mut EXCEPTION_RECORD,
+    pub ExceptionRecord: *mut Self,
     pub ExceptionAddress: *mut core::ffi::c_void,
     pub NumberParameters: u32,
     pub ExceptionInformation: [usize; 15],
@@ -3837,7 +3837,7 @@ impl IDebugProperty {
             (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugProperty> {
+    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4070,7 +4070,7 @@ impl IEnumDebugExtendedPropertyInfo {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4176,7 +4176,7 @@ impl IEnumDebugPropertyInfo {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

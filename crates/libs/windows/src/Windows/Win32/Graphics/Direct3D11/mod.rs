@@ -12191,10 +12191,10 @@ impl ID3D11ShaderReflectionType {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_TYPE_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
-    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D11ShaderReflectionType> {
+    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<ID3D11ShaderReflectionType>
+    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<Self>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -12205,31 +12205,31 @@ impl ID3D11ShaderReflectionType {
     }
     pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID3D11ShaderReflectionType>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), ptype.param().abi()).ok() }
     }
-    pub unsafe fn GetSubType(&self) -> Option<ID3D11ShaderReflectionType> {
+    pub unsafe fn GetSubType(&self) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetSubType)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetBaseClass(&self) -> Option<ID3D11ShaderReflectionType> {
+    pub unsafe fn GetBaseClass(&self) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetBaseClass)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetNumInterfaces(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNumInterfaces)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> Option<ID3D11ShaderReflectionType> {
+    pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> Option<Self> {
         unsafe { (windows_core::Interface::vtable(self).GetInterfaceByIndex)(windows_core::Interface::as_raw(self), uindex) }
     }
     pub unsafe fn IsOfType<P0>(&self, ptype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID3D11ShaderReflectionType>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsOfType)(windows_core::Interface::as_raw(self), ptype.param().abi()).ok() }
     }
     pub unsafe fn ImplementsInterface<P0>(&self, pbase: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ID3D11ShaderReflectionType>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ImplementsInterface)(windows_core::Interface::as_raw(self), pbase.param().abi()).ok() }
     }

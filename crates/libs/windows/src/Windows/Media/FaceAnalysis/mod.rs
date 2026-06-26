@@ -70,7 +70,7 @@ impl FaceDetector {
     pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceDetector>> {
+    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -149,7 +149,7 @@ impl FaceTracker {
     pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceTracker>> {
+    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -810,7 +810,7 @@ impl WebAccountClientView {
             (windows_core::Interface::vtable(self).AccountPairwiseId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create<P1>(viewtype: WebAccountClientViewType, applicationcallbackuri: P1) -> windows_core::Result<WebAccountClientView>
+    pub fn Create<P1>(viewtype: WebAccountClientViewType, applicationcallbackuri: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
@@ -819,7 +819,7 @@ impl WebAccountClientView {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), viewtype, applicationcallbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithPairwiseId<P1>(viewtype: WebAccountClientViewType, applicationcallbackuri: P1, accountpairwiseid: &windows_core::HSTRING) -> windows_core::Result<WebAccountClientView>
+    pub fn CreateWithPairwiseId<P1>(viewtype: WebAccountClientViewType, applicationcallbackuri: P1, accountpairwiseid: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
@@ -1708,7 +1708,7 @@ impl WebProviderTokenResponse {
         }
     }
     #[cfg(feature = "Security_Authentication_Web_Core")]
-    pub fn Create<P0>(webtokenresponse: P0) -> windows_core::Result<WebProviderTokenResponse>
+    pub fn Create<P0>(webtokenresponse: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Core::WebTokenResponse>,
     {

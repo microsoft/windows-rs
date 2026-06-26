@@ -1423,7 +1423,7 @@ pub struct ADS_BACKLINK {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
-    pub Next: *mut ADS_CASEIGNORE_LIST,
+    pub Next: *mut Self,
     pub String: windows_core::PWSTR,
 }
 impl Default for ADS_CASEIGNORE_LIST {
@@ -1608,7 +1608,7 @@ pub struct ADS_OBJECT_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_LIST {
-    pub Next: *mut ADS_OCTET_LIST,
+    pub Next: *mut Self,
     pub Length: u32,
     pub Data: *mut u8,
 }
@@ -1999,8 +1999,8 @@ pub struct DOMAINDESC {
     pub pszObjectClass: windows_core::PWSTR,
     pub ulFlags: u32,
     pub fDownLevel: windows_core::BOOL,
-    pub pdChildList: *mut DOMAINDESC,
-    pub pdNextSibling: *mut DOMAINDESC,
+    pub pdChildList: *mut Self,
+    pub pdNextSibling: *mut Self,
 }
 impl Default for DOMAINDESC {
     fn default() -> Self {

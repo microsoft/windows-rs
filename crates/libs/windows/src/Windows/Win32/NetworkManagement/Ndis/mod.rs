@@ -1427,7 +1427,7 @@ pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NDIS_PORT {
-    pub Next: *mut NDIS_PORT,
+    pub Next: *mut Self,
     pub NdisReserved: *mut core::ffi::c_void,
     pub MiniportReserved: *mut core::ffi::c_void,
     pub ProtocolReserved: *mut core::ffi::c_void,

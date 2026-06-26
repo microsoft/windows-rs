@@ -32,9 +32,9 @@ enum Kind {
 impl Kind {
     fn label(self) -> &'static str {
         match self {
-            Kind::Rectangle => "Rectangle",
-            Kind::Triangle => "Triangle",
-            Kind::Star => "Star",
+            Self::Rectangle => "Rectangle",
+            Self::Triangle => "Triangle",
+            Self::Star => "Star",
         }
     }
 }

@@ -18,13 +18,13 @@ impl Buffer {
     pub fn SetLength(&self, value: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLength)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create(capacity: u32) -> windows_core::Result<Buffer> {
+    pub fn Create(capacity: u32) -> windows_core::Result<Self> {
         Self::IBufferFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), capacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCopyFromMemoryBuffer<P0>(input: P0) -> windows_core::Result<Buffer>
+    pub fn CreateCopyFromMemoryBuffer<P0>(input: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::IMemoryBuffer>,
     {
@@ -231,7 +231,7 @@ impl DataReader {
             (windows_core::Interface::vtable(self).DetachStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDataReader<P0>(inputstream: P0) -> windows_core::Result<DataReader>
+    pub fn CreateDataReader<P0>(inputstream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IInputStream>,
     {
@@ -240,7 +240,7 @@ impl DataReader {
             (windows_core::Interface::vtable(this).CreateDataReader)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromBuffer<P0>(buffer: P0) -> windows_core::Result<DataReader>
+    pub fn FromBuffer<P0>(buffer: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IBuffer>,
     {
@@ -402,7 +402,7 @@ impl DataWriter {
             (windows_core::Interface::vtable(self).DetachStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDataWriter<P0>(outputstream: P0) -> windows_core::Result<DataWriter>
+    pub fn CreateDataWriter<P0>(outputstream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IOutputStream>,
     {
@@ -2186,7 +2186,7 @@ impl IRandomAccessStream {
     pub fn Seek(&self, position: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), position).ok() }
     }
-    pub fn CloneStream(&self) -> windows_core::Result<IRandomAccessStream> {
+    pub fn CloneStream(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CloneStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2951,7 +2951,7 @@ impl RandomAccessStreamReference {
             (windows_core::Interface::vtable(self).OpenReadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromFile<P0>(file: P0) -> windows_core::Result<RandomAccessStreamReference>
+    pub fn CreateFromFile<P0>(file: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::IStorageFile>,
     {
@@ -2960,7 +2960,7 @@ impl RandomAccessStreamReference {
             (windows_core::Interface::vtable(this).CreateFromFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromUri<P0>(uri: P0) -> windows_core::Result<RandomAccessStreamReference>
+    pub fn CreateFromUri<P0>(uri: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2969,7 +2969,7 @@ impl RandomAccessStreamReference {
             (windows_core::Interface::vtable(this).CreateFromUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromStream<P0>(stream: P0) -> windows_core::Result<RandomAccessStreamReference>
+    pub fn CreateFromStream<P0>(stream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IRandomAccessStream>,
     {

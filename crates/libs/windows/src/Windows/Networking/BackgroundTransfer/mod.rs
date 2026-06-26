@@ -147,7 +147,7 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).CompletionGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<BackgroundDownloader>
+    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<BackgroundTransferCompletionGroup>,
     {
@@ -395,13 +395,13 @@ impl BackgroundTransferContentPart {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFile)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateWithName(name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
+    pub fn CreateWithName(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithNameAndFileName(name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
+    pub fn CreateWithNameAndFileName(name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -489,7 +489,7 @@ impl BackgroundTransferGroup {
     pub fn SetTransferBehavior(&self, value: BackgroundTransferBehavior) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransferBehavior)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateGroup(name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferGroup> {
+    pub fn CreateGroup(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IBackgroundTransferGroupStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -822,7 +822,7 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CompletionGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<BackgroundUploader>
+    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<BackgroundTransferCompletionGroup>,
     {
@@ -1012,13 +1012,13 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<Self, Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
+    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<Self, Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1065,7 +1065,7 @@ impl DownloadOperation {
     }
     pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BackgroundTransferRangesDownloadedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
@@ -2360,13 +2360,13 @@ impl UploadOperation {
             (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
+    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<Self, Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
+    pub fn AttachAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<Self, Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

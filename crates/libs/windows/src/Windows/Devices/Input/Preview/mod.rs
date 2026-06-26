@@ -108,7 +108,7 @@ windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::
 impl GazeDeviceWatcherPreview {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherAddedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -120,7 +120,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherRemovedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -132,7 +132,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeDeviceWatcherUpdatedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -144,7 +144,7 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -294,7 +294,7 @@ windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IU
 impl GazeInputSourcePreview {
     pub fn GazeMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeMovedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -306,7 +306,7 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeEnteredPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -318,7 +318,7 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeExited<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GazeExitedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -328,7 +328,7 @@ impl GazeInputSourcePreview {
     pub fn RemoveGazeExited(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveGazeExited)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<GazeInputSourcePreview> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

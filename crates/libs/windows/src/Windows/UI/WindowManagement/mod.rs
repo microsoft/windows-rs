@@ -101,13 +101,13 @@ impl AppWindow {
     }
     pub fn RequestMoveAdjacentToWindow<P0>(&self, anchorwindow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<AppWindow>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).RequestMoveAdjacentToWindow)(windows_core::Interface::as_raw(self), anchorwindow.param().abi()).ok() }
     }
     pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<AppWindow>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).RequestMoveRelativeToWindowContent)(windows_core::Interface::as_raw(self), anchorwindow.param().abi(), contentoffset).ok() }
     }
@@ -131,7 +131,7 @@ impl AppWindow {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -143,7 +143,7 @@ impl AppWindow {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,7 +155,7 @@ impl AppWindow {
     }
     pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowCloseRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -165,7 +165,7 @@ impl AppWindow {
     pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveCloseRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn TryCreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<AppWindow>> {
+    pub fn TryCreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IAppWindowStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -813,7 +813,7 @@ impl DisplayRegion {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayRegion, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1270,7 +1270,7 @@ impl WindowingEnvironment {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowingEnvironmentChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1280,13 +1280,13 @@ impl WindowingEnvironment {
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn FindAll() -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAll() -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

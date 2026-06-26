@@ -36,7 +36,7 @@ code! { TypeDefOrRef(2)
 impl Default for TypeDefOrRef {
     fn default() -> Self {
         // This results in an encoded value of zero.
-        TypeDefOrRef::TypeDef(TypeDef(u32::MAX))
+        Self::TypeDef(TypeDef(u32::MAX))
     }
 }
 

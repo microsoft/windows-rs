@@ -343,7 +343,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
 }
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<SelectableWordSegmentsTokenizingHandler, F>::new(&SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
@@ -406,7 +406,7 @@ impl SelectableWordsSegmenter {
     {
         unsafe { (windows_core::Interface::vtable(self).Tokenize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
     }
-    pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<SelectableWordsSegmenter> {
+    pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -446,13 +446,13 @@ impl SemanticTextQuery {
             (windows_core::Interface::vtable(self).FindInProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertycontent), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(aqsfilter: &windows_core::HSTRING) -> windows_core::Result<SemanticTextQuery> {
+    pub fn Create(aqsfilter: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithLanguage(aqsfilter: &windows_core::HSTRING, filterlanguage: &windows_core::HSTRING) -> windows_core::Result<SemanticTextQuery> {
+    pub fn CreateWithLanguage(aqsfilter: &windows_core::HSTRING, filterlanguage: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), core::mem::transmute_copy(filterlanguage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -504,7 +504,7 @@ impl TextConversionGenerator {
             (windows_core::Interface::vtable(self).GetCandidatesWithMaxCountAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(input), maxcandidates, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<TextConversionGenerator> {
+    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ITextConversionGeneratorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -619,7 +619,7 @@ impl TextPredictionGenerator {
         let this = &windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInputScope)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<TextPredictionGenerator> {
+    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ITextPredictionGeneratorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -720,7 +720,7 @@ impl TextReverseConversionGenerator {
             (windows_core::Interface::vtable(this).GetPhonemesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<TextReverseConversionGenerator> {
+    pub fn Create(languagetag: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ITextReverseConversionGeneratorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -965,7 +965,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
 }
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<WordSegmentsTokenizingHandler, F>::new(&WordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&WordSegmentsTokenizingHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
@@ -1028,7 +1028,7 @@ impl WordsSegmenter {
     {
         unsafe { (windows_core::Interface::vtable(self).Tokenize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
     }
-    pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<WordsSegmenter> {
+    pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWordsSegmenterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

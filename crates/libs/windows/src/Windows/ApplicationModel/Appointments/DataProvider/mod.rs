@@ -560,7 +560,7 @@ windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, windo
 impl AppointmentDataProviderConnection {
     pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarSyncManagerSyncRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -572,7 +572,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn CreateOrUpdateAppointmentRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -584,7 +584,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn CancelMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarCancelMeetingRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -596,7 +596,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn ForwardMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarForwardMeetingRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -608,7 +608,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn ProposeNewTimeForMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -620,7 +620,7 @@ impl AppointmentDataProviderConnection {
     }
     pub fn UpdateMeetingResponseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

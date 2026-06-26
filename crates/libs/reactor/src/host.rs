@@ -121,9 +121,9 @@ pub enum PresenterKind {
 impl PresenterKind {
     fn to_native(self) -> Option<AppWindowPresenterKind> {
         match self {
-            PresenterKind::Default => None,
-            PresenterKind::FullScreen => Some(AppWindowPresenterKind::FullScreen),
-            PresenterKind::CompactOverlay => Some(AppWindowPresenterKind::CompactOverlay),
+            Self::Default => None,
+            Self::FullScreen => Some(AppWindowPresenterKind::FullScreen),
+            Self::CompactOverlay => Some(AppWindowPresenterKind::CompactOverlay),
         }
     }
 }
@@ -143,13 +143,13 @@ impl Backdrop {
     /// or other custom hosts that do not go through [`ReactorHost`].
     pub fn apply_to(self, window: &impl Interface) -> Result<()> {
         let system_backdrop: SystemBackdrop = match self {
-            Backdrop::Mica => MicaBackdrop::new()?.cast()?,
-            Backdrop::MicaAlt => {
+            Self::Mica => MicaBackdrop::new()?.cast()?,
+            Self::MicaAlt => {
                 let mica = MicaBackdrop::new()?;
                 mica.SetKind(MicaKind::BaseAlt)?;
                 mica.cast()?
             }
-            Backdrop::Acrylic => DesktopAcrylicBackdrop::new()?.cast()?,
+            Self::Acrylic => DesktopAcrylicBackdrop::new()?.cast()?,
         };
         window
             .cast::<IWindow2>()?

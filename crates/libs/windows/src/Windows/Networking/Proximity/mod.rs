@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for DeviceArrivedEventHandler {
 }
 impl DeviceArrivedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DeviceArrivedEventHandler, F>::new(&DeviceArrivedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeviceArrivedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -67,7 +67,7 @@ impl windows_core::RuntimeType for DeviceDepartedEventHandler {
 }
 impl DeviceDepartedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DeviceDepartedEventHandler, F>::new(&DeviceDepartedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DeviceDepartedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -309,7 +309,7 @@ impl windows_core::RuntimeType for MessageReceivedHandler {
 }
 impl MessageReceivedHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<MessageReceivedHandler, F>::new(&MessageReceivedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageReceivedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> windows_core::Result<()>
@@ -349,7 +349,7 @@ impl windows_core::RuntimeType for MessageTransmittedHandler {
 }
 impl MessageTransmittedHandler {
     pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<MessageTransmittedHandler, F>::new(&MessageTransmittedHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageTransmittedHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> windows_core::Result<()>
@@ -645,7 +645,7 @@ windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, win
 impl PeerWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PeerInformation>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -657,7 +657,7 @@ impl PeerWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PeerInformation>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -669,7 +669,7 @@ impl PeerWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PeerInformation>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -681,7 +681,7 @@ impl PeerWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -693,7 +693,7 @@ impl PeerWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -869,13 +869,13 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<ProximityDevice> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<ProximityDevice> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
