@@ -530,6 +530,28 @@ measurement on representative trees before investing.
    cannot distinguish: `factory_cache.rs`'s runtime `IAgileObject` agility probe and
    `generic_factory.rs`'s type-erased `IInspectable`→class activation, where the
    same-pointer result is incidental and the cast is not statically removable.
+7. **Casts hidden behind `Param<T>` / `required_hierarchy!` *(examined, nothing to
+   reduce)*.** Besides explicit `.cast()`s, conversions also happen implicitly when
+   a value is passed as `impl Param<T>`. `windows-bindgen` statically classifies
+   every conversion in `bindings.rs` into one of two macros (`crates/libs/core/src/imp/mod.rs`):
+   `interface_hierarchy!` (`CanInto::QUERY = false`) for the free relationships —
+   every type → `IUnknown`/`IInspectable`, and a class → its **default** interface —
+   which `Param` resolves with a `transmute_copy` (zero cost), versus
+   `required_hierarchy!` (`QUERY = true`) for a class → a **non-default** required
+   interface and an interface → a required (sibling) interface, which `Param`
+   resolves with a real `QueryInterface` (`crates/libs/core/src/param.rs`). The
+   `required_hierarchy!` entries are therefore the *implicit* form of the genuine
+   "cast to a non-default parent" calls in item 6 (e.g. `SolidColorBrush`→`Brush`,
+   `Button`→`IControl`) — one QI per call, not redundant, and **not statically
+   removable** (transmuting to a vtable the object does not expose would be
+   unsound). bindgen has already done the removable work by routing every
+   transmute-able conversion through `interface_hierarchy!`/`Deref` instead (the
+   class default interface is explicitly filtered out of `required_hierarchy!`).
+   The only lever left is the same hot-path rule as item 6: if a `Param`-driven
+   non-default conversion lands on a steady-state path, capture the converted handle
+   once rather than re-converting each call. The `windows_cast_diagnostics` probe
+   instruments this `Param`/`self.cast()` path too, and (as expected) never reports
+   these as same-pointer hits — confirming they are genuine QIs, not redundant ones.
 
 ### Reactor / canvas naming
 
