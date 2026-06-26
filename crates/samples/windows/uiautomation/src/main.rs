@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
         UI::UIAutomation::*, Win32::System::Com::*, Win32::UI::Accessibility::*,

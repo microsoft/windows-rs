@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() {
     use windows::{Win32::Foundation::*, Win32::System::LibraryLoader::*, core::*};
 

@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::Win32::Security::Credentials::{
         CRED_ENUMERATE_ALL_CREDENTIALS, CREDENTIALW, CredEnumerateW, CredFree,
