@@ -146,6 +146,14 @@ tree:
 - **`circles`** — animated circles with brush reuse and a text label.
 - **`clock`** — an animated analog clock combining transforms, stroke styles,
   shadows, bitmap targets, and text.
+- **`hit_test`** — geometry hit-testing: a star recolors only when the pointer is
+  inside its *actual filled geometry* (`Path::fill_contains_point`), with its
+  bounding box (`compute_bounds`) drawn for contrast.
+- **`editor`** — an interactive map-style shape editor that composes the reactor
+  pointer events with the canvas geometry queries: click to drop a shape, drag a
+  shape to move it, right-click to delete, and a toolbar to pick the kind.
+  Selection hit-tests the real polygon (`fill_contains_point`) and outlines it
+  with `compute_bounds`.
 
 ---
 
@@ -174,7 +182,9 @@ optional `reactor` feature integrates with `windows-reactor` through
   render-thread variant.
 - **Automatic device-lost recovery** — `device_lost.rs` classifies the DXGI/D2D
   device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain recreates
-  its device and resources on the next frame.
+  its device and resources on the next frame. The classifier is exported as
+  `is_device_lost(HRESULT)` / `check_device_lost(&Result<T>)` for callers driving
+  their own draw loop.
 
 ### Input and hit-testing
 
@@ -203,7 +213,10 @@ conflated under "hit-testing":
   the pointer leaving the element. The previously-stubbed `PointerMoved`/
   `PointerEntered` vtable slots are now generated.
 - There is **no keyboard surface** — `KeyDown`/`KeyUp` exist in the bindings but
-  no `on_key_down`/`on_key_up` is exposed on elements.
+  no `on_key_down`/`on_key_up` is exposed on elements. A future keyboard surface
+  must reckon with WinUI focus: a bare `Border` cannot take focus, so it never
+  receives `KeyDown` (see the roadmap's phase 3 for the focus rule learned from a
+  prototype).
 - **Geometry hit-testing is wired.** `Path` exposes `fill_contains_point`,
   `stroke_contains_point`, and `compute_bounds` over the underlying
   `ID2D1Geometry`. Boolean ops (`CombineWith`) and the remaining measurement
@@ -219,8 +232,9 @@ reference for the gaps above:
   `KeyDown` events, reading the pointer `Position` relative to the control.
   `CanvasAnimatedControl` pairs that input with an `Update`/`Draw` game loop —
   essentially the model an interactive editor wants. `animated_canvas` already
-  matches that render model (it draws every frame via `CompositionTarget::Rendering`);
-  the missing pieces are input plumbing and geometry queries.
+  matches that render model (it draws every frame via `CompositionTarget::Rendering`).
+  Pointer input and geometry queries are now in place; the remaining gaps are
+  keyboard input (for custom surfaces — see phase 3) and text hit-testing.
 - `CanvasGeometry` exposes `FillContainsPoint`, `StrokeContainsPoint`,
   `ComputeBounds`, and `CombineWith`; `CanvasTextLayout` exposes glyph/caret
   hit-testing. These are the geometry/text features still marked as gaps.
@@ -235,10 +249,12 @@ geometry library and gains no input system of its own.
 - **Reactor input.** `PointerEventInfo` carries the pointer position (`x`/`y`,
   DIPs relative to the element, read from `GetCurrentPoint(element).Position`)
   on press/release **and** during movement via `on_pointer_moved` /
-  `on_pointer_entered` (with `on_pointer_exited` for leave). Still to do: add
-  `on_key_down`/`on_key_up` to the element surface with a small virtual-key +
-  modifier payload; because keyboard events require focus, document the
-  `IsTabStop`/focus story for a `SwapChainPanel`.
+  `on_pointer_entered` (with `on_pointer_exited` for leave). Keyboard is a
+  possible future addition (`on_key_down`/`on_key_up` with a virtual-key +
+  modifier payload), but it is gated on the focus story and is narrow in value —
+  only a hit-test-visible `Panel` or `Control`, not a bare `Border`, can take
+  focus, via `IsTabStop` + `Focus(Programmatic)` deferred to `Loaded`. See
+  phase 3.
 - **One coordinate convention.** Pointer coordinates are DIPs; the app converts
   to canvas space using the same `width`/`height`/scale the draw closure already
   receives. Keep DIPs end to end so screen → canvas mapping is a single, obvious
@@ -255,8 +271,10 @@ geometry library and gains no input system of its own.
 
 #### Phases
 
-Each phase is independently shippable. Phases 1, 2, and 4 are **done**; phase 1
-alone unblocks the common tile/grid interaction case.
+Each phase is independently shippable. Phases 1, 2, 4, and 6 are **done**; phase
+1 alone unblocks the common tile/grid interaction case. The interactive editor
+sample (phase 6) now composes the input + geometry work into the real use case,
+which is the natural place to motivate keyboard (phase 3) with a concrete need.
 
 1. **Pointer coordinates** *(reactor)* — **done.** `PointerEventInfo` carries
    `x`/`y` (DIPs relative to the element), read from `.Position` in
@@ -267,8 +285,23 @@ alone unblocks the common tile/grid interaction case.
    for drag and hover, with `on_pointer_exited` for leave; the `PointerMoved`/
    `PointerEntered` `IUIElement` vtable slots are now generated. See the
    `pointer_tracking` sample.
-3. **Keyboard** *(reactor)* — `on_key_down`/`on_key_up` plus the focus story for
-   `SwapChainPanel`.
+3. **Keyboard** *(reactor)* — **not done; deprioritized.** The plumbing is
+   straightforward (`KeyDown`/`KeyUp` on `IUIElement`; a `KeyEventInfo` with the
+   virtual key from `KeyRoutedEventArgs` + Ctrl/Shift/Alt read via Win32
+   `GetKeyState`), but the value is narrow: built-in controls already handle their
+   own keys and app shortcuts use keyboard accelerators, so raw key input is
+   really only for **custom interactive surfaces** (a canvas editor/game on a
+   `SwapChainPanel`). It should be motivated by — and folded into — the
+   interactive editor sample (phase 6) rather than shipped standalone.
+
+   The hard part is **focus**, and a prototype surfaced a non-obvious WinUI rule:
+   a bare `Border`/decorator **cannot** take keyboard focus, so it never receives
+   `KeyDown`. Only a hit-test-visible **`Panel`** (a `StackPanel`/`Canvas`/
+   `SwapChainPanel` with a `Background`) or a `Control` is focusable, via
+   `IsTabStop = true` + `Focus(FocusState::Programmatic)` **deferred to the
+   `FrameworkElement.Loaded` event** (`Focus()` returns `false` before the element
+   is in the live visual tree). A `focusable` element modifier would encapsulate
+   exactly that.
 4. **Geometry queries** *(canvas)* — **done.** `Path::fill_contains_point`,
    `stroke_contains_point`, and `compute_bounds` wrap `ID2D1Geometry` (bindings
    regenerated from `canvas.txt`). See the `canvas_hit_test` sample. Boolean
@@ -276,8 +309,14 @@ alone unblocks the common tile/grid interaction case.
 5. **Text hit-testing** *(canvas)* — DirectWrite `HitTestPoint` /
    `HitTestTextPosition`, once a text-layout type exists (this depends on the
    broader text-layout/metrics gap).
-6. **Sample** — a map/tile editor sample exercising phases 1–4 end to end, as a
-   worked reference for interactive canvas input.
+6. **Interactive editor sample** *(done)* — the `editor` sample is a map-style
+   shape editor composing pointer (1, 2) + geometry (4) end to end: click to drop
+   a shape, left-drag to move it, right-click to delete, and a toolbar picks the
+   kind. Selection hit-tests the real polygon via `fill_contains_point` and
+   outlines it with `compute_bounds`. The whole model lives in one `use_ref` so
+   the high-frequency pointer handlers mutate in place without reconcile churn
+   during a drag. It is the natural place to motivate keyboard (3) with a real
+   need (e.g. arrow keys / Delete on the editor surface).
 
 ### Testing
 

@@ -23,7 +23,7 @@ mod text;
 mod types;
 
 use bindings::*;
-use device_lost::*;
+pub use device_lost::{check_device_lost, is_device_lost};
 use std::cell::Cell;
 use std::os::windows::ffi::OsStrExt;
 use windows_core::*;

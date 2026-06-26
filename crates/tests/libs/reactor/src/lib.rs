@@ -135,6 +135,10 @@ pub enum Op {
         id: ControlId,
         tooltip: Option<Tooltip>,
     },
+    SetPointerHandlers {
+        id: ControlId,
+        handlers: Option<PointerHandlers>,
+    },
 }
 
 /// In-memory [`Backend`] that records every operation as an [`Op`] and
@@ -538,6 +542,13 @@ impl Backend for RecordingBackend {
         self.ops.push(Op::SetTooltip {
             id,
             tooltip: tooltip.cloned(),
+        });
+    }
+
+    fn set_pointer_handlers(&mut self, id: ControlId, handlers: Option<&PointerHandlers>) {
+        self.ops.push(Op::SetPointerHandlers {
+            id,
+            handlers: handlers.cloned(),
         });
     }
 
