@@ -1,0 +1,11 @@
+[package]
+name = "tool_features"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-metadata = { workspace = true }
+
+[lints]
+workspace = true
