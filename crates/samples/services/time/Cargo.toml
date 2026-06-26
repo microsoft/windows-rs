@@ -1,5 +1,5 @@
 [package]
-name = "sample_service_time"
+name = "services_time"
 version = "0.0.0"
 edition = "2024"
 publish = false

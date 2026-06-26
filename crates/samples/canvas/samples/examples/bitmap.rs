@@ -33,5 +33,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Bitmap", draw)
+    canvas_samples::run("Bitmap", draw)
 }

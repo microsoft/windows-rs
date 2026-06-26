@@ -48,5 +48,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("RadioButton", app)
+    reactor_samples::run("RadioButton", app)
 }

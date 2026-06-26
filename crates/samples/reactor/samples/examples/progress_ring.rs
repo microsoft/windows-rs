@@ -14,5 +14,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("ProgressRing", app)
+    reactor_samples::run("ProgressRing", app)
 }

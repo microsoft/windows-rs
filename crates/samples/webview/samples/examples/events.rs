@@ -1,7 +1,7 @@
 //! The navigation lifecycle plus window, new-window, permission, and
 //! process-failed events.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 fn main() -> Result<()> {
     run("WebView2 events - windows-rs", |_controller, webview| {

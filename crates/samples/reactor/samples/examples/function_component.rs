@@ -48,5 +48,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("FunctionComponent", app)
+    reactor_samples::run("FunctionComponent", app)
 }

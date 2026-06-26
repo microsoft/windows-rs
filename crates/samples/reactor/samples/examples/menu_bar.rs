@@ -45,5 +45,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("MenuBar", app)
+    reactor_samples::run("MenuBar", app)
 }

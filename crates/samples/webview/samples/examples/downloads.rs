@@ -1,6 +1,6 @@
 //! Watching downloads and reporting per-operation progress and state.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 fn main() -> Result<()> {
     run("WebView2 downloads - windows-rs", |_controller, webview| {

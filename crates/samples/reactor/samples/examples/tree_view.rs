@@ -23,5 +23,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("TreeView", app)
+    reactor_samples::run("TreeView", app)
 }

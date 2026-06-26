@@ -1,6 +1,6 @@
 //! Serving a folder on disk through `set_virtual_host_name_to_folder_mapping`.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 fn main() -> Result<()> {
     run(

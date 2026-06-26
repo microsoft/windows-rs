@@ -29,5 +29,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("UseColorScheme", app)
+    reactor_samples::run("UseColorScheme", app)
 }

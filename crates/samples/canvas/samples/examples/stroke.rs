@@ -70,5 +70,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Stroke Styles", draw)
+    canvas_samples::run("Stroke Styles", draw)
 }

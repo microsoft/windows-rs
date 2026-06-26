@@ -33,5 +33,5 @@ fn star_point(cx: f32, cy: f32, r: f32, i: u32) -> Vector2 {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Path", draw)
+    canvas_samples::run("Path", draw)
 }

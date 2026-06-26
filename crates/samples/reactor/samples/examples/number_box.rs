@@ -21,5 +21,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("NumberBox", app)
+    reactor_samples::run("NumberBox", app)
 }

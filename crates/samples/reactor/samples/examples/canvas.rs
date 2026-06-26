@@ -30,5 +30,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Canvas", app)
+    reactor_samples::run("Canvas", app)
 }

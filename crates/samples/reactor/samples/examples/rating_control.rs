@@ -18,5 +18,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("RatingControl", app)
+    reactor_samples::run("RatingControl", app)
 }

@@ -26,5 +26,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("ToggleButton", app)
+    reactor_samples::run("ToggleButton", app)
 }

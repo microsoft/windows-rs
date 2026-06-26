@@ -31,5 +31,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Shapes", draw)
+    canvas_samples::run("Shapes", draw)
 }

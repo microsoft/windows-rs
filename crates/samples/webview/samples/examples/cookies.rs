@@ -1,6 +1,6 @@
 //! Adding a cookie and enumerating cookies with the cookie manager.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 fn main() -> Result<()> {
     run("WebView2 cookies - windows-rs", |_controller, webview| {

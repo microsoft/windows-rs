@@ -39,5 +39,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("ThemeBrush", app)
+    reactor_samples::run("ThemeBrush", app)
 }

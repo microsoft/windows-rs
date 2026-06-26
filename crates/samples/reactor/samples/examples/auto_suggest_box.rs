@@ -54,5 +54,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("AutoSuggestBox", app)
+    reactor_samples::run("AutoSuggestBox", app)
 }

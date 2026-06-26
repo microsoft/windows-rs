@@ -3,7 +3,7 @@
 use windows_reactor::*;
 
 fn main() -> Result<()> {
-    reactor_minimal::run("UseState", app)
+    reactor_samples::run("UseState", app)
 }
 
 fn app(cx: &mut RenderCx) -> Element {

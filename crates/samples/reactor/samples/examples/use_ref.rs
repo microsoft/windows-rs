@@ -27,5 +27,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("UseRef", app)
+    reactor_samples::run("UseRef", app)
 }

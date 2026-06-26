@@ -1,5 +1,5 @@
 [package]
-name = "sample_task_dialog"
+name = "windows_task_dialog"
 version = "0.0.0"
 edition = "2024"
 publish = false

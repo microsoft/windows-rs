@@ -16,5 +16,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("DropDownButton", app)
+    reactor_samples::run("DropDownButton", app)
 }

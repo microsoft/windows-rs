@@ -28,5 +28,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("NavigationView", app)
+    reactor_samples::run("NavigationView", app)
 }

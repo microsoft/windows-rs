@@ -1,6 +1,6 @@
 //! Serving an app entirely from memory with `on_web_resource_requested`.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 const INDEX: &str = r#"<!DOCTYPE html><html><head>
 <link rel="stylesheet" href="https://app.example/style.css">

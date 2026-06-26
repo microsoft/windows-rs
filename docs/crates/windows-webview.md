@@ -262,9 +262,9 @@ download, override its destination, or take its `DownloadOperation`. The
 
 ## Samples
 
-The [`crates/samples/webview/minimal`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/minimal)
+The [`crates/samples/webview/samples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/webview/samples)
 crate has one example per capability under `examples/`, mirroring
-`reactor/minimal`. A shared `run` helper in `src/lib.rs` holds the hosting
+`reactor/samples`. A shared `run` helper in `src/lib.rs` holds the hosting
 boilerplate — a [`windows-window`](windows-window.md) window whose `on_resize`
 forwards to `Controller::set_bounds`, an `Environment`, and a `Controller` — so
 each example stays focused on its feature. The only dependencies are
@@ -272,7 +272,7 @@ each example stays focused on its feature. The only dependencies are
 loop and no `windows` crate. All of them require the Microsoft Edge WebView2
 runtime.
 
-Run one with `cargo run -p webview_minimal --example <name>`:
+Run one with `cargo run -p webview_samples --example <name>`:
 
 | Example | Demonstrates |
 | --- | --- |

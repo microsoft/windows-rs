@@ -20,5 +20,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("HyperlinkButton", app)
+    reactor_samples::run("HyperlinkButton", app)
 }

@@ -51,5 +51,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("ErrorBoundary", app)
+    reactor_samples::run("ErrorBoundary", app)
 }

@@ -16,5 +16,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("SplitButton", app)
+    reactor_samples::run("SplitButton", app)
 }

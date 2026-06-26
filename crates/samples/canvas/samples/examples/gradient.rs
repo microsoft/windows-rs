@@ -52,5 +52,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Gradient", draw)
+    canvas_samples::run("Gradient", draw)
 }

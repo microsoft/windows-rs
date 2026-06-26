@@ -27,5 +27,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("MenuFlyout", app)
+    reactor_samples::run("MenuFlyout", app)
 }

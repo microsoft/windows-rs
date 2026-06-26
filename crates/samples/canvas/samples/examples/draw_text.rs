@@ -23,5 +23,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Draw Text", draw)
+    canvas_samples::run("Draw Text", draw)
 }

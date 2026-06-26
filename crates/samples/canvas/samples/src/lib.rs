@@ -1,6 +1,6 @@
 //! Shared window harness for canvas minimal examples.
 //!
-//! Each example calls `canvas_minimal::run(draw)` to open a window with
+//! Each example calls `canvas_samples::run(draw)` to open a window with
 //! `animated_canvas` filling the full client area. The example only provides
 //! the draw callback.
 

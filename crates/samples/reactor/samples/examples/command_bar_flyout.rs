@@ -26,5 +26,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("CommandBarFlyout", app)
+    reactor_samples::run("CommandBarFlyout", app)
 }

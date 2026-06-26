@@ -25,5 +25,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("CheckBox", app)
+    reactor_samples::run("CheckBox", app)
 }

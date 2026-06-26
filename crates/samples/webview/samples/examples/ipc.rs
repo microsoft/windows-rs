@@ -1,7 +1,7 @@
 //! Host ↔ JavaScript messaging: an injected bootstrap script, received
 //! messages, replies from Rust, and `execute_script`.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 const PAGE: &str = r#"<!DOCTYPE html><html><body>
 <h1>windows-webview IPC</h1>

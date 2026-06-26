@@ -34,5 +34,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Color", draw)
+    canvas_samples::run("Color", draw)
 }

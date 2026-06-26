@@ -48,5 +48,5 @@ fn draw(ctx: &DrawContext) {
 }
 
 fn main() -> Result<()> {
-    canvas_minimal::run("Transform", draw)
+    canvas_samples::run("Transform", draw)
 }

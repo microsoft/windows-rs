@@ -22,5 +22,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("CommandBar", app)
+    reactor_samples::run("CommandBar", app)
 }

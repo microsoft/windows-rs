@@ -31,5 +31,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Pointer Position", app)
+    reactor_samples::run("Pointer Position", app)
 }

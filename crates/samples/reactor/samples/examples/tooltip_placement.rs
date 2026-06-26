@@ -21,5 +21,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("TooltipPlacement", app)
+    reactor_samples::run("TooltipPlacement", app)
 }

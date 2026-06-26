@@ -22,5 +22,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Border", app)
+    reactor_samples::run("Border", app)
 }

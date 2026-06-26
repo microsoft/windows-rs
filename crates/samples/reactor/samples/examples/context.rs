@@ -43,5 +43,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Context", app)
+    reactor_samples::run("Context", app)
 }

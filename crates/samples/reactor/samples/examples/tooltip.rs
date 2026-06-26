@@ -12,5 +12,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Tooltip", app)
+    reactor_samples::run("Tooltip", app)
 }

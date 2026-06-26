@@ -1,6 +1,6 @@
 //! An in-private controller, the dark color scheme, and clearing browsing data.
 
-use webview_minimal::*;
+use webview_samples::*;
 
 fn main() -> Result<()> {
     let options = ControllerOptions::new()

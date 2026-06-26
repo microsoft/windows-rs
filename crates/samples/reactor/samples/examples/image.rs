@@ -32,5 +32,5 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("Image", app)
+    reactor_samples::run("Image", app)
 }

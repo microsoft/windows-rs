@@ -56,5 +56,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("UseMemo", app)
+    reactor_samples::run("UseMemo", app)
 }

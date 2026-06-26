@@ -39,5 +39,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("ComboBox", app)
+    reactor_samples::run("ComboBox", app)
 }

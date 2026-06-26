@@ -19,5 +19,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    reactor_minimal::run("SelectorBar", app)
+    reactor_samples::run("SelectorBar", app)
 }
