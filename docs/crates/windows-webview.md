@@ -284,6 +284,7 @@ Run one with `cargo run -p webview_samples --example <name>`:
 | `downloads` | Watching downloads and reporting per-operation progress and state. |
 | `cookies` | Adding a cookie and enumerating cookies with the cookie manager. |
 | `profile` | An in-private controller, the dark color scheme, and clearing browsing data. |
+| `script` | The document-created script lifecycle: inject a script that runs before each page, read a value it set back with `execute_script`, then remove it. |
 
 ## Reactor integration
 
