@@ -381,6 +381,34 @@ impl Harness {
         pred(self)
     }
 
+    /// Pump the dispatcher until `pred` holds or `max` wall-clock time elapses,
+    /// returning the final value of `pred`. Unlike [`render_until`](Self::render_until)
+    /// this is time-bounded rather than iteration-bounded and does not force
+    /// layout — use it to wait on `DispatcherQueue`-driven work such as
+    /// [`DispatcherTimer`](windows_reactor::DispatcherTimer) ticks or
+    /// `CompositionTarget::Rendering` frames.
+    pub async fn pump_until<F>(&self, max: std::time::Duration, mut pred: F) -> bool
+    where
+        F: FnMut() -> bool,
+    {
+        let deadline = std::time::Instant::now() + max;
+        loop {
+            if pred() {
+                return true;
+            }
+            if std::time::Instant::now() >= deadline {
+                return pred();
+            }
+            YieldLow::new(self.inner.dispatcher.clone()).await;
+        }
+    }
+
+    /// Pump the dispatcher for a fixed wall-clock duration, e.g. to confirm a
+    /// dropped timer or subscription produces no further callbacks.
+    pub async fn pump_for(&self, dur: std::time::Duration) {
+        let _ = self.pump_until(dur, || false).await;
+    }
+
     fn is_idle(&self) -> bool {
         self.inner
             .host

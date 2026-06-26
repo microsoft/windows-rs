@@ -22,7 +22,7 @@ pub fn combo_box_page(_: &(), cx: &mut RenderCx) -> Element {
                         .header("Color")
                         .placeholder_text("Pick a color")
                         .selected_index(selected)
-                        .on_selection_changed(move |i| set_selected.call(i)),
+                        .on_selection_changed(set_selected),
                     text_block(format!("Selected: {label}")).opacity(0.6),
                 ))
                 .spacing(8.0),

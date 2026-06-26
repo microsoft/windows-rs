@@ -149,6 +149,32 @@ common; pointer and keyboard handlers live on `ElementExt`: `.on_tapped(..)`,
 A `SetState` or `Dispatch` can be passed directly
 wherever a handler is expected (via `IntoCallback`).
 
+### Handler identity
+
+When a value-carrying event just forwards its argument to a setter, pass the
+setter directly instead of wrapping it in a closure:
+
+```rust,ignore
+// Prefer this — shorter, and the handler keeps a stable identity:
+text_box(text).on_text_changed(set_text)
+
+// Avoid this — a fresh closure is allocated every render:
+text_box(text).on_text_changed(move |value| set_text.call(value))
+```
+
+This is not just cosmetic. Setters from `use_state`/`use_reducer` are memoized
+per hook slot, so passing one straight through hands the reconciler the *same*
+handler identity each render. The diff can then skip the whole control. An inline
+closure (`move |v| set.call(v)`) allocates a fresh identity every render, so the
+control is always re-diffed and its WinUI event re-bound.
+
+When a handler needs to compute a value or run extra logic — so a setter can't be
+passed directly — wrap it in `cx.use_callback(deps, …)` to memoize it and recover
+the same stable identity for hot paths. For the common case of a unit event
+(`on_click`) that stores a fixed or pre-computed value, `SetState::setter(value)`
+is shorthand for `move || set.call(value)`:
+`button("Reset").on_click(set_count.setter(0))`.
+
 ## Graphics integration
 
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
@@ -529,6 +555,15 @@ and button flags. Because OS input injection requires the harness window to be
 foreground at the injected screen point, the fixture records a TAP `# SKIP`
 (never a failure) when the host can't deliver input (locked session, foreground
 lock, no interactive desktop), so it can't flake CI.
+
+The dispatcher-thread hooks in `hooks.rs` — `DispatcherTimer` (repeating and
+one-shot) and the `CompositionTarget::Rendering` subscription (`on_rendering`) —
+are likewise only meaningful on a live WinUI thread, so they are covered by the
+`Timer_*` and `Rendering_Subscription_*` selftest fixtures. These wait on a
+wall-clock-bounded `Harness::pump_until` (not the iteration-bounded `render_until`)
+so a real `DispatcherQueueTimer` interval can elapse, and assert both that the
+callback fires and that dropping the RAII handle stops it. The rendering fixture
+soft-SKIPs when the agent delivers no composition frames.
 
 The `RecordingBackend` harness (and its `Op` log) lives in the `test_reactor`
 crate, not in `windows-reactor`, so it adds no weight to normal builds. The few

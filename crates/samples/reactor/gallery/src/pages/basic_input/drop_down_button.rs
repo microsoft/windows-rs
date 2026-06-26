@@ -24,7 +24,7 @@ pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> Element {
                                 text: "Exit".into(),
                             },
                         ])
-                        .on_item_clicked(move |s| set_selected.call(s)),
+                        .on_item_clicked(set_selected),
                     text_block(format!("Last action: {selected}")).opacity(0.6),
                 ))
                 .spacing(8.0),

@@ -20,7 +20,7 @@ pub fn tree_view_page(_: &(), cx: &mut RenderCx) -> Element {
             sample_card(
                 "File Explorer TreeView",
                 vstack((
-                    tree_view(file_system).on_item_invoked(move |s| set_invoked.call(s)),
+                    tree_view(file_system).on_item_invoked(set_invoked),
                     text_block(format!("Last invoked: {invoked}")).opacity(0.6),
                 ))
                 .spacing(8.0),

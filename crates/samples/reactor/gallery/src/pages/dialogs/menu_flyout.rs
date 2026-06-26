@@ -53,7 +53,7 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                                 text: "Strikethrough".into(),
                             },
                         ])
-                        .on_item_clicked(move |s| set_action.call(s)),
+                        .on_item_clicked(set_action),
                     text_block(format!("Last format: {last_action}")).opacity(0.6),
                 ))
                 .spacing(8.0),

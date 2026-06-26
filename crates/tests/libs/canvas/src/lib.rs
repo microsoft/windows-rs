@@ -787,6 +787,31 @@ mod tests {
         assert!((bounds.bottom - 50.0).abs() < 0.5);
     }
 
+    #[test]
+    fn path_polygon() {
+        let device = GpuDevice::new_warp().unwrap();
+
+        // Same triangle as path_fill_contains_point, built via the polygon helper.
+        let path = PathBuilder::new(&device)
+            .unwrap()
+            .polygon([
+                Vector2::new(32.0, 0.0),
+                Vector2::new(64.0, 64.0),
+                Vector2::new(0.0, 64.0),
+            ])
+            .unwrap();
+
+        assert!(path.fill_contains_point(Vector2::new(32.0, 50.0)));
+        assert!(!path.fill_contains_point(Vector2::new(5.0, 5.0)));
+    }
+
+    #[test]
+    fn path_polygon_empty_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        let result = PathBuilder::new(&device).unwrap().polygon([]);
+        assert!(result.is_err());
+    }
+
     // Device-lost classification is pure logic (no GPU needed). The codes below
     // are the canonical DXGI/Direct2D HRESULTs, written independently of the
     // crate's own constants so the test isn't a tautology.

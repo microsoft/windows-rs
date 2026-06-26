@@ -275,12 +275,7 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) {
 const SIZE: f32 = 38.0;
 
 fn build_path(device: &GpuDevice, kind: Kind, x: f32, y: f32) -> Result<Path> {
-    let points = polygon(kind, x, y);
-    let mut figure = PathBuilder::new(device)?.begin(points[0]);
-    for p in &points[1..] {
-        figure = figure.line_to(*p);
-    }
-    figure.close().build()
+    PathBuilder::new(device)?.polygon(polygon(kind, x, y))
 }
 
 fn polygon(kind: Kind, x: f32, y: f32) -> Vec<Vector2> {

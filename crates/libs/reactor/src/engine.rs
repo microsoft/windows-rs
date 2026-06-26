@@ -293,6 +293,20 @@ impl<T> SetState<T> {
     }
 }
 
+impl<T: Clone + 'static> SetState<T> {
+    /// Returns a parameterless handler that sets the state to `value`.
+    ///
+    /// Sugar for `move || set.call(value.clone())`, handy for `on_click`-style
+    /// events that store a fixed or pre-computed value, e.g.
+    /// `button("Reset").on_click(set_count.setter(0))`. When the handler simply
+    /// forwards the event's own argument, pass the setter directly instead
+    /// (`on_text_changed(set_text)`) to keep a stable identity.
+    pub fn setter(&self, value: T) -> impl Fn() + Clone + 'static {
+        let set = self.clone();
+        move || set.call(value.clone())
+    }
+}
+
 impl<T: 'static> From<SetState<T>> for Callback<T> {
     fn from(s: SetState<T>) -> Self {
         Self::from_rc(s.inner)

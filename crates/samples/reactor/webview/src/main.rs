@@ -59,7 +59,7 @@ fn app(cx: &mut RenderCx) -> Element {
         Element::from(
             text_box(address)
                 .placeholder_text("Enter a URL")
-                .on_text_changed(move |value| set_address.call(value)),
+                .on_text_changed(set_address),
         )
         .grid_column(3),
         Element::from(button("Go").on_click(go)).grid_column(4),

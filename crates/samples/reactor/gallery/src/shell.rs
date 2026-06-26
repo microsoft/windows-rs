@@ -70,7 +70,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
     let search_box: Element = auto_suggest_box(&*search_text)
         .placeholder_text("Search controls and samples...")
         .items(suggestions)
-        .on_text_changed(move |text| set_search_text.call(text))
+        .on_text_changed(set_search_text)
         .on_query_submitted({
             let (set_nav, tag, hist) = (set_nav.clone(), selected_tag.clone(), history.clone());
             move |query: String| {

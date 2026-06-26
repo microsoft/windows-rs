@@ -11,7 +11,7 @@ fn app(cx: &mut RenderCx) -> Element {
             selector_bar_item("Shared").icon(Symbol::People),
             selector_bar_item("Favorites").icon(Symbol::Favorite),
         ])
-        .on_selection_changed(move |text| set_selected.call(text)),
+        .on_selection_changed(set_selected),
         text_block(format!("Selected: {selected}")),
     ))
     .spacing(12.0)

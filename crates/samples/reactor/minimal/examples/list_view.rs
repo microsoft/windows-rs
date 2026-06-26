@@ -40,7 +40,7 @@ fn app(cx: &mut RenderCx) -> Element {
         })
         .with_key_selector(|s| s.clone())
         .selected_index(mode_idx)
-        .on_selection_changed(move |i| set_mode_idx.call(i))
+        .on_selection_changed(set_mode_idx)
         .height(120.0),
         text_block("Items (drag to reorder):").bold(),
         list_view(items, |s, _idx| {
@@ -52,7 +52,7 @@ fn app(cx: &mut RenderCx) -> Element {
         .can_drag_items(true)
         .can_reorder_items(true)
         .allow_drop(true)
-        .on_selection_changed(move |i| set_selected.call(i))
+        .on_selection_changed(set_selected)
         .height(180.0),
         text_block(format!(
             "selected_index = {selected} ({label}) | mode = {mode:?}"

@@ -32,7 +32,7 @@ fn app(cx: &mut RenderCx) -> Element {
         TabView::new(items)
             .selected_index(selected)
             .can_reorder_tabs(true)
-            .on_selection_changed(move |i| set_selected.call(i))
+            .on_selection_changed(set_selected)
             .on_close_requested(move |key| {
                 let next: Vec<_> = tabs_for_close
                     .iter()

@@ -32,7 +32,7 @@ fn app(cx: &mut RenderCx) -> Element {
         TabView::new(items)
             .selected_index(selected)
             .is_add_tab_button_visible(true)
-            .on_selection_changed(move |i| set_selected.call(i))
+            .on_selection_changed(set_selected)
             .on_add_tab_button_click(move |()| {
                 let mut next = tabs_for_add.clone();
                 let new_name = format!("Tab {}", next.len() + 1);

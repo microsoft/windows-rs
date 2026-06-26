@@ -48,6 +48,19 @@ fn distinct_setter_value_fires_rerender() {
 }
 
 #[test]
+fn setter_helper_sets_fixed_value() {
+    let mut cx = RenderCx::for_test();
+    cx.begin_render();
+    let (_, set) = cx.use_state(0_i32);
+    let handler = set.setter(7);
+    handler();
+
+    cx.begin_render();
+    let (v, _) = cx.use_state(0_i32);
+    assert_eq!(v, 7);
+}
+
+#[test]
 #[should_panic(expected = "hook called in different order")]
 fn hook_order_change_panics() {
     let mut cx = RenderCx::for_test();

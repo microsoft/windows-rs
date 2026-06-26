@@ -94,12 +94,11 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn build_star(device: &GpuDevice, cx: f32, cy: f32, r: f32) -> Result<Path> {
-    let mut builder = PathBuilder::new(device)?.begin(star_point(cx, cy, r, 0));
-    for i in 1..10 {
+    let points = (0..10).map(|i| {
         let radius = if i % 2 == 0 { r } else { r * 0.5 };
-        builder = builder.line_to(star_point(cx, cy, radius, i));
-    }
-    builder.close().build()
+        star_point(cx, cy, radius, i)
+    });
+    PathBuilder::new(device)?.polygon(points)
 }
 
 fn star_point(cx: f32, cy: f32, r: f32, i: u32) -> Vector2 {
