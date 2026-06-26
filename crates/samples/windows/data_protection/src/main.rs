@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> std::io::Result<()> {
     use windows::{
         Security::Cryptography::DataProtection::*, Security::Cryptography::*, Storage::Streams::*,
