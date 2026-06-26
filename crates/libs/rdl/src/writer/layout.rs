@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Default)]
 pub struct Layout {
-    modules: BTreeMap<String, Layout>,
+    modules: BTreeMap<String, Self>,
     winrt: BTreeMap<String, Vec<String>>,
     win32: BTreeMap<String, Vec<String>>,
 }

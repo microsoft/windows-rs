@@ -1151,13 +1151,13 @@ pub struct GameInputRawDeviceItemCollectionInfo {
     pub siblingCount: u32,
     pub usageCount: u32,
     pub usages: *const GameInputUsage,
-    pub parent: *const GameInputRawDeviceItemCollectionInfo,
-    pub firstSibling: *const GameInputRawDeviceItemCollectionInfo,
-    pub previousSibling: *const GameInputRawDeviceItemCollectionInfo,
-    pub nextSibling: *const GameInputRawDeviceItemCollectionInfo,
-    pub lastSibling: *const GameInputRawDeviceItemCollectionInfo,
-    pub firstChild: *const GameInputRawDeviceItemCollectionInfo,
-    pub lastChild: *const GameInputRawDeviceItemCollectionInfo,
+    pub parent: *const Self,
+    pub firstSibling: *const Self,
+    pub previousSibling: *const Self,
+    pub nextSibling: *const Self,
+    pub lastSibling: *const Self,
+    pub firstChild: *const Self,
+    pub lastChild: *const Self,
 }
 impl Default for GameInputRawDeviceItemCollectionInfo {
     fn default() -> Self {

@@ -5591,7 +5591,7 @@ impl IDWriteFontFaceReference {
     }
     pub unsafe fn Equals<P0>(&self, fontfacereference: P0) -> windows_core::BOOL
     where
-        P0: windows_core::Param<IDWriteFontFaceReference>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Equals)(windows_core::Interface::as_raw(self), fontfacereference.param().abi()) }
     }
@@ -7019,7 +7019,7 @@ impl IDWriteFontSet {
             (windows_core::Interface::vtable(self).GetPropertyOccurrenceCount)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMatchingFonts<P0>(&self, familyname: P0, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> windows_core::Result<IDWriteFontSet>
+    pub unsafe fn GetMatchingFonts<P0>(&self, familyname: P0, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -7028,7 +7028,7 @@ impl IDWriteFontSet {
             (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), familyname.param().abi(), fontweight, fontstretch, fontstyle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetMatchingFonts2(&self, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<IDWriteFontSet> {
+    pub unsafe fn GetMatchingFonts2(&self, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMatchingFonts2)(windows_core::Interface::as_raw(self), core::mem::transmute(properties.as_ptr()), properties.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7190,31 +7190,31 @@ impl core::ops::Deref for IDWriteFontSet1 {
 }
 windows_core::imp::interface_hierarchy!(IDWriteFontSet1, windows_core::IUnknown, IDWriteFontSet);
 impl IDWriteFontSet1 {
-    pub unsafe fn GetMatchingFonts(&self, fontproperty: Option<*const DWRITE_FONT_PROPERTY>, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<IDWriteFontSet1> {
+    pub unsafe fn GetMatchingFonts(&self, fontproperty: Option<*const DWRITE_FONT_PROPERTY>, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMatchingFonts)(windows_core::Interface::as_raw(self), fontproperty.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFirstFontResources(&self) -> windows_core::Result<IDWriteFontSet1> {
+    pub unsafe fn GetFirstFontResources(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFirstFontResources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFilteredFonts(&self, indices: &[u32]) -> windows_core::Result<IDWriteFontSet1> {
+    pub unsafe fn GetFilteredFonts(&self, indices: &[u32]) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFilteredFonts)(windows_core::Interface::as_raw(self), core::mem::transmute(indices.as_ptr()), indices.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFilteredFonts2(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: bool) -> windows_core::Result<IDWriteFontSet1> {
+    pub unsafe fn GetFilteredFonts2(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFilteredFonts2)(windows_core::Interface::as_raw(self), core::mem::transmute(fontaxisranges.as_ptr()), fontaxisranges.len().try_into().unwrap(), selectanyrange.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFilteredFonts3(&self, properties: Option<&[DWRITE_FONT_PROPERTY]>, selectanyproperty: bool) -> windows_core::Result<IDWriteFontSet1> {
+    pub unsafe fn GetFilteredFonts3(&self, properties: Option<&[DWRITE_FONT_PROPERTY]>, selectanyproperty: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFilteredFonts3)(windows_core::Interface::as_raw(self), core::mem::transmute(properties.map_or(core::ptr::null(), |slice| slice.as_ptr())), properties.map_or(0, |slice| slice.len().try_into().unwrap()), selectanyproperty.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7556,7 +7556,7 @@ impl IDWriteFontSet4 {
     pub unsafe fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: Option<&[DWRITE_FONT_AXIS_VALUE]>, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: &mut [DWRITE_FONT_AXIS_VALUE; 5]) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).ConvertWeightStretchStyleToFontAxisValues)(windows_core::Interface::as_raw(self), core::mem::transmute(inputaxisvalues.map_or(core::ptr::null(), |slice| slice.as_ptr())), inputaxisvalues.map_or(0, |slice| slice.len().try_into().unwrap()), fontweight, fontstretch, fontstyle, fontsize, core::mem::transmute(outputaxisvalues.as_ptr())) }
     }
-    pub unsafe fn GetMatchingFonts<P0>(&self, familyname: P0, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontSet4>
+    pub unsafe fn GetMatchingFonts<P0>(&self, familyname: P0, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], allowedsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {

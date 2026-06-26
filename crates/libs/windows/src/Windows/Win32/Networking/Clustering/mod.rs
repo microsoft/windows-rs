@@ -11943,7 +11943,7 @@ impl ISClusResource {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CanResourceBeDependent<P0>(&self, presource: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
     where
-        P0: windows_core::Param<ISClusResource>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -48,7 +48,7 @@ pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mu
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACCESSRECTLIST {
-    pub lpLink: *mut ACCESSRECTLIST,
+    pub lpLink: *mut Self,
     pub rDest: super::super::Foundation::RECT,
     pub lpOwner: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpSurfaceData: *mut core::ffi::c_void,
@@ -69,7 +69,7 @@ pub const ACCESSRECT_VRAMSTYLE: i32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ATTACHLIST {
     pub dwFlags: u32,
-    pub lpLink: *mut ATTACHLIST,
+    pub lpLink: *mut Self,
     pub lpAttached: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpIAttached: *mut DDRAWI_DDRAWSURFACE_INT,
 }
@@ -117,8 +117,8 @@ pub const D3DFORMAT_OP_ZSTENCIL_WITH_ARBITRARY_COLOR_DEPTH: i32 = 128;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBLNODE {
-    pub next: *mut DBLNODE,
-    pub prev: *mut DBLNODE,
+    pub next: *mut Self,
+    pub prev: *mut Self,
     pub object: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub object_int: *mut DDRAWI_DDRAWSURFACE_INT,
 }
@@ -2538,7 +2538,7 @@ pub const DDMCQUERY_READ: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDMDL {
-    pub MdlNext: *mut DDMDL,
+    pub MdlNext: *mut Self,
     pub MdlSize: i16,
     pub MdlFlags: i16,
     pub Process: isize,
@@ -3045,7 +3045,7 @@ pub const DDRAWI_CHANGINGMODE: i32 = 4194304;
 pub struct DDRAWI_DDMOTIONCOMP_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDMOTIONCOMP_LCL,
-    pub lpLink: *mut DDRAWI_DDMOTIONCOMP_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3104,7 +3104,7 @@ impl Default for DDRAWI_DDRAWCLIPPER_GBL {
 pub struct DDRAWI_DDRAWCLIPPER_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWCLIPPER_LCL,
-    pub lpLink: *mut DDRAWI_DDRAWCLIPPER_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3173,7 +3173,7 @@ impl Default for DDRAWI_DDRAWPALETTE_GBL_0 {
 pub struct DDRAWI_DDRAWPALETTE_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWPALETTE_LCL,
-    pub lpLink: *mut DDRAWI_DDRAWPALETTE_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3324,7 +3324,7 @@ impl Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
 pub struct DDRAWI_DDRAWSURFACE_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub lpLink: *mut DDRAWI_DDRAWSURFACE_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3445,7 +3445,7 @@ impl Default for DDRAWI_DDRAWSURFACE_MORE {
 pub struct DDRAWI_DDVIDEOPORT_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DDVIDEOPORT_LCL,
-    pub lpLink: *mut DDRAWI_DDVIDEOPORT_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
     pub dwFlags: u32,
 }
@@ -3502,7 +3502,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dsList: *mut DDRAWI_DDRAWSURFACE_INT,
     pub palList: *mut DDRAWI_DDRAWPALETTE_INT,
     pub clipperList: *mut DDRAWI_DDRAWCLIPPER_INT,
-    pub lp16DD: *mut DDRAWI_DIRECTDRAW_GBL,
+    pub lp16DD: *mut Self,
     pub dwMaxOverlays: u32,
     pub dwCurrOverlays: u32,
     pub dwMonitorFrequency: u32,
@@ -3575,7 +3575,7 @@ impl Default for DDRAWI_DIRECTDRAW_GBL {
 pub struct DDRAWI_DIRECTDRAW_INT {
     pub lpVtbl: *mut core::ffi::c_void,
     pub lpLcl: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub lpLink: *mut DDRAWI_DIRECTDRAW_INT,
+    pub lpLink: *mut Self,
     pub dwIntRefCnt: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4297,7 +4297,7 @@ impl Default for DD_ADDATTACHEDSURFACEDATA {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DD_ATTACHLIST {
-    pub lpLink: *mut DD_ATTACHLIST,
+    pub lpLink: *mut Self,
     pub lpAttached: *mut DD_SURFACE_LOCAL,
 }
 impl Default for DD_ATTACHLIST {
@@ -7591,7 +7591,7 @@ windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnkno
 impl IDirectDrawSurface {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
     }
@@ -7600,7 +7600,7 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -7609,13 +7609,13 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IDirectDrawSurface>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -7627,11 +7627,11 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
     }
     pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
@@ -7713,7 +7713,7 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -7722,7 +7722,7 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -8068,7 +8068,7 @@ windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnkn
 impl IDirectDrawSurface2 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
     }
@@ -8077,7 +8077,7 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface2>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -8086,13 +8086,13 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IDirectDrawSurface2>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface2>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -8104,11 +8104,11 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface2>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
     }
     pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
@@ -8190,7 +8190,7 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface2>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -8199,7 +8199,7 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface2>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -8581,7 +8581,7 @@ windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnkn
 impl IDirectDrawSurface3 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface3>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
     }
@@ -8590,7 +8590,7 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface3>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -8599,13 +8599,13 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IDirectDrawSurface3>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface3>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -8617,11 +8617,11 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface3>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface3>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
     }
     pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
@@ -8703,7 +8703,7 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface3>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -8712,7 +8712,7 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface3>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -9106,7 +9106,7 @@ windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnkn
 impl IDirectDrawSurface4 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface4>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
     }
@@ -9115,7 +9115,7 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface4>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -9124,13 +9124,13 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IDirectDrawSurface4>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface4>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -9142,11 +9142,11 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface4>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<IDirectDrawSurface4>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
     }
     pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
@@ -9228,7 +9228,7 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface4>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -9237,7 +9237,7 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface4>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -9691,7 +9691,7 @@ windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnkn
 impl IDirectDrawSurface7 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface7>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
     }
@@ -9700,7 +9700,7 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn Blt<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface7>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -9709,13 +9709,13 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IDirectDrawSurface7>,
+        P2: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface7>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -9727,11 +9727,11 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectDrawSurface7>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<IDirectDrawSurface7>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
     }
     pub unsafe fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()> {
@@ -9813,7 +9813,7 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn UpdateOverlay<P1>(&self, param0: *mut super::super::Foundation::RECT, param1: P1, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface7>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
@@ -9822,7 +9822,7 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn UpdateOverlayZOrder<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDirectDrawSurface7>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
     }
@@ -10612,7 +10612,7 @@ pub const IRQINFO_NOTHANDLED: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
 pub struct IUNKNOWN_LIST {
-    pub lpLink: *mut IUNKNOWN_LIST,
+    pub lpLink: *mut Self,
     pub lpGuid: *mut windows_core::GUID,
     pub lpIUnknown: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -10890,7 +10890,7 @@ pub const PFINDEX_UNINITIALIZED: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_LIST {
-    pub lpLink: *mut PROCESS_LIST,
+    pub lpLink: *mut Self,
     pub dwProcessId: u32,
     pub dwRefCnt: u32,
     pub dwAlphaDepth: u32,
@@ -11099,7 +11099,7 @@ pub const VMEMHEAP_RECTANGULAR: i32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMEML {
-    pub next: *mut VMEML,
+    pub next: *mut Self,
     pub ptr: usize,
     pub size: u32,
     pub bDiscardable: windows_core::BOOL,
@@ -11112,12 +11112,12 @@ impl Default for VMEML {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VMEMR {
-    pub next: *mut VMEMR,
-    pub prev: *mut VMEMR,
-    pub pUp: *mut VMEMR,
-    pub pDown: *mut VMEMR,
-    pub pLeft: *mut VMEMR,
-    pub pRight: *mut VMEMR,
+    pub next: *mut Self,
+    pub prev: *mut Self,
+    pub pUp: *mut Self,
+    pub pDown: *mut Self,
+    pub pLeft: *mut Self,
+    pub pRight: *mut Self,
     pub ptr: usize,
     pub size: u32,
     pub x: u32,

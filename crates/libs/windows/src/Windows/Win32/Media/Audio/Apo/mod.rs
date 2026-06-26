@@ -627,7 +627,7 @@ impl IAudioMediaType {
     }
     pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::Param<IAudioMediaType>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

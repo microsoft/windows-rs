@@ -1344,7 +1344,7 @@ pub struct NDIS_MINIPORT_TIMER {
     pub MiniportTimerFunction: PNDIS_TIMER_FUNCTION,
     pub MiniportTimerContext: *mut core::ffi::c_void,
     pub Miniport: *mut NDIS_MINIPORT_BLOCK,
-    pub NextTimer: *mut NDIS_MINIPORT_TIMER,
+    pub NextTimer: *mut Self,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 impl Default for NDIS_MINIPORT_TIMER {
@@ -1760,7 +1760,7 @@ pub const NDIS_POLL_NOTIFICATION_REVISION_1: u32 = 1;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
 pub struct NDIS_PORT {
-    pub Next: *mut NDIS_PORT,
+    pub Next: *mut Self,
     pub NdisReserved: *mut core::ffi::c_void,
     pub MiniportReserved: *mut core::ffi::c_void,
     pub ProtocolReserved: *mut core::ffi::c_void,

@@ -3846,7 +3846,7 @@ impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
 windows_core::imp::interface_hierarchy!(IEnumInputContext, windows_core::IUnknown);
 impl IEnumInputContext {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumInputContext> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3925,7 +3925,7 @@ impl windows_core::RuntimeName for IEnumInputContext {}
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordA, windows_core::IUnknown);
 impl IEnumRegisterWordA {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4004,7 +4004,7 @@ impl windows_core::RuntimeName for IEnumRegisterWordA {}
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordW, windows_core::IUnknown);
 impl IEnumRegisterWordW {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

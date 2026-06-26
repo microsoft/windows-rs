@@ -32,19 +32,19 @@ struct Difficulty {
 }
 
 impl Difficulty {
-    const BEGINNER: Difficulty = Difficulty {
+    const BEGINNER: Self = Self {
         kind: DifficultyKind::Beginner,
         rows: 9,
         cols: 9,
         mines: 10,
     };
-    const INTERMEDIATE: Difficulty = Difficulty {
+    const INTERMEDIATE: Self = Self {
         kind: DifficultyKind::Intermediate,
         rows: 16,
         cols: 16,
         mines: 40,
     };
-    const EXPERT: Difficulty = Difficulty {
+    const EXPERT: Self = Self {
         kind: DifficultyKind::Expert,
         rows: 16,
         cols: 30,
@@ -78,7 +78,7 @@ struct BoardCell {
 }
 
 impl BoardCell {
-    const EMPTY_HIDDEN: BoardCell = BoardCell {
+    const EMPTY_HIDDEN: Self = Self {
         is_mine: false,
         adjacent_mines: 0,
         is_revealed: false,
@@ -106,7 +106,7 @@ struct Board {
 
 impl Board {
     fn new_game(difficulty: Difficulty) -> Self {
-        Board {
+        Self {
             cells: vec![BoardCell::EMPTY_HIDDEN; difficulty.rows * difficulty.cols],
             difficulty,
             phase: GamePhase::NotStarted,

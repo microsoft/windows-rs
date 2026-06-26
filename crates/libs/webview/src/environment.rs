@@ -12,7 +12,7 @@ impl Environment {
     /// thread with a message loop. The calling thread is initialized as a COM
     /// single-threaded apartment (STA) if it is not already; an error is
     /// returned if the thread is already a multi-threaded apartment (MTA).
-    pub fn new() -> Result<Environment> {
+    pub fn new() -> Result<Self> {
         init_com()?;
         let slot = pump::slot();
         create_environment(pump::slot_handler(&slot))?;
@@ -24,7 +24,7 @@ impl Environment {
     ///
     /// This requires an installed WebView2 runtime and must be called on a UI
     /// thread with a message loop.
-    pub fn with_options(options: &EnvironmentOptions) -> Result<Environment> {
+    pub fn with_options(options: &EnvironmentOptions) -> Result<Self> {
         init_com()?;
         let slot = pump::slot();
         options.create_environment(pump::slot_handler(&slot))?;

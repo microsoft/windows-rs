@@ -918,7 +918,7 @@ impl Default for WS_FAULT {
 #[derive(Clone, Copy)]
 pub struct WS_FAULT_CODE {
     pub value: WS_XML_QNAME,
-    pub subCode: *mut WS_FAULT_CODE,
+    pub subCode: *mut Self,
 }
 impl Default for WS_FAULT_CODE {
     fn default() -> Self {
@@ -2538,8 +2538,8 @@ pub struct WS_STRUCT_DESCRIPTION {
     pub fieldCount: u32,
     pub typeLocalName: *mut WS_XML_STRING,
     pub typeNs: *mut WS_XML_STRING,
-    pub parentType: *mut WS_STRUCT_DESCRIPTION,
-    pub subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
+    pub parentType: *mut Self,
+    pub subTypes: *mut *mut Self,
     pub subTypeCount: u32,
     pub structOptions: u32,
 }

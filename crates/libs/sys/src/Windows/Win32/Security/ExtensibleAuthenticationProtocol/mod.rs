@@ -314,7 +314,7 @@ pub struct EAP_METHOD_INFO {
     pub pwszAuthorName: windows_sys::core::PWSTR,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
     pub eapProperties: u32,
-    pub pInnerMethodInfo: *mut EAP_METHOD_INFO,
+    pub pInnerMethodInfo: *mut Self,
 }
 impl Default for EAP_METHOD_INFO {
     fn default() -> Self {

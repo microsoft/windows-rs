@@ -652,7 +652,7 @@ impl IAnchor {
     }
     pub unsafe fn IsEqual<P0>(&self, pawith: P0) -> windows_core::Result<windows_core::BOOL>
     where
-        P0: windows_core::Param<IAnchor>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -661,7 +661,7 @@ impl IAnchor {
     }
     pub unsafe fn Compare<P0>(&self, pawith: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<IAnchor>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -670,13 +670,13 @@ impl IAnchor {
     }
     pub unsafe fn Shift<P3>(&self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: P3) -> windows_core::Result<()>
     where
-        P3: windows_core::Param<IAnchor>,
+        P3: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Shift)(windows_core::Interface::as_raw(self), dwflags, cchreq, pcch as _, pahaltanchor.param().abi()).ok() }
     }
     pub unsafe fn ShiftTo<P0>(&self, pasite: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IAnchor>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ShiftTo)(windows_core::Interface::as_raw(self), pasite.param().abi()).ok() }
     }
@@ -698,7 +698,7 @@ impl IAnchor {
     pub unsafe fn ClearChangeHistory(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearChangeHistory)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IAnchor> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1037,7 +1037,7 @@ impl windows_core::RuntimeName for IDocWrap {}
 windows_core::imp::define_interface!(IEnumITfCompositionView, IEnumITfCompositionView_Vtbl, 0x5efd22ba_7838_46cb_88e2_cadb14124f8f);
 windows_core::imp::interface_hierarchy!(IEnumITfCompositionView, windows_core::IUnknown);
 impl IEnumITfCompositionView {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumITfCompositionView> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1116,7 +1116,7 @@ impl windows_core::RuntimeName for IEnumITfCompositionView {}
 windows_core::imp::define_interface!(IEnumSpeechCommands, IEnumSpeechCommands_Vtbl, 0x8c5dac4f_083c_4b85_a4c9_71746048adca);
 windows_core::imp::interface_hierarchy!(IEnumSpeechCommands, windows_core::IUnknown);
 impl IEnumSpeechCommands {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSpeechCommands> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1195,7 +1195,7 @@ impl windows_core::RuntimeName for IEnumSpeechCommands {}
 windows_core::imp::define_interface!(IEnumTfCandidates, IEnumTfCandidates_Vtbl, 0xdefb1926_6c80_4ce8_87d4_d6b72b812bde);
 windows_core::imp::interface_hierarchy!(IEnumTfCandidates, windows_core::IUnknown);
 impl IEnumTfCandidates {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfCandidates> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1274,7 +1274,7 @@ impl windows_core::RuntimeName for IEnumTfCandidates {}
 windows_core::imp::define_interface!(IEnumTfContextViews, IEnumTfContextViews_Vtbl, 0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78);
 windows_core::imp::interface_hierarchy!(IEnumTfContextViews, windows_core::IUnknown);
 impl IEnumTfContextViews {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfContextViews> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1353,7 +1353,7 @@ impl windows_core::RuntimeName for IEnumTfContextViews {}
 windows_core::imp::define_interface!(IEnumTfContexts, IEnumTfContexts_Vtbl, 0x8f1a7ea6_1654_4502_a86e_b2902344d507);
 windows_core::imp::interface_hierarchy!(IEnumTfContexts, windows_core::IUnknown);
 impl IEnumTfContexts {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfContexts> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1432,7 +1432,7 @@ impl windows_core::RuntimeName for IEnumTfContexts {}
 windows_core::imp::define_interface!(IEnumTfDisplayAttributeInfo, IEnumTfDisplayAttributeInfo_Vtbl, 0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de);
 windows_core::imp::interface_hierarchy!(IEnumTfDisplayAttributeInfo, windows_core::IUnknown);
 impl IEnumTfDisplayAttributeInfo {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfDisplayAttributeInfo> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1511,7 +1511,7 @@ impl windows_core::RuntimeName for IEnumTfDisplayAttributeInfo {}
 windows_core::imp::define_interface!(IEnumTfDocumentMgrs, IEnumTfDocumentMgrs_Vtbl, 0xaa80e808_2021_11d2_93e0_0060b067b86e);
 windows_core::imp::interface_hierarchy!(IEnumTfDocumentMgrs, windows_core::IUnknown);
 impl IEnumTfDocumentMgrs {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfDocumentMgrs> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1590,7 +1590,7 @@ impl windows_core::RuntimeName for IEnumTfDocumentMgrs {}
 windows_core::imp::define_interface!(IEnumTfFunctionProviders, IEnumTfFunctionProviders_Vtbl, 0xe4b24db0_0990_11d3_8df0_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfFunctionProviders, windows_core::IUnknown);
 impl IEnumTfFunctionProviders {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfFunctionProviders> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1669,7 +1669,7 @@ impl windows_core::RuntimeName for IEnumTfFunctionProviders {}
 windows_core::imp::define_interface!(IEnumTfInputProcessorProfiles, IEnumTfInputProcessorProfiles_Vtbl, 0x71c6e74d_0f28_11d8_a82a_00065b84435c);
 windows_core::imp::interface_hierarchy!(IEnumTfInputProcessorProfiles, windows_core::IUnknown);
 impl IEnumTfInputProcessorProfiles {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfInputProcessorProfiles> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1755,7 +1755,7 @@ impl windows_core::RuntimeName for IEnumTfInputProcessorProfiles {}
 windows_core::imp::define_interface!(IEnumTfLangBarItems, IEnumTfLangBarItems_Vtbl, 0x583f34d0_de25_11d2_afdd_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfLangBarItems, windows_core::IUnknown);
 impl IEnumTfLangBarItems {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfLangBarItems> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1834,7 +1834,7 @@ impl windows_core::RuntimeName for IEnumTfLangBarItems {}
 windows_core::imp::define_interface!(IEnumTfLanguageProfiles, IEnumTfLanguageProfiles_Vtbl, 0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744);
 windows_core::imp::interface_hierarchy!(IEnumTfLanguageProfiles, windows_core::IUnknown);
 impl IEnumTfLanguageProfiles {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfLanguageProfiles> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1913,7 +1913,7 @@ impl windows_core::RuntimeName for IEnumTfLanguageProfiles {}
 windows_core::imp::define_interface!(IEnumTfLatticeElements, IEnumTfLatticeElements_Vtbl, 0x56988052_47da_4a05_911a_e3d941f17145);
 windows_core::imp::interface_hierarchy!(IEnumTfLatticeElements, windows_core::IUnknown);
 impl IEnumTfLatticeElements {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfLatticeElements> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1992,7 +1992,7 @@ impl windows_core::RuntimeName for IEnumTfLatticeElements {}
 windows_core::imp::define_interface!(IEnumTfProperties, IEnumTfProperties_Vtbl, 0x19188cb0_aca9_11d2_afc5_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfProperties, windows_core::IUnknown);
 impl IEnumTfProperties {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfProperties> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2071,7 +2071,7 @@ impl windows_core::RuntimeName for IEnumTfProperties {}
 windows_core::imp::define_interface!(IEnumTfPropertyValue, IEnumTfPropertyValue_Vtbl, 0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72);
 windows_core::imp::interface_hierarchy!(IEnumTfPropertyValue, windows_core::IUnknown);
 impl IEnumTfPropertyValue {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfPropertyValue> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2157,7 +2157,7 @@ impl windows_core::RuntimeName for IEnumTfPropertyValue {}
 windows_core::imp::define_interface!(IEnumTfRanges, IEnumTfRanges_Vtbl, 0xf99d3f40_8e32_11d2_bf46_00105a2799b5);
 windows_core::imp::interface_hierarchy!(IEnumTfRanges, windows_core::IUnknown);
 impl IEnumTfRanges {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfRanges> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2236,7 +2236,7 @@ impl windows_core::RuntimeName for IEnumTfRanges {}
 windows_core::imp::define_interface!(IEnumTfUIElements, IEnumTfUIElements_Vtbl, 0x887aa91e_acba_4931_84da_3c5208cf543f);
 windows_core::imp::interface_hierarchy!(IEnumTfUIElements, windows_core::IUnknown);
 impl IEnumTfUIElements {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumTfUIElements> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10896,7 +10896,7 @@ windows_core::imp::define_interface!(ITfMenu, ITfMenu_Vtbl, 0x6f8a98e4_aaa0_4f15
 windows_core::imp::interface_hierarchy!(ITfMenu, windows_core::IUnknown);
 impl ITfMenu {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &[u16], ppmenu: *mut Option<ITfMenu>) -> windows_core::Result<()> {
+    pub unsafe fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &[u16], ppmenu: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap(), core::mem::transmute(ppmenu)).ok() }
     }
 }
@@ -11391,7 +11391,7 @@ impl ITfPropertyStore {
             (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), prangenew.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Divide<P0, P1>(&self, prangethis: P0, prangenew: P1) -> windows_core::Result<ITfPropertyStore>
+    pub unsafe fn Divide<P0, P1>(&self, prangethis: P0, prangenew: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<ITfRange>,
         P1: windows_core::Param<ITfRange>,
@@ -11401,7 +11401,7 @@ impl ITfPropertyStore {
             (windows_core::Interface::vtable(self).Divide)(windows_core::Interface::as_raw(self), prangethis.param().abi(), prangenew.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITfPropertyStore> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11670,13 +11670,13 @@ impl ITfRange {
     }
     pub unsafe fn ShiftStartToRange<P1>(&self, ec: u32, prange: P1, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ShiftStartToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok() }
     }
     pub unsafe fn ShiftEndToRange<P1>(&self, ec: u32, prange: P1, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ShiftEndToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok() }
     }
@@ -11703,7 +11703,7 @@ impl ITfRange {
     }
     pub unsafe fn IsEqualStart<P1>(&self, ec: u32, pwith: P1, apos: TfAnchor) -> windows_core::Result<windows_core::BOOL>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11712,7 +11712,7 @@ impl ITfRange {
     }
     pub unsafe fn IsEqualEnd<P1>(&self, ec: u32, pwith: P1, apos: TfAnchor) -> windows_core::Result<windows_core::BOOL>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11721,7 +11721,7 @@ impl ITfRange {
     }
     pub unsafe fn CompareStart<P1>(&self, ec: u32, pwith: P1, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11730,7 +11730,7 @@ impl ITfRange {
     }
     pub unsafe fn CompareEnd<P1>(&self, ec: u32, pwith: P1, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P1: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11749,7 +11749,7 @@ impl ITfRange {
     pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGravity)(windows_core::Interface::as_raw(self), ec, gstart, gend).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITfRange> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

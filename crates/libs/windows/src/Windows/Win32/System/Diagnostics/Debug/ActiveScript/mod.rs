@@ -314,7 +314,7 @@ impl IActiveScript {
     pub unsafe fn InterruptScriptThread(&self, stidthread: u32, pexcepinfo: *const super::super::super::Com::EXCEPINFO, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InterruptScriptThread)(windows_core::Interface::as_raw(self), stidthread, core::mem::transmute(pexcepinfo), dwflags).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IActiveScript> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4252,7 +4252,7 @@ impl IDebugApplicationNode {
             (windows_core::Interface::vtable(self).EnumChildren)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugApplicationNode> {
+    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4269,7 +4269,7 @@ impl IDebugApplicationNode {
     }
     pub unsafe fn Attach<P0>(&self, pdanparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDebugApplicationNode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pdanparent.param().abi()).ok() }
     }
@@ -5228,7 +5228,7 @@ impl IDebugDocumentHelper32 {
     }
     pub unsafe fn Attach<P0>(&self, pddhparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDebugDocumentHelper32>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.param().abi()).ok() }
     }
@@ -5522,7 +5522,7 @@ impl IDebugDocumentHelper64 {
     }
     pub unsafe fn Attach<P0>(&self, pddhparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDebugDocumentHelper64>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.param().abi()).ok() }
     }
@@ -7299,7 +7299,7 @@ impl IEnumDebugApplicationNodes {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugApplicationNodes> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7378,7 +7378,7 @@ impl IEnumDebugCodeContexts {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugCodeContexts> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7457,7 +7457,7 @@ impl IEnumDebugExpressionContexts {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugExpressionContexts> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7536,7 +7536,7 @@ impl IEnumDebugStackFrames {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugStackFrames> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7694,7 +7694,7 @@ impl IEnumRemoteDebugApplicationThreads {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRemoteDebugApplicationThreads> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7773,7 +7773,7 @@ impl IEnumRemoteDebugApplications {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRemoteDebugApplications> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10060,7 +10060,7 @@ impl IScriptNode {
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IScriptNode> {
+    pub unsafe fn GetParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10084,7 +10084,7 @@ impl IScriptNode {
             (windows_core::Interface::vtable(self).GetNumberOfChildren)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetChild(&self, isn: u32) -> windows_core::Result<IScriptNode> {
+    pub unsafe fn GetChild(&self, isn: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChild)(windows_core::Interface::as_raw(self), isn, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

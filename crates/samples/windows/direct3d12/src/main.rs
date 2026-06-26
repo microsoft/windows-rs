@@ -54,7 +54,7 @@ fn main() -> windows::core::Result<()> {
         fn new(use_warp: bool) -> Result<Self> {
             let (dxgi_factory, device) = create_device(use_warp)?;
 
-            Ok(Sample {
+            Ok(Self {
                 dxgi_factory,
                 device,
                 resources: None,

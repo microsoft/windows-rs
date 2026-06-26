@@ -1491,7 +1491,7 @@ impl IMAPIFolder {
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteMessages)(windows_core::Interface::as_raw(self), lpmsglist, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
     }
-    pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: Option<*const i8>, lpinterface: Option<*const windows_core::GUID>, ulflags: u32) -> windows_core::Result<IMAPIFolder> {
+    pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: Option<*const i8>, lpinterface: Option<*const windows_core::GUID>, ulflags: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFolder)(windows_core::Interface::as_raw(self), ulfoldertype, lpszfoldername, lpszfoldercomment.unwrap_or(core::mem::zeroed()) as _, lpinterface.unwrap_or(core::mem::zeroed()) as _, ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

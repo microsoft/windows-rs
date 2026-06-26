@@ -4810,7 +4810,7 @@ pub struct CERT_CHAIN_CONTEXT {
     pub cChain: u32,
     pub rgpChain: *mut *mut CERT_SIMPLE_CHAIN,
     pub cLowerQualityChainContext: u32,
-    pub rgpLowerQualityChainContext: *mut *mut CERT_CHAIN_CONTEXT,
+    pub rgpLowerQualityChainContext: *mut *mut Self,
     pub fHasRevocationFreshnessTime: windows_core::BOOL,
     pub dwRevocationFreshnessTime: u32,
     pub dwCreateFlags: u32,

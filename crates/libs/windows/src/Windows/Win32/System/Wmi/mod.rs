@@ -40,7 +40,7 @@ impl IEnumWbemClassObject {
     {
         unsafe { (windows_core::Interface::vtable(self).NextAsync)(windows_core::Interface::as_raw(self), ucount, psink.param().abi()) }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWbemClassObject> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1459,7 +1459,7 @@ impl ISWbemNamedValueSet {
     pub unsafe fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), iflags).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ISWbemNamedValueSet> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1699,7 +1699,7 @@ impl ISWbemObject {
     {
         unsafe { (windows_core::Interface::vtable(self).ReferencesAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strresultclass), core::mem::transmute_copy(strrole), bclassesonly, bschemaonly, core::mem::transmute_copy(strrequiredqualifier), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok() }
     }
-    pub unsafe fn ExecMethod_<P1, P3>(&self, strmethodname: &windows_core::BSTR, objwbeminparameters: P1, iflags: i32, objwbemnamedvalueset: P3) -> windows_core::Result<ISWbemObject>
+    pub unsafe fn ExecMethod_<P1, P3>(&self, strmethodname: &windows_core::BSTR, objwbeminparameters: P1, iflags: i32, objwbemnamedvalueset: P3) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::Com::IDispatch>,
         P3: windows_core::Param<super::Com::IDispatch>,
@@ -1718,7 +1718,7 @@ impl ISWbemObject {
     {
         unsafe { (windows_core::Interface::vtable(self).ExecMethodAsync_)(windows_core::Interface::as_raw(self), objwbemsink.param().abi(), core::mem::transmute_copy(strmethodname), objwbeminparameters.param().abi(), iflags, objwbemnamedvalueset.param().abi(), objwbemasynccontext.param().abi()).ok() }
     }
-    pub unsafe fn Clone_(&self) -> windows_core::Result<ISWbemObject> {
+    pub unsafe fn Clone_(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone_)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1730,13 +1730,13 @@ impl ISWbemObject {
             (windows_core::Interface::vtable(self).GetObjectText_)(windows_core::Interface::as_raw(self), iflags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> windows_core::Result<ISWbemObject> {
+    pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SpawnDerivedClass_)(windows_core::Interface::as_raw(self), iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SpawnInstance_(&self, iflags: i32) -> windows_core::Result<ISWbemObject> {
+    pub unsafe fn SpawnInstance_(&self, iflags: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SpawnInstance_)(windows_core::Interface::as_raw(self), iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5359,7 +5359,7 @@ impl IWbemClassObject {
             (windows_core::Interface::vtable(self).GetPropertyQualifierSet)(windows_core::Interface::as_raw(self), wszproperty.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IWbemClassObject> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5371,13 +5371,13 @@ impl IWbemClassObject {
             (windows_core::Interface::vtable(self).GetObjectText)(windows_core::Interface::as_raw(self), lflags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> windows_core::Result<IWbemClassObject> {
+    pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SpawnDerivedClass)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SpawnInstance(&self, lflags: i32) -> windows_core::Result<IWbemClassObject> {
+    pub unsafe fn SpawnInstance(&self, lflags: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SpawnInstance)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5385,7 +5385,7 @@ impl IWbemClassObject {
     }
     pub unsafe fn CompareTo<P1>(&self, lflags: WBEM_COMPARISON_FLAG, pcompareto: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IWbemClassObject>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).CompareTo)(windows_core::Interface::as_raw(self), lflags, pcompareto.param().abi()).ok() }
     }
@@ -5404,7 +5404,7 @@ impl IWbemClassObject {
     {
         unsafe { (windows_core::Interface::vtable(self).InheritsFrom)(windows_core::Interface::as_raw(self), strancestor.param().abi()).ok() }
     }
-    pub unsafe fn GetMethod<P0>(&self, wszname: P0, lflags: i32, ppinsignature: *mut Option<IWbemClassObject>, ppoutsignature: *mut Option<IWbemClassObject>) -> windows_core::Result<()>
+    pub unsafe fn GetMethod<P0>(&self, wszname: P0, lflags: i32, ppinsignature: *mut Option<Self>, ppoutsignature: *mut Option<Self>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5413,8 +5413,8 @@ impl IWbemClassObject {
     pub unsafe fn PutMethod<P0, P2, P3>(&self, wszname: P0, lflags: i32, pinsignature: P2, poutsignature: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<IWbemClassObject>,
-        P3: windows_core::Param<IWbemClassObject>,
+        P2: windows_core::Param<Self>,
+        P3: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).PutMethod)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, pinsignature.param().abi(), poutsignature.param().abi()).ok() }
     }
@@ -5427,7 +5427,7 @@ impl IWbemClassObject {
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BeginMethodEnumeration)(windows_core::Interface::as_raw(self), lenumflags).ok() }
     }
-    pub unsafe fn NextMethod(&self, lflags: i32, pstrname: *mut windows_core::BSTR, ppinsignature: *mut Option<IWbemClassObject>, ppoutsignature: *mut Option<IWbemClassObject>) -> windows_core::Result<()> {
+    pub unsafe fn NextMethod(&self, lflags: i32, pstrname: *mut windows_core::BSTR, ppinsignature: *mut Option<Self>, ppoutsignature: *mut Option<Self>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NextMethod)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), core::mem::transmute(ppinsignature), core::mem::transmute(ppoutsignature)).ok() }
     }
     pub unsafe fn EndMethodEnumeration(&self) -> windows_core::Result<()> {
@@ -6095,7 +6095,7 @@ impl windows_core::RuntimeName for IWbemConstructClassObject {}
 windows_core::imp::define_interface!(IWbemContext, IWbemContext_Vtbl, 0x44aca674_e8fc_11d0_a07c_00c04fb68820);
 windows_core::imp::interface_hierarchy!(IWbemContext, windows_core::IUnknown);
 impl IWbemContext {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IWbemContext> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6576,7 +6576,7 @@ impl IWbemEventSink {
     pub unsafe fn IsActive(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsActive)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetRestrictedSink<P2>(&self, awszqueries: &[windows_core::PCWSTR], pcallback: P2) -> windows_core::Result<IWbemEventSink>
+    pub unsafe fn GetRestrictedSink<P2>(&self, awszqueries: &[windows_core::PCWSTR], pcallback: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
@@ -8471,7 +8471,7 @@ impl windows_core::RuntimeName for IWbemRefresher {}
 windows_core::imp::define_interface!(IWbemServices, IWbemServices_Vtbl, 0x9556dc99_828c_11cf_a37e_00aa003240c7);
 windows_core::imp::interface_hierarchy!(IWbemServices, windows_core::IUnknown);
 impl IWbemServices {
-    pub unsafe fn OpenNamespace<P2>(&self, strnamespace: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, ppworkingnamespace: Option<*mut Option<IWbemServices>>, ppresult: Option<*mut Option<IWbemCallResult>>) -> windows_core::Result<()>
+    pub unsafe fn OpenNamespace<P2>(&self, strnamespace: &windows_core::BSTR, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, ppworkingnamespace: Option<*mut Option<Self>>, ppresult: Option<*mut Option<IWbemCallResult>>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IWbemContext>,
     {
@@ -9244,7 +9244,7 @@ pub struct MI_ClassDecl {
     pub numProperties: u32,
     pub size: u32,
     pub superClass: *const u16,
-    pub superClassDecl: *const MI_ClassDecl,
+    pub superClassDecl: *const Self,
     pub methods: *const *const MI_MethodDecl,
     pub numMethods: u32,
     pub schema: *const MI_SchemaDecl,

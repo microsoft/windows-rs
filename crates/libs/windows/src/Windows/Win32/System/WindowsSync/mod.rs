@@ -1053,7 +1053,7 @@ impl IEnumChangeUnitExceptions {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumChangeUnitExceptions> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1132,7 +1132,7 @@ impl IEnumClockVector {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumClockVector> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1211,7 +1211,7 @@ impl IEnumFeedClockVector {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumFeedClockVector> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1321,7 +1321,7 @@ impl IEnumRangeExceptions {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRangeExceptions> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1400,7 +1400,7 @@ impl IEnumSingleItemExceptions {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSingleItemExceptions> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1479,7 +1479,7 @@ impl IEnumSyncChangeUnits {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncChangeUnits> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1558,7 +1558,7 @@ impl IEnumSyncChanges {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncChanges> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1638,7 +1638,7 @@ impl IEnumSyncProviderConfigUIInfos {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncProviderConfigUIInfos> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1724,7 +1724,7 @@ impl IEnumSyncProviderInfos {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSyncProviderInfos> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4589,7 +4589,7 @@ windows_core::imp::interface_hierarchy!(ISyncFilter, windows_core::IUnknown);
 impl ISyncFilter {
     pub unsafe fn IsIdentical<P0>(&self, psyncfilter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISyncFilter>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsIdentical)(windows_core::Interface::as_raw(self), psyncfilter.param().abi()).ok() }
     }
@@ -4954,7 +4954,7 @@ impl ISyncKnowledge {
             (windows_core::Interface::vtable(self).GetReplicaKeyMap)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<ISyncKnowledge> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4962,13 +4962,13 @@ impl ISyncKnowledge {
     }
     pub unsafe fn ConvertVersion<P0>(&self, pknowledgein: P0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISyncKnowledge>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConvertVersion)(windows_core::Interface::as_raw(self), pknowledgein.param().abi(), pbcurrentownerid, pversionin, pbnewownerid as _, pcbidsize as _, pversionout as _).ok() }
     }
-    pub unsafe fn MapRemoteToLocal<P0>(&self, premoteknowledge: P0) -> windows_core::Result<ISyncKnowledge>
+    pub unsafe fn MapRemoteToLocal<P0>(&self, premoteknowledge: P0) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<ISyncKnowledge>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4977,23 +4977,23 @@ impl ISyncKnowledge {
     }
     pub unsafe fn Union<P0>(&self, pknowledge: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISyncKnowledge>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).Union)(windows_core::Interface::as_raw(self), pknowledge.param().abi()).ok() }
     }
-    pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> windows_core::Result<ISyncKnowledge> {
+    pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProjectOntoItem)(windows_core::Interface::as_raw(self), pbitemid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<ISyncKnowledge> {
+    pub unsafe fn ProjectOntoChangeUnit(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProjectOntoChangeUnit)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> windows_core::Result<ISyncKnowledge> {
+    pub unsafe fn ProjectOntoRange(&self, psrngsyncrange: *const SYNC_RANGE) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProjectOntoRange)(windows_core::Interface::as_raw(self), psrngsyncrange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5007,7 +5007,7 @@ impl ISyncKnowledge {
     }
     pub unsafe fn ContainsKnowledge<P0>(&self, pknowledge: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISyncKnowledge>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).ContainsKnowledge)(windows_core::Interface::as_raw(self), pknowledge.param().abi()).ok() }
     }
@@ -5315,7 +5315,7 @@ impl ISyncKnowledge2 {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
-    pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<ISyncKnowledge2> {
+    pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProjectOntoColumnSet)(windows_core::Interface::as_raw(self), ppcolumns, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5326,7 +5326,7 @@ impl ISyncKnowledge2 {
     }
     pub unsafe fn GetLowestUncontainedId<P0>(&self, pisyncknowledge: P0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISyncKnowledge2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetLowestUncontainedId)(windows_core::Interface::as_raw(self), pisyncknowledge.param().abi(), pbitemid as _, pcbitemidsize as _).ok() }
     }

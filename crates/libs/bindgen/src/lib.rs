@@ -98,10 +98,10 @@ enum Layout {
 
 impl Layout {
     fn is_flat(self) -> bool {
-        matches!(self, Layout::Flat)
+        matches!(self, Self::Flat)
     }
     fn is_package(self) -> bool {
-        matches!(self, Layout::Package)
+        matches!(self, Self::Package)
     }
 }
 
@@ -123,13 +123,13 @@ enum Style {
 
 impl Style {
     fn is_sys(self) -> bool {
-        matches!(self, Style::Sys { .. })
+        matches!(self, Self::Sys { .. })
     }
     fn is_minimal(self) -> bool {
-        matches!(self, Style::Minimal)
+        matches!(self, Self::Minimal)
     }
     fn sys_fn_extern(self) -> bool {
-        matches!(self, Style::Sys { extern_fns: true })
+        matches!(self, Self::Sys { extern_fns: true })
     }
 }
 

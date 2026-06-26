@@ -356,7 +356,7 @@ impl PartialEq for TemplatedListElement {
 }
 
 impl TemplatedListElement {
-    pub fn same_items_as(&self, other: &TemplatedListElement) -> bool {
+    pub fn same_items_as(&self, other: &Self) -> bool {
         self.items_impl.item_type_id() == other.items_impl.item_type_id()
             && self.items_impl.items_ptr() == other.items_impl.items_ptr()
     }

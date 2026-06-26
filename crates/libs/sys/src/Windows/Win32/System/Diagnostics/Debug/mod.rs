@@ -1559,7 +1559,7 @@ impl Default for EXCEPTION_POINTERS {
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
-    pub ExceptionRecord: *mut EXCEPTION_RECORD,
+    pub ExceptionRecord: *mut Self,
     pub ExceptionAddress: *mut core::ffi::c_void,
     pub NumberParameters: u32,
     pub ExceptionInformation: [usize; 15],

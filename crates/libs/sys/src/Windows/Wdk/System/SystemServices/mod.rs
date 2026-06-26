@@ -5210,7 +5210,7 @@ pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IOMMU_DMA_RESERVED_REGION {
-    pub RegionNext: *mut IOMMU_DMA_RESERVED_REGION,
+    pub RegionNext: *mut Self,
     pub Base: u64,
     pub NumberOfPages: usize,
     pub ShouldMap: bool,
@@ -6741,7 +6741,7 @@ pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const i
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPIN_LOCK_QUEUE {
-    pub Next: *mut KSPIN_LOCK_QUEUE,
+    pub Next: *mut Self,
     pub Lock: *mut usize,
 }
 impl Default for KSPIN_LOCK_QUEUE {
@@ -12709,9 +12709,9 @@ impl Default for RTL_AVL_TABLE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_BALANCED_LINKS {
-    pub Parent: *mut RTL_BALANCED_LINKS,
-    pub LeftChild: *mut RTL_BALANCED_LINKS,
-    pub RightChild: *mut RTL_BALANCED_LINKS,
+    pub Parent: *mut Self,
+    pub LeftChild: *mut Self,
+    pub RightChild: *mut Self,
     pub Balance: i8,
     pub Reserved: [u8; 3],
 }

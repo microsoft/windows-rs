@@ -7764,7 +7764,7 @@ pub const IDN_USE_STD3_ASCII_RULES: u32 = 2;
 windows_core::imp::define_interface!(IEnumCodePage, IEnumCodePage_Vtbl, 0x275c23e3_3747_11d0_9fea_00aa003f8646);
 windows_core::imp::interface_hierarchy!(IEnumCodePage, windows_core::IUnknown);
 impl IEnumCodePage {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumCodePage>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -7834,7 +7834,7 @@ impl windows_core::RuntimeName for IEnumCodePage {}
 windows_core::imp::define_interface!(IEnumRfc1766, IEnumRfc1766_Vtbl, 0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
 windows_core::imp::interface_hierarchy!(IEnumRfc1766, windows_core::IUnknown);
 impl IEnumRfc1766 {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumRfc1766>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -7904,7 +7904,7 @@ impl windows_core::RuntimeName for IEnumRfc1766 {}
 windows_core::imp::define_interface!(IEnumScript, IEnumScript_Vtbl, 0xae5f1430_388b_11d2_8380_00c04f8f5da1);
 windows_core::imp::interface_hierarchy!(IEnumScript, windows_core::IUnknown);
 impl IEnumScript {
-    pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumScript>>) -> windows_core::Result<()> {
+    pub unsafe fn Clone(&self, ppenum: Option<*const Option<Self>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), ppenum.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {

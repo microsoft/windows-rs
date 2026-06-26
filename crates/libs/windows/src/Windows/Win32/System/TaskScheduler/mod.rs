@@ -788,7 +788,7 @@ impl IEnumWorkItems {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumWorkItems> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4598,7 +4598,7 @@ impl ITaskFolder {
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetFolder(&self, path: &windows_core::BSTR) -> windows_core::Result<ITaskFolder> {
+    pub unsafe fn GetFolder(&self, path: &windows_core::BSTR) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4611,7 +4611,7 @@ impl ITaskFolder {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateFolder(&self, subfoldername: &windows_core::BSTR, sddl: &super::Variant::VARIANT) -> windows_core::Result<ITaskFolder> {
+    pub unsafe fn CreateFolder(&self, subfoldername: &windows_core::BSTR, sddl: &super::Variant::VARIANT) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(subfoldername), core::mem::transmute_copy(sddl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

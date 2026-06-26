@@ -396,13 +396,13 @@ impl IUPnPDevice {
             (windows_core::Interface::vtable(self).IsRootDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RootDevice(&self) -> windows_core::Result<IUPnPDevice> {
+    pub unsafe fn RootDevice(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ParentDevice(&self) -> windows_core::Result<IUPnPDevice> {
+    pub unsafe fn ParentDevice(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

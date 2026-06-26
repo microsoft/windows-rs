@@ -254,9 +254,9 @@ impl core::ops::Sub<TimeSpan> for DateTime {
     }
 }
 
-impl core::ops::Sub<DateTime> for DateTime {
+impl core::ops::Sub<Self> for DateTime {
     type Output = TimeSpan;
-    fn sub(self, rhs: DateTime) -> TimeSpan {
+    fn sub(self, rhs: Self) -> TimeSpan {
         self.checked_duration_since(rhs)
             .expect("overflow when subtracting DateTime values")
     }
@@ -395,7 +395,7 @@ impl TryFrom<DateTime> for std::time::SystemTime {
             let nanos = unix_ticks as u128 * 100;
             let secs = (nanos / 1_000_000_000) as u64;
             let subsec = (nanos % 1_000_000_000) as u32;
-            std::time::SystemTime::UNIX_EPOCH
+            Self::UNIX_EPOCH
                 .checked_add(std::time::Duration::new(secs, subsec))
                 .ok_or(TimeRangeError)
         } else {
@@ -403,7 +403,7 @@ impl TryFrom<DateTime> for std::time::SystemTime {
             let nanos = abs_ticks * 100;
             let secs = (nanos / 1_000_000_000) as u64;
             let subsec = (nanos % 1_000_000_000) as u32;
-            std::time::SystemTime::UNIX_EPOCH
+            Self::UNIX_EPOCH
                 .checked_sub(std::time::Duration::new(secs, subsec))
                 .ok_or(TimeRangeError)
         }

@@ -3138,7 +3138,7 @@ impl core::ops::Deref for ITextFont {
 windows_core::imp::interface_hierarchy!(ITextFont, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont {
-    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextFont> {
+    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3146,7 +3146,7 @@ impl ITextFont {
     }
     pub unsafe fn SetDuplicate<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextFont>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuplicate)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
     }
@@ -3158,7 +3158,7 @@ impl ITextFont {
     }
     pub unsafe fn IsEqual<P0>(&self, pfont: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextFont>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4170,7 +4170,7 @@ impl ITextFont2 {
     pub unsafe fn SetDoubleStrike(&self, value: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDoubleStrike)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextFont2> {
+    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4178,7 +4178,7 @@ impl ITextFont2 {
     }
     pub unsafe fn SetDuplicate2<P0>(&self, pfont: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextFont2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuplicate2)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
     }
@@ -4286,7 +4286,7 @@ impl ITextFont2 {
     }
     pub unsafe fn IsEqual2<P0>(&self, pfont: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextFont2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5635,7 +5635,7 @@ impl core::ops::Deref for ITextPara {
 windows_core::imp::interface_hierarchy!(ITextPara, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara {
-    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextPara> {
+    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5643,7 +5643,7 @@ impl ITextPara {
     }
     pub unsafe fn SetDuplicate<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextPara>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuplicate)(windows_core::Interface::as_raw(self), ppara.param().abi()).ok() }
     }
@@ -5655,7 +5655,7 @@ impl ITextPara {
     }
     pub unsafe fn IsEqual<P0>(&self, ppara: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextPara>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6475,7 +6475,7 @@ impl ITextPara2 {
             (windows_core::Interface::vtable(self).GetBorders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextPara2> {
+    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6483,7 +6483,7 @@ impl ITextPara2 {
     }
     pub unsafe fn SetDuplicate2<P0>(&self, ppara: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextPara2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuplicate2)(windows_core::Interface::as_raw(self), ppara.param().abi()).ok() }
     }
@@ -6534,7 +6534,7 @@ impl ITextPara2 {
     }
     pub unsafe fn IsEqual2<P0>(&self, ppara: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextPara2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6793,13 +6793,13 @@ impl ITextRange {
     pub unsafe fn SetChar(&self, char: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetChar)(windows_core::Interface::as_raw(self), char).ok() }
     }
-    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<ITextRange> {
+    pub unsafe fn GetDuplicate(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFormattedText(&self) -> windows_core::Result<ITextRange> {
+    pub unsafe fn GetFormattedText(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6807,7 +6807,7 @@ impl ITextRange {
     }
     pub unsafe fn SetFormattedText<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFormattedText)(windows_core::Interface::as_raw(self), prange.param().abi()).ok() }
     }
@@ -6888,7 +6888,7 @@ impl ITextRange {
     }
     pub unsafe fn InRange<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6897,7 +6897,7 @@ impl ITextRange {
     }
     pub unsafe fn InStory<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6906,7 +6906,7 @@ impl ITextRange {
     }
     pub unsafe fn IsEqual<P0>(&self, prange: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7820,7 +7820,7 @@ impl ITextRange2 {
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<ITextRange2> {
+    pub unsafe fn GetDuplicate2(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDuplicate2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7838,7 +7838,7 @@ impl ITextRange2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFont2)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
     }
-    pub unsafe fn GetFormattedText2(&self) -> windows_core::Result<ITextRange2> {
+    pub unsafe fn GetFormattedText2(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormattedText2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7846,7 +7846,7 @@ impl ITextRange2 {
     }
     pub unsafe fn SetFormattedText2<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextRange2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFormattedText2)(windows_core::Interface::as_raw(self), prange.param().abi()).ok() }
     }
@@ -7909,7 +7909,7 @@ impl ITextRange2 {
     }
     pub unsafe fn Find<P0>(&self, prange: P0, count: i32, flags: i32) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextRange2>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8671,7 +8671,7 @@ impl ITextRow {
     }
     pub unsafe fn IsEqual<P0>(&self, prow: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<ITextRow>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

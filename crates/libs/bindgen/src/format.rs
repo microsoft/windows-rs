@@ -245,7 +245,7 @@ trait StrPipe {
 }
 
 impl StrPipe for String {
-    fn pipe<F: Fn(String) -> String>(self, f: F) -> String {
+    fn pipe<F: Fn(Self) -> Self>(self, f: F) -> String {
         f(self)
     }
 }

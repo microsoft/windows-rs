@@ -2112,7 +2112,7 @@ impl windows_core::RuntimeName for IAccessible {}
 windows_core::imp::define_interface!(IAccessibleEx, IAccessibleEx_Vtbl, 0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
 windows_core::imp::interface_hierarchy!(IAccessibleEx, windows_core::IUnknown);
 impl IAccessibleEx {
-    pub unsafe fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx> {
+    pub unsafe fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObjectForChild)(windows_core::Interface::as_raw(self), idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2129,7 +2129,7 @@ impl IAccessibleEx {
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<IAccessibleEx>
+    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -4009,7 +4009,7 @@ impl windows_core::RuntimeName for IRawElementProviderAdviseEvents {}
 windows_core::imp::define_interface!(IRawElementProviderFragment, IRawElementProviderFragment_Vtbl, 0xf7063da8_8359_439c_9297_bbc5299a7d87);
 windows_core::imp::interface_hierarchy!(IRawElementProviderFragment, windows_core::IUnknown);
 impl IRawElementProviderFragment {
-    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderFragment> {
+    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4329,7 +4329,7 @@ impl IRawElementProviderSimple {
             (windows_core::Interface::vtable(self).GetPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HostRawElementProvider(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn HostRawElementProvider(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HostRawElementProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6086,7 +6086,7 @@ impl windows_core::RuntimeName for ITextProvider2 {}
 windows_core::imp::define_interface!(ITextRangeProvider, ITextRangeProvider_Vtbl, 0x5347ad7b_c355_46f8_aff5_909033582f63);
 windows_core::imp::interface_hierarchy!(ITextRangeProvider, windows_core::IUnknown);
 impl ITextRangeProvider {
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6094,7 +6094,7 @@ impl ITextRangeProvider {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
     where
-        P0: windows_core::Param<ITextRangeProvider>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6103,7 +6103,7 @@ impl ITextRangeProvider {
     }
     pub unsafe fn CompareEndpoints<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P1: windows_core::Param<ITextRangeProvider>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6114,13 +6114,13 @@ impl ITextRangeProvider {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), unit).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attributeid, core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6166,7 +6166,7 @@ impl ITextRangeProvider {
     }
     pub unsafe fn MoveEndpointByRange<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<ITextRangeProvider>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint).ok() }
     }
@@ -8945,7 +8945,7 @@ impl IUIAutomationCacheRequest {
     pub unsafe fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddPattern)(windows_core::Interface::as_raw(self), patternid).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IUIAutomationCacheRequest> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9812,7 +9812,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FindFirst<P1>(&self, scope: TreeScope, condition: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirst<P1>(&self, scope: TreeScope, condition: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
     {
@@ -9830,7 +9830,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindFirstBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirstBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -9850,7 +9850,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -9913,7 +9913,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).GetCachedPattern)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedParent(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetCachedParent(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10069,7 +10069,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CurrentBoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLabeledBy(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentLabeledBy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLabeledBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10261,7 +10261,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).CachedBoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLabeledBy(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedLabeledBy(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLabeledBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17410,7 +17410,7 @@ impl windows_core::RuntimeName for IUIAutomationTextPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationTextRange, IUIAutomationTextRange_Vtbl, 0xa543cc6a_f4ae_494b_8239_c814481187a8);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRange, windows_core::IUnknown);
 impl IUIAutomationTextRange {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17418,7 +17418,7 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
     where
-        P0: windows_core::Param<IUIAutomationTextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17427,7 +17427,7 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn CompareEndpoints<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P1: windows_core::Param<IUIAutomationTextRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17438,13 +17438,13 @@ impl IUIAutomationTextRange {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attr, core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17490,7 +17490,7 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn MoveEndpointByRange<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IUIAutomationTextRange>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok() }
     }

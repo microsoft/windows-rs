@@ -1242,7 +1242,7 @@ pub const INTERNET_AUTOPROXY_INIT_QUERYSTATE: u32 = 4;
 #[derive(Clone, Copy)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
-    pub Next: *mut INTERNET_BUFFERSA,
+    pub Next: *mut Self,
     pub lpcszHeader: windows_sys::core::PCSTR,
     pub dwHeadersLength: u32,
     pub dwHeadersTotal: u32,
@@ -1261,7 +1261,7 @@ impl Default for INTERNET_BUFFERSA {
 #[derive(Clone, Copy)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
-    pub Next: *mut INTERNET_BUFFERSW,
+    pub Next: *mut Self,
     pub lpcszHeader: windows_sys::core::PCWSTR,
     pub dwHeadersLength: u32,
     pub dwHeadersTotal: u32,

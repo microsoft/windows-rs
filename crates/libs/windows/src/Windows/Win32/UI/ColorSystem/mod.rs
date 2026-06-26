@@ -1237,7 +1237,7 @@ impl IDeviceModelPlugIn {
     }
     pub unsafe fn SetTransformDeviceModelInfo<P1>(&self, imodelposition: u32, pidevicemodelother: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IDeviceModelPlugIn>,
+        P1: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTransformDeviceModelInfo)(windows_core::Interface::as_raw(self), imodelposition, pidevicemodelother.param().abi()).ok() }
     }

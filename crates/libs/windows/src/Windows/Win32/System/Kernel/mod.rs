@@ -63,7 +63,7 @@ pub struct EXCEPTION_DISPOSITION(pub i32);
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy, Debug)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
-    pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
+    pub Next: *mut Self,
     pub Handler: EXCEPTION_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -124,8 +124,8 @@ impl Default for FLOATING_SAVE_AREA {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY {
-    pub Flink: *mut LIST_ENTRY,
-    pub Blink: *mut LIST_ENTRY,
+    pub Flink: *mut Self,
+    pub Blink: *mut Self,
 }
 impl Default for LIST_ENTRY {
     fn default() -> Self {
@@ -162,7 +162,7 @@ pub struct NT_TIB {
     pub SubSystemTib: *mut core::ffi::c_void,
     pub Anonymous: NT_TIB_0,
     pub ArbitraryUserPointer: *mut core::ffi::c_void,
-    pub Self_: *mut NT_TIB,
+    pub Self_: *mut Self,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for NT_TIB {
@@ -274,7 +274,7 @@ pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
-    pub Next: *mut SINGLE_LIST_ENTRY,
+    pub Next: *mut Self,
 }
 impl Default for SINGLE_LIST_ENTRY {
     fn default() -> Self {
@@ -289,7 +289,7 @@ pub struct SINGLE_LIST_ENTRY32 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_ENTRY {
-    pub Next: *mut SLIST_ENTRY,
+    pub Next: *mut Self,
 }
 impl Default for SLIST_ENTRY {
     fn default() -> Self {

@@ -49,7 +49,7 @@ pub enum GridLength {
 }
 
 impl GridLength {
-    pub const STAR: Self = GridLength::Star(1.0);
+    pub const STAR: Self = Self::Star(1.0);
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
@@ -310,54 +310,54 @@ pub enum ThemeRef {
 
 impl ThemeRef {
     pub fn custom(key: impl Into<Cow<'static, str>>) -> Self {
-        ThemeRef::Custom(key.into())
+        Self::Custom(key.into())
     }
 
     pub fn resource_key(&self) -> &str {
         match self {
-            ThemeRef::Accent => "AccentFillColorDefaultBrush",
-            ThemeRef::AccentSecondary => "AccentFillColorSecondaryBrush",
-            ThemeRef::AccentTertiary => "AccentFillColorTertiaryBrush",
-            ThemeRef::AccentDisabled => "AccentFillColorDisabledBrush",
+            Self::Accent => "AccentFillColorDefaultBrush",
+            Self::AccentSecondary => "AccentFillColorSecondaryBrush",
+            Self::AccentTertiary => "AccentFillColorTertiaryBrush",
+            Self::AccentDisabled => "AccentFillColorDisabledBrush",
 
-            ThemeRef::PrimaryText => "TextFillColorPrimaryBrush",
-            ThemeRef::SecondaryText => "TextFillColorSecondaryBrush",
-            ThemeRef::TertiaryText => "TextFillColorTertiaryBrush",
-            ThemeRef::DisabledText => "TextFillColorDisabledBrush",
-            ThemeRef::AccentText => "AccentTextFillColorPrimaryBrush",
+            Self::PrimaryText => "TextFillColorPrimaryBrush",
+            Self::SecondaryText => "TextFillColorSecondaryBrush",
+            Self::TertiaryText => "TextFillColorTertiaryBrush",
+            Self::DisabledText => "TextFillColorDisabledBrush",
+            Self::AccentText => "AccentTextFillColorPrimaryBrush",
 
-            ThemeRef::SolidBackground => "SolidBackgroundFillColorBaseBrush",
-            ThemeRef::CardBackground => "CardBackgroundFillColorDefaultBrush",
-            ThemeRef::SmokeFill => "SmokeFillColorDefaultBrush",
-            ThemeRef::SubtleFill => "SubtleFillColorSecondaryBrush",
-            ThemeRef::LayerFill => "LayerFillColorDefaultBrush",
+            Self::SolidBackground => "SolidBackgroundFillColorBaseBrush",
+            Self::CardBackground => "CardBackgroundFillColorDefaultBrush",
+            Self::SmokeFill => "SmokeFillColorDefaultBrush",
+            Self::SubtleFill => "SubtleFillColorSecondaryBrush",
+            Self::LayerFill => "LayerFillColorDefaultBrush",
 
-            ThemeRef::ControlFill => "ControlFillColorDefaultBrush",
-            ThemeRef::ControlFillSecondary => "ControlFillColorSecondaryBrush",
-            ThemeRef::ControlFillTertiary => "ControlFillColorTertiaryBrush",
-            ThemeRef::ControlFillDisabled => "ControlFillColorDisabledBrush",
-            ThemeRef::ControlFillInputActive => "ControlFillColorInputActiveBrush",
+            Self::ControlFill => "ControlFillColorDefaultBrush",
+            Self::ControlFillSecondary => "ControlFillColorSecondaryBrush",
+            Self::ControlFillTertiary => "ControlFillColorTertiaryBrush",
+            Self::ControlFillDisabled => "ControlFillColorDisabledBrush",
+            Self::ControlFillInputActive => "ControlFillColorInputActiveBrush",
 
-            ThemeRef::CardStroke => "CardStrokeColorDefaultBrush",
-            ThemeRef::SurfaceStroke => "SurfaceStrokeColorDefaultBrush",
-            ThemeRef::DividerStroke => "DividerStrokeColorDefaultBrush",
-            ThemeRef::ControlStroke => "ControlStrokeColorDefaultBrush",
-            ThemeRef::ControlStrokeSecondary => "ControlStrokeColorSecondaryBrush",
+            Self::CardStroke => "CardStrokeColorDefaultBrush",
+            Self::SurfaceStroke => "SurfaceStrokeColorDefaultBrush",
+            Self::DividerStroke => "DividerStrokeColorDefaultBrush",
+            Self::ControlStroke => "ControlStrokeColorDefaultBrush",
+            Self::ControlStrokeSecondary => "ControlStrokeColorSecondaryBrush",
 
-            ThemeRef::SystemAttention => "SystemFillColorAttentionBrush",
-            ThemeRef::SystemSuccess => "SystemFillColorSuccessBrush",
-            ThemeRef::SystemCaution => "SystemFillColorCautionBrush",
-            ThemeRef::SystemCritical => "SystemFillColorCriticalBrush",
-            ThemeRef::SystemNeutral => "SystemFillColorNeutralBrush",
-            ThemeRef::SystemSolidNeutral => "SystemFillColorSolidNeutralBrush",
-            ThemeRef::SystemAttentionBackground => "SystemFillColorAttentionBackgroundBrush",
-            ThemeRef::SystemSuccessBackground => "SystemFillColorSuccessBackgroundBrush",
-            ThemeRef::SystemCautionBackground => "SystemFillColorCautionBackgroundBrush",
-            ThemeRef::SystemCriticalBackground => "SystemFillColorCriticalBackgroundBrush",
-            ThemeRef::SystemNeutralBackground => "SystemFillColorNeutralBackgroundBrush",
-            ThemeRef::SystemSolidAttention => "SystemFillColorSolidAttentionBackgroundBrush",
+            Self::SystemAttention => "SystemFillColorAttentionBrush",
+            Self::SystemSuccess => "SystemFillColorSuccessBrush",
+            Self::SystemCaution => "SystemFillColorCautionBrush",
+            Self::SystemCritical => "SystemFillColorCriticalBrush",
+            Self::SystemNeutral => "SystemFillColorNeutralBrush",
+            Self::SystemSolidNeutral => "SystemFillColorSolidNeutralBrush",
+            Self::SystemAttentionBackground => "SystemFillColorAttentionBackgroundBrush",
+            Self::SystemSuccessBackground => "SystemFillColorSuccessBackgroundBrush",
+            Self::SystemCautionBackground => "SystemFillColorCautionBackgroundBrush",
+            Self::SystemCriticalBackground => "SystemFillColorCriticalBackgroundBrush",
+            Self::SystemNeutralBackground => "SystemFillColorNeutralBackgroundBrush",
+            Self::SystemSolidAttention => "SystemFillColorSolidAttentionBackgroundBrush",
 
-            ThemeRef::Custom(s) => s.as_ref(),
+            Self::Custom(s) => s.as_ref(),
         }
     }
 }
@@ -372,13 +372,13 @@ pub enum BrushBinding {
 
 impl From<Color> for BrushBinding {
     fn from(c: Color) -> Self {
-        BrushBinding::Direct(c)
+        Self::Direct(c)
     }
 }
 
 impl From<ThemeRef> for BrushBinding {
     fn from(v: ThemeRef) -> Self {
-        BrushBinding::Theme(v)
+        Self::Theme(v)
     }
 }
 
@@ -708,7 +708,7 @@ impl Tooltip {
 
 impl<S: Into<String>> From<S> for Tooltip {
     fn from(s: S) -> Self {
-        Tooltip::text(s)
+        Self::text(s)
     }
 }
 

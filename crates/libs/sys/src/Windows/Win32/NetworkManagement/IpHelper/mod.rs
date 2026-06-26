@@ -942,7 +942,7 @@ pub const IPV6_ROUTE_INFO: u32 = 4294901776;
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Anonymous1: IP_ADAPTER_ADDRESSES_LH_0,
-    pub Next: *mut IP_ADAPTER_ADDRESSES_LH,
+    pub Next: *mut Self,
     pub AdapterName: windows_sys::core::PSTR,
     pub FirstUnicastAddress: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
     pub FirstAnycastAddress: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
@@ -1028,7 +1028,7 @@ pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_XP {
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0,
-    pub Next: *mut IP_ADAPTER_ADDRESSES_XP,
+    pub Next: *mut Self,
     pub AdapterName: windows_sys::core::PSTR,
     pub FirstUnicastAddress: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
     pub FirstAnycastAddress: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
@@ -1080,7 +1080,7 @@ pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2;
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0,
-    pub Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1116,7 +1116,7 @@ pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4;
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0,
-    pub Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1148,7 +1148,7 @@ pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_DNS_SUFFIX {
-    pub Next: *mut IP_ADAPTER_DNS_SUFFIX,
+    pub Next: *mut Self,
     pub String: [u16; 256],
 }
 impl Default for IP_ADAPTER_DNS_SUFFIX {
@@ -1161,7 +1161,7 @@ impl Default for IP_ADAPTER_DNS_SUFFIX {
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0,
-    pub Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1204,7 +1204,7 @@ impl Default for IP_ADAPTER_INDEX_MAP {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_INFO {
-    pub Next: *mut IP_ADAPTER_INFO,
+    pub Next: *mut Self,
     pub ComboIndex: u32,
     pub AdapterName: [i8; 260],
     pub Description: [i8; 132],
@@ -1237,7 +1237,7 @@ pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32;
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0,
-    pub Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1284,7 +1284,7 @@ impl Default for IP_ADAPTER_ORDER_MAP {
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_PREFIX_XP {
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0,
-    pub Next: *mut IP_ADAPTER_PREFIX_XP,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub PrefixLength: u32,
 }
@@ -1321,7 +1321,7 @@ pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2;
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0,
-    pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub PrefixOrigin: super::super::Networking::WinSock::NL_PREFIX_ORIGIN,
     pub SuffixOrigin: super::super::Networking::WinSock::NL_SUFFIX_ORIGIN,
@@ -1362,7 +1362,7 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0,
-    pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub PrefixOrigin: super::super::Networking::WinSock::NL_PREFIX_ORIGIN,
     pub SuffixOrigin: super::super::Networking::WinSock::NL_SUFFIX_ORIGIN,
@@ -1402,7 +1402,7 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
 #[derive(Clone, Copy)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0,
-    pub Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
+    pub Next: *mut Self,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1461,7 +1461,7 @@ pub const IP_ADDR_DELETED: u32 = 11019;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_ADDR_STRING {
-    pub Next: *mut IP_ADDR_STRING,
+    pub Next: *mut Self,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_ADDRESS_STRING,
     pub Context: u32,

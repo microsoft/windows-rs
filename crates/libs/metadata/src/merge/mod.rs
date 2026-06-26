@@ -4,7 +4,7 @@ pub struct Error(String);
 
 impl Error {
     fn new(message: impl Into<String>) -> Self {
-        Error(message.into())
+        Self(message.into())
     }
 }
 

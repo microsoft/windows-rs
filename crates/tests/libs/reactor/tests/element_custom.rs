@@ -80,7 +80,7 @@ impl CustomElement for BadgeText {
         self.key.as_deref()
     }
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
-        other.as_any().downcast_ref::<BadgeText>().is_some_and(|o| {
+        other.as_any().downcast_ref::<Self>().is_some_and(|o| {
             // destroy_counter is a test-fixture concern, not a logical
             // prop — exclude it from equality.
             self.key == o.key && self.label == o.label && self.count == o.count
@@ -97,7 +97,7 @@ impl CustomElement for BadgeText {
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
         let prev = prev
             .as_any()
-            .downcast_ref::<BadgeText>()
+            .downcast_ref::<Self>()
             .expect("reconciler guarantees prev has same type as self");
         if prev.rendered() != self.rendered() {
             backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
@@ -120,7 +120,7 @@ impl CustomElement for AltCustom {
         "AltCustom"
     }
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
-        other.as_any().is::<AltCustom>()
+        other.as_any().is::<Self>()
     }
     fn clone_dyn(&self) -> Box<dyn CustomElement> {
         Box::new(self.clone())
@@ -157,7 +157,7 @@ impl CustomElement for KeyedBadge {
     fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
         other
             .as_any()
-            .downcast_ref::<KeyedBadge>()
+            .downcast_ref::<Self>()
             .is_some_and(|o| self.key == o.key && self.label == o.label && self.count == o.count)
     }
     fn clone_dyn(&self) -> Box<dyn CustomElement> {
@@ -169,7 +169,7 @@ impl CustomElement for KeyedBadge {
         id
     }
     fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
-        let prev = prev.as_any().downcast_ref::<KeyedBadge>().unwrap();
+        let prev = prev.as_any().downcast_ref::<Self>().unwrap();
         if prev.rendered() != self.rendered() {
             backend.set_prop(id, Prop::Text, &PropValue::Str(self.rendered()));
         }

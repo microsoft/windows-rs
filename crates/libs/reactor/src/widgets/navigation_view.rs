@@ -6,7 +6,7 @@ pub struct NavViewItem {
     pub tag: Option<String>,
     pub icon: Option<Symbol>,
     pub is_header: bool,
-    pub children: Vec<NavViewItem>,
+    pub children: Vec<Self>,
 }
 impl NavViewItem {
     pub fn new(content: impl Into<String>) -> Self {
@@ -30,7 +30,7 @@ impl NavViewItem {
         self.icon = Some(s);
         self
     }
-    pub fn child(mut self, item: NavViewItem) -> Self {
+    pub fn child(mut self, item: Self) -> Self {
         self.children.push(item);
         self
     }

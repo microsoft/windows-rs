@@ -31,11 +31,11 @@ impl TileState {
     /// Cycle through flag/question/hidden on a flag-mode click.
     fn cycle(self) -> Self {
         match self {
-            TileState::Hidden => TileState::Flag,
-            TileState::Flag => TileState::Question,
-            TileState::Question => TileState::Hidden,
+            Self::Hidden => Self::Flag,
+            Self::Flag => Self::Question,
+            Self::Question => Self::Hidden,
             // Revealed tiles cannot be flagged; callers must check first.
-            TileState::Revealed => TileState::Revealed,
+            Self::Revealed => Self::Revealed,
         }
     }
 }

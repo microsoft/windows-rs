@@ -165,7 +165,7 @@ impl MetadataResolver {
             }
         }
 
-        MetadataResolver {
+        Self {
             lookup,
             single_field_types,
             enum_variants,

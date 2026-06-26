@@ -48,8 +48,8 @@ pub struct DEVICE_OBJECT {
     pub Size: u16,
     pub ReferenceCount: i32,
     pub DriverObject: *mut DRIVER_OBJECT,
-    pub NextDevice: *mut DEVICE_OBJECT,
-    pub AttachedDevice: *mut DEVICE_OBJECT,
+    pub NextDevice: *mut Self,
+    pub AttachedDevice: *mut Self,
     pub CurrentIrp: *mut IRP,
     pub Timer: PIO_TIMER,
     pub Flags: u32,
@@ -586,7 +586,7 @@ pub struct FILE_OBJECT {
     pub SectionObjectPointer: *mut SECTION_OBJECT_POINTERS,
     pub PrivateCacheMap: *mut core::ffi::c_void,
     pub FinalStatus: super::super::Win32::Foundation::NTSTATUS,
-    pub RelatedFileObject: *mut FILE_OBJECT,
+    pub RelatedFileObject: *mut Self,
     pub LockOperation: bool,
     pub DeletePending: bool,
     pub ReadAccess: bool,
@@ -1566,7 +1566,7 @@ pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = 4;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MDL {
-    pub Next: *mut MDL,
+    pub Next: *mut Self,
     pub Size: i16,
     pub MdlFlags: i16,
     pub Process: *mut isize,
@@ -1725,9 +1725,9 @@ pub const PagedPoolSession: POOL_TYPE = 33;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_SPLAY_LINKS {
-    pub Parent: *mut RTL_SPLAY_LINKS,
-    pub LeftChild: *mut RTL_SPLAY_LINKS,
-    pub RightChild: *mut RTL_SPLAY_LINKS,
+    pub Parent: *mut Self,
+    pub LeftChild: *mut Self,
+    pub RightChild: *mut Self,
 }
 impl Default for RTL_SPLAY_LINKS {
     fn default() -> Self {

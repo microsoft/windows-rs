@@ -9955,7 +9955,7 @@ pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = TREE_SEC_INFO(1);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTEE_A {
-    pub pMultipleTrustee: *mut TRUSTEE_A,
+    pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
@@ -10011,7 +10011,7 @@ pub struct TRUSTEE_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRUSTEE_W {
-    pub pMultipleTrustee: *mut TRUSTEE_W,
+    pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,

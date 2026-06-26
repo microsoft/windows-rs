@@ -786,7 +786,7 @@ impl ISimilarity {
     }
     pub unsafe fn CopyAndSwap<P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ISimilarity>,
+        P0: windows_core::Param<Self>,
         P1: windows_core::Param<ISimilarityReportProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), newsimilaritytables.param().abi(), reportprogress.param().abi()).ok() }

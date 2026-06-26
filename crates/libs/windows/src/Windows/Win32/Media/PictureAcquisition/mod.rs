@@ -228,7 +228,7 @@ impl IPhotoAcquireItem {
             (windows_core::Interface::vtable(self).GetSubItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSubItemAt(&self, nitemindex: u32) -> windows_core::Result<IPhotoAcquireItem> {
+    pub unsafe fn GetSubItemAt(&self, nitemindex: u32) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubItemAt)(windows_core::Interface::as_raw(self), nitemindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
