@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::{
         Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},

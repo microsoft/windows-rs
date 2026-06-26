@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> windows::core::Result<()> {
     use windows::Data::Xml::Dom::XmlDocument;
     use windows::core::*;

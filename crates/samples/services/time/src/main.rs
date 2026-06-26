@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 #[allow(
     non_snake_case,
     non_upper_case_globals,
@@ -11,7 +7,6 @@ fn main() {}
 )]
 mod bindings;
 
-#[cfg(windows)]
 fn main() {
     use crate::bindings::*;
 
