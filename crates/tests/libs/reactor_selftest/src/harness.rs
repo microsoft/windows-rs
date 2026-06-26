@@ -2,12 +2,7 @@ use std::cell::{Cell, RefCell};
 use std::io::Write;
 use std::rc::Rc;
 
-use windows::Win32::Foundation::HWND;
-use windows::Win32::System::Com::{CLSCTX_INPROC_SERVER, CoCreateInstance};
-use windows::Win32::UI::Shell::{
-    ITaskbarList3, TBPF_ERROR, TBPF_NOPROGRESS, TBPF_NORMAL, TaskbarList,
-};
-use windows::core::*;
+use windows_core::*;
 
 use crate::bindings::Color;
 use crate::bindings::DispatcherQueue;
@@ -17,6 +12,10 @@ use crate::bindings::{
     RowDefinition, Slider, TextBlock, TextBox, ToggleSwitch,
 };
 use crate::bindings::{ButtonAutomationPeer, PatternInterface};
+use crate::bindings::{
+    CLSCTX_INPROC_SERVER, CoCreateInstance, HWND, ITaskbarList3, TBPF_ERROR, TBPF_NOPROGRESS,
+    TBPF_NORMAL, TaskbarList,
+};
 use crate::bindings::{
     DependencyObject, FrameworkElement, GridLength, GridUnitType, HorizontalAlignment, Thickness,
     UIElement, VerticalAlignment, Window,
@@ -80,7 +79,7 @@ impl Harness {
             dispatcher,
             host: RefCell::new(None),
             taskbar: RefCell::new(None),
-            hwnd: Cell::new(HWND(std::ptr::null_mut())),
+            hwnd: Cell::new(core::ptr::null_mut()),
         };
         Ok(Self {
             inner: Rc::new(inner),
@@ -197,13 +196,23 @@ impl Harness {
         if let Ok(hwnd) = window_hwnd(&inner.window) {
             inner.hwnd.set(hwnd);
             unsafe {
-                if let Ok(tb) =
-                    CoCreateInstance::<_, ITaskbarList3>(&TaskbarList, None, CLSCTX_INPROC_SERVER)
-                    && tb.HrInit().is_ok()
+                let mut raw = core::ptr::null_mut();
+                if CoCreateInstance(
+                    &TaskbarList,
+                    core::ptr::null_mut(),
+                    CLSCTX_INPROC_SERVER,
+                    &ITaskbarList3::IID,
+                    &mut raw,
+                )
+                .is_ok()
+                    && !raw.is_null()
                 {
-                    let _ = tb.SetProgressState(hwnd, TBPF_NORMAL);
-                    let _ = tb.SetProgressValue(hwnd, 0, total as u64);
-                    *inner.taskbar.borrow_mut() = Some(tb);
+                    let tb = ITaskbarList3::from_raw(raw);
+                    if tb.HrInit().is_ok() {
+                        let _ = tb.SetProgressState(hwnd, TBPF_NORMAL);
+                        let _ = tb.SetProgressValue(hwnd, 0, total as u64);
+                        *inner.taskbar.borrow_mut() = Some(tb);
+                    }
                 }
             }
         }
@@ -482,6 +491,10 @@ impl Harness {
 
     pub fn window(&self) -> &Window {
         &self.inner.window
+    }
+
+    pub fn hwnd(&self) -> HWND {
+        self.inner.hwnd.get()
     }
 
     fn search_root(&self) -> Option<DependencyObject> {
@@ -829,7 +842,7 @@ unsafe trait IWindowNative(IWindowNative_Vtbl, IWindowNative_Impl) : IUnknown = 
 
 fn window_hwnd(window: &Window) -> Result<HWND> {
     let native: IWindowNative = window.cast()?;
-    let mut hwnd = HWND(std::ptr::null_mut());
+    let mut hwnd: HWND = core::ptr::null_mut();
     unsafe { native.WindowHandle(&mut hwnd as *mut HWND).ok()? };
     Ok(hwnd)
 }

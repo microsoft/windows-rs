@@ -5,7 +5,7 @@ use std::sync::Arc;
 use std::task::{Context, Poll, Wake};
 use std::thread::ThreadId;
 
-use windows::core::Result;
+use windows_core::Result;
 
 use crate::bindings::{DispatcherQueue, DispatcherQueueHandler, DispatcherQueuePriority};
 

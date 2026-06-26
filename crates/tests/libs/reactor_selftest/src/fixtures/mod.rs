@@ -9,6 +9,7 @@ pub mod grid_attached;
 pub mod hooks;
 pub mod interactions;
 pub mod layout;
+pub mod pointer_input;
 pub mod prop_updates;
 pub mod reconciler;
 pub mod reconciler_stress;
