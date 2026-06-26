@@ -198,7 +198,7 @@ widget bridges the WinRT control to the COM `ICoreWebView2` is covered in
 The [`crates/samples/reactor`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 tree is the best reference:
 
-- **`minimal`** — the smallest app plus an `examples/` folder with ~90 focused
+- **`samples`** — the smallest app plus an `examples/` folder with ~90 focused
   per-control and per-hook examples (`counter`, `calculator`, `navigation_view`,
   `list_view`, `content_dialog`, `color_picker`, and many more).
 - **`apps`** — complete applications: `notepad`, `solitaire`, `minesweeper`,
@@ -206,7 +206,7 @@ tree is the best reference:
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
 - **`direct2d`** / **`swap_chain_panel`** — hosting Direct2D / Direct3D content.
 - **`webview`** — hosting a WebView2 browser via `windows-webview`'s `reactor` feature.
-- **`framework-dependent`** / **`self-contained`** — the two deployment models,
+- **`framework_dependent`** / **`self_contained`** — the two deployment models,
   differing only in `build.rs`.
 
 ---

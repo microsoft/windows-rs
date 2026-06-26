@@ -1,5 +1,5 @@
 [package]
-name = "sample_uiautomation"
+name = "windows_uiautomation"
 version = "0.0.0"
 edition = "2024"
 publish = false

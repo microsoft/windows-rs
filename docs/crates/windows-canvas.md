@@ -141,10 +141,10 @@ tree:
 
 - **`standalone`** — the HWND path end to end: device, swap chain, draw loop,
   filled ellipse, centered text.
-- **`minimal`** — `canvas_minimal::run()` wraps `animated_canvas` in a reactor
+- **`samples`** — `canvas_samples::run()` wraps `animated_canvas` in a reactor
   window, with an `examples/` folder of focused snippets: `hello`, `color`,
-  `brush`, `gradient`, `lines`, `stroke`, `shapes`, `path`, `text`, `bitmap`,
-  `transform`.
+  `brush`, `gradient`, `lines`, `stroke`, `shapes`, `path`, `curves`, `text`,
+  `bitmap`, `transform`.
 - **`circles`** — animated circles with brush reuse and a text label.
 - **`clock`** — an animated analog clock combining transforms, stroke styles,
   shadows, bitmap targets, and text.

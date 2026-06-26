@@ -1,5 +1,5 @@
 [package]
-name = "swap_chain_panel"
+name = "reactor_swap_chain_panel"
 version = "0.0.0"
 edition = "2024"
 publish = false

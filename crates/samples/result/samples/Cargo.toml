@@ -1,0 +1,11 @@
+[package]
+name = "result_samples"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-result = { workspace = true }
+
+[lints]
+workspace = true

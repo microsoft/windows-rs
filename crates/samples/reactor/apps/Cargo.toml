@@ -1,5 +1,5 @@
 [package]
-name = "examples"
+name = "reactor_apps"
 version = "0.0.0"
 edition = "2024"
 publish = false

@@ -4,6 +4,7 @@
 
 - 📦 Not published to crates.io
 - 🚀 [Getting started](../../crates/libs/animation/readme.md)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
 
 `windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe
@@ -94,6 +95,21 @@ fn main() -> Result<()> {
 DirectComposition animation object (any `IDCompositionAnimation`), so the
 composition engine can drive the animation on its own thread instead of you
 sampling `value()` each frame.
+
+## Samples
+
+The [`crates/samples/animation/samples`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation/samples)
+crate has headless console examples that drive the manager on an explicit
+timeline and print the animated value, so they run without a window. Run one with
+`cargo run -p animation_samples --example <name>`:
+
+| Example | Demonstrates |
+| --- | --- |
+| `variable` | A single variable animated by one accelerate/decelerate transition, sampled over time. |
+| `storyboard` | Two transitions sequenced on a storyboard: a value rises to a peak, then falls back. |
+
+The [`clock`](windows-canvas.md) canvas sample shows the same API driving a live
+per-frame render loop instead.
 
 ---
 

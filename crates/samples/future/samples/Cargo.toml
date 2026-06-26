@@ -1,0 +1,11 @@
+[package]
+name = "future_samples"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-future = { workspace = true, features = ["std"] }
+
+[lints]
+workspace = true
