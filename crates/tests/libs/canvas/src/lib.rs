@@ -786,4 +786,81 @@ mod tests {
         assert!((bounds.right - 40.0).abs() < 0.5);
         assert!((bounds.bottom - 50.0).abs() < 0.5);
     }
+
+    // Device-lost classification is pure logic (no GPU needed). The codes below
+    // are the canonical DXGI/Direct2D HRESULTs, written independently of the
+    // crate's own constants so the test isn't a tautology.
+    #[test]
+    fn is_device_lost_classifies_known_codes() {
+        for code in [
+            0x887A0005_u32, // DXGI_ERROR_DEVICE_REMOVED
+            0x887A0007,     // DXGI_ERROR_DEVICE_RESET
+            0x887A0006,     // DXGI_ERROR_DEVICE_HUNG
+            0x887A0020,     // DXGI_ERROR_DRIVER_INTERNAL_ERROR
+            0x8899000C,     // D2DERR_RECREATE_TARGET
+        ] {
+            let hr = windows_core::HRESULT(code as i32);
+            assert!(is_device_lost(hr), "{code:#X} should be device-lost");
+        }
+    }
+
+    #[test]
+    fn is_device_lost_rejects_other_codes() {
+        for code in [
+            0x0000_0000_u32, // S_OK
+            0x8007_0057,     // E_INVALIDARG
+            0x8000_4005,     // E_FAIL
+            0x8007_000E,     // E_OUTOFMEMORY
+        ] {
+            let hr = windows_core::HRESULT(code as i32);
+            assert!(!is_device_lost(hr), "{code:#X} should not be device-lost");
+        }
+    }
+
+    #[test]
+    fn check_device_lost_handles_ok_and_err() {
+        let ok: Result<i32> = Ok(7);
+        assert!(!check_device_lost(&ok));
+
+        let lost: Result<i32> = Err(windows_core::Error::from_hresult(windows_core::HRESULT(
+            0x887A0005_u32 as i32, // DXGI_ERROR_DEVICE_REMOVED
+        )));
+        assert!(check_device_lost(&lost));
+
+        let other: Result<i32> = Err(windows_core::Error::from_hresult(windows_core::HRESULT(
+            0x8007_0057_u32 as i32, // E_INVALIDARG
+        )));
+        assert!(!check_device_lost(&other));
+    }
+
+    #[test]
+    fn new_or_warp_produces_working_device() {
+        let device = GpuDevice::new_or_warp().unwrap();
+        let chain = device.create_swap_chain(64, 64).unwrap();
+        let _raw = chain.raw_swap_chain();
+    }
+
+    #[test]
+    fn set_dpi_recreates_target_and_still_draws() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+        chain.set_dpi(192.0, 192.0);
+        {
+            let session = chain.begin_draw().unwrap();
+            session.clear(ColorF::WHITE);
+        }
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn set_composition_scale_is_applied() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+        chain.set_composition_scale(2.0, 2.0);
+        {
+            let session = chain.begin_draw().unwrap();
+            session.clear(ColorF::BLACK);
+        }
+        chain.present().unwrap();
+    }
 }

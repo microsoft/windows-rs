@@ -66,6 +66,20 @@ startup. `App::new()` is then a builder — `title`, `inner_size`, `backdrop`
 (e.g. `Backdrop::Mica`), `fullscreen`, and `presenter` are common. `render(app)`
 takes your `Fn(&mut RenderCx) -> Element` and runs the message loop.
 
+Reactor catches panics at the FFI boundaries it owns (render/event callbacks and
+`ErrorBoundary`), converting them to errors so they never unwind across the WinUI
+ABI. It deliberately does *not* install a global panic hook. For panics that
+escape outside those boundaries, add `panic = "abort"` to your release profile so
+the process terminates cleanly instead of unwinding into WinUI's C++ frames (which
+is undefined behavior):
+
+```toml
+[profile.release]
+panic = "abort"
+```
+
+Set `RUST_BACKTRACE=1` when you want a backtrace — reactor leaves that to you.
+
 ## State with hooks
 
 Hooks are methods on `RenderCx`. They give a render function persistent state
@@ -162,7 +176,7 @@ tree is the best reference:
   per-control and per-hook examples (`counter`, `calculator`, `navigation_view`,
   `list_view`, `content_dialog`, `color_picker`, and many more).
 - **`apps`** — complete applications: `notepad`, `solitaire`, `minesweeper`,
-  `tictactoe`, `dotsweeper`, `diagnostics_demo`.
+  `tictactoe`, `dotsweeper`.
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
 - **`direct2d`** / **`swap_chain_panel`** — hosting Direct2D / Direct3D content.
 - **`webview`** — hosting a WebView2 browser via `windows-webview`'s `reactor` feature.
@@ -261,8 +275,7 @@ slots. Two categories exist, and the distinction matters when refactoring:
 
 - **STA-affine COM handles and caches** (the host, application, root window and
   framework element, and the shared `DataTemplate`) must stay thread-local — they
-  hold COM objects that are only valid on the UI thread. `EXPECT_PANIC` is also
-  thread-local by design, since the panic hook reads it.
+  hold COM objects that are only valid on the UI thread.
 - **One-shot latches and per-thread scalars** (pending theme/title-bar requests,
   current color scheme) are thread-local only because the public API exposes them
   as free functions (`set_requested_theme`, etc.). They could move onto the host
@@ -505,11 +518,28 @@ Unit tests live in `test_reactor` (headless). Integration tests live in
 `test_reactor_selftest`, which launches a real WinUI window — pass `--headless`
 for CI.
 
+Most pointer handler behavior (attach/detach, memoization, slot changes) is
+covered headlessly in `test_reactor` via the `RecordingBackend`. The one path
+that needs a live `PointerRoutedEventArgs` — the backend's `set_pointer_handlers`
+wiring and `pointer_event_info` extraction — is exercised end-to-end by the
+`Pointer_Injection_Gesture` selftest fixture, which drives real OS mouse input
+through the WinRT `InputInjector` (move → press/release left and right → exit)
+and asserts the reactor's `on_pointer_*` callbacks fire with the right position
+and button flags. Because OS input injection requires the harness window to be
+foreground at the injected screen point, the fixture records a TAP `# SKIP`
+(never a failure) when the host can't deliver input (locked session, foreground
+lock, no interactive desktop), so it can't flake CI.
+
 The `RecordingBackend` harness (and its `Op` log) lives in the `test_reactor`
 crate, not in `windows-reactor`, so it adds no weight to normal builds. The few
 engine/reconciler/widget inspectors that need access to private fields stay in
 `windows-reactor` behind the `test` feature, which the test crates enable and
-normal/published builds leave off.
+normal/published builds leave off. This is the rule for *all* tests: no
+`#[cfg(test)]` modules inside the published library crates — put the test in the
+matching `test_*` crate. If it needs an internal item, expose that item behind the
+existing `test` feature rather than adding bespoke scaffolding (the engine/
+reconciler/widget inspectors work this way). Don't invent a feature — or a public
+helper — just to test a trivial pure function; leave it private and untested.
 
 ### Future work — C# reactor parity
 

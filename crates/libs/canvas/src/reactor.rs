@@ -47,9 +47,15 @@ struct RenderState {
     _scale_revoker: Option<EventRevoker>,
 }
 
+/// DIP length to physical pixels for surface sizing, guarding against a zero
+/// (a swap chain must be at least 1x1).
+fn surface_pixels(dip: f32, scale: f32) -> u32 {
+    ((dip * scale) as u32).max(1)
+}
+
 impl RenderState {
     fn rebuild(&mut self, pixel_width: u32, pixel_height: u32) -> bool {
-        let Ok(device) = GpuDevice::new() else {
+        let Ok(device) = GpuDevice::new_or_warp() else {
             return false;
         };
         let Ok(mut chain) = device.create_swap_chain(pixel_width, pixel_height) else {
@@ -93,10 +99,10 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
             ready_scale.set(s);
 
             let (w, h) = ready_size.get();
-            let pw = ((w * s) as u32).max(1);
-            let ph = ((h * s) as u32).max(1);
+            let pw = surface_pixels(w, s);
+            let ph = surface_pixels(h, s);
 
-            let Ok(device) = GpuDevice::new() else {
+            let Ok(device) = GpuDevice::new_or_warp() else {
                 return;
             };
             let Ok(mut chain) = device.create_swap_chain(pw, ph) else {
@@ -116,8 +122,8 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
                 .on_composition_scale_changed(move |new_s, _| {
                     sc_scale.set(new_s);
                     let (w, h) = sc_size.get();
-                    let pw = ((w * new_s) as u32).max(1);
-                    let ph = ((h * new_s) as u32).max(1);
+                    let pw = surface_pixels(w, new_s);
+                    let ph = surface_pixels(h, new_s);
                     let mut borrow = sc_state.borrow_mut();
                     if let Some(rs) = borrow.as_mut() {
                         rs.scale = new_s;
@@ -157,8 +163,8 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
                     match rs.chain.present() {
                         Ok(true) => {}
                         Ok(false) => {
-                            let pw = ((w * rs.scale) as u32).max(1);
-                            let ph = ((h * rs.scale) as u32).max(1);
+                            let pw = surface_pixels(w, rs.scale);
+                            let ph = surface_pixels(h, rs.scale);
                             if rs.rebuild(pw, ph) {
                                 render_changed.set(true);
                             }
@@ -182,8 +188,8 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
         .on_resize(move |w, h| {
             size.set((w as f32, h as f32));
             let s = scale.get();
-            let pw = ((w as f32 * s) as u32).max(1);
-            let ph = ((h as f32 * s) as u32).max(1);
+            let pw = surface_pixels(w as f32, s);
+            let ph = surface_pixels(h as f32, s);
             let mut borrow = state.borrow_mut();
             if let Some(rs) = borrow.as_mut() {
                 let _ = rs.chain.resize(pw, ph);
