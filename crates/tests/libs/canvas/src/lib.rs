@@ -729,4 +729,61 @@ mod tests {
 
         let _raw = path.raw();
     }
+
+    #[test]
+    fn path_fill_contains_point() {
+        let device = GpuDevice::new_warp().unwrap();
+
+        // Triangle: apex at (32, 0), base from (0, 64) to (64, 64).
+        let path = PathBuilder::new(&device)
+            .unwrap()
+            .begin(Vector2::new(32.0, 0.0))
+            .line_to(Vector2::new(64.0, 64.0))
+            .line_to(Vector2::new(0.0, 64.0))
+            .close()
+            .build()
+            .unwrap();
+
+        assert!(path.fill_contains_point(Vector2::new(32.0, 50.0)));
+        assert!(!path.fill_contains_point(Vector2::new(5.0, 5.0)));
+    }
+
+    #[test]
+    fn path_stroke_contains_point() {
+        let device = GpuDevice::new_warp().unwrap();
+
+        // Open horizontal segment from (10, 32) to (54, 32).
+        let path = PathBuilder::new(&device)
+            .unwrap()
+            .begin_hollow(Vector2::new(10.0, 32.0))
+            .line_to(Vector2::new(54.0, 32.0))
+            .end_open()
+            .build()
+            .unwrap();
+
+        assert!(path.stroke_contains_point(Vector2::new(32.0, 32.0), 4.0));
+        assert!(!path.stroke_contains_point(Vector2::new(32.0, 50.0), 4.0));
+    }
+
+    #[test]
+    fn path_compute_bounds() {
+        let device = GpuDevice::new_warp().unwrap();
+
+        // Axis-aligned rectangle 10,20 -> 40,50.
+        let path = PathBuilder::new(&device)
+            .unwrap()
+            .begin(Vector2::new(10.0, 20.0))
+            .line_to(Vector2::new(40.0, 20.0))
+            .line_to(Vector2::new(40.0, 50.0))
+            .line_to(Vector2::new(10.0, 50.0))
+            .close()
+            .build()
+            .unwrap();
+
+        let bounds = path.compute_bounds();
+        assert!((bounds.left - 10.0).abs() < 0.5);
+        assert!((bounds.top - 20.0).abs() < 0.5);
+        assert!((bounds.right - 40.0).abs() < 0.5);
+        assert!((bounds.bottom - 50.0).abs() < 0.5);
+    }
 }
