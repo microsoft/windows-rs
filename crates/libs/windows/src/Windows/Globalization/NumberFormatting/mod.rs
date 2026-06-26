@@ -28,13 +28,13 @@ impl CurrencyFormatter {
         let this = &windows_core::Interface::cast::<ICurrencyFormatter2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ApplyRoundingForCurrency)(windows_core::Interface::as_raw(this), roundingalgorithm).ok() }
     }
-    pub fn CreateCurrencyFormatterCode(currencycode: &windows_core::HSTRING) -> windows_core::Result<CurrencyFormatter> {
+    pub fn CreateCurrencyFormatterCode(currencycode: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCurrencyFormatterCode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCurrencyFormatterCodeContext<P1>(currencycode: &windows_core::HSTRING, languages: P1, geographicregion: &windows_core::HSTRING) -> windows_core::Result<CurrencyFormatter>
+    pub fn CreateCurrencyFormatterCodeContext<P1>(currencycode: &windows_core::HSTRING, languages: P1, geographicregion: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -269,7 +269,7 @@ impl DecimalFormatter {
         static SHARED: windows_core::imp::FactoryCache<DecimalFormatter, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CreateDecimalFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<DecimalFormatter>
+    pub fn CreateDecimalFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1625,7 +1625,7 @@ impl NumeralSystemTranslator {
             (windows_core::Interface::vtable(self).TranslateNumerals)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create<P0>(languages: P0) -> windows_core::Result<NumeralSystemTranslator>
+    pub fn Create<P0>(languages: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1821,7 +1821,7 @@ impl PercentFormatter {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PercentFormatter>
+    pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -2039,7 +2039,7 @@ impl PermilleFormatter {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PermilleFormatter>
+    pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {

@@ -39,7 +39,7 @@ impl CompositionConditionalValue {
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<CompositionConditionalValue>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -1597,7 +1597,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).TryUpdatePositionWithOption)(windows_core::Interface::as_raw(this), value, option, posupdateoption, &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<InteractionTracker>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -1606,7 +1606,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithOwner<P0, P1>(compositor: P0, owner: P1) -> windows_core::Result<InteractionTracker>
+    pub fn CreateWithOwner<P0, P1>(compositor: P0, owner: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
         P1: windows_core::Param<IInteractionTrackerOwner>,
@@ -1618,15 +1618,15 @@ impl InteractionTracker {
     }
     pub fn SetBindingMode<P0, P1>(boundtracker1: P0, boundtracker2: P1, axismode: InteractionBindingAxisModes) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<InteractionTracker>,
-        P1: windows_core::Param<InteractionTracker>,
+        P0: windows_core::Param<Self>,
+        P1: windows_core::Param<Self>,
     {
         Self::IInteractionTrackerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetBindingMode)(windows_core::Interface::as_raw(this), boundtracker1.param().abi(), boundtracker2.param().abi(), axismode).ok() })
     }
     pub fn GetBindingMode<P0, P1>(boundtracker1: P0, boundtracker2: P1) -> windows_core::Result<InteractionBindingAxisModes>
     where
-        P0: windows_core::Param<InteractionTracker>,
-        P1: windows_core::Param<InteractionTracker>,
+        P0: windows_core::Param<Self>,
+        P1: windows_core::Param<Self>,
     {
         Self::IInteractionTrackerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1991,7 +1991,7 @@ impl InteractionTrackerInertiaMotion {
     {
         unsafe { (windows_core::Interface::vtable(self).SetMotion)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<InteractionTrackerInertiaMotion>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -2153,7 +2153,7 @@ impl InteractionTrackerInertiaNaturalMotion {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNaturalMotion)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<InteractionTrackerInertiaNaturalMotion>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -2315,7 +2315,7 @@ impl InteractionTrackerInertiaRestingValue {
     {
         unsafe { (windows_core::Interface::vtable(self).SetRestingValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<InteractionTrackerInertiaRestingValue>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -2781,7 +2781,7 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNaturalMotion)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<InteractionTrackerVector2InertiaNaturalMotion>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {
@@ -3097,7 +3097,7 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).PointerWheelConfig)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(source: P0) -> windows_core::Result<VisualInteractionSource>
+    pub fn Create<P0>(source: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Visual>,
     {
@@ -3106,7 +3106,7 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIVisualElement<P0>(source: P0) -> windows_core::Result<VisualInteractionSource>
+    pub fn CreateFromIVisualElement<P0>(source: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::IVisualElement>,
     {

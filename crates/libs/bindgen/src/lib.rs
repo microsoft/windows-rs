@@ -487,6 +487,8 @@ impl Bindgen {
             link,
             namespace: "",
             event_only_delegates: &event_only_delegates,
+            self_ty: None,
+            self_generics: Vec::new(),
         };
 
         let tree = TypeTree::new(&types);

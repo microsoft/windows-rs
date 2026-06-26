@@ -128,7 +128,7 @@ impl PdfDocument {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -138,7 +138,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -148,7 +148,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -158,7 +158,7 @@ impl PdfDocument {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {

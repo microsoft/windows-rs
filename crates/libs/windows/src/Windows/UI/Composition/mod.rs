@@ -322,7 +322,7 @@ impl AnimationController {
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<AnimationController> {
+    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -332,7 +332,7 @@ impl AnimationController {
     pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<CompositionAnimation>,
-        P2: windows_core::Param<AnimationController>,
+        P2: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
@@ -436,7 +436,7 @@ windows_core::imp::required_hierarchy!(AnimationPropertyInfo, IAnimationObject, 
 impl AnimationPropertyInfo {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<AnimationPropertyInfo>,
+        P1: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
@@ -2588,7 +2588,7 @@ impl CompositionAnimation {
     }
     pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<CompositionAnimation>,
+        P1: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
@@ -2653,7 +2653,7 @@ impl CompositionAnimation {
     }
     pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<CompositionAnimation>,
+        P1: windows_core::Param<Self>,
         P2: windows_core::Param<AnimationController>,
     {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
@@ -3335,7 +3335,7 @@ impl CompositionCapabilities {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CompositionCapabilities, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3345,7 +3345,7 @@ impl CompositionCapabilities {
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<CompositionCapabilities> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICompositionCapabilitiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5088,7 +5088,7 @@ impl CompositionEffectSourceParameter {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<CompositionEffectSourceParameter> {
+    pub fn Create(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICompositionEffectSourceParameterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5949,7 +5949,7 @@ impl CompositionGraphicsDevice {
     }
     pub fn RenderingDeviceReplaced<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RenderingDeviceReplacedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7390,7 +7390,7 @@ windows_core::imp::interface_hierarchy!(CompositionPath, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(CompositionPath, super::super::Graphics::IGeometrySource2D);
 #[cfg(feature = "Graphics")]
 impl CompositionPath {
-    pub fn Create<P0>(source: P0) -> windows_core::Result<CompositionPath>
+    pub fn Create<P0>(source: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Graphics::IGeometrySource2D>,
     {
@@ -8451,7 +8451,7 @@ impl CompositionPropertySet {
             (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<CompositionPropertySet> {
+    pub fn Properties(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12513,7 +12513,7 @@ impl ContainerVisual {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOrientation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Parent(&self) -> windows_core::Result<ContainerVisual> {
+    pub fn Parent(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12924,7 +12924,7 @@ impl DelegatedInkTrailVisual {
     pub fn StartNewTrail(&self, color: super::Color) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartNewTrail)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub fn Create<P0>(compositor: P0) -> windows_core::Result<DelegatedInkTrailVisual>
+    pub fn Create<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<Compositor>,
     {
@@ -12933,7 +12933,7 @@ impl DelegatedInkTrailVisual {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateForSwapChain<P0, P1>(compositor: P0, swapchain: P1) -> windows_core::Result<DelegatedInkTrailVisual>
+    pub fn CreateForSwapChain<P0, P1>(compositor: P0, swapchain: P1) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<Compositor>,
         P1: windows_core::Param<ICompositionSurface>,
@@ -17022,7 +17022,7 @@ impl ImplicitAnimationCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
+    pub fn ImplicitAnimations(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17031,7 +17031,7 @@ impl ImplicitAnimationCollection {
     }
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ImplicitAnimationCollection>,
+        P0: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -24973,7 +24973,7 @@ impl Visual {
     pub fn SetTransformMatrix(&self, value: windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransformMatrix)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ParentForTransform(&self) -> windows_core::Result<Visual> {
+    pub fn ParentForTransform(&self) -> windows_core::Result<Self> {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -24982,7 +24982,7 @@ impl Visual {
     }
     pub fn SetParentForTransform<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<Visual>,
+        P0: windows_core::Param<Self>,
     {
         let this = &windows_core::Interface::cast::<IVisual2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParentForTransform)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }

@@ -66,7 +66,7 @@ impl BarcodeScanner {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStatusUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -83,13 +83,13 @@ impl BarcodeScanner {
             (windows_core::Interface::vtable(this).VideoDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<BarcodeScanner>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BarcodeScanner>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -299,7 +299,7 @@ impl BarcodeScannerReport {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P1, P2>(scandatatype: u32, scandata: P1, scandatalabel: P2) -> windows_core::Result<BarcodeScannerReport>
+    pub fn CreateInstance<P1, P2>(scandatatype: u32, scandata: P1, scandatalabel: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -1112,7 +1112,7 @@ impl CashDrawer {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CashDrawerStatusUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1122,13 +1122,13 @@ impl CashDrawer {
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStatusUpdated)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<CashDrawer>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CashDrawer>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1268,7 +1268,7 @@ impl CashDrawerCloseAlarm {
     }
     pub fn AlarmTimeoutExpired<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1328,7 +1328,7 @@ windows_core::imp::interface_hierarchy!(CashDrawerEventSource, windows_core::IUn
 impl CashDrawerEventSource {
     pub fn DrawerClosed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CashDrawerClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1340,7 +1340,7 @@ impl CashDrawerEventSource {
     }
     pub fn DrawerOpened<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CashDrawerOpenedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1544,7 +1544,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn DataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1556,7 +1556,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<Self>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1568,7 +1568,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<Self>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1580,7 +1580,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<Self>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1592,7 +1592,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ImagePreviewReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BarcodeScannerImagePreviewReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1604,7 +1604,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BarcodeScannerErrorOccurredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1669,7 +1669,7 @@ impl ClaimedBarcodeScanner {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClaimedBarcodeScannerClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
@@ -1788,7 +1788,7 @@ impl ClaimedCashDrawer {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1800,7 +1800,7 @@ impl ClaimedCashDrawer {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClaimedCashDrawerClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
@@ -2047,7 +2047,7 @@ impl ClaimedLineDisplay {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2083,7 +2083,7 @@ impl ClaimedLineDisplay {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, LineDisplayStatusUpdatedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
@@ -2196,7 +2196,7 @@ impl ClaimedLineDisplay {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClaimedLineDisplayClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
@@ -2208,7 +2208,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ClaimedLineDisplay>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2395,7 +2395,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn BankCardDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderBankCardDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2407,7 +2407,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn AamvaCardDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2419,7 +2419,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn VendorSpecificDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2431,7 +2431,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<Self>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2443,7 +2443,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderErrorOccurredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2455,7 +2455,7 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClaimedMagneticStripeReaderClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
@@ -2607,7 +2607,7 @@ impl ClaimedPosPrinter {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PosPrinterReleaseDeviceRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2619,7 +2619,7 @@ impl ClaimedPosPrinter {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ClaimedPosPrinterClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
@@ -6384,13 +6384,13 @@ impl LineDisplay {
             (windows_core::Interface::vtable(this).CheckPowerStatusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LineDisplay>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<LineDisplay>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7327,7 +7327,7 @@ impl MagneticStripeReader {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MagneticStripeReaderStatusUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7337,13 +7337,13 @@ impl MagneticStripeReader {
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStatusUpdated)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<MagneticStripeReader>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MagneticStripeReader>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8158,7 +8158,7 @@ impl PosPrinter {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PosPrinterStatusUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8182,13 +8182,13 @@ impl PosPrinter {
             (windows_core::Interface::vtable(this).GetFontProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(typeface), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<PosPrinter>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PosPrinter>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9739,7 +9739,7 @@ impl UnifiedPosErrorData {
             (windows_core::Interface::vtable(self).ExtendedReason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(message: &windows_core::HSTRING, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> windows_core::Result<UnifiedPosErrorData> {
+    pub fn CreateInstance(message: &windows_core::HSTRING, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> windows_core::Result<Self> {
         Self::IUnifiedPosErrorDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), severity, reason, extendedreason, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

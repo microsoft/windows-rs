@@ -36,7 +36,7 @@ impl CoreIncrementalInkStroke {
             (windows_core::Interface::vtable(self).BoundingRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(drawingattributes: P0, pointtransform: windows_numerics::Matrix3x2) -> windows_core::Result<CoreIncrementalInkStroke>
+    pub fn Create<P0>(drawingattributes: P0, pointtransform: windows_numerics::Matrix3x2) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::InkDrawingAttributes>,
     {
@@ -70,7 +70,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntering<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -83,7 +83,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerHovering<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -96,7 +96,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerExiting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,7 +109,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -122,7 +122,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoving<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -135,7 +135,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleasing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -148,7 +148,7 @@ impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, super::super::super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -180,7 +180,7 @@ impl CoreInkIndependentInputSource {
         let this = &windows_core::Interface::cast::<ICoreInkIndependentInputSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<CoreInkIndependentInputSource>
+    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::InkPresenter>,
     {
@@ -312,7 +312,7 @@ windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateSource, windows_core:
 impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -324,7 +324,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeContinuing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -336,7 +336,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeStopping<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -348,7 +348,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -360,7 +360,7 @@ impl CoreWetStrokeUpdateSource {
     }
     pub fn WetStrokeCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreWetStrokeUpdateEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -376,7 +376,7 @@ impl CoreWetStrokeUpdateSource {
             (windows_core::Interface::vtable(self).InkPresenter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<CoreWetStrokeUpdateSource>
+    pub fn Create<P0>(inkpresenter: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::InkPresenter>,
     {

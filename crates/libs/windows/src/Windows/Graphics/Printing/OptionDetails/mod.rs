@@ -2624,7 +2624,7 @@ impl PrintTaskOptionDetails {
     }
     pub fn OptionChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintTaskOptionChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2636,7 +2636,7 @@ impl PrintTaskOptionDetails {
     }
     pub fn BeginValidation<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2653,7 +2653,7 @@ impl PrintTaskOptionDetails {
             (windows_core::Interface::vtable(this).CreateToggleOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(optionid), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFromPrintTaskOptions<P0>(printtaskoptions: P0) -> windows_core::Result<PrintTaskOptionDetails>
+    pub fn GetFromPrintTaskOptions<P0>(printtaskoptions: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::PrintTaskOptions>,
     {

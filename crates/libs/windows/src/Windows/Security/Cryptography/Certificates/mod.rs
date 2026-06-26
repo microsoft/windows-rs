@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(Certificate, windows_core::IUnknown, win
 impl Certificate {
     pub fn BuildChainAsync<P0>(&self, certificates: P0) -> windows_core::Result<windows_future::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::Param<windows_collections::IIterable<Certificate>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -14,7 +14,7 @@ impl Certificate {
     }
     pub fn BuildChainWithParametersAsync<P0, P1>(&self, certificates: P0, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::Param<windows_collections::IIterable<Certificate>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
         P1: windows_core::Param<ChainBuildingParameters>,
     {
         unsafe {
@@ -162,7 +162,7 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCertificate<P0>(certblob: P0) -> windows_core::Result<Certificate>
+    pub fn CreateCertificate<P0>(certblob: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1052,7 +1052,7 @@ impl CmsAttachedSignature {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCmsAttachedSignature<P0>(inputblob: P0) -> windows_core::Result<CmsAttachedSignature>
+    pub fn CreateCmsAttachedSignature<P0>(inputblob: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1122,7 +1122,7 @@ impl CmsDetachedSignature {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCmsDetachedSignature<P0>(inputblob: P0) -> windows_core::Result<CmsDetachedSignature>
+    pub fn CreateCmsDetachedSignature<P0>(inputblob: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {

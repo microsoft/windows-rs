@@ -610,7 +610,7 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn Completed<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SpeechContinuousRecognitionCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -622,7 +622,7 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn ResultGenerated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SpeechContinuousRecognitionResultGeneratedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -789,7 +789,7 @@ impl SpeechRecognitionGrammarFileConstraint {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P0>(file: P0) -> windows_core::Result<SpeechRecognitionGrammarFileConstraint>
+    pub fn Create<P0>(file: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -799,7 +799,7 @@ impl SpeechRecognitionGrammarFileConstraint {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithTag<P0>(file: P0, tag: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionGrammarFileConstraint>
+    pub fn CreateWithTag<P0>(file: P0, tag: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -925,7 +925,7 @@ impl SpeechRecognitionListConstraint {
             (windows_core::Interface::vtable(self).Commands)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(commands: P0) -> windows_core::Result<SpeechRecognitionListConstraint>
+    pub fn Create<P0>(commands: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -934,7 +934,7 @@ impl SpeechRecognitionListConstraint {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), commands.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTag<P0>(commands: P0, tag: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionListConstraint>
+    pub fn CreateWithTag<P0>(commands: P0, tag: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1013,7 +1013,7 @@ impl SpeechRecognitionResult {
             (windows_core::Interface::vtable(self).SemanticInterpretation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAlternates(&self, maxalternates: u32) -> windows_core::Result<windows_collections::IVectorView<SpeechRecognitionResult>> {
+    pub fn GetAlternates(&self, maxalternates: u32) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), maxalternates, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1184,13 +1184,13 @@ impl SpeechRecognitionTopicConstraint {
             (windows_core::Interface::vtable(self).TopicHint)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(scenario: SpeechRecognitionScenario, topichint: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionTopicConstraint> {
+    pub fn Create(scenario: SpeechRecognitionScenario, topichint: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), scenario, core::mem::transmute_copy(topichint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTag(scenario: SpeechRecognitionScenario, topichint: &windows_core::HSTRING, tag: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionTopicConstraint> {
+    pub fn CreateWithTag(scenario: SpeechRecognitionScenario, topichint: &windows_core::HSTRING, tag: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), scenario, core::mem::transmute_copy(topichint), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1334,7 +1334,7 @@ impl SpeechRecognizer {
     }
     pub fn RecognitionQualityDegrading<P0>(&self, speechrecognitionqualitydegradinghandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SpeechRecognitionQualityDegradingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1346,7 +1346,7 @@ impl SpeechRecognizer {
     }
     pub fn StateChanged<P0>(&self, statechangedhandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SpeechRecognizerStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1379,7 +1379,7 @@ impl SpeechRecognizer {
     }
     pub fn HypothesisGenerated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SpeechRecognitionHypothesisGeneratedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
@@ -1392,7 +1392,7 @@ impl SpeechRecognizer {
         unsafe { (windows_core::Interface::vtable(this).RemoveHypothesisGenerated)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Globalization")]
-    pub fn Create<P0>(language: P0) -> windows_core::Result<SpeechRecognizer>
+    pub fn Create<P0>(language: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Globalization::Language>,
     {

@@ -167,7 +167,7 @@ impl DnssdServiceInstance {
             (windows_core::Interface::vtable(self).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(self), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> windows_core::Result<DnssdServiceInstance>
+    pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::HostName>,
     {
@@ -274,7 +274,7 @@ windows_core::imp::interface_hierarchy!(DnssdServiceWatcher, windows_core::IUnkn
 impl DnssdServiceWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DnssdServiceInstance>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -286,7 +286,7 @@ impl DnssdServiceWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -298,7 +298,7 @@ impl DnssdServiceWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

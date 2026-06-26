@@ -340,7 +340,7 @@ impl PlayToConnection {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -352,7 +352,7 @@ impl PlayToConnection {
     }
     pub fn Transferred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionTransferredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionTransferredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -364,7 +364,7 @@ impl PlayToConnection {
     }
     pub fn Error<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionErrorEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionErrorEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -516,7 +516,7 @@ windows_core::imp::interface_hierarchy!(PlayToManager, windows_core::IUnknown, w
 impl PlayToManager {
     pub fn SourceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToSourceRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -528,7 +528,7 @@ impl PlayToManager {
     }
     pub fn SourceSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceSelectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToSourceSelectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -547,7 +547,7 @@ impl PlayToManager {
             (windows_core::Interface::vtable(self).DefaultSourceSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<PlayToManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IPlayToManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -587,7 +587,7 @@ impl PlayToReceiver {
     }
     pub fn PlayRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -599,7 +599,7 @@ impl PlayToReceiver {
     }
     pub fn PauseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -611,7 +611,7 @@ impl PlayToReceiver {
     }
     pub fn SourceChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, SourceChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SourceChangeRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -623,7 +623,7 @@ impl PlayToReceiver {
     }
     pub fn PlaybackRateChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, PlaybackRateChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -635,7 +635,7 @@ impl PlayToReceiver {
     }
     pub fn CurrentTimeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, CurrentTimeChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CurrentTimeChangeRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -647,7 +647,7 @@ impl PlayToReceiver {
     }
     pub fn MuteChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, MuteChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MuteChangeRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -659,7 +659,7 @@ impl PlayToReceiver {
     }
     pub fn VolumeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, VolumeChangeRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VolumeChangeRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -671,7 +671,7 @@ impl PlayToReceiver {
     }
     pub fn TimeUpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -683,7 +683,7 @@ impl PlayToReceiver {
     }
     pub fn StopRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PlayToReceiver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -806,7 +806,7 @@ impl PlayToSource {
             (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Next(&self) -> windows_core::Result<PlayToSource> {
+    pub fn Next(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -814,7 +814,7 @@ impl PlayToSource {
     }
     pub fn SetNext<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<PlayToSource>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetNext)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

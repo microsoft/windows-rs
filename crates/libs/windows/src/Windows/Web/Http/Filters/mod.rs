@@ -145,7 +145,7 @@ impl HttpBaseProtocolFilter {
     }
     pub fn ServerCustomValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, HttpServerCustomValidationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
@@ -170,7 +170,7 @@ impl HttpBaseProtocolFilter {
         }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<HttpBaseProtocolFilter>
+    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {

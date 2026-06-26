@@ -169,7 +169,7 @@ windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, win
 impl EdgeGesture {
     pub fn Starting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -181,7 +181,7 @@ impl EdgeGesture {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -193,7 +193,7 @@ impl EdgeGesture {
     }
     pub fn Canceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -203,7 +203,7 @@ impl EdgeGesture {
     pub fn RemoveCanceled(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveCanceled)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<EdgeGesture> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IEdgeGestureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -483,7 +483,7 @@ impl GestureRecognizer {
     }
     pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -495,7 +495,7 @@ impl GestureRecognizer {
     }
     pub fn RightTapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RightTappedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -507,7 +507,7 @@ impl GestureRecognizer {
     }
     pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -519,7 +519,7 @@ impl GestureRecognizer {
     }
     pub fn Dragging<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DraggingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -531,7 +531,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -543,7 +543,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -555,7 +555,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationInertiaStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -567,7 +567,7 @@ impl GestureRecognizer {
     }
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -579,7 +579,7 @@ impl GestureRecognizer {
     }
     pub fn CrossSliding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CrossSlidingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1381,7 +1381,7 @@ impl windows_core::RuntimeType for IPointerPointTransform {
 }
 windows_core::imp::interface_hierarchy!(IPointerPointTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl IPointerPointTransform {
-    pub fn Inverse(&self) -> windows_core::Result<IPointerPointTransform> {
+    pub fn Inverse(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Inverse)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2062,7 +2062,7 @@ impl InputActivationListener {
     }
     pub fn InputActivationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputActivationListenerActivationChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2142,7 +2142,7 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2155,7 +2155,7 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2165,7 +2165,7 @@ impl KeyboardDeliveryInterceptor {
     pub fn RemoveKeyUp(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveKeyUp)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<KeyboardDeliveryInterceptor> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IKeyboardDeliveryInterceptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2603,7 +2603,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2615,7 +2615,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2627,7 +2627,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2639,7 +2639,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, TappedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2651,7 +2651,7 @@ impl PhysicalGestureRecognizer {
     }
     pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, HoldingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2740,19 +2740,19 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCurrentPoint(pointerid: u32) -> windows_core::Result<PointerPoint> {
+    pub fn GetCurrentPoint(pointerid: u32) -> windows_core::Result<Self> {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentPoint)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetIntermediatePoints(pointerid: u32) -> windows_core::Result<windows_collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePoints(pointerid: u32) -> windows_core::Result<windows_collections::IVector<Self>> {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIntermediatePoints)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCurrentPointTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<PointerPoint>
+    pub fn GetCurrentPointTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<IPointerPointTransform>,
     {
@@ -2761,7 +2761,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<windows_collections::IVector<PointerPoint>>
+    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<windows_collections::IVector<Self>>
     where
         P1: windows_core::Param<IPointerPointTransform>,
     {
@@ -2998,7 +2998,7 @@ impl PointerVisualizationSettings {
             (windows_core::Interface::vtable(self).IsBarrelButtonFeedbackEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<PointerVisualizationSettings> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IPointerVisualizationSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3052,7 +3052,7 @@ impl RadialController {
     }
     pub fn ScreenContactStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactStartedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3064,7 +3064,7 @@ impl RadialController {
     }
     pub fn ScreenContactEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3076,7 +3076,7 @@ impl RadialController {
     }
     pub fn ScreenContactContinued<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactContinuedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3088,7 +3088,7 @@ impl RadialController {
     }
     pub fn ControlLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3100,7 +3100,7 @@ impl RadialController {
     }
     pub fn RotationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerRotationChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3112,7 +3112,7 @@ impl RadialController {
     }
     pub fn ButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonClickedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3124,7 +3124,7 @@ impl RadialController {
     }
     pub fn ControlAcquired<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerControlAcquiredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3136,7 +3136,7 @@ impl RadialController {
     }
     pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonPressedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
@@ -3150,7 +3150,7 @@ impl RadialController {
     }
     pub fn ButtonHolding<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonHoldingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
@@ -3164,7 +3164,7 @@ impl RadialController {
     }
     pub fn ButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonReleasedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
@@ -3182,7 +3182,7 @@ impl RadialController {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateForCurrentView() -> windows_core::Result<RadialController> {
+    pub fn CreateForCurrentView() -> windows_core::Result<Self> {
         Self::IRadialControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3375,7 +3375,7 @@ impl RadialControllerConfiguration {
             (windows_core::Interface::vtable(this).IsMenuSuppressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<RadialControllerConfiguration> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IRadialControllerConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3538,7 +3538,7 @@ impl RadialControllerMenuItem {
     }
     pub fn Invoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3549,7 +3549,7 @@ impl RadialControllerMenuItem {
         unsafe { (windows_core::Interface::vtable(self).RemoveInvoked)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
@@ -3558,19 +3558,19 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), icon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> windows_core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> windows_core::Result<Self> {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromKnownIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyph(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyph(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyphWithUri<P3>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P3) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromFontGlyphWithUri<P3>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P3) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -3870,7 +3870,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3882,7 +3882,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3894,7 +3894,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3906,7 +3906,7 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockIndicatorChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3917,7 +3917,7 @@ impl SystemButtonEventController {
         unsafe { (windows_core::Interface::vtable(self).RemoveSystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForDispatcherQueue<P0>(queue: P0) -> windows_core::Result<SystemButtonEventController>
+    pub fn CreateForDispatcherQueue<P0>(queue: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::DispatcherQueue>,
     {
@@ -4122,7 +4122,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4135,7 +4135,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4148,7 +4148,7 @@ impl TouchpadGesturesController {
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4160,7 +4160,7 @@ impl TouchpadGesturesController {
     }
     pub fn GlobalActionPerformed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, TouchpadGlobalActionEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TouchpadGlobalActionEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4176,7 +4176,7 @@ impl TouchpadGesturesController {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateForProcess() -> windows_core::Result<TouchpadGesturesController> {
+    pub fn CreateForProcess() -> windows_core::Result<Self> {
         Self::ITouchpadGesturesControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForProcess)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

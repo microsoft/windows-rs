@@ -105,7 +105,7 @@ impl HdmiDisplayInformation {
     }
     pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,7 +115,7 @@ impl HdmiDisplayInformation {
     pub fn RemoveDisplayModesChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveDisplayModesChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<HdmiDisplayInformation> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IHdmiDisplayInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -175,7 +175,7 @@ impl HdmiDisplayMode {
     }
     pub fn IsEqual<P0>(&self, mode: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<HdmiDisplayMode>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

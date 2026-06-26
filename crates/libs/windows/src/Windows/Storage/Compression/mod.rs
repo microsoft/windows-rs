@@ -42,7 +42,7 @@ impl Compressor {
             (windows_core::Interface::vtable(self).DetachStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateCompressor<P0>(underlyingstream: P0) -> windows_core::Result<Compressor>
+    pub fn CreateCompressor<P0>(underlyingstream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Streams::IOutputStream>,
     {
@@ -51,7 +51,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).CreateCompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCompressorEx<P0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> windows_core::Result<Compressor>
+    pub fn CreateCompressorEx<P0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Streams::IOutputStream>,
     {
@@ -119,7 +119,7 @@ impl Decompressor {
             (windows_core::Interface::vtable(self).DetachStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDecompressor<P0>(underlyingstream: P0) -> windows_core::Result<Decompressor>
+    pub fn CreateDecompressor<P0>(underlyingstream: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Streams::IInputStream>,
     {

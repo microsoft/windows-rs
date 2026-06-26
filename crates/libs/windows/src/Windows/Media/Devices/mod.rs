@@ -256,7 +256,7 @@ windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, windows_core:
 impl AudioDeviceModulesManager {
     pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AudioDeviceModuleNotificationEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -278,7 +278,7 @@ impl AudioDeviceModulesManager {
             (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioDeviceModulesManager> {
+    pub fn Create(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioDeviceModulesManagerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -431,13 +431,13 @@ impl CallControl {
     pub fn RemoveAudioTransferRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAudioTransferRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<CallControl> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::ICallControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<CallControl> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICallControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -466,7 +466,7 @@ impl windows_core::RuntimeType for CallControlEventHandler {
 }
 impl CallControlEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<CallControlEventHandler, F>::new(&CallControlEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&CallControlEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -518,7 +518,7 @@ impl CameraOcclusionInfo {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CameraOcclusionStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -778,7 +778,7 @@ impl windows_core::RuntimeType for DialRequestedEventHandler {
 }
 impl DialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DialRequestedEventHandler, F>::new(&DialRequestedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DialRequestedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -2977,7 +2977,7 @@ impl windows_core::RuntimeType for KeypadPressedEventHandler {
 }
 impl KeypadPressedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<KeypadPressedEventHandler, F>::new(&KeypadPressedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&KeypadPressedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -3597,7 +3597,7 @@ impl windows_core::RuntimeType for RedialRequestedEventHandler {
 }
 impl RedialRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<RedialRequestedEventHandler, F>::new(&RedialRequestedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&RedialRequestedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>

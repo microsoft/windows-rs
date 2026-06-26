@@ -111,7 +111,7 @@ impl VariablePhotoSequenceCapture {
     }
     pub fn PhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, VariablePhotoCapturedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -123,7 +123,7 @@ impl VariablePhotoSequenceCapture {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

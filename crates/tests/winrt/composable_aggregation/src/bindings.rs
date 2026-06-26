@@ -20,7 +20,7 @@ impl Foo {
         }
     }
     #[cfg(windows)]
-    pub fn new() -> windows_core::Result<Foo> {
+    pub fn new() -> windows_core::Result<Self> {
         Self::IFooFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -33,7 +33,7 @@ impl Foo {
         })
     }
     #[cfg(windows)]
-    pub fn compose<T>(compose: T) -> windows_core::Result<Foo>
+    pub fn compose<T>(compose: T) -> windows_core::Result<Self>
     where
         T: windows_core::Compose,
     {

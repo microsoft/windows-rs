@@ -9,7 +9,7 @@ impl GpioPinProviderValueChangedEventArgs {
             (windows_core::Interface::vtable(self).Edge)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(edge: ProviderGpioPinEdge) -> windows_core::Result<GpioPinProviderValueChangedEventArgs> {
+    pub fn Create(edge: ProviderGpioPinEdge) -> windows_core::Result<Self> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -112,7 +112,7 @@ windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown
 impl IGpioPinProvider {
     pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GpioPinProviderValueChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

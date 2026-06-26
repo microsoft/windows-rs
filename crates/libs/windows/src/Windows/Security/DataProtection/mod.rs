@@ -216,7 +216,7 @@ impl UserDataProtectionManager {
     }
     pub fn DataAvailabilityStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UserDataAvailabilityStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -226,14 +226,14 @@ impl UserDataProtectionManager {
     pub fn RemoveDataAvailabilityStateChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveDataAvailabilityStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn TryGetDefault() -> windows_core::Result<UserDataProtectionManager> {
+    pub fn TryGetDefault() -> windows_core::Result<Self> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn TryGetForUser<P0>(user: P0) -> windows_core::Result<UserDataProtectionManager>
+    pub fn TryGetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

@@ -9,7 +9,7 @@ impl windows_core::RuntimeType for AttestationChallengeHandler {
 #[cfg(feature = "Storage_Streams")]
 impl AttestationChallengeHandler {
     pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<AttestationChallengeHandler, F>::new(&AttestationChallengeHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&AttestationChallengeHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, challenge: P0) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
@@ -680,7 +680,7 @@ impl KeyCredentialCacheConfiguration {
             (windows_core::Interface::vtable(self).UsageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
+    pub fn CreateInstance(cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<Self> {
         Self::IKeyCredentialCacheConfigurationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -907,7 +907,7 @@ impl PasswordCredential {
         static SHARED: windows_core::imp::FactoryCache<PasswordCredential, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CreatePasswordCredential(resource: &windows_core::HSTRING, username: &windows_core::HSTRING, password: &windows_core::HSTRING) -> windows_core::Result<PasswordCredential> {
+    pub fn CreatePasswordCredential(resource: &windows_core::HSTRING, username: &windows_core::HSTRING, password: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::ICredentialFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePasswordCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), core::mem::transmute_copy(username), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1205,7 +1205,7 @@ impl WebAccount {
             (windows_core::Interface::vtable(this).SignOutWithClientIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWebAccount<P0>(webaccountprovider: P0, username: &windows_core::HSTRING, state: WebAccountState) -> windows_core::Result<WebAccount>
+    pub fn CreateWebAccount<P0>(webaccountprovider: P0, username: &windows_core::HSTRING, state: WebAccountState) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<WebAccountProvider>,
     {
@@ -1299,7 +1299,7 @@ impl WebAccountProvider {
             (windows_core::Interface::vtable(this).IsSystemProvider)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateWebAccountProvider<P2>(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING, iconuri: P2) -> windows_core::Result<WebAccountProvider>
+    pub fn CreateWebAccountProvider<P2>(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING, iconuri: P2) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {

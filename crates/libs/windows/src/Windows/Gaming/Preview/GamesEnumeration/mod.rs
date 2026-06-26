@@ -100,7 +100,7 @@ impl windows_core::RuntimeType for GameListChangedEventHandler {
 }
 impl GameListChangedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<GameListChangedEventHandler, F>::new(&GameListChangedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&GameListChangedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
@@ -269,7 +269,7 @@ impl windows_core::RuntimeType for GameListRemovedEventHandler {
 }
 impl GameListRemovedEventHandler {
     pub fn new<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<GameListRemovedEventHandler, F>::new(&GameListRemovedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&GameListRemovedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, identifier: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -424,7 +424,7 @@ impl GameModeUserConfiguration {
             (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<GameModeUserConfiguration> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IGameModeUserConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

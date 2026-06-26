@@ -191,7 +191,7 @@ impl FileOpenPicker {
         })
     }
     #[cfg(feature = "System")]
-    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<FileOpenPicker>
+    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -502,7 +502,7 @@ impl FileSavePicker {
         }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<FileSavePicker>
+    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -610,7 +610,7 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<FolderPicker>
+    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

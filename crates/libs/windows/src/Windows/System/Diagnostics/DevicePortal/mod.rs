@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(DevicePortalConnection, windows_core::IU
 impl DevicePortalConnection {
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DevicePortalConnectionClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17,7 +17,7 @@ impl DevicePortalConnection {
     }
     pub fn RequestReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, DevicePortalConnectionRequestReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -28,7 +28,7 @@ impl DevicePortalConnection {
         unsafe { (windows_core::Interface::vtable(self).RemoveRequestReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn GetForAppServiceConnection<P0>(appserviceconnection: P0) -> windows_core::Result<DevicePortalConnection>
+    pub fn GetForAppServiceConnection<P0>(appserviceconnection: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::ApplicationModel::AppService::AppServiceConnection>,
     {

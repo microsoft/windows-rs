@@ -226,7 +226,7 @@ impl PackageExtensionCatalog {
     }
     pub fn PackageInstalled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageInstalledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PackageExtensionPackageInstalledEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -238,7 +238,7 @@ impl PackageExtensionCatalog {
     }
     pub fn PackageUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUpdatingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PackageExtensionPackageUpdatingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -250,7 +250,7 @@ impl PackageExtensionCatalog {
     }
     pub fn PackageUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PackageExtensionPackageUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -262,7 +262,7 @@ impl PackageExtensionCatalog {
     }
     pub fn PackageUninstalling<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUninstallingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PackageExtensionPackageUninstallingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -274,7 +274,7 @@ impl PackageExtensionCatalog {
     }
     pub fn PackageStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PackageExtensionPackageStatusChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -284,7 +284,7 @@ impl PackageExtensionCatalog {
     pub fn RemovePackageStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemovePackageStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn Open(packageextensionname: &windows_core::HSTRING) -> windows_core::Result<PackageExtensionCatalog> {
+    pub fn Open(packageextensionname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IPackageExtensionCatalogStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packageextensionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

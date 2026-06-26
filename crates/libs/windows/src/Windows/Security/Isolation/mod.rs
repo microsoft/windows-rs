@@ -4,7 +4,7 @@ impl windows_core::RuntimeType for HostMessageReceivedCallback {
 }
 impl HostMessageReceivedCallback {
     pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<HostMessageReceivedCallback, F>::new(&HostMessageReceivedCallbackBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&HostMessageReceivedCallbackBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P1>(&self, receiverid: windows_core::GUID, message: P1) -> windows_core::Result<()>
@@ -580,13 +580,13 @@ impl IsolatedWindowsEnvironment {
             (windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(windows_core::Interface::as_raw(this), options.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetById(environmentid: &windows_core::HSTRING) -> windows_core::Result<IsolatedWindowsEnvironment> {
+    pub fn GetById(environmentid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindByOwnerId(environmentownerid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<IsolatedWindowsEnvironment>> {
+    pub fn FindByOwnerId(environmentownerid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindByOwnerId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentownerid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1736,7 +1736,7 @@ impl windows_core::RuntimeType for MessageReceivedCallback {
 }
 impl MessageReceivedCallback {
     pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<MessageReceivedCallback, F>::new(&MessageReceivedCallbackBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&MessageReceivedCallbackBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P1>(&self, receiverid: windows_core::GUID, message: P1) -> windows_core::Result<()>

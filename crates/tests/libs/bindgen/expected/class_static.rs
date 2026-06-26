@@ -26,7 +26,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn Create(value: i32) -> windows_core::Result<Class> {
+    pub fn Create(value: i32) -> windows_core::Result<Self> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(

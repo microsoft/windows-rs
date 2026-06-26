@@ -202,7 +202,7 @@ impl RatedContentDescription {
     {
         unsafe { (windows_core::Interface::vtable(self).SetRatings)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Create(id: &windows_core::HSTRING, title: &windows_core::HSTRING, category: RatedContentCategory) -> windows_core::Result<RatedContentDescription> {
+    pub fn Create(id: &windows_core::HSTRING, title: &windows_core::HSTRING, category: RatedContentCategory) -> windows_core::Result<Self> {
         Self::IRatedContentDescriptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(title), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -273,7 +273,7 @@ impl RatedContentRestrictions {
     pub fn RemoveRestrictionsChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveRestrictionsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateWithMaxAgeRating(maxagerating: u32) -> windows_core::Result<RatedContentRestrictions> {
+    pub fn CreateWithMaxAgeRating(maxagerating: u32) -> windows_core::Result<Self> {
         Self::IRatedContentRestrictionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithMaxAgeRating)(windows_core::Interface::as_raw(this), maxagerating, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

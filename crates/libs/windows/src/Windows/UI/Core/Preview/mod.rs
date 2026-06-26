@@ -140,7 +140,7 @@ impl SystemNavigationManagerPreview {
     pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveCloseRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SystemNavigationManagerPreview> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

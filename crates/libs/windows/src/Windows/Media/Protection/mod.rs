@@ -36,7 +36,7 @@ impl windows_core::RuntimeType for ComponentLoadFailedEventHandler {
 }
 impl ComponentLoadFailedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<ComponentLoadFailedEventHandler, F>::new(&ComponentLoadFailedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ComponentLoadFailedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -159,7 +159,7 @@ impl HdcpSession {
     }
     pub fn ProtectionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HdcpSession, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -509,7 +509,7 @@ impl MediaProtectionPMPServer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePMPServer<P0>(pproperties: P0) -> windows_core::Result<MediaProtectionPMPServer>
+    pub fn CreatePMPServer<P0>(pproperties: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -608,7 +608,7 @@ impl windows_core::RuntimeType for RebootNeededEventHandler {
 }
 impl RebootNeededEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<RebootNeededEventHandler, F>::new(&RebootNeededEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&RebootNeededEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -834,7 +834,7 @@ impl windows_core::RuntimeType for ServiceRequestedEventHandler {
 }
 impl ServiceRequestedEventHandler {
     pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<ServiceRequestedEventHandler, F>::new(&ServiceRequestedEventHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ServiceRequestedEventHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>

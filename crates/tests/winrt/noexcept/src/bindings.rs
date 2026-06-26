@@ -27,7 +27,7 @@ impl ITest {
     }
     pub fn MethodTest<P0>(&self, test: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITest>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).MethodTest)(
@@ -75,7 +75,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Test(&self) -> windows_core::Result<ITest> {
+    pub fn Test(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Test)(
@@ -87,7 +87,7 @@ impl ITest {
     }
     pub fn SetTest<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITest>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).SetTest)(
@@ -117,7 +117,7 @@ impl ITest {
     }
     pub fn MethodTestN<P0>(&self, test: P0)
     where
-        P0: windows_core::Param<ITest>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let hresult__ = (windows_core::Interface::vtable(self).MethodTestN)(
@@ -167,7 +167,7 @@ impl ITest {
             debug_assert!(hresult__.0 == 0);
         }
     }
-    pub fn TestN(&self) -> Option<ITest> {
+    pub fn TestN(&self) -> Option<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             let hresult__ = (windows_core::Interface::vtable(self).TestN)(
@@ -180,7 +180,7 @@ impl ITest {
     }
     pub fn SetTestN<P0>(&self, value: P0)
     where
-        P0: windows_core::Param<ITest>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let hresult__ = (windows_core::Interface::vtable(self).SetTestN)(

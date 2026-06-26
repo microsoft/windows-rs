@@ -353,14 +353,14 @@ impl WalletBarcode {
             (windows_core::Interface::vtable(self).GetImageAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> windows_core::Result<WalletBarcode> {
+    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletBarcode)(windows_core::Interface::as_raw(this), symbology, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
+    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -734,7 +734,7 @@ impl WalletItem {
             (windows_core::Interface::vtable(self).Verbs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
+    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWalletItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -807,7 +807,7 @@ impl WalletItemCustomProperty {
     pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSummaryViewPosition)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<WalletItemCustomProperty> {
+    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWalletItemCustomPropertyFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletItemCustomProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1107,7 +1107,7 @@ impl WalletVerb {
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> windows_core::Result<WalletVerb> {
+    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWalletVerbFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletVerb)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

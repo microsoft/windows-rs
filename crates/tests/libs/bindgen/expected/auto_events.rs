@@ -9,7 +9,7 @@ impl windows_core::RuntimeType for CompletedCallback {
 }
 impl CompletedCallback {
     pub fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<CompletedCallback, F>::new(
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
             &CompletedCallbackBox::<F>::VTABLE,
             invoke,
         );
@@ -108,7 +108,7 @@ impl IFoo {
     }
     pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<IFoo>, i32) + 'static,
+        F: Fn(windows_core::Ref<Self>, i32) + 'static,
     {
         let handler: Handler = {
             let com = windows_core::imp::DelegateBox::<Handler, F>::new(

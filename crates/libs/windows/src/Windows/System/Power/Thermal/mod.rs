@@ -208,7 +208,7 @@ impl PowerThermalChannelDataConsumer {
     }
     pub fn ChannelDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PowerThermalChannelDataConsumer, PowerThermalChannelDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PowerThermalChannelDataReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -226,7 +226,7 @@ impl PowerThermalChannelDataConsumer {
     }
     pub fn BackEndStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PowerThermalChannelDataConsumer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -236,7 +236,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn RemoveBackEndStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveBackEndStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<PowerThermalChannelDataConsumer> {
+    pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataConsumerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -301,7 +301,7 @@ impl PowerThermalChannelDataProducer {
     }
     pub fn BackEndStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PowerThermalChannelDataProducer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -311,7 +311,7 @@ impl PowerThermalChannelDataProducer {
     pub fn RemoveBackEndStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveBackEndStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<PowerThermalChannelDataProducer> {
+    pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataProducerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -363,7 +363,7 @@ unsafe impl Sync for PowerThermalChannelDataReceivedEventArgs {}
 pub struct PowerThermalChannelDiagnostics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerThermalChannelDiagnostics, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerThermalChannelDiagnostics {
-    pub fn Current() -> windows_core::Result<PowerThermalChannelDiagnostics> {
+    pub fn Current() -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDiagnosticsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

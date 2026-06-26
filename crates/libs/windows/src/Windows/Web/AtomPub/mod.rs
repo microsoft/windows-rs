@@ -116,7 +116,7 @@ impl AtomPubClient {
         unsafe { (windows_core::Interface::vtable(self).CancelAsyncOperations)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateAtomPubClientWithCredentials<P0>(servercredential: P0) -> windows_core::Result<AtomPubClient>
+    pub fn CreateAtomPubClientWithCredentials<P0>(servercredential: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {

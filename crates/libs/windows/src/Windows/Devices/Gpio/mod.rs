@@ -56,7 +56,7 @@ impl GpioChangeCounter {
             (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeCounter>
+    pub fn Create<P0>(pin: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -179,7 +179,7 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(self).WaitForItemsAsync)(windows_core::Interface::as_raw(self), count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeReader>
+    pub fn Create<P0>(pin: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -188,7 +188,7 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> windows_core::Result<GpioChangeReader>
+    pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -256,14 +256,14 @@ impl GpioController {
             (windows_core::Interface::vtable(self).TryOpenPin)(windows_core::Interface::as_raw(self), pinnumber, sharingmode, pin as *mut _ as _, openstatus, &mut result__).map(|| result__)
         }
     }
-    pub fn GetDefault() -> windows_core::Result<GpioController> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IGpioControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GpioController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>>
     where
         P0: windows_core::Param<Provider::IGpioProvider>,
     {
@@ -272,7 +272,7 @@ impl GpioController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<GpioController>> {
+    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -328,7 +328,7 @@ impl GpioPin {
     }
     pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GpioPinValueChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -9,8 +9,7 @@ impl windows_core::RuntimeType for Delegate {
 }
 impl Delegate {
     pub fn new<F: Fn(i32, i32) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com =
-            windows_core::imp::DelegateBox::<Delegate, F>::new(&DelegateBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DelegateBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self, sender: i32, args: i32) -> windows_core::Result<()> {

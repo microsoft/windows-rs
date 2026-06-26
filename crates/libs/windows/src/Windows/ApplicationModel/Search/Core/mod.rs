@@ -216,7 +216,7 @@ impl SearchSuggestionManager {
     }
     pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SearchSuggestionsRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -228,7 +228,7 @@ impl SearchSuggestionManager {
     }
     pub fn RequestingFocusOnKeyboardInput<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, RequestingFocusOnKeyboardInputEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

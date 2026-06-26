@@ -207,7 +207,7 @@ impl NotesWindowManagerPreview {
     }
     pub fn SystemLockStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -219,7 +219,7 @@ impl NotesWindowManagerPreview {
     }
     pub fn NotePlacementChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, NotePlacementChangedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -231,7 +231,7 @@ impl NotesWindowManagerPreview {
     }
     pub fn NoteVisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, NoteVisibilityChangedPreviewEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -272,7 +272,7 @@ impl NotesWindowManagerPreview {
             (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentApp() -> windows_core::Result<NotesWindowManagerPreview> {
+    pub fn GetForCurrentApp() -> windows_core::Result<Self> {
         Self::INotesWindowManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

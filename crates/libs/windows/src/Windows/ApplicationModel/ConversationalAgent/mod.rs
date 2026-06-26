@@ -45,7 +45,7 @@ impl ActivationSignalDetectionConfiguration {
     }
     pub fn AvailabilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DetectionConfigurationAvailabilityChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -598,7 +598,7 @@ impl ConversationalAgentDetectorManager {
             (windows_core::Interface::vtable(this).GetActivationSignalDetectorFromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(detectorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Default() -> windows_core::Result<ConversationalAgentDetectorManager> {
+    pub fn Default() -> windows_core::Result<Self> {
         Self::IConversationalAgentDetectorManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Default)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -633,7 +633,7 @@ impl ConversationalAgentSession {
     }
     pub fn SessionInterrupted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSessionInterruptedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -645,7 +645,7 @@ impl ConversationalAgentSession {
     }
     pub fn SignalDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSignalDetectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -657,7 +657,7 @@ impl ConversationalAgentSession {
     }
     pub fn SystemStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ConversationalAgentSystemStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -882,13 +882,13 @@ impl ConversationalAgentSession {
             (windows_core::Interface::vtable(this).GetMissingPrerequisitesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCurrentSessionAsync() -> windows_core::Result<windows_future::IAsyncOperation<ConversationalAgentSession>> {
+    pub fn GetCurrentSessionAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSessionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCurrentSessionSync() -> windows_core::Result<ConversationalAgentSession> {
+    pub fn GetCurrentSessionSync() -> windows_core::Result<Self> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSessionSync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -720,7 +720,7 @@ impl AppointmentCalendarSyncManager {
     }
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppointmentCalendarSyncManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1804,7 +1804,7 @@ impl AppointmentStore {
     }
     pub fn StoreChanged<P0>(&self, phandler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppointmentStoreChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
         unsafe {

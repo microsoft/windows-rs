@@ -473,7 +473,7 @@ impl GuidanceNavigator {
     }
     pub fn GuidanceUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GuidanceUpdatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -485,7 +485,7 @@ impl GuidanceNavigator {
     }
     pub fn DestinationReached<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -497,7 +497,7 @@ impl GuidanceNavigator {
     }
     pub fn Rerouting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -509,7 +509,7 @@ impl GuidanceNavigator {
     }
     pub fn Rerouted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GuidanceReroutedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -521,7 +521,7 @@ impl GuidanceNavigator {
     }
     pub fn RerouteFailed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -533,7 +533,7 @@ impl GuidanceNavigator {
     }
     pub fn UserLocationLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -545,7 +545,7 @@ impl GuidanceNavigator {
     }
     pub fn UserLocationRestored<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -574,7 +574,7 @@ impl GuidanceNavigator {
     }
     pub fn AudioNotificationRequested<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GuidanceAudioNotificationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
@@ -597,7 +597,7 @@ impl GuidanceNavigator {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsGuidanceAudioMuted)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetCurrent() -> windows_core::Result<GuidanceNavigator> {
+    pub fn GetCurrent() -> windows_core::Result<Self> {
         Self::IGuidanceNavigatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -842,7 +842,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<GuidanceRoute>
+    pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::MapRoute>,
     {
@@ -903,7 +903,7 @@ impl GuidanceTelemetryCollector {
     pub fn SetUploadFrequency(&self, value: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUploadFrequency)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn GetCurrent() -> windows_core::Result<GuidanceTelemetryCollector> {
+    pub fn GetCurrent() -> windows_core::Result<Self> {
         Self::IGuidanceTelemetryCollectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

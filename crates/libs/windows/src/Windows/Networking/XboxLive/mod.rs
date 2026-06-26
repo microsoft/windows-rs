@@ -234,7 +234,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUn
 impl XboxLiveDeviceAddress {
     pub fn SnapshotChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -262,7 +262,7 @@ impl XboxLiveDeviceAddress {
     }
     pub fn Compare<P0>(&self, otherdeviceaddress: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -287,14 +287,14 @@ impl XboxLiveDeviceAddress {
             (windows_core::Interface::vtable(self).NetworkAccessKind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateFromSnapshotBase64(base64: &windows_core::HSTRING) -> windows_core::Result<XboxLiveDeviceAddress> {
+    pub fn CreateFromSnapshotBase64(base64: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromSnapshotBase64)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(base64), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromSnapshotBuffer<P0>(buffer: P0) -> windows_core::Result<XboxLiveDeviceAddress>
+    pub fn CreateFromSnapshotBuffer<P0>(buffer: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -303,13 +303,13 @@ impl XboxLiveDeviceAddress {
             (windows_core::Interface::vtable(this).CreateFromSnapshotBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromSnapshotBytes(buffer: &[u8]) -> windows_core::Result<XboxLiveDeviceAddress> {
+    pub fn CreateFromSnapshotBytes(buffer: &[u8]) -> windows_core::Result<Self> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromSnapshotBytes)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetLocal() -> windows_core::Result<XboxLiveDeviceAddress> {
+    pub fn GetLocal() -> windows_core::Result<Self> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLocal)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -345,7 +345,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnk
 impl XboxLiveEndpointPair {
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, XboxLiveEndpointPairStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -409,13 +409,13 @@ impl XboxLiveEndpointPair {
             (windows_core::Interface::vtable(self).LocalPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[u8], remotesocketaddress: &[u8]) -> windows_core::Result<XboxLiveEndpointPair> {
+    pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[u8], remotesocketaddress: &[u8]) -> windows_core::Result<Self> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindEndpointPairBySocketAddressBytes)(windows_core::Interface::as_raw(this), localsocketaddress.len().try_into().unwrap(), localsocketaddress.as_ptr(), remotesocketaddress.len().try_into().unwrap(), remotesocketaddress.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindEndpointPairByHostNamesAndPorts<P0, P2>(localhostname: P0, localport: &windows_core::HSTRING, remotehostname: P2, remoteport: &windows_core::HSTRING) -> windows_core::Result<XboxLiveEndpointPair>
+    pub fn FindEndpointPairByHostNamesAndPorts<P0, P2>(localhostname: P0, localport: &windows_core::HSTRING, remotehostname: P2, remoteport: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::HostName>,
         P2: windows_core::Param<super::HostName>,
@@ -608,7 +608,7 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_co
 impl XboxLiveEndpointPairTemplate {
     pub fn InboundEndpointPairCreated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, XboxLiveInboundEndpointPairCreatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -696,13 +696,13 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(self).EndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetTemplateByName(name: &windows_core::HSTRING) -> windows_core::Result<XboxLiveEndpointPairTemplate> {
+    pub fn GetTemplateByName(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTemplateByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Templates() -> windows_core::Result<windows_collections::IVectorView<XboxLiveEndpointPairTemplate>> {
+    pub fn Templates() -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Templates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

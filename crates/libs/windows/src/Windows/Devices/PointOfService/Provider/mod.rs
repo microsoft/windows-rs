@@ -178,7 +178,7 @@ impl BarcodeScannerFrameReader {
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerFrameReaderFrameArrivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -476,7 +476,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn EnableScannerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerEnableScannerRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -488,7 +488,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn DisableScannerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDisableScannerRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -500,7 +500,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn SetActiveSymbologiesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -512,7 +512,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn StartSoftwareTriggerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -524,7 +524,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn StopSoftwareTriggerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -536,7 +536,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn GetBarcodeSymbologyAttributesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -548,7 +548,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn SetBarcodeSymbologyAttributesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -560,7 +560,7 @@ impl BarcodeScannerProviderConnection {
     }
     pub fn HideVideoPreviewRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerHideVideoPreviewRequestEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

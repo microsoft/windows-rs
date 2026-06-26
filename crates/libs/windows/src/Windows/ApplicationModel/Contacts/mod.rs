@@ -1411,19 +1411,19 @@ impl ContactField {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateField_Default(value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<ContactField> {
+    pub fn CreateField_Default(value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<Self> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateField_Default)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateField_Category(value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField> {
+    pub fn CreateField_Category(value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<Self> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateField_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), r#type, category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateField_Custom(name: &windows_core::HSTRING, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField> {
+    pub fn CreateField_Custom(name: &windows_core::HSTRING, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<Self> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateField_Custom)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), r#type, category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1715,19 +1715,19 @@ impl ContactInstantMessageField {
             (windows_core::Interface::vtable(self).LaunchUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstantMessage_Default(username: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField> {
+    pub fn CreateInstantMessage_Default(username: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstantMessage_Default)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstantMessage_Category(username: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField> {
+    pub fn CreateInstantMessage_Category(username: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<Self> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstantMessage_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstantMessage_All<P4>(username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P4) -> windows_core::Result<ContactInstantMessageField>
+    pub fn CreateInstantMessage_All<P4>(username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P4) -> windows_core::Result<Self>
     where
         P4: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1969,7 +1969,7 @@ impl ContactList {
     }
     pub fn ContactChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2479,7 +2479,7 @@ impl ContactListSyncManager {
     }
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ContactListSyncManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2603,19 +2603,19 @@ impl ContactLocationField {
             (windows_core::Interface::vtable(self).PostalCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateLocation_Default(unstructuredaddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField> {
+    pub fn CreateLocation_Default(unstructuredaddress: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IContactLocationFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLocation_Default)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(unstructuredaddress), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateLocation_Category(unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactLocationField> {
+    pub fn CreateLocation_Category(unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<Self> {
         Self::IContactLocationFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLocation_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(unstructuredaddress), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateLocation_All(unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalcode: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField> {
+    pub fn CreateLocation_All(unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalcode: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IContactLocationFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLocation_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(unstructuredaddress), category, core::mem::transmute_copy(street), core::mem::transmute_copy(city), core::mem::transmute_copy(region), core::mem::transmute_copy(country), core::mem::transmute_copy(postalcode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3000,7 +3000,7 @@ impl ContactPanel {
     }
     pub fn LaunchFullAppRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactPanelLaunchFullAppRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3012,7 +3012,7 @@ impl ContactPanel {
     }
     pub fn Closing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactPanelClosingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3238,7 +3238,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<ContactPicker>
+    pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -3374,13 +3374,13 @@ impl ContactQueryOptions {
             (windows_core::Interface::vtable(self).AnnotationListIds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithText(text: &windows_core::HSTRING) -> windows_core::Result<ContactQueryOptions> {
+    pub fn CreateWithText(text: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTextAndFields(text: &windows_core::HSTRING, fields: ContactQuerySearchFields) -> windows_core::Result<ContactQueryOptions> {
+    pub fn CreateWithTextAndFields(text: &windows_core::HSTRING, fields: ContactQuerySearchFields) -> windows_core::Result<Self> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTextAndFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), fields, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3663,7 +3663,7 @@ impl ContactStore {
     }
     pub fn ContactChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5626,14 +5626,14 @@ impl PinnedContactManager {
             (windows_core::Interface::vtable(self).GetPinnedContactIdsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<PinnedContactManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PinnedContactManager>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::System::User>,
     {

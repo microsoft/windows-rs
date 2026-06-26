@@ -140,7 +140,7 @@ impl Delegate {
             };
             quote! {
                 #vis fn new<#fn_constraint>(invoke: F) -> Self {
-                    let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
+                    let com = windows_core::imp::DelegateBox::<Self, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
                     unsafe {
                         core::mem::transmute(windows_core::imp::box_new(com))
                     }

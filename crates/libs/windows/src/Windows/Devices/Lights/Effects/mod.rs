@@ -346,7 +346,7 @@ impl LampArrayBitmapEffect {
     }
     pub fn BitmapRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, LampArrayBitmapRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -356,7 +356,7 @@ impl LampArrayBitmapEffect {
     pub fn RemoveBitmapRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveBitmapRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayBitmapEffect>
+    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::LampArray>,
     {
@@ -504,7 +504,7 @@ impl LampArrayBlinkEffect {
     pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRepetitionMode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayBlinkEffect>
+    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::LampArray>,
     {
@@ -585,7 +585,7 @@ impl LampArrayColorRampEffect {
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCompletionBehavior)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayColorRampEffect>
+    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::LampArray>,
     {
@@ -648,7 +648,7 @@ impl LampArrayCustomEffect {
     }
     pub fn UpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, LampArrayUpdateRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -658,7 +658,7 @@ impl LampArrayCustomEffect {
     pub fn RemoveUpdateRequested(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveUpdateRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayCustomEffect>
+    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::LampArray>,
     {
@@ -776,19 +776,19 @@ impl LampArrayEffectPlaylist {
     }
     pub fn StartAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn StopAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StopAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn PauseAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<windows_collections::IIterable<Self>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).PauseAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
@@ -937,7 +937,7 @@ impl LampArraySolidEffect {
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCompletionBehavior)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArraySolidEffect>
+    pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::LampArray>,
     {

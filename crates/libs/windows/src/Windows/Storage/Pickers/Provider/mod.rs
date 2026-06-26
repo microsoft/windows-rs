@@ -77,7 +77,7 @@ impl FileOpenPickerUI {
     }
     pub fn FileRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, FileRemovedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -89,7 +89,7 @@ impl FileOpenPickerUI {
     }
     pub fn Closing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PickerClosingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -172,7 +172,7 @@ impl FileSavePickerUI {
     }
     pub fn FileNameChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -184,7 +184,7 @@ impl FileSavePickerUI {
     }
     pub fn TargetFileRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, TargetFileRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

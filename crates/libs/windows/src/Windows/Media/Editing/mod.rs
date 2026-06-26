@@ -57,7 +57,7 @@ impl BackgroundAudioTrack {
             (windows_core::Interface::vtable(self).Volume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<BackgroundAudioTrack> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -77,7 +77,7 @@ impl BackgroundAudioTrack {
             (windows_core::Interface::vtable(self).AudioEffectDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_core::Result<BackgroundAudioTrack>
+    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<EmbeddedAudioTrack>,
     {
@@ -87,7 +87,7 @@ impl BackgroundAudioTrack {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<BackgroundAudioTrack>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -453,7 +453,7 @@ impl MediaClip {
             (windows_core::Interface::vtable(self).UserData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaClip> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -517,14 +517,14 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: windows_time::TimeSpan) -> windows_core::Result<MediaClip> {
+    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: windows_time::TimeSpan) -> windows_core::Result<Self> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromColor)(windows_core::Interface::as_raw(this), color, originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaClip>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -534,7 +534,7 @@ impl MediaClip {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<MediaClip>>
+    pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -544,7 +544,7 @@ impl MediaClip {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromSurface<P0>(surface: P0, originalduration: windows_time::TimeSpan) -> windows_core::Result<MediaClip>
+    pub fn CreateFromSurface<P0>(surface: P0, originalduration: windows_time::TimeSpan) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
@@ -610,7 +610,7 @@ impl MediaComposition {
             (windows_core::Interface::vtable(self).UserData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaComposition> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -713,7 +713,7 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaComposition>>
+    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -771,7 +771,7 @@ impl MediaOverlay {
     pub fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOpacity)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaOverlay> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -792,7 +792,7 @@ impl MediaOverlay {
     pub fn SetAudioEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAudioEnabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create<P0>(clip: P0) -> windows_core::Result<MediaOverlay>
+    pub fn Create<P0>(clip: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<MediaClip>,
     {
@@ -801,7 +801,7 @@ impl MediaOverlay {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), clip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_core::Result<MediaOverlay>
+    pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<MediaClip>,
     {
@@ -839,7 +839,7 @@ impl MediaOverlayLayer {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlayLayer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaOverlayLayer> {
+    pub fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -859,7 +859,7 @@ impl MediaOverlayLayer {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_core::Result<MediaOverlayLayer>
+    pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Effects::IVideoCompositorDefinition>,
     {

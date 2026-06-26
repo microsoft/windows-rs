@@ -117,7 +117,7 @@ impl StartupAppsManagerPreview {
             (windows_core::Interface::vtable(self).GetStartupAppInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<StartupAppsManagerPreview> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IStartupAppsManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

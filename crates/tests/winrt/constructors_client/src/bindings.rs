@@ -32,7 +32,7 @@ impl Activatable {
             .map(|| result__)
         }
     }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Activatable> {
+    pub fn WithValue(arg: i32) -> windows_core::Result<Self> {
         Self::IActivatableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WithValue)(
@@ -83,7 +83,7 @@ impl Composable {
             .map(|| result__)
         }
     }
-    pub fn new() -> windows_core::Result<Composable> {
+    pub fn new() -> windows_core::Result<Self> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -95,7 +95,7 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn compose<T>(compose: T) -> windows_core::Result<Composable>
+    pub fn compose<T>(compose: T) -> windows_core::Result<Self>
     where
         T: windows_core::Compose,
     {
@@ -113,7 +113,7 @@ impl Composable {
             windows_core::Type::from_abi(result__)
         })
     }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
+    pub fn WithValue(arg: i32) -> windows_core::Result<Self> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WithValue)(
@@ -126,7 +126,7 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn WithValue_compose<T>(arg: i32, compose: T) -> windows_core::Result<Composable>
+    pub fn WithValue_compose<T>(arg: i32, compose: T) -> windows_core::Result<Self>
     where
         T: windows_core::Compose,
     {

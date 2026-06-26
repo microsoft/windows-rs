@@ -83,7 +83,7 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).LaunchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestInfoAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<Self>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -101,19 +101,19 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestInfoForPackageAsync(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForPackageAsync(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<Self>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestInfoForAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<Self>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestInfoForAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<AppDiagnosticInfo>>> {
+    pub fn RequestInfoForAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<Self>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestInfoForAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -147,7 +147,7 @@ windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, windows_core::
 impl AppDiagnosticInfoWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AppDiagnosticInfoWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -159,7 +159,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AppDiagnosticInfoWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -171,7 +171,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -183,7 +183,7 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -536,7 +536,7 @@ windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, windows_cor
 impl AppResourceGroupInfoWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -548,7 +548,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -560,7 +560,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -572,7 +572,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -584,7 +584,7 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn ExecutionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -801,7 +801,7 @@ impl AppUriHandlerHost {
         let this = &windows_core::Interface::cast::<IAppUriHandlerHost2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerHost> {
+    pub fn CreateInstance(name: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppUriHandlerHostFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -914,13 +914,13 @@ impl AppUriHandlerRegistrationManager {
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<AppUriHandlerRegistrationManager> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppUriHandlerRegistrationManager>
+    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<User>,
     {
@@ -929,13 +929,13 @@ impl AppUriHandlerRegistrationManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForPackage(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerRegistrationManager> {
+    pub fn GetForPackage(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForPackageForUser<P1>(packagefamilyname: &windows_core::HSTRING, user: P1) -> windows_core::Result<AppUriHandlerRegistrationManager>
+    pub fn GetForPackageForUser<P1>(packagefamilyname: &windows_core::HSTRING, user: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<User>,
     {
@@ -1040,7 +1040,7 @@ impl DispatcherQueue {
     }
     pub fn ShutdownStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, DispatcherQueueShutdownStartingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1052,7 +1052,7 @@ impl DispatcherQueue {
     }
     pub fn ShutdownCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueue, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1069,7 +1069,7 @@ impl DispatcherQueue {
             (windows_core::Interface::vtable(this).HasThreadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentThread() -> windows_core::Result<DispatcherQueue> {
+    pub fn GetForCurrentThread() -> windows_core::Result<Self> {
         Self::IDispatcherQueueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1109,7 +1109,7 @@ impl DispatcherQueueController {
             (windows_core::Interface::vtable(self).ShutdownQueueAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateOnDedicatedThread() -> windows_core::Result<DispatcherQueueController> {
+    pub fn CreateOnDedicatedThread() -> windows_core::Result<Self> {
         Self::IDispatcherQueueControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOnDedicatedThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1138,7 +1138,7 @@ impl windows_core::RuntimeType for DispatcherQueueHandler {
 }
 impl DispatcherQueueHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DispatcherQueueHandler, F>::new(&DispatcherQueueHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DispatcherQueueHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
@@ -1244,7 +1244,7 @@ impl DispatcherQueueTimer {
     }
     pub fn Tick<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3784,31 +3784,31 @@ impl User {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
+    pub fn FindAllAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncByType(r#type: UserType) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
+    pub fn FindAllAsyncByType(r#type: UserType) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByType)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<User>>> {
+    pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Self>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(windows_core::Interface::as_raw(this), r#type, status, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetFromId(nonroamableid: &windows_core::HSTRING) -> windows_core::Result<User> {
+    pub fn GetFromId(nonroamableid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nonroamableid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<User> {
+    pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IUserStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4154,7 +4154,7 @@ impl UserWatcher {
     }
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4166,7 +4166,7 @@ impl UserWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4178,7 +4178,7 @@ impl UserWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4190,7 +4190,7 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, UserChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4202,7 +4202,7 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanging<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, UserAuthenticationStatusChangingEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4214,7 +4214,7 @@ impl UserWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4226,7 +4226,7 @@ impl UserWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

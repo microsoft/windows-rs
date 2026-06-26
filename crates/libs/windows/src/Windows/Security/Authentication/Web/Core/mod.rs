@@ -462,7 +462,7 @@ windows_core::imp::interface_hierarchy!(WebAccountMonitor, windows_core::IUnknow
 impl WebAccountMonitor {
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -474,7 +474,7 @@ impl WebAccountMonitor {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -486,7 +486,7 @@ impl WebAccountMonitor {
     }
     pub fn DefaultSignInAccountChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -498,7 +498,7 @@ impl WebAccountMonitor {
     }
     pub fn AccountPictureUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, WebAccountEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IWebAccountMonitor2>(self)?;
         unsafe {
@@ -542,7 +542,7 @@ impl WebAuthenticationAddAccountResponse {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithAccount<P0>(webaccount: P0) -> windows_core::Result<WebAuthenticationAddAccountResponse>
+    pub fn CreateWithAccount<P0>(webaccount: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
     {
@@ -821,7 +821,7 @@ impl WebAuthenticationTransferTokenRequest {
         unsafe { (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<P0>(provider: P0, transfertoken: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    pub fn Create<P0>(provider: P0, transfertoken: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -831,7 +831,7 @@ impl WebAuthenticationTransferTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithCorrelationId<P0>(provider: P0, transfertoken: &windows_core::HSTRING, correlationid: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    pub fn CreateWithCorrelationId<P0>(provider: P0, transfertoken: &windows_core::HSTRING, correlationid: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -880,7 +880,7 @@ impl WebProviderError {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(errorcode: u32, errormessage: &windows_core::HSTRING) -> windows_core::Result<WebProviderError> {
+    pub fn Create(errorcode: u32, errormessage: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWebProviderErrorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), errorcode, core::mem::transmute_copy(errormessage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -958,7 +958,7 @@ impl WebTokenRequest {
         unsafe { (windows_core::Interface::vtable(this).SetCorrelationId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING) -> windows_core::Result<WebTokenRequest>
+    pub fn Create<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -968,7 +968,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithPromptType<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING, prompttype: WebTokenRequestPromptType) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithPromptType<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING, prompttype: WebTokenRequestPromptType) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -978,7 +978,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithProvider<P0>(provider: P0) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithProvider<P0>(provider: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -988,7 +988,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithScope<P0>(provider: P0, scope: &windows_core::HSTRING) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithScope<P0>(provider: P0, scope: &windows_core::HSTRING) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -1125,14 +1125,14 @@ impl WebTokenResponse {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithToken(token: &windows_core::HSTRING) -> windows_core::Result<WebTokenResponse> {
+    pub fn CreateWithToken(token: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAndAccount<P1>(token: &windows_core::HSTRING, webaccount: P1) -> windows_core::Result<WebTokenResponse>
+    pub fn CreateWithTokenAndAccount<P1>(token: &windows_core::HSTRING, webaccount: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
     {
@@ -1142,7 +1142,7 @@ impl WebTokenResponse {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAccountAndError<P1, P2>(token: &windows_core::HSTRING, webaccount: P1, error: P2) -> windows_core::Result<WebTokenResponse>
+    pub fn CreateWithTokenAccountAndError<P1, P2>(token: &windows_core::HSTRING, webaccount: P1, error: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
         P2: windows_core::Param<WebProviderError>,

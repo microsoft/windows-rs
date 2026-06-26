@@ -588,11 +588,11 @@ impl ITextCharacterFormat {
     }
     pub fn SetClone<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextCharacterFormat>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetClone)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn GetClone(&self) -> windows_core::Result<ITextCharacterFormat> {
+    pub fn GetClone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -600,7 +600,7 @@ impl ITextCharacterFormat {
     }
     pub fn IsEqual<P0>(&self, format: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<ITextCharacterFormat>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1998,7 +1998,7 @@ impl ITextParagraphFormat {
     pub fn DeleteTab(&self, position: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteTab)(windows_core::Interface::as_raw(self), position).ok() }
     }
-    pub fn GetClone(&self) -> windows_core::Result<ITextParagraphFormat> {
+    pub fn GetClone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2009,7 +2009,7 @@ impl ITextParagraphFormat {
     }
     pub fn IsEqual<P0>(&self, format: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<ITextParagraphFormat>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2018,7 +2018,7 @@ impl ITextParagraphFormat {
     }
     pub fn SetClone<P0>(&self, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextParagraphFormat>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetClone)(windows_core::Interface::as_raw(self), format.param().abi()).ok() }
     }
@@ -2654,7 +2654,7 @@ impl ITextRange {
     {
         unsafe { (windows_core::Interface::vtable(self).SetCharacterFormat)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn FormattedText(&self) -> windows_core::Result<ITextRange> {
+    pub fn FormattedText(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2662,7 +2662,7 @@ impl ITextRange {
     }
     pub fn SetFormattedText<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFormattedText)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -2780,7 +2780,7 @@ impl ITextRange {
     pub fn GetCharacterUtf32(&self, value: &mut u32, offset: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCharacterUtf32)(windows_core::Interface::as_raw(self), value, offset).ok() }
     }
-    pub fn GetClone(&self) -> windows_core::Result<ITextRange> {
+    pub fn GetClone(&self) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2810,7 +2810,7 @@ impl ITextRange {
     }
     pub fn InRange<P0>(&self, range: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2826,7 +2826,7 @@ impl ITextRange {
     }
     pub fn InStory<P0>(&self, range: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2835,7 +2835,7 @@ impl ITextRange {
     }
     pub fn IsEqual<P0>(&self, range: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<ITextRange>,
+        P0: windows_core::Param<Self>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

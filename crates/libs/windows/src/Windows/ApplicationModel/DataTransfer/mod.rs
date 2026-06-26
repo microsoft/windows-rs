@@ -321,7 +321,7 @@ impl DataPackage {
     }
     pub fn OperationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, OperationCompletedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -333,7 +333,7 @@ impl DataPackage {
     }
     pub fn Destroyed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -414,7 +414,7 @@ impl DataPackage {
     }
     pub fn ShareCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareCompletedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage3>(self)?;
         unsafe {
@@ -428,7 +428,7 @@ impl DataPackage {
     }
     pub fn ShareCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage4>(self)?;
         unsafe {
@@ -1068,7 +1068,7 @@ impl windows_core::RuntimeType for DataProviderHandler {
 }
 impl DataProviderHandler {
     pub fn new<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<DataProviderHandler, F>::new(&DataProviderHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DataProviderHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
@@ -1240,7 +1240,7 @@ windows_core::imp::interface_hierarchy!(DataTransferManager, windows_core::IUnkn
 impl DataTransferManager {
     pub fn DataRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DataRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1252,7 +1252,7 @@ impl DataTransferManager {
     }
     pub fn TargetApplicationChosen<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TargetApplicationChosenEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1264,7 +1264,7 @@ impl DataTransferManager {
     }
     pub fn ShareProvidersRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareProvidersRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDataTransferManager2>(self)?;
         unsafe {
@@ -1279,7 +1279,7 @@ impl DataTransferManager {
     pub fn ShowShareUI() -> windows_core::Result<()> {
         Self::IDataTransferManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<DataTransferManager> {
+    pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IDataTransferManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2287,7 +2287,7 @@ impl ShareProvider {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
-    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<ShareProvider>
+    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
         P3: windows_core::Param<ShareProviderHandler>,
@@ -2320,7 +2320,7 @@ impl windows_core::RuntimeType for ShareProviderHandler {
 }
 impl ShareProviderHandler {
     pub fn new<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<ShareProviderHandler, F>::new(&ShareProviderHandlerBox::<F>::VTABLE, invoke);
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ShareProviderHandlerBox::<F>::VTABLE, invoke);
         unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
     pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
@@ -2746,7 +2746,7 @@ impl TransferTargetDiscoveryOptions {
     pub fn SetAllowedTargetAppIds(&self, value: &[windows_core::HSTRING]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowedTargetAppIds)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), core::mem::transmute(value.as_ptr())).ok() }
     }
-    pub fn CreateInstance<P0>(datapackage: P0) -> windows_core::Result<TransferTargetDiscoveryOptions>
+    pub fn CreateInstance<P0>(datapackage: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<DataPackageView>,
     {
@@ -2825,7 +2825,7 @@ impl TransferTargetWatcher {
     }
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TransferTargetChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2837,7 +2837,7 @@ impl TransferTargetWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TransferTargetChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2849,7 +2849,7 @@ impl TransferTargetWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TransferTargetWatcher, TransferTargetChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TransferTargetChangedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2861,7 +2861,7 @@ impl TransferTargetWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TransferTargetWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2873,7 +2873,7 @@ impl TransferTargetWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TransferTargetWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

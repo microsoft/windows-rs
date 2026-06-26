@@ -304,7 +304,7 @@ impl ProviderSpiConnectionSettings {
     pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSharingMode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create(chipselectline: i32) -> windows_core::Result<ProviderSpiConnectionSettings> {
+    pub fn Create(chipselectline: i32) -> windows_core::Result<Self> {
         Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), chipselectline, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

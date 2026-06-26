@@ -279,7 +279,7 @@ impl WiFiDirectService {
     }
     pub fn SessionDeferred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectService, WiFiDirectServiceSessionDeferredEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionDeferredEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -323,7 +323,7 @@ impl WiFiDirectService {
             (windows_core::Interface::vtable(this).GetSelectorWithFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(servicename), serviceinfofilter.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -463,7 +463,7 @@ impl WiFiDirectServiceAdvertiser {
     }
     pub fn SessionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceSessionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionRequestedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -475,7 +475,7 @@ impl WiFiDirectServiceAdvertiser {
     }
     pub fn AutoAcceptSessionConnected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -487,7 +487,7 @@ impl WiFiDirectServiceAdvertiser {
     }
     pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -523,7 +523,7 @@ impl WiFiDirectServiceAdvertiser {
     pub fn Stop(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreateWiFiDirectServiceAdvertiser(servicename: &windows_core::HSTRING) -> windows_core::Result<WiFiDirectServiceAdvertiser> {
+    pub fn CreateWiFiDirectServiceAdvertiser(servicename: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IWiFiDirectServiceAdvertiserFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWiFiDirectServiceAdvertiser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -745,7 +745,7 @@ impl WiFiDirectServiceSession {
     }
     pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceSession, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -777,7 +777,7 @@ impl WiFiDirectServiceSession {
     }
     pub fn RemotePortAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceSession, WiFiDirectServiceRemotePortAddedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceRemotePortAddedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

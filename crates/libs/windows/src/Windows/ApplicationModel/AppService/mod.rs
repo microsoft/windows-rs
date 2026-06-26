@@ -103,7 +103,7 @@ impl AppServiceConnection {
     }
     pub fn RequestReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppServiceRequestReceivedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,7 +115,7 @@ impl AppServiceConnection {
     }
     pub fn ServiceClosed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppServiceClosedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,7 +155,7 @@ impl AppServiceConnection {
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn SendStatelessMessageAsync<P0, P1, P2>(connection: P0, connectionrequest: P1, message: P2) -> windows_core::Result<windows_future::IAsyncOperation<StatelessAppServiceResponse>>
     where
-        P0: windows_core::Param<AppServiceConnection>,
+        P0: windows_core::Param<Self>,
         P1: windows_core::Param<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>,
         P2: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {

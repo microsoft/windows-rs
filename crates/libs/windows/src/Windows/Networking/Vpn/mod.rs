@@ -1747,7 +1747,7 @@ impl VpnAppId {
     pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create(r#type: VpnAppIdType, value: &windows_core::HSTRING) -> windows_core::Result<VpnAppId> {
+    pub fn Create(r#type: VpnAppIdType, value: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IVpnAppIdFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1859,7 +1859,7 @@ impl VpnChannel {
     }
     pub fn ActivityChange<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1927,7 +1927,7 @@ impl VpnChannel {
     }
     pub fn ActivityStateChange<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityStateChangedArgs>>,
     {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
@@ -3095,7 +3095,7 @@ impl VpnDomainNameInfo {
             (windows_core::Interface::vtable(this).WebProxyUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateVpnDomainNameInfo<P2, P3>(name: &windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P2, proxyserverlist: P3) -> windows_core::Result<VpnDomainNameInfo>
+    pub fn CreateVpnDomainNameInfo<P2, P3>(name: &windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P2, proxyserverlist: P3) -> windows_core::Result<Self>
     where
         P2: windows_core::Param<windows_collections::IIterable<super::HostName>>,
         P3: windows_core::Param<windows_collections::IIterable<super::HostName>>,
@@ -3266,7 +3266,7 @@ impl VpnInterfaceId {
     pub fn GetAddressInfo(&self, id: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAddressInfo)(windows_core::Interface::as_raw(self), id.set_abi_len(), id as *mut _ as _).ok() }
     }
-    pub fn CreateVpnInterfaceId(address: &[u8]) -> windows_core::Result<VpnInterfaceId> {
+    pub fn CreateVpnInterfaceId(address: &[u8]) -> windows_core::Result<Self> {
         Self::IVpnInterfaceIdFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateVpnInterfaceId)(windows_core::Interface::as_raw(this), address.len().try_into().unwrap(), address.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3523,7 +3523,7 @@ impl VpnNamespaceInfo {
             (windows_core::Interface::vtable(self).WebProxyServers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateVpnNamespaceInfo<P1, P2>(name: &windows_core::HSTRING, dnsserverlist: P1, proxyserverlist: P2) -> windows_core::Result<VpnNamespaceInfo>
+    pub fn CreateVpnNamespaceInfo<P1, P2>(name: &windows_core::HSTRING, dnsserverlist: P1, proxyserverlist: P2) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<windows_collections::IVector<super::HostName>>,
         P2: windows_core::Param<windows_collections::IVector<super::HostName>>,
@@ -3773,9 +3773,9 @@ impl VpnPacketBuffer {
             (windows_core::Interface::vtable(this).TransportContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateVpnPacketBuffer<P0>(parentbuffer: P0, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>
+    pub fn CreateVpnPacketBuffer<P0>(parentbuffer: P0, offset: u32, length: u32) -> windows_core::Result<Self>
     where
-        P0: windows_core::Param<VpnPacketBuffer>,
+        P0: windows_core::Param<Self>,
     {
         Self::IVpnPacketBufferFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4089,7 +4089,7 @@ impl VpnRoute {
             (windows_core::Interface::vtable(self).PrefixSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateVpnRoute<P0>(address: P0, prefixsize: u8) -> windows_core::Result<VpnRoute>
+    pub fn CreateVpnRoute<P0>(address: P0, prefixsize: u8) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::HostName>,
     {
@@ -4301,7 +4301,7 @@ impl VpnTrafficFilter {
     pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRoutingPolicyType)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Create<P0>(appid: P0) -> windows_core::Result<VpnTrafficFilter>
+    pub fn Create<P0>(appid: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<VpnAppId>,
     {

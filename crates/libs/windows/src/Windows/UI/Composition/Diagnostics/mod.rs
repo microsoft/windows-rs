@@ -105,7 +105,7 @@ impl CompositionDebugSettings {
             (windows_core::Interface::vtable(self).HeatMaps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetSettings<P0>(compositor: P0) -> windows_core::Result<CompositionDebugSettings>
+    pub fn TryGetSettings<P0>(compositor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::Compositor>,
     {

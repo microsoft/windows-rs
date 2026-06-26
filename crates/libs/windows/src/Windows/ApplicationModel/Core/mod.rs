@@ -303,7 +303,7 @@ impl CoreApplicationView {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Activation::IActivatedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -349,7 +349,7 @@ impl CoreApplicationView {
     }
     pub fn HostedViewClosing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HostedViewClosingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
@@ -422,7 +422,7 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn LayoutMetricsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -440,7 +440,7 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn IsVisibleChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();

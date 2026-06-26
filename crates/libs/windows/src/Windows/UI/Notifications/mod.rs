@@ -96,7 +96,7 @@ impl BadgeNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateBadgeNotification<P0>(content: P0) -> windows_core::Result<BadgeNotification>
+    pub fn CreateBadgeNotification<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1617,7 +1617,7 @@ impl NotificationData {
     pub fn SetSequenceNumber(&self, value: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSequenceNumber)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> windows_core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -1626,7 +1626,7 @@ impl NotificationData {
             (windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), sequencenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -1848,7 +1848,7 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<ScheduledTileNotification>
+    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1981,7 +1981,7 @@ impl ScheduledToastNotification {
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1991,7 +1991,7 @@ impl ScheduledToastNotification {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: windows_time::DateTime, snoozeinterval: windows_time::TimeSpan, maximumsnoozecount: u32) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: windows_time::DateTime, snoozeinterval: windows_time::TimeSpan, maximumsnoozecount: u32) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2103,7 +2103,7 @@ impl TileFlyoutNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileFlyoutNotification<P0>(content: P0) -> windows_core::Result<TileFlyoutNotification>
+    pub fn CreateTileFlyoutNotification<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2255,7 +2255,7 @@ impl TileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileNotification<P0>(content: P0) -> windows_core::Result<TileNotification>
+    pub fn CreateTileNotification<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2675,7 +2675,7 @@ impl ToastCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_core::Result<ToastCollection>
+    pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_core::Result<Self>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2868,7 +2868,7 @@ impl ToastNotification {
     }
     pub fn Dismissed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ToastDismissedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2880,7 +2880,7 @@ impl ToastNotification {
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2892,7 +2892,7 @@ impl ToastNotification {
     }
     pub fn Failed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ToastFailedEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2994,7 +2994,7 @@ impl ToastNotification {
         unsafe { (windows_core::Interface::vtable(this).SetExpiresOnReboot)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateToastNotification<P0>(content: P0) -> windows_core::Result<ToastNotification>
+    pub fn CreateToastNotification<P0>(content: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -3262,7 +3262,7 @@ impl ToastNotificationManagerForUser {
     }
     pub fn NotificationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotificationManagerForUser, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
         unsafe {
@@ -3379,7 +3379,7 @@ impl ToastNotifier {
     }
     pub fn ScheduledToastNotificationShowing<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ScheduledToastNotificationShowingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IToastNotifier3>(self)?;
         unsafe {

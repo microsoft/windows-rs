@@ -26,7 +26,7 @@ windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core
 impl AudioCaptureEffectsManager {
     pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -122,14 +122,14 @@ impl AudioEffectDefinition {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<AudioEffectDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<AudioEffectDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -246,7 +246,7 @@ windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core:
 impl AudioRenderEffectsManager {
     pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1428,14 +1428,14 @@ impl VideoCompositorDefinition {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<VideoCompositorDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<VideoCompositorDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -1479,14 +1479,14 @@ impl VideoEffectDefinition {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<VideoEffectDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<Self> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<VideoEffectDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<Self>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {

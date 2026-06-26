@@ -674,7 +674,7 @@ impl UsbConfigurationDescriptor {
             (windows_core::Interface::vtable(self).RemoteWakeup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<UsbConfigurationDescriptor>) -> windows_core::Result<bool>
+    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<Self>) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -683,7 +683,7 @@ impl UsbConfigurationDescriptor {
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<UsbConfigurationDescriptor>
+    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -935,7 +935,7 @@ impl UsbDevice {
             (windows_core::Interface::vtable(this).GetDeviceClassSelector)(windows_core::Interface::as_raw(this), usbclass.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UsbDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1189,7 +1189,7 @@ impl UsbEndpointDescriptor {
             (windows_core::Interface::vtable(self).AsInterruptOutEndpointDescriptor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<UsbEndpointDescriptor>) -> windows_core::Result<bool>
+    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<Self>) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -1198,7 +1198,7 @@ impl UsbEndpointDescriptor {
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<UsbEndpointDescriptor>
+    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -1335,7 +1335,7 @@ impl UsbInterfaceDescriptor {
             (windows_core::Interface::vtable(self).InterfaceNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<UsbInterfaceDescriptor>) -> windows_core::Result<bool>
+    pub fn TryParse<P0>(descriptor: P0, parsed: &mut Option<Self>) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -1344,7 +1344,7 @@ impl UsbInterfaceDescriptor {
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), parsed as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<UsbInterfaceDescriptor>
+    pub fn Parse<P0>(descriptor: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<UsbDescriptor>,
     {
@@ -1522,7 +1522,7 @@ impl UsbInterruptInPipe {
     }
     pub fn DataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UsbInterruptInEventArgs>>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1744,7 +1744,7 @@ impl UsbSetupPacket {
         unsafe { (windows_core::Interface::vtable(self).SetLength)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithEightByteBuffer<P0>(eightbytebuffer: P0) -> windows_core::Result<UsbSetupPacket>
+    pub fn CreateWithEightByteBuffer<P0>(eightbytebuffer: P0) -> windows_core::Result<Self>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
