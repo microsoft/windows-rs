@@ -2,7 +2,7 @@
 
 The [windows-registry](https://crates.io/crates/windows-registry) crate provides simple, safe, and efficient access to the Windows registry.
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 

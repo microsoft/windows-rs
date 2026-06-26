@@ -3,7 +3,7 @@
 The [windows-metadata](https://crates.io/crates/windows-metadata) crate provides a reader and writer
 for the ECMA-335 metadata format used by .NET, WinRT, and more recently the Win32 metadata. 
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 

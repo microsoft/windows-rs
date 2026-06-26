@@ -1,6 +1,6 @@
 This repo provides a comprehensive set of Rust crates for building Windows applications — from low-level API access to high-level declarative UI.
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Getting started](getting-started.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 

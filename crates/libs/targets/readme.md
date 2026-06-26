@@ -4,10 +4,10 @@ The [windows-targets](https://crates.io/crates/windows-targets) crate includes i
 
 Note: As of Rust 1.71, the [windows-link](https://crates.io/crates/windows-link) crate should be preferred.
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
-* [Understanding the `windows-targets` crate](https://kennykerr.ca/rust-getting-started/understanding-windows-targets.html)
+* [Linking and import libraries](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-targets.md)
 
 Start by adding the following to your Cargo.toml file:
 

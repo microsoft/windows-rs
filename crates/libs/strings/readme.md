@@ -2,7 +2,7 @@
 
 The [windows-strings](https://crates.io/crates/windows-strings) crate provides common Windows string types used by various Windows APIs.
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Getting started](https://github.com/microsoft/windows-rs/blob/master/docs/getting-started.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
