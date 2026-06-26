@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() -> windows_window::Result<()> {
     use windows_window::{Window, run_with};
 

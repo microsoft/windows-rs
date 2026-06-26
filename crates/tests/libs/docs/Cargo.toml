@@ -64,7 +64,6 @@ workspace = true
 
 [dependencies.windows-threading]
 workspace = true
-features = ["std"]
 
 [dependencies.windows-time]
 workspace = true

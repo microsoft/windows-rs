@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tool: [bindings, package, reactor, webview, yml, license, workspace]
+        tool: [bindings, package, reactor, webview, yml, license, workspace, features]
     steps:
       - name: Checkout
         uses: actions/checkout@v7

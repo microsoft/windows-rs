@@ -1,7 +1,3 @@
-#[cfg(not(windows))]
-fn main() {}
-
-#[cfg(windows)]
 fn main() {
     use windows_sys::{
         Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Services::*, core::*,

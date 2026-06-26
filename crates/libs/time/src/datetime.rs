@@ -140,7 +140,6 @@ impl DateTime {
     /// let local = DateTime::now().to_local();
     /// println!("{:02}:{:02}:{:02}", local.hour(), local.minute(), local.second());
     /// ```
-    #[cfg(windows)]
     pub fn to_local(self) -> Self {
         let ticks = self.universal_time as u64;
         let utc = FILETIME {
