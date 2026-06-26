@@ -21306,7 +21306,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl InputInjector {
-    pub(crate) fn TryCreate() -> windows_core::Result<InputInjector> {
+    pub(crate) fn TryCreate() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreate)(
@@ -21316,7 +21316,7 @@ impl InputInjector {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub(crate) fn TryCreateForAppBroadcastOnly() -> windows_core::Result<InputInjector> {
+    pub(crate) fn TryCreateForAppBroadcastOnly() -> windows_core::Result<Self> {
         Self::IInputInjectorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(
