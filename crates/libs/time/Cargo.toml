@@ -11,8 +11,6 @@ readme = "readme.md"
 
 [dependencies]
 windows-core = { workspace = true }
-
-[target.'cfg(windows)'.dependencies]
 windows-link = { workspace = true }
 
 [features]
