@@ -1,4 +1,3 @@
-#[cfg(windows)]
 #[allow(
     non_snake_case,
     non_upper_case_globals,
@@ -28,17 +27,12 @@ fn iterations() -> u64 {
 }
 
 fn main() {
-    #[cfg(windows)]
     if let Err(error) = run() {
         eprintln!("{error}");
         std::process::exit(1);
     }
-
-    #[cfg(not(windows))]
-    eprintln!("lang_perf_rust requires Windows");
 }
 
-#[cfg(windows)]
 fn run() -> windows_core::Result<()> {
     use bindings::*;
     use std::time::Instant;
@@ -85,7 +79,6 @@ fn run() -> windows_core::Result<()> {
     Ok(())
 }
 
-#[cfg(windows)]
 fn report(label: &str, start: std::time::Instant) {
     println!("{label}: {} ms", start.elapsed().as_millis());
 }

@@ -1,5 +1,3 @@
-#![cfg(windows)]
-
 // Builds and runs the C#/WinRT consumer via `dotnet run`. cargo puts the component's
 // `langperf.dll` (a cdylib dependency) on PATH, which the dotnet child process inherits,
 // so WinRT activation resolves the class without registration. A tiny iteration count is
