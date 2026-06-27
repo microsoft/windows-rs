@@ -21,10 +21,11 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Int32", timer);
 
+var text = "value";
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    o.SetStringProperty("value");
+    o.SetStringProperty(text);
     _ = o.StringProperty();
 }
 Report("String", timer);
@@ -37,12 +38,20 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Object", timer);
 
-timer = Stopwatch.StartNew();
-for (ulong i = 0; i < iterations; i++)
+if (Environment.GetEnvironmentVariable("LANG_PERF_NO_CAST") == "1")
 {
-    _ = ((INonDefault)o.NewObject()).Value();
+    // Native AOT degrades super-linearly on this loop; skip rather than wait minutes.
+    Console.WriteLine("Cast: skipped");
 }
-Report("Cast", timer);
+else
+{
+    timer = Stopwatch.StartNew();
+    for (ulong i = 0; i < iterations; i++)
+    {
+        _ = ((INonDefault)o.NewObject()).Value();
+    }
+    Report("Cast", timer);
+}
 
 static void Report(string label, Stopwatch timer)
 {

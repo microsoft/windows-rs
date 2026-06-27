@@ -62,30 +62,38 @@ $env:PATH = "$PWD/target/release;$env:PATH"
 dotnet run -c Release --project crates/samples/lang_perf/csharp -- --iterations 10000000
 ```
 
-Or build and run all three and print a comparison table:
+Or build and run them all and print a comparison table:
 
 ```pwsh
 crates/samples/lang_perf/run.ps1 -Iterations 10000000
 ```
 
+Add `-IncludeAot` to also publish and measure a C# Native AOT build (this needs the
+Visual Studio C++ toolchain for the AOT linker):
+
+```pwsh
+crates/samples/lang_perf/run.ps1 -Iterations 10000000 -IncludeAot
+```
+
 ## Sample results
 
-Release builds, 10,000,000 iterations, milliseconds (lower is better). Absolute
-numbers are machine-dependent; the relative shape is the point.
+Release builds, 10,000,000 iterations, milliseconds (lower is better). All four
+consumers issue the identical sequence of ABI calls, with the string hoisted out of the
+loop in every language so only set/get traffic is measured. Absolute numbers are
+machine-dependent; the relative shape is the point.
 
-| Metric | C#/WinRT | C++/WinRT |  Rust |
-|--------|---------:|----------:|------:|
-| Create |    10052 |       522 |   456 |
-| Int32  |       55 |        25 |    19 |
-| String |     1714 |       404 |   223 |
-| Object |     1576 |       270 |   268 |
-| Cast   |    26147 |       440 |   453 |
+| Metric | C#/JIT | C#/AOT |  C++ | Rust |
+|--------|-------:|-------:|-----:|-----:|
+| Create |   9747 |  22820 |  519 |  460 |
+| Int32  |     70 |     91 |   25 |   19 |
+| String |   1646 |   1588 |  223 |  219 |
+| Object |   1560 |   2225 |  270 |  268 |
+| Cast   |  24268 |      ∞ |  435 |  426 |
 
 C++/WinRT and Rust are both zero-overhead projections that compile down to direct
-vtable calls, so they sit far below C#/WinRT and stay within noise of each other. Rust
-leads on `Create`, `Int32`, and `Object`, and pulls clearly ahead on `String` by
-building the `HSTRING` once up front; `Cast` is effectively a wash that trades the lead
-run to run.
+vtable calls, so they sit far below C# and stay within noise of each other — Rust is
+marginally ahead on most loops and `String` is a tie now that both pass a pre-built
+string.
 
 C#/WinRT pays the cost of the managed runtime — runtime-callable-wrapper allocation,
 garbage collection, and per-call interop thunks — which dominates `Create` and `Cast`
@@ -93,12 +101,12 @@ where wrappers are allocated. Scalar `Int32` traffic, by contrast, is nearly fre
 
 ### A note on Native AOT
 
-The C# consumer runs on the JIT runtime, which is what these numbers report. Publishing
-it with [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
-(`PublishAot`) optimizes *startup* time, but this benchmark measures steady-state ABI
-cost — where AOT does not help and is markedly worse for the allocation-heavy loops.
-With a fresh runtime-callable wrapper created every iteration, `Create` and especially
-`Cast` degrade super-linearly under AOT's garbage collector (`Cast` is roughly 5× slower
-at 1,000,000 iterations and worse beyond), while JIT stays roughly linear. The
-non-allocating `String` and `Object` loops are actually a touch faster under AOT. JIT is
-reported here as the representative C# result.
+The `C#/AOT` column publishes the same C# program with
+[Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
+(`PublishAot`). Native AOT optimizes *startup* time, not steady-state ABI throughput, so
+it does not help this benchmark: at 10,000,000 iterations it is slower than JIT on every
+loop except `String`. `Cast` is the extreme case — it creates a fresh runtime-callable
+wrapper every iteration, which degrades super-linearly under AOT's garbage collector
+(≈14 µs/iter at 1,000,000 iterations and still climbing, versus a flat ≈2.6 µs/iter for
+JIT), so a full run is impractical and is shown as ∞. JIT is the representative C#
+result.
