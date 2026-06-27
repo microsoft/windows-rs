@@ -1,0 +1,11 @@
+[package]
+name = "lang_perf_cs"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+lang_perf_component = { path = "../component" }
+
+[lints]
+workspace = true

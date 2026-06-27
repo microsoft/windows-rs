@@ -27,7 +27,7 @@ fn test() {
 }
 
 fn assert_utf8(left: PCSTR, right: &[u8]) {
-    let len = unsafe { strlen(left) };
+    let len = unsafe { strlen(left.cast()) };
     assert_eq!(len, right.len() - 1);
     let left = unsafe { std::slice::from_raw_parts(left, right.len()) };
     assert_eq!(left, right);
@@ -41,6 +41,6 @@ fn assert_utf16(left: PCWSTR, right: &[u16]) {
 }
 
 unsafe extern "C" {
-    pub fn strlen(s: PCSTR) -> usize;
+    pub fn strlen(s: *const core::ffi::c_char) -> usize;
     pub fn wcslen(s: PCWSTR) -> usize;
 }

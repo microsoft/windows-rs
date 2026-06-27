@@ -59,6 +59,7 @@ crates. To browse the samples for a published release, use its tag — for examp
 | Sample | Description |
 | --- | --- |
 | `robot` · `robot_client` · `robot_client_cpp` · `robot_client_cs` · `robot_cpp` | A component whose metadata is authored once (RDL) and consumed from Rust, C++, and C#. |
+| `lang_perf_component` · `lang_perf_rust` · `lang_perf_cpp` · `lang_perf_cs` | Benchmark of WinRT language-projection overhead — C++/WinRT vs C#/WinRT vs Rust calling one Rust-authored no-op component. See its [readme](lang_perf/readme.md). |
 | `csharp_component` · `csharp_client` | Author a component in Rust and host it from C#. |
 
 ## Whole-API projection

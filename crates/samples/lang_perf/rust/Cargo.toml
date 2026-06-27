@@ -1,0 +1,19 @@
+[package]
+name = "lang_perf_rust"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "lang_perf_rust"
+path = "src/main.rs"
+
+[dependencies]
+windows-core = { workspace = true, default-features = true }
+lang_perf_component = { path = "../component" }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true
