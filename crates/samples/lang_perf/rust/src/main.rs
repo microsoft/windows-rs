@@ -62,8 +62,7 @@ fn run() -> windows_core::Result<()> {
     }
     report("Int32", start);
 
-    // Build the HSTRING once, up front, so the loop measures only the set/get ABI
-    // traffic - matching how C++'s `L"value"` literal is already a UTF-16 string.
+    // Build the HSTRING once so the loop measures only set/get ABI traffic.
     let value: HSTRING = "value".into();
     let start = Instant::now();
     for _ in 0..iterations {

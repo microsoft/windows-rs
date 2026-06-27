@@ -34,9 +34,6 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
     }
 }
 
-// A deliberately trivial WinRT runtime class: each accessor does the minimum work
-// possible so a tight calling loop measures the projection overhead of the caller's
-// language rather than the cost of the callee.
 #[implement(bindings::Class)]
 #[derive(Default)]
 struct Class {

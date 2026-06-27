@@ -1,8 +1,6 @@
 using System.Diagnostics;
 using LangPerf;
 
-// CsWinRT projects the Rust-authored LangPerf.Class as an ordinary .NET class, with
-// WinRT activation, HSTRING marshaling, and COM QueryInterface handled automatically.
 ulong iterations = ParseIterations(args);
 Console.WriteLine($"# C#/WinRT - {iterations} iterations");
 

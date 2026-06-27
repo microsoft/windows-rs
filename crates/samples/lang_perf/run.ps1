@@ -1,8 +1,8 @@
 #!/usr/bin/env pwsh
 # Builds and runs the three language-projection benchmarks (Release) and prints a
-# comparison table. The C# consumer is not a cargo member, so it is built and run
-# with `dotnet` directly. The no-op WinRT component is built as a package first so
-# its cdylib (langperf.dll) lands next to the consumer executables for activation.
+# comparison table. The C# benchmark is built and run with `dotnet` directly rather
+# than cargo. The no-op WinRT component is built as a package first so its cdylib
+# (langperf.dll) lands next to the consumer executables for activation.
 [CmdletBinding()]
 param(
     [long]$Iterations = 10000000
@@ -35,13 +35,13 @@ function Invoke-Bench {
 }
 
 $results = @()
-$results += Invoke-Bench 'C++/WinRT' {
-    & (Join-Path $releaseDir 'lang_perf_cpp.exe') --iterations $Iterations
-}
 $results += Invoke-Bench 'C#/WinRT' {
     # The C# consumer resolves langperf.dll via PATH at runtime.
     $env:PATH = "$releaseDir;$env:PATH"
     dotnet run -c Release --project (Join-Path $PSScriptRoot 'csharp') -- --iterations $Iterations
+}
+$results += Invoke-Bench 'C++/WinRT' {
+    & (Join-Path $releaseDir 'lang_perf_cpp.exe') --iterations $Iterations
 }
 $results += Invoke-Bench 'Rust' {
     & (Join-Path $releaseDir 'lang_perf_rust.exe') --iterations $Iterations

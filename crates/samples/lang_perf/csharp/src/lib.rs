@@ -26,6 +26,9 @@ fn main() {
     let result = String::from_utf8_lossy(&output.stdout);
 
     for label in ["Create:", "Int32:", "String:", "Object:", "Cast:"] {
-        assert!(result.contains(label), "missing {label} in stdout:\n{result}");
+        assert!(
+            result.contains(label),
+            "missing {label} in stdout:\n{result}"
+        );
     }
 }

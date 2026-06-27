@@ -54,8 +54,8 @@ cargo run --release -p lang_perf_rust -- --iterations 10000000
 cargo run --release -p lang_perf_cpp  -- --iterations 10000000
 ```
 
-The C# consumer is not a cargo member; run it with `dotnet` (with the component's
-output directory on `PATH` so `langperf.dll` resolves):
+The C# benchmark is built by `dotnet` rather than cargo; run it directly (with the
+component's output directory on `PATH` so `langperf.dll` resolves):
 
 ```pwsh
 $env:PATH = "$PWD/target/release;$env:PATH"
@@ -73,20 +73,32 @@ crates/samples/lang_perf/run.ps1 -Iterations 10000000
 Release builds, 10,000,000 iterations, milliseconds (lower is better). Absolute
 numbers are machine-dependent; the relative shape is the point.
 
-| Metric | C++/WinRT | C#/WinRT |  Rust |
-|--------|----------:|---------:|------:|
-| Create |       521 |    10367 |   463 |
-| Int32  |        26 |       68 |    19 |
-| String |       408 |     1781 |   223 |
-| Object |       274 |     1635 |   272 |
-| Cast   |       450 |    25602 |   442 |
+| Metric | C#/WinRT | C++/WinRT |  Rust |
+|--------|---------:|----------:|------:|
+| Create |    10052 |       522 |   456 |
+| Int32  |       55 |        25 |    19 |
+| String |     1714 |       404 |   223 |
+| Object |     1576 |       270 |   268 |
+| Cast   |    26147 |       440 |   453 |
 
 C++/WinRT and Rust are both zero-overhead projections that compile down to direct
-vtable calls, so they sit far below C#/WinRT. Rust edges ahead in every loop here.
-Each consumer hoists its string out of the loop — C++'s `L"value"` literal is already a
-UTF-16 string, and the Rust consumer builds the `HSTRING` once up front — so `String`
-measures pure set/get ABI traffic rather than encoding conversions.
+vtable calls, so they sit far below C#/WinRT and stay within noise of each other. Rust
+leads on `Create`, `Int32`, and `Object`, and pulls clearly ahead on `String` by
+building the `HSTRING` once up front; `Cast` is effectively a wash that trades the lead
+run to run.
 
 C#/WinRT pays the cost of the managed runtime — runtime-callable-wrapper allocation,
 garbage collection, and per-call interop thunks — which dominates `Create` and `Cast`
 where wrappers are allocated. Scalar `Int32` traffic, by contrast, is nearly free.
+
+### A note on Native AOT
+
+The C# consumer runs on the JIT runtime, which is what these numbers report. Publishing
+it with [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
+(`PublishAot`) optimizes *startup* time, but this benchmark measures steady-state ABI
+cost — where AOT does not help and is markedly worse for the allocation-heavy loops.
+With a fresh runtime-callable wrapper created every iteration, `Create` and especially
+`Cast` degrade super-linearly under AOT's garbage collector (`Cast` is roughly 5× slower
+at 1,000,000 iterations and worse beyond), while JIT stays roughly linear. The
+non-allocating `String` and `Object` loops are actually a touch faster under AOT. JIT is
+reported here as the representative C# result.

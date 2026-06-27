@@ -40,8 +40,6 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         }
         printf("Int32: %lld ms\n", elapsed_ms(start));
 
-        // A wide string literal builds an hstring without any encoding conversion,
-        // unlike the UTF-8 -> UTF-16 conversion a Rust string literal requires.
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
