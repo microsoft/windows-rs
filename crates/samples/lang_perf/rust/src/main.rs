@@ -62,11 +62,9 @@ fn run() -> windows_core::Result<()> {
     }
     report("Int32", start);
 
-    // Build the HSTRING once so the loop measures only set/get ABI traffic.
-    let value: HSTRING = "value".into();
     let start = Instant::now();
     for _ in 0..iterations {
-        object.SetStringProperty(&value)?;
+        object.SetStringProperty(h!("value"))?;
         let _ = object.StringProperty()?;
     }
     report("String", start);

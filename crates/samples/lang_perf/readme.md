@@ -8,10 +8,12 @@ compares the latest [C++/WinRT](https://github.com/microsoft/cppwinrt),
 
 ## How it works
 
-The callee is a tiny **no-op WinRT component** (`LangPerf.Class`). Because it does
-nothing, the time spent in a tight loop is dominated by the projection glue —
-activation, parameter marshaling, reference counting, and `QueryInterface` — rather
-than by any real work. That isolates exactly what we want to compare.
+The callee is a tiny **no-op WinRT component** (`LangPerf.Class`). Every method ignores
+its arguments and returns a fixed, known value — the setters discard their input, the
+getters return `0`, an empty string, or a reference to an already-live object — so the
+component stores no state and does no real work per call. That leaves a tight loop
+dominated by the projection glue — activation, parameter marshaling, reference counting,
+and `QueryInterface` — which is exactly what we want to compare.
 
 The component is authored entirely in Rust:
 
@@ -38,9 +40,14 @@ Each consumer runs five loops and prints `label: N ms`:
 |----------|--------------------------------------------------------------|
 | `Create` | `Class()` activation + release                               |
 | `Int32`  | set + get an `Int32` property (scalar in/out)               |
-| `String` | set + get a `String` property (HSTRING reference-counting)  |
+| `String` | set + get a `String` property (HSTRING marshaling, in/out)  |
 | `Object` | set + get an `Object` property (`IInspectable` ref-counting) |
 | `Cast`   | `NewObject()` then `QueryInterface` to a non-default interface |
+
+`Create` and `Cast` are the only loops that allocate: `Create` activates and releases an
+object each iteration, and `Cast` returns a fresh object before querying it. The other
+three are pure ABI traffic — scalar copies, string marshaling, and an `AddRef`/`Release`
+pair on an existing object — with no allocation in the component.
 
 ## Running
 
@@ -77,27 +84,34 @@ crates/samples/lang_perf/run.ps1 -Iterations 10000000 -IncludeAot
 
 ## Sample results
 
-Release builds, 10,000,000 iterations, milliseconds (lower is better). All four
-consumers issue the identical sequence of ABI calls, with the string hoisted out of the
-loop in every language so only set/get traffic is measured. Absolute numbers are
-machine-dependent; the relative shape is the point.
+Release builds, 10,000,000 iterations, milliseconds (lower is better). Each consumer
+issues the identical sequence of ABI calls and passes each value the natural, idiomatic
+way for its language — including the string argument, written as `h!("value")` in Rust,
+`L"value"` in C++, and `"value"` in C#. Because the component ignores its inputs and
+returns fixed values, the numbers are dominated by projection/ABI cost rather than any
+work in the component. Absolute numbers are machine-dependent; the relative shape is the
+point.
 
 | Metric | C#/JIT | C#/AOT |  C++ | Rust |
 |--------|-------:|-------:|-----:|-----:|
-| Create |   9747 |  22820 |  519 |  460 |
-| Int32  |     70 |     91 |   25 |   19 |
-| String |   1646 |   1588 |  223 |  219 |
-| Object |   1560 |   2225 |  270 |  268 |
-| Cast   |  24268 |      ∞ |  435 |  426 |
+| Create |  10106 |  25933 |  514 |  455 |
+| Int32  |     58 |     96 |   26 |   20 |
+| String |   1098 |    241 |   33 |   22 |
+| Object |   1480 |   2536 |  137 |  137 |
+| Cast   |  26665 |      ∞ |  450 |  439 |
 
 C++/WinRT and Rust are both zero-overhead projections that compile down to direct
 vtable calls, so they sit far below C# and stay within noise of each other — Rust is
-marginally ahead on most loops and `String` is a tie now that both pass a pre-built
-string.
+marginally ahead on most loops and ties the rest. With the component doing nothing, the
+pure-ABI loops (`Int32`, `String`, `Object`) drop to tens of milliseconds: a scalar
+copy, a fast-pass string marshal, and an `AddRef`/`Release` pair are all essentially
+free. `Create` and `Cast` cost more only because they genuinely allocate an object each
+iteration.
 
-C#/WinRT pays the cost of the managed runtime — runtime-callable-wrapper allocation,
-garbage collection, and per-call interop thunks — which dominates `Create` and `Cast`
-where wrappers are allocated. Scalar `Int32` traffic, by contrast, is nearly free.
+C#/WinRT pays the cost of the managed runtime on every call — runtime-callable-wrapper
+lookups, garbage collection, and per-call interop thunks — so even the pure-ABI loops are
+an order of magnitude slower than C++/Rust, and the allocating `Create` and `Cast` loops
+are dramatically so.
 
 ### A note on Native AOT
 
@@ -105,8 +119,8 @@ The `C#/AOT` column publishes the same C# program with
 [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
 (`PublishAot`). Native AOT optimizes *startup* time, not steady-state ABI throughput, so
 it does not help this benchmark: at 10,000,000 iterations it is slower than JIT on every
-loop except `String`. `Cast` is the extreme case — it creates a fresh runtime-callable
-wrapper every iteration, which degrades super-linearly under AOT's garbage collector
-(≈14 µs/iter at 1,000,000 iterations and still climbing, versus a flat ≈2.6 µs/iter for
-JIT), so a full run is impractical and is shown as ∞. JIT is the representative C#
-result.
+loop except `String` (where its leaner string marshaling is several times faster). `Cast`
+is the extreme case — it creates a fresh runtime-callable wrapper every iteration, which
+degrades super-linearly under AOT's garbage collector (≈14 µs/iter at 1,000,000
+iterations and still climbing, versus a flat ≈2.6 µs/iter for JIT), so a full run is
+impractical and is shown as ∞. JIT is the representative C# result.

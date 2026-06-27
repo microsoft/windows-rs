@@ -21,11 +21,10 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Int32", timer);
 
-var text = "value";
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    o.SetStringProperty(text);
+    o.SetStringProperty("value");
     _ = o.StringProperty();
 }
 Report("String", timer);

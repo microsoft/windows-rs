@@ -40,11 +40,10 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         }
         printf("Int32: %lld ms\n", elapsed_ms(start));
 
-        hstring const text = L"value";
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            object.SetStringProperty(text);
+            object.SetStringProperty(L"value");
             auto value = object.StringProperty();
             (void)value;
         }

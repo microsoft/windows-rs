@@ -7,7 +7,6 @@
 )]
 mod bindings;
 
-use std::cell::{Cell, RefCell};
 use windows::{Win32::Foundation::*, Win32::System::WinRT::*, core::*};
 
 #[unsafe(no_mangle)]
@@ -30,43 +29,35 @@ struct ClassFactory;
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable> {
-        Ok(Class::default().into())
+        Ok(Class.into())
     }
 }
 
 #[implement(bindings::Class)]
-#[derive(Default)]
-struct Class {
-    int32: Cell<i32>,
-    string: RefCell<HSTRING>,
-    object: RefCell<Option<IInspectable>>,
-}
+struct Class;
 
 impl bindings::IClass_Impl for Class_Impl {
     fn Int32Property(&self) -> Result<i32> {
-        Ok(self.int32.get())
+        Ok(0)
     }
 
-    fn SetInt32Property(&self, value: i32) -> Result<()> {
-        self.int32.set(value);
+    fn SetInt32Property(&self, _value: i32) -> Result<()> {
         Ok(())
     }
 
     fn StringProperty(&self) -> Result<HSTRING> {
-        Ok(self.string.borrow().clone())
+        Ok(HSTRING::new())
     }
 
-    fn SetStringProperty(&self, value: &HSTRING) -> Result<()> {
-        *self.string.borrow_mut() = value.clone();
+    fn SetStringProperty(&self, _value: &HSTRING) -> Result<()> {
         Ok(())
     }
 
     fn ObjectProperty(&self) -> Result<IInspectable> {
-        self.object.borrow().clone().ok_or_else(|| E_POINTER.into())
+        Ok(self.to_interface())
     }
 
-    fn SetObjectProperty(&self, value: Ref<IInspectable>) -> Result<()> {
-        *self.object.borrow_mut() = value.cloned();
+    fn SetObjectProperty(&self, _value: Ref<IInspectable>) -> Result<()> {
         Ok(())
     }
 
