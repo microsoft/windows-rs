@@ -67,7 +67,10 @@ cargo run --release -p lang_perf_cpp  -- --iterations 10000000
 ```
 
 The C# benchmark is built by `dotnet` rather than cargo; run it directly (with the
-component's output directory on `PATH` so `langperf.dll` resolves):
+component's output directory on `PATH` so `langperf.dll` resolves). It targets **.NET 10**
+(the current release) and **C#/WinRT (CsWinRT) 2.2.0**, the latest *stable* projection —
+see [the note below](#a-note-on-cswinrt-30) for why it does not use the 3.0 preview. The
+.NET 10 SDK is required:
 
 ```pwsh
 $env:PATH = "$PWD/target/release;$env:PATH"
@@ -97,14 +100,14 @@ returns fixed values, the numbers are dominated by projection/ABI cost rather th
 work in the component. Absolute numbers are machine-dependent; the relative shape is the
 point.
 
-| Metric | C#/JIT |  C#/AOT |    C++ | Rust |
-|--------|-------:|--------:|-------:|-----:|
-| Create |   9198 |   16622 |    501 |  443 |
-| Int32  |     54 |      87 |     26 |   20 |
-| String |   1049 |     223 |     32 |   21 |
-| Object |   1448 |    2107 |    135 |  133 |
-| Cast   |   1650 |    5325 |    281 |  271 |
-| Error  |  22392 | crashed | 141663 |   53 |
+| Metric | C#/JIT | C#/AOT |    C++ | Rust |
+|--------|-------:|-------:|-------:|-----:|
+| Create |   9963 |  17288 |    507 |  442 |
+| Int32  |     64 |     90 |     28 |   20 |
+| String |    245 |    221 |     32 |   21 |
+| Object |   1127 |   1358 |    135 |  133 |
+| Cast   |   1337 |   2549 |    281 |  271 |
+| Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
 compile down to direct vtable calls, so they sit far below C# and stay within noise of
@@ -124,24 +127,23 @@ of magnitude slower than C++/Rust, and the allocating `Create` loop dramatically
 stacked on top of each other. The first is the exception machinery itself. Rust projects a
 failed `HRESULT` as a `Result::Err` — an ordinary returned value — so the loop stays as
 cheap as the other pure-ABI loops (`53 ms`, ~5 ns per call). C#/WinRT projects the same
-failure as a *thrown* managed exception and pays `22392 ms`, roughly `2 µs` per call — and
+failure as a *thrown* managed exception and pays `14543 ms`, roughly `1.5 µs` per call — and
 that is almost entirely the throw, because C#'s `ThrowExceptionForHR` does *not* eagerly
 originate restricted error info and .NET only materializes a stack trace if one is read.
-That ~400× gap between a return and a bare throw is the headline: exceptions are genuinely
+That ~270× gap between a return and a bare throw is the headline: exceptions are genuinely
 expensive, and a projection that returns errors is dramatically cheaper whenever failures
 are routine — an iterator reaching its end with `E_BOUNDS`, say.
 
-C++/WinRT then piles a second cost on top of the throw. Its `141663 ms` is about `14 µs`
+C++/WinRT then piles a second cost on top of the throw. Its `144601 ms` is about `14 µs`
 per call, an order of magnitude worse than C#'s already-expensive throw. A bare native
-throw/catch on this machine is only ~1.5 µs, so the remaining ~12 µs is WinRT error
+throw/catch on this machine is only ~1.5 µs, so the remaining ~13 µs is WinRT error
 *origination*: `winrt::throw_hresult` builds a full `hresult_error`, which calls
 `RoOriginateLanguageException` to create an `IRestrictedErrorInfo` and capture the error
 context on every single throw. So C++/WinRT is slow for both reasons — it throws *and* it
 eagerly enriches each failure — while C# pays only the throw and Rust pays neither.
 
-The C#/AOT build can't run this loop at all: throwing the projected exception in a tight
-loop terminates the process with a `StackOverflowException`, so its `Error` cell reads
-`crashed`.
+The C#/AOT build pays about the same as JIT here (`15542 ms`, ~1.6 µs per call): Native AOT
+changes startup, not the cost of throwing, so the exception machinery dominates either way.
 
 ### A note on Native AOT
 
@@ -149,9 +151,20 @@ The `C#/AOT` column publishes the same C# program with
 [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
 (`PublishAot`). Native AOT optimizes *startup* time, not steady-state ABI throughput, so
 it does not help this benchmark: at 10,000,000 iterations it is slower than JIT on every
-loop except `String`, where its leaner string marshaling is several times faster. The
-`Object` and `Cast` loops are the worst cases — each `QueryInterface`/wrapper lookup goes
-through AOT's interop layer and garbage collector — but they remain linear and tractable.
-The AOT build cannot complete the `Error` loop at all: throwing the projected exception in
-a tight loop terminates the process with a `StackOverflowException`. JIT is the
-representative C# result.
+loop except `String`, where its leaner string marshaling is slightly faster. The `Cast`
+loop is the worst case — each `QueryInterface`/wrapper lookup goes through AOT's interop
+layer and garbage collector — but every loop stays linear and tractable, including `Error`,
+which AOT now completes at roughly the same cost as JIT. JIT is the representative C#
+result.
+
+### A note on CsWinRT 3.0
+
+The C# numbers use **CsWinRT 2.2.0**, the latest *stable* projection. CsWinRT 3.0 — a
+ground-up rewrite of the interop layer for .NET 10, currently in preview — does not work
+with this component: it activates the class fine, but the first call through a projected
+member access-violates (`0xC0000005`) inside its own marshaling layer. The component's ABI
+is not at fault — C++/WinRT, Rust, CsWinRT 2.x, and even raw function-pointer calls from
+.NET 10 all invoke the exact same vtable correctly, and the projection computes the right
+IID and slot layout. The sample therefore pins 2.2.0 until the 3.0 projection can call into
+the component; the comparison above is unaffected, since both project the identical
+`lang.winmd`.
