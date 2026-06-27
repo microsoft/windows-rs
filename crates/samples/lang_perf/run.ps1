@@ -66,7 +66,7 @@ $results += Invoke-Bench 'Rust' {
     & (Join-Path $releaseDir 'lang_perf_rust.exe') --iterations $Iterations
 }
 
-$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast'
+$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast', 'Error'
 $langs = $results | ForEach-Object { $_.Language }
 Write-Host "`n## Results ($Iterations iterations, milliseconds)`n"
 Write-Host (('| {0,-6} | ' -f 'Metric') + (($langs | ForEach-Object { '{0,8}' -f $_ }) -join ' | ') + ' |')

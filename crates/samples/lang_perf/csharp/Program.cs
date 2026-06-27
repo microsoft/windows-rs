@@ -44,6 +44,19 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Cast", timer);
 
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
+{
+    try
+    {
+        _ = o.Next();
+    }
+    catch (Exception)
+    {
+    }
+}
+Report("Error", timer);
+
 static void Report(string label, Stopwatch timer)
 {
     timer.Stop();
