@@ -13,6 +13,7 @@ mod LangPerf {
         Int32Property: i32;
         StringProperty: String;
         ObjectProperty: Object;
+        fn Next(&self) -> i32;
     }
 
     interface INonDefault {

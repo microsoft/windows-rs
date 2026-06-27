@@ -76,6 +76,12 @@ fn run() -> windows_core::Result<()> {
     }
     report("Cast", start);
 
+    let start = Instant::now();
+    for _ in 0..iterations {
+        let _ = object.Next();
+    }
+    report("Error", start);
+
     Ok(())
 }
 

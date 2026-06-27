@@ -10,10 +10,11 @@ compares the latest [C++/WinRT](https://github.com/microsoft/cppwinrt),
 
 The callee is a tiny **no-op WinRT component** (`LangPerf.Class`). Every method ignores
 its arguments and returns a fixed, known value — the setters discard their input, the
-getters return `0`, an empty string, or a reference to an already-live object — so the
-component stores no state and does no real work per call. That leaves a tight loop
-dominated by the projection glue — activation, parameter marshaling, reference counting,
-and `QueryInterface` — which is exactly what we want to compare.
+getters return `0`, an empty string, or a reference to an already-live object, and the
+`Next` method always fails with a fixed `E_BOUNDS` `HRESULT` — so the component stores no
+state and does no real work per call. That leaves a tight loop dominated by the
+projection glue — activation, parameter marshaling, reference counting, error
+propagation, and `QueryInterface` — which is exactly what we want to compare.
 
 The component is authored entirely in Rust:
 
@@ -34,7 +35,7 @@ cdylib is simply named `langperf.dll` and co-located with the consumers.
 
 ## What is measured
 
-Each consumer runs five loops and prints `label: N ms`:
+Each consumer runs six loops and prints `label: N ms`:
 
 | Loop     | What it exercises                                             |
 |----------|--------------------------------------------------------------|
@@ -43,11 +44,15 @@ Each consumer runs five loops and prints `label: N ms`:
 | `String` | set + get a `String` property (HSTRING marshaling, in/out)  |
 | `Object` | set + get an `Object` property (`IInspectable` ref-counting) |
 | `Cast`   | `ObjectProperty()` then `QueryInterface` to a non-default interface |
+| `Error`  | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
 
 `Create` is the only loop that allocates: it activates and releases an object each
-iteration. The other four are pure ABI traffic — scalar copies, string marshaling, an
+iteration. The next four are pure ABI traffic — scalar copies, string marshaling, an
 `AddRef`/`Release` pair, and a `QueryInterface` — all on an already-live object, with no
-allocation in the component.
+allocation in the component. `Error` isolates the failure path: the component's `Next`
+method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop measures how each
+projection turns an ABI error code into its idiomatic error type — a `Result::Err` in
+Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed exception in C#/WinRT.
 
 ## Running
 
@@ -92,13 +97,14 @@ returns fixed values, the numbers are dominated by projection/ABI cost rather th
 work in the component. Absolute numbers are machine-dependent; the relative shape is the
 point.
 
-| Metric | C#/JIT | C#/AOT |  C++ | Rust |
-|--------|-------:|-------:|-----:|-----:|
-| Create |   8904 |  17883 |  498 |  452 |
-| Int32  |     54 |     85 |   26 |   20 |
-| String |   1107 |    226 |   33 |   22 |
-| Object |   1471 |   2246 |  133 |  134 |
-| Cast   |   1709 |   5580 |  275 |  273 |
+| Metric | C#/JIT |  C#/AOT |    C++ | Rust |
+|--------|-------:|--------:|-------:|-----:|
+| Create |   9198 |   16622 |    501 |  443 |
+| Int32  |     54 |      87 |     26 |   20 |
+| String |   1049 |     223 |     32 |   21 |
+| Object |   1448 |    2107 |    135 |  133 |
+| Cast   |   1650 |    5325 |    281 |  271 |
+| Error  |  22392 | crashed | 141663 |   53 |
 
 C++/WinRT and Rust are both zero-overhead projections that compile down to direct
 vtable calls, so they sit far below C# and stay within noise of each other — Rust is
@@ -113,6 +119,21 @@ lookups, garbage collection, and per-call interop thunks — so even the pure-AB
 an order of magnitude slower than C++/Rust, and the allocating `Create` loop is
 dramatically so.
 
+### Error propagation
+
+The `Error` loop is the one place the projections diverge by orders of magnitude, and it
+comes down to how each language models a failed `HRESULT`. Rust projects the failure as a
+`Result::Err` — a returned value, no unwinding — so the loop is essentially free (`53 ms`,
+in line with the other pure-ABI loops). C++/WinRT and C#/WinRT both project the failure as
+a *thrown exception*, and throwing 10,000,000 times is enormously expensive: C++/WinRT's
+`hresult_error` unwinds the stack on every iteration and spends over two minutes
+(`141663 ms`), while C#'s managed exceptions cost `22392 ms`. The lesson isn't that
+exceptions are slow in absolute terms — they're fine for genuinely exceptional paths — but
+that a projection which returns errors instead of throwing them is far cheaper when errors
+are common (an iterator hitting its end with `E_BOUNDS`, say). The C#/AOT build does not
+even complete this loop: it terminates with a `StackOverflowException`, so its `Error`
+cell reads `crashed`.
+
 ### A note on Native AOT
 
 The `C#/AOT` column publishes the same C# program with
@@ -122,4 +143,6 @@ it does not help this benchmark: at 10,000,000 iterations it is slower than JIT 
 loop except `String`, where its leaner string marshaling is several times faster. The
 `Object` and `Cast` loops are the worst cases — each `QueryInterface`/wrapper lookup goes
 through AOT's interop layer and garbage collector — but they remain linear and tractable.
-JIT is the representative C# result.
+The AOT build cannot complete the `Error` loop at all: throwing the projected exception in
+a tight loop terminates the process with a `StackOverflowException`. JIT is the
+representative C# result.

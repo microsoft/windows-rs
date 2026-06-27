@@ -60,6 +60,10 @@ impl bindings::IClass_Impl for Class_Impl {
     fn SetObjectProperty(&self, _value: Ref<IInspectable>) -> Result<()> {
         Ok(())
     }
+
+    fn Next(&self) -> Result<i32> {
+        Err(E_BOUNDS.into())
+    }
 }
 
 impl bindings::INonDefault_Impl for Class_Impl {

@@ -66,6 +66,19 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         }
         printf("Cast: %lld ms\n", elapsed_ms(start));
 
+        start = std::chrono::high_resolution_clock::now();
+        for (uint64_t i = 0; i < iterations; i++)
+        {
+            try
+            {
+                (void)object.Next();
+            }
+            catch (hresult_error const&)
+            {
+            }
+        }
+        printf("Error: %lld ms\n", elapsed_ms(start));
+
         fflush(stdout);
         return 0;
     }
