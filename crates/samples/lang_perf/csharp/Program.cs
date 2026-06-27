@@ -37,20 +37,12 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Object", timer);
 
-if (Environment.GetEnvironmentVariable("LANG_PERF_NO_CAST") == "1")
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
 {
-    // Native AOT degrades super-linearly on this loop; skip rather than wait minutes.
-    Console.WriteLine("Cast: skipped");
+    _ = ((INonDefault)o.ObjectProperty()).Value();
 }
-else
-{
-    timer = Stopwatch.StartNew();
-    for (ulong i = 0; i < iterations; i++)
-    {
-        _ = ((INonDefault)o.NewObject()).Value();
-    }
-    Report("Cast", timer);
-}
+Report("Cast", timer);
 
 static void Report(string label, Stopwatch timer)
 {

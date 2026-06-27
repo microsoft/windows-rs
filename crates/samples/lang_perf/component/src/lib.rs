@@ -33,7 +33,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
     }
 }
 
-#[implement(bindings::Class)]
+#[implement(bindings::Class, bindings::INonDefault)]
 struct Class;
 
 impl bindings::IClass_Impl for Class_Impl {
@@ -60,16 +60,9 @@ impl bindings::IClass_Impl for Class_Impl {
     fn SetObjectProperty(&self, _value: Ref<IInspectable>) -> Result<()> {
         Ok(())
     }
-
-    fn NewObject(&self) -> Result<IInspectable> {
-        Ok(NonDefault.into())
-    }
 }
 
-#[implement(bindings::INonDefault)]
-struct NonDefault;
-
-impl bindings::INonDefault_Impl for NonDefault_Impl {
+impl bindings::INonDefault_Impl for Class_Impl {
     fn Value(&self) -> Result<i32> {
         Ok(0)
     }

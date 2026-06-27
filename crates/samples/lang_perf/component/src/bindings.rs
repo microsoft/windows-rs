@@ -76,16 +76,6 @@ impl Class {
             .ok()
         }
     }
-    pub fn NewObject(&self) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NewObject)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -100,7 +90,7 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xe853a9c7_689d_5bc7_a462_7b99d49ad4ff);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x796dee90_c3d5_5bc7_b6c4_29202e486236);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -120,7 +110,6 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
         &self,
         value: windows_core::Ref<windows_core::IInspectable>,
     ) -> windows_core::Result<()>;
-    fn NewObject(&self) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -204,23 +193,6 @@ impl IClass_Vtbl {
                 IClass_Impl::SetObjectProperty(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn NewObject<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IClass_Impl::NewObject(this) {
-                    Ok(ok__) => {
-                        result__.write(core::mem::transmute_copy(&ok__));
-                        core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Int32Property: Int32Property::<Identity, OFFSET>,
@@ -229,7 +201,6 @@ impl IClass_Vtbl {
             SetStringProperty: SetStringProperty::<Identity, OFFSET>,
             ObjectProperty: ObjectProperty::<Identity, OFFSET>,
             SetObjectProperty: SetObjectProperty::<Identity, OFFSET>,
-            NewObject: NewObject::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -258,10 +229,6 @@ pub struct IClass_Vtbl {
     pub SetObjectProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub NewObject: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(

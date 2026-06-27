@@ -42,12 +42,12 @@ Each consumer runs five loops and prints `label: N ms`:
 | `Int32`  | set + get an `Int32` property (scalar in/out)               |
 | `String` | set + get a `String` property (HSTRING marshaling, in/out)  |
 | `Object` | set + get an `Object` property (`IInspectable` ref-counting) |
-| `Cast`   | `NewObject()` then `QueryInterface` to a non-default interface |
+| `Cast`   | `ObjectProperty()` then `QueryInterface` to a non-default interface |
 
-`Create` and `Cast` are the only loops that allocate: `Create` activates and releases an
-object each iteration, and `Cast` returns a fresh object before querying it. The other
-three are pure ABI traffic — scalar copies, string marshaling, and an `AddRef`/`Release`
-pair on an existing object — with no allocation in the component.
+`Create` is the only loop that allocates: it activates and releases an object each
+iteration. The other four are pure ABI traffic — scalar copies, string marshaling, an
+`AddRef`/`Release` pair, and a `QueryInterface` — all on an already-live object, with no
+allocation in the component.
 
 ## Running
 
@@ -94,24 +94,24 @@ point.
 
 | Metric | C#/JIT | C#/AOT |  C++ | Rust |
 |--------|-------:|-------:|-----:|-----:|
-| Create |  10106 |  25933 |  514 |  455 |
-| Int32  |     58 |     96 |   26 |   20 |
-| String |   1098 |    241 |   33 |   22 |
-| Object |   1480 |   2536 |  137 |  137 |
-| Cast   |  26665 |      ∞ |  450 |  439 |
+| Create |   8904 |  17883 |  498 |  452 |
+| Int32  |     54 |     85 |   26 |   20 |
+| String |   1107 |    226 |   33 |   22 |
+| Object |   1471 |   2246 |  133 |  134 |
+| Cast   |   1709 |   5580 |  275 |  273 |
 
 C++/WinRT and Rust are both zero-overhead projections that compile down to direct
 vtable calls, so they sit far below C# and stay within noise of each other — Rust is
 marginally ahead on most loops and ties the rest. With the component doing nothing, the
-pure-ABI loops (`Int32`, `String`, `Object`) drop to tens of milliseconds: a scalar
-copy, a fast-pass string marshal, and an `AddRef`/`Release` pair are all essentially
-free. `Create` and `Cast` cost more only because they genuinely allocate an object each
-iteration.
+pure-ABI loops (`Int32`, `String`, `Object`, `Cast`) drop to tens or low hundreds of
+milliseconds: a scalar copy, a fast-pass string marshal, an `AddRef`/`Release` pair, and
+a `QueryInterface` are all essentially free. Only `Create` costs more, because it
+genuinely activates and releases an object each iteration.
 
 C#/WinRT pays the cost of the managed runtime on every call — runtime-callable-wrapper
 lookups, garbage collection, and per-call interop thunks — so even the pure-ABI loops are
-an order of magnitude slower than C++/Rust, and the allocating `Create` and `Cast` loops
-are dramatically so.
+an order of magnitude slower than C++/Rust, and the allocating `Create` loop is
+dramatically so.
 
 ### A note on Native AOT
 
@@ -119,8 +119,7 @@ The `C#/AOT` column publishes the same C# program with
 [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
 (`PublishAot`). Native AOT optimizes *startup* time, not steady-state ABI throughput, so
 it does not help this benchmark: at 10,000,000 iterations it is slower than JIT on every
-loop except `String` (where its leaner string marshaling is several times faster). `Cast`
-is the extreme case — it creates a fresh runtime-callable wrapper every iteration, which
-degrades super-linearly under AOT's garbage collector (≈14 µs/iter at 1,000,000
-iterations and still climbing, versus a flat ≈2.6 µs/iter for JIT), so a full run is
-impractical and is shown as ∞. JIT is the representative C# result.
+loop except `String`, where its leaner string marshaling is several times faster. The
+`Object` and `Cast` loops are the worst cases — each `QueryInterface`/wrapper lookup goes
+through AOT's interop layer and garbage collector — but they remain linear and tractable.
+JIT is the representative C# result.

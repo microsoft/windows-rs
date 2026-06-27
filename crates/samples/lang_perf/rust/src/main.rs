@@ -78,7 +78,7 @@ fn run() -> windows_core::Result<()> {
 
     let start = Instant::now();
     for _ in 0..iterations {
-        let _ = object.NewObject()?.cast::<INonDefault>()?.Value()?;
+        let _ = object.ObjectProperty()?.cast::<INonDefault>()?.Value()?;
     }
     report("Cast", start);
 

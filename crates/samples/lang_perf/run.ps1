@@ -56,10 +56,7 @@ $results += Invoke-Bench 'C#/JIT' {
 if ($IncludeAot) {
     $results += Invoke-Bench 'C#/AOT' {
         $env:PATH = "$releaseDir;$env:PATH"
-        # The Cast loop degrades super-linearly under AOT; skip it and report it as inf.
-        $env:LANG_PERF_NO_CAST = '1'
         & $aotExe --iterations $Iterations
-        Remove-Item Env:\LANG_PERF_NO_CAST
     }
 }
 $results += Invoke-Bench 'C++' {
@@ -71,13 +68,10 @@ $results += Invoke-Bench 'Rust' {
 
 $metrics = 'Create', 'Int32', 'String', 'Object', 'Cast'
 $langs = $results | ForEach-Object { $_.Language }
-$infinity = [char]0x221E
 Write-Host "`n## Results ($Iterations iterations, milliseconds)`n"
 Write-Host (('| {0,-6} | ' -f 'Metric') + (($langs | ForEach-Object { '{0,8}' -f $_ }) -join ' | ') + ' |')
 Write-Host ('|' + ('-' * 8) + '|' + (($langs | ForEach-Object { '-' * 10 }) -join '|') + '|')
 foreach ($metric in $metrics) {
-    $cells = $results | ForEach-Object {
-        if ($null -eq $_.$metric) { '{0,8}' -f $infinity } else { '{0,8}' -f $_.$metric }
-    }
+    $cells = $results | ForEach-Object { '{0,8}' -f $_.$metric }
     Write-Host (('| {0,-6} | ' -f $metric) + ($cells -join ' | ') + ' |')
 }

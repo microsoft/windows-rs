@@ -61,7 +61,7 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            auto value = object.NewObject().as<INonDefault>().Value();
+            auto value = object.ObjectProperty().as<INonDefault>().Value();
             (void)value;
         }
         printf("Cast: %lld ms\n", elapsed_ms(start));

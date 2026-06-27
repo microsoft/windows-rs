@@ -16,7 +16,6 @@ mod LangPerf {
         fn SetStringProperty(&self, value: String);
         fn ObjectProperty(&self) -> Object;
         fn SetObjectProperty(&self, value: Object);
-        fn NewObject(&self) -> Object;
     }
 
     interface INonDefault {
