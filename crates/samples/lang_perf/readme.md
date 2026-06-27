@@ -106,33 +106,42 @@ point.
 | Cast   |   1650 |    5325 |    281 |  271 |
 | Error  |  22392 | crashed | 141663 |   53 |
 
-C++/WinRT and Rust are both zero-overhead projections that compile down to direct
-vtable calls, so they sit far below C# and stay within noise of each other — Rust is
-marginally ahead on most loops and ties the rest. With the component doing nothing, the
-pure-ABI loops (`Int32`, `String`, `Object`, `Cast`) drop to tens or low hundreds of
-milliseconds: a scalar copy, a fast-pass string marshal, an `AddRef`/`Release` pair, and
-a `QueryInterface` are all essentially free. Only `Create` costs more, because it
-genuinely activates and releases an object each iteration.
+For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
+compile down to direct vtable calls, so they sit far below C# and stay within noise of
+each other — Rust is marginally ahead on most loops and ties the rest. With the component
+doing nothing, the pure-ABI loops (`Int32`, `String`, `Object`, `Cast`) cost tens to low
+hundreds of milliseconds: a scalar copy, a fast-pass string marshal, an `AddRef`/`Release`
+pair, and a `QueryInterface` are all essentially free. Only `Create` costs more, because
+it genuinely activates and releases an object each iteration.
 
-C#/WinRT pays the cost of the managed runtime on every call — runtime-callable-wrapper
-lookups, garbage collection, and per-call interop thunks — so even the pure-ABI loops are
-an order of magnitude slower than C++/Rust, and the allocating `Create` loop is
-dramatically so.
+C#/WinRT pays for the managed runtime on every call — runtime-callable-wrapper lookups,
+garbage collection, and per-call interop thunks — so even the pure-ABI loops run an order
+of magnitude slower than C++/Rust, and the allocating `Create` loop dramatically so.
 
 ### Error propagation
 
-The `Error` loop is the one place the projections diverge by orders of magnitude, and it
-comes down to how each language models a failed `HRESULT`. Rust projects the failure as a
-`Result::Err` — a returned value, no unwinding — so the loop is essentially free (`53 ms`,
-in line with the other pure-ABI loops). C++/WinRT and C#/WinRT both project the failure as
-a *thrown exception*, and throwing 10,000,000 times is enormously expensive: C++/WinRT's
-`hresult_error` unwinds the stack on every iteration and spends over two minutes
-(`141663 ms`), while C#'s managed exceptions cost `22392 ms`. The lesson isn't that
-exceptions are slow in absolute terms — they're fine for genuinely exceptional paths — but
-that a projection which returns errors instead of throwing them is far cheaper when errors
-are common (an iterator hitting its end with `E_BOUNDS`, say). The C#/AOT build does not
-even complete this loop: it terminates with a `StackOverflowException`, so its `Error`
-cell reads `crashed`.
+`Error` is where the projections diverge by orders of magnitude, and there are two costs
+stacked on top of each other. The first is the exception machinery itself. Rust projects a
+failed `HRESULT` as a `Result::Err` — an ordinary returned value — so the loop stays as
+cheap as the other pure-ABI loops (`53 ms`, ~5 ns per call). C#/WinRT projects the same
+failure as a *thrown* managed exception and pays `22392 ms`, roughly `2 µs` per call — and
+that is almost entirely the throw, because C#'s `ThrowExceptionForHR` does *not* eagerly
+originate restricted error info and .NET only materializes a stack trace if one is read.
+That ~400× gap between a return and a bare throw is the headline: exceptions are genuinely
+expensive, and a projection that returns errors is dramatically cheaper whenever failures
+are routine — an iterator reaching its end with `E_BOUNDS`, say.
+
+C++/WinRT then piles a second cost on top of the throw. Its `141663 ms` is about `14 µs`
+per call, an order of magnitude worse than C#'s already-expensive throw. A bare native
+throw/catch on this machine is only ~1.5 µs, so the remaining ~12 µs is WinRT error
+*origination*: `winrt::throw_hresult` builds a full `hresult_error`, which calls
+`RoOriginateLanguageException` to create an `IRestrictedErrorInfo` and capture the error
+context on every single throw. So C++/WinRT is slow for both reasons — it throws *and* it
+eagerly enriches each failure — while C# pays only the throw and Rust pays neither.
+
+The C#/AOT build can't run this loop at all: throwing the projected exception in a tight
+loop terminates the process with a `StackOverflowException`, so its `Error` cell reads
+`crashed`.
 
 ### A note on Native AOT
 
