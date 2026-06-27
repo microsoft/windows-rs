@@ -1,0 +1,25 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod LangPerf {
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Class {
+        IClass,
+    }
+
+    #[ExclusiveTo(Class)]
+    interface IClass {
+        fn Int32Property(&self) -> i32;
+        fn SetInt32Property(&self, value: i32);
+        fn StringProperty(&self) -> String;
+        fn SetStringProperty(&self, value: String);
+        fn ObjectProperty(&self) -> Object;
+        fn SetObjectProperty(&self, value: Object);
+        fn NewObject(&self) -> Object;
+    }
+
+    interface INonDefault {
+        fn Value(&self) -> i32;
+    }
+}

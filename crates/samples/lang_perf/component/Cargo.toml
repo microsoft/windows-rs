@@ -1,0 +1,20 @@
+[package]
+name = "lang_perf_component"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+name = "langperf"
+crate-type = ["cdylib"]
+
+[dependencies]
+windows = { workspace = true, features = ["Win32_System_WinRT"] }
+windows-core = { workspace = true, default-features = true }
+
+[build-dependencies]
+windows-rdl = { workspace = true }
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true
