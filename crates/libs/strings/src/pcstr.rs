@@ -33,7 +33,7 @@ impl PCSTR {
     /// The `PCSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_bytes(&self) -> &[u8] {
         unsafe {
-            let len = strlen(*self);
+            let len = strlen(self.0.cast());
             core::slice::from_raw_parts(self.0, len)
         }
     }
