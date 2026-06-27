@@ -16,31 +16,31 @@ var o = new Class();
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    o.SetInt32Property(123);
-    _ = o.Int32Property();
+    o.Int32Property = 123;
+    _ = o.Int32Property;
 }
 Report("Int32", timer);
 
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    o.SetStringProperty("value");
-    _ = o.StringProperty();
+    o.StringProperty = "value";
+    _ = o.StringProperty;
 }
 Report("String", timer);
 
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    o.SetObjectProperty(o);
-    _ = o.ObjectProperty();
+    o.ObjectProperty = o;
+    _ = o.ObjectProperty;
 }
 Report("Object", timer);
 
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    _ = ((INonDefault)o.ObjectProperty()).Value();
+    _ = ((INonDefault)o.ObjectProperty).Value();
 }
 Report("Cast", timer);
 

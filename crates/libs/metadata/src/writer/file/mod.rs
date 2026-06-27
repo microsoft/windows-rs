@@ -293,6 +293,39 @@ impl File {
         }))
     }
 
+    /// Adds a `Property` row to the file, returning the row offset.
+    pub fn Property(&mut self, name: &str, ty: &Type) -> Property {
+        let signature = self.PropertySig(ty);
+
+        Property(self.records.Property.push_pos(rec::Property {
+            Flags: 0,
+            Name: self.strings.insert(name),
+            Type: signature,
+        }))
+    }
+
+    /// Adds a `PropertyMap` row associating a type with its first property.
+    pub fn PropertyMap(&mut self, parent: TypeDef, property_list: Property) -> PropertyMap {
+        PropertyMap(self.records.PropertyMap.push_pos(rec::PropertyMap {
+            Parent: parent,
+            PropertyList: property_list,
+        }))
+    }
+
+    /// Adds a `MethodSemantics` row linking an accessor method to a property.
+    pub fn MethodSemantics(
+        &mut self,
+        semantics: u16,
+        method: MethodDef,
+        association: HasSemantics,
+    ) -> MethodSemantics {
+        MethodSemantics(self.records.MethodSemantics.push_pos(rec::MethodSemantics {
+            Semantics: semantics,
+            Method: method,
+            Association: association,
+        }))
+    }
+
     /// Adds an `Attribute` row to the file. This is a sorted table so the row offset is not yet available.
     pub fn Attribute(
         &mut self,
@@ -507,6 +540,13 @@ impl File {
     /// Writes the `Type` into a `FileSig` buffer and stores it in the file, returning the blob offset.
     fn FieldSig(&mut self, ty: &Type) -> BlobId {
         let mut buffer = vec![0x6]; // FIELD
+        self.Type(ty, &mut buffer);
+        self.blobs.insert(&buffer)
+    }
+
+    fn PropertySig(&mut self, ty: &Type) -> BlobId {
+        let mut buffer = vec![0x28]; // HASTHIS | PROPERTY
+        buffer.write_compressed(0); // parameter count
         self.Type(ty, &mut buffer);
         self.blobs.insert(&buffer)
     }

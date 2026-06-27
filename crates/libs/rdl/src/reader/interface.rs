@@ -196,6 +196,7 @@ impl Encoder<'_> {
             | metadata::MethodAttributes::Virtual;
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
+        let mut property_map_started = false;
 
         for member in &item.members {
             match member {
@@ -310,6 +311,9 @@ impl Encoder<'_> {
                     let ty = self.encode_type(&prop.ty)?;
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
+                    let mut get_method = None;
+                    let mut put_method = None;
+
                     if !is_set_only {
                         let get_name = format!("get_{}", prop.name);
                         let signature = metadata::Signature {
@@ -320,12 +324,12 @@ impl Encoder<'_> {
                         if !already_has_guid {
                             method_signatures.push((get_name.clone(), vec![], ty.clone()));
                         }
-                        self.output.MethodDef(
+                        get_method = Some(self.output.MethodDef(
                             &get_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        );
+                        ));
                         self.encode_simple_params(&[])?;
                     }
 
@@ -343,13 +347,36 @@ impl Encoder<'_> {
                                 metadata::Type::Void,
                             ));
                         }
-                        self.output.MethodDef(
+                        put_method = Some(self.output.MethodDef(
                             &put_name,
                             &signature,
                             method_flags,
                             Default::default(),
-                        );
+                        ));
                         self.encode_simple_params(&[("value", &ty)])?;
+                    }
+
+                    let property = self.output.Property(&prop.name.to_string(), &ty);
+
+                    if !property_map_started {
+                        self.output.PropertyMap(interface, property);
+                        property_map_started = true;
+                    }
+
+                    if let Some(method) = get_method {
+                        self.output.MethodSemantics(
+                            0x0002, // Getter
+                            method,
+                            metadata::writer::HasSemantics::Property(property),
+                        );
+                    }
+
+                    if let Some(method) = put_method {
+                        self.output.MethodSemantics(
+                            0x0001, // Setter
+                            method,
+                            metadata::writer::HasSemantics::Property(property),
+                        );
                     }
                 }
 

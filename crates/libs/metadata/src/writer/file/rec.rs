@@ -14,10 +14,13 @@ pub struct Records {
     pub InterfaceImpl: Vec<InterfaceImpl>,
     pub MemberRef: Vec<MemberRef>,
     pub MethodDef: Vec<MethodDef>,
+    pub MethodSemantics: Vec<MethodSemantics>,
     pub Module: Vec<Module>,
     pub ModuleRef: Vec<ModuleRef>,
     pub NestedClass: Vec<NestedClass>,
     pub Param: Vec<Param>,
+    pub Property: Vec<Property>,
+    pub PropertyMap: Vec<PropertyMap>,
     pub TypeDef: Vec<TypeDef>,
     pub TypeRef: Vec<TypeRef>,
     pub TypeSpec: Vec<TypeSpec>,
@@ -34,6 +37,23 @@ pub struct NestedClass {
 
 pub struct ModuleRef {
     pub Name: StringId,
+}
+
+pub struct Property {
+    pub Flags: u16,
+    pub Name: StringId,
+    pub Type: BlobId,
+}
+
+pub struct PropertyMap {
+    pub Parent: id::TypeDef,
+    pub PropertyList: id::Property,
+}
+
+pub struct MethodSemantics {
+    pub Semantics: u16,
+    pub Method: id::MethodDef,
+    pub Association: HasSemantics,
 }
 
 #[derive(Default)]
@@ -209,7 +229,10 @@ impl Records {
 
         let member_forwarded = coded_index_size(&[self.Field.len(), self.MethodDef.len()]);
 
-        let valid_tables: u64 = (1 << 0) | // Module 
+        // HasSemantics coded index: tag 0 = Event (unused), tag 1 = Property.
+        let has_semantics = coded_index_size(&[0, self.Property.len()]);
+
+        let mut valid_tables: u64 = (1 << 0) | // Module 
         (1 << 0x01) | // TypeRef
         (1 << 0x02) | // TypeDef
         (1 << 0x04) | // Field
@@ -228,6 +251,18 @@ impl Records {
         (1 << 0x23) | // AssemblyRef
         (1 << 0x29) | // NestedClass
         (1 << 0x2A); // GenericParam
+
+        // Property metadata tables are only emitted when present, so winmds without
+        // properties are byte-for-byte unchanged.
+        if !self.PropertyMap.is_empty() {
+            valid_tables |= 1 << 0x15; // PropertyMap
+        }
+        if !self.Property.is_empty() {
+            valid_tables |= 1 << 0x17; // Property
+        }
+        if !self.MethodSemantics.is_empty() {
+            valid_tables |= 1 << 0x18; // MethodSemantics
+        }
 
         // The table stream header...
 
@@ -254,6 +289,15 @@ impl Records {
         buffer.write_u32(self.Attribute.len().try_into().unwrap());
         buffer.write_u32(self.ClassLayout.len().try_into().unwrap());
         buffer.write_u32(self.FieldLayout.len().try_into().unwrap());
+        if !self.PropertyMap.is_empty() {
+            buffer.write_u32(self.PropertyMap.len().try_into().unwrap());
+        }
+        if !self.Property.is_empty() {
+            buffer.write_u32(self.Property.len().try_into().unwrap());
+        }
+        if !self.MethodSemantics.is_empty() {
+            buffer.write_u32(self.MethodSemantics.len().try_into().unwrap());
+        }
         buffer.write_u32(self.ModuleRef.len().try_into().unwrap());
         buffer.write_u32(self.TypeSpec.len().try_into().unwrap());
         buffer.write_u32(self.ImplMap.len().try_into().unwrap());
@@ -341,6 +385,23 @@ impl Records {
         for r in &self.FieldLayout {
             buffer.write_u32(r.Offset);
             buffer.write_index(r.Field, self.Field.len());
+        }
+
+        for r in &self.PropertyMap {
+            buffer.write_index(r.Parent.0, self.TypeDef.len());
+            buffer.write_index(r.PropertyList.0, self.Property.len());
+        }
+
+        for r in &self.Property {
+            buffer.write_u16(r.Flags);
+            buffer.write_u32(r.Name.0);
+            buffer.write_u32(r.Type.0);
+        }
+
+        for r in &self.MethodSemantics {
+            buffer.write_u16(r.Semantics);
+            buffer.write_index(r.Method.0, self.MethodDef.len());
+            buffer.write_code(r.Association.encode(), has_semantics);
         }
 
         for r in &self.ModuleRef {
