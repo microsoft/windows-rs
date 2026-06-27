@@ -90,7 +90,7 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x796dee90_c3d5_5bc7_b6c4_29202e486236);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xe80f4aab_afcb_50be_92d5_a6d3cb37ed94);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();

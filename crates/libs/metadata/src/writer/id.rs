@@ -27,6 +27,10 @@ identifiers! {
     AssemblyRef
     Param
 
+    Property
+    PropertyMap
+    MethodSemantics
+
     BlobId
     StringId
 }

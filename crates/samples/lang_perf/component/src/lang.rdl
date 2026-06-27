@@ -10,12 +10,9 @@ mod LangPerf {
 
     #[ExclusiveTo(Class)]
     interface IClass {
-        fn Int32Property(&self) -> i32;
-        fn SetInt32Property(&self, value: i32);
-        fn StringProperty(&self) -> String;
-        fn SetStringProperty(&self, value: String);
-        fn ObjectProperty(&self) -> Object;
-        fn SetObjectProperty(&self, value: Object);
+        Int32Property: i32;
+        StringProperty: String;
+        ObjectProperty: Object;
     }
 
     interface INonDefault {

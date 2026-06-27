@@ -34,7 +34,7 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            object.SetInt32Property(123);
+            object.Int32Property(123);
             auto value = object.Int32Property();
             (void)value;
         }
@@ -43,7 +43,7 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            object.SetStringProperty(L"value");
+            object.StringProperty(L"value");
             auto value = object.StringProperty();
             (void)value;
         }
@@ -52,7 +52,7 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            object.SetObjectProperty(object);
+            object.ObjectProperty(object);
             auto value = object.ObjectProperty();
             (void)value;
         }

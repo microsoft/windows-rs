@@ -78,3 +78,7 @@ code! { MemberForwarded(1)
 code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }
+
+code! { HasSemantics(1)
+    (Property, 1)
+}
