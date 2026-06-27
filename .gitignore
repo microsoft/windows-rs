@@ -7,3 +7,4 @@
 *.winmd
 obj
 bin
+aot-publish
