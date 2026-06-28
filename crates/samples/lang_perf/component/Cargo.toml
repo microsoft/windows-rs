@@ -11,6 +11,7 @@ crate-type = ["cdylib"]
 [dependencies]
 windows = { workspace = true, features = ["Win32_System_WinRT"] }
 windows-core = { workspace = true, default-features = true }
+windows-collections = { workspace = true, features = ["std"] }
 
 [build-dependencies]
 windows-rdl = { workspace = true }

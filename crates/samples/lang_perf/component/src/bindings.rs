@@ -125,6 +125,17 @@ impl Class {
                 .ok()
         }
     }
+    pub fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Items)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -213,7 +224,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x02dfb266_f3a3_57a8_98c1_eb15d31b4a4d);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x3f4c2c6a_e05d_5dcb_b398_4f08b12f0e70);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -238,6 +249,7 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn Event(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i64>;
     fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
     fn Raise(&self) -> windows_core::Result<()>;
+    fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -390,6 +402,24 @@ impl IClass_Vtbl {
                 IClass_Impl::Raise(this).into()
             }
         }
+        unsafe extern "system" fn Items<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            count: u32,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Items(this, count) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Int32Property: Int32Property::<Identity, OFFSET>,
@@ -403,6 +433,7 @@ impl IClass_Vtbl {
             Event: Event::<Identity, OFFSET>,
             RemoveEvent: RemoveEvent::<Identity, OFFSET>,
             Raise: Raise::<Identity, OFFSET>,
+            Items: Items::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -445,6 +476,11 @@ pub struct IClass_Vtbl {
     pub RemoveEvent:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Raise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Items: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INonDefault,

@@ -96,7 +96,7 @@ foreach ($consumer in $consumers) {
     }
 }
 
-$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast', 'Event', 'AddRemove', 'Error'
+$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast', 'Event', 'AddRemove', 'IterateVector', 'GetMany', 'Error'
 $combos = $results | ForEach-Object { $_.Combo }
 $width = [Math]::Max(8, ($combos | Measure-Object -Property Length -Maximum).Maximum)
 

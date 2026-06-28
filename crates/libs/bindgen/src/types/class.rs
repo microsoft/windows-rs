@@ -278,7 +278,7 @@ impl Class {
                             #cfg
                             impl IntoIterator for #name {
                                 type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                type IntoIter = #namespace BufferedIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {
                                     IntoIterator::into_iter(&self)
@@ -287,10 +287,10 @@ impl Class {
                             #cfg
                             impl IntoIterator for &#name {
                                 type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                type IntoIter = #namespace BufferedIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {
-                                    self.First().unwrap()
+                                    #namespace BufferedIterator::new(self.First().unwrap())
                                 }
                             }
 

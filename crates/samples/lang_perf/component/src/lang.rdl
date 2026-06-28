@@ -17,6 +17,7 @@ mod LangPerf {
         fn Lang(&self) -> String;
         event Event: Handler;
         fn Raise(&self);
+        fn Items(&self, count: u32) -> Windows::Foundation::Collections::IVector<i32>;
     }
 
     interface INonDefault {

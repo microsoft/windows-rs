@@ -1,5 +1,7 @@
 #include <windows.h>
+#include <vector>
 #include "winrt/LangPerf.h"
+#include "winrt/Windows.Foundation.Collections.h"
 
 using namespace winrt;
 
@@ -43,6 +45,15 @@ struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
 
     void Raise() {
         m_event(*this, 0);
+    }
+
+    Windows::Foundation::Collections::IVector<int32_t> Items(uint32_t count) const {
+        std::vector<int32_t> values;
+        values.reserve(count);
+        for (uint32_t i = 0; i < count; i++) {
+            values.push_back(static_cast<int32_t>(i));
+        }
+        return multi_threaded_vector<int32_t>(std::move(values));
     }
 
     int32_t Value() const noexcept {

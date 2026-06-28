@@ -3869,16 +3869,16 @@ unsafe impl Send for VpnPacketBufferList {}
 unsafe impl Sync for VpnPacketBufferList {}
 impl IntoIterator for VpnPacketBufferList {
     type Item = VpnPacketBuffer;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &VpnPacketBufferList {
     type Item = VpnPacketBuffer;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

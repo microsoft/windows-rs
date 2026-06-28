@@ -185,6 +185,61 @@ fn primitive_mutable() -> Result<()> {
 }
 
 #[test]
+fn buffered_iterator() -> Result<()> {
+    // Exercise the batched `for value in &vector` path across the internal GetMany
+    // block boundary (BufferedIterator fills a 128-element buffer at a time).
+    let source: Vec<i32> = (0..300).collect();
+    let v = IVector::<i32>::from(source.clone());
+
+    // Full traversal spanning multiple GetMany blocks.
+    let collected: Vec<i32> = (&v).into_iter().collect();
+    assert_eq!(collected, source);
+
+    // The owned IntoIterator yields the same sequence.
+    let collected: Vec<i32> = v.clone().into_iter().collect();
+    assert_eq!(collected, source);
+
+    // An exact multiple of the block size ends cleanly (final GetMany returns 0).
+    let v2 = IVector::<i32>::from((0..256).collect::<Vec<_>>());
+    assert_eq!((&v2).into_iter().count(), 256);
+
+    // Early termination drops a partially consumed block without leaking.
+    let mut iter = (&v).into_iter();
+    assert_eq!(iter.next(), Some(0));
+    assert_eq!(iter.next(), Some(1));
+    drop(iter);
+
+    // An empty vector yields nothing.
+    let empty = IVector::<i32>::from(vec![]);
+    assert_eq!((&empty).into_iter().next(), None);
+
+    Ok(())
+}
+
+#[test]
+fn buffered_iterator_hstring() -> Result<()> {
+    // Reference-counted elements exercise the per-block release in the buffer.
+    let source: Vec<HSTRING> = (0..300).map(|i| HSTRING::from(i.to_string())).collect();
+    let v = IVector::<HSTRING>::from(source.clone());
+
+    let collected: Vec<HSTRING> = (&v).into_iter().collect();
+    assert_eq!(collected, source);
+
+    // Breaking out mid-block must release the buffered references (no leak/UB).
+    let mut count = 0;
+    for value in &v {
+        assert_eq!(value, source[count]);
+        count += 1;
+        if count == 150 {
+            break;
+        }
+    }
+    assert_eq!(count, 150);
+
+    Ok(())
+}
+
+#[test]
 fn get_view() -> Result<()> {
     let v = IVector::<i32>::from(vec![1, 2, 3]);
 

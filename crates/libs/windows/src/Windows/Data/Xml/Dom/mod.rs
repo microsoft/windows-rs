@@ -4857,16 +4857,16 @@ unsafe impl Send for XmlNamedNodeMap {}
 unsafe impl Sync for XmlNamedNodeMap {}
 impl IntoIterator for XmlNamedNodeMap {
     type Item = IXmlNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &XmlNamedNodeMap {
     type Item = IXmlNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -4940,16 +4940,16 @@ unsafe impl Send for XmlNodeList {}
 unsafe impl Sync for XmlNodeList {}
 impl IntoIterator for XmlNodeList {
     type Item = IXmlNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &XmlNodeList {
     type Item = IXmlNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

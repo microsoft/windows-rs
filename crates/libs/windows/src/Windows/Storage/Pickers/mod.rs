@@ -79,16 +79,16 @@ unsafe impl Send for FileExtensionVector {}
 unsafe impl Sync for FileExtensionVector {}
 impl IntoIterator for FileExtensionVector {
     type Item = windows_core::HSTRING;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &FileExtensionVector {
     type Item = windows_core::HSTRING;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -296,16 +296,16 @@ unsafe impl Send for FilePickerFileTypesOrderedMap {}
 unsafe impl Sync for FilePickerFileTypesOrderedMap {}
 impl IntoIterator for FilePickerFileTypesOrderedMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &FilePickerFileTypesOrderedMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -373,7 +373,7 @@ unsafe impl Sync for FilePickerSelectedFilesArray {}
 #[cfg(feature = "Storage_Streams")]
 impl IntoIterator for FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -381,9 +381,9 @@ impl IntoIterator for FilePickerSelectedFilesArray {
 #[cfg(feature = "Storage_Streams")]
 impl IntoIterator for &FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

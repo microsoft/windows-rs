@@ -57,7 +57,7 @@ calls `Lang()`, so its output honestly reports `# C# consumer -> Rust component`
 
 ## What is measured
 
-Each consumer runs eight loops and prints `label: N ms`:
+Each consumer runs ten loops and prints `label: N ms`:
 
 | Loop        | What it exercises                                             |
 |-------------|--------------------------------------------------------------|
@@ -68,6 +68,8 @@ Each consumer runs eight loops and prints `label: N ms`:
 | `Cast`      | `ObjectProperty()` then `QueryInterface` to a non-default interface |
 | `Event`     | raise a WinRT event once per iteration with one subscriber (delegate invoke) |
 | `AddRemove` | subscribe a handler and immediately unsubscribe each iteration (delegate marshaling + token bookkeeping) |
+| `IterateVector` | iterate an `IVector<Int32>` idiomatically (`for x in &v`) — one element at a time across the ABI |
+| `GetMany`   | bulk-copy the same vector into a buffer with a single `GetMany` ABI call |
 | `Error`     | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
 
 `Create` is the only loop that allocates: it activates and releases an object each
@@ -79,7 +81,11 @@ each iteration; `AddRemove` churns subscription, constructing a fresh WinRT dele
 language callback and handing it to the component's `add`/`remove` each time. Unlike the
 other loops these two are **component-dependent** — the component owns the subscriber
 storage — so they are dissected in their own [section](#delegates-and-events) rather than
-the "component language is invisible" tables. `Error` isolates the failure path: the
+the "component language is invisible" tables. `IterateVector` and `GetMany` exercise WinRT
+**collections**: both walk an `IVector<Int32>` the component owns, but `IterateVector` is the
+idiomatic per-element loop (one round-trip per element) while `GetMany` bulk-copies in a
+single call — the two are dissected in [Collections and iteration](#collections-and-iteration).
+`Error` isolates the failure path: the
 component's `Next` method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop
 measures how each projection turns an ABI error code into its idiomatic error type — a
 `Result::Err` in Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed
@@ -155,6 +161,8 @@ point.
 | Cast   |   1337 |   2549 |    281 |  271 |
 | Event  |    802 |    939 |    132 |  139 |
 | AddRemove | 27981 | 59182 |  2219 |  518 |
+| IterateVector | 673 | 383 | 127 | 13 |
+| GetMany |    329 |    191 |      2 |    6 |
 | Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
@@ -186,6 +194,8 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 | Cast   |     228 |    238 |       28 |      27 |        26 |       27 |
 | Event  |      88 |    103 |       13 |      32 |        13 |       33 |
 | AddRemove | 3148 |   2879 |      225 |     130 |        62 |      150 |
+| IterateVector | 50 | 46 | 12 | 12 | 1 | 1 |
+| GetMany   |   24 |     25 |        0 |       0 |         0 |        0 |
 | Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
 
 For every pure-ABI loop, swapping the component's language changes nothing: each
@@ -275,6 +285,31 @@ regardless of component — `27,981 ms` at 10M (~2.8 µs/call) on JIT, and Nativ
 at `59,182 ms` (~5.9 µs/call), since its leaner steady-state interop does not offset the
 per-subscription wrapper churn. Delegate-heavy WinRT code is one place the managed projection
 pays dearly; the native projections treat a delegate as little more than a vtable pointer.
+
+### Collections and iteration
+
+`IterateVector` and `GetMany` walk the same component-owned `IVector<Int32>` two ways. Unlike
+the event loops, iteration is **component-invisible** — the matrix shows `Rust→Rust` `1` vs
+`Rust→C++` `1` and `C++→Rust` `12` vs `C++→C++` `12`, so the callee's collection storage does
+not matter. What matters is the *consumer's* projection, and here the picture inverts the usual
+"native projections tie" result: at 1M, idiomatic iteration costs ~1 ms in Rust, ~12 ms in C++,
+and ~50 ms in C#. Rust now leads C++ by an order of magnitude, and at 10M the headline is `13`
+vs `127`.
+
+The reason is **batching**. A WinRT `IIterator` exposes both per-element access and a bulk
+`GetMany`. cppwinrt's range-`for` reads one element per ABI call, so 10M elements cost 10M
+vtable round-trips. windows-rs's `for x in &v` now drives a `BufferedIterator` that fills a
+fixed buffer with one `GetMany` call and yields from it, cutting the boundary crossings ~100×
+— which is why idiomatic Rust (`13`) lands far under cppwinrt (`127`) and near the explicit
+`GetMany` loop. `GetMany` itself is essentially free everywhere native (~0–6 ms); C#/WinRT
+still pays per-call interop (~24 ms) but bulk-copying is far cheaper than its per-element loop.
+
+Two fairness points. First, the C++ component returns a `multi_threaded_vector`, the thread-safe
+equivalent of windows-rs's stock vector; `single_threaded_vector` would skip locking and unfairly
+flatter C++. With both thread-safe, iteration stays consumer-driven, confirming the ABI thesis.
+Second, batching is a real ABI-throughput win, not a measurement trick: it is a transparent
+windows-rs improvement, so existing `for x in &v` code gets the speedup with no change — the
+naive `GetAt`-per-element shape would have tied cppwinrt's `127`.
 
 ### A note on benchmark structure
 

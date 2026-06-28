@@ -407,16 +407,16 @@ unsafe impl Send for ResourceCandidateVectorView {}
 unsafe impl Sync for ResourceCandidateVectorView {}
 impl IntoIterator for ResourceCandidateVectorView {
     type Item = ResourceCandidate;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceCandidateVectorView {
     type Item = ResourceCandidate;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -597,16 +597,16 @@ unsafe impl Send for ResourceContextLanguagesVectorView {}
 unsafe impl Sync for ResourceContextLanguagesVectorView {}
 impl IntoIterator for ResourceContextLanguagesVectorView {
     type Item = windows_core::HSTRING;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceContextLanguagesVectorView {
     type Item = windows_core::HSTRING;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(C)]
@@ -785,16 +785,16 @@ unsafe impl Send for ResourceMap {}
 unsafe impl Sync for ResourceMap {}
 impl IntoIterator for ResourceMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -888,16 +888,16 @@ unsafe impl Send for ResourceMapMapView {}
 unsafe impl Sync for ResourceMapMapView {}
 impl IntoIterator for ResourceMapMapView {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceMapMapView {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1039,16 +1039,16 @@ unsafe impl Send for ResourceQualifierMapView {}
 unsafe impl Sync for ResourceQualifierMapView {}
 impl IntoIterator for ResourceQualifierMapView {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceQualifierMapView {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1134,16 +1134,16 @@ unsafe impl Send for ResourceQualifierObservableMap {}
 unsafe impl Sync for ResourceQualifierObservableMap {}
 impl IntoIterator for ResourceQualifierObservableMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceQualifierObservableMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1215,15 +1215,15 @@ unsafe impl Send for ResourceQualifierVectorView {}
 unsafe impl Sync for ResourceQualifierVectorView {}
 impl IntoIterator for ResourceQualifierVectorView {
     type Item = ResourceQualifier;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ResourceQualifierVectorView {
     type Item = ResourceQualifier;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }

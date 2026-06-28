@@ -94,6 +94,12 @@ impl bindings::IClass_Impl for Class_Impl {
         }
         Ok(())
     }
+
+    fn Items(&self, count: u32) -> Result<windows_collections::IVector<i32>> {
+        Ok(windows_collections::IVector::<i32>::from(
+            (0..count as i32).collect::<Vec<i32>>(),
+        ))
+    }
 }
 
 impl bindings::INonDefault_Impl for Class_Impl {

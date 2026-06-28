@@ -63,6 +63,25 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("AddRemove", timer);
 
+{
+    uint count = iterations > uint.MaxValue ? uint.MaxValue : (uint)iterations;
+    var items = o.Items(count);
+
+    timer = Stopwatch.StartNew();
+    int sum = 0;
+    foreach (var value in items)
+    {
+        sum += value;
+    }
+    GC.KeepAlive(sum);
+    Report("IterateVector", timer);
+
+    int[] buffer = new int[count];
+    timer = Stopwatch.StartNew();
+    items.CopyTo(buffer, 0);
+    Report("GetMany", timer);
+}
+
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {

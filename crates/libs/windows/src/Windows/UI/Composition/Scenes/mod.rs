@@ -896,16 +896,16 @@ unsafe impl Send for SceneComponentCollection {}
 unsafe impl Sync for SceneComponentCollection {}
 impl IntoIterator for SceneComponentCollection {
     type Item = SceneComponent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &SceneComponentCollection {
     type Item = SceneComponent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1510,16 +1510,16 @@ unsafe impl Send for SceneMeshMaterialAttributeMap {}
 unsafe impl Sync for SceneMeshMaterialAttributeMap {}
 impl IntoIterator for SceneMeshMaterialAttributeMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, SceneAttributeSemantic>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &SceneMeshMaterialAttributeMap {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, SceneAttributeSemantic>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -2540,16 +2540,16 @@ unsafe impl Send for SceneNodeCollection {}
 unsafe impl Sync for SceneNodeCollection {}
 impl IntoIterator for SceneNodeCollection {
     type Item = SceneNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &SceneNodeCollection {
     type Item = SceneNode;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

@@ -4521,16 +4521,16 @@ unsafe impl Send for MediaStreamSamplePropertySet {}
 unsafe impl Sync for MediaStreamSamplePropertySet {}
 impl IntoIterator for MediaStreamSamplePropertySet {
     type Item = windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &MediaStreamSamplePropertySet {
     type Item = windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

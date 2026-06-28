@@ -117,16 +117,16 @@ where
 }
 impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -359,6 +359,50 @@ impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
         if result.is_some() {
             let _ = self.MoveNext();
         }
+        result
+    }
+}
+#[doc = r" An iterator that reads elements from an [`IIterator`] in batches via"]
+#[doc = r" `GetMany` rather than one at a time."]
+#[doc = r""]
+#[doc = r" The naive `IIterator` iteration calls `HasCurrent`, `Current`, and"]
+#[doc = r" `MoveNext` across the ABI for every element. `BufferedIterator` instead"]
+#[doc = r" fills a small fixed buffer with a single `GetMany` call and yields from"]
+#[doc = r" it, cutting the per-element virtual-call cost by orders of magnitude."]
+#[doc = r" This is the iterator produced when a collection is iterated directly"]
+#[doc = r" (for example `for value in &vector`)."]
+pub struct BufferedIterator<T: windows_core::RuntimeType + 'static> {
+    iterator: IIterator<T>,
+    buffer: [<T as windows_core::Type<T>>::Default; 128],
+    index: usize,
+    len: usize,
+}
+impl<T: windows_core::RuntimeType + 'static> BufferedIterator<T> {
+    pub fn new(iterator: IIterator<T>) -> Self {
+        Self {
+            iterator,
+            buffer: unsafe { core::mem::zeroed() },
+            index: 0,
+            len: 0,
+        }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> Iterator for BufferedIterator<T> {
+    type Item = T;
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.index >= self.len {
+            for slot in &mut self.buffer[..self.len] {
+                *slot = unsafe { core::mem::zeroed() };
+            }
+            self.index = 0;
+            self.len = self.iterator.GetMany(&mut self.buffer).unwrap_or(0) as usize;
+            self.len = self.len.min(self.buffer.len());
+            if self.len == 0 {
+                return None;
+            }
+        }
+        let result = <T as windows_core::Type<T>>::from_default(&self.buffer[self.index]).ok();
+        self.index += 1;
         result
     }
 }
@@ -667,7 +711,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -676,9 +720,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1160,7 +1204,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IMapView<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -1169,9 +1213,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IMapView<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1509,7 +1553,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -1518,9 +1562,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1840,16 +1884,16 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IObservableVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IObservableVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IObservableVector<T> {
@@ -2118,16 +2162,16 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
@@ -2668,16 +2712,16 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVectorView<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {

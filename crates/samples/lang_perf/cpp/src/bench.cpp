@@ -2,7 +2,9 @@
 #include <chrono>
 #include <cstdint>
 #include <cstdio>
+#include <vector>
 #include "winrt/LangPerf.h"
+#include "winrt/Windows.Foundation.Collections.h"
 
 using namespace winrt;
 using namespace winrt::LangPerf;
@@ -82,6 +84,28 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
             object.Event(added);
         }
         printf("AddRemove: %lld ms\n", elapsed_ms(start));
+
+        {
+            uint32_t const count = iterations > UINT32_MAX
+                ? UINT32_MAX
+                : static_cast<uint32_t>(iterations);
+            auto vector = object.Items(count);
+
+            start = std::chrono::high_resolution_clock::now();
+            int32_t sum = 0;
+            for (auto&& value : vector)
+            {
+                sum += value;
+            }
+            volatile int32_t sink = sum;
+            (void)sink;
+            printf("IterateVector: %lld ms\n", elapsed_ms(start));
+
+            std::vector<int32_t> buffer(count);
+            start = std::chrono::high_resolution_clock::now();
+            vector.GetMany(0, buffer);
+            printf("GetMany: %lld ms\n", elapsed_ms(start));
+        }
 
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)

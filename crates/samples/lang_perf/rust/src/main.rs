@@ -96,6 +96,25 @@ fn run() -> windows_core::Result<()> {
     }
     report("AddRemove", start);
 
+    {
+        let count = iterations.min(u32::MAX as u64) as u32;
+        let vector = object.Items(count)?;
+
+        let start = Instant::now();
+        let mut sum = 0i32;
+        for value in &vector {
+            sum = sum.wrapping_add(value);
+        }
+        std::hint::black_box(sum);
+        report("IterateVector", start);
+
+        let mut buffer = vec![0i32; count as usize];
+        let start = Instant::now();
+        let _ = vector.GetMany(0, &mut buffer)?;
+        std::hint::black_box(&buffer);
+        report("GetMany", start);
+    }
+
     let start = Instant::now();
     for _ in 0..iterations {
         let _ = object.Next();

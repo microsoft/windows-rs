@@ -110,16 +110,16 @@ unsafe impl Send for CharacterGroupings {}
 unsafe impl Sync for CharacterGroupings {}
 impl IntoIterator for CharacterGroupings {
     type Item = CharacterGrouping;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CharacterGroupings {
     type Item = CharacterGrouping;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 windows_core::imp::define_interface!(ICharacterGrouping, ICharacterGrouping_Vtbl, 0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);

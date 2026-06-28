@@ -125,6 +125,17 @@ impl Class {
                 .ok()
         }
     }
+    pub fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Items)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -213,7 +224,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x02dfb266_f3a3_57a8_98c1_eb15d31b4a4d);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x3f4c2c6a_e05d_5dcb_b398_4f08b12f0e70);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -256,6 +267,11 @@ pub struct IClass_Vtbl {
     pub RemoveEvent:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Raise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Items: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INonDefault,
