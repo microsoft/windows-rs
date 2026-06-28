@@ -4,7 +4,7 @@ A refreshed take on <https://github.com/kennykerr/lang-perf> that measures the r
 overhead each WinRT *language projection* adds on top of the same underlying ABI. It
 compares the latest [C++/WinRT](https://github.com/microsoft/cppwinrt),
 [C#/WinRT](https://github.com/microsoft/CsWinRT), and
-[windows-rs](https://github.com/microsoft/windows-rs) calling an identical component.
+[windows-rs](https://github.com/microsoft/windows-rs).
 
 ## How it works
 
@@ -16,22 +16,43 @@ state and does no real work per call. That leaves a tight loop dominated by the
 projection glue — activation, parameter marshaling, reference counting, error
 propagation, and `QueryInterface` — which is exactly what we want to compare.
 
-The component is authored entirely in Rust:
+### One metadata, a component per language
 
-- [`component/src/lang.rdl`](component/src/lang.rdl) describes the API in RDL.
-- [`component/build.rs`](component/build.rs) runs [`windows-rdl`](../../libs/rdl) to
-  produce [`lang.winmd`](component/lang.winmd) and
-  [`windows-bindgen`](../../libs/bindgen) to generate the implementation bindings.
-- [`component/src/lib.rs`](component/src/lib.rs) implements the no-op class with
-  `#[implement]` and exports `DllGetActivationFactory`.
+A natural objection to "Rust calls Rust" is that it might somehow be an unfair
+advantage. It is not — the WinRT ABI is a hard vtable boundary, so there is no inlining
+across it and no language can see into the component it calls. To make that concrete,
+the component is authored *twice*, and **each consumer calls a component written in its
+own language**:
 
-The single `lang.winmd` then feeds all three consumers, so each language projects the
-*same* metadata. This mirrors the [`robot`](../robot) interop sample, and doubles as a
-showcase of consuming one Rust-authored component from three languages.
+- [`component`](component) — the **Rust** component. [`src/lang.rdl`](component/src/lang.rdl)
+  describes the API in RDL; [`build.rs`](component/build.rs) runs
+  [`windows-rdl`](../../libs/rdl) to produce [`lang.winmd`](component/lang.winmd) and
+  [`windows-bindgen`](../../libs/bindgen) for the implementation bindings;
+  [`src/lib.rs`](component/src/lib.rs) implements the no-op class with `#[implement]`.
+- [`component_cpp`](component_cpp) — the **C++/WinRT** component. Its
+  [`build.rs`](component_cpp/build.rs) runs [`cppwinrt`](https://github.com/microsoft/cppwinrt)
+  over the *same* `lang.winmd` and compiles [`src/component.cpp`](component_cpp/src/component.cpp)
+  with [`cc`](https://crates.io/crates/cc), mirroring the [`robot`](../robot) sample.
+
+Both components are generated from the single hand-authored `lang.winmd`, so every
+consumer projects byte-for-byte identical metadata — the only thing that changes is the
+implementation language behind the ABI. Each consumer depends (in Cargo) on its own
+component, so a bare `cargo run -p lang_perf_<lang>` builds and uses the right one.
+
+To *prove* which implementation answered, the class has a `Lang()` method that returns a
+language tag (`"Rust"`, `"C++"`). Every consumer calls it once at startup and prints, for
+example, `# C++ consumer -> C++ component`.
 
 No registration is required: every projection falls back to
-`LoadLibrary("LangPerf.dll")` when activating an unregistered class, so the component's
-cdylib is simply named `langperf.dll` and co-located with the consumers.
+`LoadLibrary("LangPerf.dll")` when activating an unregistered class, and the
+exe-adjacent DLL wins the loader search order. Each component therefore builds to a
+distinct cdylib (`langperf_rust.dll`, `langperf_cpp.dll`) and each consumer copies its
+own DLL to `LangPerf.dll` next to the executable at startup. The distinct names avoid a
+shared-output collision between the two cdylibs and keep `cargo run` honest.
+
+The **C# consumer calls the Rust component**: a drop-in same-metadata C# component is not
+feasible without registration — see [the note below](#a-note-on-a-c-component). It still
+calls `Lang()`, so its output honestly reports `# C# consumer -> Rust component`.
 
 ## What is measured
 
@@ -57,27 +78,38 @@ Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed exception in C
 ## Running
 
 The loop count defaults to a tiny value so `cargo run` stays fast; pass `--iterations`
-(or set `LANG_PERF_ITER`) for a real measurement. Build the component package first so
-`langperf.dll` lands next to the executables:
+(or set `LANG_PERF_ITER`) for a real measurement. Each consumer depends on its own
+component and stages it as `LangPerf.dll` next to the executable, so a plain `cargo run`
+just works:
 
 ```pwsh
-cargo build --release -p lang_perf_component
 cargo run --release -p lang_perf_rust -- --iterations 10000000
 cargo run --release -p lang_perf_cpp  -- --iterations 10000000
 ```
 
-The C# benchmark is built by `dotnet` rather than cargo; run it directly (with the
-component's output directory on `PATH` so `langperf.dll` resolves). It targets **.NET 10**
-(the current release) and **C#/WinRT (CsWinRT) 2.2.0**, the latest *stable* projection —
-see [the note below](#a-note-on-cswinrt-30) for why it does not use the 3.0 preview. The
-.NET 10 SDK is required:
+Each consumer defaults to its own-language component but accepts `--component rust|cpp` to
+call the other implementation instead. This needs both component DLLs in the release
+directory, so build `lang_perf_cpp` (or run the matrix script below) first:
 
 ```pwsh
+cargo build --release -p lang_perf_cpp
+cargo run --release -p lang_perf_rust -- --component cpp --iterations 10000000
+```
+
+The C# benchmark is built by `dotnet` rather than cargo; it calls the Rust component, so
+build that first and put its output directory on `PATH` so `langperf_rust.dll` resolves.
+It targets **.NET 10** (the current release) and **C#/WinRT (CsWinRT) 2.2.0**, the latest
+*stable* projection — see [the note below](#a-note-on-cswinrt-30) for why it does not use
+the 3.0 preview. The .NET 10 SDK is required:
+
+```pwsh
+cargo build --release -p lang_perf_component
 $env:PATH = "$PWD/target/release;$env:PATH"
 dotnet run -c Release --project crates/samples/lang_perf/csharp -- --iterations 10000000
 ```
 
-Or build and run them all and print a comparison table:
+Or build and run the full **matrix** — every consumer calling every component — and print
+the table:
 
 ```pwsh
 crates/samples/lang_perf/run.ps1 -Iterations 10000000
@@ -92,7 +124,9 @@ crates/samples/lang_perf/run.ps1 -Iterations 10000000 -IncludeAot
 
 ## Sample results
 
-Release builds, 10,000,000 iterations, milliseconds (lower is better). Each consumer
+Release builds, 10,000,000 iterations, milliseconds (lower is better). In this table every
+consumer calls the **Rust** component; the [matrix below](#does-the-components-language-matter-the-matrix)
+confirms the component's language makes no difference except on `Error`. Each consumer
 issues the identical sequence of ABI calls and passes each value the natural, idiomatic
 way for its language — including the string argument, written as `h!("value")` in Rust,
 `L"value"` in C++, and `"value"` in C#. Because the component ignores its inputs and
@@ -121,6 +155,54 @@ C#/WinRT pays for the managed runtime on every call — runtime-callable-wrapper
 garbage collection, and per-call interop thunks — so even the pure-ABI loops run an order
 of magnitude slower than C++/Rust, and the allocating `Create` loop dramatically so.
 
+### Does the component's language matter? The matrix
+
+To check whether "Rust calls Rust" is somehow an unfair advantage, each consumer was
+pointed at *both* components in turn (`run.ps1` runs the full grid; the `Lang()` header
+confirms which implementation answered). One run at 1,000,000 iterations, consumer→component:
+
+| Metric | C#→Rust | C#→C++ | C++→Rust | C++→C++ | Rust→Rust | Rust→C++ |
+|--------|--------:|-------:|---------:|--------:|----------:|---------:|
+| Create |    1087 |   1149 |       51 |      63 |        45 |       57 |
+| Int32  |       5 |      5 |        2 |       3 |         2 |        3 |
+| String |     110 |    106 |        3 |       3 |         2 |        3 |
+| Object |     164 |    145 |       13 |      13 |        13 |       15 |
+| Cast   |     228 |    238 |       28 |      27 |        26 |       27 |
+| Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
+
+For every loop except `Error`, swapping the component's language changes nothing: each
+consumer posts the same numbers whether it calls the Rust or the C++ component (`C++→Rust`
+vs `C++→C++`, `Rust→Rust` vs `Rust→C++` are within noise). That is the whole point — the
+ABI is a hard vtable boundary with no cross-language inlining, so the callee's language is
+invisible to the caller. There is no "same-language" advantage to erase, and Rust's lead
+over C#/WinRT is the projection, not the fact that it happened to be calling Rust.
+
+`Error` is the exception, and it is illuminating. The cost is WinRT error *origination* —
+building an `IRestrictedErrorInfo` via `RoOriginateLanguageException` — and the matrix
+shows it is incurred by whichever endpoint is **C++/WinRT**, on *either* side of the call:
+
+- **`Rust→Rust` (`5 ms`) is the only free combo.** The Rust component returns the bare
+  failed `HRESULT` and the Rust consumer receives it as a `Result::Err` value — nobody
+  originates, nobody throws.
+- **The C++ *component* originates on the way out.** Holding the consumer fixed and
+  pointing it at the C++ component adds ~15 µs/call: `C#→Rust` `1485` → `C#→C++` `16699`,
+  and `Rust→Rust` `5` → `Rust→C++` `15454`. For C# the cost is cleanly additive — its own
+  ~1.5 µs managed throw plus the component's ~15 µs origination.
+- **A C++/WinRT *consumer* originates on the way in.** `C++→Rust` is `14165 ms` even though
+  the Rust component originates nothing: handed a bare failed `HRESULT`, C++/WinRT's
+  `throw_hresult` builds the full `hresult_error` itself, so the ~14 µs reappears on the
+  catch side.
+- When **both** ends are C++/WinRT (`C++→C++`, `20760 ms`) the work does not simply double —
+  origination happens once and the consumer reuses the error info the component attached —
+  but it is the most expensive combo, paying for the component's origination *and* the
+  consumer materializing a thrown `hresult_error`.
+
+The lesson: the instant either endpoint is C++/WinRT you pay for rich error origination,
+whether the callee eagerly enriches the failure or the caller reconstructs it on receipt.
+C# pays only its managed throw on top of whatever the component did, and Rust pays neither
+on either side — so routine failures (an iterator hitting `E_BOUNDS`) stay essentially free
+end to end only when both ends are Rust.
+
 ### Error propagation
 
 `Error` is where the projections diverge by orders of magnitude, and there are two costs
@@ -140,7 +222,11 @@ throw/catch on this machine is only ~1.5 µs, so the remaining ~13 µs is WinRT 
 *origination*: `winrt::throw_hresult` builds a full `hresult_error`, which calls
 `RoOriginateLanguageException` to create an `IRestrictedErrorInfo` and capture the error
 context on every single throw. So C++/WinRT is slow for both reasons — it throws *and* it
-eagerly enriches each failure — while C# pays only the throw and Rust pays neither.
+eagerly enriches each failure — while C# pays only the throw and Rust pays neither. The
+`144601 ms` here is the C++ consumer calling the *Rust* component, so the origination is
+the consumer reconstructing the error on receipt; as the [matrix](#does-the-components-language-matter-the-matrix)
+shows, a C++/WinRT *component* originates the same way on the way out, so the cost appears
+whenever either endpoint is C++/WinRT.
 
 The C#/AOT build pays about the same as JIT here (`15542 ms`, ~1.6 µs per call): Native AOT
 changes startup, not the cost of throwing, so the exception machinery dominates either way.
@@ -156,6 +242,30 @@ loop is the worst case — each `QueryInterface`/wrapper lookup goes through AOT
 layer and garbage collector — but every loop stays linear and tractable, including `Error`,
 which AOT now completes at roughly the same cost as JIT. JIT is the representative C#
 result.
+
+### A note on a C# component
+
+Rust and C++ each call a component written in their own language; C# does not, because a
+drop-in C# component that shares this exact metadata cannot be activated without
+registration. CsWinRT *authoring* (`CsWinRTComponent`) was the obvious route, but it has
+two blockers:
+
+- **Name collision with the host.** Manifest-free activation requires the native host
+  (`WinRT.Host.dll`) to be renamed to `LangPerf.dll`. CsWinRT authoring also requires the
+  managed assembly name to match the type's root namespace, forcing *it* to be
+  `LangPerf.dll` too — the host and the implementation cannot both own that one filename.
+- **Incompatible metadata.** Authoring regenerates its own winmd with a *different*
+  default interface. Reading both winmds with [`windows-metadata`](../../libs/metadata)
+  shows the hand-authored default interface is `LangPerf.IClass`
+  (`25901a4a-7a56-5621-97ca-51c51587322b`), while CsWinRT emits `LangPerf.IClassClass`
+  (`8212d01d-bcc1-59bd-acbe-11084aaf3a8a`) — a different IID and slot layout, so it is not
+  ABI-compatible with the shared `lang.winmd` the other consumers project.
+
+A C#→C# in-process call via a project reference would also sidestep WinRT activation
+entirely, so it would not measure projection overhead in the first place. The C# consumer
+therefore calls the Rust component and labels it honestly via `Lang()`. This does not
+weaken the comparison: the projection cost being measured is on the *caller* side, and the
+component does no real work regardless of who wrote it.
 
 ### A note on CsWinRT 3.0
 

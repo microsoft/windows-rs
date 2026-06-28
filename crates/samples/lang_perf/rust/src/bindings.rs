@@ -86,6 +86,16 @@ impl Class {
             .map(|| result__)
         }
     }
+    pub fn Lang(&self) -> windows_core::Result<windows_core::HSTRING> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Lang)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| core::mem::transmute(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -100,7 +110,7 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x48a7110f_e630_59a6_853a_d86a7648441d);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x25901a4a_7a56_5621_97ca_51c51587322b);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -131,6 +141,10 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Lang: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INonDefault,

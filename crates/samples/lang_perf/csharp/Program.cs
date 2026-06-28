@@ -2,7 +2,9 @@ using System.Diagnostics;
 using LangPerf;
 
 ulong iterations = ParseIterations(args);
-Console.WriteLine($"# C#/WinRT - {iterations} iterations");
+
+var o = new Class();
+Console.WriteLine($"# C# consumer -> {o.Lang()} component - {iterations} iterations");
 
 var timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
@@ -10,8 +12,6 @@ for (ulong i = 0; i < iterations; i++)
     _ = new Class();
 }
 Report("Create", timer);
-
-var o = new Class();
 
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)

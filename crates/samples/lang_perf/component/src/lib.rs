@@ -64,6 +64,10 @@ impl bindings::IClass_Impl for Class_Impl {
     fn Next(&self) -> Result<i32> {
         Err(E_BOUNDS.into())
     }
+
+    fn Lang(&self) -> Result<HSTRING> {
+        Ok(h!("Rust").to_owned())
+    }
 }
 
 impl bindings::INonDefault_Impl for Class_Impl {
