@@ -15,7 +15,13 @@ fn msvc_main() {
     let include = std::env::var("OUT_DIR").unwrap();
     let reference = "../../../libs/bindgen/default";
 
-    cppwinrt::cppwinrt(["-in", "../component/lang.winmd", reference, "-out", &include]);
+    cppwinrt::cppwinrt([
+        "-in",
+        "../component/lang.winmd",
+        reference,
+        "-out",
+        &include,
+    ]);
 
     cc::Build::new()
         .cpp(true)

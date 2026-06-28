@@ -20,9 +20,9 @@ propagation, and `QueryInterface` — which is exactly what we want to compare.
 
 A natural objection to "Rust calls Rust" is that it might somehow be an unfair
 advantage. It is not — the WinRT ABI is a hard vtable boundary, so there is no inlining
-across it and no language can see into the component it calls. To make that concrete,
-the component is authored *twice*, and **each consumer calls a component written in its
-own language**:
+across it and no language can see into the component it calls. To make that concrete, the
+component is authored *twice*, in Rust and in C++/WinRT, so a consumer can call an
+implementation written in its own language:
 
 - [`component`](component) — the **Rust** component. [`src/lang.rdl`](component/src/lang.rdl)
   describes the API in RDL; [`build.rs`](component/build.rs) runs
@@ -36,8 +36,9 @@ own language**:
 
 Both components are generated from the single hand-authored `lang.winmd`, so every
 consumer projects byte-for-byte identical metadata — the only thing that changes is the
-implementation language behind the ABI. Each consumer depends (in Cargo) on its own
-component, so a bare `cargo run -p lang_perf_<lang>` builds and uses the right one.
+implementation language behind the ABI. The Rust and C++ consumers depend (in Cargo) on
+their own component, so a bare `cargo run -p lang_perf_rust` or `-p lang_perf_cpp` builds
+and uses the matching one.
 
 To *prove* which implementation answered, the class has a `Lang()` method that returns a
 language tag (`"Rust"`, `"C++"`). Every consumer calls it once at startup and prints, for
@@ -96,14 +97,15 @@ cargo build --release -p lang_perf_cpp
 cargo run --release -p lang_perf_rust -- --component cpp --iterations 10000000
 ```
 
-The C# benchmark is built by `dotnet` rather than cargo; it calls the Rust component, so
-build that first and put its output directory on `PATH` so `langperf_rust.dll` resolves.
-It targets **.NET 10** (the current release) and **C#/WinRT (CsWinRT) 2.2.0**, the latest
-*stable* projection — see [the note below](#a-note-on-cswinrt-30) for why it does not use
-the 3.0 preview. The .NET 10 SDK is required:
+The C# benchmark is built by `dotnet` rather than cargo and calls the Rust component. Build
+that component, stage it as `LangPerf.dll` (the name activation probes for) on `PATH`, then
+run. It targets **.NET 10** (the current release) and **C#/WinRT (CsWinRT) 2.2.0**, the
+latest *stable* projection — see [the note below](#a-note-on-cswinrt-30) for why it does not
+use the 3.0 preview. The .NET 10 SDK is required:
 
 ```pwsh
 cargo build --release -p lang_perf_component
+Copy-Item target/release/langperf_rust.dll target/release/LangPerf.dll
 $env:PATH = "$PWD/target/release;$env:PATH"
 dotnet run -c Release --project crates/samples/lang_perf/csharp -- --iterations 10000000
 ```
@@ -205,28 +207,23 @@ end to end only when both ends are Rust.
 
 ### Error propagation
 
-`Error` is where the projections diverge by orders of magnitude, and there are two costs
-stacked on top of each other. The first is the exception machinery itself. Rust projects a
-failed `HRESULT` as a `Result::Err` — an ordinary returned value — so the loop stays as
-cheap as the other pure-ABI loops (`53 ms`, ~5 ns per call). C#/WinRT projects the same
-failure as a *thrown* managed exception and pays `14543 ms`, roughly `1.5 µs` per call — and
-that is almost entirely the throw, because C#'s `ThrowExceptionForHR` does *not* eagerly
-originate restricted error info and .NET only materializes a stack trace if one is read.
-That ~270× gap between a return and a bare throw is the headline: exceptions are genuinely
-expensive, and a projection that returns errors is dramatically cheaper whenever failures
-are routine — an iterator reaching its end with `E_BOUNDS`, say.
+`Error` is worth dwelling on, because the projections diverge by orders of magnitude even
+before origination enters the picture. Rust projects a failed `HRESULT` as a `Result::Err`
+— an ordinary returned value — so the loop stays as cheap as the pure-ABI loops (`53 ms` at
+10M, ~5 ns per call). C#/WinRT projects the same failure as a *thrown* managed exception
+(`14543 ms`, ~1.5 µs per call), almost entirely the throw itself: C#'s `ThrowExceptionForHR`
+does *not* eagerly originate restricted error info, and .NET only materializes a stack trace
+if one is read. That ~270× gap between a return and a bare throw is the headline — exceptions
+are genuinely expensive, so a projection that returns errors wins big whenever failures are
+routine, such as an iterator reaching its end with `E_BOUNDS`.
 
-C++/WinRT then piles a second cost on top of the throw. Its `144601 ms` is about `14 µs`
-per call, an order of magnitude worse than C#'s already-expensive throw. A bare native
-throw/catch on this machine is only ~1.5 µs, so the remaining ~13 µs is WinRT error
-*origination*: `winrt::throw_hresult` builds a full `hresult_error`, which calls
-`RoOriginateLanguageException` to create an `IRestrictedErrorInfo` and capture the error
-context on every single throw. So C++/WinRT is slow for both reasons — it throws *and* it
-eagerly enriches each failure — while C# pays only the throw and Rust pays neither. The
-`144601 ms` here is the C++ consumer calling the *Rust* component, so the origination is
-the consumer reconstructing the error on receipt; as the [matrix](#does-the-components-language-matter-the-matrix)
-shows, a C++/WinRT *component* originates the same way on the way out, so the cost appears
-whenever either endpoint is C++/WinRT.
+On top of the throw sits WinRT error *origination*, the ~14–20 µs cost dissected in the
+[matrix](#does-the-components-language-matter-the-matrix) above: any C++/WinRT endpoint
+builds a full `IRestrictedErrorInfo` via `RoOriginateLanguageException`, whether it is the
+component enriching the failure on the way out or a C++/WinRT consumer reconstructing it on
+receipt. This is why the headline table's `C++` column reaches `144601 ms` (~14 µs per call)
+even calling the originating-free Rust component — the C++ *consumer* originates on receipt.
+Rust originates on neither side.
 
 The C#/AOT build pays about the same as JIT here (`15542 ms`, ~1.6 µs per call): Native AOT
 changes startup, not the cost of throwing, so the exception machinery dominates either way.
