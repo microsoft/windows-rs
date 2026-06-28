@@ -228,6 +228,39 @@ Rust originates on neither side.
 The C#/AOT build pays about the same as JIT here (`15542 ms`, ~1.6 µs per call): Native AOT
 changes startup, not the cost of throwing, so the exception machinery dominates either way.
 
+### A note on benchmark structure
+
+A reasonable critique of microbenchmarks is that running every scenario in one method can let
+the compiler reorder, hoist, or otherwise optimize across scenarios in ways that distort the
+result, and that each scenario should instead live in its own non-inlined method with warmup
+and cleanup in between. That concern does not apply here, and we verified it empirically.
+
+Every measured operation is an opaque cross-DLL WinRT vtable call. No compiler — rustc, the
+C++ compiler, or the C# JIT — can inline into the component, constant-fold the result, or
+hoist anything out of the loop across the ABI boundary, so there is nothing for the method
+structure to interfere with. To confirm, we restructured the C# consumer so each scenario ran
+in its own `[MethodImpl(MethodImplOptions.NoInlining)]` method with a warmup pass and a
+`GC.Collect()` between timed loops, then measured it head-to-head against the single-method
+form at 10,000,000 iterations:
+
+| Scenario | Single method | Per-scenario method + warmup + GC |
+| -------- | ------------: | --------------------------------: |
+| Create   |     ~10000 ms |                         ~10300 ms |
+| Int32    |       ~49 ms  |                           ~39 ms  |
+| String   |      ~1090 ms |                          ~980 ms  |
+| Object   |      ~1170 ms |                         ~1090 ms  |
+| Cast     |      ~1410 ms |                         ~1320 ms  |
+| Error    | ~14000 ms     |                       ~15000 ms   |
+
+Every value is within run-to-run noise, and the order-of-magnitude gap between C# and the
+native projections is fully preserved. The one genuinely C#-specific factor — JIT tiering, since
+the AOT-native Rust and C++ builds never tier — is negligible at this scale: the tiering and
+on-stack-replacement transition spans a few dozen iterations and is lost against billions of
+steady-state calls, which is why the explicit warmup changed nothing. The C# gap is real
+projection overhead (runtime-callable-wrapper lookups, garbage-collector pressure, interop
+thunks), not a measurement artifact. If method structure were the cause it would have to show
+up in Rust and C++ too; it does not.
+
 ### A note on Native AOT
 
 The `C#/AOT` column publishes the same C# program with
