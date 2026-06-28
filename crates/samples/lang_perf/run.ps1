@@ -23,6 +23,10 @@ $releaseDir = Join-Path $root 'target/release'
 $csharp = Join-Path $PSScriptRoot 'csharp'
 
 Write-Host 'Building Rust and C++ consumers (release)...' -ForegroundColor Cyan
+# Build the component that generates lang.winmd first, on its own, so its build script
+# (the winmd writer) never runs in parallel with the C++ component/consumer build scripts
+# that read the same winmd -- otherwise a clean build can fail with a file-locking error.
+cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_component | Out-Null
 cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_rust -p lang_perf_cpp | Out-Null
 
 # Stage each component as LangPerf.dll in its own directory so the C# consumer (which
@@ -92,7 +96,7 @@ foreach ($consumer in $consumers) {
     }
 }
 
-$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast', 'Error'
+$metrics = 'Create', 'Int32', 'String', 'Object', 'Cast', 'Event', 'AddRemove', 'Error'
 $combos = $results | ForEach-Object { $_.Combo }
 $width = [Math]::Max(8, ($combos | Measure-Object -Property Length -Maximum).Maximum)
 

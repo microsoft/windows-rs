@@ -29,12 +29,16 @@ struct ClassFactory;
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable> {
-        Ok(Class.into())
+        Ok(Class::default().into())
     }
 }
 
 #[implement(bindings::Class, bindings::INonDefault)]
-struct Class;
+#[derive(Default)]
+struct Class {
+    handlers: std::cell::RefCell<Vec<(i64, bindings::Handler)>>,
+    next_token: std::cell::Cell<i64>,
+}
 
 impl bindings::IClass_Impl for Class_Impl {
     fn Int32Property(&self) -> Result<i32> {
@@ -67,6 +71,28 @@ impl bindings::IClass_Impl for Class_Impl {
 
     fn Lang(&self) -> Result<HSTRING> {
         Ok(h!("Rust").to_owned())
+    }
+
+    fn Event(&self, handler: Ref<bindings::Handler>) -> Result<i64> {
+        let token = self.next_token.get() + 1;
+        self.next_token.set(token);
+        if let Some(handler) = handler.cloned() {
+            self.handlers.borrow_mut().push((token, handler));
+        }
+        Ok(token)
+    }
+
+    fn RemoveEvent(&self, token: i64) -> Result<()> {
+        self.handlers.borrow_mut().retain(|(t, _)| *t != token);
+        Ok(())
+    }
+
+    fn Raise(&self) -> Result<()> {
+        let sender: IInspectable = self.to_interface();
+        for (_, handler) in self.handlers.borrow().iter() {
+            handler.Invoke(&sender, 0)?;
+        }
+        Ok(())
     }
 }
 

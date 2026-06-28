@@ -197,6 +197,7 @@ impl Encoder<'_> {
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
         let mut property_map_started = false;
+        let mut event_map_started = false;
 
         for member in &item.members {
             match member {
@@ -399,7 +400,7 @@ impl Encoder<'_> {
                             token_ty.clone(),
                         ));
                     }
-                    self.output.MethodDef(
+                    let add_method = self.output.MethodDef(
                         &add_name,
                         &add_signature,
                         method_flags,
@@ -420,13 +421,31 @@ impl Encoder<'_> {
                             metadata::Type::Void,
                         ));
                     }
-                    self.output.MethodDef(
+                    let remove_method = self.output.MethodDef(
                         &remove_name,
                         &remove_signature,
                         method_flags,
                         Default::default(),
                     );
                     self.encode_simple_params(&[("token", &token_ty)])?;
+
+                    let event = self.output.Event(&evt.name.to_string(), &handler_ty);
+
+                    if !event_map_started {
+                        self.output.EventMap(interface, event);
+                        event_map_started = true;
+                    }
+
+                    self.output.MethodSemantics(
+                        0x0008, // AddOn
+                        add_method,
+                        metadata::writer::HasSemantics::Event(event),
+                    );
+                    self.output.MethodSemantics(
+                        0x0010, // RemoveOn
+                        remove_method,
+                        metadata::writer::HasSemantics::Event(event),
+                    );
                 }
             }
         }

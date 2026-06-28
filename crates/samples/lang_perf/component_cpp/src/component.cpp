@@ -33,9 +33,24 @@ struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
         return L"C++";
     }
 
+    winrt::event_token Event(LangPerf::Handler const& handler) {
+        return m_event.add(handler);
+    }
+
+    void Event(winrt::event_token const& token) noexcept {
+        m_event.remove(token);
+    }
+
+    void Raise() {
+        m_event(*this, 0);
+    }
+
     int32_t Value() const noexcept {
         return 0;
     }
+
+private:
+    winrt::event<LangPerf::Handler> m_event;
 };
 
 struct ClassFactory : implements<ClassFactory, Windows::Foundation::IActivationFactory> {

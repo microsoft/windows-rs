@@ -29,6 +29,8 @@ identifiers! {
 
     Property
     PropertyMap
+    Event
+    EventMap
     MethodSemantics
 
     BlobId

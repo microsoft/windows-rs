@@ -66,6 +66,23 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         }
         printf("Cast: %lld ms\n", elapsed_ms(start));
 
+        auto token = object.Event([](Windows::Foundation::IInspectable const&, int32_t) {});
+        start = std::chrono::high_resolution_clock::now();
+        for (uint64_t i = 0; i < iterations; i++)
+        {
+            object.Raise();
+        }
+        printf("Event: %lld ms\n", elapsed_ms(start));
+        object.Event(token);
+
+        start = std::chrono::high_resolution_clock::now();
+        for (uint64_t i = 0; i < iterations; i++)
+        {
+            auto added = object.Event([](Windows::Foundation::IInspectable const&, int32_t) {});
+            object.Event(added);
+        }
+        printf("AddRemove: %lld ms\n", elapsed_ms(start));
+
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {

@@ -69,6 +69,7 @@ impl MethodAttributes {
 
 flags!(MethodImplAttributes, u16);
 impl MethodImplAttributes {
+    pub const Runtime: Self = Self(0x3);
     pub const PreserveSig: Self = Self(0x80);
 }
 

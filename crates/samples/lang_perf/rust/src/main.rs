@@ -81,6 +81,21 @@ fn run() -> windows_core::Result<()> {
     }
     report("Cast", start);
 
+    {
+        let _revoker = object.Event(|_sender, _value| {})?;
+        let start = Instant::now();
+        for _ in 0..iterations {
+            object.Raise()?;
+        }
+        report("Event", start);
+    }
+
+    let start = Instant::now();
+    for _ in 0..iterations {
+        let _revoker = object.Event(|_sender, _value| {})?;
+    }
+    report("AddRemove", start);
+
     let start = Instant::now();
     for _ in 0..iterations {
         let _ = object.Next();

@@ -80,5 +80,6 @@ code! { TypeOrMethodDef(1)
 }
 
 code! { HasSemantics(1)
+    (Event, 0)
     (Property, 1)
 }

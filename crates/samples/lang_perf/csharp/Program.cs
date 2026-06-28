@@ -44,6 +44,25 @@ for (ulong i = 0; i < iterations; i++)
 }
 Report("Cast", timer);
 
+LangPerf.Handler handler = (sender, args) => { };
+o.Event += handler;
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
+{
+    o.Raise();
+}
+Report("Event", timer);
+o.Event -= handler;
+
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
+{
+    LangPerf.Handler h = (sender, args) => { };
+    o.Event += h;
+    o.Event -= h;
+}
+Report("AddRemove", timer);
+
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {

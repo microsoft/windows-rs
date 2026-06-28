@@ -15,9 +15,13 @@ mod LangPerf {
         ObjectProperty: Object;
         fn Next(&self) -> i32;
         fn Lang(&self) -> String;
+        event Event: Handler;
+        fn Raise(&self);
     }
 
     interface INonDefault {
         fn Value(&self) -> i32;
     }
+
+    delegate fn Handler(sender: Object, args: i32);
 }

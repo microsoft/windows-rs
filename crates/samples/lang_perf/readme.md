@@ -57,24 +57,33 @@ calls `Lang()`, so its output honestly reports `# C# consumer -> Rust component`
 
 ## What is measured
 
-Each consumer runs six loops and prints `label: N ms`:
+Each consumer runs eight loops and prints `label: N ms`:
 
-| Loop     | What it exercises                                             |
-|----------|--------------------------------------------------------------|
-| `Create` | `Class()` activation + release                               |
-| `Int32`  | set + get an `Int32` property (scalar in/out)               |
-| `String` | set + get a `String` property (HSTRING marshaling, in/out)  |
-| `Object` | set + get an `Object` property (`IInspectable` ref-counting) |
-| `Cast`   | `ObjectProperty()` then `QueryInterface` to a non-default interface |
-| `Error`  | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
+| Loop        | What it exercises                                             |
+|-------------|--------------------------------------------------------------|
+| `Create`    | `Class()` activation + release                               |
+| `Int32`     | set + get an `Int32` property (scalar in/out)               |
+| `String`    | set + get a `String` property (HSTRING marshaling, in/out)  |
+| `Object`    | set + get an `Object` property (`IInspectable` ref-counting) |
+| `Cast`      | `ObjectProperty()` then `QueryInterface` to a non-default interface |
+| `Event`     | raise a WinRT event once per iteration with one subscriber (delegate invoke) |
+| `AddRemove` | subscribe a handler and immediately unsubscribe each iteration (delegate marshaling + token bookkeeping) |
+| `Error`     | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
 
 `Create` is the only loop that allocates: it activates and releases an object each
 iteration. The next four are pure ABI traffic — scalar copies, string marshaling, an
 `AddRef`/`Release` pair, and a `QueryInterface` — all on an already-live object, with no
-allocation in the component. `Error` isolates the failure path: the component's `Next`
-method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop measures how each
-projection turns an ABI error code into its idiomatic error type — a `Result::Err` in
-Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed exception in C#/WinRT.
+allocation in the component. `Event` and `AddRemove` exercise WinRT **delegates and
+events**: `Event` keeps one subscriber registered and invokes the delegate across the ABI
+each iteration; `AddRemove` churns subscription, constructing a fresh WinRT delegate from a
+language callback and handing it to the component's `add`/`remove` each time. Unlike the
+other loops these two are **component-dependent** — the component owns the subscriber
+storage — so they are dissected in their own [section](#delegates-and-events) rather than
+the "component language is invisible" tables. `Error` isolates the failure path: the
+component's `Next` method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop
+measures how each projection turns an ABI error code into its idiomatic error type — a
+`Result::Err` in Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed
+exception in C#/WinRT.
 
 ## Running
 
@@ -128,7 +137,8 @@ crates/samples/lang_perf/run.ps1 -Iterations 10000000 -IncludeAot
 
 Release builds, 10,000,000 iterations, milliseconds (lower is better). In this table every
 consumer calls the **Rust** component; the [matrix below](#does-the-components-language-matter-the-matrix)
-confirms the component's language makes no difference except on `Error`. Each consumer
+confirms the component's language makes no difference except on `Error` and the two event
+loops. Each consumer
 issues the identical sequence of ABI calls and passes each value the natural, idiomatic
 way for its language — including the string argument, written as `h!("value")` in Rust,
 `L"value"` in C++, and `"value"` in C#. Because the component ignores its inputs and
@@ -143,6 +153,8 @@ point.
 | String |    245 |    221 |     32 |   21 |
 | Object |   1127 |   1358 |    135 |  133 |
 | Cast   |   1337 |   2549 |    281 |  271 |
+| Event  |    802 |    939 |    132 |  139 |
+| AddRemove | 27981 | 59182 |  2219 |  518 |
 | Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
@@ -150,8 +162,10 @@ compile down to direct vtable calls, so they sit far below C# and stay within no
 each other — Rust is marginally ahead on most loops and ties the rest. With the component
 doing nothing, the pure-ABI loops (`Int32`, `String`, `Object`, `Cast`) cost tens to low
 hundreds of milliseconds: a scalar copy, a fast-pass string marshal, an `AddRef`/`Release`
-pair, and a `QueryInterface` are all essentially free. Only `Create` costs more, because
-it genuinely activates and releases an object each iteration.
+pair, and a `QueryInterface` are all essentially free. `Create` costs more because it
+genuinely activates and releases an object each iteration, and `Event`/`AddRemove` add
+delegate work that depends on the component — both dissected in
+[Delegates and events](#delegates-and-events).
 
 C#/WinRT pays for the managed runtime on every call — runtime-callable-wrapper lookups,
 garbage collection, and per-call interop thunks — so even the pure-ABI loops run an order
@@ -170,18 +184,24 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 | String |     110 |    106 |        3 |       3 |         2 |        3 |
 | Object |     164 |    145 |       13 |      13 |        13 |       15 |
 | Cast   |     228 |    238 |       28 |      27 |        26 |       27 |
+| Event  |      88 |    103 |       13 |      32 |        13 |       33 |
+| AddRemove | 3148 |   2879 |      225 |     130 |        62 |      150 |
 | Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
 
-For every loop except `Error`, swapping the component's language changes nothing: each
+For every pure-ABI loop, swapping the component's language changes nothing: each
 consumer posts the same numbers whether it calls the Rust or the C++ component (`C++→Rust`
 vs `C++→C++`, `Rust→Rust` vs `Rust→C++` are within noise). That is the whole point — the
 ABI is a hard vtable boundary with no cross-language inlining, so the callee's language is
 invisible to the caller. There is no "same-language" advantage to erase, and Rust's lead
 over C#/WinRT is the projection, not the fact that it happened to be calling Rust.
 
-`Error` is the exception, and it is illuminating. The cost is WinRT error *origination* —
-building an `IRestrictedErrorInfo` via `RoOriginateLanguageException` — and the matrix
-shows it is incurred by whichever endpoint is **C++/WinRT**, on *either* side of the call:
+`Error` and the two event loops (`Event`, `AddRemove`) are the exceptions, because each
+does real work *inside* the component — originating an error, or maintaining the subscriber
+list — so the component's language is no longer invisible. The event loops are dissected in
+[Delegates and events](#delegates-and-events). `Error` is illuminating in its own right: on
+top of each projection's own error cost sits WinRT error *origination* — building an
+`IRestrictedErrorInfo` via `RoOriginateLanguageException` — and the matrix shows it is
+incurred by whichever endpoint is **C++/WinRT**, on *either* side of the call:
 
 - **`Rust→Rust` (`5 ms`) is the only free combo.** The Rust component returns the bare
   failed `HRESULT` and the Rust consumer receives it as a `Result::Err` value — nobody
@@ -227,6 +247,34 @@ Rust originates on neither side.
 
 The C#/AOT build pays about the same as JIT here (`15542 ms`, ~1.6 µs per call): Native AOT
 changes startup, not the cost of throwing, so the exception machinery dominates either way.
+
+### Delegates and events
+
+`Event` and `AddRemove` add a second *component-dependent* axis to the benchmark. Where the
+pure-ABI loops are blind to the callee's language, an event is backed by a real data
+structure the component owns — a subscriber list — so raising it and churning subscriptions
+both surface how the component implements that storage. The Rust component keeps a plain
+`Vec` of handlers; the C++/WinRT component uses `winrt::event`, which takes a thread-safe
+snapshot of its delegate array on every raise.
+
+That difference is visible and, crucially, *symmetric* across consumers. In the matrix,
+`Event` costs ~13 ms/1M against the Rust component and ~32 ms against the C++ component —
+for **both** the Rust and C++ consumers (`Rust→Rust` `13` vs `Rust→C++` `33`; `C++→Rust`
+`13` vs `C++→C++` `32`). The ~2.5× is the `winrt::event` snapshot, not the caller: a Rust
+consumer calling the C++ component pays exactly what a C++ consumer does. There is still no
+"Rust calls Rust" bonus — only the component's own event implementation showing through,
+equally, to everyone.
+
+`AddRemove` is the costly one, because it constructs a fresh WinRT delegate from a language
+callback and runs the component's `add`/`remove` every iteration — work on both sides of the
+ABI. Natively it is still cheap (`Rust→Rust` `62 ms/1M`, ~62 ns/call; the C++ consumer or
+C++ component add tens to low hundreds of ns for delegate construction and locked array
+edits). C#/WinRT is the outlier by two orders of magnitude: each subscribe wraps the managed
+delegate in a runtime-callable wrapper and each unsubscribe tears it down, which dominates
+regardless of component — `27,981 ms` at 10M (~2.8 µs/call) on JIT, and Native AOT is *worse*
+at `59,182 ms` (~5.9 µs/call), since its leaner steady-state interop does not offset the
+per-subscription wrapper churn. Delegate-heavy WinRT code is one place the managed projection
+pays dearly; the native projections treat a delegate as little more than a vtable pointer.
 
 ### A note on benchmark structure
 
