@@ -167,15 +167,15 @@ point.
 | AddRemove | 27981 | 59182 |  2219 |  518 |
 | IterateVector | 673 | 383 | 127 | 4 |
 | GetMany |    329 |    191 |      2 |    6 |
-| Map    |   1813 |   2603 |    955 |  765 |
-| Async  |  49902 | 479320 |    994 |  322 |
+| Map    |   1813 |   2603 |    955 |  775 |
+| Async  |  49902 | 479320 |    994 |  452 |
 | Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
 compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
 ties every loop: it edges C++ on the pure-ABI calls, matches it where the work is already
 free, and wins outright where it counts — `AddRemove` (4×), `IterateVector` (30×), `Async`
-(3×), and `Error` (2700×) — and it leads C# in every category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops (`Int32`, `String`,
+(2.2×), and `Error` (2700×) — and it leads C# in every category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops (`Int32`, `String`,
 `Object`, `Cast`) cost tens to low hundreds of milliseconds: a scalar copy, a fast-pass
 string marshal, an `AddRef`/`Release` pair, and a `QueryInterface` are all essentially free.
 `Create` costs more because it genuinely activates and releases an object each iteration, and
@@ -194,18 +194,18 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 
 | Metric | C#→Rust | C#→C++ | C++→Rust | C++→C++ | Rust→Rust | Rust→C++ |
 |--------|--------:|-------:|---------:|--------:|----------:|---------:|
-| Create |    1087 |   1149 |       51 |      63 |        45 |       57 |
-| Int32  |       5 |      5 |        2 |       3 |         2 |        3 |
-| String |     110 |    106 |        3 |       3 |         2 |        3 |
-| Object |     164 |    145 |       13 |      13 |        13 |       15 |
-| Cast   |     228 |    238 |       28 |      27 |        26 |       27 |
-| Event  |      88 |    103 |       13 |      32 |        13 |       33 |
-| AddRemove | 3148 |   2879 |      225 |     130 |        62 |      150 |
-| IterateVector | 49 | 47 | 11 | 12 | 0 | 0 |
-| GetMany   |   24 |     25 |        0 |       0 |         0 |        0 |
-| Map    |     429 |    297 |       81 |      96 |        76 |       79 |
-| Async  |    3973 |   3982 |       46 |      96 |        30 |       80 |
-| Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
+| Create |    1217 |   1159 |       51 |      62 |        47 |       59 |
+| Int32  |       5 |      6 |        2 |       3 |         2 |        3 |
+| String |     106 |    108 |        3 |       3 |         2 |        3 |
+| Object |     154 |    162 |       13 |      13 |        13 |       14 |
+| Cast   |     243 |    217 |       27 |      27 |        27 |       27 |
+| Event  |      94 |    103 |       13 |      33 |        13 |       32 |
+| AddRemove | 2814 |   2904 |       48 |     132 |        51 |      135 |
+| IterateVector | 51 | 48 | 12 | 13 | 1 | 1 |
+| GetMany   |   24 |     23 |        0 |       0 |         0 |        0 |
+| Map    |     242 |    385 |       78 |      95 |        74 |       84 |
+| Async  |    3794 |   3677 |       46 |      95 |        46 |       94 |
+| Error  |    1893 |  17996 |    14346 |   21181 |         5 |    15865 |
 
 For every pure-ABI loop, swapping the component's language changes nothing: each
 consumer posts the same numbers whether it calls the Rust or the C++ component (`C++→Rust`
@@ -323,25 +323,29 @@ naive `GetAt`-per-element shape would have tied cppwinrt's `127`.
 
 `Map` walks an `IMap<String, Int32>` the same idiomatic way (`for pair in &map`). Unlike a
 vector there is no `GetMany` bulk path, so every element is a per-pair ABI crossing for all
-three projections — at 10M, Rust `765`, C++ `955`, C#/JIT `1813`. It stays consumer-driven
-(`Rust→Rust` `76` vs `Rust→C++` `79` at 1M), so Rust again leads. Getting there exposed — and
+three projections — at 10M, Rust `775`, C++ `955`, C#/JIT `1813`. It stays consumer-driven
+(`Rust→Rust` `74` vs `Rust→C++` `84` at 1M), so Rust again leads. Getting there exposed — and
 fixed — a quadratic in windows-rs: the stock map iterator originally located each element with
 `map.iter().nth(current)`, an O(n) walk per step, turning a full traversal into O(n²) (a 1M C#
 loop took ~11 minutes). Snapshotting the keys/values once at `First()` makes each step O(1);
 the same fix applies to `IMapView` and `IObservableMap`, so all stock-map iteration is now
-linear with no caller change.
+linear with no caller change. cppwinrt instead holds a *live* `std::map` cursor across the ABI
+and bumps it O(1) per step, guarding against mutation with a version counter; windows-rs
+snapshots because Rust can't safely store a borrowing `BTreeMap` iterator inside the COM
+object. Both are linear — neither cheats; the snapshot just trades memory for resilience.
 
 ### Async
 
 `Async` awaits an `IAsyncOperation<Int32>` the component completes synchronously: Rust
-`.GetResults()`, C++ `.get()`, C# `await`. Like the event loops it is **component-dependent** —
+`.join()`, C++ `.get()`, C# `await` — the analogous blocking wait in each, paying the same
+completion handshake. Like the event loops it is **component-dependent** —
 the component constructs the operation — so it sits in the matrix's exception set. The Rust
-component returns a ready operation via `windows-future` (`30 ms/1M`); the C++ component
-`co_return`s, which is heavier (`80–96 ms`), and that gap is symmetric across consumers. The
-consumer projection dominates the headline: at 10M Rust is `322` and C++ `994`, while C#/WinRT's
+component returns a ready operation via `windows-future` (`46 ms/1M`); the C++ component
+`co_return`s, which is heavier (`94–95 ms`), and that gap is symmetric across consumers. The
+consumer projection dominates the headline: at 10M Rust is `452` and C++ `994`, while C#/WinRT's
 await machinery costs `49,902` (JIT). Native AOT is the worst case at `479,320 ms` (~48 µs/call,
 10× JIT) — the same pattern as `AddRemove`, where AOT's per-call interop overwhelms steady-state
-throughput. Rust leads C++ ~3× and C#/WinRT by two orders of magnitude.
+throughput. Rust leads C++ ~2.2× and C#/WinRT by two orders of magnitude.
 
 ### A note on benchmark structure
 
@@ -411,6 +415,20 @@ entirely, so it would not measure projection overhead in the first place. The C#
 therefore calls the Rust component and labels it honestly via `Lang()`. This does not
 weaken the comparison: the projection cost being measured is on the *caller* side, and the
 component does no real work regardless of who wrote it.
+
+### Future exploration
+
+Candidate loops not yet implemented, kept here so the rationale is not lost:
+
+- **Struct by value** — pass/return a WinRT struct (e.g. a few-field value type) across the
+  ABI to measure blittable-vs-marshaled struct copies.
+- **Arrays** — fill/receive a large `Int32[]` to compare bulk array marshaling against the
+  per-element vector path.
+- **`IReference<T>`** — box/unbox a nullable to exercise the boxing projection.
+- **windows-reactor iteration** — profile real WinUI collection iteration now that stock-map
+  iteration is linear; confirm the reactor's `for`-based walk beats `Size`+`GetAt`.
+- **C# `String` anomaly** — investigate why C#'s `String` loop is comparatively cheap (leaner
+  string marshaling) versus its other loops.
 
 ### A note on CsWinRT 3.0
 

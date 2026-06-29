@@ -126,7 +126,7 @@ fn run() -> windows_core::Result<()> {
 
     let start = Instant::now();
     for _ in 0..iterations {
-        let _ = object.Operation()?.GetResults()?;
+        let _ = object.Operation()?.join()?;
     }
     report("Async", start);
 
