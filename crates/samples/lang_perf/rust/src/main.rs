@@ -132,7 +132,8 @@ fn run() -> windows_core::Result<()> {
 
     let start = Instant::now();
     for _ in 0..iterations {
-        let _ = object.Reference()?;
+        object.SetReferenceProperty(Some(0))?;
+        let _ = object.ReferenceProperty()?;
     }
     report("Reference", start);
 

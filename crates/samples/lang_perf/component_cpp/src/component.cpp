@@ -69,8 +69,14 @@ struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
         co_return 0;
     }
 
-    Windows::Foundation::IReference<int32_t> Reference() const noexcept {
+    Windows::Foundation::IReference<int32_t> ReferenceProperty() const noexcept {
         return winrt::box_value(0).as<Windows::Foundation::IReference<int32_t>>();
+    }
+
+    void ReferenceProperty(Windows::Foundation::IReference<int32_t> const& value) const noexcept {
+        if (value) {
+            (void)value.Value();
+        }
     }
 
     int32_t Value() const noexcept {

@@ -104,8 +104,15 @@ impl bindings::IClass_Impl for Class_Impl {
         Ok(windows_future::IAsyncOperation::<i32>::ready(Ok(0)))
     }
 
-    fn Reference(&self) -> Result<windows_reference::IReference<i32>> {
+    fn ReferenceProperty(&self) -> Result<windows_reference::IReference<i32>> {
         Ok(windows_reference::IReference::<i32>::from(0))
+    }
+
+    fn SetReferenceProperty(&self, value: Ref<windows_reference::IReference<i32>>) -> Result<()> {
+        if let Some(value) = value.as_ref() {
+            _ = value.Value()?;
+        }
+        Ok(())
     }
 }
 

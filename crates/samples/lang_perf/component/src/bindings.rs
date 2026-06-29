@@ -160,15 +160,25 @@ impl Class {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Reference(&self) -> windows_core::Result<i32> {
+    pub fn ReferenceProperty(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Reference)(
+            (windows_core::Interface::vtable(self).ReferenceProperty)(
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
             .and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+        }
+    }
+    pub fn SetReferenceProperty(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetReferenceProperty)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
         }
     }
 }
@@ -259,7 +269,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xd6a2b20b_6aea_55d3_9fbc_eccc2d6c51f2);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x2f30a9af_fbe9_50b5_aba8_9bed353b77ae);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -290,7 +300,11 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
         count: u32,
     ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>>;
     fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>>;
-    fn Reference(&self) -> windows_core::Result<windows_reference::IReference<i32>>;
+    fn ReferenceProperty(&self) -> windows_core::Result<windows_reference::IReference<i32>>;
+    fn SetReferenceProperty(
+        &self,
+        value: windows_core::Ref<windows_reference::IReference<i32>>,
+    ) -> windows_core::Result<()>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -496,14 +510,14 @@ impl IClass_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Reference<Identity: IClass_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn ReferenceProperty<Identity: IClass_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IClass_Impl::Reference(this) {
+                match IClass_Impl::ReferenceProperty(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -511,6 +525,19 @@ impl IClass_Vtbl {
                     }
                     Err(err) => err.into(),
                 }
+            }
+        }
+        unsafe extern "system" fn SetReferenceProperty<
+            Identity: IClass_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClass_Impl::SetReferenceProperty(this, core::mem::transmute_copy(&value)).into()
             }
         }
         Self {
@@ -529,7 +556,8 @@ impl IClass_Vtbl {
             Items: Items::<Identity, OFFSET>,
             Map: Map::<Identity, OFFSET>,
             Operation: Operation::<Identity, OFFSET>,
-            Reference: Reference::<Identity, OFFSET>,
+            ReferenceProperty: ReferenceProperty::<Identity, OFFSET>,
+            SetReferenceProperty: SetReferenceProperty::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -586,9 +614,13 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Reference: unsafe extern "system" fn(
+    pub ReferenceProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetReferenceProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(

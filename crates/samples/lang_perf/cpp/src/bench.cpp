@@ -130,7 +130,8 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)
         {
-            auto value = object.Reference().Value();
+            object.ReferenceProperty(0);
+            auto value = object.ReferenceProperty().Value();
             (void)value;
         }
         printf("Reference: %lld ms\n", elapsed_ms(start));

@@ -72,7 +72,7 @@ Each consumer runs thirteen loops and prints `label: N ms`:
 | `GetMany`       | bulk-copy the same vector into a buffer with a single `GetMany` ABI call |
 | `Map`           | iterate an `IMap<String, Int32>` idiomatically — per-pair access, no bulk path |
 | `Async`         | await a synchronously-completed `IAsyncOperation<Int32>` (delegate-backed completion) |
-| `Reference`     | box an `Int32` into an `IReference<Int32>` in the component and unbox it in the consumer |
+| `Reference`     | set + get an `IReference<Int32>` property — box in the consumer/unbox in the component, then box in the component/unbox in the consumer (boxing both ways) |
 | `Error`         | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
 
 `Create` is the only loop that allocates: it activates and releases an object each
@@ -91,9 +91,11 @@ WinRT **collections**: the first two walk an `IVector<Int32>` the component owns
 while `Map` iterates an `IMap<String, Int32>`, which has no bulk path. All three are
 dissected in [Collections and iteration](#collections-and-iteration). `Async` awaits a
 synchronously-completed `IAsyncOperation<Int32>` and is dissected in
-[Async](#async). `Reference` boxes an `Int32` into an `IReference<Int32>` in the component and
-unboxes it in the consumer; it is also **component-dependent** (the box lives in the component) and
-is dissected in [Boxed values](#boxed-values). `Error` isolates the failure path: the
+[Async](#async). `Reference` is an `IReference<Int32>` property exercised both ways each
+iteration: the getter boxes an `Int32` in the component and unboxes it in the consumer, while the
+setter boxes in the consumer and unboxes it in the component — so it stresses boxing in **both
+directions** and depends on the component *and* the consumer. It is dissected in
+[Boxed values](#boxed-values). `Error` isolates the failure path: the
 component's `Next` method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop
 measures how each projection turns an ABI error code into its idiomatic error type — a
 `Result::Err` in Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed
@@ -160,6 +162,13 @@ returns fixed values, the numbers are dominated by projection/ABI cost rather th
 work in the component. Absolute numbers are machine-dependent; the relative shape is the
 point.
 
+The high iteration counts deliberately measure **steady-state per-call throughput** — the
+marginal cost of each ABI call in a hot loop — so one-time JIT and startup overhead is
+amortized away (per-iteration GC and allocation, which scale with the work, are fully
+counted). Short-lived workloads where process startup dominates are a different axis this
+benchmark does not measure; that is the cost Native AOT targets, covered in
+[A note on Native AOT](#a-note-on-native-aot).
+
 | Metric        | C#/JIT | C#/AOT |    C++ | Rust |
 | :------------ | -----: | -----: | -----: | ---: |
 | Create        |   9963 |  17288 |    507 |  442 |
@@ -173,15 +182,15 @@ point.
 | GetMany       |    329 |    191 |      2 |    6 |
 | Map           |   1813 |   2603 |    955 |  775 |
 | Async         |  49902 | 479320 |    994 |  452 |
-| Reference     |  13399 | 152757 |    326 |  318 |
+| Reference     |  25166 | 141045 |   2154 |  703 |
 | Error         |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
 compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
-ties every loop: it edges C++ on the pure-ABI calls, ties it on the delegate and boxing loops
-where both projections do equivalent work, and wins outright where it counts —
-`IterateVector` (30×), `Async` (2.2×), and `Error` (2700×) — and it leads C# in every
-category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops
+ties every loop: it edges C++ on the pure-ABI calls, ties it on the delegate loops (`Event`,
+`AddRemove`) where both projections do equivalent work, and wins outright where it counts —
+`IterateVector` (30×), `Reference` (3×), `Async` (2.2×), and `Error` (2700×) — and it leads C# in
+every category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops
 (`Int32`, `String`, `Object`, `Cast`) cost tens to low hundreds of milliseconds: a scalar
 copy, a fast-pass string marshal, an `AddRef`/`Release` pair, and a `QueryInterface` are all
 essentially free. `Create` costs more because it genuinely activates and releases an object
@@ -211,7 +220,7 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 | GetMany       |      24 |     23 |        0 |       0 |         0 |        0 |
 | Map           |     242 |    385 |       78 |      95 |        74 |       84 |
 | Async         |    3794 |   3677 |       46 |      95 |        46 |       94 |
-| Reference     |    1629 |   1716 |       34 |     154 |        30 |      151 |
+| Reference     |    2496 |   2660 |      188 |     324 |       62 |      187 |
 | Error         |    1893 |  17996 |    14346 |   21181 |         5 |    15865 |
 
 For every pure-ABI loop, swapping the component's language changes nothing: each
@@ -221,9 +230,11 @@ ABI is a hard vtable boundary with no cross-language inlining, so the callee's l
 invisible to the caller. There is no "same-language" advantage to erase, and Rust's lead
 over C#/WinRT is the projection, not the fact that it happened to be calling Rust.
 
-`Error`, `Async`, and `Reference` are the exceptions, because each does real work *inside* the
-component — originating an error, completing an async operation, or boxing a value — so the
-component's language is no longer invisible. `Async` is dissected in [Async](#async) and boxing in
+`Error`, `Async`, and `Reference` are the exceptions, because each does real work that depends on
+an endpoint's language — originating an error, completing an async operation, or boxing a value. For
+`Error` and `Async` that work lives *inside* the component, so the component's language shows through;
+`Reference` is the subtler case, boxing on **both** sides of the call, so it depends on the consumer
+*and* the component. `Async` is dissected in [Async](#async) and boxing in
 [Boxed values](#boxed-values). The delegate loops (`Event`, `AddRemove`) used to differ here too,
 but only because the Rust component once hand-rolled a lighter subscriber list; now that both
 components use equivalent thread-safe event storage — windows-rs `Event<T>` and cppwinrt
@@ -357,24 +368,36 @@ throughput. Rust leads C++ ~2.2× and C#/WinRT by two orders of magnitude.
 
 ### Boxed values
 
-`Reference` boxes an `Int32` into an `IReference<Int32>` in the component and unboxes it in the
-consumer — the projection behind every nullable WinRT value. The Rust component boxes through the
-`windows-reference` crate (`IReference::<i32>::from(0)`), the C++ component through `box_value`, and
-each consumer reads the value back (`.Value()` in Rust and C++, the nullable `int?` in C#). It is
-**component-dependent**: the box lives in the component, so its boxing
-implementation shows through. In the matrix that gap is clear and symmetric — boxing through the
-Rust component costs ~30 ms/1M versus ~150 ms through the C++ component, for *both* consumers
-(`Rust→Rust` `30` vs `Rust→C++` `151`; `C++→Rust` `34` vs `C++→C++` `154`). windows-rs's compact
-`IReference` is ~5× cheaper than cppwinrt's `box_value`, and that is the component's doing, not the
-caller's.
+`Reference` is an `IReference<Int32>` property, exercised **both ways** every iteration: the getter
+boxes an `Int32` in the component and the consumer unboxes it; the setter boxes in the consumer and
+the component unboxes it. A single iteration therefore pays for *two* independent boxes — one on each
+side of the ABI — and each side boxes with its own language. The Rust side boxes through the
+`windows-reference` crate (`IReference::<i32>::from`), the C++ side through `box_value`, and C#
+through its nullable `int?` projection.
 
-For the consumer projection the two native languages tie — unboxing the Rust-boxed value is a free
-vtable call either way (at 10M against the Rust component, Rust `318`, C++ `326`). C#/WinRT pays its
-usual per-call interop to marshal the box into an `int?` (`13,399 ms`, ~1.3 µs/call), and Native AOT
-is again the worst case (`152,757 ms`, ~15 µs/call, ~11× JIT) — the same `AddRemove`/`Async` pattern
-where AOT's per-call interop overwhelms steady-state throughput. So boxing reinforces the thesis from
-both ends: the native projections are free and indistinguishable across the ABI, while the managed
-projection pays per call — most steeply under AOT.
+Because the two boxes are independent, the matrix cost is simply the **sum of each endpoint's boxing
+implementation**, and it is symmetric — `Rust→C++` (`187`) ≈ `C++→Rust` (`188`), since the same two
+boxes are paid regardless of who calls whom. Decomposed per side, windows-rs's compact `IReference`
+costs ~30 ms/1M and cppwinrt's `box_value` ~155 ms/1M:
+
+| combo       | consumer box (set) | component box (get) | total |
+| :---------- | -----------------: | ------------------: | ----: |
+| `Rust→Rust` |               ~30  |                ~30  |  `62` |
+| `Rust→C++`  |               ~30  |               ~155  | `187` |
+| `C++→Rust`  |              ~155  |                ~30  | `188` |
+| `C++→C++`   |              ~155  |               ~155  | `324` |
+
+So windows-rs is ~5× cheaper than cppwinrt on *either* side of the boundary — boxing out of the
+component and boxing into it — and the advantage compounds when both ends are Rust. The win is no
+longer just the callee's: even calling the same Rust component, the C++ *consumer* pays `2154` at 10M
+against Rust's `703`, because boxing *in* is the consumer's cost and cppwinrt's box is the heavier one.
+
+C#/WinRT pays its usual per-call interop on top, and here the consumer-side set-boxing dominates: at
+10M against the Rust component it costs `25,166 ms` (~2.5 µs/call for the round trip), and Native AOT
+is again the worst case (`141,045 ms`, ~5.6× JIT) — the same `AddRemove`/`Async` pattern where AOT's
+per-call interop overwhelms steady-state throughput. So boxing reinforces the thesis from both ends:
+the native projections are cheap and windows-rs is the cheapest on each side of the ABI, while the
+managed projection pays per call — most steeply under AOT.
 
 ### A note on benchmark structure
 

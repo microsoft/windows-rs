@@ -102,7 +102,8 @@ Report("Async", timer);
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
-    _ = o.Reference()!.Value;
+    o.ReferenceProperty = 0;
+    _ = o.ReferenceProperty!.Value;
 }
 Report("Reference", timer);
 

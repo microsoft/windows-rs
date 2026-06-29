@@ -20,7 +20,7 @@ mod LangPerf {
         fn Items(&self, count: u32) -> Windows::Foundation::Collections::IVector<i32>;
         fn Map(&self, count: u32) -> Windows::Foundation::Collections::IMap<String, i32>;
         fn Operation(&self) -> Windows::Foundation::IAsyncOperation<i32>;
-        fn Reference(&self) -> Windows::Foundation::IReference<i32>;
+        ReferenceProperty: Windows::Foundation::IReference<i32>;
     }
 
     interface INonDefault {
