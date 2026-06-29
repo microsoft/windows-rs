@@ -169,21 +169,21 @@ counted). Short-lived workloads where process startup dominates are a different 
 benchmark does not measure; that is the cost Native AOT targets, covered in
 [A note on Native AOT](#a-note-on-native-aot).
 
-| Metric        | C#/JIT | C#/AOT |    C++ | Rust |
+| Metric        | C#/AOT | C#/JIT |    C++ | Rust |
 | :------------ | -----: | -----: | -----: | ---: |
-| Create        |   9963 |  17288 |    507 |  442 |
-| Int32         |     64 |     90 |     28 |   20 |
-| String        |    245 |    221 |     32 |   21 |
-| Object        |   1127 |   1358 |    135 |  133 |
-| Cast          |   1337 |   2549 |    281 |  271 |
-| Event         |    913 |   1213 |    317 |  321 |
-| AddRemove     |  29048 |  82277 |   1475 | 1512 |
-| IterateVector |    673 |    383 |    127 |    4 |
-| GetMany       |    329 |    191 |      2 |    6 |
-| Map           |   1813 |   2603 |    955 |  775 |
-| Async         |  49902 | 479320 |    994 |  452 |
-| Reference     |  25166 | 141045 |   2154 |  703 |
-| Error         |  14543 |  15542 | 144601 |   53 |
+| Create        |  17288 |   9963 |    507 |  442 |
+| Int32         |     90 |     64 |     28 |   20 |
+| String        |    221 |    245 |     32 |   21 |
+| Object        |   1358 |   1127 |    135 |  133 |
+| Cast          |   2549 |   1337 |    281 |  271 |
+| Event         |   1213 |    913 |    317 |  321 |
+| AddRemove     |  82277 |  29048 |   1475 | 1512 |
+| IterateVector |    383 |    673 |    127 |    4 |
+| GetMany       |    191 |    329 |      2 |    6 |
+| Map           |   2603 |   1813 |    955 |  775 |
+| Async         | 479320 |  49902 |    994 |  452 |
+| Reference     | 141045 |  25166 |   2154 |  703 |
+| Error         |  15542 |  14543 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
 compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
@@ -207,21 +207,21 @@ To check whether "Rust calls Rust" is somehow an unfair advantage, each consumer
 pointed at *both* components in turn (`run.ps1` runs the full grid; the `Lang()` header
 confirms which implementation answered). One run at 1,000,000 iterations, consumer→component:
 
-| Metric        | C#→Rust | C#→C++ | C++→Rust | C++→C++ | Rust→Rust | Rust→C++ |
-| :------------ | ------: | -----: | -------: | ------: | --------: | -------: |
-| Create        |    1217 |   1159 |       51 |      62 |        47 |       59 |
-| Int32         |       5 |      6 |        2 |       3 |         2 |        3 |
-| String        |     106 |    108 |        3 |       3 |         2 |        3 |
-| Object        |     154 |    162 |       13 |      13 |        13 |       14 |
-| Cast          |     243 |    217 |       27 |      27 |        27 |       27 |
-| Event         |     103 |    102 |       30 |      33 |        30 |       32 |
-| AddRemove     |    2932 |   2953 |      139 |     133 |       144 |      138 |
-| IterateVector |      51 |     48 |       12 |      13 |         1 |        1 |
-| GetMany       |      24 |     23 |        0 |       0 |         0 |        0 |
-| Map           |     242 |    385 |       78 |      95 |        74 |       84 |
-| Async         |    3794 |   3677 |       46 |      95 |        46 |       94 |
-| Reference     |    2496 |   2660 |      188 |     324 |       62 |      187 |
-| Error         |    1893 |  17996 |    14346 |   21181 |         5 |    15865 |
+| Metric        | C#→C++ | C#→Rust | C++→C++ | Rust→C++ | C++→Rust | Rust→Rust |
+| :------------ | -----: | ------: | ------: | -------: | -------: | --------: |
+| Create        |   1159 |    1217 |      62 |       59 |       51 |        47 |
+| Int32         |      6 |       5 |       3 |        3 |        2 |         2 |
+| String        |    108 |     106 |       3 |        3 |        3 |         2 |
+| Object        |    162 |     154 |      13 |       14 |       13 |        13 |
+| Cast          |    217 |     243 |      27 |       27 |       27 |        27 |
+| Event         |    102 |     103 |      33 |       32 |       30 |        30 |
+| AddRemove     |   2953 |    2932 |     133 |      138 |      139 |       144 |
+| IterateVector |     48 |      51 |      13 |        1 |       12 |         1 |
+| GetMany       |     23 |      24 |       0 |        0 |        0 |         0 |
+| Map           |    385 |     242 |      95 |       84 |       78 |        74 |
+| Async         |   3677 |    3794 |      95 |       94 |       46 |        46 |
+| Reference     |   2660 |    2496 |     324 |      187 |      188 |        62 |
+| Error         |  17996 |    1893 |   21181 |    15865 |    14346 |         5 |
 
 For every pure-ABI loop, swapping the component's language changes nothing: each
 consumer posts the same numbers whether it calls the Rust or the C++ component (`C++→Rust`

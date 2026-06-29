@@ -210,7 +210,11 @@ fn iterator_snapshots_and_scales() -> Result<()> {
     }
     assert_eq!(count, 2);
 
-    let big = IMap::<i32, u64>::from((0..50_000).map(|i| (i, i as u64)).collect::<BTreeMap<_, _>>());
+    let big = IMap::<i32, u64>::from(
+        (0..50_000)
+            .map(|i| (i, i as u64))
+            .collect::<BTreeMap<_, _>>(),
+    );
     let mut sum = 0u64;
     for pair in &big {
         sum += pair.Value()?;
