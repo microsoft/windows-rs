@@ -4,6 +4,8 @@
 //! Both sides — interface declaration and implementer wiring — are done with declarative
 //! macros, so this test doubles as proof that the fully proc-macro-free path produces an
 //! object that is layout- and ABI-compatible with what the proc-macros would have emitted.
+//! Coverage spans the non-generic and `impl<T>` arms, the IInspectable identity, and
+//! cross-interface `QueryInterface`.
 
 #![expect(non_snake_case)]
 
@@ -65,6 +67,51 @@ impl IRaw_Impl for Test_Impl {
     unsafe fn Echo(&self, code: HRESULT, out: *mut HRESULT) -> HRESULT {
         unsafe { *out = code };
         code
+    }
+}
+
+// A generic implementer, exercising the `impl<T>` arm of `implement_decl!`. Each `T`
+// contributes an offset so the wrapped value is observably used per monomorphization.
+trait Offset {
+    fn offset(&self) -> i32;
+}
+
+impl Offset for i32 {
+    fn offset(&self) -> i32 {
+        *self
+    }
+}
+
+impl Offset for &'static str {
+    fn offset(&self) -> i32 {
+        self.len() as i32
+    }
+}
+
+struct Generic<T>(T);
+
+implement_decl! {
+    impl<T> Generic as Generic_Impl: [ITest, IOther]
+    where T: Offset + 'static
+}
+
+impl<T> ITest_Impl for Generic_Impl<T>
+where
+    T: Offset + 'static,
+{
+    unsafe fn Void(&self) {}
+    unsafe fn Result(&self, code: HRESULT) -> Result<()> {
+        code.ok()
+    }
+}
+
+impl<T> IOther_Impl for Generic_Impl<T>
+where
+    T: Offset + 'static,
+{
+    unsafe fn Sum(&self, a: i32, b: i32, out: *mut i32) -> Result<()> {
+        unsafe { *out = a + b + self.0.offset() };
+        Ok(())
     }
 }
 
@@ -137,4 +184,46 @@ fn refcount_drops_to_zero() {
     let other: IOther = test.cast().unwrap();
     drop(test);
     drop(other);
+}
+
+#[test]
+fn iinspectable_identity() {
+    // `implement_decl!` always emits the IInspectable identity (`From`,
+    // `ComObjectInterface<IInspectable>`, and the QI route), even for IUnknown-only
+    // interfaces, with a fixed trust level of 0.
+    let inspectable: IInspectable = Test.into();
+    assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
+
+    // QI(IID_IInspectable) succeeds from any interface and round-trips back.
+    let test: ITest = Test.into();
+    let inspectable: IInspectable = test.cast().unwrap();
+    assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
+    let test: ITest = inspectable.cast().unwrap();
+    unsafe { test.Void() };
+
+    // IUnknown <-> IInspectable in both directions.
+    let unknown: IUnknown = inspectable.cast().unwrap();
+    let _: IInspectable = unknown.cast().unwrap();
+}
+
+#[test]
+fn generic_implementer() {
+    unsafe {
+        // T = i32: the wrapped value adds 10.
+        let other: IOther = Generic(10_i32).into();
+        let mut value = 0;
+        other.Sum(2, 3, &mut value).unwrap();
+        assert_eq!(value, 15);
+
+        // QI across to ITest and to the IInspectable identity.
+        let test: ITest = other.cast().unwrap();
+        test.Void();
+        let inspectable: IInspectable = other.cast().unwrap();
+        assert_eq!(inspectable.GetTrustLevel().unwrap(), 0);
+
+        // A second monomorphization (T = &str) wires up independently.
+        let other: IOther = Generic("abcd").into();
+        other.Sum(1, 1, &mut value).unwrap();
+        assert_eq!(value, 6);
+    }
 }

@@ -17,10 +17,9 @@
 //!
 //! `Foo_Impl` is a `#[repr(C)]` struct with these fields, in order:
 //!
-//! 1. `base` — `Option<IInspectable>` slot for COM aggregation (composition). Holds the
-//!    inner non-delegating `IInspectable` written back by a composable factory; otherwise
-//!    `None`. At offset 0 so that the vtable pointers below it occupy negative offsets
-//!    relative to the COM pointer.
+//! 1. `base` — aggregation slot (`Option<IInspectable>`), at offset 0 so the vtable
+//!    pointers below it sit at negative offsets from the COM pointer. Holds a composable
+//!    class's inner non-delegating `IInspectable`, else `None`.
 //! 2. `identity` — a `&'static IInspectable_Vtbl` (offset -1) acting as the IUnknown /
 //!    IInspectable identity pointer.
 //! 3. One `&'static <IFoo as Interface>::Vtable` per interface chain in declaration order

@@ -66,10 +66,10 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let vis = &inputs.original_type.vis;
 
     let mut impl_fields = quote! {
-        // Holds the inner non-delegating `IInspectable` when this type aggregates a composable
-        // WinRT class; otherwise stays `None`. `QueryInterface` falls through here when the
-        // requested IID is not handled locally. Wrapped in `ComposeBase` (`repr(transparent)`
-        // over `Option<IInspectable>`) for `Sync`.
+        // Aggregation slot: holds the inner non-delegating `IInspectable` when this type
+        // composes a WinRT class, else `None`; `QueryInterface` falls through to it for
+        // unhandled IIDs. `ComposeBase` is `repr(transparent)` over `Option<IInspectable>`
+        // for `Sync`.
         base: ::windows_core::ComposeBase,
         identity: &'static ::windows_core::IInspectable_Vtbl,
     };
@@ -275,13 +275,11 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
     }
 }
 
-/// Generates the `Compose` implementation that lets `Foo` be used as the Rust derived
-/// implementation in a composable WinRT runtime class.
+/// Generates `Compose`, letting `Foo` back a composable WinRT runtime class.
 ///
-/// Assembles an `IInspectable` for the freshly constructed implementation and then computes
-/// a mutable reference into the `base` field of its `Foo_Impl` (offset 0, immediately
-/// before `identity`). The composable factory writes the inner non-delegating
-/// `IInspectable` back through that reference.
+/// Returns an `IInspectable` for the new implementation plus a mutable reference to its
+/// `base` field (offset 0, just before `identity`); the composable factory writes the
+/// inner non-delegating `IInspectable` back through that reference.
 fn gen_impl_compose(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_type.ident;
     let generics = &inputs.generics;
@@ -326,12 +324,9 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
     let dynamic_cast_query = if enable_dyn_casting {
         quote! {
             if iid == ::windows_core::DYNAMIC_CAST_IID {
-                // DYNAMIC_CAST_IID is special. We _do not_ increase the reference count for this pseudo-interface.
-                // Also, instead of returning an interface pointer, we simply write the `&dyn Any` directly to the
-                // 'interface' pointer. Since the size of `&dyn Any` is 2 pointers, not one, the caller must be
-                // prepared for this. This is not a normal QueryInterface call.
-                //
-                // See the `Interface::cast_to_any` method, which is the only caller that should use DYNAMIC_CAST_ID.
+                // Pseudo-interface: no AddRef. Writes the `&dyn Any` (two pointers wide)
+                // directly to `interface`, so the caller must expect a fat pointer. Only
+                // `Interface::cast_to_any` uses this.
                 (interface as *mut *const dyn core::any::Any).write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
                 return ::windows_core::HRESULT(0);
             }
@@ -448,18 +443,11 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
     };
 
     parse_quote! {
-        // Constructs the "outer" object. Used only by the implementation of the outer object,
-        // never by application code.
+        // Builds the outer object. Internal only: app code must never own a `Foo_Impl`,
+        // since mutable access to it would shear the refcount. Callers `into_static` and
+        // `into_object` uphold this by only handing out `StaticComObject` / `ComObject`.
         //
-        // The callers of this function (`into_static` and `into_object`) are both responsible
-        // for maintaining one of our invariants: application code never has an owned instance
-        // of the outer (implementation) type. `into_static` maintains this invariant by
-        // returning a wrapped `StaticComObject` value, which owns its contents but never gives
-        // application code a way to mutably access them. This prevents the refcount-shearing
-        // problem.
-        //
-        // TODO: Make it impossible for app code to call this function, by placing it in a
-        // module and marking this as private to the module.
+        // TODO: hide this in a private module so app code can't call it.
         #[inline(always)]
         #maybe_const fn into_outer(self) -> #impl_ident::#generics_idents {
             #impl_ident::#generics_idents {
@@ -485,31 +473,12 @@ fn gen_into_static(inputs: &ImplementInputs) -> syn::ImplItem {
     }
 }
 
-/// Generates `From`-based conversions.
+/// Generates `From<Foo>` conversions to `IUnknown`, `IInspectable`, and each declared
+/// interface (shorthand for `ComObject::new(value).into_interface()`).
 ///
-/// These conversions convert from the user's type `T` to `ComObject<T>` or to an interface
-/// implemented by `T`. These conversions are shorthand for calling `ComObject::new(value)`.
-///
-/// We can only generate conversions from `T` to the roots of each interface chain. We can't
-/// generate `From` conversions from `T` to an interface that is inherited by an interface chain,
-/// because this proc macro does not have access to any information about the inheritance chain
-/// of interfaces that are referenced.
-///
-/// For example:
-///
-/// ```rust,ignore
-/// #[implement(IFoo3)]
-/// struct MyType;
-/// ```
-///
-/// If `IFoo3` inherits from `IFoo2`, then this code will _not_ generate a conversion for `IFoo2`.
-/// However, user code can still do this:
-///
-/// ```rust,ignore
-/// let ifoo2 = IFoo3::from(MyType).into();
-/// ```
-///
-/// This works because the `IFoo3` type has an `Into` impl for `IFoo2`.
+/// Only the declared interface chain roots get a conversion — the macro can't see an
+/// interface's parents. For a base interface, go through the child:
+/// `IFoo3::from(value).into()`.
 fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
     let mut items = Vec::new();
 
