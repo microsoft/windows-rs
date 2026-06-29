@@ -102,6 +102,13 @@ Report("Async", timer);
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)
 {
+    _ = o.Reference()!.Value;
+}
+Report("Reference", timer);
+
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
+{
     try
     {
         _ = o.Next();

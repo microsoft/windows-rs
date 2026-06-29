@@ -93,6 +93,12 @@ impl TypeMap {
     }
 
     pub fn included(&self, config: &Config) -> bool {
+        // Types reachable only through a reference-provided interface (e.g.
+        // `IReference`'s base `IPropertyValue`) are owned by that reference crate.
+        // They are never named in the generated code, so they don't need to be
+        // independently available here.
+        let covered = self.reference_provided_closure(config);
+
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
@@ -118,8 +124,40 @@ impl TypeMap {
                 }
             }
 
+            if covered.contains(tn) {
+                return true;
+            }
+
             false
         })
+    }
+
+    /// Collects every type reachable through a reference-provided interface in this
+    /// dependency set. Such types (e.g. the `IPropertyValue` base of `IReference`) are
+    /// encapsulated by the reference crate, so a method that only reaches them via a
+    /// reference-provided type can still be fully described.
+    fn reference_provided_closure(&self, config: &Config) -> HashSet<TypeName> {
+        let mut covered = HashSet::new();
+
+        for (tn, types) in &self.0 {
+            let is_reference = config.references.contains(*tn).is_some()
+                || tn.name().find('`').is_some_and(|pos| {
+                    config
+                        .references
+                        .contains(TypeName(tn.namespace(), &tn.name()[..pos]))
+                        .is_some()
+                });
+
+            if is_reference {
+                for ty in types {
+                    for dep_tn in ty.dependencies(config.reader).0.keys() {
+                        covered.insert(*dep_tn);
+                    }
+                }
+            }
+        }
+
+        covered
     }
 
     fn excluded(&self, filter: &Filter, references: &References) -> bool {

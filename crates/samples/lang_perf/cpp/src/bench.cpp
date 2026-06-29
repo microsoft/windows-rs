@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <vector>
 #include "winrt/LangPerf.h"
+#include "winrt/Windows.Foundation.h"
 #include "winrt/Windows.Foundation.Collections.h"
 
 using namespace winrt;
@@ -125,6 +126,14 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
             (void)value;
         }
         printf("Async: %lld ms\n", elapsed_ms(start));
+
+        start = std::chrono::high_resolution_clock::now();
+        for (uint64_t i = 0; i < iterations; i++)
+        {
+            auto value = object.Reference().Value();
+            (void)value;
+        }
+        printf("Reference: %lld ms\n", elapsed_ms(start));
 
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)

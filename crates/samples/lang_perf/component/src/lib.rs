@@ -36,8 +36,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
 #[implement(bindings::Class, bindings::INonDefault)]
 #[derive(Default)]
 struct Class {
-    handlers: std::cell::RefCell<Vec<(i64, bindings::Handler)>>,
-    next_token: std::cell::Cell<i64>,
+    event: Event<bindings::Handler>,
 }
 
 impl bindings::IClass_Impl for Class_Impl {
@@ -74,24 +73,17 @@ impl bindings::IClass_Impl for Class_Impl {
     }
 
     fn Event(&self, handler: Ref<bindings::Handler>) -> Result<i64> {
-        let token = self.next_token.get() + 1;
-        self.next_token.set(token);
-        if let Some(handler) = handler.cloned() {
-            self.handlers.borrow_mut().push((token, handler));
-        }
-        Ok(token)
+        self.event.add(handler.ok()?)
     }
 
     fn RemoveEvent(&self, token: i64) -> Result<()> {
-        self.handlers.borrow_mut().retain(|(t, _)| *t != token);
+        self.event.remove(token);
         Ok(())
     }
 
     fn Raise(&self) -> Result<()> {
         let sender: IInspectable = self.to_interface();
-        for (_, handler) in self.handlers.borrow().iter() {
-            handler.Invoke(&sender, 0)?;
-        }
+        self.event.call(|handler| handler.Invoke(&sender, 0));
         Ok(())
     }
 
@@ -102,13 +94,18 @@ impl bindings::IClass_Impl for Class_Impl {
     }
 
     fn Map(&self, count: u32) -> Result<windows_collections::IMap<HSTRING, i32>> {
-        let pairs: std::collections::BTreeMap<HSTRING, i32> =
-            (0..count as i32).map(|i| (i.to_string().into(), i)).collect();
+        let pairs: std::collections::BTreeMap<HSTRING, i32> = (0..count as i32)
+            .map(|i| (i.to_string().into(), i))
+            .collect();
         Ok(windows_collections::IMap::<HSTRING, i32>::from(pairs))
     }
 
     fn Operation(&self) -> Result<windows_future::IAsyncOperation<i32>> {
         Ok(windows_future::IAsyncOperation::<i32>::ready(Ok(0)))
+    }
+
+    fn Reference(&self) -> Result<windows_reference::IReference<i32>> {
+        Ok(windows_reference::IReference::<i32>::from(0))
     }
 }
 

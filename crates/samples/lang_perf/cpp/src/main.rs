@@ -12,7 +12,7 @@ fn iterations() -> u64 {
         }
     }
     std::env::var("LANG_PERF_ITER")
-        .ok().
+        .ok()
         .and_then(|value| value.parse().ok())
         .unwrap_or(DEFAULT_ITERATIONS)
 }

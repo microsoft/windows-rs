@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <vector>
 #include "winrt/LangPerf.h"
+#include "winrt/Windows.Foundation.h"
 #include "winrt/Windows.Foundation.Collections.h"
 
 using namespace winrt;
@@ -66,6 +67,10 @@ struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
 
     Windows::Foundation::IAsyncOperation<int32_t> Operation() const {
         co_return 0;
+    }
+
+    Windows::Foundation::IReference<int32_t> Reference() const noexcept {
+        return winrt::box_value(0).as<Windows::Foundation::IReference<int32_t>>();
     }
 
     int32_t Value() const noexcept {
