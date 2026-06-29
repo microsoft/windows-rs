@@ -189,7 +189,7 @@ For every loop except `Error`, C++/WinRT and Rust are both zero-overhead project
 compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
 ties every loop: it edges C++ on the pure-ABI calls, ties it on the delegate loops (`Event`,
 `AddRemove`) where both projections do equivalent work, and wins outright where it counts —
-`IterateVector` (30×), `Reference` (3×), `Async` (2.2×), and `Error` (2700×) — and it leads C# in
+`IterateVector` (~10×), `Reference` (3×), `Async` (2.2×), and `Error` (2700×) — and it leads C# in
 every category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops
 (`Int32`, `String`, `Object`, `Cast`) cost tens to low hundreds of milliseconds: a scalar
 copy, a fast-pass string marshal, an `AddRef`/`Release` pair, and a `QueryInterface` are all
@@ -436,13 +436,17 @@ up in Rust and C++ too; it does not.
 
 The `C#/AOT` column publishes the same C# program with
 [Native AOT](https://learn.microsoft.com/dotnet/core/deploying/native-aot/)
-(`PublishAot`). Native AOT optimizes *startup* time, not steady-state ABI throughput, so
-it does not help this benchmark: at 10,000,000 iterations it is slower than JIT on every
-loop except `String`, where its leaner string marshaling is slightly faster. The `Cast`
-loop is the worst case — each `QueryInterface`/wrapper lookup goes through AOT's interop
-layer and garbage collector — but every loop stays linear and tractable, including `Error`,
-which AOT now completes at roughly the same cost as JIT. JIT is the representative C#
-result.
+(`PublishAot`). Native AOT optimizes process *startup*, not steady-state ABI throughput, so
+it does not help this benchmark — and across the WinRT ABI it usually *hurts*. At
+10,000,000 iterations it is slower than JIT on every loop except `String`, `IterateVector`,
+and `GetMany`, and the loops that do real interop work regress sharply: `Async` runs ~9.6×
+slower than JIT (`479,320` vs `49,902 ms`) and `Reference` ~5.6× (`141,045` vs
+`25,166 ms`), with `AddRemove` ~2.8× and `Cast` ~1.9×. AOT's ahead-of-time interop stubs
+lack some of the dynamic runtime's COM-interop fast paths and lean harder on the garbage
+collector, so paying JIT's one-time warm-up actually buys cheaper steady-state calls. AOT's
+real advantage is process startup, which this steady-state benchmark deliberately amortizes
+away (see [Sample results](#sample-results)); it never closes the order-of-magnitude gap to
+the C++ or Rust projections, and JIT is the representative C# result here.
 
 ### A note on a C# component
 
