@@ -166,13 +166,14 @@ point.
 | Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
-compile down to direct vtable calls, so they sit far below C# and stay within noise of
-each other — Rust is marginally ahead on most loops and ties the rest. With the component
-doing nothing, the pure-ABI loops (`Int32`, `String`, `Object`, `Cast`) cost tens to low
-hundreds of milliseconds: a scalar copy, a fast-pass string marshal, an `AddRef`/`Release`
-pair, and a `QueryInterface` are all essentially free. `Create` costs more because it
-genuinely activates and releases an object each iteration, and `Event`/`AddRemove` add
-delegate work that depends on the component — both dissected in
+compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
+ties every loop: it edges C++ on the pure-ABI calls, matches it where the work is already
+free, and wins outright where it counts — `AddRemove` (4×), `IterateVector` (30×), and
+`Error` (2700×). With the component doing nothing, the pure-ABI loops (`Int32`, `String`,
+`Object`, `Cast`) cost tens to low hundreds of milliseconds: a scalar copy, a fast-pass
+string marshal, an `AddRef`/`Release` pair, and a `QueryInterface` are all essentially free.
+`Create` costs more because it genuinely activates and releases an object each iteration, and
+`Event`/`AddRemove` add delegate work that depends on the component — both dissected in
 [Delegates and events](#delegates-and-events).
 
 C#/WinRT pays for the managed runtime on every call — runtime-callable-wrapper lookups,
