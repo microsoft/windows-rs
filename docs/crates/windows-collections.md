@@ -28,8 +28,17 @@ Iterating a collection (`for x in &vector`) yields through `BufferedIterator`
 (`src/buffered_iterator.rs`), which fetches elements a block at a time via
 `GetMany` rather than one `IIterator::next` ABI call per element. `windows-bindgen`
 generates the `IntoIterator` impls that reference it. The block is sized to keep
-the buffer near 2 KB regardless of element size. Map iteration (`IMap`/`IMapView`/
-`IObservableMap`) snapshots its entries once at `First()` so each step is O(1) rather than
+the buffer near 2 KB regardless of element size.
+
+This batching applies to **maps too**: `IMap`/`IMapView`/`IObservableMap` implement
+`IIterable<IKeyValuePair<K, V>>`, so `for pair in &map` drives the same
+`BufferedIterator` (yielding `IKeyValuePair` items) — there is no separate, slower
+map path. A map iteration still costs more than a vector of scalars, but not because
+of the iterator: `GetMany` over `IVector<Int32>` bulk-copies the values inline,
+whereas over a map it returns a block of `IKeyValuePair` COM objects (one `AddRef`
+each) and reading every `pair.Value()`/`Key()` remains a per-pair ABI crossing — the
+`IMap` ABI offers no bulk key/value read. Separately, the *component-side* stock map
+iterator snapshots its entries once at `First()` so each step is O(1) rather than
 re-walking the tree, keeping a full traversal linear.
 
 ### Testing
