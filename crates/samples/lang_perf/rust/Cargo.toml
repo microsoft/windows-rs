@@ -11,6 +11,7 @@ path = "src/main.rs"
 [dependencies]
 windows-core = { workspace = true, default-features = true }
 windows-collections = { workspace = true, features = ["std"] }
+windows-future = { workspace = true, features = ["std"] }
 lang_perf_component = { path = "../component" }
 
 [build-dependencies]

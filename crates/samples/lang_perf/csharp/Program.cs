@@ -80,7 +80,24 @@ Report("AddRemove", timer);
     timer = Stopwatch.StartNew();
     items.CopyTo(buffer, 0);
     Report("GetMany", timer);
+
+    var map = o.Map(count);
+    timer = Stopwatch.StartNew();
+    int msum = 0;
+    foreach (var pair in map)
+    {
+        msum += pair.Value;
+    }
+    GC.KeepAlive(msum);
+    Report("Map", timer);
 }
+
+timer = Stopwatch.StartNew();
+for (ulong i = 0; i < iterations; i++)
+{
+    _ = o.Operation().GetAwaiter().GetResult();
+}
+Report("Async", timer);
 
 timer = Stopwatch.StartNew();
 for (ulong i = 0; i < iterations; i++)

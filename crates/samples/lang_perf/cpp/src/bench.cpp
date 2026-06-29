@@ -105,7 +105,26 @@ extern "C" int32_t __stdcall lang_perf_cpp(uint64_t iterations) noexcept
             start = std::chrono::high_resolution_clock::now();
             vector.GetMany(0, buffer);
             printf("GetMany: %lld ms\n", elapsed_ms(start));
+
+            auto map = object.Map(count);
+            start = std::chrono::high_resolution_clock::now();
+            int32_t msum = 0;
+            for (auto&& pair : map)
+            {
+                msum += pair.Value();
+            }
+            volatile int32_t msink = msum;
+            (void)msink;
+            printf("Map: %lld ms\n", elapsed_ms(start));
         }
+
+        start = std::chrono::high_resolution_clock::now();
+        for (uint64_t i = 0; i < iterations; i++)
+        {
+            auto value = object.Operation().get();
+            (void)value;
+        }
+        printf("Async: %lld ms\n", elapsed_ms(start));
 
         start = std::chrono::high_resolution_clock::now();
         for (uint64_t i = 0; i < iterations; i++)

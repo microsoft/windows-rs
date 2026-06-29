@@ -136,6 +136,30 @@ impl Class {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn Map(
+        &self,
+        count: u32,
+    ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Map)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Operation)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -224,7 +248,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x3f4c2c6a_e05d_5dcb_b398_4f08b12f0e70);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x027b227d_66fc_5d8c_bb6d_96dac9cfdf63);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -250,6 +274,11 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
     fn Raise(&self) -> windows_core::Result<()>;
     fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>>;
+    fn Map(
+        &self,
+        count: u32,
+    ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>>;
+    fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -420,6 +449,41 @@ impl IClass_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn Map<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            count: u32,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Map(this, count) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Operation<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Operation(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Int32Property: Int32Property::<Identity, OFFSET>,
@@ -434,6 +498,8 @@ impl IClass_Vtbl {
             RemoveEvent: RemoveEvent::<Identity, OFFSET>,
             Raise: Raise::<Identity, OFFSET>,
             Items: Items::<Identity, OFFSET>,
+            Map: Map::<Identity, OFFSET>,
+            Operation: Operation::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -479,6 +545,15 @@ pub struct IClass_Vtbl {
     pub Items: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Map: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Operation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }

@@ -100,6 +100,16 @@ impl bindings::IClass_Impl for Class_Impl {
             (0..count as i32).collect::<Vec<i32>>(),
         ))
     }
+
+    fn Map(&self, count: u32) -> Result<windows_collections::IMap<HSTRING, i32>> {
+        let pairs: std::collections::BTreeMap<HSTRING, i32> =
+            (0..count as i32).map(|i| (i.to_string().into(), i)).collect();
+        Ok(windows_collections::IMap::<HSTRING, i32>::from(pairs))
+    }
+
+    fn Operation(&self) -> Result<windows_future::IAsyncOperation<i32>> {
+        Ok(windows_future::IAsyncOperation::<i32>::ready(Ok(0)))
+    }
 }
 
 impl bindings::INonDefault_Impl for Class_Impl {

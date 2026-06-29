@@ -27,8 +27,15 @@ where
     V::Default: Clone,
 {
     fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
+        let snapshot: Vec<(K::Default, V::Default)> = self
+            .map
+            .read()
+            .unwrap()
+            .iter()
+            .map(|(k, v)| (k.clone(), v.clone()))
+            .collect();
         Ok(ComObject::new(StockMapIterator::<K, V> {
-            owner: self.to_object(),
+            snapshot,
             current: 0.into(),
         })
         .into_interface())
@@ -98,7 +105,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    owner: ComObject<StockMap<K, V>>,
+    snapshot: Vec<(K::Default, V::Default)>,
     current: std::sync::atomic::AtomicUsize,
 }
 
@@ -118,8 +125,7 @@ where
 {
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let map = self.owner.map.read().unwrap();
-        if let Some((key, value)) = map.iter().nth(current) {
+        if let Some((key, value)) = self.snapshot.get(current) {
             Ok(ComObject::new(key_value_pair::StockKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
@@ -132,36 +138,29 @@ where
 
     fn HasCurrent(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let map = self.owner.map.read().unwrap();
-        Ok(map.len() > current)
+        Ok(self.snapshot.len() > current)
     }
 
     fn MoveNext(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let map = self.owner.map.read().unwrap();
-        let len = map.len();
-        drop(map);
-
+        let len = self.snapshot.len();
         if current < len {
             self.current
                 .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
-
         Ok(len > current + 1)
     }
 
     fn GetMany(&self, items: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let map = self.owner.map.read().unwrap();
-
-        if current >= map.len() {
+        if current >= self.snapshot.len() {
             return Ok(0);
         }
 
-        let actual = std::cmp::min(map.len() - current, items.len());
+        let actual = std::cmp::min(self.snapshot.len() - current, items.len());
         let (items, _) = items.split_at_mut(actual);
 
-        for (item, (key, value)) in items.iter_mut().zip(map.iter().skip(current)) {
+        for (item, (key, value)) in items.iter_mut().zip(self.snapshot[current..].iter()) {
             *item = Some(
                 ComObject::new(key_value_pair::StockKeyValuePair {
                     key: key.clone(),

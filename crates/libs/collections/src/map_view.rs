@@ -27,8 +27,13 @@ where
     V::Default: Clone,
 {
     fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
+        let snapshot: Vec<(K::Default, V::Default)> = self
+            .map
+            .iter()
+            .map(|(k, v)| (k.clone(), v.clone()))
+            .collect();
         Ok(ComObject::new(StockMapViewIterator::<K, V> {
-            owner: self.to_object(),
+            snapshot,
             current: 0.into(),
         })
         .into_interface())
@@ -73,7 +78,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    owner: ComObject<StockMapView<K, V>>,
+    snapshot: Vec<(K::Default, V::Default)>,
     current: std::sync::atomic::AtomicUsize,
 }
 
@@ -93,7 +98,7 @@ where
 {
     fn Current(&self) -> Result<IKeyValuePair<K, V>> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        if let Some((key, value)) = self.owner.map.iter().nth(current) {
+        if let Some((key, value)) = self.snapshot.get(current) {
             Ok(ComObject::new(key_value_pair::StockKeyValuePair {
                 key: key.clone(),
                 value: value.clone(),
@@ -106,12 +111,12 @@ where
 
     fn HasCurrent(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        Ok(self.owner.map.len() > current)
+        Ok(self.snapshot.len() > current)
     }
 
     fn MoveNext(&self) -> Result<bool> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
-        let len = self.owner.map.len();
+        let len = self.snapshot.len();
 
         if current < len {
             self.current
@@ -124,14 +129,14 @@ where
     fn GetMany(&self, pairs: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
-        if current >= self.owner.map.len() {
+        if current >= self.snapshot.len() {
             return Ok(0);
         }
 
-        let actual = std::cmp::min(self.owner.map.len() - current, pairs.len());
+        let actual = std::cmp::min(self.snapshot.len() - current, pairs.len());
         let (pairs, _) = pairs.split_at_mut(actual);
 
-        for (pair, (key, value)) in pairs.iter_mut().zip(self.owner.map.iter().skip(current)) {
+        for (pair, (key, value)) in pairs.iter_mut().zip(self.snapshot[current..].iter()) {
             *pair = Some(
                 ComObject::new(key_value_pair::StockKeyValuePair {
                     key: key.clone(),

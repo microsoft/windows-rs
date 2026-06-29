@@ -70,6 +70,8 @@ Each consumer runs ten loops and prints `label: N ms`:
 | `AddRemove` | subscribe a handler and immediately unsubscribe each iteration (delegate marshaling + token bookkeeping) |
 | `IterateVector` | iterate an `IVector<Int32>` idiomatically (`for x in &v`) — one element at a time across the ABI |
 | `GetMany`   | bulk-copy the same vector into a buffer with a single `GetMany` ABI call |
+| `Map`       | iterate an `IMap<String, Int32>` idiomatically — per-pair access, no bulk path |
+| `Async`     | await a synchronously-completed `IAsyncOperation<Int32>` (delegate-backed completion) |
 | `Error`     | a `Next()` call that always returns `E_BOUNDS` (error propagation) |
 
 `Create` is the only loop that allocates: it activates and releases an object each
@@ -81,11 +83,13 @@ each iteration; `AddRemove` churns subscription, constructing a fresh WinRT dele
 language callback and handing it to the component's `add`/`remove` each time. Unlike the
 other loops these two are **component-dependent** — the component owns the subscriber
 storage — so they are dissected in their own [section](#delegates-and-events) rather than
-the "component language is invisible" tables. `IterateVector` and `GetMany` exercise WinRT
-**collections**: both walk an `IVector<Int32>` the component owns, but `IterateVector` is the
-idiomatic per-element loop (one round-trip per element) while `GetMany` bulk-copies in a
-single call — the two are dissected in [Collections and iteration](#collections-and-iteration).
-`Error` isolates the failure path: the
+the "component language is invisible" tables. `IterateVector`, `GetMany`, and `Map` exercise
+WinRT **collections**: the first two walk an `IVector<Int32>` the component owns —
+`IterateVector` is the idiomatic per-element loop, `GetMany` bulk-copies in a single call —
+while `Map` iterates an `IMap<String, Int32>`, which has no bulk path. All three are
+dissected in [Collections and iteration](#collections-and-iteration). `Async` awaits a
+synchronously-completed `IAsyncOperation<Int32>` and is dissected in
+[Async](#async). `Error` isolates the failure path: the
 component's `Next` method does nothing but return the `E_BOUNDS` `HRESULT`, so the loop
 measures how each projection turns an ABI error code into its idiomatic error type — a
 `Result::Err` in Rust, a thrown `hresult_error` in C++/WinRT, and a thrown managed
@@ -143,8 +147,8 @@ crates/samples/lang_perf/run.ps1 -Iterations 10000000 -IncludeAot
 
 Release builds, 10,000,000 iterations, milliseconds (lower is better). In this table every
 consumer calls the **Rust** component; the [matrix below](#does-the-components-language-matter-the-matrix)
-confirms the component's language makes no difference except on `Error` and the two event
-loops. Each consumer
+confirms the component's language makes no difference except on `Error`, `Async`, and the
+two event loops. Each consumer
 issues the identical sequence of ABI calls and passes each value the natural, idiomatic
 way for its language — including the string argument, written as `h!("value")` in Rust,
 `L"value"` in C++, and `"value"` in C#. Because the component ignores its inputs and
@@ -163,13 +167,15 @@ point.
 | AddRemove | 27981 | 59182 |  2219 |  518 |
 | IterateVector | 673 | 383 | 127 | 4 |
 | GetMany |    329 |    191 |      2 |    6 |
+| Map    |   1813 |   2603 |    955 |  765 |
+| Async  |  49902 | 479320 |    994 |  322 |
 | Error  |  14543 |  15542 | 144601 |   53 |
 
 For every loop except `Error`, C++/WinRT and Rust are both zero-overhead projections that
 compile down to direct vtable calls, so they sit far below C#. Between them, Rust leads or
 ties every loop: it edges C++ on the pure-ABI calls, matches it where the work is already
-free, and wins outright where it counts — `AddRemove` (4×), `IterateVector` (30×), and
-`Error` (2700×). With the component doing nothing, the pure-ABI loops (`Int32`, `String`,
+free, and wins outright where it counts — `AddRemove` (4×), `IterateVector` (30×), `Async`
+(3×), and `Error` (2700×) — and it leads C# in every category, often by orders of magnitude. With the component doing nothing, the pure-ABI loops (`Int32`, `String`,
 `Object`, `Cast`) cost tens to low hundreds of milliseconds: a scalar copy, a fast-pass
 string marshal, an `AddRef`/`Release` pair, and a `QueryInterface` are all essentially free.
 `Create` costs more because it genuinely activates and releases an object each iteration, and
@@ -197,6 +203,8 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 | AddRemove | 3148 |   2879 |      225 |     130 |        62 |      150 |
 | IterateVector | 49 | 47 | 11 | 12 | 0 | 0 |
 | GetMany   |   24 |     25 |        0 |       0 |         0 |        0 |
+| Map    |     429 |    297 |       81 |      96 |        76 |       79 |
+| Async  |    3973 |   3982 |       46 |      96 |        30 |       80 |
 | Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
 
 For every pure-ABI loop, swapping the component's language changes nothing: each
@@ -206,10 +214,11 @@ ABI is a hard vtable boundary with no cross-language inlining, so the callee's l
 invisible to the caller. There is no "same-language" advantage to erase, and Rust's lead
 over C#/WinRT is the projection, not the fact that it happened to be calling Rust.
 
-`Error` and the two event loops (`Event`, `AddRemove`) are the exceptions, because each
-does real work *inside* the component — originating an error, or maintaining the subscriber
-list — so the component's language is no longer invisible. The event loops are dissected in
-[Delegates and events](#delegates-and-events). `Error` is illuminating in its own right: on
+`Error`, `Async`, and the two event loops (`Event`, `AddRemove`) are the exceptions, because
+each does real work *inside* the component — originating an error, completing an async
+operation, or maintaining the subscriber list — so the component's language is no longer
+invisible. The event loops are dissected in [Delegates and events](#delegates-and-events) and
+`Async` in [Async](#async). `Error` is illuminating in its own right: on
 top of each projection's own error cost sits WinRT error *origination* — building an
 `IRestrictedErrorInfo` via `RoOriginateLanguageException` — and the matrix shows it is
 incurred by whichever endpoint is **C++/WinRT**, on *either* side of the call:
@@ -311,6 +320,28 @@ flatter C++. With both thread-safe, iteration stays consumer-driven, confirming 
 Second, batching is a real ABI-throughput win, not a measurement trick: it is a transparent
 windows-rs improvement, so existing `for x in &v` code gets the speedup with no change — the
 naive `GetAt`-per-element shape would have tied cppwinrt's `127`.
+
+`Map` walks an `IMap<String, Int32>` the same idiomatic way (`for pair in &map`). Unlike a
+vector there is no `GetMany` bulk path, so every element is a per-pair ABI crossing for all
+three projections — at 10M, Rust `765`, C++ `955`, C#/JIT `1813`. It stays consumer-driven
+(`Rust→Rust` `76` vs `Rust→C++` `79` at 1M), so Rust again leads. Getting there exposed — and
+fixed — a quadratic in windows-rs: the stock map iterator originally located each element with
+`map.iter().nth(current)`, an O(n) walk per step, turning a full traversal into O(n²) (a 1M C#
+loop took ~11 minutes). Snapshotting the keys/values once at `First()` makes each step O(1);
+the same fix applies to `IMapView` and `IObservableMap`, so all stock-map iteration is now
+linear with no caller change.
+
+### Async
+
+`Async` awaits an `IAsyncOperation<Int32>` the component completes synchronously: Rust
+`.GetResults()`, C++ `.get()`, C# `await`. Like the event loops it is **component-dependent** —
+the component constructs the operation — so it sits in the matrix's exception set. The Rust
+component returns a ready operation via `windows-future` (`30 ms/1M`); the C++ component
+`co_return`s, which is heavier (`80–96 ms`), and that gap is symmetric across consumers. The
+consumer projection dominates the headline: at 10M Rust is `322` and C++ `994`, while C#/WinRT's
+await machinery costs `49,902` (JIT). Native AOT is the worst case at `479,320 ms` (~48 µs/call,
+10× JIT) — the same pattern as `AddRemove`, where AOT's per-call interop overwhelms steady-state
+throughput. Rust leads C++ ~3× and C#/WinRT by two orders of magnitude.
 
 ### A note on benchmark structure
 

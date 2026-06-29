@@ -194,6 +194,31 @@ fn hstring() -> Result<()> {
     Ok(())
 }
 
+// The iterator snapshots at First(): mutating the map afterwards must not change it, and a
+// full traversal must stay O(n) (a regression to nth()-per-step was O(n^2)).
+#[test]
+fn iterator_snapshots_and_scales() -> Result<()> {
+    let m = IMap::<i32, u64>::from(BTreeMap::from([(1, 10), (2, 20)]));
+    let iter = m.First()?;
+    m.Insert(3, 30)?;
+    let mut count = 0;
+    while iter.HasCurrent()? {
+        count += 1;
+        if !iter.MoveNext()? {
+            break;
+        }
+    }
+    assert_eq!(count, 2);
+
+    let big = IMap::<i32, u64>::from((0..50_000).map(|i| (i, i as u64)).collect::<BTreeMap<_, _>>());
+    let mut sum = 0u64;
+    for pair in &big {
+        sum += pair.Value()?;
+    }
+    assert_eq!(sum, (0..50_000u64).sum());
+    Ok(())
+}
+
 fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool>
 where
     K: RuntimeType + PartialEq,

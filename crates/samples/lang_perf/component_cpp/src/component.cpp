@@ -56,6 +56,18 @@ struct Class : implements<Class, LangPerf::IClass, LangPerf::INonDefault> {
         return multi_threaded_vector<int32_t>(std::move(values));
     }
 
+    Windows::Foundation::Collections::IMap<hstring, int32_t> Map(uint32_t count) const {
+        auto map = multi_threaded_map<hstring, int32_t>();
+        for (uint32_t i = 0; i < count; i++) {
+            map.Insert(to_hstring(i), static_cast<int32_t>(i));
+        }
+        return map;
+    }
+
+    Windows::Foundation::IAsyncOperation<int32_t> Operation() const {
+        co_return 0;
+    }
+
     int32_t Value() const noexcept {
         return 0;
     }

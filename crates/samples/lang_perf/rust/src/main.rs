@@ -113,7 +113,22 @@ fn run() -> windows_core::Result<()> {
         let _ = vector.GetMany(0, &mut buffer)?;
         std::hint::black_box(&buffer);
         report("GetMany", start);
+
+        let map = object.Map(count)?;
+        let start = Instant::now();
+        let mut sum = 0i32;
+        for pair in &map {
+            sum = sum.wrapping_add(pair.Value()?);
+        }
+        std::hint::black_box(sum);
+        report("Map", start);
     }
+
+    let start = Instant::now();
+    for _ in 0..iterations {
+        let _ = object.Operation()?.GetResults()?;
+    }
+    report("Async", start);
 
     let start = Instant::now();
     for _ in 0..iterations {

@@ -136,6 +136,30 @@ impl Class {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn Map(
+        &self,
+        count: u32,
+    ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Map)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Operation)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -224,7 +248,7 @@ impl<
         }
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x3f4c2c6a_e05d_5dcb_b398_4f08b12f0e70);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x027b227d_66fc_5d8c_bb6d_96dac9cfdf63);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -270,6 +294,15 @@ pub struct IClass_Vtbl {
     pub Items: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Map: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Operation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
