@@ -218,8 +218,7 @@ fn buffered_iterator_sizes() {
 // double-counting or leaking; tested at every block-boundary-relative position.
 #[test]
 fn buffered_iterator_early_break() {
-    let source: Vec<i32> = (0..400).collect();
-    let v = IVector::<i32>::from(source.clone());
+    let v = IVector::<i32>::from((0..400).collect::<Vec<_>>());
 
     for stop in [0usize, 1, 127, 128, 129, 255, 256, 257, 399, 400] {
         let mut count = 0;
