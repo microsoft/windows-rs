@@ -326,118 +326,8 @@ macro_rules! __implement_decl_struct {
         impl $crate::IUnknownImpl for $impl_name {
             type Impl = $name;
 
-            #[inline(always)]
-            fn get_impl(&self) -> &Self::Impl {
-                &self.this
-            }
-
-            #[inline(always)]
-            fn get_impl_mut(&mut self) -> &mut Self::Impl {
-                &mut self.this
-            }
-
-            #[inline(always)]
-            fn into_inner(self) -> Self::Impl {
-                self.this
-            }
-
-            #[inline(always)]
-            fn AddRef(&self) -> u32 {
-                self.count.add_ref()
-            }
-
-            #[inline(always)]
-            unsafe fn Release(self_: *mut Self) -> u32 {
-                unsafe {
-                    let remaining = (*self_).count.release();
-                    if remaining == 0 {
-                        _ = $crate::imp::box_from_raw(self_);
-                    }
-                    remaining
-                }
-            }
-
-            #[inline(always)]
-            fn is_reference_count_one(&self) -> bool {
-                self.count.is_one()
-            }
-
-            unsafe fn GetTrustLevel(&self, value: *mut i32) -> $crate::HRESULT {
-                if value.is_null() {
-                    return $crate::imp::E_POINTER;
-                }
-                unsafe { *value = 0; }
-                $crate::HRESULT(0)
-            }
-
-            fn to_object(&self) -> $crate::ComObject<Self::Impl> {
-                self.count.add_ref();
-                unsafe {
-                    $crate::ComObject::from_raw(
-                        ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self),
-                    )
-                }
-            }
-
-            unsafe fn QueryInterface(
-                &self,
-                iid: *const $crate::GUID,
-                interface: *mut *mut ::core::ffi::c_void,
-            ) -> $crate::HRESULT {
-                unsafe {
-                    if iid.is_null() || interface.is_null() {
-                        return $crate::imp::E_POINTER;
-                    }
-                    let iid = *iid;
-                    let interface_ptr: *const ::core::ffi::c_void = 'found: {
-                        if iid == <$crate::IUnknown as $crate::Interface>::IID
-                            || iid == <$crate::IInspectable as $crate::Interface>::IID
-                            || iid == <$crate::imp::IAgileObject as $crate::Interface>::IID
-                        {
-                            break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
-                        }
-                        $(
-                            if <<$qi_iface as $crate::Interface>::Vtable>::matches(&iid) {
-                                break 'found &self.$qi_iface as *const _ as *const ::core::ffi::c_void;
-                            }
-                        )*
-                        #[cfg(windows)]
-                        if iid == <$crate::imp::IMarshal as $crate::Interface>::IID {
-                            return $crate::imp::marshaler(
-                                <Self as $crate::IUnknownImpl>::to_interface::<$crate::IUnknown>(self),
-                                interface,
-                            );
-                        }
-                        if iid == $crate::DYNAMIC_CAST_IID {
-                            // Special protocol: write the `&dyn Any` directly to the
-                            // out-parameter without reference-counting.
-                            (interface as *mut *const dyn ::core::any::Any)
-                                .write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
-                            return $crate::HRESULT(0);
-                        }
-                        let tear_off_ptr = self.count.query(
-                            &iid,
-                            &self.identity as *const _ as *mut _,
-                        );
-                        if !tear_off_ptr.is_null() {
-                            *interface = tear_off_ptr;
-                            return $crate::HRESULT(0);
-                        }
-                        if let ::core::option::Option::Some(base) = self.base.as_option() {
-                            return $crate::Interface::query(
-                                base,
-                                &iid as *const $crate::GUID,
-                                interface,
-                            );
-                        }
-                        *interface = ::core::ptr::null_mut();
-                        return $crate::imp::E_NOINTERFACE;
-                    };
-                    debug_assert!(!interface_ptr.is_null());
-                    *interface = interface_ptr as *mut ::core::ffi::c_void;
-                    self.count.add_ref();
-                    $crate::HRESULT(0)
-                }
+            $crate::__implement_decl_iunknown_methods! {
+                qi: [ $( ($qi_iface : $qi_iface) )* ]
             }
         }
 
@@ -453,7 +343,168 @@ macro_rules! __implement_decl_struct {
             }
         }
 
-        impl $crate::Compose for $name {
+        $crate::__implement_decl_shared_tail! {
+            gen:       [ ],
+            wc:        { },
+            name:      $name,
+            impl_name: $impl_name,
+        }
+    };
+}
+
+// --- Shared IUnknownImpl method body ----------------------------------------------------
+//
+// Emits every `IUnknownImpl` method except the `type Impl` associated type (which differs
+// per arm). Both the generic and non-generic base arms invoke this so the reference-count
+// methods and — more importantly — the `QueryInterface`/identity routing exist in exactly
+// one place. That routing is security-sensitive (it decides which vtable a given IID maps
+// to) and must never drift between the two arms.
+//
+// `qi` is the list of `(field_ident : vtable_owning_type)` pairs. For the non-generic arm
+// the interface ident doubles as its own type, so each entry is passed as `(IFoo : IFoo)`.
+//
+// Hygiene: all references to `self`, `iid`, and the `'found` label are produced by this
+// single invocation, so they share one expansion context (see the note on
+// `__implement_decl_struct`). The accumulator still carries only data tokens.
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __implement_decl_iunknown_methods {
+    ( qi: [ $( ($qi_iface:ident : $qi_ty:ty) )* ] ) => {
+        #[inline(always)]
+        fn get_impl(&self) -> &Self::Impl {
+            &self.this
+        }
+
+        #[inline(always)]
+        fn get_impl_mut(&mut self) -> &mut Self::Impl {
+            &mut self.this
+        }
+
+        #[inline(always)]
+        fn into_inner(self) -> Self::Impl {
+            self.this
+        }
+
+        #[inline(always)]
+        fn AddRef(&self) -> u32 {
+            self.count.add_ref()
+        }
+
+        #[inline(always)]
+        unsafe fn Release(self_: *mut Self) -> u32 {
+            unsafe {
+                let remaining = (*self_).count.release();
+                if remaining == 0 {
+                    _ = $crate::imp::box_from_raw(self_);
+                }
+                remaining
+            }
+        }
+
+        #[inline(always)]
+        fn is_reference_count_one(&self) -> bool {
+            self.count.is_one()
+        }
+
+        unsafe fn GetTrustLevel(&self, value: *mut i32) -> $crate::HRESULT {
+            if value.is_null() {
+                return $crate::imp::E_POINTER;
+            }
+            unsafe { *value = 0; }
+            $crate::HRESULT(0)
+        }
+
+        fn to_object(&self) -> $crate::ComObject<Self::Impl> {
+            self.count.add_ref();
+            unsafe {
+                $crate::ComObject::from_raw(
+                    ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self),
+                )
+            }
+        }
+
+        unsafe fn QueryInterface(
+            &self,
+            iid: *const $crate::GUID,
+            interface: *mut *mut ::core::ffi::c_void,
+        ) -> $crate::HRESULT {
+            unsafe {
+                if iid.is_null() || interface.is_null() {
+                    return $crate::imp::E_POINTER;
+                }
+                let iid = *iid;
+                let interface_ptr: *const ::core::ffi::c_void = 'found: {
+                    if iid == <$crate::IUnknown as $crate::Interface>::IID
+                        || iid == <$crate::IInspectable as $crate::Interface>::IID
+                        || iid == <$crate::imp::IAgileObject as $crate::Interface>::IID
+                    {
+                        break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+                    }
+                    $(
+                        if <<$qi_ty as $crate::Interface>::Vtable>::matches(&iid) {
+                            break 'found &self.$qi_iface as *const _ as *const ::core::ffi::c_void;
+                        }
+                    )*
+                    #[cfg(windows)]
+                    if iid == <$crate::imp::IMarshal as $crate::Interface>::IID {
+                        return $crate::imp::marshaler(
+                            <Self as $crate::IUnknownImpl>::to_interface::<$crate::IUnknown>(self),
+                            interface,
+                        );
+                    }
+                    if iid == $crate::DYNAMIC_CAST_IID {
+                        // Special protocol: write the `&dyn Any` directly to the
+                        // out-parameter without reference-counting.
+                        (interface as *mut *const dyn ::core::any::Any)
+                            .write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
+                        return $crate::HRESULT(0);
+                    }
+                    let tear_off_ptr = self.count.query(
+                        &iid,
+                        &self.identity as *const _ as *mut _,
+                    );
+                    if !tear_off_ptr.is_null() {
+                        *interface = tear_off_ptr;
+                        return $crate::HRESULT(0);
+                    }
+                    if let ::core::option::Option::Some(base) = self.base.as_option() {
+                        return $crate::Interface::query(
+                            base,
+                            &iid as *const $crate::GUID,
+                            interface,
+                        );
+                    }
+                    *interface = ::core::ptr::null_mut();
+                    return $crate::imp::E_NOINTERFACE;
+                };
+                debug_assert!(!interface_ptr.is_null());
+                *interface = interface_ptr as *mut ::core::ffi::c_void;
+                self.count.add_ref();
+                $crate::HRESULT(0)
+            }
+        }
+    };
+}
+
+// --- Shared tail impls ------------------------------------------------------------------
+//
+// Emits the per-object impls that are identical across both base arms apart from the
+// generic-parameter / `where`-clause plumbing: `Compose`, `From<Foo>` for `IUnknown` and
+// `IInspectable`, and `ComObjectInterface` for `IUnknown` and `IInspectable`. The
+// non-generic arm invokes this with an empty `gen`/`wc`, which expands to `impl<>`,
+// `Foo<>`, and an empty `where` — all accepted by the compiler.
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __implement_decl_shared_tail {
+    (
+        gen:       [ $($gp:ident),* ],
+        wc:        { $($wc:tt)* },
+        name:      $name:ident,
+        impl_name: $impl_name:ident,
+    ) => {
+        impl< $($gp),* > $crate::Compose for $name < $($gp),* >
+        where $($wc)*
+        {
             unsafe fn compose<'a>(
                 implementation: Self,
             ) -> ($crate::IInspectable, &'a mut ::core::option::Option<$crate::IInspectable>) {
@@ -469,30 +520,38 @@ macro_rules! __implement_decl_struct {
             }
         }
 
-        impl ::core::convert::From<$name> for $crate::IUnknown {
+        impl< $($gp),* > ::core::convert::From<$name < $($gp),* >> for $crate::IUnknown
+        where $($wc)*
+        {
             #[inline(always)]
-            fn from(this: $name) -> Self {
+            fn from(this: $name < $($gp),* >) -> Self {
                 let com_object = $crate::ComObject::new(this);
                 com_object.into_interface()
             }
         }
 
-        impl ::core::convert::From<$name> for $crate::IInspectable {
+        impl< $($gp),* > ::core::convert::From<$name < $($gp),* >> for $crate::IInspectable
+        where $($wc)*
+        {
             #[inline(always)]
-            fn from(this: $name) -> Self {
+            fn from(this: $name < $($gp),* >) -> Self {
                 let com_object = $crate::ComObject::new(this);
                 com_object.into_interface()
             }
         }
 
-        impl $crate::ComObjectInterface<$crate::IUnknown> for $impl_name {
+        impl< $($gp),* > $crate::ComObjectInterface<$crate::IUnknown> for $impl_name < $($gp),* >
+        where $($wc)*
+        {
             #[inline(always)]
             fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IUnknown> {
                 unsafe { ::core::mem::transmute(&self.identity) }
             }
         }
 
-        impl $crate::ComObjectInterface<$crate::IInspectable> for $impl_name {
+        impl< $($gp),* > $crate::ComObjectInterface<$crate::IInspectable> for $impl_name < $($gp),* >
+        where $($wc)*
+        {
             #[inline(always)]
             fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IInspectable> {
                 unsafe { ::core::mem::transmute(&self.identity) }
@@ -508,63 +567,37 @@ macro_rules! __implement_decl_struct {
 // identity is at -1, the first interface chain at -2, the second at -3, and so on.
 //
 // `__implement_decl_offset_negate!()` takes a unary-counted token list and emits the
-// corresponding negative `isize` literal.  Each `()` in the input represents one
+// corresponding negative `isize` value.  Each `()` in the input represents one
 // pointer-sized slot of offset.  The accumulator starts with `[() ()]` (= -2) before any
 // interface is consumed; each interface push adds one more `()`.
 
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_offset_negate {
-    (()) => {
-        -1isize
+    ( $($unit:tt)* ) => {
+        -( $crate::__implement_decl_count_units!($($unit)*) as isize )
     };
-    (() ()) => {
-        -2isize
+}
+
+// Counts a unary `()`-per-slot token list into a parenthesized `usize` sum. Shared by
+// `__implement_decl_offset_negate!` (the vtable `OFFSET` const generic) and
+// `__implement_decl_index_plus_two!` (the `AsImpl` pointer adjustment), replacing two
+// hand-written 16-arm lookup tables with one recursive count. There is no fixed interface
+// cap anymore — the sum grows with the input.
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __implement_decl_count_units {
+    ( $($unit:tt)* ) => {
+        ( 0usize $( + $crate::__implement_decl_unit_to_one!($unit) )* )
     };
-    (() () ()) => {
-        -3isize
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __implement_decl_unit_to_one {
+    ( $unit:tt ) => {
+        1usize
     };
-    (() () () ()) => {
-        -4isize
-    };
-    (() () () () ()) => {
-        -5isize
-    };
-    (() () () () () ()) => {
-        -6isize
-    };
-    (() () () () () () ()) => {
-        -7isize
-    };
-    (() () () () () () () ()) => {
-        -8isize
-    };
-    (() () () () () () () () ()) => {
-        -9isize
-    };
-    (() () () () () () () () () ()) => {
-        -10isize
-    };
-    (() () () () () () () () () () ()) => {
-        -11isize
-    };
-    (() () () () () () () () () () () ()) => {
-        -12isize
-    };
-    (() () () () () () () () () () () () ()) => {
-        -13isize
-    };
-    (() () () () () () () () () () () () () ()) => {
-        -14isize
-    };
-    (() () () () () () () () () () () () () () ()) => {
-        -15isize
-    };
-    (() () () () () () () () () () () () () () () ()) => {
-        -16isize
-    }; // Hand-written implementers rarely declare more than a handful of interfaces; the
-       // hard cap is more than the practical maximum.  If you hit this, split your
-       // implementation across multiple objects or use the proc-macro.
 }
 
 // --- Per-interface impls ----------------------------------------------------------------
@@ -644,57 +677,12 @@ macro_rules! __implement_decl_per_iface_impls {
     ) => {};
 }
 
-// `index` is a unary count starting at 0 (empty); emit `2 + index` as a usize literal.
+// `index` is a unary count starting at 0 (empty); emit `2 + index` as a `usize`.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __implement_decl_index_plus_two {
-    () => {
-        2usize
-    };
-    (()) => {
-        3usize
-    };
-    (() ()) => {
-        4usize
-    };
-    (() () ()) => {
-        5usize
-    };
-    (() () () ()) => {
-        6usize
-    };
-    (() () () () ()) => {
-        7usize
-    };
-    (() () () () () ()) => {
-        8usize
-    };
-    (() () () () () () ()) => {
-        9usize
-    };
-    (() () () () () () () ()) => {
-        10usize
-    };
-    (() () () () () () () () ()) => {
-        11usize
-    };
-    (() () () () () () () () () ()) => {
-        12usize
-    };
-    (() () () () () () () () () () ()) => {
-        13usize
-    };
-    (() () () () () () () () () () () ()) => {
-        14usize
-    };
-    (() () () () () () () () () () () () ()) => {
-        15usize
-    };
-    (() () () () () () () () () () () () () ()) => {
-        16usize
-    };
-    (() () () () () () () () () () () () () () ()) => {
-        17usize
+    ( $($unit:tt)* ) => {
+        ( $crate::__implement_decl_count_units!($($unit)*) + 2usize )
     };
 }
 
@@ -931,116 +919,8 @@ macro_rules! __implement_decl_g_struct {
         {
             type Impl = $name < $($gp),+ >;
 
-            #[inline(always)]
-            fn get_impl(&self) -> &Self::Impl {
-                &self.this
-            }
-
-            #[inline(always)]
-            fn get_impl_mut(&mut self) -> &mut Self::Impl {
-                &mut self.this
-            }
-
-            #[inline(always)]
-            fn into_inner(self) -> Self::Impl {
-                self.this
-            }
-
-            #[inline(always)]
-            fn AddRef(&self) -> u32 {
-                self.count.add_ref()
-            }
-
-            #[inline(always)]
-            unsafe fn Release(self_: *mut Self) -> u32 {
-                unsafe {
-                    let remaining = (*self_).count.release();
-                    if remaining == 0 {
-                        _ = $crate::imp::box_from_raw(self_);
-                    }
-                    remaining
-                }
-            }
-
-            #[inline(always)]
-            fn is_reference_count_one(&self) -> bool {
-                self.count.is_one()
-            }
-
-            unsafe fn GetTrustLevel(&self, value: *mut i32) -> $crate::HRESULT {
-                if value.is_null() {
-                    return $crate::imp::E_POINTER;
-                }
-                unsafe { *value = 0; }
-                $crate::HRESULT(0)
-            }
-
-            fn to_object(&self) -> $crate::ComObject<Self::Impl> {
-                self.count.add_ref();
-                unsafe {
-                    $crate::ComObject::from_raw(
-                        ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self),
-                    )
-                }
-            }
-
-            unsafe fn QueryInterface(
-                &self,
-                iid: *const $crate::GUID,
-                interface: *mut *mut ::core::ffi::c_void,
-            ) -> $crate::HRESULT {
-                unsafe {
-                    if iid.is_null() || interface.is_null() {
-                        return $crate::imp::E_POINTER;
-                    }
-                    let iid = *iid;
-                    let interface_ptr: *const ::core::ffi::c_void = 'found: {
-                        if iid == <$crate::IUnknown as $crate::Interface>::IID
-                            || iid == <$crate::IInspectable as $crate::Interface>::IID
-                            || iid == <$crate::imp::IAgileObject as $crate::Interface>::IID
-                        {
-                            break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
-                        }
-                        $(
-                            if <<$qi_ifty as $crate::Interface>::Vtable>::matches(&iid) {
-                                break 'found &self.$qi_iface as *const _ as *const ::core::ffi::c_void;
-                            }
-                        )*
-                        #[cfg(windows)]
-                        if iid == <$crate::imp::IMarshal as $crate::Interface>::IID {
-                            return $crate::imp::marshaler(
-                                <Self as $crate::IUnknownImpl>::to_interface::<$crate::IUnknown>(self),
-                                interface,
-                            );
-                        }
-                        if iid == $crate::DYNAMIC_CAST_IID {
-                            (interface as *mut *const dyn ::core::any::Any)
-                                .write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
-                            return $crate::HRESULT(0);
-                        }
-                        let tear_off_ptr = self.count.query(
-                            &iid,
-                            &self.identity as *const _ as *mut _,
-                        );
-                        if !tear_off_ptr.is_null() {
-                            *interface = tear_off_ptr;
-                            return $crate::HRESULT(0);
-                        }
-                        if let ::core::option::Option::Some(base) = self.base.as_option() {
-                            return $crate::Interface::query(
-                                base,
-                                &iid as *const $crate::GUID,
-                                interface,
-                            );
-                        }
-                        *interface = ::core::ptr::null_mut();
-                        return $crate::imp::E_NOINTERFACE;
-                    };
-                    debug_assert!(!interface_ptr.is_null());
-                    *interface = interface_ptr as *mut ::core::ffi::c_void;
-                    self.count.add_ref();
-                    $crate::HRESULT(0)
-                }
+            $crate::__implement_decl_iunknown_methods! {
+                qi: [ $( ($qi_iface : $qi_ifty) )* ]
             }
         }
 
@@ -1058,58 +938,11 @@ macro_rules! __implement_decl_g_struct {
             }
         }
 
-        impl< $($gp),+ > $crate::Compose for $name < $($gp),+ >
-        where $($wc)*
-        {
-            unsafe fn compose<'a>(
-                implementation: Self,
-            ) -> ($crate::IInspectable, &'a mut ::core::option::Option<$crate::IInspectable>) {
-                unsafe {
-                    let inspectable: $crate::IInspectable = implementation.into();
-                    let identity_ptr: *mut ::core::ffi::c_void = $crate::Interface::as_raw(&inspectable);
-                    let base_ptr = (identity_ptr as *mut *mut ::core::ffi::c_void).sub(1)
-                        as *mut ::core::option::Option<$crate::IInspectable>;
-                    (inspectable, &mut *base_ptr)
-                }
-            }
-        }
-
-        impl< $($gp),+ > ::core::convert::From<$name < $($gp),+ >> for $crate::IUnknown
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn from(this: $name < $($gp),+ >) -> Self {
-                let com_object = $crate::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-
-        impl< $($gp),+ > ::core::convert::From<$name < $($gp),+ >> for $crate::IInspectable
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn from(this: $name < $($gp),+ >) -> Self {
-                let com_object = $crate::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-
-        impl< $($gp),+ > $crate::ComObjectInterface<$crate::IUnknown> for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IUnknown> {
-                unsafe { ::core::mem::transmute(&self.identity) }
-            }
-        }
-
-        impl< $($gp),+ > $crate::ComObjectInterface<$crate::IInspectable> for $impl_name < $($gp),+ >
-        where $($wc)*
-        {
-            #[inline(always)]
-            fn as_interface_ref(&self) -> $crate::InterfaceRef<'_, $crate::IInspectable> {
-                unsafe { ::core::mem::transmute(&self.identity) }
-            }
+        $crate::__implement_decl_shared_tail! {
+            gen:       [ $($gp),+ ],
+            wc:        { $($wc)* },
+            name:      $name,
+            impl_name: $impl_name,
         }
     };
 }
