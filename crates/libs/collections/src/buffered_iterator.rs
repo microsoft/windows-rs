@@ -1,35 +1,42 @@
-use super::IIterator;
+extern crate alloc;
 
-/// Number of elements fetched per `GetMany` call. A traversal makes roughly
-/// `count / BLOCK` virtual calls instead of three per element.
-const BLOCK: usize = 128;
+use super::IIterator;
+use alloc::vec::Vec;
+
+/// Elements per `GetMany` block, sized to keep the buffer near 2 KB regardless of
+/// element size: ~128 pointer-sized elements, fewer for large value structs. A
+/// traversal makes roughly `count / block` virtual calls instead of three per
+/// element.
+fn block<T: windows_core::RuntimeType>() -> usize {
+    (2048 / size_of::<T::Default>()).clamp(1, 128)
+}
 
 /// An iterator that reads elements from an [`IIterator`] in batches via
 /// `GetMany` rather than one at a time.
 ///
 /// The naive [`IIterator`] iteration calls `HasCurrent`, `Current`, and
 /// `MoveNext` across the ABI for every element. `BufferedIterator` instead
-/// fills a small fixed buffer with a single `GetMany` call and yields from it,
-/// cutting the per-element virtual-call cost by orders of magnitude. This is
-/// the iterator produced when a collection is iterated directly (for example
-/// `for value in &vector`).
+/// fills a small buffer with a single `GetMany` call and yields from it, cutting
+/// the per-element virtual-call cost by orders of magnitude. This is the iterator
+/// produced when a collection is iterated directly (for example `for value in
+/// &vector`).
 pub struct BufferedIterator<T: windows_core::RuntimeType + 'static> {
     iterator: IIterator<T>,
-    buffer: [<T as windows_core::Type<T>>::Default; BLOCK],
+    buffer: Vec<T::Default>,
     index: usize,
     len: usize,
 }
 
 impl<T: windows_core::RuntimeType + 'static> BufferedIterator<T> {
     pub fn new(iterator: IIterator<T>) -> Self {
+        // A zeroed default is valid for every WinRT `Default` type (a null
+        // interface/string or a zero scalar). `GetMany` writes into and `Drop`
+        // releases these values, so the buffer is initialized, not uninhabited.
+        let mut buffer = Vec::new();
+        buffer.resize_with(block::<T>(), || unsafe { core::mem::zeroed() });
         Self {
             iterator,
-            // SAFETY: a zeroed buffer is a valid default for every WinRT `Default`
-            // type (a null interface/string or a zero scalar), matching the
-            // `core::mem::zeroed` the projection relies on throughout. `GetMany`
-            // writes into and `Drop` releases these values, so they must be
-            // initialized rather than `MaybeUninit`.
-            buffer: unsafe { core::mem::zeroed() },
+            buffer,
             index: 0,
             len: 0,
         }
@@ -55,7 +62,7 @@ impl<T: windows_core::RuntimeType + 'static> Iterator for BufferedIterator<T> {
             }
         }
 
-        let result = <T as windows_core::Type<T>>::from_default(&self.buffer[self.index]).ok();
+        let result = T::from_default(&self.buffer[self.index]).ok();
         self.index += 1;
         result
     }
