@@ -356,15 +356,29 @@ object. Both are linear — neither cheats; the snapshot just trades memory for 
 ### Async
 
 `Async` awaits an `IAsyncOperation<Int32>` the component completes synchronously: Rust
-`.join()`, C++ `.get()`, C# `await` — the analogous blocking wait in each, paying the same
-completion handshake. Unlike the pure-ABI loops it is **component-dependent** —
-the component constructs the operation — so it sits in the matrix's exception set. The Rust
-component returns a ready operation via `windows-future` (`46 ms/1M`); the C++ component
-`co_return`s, which is heavier (`94–95 ms`), and that gap is symmetric across consumers. The
-consumer projection dominates the headline: at 10M Rust is `452` and C++ `994`, while C#/WinRT's
-await machinery costs `49,902` (JIT). Native AOT is the worst case at `479,320 ms` (~48 µs/call,
-10× JIT) — the same pattern as `AddRemove`, where AOT's per-call interop overwhelms steady-state
-throughput. Rust leads C++ ~2.2× and C#/WinRT by two orders of magnitude.
+`.join()`, C++ `.get()`, C# `await` — the analogous blocking wait in each. Because the operation
+is already complete when the consumer waits, both native projections take the same short-circuit
+path: windows-future's `join` and cppwinrt's `wait_get` each read `Status()`, see `Completed`
+rather than `Started`, skip the event/wait entirely, and call `GetResults()` — and both even pay
+the same `QueryInterface` to `IAsyncInfo` that `Status()` requires. So the consumer-side wait is
+mechanically equivalent in Rust and C++; the difference is **component-side**, which is why
+`Async` sits in the matrix's exception set.
+
+The Rust component returns a ready operation via `windows-future`
+(`IAsyncOperation::<i32>::ready`), a tiny object holding only an `AtomicBool` and the result:
+`Status()` reports `Completed` directly and `GetResults()` clones the value — no coroutine, no
+lock, no condition variable. The C++ component `co_return`s, which instantiates cppwinrt's
+coroutine promise — a heap-allocated coroutine frame plus a full async state machine (atomic
+status, a `slim_mutex`, an agile completed-handler slot, exception/cancel slots) that is run to
+completion and torn down each call. That extra machinery is the gap, and the matrix shows it is
+driven entirely by the component: swapping the consumer's language leaves it unchanged
+(`C++→Rust` `46` ≈ `Rust→Rust` `46`), while swapping the component moves it (`Rust→C++` `94` ≈
+`C++→C++` `95`). At 10M the headline figures are Rust `452` and C++ `994` (both against the Rust
+component; that consumer gap is run-to-run variance, not a projection difference — the controlled
+matrix shows the consumer's language does not move `Async`), while C#/WinRT's await machinery
+costs `49,902` (JIT). Native AOT is the worst case at `479,320 ms` (~48 µs/call, 10× JIT) — the
+same pattern as `AddRemove`, where AOT's per-call interop overwhelms steady-state throughput.
+Rust and C++ are both cheap native projections here; C#/WinRT trails by two orders of magnitude.
 
 ### Boxed values
 
@@ -388,7 +402,16 @@ costs ~30 ms/1M and cppwinrt's `box_value` ~155 ms/1M:
 | `C++→C++`   |              ~155  |               ~155  | `324` |
 
 So windows-rs is ~5× cheaper than cppwinrt on *either* side of the boundary — boxing out of the
-component and boxing into it — and the advantage compounds when both ends are Rust. The win is no
+component and boxing into it — and the advantage compounds when both ends are Rust. The gap is
+structural, not incidental. cppwinrt's `box_value(0)` routes through `reference_traits<int32_t>::make`
+to `PropertyValue::CreateInt32`, which calls the cached `Windows.Foundation.PropertyValue` activation
+factory (`call_factory`) and makes a cross-DLL ABI call into combase, where the OS allocates a
+general-purpose stock `IPropertyValue` — an object carrying the discriminated-union machinery for all
+~20 scalar and array property types. windows-rs's `IReference::<i32>::from` instead allocates a single
+in-process `StockReference` ComObject that holds just the `i32`: no activation factory, no combase
+round-trip, no cross-DLL hop, and its `IPropertyValue` accessors resolve the type with a compile-time
+`TypeId` match rather than a runtime union. So each Rust box is one small local allocation against
+cppwinrt's factory dispatch plus combase allocation. The win is no
 longer just the callee's: even calling the same Rust component, the C++ *consumer* pays `2154` at 10M
 against Rust's `703`, because boxing *in* is the consumer's cost and cppwinrt's box is the heavier one.
 
