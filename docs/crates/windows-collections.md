@@ -28,7 +28,7 @@ Iterating a collection (`for x in &vector`) yields through `BufferedIterator`
 (`src/buffered_iterator.rs`), which fetches elements a block at a time via
 `GetMany` rather than one `IIterator::next` ABI call per element. `windows-bindgen`
 generates the `IntoIterator` impls that reference it. The block is sized to keep
-the buffer near 2 KB regardless of element size.
+the buffer in the 1-2 KB range regardless of element size.
 
 ### Testing
 

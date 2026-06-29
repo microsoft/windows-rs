@@ -3,10 +3,10 @@ extern crate alloc;
 use super::IIterator;
 use alloc::vec::Vec;
 
-/// Elements per `GetMany` block, sized to keep the buffer near 2 KB regardless of
-/// element size: ~128 pointer-sized elements, fewer for large value structs. A
-/// traversal makes roughly `count / block` virtual calls instead of three per
-/// element.
+/// Elements per `GetMany` block, sized to keep the buffer in the 1-2 KB range
+/// regardless of element size: 128 elements (~1 KB pointer-sized), fewer for
+/// large value structs. A traversal makes roughly `count / block` virtual calls
+/// instead of three per element.
 fn block<T: windows_core::RuntimeType>() -> usize {
     (2048 / size_of::<T::Default>()).clamp(1, 128)
 }
