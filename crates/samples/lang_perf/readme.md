@@ -161,7 +161,7 @@ point.
 | Cast   |   1337 |   2549 |    281 |  271 |
 | Event  |    802 |    939 |    132 |  139 |
 | AddRemove | 27981 | 59182 |  2219 |  518 |
-| IterateVector | 673 | 383 | 127 | 13 |
+| IterateVector | 673 | 383 | 127 | 4 |
 | GetMany |    329 |    191 |      2 |    6 |
 | Error  |  14543 |  15542 | 144601 |   53 |
 
@@ -194,7 +194,7 @@ confirms which implementation answered). One run at 1,000,000 iterations, consum
 | Cast   |     228 |    238 |       28 |      27 |        26 |       27 |
 | Event  |      88 |    103 |       13 |      32 |        13 |       33 |
 | AddRemove | 3148 |   2879 |      225 |     130 |        62 |      150 |
-| IterateVector | 50 | 46 | 12 | 12 | 1 | 1 |
+| IterateVector | 49 | 47 | 11 | 12 | 0 | 0 |
 | GetMany   |   24 |     25 |        0 |       0 |         0 |        0 |
 | Error  |    1485 |  16699 |    14165 |   20760 |         5 |    15454 |
 
@@ -289,18 +289,18 @@ pays dearly; the native projections treat a delegate as little more than a vtabl
 ### Collections and iteration
 
 `IterateVector` and `GetMany` walk the same component-owned `IVector<Int32>` two ways. Unlike
-the event loops, iteration is **component-invisible** — the matrix shows `Rust→Rust` `1` vs
-`Rust→C++` `1` and `C++→Rust` `12` vs `C++→C++` `12`, so the callee's collection storage does
+the event loops, iteration is **component-invisible** — the matrix shows `Rust→Rust` `0` vs
+`Rust→C++` `0` and `C++→Rust` `11` vs `C++→C++` `12`, so the callee's collection storage does
 not matter. What matters is the *consumer's* projection, and here the picture inverts the usual
-"native projections tie" result: at 1M, idiomatic iteration costs ~1 ms in Rust, ~12 ms in C++,
-and ~50 ms in C#. Rust now leads C++ by an order of magnitude, and at 10M the headline is `13`
+"native projections tie" result: at 1M, idiomatic iteration is sub-millisecond in Rust, ~12 ms in C++,
+and ~50 ms in C#. Rust now leads C++ by an order of magnitude, and at 10M the headline is `4`
 vs `127`.
 
 The reason is **batching**. A WinRT `IIterator` exposes both per-element access and a bulk
 `GetMany`. cppwinrt's range-`for` reads one element per ABI call, so 10M elements cost 10M
 vtable round-trips. windows-rs's `for x in &v` now drives a `BufferedIterator` that fills a
-fixed buffer with one `GetMany` call and yields from it, cutting the boundary crossings ~100×
-— which is why idiomatic Rust (`13`) lands far under cppwinrt (`127`) and near the explicit
+small buffer with one `GetMany` call and yields from it, cutting the boundary crossings ~100×
+— which is why idiomatic Rust (`4`) lands far under cppwinrt (`127`) and near the explicit
 `GetMany` loop. `GetMany` itself is essentially free everywhere native (~0–6 ms); C#/WinRT
 still pays per-call interop (~24 ms) but bulk-copying is far cheaper than its per-element loop.
 
