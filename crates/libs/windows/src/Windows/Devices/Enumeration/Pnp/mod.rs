@@ -209,16 +209,16 @@ unsafe impl Send for PnpObjectCollection {}
 unsafe impl Sync for PnpObjectCollection {}
 impl IntoIterator for PnpObjectCollection {
     type Item = PnpObject;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &PnpObjectCollection {
     type Item = PnpObject;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

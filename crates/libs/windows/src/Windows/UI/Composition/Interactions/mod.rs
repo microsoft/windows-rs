@@ -315,16 +315,16 @@ unsafe impl Send for CompositionInteractionSourceCollection {}
 unsafe impl Sync for CompositionInteractionSourceCollection {}
 impl IntoIterator for CompositionInteractionSourceCollection {
     type Item = ICompositionInteractionSource;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionInteractionSourceCollection {
     type Item = ICompositionInteractionSource;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 windows_core::imp::define_interface!(ICompositionConditionalValue, ICompositionConditionalValue_Vtbl, 0x43250538_eb73_4561_a71d_1a43eaeb7a9b);

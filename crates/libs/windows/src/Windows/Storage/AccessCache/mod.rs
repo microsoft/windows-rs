@@ -111,16 +111,16 @@ impl windows_core::RuntimeName for AccessListEntryView {
 }
 impl IntoIterator for AccessListEntryView {
     type Item = AccessListEntry;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &AccessListEntryView {
     type Item = AccessListEntry;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 windows_core::imp::define_interface!(IItemRemovedEventArgs, IItemRemovedEventArgs_Vtbl, 0x59677e5c_55be_4c66_ba66_5eaea79d2631);

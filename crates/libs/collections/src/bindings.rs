@@ -117,16 +117,16 @@ where
 }
 impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -667,7 +667,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -676,9 +676,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1160,7 +1160,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IMapView<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -1169,9 +1169,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IMapView<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1509,7 +1509,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -1518,9 +1518,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     for &IObservableMap<K, V>
 {
     type Item = IKeyValuePair<K, V>;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1840,16 +1840,16 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IObservableVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IObservableVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IObservableVector<T> {
@@ -2118,16 +2118,16 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
@@ -2668,16 +2668,16 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVectorView<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
     type Item = T;
-    type IntoIter = IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {

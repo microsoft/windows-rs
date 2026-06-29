@@ -2349,16 +2349,16 @@ unsafe impl Send for WwwFormUrlDecoder {}
 unsafe impl Sync for WwwFormUrlDecoder {}
 impl IntoIterator for WwwFormUrlDecoder {
     type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &WwwFormUrlDecoder {
     type Item = IWwwFormUrlDecoderEntry;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

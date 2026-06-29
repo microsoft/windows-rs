@@ -9,7 +9,7 @@ name = "lang_perf_cpp"
 path = "src/main.rs"
 
 [dependencies]
-lang_perf_component = { path = "../component" }
+lang_perf_component_cpp = { path = "../component_cpp" }
 
 [build-dependencies]
 cc = "1.0"

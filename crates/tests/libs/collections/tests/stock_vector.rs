@@ -184,6 +184,113 @@ fn primitive_mutable() -> Result<()> {
     Ok(())
 }
 
+// BufferedIterator fills a fixed-size block via GetMany and yields from it. The
+// internal block size is private, so these tests cover every size around the
+// boundaries it could plausibly use: empty, single, just under/over, and exact
+// multiples spanning several blocks. If the constant ever changes these stay valid.
+#[test]
+fn buffered_iterator_sizes() {
+    for size in [
+        0usize, 1, 2, 63, 64, 65, 127, 128, 129, 255, 256, 257, 384, 1000,
+    ] {
+        let source: Vec<i32> = (0..size as i32).collect();
+        let v = IVector::<i32>::from(source.clone());
+
+        // Borrowed IntoIterator yields exactly the source, in order.
+        let collected: Vec<i32> = (&v).into_iter().collect();
+        assert_eq!(collected, source, "borrowed iterate size {size}");
+
+        // Owned IntoIterator yields the same.
+        let collected: Vec<i32> = v.clone().into_iter().collect();
+        assert_eq!(collected, source, "owned iterate size {size}");
+
+        // count() drains every element including the final empty refill.
+        assert_eq!((&v).into_iter().count(), size, "count size {size}");
+
+        // sum verifies no element is dropped, duplicated, or shifted.
+        let sum: i64 = (&v).into_iter().map(i64::from).sum();
+        let expect: i64 = (0..size as i64).sum();
+        assert_eq!(sum, expect, "sum size {size}");
+    }
+}
+
+// Early termination must release a partially consumed block at any offset without
+// double-counting or leaking; tested at every block-boundary-relative position.
+#[test]
+fn buffered_iterator_early_break() {
+    let v = IVector::<i32>::from((0..400).collect::<Vec<_>>());
+
+    for stop in [0usize, 1, 127, 128, 129, 255, 256, 257, 399, 400] {
+        let mut count = 0;
+        let mut iter = (&v).into_iter();
+        while count < stop {
+            assert_eq!(iter.next(), Some(count as i32), "elem at stop {stop}");
+            count += 1;
+        }
+        drop(iter);
+        assert_eq!(count, stop);
+    }
+}
+
+// Reference-counted elements exercise per-block release: a wrong block-reset would
+// drop live strings (UB) or leak them. Cross several blocks and break mid-block.
+#[test]
+fn buffered_iterator_hstring() {
+    let source: Vec<HSTRING> = (0..300).map(|i| HSTRING::from(i.to_string())).collect();
+    let v = IVector::<HSTRING>::from(source.clone());
+
+    let collected: Vec<HSTRING> = (&v).into_iter().collect();
+    assert_eq!(collected, source);
+
+    for stop in [64usize, 128, 200, 300] {
+        let mut count = 0;
+        for value in &v {
+            assert_eq!(value, source[count]);
+            count += 1;
+            if count == stop {
+                break;
+            }
+        }
+        assert_eq!(count, stop);
+    }
+}
+
+// Interface (ref-counted COM) elements: same release path, different ABI default.
+#[test]
+fn buffered_iterator_interface() {
+    let source: Vec<IInspectable> = (0..200)
+        .map(|i| {
+            IVector::<i32>::from(vec![i])
+                .cast::<IInspectable>()
+                .unwrap()
+        })
+        .collect();
+    let v = IVector::<IInspectable>::from(vec![]);
+    for item in &source {
+        v.Append(item).unwrap();
+    }
+
+    let collected: Vec<IInspectable> = (&v).into_iter().collect();
+    assert_eq!(collected, source);
+    assert_eq!((&v).into_iter().count(), 200);
+}
+
+// Iteration also reaches collections through IIterable and IVectorView, which use
+// the same BufferedIterator; confirm both honor the boundary spanning.
+#[test]
+fn buffered_iterator_view_and_iterable() -> Result<()> {
+    let source: Vec<i32> = (0..300).collect();
+    let v = IVector::<i32>::from(source.clone());
+
+    let view = v.GetView()?;
+    assert_eq!((&view).into_iter().collect::<Vec<_>>(), source);
+
+    let iterable: IIterable<i32> = v.cast()?;
+    assert_eq!((&iterable).into_iter().collect::<Vec<_>>(), source);
+
+    Ok(())
+}
+
 #[test]
 fn get_view() -> Result<()> {
     let v = IVector::<i32>::from(vec![1, 2, 3]);

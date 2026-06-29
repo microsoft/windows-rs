@@ -14,9 +14,18 @@ mod LangPerf {
         StringProperty: String;
         ObjectProperty: Object;
         fn Next(&self) -> i32;
+        fn Lang(&self) -> String;
+        event Event: Handler;
+        fn Raise(&self);
+        fn Items(&self, count: u32) -> Windows::Foundation::Collections::IVector<i32>;
+        fn Map(&self, count: u32) -> Windows::Foundation::Collections::IMap<String, i32>;
+        fn Operation(&self) -> Windows::Foundation::IAsyncOperation<i32>;
+        ReferenceProperty: Windows::Foundation::IReference<i32>;
     }
 
     interface INonDefault {
         fn Value(&self) -> i32;
     }
+
+    delegate fn Handler(sender: Object, args: i32);
 }

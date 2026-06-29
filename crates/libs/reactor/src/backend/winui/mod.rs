@@ -238,10 +238,8 @@ impl WinUIBackend {
         let Ok(bar_items) = mb.Items() else {
             return revokers;
         };
-        for i in 0..bar_items.Size().unwrap_or(0) {
-            if let Ok(mbi) = bar_items.GetAt(i)
-                && let Ok(flyout_items) = mbi.Items()
-            {
+        for mbi in &bar_items {
+            if let Ok(flyout_items) = mbi.Items() {
                 Self::wire_flyout_items_click(&flyout_items, handler, &mut revokers);
             }
         }
@@ -266,8 +264,7 @@ impl WinUIBackend {
         handler: &EventHandler,
         revokers: &mut Vec<windows_core::EventRevoker>,
     ) {
-        for i in 0..items.Size().unwrap_or(0) {
-            let Ok(base) = items.GetAt(i) else { continue };
+        for base in items {
             if let Ok(item) = base.cast::<bindings::MenuFlyoutItem>() {
                 let text = item.Text().unwrap_or_default().clone();
                 let handler = handler.clone();
@@ -289,8 +286,7 @@ impl WinUIBackend {
         handler: &EventHandler,
     ) -> Vec<windows_core::EventRevoker> {
         let mut revokers = Vec::new();
-        for i in 0..commands.Size().unwrap_or(0) {
-            let Ok(el) = commands.GetAt(i) else { continue };
+        for el in commands {
             if let Ok(btn) = el.cast::<bindings::AppBarButton>() {
                 let label = btn.Label().unwrap_or_default().clone();
                 let handler = handler.clone();
@@ -3001,22 +2997,19 @@ fn read_available_formats(data_package_view: &bindings::DataPackageView) -> Avai
         return available_formats;
     };
 
-    let size = formats.Size().unwrap_or(0);
-    for i in 0..size {
-        if let Ok(s) = formats.GetAt(i) {
-            match s.to_string_lossy().as_str() {
-                FORMAT_TEXT => available_formats.text = true,
-                FORMAT_HTML => available_formats.html = true,
-                FORMAT_RTF => available_formats.rtf = true,
-                FORMAT_BITMAP => available_formats.bitmap = true,
-                FORMAT_STORAGE_ITEMS => available_formats.storage_items = true,
-                FORMAT_URI_AND_WEB_LINK => {
-                    available_formats.uri = true;
-                    available_formats.web_link = true;
-                }
-                FORMAT_APPLICATION_LINK => available_formats.application_link = true,
-                _ => {}
+    for s in &formats {
+        match s.to_string_lossy().as_str() {
+            FORMAT_TEXT => available_formats.text = true,
+            FORMAT_HTML => available_formats.html = true,
+            FORMAT_RTF => available_formats.rtf = true,
+            FORMAT_BITMAP => available_formats.bitmap = true,
+            FORMAT_STORAGE_ITEMS => available_formats.storage_items = true,
+            FORMAT_URI_AND_WEB_LINK => {
+                available_formats.uri = true;
+                available_formats.web_link = true;
             }
+            FORMAT_APPLICATION_LINK => available_formats.application_link = true,
+            _ => {}
         }
     }
     available_formats
@@ -3065,9 +3058,8 @@ fn build_drag_context(args: Option<&bindings::DragEventArgs>) -> DragContext {
         let Some(items) = items else {
             return Vec::new();
         };
-        let size = items.Size().unwrap_or(0);
-        (0..size)
-            .filter_map(|i| items.GetAt(i).ok())
+        items
+            .into_iter()
             .map(|item| DroppedItem {
                 path: item.Path().unwrap_or_default(),
                 name: item.Name().unwrap_or_default(),

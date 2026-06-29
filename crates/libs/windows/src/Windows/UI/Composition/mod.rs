@@ -2827,16 +2827,16 @@ unsafe impl Send for CompositionAnimationGroup {}
 unsafe impl Sync for CompositionAnimationGroup {}
 impl IntoIterator for CompositionAnimationGroup {
     type Item = CompositionAnimation;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionAnimationGroup {
     type Item = CompositionAnimation;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3950,16 +3950,16 @@ unsafe impl Send for CompositionColorGradientStopCollection {}
 unsafe impl Sync for CompositionColorGradientStopCollection {}
 impl IntoIterator for CompositionColorGradientStopCollection {
     type Item = CompositionColorGradientStop;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionColorGradientStopCollection {
     type Item = CompositionColorGradientStop;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -8103,16 +8103,16 @@ unsafe impl Send for CompositionProjectedShadowCasterCollection {}
 unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
 impl IntoIterator for CompositionProjectedShadowCasterCollection {
     type Item = CompositionProjectedShadowCaster;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionProjectedShadowCasterCollection {
     type Item = CompositionProjectedShadowCaster;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -8407,16 +8407,16 @@ unsafe impl Send for CompositionProjectedShadowReceiverUnorderedCollection {}
 unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 impl IntoIterator for CompositionProjectedShadowReceiverUnorderedCollection {
     type Item = CompositionProjectedShadowReceiver;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionProjectedShadowReceiverUnorderedCollection {
     type Item = CompositionProjectedShadowReceiver;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -9918,16 +9918,16 @@ unsafe impl Send for CompositionShapeCollection {}
 unsafe impl Sync for CompositionShapeCollection {}
 impl IntoIterator for CompositionShapeCollection {
     type Item = CompositionShape;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionShapeCollection {
     type Item = CompositionShape;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -10452,16 +10452,16 @@ unsafe impl Send for CompositionStrokeDashArray {}
 unsafe impl Sync for CompositionStrokeDashArray {}
 impl IntoIterator for CompositionStrokeDashArray {
     type Item = f32;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &CompositionStrokeDashArray {
     type Item = f32;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -17141,16 +17141,16 @@ unsafe impl Send for ImplicitAnimationCollection {}
 unsafe impl Sync for ImplicitAnimationCollection {}
 impl IntoIterator for ImplicitAnimationCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &ImplicitAnimationCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -17323,16 +17323,16 @@ unsafe impl Send for InitialValueExpressionCollection {}
 unsafe impl Sync for InitialValueExpressionCollection {}
 impl IntoIterator for InitialValueExpressionCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &InitialValueExpressionCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(C)]
@@ -25219,16 +25219,16 @@ unsafe impl Send for VisualCollection {}
 unsafe impl Sync for VisualCollection {}
 impl IntoIterator for VisualCollection {
     type Item = Visual;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &VisualCollection {
     type Item = Visual;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -25386,15 +25386,15 @@ unsafe impl Send for VisualUnorderedCollection {}
 unsafe impl Sync for VisualUnorderedCollection {}
 impl IntoIterator for VisualUnorderedCollection {
     type Item = Visual;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &VisualUnorderedCollection {
     type Item = Visual;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }

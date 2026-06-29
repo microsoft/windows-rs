@@ -312,6 +312,29 @@ impl File {
         }))
     }
 
+    /// Adds an `Event` row to the file, returning the row offset. `ty` is the event's
+    /// handler delegate type.
+    pub fn Event(&mut self, name: &str, ty: &Type) -> Event {
+        let Type::ClassName(ty) = ty else {
+            panic!("invalid event type");
+        };
+        let event_type = TypeDefOrRef::TypeRef(self.TypeRef(&ty.namespace, &ty.name));
+
+        Event(self.records.Event.push_pos(rec::Event {
+            Flags: 0,
+            Name: self.strings.insert(name),
+            EventType: event_type,
+        }))
+    }
+
+    /// Adds an `EventMap` row associating a type with its first event.
+    pub fn EventMap(&mut self, parent: TypeDef, event_list: Event) -> EventMap {
+        EventMap(self.records.EventMap.push_pos(rec::EventMap {
+            Parent: parent,
+            EventList: event_list,
+        }))
+    }
+
     /// Adds a `MethodSemantics` row linking an accessor method to a property.
     pub fn MethodSemantics(
         &mut self,

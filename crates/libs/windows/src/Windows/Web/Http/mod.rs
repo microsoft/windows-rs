@@ -532,16 +532,16 @@ unsafe impl Send for HttpCookieCollection {}
 unsafe impl Sync for HttpCookieCollection {}
 impl IntoIterator for HttpCookieCollection {
     type Item = HttpCookie;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpCookieCollection {
     type Item = HttpCookie;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1075,16 +1075,16 @@ unsafe impl Send for HttpMultipartContent {}
 unsafe impl Sync for HttpMultipartContent {}
 impl IntoIterator for HttpMultipartContent {
     type Item = IHttpContent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpMultipartContent {
     type Item = IHttpContent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1213,16 +1213,16 @@ unsafe impl Send for HttpMultipartFormDataContent {}
 unsafe impl Sync for HttpMultipartFormDataContent {}
 impl IntoIterator for HttpMultipartFormDataContent {
     type Item = IHttpContent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpMultipartFormDataContent {
     type Item = IHttpContent;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(C)]

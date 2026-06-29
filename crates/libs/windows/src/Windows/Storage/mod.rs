@@ -370,7 +370,7 @@ unsafe impl Sync for ApplicationDataCompositeValue {}
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for ApplicationDataCompositeValue {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -378,9 +378,9 @@ impl IntoIterator for ApplicationDataCompositeValue {
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &ApplicationDataCompositeValue {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -538,7 +538,7 @@ unsafe impl Sync for ApplicationDataContainerSettings {}
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for ApplicationDataContainerSettings {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -546,9 +546,9 @@ impl IntoIterator for ApplicationDataContainerSettings {
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &ApplicationDataContainerSettings {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

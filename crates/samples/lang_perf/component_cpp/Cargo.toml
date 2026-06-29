@@ -1,0 +1,16 @@
+[package]
+name = "lang_perf_component_cpp"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+name = "langperf_cpp"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+cppwinrt = { workspace = true }
+cc = "1.0"
+
+[lints]
+workspace = true

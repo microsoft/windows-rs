@@ -498,16 +498,16 @@ unsafe impl Send for JsonArray {}
 unsafe impl Sync for JsonArray {}
 impl IntoIterator for JsonArray {
     type Item = IJsonValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &JsonArray {
     type Item = IJsonValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 pub struct JsonError;
@@ -789,16 +789,16 @@ unsafe impl Send for JsonObject {}
 unsafe impl Sync for JsonObject {}
 impl IntoIterator for JsonObject {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &JsonObject {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

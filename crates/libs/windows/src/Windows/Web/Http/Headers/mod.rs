@@ -157,16 +157,16 @@ unsafe impl Send for HttpCacheDirectiveHeaderValueCollection {}
 unsafe impl Sync for HttpCacheDirectiveHeaderValueCollection {}
 impl IntoIterator for HttpCacheDirectiveHeaderValueCollection {
     type Item = HttpNameValueHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
     type Item = HttpNameValueHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -364,16 +364,16 @@ unsafe impl Send for HttpChallengeHeaderValueCollection {}
 unsafe impl Sync for HttpChallengeHeaderValueCollection {}
 impl IntoIterator for HttpChallengeHeaderValueCollection {
     type Item = HttpChallengeHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpChallengeHeaderValueCollection {
     type Item = HttpChallengeHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -553,16 +553,16 @@ unsafe impl Send for HttpConnectionOptionHeaderValueCollection {}
 unsafe impl Sync for HttpConnectionOptionHeaderValueCollection {}
 impl IntoIterator for HttpConnectionOptionHeaderValueCollection {
     type Item = HttpConnectionOptionHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpConnectionOptionHeaderValueCollection {
     type Item = HttpConnectionOptionHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -742,16 +742,16 @@ unsafe impl Send for HttpContentCodingHeaderValueCollection {}
 unsafe impl Sync for HttpContentCodingHeaderValueCollection {}
 impl IntoIterator for HttpContentCodingHeaderValueCollection {
     type Item = HttpContentCodingHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpContentCodingHeaderValueCollection {
     type Item = HttpContentCodingHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -943,16 +943,16 @@ unsafe impl Send for HttpContentCodingWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValueCollection {}
 impl IntoIterator for HttpContentCodingWithQualityHeaderValueCollection {
     type Item = HttpContentCodingWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpContentCodingWithQualityHeaderValueCollection {
     type Item = HttpContentCodingWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1258,16 +1258,16 @@ unsafe impl Send for HttpContentHeaderCollection {}
 unsafe impl Sync for HttpContentHeaderCollection {}
 impl IntoIterator for HttpContentHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpContentHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1553,16 +1553,16 @@ unsafe impl Send for HttpCookiePairHeaderValueCollection {}
 unsafe impl Sync for HttpCookiePairHeaderValueCollection {}
 impl IntoIterator for HttpCookiePairHeaderValueCollection {
     type Item = HttpCookiePairHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpCookiePairHeaderValueCollection {
     type Item = HttpCookiePairHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -1893,16 +1893,16 @@ unsafe impl Send for HttpExpectationHeaderValueCollection {}
 unsafe impl Sync for HttpExpectationHeaderValueCollection {}
 impl IntoIterator for HttpExpectationHeaderValueCollection {
     type Item = HttpExpectationHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpExpectationHeaderValueCollection {
     type Item = HttpExpectationHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[cfg(feature = "Globalization")]
@@ -2034,7 +2034,7 @@ unsafe impl Sync for HttpLanguageHeaderValueCollection {}
 #[cfg(feature = "Globalization")]
 impl IntoIterator for HttpLanguageHeaderValueCollection {
     type Item = super::super::super::Globalization::Language;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -2042,9 +2042,9 @@ impl IntoIterator for HttpLanguageHeaderValueCollection {
 #[cfg(feature = "Globalization")]
 impl IntoIterator for &HttpLanguageHeaderValueCollection {
     type Item = super::super::super::Globalization::Language;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -2236,16 +2236,16 @@ unsafe impl Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
 impl IntoIterator for HttpLanguageRangeWithQualityHeaderValueCollection {
     type Item = HttpLanguageRangeWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpLanguageRangeWithQualityHeaderValueCollection {
     type Item = HttpLanguageRangeWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -2535,16 +2535,16 @@ unsafe impl Send for HttpMediaTypeWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
 impl IntoIterator for HttpMediaTypeWithQualityHeaderValueCollection {
     type Item = HttpMediaTypeWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollection {
     type Item = HttpMediaTypeWithQualityHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -2666,16 +2666,16 @@ unsafe impl Send for HttpMethodHeaderValueCollection {}
 unsafe impl Sync for HttpMethodHeaderValueCollection {}
 impl IntoIterator for HttpMethodHeaderValueCollection {
     type Item = super::HttpMethod;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpMethodHeaderValueCollection {
     type Item = super::HttpMethod;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3010,16 +3010,16 @@ unsafe impl Send for HttpProductInfoHeaderValueCollection {}
 unsafe impl Sync for HttpProductInfoHeaderValueCollection {}
 impl IntoIterator for HttpProductInfoHeaderValueCollection {
     type Item = HttpProductInfoHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpProductInfoHeaderValueCollection {
     type Item = HttpProductInfoHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3262,16 +3262,16 @@ unsafe impl Send for HttpRequestHeaderCollection {}
 unsafe impl Sync for HttpRequestHeaderCollection {}
 impl IntoIterator for HttpRequestHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpRequestHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3441,16 +3441,16 @@ unsafe impl Send for HttpResponseHeaderCollection {}
 unsafe impl Sync for HttpResponseHeaderCollection {}
 impl IntoIterator for HttpResponseHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpResponseHeaderCollection {
     type Item = windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3636,16 +3636,16 @@ unsafe impl Send for HttpTransferCodingHeaderValueCollection {}
 unsafe impl Sync for HttpTransferCodingHeaderValueCollection {}
 impl IntoIterator for HttpTransferCodingHeaderValueCollection {
     type Item = HttpTransferCodingHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &HttpTransferCodingHeaderValueCollection {
     type Item = HttpTransferCodingHeaderValue;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 windows_core::imp::define_interface!(IHttpCacheDirectiveHeaderValueCollection, IHttpCacheDirectiveHeaderValueCollection_Vtbl, 0x9a586b89_d5d0_4fbe_bd9d_b5b3636811b4);

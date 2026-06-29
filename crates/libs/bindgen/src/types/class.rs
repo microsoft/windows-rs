@@ -272,13 +272,12 @@ impl Class {
                     .find(|interface| interface.def.type_name() == TypeName::IIterable)
                     .map(|interface| {
                         let ty = interface.generics[0].write_name(config);
-                        let namespace = config.write_namespace(TypeName::IIterator);
 
                         quote! {
                             #cfg
                             impl IntoIterator for #name {
                                 type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {
                                     IntoIterator::into_iter(&self)
@@ -287,10 +286,10 @@ impl Class {
                             #cfg
                             impl IntoIterator for &#name {
                                 type Item = #ty;
-                                type IntoIter = #namespace IIterator<Self::Item>;
+                                type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                                 fn into_iter(self) -> Self::IntoIter {
-                                    self.First().unwrap()
+                                    windows_collections::BufferedIterator::new(self.First().unwrap())
                                 }
                             }
 

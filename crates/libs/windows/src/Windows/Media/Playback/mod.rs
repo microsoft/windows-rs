@@ -1860,7 +1860,7 @@ unsafe impl Sync for MediaPlaybackAudioTrackList {}
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackAudioTrackList {
     type Item = super::Core::AudioTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -1868,9 +1868,9 @@ impl IntoIterator for MediaPlaybackAudioTrackList {
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackAudioTrackList {
     type Item = super::Core::AudioTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -3586,7 +3586,7 @@ unsafe impl Sync for MediaPlaybackTimedMetadataTrackList {}
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackTimedMetadataTrackList {
     type Item = super::Core::TimedMetadataTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -3594,9 +3594,9 @@ impl IntoIterator for MediaPlaybackTimedMetadataTrackList {
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackTimedMetadataTrackList {
     type Item = super::Core::TimedMetadataTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[cfg(feature = "Media_Core")]
@@ -3689,7 +3689,7 @@ unsafe impl Sync for MediaPlaybackVideoTrackList {}
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for MediaPlaybackVideoTrackList {
     type Item = super::Core::VideoTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -3697,9 +3697,9 @@ impl IntoIterator for MediaPlaybackVideoTrackList {
 #[cfg(feature = "Media_Core")]
 impl IntoIterator for &MediaPlaybackVideoTrackList {
     type Item = super::Core::VideoTrack;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]
@@ -4630,16 +4630,16 @@ unsafe impl Send for PlaybackMediaMarkerSequence {}
 unsafe impl Sync for PlaybackMediaMarkerSequence {}
 impl IntoIterator for PlaybackMediaMarkerSequence {
     type Item = PlaybackMediaMarker;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &PlaybackMediaMarkerSequence {
     type Item = PlaybackMediaMarker;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

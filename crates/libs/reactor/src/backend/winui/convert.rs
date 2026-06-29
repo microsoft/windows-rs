@@ -83,10 +83,8 @@ fn nav_item_tag(item: &bindings::NavigationViewItem) -> Option<String> {
 
 pub(super) fn select_nav_item_by_tag(nv: &bindings::NavigationView, tag: &str) -> Result<()> {
     let menu = nv.MenuItems()?;
-    let len = menu.Size()?;
 
-    for i in 0..len {
-        let obj = menu.GetAt(i)?;
+    for obj in &menu {
         let Ok(item) = obj.cast::<bindings::NavigationViewItem>() else {
             continue;
         };
@@ -95,11 +93,7 @@ pub(super) fn select_nav_item_by_tag(nv: &bindings::NavigationView, tag: &str) -
             return nv.SetSelectedItem(&inspectable);
         }
         if let Ok(children) = item.cast::<bindings::INavigationViewItem2>()?.MenuItems() {
-            let child_count = children.Size().unwrap_or(0);
-            for j in 0..child_count {
-                let Ok(child_obj) = children.GetAt(j) else {
-                    continue;
-                };
+            for child_obj in &children {
                 let Ok(child) = child_obj.cast::<bindings::NavigationViewItem>() else {
                     continue;
                 };

@@ -86,6 +86,101 @@ impl Class {
             .map(|| result__)
         }
     }
+    pub fn Lang(&self) -> windows_core::Result<windows_core::HSTRING> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Lang)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Event<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) + Send + 'static,
+    {
+        let handler = <Handler>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Event)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveEvent,
+            ))
+        }
+    }
+    pub fn Raise(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Raise)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Items)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Map(
+        &self,
+        count: u32,
+    ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Map)(
+                windows_core::Interface::as_raw(self),
+                count,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Operation)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReferenceProperty(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReferenceProperty)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+        }
+    }
+    pub fn SetReferenceProperty(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetReferenceProperty)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -100,7 +195,81 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x48a7110f_e630_59a6_853a_d86a7648441d);
+windows_core::imp::define_interface!(
+    Handler,
+    Handler_Vtbl,
+    0x04c9aba3_8fc3_580e_8c33_da8f9c18f656
+);
+impl windows_core::RuntimeType for Handler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl Handler {
+    pub fn new<
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+    pub fn Invoke<P0>(&self, sender: P0, args: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct Handler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: i32,
+    ) -> windows_core::HRESULT,
+}
+struct HandlerBox<
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) -> windows_core::Result<()>
+        + Send
+        + 'static,
+>(core::marker::PhantomData<(fn() -> F,)>);
+impl<
+    F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> HandlerBox<F>
+{
+    const VTABLE: Handler_Vtbl = Handler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<Handler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<Handler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<Handler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: i32,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<Handler, F>);
+            (this.invoke)(core::mem::transmute_copy(&sender), args).into()
+        }
+    }
+}
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x2f30a9af_fbe9_50b5_aba8_9bed353b77ae);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -121,6 +290,21 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
         value: windows_core::Ref<windows_core::IInspectable>,
     ) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<i32>;
+    fn Lang(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn Event(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i64>;
+    fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
+    fn Raise(&self) -> windows_core::Result<()>;
+    fn Items(&self, count: u32) -> windows_core::Result<windows_collections::IVector<i32>>;
+    fn Map(
+        &self,
+        count: u32,
+    ) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, i32>>;
+    fn Operation(&self) -> windows_core::Result<windows_future::IAsyncOperation<i32>>;
+    fn ReferenceProperty(&self) -> windows_core::Result<windows_reference::IReference<i32>>;
+    fn SetReferenceProperty(
+        &self,
+        value: windows_core::Ref<windows_reference::IReference<i32>>,
+    ) -> windows_core::Result<()>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -220,6 +404,142 @@ impl IClass_Vtbl {
                 }
             }
         }
+        unsafe extern "system" fn Lang<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Lang(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Event<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
+            result__: *mut i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn RemoveEvent<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            token: i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClass_Impl::RemoveEvent(this, token).into()
+            }
+        }
+        unsafe extern "system" fn Raise<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClass_Impl::Raise(this).into()
+            }
+        }
+        unsafe extern "system" fn Items<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            count: u32,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Items(this, count) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Map<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            count: u32,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Map(this, count) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Operation<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::Operation(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn ReferenceProperty<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IClass_Impl::ReferenceProperty(this) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn SetReferenceProperty<
+            Identity: IClass_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IClass_Impl::SetReferenceProperty(this, core::mem::transmute_copy(&value)).into()
+            }
+        }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Int32Property: Int32Property::<Identity, OFFSET>,
@@ -229,6 +549,15 @@ impl IClass_Vtbl {
             ObjectProperty: ObjectProperty::<Identity, OFFSET>,
             SetObjectProperty: SetObjectProperty::<Identity, OFFSET>,
             Next: Next::<Identity, OFFSET>,
+            Lang: Lang::<Identity, OFFSET>,
+            Event: Event::<Identity, OFFSET>,
+            RemoveEvent: RemoveEvent::<Identity, OFFSET>,
+            Raise: Raise::<Identity, OFFSET>,
+            Items: Items::<Identity, OFFSET>,
+            Map: Map::<Identity, OFFSET>,
+            Operation: Operation::<Identity, OFFSET>,
+            ReferenceProperty: ReferenceProperty::<Identity, OFFSET>,
+            SetReferenceProperty: SetReferenceProperty::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -259,6 +588,40 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Lang: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Event: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveEvent:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub Raise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Items: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Map: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub Operation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ReferenceProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetReferenceProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INonDefault,

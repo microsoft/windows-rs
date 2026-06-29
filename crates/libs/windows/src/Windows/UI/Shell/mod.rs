@@ -1042,16 +1042,16 @@ unsafe impl Send for WindowTabCollection {}
 unsafe impl Sync for WindowTabCollection {}
 impl IntoIterator for WindowTabCollection {
     type Item = WindowTab;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &WindowTabCollection {
     type Item = WindowTab;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

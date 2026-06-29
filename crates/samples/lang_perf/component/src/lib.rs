@@ -29,12 +29,15 @@ struct ClassFactory;
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable> {
-        Ok(Class.into())
+        Ok(Class::default().into())
     }
 }
 
 #[implement(bindings::Class, bindings::INonDefault)]
-struct Class;
+#[derive(Default)]
+struct Class {
+    event: Event<bindings::Handler>,
+}
 
 impl bindings::IClass_Impl for Class_Impl {
     fn Int32Property(&self) -> Result<i32> {
@@ -63,6 +66,53 @@ impl bindings::IClass_Impl for Class_Impl {
 
     fn Next(&self) -> Result<i32> {
         Err(E_BOUNDS.into())
+    }
+
+    fn Lang(&self) -> Result<HSTRING> {
+        Ok(h!("Rust").to_owned())
+    }
+
+    fn Event(&self, handler: Ref<bindings::Handler>) -> Result<i64> {
+        self.event.add(handler.ok()?)
+    }
+
+    fn RemoveEvent(&self, token: i64) -> Result<()> {
+        self.event.remove(token);
+        Ok(())
+    }
+
+    fn Raise(&self) -> Result<()> {
+        let sender: IInspectable = self.to_interface();
+        self.event.call(|handler| handler.Invoke(&sender, 0));
+        Ok(())
+    }
+
+    fn Items(&self, count: u32) -> Result<windows_collections::IVector<i32>> {
+        Ok(windows_collections::IVector::<i32>::from(
+            (0..count as i32).collect::<Vec<i32>>(),
+        ))
+    }
+
+    fn Map(&self, count: u32) -> Result<windows_collections::IMap<HSTRING, i32>> {
+        let pairs: std::collections::BTreeMap<HSTRING, i32> = (0..count as i32)
+            .map(|i| (i.to_string().into(), i))
+            .collect();
+        Ok(windows_collections::IMap::<HSTRING, i32>::from(pairs))
+    }
+
+    fn Operation(&self) -> Result<windows_future::IAsyncOperation<i32>> {
+        Ok(windows_future::IAsyncOperation::<i32>::ready(Ok(0)))
+    }
+
+    fn ReferenceProperty(&self) -> Result<windows_reference::IReference<i32>> {
+        Ok(windows_reference::IReference::<i32>::from(0))
+    }
+
+    fn SetReferenceProperty(&self, value: Ref<windows_reference::IReference<i32>>) -> Result<()> {
+        if let Some(value) = value.as_ref() {
+            _ = value.Value()?;
+        }
+        Ok(())
     }
 }
 

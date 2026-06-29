@@ -102,7 +102,7 @@ impl Encoder<'_> {
 
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
-            | metadata::MethodAttributes::Abstract
+            | metadata::MethodAttributes::SpecialName
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
@@ -139,8 +139,14 @@ impl Encoder<'_> {
             types,
         };
 
-        self.output
-            .MethodDef("Invoke", &signature, flags, Default::default());
+        // Delegate methods are runtime-implemented, matching real WinRT delegate metadata
+        // so that strict consumers (e.g. CsWinRT) recognize the `Invoke` method.
+        self.output.MethodDef(
+            "Invoke",
+            &signature,
+            flags,
+            metadata::MethodImplAttributes::Runtime,
+        );
 
         self.encode_return_attrs(&item.return_attrs)?;
         self.encode_params(&params)?;

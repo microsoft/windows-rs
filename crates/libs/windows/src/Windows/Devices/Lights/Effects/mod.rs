@@ -842,16 +842,16 @@ unsafe impl Send for LampArrayEffectPlaylist {}
 unsafe impl Sync for LampArrayEffectPlaylist {}
 impl IntoIterator for LampArrayEffectPlaylist {
     type Item = ILampArrayEffect;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
 }
 impl IntoIterator for &LampArrayEffectPlaylist {
     type Item = ILampArrayEffect;
-    type IntoIter = windows_collections::IIterator<Self::Item>;
+    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        windows_collections::BufferedIterator::new(self.First().unwrap())
     }
 }
 #[repr(transparent)]

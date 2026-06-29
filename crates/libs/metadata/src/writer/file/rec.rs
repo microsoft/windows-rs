@@ -21,6 +21,8 @@ pub struct Records {
     pub Param: Vec<Param>,
     pub Property: Vec<Property>,
     pub PropertyMap: Vec<PropertyMap>,
+    pub Event: Vec<Event>,
+    pub EventMap: Vec<EventMap>,
     pub TypeDef: Vec<TypeDef>,
     pub TypeRef: Vec<TypeRef>,
     pub TypeSpec: Vec<TypeSpec>,
@@ -48,6 +50,17 @@ pub struct Property {
 pub struct PropertyMap {
     pub Parent: id::TypeDef,
     pub PropertyList: id::Property,
+}
+
+pub struct Event {
+    pub Flags: u16,
+    pub Name: StringId,
+    pub EventType: TypeDefOrRef,
+}
+
+pub struct EventMap {
+    pub Parent: id::TypeDef,
+    pub EventList: id::Event,
 }
 
 pub struct MethodSemantics {
@@ -181,7 +194,12 @@ pub struct MemberRef {
 }
 
 impl Records {
-    pub fn into_stream(self) -> Vec<u8> {
+    pub fn into_stream(mut self) -> Vec<u8> {
+        // MethodSemantics is an ECMA-335 sorted table (II.22): rows must be ordered by
+        // their `Association` coded index or strict readers (cswinrt, System.Reflection.
+        // Metadata) reject the winmd.
+        self.MethodSemantics.sort_by_key(|r| r.Association.encode());
+
         let resolution_scope = coded_index_size(&[
             self.Module.len(),
             self.ModuleRef.len(),
@@ -229,8 +247,8 @@ impl Records {
 
         let member_forwarded = coded_index_size(&[self.Field.len(), self.MethodDef.len()]);
 
-        // HasSemantics coded index: tag 0 = Event (unused), tag 1 = Property.
-        let has_semantics = coded_index_size(&[0, self.Property.len()]);
+        // HasSemantics coded index: tag 0 = Event, tag 1 = Property.
+        let has_semantics = coded_index_size(&[self.Event.len(), self.Property.len()]);
 
         let mut valid_tables: u64 = (1 << 0) | // Module 
         (1 << 0x01) | // TypeRef
@@ -252,8 +270,14 @@ impl Records {
         (1 << 0x29) | // NestedClass
         (1 << 0x2A); // GenericParam
 
-        // Property metadata tables are only emitted when present, so winmds without
-        // properties are byte-for-byte unchanged.
+        // Property and event metadata tables are only emitted when present, so
+        // winmds without them are byte-for-byte unchanged.
+        if !self.EventMap.is_empty() {
+            valid_tables |= 1 << 0x12; // EventMap
+        }
+        if !self.Event.is_empty() {
+            valid_tables |= 1 << 0x14; // Event
+        }
         if !self.PropertyMap.is_empty() {
             valid_tables |= 1 << 0x15; // PropertyMap
         }
@@ -273,7 +297,11 @@ impl Records {
         buffer.push(0b111); // HeapSizes
         buffer.push(0); // Reserved
         buffer.write_u64(valid_tables);
-        buffer.write_u64(0); // Sorted
+        let mut sorted_tables: u64 = 0;
+        if !self.MethodSemantics.is_empty() {
+            sorted_tables |= 1 << 0x18; // MethodSemantics
+        }
+        buffer.write_u64(sorted_tables); // Sorted
 
         // Followed by the length of each of the valid tables...
 
@@ -289,6 +317,12 @@ impl Records {
         buffer.write_u32(self.Attribute.len().try_into().unwrap());
         buffer.write_u32(self.ClassLayout.len().try_into().unwrap());
         buffer.write_u32(self.FieldLayout.len().try_into().unwrap());
+        if !self.EventMap.is_empty() {
+            buffer.write_u32(self.EventMap.len().try_into().unwrap());
+        }
+        if !self.Event.is_empty() {
+            buffer.write_u32(self.Event.len().try_into().unwrap());
+        }
         if !self.PropertyMap.is_empty() {
             buffer.write_u32(self.PropertyMap.len().try_into().unwrap());
         }
@@ -385,6 +419,17 @@ impl Records {
         for r in &self.FieldLayout {
             buffer.write_u32(r.Offset);
             buffer.write_index(r.Field, self.Field.len());
+        }
+
+        for r in &self.EventMap {
+            buffer.write_index(r.Parent.0, self.TypeDef.len());
+            buffer.write_index(r.EventList.0, self.Event.len());
+        }
+
+        for r in &self.Event {
+            buffer.write_u16(r.Flags);
+            buffer.write_u32(r.Name.0);
+            buffer.write_code(r.EventType.encode(), type_def_or_ref);
         }
 
         for r in &self.PropertyMap {

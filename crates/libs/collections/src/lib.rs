@@ -1,6 +1,8 @@
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
+extern crate self as windows_collections;
+
 #[expect(
     non_snake_case,
     non_camel_case_types,
@@ -9,6 +11,9 @@
 )]
 mod bindings;
 pub use bindings::*;
+
+mod buffered_iterator;
+pub use buffered_iterator::*;
 
 #[cfg(feature = "std")]
 const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);

@@ -24,6 +24,14 @@ for contributors and is **not needed to use `windows-collections`**.
 `crates/tools/bindings/src/collections.txt`; the collection adapters are
 hand-written. Used internally by the `windows` crate.
 
+Iterating a collection (`for x in &vector`) yields through `BufferedIterator`
+(`src/buffered_iterator.rs`), which fetches elements a block at a time via
+`GetMany` rather than one `IIterator::next` ABI call per element. `windows-bindgen`
+generates the `IntoIterator` impls that reference it. The block is sized to keep
+the buffer near 2 KB regardless of element size. Map iteration (`IMap`/`IMapView`/
+`IObservableMap`) snapshots its entries once at `First()` so each step is O(1) rather than
+re-walking the tree, keeping a full traversal linear.
+
 ### Testing
 
 Run `cargo test -p windows-collections`; see also the workspace test crates.

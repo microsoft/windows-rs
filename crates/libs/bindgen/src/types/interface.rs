@@ -410,13 +410,12 @@ impl Interface {
                         .find(|interface| interface.type_name() == TypeName::IIterable)
                         .map(|interface| {
                             let ty = interface.generics[0].write_name(config);
-                            let namespace = config.write_namespace(TypeName::IIterator);
 
                             quote! {
                                 #cfg
                                 impl<#constraints> IntoIterator for #name {
                                     type Item = #ty;
-                                    type IntoIter = #namespace IIterator<Self::Item>;
+                                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                                     fn into_iter(self) -> Self::IntoIter {
                                         IntoIterator::into_iter(&self)
@@ -425,10 +424,10 @@ impl Interface {
                                 #cfg
                                 impl<#constraints> IntoIterator for &#name {
                                     type Item = #ty;
-                                    type IntoIter = #namespace IIterator<Self::Item>;
+                                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                                     fn into_iter(self) -> Self::IntoIter {
-                                        self.First().unwrap()
+                                        windows_collections::BufferedIterator::new(self.First().unwrap())
                                     }
                                 }
 
@@ -625,7 +624,7 @@ impl Interface {
                 quote! {
                     impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
                         type Item = T;
-                        type IntoIter = IIterator<Self::Item>;
+                        type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
                             IntoIterator::into_iter(&self)
@@ -633,10 +632,10 @@ impl Interface {
                     }
                     impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
                         type Item = T;
-                        type IntoIter = IIterator<Self::Item>;
+                        type IntoIter = windows_collections::BufferedIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
-                            self.First().unwrap()
+                            windows_collections::BufferedIterator::new(self.First().unwrap())
                         }
                     }
 
