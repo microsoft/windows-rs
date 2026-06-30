@@ -79,131 +79,114 @@ impl ICoreWebView2 {
             .ok()
         }
     }
-    pub(crate) unsafe fn add_NavigationStarting<P0>(
+    pub(crate) unsafe fn NavigationStarting<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2NavigationStartingEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_NavigationStarting)(
+            let token__ = (windows_core::Interface::vtable(self).add_NavigationStarting)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_NavigationStarting,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_NavigationStarting(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_NavigationStarting)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_ContentLoading<P0>(
+    pub(crate) unsafe fn ContentLoading<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2ContentLoadingEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_ContentLoading)(
+            let token__ = (windows_core::Interface::vtable(self).add_ContentLoading)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_ContentLoading,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_ContentLoading(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_ContentLoading)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_NavigationCompleted<P0>(
+    pub(crate) unsafe fn NavigationCompleted<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2NavigationCompletedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_NavigationCompleted)(
+            let token__ = (windows_core::Interface::vtable(self).add_NavigationCompleted)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_NavigationCompleted,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_NavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_NavigationCompleted)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_PermissionRequested<P0>(
+    pub(crate) unsafe fn PermissionRequested<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2PermissionRequestedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_PermissionRequested)(
+            let token__ = (windows_core::Interface::vtable(self).add_PermissionRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_PermissionRequested,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_PermissionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_PermissionRequested)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_ProcessFailed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub(crate) unsafe fn ProcessFailed<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2ProcessFailedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_ProcessFailed)(
+            let token__ = (windows_core::Interface::vtable(self).add_ProcessFailed)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_ProcessFailed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_ProcessFailed)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_ProcessFailed,
+            ))
         }
     }
     pub(crate) unsafe fn AddScriptToExecuteOnDocumentCreated<P1>(
@@ -282,27 +265,26 @@ impl ICoreWebView2 {
             .ok()
         }
     }
-    pub(crate) unsafe fn add_WebMessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub(crate) unsafe fn WebMessageReceived<P0>(
+        &self,
+        handler: P0,
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2WebMessageReceivedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_WebMessageReceived)(
+            let token__ = (windows_core::Interface::vtable(self).add_WebMessageReceived)(
                 windows_core::Interface::as_raw(self),
                 handler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_WebMessageReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_WebMessageReceived)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_WebMessageReceived,
+            ))
         }
     }
     pub(crate) unsafe fn GoBack(&self) -> windows_core::Result<()> {
@@ -322,59 +304,48 @@ impl ICoreWebView2 {
             (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
         }
     }
-    pub(crate) unsafe fn add_NewWindowRequested<P0>(
+    pub(crate) unsafe fn NewWindowRequested<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2NewWindowRequestedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_NewWindowRequested)(
+            let token__ = (windows_core::Interface::vtable(self).add_NewWindowRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_NewWindowRequested,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_NewWindowRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_NewWindowRequested)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_DocumentTitleChanged<P0>(
+    pub(crate) unsafe fn DocumentTitleChanged<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2DocumentTitleChangedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_DocumentTitleChanged)(
+            let token__ = (windows_core::Interface::vtable(self).add_DocumentTitleChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_DocumentTitleChanged(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_DocumentTitleChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_DocumentTitleChanged,
+            ))
         }
     }
     pub(crate) unsafe fn DocumentTitle(&self) -> windows_core::Result<LPWSTR> {
@@ -395,33 +366,27 @@ impl ICoreWebView2 {
             .ok()
         }
     }
-    pub(crate) unsafe fn add_ContainsFullScreenElementChanged<P0>(
+    pub(crate) unsafe fn ContainsFullScreenElementChanged<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_ContainsFullScreenElementChanged)(
+            let token__ = (windows_core::Interface::vtable(self)
+                .add_ContainsFullScreenElementChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_ContainsFullScreenElementChanged(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_ContainsFullScreenElementChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_ContainsFullScreenElementChanged,
+            ))
         }
     }
     pub(crate) unsafe fn ContainsFullScreenElement(
@@ -436,33 +401,26 @@ impl ICoreWebView2 {
             .map(|| result__)
         }
     }
-    pub(crate) unsafe fn add_WebResourceRequested<P0>(
+    pub(crate) unsafe fn WebResourceRequested<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2WebResourceRequestedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_WebResourceRequested)(
+            let token__ = (windows_core::Interface::vtable(self).add_WebResourceRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_WebResourceRequested(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_WebResourceRequested)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_WebResourceRequested,
+            ))
         }
     }
     pub(crate) unsafe fn AddWebResourceRequestedFilter(
@@ -493,33 +451,26 @@ impl ICoreWebView2 {
             .ok()
         }
     }
-    pub(crate) unsafe fn add_WindowCloseRequested<P0>(
+    pub(crate) unsafe fn WindowCloseRequested<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2WindowCloseRequestedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_WindowCloseRequested)(
+            let token__ = (windows_core::Interface::vtable(self).add_WindowCloseRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_WindowCloseRequested(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_WindowCloseRequested)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_WindowCloseRequested,
+            ))
         }
     }
 }
@@ -1190,105 +1141,92 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
-    pub(crate) unsafe fn add_MoveFocusRequested<P0>(
+    pub(crate) unsafe fn MoveFocusRequested<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2MoveFocusRequestedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_MoveFocusRequested)(
+            let token__ = (windows_core::Interface::vtable(self).add_MoveFocusRequested)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_MoveFocusRequested,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_MoveFocusRequested)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_GotFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_GotFocus)(
-                windows_core::Interface::as_raw(self),
-                eventhandler.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_GotFocus(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_GotFocus)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_LostFocus<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_LostFocus)(
-                windows_core::Interface::as_raw(self),
-                eventhandler.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_LostFocus(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_LostFocus)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_AcceleratorKeyPressed<P0>(
+    pub(crate) unsafe fn GotFocus<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_GotFocus)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_GotFocus,
+            ))
+        }
+    }
+    pub(crate) unsafe fn LostFocus<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        P0: windows_core::Param<ICoreWebView2FocusChangedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).add_LostFocus)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_LostFocus,
+            ))
+        }
+    }
+    pub(crate) unsafe fn AcceleratorKeyPressed<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2AcceleratorKeyPressedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_AcceleratorKeyPressed)(
+            let token__ = (windows_core::Interface::vtable(self).add_AcceleratorKeyPressed)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_AcceleratorKeyPressed(
-        &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_AcceleratorKeyPressed)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_AcceleratorKeyPressed,
+            ))
         }
     }
     pub(crate) unsafe fn NotifyParentWindowPositionChanged(&self) -> windows_core::Result<()> {
@@ -2224,56 +2162,48 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2DownloadOperation, windows_core::IUnknown);
 impl ICoreWebView2DownloadOperation {
-    pub(crate) unsafe fn add_BytesReceivedChanged<P0>(
+    pub(crate) unsafe fn BytesReceivedChanged<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2BytesReceivedChangedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_BytesReceivedChanged)(
+            let token__ = (windows_core::Interface::vtable(self).add_BytesReceivedChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_BytesReceivedChanged,
+            ))
         }
     }
-    pub(crate) unsafe fn remove_BytesReceivedChanged(
+    pub(crate) unsafe fn StateChanged<P0>(
         &self,
-        token: i64,
-    ) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_BytesReceivedChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
-        }
-    }
-    pub(crate) unsafe fn add_StateChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+        eventhandler: P0,
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2StateChangedEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_StateChanged)(
+            let token__ = (windows_core::Interface::vtable(self).add_StateChanged)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_StateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_StateChanged)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_StateChanged,
+            ))
         }
     }
     pub(crate) unsafe fn Uri(&self) -> windows_core::Result<LPWSTR> {
@@ -6393,30 +6323,26 @@ windows_core::imp::interface_hierarchy!(
     ICoreWebView2_3
 );
 impl ICoreWebView2_4 {
-    pub(crate) unsafe fn add_DownloadStarting<P0>(
+    pub(crate) unsafe fn DownloadStarting<P0>(
         &self,
         eventhandler: P0,
-    ) -> windows_core::Result<i64>
+    ) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<ICoreWebView2DownloadStartingEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add_DownloadStarting)(
+            let token__ = (windows_core::Interface::vtable(self).add_DownloadStarting)(
                 windows_core::Interface::as_raw(self),
                 eventhandler.param().abi(),
                 &mut result__,
             )
-            .map(|| result__)
-        }
-    }
-    pub(crate) unsafe fn remove_DownloadStarting(&self, token: i64) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).remove_DownloadStarting)(
-                windows_core::Interface::as_raw(self),
-                token,
-            )
-            .ok()
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).remove_DownloadStarting,
+            ))
         }
     }
 }

@@ -357,24 +357,136 @@ in WinRT extras.
    `Struct`/`CppStruct`. The safety net is decisive: generated output is committed and
    CI fails on any diff, so the refactor is proven correct by regenerating to an empty
    diff. Keep `Delegate`/`CppDelegate` and the COM-only variants separate.
-2. *Make return-policy the single method axis (enables the rest).* Unify `method.rs`
-   and `cpp_method.rs` around one signature model where WinRT is the degenerate
-   "always HRESULT" case of `cpp_method`'s richer `ReturnHint`. This also lets COM
-   methods inherit WinRT minimal-mode string ergonomics (accept `&str`, return
-   `String`) that `cpp_method` currently lacks.
-3. *Apply the event transform to COM (needs more investigation first).* COM already
-   gets most WinRT ergonomics through shared code — property naming sugar
-   (`get_X` → `X()`, `put_X` → `SetX()`), `_Impl` traits, IID-based `cast`, the
-   `Param` conversion trait, HRESULT → `Result`. The one big missing piece is the
-   event transform: `method.rs` detects `add_`/`remove_` pairs and emits a single
+2. *Return-model axis (studied — fork is mostly essential).* A close reading of the
+   caller- and producer-side return handling in `method.rs` (WinRT) and
+   `cpp_method.rs` (COM, driven by the `ReturnHint` enum) shows the two return models
+   **overlap only in the `ResultVoid` / `ResultValue` shapes**, and that overlap is
+   *already* shared:
+
+   - The success-code folding lives in `windows-core`: `HRESULT::ok` / `map` /
+     `and_then` all gate on `is_ok()` (`self.0 >= 0`, i.e. `SUCCEEDED`). The
+     value-side mapping is centralized once in `Type::write_result_map`
+     (`types/mod.rs`) and called by *both* writers. The void-side fold is `vcall.ok()`
+     in both.
+   - Everything else in each model is exclusive to one side and genuinely different:
+     WinRT always returns `HRESULT` on the vtable with the logical return appended as a
+     trailing out-param, plus WinRT-only axes (noexcept, WinRT arrays, `IReference<T>`
+     sugar, minimal `&str`/`String`). COM preserves the **native** vtable return and
+     adds COM-only `ReturnHint` shapes — `None` (raw return passes through),
+     `ReturnValue` (non-`HRESULT` return + retval out-param), `ReturnStruct` (by-value
+     struct via a hidden first out-param), and `Query` / `QueryOptional` (the
+     `(REFIID, void**)` QI pattern folded into `Result<T>`).
+
+   Because the strategies are ~80% disjoint, a single shared `ReturnStrategy` enum
+   would be mostly non-overlapping variants and would not reduce real complexity;
+   merging the two `write()` bodies is therefore **not** a worthwhile dedup — the fork
+   is essential, and the part that *should* be shared already is.
+
+   *Success-code (`S_FALSE`) finding.* `SUCCEEDED` codes are correctly treated as
+   `Ok` on both paths (so `S_FALSE` is never an error), but projecting to
+   `Result<()>` / `Result<T>` **discards the specific success code** — a method that
+   returns `S_FALSE` meaningfully loses that signal. This is a *shared* limitation,
+   not a fork: it applies to WinRT too (a WinRT method can return `S_FALSE`, just more
+   rarely), and there is no metadata distinguishing meaningful-success methods. The
+   only escape hatch today is to project the raw `HRESULT` (COM `ReturnHint::None`),
+   but `CppMethod::new` always classifies an `HRESULT` return as `ResultVoid` /
+   `ResultValue`, so there is currently no way to opt a specific method out on either
+   side. The worthwhile follow-up here is therefore a *feature*, not a dedup: an
+   opt-in (e.g. a filter directive, since metadata can't express it) to preserve the
+   raw `HRESULT` so callers can observe `S_FALSE` — applicable uniformly to WinRT and
+   COM. The deeper reason it can't be uniform is an **information-capacity
+   mismatch**, not a codegen choice: a vtable method `HRESULT M([out] T*)` produces up
+   to three distinct states — a failure code, a *success* code (`S_OK` vs `S_FALSE`),
+   and the out-param value — but `Result<T>` has only two slots (`Ok(T)` | `Err(code)`).
+   Collapsing always drops one: the `Ok` arm keeps the value and drops the
+   success code; the `Err` arm keeps the code and drops the value. So `S_FALSE` cannot
+   ride along "for free" in a `Result<T>` projection.
+
+   *Void vs. value asymmetry.* The void case is solvable losslessly: `HRESULT M()`
+   with meaningful `S_FALSE` has no out-param, so the free slot can carry the success
+   code — project it as `Result<bool>` (`Ok(true)` = `S_OK`, `Ok(false)` = `S_FALSE`,
+   `Err` = `FAILED`) instead of the lossy `ResultVoid` → `Result<()>`. The value case
+   (`HRESULT M([out] T*)`) is genuinely lossy and needs a heavier shape
+   (`Result<Option<T>>` with `S_FALSE` → `Ok(None)`, or raw `HRESULT` + caller reads
+   the out-param).
+
+   *Relation to the `Error::empty()` "success-but-empty" hack.* `windows-result`
+   already faces the same fork for the success-with-no-value case: `Error.code` is a
+   `NonZeroI32` (so `Result<(), Error>` stays niche-sized as `Option<Error>`, with the
+   zero/`Ok` niche), which means an `Error` can never hold `S_OK` (0). `Error::empty()`
+   therefore stores the sentinel `S_EMPTY_ERROR` (`b"S_OK"` as `i32`), and
+   `Type::from_abi` for an interface maps *success HRESULT + null out-param* to
+   `Err(Error::empty())` — i.e. a missing object becomes an error so `let x = foo()?;`
+   stays ergonomic. Note this is a **policy choice** for the exact ABI situation an
+   `S_FALSE`-aware value method cares about: same bits on the wire (success + null
+   out-param), but `Error::empty()` projects it as `Err` while an `S_FALSE`-aware
+   method would want `Ok(None)` / `Ok(false)`. That is precisely why `S_FALSE` support
+   must be opt-in — it requests the *other* policy. The machinery already exists in
+   one form: `ReturnHint::QueryOptional` models "optional out-param" by writing to a
+   caller-provided `*mut Option<T>` and returning `Result<()>` (preserving both the
+   HRESULT-as-`Result` and present/absent), so a generalized "optional/`S_FALSE`
+   out-param" hint would follow an established shape rather than a new one.
+3. *Apply the event transform to COM (implemented for i64-token events).* COM already
+   gets most WinRT ergonomics through shared code — property naming sugar (`get_X` → `X()`,
+   `put_X` → `SetX()`), `_Impl` traits, IID-based `cast`, the `Param` conversion
+   trait, HRESULT → `Result`. The one big missing piece was the event transform:
+   `method.rs` detects `add_`/`remove_` pairs and emits a single
    `X(handler) -> Result<EventRevoker>`, and `windows_core::EventRevoker` is already
    COM-agnostic (it stores an `IUnknown`, an `i64` token, and a
-   `remove: fn(*mut c_void, i64) -> HRESULT`). windows-webview hand-writes ~1,400
-   lines of `subscription!`/`EventRegistration`/`event_handler!` glue to recover this.
-   Applying it to COM requires confirming the COM `add_`/`remove_` shape matches the
-   WinRT one (e.g. token out-param vs. return, `SpecialName` is not set in Win32
-   metadata so detection must be structural) — easier once 1 and 2 have streamlined
-   the method model.
+   `remove: fn(*mut c_void, i64) -> HRESULT`). This is now mirrored in `cpp_method.rs`.
+
+   *Structural equivalence (confirmed).* The COM `add_`/`remove_` shape is identical
+   to the WinRT one. A WebView2 accessor pair generates
+   `add_X(handler: P0) -> Result<i64>` (HRESULT with the `EventRegistrationToken`
+   token as an `[out, retval]`) plus `remove_X(token: i64) -> Result<()>` — the same
+   token-in/token-out vtable layout WinRT uses, and exactly the `(source, i64,
+   fn(*mut c_void, i64) -> HRESULT)` triple `EventRevoker::new` already consumes. The
+   *only* shape difference is the handler argument: WinRT's `add_` takes a
+   `Type::Delegate`, COM's takes a handler *interface* (e.g.
+   `ICoreWebView2NavigationStartingEventHandler`).
+
+   *What COM gets and does not get.* The realized win is the **revoker collapse**:
+   `cpp_method.rs` detects the pair, suppresses `remove_X` in the caller surface
+   (the vtable struct and `_Impl` trait still carry every slot), and emits
+   `X(handler: P0) -> Result<EventRevoker>` reusing `windows_core::EventRevoker`. This
+   removes the per-event token/`remove` plumbing entirely. What it does *not* get is
+   WinRT's closure sugar: COM consumers still pass a COM object implementing the
+   handler interface, because the closure-to-handler adapter (`event_handler!`) and the
+   args-wrapper newtypes (`NavigationStartingArgs`, etc.) encode app-level semantics
+   bindgen cannot synthesize (the handler `Invoke` signature varies — `sender`+`args`,
+   `errorcode`+`result`, read-from-sender). So `event_handler!` and the wrapper types
+   stay hand-written; only the registration plumbing is absorbed.
+
+   *Detection (structural, post-remap).* Win32 metadata sets no `SpecialName` on these
+   methods, and the strongest signal — the `EventRegistrationToken` out-param type — is
+   remapped to `i64` early (in `Type::to_type`, before `CppMethod::new` runs), so the
+   classifier only sees `i64`. The implementation uses a purely structural detector
+   (`is_event_add_shape`): `add_` prefix + HRESULT return + two params + `[retval]` +
+   first param is an interface (the handler) + second derefs to `i64` (the token),
+   paired with a sibling `remove_<suffix>(i64)` that itself satisfies the add shape.
+   Keeping the early remap (rather than sniffing the pre-remap type name) avoids
+   disrupting WinRT `_Impl`/vtable output; the structural shape is deterministic in
+   practice.
+
+   *Blast radius (measured).* Regenerating every binding showed the transform touches
+   **only** `windows-webview` (its `add_`/`remove_` pairs collapse; `bindings.rs`
+   −246/+172). The published `windows`/`windows-sys` crates are **unchanged**: their one
+   COM `add_`/`remove_` event (`ISpellChecker::add_SpellCheckerChanged`) uses a `u32`
+   *cookie*, not an `EventRegistrationToken`/`i64` token, so its `remove` slot
+   `fn(…, u32)` is incompatible with `EventRevoker`'s `i64` and the detector correctly
+   skips it. The `u32`-cookie idiom was deliberately *not* handled (it is not "just like
+   WinRT"). canvas/time/numerics/reactor have no such events. So universal rollout is
+   not a breaking change to the `windows` crate today; only `--minimal` COM crates with
+   `EventRegistrationToken` events (webview, future DirectComposition-style APIs) are
+   affected.
+
+   *Consumer effect (windows-webview).* The collapse let the crate drop its entire
+   hand-written subscription layer: the `EventRegistration` RAII type is deleted and
+   every `on_*` returns `windows_core::EventRevoker` directly. The `subscription!` macro
+   shrank to "build the `handler.rs` adapter, call `self.0.X(&handler)`". The one compound
+   case — `on_web_resource_requested`, which also manages a URI filter — moved the filter
+   lifetime into the handler adapter (register on create, remove in its `Drop`), so it too
+   returns a plain `EventRevoker` and a single revoke tears down both handler and filter.
 4. *Extend remaining minimal-mode ergonomics to COM.* `IntoIterator` for COM
    enumerators (`IEnumXxx`'s Next/Skip/Reset/Clone) mirroring `IIterable` →
    `BufferedIterator`, and broader string in/out sugar, leveraging the existing

@@ -7,6 +7,19 @@ pub struct CppMethod {
     pub dependencies: TypeMap,
     pub return_hint: ReturnHint,
     pub param_hints: Vec<ParamHint>,
+    pub event: CppEvent,
+}
+
+/// Classifies a COM `add_`/`remove_` event-accessor pair so the caller-side
+/// wrappers can be collapsed into a single `X(handler) -> Result<EventRevoker>`,
+/// mirroring the WinRT event transform in `method.rs`. Win32 metadata sets no
+/// `SpecialName` flag, so the pair is detected structurally (see
+/// `is_event_add_shape`).
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CppEvent {
+    None,
+    Add,
+    Remove,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -193,12 +206,32 @@ impl CppMethod {
             };
         }
 
+        let event = if is_event_add_shape(def, namespace, reader) {
+            CppEvent::Add
+        } else if def.name().starts_with("remove_")
+            && signature.return_type == Type::HRESULT
+            && !is_retval
+            && signature.params.len() == 1
+            && signature.params[0].ty == Type::I64
+            && {
+                let add_name = format!("add_{}", &def.name()[7..]);
+                matches!(def.parent(), MemberRefParent::TypeDef(parent) if parent.methods().any(|method| {
+                    method.name() == add_name && is_event_add_shape(method, namespace, reader)
+                }))
+            }
+        {
+            CppEvent::Remove
+        } else {
+            CppEvent::None
+        };
+
         Self {
             def,
             signature,
             dependencies,
             param_hints,
             return_hint,
+            event,
         }
     }
 
@@ -249,6 +282,35 @@ impl CppMethod {
     ) -> TokenStream {
         let name = method_names.add(self.def);
         let vname = virtual_names.add(self.def);
+
+        // Collapse COM event accessors the same way the WinRT path does:
+        // suppress `remove_X` and replace `add_X` with a single wrapper that
+        // returns an auto-revoking `EventRevoker`.
+        match self.event {
+            CppEvent::Remove => return quote! {},
+            CppEvent::Add => {
+                let vis = config.item_vis();
+                let core = config.write_core();
+                let suffix = &self.def.name()[4..];
+                let event_name = to_ident(suffix);
+                let remove_vname = to_ident(&format!("remove_{suffix}"));
+                let generics = self.write_generics();
+                let params = self.write_params(config);
+                let args = self.write_args(config);
+                let where_clause = self.write_where(config, false);
+
+                return quote! {
+                    #vis unsafe fn #event_name<#generics>(&self, #params) -> #core Result<#core EventRevoker> #where_clause {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            let token__ = (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).map(|| result__)?;
+                            Ok(#core EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).#remove_vname))
+                        }
+                    }
+                };
+            }
+            CppEvent::None => {}
+        }
 
         let args = self.write_args(config);
         let params = self.write_params(config);
@@ -821,4 +883,23 @@ fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
     }
 
     None
+}
+
+/// Returns `true` if `def` is a COM event `add_X` accessor:
+/// `add_X([in] handler, [out, retval] token) -> HRESULT`, where the handler is
+/// an interface and the token is the `EventRegistrationToken` (remapped to
+/// `i64`). Win32 metadata sets no `SpecialName` flag on these, so the shape is
+/// the detection signal, paired with a matching `remove_X([in] i64) -> HRESULT`.
+fn is_event_add_shape(def: MethodDef, namespace: &str, reader: &Reader) -> bool {
+    if !def.name().starts_with("add_") {
+        return false;
+    }
+
+    let signature = def.method_signature(namespace, &[], reader);
+
+    signature.return_type == Type::HRESULT
+        && signature.params.len() == 2
+        && signature.is_retval(reader)
+        && signature.params[0].ty.is_interface()
+        && signature.params[1].deref() == Type::I64
 }

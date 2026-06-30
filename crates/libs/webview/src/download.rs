@@ -182,7 +182,7 @@ impl DownloadOperation {
         /// download makes progress. The handler receives this operation so it
         /// can read the updated [`bytes_received`](Self::bytes_received).
         on_bytes_received_changed(DownloadOperation) =>
-            BytesReceivedChanged, add_BytesReceivedChanged / remove_BytesReceivedChanged
+            BytesReceivedChanged, BytesReceivedChanged
     }
 
     subscription! {
@@ -190,7 +190,7 @@ impl DownloadOperation {
         /// [`state`](Self::state) changes (for example to completed or
         /// interrupted). The handler receives this operation.
         on_state_changed(DownloadOperation) =>
-            DownloadStateChanged, add_StateChanged / remove_StateChanged
+            DownloadStateChanged, StateChanged
     }
 }
 

@@ -362,16 +362,12 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Impl for WindowCloseRequested
 macro_rules! subscription {
     (
         $(#[$doc:meta])*
-        $method:ident($arg:ty) => $handler:ident, $add:ident / $remove:ident
+        $method:ident($arg:ty) => $handler:ident, $event:ident
     ) => {
         $(#[$doc])*
-        pub fn $method<F: FnMut($arg) + 'static>(&self, handler: F) -> Result<EventRegistration> {
+        pub fn $method<F: FnMut($arg) + 'static>(&self, handler: F) -> Result<EventRevoker> {
             let handler = crate::handler::$handler::create(handler);
-            let token = unsafe { self.0.$add(&handler)? };
-            let source = self.0.clone();
-            Ok(EventRegistration::new(move || {
-                let _ = unsafe { source.$remove(token) };
-            }))
+            unsafe { self.0.$event(&handler) }
         }
     };
 }

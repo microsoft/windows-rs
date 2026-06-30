@@ -18,10 +18,10 @@ pub use windows_window::Result;
 ///
 /// `setup` receives the [`Controller`] and [`WebView`] once they are ready; it
 /// wires the example's feature, navigates, and returns any
-/// [`EventRegistration`]s to keep alive for the lifetime of the window.
+/// [`EventRevoker`]s to keep alive for the lifetime of the window.
 pub fn run<F>(title: &str, setup: F) -> Result<()>
 where
-    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
+    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRevoker>>,
 {
     run_core(title, setup, |environment, hwnd| unsafe {
         environment.create_controller(hwnd)
@@ -32,7 +32,7 @@ where
 /// (profile name, private mode, initial background colour).
 pub fn run_with_options<F>(title: &str, options: ControllerOptions, setup: F) -> Result<()>
 where
-    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
+    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRevoker>>,
 {
     run_core(title, setup, move |environment, hwnd| unsafe {
         environment.create_controller_with_options(hwnd, &options)
@@ -41,7 +41,7 @@ where
 
 fn run_core<F, C>(title: &str, setup: F, create: C) -> Result<()>
 where
-    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
+    F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRevoker>>,
     C: FnOnce(&Environment, HWND) -> Result<Controller>,
 {
     let controller: Rc<RefCell<Option<Controller>>> = Rc::new(RefCell::new(None));

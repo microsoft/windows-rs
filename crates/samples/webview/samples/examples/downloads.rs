@@ -6,7 +6,7 @@ fn main() -> Result<()> {
     run("WebView2 downloads - windows-rs", |_controller, webview| {
         // The download handler owns the per-download registrations so they stay
         // alive for as long as the handler does.
-        let mut downloads: Vec<EventRegistration> = Vec::new();
+        let mut downloads: Vec<EventRevoker> = Vec::new();
 
         let download = webview.on_download_starting(move |args| {
             let Ok(operation) = args.download_operation() else {

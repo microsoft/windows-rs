@@ -109,8 +109,9 @@ browser can trim memory, and set it back to `Normal` when shown again.
 ## Events
 
 Every event is an RAII subscription: `on_*` registers a handler and returns an
-`EventRegistration` that unsubscribes on drop (or via `remove()`). Keep it alive
-for as long as you want the handler to fire.
+`EventRevoker` (re-exported from `windows-core`) that unsubscribes on drop. Keep
+it alive for as long as you want the handler to fire, or call `forget()` to leave
+the handler registered indefinitely.
 
 - `on_navigation_starting` / `on_navigation_completed` / `on_content_loading` —
   navigation lifecycle; `NavigationStartingArgs::set_cancel(true)` vetoes a load.
@@ -515,13 +516,19 @@ re-entrant pumping during normal run.
 
 ### Events (RAII subscriptions)
 
-WebView2 events follow the COM `add_X`/`remove_X` token pattern, wrapped as a
-subscription returning an RAII guard. A `subscription!` macro generates each `on_*`
-method: it registers the `handler.rs` adapter with `add_X` (which returns an `i64`
-token), clones the source interface, and returns an `EventRegistration` whose
-removal closure calls `remove_X(token)`. `EventRegistration` is `#[must_use]`,
-holds an `Option<Box<dyn FnOnce()>>`, and runs the removal on `Drop` or explicit
-`remove(self)` (taking the closure first so it never runs twice).
+WebView2 events follow the COM `add_X`/`remove_X` token pattern. Because that
+shape is structurally identical to a WinRT event, `windows-bindgen` collapses each
+`add_X`/`remove_X` pair into a single `X(handler) -> Result<EventRevoker>` method
+(see the event-transform note in `docs/crates/windows-bindgen.md`), exactly as it
+does for WinRT. The generated method registers the handler with `add_X`, captures
+the returned `i64` token and the `remove_X` slot, and hands back a
+`windows_core::EventRevoker` that calls `remove_X(token)` on `Drop` (or is
+neutralised with `forget`/`into_token`).
+
+A thin `subscription!` macro in `handler.rs` wires each `on_*` method to the
+generated event method: it builds the `handler.rs` closure adapter and forwards to
+`self.0.X(&handler)`, returning the `EventRevoker` directly — no per-event token,
+`remove`, or wrapper plumbing remains in the crate.
 
 Most args types are thin newtypes over the COM args interface. Two events carry no
 args interface (`Invoke` receives a bare `IUnknown`): `DocumentTitleChanged` reads
@@ -548,8 +555,12 @@ hand-written Rust enums with `from_raw`/`to_raw` mappings; the growable ones are
 its filter (`AddWebResourceRequestedFilter`), and `CreateWebResourceResponse` all
 live on **base** interfaces, so the event itself needs no `cast`;
 `on_web_resource_requested` only `cast`s to `ICoreWebView2_2` once at registration
-to capture the `Environment` for building responses. The returned
-`EventRegistration` removes **both** the handler and the filter on drop.
+to capture the `Environment` for building responses. The filter has the same
+lifetime as the handler, so the `protocol::WebResourceRequested` adapter owns it:
+it registers the filter (`AddWebResourceRequestedFilter`) when created and removes
+it in its own `Drop`. Revoking the returned `EventRevoker` releases the handler,
+which in turn removes the filter — so a single revoker tears down **both** the
+handler and the filter with no bespoke registration type.
 
 `CreateWebResourceResponse` takes the body as a COM `IStream`, but that type never
 reaches the public surface. `WebResourceResponse` is a plain data builder; when the

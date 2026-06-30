@@ -12,7 +12,7 @@ const WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL: COREWEBVIEW2_WEB_RESOURCE_REQUEST_S
 /// Registers a web-resource-requested filter for `uri`. On runtimes that support
 /// it (`ICoreWebView2_22`) the filter covers every request source — including
 /// iframes and workers — falling back to the document-only filter otherwise.
-pub(crate) unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) -> Result<()> {
+unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) -> Result<()> {
     unsafe {
         match webview.cast::<ICoreWebView2_22>() {
             Ok(webview) => webview.AddWebResourceRequestedFilterWithRequestSourceKinds(
@@ -27,7 +27,7 @@ pub(crate) unsafe fn add_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR)
 
 /// Removes a filter registered with [`add_requested_filter`], matching whichever
 /// API registered it.
-pub(crate) unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) {
+unsafe fn remove_requested_filter(webview: &ICoreWebView2, uri: LPCWSTR) {
     let _ = unsafe {
         match webview.cast::<ICoreWebView2_22>() {
             Ok(webview) => webview.RemoveWebResourceRequestedFilterWithRequestSourceKinds(
@@ -153,10 +153,14 @@ impl WebResourceResponse {
 
 /// Adapts a Rust closure to the `ICoreWebView2WebResourceRequestedEventHandler`
 /// COM interface. The captured environment turns the [`WebResourceResponse`] the
-/// closure returns into the COM response handed back to WebView2.
+/// closure returns into the COM response handed back to WebView2. The handler
+/// also owns the URI filter registered for the subscription, removing it when
+/// the handler is released (i.e. when the event registration is revoked).
 pub(crate) struct WebResourceRequested {
     handler: RefCell<Box<dyn FnMut(WebResourceRequest) -> Option<WebResourceResponse>>>,
     environment: ICoreWebView2Environment,
+    webview: ICoreWebView2,
+    filter: Vec<u16>,
 }
 
 implement_decl! {
@@ -166,17 +170,29 @@ implement_decl! {
 
 impl WebResourceRequested {
     pub(crate) fn create<F>(
+        webview: ICoreWebView2,
         environment: ICoreWebView2Environment,
+        uri_filter: &str,
         handler: F,
-    ) -> ICoreWebView2WebResourceRequestedEventHandler
+    ) -> Result<ICoreWebView2WebResourceRequestedEventHandler>
     where
         F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
     {
-        Self {
+        let filter = string::encode(uri_filter);
+        unsafe { add_requested_filter(&webview, filter.as_ptr())? };
+        Ok(Self {
             handler: RefCell::new(Box::new(handler)),
             environment,
+            webview,
+            filter,
         }
-        .into()
+        .into())
+    }
+}
+
+impl Drop for WebResourceRequested {
+    fn drop(&mut self) {
+        unsafe { remove_requested_filter(&self.webview, self.filter.as_ptr()) };
     }
 }
 
