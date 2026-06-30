@@ -114,10 +114,13 @@ Style:
   structs, linked via `link!` macros. Add **`--extern` / `.extern_fns()`** to emit
   `extern { fn … }` blocks instead of `link!`. This is what `windows-sys` ships.
 - **`--minimal` / `.minimal()`** — like the default style but drops per-class
-  wrappers, inherited forwarders, handle ergonomics, and free-function wrappers,
-  and replaces event accessor pairs with a single auto-revoking wrapper. Ideal for
-  small, hand-curated binding sets (used by `windows-canvas` and `windows-reactor`).
-  Mutually exclusive with `--sys`.
+  wrappers, inherited forwarders, handle ergonomics, and free-function wrappers.
+  Ideal for small, hand-curated binding sets (used by `windows-canvas` and
+  `windows-reactor`). Mutually exclusive with `--sys`.
+
+WinRT event accessors (`add_*`/`remove_*` pairs) are always collapsed into a single
+auto-revoking `Event` wrapper, regardless of style or layout — see *Event accessors*
+below.
 
 Layout:
 
@@ -211,19 +214,27 @@ the original `#4609` scope. A future opt-in (e.g. a filter directive marking the
 re-exported types to keep `pub`) could revisit this, but it is not worth the
 complexity today.
 
+**Event accessors (universal).** Every WinRT `add_X`/`remove_X` accessor pair is
+collapsed into a single method `X<F>(handler) -> Result<EventRevoker>`: the closure
+is taken directly (no `TypedEventHandler::new` wrapper), and the returned
+[`EventRevoker`] auto-calls the paired `remove_X` slot on drop (call `.forget()` or
+`.into_token()` to opt out). This was originally gated to non-`--package` builds —
+the published `windows` crate kept the raw `add_X`/`remove_X` + token pattern — but
+that gate has been removed so all layouts share one event-accessor shape. The `_Impl`
+producer side is unaffected: implementing an event source still requires both
+`add_X` and `remove_X`. Making this universal is a breaking change to the `windows`
+crate's public event API (e.g. `widget.Click(&TypedEventHandler::new(|s, a| { …;
+Ok(()) }))?` becomes `let _revoker = widget.Click(|s, a| { … })?;`), but it removes
+the last layout-driven divergence in method emission.
+
+[`EventRevoker`]: https://docs.rs/windows-core/latest/windows_core/struct.EventRevoker.html
+
 **Future work.**
 
 - *Retire dead options.* `--extern` (`Style::Sys { extern_fns: true }`) is
   exercised only by a single test fixture, and the default module layout is used
   by no in-repo invocation (every caller passes `--flat` or `--package`). Confirm
   there are no external consumers before removing or de-emphasizing them.
-- *Name the event-accessor policy.* The add_*/remove_* → auto-revoking reshape
-  branches on `layout.is_package()` rather than style. This is **correct** — the
-  `Default` style is shared by `windows` (package, which must preserve the raw
-  add/remove public API) and `collections`/`future` (flat, which want the
-  reshape), so style can't discriminate — but it should be a named predicate
-  (e.g. `Config::collapse_event_accessors`) with the rationale documented, like
-  the style predicates above. Behavior-preserving.
 - *Collapse near-duplicate `is_sys()` branches.* As with the minimal predicates,
   give the sys-specific divergences (struct/`extern` emission, linking) named
   predicates so the FFI policy is visible in one place.

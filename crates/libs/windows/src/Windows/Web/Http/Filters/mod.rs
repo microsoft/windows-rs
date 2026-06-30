@@ -143,19 +143,20 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCookieUsageBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ServerCustomValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, HttpServerCustomValidationRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HttpServerCustomValidationRequestedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, HttpServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested))
         }
-    }
-    pub fn RemoveServerCustomValidationRequested(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn ClearAuthenticationCache(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;

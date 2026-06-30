@@ -639,17 +639,19 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (windows_core::Interface::vtable(this).CollectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CollectionLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn CollectionLevelChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CollectionLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).CollectionLevelChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCollectionLevelChanged))
         })
-    }
-    pub fn RemoveCollectionLevelChanged(token: i64) -> windows_core::Result<()> {
-        Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCollectionLevelChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> windows_core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
@@ -721,17 +723,19 @@ impl SmartAppControlPolicy {
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Changed<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveChanged))
         })
-    }
-    pub fn RemoveChanged(token: i64) -> windows_core::Result<()> {
-        Self::ISmartAppControlPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = windows_core::imp::FactoryCache::new();
@@ -836,17 +840,19 @@ impl SystemSetupInfo {
             (windows_core::Interface::vtable(this).OutOfBoxExperienceState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn OutOfBoxExperienceStateChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged))
         })
-    }
-    pub fn RemoveOutOfBoxExperienceStateChanged(token: i64) -> windows_core::Result<()> {
-        Self::ISystemSetupInfoStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = windows_core::imp::FactoryCache::new();
@@ -959,17 +965,19 @@ impl WindowsIntegrityPolicy {
             (windows_core::Interface::vtable(this).IsDisableSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PolicyChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn PolicyChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePolicyChanged))
         })
-    }
-    pub fn RemovePolicyChanged(token: i64) -> windows_core::Result<()> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePolicyChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = windows_core::imp::FactoryCache::new();

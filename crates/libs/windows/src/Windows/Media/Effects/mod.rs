@@ -24,17 +24,19 @@ unsafe impl Sync for AcousticEchoCancellationConfiguration {}
 pub struct AudioCaptureEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioCaptureEffectsManager {
-    pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioCaptureEffectsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AudioCaptureEffectsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AudioCaptureEffectsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAudioCaptureEffectsChanged))
         }
-    }
-    pub fn RemoveAudioCaptureEffectsChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAudioCaptureEffectsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetAudioCaptureEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
         unsafe {
@@ -244,17 +246,19 @@ impl windows_core::RuntimeName for AudioEffectsManager {
 pub struct AudioRenderEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioRenderEffectsManager {
-    pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioRenderEffectsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AudioRenderEffectsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AudioRenderEffectsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAudioRenderEffectsChanged))
         }
-    }
-    pub fn RemoveAudioRenderEffectsChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAudioRenderEffectsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetAudioRenderEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
         unsafe {

@@ -284,65 +284,75 @@ unsafe impl Sync for PnpObjectUpdate {}
 pub struct PnpObjectWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectWatcher {
-    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObject>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PnpObject>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PnpObject>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Added)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Added)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAdded))
         }
     }
-    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAdded)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PnpObjectUpdate>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Updated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Updated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUpdated))
         }
     }
-    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PnpObjectUpdate>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PnpObjectUpdate>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Removed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Removed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRemoved))
         }
     }
-    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRemoved)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEnumerationCompleted))
         }
     }
-    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStopped))
         }
-    }
-    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStopped)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Status(&self) -> windows_core::Result<super::DeviceWatcherStatus> {
         unsafe {

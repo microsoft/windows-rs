@@ -727,41 +727,47 @@ impl TargetedContentSubscription {
             (windows_core::Interface::vtable(self).GetContentContainerAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TargetedContentChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ContentChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveContentChanged))
         }
     }
-    pub fn RemoveContentChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveContentChanged)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn AvailabilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AvailabilityChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TargetedContentAvailabilityChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentAvailabilityChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentAvailabilityChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AvailabilityChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AvailabilityChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAvailabilityChanged))
         }
     }
-    pub fn RemoveAvailabilityChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAvailabilityChanged)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TargetedContentStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TargetedContentStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TargetedContentStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
         }
-    }
-    pub fn RemoveStateChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn GetAsync(subscriptionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {

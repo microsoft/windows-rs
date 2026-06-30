@@ -187,29 +187,33 @@ impl RemoteDesktopConnectionRemoteInfo {
     pub fn ReportSwitched(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportSwitched)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn SwitchToLocalSessionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SwitchToLocalSessionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SwitchToLocalSessionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SwitchToLocalSessionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSwitchToLocalSessionRequested))
         }
     }
-    pub fn RemoveSwitchToLocalSessionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSwitchToLocalSessionRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PerformLocalActionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PerformLocalActionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PerformLocalActionRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PerformLocalActionRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PerformLocalActionRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PerformLocalActionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PerformLocalActionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePerformLocalActionRequested))
         }
-    }
-    pub fn RemovePerformLocalActionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePerformLocalActionRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn IsSwitchSupported() -> windows_core::Result<bool> {
         Self::IRemoteDesktopConnectionRemoteInfoStatics(|this| unsafe {

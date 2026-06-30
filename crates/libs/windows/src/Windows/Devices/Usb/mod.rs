@@ -1520,17 +1520,19 @@ impl UsbInterruptInPipe {
             (windows_core::Interface::vtable(self).ClearStallAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UsbInterruptInEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UsbInterruptInEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UsbInterruptInEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDataReceived))
         }
-    }
-    pub fn RemoveDataReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDataReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for UsbInterruptInPipe {

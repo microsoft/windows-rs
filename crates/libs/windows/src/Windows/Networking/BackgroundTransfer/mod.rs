@@ -1063,19 +1063,20 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).GetDownloadedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn RangesDownloaded<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BackgroundTransferRangesDownloadedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTransferRangesDownloadedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
+        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, BackgroundTransferRangesDownloadedEventArgs>>::new(move |a0, a1| {
+            eventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveRangesDownloaded))
         }
-    }
-    pub fn RemoveRangesDownloaded(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveRangesDownloaded)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn SetRequestedUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where

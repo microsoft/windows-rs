@@ -1,19 +1,17 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Devices::Enumeration::*, Foundation::*};
+    use windows::Devices::Enumeration::*;
 
     let watcher = DeviceInformation::CreateWatcher()?;
 
-    watcher.Added(&TypedEventHandler::<DeviceWatcher, DeviceInformation>::new(
-        |_, info| {
-            println!("{:?}", info.as_ref().expect("info").Name()?);
-            Ok(())
-        },
-    ))?;
+    let _added = watcher.Added(|_, info| {
+        if let Some(info) = info.as_ref() {
+            println!("{:?}", info.Name().expect("name"));
+        }
+    })?;
 
-    watcher.EnumerationCompleted(&TypedEventHandler::new(|_, _| {
+    let _completed = watcher.EnumerationCompleted(|_, _| {
         println!("done!");
-        Ok(())
-    }))?;
+    })?;
 
     watcher.Start()?;
     std::thread::sleep(std::time::Duration::new(10, 0));

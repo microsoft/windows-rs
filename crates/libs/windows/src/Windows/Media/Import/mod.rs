@@ -640,17 +640,19 @@ impl PhotoImportFindItemsResult {
             (windows_core::Interface::vtable(self).SelectedTotalSizeInBytes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectionChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn SelectionChanged<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhotoImportSelectionChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportSelectionChangedEventArgs>) + Send + 'static,
     {
+        let value = <super::super::Foundation::TypedEventHandler<Self, PhotoImportSelectionChangedEventArgs>>::new(move |a0, a1| {
+            value(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionChanged)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SelectionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSelectionChanged))
         }
-    }
-    pub fn RemoveSelectionChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSelectionChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn ImportItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         unsafe {
@@ -658,17 +660,19 @@ impl PhotoImportFindItemsResult {
             (windows_core::Interface::vtable(self).ImportItemsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ItemImported<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn ItemImported<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PhotoImportItemImportedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PhotoImportItemImportedEventArgs>) + Send + 'static,
     {
+        let value = <super::super::Foundation::TypedEventHandler<Self, PhotoImportItemImportedEventArgs>>::new(move |a0, a1| {
+            value(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ItemImported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ItemImported)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveItemImported))
         }
-    }
-    pub fn RemoveItemImported(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveItemImported)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AddItemsInDateRangeToSelection(&self, rangestart: windows_time::DateTime, rangelength: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPhotoImportFindItemsResult2>(self)?;

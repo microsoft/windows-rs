@@ -290,17 +290,19 @@ impl HidDevice {
             (windows_core::Interface::vtable(self).GetNumericControlDescriptions)(windows_core::Interface::as_raw(self), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InputReportReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
+    pub fn InputReportReceived<F>(&self, reporthandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HidInputReportReceivedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HidInputReportReceivedEventArgs>) + Send + 'static,
     {
+        let reporthandler = <super::super::Foundation::TypedEventHandler<Self, HidInputReportReceivedEventArgs>>::new(move |a0, a1| {
+            reporthandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputReportReceived)(windows_core::Interface::as_raw(self), reporthandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InputReportReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&reporthandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInputReportReceived))
         }
-    }
-    pub fn RemoveInputReportReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInputReportReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetDeviceSelector(usagepage: u16, usageid: u16) -> windows_core::Result<windows_core::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {

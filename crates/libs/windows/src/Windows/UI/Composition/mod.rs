@@ -3333,17 +3333,19 @@ impl CompositionCapabilities {
             (windows_core::Interface::vtable(self).AreEffectsFast)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChanged))
         }
-    }
-    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ICompositionCapabilitiesStatics(|this| unsafe {
@@ -4008,17 +4010,19 @@ impl CompositionCommitBatch {
             (windows_core::Interface::vtable(self).IsEnded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CompositionBatchCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CompositionBatchCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CompositionBatchCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompleted))
         }
-    }
-    pub fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompleted)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -5947,17 +5951,19 @@ impl CompositionGraphicsDevice {
             (windows_core::Interface::vtable(self).CreateDrawingSurface)(windows_core::Interface::as_raw(self), sizepixels, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RenderingDeviceReplaced<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RenderingDeviceReplaced<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RenderingDeviceReplacedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RenderingDeviceReplacedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RenderingDeviceReplacedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RenderingDeviceReplaced)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RenderingDeviceReplaced)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRenderingDeviceReplaced))
         }
-    }
-    pub fn RemoveRenderingDeviceReplaced(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRenderingDeviceReplaced)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateDrawingSurface2(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> windows_core::Result<CompositionDrawingSurface> {
@@ -9392,17 +9398,19 @@ impl CompositionScopedBatch {
     pub fn Suspend(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Suspend)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CompositionBatchCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<CompositionBatchCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CompositionBatchCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompleted))
         }
-    }
-    pub fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompleted)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for CompositionScopedBatch {

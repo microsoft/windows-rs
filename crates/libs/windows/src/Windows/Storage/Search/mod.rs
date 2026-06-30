@@ -1046,29 +1046,33 @@ impl IStorageQueryResultBase {
             (windows_core::Interface::vtable(self).Folder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ContentsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveContentsChanged))
         }
     }
-    pub fn RemoveContentsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveContentsChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
-    }
-    pub fn OptionsChanged<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn OptionsChanged<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OptionsChanged)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).OptionsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveOptionsChanged))
         }
-    }
-    pub fn RemoveOptionsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveOptionsChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
@@ -1629,33 +1633,35 @@ impl StorageFileQueryResult {
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveContentsChanged))
         }
     }
-    pub fn RemoveContentsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveContentsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    pub fn OptionsChanged<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn OptionsChanged<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveOptionsChanged))
         }
-    }
-    pub fn RemoveOptionsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
@@ -1724,33 +1730,35 @@ impl StorageFolderQueryResult {
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveContentsChanged))
         }
     }
-    pub fn RemoveContentsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveContentsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    pub fn OptionsChanged<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn OptionsChanged<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveOptionsChanged))
         }
-    }
-    pub fn RemoveOptionsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where
@@ -1819,33 +1827,35 @@ impl StorageItemQueryResult {
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ContentsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveContentsChanged))
         }
     }
-    pub fn RemoveContentsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveContentsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    pub fn OptionsChanged<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn OptionsChanged<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageQueryResultBase>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).OptionsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveOptionsChanged))
         }
-    }
-    pub fn RemoveOptionsChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOptionsChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn FindStartIndexAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
     where

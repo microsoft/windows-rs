@@ -3,17 +3,19 @@
 pub struct AccountsSettingsPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccountsSettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 impl AccountsSettingsPane {
-    pub fn AccountCommandsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AccountCommandsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AccountsSettingsPaneCommandsRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AccountsSettingsPaneCommandsRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, AccountsSettingsPaneCommandsRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AccountCommandsRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AccountCommandsRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAccountCommandsRequested))
         }
-    }
-    pub fn RemoveAccountCommandsRequested(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAccountCommandsRequested)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe {
@@ -633,17 +635,19 @@ impl windows_core::RuntimeType for SettingsEdgeLocation {
 pub struct SettingsPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 impl SettingsPane {
-    pub fn CommandsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommandsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SettingsPaneCommandsRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SettingsPaneCommandsRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SettingsPaneCommandsRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommandsRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CommandsRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCommandsRequested))
         }
-    }
-    pub fn RemoveCommandsRequested(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCommandsRequested)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISettingsPaneStatics(|this| unsafe {

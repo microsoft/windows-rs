@@ -3,60 +3,66 @@
 pub struct ContactDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDataProviderConnection {
-    pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListSyncManagerSyncRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListSyncManagerSyncRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SyncRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSyncRequested))
         }
     }
-    pub fn RemoveSyncRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSyncRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ServerSearchReadBatchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListServerSearchReadBatchRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListServerSearchReadBatchRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListServerSearchReadBatchRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveServerSearchReadBatchRequested))
         }
-    }
-    pub fn RemoveServerSearchReadBatchRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CreateOrUpdateContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CreateOrUpdateContactRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListCreateOrUpdateContactRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListCreateOrUpdateContactRequestEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListCreateOrUpdateContactRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateOrUpdateContactRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).CreateOrUpdateContactRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCreateOrUpdateContactRequested))
         }
     }
-    pub fn RemoveCreateOrUpdateContactRequested(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveCreateOrUpdateContactRequested)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn DeleteContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DeleteContactRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactListDeleteContactRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactListDeleteContactRequestEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactListDeleteContactRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteContactRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).DeleteContactRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveDeleteContactRequested))
         }
-    }
-    pub fn RemoveDeleteContactRequested(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveDeleteContactRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for ContactDataProviderConnection {

@@ -646,29 +646,33 @@ impl MachineProvisioningProgressReporter {
             (windows_core::Interface::vtable(self).SessionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DeploymentSessionStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeploymentSessionStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, DeploymentSessionStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionStateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionStateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionStateChanged))
         }
     }
-    pub fn RemoveSessionStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SessionConnectionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionConnectionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DeploymentSessionConnectionChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DeploymentSessionConnectionChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, DeploymentSessionConnectionChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionConnectionChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionConnectionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionConnectionChanged))
         }
-    }
-    pub fn RemoveSessionConnectionChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionConnectionChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn ReportProgress<P0>(&self, updatereport: P0) -> windows_core::Result<()>
     where

@@ -749,15 +749,12 @@ impl Method {
         let vcall = build_vcall(&args);
 
         // Suppress remove_* methods and replace add_* methods with a combined
-        // wrapper returning EventRevoker. Excluded from --package mode because
-        // the windows crate's public API preserves the raw add/remove pattern.
+        // wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && !config.bindgen.layout.is_package()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = !config.bindgen.layout.is_package()
-            && self.def.flags().contains(MethodAttributes::SpecialName)
+        let is_event_remove = self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
             && kind != InterfaceKind::Composable

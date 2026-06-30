@@ -718,17 +718,19 @@ impl AppointmentCalendarSyncManager {
             (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSyncStatusChanged))
         }
-    }
-    pub fn RemoveSyncStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSyncStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetStatus(&self, value: AppointmentCalendarSyncStatus) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendarSyncManager2>(self)?;
@@ -1802,19 +1804,20 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(self).FindLocalIdsFromRoamingIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(roamingid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<P0>(&self, phandler: P0) -> windows_core::Result<i64>
+    pub fn StoreChanged<F>(&self, phandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppointmentStoreChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentStoreChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
+        let phandler = <super::super::Foundation::TypedEventHandler<Self, AppointmentStoreChangedEventArgs>>::new(move |a0, a1| {
+            phandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), phandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&phandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveStoreChanged))
         }
-    }
-    pub fn RemoveStoreChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn CreateAppointmentCalendarInAccountAsync(&self, name: &windows_core::HSTRING, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentCalendar>> {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;

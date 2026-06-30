@@ -344,17 +344,19 @@ impl LampArrayBitmapEffect {
             (windows_core::Interface::vtable(self).SuggestedBitmapSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BitmapRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn BitmapRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, LampArrayBitmapRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayBitmapRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, LampArrayBitmapRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BitmapRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).BitmapRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveBitmapRequested))
         }
-    }
-    pub fn RemoveBitmapRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveBitmapRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where
@@ -646,17 +648,19 @@ impl LampArrayCustomEffect {
     pub fn SetUpdateInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUpdateInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn UpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, LampArrayUpdateRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<LampArrayUpdateRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, LampArrayUpdateRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UpdateRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).UpdateRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUpdateRequested))
         }
-    }
-    pub fn RemoveUpdateRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveUpdateRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<Self>
     where

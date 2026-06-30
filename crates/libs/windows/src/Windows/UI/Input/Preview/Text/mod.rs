@@ -542,125 +542,145 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Activated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Activated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Activated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveActivated))
         }
     }
-    pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveActivated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Deactivated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Deactivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Deactivated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Deactivated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDeactivated))
         }
     }
-    pub fn RemoveDeactivated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDeactivated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn KeyEventReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyEventReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, KeyEventReceivedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeyEventReceivedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, KeyEventReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KeyEventReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).KeyEventReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveKeyEventReceived))
         }
     }
-    pub fn RemoveKeyEventReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveKeyEventReceived)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusEntered)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FocusEntered)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFocusEntered))
         }
     }
-    pub fn RemoveFocusEntered(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusEntered)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFocusRemoved))
         }
     }
-    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusRemoved)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ConversionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ConversionModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ConversionModeChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ConversionModeChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ConversionModeChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConversionModeChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ConversionModeChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveConversionModeChanged))
         }
     }
-    pub fn RemoveConversionModeChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveConversionModeChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextBoxInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextBoxInfoChanged))
         }
     }
-    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextBoxInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxContentChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextBoxContentChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextBoxContentChanged))
         }
     }
-    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextBoxContentChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionTerminated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompositionTerminated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CompositionTerminated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompositionTerminated))
         }
     }
-    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompositionTerminated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReconversionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReconversionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReconversionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReconversionRequested))
         }
-    }
-    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReconversionRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for KeyboardInputProcessor {
@@ -1316,89 +1336,103 @@ impl TextInputProvider {
     pub fn StopDelegation(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopDelegation)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusEntered<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FocusEnteredEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, FocusEnteredEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusEntered)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FocusEntered)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFocusEntered))
         }
     }
-    pub fn RemoveFocusEntered(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusEntered)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFocusRemoved))
         }
     }
-    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusRemoved)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxInfoChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxInfoChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextBoxInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextBoxInfoChanged))
         }
     }
-    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextBoxInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxContentChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TextBoxContentChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, TextBoxContentChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxContentChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextBoxContentChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextBoxContentChanged))
         }
     }
-    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextBoxContentChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionTerminated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompositionTerminated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CompositionTerminated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompositionTerminated))
         }
     }
-    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompositionTerminated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReconversionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ReconversionRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, ReconversionRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReconversionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReconversionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReconversionRequested))
         }
     }
-    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReconversionRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn InputDelegationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InputDelegationModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, InputDelegationModeChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputDelegationModeChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::super::Foundation::TypedEventHandler<Self, InputDelegationModeChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputDelegationModeChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InputDelegationModeChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInputDelegationModeChanged))
         }
-    }
-    pub fn RemoveInputDelegationModeChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInputDelegationModeChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for TextInputProvider {

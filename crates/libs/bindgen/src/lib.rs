@@ -316,8 +316,7 @@ impl Bindgen {
     /// Generate minimal-mode Rust bindings.
     ///
     /// Drops per-class wrapper methods, inherited interface forwarders, handle
-    /// ergonomics, and free-function wrappers. Event accessor pairs are replaced
-    /// by a single auto-revoking wrapper returning `EventRevoker`.
+    /// ergonomics, and free-function wrappers.
     ///
     /// Mutually exclusive with `--sys`.
     #[track_caller]

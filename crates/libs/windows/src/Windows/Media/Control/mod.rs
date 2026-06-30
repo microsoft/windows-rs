@@ -133,41 +133,47 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(self).TryChangePlaybackPositionAsync)(windows_core::Interface::as_raw(self), requestedplaybackposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TimelinePropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimelinePropertiesChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimelinePropertiesChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TimelinePropertiesChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTimelinePropertiesChanged))
         }
     }
-    pub fn RemoveTimelinePropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTimelinePropertiesChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PlaybackInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PlaybackInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackInfoChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PlaybackInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePlaybackInfoChanged))
         }
     }
-    pub fn RemovePlaybackInfoChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePlaybackInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn MediaPropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MediaPropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaPropertiesChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MediaPropertiesChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).MediaPropertiesChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMediaPropertiesChanged))
         }
-    }
-    pub fn RemoveMediaPropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveMediaPropertiesChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
@@ -199,29 +205,33 @@ impl GlobalSystemMediaTransportControlsSessionManager {
             (windows_core::Interface::vtable(self).GetSessions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentSessionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CurrentSessionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentSessionChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentSessionChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CurrentSessionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCurrentSessionChanged))
         }
     }
-    pub fn RemoveCurrentSessionChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCurrentSessionChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SessionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SessionsChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionsChanged))
         }
-    }
-    pub fn RemoveSessionsChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn RequestAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGlobalSystemMediaTransportControlsSessionManagerStatics(|this| unsafe {

@@ -176,17 +176,19 @@ impl BarcodeScannerFrameReader {
             (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerFrameReaderFrameArrivedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerFrameReaderFrameArrivedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerFrameReaderFrameArrivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FrameArrived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FrameArrived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFrameArrived))
         }
-    }
-    pub fn RemoveFrameArrived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFrameArrived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -474,101 +476,117 @@ impl BarcodeScannerProviderConnection {
             (windows_core::Interface::vtable(self).ReportErrorAsyncWithScanReport)(windows_core::Interface::as_raw(self), errordata.param().abi(), isretriable, scanreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnableScannerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnableScannerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerEnableScannerRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerEnableScannerRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerEnableScannerRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnableScannerRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).EnableScannerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEnableScannerRequested))
         }
     }
-    pub fn RemoveEnableScannerRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveEnableScannerRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn DisableScannerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DisableScannerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDisableScannerRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerDisableScannerRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerDisableScannerRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DisableScannerRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).DisableScannerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDisableScannerRequested))
         }
     }
-    pub fn RemoveDisableScannerRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDisableScannerRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SetActiveSymbologiesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SetActiveSymbologiesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetActiveSymbologiesRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetActiveSymbologiesRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SetActiveSymbologiesRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetActiveSymbologiesRequested))
         }
     }
-    pub fn RemoveSetActiveSymbologiesRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSetActiveSymbologiesRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn StartSoftwareTriggerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StartSoftwareTriggerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStartSoftwareTriggerRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StartSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStartSoftwareTriggerRequested))
         }
     }
-    pub fn RemoveStartSoftwareTriggerRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStartSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn StopSoftwareTriggerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StopSoftwareTriggerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerStopSoftwareTriggerRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StopSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StopSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStopSoftwareTriggerRequested))
         }
     }
-    pub fn RemoveStopSoftwareTriggerRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStopSoftwareTriggerRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn GetBarcodeSymbologyAttributesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GetBarcodeSymbologyAttributesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerGetSymbologyAttributesRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).GetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveGetBarcodeSymbologyAttributesRequested))
         }
     }
-    pub fn RemoveGetBarcodeSymbologyAttributesRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveGetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SetBarcodeSymbologyAttributesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SetBarcodeSymbologyAttributesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerSetSymbologyAttributesRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetBarcodeSymbologyAttributesRequested))
         }
     }
-    pub fn RemoveSetBarcodeSymbologyAttributesRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSetBarcodeSymbologyAttributesRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn HideVideoPreviewRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HideVideoPreviewRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerHideVideoPreviewRequestEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BarcodeScannerHideVideoPreviewRequestEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, BarcodeScannerHideVideoPreviewRequestEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HideVideoPreviewRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HideVideoPreviewRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHideVideoPreviewRequested))
         }
-    }
-    pub fn RemoveHideVideoPreviewRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHideVideoPreviewRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateFrameReaderAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &windows_core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;

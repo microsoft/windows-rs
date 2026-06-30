@@ -1107,17 +1107,19 @@ impl ResourceQualifierObservableMap {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
+    pub fn MapChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
+        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + 'static,
     {
+        let vhnd = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>::new(move |a0, a1| {
+            vhnd(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MapChanged)(windows_core::Interface::as_raw(self), vhnd.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).MapChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&vhnd), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMapChanged))
         }
-    }
-    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveMapChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for ResourceQualifierObservableMap {

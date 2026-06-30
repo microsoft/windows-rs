@@ -167,41 +167,47 @@ impl windows_core::RuntimeType for DraggingState {
 pub struct EdgeGesture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGesture {
-    pub fn Starting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Starting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Starting)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Starting)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStarting))
         }
     }
-    pub fn RemoveStarting(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStarting)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompleted))
         }
     }
-    pub fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Canceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EdgeGestureEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, EdgeGestureEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Canceled)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Canceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCanceled))
         }
-    }
-    pub fn RemoveCanceled(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCanceled)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IEdgeGestureStatics(|this| unsafe {
@@ -481,113 +487,131 @@ impl GestureRecognizer {
     pub fn CompleteGesture(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CompleteGesture)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTapped))
         }
     }
-    pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTapped)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn RightTapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RightTapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RightTappedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RightTappedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RightTappedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RightTapped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RightTapped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRightTapped))
         }
     }
-    pub fn RemoveRightTapped(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRightTapped)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Holding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Holding)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Holding)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHolding))
         }
     }
-    pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHolding)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Dragging<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Dragging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, DraggingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DraggingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, DraggingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dragging)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Dragging)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDragging))
         }
     }
-    pub fn RemoveDragging(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDragging)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationStarted))
         }
     }
-    pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationUpdated))
         }
     }
-    pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationInertiaStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationInertiaStartingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationInertiaStartingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationInertiaStartingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationInertiaStarting)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationInertiaStarting)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationInertiaStarting))
         }
     }
-    pub fn RemoveManipulationInertiaStarting(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationInertiaStarting)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationCompleted))
         }
     }
-    pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn CrossSliding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CrossSliding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CrossSlidingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CrossSlidingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, CrossSlidingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CrossSliding)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CrossSliding)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCrossSliding))
         }
-    }
-    pub fn RemoveCrossSliding(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCrossSliding)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn TapMinContactCount(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
@@ -2060,17 +2084,19 @@ impl InputActivationListener {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn InputActivationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InputActivationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputActivationListenerActivationChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputActivationListenerActivationChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, InputActivationListenerActivationChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputActivationChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InputActivationChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInputActivationChanged))
         }
-    }
-    pub fn RemoveInputActivationChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInputActivationChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for InputActivationListener {
@@ -2140,30 +2166,34 @@ impl KeyboardDeliveryInterceptor {
         unsafe { (windows_core::Interface::vtable(self).SetIsInterceptionEnabledWhenInForeground)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyDown<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveKeyDown))
         }
-    }
-    pub fn RemoveKeyDown(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveKeyDown)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyUp<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::KeyEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::KeyEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveKeyUp))
         }
-    }
-    pub fn RemoveKeyUp(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveKeyUp)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IKeyboardDeliveryInterceptorStatics(|this| unsafe {
@@ -2601,65 +2631,75 @@ impl PhysicalGestureRecognizer {
     pub fn CompleteGesture(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CompleteGesture)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationStarted))
         }
     }
-    pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationUpdatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationUpdatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationUpdated))
         }
     }
-    pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ManipulationCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ManipulationCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationCompleted))
         }
     }
-    pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TappedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TappedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTapped))
         }
     }
-    pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTapped)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Holding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HoldingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, HoldingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Holding)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Holding)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHolding))
         }
-    }
-    pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHolding)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for PhysicalGestureRecognizer {
@@ -3050,131 +3090,148 @@ impl RadialController {
     pub fn SetUseAutomaticHapticFeedback(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUseAutomaticHapticFeedback)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ScreenContactStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScreenContactStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ScreenContactStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveScreenContactStarted))
         }
     }
-    pub fn RemoveScreenContactStarted(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveScreenContactStarted)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn ScreenContactEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScreenContactEnded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ScreenContactEnded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveScreenContactEnded))
         }
     }
-    pub fn RemoveScreenContactEnded(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveScreenContactEnded)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn ScreenContactContinued<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactContinued<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactContinuedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerScreenContactContinuedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerScreenContactContinuedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ScreenContactContinued)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ScreenContactContinued)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveScreenContactContinued))
         }
     }
-    pub fn RemoveScreenContactContinued(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveScreenContactContinued)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn ControlLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ControlLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlLost)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ControlLost)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveControlLost))
         }
     }
-    pub fn RemoveControlLost(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveControlLost)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn RotationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RotationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerRotationChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerRotationChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerRotationChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RotationChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RotationChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRotationChanged))
         }
     }
-    pub fn RemoveRotationChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRotationChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonClicked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonClickedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonClickedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonClickedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonClicked)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ButtonClicked)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveButtonClicked))
         }
     }
-    pub fn RemoveButtonClicked(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveButtonClicked)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ControlAcquired<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ControlAcquired<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerControlAcquiredEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerControlAcquiredEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerControlAcquiredEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlAcquired)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ControlAcquired)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveControlAcquired))
         }
     }
-    pub fn RemoveControlAcquired(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveControlAcquired)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonPressedEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RemoveButtonPressed(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveButtonPressed)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn ButtonHolding<P0>(&self, handler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonHoldingEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RemoveButtonHolding(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveButtonHolding)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn ButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonReleasedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonPressedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonPressedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveButtonPressed))
         }
     }
-    pub fn RemoveButtonReleased(&self, token: i64) -> windows_core::Result<()> {
+    pub fn ButtonHolding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonHoldingEventArgs>) + Send + 'static,
+    {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveButtonReleased)(windows_core::Interface::as_raw(this), token).ok() }
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonHoldingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveButtonHolding))
+        }
+    }
+    pub fn ButtonReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RadialControllerButtonReleasedEventArgs>) + Send + 'static,
+    {
+        let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, RadialControllerButtonReleasedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveButtonReleased))
+        }
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::IRadialControllerStatics(|this| unsafe {
@@ -3536,17 +3593,19 @@ impl RadialControllerMenuItem {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Invoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Invoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Invoked)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Invoked)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInvoked))
         }
-    }
-    pub fn RemoveInvoked(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInvoked)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> windows_core::Result<Self>
@@ -3868,53 +3927,61 @@ impl SystemButtonEventController {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSystemFunctionButtonPressed))
         }
     }
-    pub fn RemoveSystemFunctionButtonPressed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSystemFunctionButtonPressed)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionButtonReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionButtonEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionButtonEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSystemFunctionButtonReleased))
         }
     }
-    pub fn RemoveSystemFunctionButtonReleased(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSystemFunctionButtonReleased)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionLockChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemFunctionLockChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SystemFunctionLockChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSystemFunctionLockChanged))
         }
     }
-    pub fn RemoveSystemFunctionLockChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSystemFunctionLockChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionLockIndicatorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockIndicatorChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemFunctionLockIndicatorChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, SystemFunctionLockIndicatorChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSystemFunctionLockIndicatorChanged))
         }
-    }
-    pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "System")]
     pub fn CreateForDispatcherQueue<P0>(queue: P0) -> windows_core::Result<Self>
@@ -4120,55 +4187,63 @@ impl TouchpadGesturesController {
         unsafe { (windows_core::Interface::vtable(self).SetSupportedGestures)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerPressed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PointerPressed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePointerPressed))
         }
-    }
-    pub fn RemovePointerPressed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePointerPressed)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerMoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerMoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PointerMoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePointerMoved))
         }
-    }
-    pub fn RemovePointerMoved(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePointerMoved)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<super::Core::PointerEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, super::Core::PointerEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PointerReleased)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PointerReleased)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePointerReleased))
         }
     }
-    pub fn RemovePointerReleased(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePointerReleased)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn GlobalActionPerformed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GlobalActionPerformed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TouchpadGlobalActionEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TouchpadGlobalActionEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, TouchpadGlobalActionEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GlobalActionPerformed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).GlobalActionPerformed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveGlobalActionPerformed))
         }
-    }
-    pub fn RemoveGlobalActionPerformed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveGlobalActionPerformed)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::ITouchpadGesturesControllerStatics(|this| unsafe {

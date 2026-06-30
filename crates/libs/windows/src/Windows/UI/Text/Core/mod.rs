@@ -135,113 +135,131 @@ impl CoreTextEditContext {
     pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInputPaneDisplayPolicy)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn TextRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextRequested))
         }
     }
-    pub fn RemoveTextRequested(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextRequested)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn SelectionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SelectionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SelectionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSelectionRequested))
         }
     }
-    pub fn RemoveSelectionRequested(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSelectionRequested)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn LayoutRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LayoutRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextLayoutRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextLayoutRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextLayoutRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LayoutRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).LayoutRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveLayoutRequested))
         }
     }
-    pub fn RemoveLayoutRequested(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveLayoutRequested)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn TextUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextUpdatingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextTextUpdatingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextTextUpdatingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextUpdating)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TextUpdating)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTextUpdating))
         }
     }
-    pub fn RemoveTextUpdating(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextUpdating)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn SelectionUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SelectionUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionUpdatingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextSelectionUpdatingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextSelectionUpdatingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionUpdating)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SelectionUpdating)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSelectionUpdating))
         }
     }
-    pub fn RemoveSelectionUpdating(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSelectionUpdating)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn FormatUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FormatUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextFormatUpdatingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextFormatUpdatingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextFormatUpdatingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FormatUpdating)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FormatUpdating)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFormatUpdating))
         }
     }
-    pub fn RemoveFormatUpdating(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFormatUpdating)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn CompositionStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompositionStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CompositionStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompositionStarted))
         }
     }
-    pub fn RemoveCompositionStarted(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompositionStarted)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn CompositionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreTextCompositionCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CoreTextCompositionCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompositionCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CompositionCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompositionCompleted))
         }
     }
-    pub fn RemoveCompositionCompleted(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCompositionCompleted)(windows_core::Interface::as_raw(self), cookie).ok() }
-    }
-    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).FocusRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFocusRemoved))
         }
-    }
-    pub fn RemoveFocusRemoved(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusRemoved)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn NotifyFocusEnter(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyFocusEnter)(windows_core::Interface::as_raw(self)).ok() }
@@ -258,19 +276,20 @@ impl CoreTextEditContext {
     pub fn NotifyLayoutChanged(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyLayoutChanged)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn NotifyFocusLeaveCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NotifyFocusLeaveCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<ICoreTextEditContext2>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotifyFocusLeaveCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).NotifyFocusLeaveCompleted)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveNotifyFocusLeaveCompleted))
         }
-    }
-    pub fn RemoveNotifyFocusLeaveCompleted(&self, cookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICoreTextEditContext2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveNotifyFocusLeaveCompleted)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
 impl windows_core::RuntimeType for CoreTextEditContext {
@@ -759,17 +778,19 @@ impl CoreTextServicesManager {
             (windows_core::Interface::vtable(self).InputLanguage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InputLanguageChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InputLanguageChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InputLanguageChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InputLanguageChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInputLanguageChanged))
         }
-    }
-    pub fn RemoveInputLanguageChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInputLanguageChanged)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn CreateEditContext(&self) -> windows_core::Result<CoreTextEditContext> {
         unsafe {

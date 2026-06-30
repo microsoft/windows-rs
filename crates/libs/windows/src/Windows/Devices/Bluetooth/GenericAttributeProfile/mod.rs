@@ -92,17 +92,19 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(self).WriteClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(self), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> windows_core::Result<i64>
+    pub fn ValueChanged<F>(&self, valuechangedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattValueChangedEventArgs>) + Send + 'static,
     {
+        let valuechangedhandler = <super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>::new(move |a0, a1| {
+            valuechangedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), valuechangedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&valuechangedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveValueChanged))
         }
-    }
-    pub fn RemoveValueChanged(&self, valuechangedeventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveValueChanged)(windows_core::Interface::as_raw(self), valuechangedeventcookie).ok() }
     }
     pub fn Service(&self) -> windows_core::Result<GattDeviceService> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
@@ -1381,41 +1383,47 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(self).SubscribedClients)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SubscribedClientsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SubscribedClientsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SubscribedClientsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSubscribedClientsChanged))
         }
     }
-    pub fn RemoveSubscribedClientsChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSubscribedClientsChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReadRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReadRequested))
         }
     }
-    pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReadRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn WriteRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WriteRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).WriteRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveWriteRequested))
         }
-    }
-    pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveWriteRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
@@ -1592,29 +1600,33 @@ impl GattLocalDescriptor {
             (windows_core::Interface::vtable(self).WriteProtectionLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattReadRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattReadRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReadRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReadRequested))
         }
     }
-    pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReadRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn WriteRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattWriteRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattWriteRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WriteRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).WriteRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveWriteRequested))
         }
-    }
-    pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveWriteRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for GattLocalDescriptor {
@@ -2201,17 +2213,19 @@ impl GattReadRequest {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
         }
-    }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RespondWithValue<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2418,17 +2432,19 @@ impl GattServiceProvider {
             (windows_core::Interface::vtable(self).AdvertisementStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AdvertisementStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattServiceProviderAdvertisementStatusChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattServiceProviderAdvertisementStatusChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattServiceProviderAdvertisementStatusChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AdvertisementStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AdvertisementStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAdvertisementStatusChanged))
         }
-    }
-    pub fn RemoveAdvertisementStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAdvertisementStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn StartAdvertising(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartAdvertising)(windows_core::Interface::as_raw(self)).ok() }
@@ -2819,29 +2835,33 @@ impl GattSession {
             (windows_core::Interface::vtable(self).SessionStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MaxPduSizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MaxPduSizeChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).MaxPduSizeChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMaxPduSizeChanged))
         }
     }
-    pub fn RemoveMaxPduSizeChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveMaxPduSizeChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattSessionStatusChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattSessionStatusChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattSessionStatusChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionStatusChanged))
         }
-    }
-    pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<Self>>
     where
@@ -2946,17 +2966,19 @@ impl GattSubscribedClient {
             (windows_core::Interface::vtable(self).MaxNotificationSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MaxNotificationSizeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MaxNotificationSizeChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).MaxNotificationSizeChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMaxNotificationSizeChanged))
         }
-    }
-    pub fn RemoveMaxNotificationSizeChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveMaxNotificationSizeChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for GattSubscribedClient {
@@ -3046,17 +3068,19 @@ impl GattWriteRequest {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattRequestStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattRequestStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
         }
-    }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Respond(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Respond)(windows_core::Interface::as_raw(self)).ok() }

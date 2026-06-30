@@ -3,17 +3,19 @@
 pub struct CoreDragDropManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragDropManager, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragDropManager {
-    pub fn TargetRequested<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn TargetRequested<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<Self, CoreDropOperationTargetRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CoreDropOperationTargetRequestedEventArgs>) + Send + 'static,
     {
+        let value = <super::super::super::super::Foundation::TypedEventHandler<Self, CoreDropOperationTargetRequestedEventArgs>>::new(move |a0, a1| {
+            value(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TargetRequested)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TargetRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTargetRequested))
         }
-    }
-    pub fn RemoveTargetRequested(&self, value: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTargetRequested)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn AreConcurrentOperationsEnabled(&self) -> windows_core::Result<bool> {
         unsafe {

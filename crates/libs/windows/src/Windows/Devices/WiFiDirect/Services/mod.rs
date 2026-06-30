@@ -277,17 +277,19 @@ impl WiFiDirectService {
             (windows_core::Interface::vtable(self).ServiceError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionDeferred<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionDeferred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionDeferredEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectServiceSessionDeferredEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionDeferredEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionDeferred)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionDeferred)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionDeferred))
         }
-    }
-    pub fn RemoveSessionDeferred(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionDeferred)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         unsafe {
@@ -461,41 +463,47 @@ impl WiFiDirectServiceAdvertiser {
             (windows_core::Interface::vtable(self).ServiceError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectServiceSessionRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceSessionRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionRequested))
         }
     }
-    pub fn RemoveSessionRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn AutoAcceptSessionConnected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AutoAcceptSessionConnected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoAcceptSessionConnected)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AutoAcceptSessionConnected)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAutoAcceptSessionConnected))
         }
     }
-    pub fn RemoveAutoAcceptSessionConnected(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAutoAcceptSessionConnected)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AdvertisementStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AdvertisementStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AdvertisementStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAdvertisementStatusChanged))
         }
-    }
-    pub fn RemoveAdvertisementStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAdvertisementStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Devices_Enumeration")]
     pub fn ConnectAsync<P0>(&self, deviceinfo: P0) -> windows_core::Result<windows_future::IAsyncOperation<WiFiDirectServiceSession>>
@@ -743,17 +751,19 @@ impl WiFiDirectServiceSession {
             (windows_core::Interface::vtable(self).GetConnectionEndpointPairs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SessionStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionStatusChanged))
         }
-    }
-    pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Networking_Sockets")]
     pub fn AddStreamSocketListenerAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -775,17 +785,19 @@ impl WiFiDirectServiceSession {
             (windows_core::Interface::vtable(self).AddDatagramSocketAsync)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemotePortAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RemotePortAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceRemotePortAddedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WiFiDirectServiceRemotePortAddedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, WiFiDirectServiceRemotePortAddedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemotePortAdded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RemotePortAdded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRemotePortAdded))
         }
-    }
-    pub fn RemoveRemotePortAdded(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRemotePortAdded)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSession {

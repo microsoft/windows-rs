@@ -282,29 +282,33 @@ impl FileInformation {
             (windows_core::Interface::vtable(self).Thumbnail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn ThumbnailUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageItemInformation>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveThumbnailUpdated))
         }
     }
-    pub fn RemoveThumbnailUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveThumbnailUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
-    }
-    pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn PropertiesUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageItemInformation>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePropertiesUpdated))
         }
-    }
-    pub fn RemovePropertiesUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePropertiesUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     #[cfg(feature = "Storage_FileProperties")]
     pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: super::FileProperties::ThumbnailMode) -> windows_core::Result<windows_future::IAsyncOperation<super::FileProperties::StorageItemThumbnail>> {
@@ -854,29 +858,33 @@ impl FolderInformation {
             (windows_core::Interface::vtable(self).Thumbnail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn ThumbnailUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageItemInformation>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveThumbnailUpdated))
         }
     }
-    pub fn RemoveThumbnailUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveThumbnailUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
-    }
-    pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn PropertiesUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<IStorageItemInformation>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePropertiesUpdated))
         }
-    }
-    pub fn RemovePropertiesUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePropertiesUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: super::FileProperties::ThumbnailMode) -> windows_core::Result<windows_future::IAsyncOperation<super::FileProperties::StorageItemThumbnail>> {
@@ -1058,29 +1066,33 @@ impl IStorageItemInformation {
             (windows_core::Interface::vtable(self).Thumbnail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn ThumbnailUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ThumbnailUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveThumbnailUpdated))
         }
     }
-    pub fn RemoveThumbnailUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveThumbnailUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
-    }
-    pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn PropertiesUpdated<F>(&self, changedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let changedhandler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            changedhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), changedhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PropertiesUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&changedhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePropertiesUpdated))
         }
-    }
-    pub fn RemovePropertiesUpdated(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePropertiesUpdated)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]

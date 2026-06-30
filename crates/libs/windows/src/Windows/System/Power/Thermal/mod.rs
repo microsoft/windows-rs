@@ -206,17 +206,19 @@ impl PowerThermalChannelDataConsumer {
     pub fn Stop(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn ChannelDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ChannelDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PowerThermalChannelDataReceivedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PowerThermalChannelDataReceivedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PowerThermalChannelDataReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelDataReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ChannelDataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChannelDataReceived))
         }
-    }
-    pub fn RemoveChannelDataReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveChannelDataReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn BackEndStatus(&self) -> windows_core::Result<PowerThermalBackEndStatus> {
         unsafe {
@@ -224,17 +226,19 @@ impl PowerThermalChannelDataConsumer {
             (windows_core::Interface::vtable(self).BackEndStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BackEndStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn BackEndStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackEndStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).BackEndStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveBackEndStatusChanged))
         }
-    }
-    pub fn RemoveBackEndStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveBackEndStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataConsumerFactory(|this| unsafe {
@@ -299,17 +303,19 @@ impl PowerThermalChannelDataProducer {
             (windows_core::Interface::vtable(self).BackEndStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BackEndStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn BackEndStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackEndStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).BackEndStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveBackEndStatusChanged))
         }
-    }
-    pub fn RemoveBackEndStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveBackEndStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<Self> {
         Self::IPowerThermalChannelDataProducerFactory(|this| unsafe {

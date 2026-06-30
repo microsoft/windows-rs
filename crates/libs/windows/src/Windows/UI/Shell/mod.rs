@@ -77,17 +77,19 @@ impl FocusSessionManager {
     pub fn DeactivateFocus(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeactivateFocus)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsFocusActiveChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsFocusActiveChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).IsFocusActiveChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveIsFocusActiveChanged))
         }
-    }
-    pub fn RemoveIsFocusActiveChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveIsFocusActiveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
@@ -683,29 +685,33 @@ impl ShareWindowCommandSource {
     pub fn ReportCommandChanged(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportCommandChanged)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CommandRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommandRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommandRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CommandRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCommandRequested))
         }
     }
-    pub fn RemoveCommandRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCommandRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn CommandInvoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommandInvoked<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShareWindowCommandEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ShareWindowCommandEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommandInvoked)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CommandInvoked)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCommandInvoked))
         }
-    }
-    pub fn RemoveCommandInvoked(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCommandInvoked)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
@@ -1164,53 +1170,61 @@ impl WindowTabManager {
     {
         unsafe { (windows_core::Interface::vtable(self).SetActiveTab)(windows_core::Interface::as_raw(self), tab.param().abi()).ok() }
     }
-    pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabSwitchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabSwitchRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabSwitchRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabSwitchRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TabSwitchRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TabSwitchRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTabSwitchRequested))
         }
     }
-    pub fn RemoveTabSwitchRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTabSwitchRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TabCloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabCloseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabCloseRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabCloseRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabCloseRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TabCloseRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TabCloseRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTabCloseRequested))
         }
     }
-    pub fn RemoveTabCloseRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTabCloseRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TabTearOutRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabTearOutRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabTearOutRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabTearOutRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabTearOutRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TabTearOutRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TabTearOutRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTabTearOutRequested))
         }
     }
-    pub fn RemoveTabTearOutRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTabTearOutRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn TabThumbnailRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabThumbnailRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowTabThumbnailRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowTabThumbnailRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WindowTabThumbnailRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TabThumbnailRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).TabThumbnailRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTabThumbnailRequested))
         }
-    }
-    pub fn RemoveTabThumbnailRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTabThumbnailRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForWindow(id: super::WindowId) -> windows_core::Result<Self> {
         Self::IWindowTabManagerStatics(|this| unsafe {

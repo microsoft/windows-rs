@@ -501,29 +501,33 @@ impl Geolocator {
             (windows_core::Interface::vtable(self).GetGeopositionAsyncWithAgeAndTimeout)(windows_core::Interface::as_raw(self), maximumage, timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PositionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PositionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PositionChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PositionChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, PositionChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PositionChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PositionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePositionChanged))
         }
     }
-    pub fn RemovePositionChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePositionChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, StatusChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<StatusChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, StatusChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStatusChanged))
         }
-    }
-    pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AllowFallbackToConsentlessPositions(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IGeolocator2>(self)?;
@@ -854,17 +858,19 @@ impl GeovisitMonitor {
     pub fn Stop(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn VisitStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VisitStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GeovisitStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GeovisitStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, GeovisitStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VisitStateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).VisitStateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveVisitStateChanged))
         }
-    }
-    pub fn RemoveVisitStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveVisitStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetLastReportAsync() -> windows_core::Result<windows_future::IAsyncOperation<Geovisit>> {
         Self::IGeovisitMonitorStatics(|this| unsafe {

@@ -15,17 +15,19 @@ impl Battery {
             (windows_core::Interface::vtable(self).GetReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReportUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReportUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReportUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReportUpdated))
         }
-    }
-    pub fn RemoveReportUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReportUpdated)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AggregateBattery() -> windows_core::Result<Self> {
         Self::IBatteryStatics(|this| unsafe {
@@ -253,17 +255,19 @@ impl PowerGridForecast {
             (windows_core::Interface::vtable(this).GetForecast)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ForecastUpdated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ForecastUpdated<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IPowerGridForecastStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForecastUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ForecastUpdated)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveForecastUpdated))
         })
-    }
-    pub fn RemoveForecastUpdated(token: i64) -> windows_core::Result<()> {
-        Self::IPowerGridForecastStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveForecastUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn IPowerGridForecastStatics<R, F: FnOnce(&IPowerGridForecastStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PowerGridForecast, IPowerGridForecastStatics> = windows_core::imp::FactoryCache::new();

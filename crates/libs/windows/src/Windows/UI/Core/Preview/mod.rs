@@ -128,17 +128,19 @@ unsafe impl Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemNavigationManagerPreview {
-    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CloseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<SystemNavigationCloseRequestedPreviewEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CloseRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).CloseRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCloseRequested))
         }
-    }
-    pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveCloseRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {

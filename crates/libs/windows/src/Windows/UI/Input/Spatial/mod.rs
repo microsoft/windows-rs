@@ -681,173 +681,201 @@ pub struct ISpatialTappedEventArgs_Vtbl {
 pub struct SpatialGestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialGestureRecognizer {
-    pub fn RecognitionStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RecognitionStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecognitionStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RecognitionStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRecognitionStarted))
         }
     }
-    pub fn RemoveRecognitionStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRecognitionStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn RecognitionEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RecognitionEnded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionEndedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialRecognitionEndedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialRecognitionEndedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecognitionEnded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RecognitionEnded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRecognitionEnded))
         }
     }
-    pub fn RemoveRecognitionEnded(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRecognitionEnded)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Tapped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialTappedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialTappedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialTappedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Tapped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTapped))
         }
     }
-    pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTapped)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn HoldStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HoldStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HoldStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HoldStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHoldStarted))
         }
     }
-    pub fn RemoveHoldStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHoldStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn HoldCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HoldCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HoldCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HoldCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHoldCompleted))
         }
     }
-    pub fn RemoveHoldCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHoldCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn HoldCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HoldCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCanceledEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialHoldCanceledEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialHoldCanceledEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HoldCanceled)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HoldCanceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHoldCanceled))
         }
     }
-    pub fn RemoveHoldCanceled(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHoldCanceled)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationStarted))
         }
     }
-    pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationUpdatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationUpdatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationUpdatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationUpdated))
         }
     }
-    pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationCompleted))
         }
     }
-    pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ManipulationCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCanceledEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialManipulationCanceledEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialManipulationCanceledEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ManipulationCanceled)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ManipulationCanceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveManipulationCanceled))
         }
     }
-    pub fn RemoveManipulationCanceled(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveManipulationCanceled)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn NavigationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationStarted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationStartedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationStartedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationStartedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NavigationStarted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).NavigationStarted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveNavigationStarted))
         }
     }
-    pub fn RemoveNavigationStarted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveNavigationStarted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn NavigationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationUpdatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationUpdatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationUpdatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NavigationUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).NavigationUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveNavigationUpdated))
         }
     }
-    pub fn RemoveNavigationUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveNavigationUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn NavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NavigationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).NavigationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveNavigationCompleted))
         }
     }
-    pub fn RemoveNavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveNavigationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn NavigationCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationCanceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCanceledEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialNavigationCanceledEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialNavigationCanceledEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NavigationCanceled)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).NavigationCanceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveNavigationCanceled))
         }
-    }
-    pub fn RemoveNavigationCanceled(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveNavigationCanceled)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CaptureInteraction<P0>(&self, interaction: P0) -> windows_core::Result<()>
     where
@@ -1238,77 +1266,89 @@ unsafe impl Sync for SpatialInteractionDetectedEventArgs {}
 pub struct SpatialInteractionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionManager {
-    pub fn SourceDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SourceDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceDetected)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SourceDetected)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceDetected))
         }
     }
-    pub fn RemoveSourceDetected(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSourceDetected)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SourceLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SourceLost<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceLost)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SourceLost)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceLost))
         }
     }
-    pub fn RemoveSourceLost(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSourceLost)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SourceUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SourceUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SourceUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceUpdated))
         }
     }
-    pub fn RemoveSourceUpdated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSourceUpdated)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SourcePressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SourcePressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourcePressed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SourcePressed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourcePressed))
         }
     }
-    pub fn RemoveSourcePressed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSourcePressed)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn SourceReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SourceReleased<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionSourceEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionSourceEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceReleased)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SourceReleased)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceReleased))
         }
     }
-    pub fn RemoveSourceReleased(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSourceReleased)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn InteractionDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InteractionDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionDetectedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SpatialInteractionDetectedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SpatialInteractionDetectedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InteractionDetected)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InteractionDetected)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInteractionDetected))
         }
-    }
-    pub fn RemoveInteractionDetected(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInteractionDetected)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "Perception")]
     pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<windows_collections::IVectorView<SpatialInteractionSourceState>>
