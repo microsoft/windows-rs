@@ -1,5 +1,75 @@
 use super::*;
 
+// The literal-variant constants of an enum (`pub const X: Self = Self(value);`),
+// honoring the minimal-mode per-variant filter. Identical for WinRT (`Enum`) and
+// Win32/COM (`CppEnum`) enums; the callers differ only in how they wrap the result in an
+// `impl` block.
+pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
+    let tn = def.type_name();
+    def.fields()
+        .filter(|field| field.flags().contains(FieldAttributes::Literal))
+        .filter(|field| {
+            // In minimal mode, only emit variants explicitly listed in the filter.
+            if let Some(variant_set) = config.filter.enum_variant_filter(tn.namespace(), tn.name())
+            {
+                return variant_set.includes(field.name());
+            }
+            true
+        })
+        .map(|field| {
+            let name = to_ident(field.name());
+            let value = field.constant().unwrap().value().write();
+
+            quote! {
+                pub const #name: Self = Self(#value);
+            }
+        })
+        .collect()
+}
+
+// The bitwise-operator impls shared by flag enums (`BitOr`/`BitAnd`/`BitOrAssign`/
+// `BitAndAssign`/`Not` plus `contains`). The guard deciding *whether* to emit differs
+// between generators (WinRT keys on a `u32` underlying type, COM on `FlagsAttribute`),
+// so the callers gate the call; the emitted tokens are identical.
+pub fn write_enum_flags(name: &TokenStream) -> TokenStream {
+    quote! {
+        impl #name {
+            pub const fn contains(&self, other: Self) -> bool {
+                self.0 & other.0 == other.0
+            }
+        }
+        impl core::ops::BitOr for #name {
+            type Output = Self;
+            fn bitor(self, other: Self) -> Self {
+                Self(self.0 | other.0)
+            }
+        }
+        impl core::ops::BitAnd for #name {
+            type Output = Self;
+            fn bitand(self, other: Self) -> Self {
+                Self(self.0 & other.0)
+            }
+        }
+        impl core::ops::BitOrAssign for #name {
+            fn bitor_assign(&mut self, other: Self) {
+                self.0.bitor_assign(other.0);
+            }
+        }
+        impl core::ops::BitAndAssign for #name {
+            fn bitand_assign(&mut self, other: Self) {
+                self.0.bitand_assign(other.0);
+            }
+        }
+        impl core::ops::Not for #name {
+            type Output = Self;
+            fn not(self) -> Self {
+                Self(self.0.not())
+            }
+        }
+
+    }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub struct Enum {
     pub def: TypeDef,
@@ -25,68 +95,12 @@ impl Enum {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
-        let fields = self
-            .def
-            .fields()
-            .filter(|field| field.flags().contains(FieldAttributes::Literal))
-            .filter(|field| {
-                // In minimal mode, only emit variants explicitly listed in the filter.
-                let tn = self.def.type_name();
-                if let Some(variant_set) =
-                    config.filter.enum_variant_filter(tn.namespace(), tn.name())
-                {
-                    return variant_set.includes(field.name());
-                }
-                true
-            })
-            .map(|field| {
-                let name = to_ident(field.name());
-                let value = field.constant().unwrap().value().write();
-
-                quote! {
-                    pub const #name: Self = Self(#value);
-                }
-            });
+        let fields = write_enum_constants(self.def, config);
 
         let flags = if config.bindgen.style.is_sys() || underlying_type != Type::U32 {
             quote! {}
         } else {
-            quote! {
-                impl #name {
-                    pub const fn contains(&self, other: Self) -> bool {
-                        self.0 & other.0 == other.0
-                    }
-                }
-                impl core::ops::BitOr for #name {
-                    type Output = Self;
-                    fn bitor(self, other: Self) -> Self {
-                        Self(self.0 | other.0)
-                    }
-                }
-                impl core::ops::BitAnd for #name {
-                    type Output = Self;
-                    fn bitand(self, other: Self) -> Self {
-                        Self(self.0 & other.0)
-                    }
-                }
-                impl core::ops::BitOrAssign for #name {
-                    fn bitor_assign(&mut self, other: Self) {
-                        self.0.bitor_assign(other.0);
-                    }
-                }
-                impl core::ops::BitAndAssign for #name {
-                    fn bitand_assign(&mut self, other: Self) {
-                        self.0.bitand_assign(other.0);
-                    }
-                }
-                impl core::ops::Not for #name {
-                    type Output = Self;
-                    fn not(self) -> Self {
-                        Self(self.0.not())
-                    }
-                }
-
-            }
+            write_enum_flags(&name)
         };
 
         let underlying_type = underlying_type.write_name(config);

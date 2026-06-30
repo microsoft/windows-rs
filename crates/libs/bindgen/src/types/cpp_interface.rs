@@ -166,35 +166,8 @@ impl CppInterface {
                 _ => quote! {},
             };
 
-            let mut names = MethodNames::for_style(&config.bindgen.style);
-
-            let methods = methods.iter().map(|method| match method {
-                MethodOrName::Method(method) => {
-                    let method_cfg = class_cfg.difference(&method.dependencies, config);
-                    let yes = method_cfg.write(config, false);
-
-                    let name = names.add(method.def);
-                    let abi = method.write_abi(config, false);
-
-                    if yes.is_empty() {
-                        quote! {
-                            pub #name: unsafe extern "system" fn #abi,
-                        }
-                    } else {
-                        let no = method_cfg.write(config, true);
-
-                        quote! {
-                            #yes
-                            pub #name: unsafe extern "system" fn #abi,
-                            #no
-                            #name: usize,
-                        }
-                    }
-                }
-                MethodOrName::Name(method) => {
-                    let name = names.add(*method);
-                    quote! { #name: usize, }
-                }
+            let methods = write_vtbl_methods(&methods, &class_cfg, config, |method| {
+                method.write_abi(config, false)
             });
 
             let hide_vtbl = config.doc_hidden_in_package();
@@ -358,25 +331,13 @@ impl CppInterface {
                     quote! {}
                 };
 
-                let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                let field_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        MethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            if has_unknown_base {
-                                quote! { #name: #name::<Identity, OFFSET>, }
-                            } else {
-                                quote! { #name: #name::<Identity>, }
-                            }
-                        }
-                        MethodOrName::Name(method) => {
-                            let name = names.add(*method);
-                            quote! { #name: 0, }
-                        }
-                    })
-                    .collect();
+                let field_methods = write_impl_field_methods(&methods, config, |name| {
+                    if has_unknown_base {
+                        quote! { #name: #name::<Identity, OFFSET>, }
+                    } else {
+                        quote! { #name: #name::<Identity>, }
+                    }
+                });
 
                 let mut names = MethodNames::for_style(&config.bindgen.style);
 
@@ -410,19 +371,9 @@ impl CppInterface {
                 _ => quote! {},
             }).collect();
 
-                let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                let trait_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        MethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            let signature = method.write_impl_signature(config, true);
-                            quote! { fn #name #signature; }
-                        }
-                        _ => quote! {},
-                    })
-                    .collect();
+                let trait_methods = write_impl_trait_methods(&methods, config, |method| {
+                    method.write_impl_signature(config, true)
+                });
 
                 let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
 

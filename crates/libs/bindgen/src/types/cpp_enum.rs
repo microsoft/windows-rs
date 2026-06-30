@@ -48,27 +48,7 @@ impl CppEnum {
         }
 
         let fields = if is_scoped {
-            let fields = self
-                .def
-                .fields()
-                .filter(|field| field.flags().contains(FieldAttributes::Literal))
-                .filter(|field| {
-                    // In minimal mode, only emit variants explicitly listed in the filter.
-                    if let Some(variant_set) =
-                        config.filter.enum_variant_filter(tn.namespace(), tn.name())
-                    {
-                        return variant_set.includes(field.name());
-                    }
-                    true
-                })
-                .map(|field| {
-                    let name = to_ident(field.name());
-                    let value = field.constant().unwrap().value().write();
-
-                    quote! {
-                        pub const #name: Self = Self(#value);
-                    }
-                });
+            let fields = write_enum_constants(self.def, config);
 
             quote! {
                 impl #name {
@@ -82,42 +62,7 @@ impl CppEnum {
         let flags = if config.bindgen.style.is_sys() || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
         } else {
-            quote! {
-                impl #name {
-                    pub const fn contains(&self, other: Self) -> bool {
-                        self.0 & other.0 == other.0
-                    }
-                }
-                impl core::ops::BitOr for #name {
-                    type Output = Self;
-                    fn bitor(self, other: Self) -> Self {
-                        Self(self.0 | other.0)
-                    }
-                }
-                impl core::ops::BitAnd for #name {
-                    type Output = Self;
-                    fn bitand(self, other: Self) -> Self {
-                        Self(self.0 & other.0)
-                    }
-                }
-                impl core::ops::BitOrAssign for #name {
-                    fn bitor_assign(&mut self, other: Self) {
-                        self.0.bitor_assign(other.0);
-                    }
-                }
-                impl core::ops::BitAndAssign for #name {
-                    fn bitand_assign(&mut self, other: Self) {
-                        self.0.bitand_assign(other.0);
-                    }
-                }
-                impl core::ops::Not for #name {
-                    type Output = Self;
-                    fn not(self) -> Self {
-                        Self(self.0.not())
-                    }
-                }
-
-            }
+            write_enum_flags(&name)
         };
 
         quote! {

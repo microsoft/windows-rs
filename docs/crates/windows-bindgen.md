@@ -342,21 +342,66 @@ SIGNATURE, activation }`. That argues for *configuration, not forking*.
 - *`CppFn`/`CppConst`/`CppHandle`* — no WinRT analog (free exports, freestanding
   constants, `DECLARE_HANDLE` newtypes).
 
-**Incidental duplication (safe to unify, ~600–800 lines):**
-`MethodOrName`/`CppMethodOrName`, `get_methods`/`has_skipped_methods`, the vtable
-struct writer, and the `_Impl` trait + `Vtbl::new()` thunk writer are near-identical
-between `interface.rs` and `cpp_interface.rs`; the Enum/Struct generators differ only
-in WinRT extras.
+**Incidental duplication (safe to unify — measured, smaller than first estimated).**
+A first pass already landed the cheap, decisive part: `CppMethodOrName` was deleted in
+favor of a generic `MethodOrName<M>` shared by both interface writers, and the
+slot-skip and per-method `#[cfg]` policies were hoisted into the shared free functions
+`method_is_skipped()` and `write_method_cfg()` (so "is this slot opaque?" and "does
+this method need its own gate?" now live in exactly one place each). What remains is
+narrower than the original "~600–800 line" guess; a close per-section reading of the
+two `write()` bodies gives the realistic numbers:
+
+- *Interface (`interface.rs` ~509 lines vs `cpp_interface.rs` ~353).* Only the vtable
+  method-pointer emission and the `_Impl` field/impl/trait-method iteration are truly
+  near-identical — about **90 lines** extractable into shared helpers
+  (`emit_vtbl_methods`, `emit_impl_methods`, `emit_trait_methods`). The rest is
+  genuinely platform-specific: WinRT-only RuntimeType/`SIGNATURE`, generics, inherited
+  forwarders, `IntoIterator`/IIterable, RuntimeName (~145 lines); COM-only
+  `has_unknown_base` branching, `ScopedHeap` non-`IUnknown` wrapping, `Deref`-to-base,
+  and the delegate closure ctor (~135 lines).
+- *Enum (`enum.rs` vs `cpp_enum.rs`).* ~**60%** unifiable behind a small parameterized
+  writer (the bitwise-operator block and scalar-constant emission are effectively
+  identical); the remainder is WinRT trait impls vs COM scoped/`#[repr]` attribute
+  handling.
+- *Struct (`struct.rs` vs `cpp_struct.rs`).* **Not** "only WinRT extras" — only ~15%
+  overlaps. The COM side carries unions (explicit layout, `ManuallyDrop`), `DECLARE_HANDLE`
+  newtypes, nested types, arch-specific `#[cfg]`, and bespoke `Default`/`Clone` derive
+  logic that WinRT structs never have. Leave this fork alone.
 
 **The proposals, in priority order:**
 
-1. *Unify the incidental duplication behind a model struct (do first; pure refactor,
-   low risk).* Extract one interface writer parameterized by an `InterfaceModel
-   { base: IUnknown | IInspectable, return_policy, runtime: Option<Signature>,
-   generics }`; collapse `Interface`/`CppInterface`, `Enum`/`CppEnum`,
-   `Struct`/`CppStruct`. The safety net is decisive: generated output is committed and
-   CI fails on any diff, so the refactor is proven correct by regenerating to an empty
-   diff. Keep `Delegate`/`CppDelegate` and the COM-only variants separate.
+1. *Extract the interface vtable/`_Impl` iteration and the enum overlap into shared
+   helpers (DONE — pure refactor, output-preserving).* Implemented. `interface.rs` now
+   hosts a small `MethodItem` trait (`def()` / `dependencies()`, implemented for both
+   `Method` and `CppMethod`) plus three shared emitters called from *both* interface
+   writers:
+   - `write_vtbl_methods` — the `_Vtbl` method-pointer fields (slot-name allocation, the
+     per-method `#[cfg]` gate with its `#[cfg]`-out `usize` fallback, and the opaque
+     name-only slot). The one real difference — WinRT appends `-> HRESULT` while COM's
+     `write_abi` already carries the native return — is supplied by the caller as a
+     closure.
+   - `write_impl_field_methods` — the `name: name::<..>,` initializer entries (the
+     opaque `name: 0,` fallback is shared; the turbofish args, which carry WinRT generics
+     or branch on COM's `OFFSET`, come from the caller).
+   - `write_impl_trait_methods` — the `fn name signature;` producer-trait entries (only
+     the `write_impl_signature` arity differs).
+
+   The per-method extern thunks (`impl_methods`) were intentionally left per-side: their
+   generics, `this`-extraction (`OFFSET` deref vs `ScopedHeap`), and `write_upcall`
+   shapes genuinely diverge, so a shared helper would be all parameters and no body.
+   `enum.rs` likewise gained `write_enum_constants` (the filtered `pub const X = Self(v)`
+   variants) and `write_enum_flags` (the `BitOr`/`BitAnd`/`*Assign`/`Not`/`contains`
+   block); the WinRT and COM enum writers now call both, gating on their own
+   (`u32`-underlying vs `FlagsAttribute`) guards. Net bindgen source ≈ −22 lines, but the
+   point is single-sourcing: four near-identical blocks now live in one place each. Proven
+   correct by regenerating `windows`/`windows-sys` (`tool_package`), `windows-reactor`,
+   `windows-webview`, and the `tool_bindings` crates to a **zero-byte diff**; bindgen
+   tests + clippy clean.
+
+   Deliberately *not* attempted (essential forks — a unified writer would be mostly
+   feature flags): `Struct`/`CppStruct` (COM unions/handles/nested types/arch layout),
+   `Delegate`/`CppDelegate` (GUID'd interface vs bare `extern fn`), the COM-only
+   `CppFn`/`CppConst`/`CppHandle`, and the method **return model** (next item).
 2. *Return-model axis (studied — fork is mostly essential).* A close reading of the
    caller- and producer-side return handling in `method.rs` (WinRT) and
    `cpp_method.rs` (COM, driven by the `ReturnHint` enum) shows the two return models
