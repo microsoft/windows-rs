@@ -711,47 +711,72 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2Controller>,
-        args: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2AcceleratorKeyPressedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2AcceleratorKeyPressedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AcceleratorKeyPressedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2AcceleratorKeyPressedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2AcceleratorKeyPressedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2Controller>,
+                windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2AcceleratorKeyPressedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2AcceleratorKeyPressedEventHandler {}
+struct ICoreWebView2AcceleratorKeyPressedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2Controller>,
+            windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2Controller>,
+            windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
+        ) + 'static,
+> ICoreWebView2AcceleratorKeyPressedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl =
+        ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AcceleratorKeyPressedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AcceleratorKeyPressedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AcceleratorKeyPressedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2AcceleratorKeyPressedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
@@ -770,48 +795,57 @@ pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl
         LPCWSTR,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(&self, errorcode: windows_core::HRESULT, result: LPCWSTR)
-    -> windows_core::Result<()>;
-}
-impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: LPCWSTR,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID
+impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
+    pub(crate) fn new<F: Fn(windows_core::HRESULT, LPCWSTR) + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName
-    for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
+struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, LPCWSTR) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, LPCWSTR) + 'static>
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox<F>
 {
+    const VTABLE: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl =
+        ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: LPCWSTR,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&errorcode),
+                core::mem::transmute_copy(&result),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
 }
 windows_core::imp::define_interface!(
     ICoreWebView2BytesReceivedChangedEventHandler,
@@ -831,47 +865,72 @@ pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2BytesReceivedChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2BytesReceivedChangedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2BytesReceivedChangedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BytesReceivedChangedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2BytesReceivedChangedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2BytesReceivedChangedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2DownloadOperation>,
+                windows_core::Ref<windows_core::IUnknown>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2BytesReceivedChangedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2BytesReceivedChangedEventHandler {}
+struct ICoreWebView2BytesReceivedChangedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2DownloadOperation>,
+            windows_core::Ref<windows_core::IUnknown>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2DownloadOperation>,
+            windows_core::Ref<windows_core::IUnknown>,
+        ) + 'static,
+> ICoreWebView2BytesReceivedChangedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2BytesReceivedChangedEventHandler_Vtbl =
+        ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2BytesReceivedChangedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2BytesReceivedChangedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2BytesReceivedChangedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2BytesReceivedChangedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2ClearBrowsingDataCompletedHandler,
     ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
@@ -889,41 +948,52 @@ pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
         windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
-}
-impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClearBrowsingDataCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
+impl ICoreWebView2ClearBrowsingDataCompletedHandler {
+    pub(crate) fn new<F: Fn(windows_core::HRESULT) + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2ClearBrowsingDataCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ClearBrowsingDataCompletedHandler {}
+struct ICoreWebView2ClearBrowsingDataCompletedHandlerBox<F: Fn(windows_core::HRESULT) + 'static>(
+    core::marker::PhantomData<fn() -> F>,
+);
+impl<F: Fn(windows_core::HRESULT) + 'static> ICoreWebView2ClearBrowsingDataCompletedHandlerBox<F> {
+    const VTABLE: ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl =
+        ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ClearBrowsingDataCompletedHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ClearBrowsingDataCompletedHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ClearBrowsingDataCompletedHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2ClearBrowsingDataCompletedHandler,
+                    F,
+                >);
+            (this.invoke)(core::mem::transmute_copy(&errorcode));
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2ContainsFullScreenElementChangedEventHandler,
     ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl,
@@ -942,49 +1012,62 @@ pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl:
-    windows_core::IUnknownImpl
+impl ICoreWebView2ContainsFullScreenElementChangedEventHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2ContainsFullScreenElementChangedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct ICoreWebView2ContainsFullScreenElementChangedEventHandlerBox<
+    F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static>
+    ICoreWebView2ContainsFullScreenElementChangedEventHandlerBox<F>
 {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    const VTABLE: ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl =
+        ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2ContainsFullScreenElementChangedEventHandler as windows_core::Interface >::IID
-    }
 }
-impl windows_core::RuntimeName for ICoreWebView2ContainsFullScreenElementChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContentLoadingEventArgs,
     ICoreWebView2ContentLoadingEventArgs_Vtbl,
@@ -1044,47 +1127,70 @@ pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ContentLoadingEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ContentLoadingEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ContentLoadingEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContentLoadingEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ContentLoadingEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2ContentLoadingEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2ContentLoadingEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ContentLoadingEventHandler {}
+struct ICoreWebView2ContentLoadingEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
+        ) + 'static,
+> ICoreWebView2ContentLoadingEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ContentLoadingEventHandler_Vtbl =
+        ICoreWebView2ContentLoadingEventHandler_Vtbl {
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ContentLoadingEventHandler,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ContentLoadingEventHandler,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ContentLoadingEventHandler,
+                        F,
+                    >::Release,
+                },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ICoreWebView2ContentLoadingEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2Controller,
     ICoreWebView2Controller_Vtbl,
@@ -1973,49 +2079,62 @@ pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl:
-    windows_core::IUnknownImpl
+impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Controller>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Controller>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Controller>) + 'static>
+    ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox<F>
 {
-    fn Invoke(
-        &self,
+    const VTABLE: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl =
+        ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2Controller>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&errorcode),
+                core::mem::transmute_copy(&result),
+            );
+            windows_core::HRESULT(0)
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CreateCoreWebView2ControllerCompletedHandler as windows_core::Interface >::IID
-    }
 }
-impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl,
@@ -2034,49 +2153,62 @@ pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl:
-    windows_core::IUnknownImpl
+impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Environment>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Environment>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2Environment>) + 'static>
+    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox<F>
 {
-    fn Invoke(
-        &self,
+    const VTABLE: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl =
+        ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2Environment>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&errorcode),
+                core::mem::transmute_copy(&result),
+            );
+            windows_core::HRESULT(0)
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler as windows_core::Interface >::IID
-    }
 }
-impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Deferral,
     ICoreWebView2Deferral_Vtbl,
@@ -2114,47 +2246,62 @@ pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2DocumentTitleChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2DocumentTitleChangedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2DocumentTitleChangedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DocumentTitleChangedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2DocumentTitleChangedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2DocumentTitleChangedEventHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2DocumentTitleChangedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2DocumentTitleChangedEventHandler {}
+struct ICoreWebView2DocumentTitleChangedEventHandlerBox<
+    F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static>
+    ICoreWebView2DocumentTitleChangedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2DocumentTitleChangedEventHandler_Vtbl =
+        ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DocumentTitleChangedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DocumentTitleChangedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DocumentTitleChangedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2DocumentTitleChangedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadOperation,
     ICoreWebView2DownloadOperation_Vtbl,
@@ -2508,47 +2655,72 @@ pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2DownloadStartingEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2DownloadStartingEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2DownloadStartingEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DownloadStartingEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2DownloadStartingEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2DownloadStartingEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2DownloadStartingEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2DownloadStartingEventHandler {}
+struct ICoreWebView2DownloadStartingEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
+        ) + 'static,
+> ICoreWebView2DownloadStartingEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2DownloadStartingEventHandler_Vtbl =
+        ICoreWebView2DownloadStartingEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DownloadStartingEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DownloadStartingEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2DownloadStartingEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2DownloadStartingEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment,
     ICoreWebView2Environment_Vtbl,
@@ -3304,44 +3476,58 @@ pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
         LPCWSTR,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ExecuteScriptCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT, result: LPCWSTR)
-    -> windows_core::Result<()>;
-}
-impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: LPCWSTR,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ExecuteScriptCompletedHandler as windows_core::Interface>::IID
+impl ICoreWebView2ExecuteScriptCompletedHandler {
+    pub(crate) fn new<F: Fn(windows_core::HRESULT, LPCWSTR) + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2ExecuteScriptCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
+struct ICoreWebView2ExecuteScriptCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, LPCWSTR) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, LPCWSTR) + 'static>
+    ICoreWebView2ExecuteScriptCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ExecuteScriptCompletedHandler_Vtbl =
+        ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ExecuteScriptCompletedHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ExecuteScriptCompletedHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2ExecuteScriptCompletedHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: LPCWSTR,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2ExecuteScriptCompletedHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&errorcode),
+                core::mem::transmute_copy(&result),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2FocusChangedEventHandler,
     ICoreWebView2FocusChangedEventHandler_Vtbl,
@@ -3360,45 +3546,66 @@ pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2Controller>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2FocusChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2FocusChangedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2FocusChangedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2FocusChangedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2FocusChangedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2Controller>,
+                windows_core::Ref<windows_core::IUnknown>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2FocusChangedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2FocusChangedEventHandler {}
+struct ICoreWebView2FocusChangedEventHandlerBox<
+    F: Fn(windows_core::Ref<ICoreWebView2Controller>, windows_core::Ref<windows_core::IUnknown>)
+        + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(windows_core::Ref<ICoreWebView2Controller>, windows_core::Ref<windows_core::IUnknown>)
+        + 'static,
+> ICoreWebView2FocusChangedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2FocusChangedEventHandler_Vtbl =
+        ICoreWebView2FocusChangedEventHandler_Vtbl {
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        ICoreWebView2FocusChangedEventHandler,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        ICoreWebView2FocusChangedEventHandler,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        ICoreWebView2FocusChangedEventHandler,
+                        F,
+                    >::Release,
+                },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ICoreWebView2FocusChangedEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2GetCookiesCompletedHandler,
     ICoreWebView2GetCookiesCompletedHandler_Vtbl,
@@ -3417,47 +3624,60 @@ pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
+impl ICoreWebView2GetCookiesCompletedHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2CookieList>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2GetCookiesCompletedHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct ICoreWebView2GetCookiesCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2CookieList>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, windows_core::Ref<ICoreWebView2CookieList>) + 'static>
+    ICoreWebView2GetCookiesCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2GetCookiesCompletedHandler_Vtbl =
+        ICoreWebView2GetCookiesCompletedHandler_Vtbl {
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        ICoreWebView2GetCookiesCompletedHandler,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        ICoreWebView2GetCookiesCompletedHandler,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        ICoreWebView2GetCookiesCompletedHandler,
+                        F,
+                    >::Release,
+                },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2CookieList>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2GetCookiesCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ICoreWebView2GetCookiesCompletedHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&errorcode),
+                core::mem::transmute_copy(&result),
+            );
+            windows_core::HRESULT(0)
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
-    }
 }
-impl windows_core::RuntimeName for ICoreWebView2GetCookiesCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2HttpHeadersCollectionIterator,
     ICoreWebView2HttpHeadersCollectionIterator_Vtbl,
@@ -3653,47 +3873,72 @@ pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2Controller>,
-        args: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2MoveFocusRequestedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2MoveFocusRequestedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2MoveFocusRequestedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2MoveFocusRequestedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2MoveFocusRequestedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2Controller>,
+                windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2MoveFocusRequestedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2MoveFocusRequestedEventHandler {}
+struct ICoreWebView2MoveFocusRequestedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2Controller>,
+            windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2Controller>,
+            windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
+        ) + 'static,
+> ICoreWebView2MoveFocusRequestedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2MoveFocusRequestedEventHandler_Vtbl =
+        ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2MoveFocusRequestedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2MoveFocusRequestedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2MoveFocusRequestedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2MoveFocusRequestedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventArgs,
     ICoreWebView2NavigationCompletedEventArgs_Vtbl,
@@ -3754,47 +3999,72 @@ pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2NavigationCompletedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2NavigationCompletedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NavigationCompletedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2NavigationCompletedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2NavigationCompletedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2NavigationCompletedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventHandler {}
+struct ICoreWebView2NavigationCompletedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
+        ) + 'static,
+> ICoreWebView2NavigationCompletedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2NavigationCompletedEventHandler_Vtbl =
+        ICoreWebView2NavigationCompletedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationCompletedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationCompletedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationCompletedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2NavigationCompletedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventArgs,
     ICoreWebView2NavigationStartingEventArgs_Vtbl,
@@ -3908,47 +4178,72 @@ pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2NavigationStartingEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2NavigationStartingEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2NavigationStartingEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NavigationStartingEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2NavigationStartingEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2NavigationStartingEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2NavigationStartingEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventHandler {}
+struct ICoreWebView2NavigationStartingEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
+        ) + 'static,
+> ICoreWebView2NavigationStartingEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2NavigationStartingEventHandler_Vtbl =
+        ICoreWebView2NavigationStartingEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationStartingEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationStartingEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NavigationStartingEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2NavigationStartingEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2NewWindowRequestedEventArgs,
     ICoreWebView2NewWindowRequestedEventArgs_Vtbl,
@@ -4067,47 +4362,72 @@ pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2NewWindowRequestedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2NewWindowRequestedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2NewWindowRequestedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NewWindowRequestedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2NewWindowRequestedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2NewWindowRequestedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2NewWindowRequestedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2NewWindowRequestedEventHandler {}
+struct ICoreWebView2NewWindowRequestedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
+        ) + 'static,
+> ICoreWebView2NewWindowRequestedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2NewWindowRequestedEventHandler_Vtbl =
+        ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NewWindowRequestedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NewWindowRequestedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2NewWindowRequestedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2NewWindowRequestedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventArgs,
     ICoreWebView2PermissionRequestedEventArgs_Vtbl,
@@ -4227,47 +4547,72 @@ pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2PermissionRequestedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2PermissionRequestedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2PermissionRequestedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PermissionRequestedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2PermissionRequestedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2PermissionRequestedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2PermissionRequestedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventHandler {}
+struct ICoreWebView2PermissionRequestedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
+        ) + 'static,
+> ICoreWebView2PermissionRequestedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2PermissionRequestedEventHandler_Vtbl =
+        ICoreWebView2PermissionRequestedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2PermissionRequestedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2PermissionRequestedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2PermissionRequestedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2PermissionRequestedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventArgs,
     ICoreWebView2ProcessFailedEventArgs_Vtbl,
@@ -4317,45 +4662,66 @@ pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ProcessFailedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ProcessFailedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ProcessFailedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2ProcessFailedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2ProcessFailedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventHandler {}
+struct ICoreWebView2ProcessFailedEventHandlerBox<
+    F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>)
+        + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>)
+        + 'static,
+> ICoreWebView2ProcessFailedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ProcessFailedEventHandler_Vtbl =
+        ICoreWebView2ProcessFailedEventHandler_Vtbl {
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ProcessFailedEventHandler,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ProcessFailedEventHandler,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        ICoreWebView2ProcessFailedEventHandler,
+                        F,
+                    >::Release,
+                },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ICoreWebView2ProcessFailedEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile,
     ICoreWebView2Profile_Vtbl,
@@ -5222,45 +5588,70 @@ pub struct ICoreWebView2StateChangedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2StateChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2StateChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>()
-    -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2StateChangedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2StateChangedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2StateChangedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2StateChangedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2DownloadOperation>,
+                windows_core::Ref<windows_core::IUnknown>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2StateChangedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2StateChangedEventHandler {}
+struct ICoreWebView2StateChangedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2DownloadOperation>,
+            windows_core::Ref<windows_core::IUnknown>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2DownloadOperation>,
+            windows_core::Ref<windows_core::IUnknown>,
+        ) + 'static,
+> ICoreWebView2StateChangedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2StateChangedEventHandler_Vtbl =
+        ICoreWebView2StateChangedEventHandler_Vtbl {
+            base__:
+                windows_core::IUnknown_Vtbl {
+                    QueryInterface: windows_core::imp::DelegateBox::<
+                        ICoreWebView2StateChangedEventHandler,
+                        F,
+                    >::QueryInterface,
+                    AddRef: windows_core::imp::DelegateBox::<
+                        ICoreWebView2StateChangedEventHandler,
+                        F,
+                    >::AddRef,
+                    Release: windows_core::imp::DelegateBox::<
+                        ICoreWebView2StateChangedEventHandler,
+                        F,
+                    >::Release,
+                },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<ICoreWebView2StateChangedEventHandler, F>);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs,
     ICoreWebView2WebMessageReceivedEventArgs_Vtbl,
@@ -5330,47 +5721,72 @@ pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2WebMessageReceivedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2WebMessageReceivedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebMessageReceivedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2WebMessageReceivedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2WebMessageReceivedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2WebMessageReceivedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventHandler {}
+struct ICoreWebView2WebMessageReceivedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
+        ) + 'static,
+> ICoreWebView2WebMessageReceivedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2WebMessageReceivedEventHandler_Vtbl =
+        ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebMessageReceivedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebMessageReceivedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebMessageReceivedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2WebMessageReceivedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequest,
     ICoreWebView2WebResourceRequest_Vtbl,
@@ -5491,47 +5907,72 @@ pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2WebResourceRequestedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2WebResourceRequestedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2WebResourceRequestedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceRequestedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2WebResourceRequestedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2WebResourceRequestedEventHandler {
+    pub(crate) fn new<
+        F: Fn(
+                windows_core::Ref<ICoreWebView2>,
+                windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
+            ) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2WebResourceRequestedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2WebResourceRequestedEventHandler {}
+struct ICoreWebView2WebResourceRequestedEventHandlerBox<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
+        ) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<
+    F: Fn(
+            windows_core::Ref<ICoreWebView2>,
+            windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
+        ) + 'static,
+> ICoreWebView2WebResourceRequestedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2WebResourceRequestedEventHandler_Vtbl =
+        ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebResourceRequestedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebResourceRequestedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WebResourceRequestedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2WebResourceRequestedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponse,
     ICoreWebView2WebResourceResponse_Vtbl,
@@ -5567,47 +6008,62 @@ pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2WindowCloseRequestedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        sender: windows_core::Ref<ICoreWebView2>,
-        args: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-}
-impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2WindowCloseRequestedEventHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2WindowCloseRequestedEventHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            sender: *mut core::ffi::c_void,
-            args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WindowCloseRequestedEventHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&sender),
-                    core::mem::transmute_copy(&args),
-                )
-                .into()
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2WindowCloseRequestedEventHandler as windows_core::Interface>::IID
+impl ICoreWebView2WindowCloseRequestedEventHandler {
+    pub(crate) fn new<
+        F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(
+            &ICoreWebView2WindowCloseRequestedEventHandlerBox::<F>::VTABLE,
+            invoke,
+        );
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2WindowCloseRequestedEventHandler {}
+struct ICoreWebView2WindowCloseRequestedEventHandlerBox<
+    F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static,
+>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::Ref<ICoreWebView2>, windows_core::Ref<windows_core::IUnknown>) + 'static>
+    ICoreWebView2WindowCloseRequestedEventHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2WindowCloseRequestedEventHandler_Vtbl =
+        ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WindowCloseRequestedEventHandler,
+                    F,
+                >::QueryInterface,
+                AddRef: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WindowCloseRequestedEventHandler,
+                    F,
+                >::AddRef,
+                Release: windows_core::imp::DelegateBox::<
+                    ICoreWebView2WindowCloseRequestedEventHandler,
+                    F,
+                >::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        sender: *mut core::ffi::c_void,
+        args: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void
+                as *mut windows_core::imp::DelegateBox<
+                    ICoreWebView2WindowCloseRequestedEventHandler,
+                    F,
+                >);
+            (this.invoke)(
+                core::mem::transmute_copy(&sender),
+                core::mem::transmute_copy(&args),
+            );
+            windows_core::HRESULT(0)
+        }
+    }
+}
 windows_core::imp::define_interface!(
     ICoreWebView2_10,
     ICoreWebView2_10_Vtbl,

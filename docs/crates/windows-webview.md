@@ -333,7 +333,8 @@ for contributors and is **not needed to use `windows-webview`**.
 
 `windows-webview` exposes a curated, safe, idiomatic API over a *minimal*,
 hand-picked slice of the WebView2 COM surface. It hides the COM types behind owned
-Rust values and avoids proc macros via `implement_decl`, so the default crate
+Rust values and avoids proc macros (via generated closure constructors for handlers
+and `implement_decl` for the environment options object), so the default crate
 stays small and quick to build. A Rust `Future`/`async` layer is a deliberate
 non-goal: WebView2's single-threaded COM apartment and callback model make the
 pump-and-wait approach (below) a more natural fit.
@@ -460,30 +461,39 @@ The filter also passes `--dead-code`, which emits the generated methods as
 than leaking it into the public API. (Free functions go through the `link!` macro
 and can't be `pub(crate)`, but interface methods can.) Implemented interfaces (the
 handlers and `ICoreWebView2EnvironmentOptions`) are listed only in `--implement`,
-never in `--filter`: they are reached as parameters of the `add_*`/factory methods,
-and `--minimal` + `--implement` emits each one's `_Impl` trait and vtable
-**without** a caller-side method wrapper — so there are no dead `Invoke` getters to
-lint around.
+never in `--filter`: they are reached as parameters of the `add_*`/factory methods.
+For the handlers, `--implement` keeps their single `Invoke` method alive through
+dead-code elimination; `windows-bindgen` recognizes their delegate shape and emits
+a **closure constructor** (`IXHandler::new(|..| ..)`) in place of the `_Impl`
+producer trait (see below). `ICoreWebView2EnvironmentOptions` is not delegate-shaped,
+so it still gets the `_Impl` trait and vtable.
 
-### Implementing handlers without proc-macros
+### Implementing handlers via generated closure constructors
 
-The completion handlers (`EnvironmentCompleted`, `ControllerCompleted`,
-`ExecuteScriptCompleted`, `AddScriptCompleted` in `handler.rs`) wrap a Rust
-`FnOnce` closure and implement the corresponding `ICoreWebView2…Handler` COM
-interface. They use `implement_decl!` rather than `#[implement]`, exactly like
-`windows-reactor`, so the crate depends on `windows-core` with **default features
-off** — no `syn`/`quote`/`proc-macro2` build cost. This requires the interface's
-`_Impl` trait and vtable, which `windows-bindgen` emits via the `--implement`
-entries in `webview.txt`.
+Every WebView2 handler interface is delegate-shaped — `IUnknown`-derived with a
+single `Invoke` method — so `windows-bindgen` generates a closure constructor for
+each, exactly as it does for WinRT delegates: `IXHandler::new<F: Fn(..) + 'static>`
+boxes the closure in `windows_core::imp::DelegateBox` (which supplies the shared
+`QueryInterface`/`AddRef`/`Release` and claims `IAgileObject`/`IMarshal`). This
+reuses `windows-core` with **default features off** — no `syn`/`quote`/`proc-macro2`
+build cost — without any hand-written COM implementation.
 
-The repeating event handlers are folded behind an `event_handler!` macro: an
-`args` arm wraps the event's args interface, a `sender` arm (for events with no
-args interface) wraps the sender. Each holds an `FnMut` in a `RefCell`.
+`handler.rs` is therefore just a thin bridge: each `create` adapts the public
+closure onto the generated `Fn` constructor. The one-shot completion handlers
+(`EnvironmentCompleted`, `ControllerCompleted`, `ExecuteScriptCompleted`,
+`AddScriptCompleted`, …) bridge an `FnOnce` through a `Cell<Option<_>>`; the
+repeating event handlers bridge an `FnMut` through a `RefCell`, projecting the
+generated `Fn(sender, args)` into the event's public closure shape. A small
+`event_handler!` macro generates the projection shim for the uniform args-bearing
+events (an `args` arm wraps the event's args interface, a `sender` arm wraps the
+sender for events with no args interface); the sender-read and args-newtype
+projections stay hand-written.
 
 ### Caller-implemented interfaces (environment options)
 
-`implement_decl!` is not only for callbacks.
-`CreateCoreWebView2EnvironmentWithOptions` takes an
+The remaining hand-written COM implementation is the environment options object,
+the one place `implement_decl!` (the non-proc-macro alternative to `#[implement]`)
+is still used. `CreateCoreWebView2EnvironmentWithOptions` takes an
 `ICoreWebView2EnvironmentOptions` that **WebView2 has no concrete class for** — the
 caller must supply one, and WebView2 reads the configuration through its getters.
 `options.rs` therefore implements that interface in Rust: the public
@@ -556,11 +566,12 @@ its filter (`AddWebResourceRequestedFilter`), and `CreateWebResourceResponse` al
 live on **base** interfaces, so the event itself needs no `cast`;
 `on_web_resource_requested` only `cast`s to `ICoreWebView2_2` once at registration
 to capture the `Environment` for building responses. The filter has the same
-lifetime as the handler, so the `protocol::WebResourceRequested` adapter owns it:
-it registers the filter (`AddWebResourceRequestedFilter`) when created and removes
-it in its own `Drop`. Revoking the returned `EventRevoker` releases the handler,
-which in turn removes the filter — so a single revoker tears down **both** the
-handler and the filter with no bespoke registration type.
+lifetime as the handler, so the `protocol::WebResourceRequested` adapter captures a
+`FilterGuard` in its closure box: it registers the filter
+(`AddWebResourceRequestedFilter`) when built and removes it in the guard's `Drop`.
+Revoking the returned `EventRevoker` releases the handler, which drops the boxed
+closure and its guard — so a single revoker tears down **both** the handler and the
+filter with no bespoke registration type.
 
 `CreateWebResourceResponse` takes the body as a COM `IStream`, but that type never
 reaches the public surface. `WebResourceResponse` is a plain data builder; when the

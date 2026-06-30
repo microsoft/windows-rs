@@ -515,6 +515,40 @@ impl CppMethod {
         }
     }
 
+    /// The `Fn(...)` argument list for a delegate-shaped handler's single
+    /// `Invoke` method, used as the input portion of an `F: Fn(..) + 'static`
+    /// bound on the generated closure constructor. Mirrors WinRT's
+    /// `Method::write_impl_signature_no_return` (positional types, no `&self`,
+    /// no return) so COM handler interfaces gain the same closure ergonomics as
+    /// WinRT delegates. Only used for `ReturnHint::ResultVoid` handlers, where
+    /// the boxed `Invoke` simply returns `S_OK`.
+    pub fn write_closure_fn_signature(&self, config: &Config) -> TokenStream {
+        let params = self
+            .signature
+            .params
+            .iter()
+            .enumerate()
+            .map(|(position, param)| {
+                write_produce_arg_type(config, param, self.param_hints[position])
+            });
+        quote! { (#(#params),*) }
+    }
+
+    /// The boxed `Invoke` body that forwards to the stored closure and returns
+    /// `S_OK`, mirroring `Method::write_upcall_no_return`.
+    pub fn write_closure_upcall(&self, config: &Config) -> TokenStream {
+        let invoke_args = self
+            .signature
+            .params
+            .iter()
+            .map(|p| write_invoke_arg(p, config.reader));
+
+        quote! {
+            (this.invoke)(#(#invoke_args,)*);
+            windows_core::HRESULT(0)
+        }
+    }
+
     pub fn write_impl_signature(&self, config: &Config, _named_params: bool) -> TokenStream {
         let mut params = quote! {};
 
@@ -836,22 +870,31 @@ impl CppMethod {
 
 fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenStream {
     let name = param.write_ident();
+    let ty = write_produce_arg_type(config, param, hint);
+    quote! { #name: #ty, }
+}
+
+// The bare produce-side type for a parameter (the `Ref<T>` / `OutRef<T>` /
+// `&T` / value projection), without the parameter name. `write_produce_type`
+// prepends `name:` for `_Impl` trait signatures; `write_closure_fn_signature`
+// uses it positionally for `Fn(..)` bounds.
+fn write_produce_arg_type(config: &Config, param: &Param, hint: ParamHint) -> TokenStream {
     let kind = param.write_default(config);
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(config);
-        quote! { #name: windows_core::Ref<#type_name>, }
+        quote! { windows_core::Ref<#type_name> }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
-        quote! { #name: windows_core::OutRef<#type_name>, }
+        quote! { windows_core::OutRef<#type_name> }
     } else if param.is_input() {
         if param.is_primitive(config.reader) {
-            quote! { #name: #kind, }
+            quote! { #kind }
         } else {
-            quote! { #name: &#kind, }
+            quote! { &#kind }
         }
     } else {
-        quote! { #name: #kind, }
+        quote! { #kind }
     }
 }
 
