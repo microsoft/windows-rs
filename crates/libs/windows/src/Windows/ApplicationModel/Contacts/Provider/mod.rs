@@ -48,17 +48,19 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(self).SelectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContactRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, ContactRemovedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactRemovedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, ContactRemovedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContactRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ContactRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveContactRemoved))
         }
-    }
-    pub fn RemoveContactRemoved(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveContactRemoved)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AddContact2<P0>(&self, contact: P0) -> windows_core::Result<AddContactResult>
     where

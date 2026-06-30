@@ -262,13 +262,7 @@ impl CppMethod {
         let abi_return_type = self.write_return(config);
         let result = config.write_core();
 
-        // Use pub(crate) when --dead-code is set so the dead_code lint can
-        // detect unused methods. See https://github.com/rust-lang/rust/issues/157961
-        let vis = if config.bindgen.dead_code {
-            quote! { pub(crate) }
-        } else {
-            quote! { pub }
-        };
+        let vis = config.item_vis();
 
         match self.return_hint {
             ReturnHint::Query(..) => {

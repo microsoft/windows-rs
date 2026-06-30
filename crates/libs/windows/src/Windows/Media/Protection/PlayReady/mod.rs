@@ -3093,65 +3093,75 @@ impl windows_core::RuntimeType for NDCertificateType {
 pub struct NDClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, windows_core::IInspectable);
 impl NDClient {
-    pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RegistrationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDRegistrationCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegistrationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RegistrationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRegistrationCompleted))
         }
     }
-    pub fn RemoveRegistrationCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRegistrationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ProximityDetectionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDProximityDetectionCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProximityDetectionCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ProximityDetectionCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveProximityDetectionCompleted))
         }
     }
-    pub fn RemoveProximityDetectionCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveProximityDetectionCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LicenseFetchCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDLicenseFetchCompletedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LicenseFetchCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).LicenseFetchCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveLicenseFetchCompleted))
         }
     }
-    pub fn RemoveLicenseFetchCompleted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveLicenseFetchCompleted)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReRegistrationNeeded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReRegistrationNeeded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReRegistrationNeeded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReRegistrationNeeded))
         }
     }
-    pub fn RemoveReRegistrationNeeded(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReRegistrationNeeded)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ClosedCaptionDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDClosedCaptionDataReceivedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosedCaptionDataReceived))
         }
-    }
-    pub fn RemoveClosedCaptionDataReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_core::Result<windows_future::IAsyncOperation<INDStartResult>>
     where

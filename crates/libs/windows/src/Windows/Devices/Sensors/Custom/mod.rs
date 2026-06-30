@@ -30,17 +30,19 @@ impl CustomSensor {
             (windows_core::Interface::vtable(self).DeviceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadingChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, CustomSensorReadingChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CustomSensorReadingChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, CustomSensorReadingChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadingChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ReadingChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReadingChanged))
         }
-    }
-    pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveReadingChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetReportLatency(&self, value: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICustomSensor2>(self)?;

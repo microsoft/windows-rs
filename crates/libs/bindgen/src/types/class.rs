@@ -33,7 +33,7 @@ impl Class {
 
         let mut methods = quote! {};
 
-        if !config.bindgen.style.is_minimal() {
+        if config.bindgen.style.emit_class_methods() {
             let mut method_names = MethodNames::for_style(&config.bindgen.style);
 
             for interface in &required_interfaces {
@@ -129,11 +129,7 @@ impl Class {
 
         let result = config.write_core();
 
-        let vis = if config.bindgen.dead_code {
-            quote! { pub(crate) }
-        } else {
-            quote! { pub }
-        };
+        let vis = config.item_vis();
 
         let has_default_ctor = self.has_default_constructor(config.reader)
             && (!config.bindgen.style.is_minimal()
@@ -264,9 +260,7 @@ impl Class {
                 }
             });
 
-            let into_iterator = if config.bindgen.style.is_minimal() {
-                None
-            } else {
+            let into_iterator = if config.bindgen.style.emit_iterable_into_iterator() {
                 required_interfaces
                     .iter()
                     .find(|interface| interface.def.type_name() == TypeName::IIterable)
@@ -295,6 +289,8 @@ impl Class {
 
                         }
                     })
+            } else {
+                None
             };
 
             let deref = if config.bindgen.style.is_minimal() {

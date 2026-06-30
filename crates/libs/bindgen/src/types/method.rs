@@ -375,11 +375,7 @@ impl Method {
 
         // Use pub(crate) when --dead-code is set so the dead_code lint can
         // detect unused methods. See https://github.com/rust-lang/rust/issues/157961
-        let vis = if config.bindgen.dead_code {
-            quote! { pub(crate) }
-        } else {
-            quote! { pub }
-        };
+        let vis = config.item_vis();
 
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
             let name = param.write_ident();
@@ -399,7 +395,7 @@ impl Method {
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
-                } else if config.bindgen.style.is_minimal() && param.is_input() && matches!(param.ty, Type::String) {
+                } else if config.bindgen.style.minimal_string_input(param) {
                     // In minimal mode, string params accept &str directly.
                     // Convert to HSTRING and pass its abi.
                     quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
@@ -467,11 +463,8 @@ impl Method {
 
         // In minimal mode, HSTRING input params accept `&str` directly — the generated
         // method body handles the conversion to HSTRING internally.
-        let is_string_param = |param: &Param| -> bool {
-            config.bindgen.style.is_minimal()
-                && param.is_input()
-                && matches!(param.ty, Type::String)
-        };
+        let is_string_param =
+            |param: &Param| -> bool { config.bindgen.style.minimal_string_input(param) };
 
         let generics: Vec<TokenStream> = params
             .iter()
@@ -617,8 +610,10 @@ impl Method {
         let return_type = if self.signature.return_type == Type::Void {
             quote! { () }
         } else {
-            let tokens = if config.bindgen.style.is_minimal()
-                && matches!(self.signature.return_type, Type::String)
+            let tokens = if config
+                .bindgen
+                .style
+                .minimal_string_return(&self.signature.return_type)
             {
                 quote! { String }
             } else if let Some(inner) = return_unwrap_inner {
@@ -695,8 +690,10 @@ impl Method {
                                 #assert_success
                                 result__
                             }
-                        } else if config.bindgen.style.is_minimal()
-                            && matches!(self.signature.return_type, Type::String)
+                        } else if config
+                            .bindgen
+                            .style
+                            .minimal_string_return(&self.signature.return_type)
                         {
                             quote! {
                                 let mut result__ = core::mem::zeroed();
@@ -725,8 +722,10 @@ impl Method {
                                 let mut result__ = core::mem::zeroed();
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
                             }
-                        } else if config.bindgen.style.is_minimal()
-                            && matches!(self.signature.return_type, Type::String)
+                        } else if config
+                            .bindgen
+                            .style
+                            .minimal_string_return(&self.signature.return_type)
                         {
                             // In minimal mode, return String instead of HSTRING.
                             quote! {
@@ -750,15 +749,12 @@ impl Method {
         let vcall = build_vcall(&args);
 
         // Suppress remove_* methods and replace add_* methods with a combined
-        // wrapper returning EventRevoker. Excluded from --package mode because
-        // the windows crate's public API preserves the raw add/remove pattern.
+        // wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && !config.bindgen.layout.is_package()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = !config.bindgen.layout.is_package()
-            && self.def.flags().contains(MethodAttributes::SpecialName)
+        let is_event_remove = self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
             && kind != InterfaceKind::Composable

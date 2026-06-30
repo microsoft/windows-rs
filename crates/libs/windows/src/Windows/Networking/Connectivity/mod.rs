@@ -1563,17 +1563,19 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.param().abi(), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> windows_core::Result<i64>
+    pub fn NetworkStatusChanged<F>(networkstatushandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<NetworkStatusChangedEventHandler>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let networkstatushandler = <NetworkStatusChangedEventHandler>::new(move |a0| {
+            networkstatushandler(a0);
+            Ok(())
+        });
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&networkstatushandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveNetworkStatusChanged))
         })
-    }
-    pub fn RemoveNetworkStatusChanged(eventcookie: i64) -> windows_core::Result<()> {
-        Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
     }
     pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectionProfile>>>
     where

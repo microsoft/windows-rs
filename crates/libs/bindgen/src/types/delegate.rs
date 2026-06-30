@@ -30,6 +30,7 @@ impl Delegate {
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
         let method = self.method(config.reader);
         let cfg = self.write_cfg(config);
+        let vis = config.item_vis();
 
         let invoke = method.write(
             config,
@@ -133,11 +134,6 @@ impl Delegate {
         let new_method = if is_event_only {
             quote! {}
         } else {
-            let vis = if config.bindgen.dead_code {
-                quote! { pub(crate) }
-            } else {
-                quote! { pub }
-            };
             quote! {
                 #vis fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = windows_core::imp::DelegateBox::<Self, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
@@ -166,11 +162,7 @@ impl Delegate {
             }
         };
 
-        let hide_vtbl = if config.bindgen.layout.is_package() {
-            quote! { #[doc(hidden)] }
-        } else {
-            quote! {}
-        };
+        let hide_vtbl = config.doc_hidden_in_package();
 
         quote! {
             #definition

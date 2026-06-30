@@ -2183,79 +2183,90 @@ pub struct PackageCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalog, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageCatalog, IPackageCatalogStatics2);
 impl PackageCatalog {
-    pub fn PackageStaging<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageStaging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageStagingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStagingEventArgs>) + Send + 'static,
     {
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageStagingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PackageStaging)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PackageStaging)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePackageStaging))
         }
     }
-    pub fn RemovePackageStaging(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePackageStaging)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PackageInstalling<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageInstalling<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageInstallingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageInstallingEventArgs>) + Send + 'static,
     {
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageInstallingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PackageInstalling)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PackageInstalling)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePackageInstalling))
         }
     }
-    pub fn RemovePackageInstalling(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePackageInstalling)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PackageUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageUpdating<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageUpdatingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUpdatingEventArgs>) + Send + 'static,
     {
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageUpdatingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PackageUpdating)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PackageUpdating)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePackageUpdating))
         }
     }
-    pub fn RemovePackageUpdating(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePackageUpdating)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PackageUninstalling<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageUninstalling<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageUninstallingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageUninstallingEventArgs>) + Send + 'static,
     {
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageUninstallingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PackageUninstalling)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PackageUninstalling)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePackageUninstalling))
         }
     }
-    pub fn RemovePackageUninstalling(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePackageUninstalling)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PackageStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageStatusChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageStatusChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageStatusChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PackageStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PackageStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePackageStatusChanged))
         }
     }
-    pub fn RemovePackageStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePackageStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PackageContentGroupStaging<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageContentGroupStaging<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PackageContentGroupStagingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PackageContentGroupStagingEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
+        let handler = <super::Foundation::TypedEventHandler<Self, PackageContentGroupStagingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePackageContentGroupStaging))
         }
-    }
-    pub fn RemovePackageContentGroupStaging(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemovePackageContentGroupStaging)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;

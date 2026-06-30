@@ -30,7 +30,7 @@ impl CppEnum {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && (config.bindgen.style.is_sys() || config.bindgen.style.is_minimal()) {
+        if !is_scoped && config.bindgen.style.emit_bare_typedef() {
             return config.write_cpp_handle(self.def);
         }
 
@@ -43,7 +43,7 @@ impl CppEnum {
         let mut derive = DeriveWriter::new(config, tn);
         derive.extend(["Copy", "Clone"]);
 
-        if !config.bindgen.style.is_sys() {
+        if config.bindgen.style.derive_std_traits() {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 

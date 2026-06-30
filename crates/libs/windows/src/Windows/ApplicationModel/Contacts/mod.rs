@@ -1967,17 +1967,19 @@ impl ContactList {
             (windows_core::Interface::vtable(self).UserDataAccountId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContactChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn ContactChanged<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactChangedEventArgs>) + Send + 'static,
     {
+        let value = <super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>::new(move |a0, a1| {
+            value(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContactChanged)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ContactChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveContactChanged))
         }
-    }
-    pub fn RemoveContactChanged(&self, value: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveContactChanged)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
@@ -2477,17 +2479,19 @@ impl ContactListSyncManager {
             (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSyncStatusChanged))
         }
-    }
-    pub fn RemoveSyncStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSyncStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetStatus(&self, value: ContactListSyncStatus) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IContactListSyncManager2>(self)?;
@@ -2998,29 +3002,33 @@ impl ContactPanel {
         let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetHeaderColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn LaunchFullAppRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LaunchFullAppRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactPanelLaunchFullAppRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactPanelLaunchFullAppRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ContactPanelLaunchFullAppRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LaunchFullAppRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).LaunchFullAppRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveLaunchFullAppRequested))
         }
     }
-    pub fn RemoveLaunchFullAppRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveLaunchFullAppRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Closing<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Closing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactPanelClosingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactPanelClosingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ContactPanelClosingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Closing)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Closing)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosing))
         }
-    }
-    pub fn RemoveClosing(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveClosing)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for ContactPanel {
@@ -3661,19 +3669,20 @@ impl ContactStore {
             (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContactChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn ContactChanged<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ContactChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
+        let value = <super::super::Foundation::TypedEventHandler<Self, ContactChangedEventArgs>>::new(move |a0, a1| {
+            value(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveContactChanged))
         }
-    }
-    pub fn RemoveContactChanged(&self, value: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveContactChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn AggregateContactManager(&self) -> windows_core::Result<AggregateContactManager> {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;

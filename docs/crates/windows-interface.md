@@ -8,42 +8,16 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/interface)
 
 `windows-interface` provides the `#[interface]` attribute macro used to declare a
-COM interface as a Rust trait. It is re-exported by
-[`windows-core`](windows-core.md), which is the dependency you normally take —
-the generated code refers to `windows-core` for `IUnknown`, the vtable layout,
-and `QueryInterface` support.
+COM interface as a Rust trait. It is **part of [`windows-core`](windows-core.md)**
+and exists as a separate crate only because Rust requires procedural macros to
+ship in their own `proc-macro` crate. `windows-core` re-exports it behind the
+default `proc-macros` feature, so you depend on `windows-core` and rarely name
+this crate directly. The generated code refers to `windows-core` for `IUnknown`,
+the vtable layout, and `QueryInterface` support.
 
-Annotate an `unsafe trait` that derives from `IUnknown` with the interface's
-GUID. The macro generates the vtable and the plumbing needed to call and
-implement the interface. Pair it with [`#[implement]`](windows-implement.md) to
-supply a Rust implementation.
-
-```rust
-use windows_core::*;
-
-// Declare a custom COM interface with its GUID.
-#[interface("7e75ffe0-2f8c-4040-953e-b1f83a48f77b")]
-unsafe trait IValue: IUnknown {
-    unsafe fn value(&self) -> i32;
-}
-
-// Implement it with `#[implement]`.
-#[implement(IValue)]
-struct Value {
-    value: i32,
-}
-
-impl IValue_Impl for Value_Impl {
-    unsafe fn value(&self) -> i32 {
-        self.value
-    }
-}
-
-fn main() {
-    let object: IValue = Value { value: 42 }.into();
-    assert_eq!(unsafe { object.value() }, 42);
-}
-```
+See [`windows-core`](windows-core.md) for how to declare an interface and pair it
+with [`#[implement]`](windows-implement.md) — including a worked example and the
+`interface_decl!` declarative alternative for builds without the proc macros.
 
 ---
 
@@ -54,8 +28,9 @@ for contributors and is **not needed to use `windows-interface`**.
 
 ### How it's built
 
-A `proc-macro` crate. The crate-level docs live inline in `src/lib.rs`. Uses
-`syn`/`quote`/`proc-macro2`.
+A `proc-macro` crate. The crate-level docs in `src/lib.rs` cover what the macro
+generates (the interface struct, `*_Vtbl`, and `*_Impl` trait) and how it must
+agree with `#[implement]`. Uses `syn`/`quote`/`proc-macro2`.
 
 ### Testing
 

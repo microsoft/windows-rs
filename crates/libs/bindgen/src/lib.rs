@@ -131,6 +131,66 @@ impl Style {
     fn sys_fn_extern(self) -> bool {
         matches!(self, Self::Sys { extern_fns: true })
     }
+
+    // The predicates below name the individual code-generation policies that
+    // distinguish the styles, so call sites read by intent rather than
+    // re-deriving the same `is_minimal()` checks. See the "Output-mode
+    // consolidation" tracking note in `docs/crates/windows-bindgen.md`.
+
+    /// Whether to emit per-class wrapper methods. Minimal bindings omit them;
+    /// callers reach the methods through the class's default interface instead.
+    fn emit_class_methods(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether to emit caller-side wrappers that forward to a type's
+    /// **inherited** interface methods. Minimal bindings omit these; callers
+    /// `cast` to the owning interface instead.
+    fn emit_inherited_forwarders(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether to emit the `IntoIterator` bridge that forwards to an inherited
+    /// `IIterable<T>`. Minimal bindings omit it (an iterable's own
+    /// `BufferedIterator` impl is still emitted); callers `cast` to `IIterable`.
+    fn emit_iterable_into_iterator(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether an HSTRING **input** parameter is exposed as `&str` (converted to
+    /// `HSTRING` inside the method body). Minimal bindings do this; other styles
+    /// route strings through the `Param`/`IntoParam` machinery instead.
+    fn minimal_string_input(self, param: &Param) -> bool {
+        self.is_minimal() && param.is_input() && matches!(param.ty, Type::String)
+    }
+
+    /// Whether an HSTRING **return** value is exposed as an owned `String`.
+    /// Minimal bindings do this; other styles return `HSTRING`.
+    fn minimal_string_return(self, ty: &Type) -> bool {
+        self.is_minimal() && matches!(ty, Type::String)
+    }
+
+    /// Whether plain value types (structs/enums) derive the standard
+    /// `Default`/`Debug`/`PartialEq` traits (on top of the always-emitted
+    /// `Copy`/`Clone`). Sys bindings emit bare value types with no extra derives.
+    fn derive_std_traits(self) -> bool {
+        !self.is_sys()
+    }
+
+    /// Whether to emit the `windows-core` trait block (type-kind, runtime
+    /// signature, and `NAME`) for a value type. Sys bindings have no
+    /// `windows-core` dependency, so they omit it.
+    fn emit_core_traits(self) -> bool {
+        !self.is_sys()
+    }
+
+    /// Whether handle structs and unscoped (non-`ScopedEnumAttribute`) enums are
+    /// emitted as a bare `pub type X = <underlying>` alias rather than a newtype
+    /// wrapper. Both sys and minimal bindings collapse them; this is why their
+    /// constants also drop the `Self(value)` constructor (see `cpp_const`).
+    fn emit_bare_typedef(self) -> bool {
+        self.is_sys() || self.is_minimal()
+    }
 }
 
 impl Bindgen {
@@ -278,8 +338,7 @@ impl Bindgen {
     /// Generate minimal-mode Rust bindings.
     ///
     /// Drops per-class wrapper methods, inherited interface forwarders, handle
-    /// ergonomics, and free-function wrappers. Event accessor pairs are replaced
-    /// by a single auto-revoking wrapper returning `EventRevoker`.
+    /// ergonomics, and free-function wrappers.
     ///
     /// Mutually exclusive with `--sys`.
     #[track_caller]

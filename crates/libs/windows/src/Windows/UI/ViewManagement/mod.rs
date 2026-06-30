@@ -24,17 +24,19 @@ impl AccessibilitySettings {
             (windows_core::Interface::vtable(self).HighContrastScheme)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn HighContrastChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HighContrastChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HighContrastChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HighContrastChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHighContrastChanged))
         }
-    }
-    pub fn RemoveHighContrastChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHighContrastChanged)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
 }
 impl windows_core::RuntimeType for AccessibilitySettings {
@@ -144,17 +146,19 @@ impl ApplicationView {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Consolidated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Consolidated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ApplicationViewConsolidatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ApplicationViewConsolidatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, ApplicationViewConsolidatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Consolidated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Consolidated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveConsolidated))
         }
-    }
-    pub fn RemoveConsolidated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveConsolidated)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SuppressSystemOverlays(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
@@ -174,19 +178,20 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).VisibleBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VisibleBoundsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VisibleBoundsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveVisibleBoundsChanged))
         }
-    }
-    pub fn RemoveVisibleBoundsChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveVisibleBoundsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn SetDesiredBoundsMode(&self, boundsmode: ApplicationViewBoundsMode) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
@@ -1557,29 +1562,33 @@ pub struct IViewModePreferencesStatics_Vtbl {
 pub struct InputPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windows_core::IInspectable);
 impl InputPane {
-    pub fn Showing<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Showing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Showing)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Showing)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveShowing))
         }
     }
-    pub fn RemoveShowing(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveShowing)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Hiding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Hiding<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<InputPaneVisibilityEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, InputPaneVisibilityEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Hiding)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Hiding)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHiding))
         }
-    }
-    pub fn RemoveHiding(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHiding)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn OccludedRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         unsafe {
@@ -1703,17 +1712,19 @@ impl ProjectionManager {
             (windows_core::Interface::vtable(this).ProjectionDisplayAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ProjectionDisplayAvailableChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ProjectionDisplayAvailableChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveProjectionDisplayAvailableChanged))
         })
-    }
-    pub fn RemoveProjectionDisplayAvailableChanged(token: i64) -> windows_core::Result<()> {
-        Self::IProjectionManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "Devices_Enumeration")]
     pub fn StartProjectingWithDeviceInfoAsync<P2>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P2) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1927,19 +1938,20 @@ impl UISettings {
             (windows_core::Interface::vtable(this).TextScaleFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TextScaleFactorChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextScaleFactorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveTextScaleFactorChanged))
         }
-    }
-    pub fn RemoveTextScaleFactorChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveTextScaleFactorChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn GetColorValue(&self, desiredcolor: UIColorType) -> windows_core::Result<super::Color> {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
@@ -1948,19 +1960,20 @@ impl UISettings {
             (windows_core::Interface::vtable(this).GetColorValue)(windows_core::Interface::as_raw(this), desiredcolor, &mut result__).map(|| result__)
         }
     }
-    pub fn ColorValuesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ColorValuesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveColorValuesChanged))
         }
-    }
-    pub fn RemoveColorValuesChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveColorValuesChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn AdvancedEffectsEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
@@ -1969,19 +1982,20 @@ impl UISettings {
             (windows_core::Interface::vtable(this).AdvancedEffectsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AdvancedEffectsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AdvancedEffectsEnabledChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveAdvancedEffectsEnabledChanged))
         }
-    }
-    pub fn RemoveAdvancedEffectsEnabledChanged(&self, cookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn AutoHideScrollBars(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
@@ -1990,47 +2004,50 @@ impl UISettings {
             (windows_core::Interface::vtable(this).AutoHideScrollBars)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AutoHideScrollBarsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AutoHideScrollBarsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsAutoHideScrollBarsChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAutoHideScrollBarsChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsAutoHideScrollBarsChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveAutoHideScrollBarsChanged))
         }
     }
-    pub fn RemoveAutoHideScrollBarsChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn AnimationsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AnimationsEnabledChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsAnimationsEnabledChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsAnimationsEnabledChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsAnimationsEnabledChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveAnimationsEnabledChanged))
         }
     }
-    pub fn RemoveAnimationsEnabledChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAnimationsEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn MessageDurationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MessageDurationChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UISettingsMessageDurationChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UISettingsMessageDurationChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UISettingsMessageDurationChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveMessageDurationChanged))
         }
-    }
-    pub fn RemoveMessageDurationChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveMessageDurationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for UISettings {
@@ -2111,19 +2128,20 @@ impl UIViewSettings {
             (windows_core::Interface::vtable(this).GetPreferredInteractionMode)(windows_core::Interface::as_raw(this), supportedmodes.len().try_into().unwrap(), supportedmodes.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn PreferredInteractionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PreferredInteractionModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).PreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePreferredInteractionModeChanged))
         }
-    }
-    pub fn RemovePreferredInteractionModeChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemovePreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IUIViewSettingsStatics(|this| unsafe {

@@ -28,7 +28,7 @@ Follow the link for usage and examples.
 | Windows error handling (`HRESULT`, `Error`, `Result`) | [windows-result](crates/windows-result.md) |
 | Windows string types and macros (`HSTRING`, `PCWSTR`, `h!`, `w!`, `s!`) | [windows-strings](crates/windows-strings.md) |
 | COM/WinRT type support (`IUnknown`, the `Interface` trait, `cast`, `GUID`) | [windows-core](crates/windows-core.md) |
-| To declare or implement a COM/WinRT interface | [`#[interface]`](crates/windows-interface.md) / [`#[implement]`](crates/windows-implement.md) |
+| To declare or implement a COM/WinRT interface | [windows-core](crates/windows-core.md) (`#[interface]` / `#[implement]`) |
 | Stock WinRT collections (`IVector`, `IMap`, …) | [windows-collections](crates/windows-collections.md) |
 | WinRT values (`IReference<T>`, `TimeSpan`, `DateTime`) | [windows-reference](crates/windows-reference.md), [windows-time](crates/windows-time.md) |
 | Graphics math (vectors, matrices) | [windows-numerics](crates/windows-numerics.md) |
@@ -55,9 +55,14 @@ every page.
 
 | Crate | Description |
 | --- | --- |
-| [windows-core](crates/windows-core.md) | Fundamental COM and Windows type support. |
+| [windows-core](crates/windows-core.md) | Fundamental COM and Windows type support, including the `#[interface]` / `#[implement]` authoring macros. |
 | [windows-result](crates/windows-result.md) | Windows error handling and propagation. |
 | [windows-strings](crates/windows-strings.md) | Windows string interop types and macros. |
+
+The `#[interface]` and `#[implement]` macros are part of `windows-core`, split
+into the [windows-interface](crates/windows-interface.md) and
+[windows-implement](crates/windows-implement.md) crates only because Rust requires
+procedural macros to live in a dedicated `proc-macro` crate.
 
 ### Values & collections
 
@@ -83,12 +88,17 @@ every page.
 | [windows-services](crates/windows-services.md) | Author Windows services in Rust. |
 | [windows-version](crates/windows-version.md) | Query the Windows version at runtime. |
 
-### COM macros & linking
+### COM authoring macros & linking
+
+These crates package functionality that is part of other crates but must ship
+separately. `windows-interface` and `windows-implement` are part of
+[windows-core](crates/windows-core.md) (see above); Rust requires their proc
+macros to live in a dedicated `proc-macro` crate.
 
 | Crate | Description |
 | --- | --- |
-| [windows-implement](crates/windows-implement.md) | `#[implement]` proc macro for COM/WinRT. |
-| [windows-interface](crates/windows-interface.md) | `#[interface]` proc macro for COM interfaces. |
+| [windows-implement](crates/windows-implement.md) | `#[implement]` proc macro for COM/WinRT — part of `windows-core`. |
+| [windows-interface](crates/windows-interface.md) | `#[interface]` proc macro for COM interfaces — part of `windows-core`. |
 | [windows-link](crates/windows-link.md) | Raw-dylib import support (`link!`). |
 | [windows-targets](crates/windows-targets.md) | Import libs for older compilers. |
 

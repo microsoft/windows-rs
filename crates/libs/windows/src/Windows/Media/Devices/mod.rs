@@ -254,17 +254,19 @@ unsafe impl Sync for AudioDeviceModuleNotificationEventArgs {}
 pub struct AudioDeviceModulesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModulesManager {
-    pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ModuleNotificationReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AudioDeviceModuleNotificationEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AudioDeviceModuleNotificationEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, AudioDeviceModuleNotificationEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ModuleNotificationReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).ModuleNotificationReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveModuleNotificationReceived))
         }
-    }
-    pub fn RemoveModuleNotificationReceived(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveModuleNotificationReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn FindAllById(&self, moduleid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<AudioDeviceModule>> {
         unsafe {
@@ -359,77 +361,89 @@ impl CallControl {
             (windows_core::Interface::vtable(self).HasRinger)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn AnswerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AnswerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<CallControlEventHandler>,
+        F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
+        let handler = <CallControlEventHandler>::new(move |a0| {
+            handler(a0);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AnswerRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AnswerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAnswerRequested))
         }
     }
-    pub fn RemoveAnswerRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAnswerRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn HangUpRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HangUpRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<CallControlEventHandler>,
+        F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
+        let handler = <CallControlEventHandler>::new(move |a0| {
+            handler(a0);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HangUpRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).HangUpRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveHangUpRequested))
         }
     }
-    pub fn RemoveHangUpRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveHangUpRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn DialRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DialRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<DialRequestedEventHandler>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<DialRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <DialRequestedEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DialRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).DialRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDialRequested))
         }
     }
-    pub fn RemoveDialRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveDialRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn RedialRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RedialRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<RedialRequestedEventHandler>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<RedialRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <RedialRequestedEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RedialRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).RedialRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRedialRequested))
         }
     }
-    pub fn RemoveRedialRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveRedialRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn KeypadPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeypadPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<KeypadPressedEventHandler>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<KeypadPressedEventArgs>) + Send + 'static,
     {
+        let handler = <KeypadPressedEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KeypadPressed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).KeypadPressed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveKeypadPressed))
         }
     }
-    pub fn RemoveKeypadPressed(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveKeypadPressed)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn AudioTransferRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioTransferRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<CallControlEventHandler>,
+        F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
+        let handler = <CallControlEventHandler>::new(move |a0| {
+            handler(a0);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AudioTransferRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AudioTransferRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAudioTransferRequested))
         }
-    }
-    pub fn RemoveAudioTransferRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAudioTransferRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetDefault() -> windows_core::Result<Self> {
         Self::ICallControlStatics(|this| unsafe {
@@ -516,17 +530,19 @@ impl CameraOcclusionInfo {
             (windows_core::Interface::vtable(self).IsOcclusionKindSupported)(windows_core::Interface::as_raw(self), occlusionkind, &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CameraOcclusionStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CameraOcclusionStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, CameraOcclusionStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
         }
-    }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for CameraOcclusionInfo {
@@ -3280,29 +3296,33 @@ impl MediaDevice {
             (windows_core::Interface::vtable(this).GetDefaultAudioRenderId)(windows_core::Interface::as_raw(this), role, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn DefaultAudioCaptureDeviceChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DefaultAudioCaptureDeviceChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged))
         })
     }
-    pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: i64) -> windows_core::Result<()> {
-        Self::IMediaDeviceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
-    }
-    pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn DefaultAudioRenderDeviceChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<DefaultAudioRenderDeviceChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged))
         })
-    }
-    pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: i64) -> windows_core::Result<()> {
-        Self::IMediaDeviceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
     fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaDevice, IMediaDeviceStatics> = windows_core::imp::FactoryCache::new();

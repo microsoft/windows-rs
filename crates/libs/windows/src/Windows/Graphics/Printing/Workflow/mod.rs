@@ -791,29 +791,33 @@ impl windows_core::RuntimeType for PrintWorkflowAttributesMergePolicy {
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSession {
-    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
+    pub fn SetupRequested<F>(&self, setupeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowBackgroundSetupRequestedEventArgs>) + Send + 'static,
     {
+        let setupeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>::new(move |a0, a1| {
+            setupeventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), setupeventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&setupeventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetupRequested))
         }
     }
-    pub fn RemoveSetupRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSetupRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_core::Result<i64>
+    pub fn Submitted<F>(&self, submittedeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowSubmittedEventArgs>) + Send + 'static,
     {
+        let submittedeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>::new(move |a0, a1| {
+            submittedeventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Submitted)(windows_core::Interface::as_raw(self), submittedeventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).Submitted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&submittedeventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSubmitted))
         }
-    }
-    pub fn RemoveSubmitted(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSubmitted)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
         unsafe {
@@ -922,29 +926,33 @@ unsafe impl Sync for PrintWorkflowConfiguration {}
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSession {
-    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
+    pub fn SetupRequested<F>(&self, setupeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowForegroundSetupRequestedEventArgs>) + Send + 'static,
     {
+        let setupeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>::new(move |a0, a1| {
+            setupeventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), setupeventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&setupeventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetupRequested))
         }
     }
-    pub fn RemoveSetupRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSetupRequested)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_core::Result<i64>
+    pub fn XpsDataAvailable<F>(&self, xpsdataavailableeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowXpsDataAvailableEventArgs>) + Send + 'static,
     {
+        let xpsdataavailableeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>::new(move |a0, a1| {
+            xpsdataavailableeventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).XpsDataAvailable)(windows_core::Interface::as_raw(self), xpsdataavailableeventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).XpsDataAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&xpsdataavailableeventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveXpsDataAvailable))
         }
-    }
-    pub fn RemoveXpsDataAvailable(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveXpsDataAvailable)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
         unsafe {
@@ -1093,60 +1101,66 @@ impl PrintWorkflowJobBackgroundSession {
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn JobStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobStarting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobStartingEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobStartingEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobStartingEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).JobStarting)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).JobStarting)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveJobStarting))
         }
     }
-    pub fn RemoveJobStarting(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveJobStarting)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn PdlModificationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PdlModificationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlModificationRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlModificationRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlModificationRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PdlModificationRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PdlModificationRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePdlModificationRequested))
         }
-    }
-    pub fn RemovePdlModificationRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePdlModificationRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn JobIssueDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobIssueDetected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobIssueDetectedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobIssueDetectedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession2>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobIssueDetectedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JobIssueDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).JobIssueDetected)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveJobIssueDetected))
         }
     }
-    pub fn RemoveJobIssueDetected(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveJobIssueDetected)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn JobStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPrinterJobStatusChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPrinterJobStatusChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession3>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPrinterJobStatusChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).JobStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).JobStatusChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveJobStatusChanged))
         }
-    }
-    pub fn RemoveJobStatusChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveJobStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintWorkflowJobBackgroundSession {
@@ -1380,46 +1394,51 @@ impl PrintWorkflowJobUISession {
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PdlDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PdlDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlDataAvailableEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowPdlDataAvailableEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowPdlDataAvailableEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PdlDataAvailable)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PdlDataAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePdlDataAvailable))
         }
     }
-    pub fn RemovePdlDataAvailable(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePdlDataAvailable)(windows_core::Interface::as_raw(self), token).ok() }
-    }
-    pub fn JobNotification<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobNotification<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobNotificationEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowJobNotificationEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowJobNotificationEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).JobNotification)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).JobNotification)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveJobNotification))
         }
-    }
-    pub fn RemoveJobNotification(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveJobNotification)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn VirtualPrinterUIDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VirtualPrinterUIDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterUIEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterUIEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobUISession2>(self)?;
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterUIEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).VirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveVirtualPrinterUIDataAvailable))
         }
-    }
-    pub fn RemoveVirtualPrinterUIDataAvailable(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPrintWorkflowJobUISession2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveVirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintWorkflowJobUISession {
@@ -2349,17 +2368,19 @@ impl PrintWorkflowVirtualPrinterSession {
             (windows_core::Interface::vtable(self).Printer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VirtualPrinterDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VirtualPrinterDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowVirtualPrinterDataAvailableEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VirtualPrinterDataAvailable)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).VirtualPrinterDataAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveVirtualPrinterDataAvailable))
         }
-    }
-    pub fn RemoveVirtualPrinterDataAvailable(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveVirtualPrinterDataAvailable)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }

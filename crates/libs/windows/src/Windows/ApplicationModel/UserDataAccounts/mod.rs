@@ -546,19 +546,20 @@ impl UserDataAccountStore {
             (windows_core::Interface::vtable(this).CreateAccountWithPackageRelativeAppIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdisplayname), core::mem::transmute_copy(packagerelativeappid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StoreChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UserDataAccountStoreChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserDataAccountStoreChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UserDataAccountStoreChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveStoreChanged))
         }
-    }
-    pub fn RemoveStoreChanged(&self, token: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(&self, userdisplayname: &windows_core::HSTRING, packagerelativeappid: &windows_core::HSTRING, enterpriseid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccount>> {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore3>(self)?;

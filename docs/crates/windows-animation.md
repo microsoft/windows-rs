@@ -11,9 +11,13 @@
 Rust types. A `Manager` owns animation `Variable`s — each a smoothly animated
 `f64`. You describe motion with a `Transition` from a `TransitionLibrary`,
 optionally group transitions into a `Storyboard`, and schedule them. The crate
-computes interpolated values only; it does not draw anything, so it pairs with any
-renderer (including [`windows-canvas`](windows-canvas.md) and
-[`windows-reactor`](windows-reactor.md)).
+computes interpolated values only; it does not draw anything. Within the UI family
+([`windows-reactor`](windows-reactor.md), [`windows-canvas`](windows-canvas.md),
+[`windows-webview`](windows-webview.md), [`windows-window`](windows-window.md)) it
+is the animation engine for **immediate-mode** rendering — you sample
+`variable.value()` each frame from a draw loop such as canvas's `animated_canvas`.
+See [*How it fits with canvas and reactor*](#how-it-fits-with-canvas-and-reactor)
+for why reactor instead animates on Composition.
 
 ## Getting started
 

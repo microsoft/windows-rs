@@ -716,17 +716,19 @@ unsafe impl Sync for UserActivityRequest {}
 pub struct UserActivityRequestManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityRequestManager {
-    pub fn UserActivityRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UserActivityRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UserActivityRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UserActivityRequestedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, UserActivityRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UserActivityRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).UserActivityRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUserActivityRequested))
         }
-    }
-    pub fn RemoveUserActivityRequested(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveUserActivityRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {

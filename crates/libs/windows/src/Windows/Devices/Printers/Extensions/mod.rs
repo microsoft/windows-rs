@@ -150,31 +150,34 @@ impl Print3DWorkflow {
     pub fn SetIsPrintReady(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIsPrintReady)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn PrintRequested<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrintRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrintRequestedEventArgs>) + Send + 'static,
     {
+        let eventhandler = <super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrintRequestedEventArgs>>::new(move |a0, a1| {
+            eventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrintRequested)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).PrintRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePrintRequested))
         }
     }
-    pub fn RemovePrintRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemovePrintRequested)(windows_core::Interface::as_raw(self), eventcookie).ok() }
-    }
-    pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn PrinterChanged<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrinterChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<Print3DWorkflowPrinterChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
+        let eventhandler = <super::super::super::Foundation::TypedEventHandler<Self, Print3DWorkflowPrinterChangedEventArgs>>::new(move |a0, a1| {
+            eventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePrinterChanged))
         }
-    }
-    pub fn RemovePrinterChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemovePrinterChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
 impl windows_core::RuntimeType for Print3DWorkflow {
@@ -345,17 +348,19 @@ impl PrintTaskConfiguration {
             (windows_core::Interface::vtable(self).PrinterExtensionContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SaveRequested<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, PrintTaskConfigurationSaveRequestedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskConfigurationSaveRequestedEventArgs>) + Send + 'static,
     {
+        let eventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintTaskConfigurationSaveRequestedEventArgs>>::new(move |a0, a1| {
+            eventhandler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveRequested)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SaveRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSaveRequested))
         }
-    }
-    pub fn RemoveSaveRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSaveRequested)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintTaskConfiguration {

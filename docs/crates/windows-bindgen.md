@@ -114,10 +114,13 @@ Style:
   structs, linked via `link!` macros. Add **`--extern` / `.extern_fns()`** to emit
   `extern { fn … }` blocks instead of `link!`. This is what `windows-sys` ships.
 - **`--minimal` / `.minimal()`** — like the default style but drops per-class
-  wrappers, inherited forwarders, handle ergonomics, and free-function wrappers,
-  and replaces event accessor pairs with a single auto-revoking wrapper. Ideal for
-  small, hand-curated binding sets (used by `windows-canvas` and `windows-reactor`).
-  Mutually exclusive with `--sys`.
+  wrappers, inherited forwarders, handle ergonomics, and free-function wrappers.
+  Ideal for small, hand-curated binding sets (used by `windows-canvas` and
+  `windows-reactor`). Mutually exclusive with `--sys`.
+
+WinRT event accessors (`add_*`/`remove_*` pairs) are always collapsed into a single
+auto-revoking `Event` wrapper, regardless of style or layout — see *Event accessors*
+below.
 
 Layout:
 
@@ -126,6 +129,23 @@ Layout:
 - **`--package` / `.package()`** — one file per namespace plus a `Cargo.toml` with
   per-namespace features; this is how the published `windows`/`windows-sys` crates
   are produced. Mutually exclusive with `--flat`.
+
+The two axes are independent, but only a few combinations are meaningful in practice.
+Every in-repo crate pairs its style with `--flat` or `--package`; the default module
+layout is for *external* consumers generating their own namespace-organized bindings.
+
+| Style + layout       | Purpose                                              | Examples                                  |
+| -------------------- | ---------------------------------------------------- | ----------------------------------------- |
+| default + `--flat`   | Full-fidelity helper crate, one bindings file        | `windows-collections`, `windows-future`   |
+| default + `--package`| The published umbrella crate                          | `windows`                                 |
+| `--sys` + `--flat`   | Raw FFI helper crate, one bindings file              | `windows-result`, `windows-registry`, …   |
+| `--sys` + `--package`| The published raw-FFI crate                           | `windows-sys`                             |
+| `--minimal` + `--flat`| Small, hand-curated binding set                     | `windows-core`, `windows-canvas`, `windows-reactor` |
+| *any* + *modules*    | Namespace-per-module output for external consumers   | *(not used in-repo)*                       |
+
+`--minimal` + `--package` is never used (minimal targets small curated sets, packages
+are the full API surface), and `--package` only ever pairs with default or `--sys` — the
+two crates the repo publishes.
 
 Other useful options:
 
@@ -158,3 +178,134 @@ produces the published `windows` and `windows-sys` crates).
 
 Verified by the dedicated test crates `test_bindgen`, `test_rdl`, and
 `test_clang` (`crates/tests/libs/{bindgen,rdl,clang}`).
+
+### Output-mode consolidation
+
+The generated output is shaped by two axes — *style* (`Default` / `Sys` /
+`Minimal`) and *layout* (modules / `--flat` / `--package`) — plus a handful of
+booleans (`--dead-code`, `--implement`, `--derive`). Historically the per-style
+divergences were expressed as ad-hoc `is_minimal()` / `is_sys()` checks scattered
+across the type writers, which made it hard to see *which* policies actually
+differ between modes and easy to introduce accidental inconsistencies. This is an
+ongoing effort to remove divergence that exists for no good reason and to make the
+remaining, intentional differences explicit.
+
+**Current work — name the style policies (done).** The individual
+code-generation policies that distinguish the styles are now named predicates on
+`Style`/`Config` rather than inline `is_minimal()` checks, so call sites read by
+intent:
+
+- `Style::emit_class_methods` — emit per-class wrapper methods.
+- `Style::emit_inherited_forwarders` — emit forwarders to inherited-interface methods.
+- `Style::emit_iterable_into_iterator` — emit the `IntoIterator` bridge to an inherited `IIterable<T>`.
+- `Style::minimal_string_input` / `minimal_string_return` — expose HSTRING params/returns as `&str` / `String`.
+- `Config::emit_runtime_name` — emit the WinRT `NAME` runtime-name constant.
+
+These are behavior-preserving: regenerating every in-repo crate produces zero
+diff. `MethodNames::for_style` was the precedent for this style-keyed centralization.
+
+**`--dead-code` visibility (centralized; broadening investigated and rejected).**
+The `--dead-code` workaround emits `pub(crate)` instead of `pub` so the compiler
+flags unused bindings ([rust-lang/rust#157961](https://github.com/rust-lang/rust/issues/157961)
+means `pub` items in a non-public module are never linted). The duplicated
+`if dead_code { pub(crate) } else { pub }` checks are now a single
+`Config::item_vis()` helper, and the existing callable sites (class/WinRT/COM
+methods, delegate `new`) route through it.
+
+We investigated **broadening** the workaround to all nameable items (structs,
+enums, consts, interfaces, …) to catch more dead code. This is **not viable as a
+blanket policy**: generated items are frequently part of a curated crate's
+*public surface*, and `pub(crate)` then fails to compile.
+
+- `windows-reactor` re-exports ~22 generated WinUI enums/structs as its public API
+  (`pub use bindings::Orientation;`, `Color`, `Thickness`, …). A `pub(crate)`
+  definition cannot be re-exported (`E0364`/`E0365`).
+- `windows-core`'s `imp` module is a *macro-export* surface: the exported
+  `implement_decl!` / interface macros reference `$crate::imp::E_POINTER` and
+  `E_NOINTERFACE`, so those generated consts must stay `pub` (`E0603`).
+
+The generator cannot know which items a hand-written crate re-exports or
+references from an exported macro, so it cannot safely demote them. The workaround
+therefore stays scoped to callables (which are invoked, not re-exported as types) —
+the original `#4609` scope. A future opt-in (e.g. a filter directive marking the
+re-exported types to keep `pub`) could revisit this, but it is not worth the
+complexity today.
+
+**Event accessors (universal).** Every WinRT `add_X`/`remove_X` accessor pair is
+collapsed into a single method `X<F>(handler) -> Result<EventRevoker>`: the closure
+is taken directly (no `TypedEventHandler::new` wrapper), and the returned
+[`EventRevoker`] auto-calls the paired `remove_X` slot on drop (call `.forget()` or
+`.into_token()` to opt out). This was originally gated to non-`--package` builds —
+the published `windows` crate kept the raw `add_X`/`remove_X` + token pattern — but
+that gate has been removed so all layouts share one event-accessor shape. The `_Impl`
+producer side is unaffected: implementing an event source still requires both
+`add_X` and `remove_X`. Making this universal is a breaking change to the `windows`
+crate's public event API (e.g. `widget.Click(&TypedEventHandler::new(|s, a| { …;
+Ok(()) }))?` becomes `let _revoker = widget.Click(|s, a| { … })?;`), but it removes
+the last layout-driven divergence in method emission.
+
+[`EventRevoker`]: https://docs.rs/windows-core/latest/windows_core/struct.EventRevoker.html
+
+**Name the sys policies (started).** As with the minimal predicates, the recurring
+`is_sys()` divergences are becoming named `Style` predicates so the FFI policy reads
+by intent. Done so far:
+
+- `Style::derive_std_traits` — derive `Default`/`Debug`/`PartialEq` (on top of the
+  always-emitted `Copy`/`Clone`); sys emits bare value types. Used by the WinRT
+  value-type writers (`types/struct.rs`, `types/enum.rs`) and the Win32 `cpp_enum.rs`.
+- `Style::emit_core_traits` — emit the `windows-core` trait block (type-kind,
+  runtime signature, `NAME`); sys has no `windows-core` dependency so it omits them.
+  Used by `types/struct.rs` and `types/enum.rs`.
+- `Style::emit_bare_typedef` (`is_sys() || is_minimal()`) — emit handle structs and
+  unscoped enums as a bare `pub type X = <underlying>` alias rather than a newtype
+  wrapper. This is a non-obvious *cross-style* policy that was previously spelled out
+  inline (with an explanatory comment) in `cpp_handle.rs`, `cpp_enum.rs`, and
+  `cpp_const.rs`; naming it makes the relationship explicit and greppable.
+
+Behavior-preserving: regenerating every in-repo crate produces zero diff. The rest of
+the Win32 `cpp_*` family still uses inline `is_sys()` checks where the condition is
+compound and site-specific (struct copyability/`Drop` wrapping, flag ops,
+`link!`-vs-`extern` function emission, raw-pointer interface representation) — a
+larger, separate follow-up.
+
+**Deduplicate recurring layout/minimal idioms (done).** Beyond the style predicates,
+two code blocks recurred *verbatim* across the type writers and are now single helpers:
+
+- `Config::doc_hidden_in_package` — the `#[doc(hidden)]`-when-`--package` attribute on
+  raw vtbl structs, previously copied identically into `types/interface.rs`,
+  `types/cpp_interface.rs`, and `types/delegate.rs`.
+- `Config::write_value_name_const` — the `RuntimeType::NAME` constant for value types
+  (skipped in minimal mode), previously duplicated — comment and all — between
+  `types/struct.rs` and `types/enum.rs`.
+
+**Review conclusion.** A full sweep of the remaining `is_sys()` / `is_minimal()` /
+`is_package()` / `is_flat()` branches confirms the *cleanly-recurring, identical*
+divergences have now been named or deduplicated. What remains is intentional and
+site-specific: structural layout dispatch (`Config::write`, `paths.rs`,
+`package_writer.rs`), per-type-kind dependency-closure computation (the `--package`
+`cfg` blocks in `class`/`interface`/`cpp_interface`, which differ by type kind), and
+one-off behavioral differences (delegate invoke signatures, struct field
+snake-casing, class `Deref` target, the compound `cpp_*` `is_sys()` sites noted above).
+These are not duplication-for-no-reason; collapsing them further would obscure genuine
+behavioral intent rather than clarify it.
+
+**Future work.**
+
+- *`--extern` is a deliberate escape hatch — keep it.* The `--extern`
+  (`Style::Sys { extern_fns: true }`) option emits `extern` declarations instead of
+  `link!` macros. It is unused in-repo because every windows-rs crate links via
+  `raw-dylib`, but [#3828](https://github.com/microsoft/windows-rs/pull/3828) added it
+  specifically *"if your build does not yet support `raw-dylib` and requires implicit
+  linking with lib files"* — i.e. for external consumers on toolchains without
+  `raw-dylib`. That PR also unified three copies of the function-signature codegen into
+  one, so `--sys`, function-pointer types, `link!` macros, and `extern` blocks all share
+  one ABI/FFI signature implementation. Removing `--extern` would regress that use case
+  and is **not** recommended; "unused in-repo" is expected, not dead.
+- *Default module layout.* Likewise unused in-repo (every caller passes `--flat` or
+  `--package`), but it is the original namespace-to-module output and the natural shape
+  an external consumer generating their own bindings would want. Retiring it is a
+  breaking change to the published API with a plausible external audience — a maintainer
+  decision, not an in-repo cleanup.
+- *Finish naming the sys policies.* Extend the named-predicate treatment to the
+  remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
+  `link!`-vs-`extern` function emission, raw-pointer interface representation).

@@ -232,17 +232,19 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
 pub struct XboxLiveDeviceAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveDeviceAddress {
-    pub fn SnapshotChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SnapshotChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SnapshotChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).SnapshotChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSnapshotChanged))
         }
-    }
-    pub fn RemoveSnapshotChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveSnapshotChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetSnapshotAsBase64(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
@@ -343,17 +345,19 @@ unsafe impl Sync for XboxLiveDeviceAddress {}
 pub struct XboxLiveEndpointPair(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPair {
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, XboxLiveEndpointPairStateChangedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveEndpointPairStateChangedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, XboxLiveEndpointPairStateChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
         }
-    }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
@@ -606,17 +610,19 @@ unsafe impl Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 pub struct XboxLiveEndpointPairTemplate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPairTemplate {
-    pub fn InboundEndpointPairCreated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InboundEndpointPairCreated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, XboxLiveInboundEndpointPairCreatedEventArgs>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<XboxLiveInboundEndpointPairCreatedEventArgs>) + Send + 'static,
     {
+        let handler = <super::super::Foundation::TypedEventHandler<Self, XboxLiveInboundEndpointPairCreatedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InboundEndpointPairCreated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).InboundEndpointPairCreated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveInboundEndpointPairCreated))
         }
-    }
-    pub fn RemoveInboundEndpointPairCreated(&self, token: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveInboundEndpointPairCreated)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn CreateEndpointPairDefaultAsync<P0>(&self, deviceaddress: P0) -> windows_core::Result<windows_future::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where

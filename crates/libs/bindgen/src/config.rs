@@ -57,6 +57,42 @@ impl Config<'_> {
         }
     }
 
+    /// Returns `true` if the WinRT `RuntimeType::NAME` constant should be emitted
+    /// for the given interface. The constant is only needed for interfaces that
+    /// are implemented (for `GetRuntimeClassName`); minimal bindings omit it for
+    /// non-implemented interfaces, while other styles always emit it.
+    pub fn emit_runtime_name(&self, name: TypeName) -> bool {
+        !self.bindgen.style.is_minimal() || self.should_implement(name, false)
+    }
+
+    /// Emits the `RuntimeType::NAME` constant for a value type (struct/enum).
+    /// Value types are never implemented as COM objects, so NAME is only useful
+    /// when the type appears as a generic argument in an implemented
+    /// parameterized interface; minimal bindings skip it (the trait default —
+    /// an empty name — is sufficient).
+    pub fn write_value_name_const(&self, type_name: TypeName) -> TokenStream {
+        if self.bindgen.style.is_minimal() {
+            quote! {}
+        } else {
+            let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
+            quote! {
+                const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
+            }
+        }
+    }
+
+    /// Returns the visibility to emit on a generated item. With `--dead-code`
+    /// this is `pub(crate)` so the compiler's dead-code lint can flag unused
+    /// bindings (a `pub` item in a non-public module is not linted — see
+    /// <https://github.com/rust-lang/rust/issues/157961>); otherwise `pub`.
+    pub fn item_vis(&self) -> TokenStream {
+        if self.bindgen.dead_code {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        }
+    }
+
     /// Returns `true` if the given method should be emitted (not demoted).
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
         // If `--implement` requests this interface, keep all methods.

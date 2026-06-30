@@ -233,17 +233,19 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(self).NetworkReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> windows_core::Result<i64>
+    pub fn AvailableNetworksChanged<F>(&self, args: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
+        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
+        let args = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            args(a0, a1);
+            Ok(())
+        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AvailableNetworksChanged)(windows_core::Interface::as_raw(self), args.param().abi(), &mut result__).map(|| result__)
+            let token__ = (windows_core::Interface::vtable(self).AvailableNetworksChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&args), &mut result__).map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAvailableNetworksChanged))
         }
-    }
-    pub fn RemoveAvailableNetworksChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAvailableNetworksChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn ConnectAsync<P0>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
