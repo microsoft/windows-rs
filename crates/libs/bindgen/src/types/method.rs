@@ -8,6 +8,23 @@ pub struct Method {
     pub dependencies: TypeMap,
 }
 
+// Only the `--package` layout emits per-method `#[cfg]` gates: a method may depend on
+// a narrower feature set than its interface, so it is gated independently. Every other
+// layout pulls in the whole interface together and needs no per-method gate. Shared by
+// the WinRT (`Method`) and Win32/COM (`CppMethod`) writers.
+pub fn write_method_cfg(
+    dependencies: &TypeMap,
+    config: &Config,
+    parent: &Cfg,
+    not: bool,
+) -> TokenStream {
+    if !config.bindgen.layout.is_package() {
+        return quote! {};
+    }
+
+    parent.difference(dependencies, config).write(config, not)
+}
+
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type], reader: &Reader) -> Self {
         let signature = def.method_signature("", generics, reader);
@@ -21,13 +38,7 @@ impl Method {
     }
 
     pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.bindgen.layout.is_package() {
-            return quote! {};
-        }
-
-        parent
-            .difference(&self.dependencies, config)
-            .write(config, not)
+        write_method_cfg(&self.dependencies, config, parent, not)
     }
 
     pub fn write_upcall(&self, inner: TokenStream, this: bool, config: &Config) -> TokenStream {

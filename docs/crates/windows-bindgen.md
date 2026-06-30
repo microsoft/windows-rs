@@ -309,3 +309,73 @@ behavioral intent rather than clarify it.
 - *Finish naming the sys policies.* Extend the named-predicate treatment to the
   remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
   `link!`-vs-`extern` function emission, raw-pointer interface representation).
+
+### Unifying the WinRT and Win32/COM type system fork
+
+Above the output-mode axes sits a second, deeper fork: WinRT vs. non-WinRT
+(`cpp_*`) code generation. There is exactly **one** classification point —
+`winmd/reader.rs` keying on `TypeAttributes::WindowsRuntime` — and everything below
+the `Type` enum (`types/mod.rs`) is shared substrate: `TypeMap`, `TypeTree`,
+`Signature`, `Param`, `Dependencies`, and crucially `remap()`, which already
+collapses many Win32 metadata types onto WinRT-equivalent primitives
+(BSTR/HSTRING → `String`, `HRESULT`, `IUnknown`, `GUID`, `IInspectable` → `Object`,
+`EventRegistrationToken` → `i64`, `D2D_MATRIX_3X2_F` → `Matrix3x2`, …).
+
+The fork shows up as **parallel `Type` variants** — `Interface`/`CppInterface`,
+`Enum`/`CppEnum`, `Struct`/`CppStruct`, `Delegate`/`CppDelegate`, plus COM-only
+`CppFn`/`CppConst`/`CppHandle` — each forcing an N-arm match across every dispatch
+site (`sort_key`, `write_name`, `write`, `combine`, …). The conceptual key is that
+**WinRT is COM + `IInspectable` + metadata signatures**: a WinRT `Interface` is a
+`CppInterface` plus `{ IInspectable base, forced-HRESULT return policy, generics,
+SIGNATURE, activation }`. That argues for *configuration, not forking*.
+
+**Essential divergence (must stay distinct):**
+
+- *Return policy.* WinRT vtbl methods are always `HRESULT` and `method.rs` always
+  wraps `Result`; COM preserves raw return types, which is why `cpp_method.rs`
+  carries a `ReturnHint` enum (Query / ResultValue / ResultVoid / ReturnValue /
+  ReturnStruct). This is the deepest real axis.
+- *Generics + SIGNATURE/RuntimeType* — WinRT-only.
+- *`Delegate` vs `CppDelegate`* — a WinRT delegate is a GUID'd COM interface with
+  `Invoke`; a COM "delegate" is a bare `extern fn` pointer. Different ABI shapes;
+  do not merge.
+- *`CppFn`/`CppConst`/`CppHandle`* — no WinRT analog (free exports, freestanding
+  constants, `DECLARE_HANDLE` newtypes).
+
+**Incidental duplication (safe to unify, ~600–800 lines):**
+`MethodOrName`/`CppMethodOrName`, `get_methods`/`has_skipped_methods`, the vtable
+struct writer, and the `_Impl` trait + `Vtbl::new()` thunk writer are near-identical
+between `interface.rs` and `cpp_interface.rs`; the Enum/Struct generators differ only
+in WinRT extras.
+
+**The proposals, in priority order:**
+
+1. *Unify the incidental duplication behind a model struct (do first; pure refactor,
+   low risk).* Extract one interface writer parameterized by an `InterfaceModel
+   { base: IUnknown | IInspectable, return_policy, runtime: Option<Signature>,
+   generics }`; collapse `Interface`/`CppInterface`, `Enum`/`CppEnum`,
+   `Struct`/`CppStruct`. The safety net is decisive: generated output is committed and
+   CI fails on any diff, so the refactor is proven correct by regenerating to an empty
+   diff. Keep `Delegate`/`CppDelegate` and the COM-only variants separate.
+2. *Make return-policy the single method axis (enables the rest).* Unify `method.rs`
+   and `cpp_method.rs` around one signature model where WinRT is the degenerate
+   "always HRESULT" case of `cpp_method`'s richer `ReturnHint`. This also lets COM
+   methods inherit WinRT minimal-mode string ergonomics (accept `&str`, return
+   `String`) that `cpp_method` currently lacks.
+3. *Apply the event transform to COM (needs more investigation first).* COM already
+   gets most WinRT ergonomics through shared code — property naming sugar
+   (`get_X` → `X()`, `put_X` → `SetX()`), `_Impl` traits, IID-based `cast`, the
+   `Param` conversion trait, HRESULT → `Result`. The one big missing piece is the
+   event transform: `method.rs` detects `add_`/`remove_` pairs and emits a single
+   `X(handler) -> Result<EventRevoker>`, and `windows_core::EventRevoker` is already
+   COM-agnostic (it stores an `IUnknown`, an `i64` token, and a
+   `remove: fn(*mut c_void, i64) -> HRESULT`). windows-webview hand-writes ~1,400
+   lines of `subscription!`/`EventRegistration`/`event_handler!` glue to recover this.
+   Applying it to COM requires confirming the COM `add_`/`remove_` shape matches the
+   WinRT one (e.g. token out-param vs. return, `SpecialName` is not set in Win32
+   metadata so detection must be structural) — easier once 1 and 2 have streamlined
+   the method model.
+4. *Extend remaining minimal-mode ergonomics to COM.* `IntoIterator` for COM
+   enumerators (`IEnumXxx`'s Next/Skip/Reset/Clone) mirroring `IIterable` →
+   `BufferedIterator`, and broader string in/out sugar, leveraging the existing
+   `remap()` substrate.

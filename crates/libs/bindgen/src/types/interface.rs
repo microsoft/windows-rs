@@ -9,10 +9,27 @@ pub enum InterfaceKind {
     Base,
 }
 
+// Shared by the WinRT (`Interface`/`Method`) and Win32/COM (`CppInterface`/`CppMethod`)
+// generators: a vtable slot is either a fully-projected method or an opaque,
+// name-only placeholder (filtered out or missing dependencies).
 #[derive(Clone, Debug)]
-pub enum MethodOrName {
-    Method(Method),
+pub enum MethodOrName<M> {
+    Method(M),
     Name(MethodDef),
+}
+
+// A method collapses to an opaque, name-only vtable slot when it is demoted by a
+// method-level filter, or (outside minimal mode) when its dependencies are not all
+// included. Shared by both the WinRT and COM interface generators so the policy that
+// decides `Method` vs `Name` lives in one place.
+pub fn method_is_skipped(
+    def: MethodDef,
+    type_name: TypeName,
+    dependencies: &TypeMap,
+    config: &Config,
+) -> bool {
+    (!config.bindgen.style.is_minimal() && !dependencies.included(config))
+        || !config.includes_method(type_name, def)
 }
 
 #[derive(Clone, Debug)]
@@ -53,16 +70,13 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<Method>> {
         let type_name = self.def.type_name();
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
-                    MethodOrName::Name(method.def)
-                } else if !config.includes_method(type_name, def) {
-                    // Method-level filter demoted this slot to opaque.
+                if method_is_skipped(def, type_name, &method.dependencies, config) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -79,8 +93,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
-                || !config.includes_method(type_name, def)
+            method_is_skipped(def, type_name, &method.dependencies, config)
         })
     }
 
@@ -108,7 +121,7 @@ impl Interface {
 
             // Drop trailing usize slots — nothing indexes past the last real
             // method, so they waste space and compile time.
-            let methods_for_vtbl: &[MethodOrName] = {
+            let methods_for_vtbl: &[MethodOrName<Method>] = {
                 let last_real = methods
                     .iter()
                     .rposition(|m| matches!(m, MethodOrName::Method(_)));
