@@ -56,98 +56,6 @@ impl CppInterface {
         write_full_cfg(self, config)
     }
 
-    // A "delegate-shaped" handler interface: `IUnknown`-derived with exactly one
-    // method, named `Invoke`, that maps to `ReturnHint::ResultVoid`
-    // (`HRESULT Invoke(..)` with no out-param). COM event/completion handlers
-    // have this shape, and bindgen gives them the same closure-accepting
-    // constructor it generates for WinRT delegates, in every mode. In `--minimal`
-    // the closure box replaces the `_Impl` producer trait; in non-minimal it is
-    // additive (the `_Impl` trait is retained for back-compat).
-    fn delegate_method(&self, config: &Config) -> Option<CppMethod> {
-        if self.base_interfaces(config.reader) != [Type::IUnknown] {
-            return None;
-        }
-
-        let mut methods = self.def.methods();
-        let only = methods.next()?;
-        if methods.next().is_some() || only.name() != "Invoke" {
-            return None;
-        }
-
-        let method = CppMethod::new(only, self.def.namespace(), config.reader);
-
-        if method.return_hint != ReturnHint::ResultVoid {
-            return None;
-        }
-
-        if method_is_skipped(only, self.def.type_name(), &method.dependencies, config) {
-            return None;
-        }
-
-        Some(method)
-    }
-
-    // Generates a closure-accepting constructor for a delegate-shaped handler
-    // interface, mirroring `Delegate::write` but reusing the COM `_Vtbl` already
-    // emitted by `write()`. Reuses `windows_core::imp::DelegateBox` (its
-    // `QueryInterface` claims `IAgileObject`/`IMarshal` exactly as
-    // `implement_decl!` does, so this is a faithful drop-in for hand-written
-    // handler adapters). Lets consumers write `IXHandler::new(|sender, args| ..)`
-    // instead of an `implement`-based adapter struct. Like the WinRT delegate, the
-    // closure returns nothing and the box returns `S_OK` under `--minimal`, and
-    // returns `Result<()>` with `Fn + Send + 'static` otherwise.
-    fn write_closure_ctor(&self, config: &Config, method: &CppMethod) -> TokenStream {
-        let name = to_ident(self.def.name());
-        let vtbl_name = self.write_vtbl_name(config);
-        let boxed: TokenStream = format!("{}Box", self.def.name()).parse().unwrap();
-        let (class_cfg, _) = self.write_cfg(config);
-        // Gate the constructor on the method's dependency cfg — the same gate the
-        // vtbl slot uses — so it is absent when that slot is a `usize` placeholder.
-        let cfg = method.write_cfg(config, &class_cfg, false);
-        let vis = config.item_vis();
-
-        let fn_signature = method.write_closure_fn_signature(config);
-        let send = if config.bindgen.style.is_minimal() {
-            quote! {}
-        } else {
-            quote! { + Send }
-        };
-        let fn_constraint = quote! { F: Fn #fn_signature #send + 'static };
-        let invoke_vtbl = method.write_abi(config, true);
-        let invoke_upcall = method.write_closure_upcall(config);
-
-        quote! {
-            #cfg
-            impl #name {
-                #vis fn new<#fn_constraint>(invoke: F) -> Self {
-                    let com = windows_core::imp::DelegateBox::<Self, F>::new(&#boxed::<F>::VTABLE, invoke);
-                    unsafe {
-                        core::mem::transmute(windows_core::imp::box_new(com))
-                    }
-                }
-            }
-            #cfg
-            struct #boxed<#fn_constraint>(core::marker::PhantomData<fn() -> F>);
-            #cfg
-            impl<#fn_constraint> #boxed<F> {
-                const VTABLE: #vtbl_name = #vtbl_name {
-                    base__: windows_core::IUnknown_Vtbl {
-                        QueryInterface: windows_core::imp::DelegateBox::<#name, F>::QueryInterface,
-                        AddRef: windows_core::imp::DelegateBox::<#name, F>::AddRef,
-                        Release: windows_core::imp::DelegateBox::<#name, F>::Release,
-                    },
-                    Invoke: Self::Invoke,
-                };
-                unsafe extern "system" fn Invoke #invoke_vtbl {
-                    unsafe {
-                        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox::<#name, F>);
-                        #invoke_upcall
-                    }
-                }
-            }
-        }
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let methods = self.get_methods(config);
 
@@ -207,16 +115,6 @@ impl CppInterface {
             result
         } else {
             let name = to_ident(self.def.name());
-
-            // Delegate-shaped handler interfaces get a closure constructor
-            // (`new`). Under `--minimal` it replaces the `_Impl` producer trait
-            // (the closure box is the better producer; the interface must still be
-            // listed in `--implement` so `Invoke` survives dead-code elimination).
-            // In non-minimal mode the `new` is additive — the `_Impl` trait is
-            // retained for back-compat.
-            let delegate_method = self.delegate_method(config);
-            let suppress_impl_for_delegate =
-                delegate_method.is_some() && config.bindgen.style.is_minimal();
 
             let mut result = if has_unknown_base {
                 if let Some(guid) = self.def.guid_attribute() {
@@ -312,7 +210,7 @@ impl CppInterface {
                 });
             }
 
-            if config.should_implement(self.def.type_name(), true) && !suppress_impl_for_delegate {
+            if config.should_implement(self.def.type_name(), true) {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
 
                 let cfg = if config.bindgen.layout.is_package() {
@@ -490,10 +388,6 @@ impl CppInterface {
                 }
             });
                 }
-            }
-
-            if let Some(method) = &delegate_method {
-                result.combine(self.write_closure_ctor(config, method));
             }
 
             result

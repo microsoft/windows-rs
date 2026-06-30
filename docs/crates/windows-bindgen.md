@@ -357,8 +357,8 @@ two `write()` bodies gives the realistic numbers:
   (`emit_vtbl_methods`, `emit_impl_methods`, `emit_trait_methods`). The rest is
   genuinely platform-specific: WinRT-only RuntimeType/`SIGNATURE`, generics, inherited
   forwarders, `IntoIterator`/IIterable, RuntimeName (~145 lines); COM-only
-  `has_unknown_base` branching, `ScopedHeap` non-`IUnknown` wrapping, `Deref`-to-base,
-  and the delegate closure ctor (~135 lines).
+  `has_unknown_base` branching, `ScopedHeap` non-`IUnknown` wrapping, and
+  `Deref`-to-base (~135 lines).
 - *Enum (`enum.rs` vs `cpp_enum.rs`).* ~**60%** unifiable behind a small parameterized
   writer (the bitwise-operator block and scalar-constant emission are effectively
   identical); the remainder is WinRT trait impls vs COM scoped/`#[repr]` attribute
@@ -471,153 +471,28 @@ two `write()` bodies gives the realistic numbers:
    caller-provided `*mut Option<T>` and returning `Result<()>` (preserving both the
    HRESULT-as-`Result` and present/absent), so a generalized "optional/`S_FALSE`
    out-param" hint would follow an established shape rather than a new one.
-3. *Apply the event transform to COM (implemented for i64-token events).* COM already
-   gets most WinRT ergonomics through shared code — property naming sugar (`get_X` → `X()`,
-   `put_X` → `SetX()`), `_Impl` traits, IID-based `cast`, the `Param` conversion
-   trait, HRESULT → `Result`. The one big missing piece was the event transform:
-   `method.rs` detects `add_`/`remove_` pairs and emits a single
-   `X(handler) -> Result<EventRevoker>`, and `windows_core::EventRevoker` is already
-   COM-agnostic (it stores an `IUnknown`, an `i64` token, and a
-   `remove: fn(*mut c_void, i64) -> HRESULT`). This is now mirrored in `cpp_method.rs`.
+3. *COM event transform + closure-ctor (prototyped, deliberately not kept).* COM
+   already gets most WinRT ergonomics through genuinely *shared* code — property
+   naming sugar (`get_X` → `X()`, `put_X` → `SetX()`), `_Impl` traits, IID-based
+   `cast`, the `Param` conversion trait, HRESULT → `Result`. Two further WinRT
+   ergonomics were prototyped for the COM path: collapsing `add_`/`remove_` event
+   pairs into a single `X(handler) -> Result<EventRevoker>`, and giving
+   delegate-shaped handler interfaces (`IUnknown` base, single `Invoke`) a
+   closure-accepting `new()` mirroring `Delegate::write`. Both were reverted.
 
-   *Structural equivalence (confirmed).* The COM `add_`/`remove_` shape is identical
-   to the WinRT one. A WebView2 accessor pair generates
-   `add_X(handler: P0) -> Result<i64>` (HRESULT with the `EventRegistrationToken`
-   token as an `[out, retval]`) plus `remove_X(token: i64) -> Result<()>` — the same
-   token-in/token-out vtable layout WinRT uses, and exactly the `(source, i64,
-   fn(*mut c_void, i64) -> HRESULT)` triple `EventRevoker::new` already consumes. The
-   *only* shape difference is the handler argument: WinRT's `add_` takes a
-   `Type::Delegate`, COM's takes a handler *interface* (e.g.
-   `ICoreWebView2NavigationStartingEventHandler`).
-
-   *What COM gets and does not get.* The realized win is the **revoker collapse**:
-   `cpp_method.rs` detects the pair, suppresses `remove_X` in the caller surface
-   (the vtable struct and `_Impl` trait still carry every slot), and emits
-   `X(handler: P0) -> Result<EventRevoker>` reusing `windows_core::EventRevoker`. This
-   removes the per-event token/`remove` plumbing entirely. What it does *not* get is
-   WinRT's closure sugar: COM consumers still pass a COM object implementing the
-   handler interface, because the closure-to-handler adapter (`event_handler!`) and the
-   args-wrapper newtypes (`NavigationStartingArgs`, etc.) encode app-level semantics
-   bindgen cannot synthesize (the handler `Invoke` signature varies — `sender`+`args`,
-   `errorcode`+`result`, read-from-sender). So `event_handler!` and the wrapper types
-   stay hand-written; only the registration plumbing is absorbed.
-
-   *Detection (structural, post-remap).* Win32 metadata sets no `SpecialName` on these
-   methods, and the strongest signal — the `EventRegistrationToken` out-param type — is
-   remapped to `i64` early (in `Type::to_type`, before `CppMethod::new` runs), so the
-   classifier only sees `i64`. The implementation uses a purely structural detector
-   (`is_event_add_shape`): `add_` prefix + HRESULT return + two params + `[retval]` +
-   first param is an interface (the handler) + second derefs to `i64` (the token),
-   paired with a sibling `remove_<suffix>(i64)` that itself satisfies the add shape.
-   Keeping the early remap (rather than sniffing the pre-remap type name) avoids
-   disrupting WinRT `_Impl`/vtable output; the structural shape is deterministic in
-   practice.
-
-   *Blast radius (measured).* Regenerating every binding showed the transform touches
-   **only** `windows-webview` (its `add_`/`remove_` pairs collapse; `bindings.rs`
-   −246/+172). The published `windows`/`windows-sys` crates are **unchanged**: their one
-   COM `add_`/`remove_` event (`ISpellChecker::add_SpellCheckerChanged`) uses a `u32`
-   *cookie*, not an `EventRegistrationToken`/`i64` token, so its `remove` slot
-   `fn(…, u32)` is incompatible with `EventRevoker`'s `i64` and the detector correctly
-   skips it. The `u32`-cookie idiom was deliberately *not* handled (it is not "just like
-   WinRT"). canvas/time/numerics/reactor have no such events. So universal rollout is
-   not a breaking change to the `windows` crate today; only `--minimal` COM crates with
-   `EventRegistrationToken` events (webview, future DirectComposition-style APIs) are
-   affected.
-
-   *Consumer effect (windows-webview).* The collapse let the crate drop its entire
-   hand-written subscription layer: the `EventRegistration` RAII type is deleted and
-   every `on_*` returns `windows_core::EventRevoker` directly. The `subscription!` macro
-   shrank to "build the `handler.rs` adapter, call `self.0.X(&handler)`". The one compound
-   case — `on_web_resource_requested`, which also manages a URI filter — moved the filter
-   lifetime into the handler adapter (register on create, remove in its `Drop`), so it too
-   returns a plain `EventRevoker` and a single revoke tears down both handler and filter.
-
-   *Next step: generating the closure adapter (the harder half).* The revoker collapse
-   removed the registration plumbing but left the **closure adapter** (`event_handler!`
-   in `handler.rs`) hand-written: the per-event `implement_decl!` struct holding a
-   `Box<dyn FnMut>` whose `Invoke` forwards to the closure. The question is whether
-   bindgen can synthesize that too. Surveying every WebView2 handler `Invoke` signature
-   shows they fall into exactly **two metadata-recognizable families**: (a) *event
-   handlers*, uniformly `Invoke(sender: Ref<S>, args: Ref<A>) -> HRESULT` (`S` is the
-   raising object; `A` is a real args interface or `IUnknown`), and (b) *completion
-   handlers*, `Invoke(errorcode: HRESULT, result: Ref<T>) -> HRESULT` (the async-result
-   shape). Both are single-method interfaces, so a delegate-shaped detector (one
-   `Invoke` method, `IUnknown` base) recognizes them — the same structural-detection
-   approach used for the add/remove pair.
-
-   *Why it is generatable.* WinRT delegates already get a closure constructor:
-   `Delegate::write` emits `new<F>(invoke: F) -> Self` backed by the reusable
-   `windows_core::imp::DelegateBox<I, F>` runtime helper, which supplies the shared
-   `QueryInterface`/`AddRef`/`Release` and boxes the closure. COM handler interfaces are
-   modeled as plain `CppInterface`s, so they never get it — but `DelegateBox` is generic
-   over any `Interface`, and crucially its `QueryInterface` claims `IAgileObject`/
-   `IMarshal` *exactly as `implement_decl!` does*, so reusing it for a COM handler is a
-   faithful drop-in, not an agility change. Under `--minimal` the generated `new` is
-   `F: Fn + 'static` (no `Send`), matching webview's single-threaded UI usage.
-
-   *The passthrough-vs-projection boundary (the wall).* What bindgen can synthesize
-   *correctly* from metadata is only the **raw passthrough** closure — `Fn(Ref<S>,
-   Ref<A>) -> Result<()>` — handing the user the sender and args interfaces verbatim.
-   That is exactly what WinRT auto-generates, and it works there because WinRT events are
-   *uniformly* args-bearing (`TypedEventHandler<TSender, TArgs>`), so passthrough is
-   always meaningful. WebView2 breaks the uniformity: several events carry **no args
-   interface** (`IUnknown`), so the payload must be recovered from the *sender* by
-   reading a specific property — `DocumentTitleChanged` → `sender.DocumentTitle()`
-   (`String`), `ContainsFullScreenElementChanged` → `sender.ContainsFullScreenElement()`
-   (`bool`) — or the *sender itself* is the payload (`DownloadOperation`'s
-   `StateChanged`/`BytesReceivedChanged`). Metadata gives no signal about which property
-   to read or that the sender is the value, so those projections are irreducibly
-   hand-written. The ergonomic args newtypes (`NavigationStartingArgs`, …) are likewise
-   a style choice bindgen can't infer.
-
-   *So the realistic landing is two-tier.* (1) bindgen generates the **adapter
-   plumbing** — a `new<F: Fn(sender, args) -> Result<()>>` closure constructor for every
-   delegate-shaped handler interface, eliminating the `implement_decl!` boilerplate; (2)
-   webview keeps only thin per-event **shaping** — a one-line closure for the args-less /
-   sender-projection events, and nothing at all for events happy to expose the raw args
-   interface. `event_handler!` shrinks from ~12 full adapter structs to a handful of
-   projection shims plus whatever wrapper newtypes the crate chooses to keep.
-
-   *Attempt + measured effectiveness (implemented).* Prototyped end to end. The
-   codegen lives in `cpp_interface.rs`: `delegate_method()` detects a delegate-shaped
-   handler (`--minimal`, base is exactly `[IUnknown]`, a single method named `Invoke`
-   that classifies as `ReturnHint::ResultVoid`) and `write_closure_ctor()` emits the
-   closure constructor — `IXHandler::new<F: Fn(..) + 'static>(invoke: F)` plus the
-   `XBox` struct / `VTABLE` / `Invoke` thunk — reusing `windows_core::imp::DelegateBox`,
-   exactly mirroring `Delegate::write`'s minimal path. Two small `CppMethod` helpers
-   (`write_closure_fn_signature` / `write_closure_upcall`) supply the `Fn(..)` argument
-   list and the upcall, sharing the existing produce-type/invoke-arg logic. For a
-   delegate-shaped interface the `_Impl` producer trait is suppressed (the closure box is
-   the better producer), but the interface stays in `--implement` so its `Invoke` method
-   survives dead-code elimination. The transform is inert outside this exact shape:
-   regenerating `windows`/`windows-sys` (`tool_package`), `windows-reactor`, and the
-   `tool_bindings` crates (canvas/time/numerics/…) produced a zero-byte diff.
-
-   On the consumer side every WebView2 handler interface — 24 of them, event and
-   completion alike — now gets a generated `new`, so `windows-webview` deleted all of its
-   `implement_decl!`-based adapter structs and `_Impl` impls. `handler.rs` shrank from a
-   struct + `implement_decl!` + `create` + `Invoke` impl per handler to a thin `create`
-   that bridges the public `FnMut`/`FnOnce` closure onto the generated `Fn` constructor
-   (a `RefCell` for the repeatable events, a `Cell<Option<_>>` for the one-shot
-   completion handlers) and projects the sender/args as before. Even the compound
-   `WebResourceRequested` handler — captured environment plus a URI filter removed on
-   release — moved onto the generated `new`, with the filter lifetime carried by a
-   `FilterGuard` captured in the closure (its `Drop` runs when the box is released). The
-   `event_handler!` macro survives only as a ~10-line projection-shim generator; the
-   sender-read / sender-as-payload / args-newtype cases stay hand-written exactly as the
-   "projection wall" predicted. `test_webview` passes 27/27 (including the three
-   `Protocol_*` filter-lifetime fixtures).
-
-   *Honest tradeoff.* This is a **unification** win, not a line-count win. Hand-written
-   webview glue dropped ~100 lines and lost its entire COM-implementing layer, but the
-   generated `bindings.rs` grew ~456 lines: the `DelegateBox` box (struct + full
-   QI/AddRef/Release vtable + `Invoke` thunk + `new`, with the `F: Fn(..) + 'static`
-   bound repeated and rustfmt-expanded) is more verbose per handler than the `_Impl`
-   trait it replaces. That is the same cost WinRT already pays for every delegate, so the
-   COM path now simply conforms to it. The payoff is that closure ergonomics for COM
-   handlers are no longer hand-rolled per crate — any `--minimal` COM handler interface
-   gets them for free, generated identically to WinRT delegates.
+   The reason is the priority order: these mirrored the WinRT behavior by adding a
+   **parallel COM codegen path** (`CppEvent` detection + event-collapse emit, plus
+   `delegate_method`/`write_closure_ctor` and closure signature/upcall helpers) that
+   *duplicated* `method.rs`/`delegate.rs` rather than sharing it — only the runtime
+   types (`EventRevoker`, `DelegateBox`) were reused. That is more bindgen edge
+   cases, not fewer, and the only consumer was `windows-webview`: the published
+   `windows`/`windows-sys` crates have no `EventRegistrationToken`-based COM events
+   (their one COM event, `ISpellChecker`, uses a `u32` cookie), and no other crate
+   has delegate-shaped COM handlers. Mirroring-by-duplication to serve a single crate
+   runs against the goal of *fewer* edge cases, so `windows-webview` keeps its own
+   small `event_handler!`/`EventRegistration` glue instead — the complexity stays in
+   the one crate that needs it. If these are revisited, the bar is a *single* shared
+   event/delegate generator driven from both type systems, not a second copy.
 4. *Extend remaining minimal-mode ergonomics to COM.* `IntoIterator` for COM
    enumerators (`IEnumXxx`'s Next/Skip/Reset/Clone) mirroring `IIterable` →
    `BufferedIterator`, and broader string in/out sugar, leveraging the existing

@@ -220,26 +220,3 @@ impl IDeviceRequestCompletionCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDeviceRequestCompletionCallback {}
-impl IDeviceRequestCompletionCallback {
-    pub fn new<F: Fn(windows_core::HRESULT, u32) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IDeviceRequestCompletionCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-struct IDeviceRequestCompletionCallbackBox<F: Fn(windows_core::HRESULT, u32) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-impl<F: Fn(windows_core::HRESULT, u32) -> windows_core::Result<()> + Send + 'static> IDeviceRequestCompletionCallbackBox<F> {
-    const VTABLE: IDeviceRequestCompletionCallback_Vtbl = IDeviceRequestCompletionCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<IDeviceRequestCompletionCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<IDeviceRequestCompletionCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<IDeviceRequestCompletionCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IDeviceRequestCompletionCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&requestresult), core::mem::transmute_copy(&bytesreturned)).into()
-        }
-    }
-}

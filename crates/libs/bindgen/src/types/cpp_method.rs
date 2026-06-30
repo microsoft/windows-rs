@@ -7,19 +7,6 @@ pub struct CppMethod {
     pub dependencies: TypeMap,
     pub return_hint: ReturnHint,
     pub param_hints: Vec<ParamHint>,
-    pub event: CppEvent,
-}
-
-/// Classifies a COM `add_`/`remove_` event-accessor pair so the caller-side
-/// wrappers can be collapsed into a single `X(handler) -> Result<EventRevoker>`,
-/// mirroring the WinRT event transform in `method.rs`. Win32 metadata sets no
-/// `SpecialName` flag, so the pair is detected structurally (see
-/// `is_event_add_shape`).
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CppEvent {
-    None,
-    Add,
-    Remove,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -206,32 +193,12 @@ impl CppMethod {
             };
         }
 
-        let event = if is_event_add_shape(def, namespace, reader) {
-            CppEvent::Add
-        } else if def.name().starts_with("remove_")
-            && signature.return_type == Type::HRESULT
-            && !is_retval
-            && signature.params.len() == 1
-            && signature.params[0].ty == Type::I64
-            && {
-                let add_name = format!("add_{}", &def.name()[7..]);
-                matches!(def.parent(), MemberRefParent::TypeDef(parent) if parent.methods().any(|method| {
-                    method.name() == add_name && is_event_add_shape(method, namespace, reader)
-                }))
-            }
-        {
-            CppEvent::Remove
-        } else {
-            CppEvent::None
-        };
-
         Self {
             def,
             signature,
             dependencies,
             param_hints,
             return_hint,
-            event,
         }
     }
 
@@ -282,35 +249,6 @@ impl CppMethod {
     ) -> TokenStream {
         let name = method_names.add(self.def);
         let vname = virtual_names.add(self.def);
-
-        // Collapse COM event accessors the same way the WinRT path does:
-        // suppress `remove_X` and replace `add_X` with a single wrapper that
-        // returns an auto-revoking `EventRevoker`.
-        match self.event {
-            CppEvent::Remove => return quote! {},
-            CppEvent::Add => {
-                let vis = config.item_vis();
-                let core = config.write_core();
-                let suffix = &self.def.name()[4..];
-                let event_name = to_ident(suffix);
-                let remove_vname = to_ident(&format!("remove_{suffix}"));
-                let generics = self.write_generics();
-                let params = self.write_params(config);
-                let args = self.write_args(config);
-                let where_clause = self.write_where(config, false);
-
-                return quote! {
-                    #vis unsafe fn #event_name<#generics>(&self, #params) -> #core Result<#core EventRevoker> #where_clause {
-                        unsafe {
-                            let mut result__ = core::mem::zeroed();
-                            let token__ = (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).map(|| result__)?;
-                            Ok(#core EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).#remove_vname))
-                        }
-                    }
-                };
-            }
-            CppEvent::None => {}
-        }
 
         let args = self.write_args(config);
         let params = self.write_params(config);
@@ -511,55 +449,6 @@ impl CppMethod {
                         #parent_impl::#name(this, #(#invoke_args,)*)
                     }
                 }
-            }
-        }
-    }
-
-    /// The `Fn(...)` argument list for a delegate-shaped handler's single
-    /// `Invoke` method, used as the input portion of an `F: Fn(..) + 'static`
-    /// bound on the generated closure constructor. Mirrors WinRT's
-    /// `Method::write_impl_signature_no_return` (positional types, no `&self`,
-    /// no return) so COM handler interfaces gain the same closure ergonomics as
-    /// WinRT delegates. Only used for `ReturnHint::ResultVoid` handlers, where
-    /// the boxed `Invoke` simply returns `S_OK`.
-    pub fn write_closure_fn_signature(&self, config: &Config) -> TokenStream {
-        let params = self
-            .signature
-            .params
-            .iter()
-            .enumerate()
-            .map(|(position, param)| {
-                write_produce_arg_type(config, param, self.param_hints[position])
-            });
-        let params = quote! { (#(#params),*) };
-        if config.bindgen.style.is_minimal() {
-            params
-        } else {
-            let core = config.write_core();
-            quote! { #params -> #core Result<()> }
-        }
-    }
-
-    /// The boxed `Invoke` body that forwards to the stored closure. Under
-    /// `--minimal` the closure returns nothing and the box returns `S_OK`
-    /// (mirroring `Method::write_upcall_no_return`); otherwise the closure
-    /// returns `Result<()>` and the box folds it into the `HRESULT` via `.into()`
-    /// (mirroring `Method::write_upcall`).
-    pub fn write_closure_upcall(&self, config: &Config) -> TokenStream {
-        let invoke_args = self
-            .signature
-            .params
-            .iter()
-            .map(|p| write_invoke_arg(p, config.reader));
-
-        if config.bindgen.style.is_minimal() {
-            quote! {
-                (this.invoke)(#(#invoke_args,)*);
-                windows_core::HRESULT(0)
-            }
-        } else {
-            quote! {
-                (this.invoke)(#(#invoke_args,)*).into()
             }
         }
     }
@@ -885,31 +774,22 @@ impl CppMethod {
 
 fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenStream {
     let name = param.write_ident();
-    let ty = write_produce_arg_type(config, param, hint);
-    quote! { #name: #ty, }
-}
-
-// The bare produce-side type for a parameter (the `Ref<T>` / `OutRef<T>` /
-// `&T` / value projection), without the parameter name. `write_produce_type`
-// prepends `name:` for `_Impl` trait signatures; `write_closure_fn_signature`
-// uses it positionally for `Fn(..)` bounds.
-fn write_produce_arg_type(config: &Config, param: &Param, hint: ParamHint) -> TokenStream {
     let kind = param.write_default(config);
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(config);
-        quote! { windows_core::Ref<#type_name> }
+        quote! { #name: windows_core::Ref<#type_name>, }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
-        quote! { windows_core::OutRef<#type_name> }
+        quote! { #name: windows_core::OutRef<#type_name>, }
     } else if param.is_input() {
         if param.is_primitive(config.reader) {
-            quote! { #kind }
+            quote! { #name: #kind, }
         } else {
-            quote! { &#kind }
+            quote! { #name: &#kind, }
         }
     } else {
-        quote! { #kind }
+        quote! { #name: #kind, }
     }
 }
 
@@ -941,23 +821,4 @@ fn signature_param_is_query(params: &[Param]) -> Option<(usize, usize)> {
     }
 
     None
-}
-
-/// Returns `true` if `def` is a COM event `add_X` accessor:
-/// `add_X([in] handler, [out, retval] token) -> HRESULT`, where the handler is
-/// an interface and the token is the `EventRegistrationToken` (remapped to
-/// `i64`). Win32 metadata sets no `SpecialName` flag on these, so the shape is
-/// the detection signal, paired with a matching `remove_X([in] i64) -> HRESULT`.
-fn is_event_add_shape(def: MethodDef, namespace: &str, reader: &Reader) -> bool {
-    if !def.name().starts_with("add_") {
-        return false;
-    }
-
-    let signature = def.method_signature(namespace, &[], reader);
-
-    signature.return_type == Type::HRESULT
-        && signature.params.len() == 2
-        && signature.is_retval(reader)
-        && signature.params[0].ty.is_interface()
-        && signature.params[1].deref() == Type::I64
 }

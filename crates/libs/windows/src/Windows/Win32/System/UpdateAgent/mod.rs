@@ -1070,32 +1070,6 @@ impl IDownloadCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDownloadCompletedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-impl IDownloadCompletedCallback {
-    pub fn new<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IDownloadCompletedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-struct IDownloadCompletedCallbackBox<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-#[cfg(feature = "Win32_System_Com")]
-impl<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static> IDownloadCompletedCallbackBox<F> {
-    const VTABLE: IDownloadCompletedCallback_Vtbl = IDownloadCompletedCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<IDownloadCompletedCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<IDownloadCompletedCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<IDownloadCompletedCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IDownloadCompletedCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
-        }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadCompletedCallbackArgs, IDownloadCompletedCallbackArgs_Vtbl, 0xfa565b23_498c_47a0_979d_e7d5b1813360);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDownloadCompletedCallbackArgs {
@@ -1540,32 +1514,6 @@ impl IDownloadProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDownloadProgressChangedCallback {}
-#[cfg(feature = "Win32_System_Com")]
-impl IDownloadProgressChangedCallback {
-    pub fn new<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IDownloadProgressChangedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-struct IDownloadProgressChangedCallbackBox<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-#[cfg(feature = "Win32_System_Com")]
-impl<F: Fn(windows_core::Ref<IDownloadJob>, windows_core::Ref<IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static> IDownloadProgressChangedCallbackBox<F> {
-    const VTABLE: IDownloadProgressChangedCallback_Vtbl = IDownloadProgressChangedCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<IDownloadProgressChangedCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<IDownloadProgressChangedCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<IDownloadProgressChangedCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, downloadjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IDownloadProgressChangedCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&downloadjob), core::mem::transmute_copy(&callbackargs)).into()
-        }
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadProgressChangedCallbackArgs, IDownloadProgressChangedCallbackArgs_Vtbl, 0x324ff2c6_4981_4b04_9412_57481745ab24);
 #[cfg(feature = "Win32_System_Com")]
@@ -2050,32 +1998,6 @@ impl IInstallationCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IInstallationCompletedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-impl IInstallationCompletedCallback {
-    pub fn new<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IInstallationCompletedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-struct IInstallationCompletedCallbackBox<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-#[cfg(feature = "Win32_System_Com")]
-impl<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static> IInstallationCompletedCallbackBox<F> {
-    const VTABLE: IInstallationCompletedCallback_Vtbl = IInstallationCompletedCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<IInstallationCompletedCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<IInstallationCompletedCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<IInstallationCompletedCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IInstallationCompletedCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
-        }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationCompletedCallbackArgs, IInstallationCompletedCallbackArgs_Vtbl, 0x250e2106_8efb_4705_9653_ef13c581b6a1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationCompletedCallbackArgs {
@@ -2416,32 +2338,6 @@ impl IInstallationProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IInstallationProgressChangedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-impl IInstallationProgressChangedCallback {
-    pub fn new<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IInstallationProgressChangedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-struct IInstallationProgressChangedCallbackBox<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-#[cfg(feature = "Win32_System_Com")]
-impl<F: Fn(windows_core::Ref<IInstallationJob>, windows_core::Ref<IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()> + Send + 'static> IInstallationProgressChangedCallbackBox<F> {
-    const VTABLE: IInstallationProgressChangedCallback_Vtbl = IInstallationProgressChangedCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<IInstallationProgressChangedCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<IInstallationProgressChangedCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<IInstallationProgressChangedCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, installationjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IInstallationProgressChangedCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&installationjob), core::mem::transmute_copy(&callbackargs)).into()
-        }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationProgressChangedCallbackArgs, IInstallationProgressChangedCallbackArgs_Vtbl, 0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationProgressChangedCallbackArgs {
@@ -2711,32 +2607,6 @@ impl ISearchCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ISearchCompletedCallback {}
-#[cfg(feature = "Win32_System_Com")]
-impl ISearchCompletedCallback {
-    pub fn new<F: Fn(windows_core::Ref<ISearchJob>, windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ISearchCompletedCallbackBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-struct ISearchCompletedCallbackBox<F: Fn(windows_core::Ref<ISearchJob>, windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
-#[cfg(feature = "Win32_System_Com")]
-impl<F: Fn(windows_core::Ref<ISearchJob>, windows_core::Ref<ISearchCompletedCallbackArgs>) -> windows_core::Result<()> + Send + 'static> ISearchCompletedCallbackBox<F> {
-    const VTABLE: ISearchCompletedCallback_Vtbl = ISearchCompletedCallback_Vtbl {
-        base__: windows_core::IUnknown_Vtbl {
-            QueryInterface: windows_core::imp::DelegateBox::<ISearchCompletedCallback, F>::QueryInterface,
-            AddRef: windows_core::imp::DelegateBox::<ISearchCompletedCallback, F>::AddRef,
-            Release: windows_core::imp::DelegateBox::<ISearchCompletedCallback, F>::Release,
-        },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, searchjob: *mut core::ffi::c_void, callbackargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe {
-            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<ISearchCompletedCallback, F>);
-            (this.invoke)(core::mem::transmute_copy(&searchjob), core::mem::transmute_copy(&callbackargs)).into()
-        }
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchCompletedCallbackArgs, ISearchCompletedCallbackArgs_Vtbl, 0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 #[cfg(feature = "Win32_System_Com")]
