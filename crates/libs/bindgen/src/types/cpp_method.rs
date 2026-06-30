@@ -531,11 +531,20 @@ impl CppMethod {
             .map(|(position, param)| {
                 write_produce_arg_type(config, param, self.param_hints[position])
             });
-        quote! { (#(#params),*) }
+        let params = quote! { (#(#params),*) };
+        if config.bindgen.style.is_minimal() {
+            params
+        } else {
+            let core = config.write_core();
+            quote! { #params -> #core Result<()> }
+        }
     }
 
-    /// The boxed `Invoke` body that forwards to the stored closure and returns
-    /// `S_OK`, mirroring `Method::write_upcall_no_return`.
+    /// The boxed `Invoke` body that forwards to the stored closure. Under
+    /// `--minimal` the closure returns nothing and the box returns `S_OK`
+    /// (mirroring `Method::write_upcall_no_return`); otherwise the closure
+    /// returns `Result<()>` and the box folds it into the `HRESULT` via `.into()`
+    /// (mirroring `Method::write_upcall`).
     pub fn write_closure_upcall(&self, config: &Config) -> TokenStream {
         let invoke_args = self
             .signature
@@ -543,9 +552,15 @@ impl CppMethod {
             .iter()
             .map(|p| write_invoke_arg(p, config.reader));
 
-        quote! {
-            (this.invoke)(#(#invoke_args,)*);
-            windows_core::HRESULT(0)
+        if config.bindgen.style.is_minimal() {
+            quote! {
+                (this.invoke)(#(#invoke_args,)*);
+                windows_core::HRESULT(0)
+            }
+        } else {
+            quote! {
+                (this.invoke)(#(#invoke_args,)*).into()
+            }
         }
     }
 

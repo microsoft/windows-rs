@@ -33021,6 +33021,29 @@ impl IMFRemoteAsyncCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMFRemoteAsyncCallback {}
+impl IMFRemoteAsyncCallback {
+    pub fn new<F: Fn(windows_core::HRESULT, windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IMFRemoteAsyncCallbackBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct IMFRemoteAsyncCallbackBox<F: Fn(windows_core::HRESULT, windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::HRESULT, windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()> + Send + 'static> IMFRemoteAsyncCallbackBox<F> {
+    const VTABLE: IMFRemoteAsyncCallback_Vtbl = IMFRemoteAsyncCallback_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<IMFRemoteAsyncCallback, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<IMFRemoteAsyncCallback, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<IMFRemoteAsyncCallback, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, premoteresult: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IMFRemoteAsyncCallback, F>);
+            (this.invoke)(core::mem::transmute_copy(&hr), core::mem::transmute_copy(&premoteresult)).into()
+        }
+    }
+}
 windows_core::imp::define_interface!(IMFRemoteDesktopPlugin, IMFRemoteDesktopPlugin_Vtbl, 0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a);
 windows_core::imp::interface_hierarchy!(IMFRemoteDesktopPlugin, windows_core::IUnknown);
 impl IMFRemoteDesktopPlugin {

@@ -200,6 +200,29 @@ impl IInkHostWorkItem_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInkHostWorkItem {}
+impl IInkHostWorkItem {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IInkHostWorkItemBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct IInkHostWorkItemBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> IInkHostWorkItemBox<F> {
+    const VTABLE: IInkHostWorkItem_Vtbl = IInkHostWorkItem_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<IInkHostWorkItem, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<IInkHostWorkItem, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<IInkHostWorkItem, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IInkHostWorkItem, F>);
+            (this.invoke)().into()
+        }
+    }
+}
 windows_core::imp::define_interface!(IInkPresenterDesktop, IInkPresenterDesktop_Vtbl, 0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 windows_core::imp::interface_hierarchy!(IInkPresenterDesktop, windows_core::IUnknown);
 impl IInkPresenterDesktop {

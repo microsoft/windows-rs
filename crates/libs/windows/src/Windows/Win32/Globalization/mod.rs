@@ -10720,6 +10720,29 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISpellCheckerChangedEventHandler {}
+impl ISpellCheckerChangedEventHandler {
+    pub fn new<F: Fn(windows_core::Ref<ISpellChecker>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&ISpellCheckerChangedEventHandlerBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct ISpellCheckerChangedEventHandlerBox<F: Fn(windows_core::Ref<ISpellChecker>) -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn(windows_core::Ref<ISpellChecker>) -> windows_core::Result<()> + Send + 'static> ISpellCheckerChangedEventHandlerBox<F> {
+    const VTABLE: ISpellCheckerChangedEventHandler_Vtbl = ISpellCheckerChangedEventHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<ISpellCheckerChangedEventHandler, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<ISpellCheckerChangedEventHandler, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<ISpellCheckerChangedEventHandler, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<ISpellCheckerChangedEventHandler, F>);
+            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+        }
+    }
+}
 windows_core::imp::define_interface!(ISpellCheckerFactory, ISpellCheckerFactory_Vtbl, 0x8e018a9d_2415_4677_bf08_794ea61f94bb);
 windows_core::imp::interface_hierarchy!(ISpellCheckerFactory, windows_core::IUnknown);
 impl ISpellCheckerFactory {

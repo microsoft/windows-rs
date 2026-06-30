@@ -3180,6 +3180,29 @@ impl IInvokeProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInvokeProvider {}
+impl IInvokeProvider {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IInvokeProviderBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct IInvokeProviderBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> IInvokeProviderBox<F> {
+    const VTABLE: IInvokeProvider_Vtbl = IInvokeProvider_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<IInvokeProvider, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<IInvokeProvider, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<IInvokeProvider, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IInvokeProvider, F>);
+            (this.invoke)().into()
+        }
+    }
+}
 windows_core::imp::define_interface!(IItemContainerProvider, IItemContainerProvider_Vtbl, 0xe747770b_39ce_4382_ab30_d8fb3f336f24);
 windows_core::imp::interface_hierarchy!(IItemContainerProvider, windows_core::IUnknown);
 impl IItemContainerProvider {
@@ -13287,6 +13310,29 @@ impl IUIAutomationInvokePattern_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUIAutomationInvokePattern {}
+impl IUIAutomationInvokePattern {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = windows_core::imp::DelegateBox::<Self, F>::new(&IUIAutomationInvokePatternBox::<F>::VTABLE, invoke);
+        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+    }
+}
+struct IUIAutomationInvokePatternBox<F: Fn() -> windows_core::Result<()> + Send + 'static>(core::marker::PhantomData<fn() -> F>);
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> IUIAutomationInvokePatternBox<F> {
+    const VTABLE: IUIAutomationInvokePattern_Vtbl = IUIAutomationInvokePattern_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: windows_core::imp::DelegateBox::<IUIAutomationInvokePattern, F>::QueryInterface,
+            AddRef: windows_core::imp::DelegateBox::<IUIAutomationInvokePattern, F>::AddRef,
+            Release: windows_core::imp::DelegateBox::<IUIAutomationInvokePattern, F>::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut windows_core::imp::DelegateBox<IUIAutomationInvokePattern, F>);
+            (this.invoke)().into()
+        }
+    }
+}
 windows_core::imp::define_interface!(IUIAutomationItemContainerPattern, IUIAutomationItemContainerPattern_Vtbl, 0xc690fdb2_27a8_423c_812d_429773c9084e);
 windows_core::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
