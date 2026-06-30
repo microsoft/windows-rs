@@ -231,30 +231,64 @@ the last layout-driven divergence in method emission.
 
 **Name the sys policies (started).** As with the minimal predicates, the recurring
 `is_sys()` divergences are becoming named `Style` predicates so the FFI policy reads
-by intent. Done so far, for the value-type (struct/enum) emission that recurs
-verbatim in `types/struct.rs` and `types/enum.rs`:
+by intent. Done so far:
 
 - `Style::derive_std_traits` — derive `Default`/`Debug`/`PartialEq` (on top of the
-  always-emitted `Copy`/`Clone`); sys emits bare value types.
+  always-emitted `Copy`/`Clone`); sys emits bare value types. Used by the WinRT
+  value-type writers (`types/struct.rs`, `types/enum.rs`) and the Win32 `cpp_enum.rs`.
 - `Style::emit_core_traits` — emit the `windows-core` trait block (type-kind,
   runtime signature, `NAME`); sys has no `windows-core` dependency so it omits them.
+  Used by `types/struct.rs` and `types/enum.rs`.
+- `Style::emit_bare_typedef` (`is_sys() || is_minimal()`) — emit handle structs and
+  unscoped enums as a bare `pub type X = <underlying>` alias rather than a newtype
+  wrapper. This is a non-obvious *cross-style* policy that was previously spelled out
+  inline (with an explanatory comment) in `cpp_handle.rs`, `cpp_enum.rs`, and
+  `cpp_const.rs`; naming it makes the relationship explicit and greppable.
 
-Behavior-preserving: regenerating every in-repo crate produces zero diff. The Win32
-`cpp_*` writer family (`cpp_struct`, `cpp_enum`, `cpp_fn`, `cpp_handle`, …) still
-uses inline `is_sys()` checks and is a larger, separate follow-up; the metadata/WinRT
-path was done first to match the precedent set by the minimal predicates.
+Behavior-preserving: regenerating every in-repo crate produces zero diff. The rest of
+the Win32 `cpp_*` family still uses inline `is_sys()` checks where the condition is
+compound and site-specific (struct copyability/`Drop` wrapping, flag ops,
+`link!`-vs-`extern` function emission, raw-pointer interface representation) — a
+larger, separate follow-up.
+
+**Deduplicate recurring layout/minimal idioms (done).** Beyond the style predicates,
+two code blocks recurred *verbatim* across the type writers and are now single helpers:
+
+- `Config::doc_hidden_in_package` — the `#[doc(hidden)]`-when-`--package` attribute on
+  raw vtbl structs, previously copied identically into `types/interface.rs`,
+  `types/cpp_interface.rs`, and `types/delegate.rs`.
+- `Config::write_value_name_const` — the `RuntimeType::NAME` constant for value types
+  (skipped in minimal mode), previously duplicated — comment and all — between
+  `types/struct.rs` and `types/enum.rs`.
+
+**Review conclusion.** A full sweep of the remaining `is_sys()` / `is_minimal()` /
+`is_package()` / `is_flat()` branches confirms the *cleanly-recurring, identical*
+divergences have now been named or deduplicated. What remains is intentional and
+site-specific: structural layout dispatch (`Config::write`, `paths.rs`,
+`package_writer.rs`), per-type-kind dependency-closure computation (the `--package`
+`cfg` blocks in `class`/`interface`/`cpp_interface`, which differ by type kind), and
+one-off behavioral differences (delegate invoke signatures, struct field
+snake-casing, class `Deref` target, the compound `cpp_*` `is_sys()` sites noted above).
+These are not duplication-for-no-reason; collapsing them further would obscure genuine
+behavioral intent rather than clarify it.
 
 **Future work.**
 
-- *Retire dead options.* Confirmed **unused by every in-repo invocation**: `--extern`
-  (`Style::Sys { extern_fns: true }`) — every `--sys` response file links via `link!`
-  — and the **default module layout** — every caller passes `--flat` or `--package`.
-  Both are exercised only by a single test fixture each (`fn_sys_extern`, `modules`).
-  However, both are **public `windows-bindgen` API** (`Bindgen::extern_fns()`,
-  documented CLI flags), and `windows-bindgen` is published specifically so external
-  users can generate their own bindings — namespace-module layout is the natural
-  non-flat output such a user might want. Removing them is therefore a breaking change
-  to the published API and needs a maintainer decision, not just an in-repo check.
-- *Finish naming the sys policies.* Extend the named-predicate treatment above to the
-  `cpp_*` Win32 writer family (struct copyability/`Drop`, flag ops, `link!`-vs-`extern`
-  function emission, raw-pointer interface representation).
+- *`--extern` is a deliberate escape hatch — keep it.* The `--extern`
+  (`Style::Sys { extern_fns: true }`) option emits `extern` declarations instead of
+  `link!` macros. It is unused in-repo because every windows-rs crate links via
+  `raw-dylib`, but [#3828](https://github.com/microsoft/windows-rs/pull/3828) added it
+  specifically *"if your build does not yet support `raw-dylib` and requires implicit
+  linking with lib files"* — i.e. for external consumers on toolchains without
+  `raw-dylib`. That PR also unified three copies of the function-signature codegen into
+  one, so `--sys`, function-pointer types, `link!` macros, and `extern` blocks all share
+  one ABI/FFI signature implementation. Removing `--extern` would regress that use case
+  and is **not** recommended; "unused in-repo" is expected, not dead.
+- *Default module layout.* Likewise unused in-repo (every caller passes `--flat` or
+  `--package`), but it is the original namespace-to-module output and the natural shape
+  an external consumer generating their own bindings would want. Retiring it is a
+  breaking change to the published API with a plausible external audience — a maintainer
+  decision, not an in-repo cleanup.
+- *Finish naming the sys policies.* Extend the named-predicate treatment to the
+  remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
+  `link!`-vs-`extern` function emission, raw-pointer interface representation).

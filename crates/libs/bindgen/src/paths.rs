@@ -24,6 +24,17 @@ impl Config<'_> {
         }
     }
 
+    /// Returns `#[doc(hidden)]` for `--package` layout, otherwise nothing. The
+    /// published `windows`/`windows-sys` crates hide their raw vtbl structs from
+    /// the docs while keeping them `pub` for the macro/ABI surface.
+    pub fn doc_hidden_in_package(&self) -> TokenStream {
+        if self.bindgen.layout.is_package() {
+            quote! { #[doc(hidden)] }
+        } else {
+            quote! {}
+        }
+    }
+
     pub fn write_generic_phantoms(&self, generics: &[Type]) -> TokenStream {
         if generics.is_empty() {
             quote! {}

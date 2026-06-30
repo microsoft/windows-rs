@@ -147,11 +147,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if config.bindgen.layout.is_package() {
-                quote! { #[doc(hidden)] }
-            } else {
-                quote! {}
-            };
+            let hide_vtbl = config.doc_hidden_in_package();
 
             let core = config.write_core();
 

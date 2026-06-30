@@ -183,6 +183,14 @@ impl Style {
     fn emit_core_traits(self) -> bool {
         !self.is_sys()
     }
+
+    /// Whether handle structs and unscoped (non-`ScopedEnumAttribute`) enums are
+    /// emitted as a bare `pub type X = <underlying>` alias rather than a newtype
+    /// wrapper. Both sys and minimal bindings collapse them; this is why their
+    /// constants also drop the `Self(value)` constructor (see `cpp_const`).
+    fn emit_bare_typedef(self) -> bool {
+        self.is_sys() || self.is_minimal()
+    }
 }
 
 impl Bindgen {

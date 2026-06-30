@@ -65,19 +65,7 @@ impl Struct {
 
             let signature = Literal::byte_string(self.runtime_signature(config.reader).as_bytes());
 
-            // Structs can never be implemented as COM objects, so NAME is only
-            // useful when the struct appears as a generic type argument in an
-            // implemented parameterized interface. In minimal mode we skip it
-            // unconditionally — the trait default (empty) is sufficient.
-            let name_const = if config.bindgen.style.is_minimal() {
-                quote! {}
-            } else {
-                let type_name_bytes =
-                    Literal::byte_string(format!("{}", self.def.type_name()).as_bytes());
-                quote! {
-                    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
-                }
-            };
+            let name_const = config.write_value_name_const(self.def.type_name());
 
             quote! {
                 impl windows_core::TypeKind for #name {
