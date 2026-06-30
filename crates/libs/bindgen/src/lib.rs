@@ -131,6 +131,44 @@ impl Style {
     fn sys_fn_extern(self) -> bool {
         matches!(self, Self::Sys { extern_fns: true })
     }
+
+    // The predicates below name the individual code-generation policies that
+    // distinguish the styles, so call sites read by intent rather than
+    // re-deriving the same `is_minimal()` checks. See the "Output-mode
+    // consolidation" tracking note in `docs/crates/windows-bindgen.md`.
+
+    /// Whether to emit per-class wrapper methods. Minimal bindings omit them;
+    /// callers reach the methods through the class's default interface instead.
+    fn emit_class_methods(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether to emit caller-side wrappers that forward to a type's
+    /// **inherited** interface methods. Minimal bindings omit these; callers
+    /// `cast` to the owning interface instead.
+    fn emit_inherited_forwarders(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether to emit the `IntoIterator` bridge that forwards to an inherited
+    /// `IIterable<T>`. Minimal bindings omit it (an iterable's own
+    /// `BufferedIterator` impl is still emitted); callers `cast` to `IIterable`.
+    fn emit_iterable_into_iterator(self) -> bool {
+        !self.is_minimal()
+    }
+
+    /// Whether an HSTRING **input** parameter is exposed as `&str` (converted to
+    /// `HSTRING` inside the method body). Minimal bindings do this; other styles
+    /// route strings through the `Param`/`IntoParam` machinery instead.
+    fn minimal_string_input(self, param: &Param) -> bool {
+        self.is_minimal() && param.is_input() && matches!(param.ty, Type::String)
+    }
+
+    /// Whether an HSTRING **return** value is exposed as an owned `String`.
+    /// Minimal bindings do this; other styles return `HSTRING`.
+    fn minimal_string_return(self, ty: &Type) -> bool {
+        self.is_minimal() && matches!(ty, Type::String)
+    }
 }
 
 impl Bindgen {

@@ -57,6 +57,26 @@ impl Config<'_> {
         }
     }
 
+    /// Returns `true` if the WinRT `RuntimeType::NAME` constant should be emitted
+    /// for the given interface. The constant is only needed for interfaces that
+    /// are implemented (for `GetRuntimeClassName`); minimal bindings omit it for
+    /// non-implemented interfaces, while other styles always emit it.
+    pub fn emit_runtime_name(&self, name: TypeName) -> bool {
+        !self.bindgen.style.is_minimal() || self.should_implement(name, false)
+    }
+
+    /// Returns the visibility to emit on a generated item. With `--dead-code`
+    /// this is `pub(crate)` so the compiler's dead-code lint can flag unused
+    /// bindings (a `pub` item in a non-public module is not linted — see
+    /// <https://github.com/rust-lang/rust/issues/157961>); otherwise `pub`.
+    pub fn item_vis(&self) -> TokenStream {
+        if self.bindgen.dead_code {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        }
+    }
+
     /// Returns `true` if the given method should be emitted (not demoted).
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
         // If `--implement` requests this interface, keep all methods.

@@ -158,3 +158,72 @@ produces the published `windows` and `windows-sys` crates).
 
 Verified by the dedicated test crates `test_bindgen`, `test_rdl`, and
 `test_clang` (`crates/tests/libs/{bindgen,rdl,clang}`).
+
+### Output-mode consolidation
+
+The generated output is shaped by two axes — *style* (`Default` / `Sys` /
+`Minimal`) and *layout* (modules / `--flat` / `--package`) — plus a handful of
+booleans (`--dead-code`, `--implement`, `--derive`). Historically the per-style
+divergences were expressed as ad-hoc `is_minimal()` / `is_sys()` checks scattered
+across the type writers, which made it hard to see *which* policies actually
+differ between modes and easy to introduce accidental inconsistencies. This is an
+ongoing effort to remove divergence that exists for no good reason and to make the
+remaining, intentional differences explicit.
+
+**Current work — name the style policies (done).** The individual
+code-generation policies that distinguish the styles are now named predicates on
+`Style`/`Config` rather than inline `is_minimal()` checks, so call sites read by
+intent:
+
+- `Style::emit_class_methods` — emit per-class wrapper methods.
+- `Style::emit_inherited_forwarders` — emit forwarders to inherited-interface methods.
+- `Style::emit_iterable_into_iterator` — emit the `IntoIterator` bridge to an inherited `IIterable<T>`.
+- `Style::minimal_string_input` / `minimal_string_return` — expose HSTRING params/returns as `&str` / `String`.
+- `Config::emit_runtime_name` — emit the WinRT `NAME` runtime-name constant.
+
+These are behavior-preserving: regenerating every in-repo crate produces zero
+diff. `MethodNames::for_style` was the precedent for this style-keyed centralization.
+
+**`--dead-code` visibility (centralized; broadening investigated and rejected).**
+The `--dead-code` workaround emits `pub(crate)` instead of `pub` so the compiler
+flags unused bindings ([rust-lang/rust#157961](https://github.com/rust-lang/rust/issues/157961)
+means `pub` items in a non-public module are never linted). The duplicated
+`if dead_code { pub(crate) } else { pub }` checks are now a single
+`Config::item_vis()` helper, and the existing callable sites (class/WinRT/COM
+methods, delegate `new`) route through it.
+
+We investigated **broadening** the workaround to all nameable items (structs,
+enums, consts, interfaces, …) to catch more dead code. This is **not viable as a
+blanket policy**: generated items are frequently part of a curated crate's
+*public surface*, and `pub(crate)` then fails to compile.
+
+- `windows-reactor` re-exports ~22 generated WinUI enums/structs as its public API
+  (`pub use bindings::Orientation;`, `Color`, `Thickness`, …). A `pub(crate)`
+  definition cannot be re-exported (`E0364`/`E0365`).
+- `windows-core`'s `imp` module is a *macro-export* surface: the exported
+  `implement_decl!` / interface macros reference `$crate::imp::E_POINTER` and
+  `E_NOINTERFACE`, so those generated consts must stay `pub` (`E0603`).
+
+The generator cannot know which items a hand-written crate re-exports or
+references from an exported macro, so it cannot safely demote them. The workaround
+therefore stays scoped to callables (which are invoked, not re-exported as types) —
+the original `#4609` scope. A future opt-in (e.g. a filter directive marking the
+re-exported types to keep `pub`) could revisit this, but it is not worth the
+complexity today.
+
+**Future work.**
+
+- *Retire dead options.* `--extern` (`Style::Sys { extern_fns: true }`) is
+  exercised only by a single test fixture, and the default module layout is used
+  by no in-repo invocation (every caller passes `--flat` or `--package`). Confirm
+  there are no external consumers before removing or de-emphasizing them.
+- *Name the event-accessor policy.* The add_*/remove_* → auto-revoking reshape
+  branches on `layout.is_package()` rather than style. This is **correct** — the
+  `Default` style is shared by `windows` (package, which must preserve the raw
+  add/remove public API) and `collections`/`future` (flat, which want the
+  reshape), so style can't discriminate — but it should be a named predicate
+  (e.g. `Config::collapse_event_accessors`) with the rationale documented, like
+  the style predicates above. Behavior-preserving.
+- *Collapse near-duplicate `is_sys()` branches.* As with the minimal predicates,
+  give the sys-specific divergences (struct/`extern` emission, linking) named
+  predicates so the FFI policy is visible in one place.

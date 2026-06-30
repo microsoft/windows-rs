@@ -189,15 +189,13 @@ impl Interface {
                 // In minimal mode, NAME is only needed for interfaces that are
                 // being implemented (for GetRuntimeClassName). The trait provides
                 // an empty default, so omitting it is safe.
-                let name_const = if config.bindgen.style.is_minimal()
-                    && !config.should_implement(type_name, false)
-                {
-                    quote! {}
-                } else {
+                let name_const = if config.emit_runtime_name(type_name) {
                     let type_name_bytes = Literal::byte_string(format!("{type_name}").as_bytes());
                     quote! {
                         const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
                     }
+                } else {
+                    quote! {}
                 };
 
                 quote! {
@@ -224,11 +222,7 @@ impl Interface {
                 // In minimal mode, NAME on parameterized interfaces is only needed
                 // when the interface is implemented (for GetRuntimeClassName via
                 // RUNTIME_CLASS_NAME). Skip it otherwise.
-                let name_const = if config.bindgen.style.is_minimal()
-                    && !config.should_implement(type_name, false)
-                {
-                    quote! {}
-                } else {
+                let name_const = if config.emit_runtime_name(type_name) {
                     let arity = self.generics.len();
                     let name_prefix =
                         Literal::byte_string(format!("{type_name}`{arity}<").as_bytes());
@@ -248,6 +242,8 @@ impl Interface {
                     quote! {
                         const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#name_prefix)#(#name_generics)*.push_slice(b">");
                     }
+                } else {
+                    quote! {}
                 };
 
                 quote! {
@@ -352,7 +348,7 @@ impl Interface {
 
                 for interface in &required_interfaces {
                     // In `minimal` mode callers `cast` to the owning interface explicitly.
-                    if config.bindgen.style.is_minimal() {
+                    if !config.bindgen.style.emit_inherited_forwarders() {
                         continue;
                     }
                     let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
@@ -402,9 +398,7 @@ impl Interface {
                     });
                 }
 
-                let into_iterator = if config.bindgen.style.is_minimal() {
-                    None
-                } else {
+                let into_iterator = if config.bindgen.style.emit_iterable_into_iterator() {
                     required_interfaces
                         .iter()
                         .find(|interface| interface.type_name() == TypeName::IIterable)
@@ -433,6 +427,8 @@ impl Interface {
 
                             }
                         })
+                } else {
+                    None
                 };
 
                 if let Some(into_iterator) = into_iterator {
