@@ -130,6 +130,23 @@ Layout:
   per-namespace features; this is how the published `windows`/`windows-sys` crates
   are produced. Mutually exclusive with `--flat`.
 
+The two axes are independent, but only a few combinations are meaningful in practice.
+Every in-repo crate pairs its style with `--flat` or `--package`; the default module
+layout is for *external* consumers generating their own namespace-organized bindings.
+
+| Style + layout       | Purpose                                              | Examples                                  |
+| -------------------- | ---------------------------------------------------- | ----------------------------------------- |
+| default + `--flat`   | Full-fidelity helper crate, one bindings file        | `windows-collections`, `windows-future`   |
+| default + `--package`| The published umbrella crate                          | `windows`                                 |
+| `--sys` + `--flat`   | Raw FFI helper crate, one bindings file              | `windows-result`, `windows-registry`, …   |
+| `--sys` + `--package`| The published raw-FFI crate                           | `windows-sys`                             |
+| `--minimal` + `--flat`| Small, hand-curated binding set                     | `windows-core`, `windows-canvas`, `windows-reactor` |
+| *any* + *modules*    | Namespace-per-module output for external consumers   | *(not used in-repo)*                       |
+
+`--minimal` + `--package` is never used (minimal targets small curated sets, packages
+are the full API surface), and `--package` only ever pairs with default or `--sys` — the
+two crates the repo publishes.
+
 Other useful options:
 
 - **`--in` / `.input(..)` / `.inputs(..)`** — add your own `.winmd` files or
