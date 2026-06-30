@@ -169,6 +169,20 @@ impl Style {
     fn minimal_string_return(self, ty: &Type) -> bool {
         self.is_minimal() && matches!(ty, Type::String)
     }
+
+    /// Whether plain value types (structs/enums) derive the standard
+    /// `Default`/`Debug`/`PartialEq` traits (on top of the always-emitted
+    /// `Copy`/`Clone`). Sys bindings emit bare value types with no extra derives.
+    fn derive_std_traits(self) -> bool {
+        !self.is_sys()
+    }
+
+    /// Whether to emit the `windows-core` trait block (type-kind, runtime
+    /// signature, and `NAME`) for a value type. Sys bindings have no
+    /// `windows-core` dependency, so they omit it.
+    fn emit_core_traits(self) -> bool {
+        !self.is_sys()
+    }
 }
 
 impl Bindgen {

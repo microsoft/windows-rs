@@ -229,12 +229,32 @@ the last layout-driven divergence in method emission.
 
 [`EventRevoker`]: https://docs.rs/windows-core/latest/windows_core/struct.EventRevoker.html
 
+**Name the sys policies (started).** As with the minimal predicates, the recurring
+`is_sys()` divergences are becoming named `Style` predicates so the FFI policy reads
+by intent. Done so far, for the value-type (struct/enum) emission that recurs
+verbatim in `types/struct.rs` and `types/enum.rs`:
+
+- `Style::derive_std_traits` — derive `Default`/`Debug`/`PartialEq` (on top of the
+  always-emitted `Copy`/`Clone`); sys emits bare value types.
+- `Style::emit_core_traits` — emit the `windows-core` trait block (type-kind,
+  runtime signature, `NAME`); sys has no `windows-core` dependency so it omits them.
+
+Behavior-preserving: regenerating every in-repo crate produces zero diff. The Win32
+`cpp_*` writer family (`cpp_struct`, `cpp_enum`, `cpp_fn`, `cpp_handle`, …) still
+uses inline `is_sys()` checks and is a larger, separate follow-up; the metadata/WinRT
+path was done first to match the precedent set by the minimal predicates.
+
 **Future work.**
 
-- *Retire dead options.* `--extern` (`Style::Sys { extern_fns: true }`) is
-  exercised only by a single test fixture, and the default module layout is used
-  by no in-repo invocation (every caller passes `--flat` or `--package`). Confirm
-  there are no external consumers before removing or de-emphasizing them.
-- *Collapse near-duplicate `is_sys()` branches.* As with the minimal predicates,
-  give the sys-specific divergences (struct/`extern` emission, linking) named
-  predicates so the FFI policy is visible in one place.
+- *Retire dead options.* Confirmed **unused by every in-repo invocation**: `--extern`
+  (`Style::Sys { extern_fns: true }`) — every `--sys` response file links via `link!`
+  — and the **default module layout** — every caller passes `--flat` or `--package`.
+  Both are exercised only by a single test fixture each (`fn_sys_extern`, `modules`).
+  However, both are **public `windows-bindgen` API** (`Bindgen::extern_fns()`,
+  documented CLI flags), and `windows-bindgen` is published specifically so external
+  users can generate their own bindings — namespace-module layout is the natural
+  non-flat output such a user might want. Removing them is therefore a breaking change
+  to the published API and needs a maintainer decision, not just an in-repo check.
+- *Finish naming the sys policies.* Extend the named-predicate treatment above to the
+  `cpp_*` Win32 writer family (struct copyability/`Drop`, flag ops, `link!`-vs-`extern`
+  function emission, raw-pointer interface representation).

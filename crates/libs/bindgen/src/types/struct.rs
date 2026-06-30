@@ -32,7 +32,7 @@ impl Struct {
             derive.extend(["Copy"]);
         }
 
-        if !config.bindgen.style.is_sys() {
+        if config.bindgen.style.derive_std_traits() {
             derive.extend(["Default", "Debug", "PartialEq"]);
 
             if config.bindgen.style.is_minimal()
@@ -54,7 +54,7 @@ impl Struct {
             quote! { pub #name: #ty, }
         });
 
-        let win_traits = if config.bindgen.style.is_sys() {
+        let win_traits = if !config.bindgen.style.emit_core_traits() {
             quote! {}
         } else {
             let type_kind = if is_copyable {

@@ -21,7 +21,7 @@ impl Enum {
         let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Copy", "Clone"]);
 
-        if !config.bindgen.style.is_sys() {
+        if config.bindgen.style.derive_std_traits() {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -91,7 +91,7 @@ impl Enum {
 
         let underlying_type = underlying_type.write_name(config);
 
-        let win_traits = if config.bindgen.style.is_sys() {
+        let win_traits = if !config.bindgen.style.emit_core_traits() {
             quote! {}
         } else {
             let signature = Literal::byte_string(self.runtime_signature(config.reader).as_bytes());
