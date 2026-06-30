@@ -309,3 +309,191 @@ behavioral intent rather than clarify it.
 - *Finish naming the sys policies.* Extend the named-predicate treatment to the
   remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
   `link!`-vs-`extern` function emission, raw-pointer interface representation).
+
+### Unifying the WinRT and Win32/COM type system fork
+
+Above the output-mode axes sits a second, deeper fork: WinRT vs. non-WinRT
+(`cpp_*`) code generation. There is exactly **one** classification point —
+`winmd/reader.rs` keying on `TypeAttributes::WindowsRuntime` — and everything below
+the `Type` enum (`types/mod.rs`) is shared substrate: `TypeMap`, `TypeTree`,
+`Signature`, `Param`, `Dependencies`, and crucially `remap()`, which already
+collapses many Win32 metadata types onto WinRT-equivalent primitives
+(BSTR/HSTRING → `String`, `HRESULT`, `IUnknown`, `GUID`, `IInspectable` → `Object`,
+`EventRegistrationToken` → `i64`, `D2D_MATRIX_3X2_F` → `Matrix3x2`, …).
+
+The fork shows up as **parallel `Type` variants** — `Interface`/`CppInterface`,
+`Enum`/`CppEnum`, `Struct`/`CppStruct`, `Delegate`/`CppDelegate`, plus COM-only
+`CppFn`/`CppConst`/`CppHandle` — each forcing an N-arm match across every dispatch
+site (`sort_key`, `write_name`, `write`, `combine`, …). The conceptual key is that
+**WinRT is COM + `IInspectable` + metadata signatures**: a WinRT `Interface` is a
+`CppInterface` plus `{ IInspectable base, forced-HRESULT return policy, generics,
+SIGNATURE, activation }`. That argues for *configuration, not forking*.
+
+**Essential divergence (must stay distinct):**
+
+- *Return policy.* WinRT vtbl methods are always `HRESULT` and `method.rs` always
+  wraps `Result`; COM preserves raw return types, which is why `cpp_method.rs`
+  carries a `ReturnHint` enum (Query / ResultValue / ResultVoid / ReturnValue /
+  ReturnStruct). This is the deepest real axis.
+- *Generics + SIGNATURE/RuntimeType* — WinRT-only.
+- *`Delegate` vs `CppDelegate`* — a WinRT delegate is a GUID'd COM interface with
+  `Invoke`; a COM "delegate" is a bare `extern fn` pointer. Different ABI shapes;
+  do not merge.
+- *`CppFn`/`CppConst`/`CppHandle`* — no WinRT analog (free exports, freestanding
+  constants, `DECLARE_HANDLE` newtypes).
+
+**Incidental duplication (safe to unify — measured, smaller than first estimated).**
+A first pass already landed the cheap, decisive part: `CppMethodOrName` was deleted in
+favor of a generic `MethodOrName<M>` shared by both interface writers, and the
+slot-skip and per-method `#[cfg]` policies were hoisted into the shared free functions
+`method_is_skipped()` and `write_method_cfg()` (so "is this slot opaque?" and "does
+this method need its own gate?" now live in exactly one place each). What remains is
+narrower than the original "~600–800 line" guess; a close per-section reading of the
+two `write()` bodies gives the realistic numbers:
+
+- *Interface (`interface.rs` ~509 lines vs `cpp_interface.rs` ~353).* Only the vtable
+  method-pointer emission and the `_Impl` field/impl/trait-method iteration are truly
+  near-identical — about **90 lines** extractable into shared helpers
+  (`emit_vtbl_methods`, `emit_impl_methods`, `emit_trait_methods`). The rest is
+  genuinely platform-specific: WinRT-only RuntimeType/`SIGNATURE`, generics, inherited
+  forwarders, `IntoIterator`/IIterable, RuntimeName (~145 lines); COM-only
+  `has_unknown_base` branching, `ScopedHeap` non-`IUnknown` wrapping, and
+  `Deref`-to-base (~135 lines).
+- *Enum (`enum.rs` vs `cpp_enum.rs`).* ~**60%** unifiable behind a small parameterized
+  writer (the bitwise-operator block and scalar-constant emission are effectively
+  identical); the remainder is WinRT trait impls vs COM scoped/`#[repr]` attribute
+  handling.
+- *Struct (`struct.rs` vs `cpp_struct.rs`).* **Not** "only WinRT extras" — only ~15%
+  overlaps. The COM side carries unions (explicit layout, `ManuallyDrop`), `DECLARE_HANDLE`
+  newtypes, nested types, arch-specific `#[cfg]`, and bespoke `Default`/`Clone` derive
+  logic that WinRT structs never have. Leave this fork alone.
+
+**The proposals, in priority order:**
+
+1. *Extract the interface vtable/`_Impl` iteration and the enum overlap into shared
+   helpers (DONE — pure refactor, output-preserving).* Implemented. `interface.rs` now
+   hosts a small `MethodItem` trait (`def()` / `dependencies()`, implemented for both
+   `Method` and `CppMethod`) plus three shared emitters called from *both* interface
+   writers:
+   - `write_vtbl_methods` — the `_Vtbl` method-pointer fields (slot-name allocation, the
+     per-method `#[cfg]` gate with its `#[cfg]`-out `usize` fallback, and the opaque
+     name-only slot). The one real difference — WinRT appends `-> HRESULT` while COM's
+     `write_abi` already carries the native return — is supplied by the caller as a
+     closure.
+   - `write_impl_field_methods` — the `name: name::<..>,` initializer entries (the
+     opaque `name: 0,` fallback is shared; the turbofish args, which carry WinRT generics
+     or branch on COM's `OFFSET`, come from the caller).
+   - `write_impl_trait_methods` — the `fn name signature;` producer-trait entries (only
+     the `write_impl_signature` arity differs).
+
+   The per-method extern thunks (`impl_methods`) were intentionally left per-side: their
+   generics, `this`-extraction (`OFFSET` deref vs `ScopedHeap`), and `write_upcall`
+   shapes genuinely diverge, so a shared helper would be all parameters and no body.
+   `enum.rs` likewise gained `write_enum_constants` (the filtered `pub const X = Self(v)`
+   variants) and `write_enum_flags` (the `BitOr`/`BitAnd`/`*Assign`/`Not`/`contains`
+   block); the WinRT and COM enum writers now call both, gating on their own
+   (`u32`-underlying vs `FlagsAttribute`) guards. Net bindgen source ≈ −22 lines, but the
+   point is single-sourcing: four near-identical blocks now live in one place each. Proven
+   correct by regenerating `windows`/`windows-sys` (`tool_package`), `windows-reactor`,
+   `windows-webview`, and the `tool_bindings` crates to a **zero-byte diff**; bindgen
+   tests + clippy clean.
+
+   Deliberately *not* attempted (essential forks — a unified writer would be mostly
+   feature flags): `Struct`/`CppStruct` (COM unions/handles/nested types/arch layout),
+   `Delegate`/`CppDelegate` (GUID'd interface vs bare `extern fn`), the COM-only
+   `CppFn`/`CppConst`/`CppHandle`, and the method **return model** (next item).
+2. *Return-model axis (studied — fork is mostly essential).* A close reading of the
+   caller- and producer-side return handling in `method.rs` (WinRT) and
+   `cpp_method.rs` (COM, driven by the `ReturnHint` enum) shows the two return models
+   **overlap only in the `ResultVoid` / `ResultValue` shapes**, and that overlap is
+   *already* shared:
+
+   - The success-code folding lives in `windows-core`: `HRESULT::ok` / `map` /
+     `and_then` all gate on `is_ok()` (`self.0 >= 0`, i.e. `SUCCEEDED`). The
+     value-side mapping is centralized once in `Type::write_result_map`
+     (`types/mod.rs`) and called by *both* writers. The void-side fold is `vcall.ok()`
+     in both.
+   - Everything else in each model is exclusive to one side and genuinely different:
+     WinRT always returns `HRESULT` on the vtable with the logical return appended as a
+     trailing out-param, plus WinRT-only axes (noexcept, WinRT arrays, `IReference<T>`
+     sugar, minimal `&str`/`String`). COM preserves the **native** vtable return and
+     adds COM-only `ReturnHint` shapes — `None` (raw return passes through),
+     `ReturnValue` (non-`HRESULT` return + retval out-param), `ReturnStruct` (by-value
+     struct via a hidden first out-param), and `Query` / `QueryOptional` (the
+     `(REFIID, void**)` QI pattern folded into `Result<T>`).
+
+   Because the strategies are ~80% disjoint, a single shared `ReturnStrategy` enum
+   would be mostly non-overlapping variants and would not reduce real complexity;
+   merging the two `write()` bodies is therefore **not** a worthwhile dedup — the fork
+   is essential, and the part that *should* be shared already is.
+
+   *Success-code (`S_FALSE`) finding.* `SUCCEEDED` codes are correctly treated as
+   `Ok` on both paths (so `S_FALSE` is never an error), but projecting to
+   `Result<()>` / `Result<T>` **discards the specific success code** — a method that
+   returns `S_FALSE` meaningfully loses that signal. This is a *shared* limitation,
+   not a fork: it applies to WinRT too (a WinRT method can return `S_FALSE`, just more
+   rarely), and there is no metadata distinguishing meaningful-success methods. The
+   only escape hatch today is to project the raw `HRESULT` (COM `ReturnHint::None`),
+   but `CppMethod::new` always classifies an `HRESULT` return as `ResultVoid` /
+   `ResultValue`, so there is currently no way to opt a specific method out on either
+   side. The worthwhile follow-up here is therefore a *feature*, not a dedup: an
+   opt-in (e.g. a filter directive, since metadata can't express it) to preserve the
+   raw `HRESULT` so callers can observe `S_FALSE` — applicable uniformly to WinRT and
+   COM. The deeper reason it can't be uniform is an **information-capacity
+   mismatch**, not a codegen choice: a vtable method `HRESULT M([out] T*)` produces up
+   to three distinct states — a failure code, a *success* code (`S_OK` vs `S_FALSE`),
+   and the out-param value — but `Result<T>` has only two slots (`Ok(T)` | `Err(code)`).
+   Collapsing always drops one: the `Ok` arm keeps the value and drops the
+   success code; the `Err` arm keeps the code and drops the value. So `S_FALSE` cannot
+   ride along "for free" in a `Result<T>` projection.
+
+   *Void vs. value asymmetry.* The void case is solvable losslessly: `HRESULT M()`
+   with meaningful `S_FALSE` has no out-param, so the free slot can carry the success
+   code — project it as `Result<bool>` (`Ok(true)` = `S_OK`, `Ok(false)` = `S_FALSE`,
+   `Err` = `FAILED`) instead of the lossy `ResultVoid` → `Result<()>`. The value case
+   (`HRESULT M([out] T*)`) is genuinely lossy and needs a heavier shape
+   (`Result<Option<T>>` with `S_FALSE` → `Ok(None)`, or raw `HRESULT` + caller reads
+   the out-param).
+
+   *Relation to the `Error::empty()` "success-but-empty" hack.* `windows-result`
+   already faces the same fork for the success-with-no-value case: `Error.code` is a
+   `NonZeroI32` (so `Result<(), Error>` stays niche-sized as `Option<Error>`, with the
+   zero/`Ok` niche), which means an `Error` can never hold `S_OK` (0). `Error::empty()`
+   therefore stores the sentinel `S_EMPTY_ERROR` (`b"S_OK"` as `i32`), and
+   `Type::from_abi` for an interface maps *success HRESULT + null out-param* to
+   `Err(Error::empty())` — i.e. a missing object becomes an error so `let x = foo()?;`
+   stays ergonomic. Note this is a **policy choice** for the exact ABI situation an
+   `S_FALSE`-aware value method cares about: same bits on the wire (success + null
+   out-param), but `Error::empty()` projects it as `Err` while an `S_FALSE`-aware
+   method would want `Ok(None)` / `Ok(false)`. That is precisely why `S_FALSE` support
+   must be opt-in — it requests the *other* policy. The machinery already exists in
+   one form: `ReturnHint::QueryOptional` models "optional out-param" by writing to a
+   caller-provided `*mut Option<T>` and returning `Result<()>` (preserving both the
+   HRESULT-as-`Result` and present/absent), so a generalized "optional/`S_FALSE`
+   out-param" hint would follow an established shape rather than a new one.
+3. *COM event transform + closure-ctor (prototyped, deliberately not kept).* COM
+   already gets most WinRT ergonomics through genuinely *shared* code — property
+   naming sugar (`get_X` → `X()`, `put_X` → `SetX()`), `_Impl` traits, IID-based
+   `cast`, the `Param` conversion trait, HRESULT → `Result`. Two further WinRT
+   ergonomics were prototyped for the COM path: collapsing `add_`/`remove_` event
+   pairs into a single `X(handler) -> Result<EventRevoker>`, and giving
+   delegate-shaped handler interfaces (`IUnknown` base, single `Invoke`) a
+   closure-accepting `new()` mirroring `Delegate::write`. Both were reverted.
+
+   The reason is the priority order: these mirrored the WinRT behavior by adding a
+   **parallel COM codegen path** (`CppEvent` detection + event-collapse emit, plus
+   `delegate_method`/`write_closure_ctor` and closure signature/upcall helpers) that
+   *duplicated* `method.rs`/`delegate.rs` rather than sharing it — only the runtime
+   types (`EventRevoker`, `DelegateBox`) were reused. That is more bindgen edge
+   cases, not fewer, and the only consumer was `windows-webview`: the published
+   `windows`/`windows-sys` crates have no `EventRegistrationToken`-based COM events
+   (their one COM event, `ISpellChecker`, uses a `u32` cookie), and no other crate
+   has delegate-shaped COM handlers. Mirroring-by-duplication to serve a single crate
+   runs against the goal of *fewer* edge cases, so `windows-webview` keeps its own
+   small `event_handler!`/`EventRegistration` glue instead — the complexity stays in
+   the one crate that needs it. If these are revisited, the bar is a *single* shared
+   event/delegate generator driven from both type systems, not a second copy.
+4. *Extend remaining minimal-mode ergonomics to COM.* `IntoIterator` for COM
+   enumerators (`IEnumXxx`'s Next/Skip/Reset/Clone) mirroring `IIterable` →
+   `BufferedIterator`, and broader string in/out sugar, leveraging the existing
+   `remap()` substrate.

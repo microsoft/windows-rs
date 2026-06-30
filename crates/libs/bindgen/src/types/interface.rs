@@ -9,10 +9,144 @@ pub enum InterfaceKind {
     Base,
 }
 
+// Shared by the WinRT (`Interface`/`Method`) and Win32/COM (`CppInterface`/`CppMethod`)
+// generators: a vtable slot is either a fully-projected method or an opaque,
+// name-only placeholder (filtered out or missing dependencies).
 #[derive(Clone, Debug)]
-pub enum MethodOrName {
-    Method(Method),
+pub enum MethodOrName<M> {
+    Method(M),
     Name(MethodDef),
+}
+
+// A method collapses to an opaque, name-only vtable slot when it is demoted by a
+// method-level filter, or (outside minimal mode) when its dependencies are not all
+// included. Shared by both the WinRT and COM interface generators so the policy that
+// decides `Method` vs `Name` lives in one place.
+pub fn method_is_skipped(
+    def: MethodDef,
+    type_name: TypeName,
+    dependencies: &TypeMap,
+    config: &Config,
+) -> bool {
+    (!config.bindgen.style.is_minimal() && !dependencies.included(config))
+        || !config.includes_method(type_name, def)
+}
+
+// The two pieces a vtable/`_Impl` writer needs from a projected method, regardless of
+// whether it is a WinRT `Method` or a Win32/COM `CppMethod`. Lets the shared emitters
+// below iterate `MethodOrName<M>` without caring which generator produced it.
+pub trait MethodItem {
+    fn def(&self) -> MethodDef;
+    fn dependencies(&self) -> &TypeMap;
+}
+
+impl MethodItem for Method {
+    fn def(&self) -> MethodDef {
+        self.def
+    }
+    fn dependencies(&self) -> &TypeMap {
+        &self.dependencies
+    }
+}
+
+impl MethodItem for CppMethod {
+    fn def(&self) -> MethodDef {
+        self.def
+    }
+    fn dependencies(&self) -> &TypeMap {
+        &self.dependencies
+    }
+}
+
+// Emits the method-pointer fields of a `_Vtbl` struct. Shared by both interface
+// generators: the slot-name allocation, the per-method `#[cfg]` gate, the
+// `#[cfg]`-out `usize` fallback, and the opaque name-only slot are identical; only the
+// post-`fn` signature differs (WinRT appends `-> HRESULT`, COM's `write_abi` already
+// carries the native return), so the caller supplies it via `signature`.
+pub fn write_vtbl_methods<M: MethodItem>(
+    methods: &[MethodOrName<M>],
+    class_cfg: &Cfg,
+    config: &Config,
+    mut signature: impl FnMut(&M) -> TokenStream,
+) -> Vec<TokenStream> {
+    let mut names = MethodNames::for_style(&config.bindgen.style);
+    methods
+        .iter()
+        .map(|method| match method {
+            MethodOrName::Method(method) => {
+                let method_cfg = class_cfg.difference(method.dependencies(), config);
+                let yes = method_cfg.write(config, false);
+                let name = names.add(method.def());
+                let sig = signature(method);
+
+                if yes.is_empty() {
+                    quote! {
+                        pub #name: unsafe extern "system" fn #sig,
+                    }
+                } else {
+                    let no = method_cfg.write(config, true);
+
+                    quote! {
+                        #yes
+                        pub #name: unsafe extern "system" fn #sig,
+                        #no
+                        #name: usize,
+                    }
+                }
+            }
+            MethodOrName::Name(method) => {
+                let name = names.add(*method);
+                quote! { #name: usize, }
+            }
+        })
+        .collect()
+}
+
+// Emits the `field_methods` of a `_Vtbl::new()` initializer (the `name: name::<..>,`
+// entries). The opaque `name: 0,` fallback is identical across generators; the turbofish
+// type arguments differ (WinRT carries generics, COM branches on `OFFSET`), so the caller
+// supplies the `Method` arm via `method_field`.
+pub fn write_impl_field_methods<M: MethodItem>(
+    methods: &[MethodOrName<M>],
+    config: &Config,
+    mut method_field: impl FnMut(&TokenStream) -> TokenStream,
+) -> Vec<TokenStream> {
+    let mut names = MethodNames::for_style(&config.bindgen.style);
+    methods
+        .iter()
+        .map(|method| match method {
+            MethodOrName::Method(method) => {
+                let name = names.add(method.def());
+                method_field(&name)
+            }
+            MethodOrName::Name(method) => {
+                let name = names.add(*method);
+                quote! { #name: 0, }
+            }
+        })
+        .collect()
+}
+
+// Emits the `fn name signature;` entries of an `_Impl` producer trait. Identical across
+// generators apart from the `write_impl_signature` arity (WinRT takes an extra flag), so
+// the caller supplies the signature via `signature`.
+pub fn write_impl_trait_methods<M: MethodItem>(
+    methods: &[MethodOrName<M>],
+    config: &Config,
+    mut signature: impl FnMut(&M) -> TokenStream,
+) -> Vec<TokenStream> {
+    let mut names = MethodNames::for_style(&config.bindgen.style);
+    methods
+        .iter()
+        .map(|method| match method {
+            MethodOrName::Method(method) => {
+                let name = names.add(method.def());
+                let sig = signature(method);
+                quote! { fn #name #sig; }
+            }
+            _ => quote! {},
+        })
+        .collect()
 }
 
 #[derive(Clone, Debug)]
@@ -53,16 +187,13 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<Method>> {
         let type_name = self.def.type_name();
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
-                    MethodOrName::Name(method.def)
-                } else if !config.includes_method(type_name, def) {
-                    // Method-level filter demoted this slot to opaque.
+                if method_is_skipped(def, type_name, &method.dependencies, config) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -79,8 +210,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
-                || !config.includes_method(type_name, def)
+            method_is_skipped(def, type_name, &method.dependencies, config)
         })
     }
 
@@ -103,12 +233,11 @@ impl Interface {
         let (class_cfg, cfg) = self.write_cfg(config);
 
         let vtbl = {
-            let virtual_names = &mut MethodNames::for_style(&config.bindgen.style);
-            let result = config.write_core();
+            let core = config.write_core();
 
             // Drop trailing usize slots — nothing indexes past the last real
             // method, so they waste space and compile time.
-            let methods_for_vtbl: &[MethodOrName] = {
+            let methods_for_vtbl: &[MethodOrName<Method>] = {
                 let last_real = methods
                     .iter()
                     .rposition(|m| matches!(m, MethodOrName::Method(_)));
@@ -118,38 +247,12 @@ impl Interface {
                 }
             };
 
-            let vtbl_methods = methods_for_vtbl.iter().map(|method| match method {
-                MethodOrName::Method(method) => {
-                    let name = virtual_names.add(method.def);
-                    let vtbl = method.write_abi(config, false);
-
-                    let method_cfg = class_cfg.difference(&method.dependencies, config);
-                    let yes = method_cfg.write(config, false);
-
-                    if yes.is_empty() {
-                        quote! {
-                            pub #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
-                        }
-                    } else {
-                        let no = method_cfg.write(config, true);
-
-                        quote! {
-                            #yes
-                            pub #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
-                            #no
-                            #name: usize,
-                        }
-                    }
-                }
-                MethodOrName::Name(method) => {
-                    let name = virtual_names.add(*method);
-                    quote! { #name: usize, }
-                }
+            let vtbl_methods = write_vtbl_methods(methods_for_vtbl, &class_cfg, config, |method| {
+                let vtbl = method.write_abi(config, false);
+                quote! { (#vtbl) -> #core HRESULT }
             });
 
             let hide_vtbl = config.doc_hidden_in_package();
-
-            let core = config.write_core();
 
             quote! {
                 #cfg
@@ -497,21 +600,9 @@ impl Interface {
 
                 if has_skipped_methods {
                 } else {
-                    let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                    let field_methods: Vec<_> = methods
-                        .iter()
-                        .map(|method| match method {
-                            MethodOrName::Method(method) => {
-                                let name = names.add(method.def);
-                                quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
-                            }
-                            MethodOrName::Name(method) => {
-                                let name = names.add(*method);
-                                quote! { #name: 0, }
-                            }
-                        })
-                        .collect();
+                    let field_methods = write_impl_field_methods(&methods, config, |name| {
+                        quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                    });
 
                     let mut names = MethodNames::for_style(&config.bindgen.style);
 
@@ -534,19 +625,9 @@ impl Interface {
                 _ => quote! {},
             }).collect();
 
-                    let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                    let trait_methods: Vec<_> = methods
-                        .iter()
-                        .map(|method| match method {
-                            MethodOrName::Method(method) => {
-                                let name = names.add(method.def);
-                                let signature = method.write_impl_signature(config, true, true);
-                                quote! { fn #name #signature; }
-                            }
-                            _ => quote! {},
-                        })
-                        .collect();
+                    let trait_methods = write_impl_trait_methods(&methods, config, |method| {
+                        method.write_impl_signature(config, true, true)
+                    });
 
                     let requires = if required_interfaces.is_empty() {
                         quote! { windows_core::IUnknownImpl }

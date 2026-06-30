@@ -1,11 +1,5 @@
 use super::*;
 
-#[derive(Clone, Debug)]
-pub enum CppMethodOrName {
-    Method(CppMethod),
-    Name(MethodDef),
-}
-
 #[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct CppInterface {
     pub def: TypeDef,
@@ -28,7 +22,7 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, config: &Config) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<CppMethod>> {
         let namespace = self.def.namespace();
         let type_name = self.def.type_name();
 
@@ -36,13 +30,10 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace, config.reader);
-                if !config.bindgen.style.is_minimal() && !method.dependencies.included(config) {
-                    CppMethodOrName::Name(method.def)
-                } else if !config.includes_method(type_name, def) {
-                    // Method-level filter demoted this slot to opaque.
-                    CppMethodOrName::Name(method.def)
+                if method_is_skipped(def, type_name, &method.dependencies, config) {
+                    MethodOrName::Name(method.def)
                 } else {
-                    CppMethodOrName::Method(method)
+                    MethodOrName::Method(method)
                 }
             })
             .collect()
@@ -57,8 +48,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            (!config.bindgen.style.is_minimal() && !method.dependencies.included(config))
-                || !config.includes_method(type_name, def)
+            method_is_skipped(def, type_name, &method.dependencies, config)
         })
     }
 
@@ -91,35 +81,8 @@ impl CppInterface {
                 _ => quote! {},
             };
 
-            let mut names = MethodNames::for_style(&config.bindgen.style);
-
-            let methods = methods.iter().map(|method| match method {
-                CppMethodOrName::Method(method) => {
-                    let method_cfg = class_cfg.difference(&method.dependencies, config);
-                    let yes = method_cfg.write(config, false);
-
-                    let name = names.add(method.def);
-                    let abi = method.write_abi(config, false);
-
-                    if yes.is_empty() {
-                        quote! {
-                            pub #name: unsafe extern "system" fn #abi,
-                        }
-                    } else {
-                        let no = method_cfg.write(config, true);
-
-                        quote! {
-                            #yes
-                            pub #name: unsafe extern "system" fn #abi,
-                            #no
-                            #name: usize,
-                        }
-                    }
-                }
-                CppMethodOrName::Name(method) => {
-                    let name = names.add(*method);
-                    quote! { #name: usize, }
-                }
+            let methods = write_vtbl_methods(&methods, &class_cfg, config, |method| {
+                method.write_abi(config, false)
             });
 
             let hide_vtbl = config.doc_hidden_in_package();
@@ -214,7 +177,7 @@ impl CppInterface {
                 let self_config = config.with_self_ty(self.type_name(), &[]);
 
                 for method in methods.iter().filter_map(|method| match &method {
-                    CppMethodOrName::Method(method) => Some(method),
+                    MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
                     let cfg = method.write_cfg(config, &class_cfg, false);
@@ -257,7 +220,7 @@ impl CppInterface {
                         config: &Config,
                     ) {
                         for method in &interface.get_methods(config) {
-                            if let CppMethodOrName::Method(method) = method {
+                            if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
                         }
@@ -277,30 +240,18 @@ impl CppInterface {
                     quote! {}
                 };
 
-                let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                let field_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        CppMethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            if has_unknown_base {
-                                quote! { #name: #name::<Identity, OFFSET>, }
-                            } else {
-                                quote! { #name: #name::<Identity>, }
-                            }
-                        }
-                        CppMethodOrName::Name(method) => {
-                            let name = names.add(*method);
-                            quote! { #name: 0, }
-                        }
-                    })
-                    .collect();
+                let field_methods = write_impl_field_methods(&methods, config, |name| {
+                    if has_unknown_base {
+                        quote! { #name: #name::<Identity, OFFSET>, }
+                    } else {
+                        quote! { #name: #name::<Identity>, }
+                    }
+                });
 
                 let mut names = MethodNames::for_style(&config.bindgen.style);
 
                 let impl_methods: Vec<_> = methods.iter().map(|method| match method {
-                CppMethodOrName::Method(method) => {
+                MethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
                     let upcall = method.write_upcall(&impl_name, &name, config.reader);
@@ -329,19 +280,9 @@ impl CppInterface {
                 _ => quote! {},
             }).collect();
 
-                let mut names = MethodNames::for_style(&config.bindgen.style);
-
-                let trait_methods: Vec<_> = methods
-                    .iter()
-                    .map(|method| match method {
-                        CppMethodOrName::Method(method) => {
-                            let name = names.add(method.def);
-                            let signature = method.write_impl_signature(config, true);
-                            quote! { fn #name #signature; }
-                        }
-                        _ => quote! {},
-                    })
-                    .collect();
+                let trait_methods = write_impl_trait_methods(&methods, config, |method| {
+                    method.write_impl_signature(config, true)
+                });
 
                 let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
 
@@ -366,7 +307,7 @@ impl CppInterface {
                 // omission across base interfaces.
                 let has_skipped_methods = methods
                     .iter()
-                    .any(|method| matches!(method, CppMethodOrName::Name(_)))
+                    .any(|method| matches!(method, MethodOrName::Name(_)))
                     || base_interfaces.iter().any(|ty| match ty {
                         Type::CppInterface(ty) => ty.has_skipped_methods(config),
                         _ => false,
