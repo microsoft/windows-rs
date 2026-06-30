@@ -219,15 +219,23 @@ impl Controller {
     }
 
     /// Subscribes to the got-focus event, raised when the browser gains focus.
-    pub fn on_got_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRevoker> {
+    pub fn on_got_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRegistration> {
         let handler = handler::FocusChanged::create(handler);
-        unsafe { self.0.GotFocus(&handler) }
+        let token = unsafe { self.0.add_GotFocus(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_GotFocus(token) };
+        }))
     }
 
     /// Subscribes to the lost-focus event, raised when the browser loses focus.
-    pub fn on_lost_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRevoker> {
+    pub fn on_lost_focus<F: FnMut() + 'static>(&self, handler: F) -> Result<EventRegistration> {
         let handler = handler::FocusChanged::create(handler);
-        unsafe { self.0.LostFocus(&handler) }
+        let token = unsafe { self.0.add_LostFocus(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_LostFocus(token) };
+        }))
     }
 
     subscription! {
@@ -237,7 +245,7 @@ impl Controller {
         /// [`MoveFocusRequestedArgs::set_handled`]. Wiring this is what keeps Tab
         /// navigation and screen readers working when the browser is embedded.
         on_move_focus_requested(MoveFocusRequestedArgs) =>
-            MoveFocusRequested, MoveFocusRequested
+            MoveFocusRequested, add_MoveFocusRequested / remove_MoveFocusRequested
     }
 
     subscription! {
@@ -247,6 +255,6 @@ impl Controller {
         /// [`AcceleratorKeyPressedArgs`] to implement application keyboard
         /// shortcuts.
         on_accelerator_key_pressed(AcceleratorKeyPressedArgs) =>
-            AcceleratorKeyPressed, AcceleratorKeyPressed
+            AcceleratorKeyPressed, add_AcceleratorKeyPressed / remove_AcceleratorKeyPressed
     }
 }

@@ -402,3 +402,29 @@ impl AcceleratorKeyPressedArgs {
         unsafe { self.0.SetHandled(handled) }
     }
 }
+
+/// An RAII guard for an event subscription. The handler stays registered until
+/// this value is dropped or [`EventRegistration::remove`] is called.
+#[must_use]
+pub struct EventRegistration(Option<Box<dyn FnOnce()>>);
+
+impl EventRegistration {
+    pub(crate) fn new<F: FnOnce() + 'static>(remove: F) -> Self {
+        Self(Some(Box::new(remove)))
+    }
+
+    /// Unsubscribes the handler.
+    pub fn remove(mut self) {
+        if let Some(remove) = self.0.take() {
+            remove();
+        }
+    }
+}
+
+impl Drop for EventRegistration {
+    fn drop(&mut self) {
+        if let Some(remove) = self.0.take() {
+            remove();
+        }
+    }
+}

@@ -109,9 +109,8 @@ browser can trim memory, and set it back to `Normal` when shown again.
 ## Events
 
 Every event is an RAII subscription: `on_*` registers a handler and returns an
-`EventRevoker` (re-exported from `windows-core`) that unsubscribes on drop. Keep
-it alive for as long as you want the handler to fire, or call `forget()` to leave
-the handler registered indefinitely.
+`EventRegistration` that unsubscribes on drop (or via `remove()`). Keep it alive
+for as long as you want the handler to fire.
 
 - `on_navigation_starting` / `on_navigation_completed` / `on_content_loading` —
   navigation lifecycle; `NavigationStartingArgs::set_cancel(true)` vetoes a load.
@@ -333,8 +332,7 @@ for contributors and is **not needed to use `windows-webview`**.
 
 `windows-webview` exposes a curated, safe, idiomatic API over a *minimal*,
 hand-picked slice of the WebView2 COM surface. It hides the COM types behind owned
-Rust values and avoids proc macros (via generated closure constructors for handlers
-and `implement_decl` for the environment options object), so the default crate
+Rust values and avoids proc macros via `implement_decl`, so the default crate
 stays small and quick to build. A Rust `Future`/`async` layer is a deliberate
 non-goal: WebView2's single-threaded COM apartment and callback model make the
 pump-and-wait approach (below) a more natural fit.
@@ -461,39 +459,30 @@ The filter also passes `--dead-code`, which emits the generated methods as
 than leaking it into the public API. (Free functions go through the `link!` macro
 and can't be `pub(crate)`, but interface methods can.) Implemented interfaces (the
 handlers and `ICoreWebView2EnvironmentOptions`) are listed only in `--implement`,
-never in `--filter`: they are reached as parameters of the `add_*`/factory methods.
-For the handlers, `--implement` keeps their single `Invoke` method alive through
-dead-code elimination; `windows-bindgen` recognizes their delegate shape and emits
-a **closure constructor** (`IXHandler::new(|..| ..)`) in place of the `_Impl`
-producer trait (see below). `ICoreWebView2EnvironmentOptions` is not delegate-shaped,
-so it still gets the `_Impl` trait and vtable.
+never in `--filter`: they are reached as parameters of the `add_*`/factory methods,
+and `--minimal` + `--implement` emits each one's `_Impl` trait and vtable
+**without** a caller-side method wrapper — so there are no dead `Invoke` getters to
+lint around.
 
-### Implementing handlers via generated closure constructors
+### Implementing handlers without proc-macros
 
-Every WebView2 handler interface is delegate-shaped — `IUnknown`-derived with a
-single `Invoke` method — so `windows-bindgen` generates a closure constructor for
-each, exactly as it does for WinRT delegates: `IXHandler::new<F: Fn(..) + 'static>`
-boxes the closure in `windows_core::imp::DelegateBox` (which supplies the shared
-`QueryInterface`/`AddRef`/`Release` and claims `IAgileObject`/`IMarshal`). This
-reuses `windows-core` with **default features off** — no `syn`/`quote`/`proc-macro2`
-build cost — without any hand-written COM implementation.
+The completion handlers (`EnvironmentCompleted`, `ControllerCompleted`,
+`ExecuteScriptCompleted`, `AddScriptCompleted` in `handler.rs`) wrap a Rust
+`FnOnce` closure and implement the corresponding `ICoreWebView2…Handler` COM
+interface. They use `implement_decl!` rather than `#[implement]`, exactly like
+`windows-reactor`, so the crate depends on `windows-core` with **default features
+off** — no `syn`/`quote`/`proc-macro2` build cost. This requires the interface's
+`_Impl` trait and vtable, which `windows-bindgen` emits via the `--implement`
+entries in `webview.txt`.
 
-`handler.rs` is therefore just a thin bridge: each `create` adapts the public
-closure onto the generated `Fn` constructor. The one-shot completion handlers
-(`EnvironmentCompleted`, `ControllerCompleted`, `ExecuteScriptCompleted`,
-`AddScriptCompleted`, …) bridge an `FnOnce` through a `Cell<Option<_>>`; the
-repeating event handlers bridge an `FnMut` through a `RefCell`, projecting the
-generated `Fn(sender, args)` into the event's public closure shape. A small
-`event_handler!` macro generates the projection shim for the uniform args-bearing
-events (an `args` arm wraps the event's args interface, a `sender` arm wraps the
-sender for events with no args interface); the sender-read and args-newtype
-projections stay hand-written.
+The repeating event handlers are folded behind an `event_handler!` macro: an
+`args` arm wraps the event's args interface, a `sender` arm (for events with no
+args interface) wraps the sender. Each holds an `FnMut` in a `RefCell`.
 
 ### Caller-implemented interfaces (environment options)
 
-The remaining hand-written COM implementation is the environment options object,
-the one place `implement_decl!` (the non-proc-macro alternative to `#[implement]`)
-is still used. `CreateCoreWebView2EnvironmentWithOptions` takes an
+`implement_decl!` is not only for callbacks.
+`CreateCoreWebView2EnvironmentWithOptions` takes an
 `ICoreWebView2EnvironmentOptions` that **WebView2 has no concrete class for** — the
 caller must supply one, and WebView2 reads the configuration through its getters.
 `options.rs` therefore implements that interface in Rust: the public
@@ -526,19 +515,13 @@ re-entrant pumping during normal run.
 
 ### Events (RAII subscriptions)
 
-WebView2 events follow the COM `add_X`/`remove_X` token pattern. Because that
-shape is structurally identical to a WinRT event, `windows-bindgen` collapses each
-`add_X`/`remove_X` pair into a single `X(handler) -> Result<EventRevoker>` method
-(see the event-transform note in `docs/crates/windows-bindgen.md`), exactly as it
-does for WinRT. The generated method registers the handler with `add_X`, captures
-the returned `i64` token and the `remove_X` slot, and hands back a
-`windows_core::EventRevoker` that calls `remove_X(token)` on `Drop` (or is
-neutralised with `forget`/`into_token`).
-
-A thin `subscription!` macro in `handler.rs` wires each `on_*` method to the
-generated event method: it builds the `handler.rs` closure adapter and forwards to
-`self.0.X(&handler)`, returning the `EventRevoker` directly — no per-event token,
-`remove`, or wrapper plumbing remains in the crate.
+WebView2 events follow the COM `add_X`/`remove_X` token pattern, wrapped as a
+subscription returning an RAII guard. A `subscription!` macro generates each `on_*`
+method: it registers the `handler.rs` adapter with `add_X` (which returns an `i64`
+token), clones the source interface, and returns an `EventRegistration` whose
+removal closure calls `remove_X(token)`. `EventRegistration` is `#[must_use]`,
+holds an `Option<Box<dyn FnOnce()>>`, and runs the removal on `Drop` or explicit
+`remove(self)` (taking the closure first so it never runs twice).
 
 Most args types are thin newtypes over the COM args interface. Two events carry no
 args interface (`Invoke` receives a bare `IUnknown`): `DocumentTitleChanged` reads
@@ -565,13 +548,8 @@ hand-written Rust enums with `from_raw`/`to_raw` mappings; the growable ones are
 its filter (`AddWebResourceRequestedFilter`), and `CreateWebResourceResponse` all
 live on **base** interfaces, so the event itself needs no `cast`;
 `on_web_resource_requested` only `cast`s to `ICoreWebView2_2` once at registration
-to capture the `Environment` for building responses. The filter has the same
-lifetime as the handler, so the `protocol::WebResourceRequested` adapter captures a
-`FilterGuard` in its closure box: it registers the filter
-(`AddWebResourceRequestedFilter`) when built and removes it in the guard's `Drop`.
-Revoking the returned `EventRevoker` releases the handler, which drops the boxed
-closure and its guard — so a single revoker tears down **both** the handler and the
-filter with no bespoke registration type.
+to capture the `Environment` for building responses. The returned
+`EventRegistration` removes **both** the handler and the filter on drop.
 
 `CreateWebResourceResponse` takes the body as a COM `IStream`, but that type never
 reaches the public surface. `WebResourceResponse` is a plain data builder; when the

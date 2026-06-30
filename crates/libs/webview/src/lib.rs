@@ -36,8 +36,8 @@ pub use download::{
 };
 pub use environment::Environment;
 pub use event::{
-    AcceleratorKeyPressedArgs, ContentLoadingArgs, KeyEventKind, MoveFocusReason,
-    MoveFocusRequestedArgs, NavigationCompletedArgs, NavigationStartingArgs,
+    AcceleratorKeyPressedArgs, ContentLoadingArgs, EventRegistration, KeyEventKind,
+    MoveFocusReason, MoveFocusRequestedArgs, NavigationCompletedArgs, NavigationStartingArgs,
     NewWindowRequestedArgs, PermissionKind, PermissionRequestedArgs, PermissionState,
     ProcessFailedArgs, ProcessFailedKind, WebMessageReceivedArgs,
 };
@@ -49,5 +49,4 @@ pub use reactor::webview;
 pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};
-pub use windows_core::EventRevoker;
 pub use windows_core::Result;

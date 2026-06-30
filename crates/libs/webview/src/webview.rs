@@ -300,13 +300,13 @@ impl WebView {
         /// navigation. The handler may inspect the target and cancel it via
         /// [`NavigationStartingArgs::set_cancel`].
         on_navigation_starting(NavigationStartingArgs) =>
-            NavigationStarting, NavigationStarting
+            NavigationStarting, add_NavigationStarting / remove_NavigationStarting
     }
 
     subscription! {
         /// Subscribes to the navigation-completed event.
         on_navigation_completed(NavigationCompletedArgs) =>
-            NavigationCompleted, NavigationCompleted
+            NavigationCompleted, add_NavigationCompleted / remove_NavigationCompleted
     }
 
     subscription! {
@@ -316,7 +316,7 @@ impl WebView {
         /// render-process crash) or recreate the `WebView` (a browser-process
         /// exit). Without a handler a crash leaves a blank page with no notice.
         on_process_failed(ProcessFailedArgs) =>
-            ProcessFailed, ProcessFailed
+            ProcessFailed, add_ProcessFailed / remove_ProcessFailed
     }
 
     /// Subscribes to the contains-fullscreen-element-changed event, raised when
@@ -327,9 +327,13 @@ impl WebView {
     pub fn on_contains_fullscreen_element_changed<F: FnMut(bool) + 'static>(
         &self,
         handler: F,
-    ) -> Result<EventRevoker> {
+    ) -> Result<EventRegistration> {
         let handler = handler::ContainsFullScreenElementChanged::create(handler);
-        unsafe { self.0.ContainsFullScreenElementChanged(&handler) }
+        let token = unsafe { self.0.add_ContainsFullScreenElementChanged(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_ContainsFullScreenElementChanged(token) };
+        }))
     }
 
     /// Posts a message to the hosted page as a JSON value. The page receives it
@@ -352,21 +356,21 @@ impl WebView {
         /// Subscribes to the web-message-received event, raised when the hosted
         /// page calls `window.chrome.webview.postMessage`.
         on_web_message_received(WebMessageReceivedArgs) =>
-            WebMessageReceived, WebMessageReceived
+            WebMessageReceived, add_WebMessageReceived / remove_WebMessageReceived
     }
 
     subscription! {
         /// Subscribes to the content-loading event, raised when the browser
         /// starts loading content for a new document.
         on_content_loading(ContentLoadingArgs) =>
-            ContentLoading, ContentLoading
+            ContentLoading, add_ContentLoading / remove_ContentLoading
     }
 
     subscription! {
         /// Subscribes to the document-title-changed event. The handler receives
         /// the new [`document_title`](Self::document_title).
         on_document_title_changed(String) =>
-            DocumentTitleChanged, DocumentTitleChanged
+            DocumentTitleChanged, add_DocumentTitleChanged / remove_DocumentTitleChanged
     }
 
     /// Subscribes to the window-close-requested event, raised when the hosted
@@ -375,9 +379,13 @@ impl WebView {
     pub fn on_window_close_requested<F: FnMut() + 'static>(
         &self,
         handler: F,
-    ) -> Result<EventRevoker> {
+    ) -> Result<EventRegistration> {
         let handler = handler::WindowCloseRequested::create(handler);
-        unsafe { self.0.WindowCloseRequested(&handler) }
+        let token = unsafe { self.0.add_WindowCloseRequested(&handler)? };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_WindowCloseRequested(token) };
+        }))
     }
 
     subscription! {
@@ -386,7 +394,7 @@ impl WebView {
         /// handler may suppress, redirect, or
         /// [defer](NewWindowRequestedArgs::defer) the request.
         on_new_window_requested(NewWindowRequestedArgs) =>
-            NewWindowRequested, NewWindowRequested
+            NewWindowRequested, add_NewWindowRequested / remove_NewWindowRequested
     }
 
     subscription! {
@@ -396,7 +404,7 @@ impl WebView {
         /// [`PermissionRequestedArgs::set_state`] and may
         /// [defer](PermissionRequestedArgs::defer) the decision.
         on_permission_requested(PermissionRequestedArgs) =>
-            PermissionRequested, PermissionRequested
+            PermissionRequested, add_PermissionRequested / remove_PermissionRequested
     }
 
     /// Subscribes to the download-starting event, raised when a download begins.
@@ -405,10 +413,13 @@ impl WebView {
     pub fn on_download_starting<F: FnMut(DownloadStartingArgs) + 'static>(
         &self,
         handler: F,
-    ) -> Result<EventRevoker> {
+    ) -> Result<EventRegistration> {
         let source: ICoreWebView2_4 = self.0.cast()?;
         let handler = handler::DownloadStarting::create(handler);
-        unsafe { source.DownloadStarting(&handler) }
+        let token = unsafe { source.add_DownloadStarting(&handler)? };
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_DownloadStarting(token) };
+        }))
     }
 
     /// Subscribes to the web-resource-requested event, raised when the page
@@ -417,17 +428,29 @@ impl WebView {
     /// thread; return a [`WebResourceResponse`] to fulfil the request from memory
     /// (typically serving embedded assets under a custom host), or `None` to let
     /// WebView2 handle it normally.
-    pub fn on_web_resource_requested<F>(&self, uri_filter: &str, handler: F) -> Result<EventRevoker>
+    pub fn on_web_resource_requested<F>(
+        &self,
+        uri_filter: &str,
+        handler: F,
+    ) -> Result<EventRegistration>
     where
         F: FnMut(WebResourceRequest) -> Option<WebResourceResponse> + 'static,
     {
         let environment = unsafe { self.0.cast::<ICoreWebView2_2>()?.Environment()? };
-        let handler = protocol::WebResourceRequested::create(
-            self.0.clone(),
-            environment,
-            uri_filter,
-            handler,
-        )?;
-        unsafe { self.0.WebResourceRequested(&handler) }
+        let filter = string::encode(uri_filter);
+        unsafe { protocol::add_requested_filter(&self.0, filter.as_ptr())? };
+        let handler = protocol::WebResourceRequested::create(environment, handler);
+        let token = match unsafe { self.0.add_WebResourceRequested(&handler) } {
+            Ok(token) => token,
+            Err(err) => {
+                unsafe { protocol::remove_requested_filter(&self.0, filter.as_ptr()) };
+                return Err(err);
+            }
+        };
+        let source = self.0.clone();
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { source.remove_WebResourceRequested(token) };
+            unsafe { protocol::remove_requested_filter(&source, filter.as_ptr()) };
+        }))
     }
 }

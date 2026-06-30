@@ -10,14 +10,14 @@
 #![windows_subsystem = "windows"]
 
 use windows_reactor::*;
-use windows_webview::{EventRevoker, WebView, webview};
+use windows_webview::{EventRegistration, WebView, webview};
 
 const HOME: &str = "https://learn.microsoft.com/windows/apps/";
 
 fn app(cx: &mut RenderCx) -> Element {
     let (address, set_address) = cx.use_state(String::from(HOME));
     let web = cx.use_ref::<Option<WebView>>(None);
-    let registration = cx.use_ref::<Option<EventRevoker>>(None);
+    let registration = cx.use_ref::<Option<EventRegistration>>(None);
 
     let on_ready = {
         let web = web.clone();
