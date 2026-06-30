@@ -33,6 +33,12 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
+
+    /// Like [`from_default`](Self::from_default) but consumes the value, transferring ownership
+    /// instead of cloning. For interface types this moves the existing reference out rather than
+    /// taking an extra `AddRef`, which lets buffered iterators yield owned elements without a
+    /// per-element `AddRef`/`Release` round trip.
+    fn from_default_owned(default: Self::Default) -> Result<Self>;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -67,6 +73,10 @@ where
     fn from_default(default: &Self::Default) -> Result<Self> {
         default.as_ref().cloned().ok_or(Error::empty())
     }
+
+    fn from_default_owned(default: Self::Default) -> Result<Self> {
+        default.ok_or(Error::empty())
+    }
 }
 
 impl<T> Type<T, CloneType> for T
@@ -95,6 +105,10 @@ where
     fn from_default(default: &Self::Default) -> Result<Self> {
         Ok(default.clone())
     }
+
+    fn from_default_owned(default: Self::Default) -> Result<Self> {
+        Ok(default)
+    }
 }
 
 impl<T> Type<T, CopyType> for T
@@ -122,6 +136,10 @@ where
 
     fn from_default(default: &Self) -> Result<Self> {
         Ok(default.clone())
+    }
+
+    fn from_default_owned(default: Self) -> Result<Self> {
+        Ok(default)
     }
 }
 
