@@ -346,11 +346,16 @@ the vector — that loop is **batched**: `IMap<K, V>` implements `IIterable<IKey
 so its iterator exposes `GetMany`, and windows-rs drives it through the same `BufferedIterator`
 (bindgen emits the `IntoIterator` for every iterable, maps included, so the speedup is general).
 The catch is *what* `GetMany` returns: for `IVector<Int32>` it bulk-copies the `Int32` values
-inline, but for a map it hands back a block of `IKeyValuePair` **COM objects** (one `AddRef`
-each), and reading every `pair.Value()` is still a per-pair vtable crossing. So batching erases
-the iterator-stepping cost but not the per-pair accessor — which is why `Map` stays an order of
-magnitude above `IterateVector` (at 10M, Rust `775` vs `4`) yet only modestly ahead of C++
-`955` and C#/JIT `1813`, since all three pay the same per-pair `Value()` crossing. It stays
+inline, but for a map it hands back a block of `IKeyValuePair` **COM objects**, and reading every
+`pair.Value()` is still a per-pair vtable crossing. windows-rs shaves what it can from the
+consumer side: the `BufferedIterator` *moves* each `IKeyValuePair` out of its buffer rather than
+cloning it, so yielding a pair no longer takes an `AddRef` and a matching `Release` — only the
+`Value()` accessor and the final `Release` remain per pair. But that residual accessor crossing,
+plus the per-pair `IKeyValuePair` allocation the component must make to satisfy the ABI, is
+irreducible: batching erases the iterator-stepping cost but not the per-pair object lifecycle —
+which is why `Map` stays an order of magnitude above `IterateVector` (at 10M, Rust `775` vs `4`)
+yet only modestly ahead of C++ `955` and C#/JIT `1813`, since all three pay the same per-pair
+`Value()` crossing. It stays
 consumer-driven (`Rust→Rust` `74` vs `Rust→C++` `84` at 1M), so Rust again leads. Getting there exposed — and
 fixed — a quadratic in windows-rs: the stock map iterator originally located each element with
 `map.iter().nth(current)`, an O(n) walk per step, turning a full traversal into O(n²) (a 1M C#

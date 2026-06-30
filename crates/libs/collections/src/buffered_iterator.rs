@@ -48,12 +48,6 @@ impl<T: windows_core::RuntimeType + 'static> Iterator for BufferedIterator<T> {
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.index >= self.len {
-            // Release the previous block's values before refilling. Resetting to
-            // a zeroed default drops the held references and leaves a valid
-            // buffer for `GetMany` to overwrite.
-            for slot in &mut self.buffer[..self.len] {
-                *slot = unsafe { core::mem::zeroed() };
-            }
             self.index = 0;
             self.len = self.iterator.GetMany(&mut self.buffer).unwrap_or(0) as usize;
             self.len = self.len.min(self.buffer.len());
@@ -62,8 +56,13 @@ impl<T: windows_core::RuntimeType + 'static> Iterator for BufferedIterator<T> {
             }
         }
 
-        let result = T::from_default(&self.buffer[self.index]).ok();
+        // Move the element out of the buffer rather than cloning it, leaving a zeroed slot
+        // behind. For interface elements (such as the `IKeyValuePair` yielded by map iteration)
+        // this hands the buffer's existing reference to the caller, skipping the `AddRef` a
+        // clone would take and the matching `Release` when the slot is later overwritten. Slots
+        // left unconsumed (early-drop, or beyond a short `GetMany`) are released by the `Vec`.
+        let slot = core::mem::replace(&mut self.buffer[self.index], unsafe { core::mem::zeroed() });
         self.index += 1;
-        result
+        T::from_default_owned(slot).ok()
     }
 }
