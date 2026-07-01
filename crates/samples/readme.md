@@ -79,5 +79,5 @@ a minimal binding with [windows-bindgen](../../docs/crates/windows-bindgen.md).
 ---
 
 Many of these samples were inspired by or originally appeared in Kenny's
-[articles](https://kennykerr.ca/articles/) and
-[Pluralsight courses](https://kennykerr.ca/courses/).
+[articles](https://kennykerrca.wordpress.com/articles/) and
+[Pluralsight courses](https://www.pluralsight.com/authors/kenny-kerr).
