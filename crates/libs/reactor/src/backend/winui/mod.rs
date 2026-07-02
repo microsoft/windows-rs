@@ -550,6 +550,7 @@ fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, bindings::I
         Handle::StackPanel(s) => s.cast().ok().map(|fe| ("StackPanel", fe)),
         Handle::Grid(g) => g.cast().ok().map(|fe| ("Grid", fe)),
         Handle::Button(b) => b.cast().ok().map(|fe| ("Button", fe)),
+        Handle::TextBox(t) => t.cast().ok().map(|fe| ("TextBox", fe)),
         Handle::TextBlock(t) => t.cast().ok().map(|fe| ("TextBlock", fe)),
         Handle::Canvas(c) => c.cast().ok().map(|fe| ("Canvas", fe)),
         _ => None,

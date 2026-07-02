@@ -46,6 +46,33 @@ fn button_with_theme_background_emits_apply_theme_bindings_op() {
 }
 
 #[test]
+fn text_box_theme_border_brush_emits_apply_theme_bindings_op() {
+    let mut r = fresh();
+    let el: Element = text_box("x").border_brush(ThemeRef::Accent).into();
+
+    let id = r.reconcile(None, &el, None, no_rerender()).unwrap();
+
+    let theme_ops: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::ApplyThemeBindings {
+                id: oid,
+                kind,
+                bindings,
+                ..
+            } if *oid == id => Some((kind, bindings.clone())),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(theme_ops.len(), 1, "expected exactly one theme-binding op");
+    let (kind, bindings) = &theme_ops[0];
+    assert_eq!(**kind, ControlKind::TextBox);
+    assert_eq!(bindings, &vec![(Prop::BorderBrush, ThemeRef::Accent)]);
+}
+
+#[test]
 fn no_theme_bindings_means_no_apply_theme_bindings_op() {
     let mut r = fresh();
     let el: Element = button("Go").background(Color::rgb(255, 0, 0)).into();
