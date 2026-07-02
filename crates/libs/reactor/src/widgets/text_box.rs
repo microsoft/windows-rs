@@ -85,18 +85,12 @@ impl TextBox {
     /// Brush used to paint the border stroke. Maps to WinUI
     /// `Control.BorderBrush`. Accepts a direct [`Color`] or a [`ThemeRef`].
     pub fn border_brush(mut self, v: impl Into<BrushBinding>) -> Self {
-        match v.into() {
-            BrushBinding::Direct(b) => {
-                self.border_brush = Some(BrushBinding::Direct(b));
-            }
-            BrushBinding::Theme(t) => {
-                self.border_brush = None;
-                self.modifiers
-                    .theme_bindings
-                    .get_or_insert_with(|| Box::new(rustc_hash::FxHashMap::default()))
-                    .insert(Prop::BorderBrush, t);
-            }
-        }
+        apply_widget_brush_binding(
+            &mut self.border_brush,
+            &mut self.modifiers,
+            Prop::BorderBrush,
+            v.into(),
+        );
         self
     }
 

@@ -6,7 +6,7 @@ use windows_reactor::Reconciler;
 use windows_reactor::{BrushBinding, ThemeRef, tokens};
 use windows_reactor::{Color, Element};
 use windows_reactor::{ControlKind, Prop};
-use windows_reactor::{button, text_block};
+use windows_reactor::{button, text_block, text_box};
 
 use windows_reactor::vstack;
 fn fresh() -> Reconciler<RecordingBackend> {
@@ -113,6 +113,34 @@ fn direct_brush_overrides_theme_binding_when_set_last() {
         })
         .count();
     assert_eq!(direct_brush_ops, 1);
+    let bindings = r.backend.theme_bindings_of(id);
+    assert!(bindings.is_empty());
+}
+
+#[test]
+fn text_box_direct_border_brush_overrides_theme_binding_when_set_last() {
+    let mut r = fresh();
+    let el: Element = text_box("x")
+        .border_brush(ThemeRef::Accent)
+        .border_brush(Color::rgb(0, 255, 0))
+        .into();
+    let id = r.reconcile(None, &el, None, no_rerender()).unwrap();
+
+    let border_brush_ops = r
+        .backend
+        .ops
+        .iter()
+        .filter(|op| {
+            matches!(
+                op,
+                Op::SetProp {
+                    prop: Prop::BorderBrush,
+                    ..
+                }
+            )
+        })
+        .count();
+    assert_eq!(border_brush_ops, 1);
     let bindings = r.backend.theme_bindings_of(id);
     assert!(bindings.is_empty());
 }

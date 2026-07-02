@@ -1123,6 +1123,35 @@ fn apply_brush_binding(m: &mut Modifiers, prop: Prop, binding: BrushBinding, is_
     }
 }
 
+/// Applies a [`BrushBinding`] to a widget-owned brush slot (e.g. a border
+/// brush stored on the widget struct rather than in [`Modifiers`]). A direct
+/// color is stored in `slot` and any prior theme binding for `prop` is cleared;
+/// a theme reference clears `slot` and records the binding. This keeps
+/// "last call wins" holding regardless of the direct/theme call order.
+pub(crate) fn apply_widget_brush_binding(
+    slot: &mut Option<BrushBinding>,
+    m: &mut Modifiers,
+    prop: Prop,
+    binding: BrushBinding,
+) {
+    if let Some(map) = m.theme_bindings.as_deref_mut() {
+        map.remove(&prop);
+    }
+    match binding {
+        BrushBinding::Direct(b) => *slot = Some(BrushBinding::Direct(b)),
+        BrushBinding::Theme(t) => {
+            *slot = None;
+            m.theme_bindings
+                .get_or_insert_with(|| Box::new(rustc_hash::FxHashMap::default()))
+                .insert(prop, t);
+        }
+    }
+
+    if m.theme_bindings.as_deref().is_some_and(|m| m.is_empty()) {
+        m.theme_bindings = None;
+    }
+}
+
 fn ensure_animations(m: &mut Modifiers) -> &mut AnimationModifiers {
     m.animations
         .get_or_insert_with(|| Box::new(AnimationModifiers::default()))
