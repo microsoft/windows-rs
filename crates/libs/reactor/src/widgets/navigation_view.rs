@@ -57,6 +57,8 @@ pub struct NavigationView {
     pub on_suggestion_chosen: Option<Callback<String>>,
     pub is_pane_toggle_button_visible: bool,
     pub is_back_button_visible: bool,
+    pub open_pane_length: f64,
+    pub pane_footer: Option<Box<Element>>,
 }
 impl Default for NavigationView {
     fn default() -> Self {
@@ -81,6 +83,8 @@ impl Default for NavigationView {
             on_suggestion_chosen: None,
             is_pane_toggle_button_visible: true,
             is_back_button_visible: true,
+            open_pane_length: 320.0,
+            pane_footer: None,
         }
     }
 }
@@ -163,6 +167,14 @@ impl NavigationView {
         self.is_back_button_visible = v;
         self
     }
+    pub fn open_pane_length(mut self, len: f64) -> Self {
+        self.open_pane_length = len;
+        self
+    }
+    pub fn pane_footer(mut self, el: impl Into<Element>) -> Self {
+        self.pane_footer = Some(Box::new(el.into()));
+        self
+    }
 }
 
 impl Widget for NavigationView {
@@ -196,5 +208,8 @@ impl Widget for NavigationView {
     }
     fn children(&self) -> Children<'_> {
         Children::PositionalSingle(&self.content)
+    }
+    fn pane_element(&self) -> Option<&Element> {
+        self.pane_footer.as_deref()
     }
 }

@@ -140,6 +140,7 @@ ItemClicked = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.NavigationView"]
 IsPaneOpen = {}
+OpenPaneLength = {}
 PaneDisplayMode = {}
 IsBackEnabled = {}
 IsSettingsVisible = {}
