@@ -39,9 +39,6 @@ impl Color {
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
         Self { a: 255, r, g, b }
     }
-    pub const fn argb(a: u8, r: u8, g: u8, b: u8) -> Self {
-        Self { a, r, g, b }
-    }
     pub const fn transparent() -> Self {
         Self {
             a: 0,
