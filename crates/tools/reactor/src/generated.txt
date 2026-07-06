@@ -29,7 +29,7 @@ Microsoft::UI::Xaml::Controls::IExpander::put_IsExpanded
 Microsoft::UI::Xaml::Controls::IGrid::{put_ColumnSpacing, put_RowSpacing}
 Microsoft::UI::Xaml::Controls::IImage::put_Stretch
 Microsoft::UI::Xaml::Controls::IInfoBar::{put_IsClosable, put_IsOpen, put_Message, put_Severity, put_Title}
-Microsoft::UI::Xaml::Controls::INavigationView::{put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible}
+Microsoft::UI::Xaml::Controls::INavigationView::{put_Header, put_IsPaneOpen, put_IsPaneToggleButtonVisible, put_IsSettingsVisible, put_OpenPaneLength}
 Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackEnabled, put_PaneDisplayMode, put_PaneTitle}
 Microsoft::UI::Xaml::Controls::INumberBox::{put_Header, put_Maximum, put_Minimum, put_Value}
 Microsoft::UI::Xaml::Controls::IPasswordBox::{put_Header, put_IsPasswordRevealButtonEnabled, put_PasswordRevealMode, put_PlaceholderText}

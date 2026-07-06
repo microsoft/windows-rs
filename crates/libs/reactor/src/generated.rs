@@ -356,7 +356,7 @@ pub fn menu_bar_bindings(w: &MenuBar) -> PropBindings {
     )]
 }
 pub fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
-    let mut out = Vec::with_capacity(12usize);
+    let mut out = Vec::with_capacity(13usize);
     out.push(Binding::Event(
         Event::BackRequested,
         w.on_back_requested
@@ -405,6 +405,10 @@ pub fn navigation_view_bindings(w: &NavigationView) -> PropBindings {
     out.push(Binding::Prop(
         Prop::IsSettingsVisible,
         PropValue::Bool(w.is_settings_visible),
+    ));
+    out.push(Binding::Prop(
+        Prop::OpenPaneLength,
+        PropValue::F64(w.open_pane_length),
     ));
     out.push(Binding::Prop(
         Prop::PaneDisplayMode,

@@ -294,6 +294,18 @@ and text blocks. Containers that genuinely lack a `Padding` property (e.g. bare
 `Panel`/`Grid`) still fall through to `diag::unhandled_modifier`, which warns
 under debug builds; use `.margin(...)` there instead.
 
+`Background` and `Foreground` follow the same pattern and are exposed as the
+universal `ElementExt` modifiers `.background(...)` / `.foreground(...)`: `Border`
+handles them through its default interface while every other handle falls back to
+a single `IControl` cast (`set_background` / `set_foreground` in
+`backend/winui/mod.rs`), so they work on any `Control`. `BorderBrush` /
+`BorderThickness` use the same `IControl` fallback in the backend
+(`set_border_brush` / `set_border_thickness`), but are *not* `ElementExt`
+modifiers — they are opt-in per-widget builders. Only `Border` and `TextBox`
+currently expose `.border_brush(...)` / `.border_thickness(...)`; the shared
+backend dispatch means any other widget could expose them without new backend
+work.
+
 ### Threading
 
 Reactor runs on a WinUI STA thread and keeps per-thread state in `thread_local!`

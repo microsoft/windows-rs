@@ -379,6 +379,9 @@ pub fn dispatch(handle: &Handle, prop: Prop, value: &PropValue) -> Result<bool> 
         (Prop::OnContent, PropValue::Unset, Handle::ToggleSwitch(h)) => {
             h.SetOnContent(None)?;
         }
+        (Prop::OpenPaneLength, PropValue::F64(v), Handle::NavigationView(h)) => {
+            h.SetOpenPaneLength(*v)?;
+        }
         (Prop::OpenPaneLength, PropValue::F64(v), Handle::SplitView(h)) => {
             h.SetOpenPaneLength(*v)?;
         }

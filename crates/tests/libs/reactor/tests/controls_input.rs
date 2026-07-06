@@ -7,6 +7,7 @@ use windows_reactor::{
     CheckBox, NumberBox, RadioButton, RatingControl, RepeatButton, RichEditBox, Slider, TextBox,
     ToggleButton, ToggleSwitch,
 };
+use windows_reactor::{Color, Thickness};
 use windows_reactor::{ControlKind, Event, Prop, PropValue};
 
 fn mount(el: &Element) -> Reconciler<RecordingBackend> {
@@ -250,6 +251,37 @@ fn text_box_mounts_with_value_placeholder_header_and_accepts_return() {
         }
     }
     assert!(saw_value && saw_placeholder && saw_header && saw_accepts_return);
+}
+
+#[test]
+fn text_box_border_brush_and_thickness_set_props() {
+    let el: Element = TextBox::new("x")
+        .border_brush(Color::rgb(60, 120, 220))
+        .border_thickness(Thickness::uniform(2.0))
+        .into();
+    let r = mount(&el);
+    let (kind, _) = first_create(&r);
+    assert_eq!(kind, ControlKind::TextBox);
+
+    let mut saw_brush = false;
+    let mut saw_thickness = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op {
+            match (prop, value) {
+                (Prop::BorderBrush, PropValue::Color(c)) if *c == Color::rgb(60, 120, 220) => {
+                    saw_brush = true;
+                }
+                (Prop::BorderThickness, PropValue::Thickness(t))
+                    if *t == Thickness::uniform(2.0) =>
+                {
+                    saw_thickness = true;
+                }
+                _ => {}
+            }
+        }
+    }
+    assert!(saw_brush, "border brush prop not set on TextBox");
+    assert!(saw_thickness, "border thickness prop not set on TextBox");
 }
 
 #[test]

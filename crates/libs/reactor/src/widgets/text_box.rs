@@ -11,6 +11,8 @@ pub struct TextBox {
     pub is_enabled: bool,
     pub accepts_return: bool,
     pub text_wrapping: TextWrapping,
+    pub border_brush: Option<BrushBinding>,
+    pub border_thickness: Option<Thickness>,
 }
 impl TextBox {
     pub fn new(value: impl Into<String>) -> Self {
@@ -30,6 +32,15 @@ impl Widget for TextBox {
             Prop::Value,
             PropValue::Str(self.value.clone()),
         ));
+        if let Some(BrushBinding::Direct(br)) = &self.border_brush {
+            out.push(Binding::Prop(Prop::BorderBrush, PropValue::Color(*br)));
+        }
+        if let Some(v) = self.border_thickness {
+            out.push(Binding::Prop(
+                Prop::BorderThickness,
+                PropValue::Thickness(v),
+            ));
+        }
         out
     }
 }
@@ -68,6 +79,25 @@ impl TextBox {
     pub fn multiline(mut self) -> Self {
         self.accepts_return = true;
         self.text_wrapping = TextWrapping::Wrap;
+        self
+    }
+
+    /// Brush used to paint the border stroke. Maps to WinUI
+    /// `Control.BorderBrush`. Accepts a direct [`Color`] or a [`ThemeRef`].
+    pub fn border_brush(mut self, v: impl Into<BrushBinding>) -> Self {
+        apply_widget_brush_binding(
+            &mut self.border_brush,
+            &mut self.modifiers,
+            Prop::BorderBrush,
+            v.into(),
+        );
+        self
+    }
+
+    /// Border stroke thickness, in DIPs, on each side. Maps to WinUI
+    /// `Control.BorderThickness`.
+    pub fn border_thickness(mut self, v: Thickness) -> Self {
+        self.border_thickness = Some(v);
         self
     }
 }
