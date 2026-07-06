@@ -50,15 +50,15 @@ jobs:
       - name: Check windows-canvas
         run:  cargo check -p windows-canvas --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-collections
         run:  cargo check -p windows-collections --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-core
         run:  cargo check -p windows-core --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-future
         run:  cargo check -p windows-future --all-features
       - name: Rust version
@@ -78,7 +78,7 @@ jobs:
       - name: Check windows-metadata
         run:  cargo check -p windows-metadata --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --all-features
       - name: Rust version
@@ -94,7 +94,7 @@ jobs:
       - name: Check windows-reactor-setup
         run:  cargo check -p windows-reactor-setup --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-reference
         run:  cargo check -p windows-reference --all-features
       - name: Rust version
@@ -126,7 +126,7 @@ jobs:
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
       - name: Rust version
