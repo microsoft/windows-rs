@@ -39,6 +39,14 @@ impl Color {
     pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
         Self { a: 255, r, g, b }
     }
+    pub const fn transparent() -> Self {
+        Self {
+            a: 0,
+            r: 0,
+            g: 0,
+            b: 0,
+        }
+    }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq)]

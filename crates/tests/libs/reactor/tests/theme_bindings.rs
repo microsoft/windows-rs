@@ -6,7 +6,7 @@ use windows_reactor::Reconciler;
 use windows_reactor::{BrushBinding, ThemeRef, tokens};
 use windows_reactor::{Color, Element};
 use windows_reactor::{ControlKind, Prop};
-use windows_reactor::{button, text_block};
+use windows_reactor::{button, text_block, text_box};
 
 use windows_reactor::vstack;
 fn fresh() -> Reconciler<RecordingBackend> {
@@ -43,6 +43,33 @@ fn button_with_theme_background_emits_apply_theme_bindings_op() {
     assert_eq!(**kind, ControlKind::Button);
     assert_eq!(bindings, &vec![(Prop::Background, ThemeRef::Accent)]);
     assert!(!cache_hit, "first observation must miss the cache");
+}
+
+#[test]
+fn text_box_theme_border_brush_emits_apply_theme_bindings_op() {
+    let mut r = fresh();
+    let el: Element = text_box("x").border_brush(ThemeRef::Accent).into();
+
+    let id = r.reconcile(None, &el, None, no_rerender()).unwrap();
+
+    let theme_ops: Vec<_> = r
+        .backend
+        .ops
+        .iter()
+        .filter_map(|op| match op {
+            Op::ApplyThemeBindings {
+                id: oid,
+                kind,
+                bindings,
+                ..
+            } if *oid == id => Some((kind, bindings.clone())),
+            _ => None,
+        })
+        .collect();
+    assert_eq!(theme_ops.len(), 1, "expected exactly one theme-binding op");
+    let (kind, bindings) = &theme_ops[0];
+    assert_eq!(**kind, ControlKind::TextBox);
+    assert_eq!(bindings, &vec![(Prop::BorderBrush, ThemeRef::Accent)]);
 }
 
 #[test]
@@ -113,6 +140,34 @@ fn direct_brush_overrides_theme_binding_when_set_last() {
         })
         .count();
     assert_eq!(direct_brush_ops, 1);
+    let bindings = r.backend.theme_bindings_of(id);
+    assert!(bindings.is_empty());
+}
+
+#[test]
+fn text_box_direct_border_brush_overrides_theme_binding_when_set_last() {
+    let mut r = fresh();
+    let el: Element = text_box("x")
+        .border_brush(ThemeRef::Accent)
+        .border_brush(Color::rgb(0, 255, 0))
+        .into();
+    let id = r.reconcile(None, &el, None, no_rerender()).unwrap();
+
+    let border_brush_ops = r
+        .backend
+        .ops
+        .iter()
+        .filter(|op| {
+            matches!(
+                op,
+                Op::SetProp {
+                    prop: Prop::BorderBrush,
+                    ..
+                }
+            )
+        })
+        .count();
+    assert_eq!(border_brush_ops, 1);
     let bindings = r.backend.theme_bindings_of(id);
     assert!(bindings.is_empty());
 }

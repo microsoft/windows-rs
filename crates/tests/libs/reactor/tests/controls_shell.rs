@@ -298,6 +298,37 @@ fn navigation_view_mounts_with_menu_items_and_content() {
 }
 
 #[test]
+fn navigation_view_open_pane_length_and_pane_footer() {
+    let nv: Element = NavigationView::new(
+        [NavViewItem::new("Home").tag("home")],
+        text_block("home-page"),
+    )
+    .open_pane_length(260.0)
+    .pane_footer(text_block("footer"))
+    .into();
+    let r = mount(&nv);
+
+    // The footer element is mounted as its own control (here a TextBlock),
+    // in addition to the content TextBlock.
+    assert_eq!(
+        count_create_ops(&r.backend.ops, ControlKind::TextBlock),
+        2,
+        "pane footer element should be mounted alongside the content"
+    );
+
+    let mut saw_open_pane_length = false;
+    for op in &r.backend.ops {
+        if let Op::SetProp { prop, value, .. } = op
+            && let (Prop::OpenPaneLength, PropValue::F64(v)) = (prop, value)
+            && *v == 260.0
+        {
+            saw_open_pane_length = true;
+        }
+    }
+    assert!(saw_open_pane_length, "open pane length prop not set");
+}
+
+#[test]
 fn navigation_view_selection_changed_callback_fires() {
     let observed: Rc<std::cell::RefCell<Option<String>>> = Rc::new(std::cell::RefCell::new(None));
     let observed_c = Rc::clone(&observed);

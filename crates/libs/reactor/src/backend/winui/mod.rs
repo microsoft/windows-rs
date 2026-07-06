@@ -550,6 +550,7 @@ fn style_target_for_handle(handle: &Handle) -> Option<(&'static str, bindings::I
         Handle::StackPanel(s) => s.cast().ok().map(|fe| ("StackPanel", fe)),
         Handle::Grid(g) => g.cast().ok().map(|fe| ("Grid", fe)),
         Handle::Button(b) => b.cast().ok().map(|fe| ("Button", fe)),
+        Handle::TextBox(t) => t.cast().ok().map(|fe| ("TextBox", fe)),
         Handle::TextBlock(t) => t.cast().ok().map(|fe| ("TextBlock", fe)),
         Handle::Canvas(c) => c.cast().ok().map(|fe| ("Canvas", fe)),
         _ => None,
@@ -1010,6 +1011,37 @@ fn set_foreground(
     Ok(true)
 }
 
+fn set_border_brush(
+    handle: &Handle,
+    brush: impl windows_core::Param<bindings::Brush>,
+) -> Result<()> {
+    match handle {
+        Handle::Border(b) => b.SetBorderBrush(brush)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetBorderBrush(brush)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::BorderBrush, handle);
+            }
+        }
+    }
+    Ok(())
+}
+
+fn set_border_thickness(handle: &Handle, thickness: Thickness) -> Result<()> {
+    match handle {
+        Handle::Border(b) => b.SetBorderThickness(thickness)?,
+        _ => {
+            if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
+                ctl.SetBorderThickness(thickness)?;
+            } else {
+                diag::unhandled_modifier("set_prop", Prop::BorderThickness, handle);
+            }
+        }
+    }
+    Ok(())
+}
+
 fn set_font_f64(handle: &Handle, v: f64) -> Result<bool> {
     match handle {
         Handle::TextBlock(h) => h.SetFontSize(v)?,
@@ -1314,23 +1346,15 @@ impl Backend for WinUIBackend {
                 (Prop::CornerRadius, PropValue::Unset, Handle::Border(b)) => {
                     b.SetCornerRadius(bindings::CornerRadius::default())
                 }
-                (Prop::BorderBrush, PropValue::Color(br), Handle::Border(b)) => {
-                    b.SetBorderBrush(&solid_brush(*br)?)
+                (Prop::BorderBrush, PropValue::Color(br), h) => {
+                    set_border_brush(h, &solid_brush(*br)?)
                 }
-                (Prop::BorderBrush, PropValue::Unset, Handle::Border(b)) => b.SetBorderBrush(None),
-                (Prop::BorderBrush, _, h) => {
-                    diag::unhandled_modifier("set_prop", Prop::BorderBrush, h);
-                    Ok(())
+                (Prop::BorderBrush, PropValue::Unset, h) => {
+                    set_border_brush(h, None::<&bindings::Brush>)
                 }
-                (Prop::BorderThickness, PropValue::Thickness(t), Handle::Border(b)) => {
-                    b.SetBorderThickness(*t)
-                }
-                (Prop::BorderThickness, PropValue::Unset, Handle::Border(b)) => {
-                    b.SetBorderThickness(Thickness::default())
-                }
-                (Prop::BorderThickness, _, h) => {
-                    diag::unhandled_modifier("set_prop", Prop::BorderThickness, h);
-                    Ok(())
+                (Prop::BorderThickness, PropValue::Thickness(t), h) => set_border_thickness(h, *t),
+                (Prop::BorderThickness, PropValue::Unset, h) => {
+                    set_border_thickness(h, Thickness::default())
                 }
                 (Prop::LineEndpoints, PropValue::LineEndpoints(p), Handle::Line(l)) => l
                     .SetX1(p.x1)
@@ -1958,6 +1982,15 @@ impl Backend for WinUIBackend {
                 }
             } else {
                 let _ = tb.SetRightHeader(None);
+            }
+        } else if let Handle::NavigationView(nv) = handle {
+            if let Some(pid) = pane_id {
+                if let Some(pane_handle) = map.get(&pid) {
+                    let ui_elem = pane_handle.as_ui_element();
+                    let _ = nv.SetPaneFooter(&ui_elem);
+                }
+            } else {
+                let _ = nv.SetPaneFooter(None);
             }
         }
     }

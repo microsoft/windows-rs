@@ -9105,6 +9105,27 @@ impl IControl {
             .ok()
         }
     }
+    pub(crate) fn SetBorderThickness(&self, value: Thickness) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetBorderThickness)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetBorderBrush<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<Brush>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetBorderBrush)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IControl_Vtbl {
@@ -9156,6 +9177,16 @@ pub struct IControl_Vtbl {
     SetVerticalContentAlignment: usize,
     Background: usize,
     pub SetBackground: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    BackgroundSizing: usize,
+    SetBackgroundSizing: usize,
+    BorderThickness: usize,
+    pub SetBorderThickness:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
+    BorderBrush: usize,
+    pub SetBorderBrush: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -12815,6 +12846,18 @@ impl INavigationView {
             .ok()
         }
     }
+    pub(crate) fn SetPaneFooter<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPaneFooter)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -12839,6 +12882,15 @@ impl INavigationView {
     pub(crate) fn SetIsPaneToggleButtonVisible(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsPaneToggleButtonVisible)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetOpenPaneLength(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetOpenPaneLength)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -12946,7 +12998,10 @@ pub struct INavigationView_Vtbl {
     FooterMenuItemsSource: usize,
     SetFooterMenuItemsSource: usize,
     PaneFooter: usize,
-    SetPaneFooter: usize,
+    pub SetPaneFooter: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     Header: usize,
     pub SetHeader: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -12966,7 +13021,8 @@ pub struct INavigationView_Vtbl {
     CompactPaneLength: usize,
     SetCompactPaneLength: usize,
     OpenPaneLength: usize,
-    SetOpenPaneLength: usize,
+    pub SetOpenPaneLength:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     PaneToggleButtonStyle: usize,
     SetPaneToggleButtonStyle: usize,
     SelectedItem: usize,

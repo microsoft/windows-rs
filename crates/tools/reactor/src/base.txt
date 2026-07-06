@@ -100,7 +100,7 @@ Microsoft::UI::Xaml::Controls::ICommandBarFlyoutFactory
 Microsoft::UI::Xaml::Controls::IContentControl::get_Content
 Microsoft::UI::Xaml::Controls::IContentDialog::{ShowAsync, Hide, Closed}
 Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
-Microsoft::UI::Xaml::Controls::IControl::{put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily}
+Microsoft::UI::Xaml::Controls::IControl::{put_Padding, put_Background, put_Foreground, put_FontSize, put_FontWeight, put_FontFamily, put_BorderBrush, put_BorderThickness}
 Microsoft::UI::Xaml::Controls::IDatePicker::SelectedDateChanged
 Microsoft::UI::Xaml::Controls::IDatePickerSelectedValueChangedEventArgs::get_NewDate
 Microsoft::UI::Xaml::Controls::IExpander::{put_Header, Expanding, Collapsed}
@@ -118,7 +118,7 @@ Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{put_Text, get_Text, Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
 Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackButtonVisible, BackRequested}
-Microsoft::UI::Xaml::Controls::INavigationView::{get_MenuItems, put_SelectedItem, put_AutoSuggestBox, get_AutoSuggestBox, SelectionChanged}
+Microsoft::UI::Xaml::Controls::INavigationView::{get_MenuItems, put_SelectedItem, put_AutoSuggestBox, get_AutoSuggestBox, put_PaneFooter, SelectionChanged}
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::get_MenuItems
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem
