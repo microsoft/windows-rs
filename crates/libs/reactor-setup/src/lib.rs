@@ -137,7 +137,7 @@ fn copy_bootstrap_to(dest: &Path) {
     };
     let _ = fs::create_dir_all(dest);
     let _ = fs::write(
-        dest.join("Microsoft.WindowsAppRuntime.Bootstrap.dll"),
+        dest.join("microsoft.windowsappruntime.bootstrap.dll"),
         bytes,
     );
 }

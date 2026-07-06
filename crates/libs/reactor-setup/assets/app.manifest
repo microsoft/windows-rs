@@ -1097,7 +1097,7 @@
                 name="Microsoft.UI.Windowing.AppWindowTitleBar"
                 threadingModel="both"></winrtv1:activatableClass>
     </asmv3:file>
-    <asmv3:file name="Microsoft.UI.Xaml.dll">
+    <asmv3:file name="Microsoft.ui.xaml.dll">
         <winrtv1:activatableClass
                 name="Microsoft.UI.Xaml.AdaptiveTrigger"
                 threadingModel="both"></winrtv1:activatableClass>
