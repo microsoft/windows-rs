@@ -30,7 +30,7 @@ as the runtime dependency the generated code links against:
 windows-link = "0.2"
 
 [build-dependencies]
-windows-bindgen = "0.63"
+windows-bindgen = "0.66"
 ```
 
 Generate bindings from `build.rs`. There are two equivalent entry points — a
@@ -157,6 +157,85 @@ Other useful options:
 - **`--rustfmt` / `.rustfmt(..)`** — override the formatter used on the output.
 - **`--dead-code` / `.dead_code()`** — emit `pub(crate)` instead of `pub` so the
   compiler flags any binding you generated but never used.
+
+## Committing generated bindings
+
+The `build.rs` approach above regenerates bindings on every build and adds
+`windows-bindgen` as a build dependency of your crate. For a *published* crate you
+usually want the opposite: commit `src/bindings.rs` as ordinary source and depend
+only on the tiny [`windows-link`](windows-link.md) crate at runtime. Consumers then
+build with no code generation, no metadata, and no `windows-bindgen` in their
+dependency graph, and the exact bindings are visible in the published source and in
+code review. This is how the crates in this repository that use `windows-bindgen`
+are built.
+
+The pattern has three parts.
+
+**1. The published crate depends only on `windows-link`** and includes the
+committed bindings:
+
+```toml
+# tickcount/Cargo.toml
+[dependencies]
+windows-link = "0.2"
+```
+
+```rust,ignore
+// tickcount/src/lib.rs
+mod bindings;
+
+/// Milliseconds elapsed since the system was started.
+pub fn get_tick_count() -> u64 {
+    unsafe { bindings::GetTickCount64() }
+}
+```
+
+**2. A separate, unpublished binary owns code generation.** Keep it as a workspace
+member so it never becomes a dependency of the published crate:
+
+```toml
+# gen/Cargo.toml
+[package]
+name = "gen"
+publish = false
+
+[dependencies]
+windows-bindgen = "0.66"
+```
+
+```rust,no_run
+// gen/src/main.rs
+fn main() {
+    windows_bindgen::bindgen([
+        "--out", "tickcount/src/bindings.rs",
+        "--flat",
+        "--sys",
+        "--filter", "GetTickCount64",
+    ]);
+}
+```
+
+`--out` is resolved relative to the current directory, so run the tool from the
+workspace root:
+
+```sh
+cargo run -p gen
+```
+
+**3. A CI check keeps the committed bindings honest.** Regenerate, then fail if the
+result differs from what's checked in:
+
+```yaml
+- run: cargo run -p gen
+- run: git diff --exit-code
+```
+
+If someone edits the filter — or a new `windows-bindgen` changes its output — but
+forgets to commit the regenerated file, `git diff --exit-code` returns non-zero and
+the build fails. This repository uses exactly this arrangement: [`tool_bindings`](https://github.com/microsoft/windows-rs/tree/master/crates/tools/bindings)
+regenerates each crate's `bindings.rs` from a `.txt` filter, and the
+[`gen.yml`](https://github.com/microsoft/windows-rs/blob/master/.github/workflows/gen.yml)
+workflow runs the tools and rejects any resulting diff.
 
 ---
 
