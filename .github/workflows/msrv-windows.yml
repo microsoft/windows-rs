@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v7
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
-        run: rustup update --no-self-update 1.85 && rustup default 1.85
+        run: rustup update --no-self-update 1.95 && rustup default 1.95
       - uses: Swatinem/rust-cache@v2
       - name: Check windows
         run:  cargo check -p windows --all-features
