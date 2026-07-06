@@ -166,7 +166,8 @@ usually want the opposite: commit `src/bindings.rs` as ordinary source and depen
 only on the tiny [`windows-link`](windows-link.md) crate at runtime. Consumers then
 build with no code generation, no metadata, and no `windows-bindgen` in their
 dependency graph, and the exact bindings are visible in the published source and in
-code review. This is how every crate in this repository works.
+code review. This is how the crates in this repository that use `windows-bindgen`
+are built.
 
 The pattern has three parts.
 
