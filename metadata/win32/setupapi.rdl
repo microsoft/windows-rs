@@ -1,0 +1,2571 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CABINET_INFO = CABINET_INFO_A;
+        #[arch(X64 | Arm64)]
+        struct CABINET_INFO_A {
+            CabinetPath: PCSTR,
+            CabinetFile: PCSTR,
+            DiskName: PCSTR,
+            SetId: u16,
+            CabinetNumber: u16,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CABINET_INFO_A {
+            CabinetPath: PCSTR,
+            CabinetFile: PCSTR,
+            DiskName: PCSTR,
+            SetId: u16,
+            CabinetNumber: u16,
+        }
+        #[arch(X64 | Arm64)]
+        struct CABINET_INFO_W {
+            CabinetPath: PCWSTR,
+            CabinetFile: PCWSTR,
+            DiskName: PCWSTR,
+            SetId: u16,
+            CabinetNumber: u16,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct CABINET_INFO_W {
+            CabinetPath: PCWSTR,
+            CabinetFile: PCWSTR,
+            DiskName: PCWSTR,
+            SetId: u16,
+            CabinetNumber: u16,
+        }
+        #[arch(X64 | Arm64)]
+        struct COINSTALLER_CONTEXT_DATA {
+            PostProcessing: BOOL,
+            InstallResult: u32,
+            PrivateData: *mut void,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct COINSTALLER_CONTEXT_DATA {
+            PostProcessing: BOOL,
+            InstallResult: u32,
+            PrivateData: *mut void,
+        }
+        const COPYFLG_FORCE_FILE_IN_USE: u32 = 8;
+        const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384;
+        const COPYFLG_NODECOMP: u32 = 2048;
+        const COPYFLG_NOPRUNE: u32 = 8192;
+        const COPYFLG_NOSKIP: u32 = 2;
+        const COPYFLG_NOVERSIONCHECK: u32 = 4;
+        const COPYFLG_NO_OVERWRITE: u32 = 16;
+        const COPYFLG_NO_VERSION_DIALOG: u32 = 32;
+        const COPYFLG_OVERWRITE_OLDER_ONLY: u32 = 64;
+        const COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE: u32 = 256;
+        const COPYFLG_REPLACEONLY: u32 = 1024;
+        const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096;
+        const COPYFLG_WARN_IF_SKIP: u32 = 1;
+        const DELFLG_IN_USE: u32 = 1;
+        const DELFLG_IN_USE1: u32 = 65536;
+        const DIBCI_NODISPLAYCLASS: u32 = 2;
+        const DIBCI_NOINSTALLCLASS: u32 = 1;
+        const DICD_GENERATE_ID: u32 = 1;
+        const DICD_INHERIT_CLASSDRVS: u32 = 2;
+        const DICLASSPROP_INSTALLER: u32 = 1;
+        const DICLASSPROP_INTERFACE: u32 = 2;
+        const DICS_DISABLE: u32 = 2;
+        const DICS_ENABLE: u32 = 1;
+        const DICS_FLAG_CONFIGGENERAL: u32 = 4;
+        const DICS_FLAG_CONFIGSPECIFIC: u32 = 2;
+        const DICS_FLAG_GLOBAL: u32 = 1;
+        const DICS_PROPCHANGE: u32 = 3;
+        const DICS_START: u32 = 4;
+        const DICS_STOP: u32 = 5;
+        const DICUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1;
+        const DIF_ADDPROPERTYPAGE_ADVANCED: u32 = 35;
+        const DIF_ADDPROPERTYPAGE_BASIC: u32 = 36;
+        const DIF_ADDREMOTEPROPERTYPAGE_ADVANCED: u32 = 40;
+        const DIF_ALLOW_INSTALL: u32 = 24;
+        const DIF_ASSIGNRESOURCES: u32 = 3;
+        const DIF_CALCDISKSPACE: u32 = 11;
+        const DIF_DESTROYPRIVATEDATA: u32 = 12;
+        const DIF_DESTROYWIZARDDATA: u32 = 17;
+        const DIF_DETECT: u32 = 15;
+        const DIF_DETECTCANCEL: u32 = 33;
+        const DIF_DETECTVERIFY: u32 = 20;
+        const DIF_ENABLECLASS: u32 = 19;
+        const DIF_FINISHINSTALL_ACTION: u32 = 42;
+        const DIF_FIRSTTIMESETUP: u32 = 6;
+        const DIF_FOUNDDEVICE: u32 = 7;
+        const DIF_INSTALLCLASSDRIVERS: u32 = 10;
+        const DIF_INSTALLDEVICE: u32 = 2;
+        const DIF_INSTALLDEVICEFILES: u32 = 21;
+        const DIF_INSTALLINTERFACES: u32 = 32;
+        const DIF_INSTALLWIZARD: u32 = 16;
+        const DIF_MOVEDEVICE: u32 = 14;
+        const DIF_NEWDEVICEWIZARD_FINISHINSTALL: u32 = 30;
+        const DIF_NEWDEVICEWIZARD_POSTANALYZE: u32 = 29;
+        const DIF_NEWDEVICEWIZARD_PREANALYZE: u32 = 28;
+        const DIF_NEWDEVICEWIZARD_PRESELECT: u32 = 26;
+        const DIF_NEWDEVICEWIZARD_SELECT: u32 = 27;
+        const DIF_POWERMESSAGEWAKE: u32 = 39;
+        const DIF_PROPERTIES: u32 = 4;
+        const DIF_PROPERTYCHANGE: u32 = 18;
+        const DIF_REGISTERDEVICE: u32 = 25;
+        const DIF_REGISTER_COINSTALLERS: u32 = 34;
+        const DIF_REMOVE: u32 = 5;
+        const DIF_RESERVED1: u32 = 37;
+        const DIF_RESERVED2: u32 = 48;
+        const DIF_SELECTBESTCOMPATDRV: u32 = 23;
+        const DIF_SELECTCLASSDRIVERS: u32 = 8;
+        const DIF_SELECTDEVICE: u32 = 1;
+        const DIF_TROUBLESHOOTER: u32 = 38;
+        const DIF_UNREMOVE: u32 = 22;
+        const DIF_UNUSED1: u32 = 31;
+        const DIF_UPDATEDRIVER_UI: u32 = 41;
+        const DIF_VALIDATECLASSDRIVERS: u32 = 9;
+        const DIF_VALIDATEDRIVER: u32 = 13;
+        const DIGCDP_FLAG_ADVANCED: u32 = 2;
+        const DIGCDP_FLAG_BASIC: u32 = 1;
+        const DIGCDP_FLAG_REMOTE_ADVANCED: u32 = 4;
+        const DIGCDP_FLAG_REMOTE_BASIC: u32 = 3;
+        const DIGCF_ALLCLASSES: u32 = 4;
+        const DIGCF_DEFAULT: u32 = 1;
+        const DIGCF_DEVICEINTERFACE: u32 = 16;
+        const DIGCF_INTERFACEDEVICE: u32 = 16;
+        const DIGCF_PRESENT: u32 = 2;
+        const DIGCF_PROFILE: u32 = 8;
+        const DIOCR_INSTALLER: u32 = 1;
+        const DIOCR_INTERFACE: u32 = 2;
+        const DIODI_NO_ADD: u32 = 1;
+        const DIOD_CANCEL_REMOVE: u32 = 4;
+        const DIOD_INHERIT_CLASSDRVS: u32 = 2;
+        const DIREG_BOTH: u32 = 4;
+        const DIREG_DEV: u32 = 1;
+        const DIREG_DRV: u32 = 2;
+        const DIRID_ABSOLUTE: i32 = -1;
+        const DIRID_ABSOLUTE_16BIT: u32 = 65535;
+        const DIRID_APPS: u32 = 24;
+        const DIRID_BOOT: u32 = 30;
+        const DIRID_COLOR: u32 = 23;
+        const DIRID_COMMON_APPDATA: u32 = 16419;
+        const DIRID_COMMON_DESKTOPDIRECTORY: u32 = 16409;
+        const DIRID_COMMON_DOCUMENTS: u32 = 16430;
+        const DIRID_COMMON_FAVORITES: u32 = 16415;
+        const DIRID_COMMON_PROGRAMS: u32 = 16407;
+        const DIRID_COMMON_STARTMENU: u32 = 16406;
+        const DIRID_COMMON_STARTUP: u32 = 16408;
+        const DIRID_COMMON_TEMPLATES: u32 = 16429;
+        const DIRID_DEFAULT: u32 = 11;
+        const DIRID_DRIVERS: u32 = 12;
+        const DIRID_DRIVER_STORE: u32 = 13;
+        const DIRID_FONTS: u32 = 20;
+        const DIRID_HELP: u32 = 18;
+        const DIRID_INF: u32 = 17;
+        const DIRID_IOSUBSYS: u32 = 12;
+        const DIRID_LOADER: u32 = 54;
+        const DIRID_NULL: u32 = 0;
+        const DIRID_PRINTPROCESSOR: u32 = 55;
+        const DIRID_PROGRAM_FILES: u32 = 16422;
+        const DIRID_PROGRAM_FILES_COMMON: u32 = 16427;
+        const DIRID_PROGRAM_FILES_COMMONX86: u32 = 16428;
+        const DIRID_PROGRAM_FILES_X86: u32 = 16426;
+        const DIRID_SHARED: u32 = 25;
+        const DIRID_SPOOL: u32 = 51;
+        const DIRID_SPOOLDRIVERS: u32 = 52;
+        const DIRID_SRCPATH: u32 = 1;
+        const DIRID_SYSTEM: u32 = 11;
+        const DIRID_SYSTEM16: u32 = 50;
+        const DIRID_SYSTEM_X86: u32 = 16425;
+        const DIRID_USER: u32 = 32768;
+        const DIRID_USERPROFILE: u32 = 53;
+        const DIRID_VIEWERS: u32 = 21;
+        const DIRID_WINDOWS: u32 = 10;
+        const DI_AUTOASSIGNRES: u32 = 64;
+        const DI_CLASSINSTALLPARAMS: u32 = 1048576;
+        const DI_COMPAT_FROM_CLASS: u32 = 524288;
+        const DI_DIDCLASS: u32 = 32;
+        const DI_DIDCOMPAT: u32 = 16;
+        const DI_DISABLED: u32 = 2048;
+        const DI_DONOTCALLCONFIGMG: u32 = 131072;
+        const DI_DRIVERPAGE_ADDED: u32 = 67108864;
+        const DI_ENUMSINGLEINF: u32 = 65536;
+        const DI_FLAGSEX_ALLOWEXCLUDEDDRVS: u32 = 2048;
+        const DI_FLAGSEX_ALTPLATFORM_DRVSEARCH: u32 = 268435456;
+        const DI_FLAGSEX_ALWAYSWRITEIDS: u32 = 512;
+        const DI_FLAGSEX_APPENDDRIVERLIST: u32 = 262144;
+        const DI_FLAGSEX_BACKUPONREPLACE: u32 = 1048576;
+        const DI_FLAGSEX_CI_FAILED: u32 = 4;
+        const DI_FLAGSEX_DEVICECHANGE: u32 = 256;
+        const DI_FLAGSEX_DIDCOMPATINFO: u32 = 32;
+        const DI_FLAGSEX_DIDINFOLIST: u32 = 16;
+        const DI_FLAGSEX_DRIVERLIST_FROM_URL: u32 = 2097152;
+        const DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS: u32 = 8388608;
+        const DI_FLAGSEX_FILTERCLASSES: u32 = 64;
+        const DI_FLAGSEX_FILTERSIMILARDRIVERS: u32 = 33554432;
+        const DI_FLAGSEX_FINISHINSTALL_ACTION: u32 = 8;
+        const DI_FLAGSEX_INET_DRIVER: u32 = 131072;
+        const DI_FLAGSEX_INSTALLEDDRIVER: u32 = 67108864;
+        const DI_FLAGSEX_IN_SYSTEM_SETUP: u32 = 65536;
+        const DI_FLAGSEX_NOUIONQUERYREMOVE: u32 = 4096;
+        const DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE: u32 = 134217728;
+        const DI_FLAGSEX_NO_DRVREG_MODIFY: u32 = 32768;
+        const DI_FLAGSEX_POWERPAGE_ADDED: u32 = 16777216;
+        const DI_FLAGSEX_PREINSTALLBACKUP: u32 = 524288;
+        const DI_FLAGSEX_PROPCHANGE_PENDING: u32 = 1024;
+        const DI_FLAGSEX_RECURSIVESEARCH: u32 = 1073741824;
+        const DI_FLAGSEX_RESERVED1: u32 = 4194304;
+        const DI_FLAGSEX_RESERVED2: u32 = 1;
+        const DI_FLAGSEX_RESERVED3: u32 = 2;
+        const DI_FLAGSEX_RESERVED4: u32 = 16384;
+        const DI_FLAGSEX_RESTART_DEVICE_ONLY: u32 = 536870912;
+        const DI_FLAGSEX_SEARCH_PUBLISHED_INFS: u32 = 2147483648;
+        const DI_FLAGSEX_SETFAILEDINSTALL: u32 = 128;
+        const DI_FLAGSEX_USECLASSFORCOMPAT: u32 = 8192;
+        const DI_FORCECOPY: u32 = 33554432;
+        type DI_FUNCTION = u32;
+        const DI_GENERALPAGE_ADDED: u32 = 4096;
+        const DI_INF_IS_SORTED: u32 = 32768;
+        const DI_INSTALLDISABLED: u32 = 262144;
+        const DI_MULTMFGS: u32 = 1024;
+        const DI_NEEDREBOOT: u32 = 256;
+        const DI_NEEDRESTART: u32 = 128;
+        const DI_NOBROWSE: u32 = 512;
+        const DI_NODI_DEFAULTACTION: u32 = 2097152;
+        const DI_NOFILECOPY: u32 = 16777216;
+        const DI_NOSELECTICONS: u32 = 1073741824;
+        const DI_NOVCP: u32 = 8;
+        const DI_NOWRITE_IDS: u32 = 2147483648;
+        const DI_OVERRIDE_INFFLAGS: u32 = 268435456;
+        const DI_PROPERTIES_CHANGE: u32 = 16384;
+        const DI_PROPS_NOCHANGEUSAGE: u32 = 536870912;
+        const DI_QUIETINSTALL: u32 = 8388608;
+        const DI_REMOVEDEVICE_CONFIGSPECIFIC: u32 = 2;
+        const DI_REMOVEDEVICE_GLOBAL: u32 = 1;
+        const DI_RESOURCEPAGE_ADDED: u32 = 8192;
+        const DI_SHOWALL: u32 = 7;
+        const DI_SHOWCLASS: u32 = 4;
+        const DI_SHOWCOMPAT: u32 = 2;
+        const DI_SHOWOEM: u32 = 1;
+        const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: u32 = 2;
+        const DI_USECI_SELECTSTRINGS: u32 = 134217728;
+        const DMI_BKCOLOR: u32 = 2;
+        const DMI_MASK: u32 = 1;
+        const DMI_USERECT: u32 = 4;
+        const DNF_ALWAYSEXCLUDEFROMLIST: u32 = 524288;
+        const DNF_AUTHENTICODE_SIGNED: u32 = 131072;
+        const DNF_BAD_DRIVER: u32 = 2048;
+        const DNF_BASIC_DRIVER: u32 = 65536;
+        const DNF_CLASS_DRIVER: u32 = 32;
+        const DNF_COMPATIBLE_DRIVER: u32 = 64;
+        const DNF_DUPDESC: u32 = 1;
+        const DNF_DUPDRIVERVER: u32 = 32768;
+        const DNF_DUPPROVIDER: u32 = 4096;
+        const DNF_EXCLUDEFROMLIST: u32 = 4;
+        const DNF_INBOX_DRIVER: u32 = 1048576;
+        const DNF_INET_DRIVER: u32 = 128;
+        const DNF_INF_IS_SIGNED: u32 = 8192;
+        const DNF_INSTALLEDDRIVER: u32 = 262144;
+        const DNF_LEGACYINF: u32 = 16;
+        const DNF_NODRIVER: u32 = 8;
+        const DNF_OEM_F6_INF: u32 = 16384;
+        const DNF_OLDDRIVER: u32 = 2;
+        const DNF_OLD_INET_DRIVER: u32 = 1024;
+        const DNF_REQUESTADDITIONALSOFTWARE: u32 = 2097152;
+        const DNF_UNUSED1: u32 = 256;
+        const DNF_UNUSED2: u32 = 512;
+        const DNF_UNUSED_22: u32 = 4194304;
+        const DNF_UNUSED_23: u32 = 8388608;
+        const DNF_UNUSED_24: u32 = 16777216;
+        const DNF_UNUSED_25: u32 = 33554432;
+        const DNF_UNUSED_26: u32 = 67108864;
+        const DNF_UNUSED_27: u32 = 134217728;
+        const DNF_UNUSED_28: u32 = 268435456;
+        const DNF_UNUSED_29: u32 = 536870912;
+        const DNF_UNUSED_30: u32 = 1073741824;
+        const DNF_UNUSED_31: u32 = 2147483648;
+        const DPROMPT_BUFFERTOOSMALL: u32 = 3;
+        const DPROMPT_CANCEL: u32 = 1;
+        const DPROMPT_OUTOFMEMORY: u32 = 4;
+        const DPROMPT_SKIPFILE: u32 = 2;
+        const DPROMPT_SUCCESS: u32 = 0;
+        const DRIVER_HARDWAREID_MASK: u32 = 2147487743;
+        const DRIVER_HARDWAREID_RANK: u32 = 4095;
+        const DRIVER_UNTRUSTED_RANK: u32 = 2147483648;
+        const DRIVER_W9X_SUSPECT_RANK: u32 = 3221225472;
+        const DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT: u32 = 8;
+        const DYNAWIZ_FLAG_INSTALLDET_NEXT: u32 = 2;
+        const DYNAWIZ_FLAG_INSTALLDET_PREV: u32 = 4;
+        const DYNAWIZ_FLAG_PAGESADDED: u32 = 1;
+        const ENABLECLASS_FAILURE: u32 = 2;
+        const ENABLECLASS_QUERY: u32 = 0;
+        const ENABLECLASS_SUCCESS: u32 = 1;
+        const ERROR_AUTHENTICODE_DISALLOWED: i32 = -536870336;
+        const ERROR_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: i32 = -536870333;
+        const ERROR_AUTHENTICODE_TRUSTED_PUBLISHER: i32 = -536870335;
+        const ERROR_AUTHENTICODE_TRUST_NOT_ESTABLISHED: i32 = -536870334;
+        const ERROR_BAD_INTERFACE_INSTALLSECT: i32 = -536870371;
+        const ERROR_BAD_SECTION_NAME_LINE: i32 = -536870911;
+        const ERROR_BAD_SERVICE_INSTALLSECT: i32 = -536870377;
+        const ERROR_CANT_LOAD_CLASS_ICON: i32 = -536870388;
+        const ERROR_CANT_REMOVE_DEVINST: i32 = -536870350;
+        const ERROR_CLASS_MISMATCH: i32 = -536870399;
+        const ERROR_DEVICE_INSTALLER_NOT_READY: i32 = -536870330;
+        const ERROR_DEVICE_INSTALL_BLOCKED: i32 = -536870328;
+        const ERROR_DEVICE_INTERFACE_ACTIVE: i32 = -536870373;
+        const ERROR_DEVICE_INTERFACE_REMOVED: i32 = -536870372;
+        const ERROR_DEVINFO_DATA_LOCKED: i32 = -536870381;
+        const ERROR_DEVINFO_LIST_LOCKED: i32 = -536870382;
+        const ERROR_DEVINFO_NOT_REGISTERED: i32 = -536870392;
+        const ERROR_DEVINSTALL_QUEUE_NONNATIVE: i32 = -536870352;
+        const ERROR_DEVINST_ALREADY_EXISTS: i32 = -536870393;
+        const ERROR_DI_BAD_PATH: i32 = -536870380;
+        const ERROR_DI_DONT_INSTALL: i32 = -536870357;
+        const ERROR_DI_DO_DEFAULT: i32 = -536870386;
+        const ERROR_DI_FUNCTION_OBSOLETE: i32 = -536870338;
+        const ERROR_DI_NOFILECOPY: i32 = -536870385;
+        const ERROR_DI_POSTPROCESSING_REQUIRED: i32 = -536870362;
+        const ERROR_DRIVER_INSTALL_BLOCKED: i32 = -536870327;
+        const ERROR_DRIVER_NONNATIVE: i32 = -536870348;
+        const ERROR_DRIVER_STORE_ADD_FAILED: i32 = -536870329;
+        const ERROR_DRIVER_STORE_DELETE_FAILED: i32 = -536870324;
+        const ERROR_DUPLICATE_FOUND: i32 = -536870398;
+        const ERROR_EXPECTED_SECTION_NAME: i32 = -536870912;
+        const ERROR_FILEQUEUE_LOCKED: i32 = -536870378;
+        const ERROR_FILE_HASH_NOT_IN_CATALOG: i32 = -536870325;
+        const ERROR_GENERAL_SYNTAX: i32 = -536870909;
+        const ERROR_INF_IN_USE_BY_DEVICES: i32 = -536870339;
+        const ERROR_INTERFACE_DEVICE_ACTIVE: i32 = -536870373;
+        const ERROR_INTERFACE_DEVICE_REMOVED: i32 = -536870372;
+        const ERROR_INVALID_CLASS: i32 = -536870394;
+        const ERROR_INVALID_CLASS_INSTALLER: i32 = -536870387;
+        const ERROR_INVALID_COINSTALLER: i32 = -536870361;
+        const ERROR_INVALID_DEVINST_NAME: i32 = -536870395;
+        const ERROR_INVALID_FILTER_DRIVER: i32 = -536870356;
+        const ERROR_INVALID_HWPROFILE: i32 = -536870384;
+        const ERROR_INVALID_INF_LOGCONFIG: i32 = -536870358;
+        const ERROR_INVALID_MACHINENAME: i32 = -536870368;
+        const ERROR_INVALID_PROPPAGE_PROVIDER: i32 = -536870364;
+        const ERROR_INVALID_REFERENCE_STRING: i32 = -536870369;
+        const ERROR_INVALID_REG_PROPERTY: i32 = -536870391;
+        const ERROR_INVALID_TARGET: i32 = -536870349;
+        const ERROR_IN_WOW64: i32 = -536870347;
+        const ERROR_KEY_DOES_NOT_EXIST: i32 = -536870396;
+        const ERROR_LINE_NOT_FOUND: i32 = -536870654;
+        const ERROR_MACHINE_UNAVAILABLE: i32 = -536870366;
+        const ERROR_NON_WINDOWS_DRIVER: i32 = -536870354;
+        const ERROR_NON_WINDOWS_NT_DRIVER: i32 = -536870355;
+        const ERROR_NOT_AN_INSTALLED_OEM_INF: i32 = -536870340;
+        const ERROR_NOT_DISABLEABLE: i32 = -536870351;
+        const ERROR_NOT_INSTALLED: i32 = -536866816;
+        const ERROR_NO_ASSOCIATED_CLASS: i32 = -536870400;
+        const ERROR_NO_ASSOCIATED_SERVICE: i32 = -536870375;
+        const ERROR_NO_AUTHENTICODE_CATALOG: i32 = -536870337;
+        const ERROR_NO_BACKUP: i32 = -536870653;
+        const ERROR_NO_CATALOG_FOR_OEM_INF: i32 = -536870353;
+        const ERROR_NO_CLASSINSTALL_PARAMS: i32 = -536870379;
+        const ERROR_NO_CLASS_DRIVER_LIST: i32 = -536870376;
+        const ERROR_NO_COMPAT_DRIVERS: i32 = -536870360;
+        const ERROR_NO_CONFIGMGR_SERVICES: i32 = -536870365;
+        const ERROR_NO_DEFAULT_DEVICE_INTERFACE: i32 = -536870374;
+        const ERROR_NO_DEFAULT_INTERFACE_DEVICE: i32 = -536870374;
+        const ERROR_NO_DEVICE_ICON: i32 = -536870359;
+        const ERROR_NO_DEVICE_SELECTED: i32 = -536870383;
+        const ERROR_NO_DRIVER_SELECTED: i32 = -536870397;
+        const ERROR_NO_INF: i32 = -536870390;
+        const ERROR_NO_SUCH_DEVICE_INTERFACE: i32 = -536870363;
+        const ERROR_NO_SUCH_DEVINST: i32 = -536870389;
+        const ERROR_NO_SUCH_INTERFACE_CLASS: i32 = -536870370;
+        const ERROR_NO_SUCH_INTERFACE_DEVICE: i32 = -536870363;
+        const ERROR_ONLY_VALIDATE_VIA_AUTHENTICODE: i32 = -536870331;
+        const ERROR_PNP_REGISTRY_ERROR: i32 = -536870342;
+        const ERROR_REMOTE_COMM_FAILURE: i32 = -536870367;
+        const ERROR_REMOTE_REQUEST_UNSUPPORTED: i32 = -536870341;
+        const ERROR_SCE_DISABLED: i32 = -536870344;
+        const ERROR_SECTION_NAME_TOO_LONG: i32 = -536870910;
+        const ERROR_SECTION_NOT_FOUND: i32 = -536870655;
+        const ERROR_SET_SYSTEM_RESTORE_POINT: i32 = -536870346;
+        const ERROR_SIGNATURE_OSATTRIBUTE_MISMATCH: i32 = -536870332;
+        const ERROR_UNKNOWN_EXCEPTION: i32 = -536870343;
+        const ERROR_UNRECOVERABLE_STACK_OVERFLOW: i32 = -536870144;
+        const ERROR_WRONG_INF_STYLE: i32 = -536870656;
+        const ERROR_WRONG_INF_TYPE: i32 = -536870326;
+        const EXCEPTION_SPAPI_UNRECOVERABLE_STACK_OVERFLOW: i32 = -536870144;
+        const FILEOP_ABORT: u32 = 0;
+        const FILEOP_BACKUP: u32 = 3;
+        const FILEOP_COPY: u32 = 0;
+        const FILEOP_DELETE: u32 = 2;
+        const FILEOP_DOIT: u32 = 1;
+        const FILEOP_NEWPATH: u32 = 4;
+        const FILEOP_RENAME: u32 = 1;
+        const FILEOP_RETRY: u32 = 1;
+        const FILEOP_SKIP: u32 = 2;
+        type FILEPATHS = FILEPATHS_A;
+        #[arch(X64 | Arm64)]
+        struct FILEPATHS_A {
+            Target: PCSTR,
+            Source: PCSTR,
+            Win32Error: u32,
+            Flags: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILEPATHS_A {
+            Target: PCSTR,
+            Source: PCSTR,
+            Win32Error: u32,
+            Flags: u32,
+        }
+        type FILEPATHS_SIGNERINFO = FILEPATHS_SIGNERINFO_A;
+        #[arch(X64 | Arm64)]
+        struct FILEPATHS_SIGNERINFO_A {
+            Target: PCSTR,
+            Source: PCSTR,
+            Win32Error: u32,
+            Flags: u32,
+            DigitalSigner: PCSTR,
+            Version: PCSTR,
+            CatalogFile: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILEPATHS_SIGNERINFO_A {
+            Target: PCSTR,
+            Source: PCSTR,
+            Win32Error: u32,
+            Flags: u32,
+            DigitalSigner: PCSTR,
+            Version: PCSTR,
+            CatalogFile: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct FILEPATHS_SIGNERINFO_W {
+            Target: PCWSTR,
+            Source: PCWSTR,
+            Win32Error: u32,
+            Flags: u32,
+            DigitalSigner: PCWSTR,
+            Version: PCWSTR,
+            CatalogFile: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILEPATHS_SIGNERINFO_W {
+            Target: PCWSTR,
+            Source: PCWSTR,
+            Win32Error: u32,
+            Flags: u32,
+            DigitalSigner: PCWSTR,
+            Version: PCWSTR,
+            CatalogFile: PCWSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct FILEPATHS_W {
+            Target: PCWSTR,
+            Source: PCWSTR,
+            Win32Error: u32,
+            Flags: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILEPATHS_W {
+            Target: PCWSTR,
+            Source: PCWSTR,
+            Win32Error: u32,
+            Flags: u32,
+        }
+        const FILE_COMPRESSION_MSZIP: u32 = 2;
+        const FILE_COMPRESSION_NONE: u32 = 0;
+        const FILE_COMPRESSION_NTCAB: u32 = 3;
+        const FILE_COMPRESSION_WINLZA: u32 = 1;
+        type FILE_IN_CABINET_INFO = FILE_IN_CABINET_INFO_A;
+        #[arch(X64 | Arm64)]
+        struct FILE_IN_CABINET_INFO_A {
+            NameInCabinet: PCSTR,
+            FileSize: u32,
+            Win32Error: u32,
+            DosDate: u16,
+            DosTime: u16,
+            DosAttribs: u16,
+            FullTargetName: [i8; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILE_IN_CABINET_INFO_A {
+            NameInCabinet: PCSTR,
+            FileSize: u32,
+            Win32Error: u32,
+            DosDate: u16,
+            DosTime: u16,
+            DosAttribs: u16,
+            FullTargetName: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct FILE_IN_CABINET_INFO_W {
+            NameInCabinet: PCWSTR,
+            FileSize: u32,
+            Win32Error: u32,
+            DosDate: u16,
+            DosTime: u16,
+            DosAttribs: u16,
+            FullTargetName: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct FILE_IN_CABINET_INFO_W {
+            NameInCabinet: PCWSTR,
+            FileSize: u32,
+            Win32Error: u32,
+            DosDate: u16,
+            DosTime: u16,
+            DosAttribs: u16,
+            FullTargetName: [u16; 260],
+        }
+        const FLG_ADDPROPERTY_AND: u32 = 16;
+        const FLG_ADDPROPERTY_APPEND: u32 = 4;
+        const FLG_ADDPROPERTY_NOCLOBBER: u32 = 1;
+        const FLG_ADDPROPERTY_OR: u32 = 8;
+        const FLG_ADDPROPERTY_OVERWRITEONLY: u32 = 2;
+        const FLG_ADDREG_32BITKEY: u32 = 16384;
+        const FLG_ADDREG_64BITKEY: u32 = 4096;
+        const FLG_ADDREG_APPEND: u32 = 8;
+        const FLG_ADDREG_BINVALUETYPE: u32 = 1;
+        const FLG_ADDREG_DELREG_BIT: u32 = 32768;
+        const FLG_ADDREG_DELVAL: u32 = 4;
+        const FLG_ADDREG_KEYONLY: u32 = 16;
+        const FLG_ADDREG_KEYONLY_COMMON: u32 = 8192;
+        const FLG_ADDREG_NOCLOBBER: u32 = 2;
+        const FLG_ADDREG_OVERWRITEONLY: u32 = 32;
+        const FLG_ADDREG_TYPE_BINARY: u32 = 1;
+        const FLG_ADDREG_TYPE_DWORD: u32 = 65537;
+        const FLG_ADDREG_TYPE_EXPAND_SZ: u32 = 131072;
+        const FLG_ADDREG_TYPE_MASK: i32 = -65535;
+        const FLG_ADDREG_TYPE_MULTI_SZ: u32 = 65536;
+        const FLG_ADDREG_TYPE_NONE: u32 = 131073;
+        const FLG_ADDREG_TYPE_QWORD: u32 = 720897;
+        const FLG_ADDREG_TYPE_SZ: u32 = 0;
+        const FLG_BITREG_32BITKEY: u32 = 16384;
+        const FLG_BITREG_64BITKEY: u32 = 4096;
+        const FLG_BITREG_CLEARBITS: u32 = 0;
+        const FLG_BITREG_SETBITS: u32 = 1;
+        const FLG_DELPROPERTY_MULTI_SZ_DELSTRING: u32 = 1;
+        const FLG_DELREG_32BITKEY: u32 = 16384;
+        const FLG_DELREG_64BITKEY: u32 = 4096;
+        const FLG_DELREG_KEYONLY_COMMON: u32 = 8192;
+        const FLG_DELREG_MULTI_SZ_DELSTRING: u32 = 98306;
+        const FLG_DELREG_OPERATION_MASK: u32 = 254;
+        const FLG_DELREG_TYPE_BINARY: u32 = 1;
+        const FLG_DELREG_TYPE_DWORD: u32 = 65537;
+        const FLG_DELREG_TYPE_EXPAND_SZ: u32 = 131072;
+        const FLG_DELREG_TYPE_MASK: i32 = -65535;
+        const FLG_DELREG_TYPE_MULTI_SZ: u32 = 65536;
+        const FLG_DELREG_TYPE_NONE: u32 = 131073;
+        const FLG_DELREG_TYPE_QWORD: u32 = 720897;
+        const FLG_DELREG_TYPE_SZ: u32 = 0;
+        const FLG_DELREG_VALUE: u32 = 0;
+        const FLG_INI2REG_32BITKEY: u32 = 16384;
+        const FLG_INI2REG_64BITKEY: u32 = 4096;
+        const FLG_PROFITEM_CSIDL: u32 = 8;
+        const FLG_PROFITEM_CURRENTUSER: u32 = 1;
+        const FLG_PROFITEM_DELETE: u32 = 2;
+        const FLG_PROFITEM_GROUP: u32 = 4;
+        const FLG_REGSVR_DLLINSTALL: u32 = 2;
+        const FLG_REGSVR_DLLREGISTER: u32 = 1;
+        type HDEVINFO = *mut void;
+        type HDSKSPC = *mut void;
+        type HINF = *mut void;
+        type HSPFILELOG = *mut void;
+        type HSPFILEQ = *mut void;
+        const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010;
+        const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004;
+        const IDD_DYNAWIZ_ANALYZE_PREVPAGE: u32 = 10003;
+        const IDD_DYNAWIZ_FIRSTPAGE: u32 = 10000;
+        const IDD_DYNAWIZ_INSTALLDETECTEDDEVS_PAGE: u32 = 10011;
+        const IDD_DYNAWIZ_INSTALLDETECTED_NEXTPAGE: u32 = 10007;
+        const IDD_DYNAWIZ_INSTALLDETECTED_NODEVS: u32 = 10008;
+        const IDD_DYNAWIZ_INSTALLDETECTED_PREVPAGE: u32 = 10006;
+        const IDD_DYNAWIZ_SELECTCLASS_PAGE: u32 = 10012;
+        const IDD_DYNAWIZ_SELECTDEV_PAGE: u32 = 10009;
+        const IDD_DYNAWIZ_SELECT_NEXTPAGE: u32 = 10002;
+        const IDD_DYNAWIZ_SELECT_PREVPAGE: u32 = 10001;
+        const IDF_CHECKFIRST: u32 = 256;
+        const IDF_NOBEEP: u32 = 512;
+        const IDF_NOBROWSE: u32 = 1;
+        const IDF_NOCOMPRESSED: u32 = 8;
+        const IDF_NODETAILS: u32 = 4;
+        const IDF_NOFOREGROUND: u32 = 1024;
+        const IDF_NOREMOVABLEMEDIAPROMPT: u32 = 4096;
+        const IDF_NOSKIP: u32 = 2;
+        const IDF_OEMDISK: u32 = 2147483648;
+        const IDF_USEDISKNAMEASPROMPT: u32 = 8192;
+        const IDF_WARNIFSKIP: u32 = 2048;
+        const IDI_CLASSICON_OVERLAYFIRST: u32 = 500;
+        const IDI_CLASSICON_OVERLAYLAST: u32 = 502;
+        const IDI_CONFLICT: u32 = 161;
+        const IDI_DISABLED_OVL: u32 = 501;
+        const IDI_FORCED_OVL: u32 = 502;
+        const IDI_PROBLEM_OVL: u32 = 500;
+        const IDI_RESOURCE: u32 = 159;
+        const IDI_RESOURCEFIRST: u32 = 159;
+        const IDI_RESOURCELAST: u32 = 161;
+        const IDI_RESOURCEOVERLAYFIRST: u32 = 161;
+        const IDI_RESOURCEOVERLAYLAST: u32 = 161;
+        #[arch(X64 | Arm64)]
+        struct INFCONTEXT {
+            Inf: *mut void,
+            CurrentInf: *mut void,
+            Section: u32,
+            Line: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct INFCONTEXT {
+            Inf: *mut void,
+            CurrentInf: *mut void,
+            Section: u32,
+            Line: u32,
+        }
+        const INFINFO_DEFAULT_SEARCH: u32 = 3;
+        const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2;
+        const INFINFO_INF_PATH_LIST_SEARCH: u32 = 5;
+        const INFINFO_INF_SPEC_IS_HINF: u32 = 1;
+        const INFINFO_REVERSE_DEFAULT_SEARCH: u32 = 4;
+        const INF_STYLE_CACHE_DISABLE: u32 = 32;
+        const INF_STYLE_CACHE_ENABLE: u32 = 16;
+        const INF_STYLE_CACHE_IGNORE: u32 = 64;
+        const INF_STYLE_NONE: u32 = 0;
+        const INF_STYLE_OLDNT: u32 = 1;
+        const INF_STYLE_WIN4: u32 = 2;
+        #[library("SETUPAPI.dll")]
+        extern fn InstallHinfSectionA(Window: HWND, ModuleHandle: HINSTANCE, CommandLine: PCSTR, ShowCommand: i32);
+        #[library("SETUPAPI.dll")]
+        extern fn InstallHinfSectionW(Window: HWND, ModuleHandle: HINSTANCE, CommandLine: PCWSTR, ShowCommand: i32);
+        const LINE_LEN: u32 = 256;
+        const LogSevError: u32 = 2;
+        const LogSevFatalError: u32 = 3;
+        const LogSevInformation: u32 = 0;
+        const LogSevMaximum: u32 = 4;
+        const LogSevWarning: u32 = 1;
+        const MAX_IDD_DYNAWIZ_RESOURCE_ID: u32 = 11000;
+        const MAX_INF_SECTION_NAME_LENGTH: u32 = 255;
+        const MAX_INF_STRING_LENGTH: u32 = 4096;
+        const MAX_INSTALLWIZARD_DYNAPAGES: u32 = 20;
+        const MAX_INSTRUCTION_LEN: u32 = 256;
+        const MAX_LABEL_LEN: u32 = 30;
+        const MAX_SERVICE_NAME_LEN: u32 = 256;
+        const MAX_SUBTITLE_LEN: u32 = 256;
+        const MAX_TITLE_LEN: u32 = 60;
+        const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000;
+        const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768;
+        const NDW_INSTALLFLAG_DIDFACTDEFS: u32 = 1;
+        const NDW_INSTALLFLAG_EXPRESSINTRO: u32 = 1024;
+        const NDW_INSTALLFLAG_HARDWAREALLREADYIN: u32 = 2;
+        const NDW_INSTALLFLAG_INSTALLSPECIFIC: u32 = 8192;
+        const NDW_INSTALLFLAG_KNOWNCLASS: u32 = 524288;
+        const NDW_INSTALLFLAG_NEEDREBOOT: u32 = 256;
+        const NDW_INSTALLFLAG_NEEDRESTART: u32 = 128;
+        const NDW_INSTALLFLAG_NEEDSHUTDOWN: u32 = 512;
+        const NDW_INSTALLFLAG_NODETECTEDDEVS: u32 = 4096;
+        const NDW_INSTALLFLAG_PCMCIADEVICE: u32 = 131072;
+        const NDW_INSTALLFLAG_PCMCIAMODE: u32 = 65536;
+        const NDW_INSTALLFLAG_SKIPCLASSLIST: u32 = 16384;
+        const NDW_INSTALLFLAG_SKIPISDEVINSTALLED: u32 = 2048;
+        const NDW_INSTALLFLAG_USERCANCEL: u32 = 262144;
+        type PCABINET_INFO = PCABINET_INFO_A;
+        type PCABINET_INFO_A = *mut CABINET_INFO_A;
+        type PCABINET_INFO_W = *mut CABINET_INFO_W;
+        type PCOINSTALLER_CONTEXT_DATA = *mut COINSTALLER_CONTEXT_DATA;
+        extern fn PDETECT_PROGRESS_NOTIFY(ProgressNotifyParam: *const void, DetectComplete: u32) -> BOOL;
+        type PFILEPATHS = PFILEPATHS_A;
+        type PFILEPATHS_A = *mut FILEPATHS_A;
+        type PFILEPATHS_SIGNERINFO = PFILEPATHS_SIGNERINFO_A;
+        type PFILEPATHS_SIGNERINFO_A = *mut FILEPATHS_SIGNERINFO_A;
+        type PFILEPATHS_SIGNERINFO_W = *mut FILEPATHS_SIGNERINFO_W;
+        type PFILEPATHS_W = *mut FILEPATHS_W;
+        type PFILE_IN_CABINET_INFO = PFILE_IN_CABINET_INFO_A;
+        type PFILE_IN_CABINET_INFO_A = *mut FILE_IN_CABINET_INFO_A;
+        type PFILE_IN_CABINET_INFO_W = *mut FILE_IN_CABINET_INFO_W;
+        type PINFCONTEXT = *mut INFCONTEXT;
+        type PSOURCE_MEDIA = PSOURCE_MEDIA_A;
+        type PSOURCE_MEDIA_A = *mut SOURCE_MEDIA_A;
+        type PSOURCE_MEDIA_W = *mut SOURCE_MEDIA_W;
+        type PSP_ADDPROPERTYPAGE_DATA = PSP_NEWDEVICEWIZARD_DATA;
+        type PSP_ALTPLATFORM_INFO = PSP_ALTPLATFORM_INFO_V2;
+        type PSP_ALTPLATFORM_INFO_V1 = *mut SP_ALTPLATFORM_INFO_V1;
+        type PSP_ALTPLATFORM_INFO_V2 = *mut SP_ALTPLATFORM_INFO_V2;
+        type PSP_ALTPLATFORM_INFO_V3 = *mut SP_ALTPLATFORM_INFO_V3;
+        type PSP_BACKUP_QUEUE_PARAMS = PSP_BACKUP_QUEUE_PARAMS_V2;
+        type PSP_BACKUP_QUEUE_PARAMS_A = PSP_BACKUP_QUEUE_PARAMS_V2_A;
+        type PSP_BACKUP_QUEUE_PARAMS_V1 = PSP_BACKUP_QUEUE_PARAMS_V1_A;
+        type PSP_BACKUP_QUEUE_PARAMS_V1_A = *mut SP_BACKUP_QUEUE_PARAMS_V1_A;
+        type PSP_BACKUP_QUEUE_PARAMS_V1_W = *mut SP_BACKUP_QUEUE_PARAMS_V1_W;
+        type PSP_BACKUP_QUEUE_PARAMS_V2 = PSP_BACKUP_QUEUE_PARAMS_V2_A;
+        type PSP_BACKUP_QUEUE_PARAMS_V2_A = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+        type PSP_BACKUP_QUEUE_PARAMS_V2_W = *mut SP_BACKUP_QUEUE_PARAMS_V2_W;
+        type PSP_BACKUP_QUEUE_PARAMS_W = PSP_BACKUP_QUEUE_PARAMS_V2_W;
+        type PSP_CLASSIMAGELIST_DATA = *mut SP_CLASSIMAGELIST_DATA;
+        type PSP_CLASSINSTALL_HEADER = *mut SP_CLASSINSTALL_HEADER;
+        type PSP_DETECTDEVICE_PARAMS = *mut SP_DETECTDEVICE_PARAMS;
+        extern fn PSP_DETSIG_CMPPROC(DeviceInfoSet: HDEVINFO, NewDeviceData: *const SP_DEVINFO_DATA, ExistingDeviceData: *const SP_DEVINFO_DATA, #[opt] CompareContext: *const void) -> u32;
+        type PSP_DEVICE_INTERFACE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
+        type PSP_DEVICE_INTERFACE_DETAIL_DATA = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
+        type PSP_DEVICE_INTERFACE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+        type PSP_DEVICE_INTERFACE_DETAIL_DATA_W = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W;
+        type PSP_DEVINFO_DATA = *mut SP_DEVINFO_DATA;
+        type PSP_DEVINFO_LIST_DETAIL_DATA = PSP_DEVINFO_LIST_DETAIL_DATA_A;
+        type PSP_DEVINFO_LIST_DETAIL_DATA_A = *mut SP_DEVINFO_LIST_DETAIL_DATA_A;
+        type PSP_DEVINFO_LIST_DETAIL_DATA_W = *mut SP_DEVINFO_LIST_DETAIL_DATA_W;
+        type PSP_DEVINSTALL_PARAMS = PSP_DEVINSTALL_PARAMS_A;
+        type PSP_DEVINSTALL_PARAMS_A = *mut SP_DEVINSTALL_PARAMS_A;
+        type PSP_DEVINSTALL_PARAMS_W = *mut SP_DEVINSTALL_PARAMS_W;
+        type PSP_DRVINFO_DATA = PSP_DRVINFO_DATA_V2;
+        type PSP_DRVINFO_DATA_A = PSP_DRVINFO_DATA_V2_A;
+        type PSP_DRVINFO_DATA_V1 = PSP_DRVINFO_DATA_V1_A;
+        type PSP_DRVINFO_DATA_V1_A = *mut SP_DRVINFO_DATA_V1_A;
+        type PSP_DRVINFO_DATA_V1_W = *mut SP_DRVINFO_DATA_V1_W;
+        type PSP_DRVINFO_DATA_V2 = PSP_DRVINFO_DATA_V2_A;
+        type PSP_DRVINFO_DATA_V2_A = *mut SP_DRVINFO_DATA_V2_A;
+        type PSP_DRVINFO_DATA_V2_W = *mut SP_DRVINFO_DATA_V2_W;
+        type PSP_DRVINFO_DATA_W = PSP_DRVINFO_DATA_V2_W;
+        type PSP_DRVINFO_DETAIL_DATA = PSP_DRVINFO_DETAIL_DATA_A;
+        type PSP_DRVINFO_DETAIL_DATA_A = *mut SP_DRVINFO_DETAIL_DATA_A;
+        type PSP_DRVINFO_DETAIL_DATA_W = *mut SP_DRVINFO_DETAIL_DATA_W;
+        type PSP_DRVINSTALL_PARAMS = *mut SP_DRVINSTALL_PARAMS;
+        type PSP_ENABLECLASS_PARAMS = *mut SP_ENABLECLASS_PARAMS;
+        extern fn PSP_FILE_CALLBACK_A(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        extern fn PSP_FILE_CALLBACK_W(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        type PSP_FILE_COPY_PARAMS = PSP_FILE_COPY_PARAMS_A;
+        type PSP_FILE_COPY_PARAMS_A = *mut SP_FILE_COPY_PARAMS_A;
+        type PSP_FILE_COPY_PARAMS_W = *mut SP_FILE_COPY_PARAMS_W;
+        type PSP_INF_INFORMATION = *mut SP_INF_INFORMATION;
+        type PSP_INF_SIGNER_INFO = PSP_INF_SIGNER_INFO_V2;
+        type PSP_INF_SIGNER_INFO_A = PSP_INF_SIGNER_INFO_V2_A;
+        type PSP_INF_SIGNER_INFO_V1 = PSP_INF_SIGNER_INFO_V1_A;
+        type PSP_INF_SIGNER_INFO_V1_A = *mut SP_INF_SIGNER_INFO_V1_A;
+        type PSP_INF_SIGNER_INFO_V1_W = *mut SP_INF_SIGNER_INFO_V1_W;
+        type PSP_INF_SIGNER_INFO_V2 = PSP_INF_SIGNER_INFO_V2_A;
+        type PSP_INF_SIGNER_INFO_V2_A = *mut SP_INF_SIGNER_INFO_V2_A;
+        type PSP_INF_SIGNER_INFO_V2_W = *mut SP_INF_SIGNER_INFO_V2_W;
+        type PSP_INF_SIGNER_INFO_W = PSP_INF_SIGNER_INFO_V2_W;
+        type PSP_INSTALLWIZARD_DATA = *mut SP_INSTALLWIZARD_DATA;
+        type PSP_INTERFACE_DEVICE_DATA = PSP_DEVICE_INTERFACE_DATA;
+        type PSP_INTERFACE_DEVICE_DETAIL_DATA = PSP_INTERFACE_DEVICE_DETAIL_DATA_A;
+        type PSP_INTERFACE_DEVICE_DETAIL_DATA_A = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
+        type PSP_INTERFACE_DEVICE_DETAIL_DATA_W = PSP_DEVICE_INTERFACE_DETAIL_DATA_W;
+        type PSP_NEWDEVICEWIZARD_DATA = *mut SP_NEWDEVICEWIZARD_DATA;
+        type PSP_ORIGINAL_FILE_INFO = PSP_ORIGINAL_FILE_INFO_A;
+        type PSP_ORIGINAL_FILE_INFO_A = *mut SP_ORIGINAL_FILE_INFO_A;
+        type PSP_ORIGINAL_FILE_INFO_W = *mut SP_ORIGINAL_FILE_INFO_W;
+        type PSP_POWERMESSAGEWAKE_PARAMS = PSP_POWERMESSAGEWAKE_PARAMS_A;
+        type PSP_POWERMESSAGEWAKE_PARAMS_A = *mut SP_POWERMESSAGEWAKE_PARAMS_A;
+        type PSP_POWERMESSAGEWAKE_PARAMS_W = *mut SP_POWERMESSAGEWAKE_PARAMS_W;
+        type PSP_PROPCHANGE_PARAMS = *mut SP_PROPCHANGE_PARAMS;
+        type PSP_PROPSHEETPAGE_REQUEST = *mut SP_PROPSHEETPAGE_REQUEST;
+        type PSP_REGISTER_CONTROL_STATUS = PSP_REGISTER_CONTROL_STATUSA;
+        type PSP_REGISTER_CONTROL_STATUSA = *mut SP_REGISTER_CONTROL_STATUSA;
+        type PSP_REGISTER_CONTROL_STATUSW = *mut SP_REGISTER_CONTROL_STATUSW;
+        type PSP_REMOVEDEVICE_PARAMS = *mut SP_REMOVEDEVICE_PARAMS;
+        type PSP_SELECTDEVICE_PARAMS = PSP_SELECTDEVICE_PARAMS_A;
+        type PSP_SELECTDEVICE_PARAMS_A = *mut SP_SELECTDEVICE_PARAMS_A;
+        type PSP_SELECTDEVICE_PARAMS_W = *mut SP_SELECTDEVICE_PARAMS_W;
+        type PSP_TROUBLESHOOTER_PARAMS = PSP_TROUBLESHOOTER_PARAMS_A;
+        type PSP_TROUBLESHOOTER_PARAMS_A = *mut SP_TROUBLESHOOTER_PARAMS_A;
+        type PSP_TROUBLESHOOTER_PARAMS_W = *mut SP_TROUBLESHOOTER_PARAMS_W;
+        type PSP_UNREMOVEDEVICE_PARAMS = *mut SP_UNREMOVEDEVICE_PARAMS;
+        const SCWMI_CLOBBER_SECURITY: u32 = 1;
+        const SETDIRID_NOT_FULL_PATH: u32 = 1;
+        const SIGNERSCORE_AUTHENTICODE: u32 = 251658240;
+        const SIGNERSCORE_INBOX: u32 = 218103811;
+        const SIGNERSCORE_LOGO_PREMIUM: u32 = 218103809;
+        const SIGNERSCORE_LOGO_STANDARD: u32 = 218103810;
+        const SIGNERSCORE_MASK: u32 = 4278190080;
+        const SIGNERSCORE_SIGNED_MASK: u32 = 4026531840;
+        const SIGNERSCORE_UNCLASSIFIED: u32 = 218103812;
+        const SIGNERSCORE_UNKNOWN: u32 = 4278190080;
+        const SIGNERSCORE_UNSIGNED: u32 = 2147483648;
+        const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472;
+        const SIGNERSCORE_WHQL: u32 = 218103813;
+        type SOURCE_MEDIA = SOURCE_MEDIA_A;
+        #[arch(X64 | Arm64)]
+        struct SOURCE_MEDIA_A {
+            Reserved: PCSTR,
+            Tagfile: PCSTR,
+            Description: PCSTR,
+            SourcePath: PCSTR,
+            SourceFile: PCSTR,
+            Flags: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SOURCE_MEDIA_A {
+            Reserved: PCSTR,
+            Tagfile: PCSTR,
+            Description: PCSTR,
+            SourcePath: PCSTR,
+            SourceFile: PCSTR,
+            Flags: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SOURCE_MEDIA_W {
+            Reserved: PCWSTR,
+            Tagfile: PCWSTR,
+            Description: PCWSTR,
+            SourcePath: PCWSTR,
+            SourceFile: PCWSTR,
+            Flags: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SOURCE_MEDIA_W {
+            Reserved: PCWSTR,
+            Tagfile: PCWSTR,
+            Description: PCWSTR,
+            SourcePath: PCWSTR,
+            SourceFile: PCWSTR,
+            Flags: u32,
+        }
+        const SPCRP_CHARACTERISTICS: u32 = 27;
+        const SPCRP_DEVTYPE: u32 = 25;
+        const SPCRP_EXCLUSIVE: u32 = 26;
+        const SPCRP_LOWERFILTERS: u32 = 18;
+        const SPCRP_MAXIMUM_PROPERTY: u32 = 28;
+        const SPCRP_SECURITY: u32 = 23;
+        const SPCRP_SECURITY_SDS: u32 = 24;
+        const SPCRP_UPPERFILTERS: u32 = 17;
+        const SPDIT_CLASSDRIVER: u32 = 1;
+        const SPDIT_COMPATDRIVER: u32 = 2;
+        const SPDIT_NODRIVER: u32 = 0;
+        const SPDRP_ADDRESS: u32 = 28;
+        const SPDRP_BASE_CONTAINERID: u32 = 36;
+        const SPDRP_BUSNUMBER: u32 = 21;
+        const SPDRP_BUSTYPEGUID: u32 = 19;
+        const SPDRP_CAPABILITIES: u32 = 15;
+        const SPDRP_CHARACTERISTICS: u32 = 27;
+        const SPDRP_CLASS: u32 = 7;
+        const SPDRP_CLASSGUID: u32 = 8;
+        const SPDRP_COMPATIBLEIDS: u32 = 2;
+        const SPDRP_CONFIGFLAGS: u32 = 10;
+        const SPDRP_DEVICEDESC: u32 = 0;
+        const SPDRP_DEVICE_POWER_DATA: u32 = 30;
+        const SPDRP_DEVTYPE: u32 = 25;
+        const SPDRP_DRIVER: u32 = 9;
+        const SPDRP_ENUMERATOR_NAME: u32 = 22;
+        const SPDRP_EXCLUSIVE: u32 = 26;
+        const SPDRP_FRIENDLYNAME: u32 = 12;
+        const SPDRP_HARDWAREID: u32 = 1;
+        const SPDRP_INSTALL_STATE: u32 = 34;
+        const SPDRP_LEGACYBUSTYPE: u32 = 20;
+        const SPDRP_LOCATION_INFORMATION: u32 = 13;
+        const SPDRP_LOCATION_PATHS: u32 = 35;
+        const SPDRP_LOWERFILTERS: u32 = 18;
+        const SPDRP_MAXIMUM_PROPERTY: u32 = 37;
+        const SPDRP_MFG: u32 = 11;
+        const SPDRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 14;
+        const SPDRP_REMOVAL_POLICY: u32 = 31;
+        const SPDRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 32;
+        const SPDRP_REMOVAL_POLICY_OVERRIDE: u32 = 33;
+        const SPDRP_SECURITY: u32 = 23;
+        const SPDRP_SECURITY_SDS: u32 = 24;
+        const SPDRP_SERVICE: u32 = 4;
+        const SPDRP_UI_NUMBER: u32 = 16;
+        const SPDRP_UI_NUMBER_DESC_FORMAT: u32 = 29;
+        const SPDRP_UNUSED0: u32 = 3;
+        const SPDRP_UNUSED1: u32 = 5;
+        const SPDRP_UNUSED2: u32 = 6;
+        const SPDRP_UPPERFILTERS: u32 = 17;
+        const SPDSL_DISALLOW_NEGATIVE_ADJUST: u32 = 2;
+        const SPDSL_IGNORE_DISK: u32 = 1;
+        const SPFILELOG_FORCENEW: u32 = 2;
+        const SPFILELOG_OEMFILE: u32 = 1;
+        const SPFILELOG_QUERYONLY: u32 = 4;
+        const SPFILELOG_SYSTEMLOG: u32 = 1;
+        const SPFILENOTIFY_BACKUPERROR: u32 = 22;
+        const SPFILENOTIFY_CABINETINFO: u32 = 16;
+        const SPFILENOTIFY_COPYERROR: u32 = 13;
+        const SPFILENOTIFY_DELETEERROR: u32 = 7;
+        const SPFILENOTIFY_ENDBACKUP: u32 = 23;
+        const SPFILENOTIFY_ENDCOPY: u32 = 12;
+        const SPFILENOTIFY_ENDDELETE: u32 = 6;
+        const SPFILENOTIFY_ENDQUEUE: u32 = 2;
+        const SPFILENOTIFY_ENDREGISTRATION: u32 = 32;
+        const SPFILENOTIFY_ENDRENAME: u32 = 9;
+        const SPFILENOTIFY_ENDSUBQUEUE: u32 = 4;
+        const SPFILENOTIFY_FILEEXTRACTED: u32 = 19;
+        const SPFILENOTIFY_FILEINCABINET: u32 = 17;
+        const SPFILENOTIFY_FILEOPDELAYED: u32 = 20;
+        const SPFILENOTIFY_LANGMISMATCH: u32 = 65536;
+        const SPFILENOTIFY_NEEDMEDIA: u32 = 14;
+        const SPFILENOTIFY_NEEDNEWCABINET: u32 = 18;
+        const SPFILENOTIFY_QUEUESCAN: u32 = 15;
+        const SPFILENOTIFY_QUEUESCAN_EX: u32 = 24;
+        const SPFILENOTIFY_QUEUESCAN_SIGNERINFO: u32 = 64;
+        const SPFILENOTIFY_RENAMEERROR: u32 = 10;
+        const SPFILENOTIFY_STARTBACKUP: u32 = 21;
+        const SPFILENOTIFY_STARTCOPY: u32 = 11;
+        const SPFILENOTIFY_STARTDELETE: u32 = 5;
+        const SPFILENOTIFY_STARTQUEUE: u32 = 1;
+        const SPFILENOTIFY_STARTREGISTRATION: u32 = 25;
+        const SPFILENOTIFY_STARTRENAME: u32 = 8;
+        const SPFILENOTIFY_STARTSUBQUEUE: u32 = 3;
+        const SPFILENOTIFY_TARGETEXISTS: u32 = 131072;
+        const SPFILENOTIFY_TARGETNEWER: u32 = 262144;
+        const SPFILEQ_FILE_IN_USE: u32 = 1;
+        const SPFILEQ_REBOOT_IN_PROGRESS: u32 = 4;
+        const SPFILEQ_REBOOT_RECOMMENDED: u32 = 2;
+        const SPID_ACTIVE: u32 = 1;
+        const SPID_DEFAULT: u32 = 2;
+        const SPID_REMOVED: u32 = 4;
+        const SPINST_ALL: u32 = 2047;
+        const SPINST_BITREG: u32 = 32;
+        const SPINST_COPYINF: u32 = 512;
+        const SPINST_DEVICEINSTALL: u32 = 1048576;
+        const SPINST_FILES: u32 = 16;
+        const SPINST_INI2REG: u32 = 8;
+        const SPINST_INIFILES: u32 = 2;
+        const SPINST_LOGCONFIG: u32 = 1;
+        const SPINST_LOGCONFIGS_ARE_OVERRIDES: u32 = 262144;
+        const SPINST_LOGCONFIG_IS_FORCED: u32 = 131072;
+        const SPINST_PROFILEITEMS: u32 = 256;
+        const SPINST_PROPERTIES: u32 = 1024;
+        const SPINST_REGISTERCALLBACKAWARE: u32 = 524288;
+        const SPINST_REGISTRY: u32 = 4;
+        const SPINST_REGSVR: u32 = 64;
+        const SPINST_SINGLESECTION: u32 = 65536;
+        const SPINST_UNREGSVR: u32 = 128;
+        const SPINT_ACTIVE: u32 = 1;
+        const SPINT_DEFAULT: u32 = 2;
+        const SPINT_REMOVED: u32 = 4;
+        const SPOST_MAX: u32 = 3;
+        const SPOST_NONE: u32 = 0;
+        const SPOST_PATH: u32 = 1;
+        const SPOST_URL: u32 = 2;
+        const SPPSR_ENUM_ADV_DEVICE_PROPERTIES: u32 = 3;
+        const SPPSR_ENUM_BASIC_DEVICE_PROPERTIES: u32 = 2;
+        const SPPSR_SELECT_DEVICE_RESOURCES: u32 = 1;
+        const SPQ_DELAYED_COPY: u32 = 1;
+        const SPQ_FLAG_ABORT_IF_UNSIGNED: u32 = 2;
+        const SPQ_FLAG_BACKUP_AWARE: u32 = 1;
+        const SPQ_FLAG_DO_SHUFFLEMOVE: u32 = 8;
+        const SPQ_FLAG_FILES_MODIFIED: u32 = 4;
+        const SPQ_FLAG_VALID: u32 = 15;
+        const SPQ_SCAN_ACTIVATE_DRP: u32 = 1024;
+        const SPQ_SCAN_FILE_COMPARISON: u32 = 512;
+        const SPQ_SCAN_FILE_PRESENCE: u32 = 1;
+        const SPQ_SCAN_FILE_PRESENCE_WITHOUT_SOURCE: u32 = 256;
+        const SPQ_SCAN_FILE_VALIDITY: u32 = 2;
+        const SPQ_SCAN_INFORM_USER: u32 = 16;
+        const SPQ_SCAN_PRUNE_COPY_QUEUE: u32 = 32;
+        const SPQ_SCAN_PRUNE_DELREN: u32 = 128;
+        const SPQ_SCAN_USE_CALLBACK: u32 = 4;
+        const SPQ_SCAN_USE_CALLBACKEX: u32 = 8;
+        const SPQ_SCAN_USE_CALLBACK_SIGNERINFO: u32 = 64;
+        const SPQ_SCAN_USE_OEM_CATALOGS: u32 = 2048;
+        const SPRDI_FIND_DUPS: u32 = 1;
+        const SPREG_DLLINSTALL: u32 = 4;
+        const SPREG_GETPROCADDR: u32 = 2;
+        const SPREG_LOADLIBRARY: u32 = 1;
+        const SPREG_REGSVR: u32 = 3;
+        const SPREG_SUCCESS: u32 = 0;
+        const SPREG_TIMEOUT: u32 = 5;
+        const SPREG_UNKNOWN: u32 = 4294967295;
+        const SPSVCINST_ASSOCSERVICE: u32 = 2;
+        const SPSVCINST_CLOBBER_SECURITY: u32 = 1024;
+        const SPSVCINST_DELETEEVENTLOGENTRY: u32 = 4;
+        const SPSVCINST_NOCLOBBER_BOOTFLAGS: u32 = 262144;
+        const SPSVCINST_NOCLOBBER_DELAYEDAUTOSTART: u32 = 32768;
+        const SPSVCINST_NOCLOBBER_DEPENDENCIES: u32 = 128;
+        const SPSVCINST_NOCLOBBER_DESCRIPTION: u32 = 256;
+        const SPSVCINST_NOCLOBBER_DISPLAYNAME: u32 = 8;
+        const SPSVCINST_NOCLOBBER_ERRORCONTROL: u32 = 32;
+        const SPSVCINST_NOCLOBBER_FAILUREACTIONS: u32 = 131072;
+        const SPSVCINST_NOCLOBBER_LOADORDERGROUP: u32 = 64;
+        const SPSVCINST_NOCLOBBER_REQUIREDPRIVILEGES: u32 = 4096;
+        const SPSVCINST_NOCLOBBER_SERVICESIDTYPE: u32 = 16384;
+        const SPSVCINST_NOCLOBBER_STARTTYPE: u32 = 16;
+        const SPSVCINST_NOCLOBBER_TRIGGERS: u32 = 8192;
+        const SPSVCINST_STARTSERVICE: u32 = 2048;
+        const SPSVCINST_STOPSERVICE: u32 = 512;
+        const SPSVCINST_TAGTOFRONT: u32 = 1;
+        const SPSVCINST_UNIQUE_NAME: u32 = 65536;
+        const SPWPT_SELECTDEVICE: u32 = 1;
+        const SPWP_USE_DEVINFO_DATA: u32 = 1;
+        type SP_ADDPROPERTYPAGE_DATA = SP_NEWDEVICEWIZARD_DATA;
+        const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2;
+        const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1;
+        type SP_ALTPLATFORM_INFO = SP_ALTPLATFORM_INFO_V2;
+        #[arch(X64 | Arm64)]
+        struct SP_ALTPLATFORM_INFO_V1 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Reserved: u16,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ALTPLATFORM_INFO_V1 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Reserved: u16,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_ALTPLATFORM_INFO_V2 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Anonymous: union {
+                Reserved: u16,
+                Flags: u16,
+            },
+            FirstValidatedMajorVersion: u32,
+            FirstValidatedMinorVersion: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ALTPLATFORM_INFO_V2 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Anonymous: #[packed(1)] union {
+                Reserved: u16,
+                Flags: u16,
+            },
+            FirstValidatedMajorVersion: u32,
+            FirstValidatedMinorVersion: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_ALTPLATFORM_INFO_V3 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Anonymous: union {
+                Reserved: u16,
+                Flags: u16,
+            },
+            FirstValidatedMajorVersion: u32,
+            FirstValidatedMinorVersion: u32,
+            ProductType: u8,
+            SuiteMask: u16,
+            BuildNumber: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ALTPLATFORM_INFO_V3 {
+            cbSize: u32,
+            Platform: u32,
+            MajorVersion: u32,
+            MinorVersion: u32,
+            ProcessorArchitecture: u16,
+            Anonymous: #[packed(1)] union {
+                Reserved: u16,
+                Flags: u16,
+            },
+            FirstValidatedMajorVersion: u32,
+            FirstValidatedMinorVersion: u32,
+            ProductType: u8,
+            SuiteMask: u16,
+            BuildNumber: u32,
+        }
+        const SP_BACKUP_BACKUPPASS: u32 = 1;
+        const SP_BACKUP_BOOTFILE: u32 = 8;
+        const SP_BACKUP_DEMANDPASS: u32 = 2;
+        type SP_BACKUP_QUEUE_PARAMS = SP_BACKUP_QUEUE_PARAMS_V2;
+        type SP_BACKUP_QUEUE_PARAMS_A = SP_BACKUP_QUEUE_PARAMS_V2_A;
+        type SP_BACKUP_QUEUE_PARAMS_V1 = SP_BACKUP_QUEUE_PARAMS_V1_A;
+        #[arch(X64 | Arm64)]
+        struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+            cbSize: u32,
+            FullInfPath: [i8; 260],
+            FilenameOffset: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+            cbSize: u32,
+            FullInfPath: [i8; 260],
+            FilenameOffset: i32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+            cbSize: u32,
+            FullInfPath: [u16; 260],
+            FilenameOffset: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+            cbSize: u32,
+            FullInfPath: [u16; 260],
+            FilenameOffset: i32,
+        }
+        type SP_BACKUP_QUEUE_PARAMS_V2 = SP_BACKUP_QUEUE_PARAMS_V2_A;
+        #[arch(X64 | Arm64)]
+        struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+            cbSize: u32,
+            FullInfPath: [i8; 260],
+            FilenameOffset: i32,
+            ReinstallInstance: [i8; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+            cbSize: u32,
+            FullInfPath: [i8; 260],
+            FilenameOffset: i32,
+            ReinstallInstance: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+            cbSize: u32,
+            FullInfPath: [u16; 260],
+            FilenameOffset: i32,
+            ReinstallInstance: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+            cbSize: u32,
+            FullInfPath: [u16; 260],
+            FilenameOffset: i32,
+            ReinstallInstance: [u16; 260],
+        }
+        type SP_BACKUP_QUEUE_PARAMS_W = SP_BACKUP_QUEUE_PARAMS_V2_W;
+        const SP_BACKUP_SPECIAL: u32 = 4;
+        #[arch(X64 | Arm64)]
+        struct SP_CLASSIMAGELIST_DATA {
+            cbSize: u32,
+            ImageList: HIMAGELIST,
+            Reserved: usize,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_CLASSIMAGELIST_DATA {
+            cbSize: u32,
+            ImageList: HIMAGELIST,
+            Reserved: usize,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_CLASSINSTALL_HEADER {
+            cbSize: u32,
+            InstallFunction: DI_FUNCTION,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_CLASSINSTALL_HEADER {
+            cbSize: u32,
+            InstallFunction: DI_FUNCTION,
+        }
+        const SP_COPY_ALREADYDECOMP: u32 = 4194304;
+        const SP_COPY_DELETESOURCE: u32 = 1;
+        const SP_COPY_FORCE_IN_USE: u32 = 512;
+        const SP_COPY_FORCE_NEWER: u32 = 8192;
+        const SP_COPY_FORCE_NOOVERWRITE: u32 = 4096;
+        const SP_COPY_HARDLINK: u32 = 268435456;
+        const SP_COPY_INBOX_INF: u32 = 134217728;
+        const SP_COPY_IN_USE_NEEDS_REBOOT: u32 = 256;
+        const SP_COPY_IN_USE_TRY_RENAME: u32 = 67108864;
+        const SP_COPY_LANGUAGEAWARE: u32 = 32;
+        const SP_COPY_NEWER: u32 = 4;
+        const SP_COPY_NEWER_ONLY: u32 = 65536;
+        const SP_COPY_NEWER_OR_SAME: u32 = 4;
+        const SP_COPY_NOBROWSE: u32 = 32768;
+        const SP_COPY_NODECOMP: u32 = 16;
+        const SP_COPY_NOOVERWRITE: u32 = 8;
+        const SP_COPY_NOPRUNE: u32 = 1048576;
+        const SP_COPY_NOSKIP: u32 = 1024;
+        const SP_COPY_OEMINF_CATALOG_ONLY: u32 = 262144;
+        const SP_COPY_OEM_F6_INF: u32 = 2097152;
+        const SP_COPY_PNPLOCKED: u32 = 33554432;
+        const SP_COPY_REPLACEONLY: u32 = 2;
+        const SP_COPY_REPLACE_BOOT_FILE: u32 = 524288;
+        const SP_COPY_RESERVED: u32 = 131072;
+        const SP_COPY_SOURCEPATH_ABSOLUTE: u32 = 128;
+        const SP_COPY_SOURCE_ABSOLUTE: u32 = 64;
+        const SP_COPY_WARNIFSKIP: u32 = 16384;
+        const SP_COPY_WINDOWS_SIGNED: u32 = 16777216;
+        #[arch(X64 | Arm64)]
+        struct SP_DETECTDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
+            ProgressNotifyParam: *mut void,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DETECTDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
+            ProgressNotifyParam: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DEVICE_INTERFACE_DATA {
+            cbSize: u32,
+            InterfaceClassGuid: GUID,
+            Flags: u32,
+            Reserved: usize,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVICE_INTERFACE_DATA {
+            cbSize: u32,
+            InterfaceClassGuid: GUID,
+            Flags: u32,
+            Reserved: usize,
+        }
+        type SP_DEVICE_INTERFACE_DETAIL_DATA = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+            cbSize: u32,
+            DevicePath: [i8; 1],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+            cbSize: u32,
+            DevicePath: [i8; 1],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+            cbSize: u32,
+            DevicePath: [u16; 1],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+            cbSize: u32,
+            DevicePath: [u16; 1],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DEVINFO_DATA {
+            cbSize: u32,
+            ClassGuid: GUID,
+            DevInst: u32,
+            Reserved: usize,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVINFO_DATA {
+            cbSize: u32,
+            ClassGuid: GUID,
+            DevInst: u32,
+            Reserved: usize,
+        }
+        type SP_DEVINFO_LIST_DETAIL_DATA = SP_DEVINFO_LIST_DETAIL_DATA_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+            cbSize: u32,
+            ClassGuid: GUID,
+            RemoteMachineHandle: HANDLE,
+            RemoteMachineName: [i8; 263],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+            cbSize: u32,
+            ClassGuid: GUID,
+            RemoteMachineHandle: HANDLE,
+            RemoteMachineName: [i8; 263],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+            cbSize: u32,
+            ClassGuid: GUID,
+            RemoteMachineHandle: HANDLE,
+            RemoteMachineName: [u16; 263],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+            cbSize: u32,
+            ClassGuid: GUID,
+            RemoteMachineHandle: HANDLE,
+            RemoteMachineName: [u16; 263],
+        }
+        type SP_DEVINSTALL_PARAMS = SP_DEVINSTALL_PARAMS_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DEVINSTALL_PARAMS_A {
+            cbSize: u32,
+            Flags: u32,
+            FlagsEx: u32,
+            hwndParent: HWND,
+            InstallMsgHandler: PSP_FILE_CALLBACK_A,
+            InstallMsgHandlerContext: *mut void,
+            FileQueue: HSPFILEQ,
+            ClassInstallReserved: usize,
+            Reserved: u32,
+            DriverPath: [i8; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVINSTALL_PARAMS_A {
+            cbSize: u32,
+            Flags: u32,
+            FlagsEx: u32,
+            hwndParent: HWND,
+            InstallMsgHandler: PSP_FILE_CALLBACK_A,
+            InstallMsgHandlerContext: *mut void,
+            FileQueue: HSPFILEQ,
+            ClassInstallReserved: usize,
+            Reserved: u32,
+            DriverPath: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DEVINSTALL_PARAMS_W {
+            cbSize: u32,
+            Flags: u32,
+            FlagsEx: u32,
+            hwndParent: HWND,
+            InstallMsgHandler: PSP_FILE_CALLBACK_A,
+            InstallMsgHandlerContext: *mut void,
+            FileQueue: HSPFILEQ,
+            ClassInstallReserved: usize,
+            Reserved: u32,
+            DriverPath: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DEVINSTALL_PARAMS_W {
+            cbSize: u32,
+            Flags: u32,
+            FlagsEx: u32,
+            hwndParent: HWND,
+            InstallMsgHandler: PSP_FILE_CALLBACK_A,
+            InstallMsgHandlerContext: *mut void,
+            FileQueue: HSPFILEQ,
+            ClassInstallReserved: usize,
+            Reserved: u32,
+            DriverPath: [u16; 260],
+        }
+        type SP_DRVINFO_DATA = SP_DRVINFO_DATA_V2;
+        type SP_DRVINFO_DATA_A = SP_DRVINFO_DATA_V2_A;
+        type SP_DRVINFO_DATA_V1 = SP_DRVINFO_DATA_V1_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DATA_V1_A {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [i8; 256],
+            MfgName: [i8; 256],
+            ProviderName: [i8; 256],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DATA_V1_A {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [i8; 256],
+            MfgName: [i8; 256],
+            ProviderName: [i8; 256],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DATA_V1_W {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [u16; 256],
+            MfgName: [u16; 256],
+            ProviderName: [u16; 256],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DATA_V1_W {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [u16; 256],
+            MfgName: [u16; 256],
+            ProviderName: [u16; 256],
+        }
+        type SP_DRVINFO_DATA_V2 = SP_DRVINFO_DATA_V2_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DATA_V2_A {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [i8; 256],
+            MfgName: [i8; 256],
+            ProviderName: [i8; 256],
+            DriverDate: FILETIME,
+            DriverVersion: DWORDLONG,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DATA_V2_A {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [i8; 256],
+            MfgName: [i8; 256],
+            ProviderName: [i8; 256],
+            DriverDate: FILETIME,
+            DriverVersion: DWORDLONG,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DATA_V2_W {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [u16; 256],
+            MfgName: [u16; 256],
+            ProviderName: [u16; 256],
+            DriverDate: FILETIME,
+            DriverVersion: DWORDLONG,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DATA_V2_W {
+            cbSize: u32,
+            DriverType: u32,
+            Reserved: usize,
+            Description: [u16; 256],
+            MfgName: [u16; 256],
+            ProviderName: [u16; 256],
+            DriverDate: FILETIME,
+            DriverVersion: DWORDLONG,
+        }
+        type SP_DRVINFO_DATA_W = SP_DRVINFO_DATA_V2_W;
+        type SP_DRVINFO_DETAIL_DATA = SP_DRVINFO_DETAIL_DATA_A;
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DETAIL_DATA_A {
+            cbSize: u32,
+            InfDate: FILETIME,
+            CompatIDsOffset: u32,
+            CompatIDsLength: u32,
+            Reserved: usize,
+            SectionName: [i8; 256],
+            InfFileName: [i8; 260],
+            DrvDescription: [i8; 256],
+            HardwareID: [i8; 1],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DETAIL_DATA_A {
+            cbSize: u32,
+            InfDate: FILETIME,
+            CompatIDsOffset: u32,
+            CompatIDsLength: u32,
+            Reserved: usize,
+            SectionName: [i8; 256],
+            InfFileName: [i8; 260],
+            DrvDescription: [i8; 256],
+            HardwareID: [i8; 1],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINFO_DETAIL_DATA_W {
+            cbSize: u32,
+            InfDate: FILETIME,
+            CompatIDsOffset: u32,
+            CompatIDsLength: u32,
+            Reserved: usize,
+            SectionName: [u16; 256],
+            InfFileName: [u16; 260],
+            DrvDescription: [u16; 256],
+            HardwareID: [u16; 1],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINFO_DETAIL_DATA_W {
+            cbSize: u32,
+            InfDate: FILETIME,
+            CompatIDsOffset: u32,
+            CompatIDsLength: u32,
+            Reserved: usize,
+            SectionName: [u16; 256],
+            InfFileName: [u16; 260],
+            DrvDescription: [u16; 256],
+            HardwareID: [u16; 1],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_DRVINSTALL_PARAMS {
+            cbSize: u32,
+            Rank: u32,
+            Flags: u32,
+            PrivateData: usize,
+            Reserved: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_DRVINSTALL_PARAMS {
+            cbSize: u32,
+            Rank: u32,
+            Flags: u32,
+            PrivateData: usize,
+            Reserved: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_ENABLECLASS_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ClassGuid: GUID,
+            EnableMessage: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ENABLECLASS_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ClassGuid: GUID,
+            EnableMessage: u32,
+        }
+        type SP_FILE_COPY_PARAMS = SP_FILE_COPY_PARAMS_A;
+        #[arch(X64 | Arm64)]
+        struct SP_FILE_COPY_PARAMS_A {
+            cbSize: u32,
+            QueueHandle: HSPFILEQ,
+            SourceRootPath: PCSTR,
+            SourcePath: PCSTR,
+            SourceFilename: PCSTR,
+            SourceDescription: PCSTR,
+            SourceTagfile: PCSTR,
+            TargetDirectory: PCSTR,
+            TargetFilename: PCSTR,
+            CopyStyle: u32,
+            LayoutInf: HINF,
+            SecurityDescriptor: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_FILE_COPY_PARAMS_A {
+            cbSize: u32,
+            QueueHandle: HSPFILEQ,
+            SourceRootPath: PCSTR,
+            SourcePath: PCSTR,
+            SourceFilename: PCSTR,
+            SourceDescription: PCSTR,
+            SourceTagfile: PCSTR,
+            TargetDirectory: PCSTR,
+            TargetFilename: PCSTR,
+            CopyStyle: u32,
+            LayoutInf: HINF,
+            SecurityDescriptor: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_FILE_COPY_PARAMS_W {
+            cbSize: u32,
+            QueueHandle: HSPFILEQ,
+            SourceRootPath: PCWSTR,
+            SourcePath: PCWSTR,
+            SourceFilename: PCWSTR,
+            SourceDescription: PCWSTR,
+            SourceTagfile: PCWSTR,
+            TargetDirectory: PCWSTR,
+            TargetFilename: PCWSTR,
+            CopyStyle: u32,
+            LayoutInf: HINF,
+            SecurityDescriptor: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_FILE_COPY_PARAMS_W {
+            cbSize: u32,
+            QueueHandle: HSPFILEQ,
+            SourceRootPath: PCWSTR,
+            SourcePath: PCWSTR,
+            SourceFilename: PCWSTR,
+            SourceDescription: PCWSTR,
+            SourceTagfile: PCWSTR,
+            TargetDirectory: PCWSTR,
+            TargetFilename: PCWSTR,
+            CopyStyle: u32,
+            LayoutInf: HINF,
+            SecurityDescriptor: PCWSTR,
+        }
+        const SP_FLAG_CABINETCONTINUATION: u32 = 2048;
+        #[arch(X64 | Arm64)]
+        struct SP_INF_INFORMATION {
+            InfStyle: u32,
+            InfCount: u32,
+            VersionData: [u8; 1],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INF_INFORMATION {
+            InfStyle: u32,
+            InfCount: u32,
+            VersionData: [u8; 1],
+        }
+        type SP_INF_SIGNER_INFO = SP_INF_SIGNER_INFO_V2;
+        type SP_INF_SIGNER_INFO_A = SP_INF_SIGNER_INFO_V2_A;
+        type SP_INF_SIGNER_INFO_V1 = SP_INF_SIGNER_INFO_V1_A;
+        #[arch(X64 | Arm64)]
+        struct SP_INF_SIGNER_INFO_V1_A {
+            cbSize: u32,
+            CatalogFile: [i8; 260],
+            DigitalSigner: [i8; 260],
+            DigitalSignerVersion: [i8; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INF_SIGNER_INFO_V1_A {
+            cbSize: u32,
+            CatalogFile: [i8; 260],
+            DigitalSigner: [i8; 260],
+            DigitalSignerVersion: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_INF_SIGNER_INFO_V1_W {
+            cbSize: u32,
+            CatalogFile: [u16; 260],
+            DigitalSigner: [u16; 260],
+            DigitalSignerVersion: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INF_SIGNER_INFO_V1_W {
+            cbSize: u32,
+            CatalogFile: [u16; 260],
+            DigitalSigner: [u16; 260],
+            DigitalSignerVersion: [u16; 260],
+        }
+        type SP_INF_SIGNER_INFO_V2 = SP_INF_SIGNER_INFO_V2_A;
+        #[arch(X64 | Arm64)]
+        struct SP_INF_SIGNER_INFO_V2_A {
+            cbSize: u32,
+            CatalogFile: [i8; 260],
+            DigitalSigner: [i8; 260],
+            DigitalSignerVersion: [i8; 260],
+            SignerScore: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INF_SIGNER_INFO_V2_A {
+            cbSize: u32,
+            CatalogFile: [i8; 260],
+            DigitalSigner: [i8; 260],
+            DigitalSignerVersion: [i8; 260],
+            SignerScore: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_INF_SIGNER_INFO_V2_W {
+            cbSize: u32,
+            CatalogFile: [u16; 260],
+            DigitalSigner: [u16; 260],
+            DigitalSignerVersion: [u16; 260],
+            SignerScore: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INF_SIGNER_INFO_V2_W {
+            cbSize: u32,
+            CatalogFile: [u16; 260],
+            DigitalSigner: [u16; 260],
+            DigitalSignerVersion: [u16; 260],
+            SignerScore: u32,
+        }
+        type SP_INF_SIGNER_INFO_W = SP_INF_SIGNER_INFO_V2_W;
+        #[arch(X64 | Arm64)]
+        struct SP_INSTALLWIZARD_DATA {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Flags: u32,
+            DynamicPages: [HPROPSHEETPAGE; 20],
+            NumDynamicPages: u32,
+            DynamicPageFlags: u32,
+            PrivateFlags: u32,
+            PrivateData: LPARAM,
+            hwndWizardDlg: HWND,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_INSTALLWIZARD_DATA {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Flags: u32,
+            DynamicPages: [HPROPSHEETPAGE; 20],
+            NumDynamicPages: u32,
+            DynamicPageFlags: u32,
+            PrivateFlags: u32,
+            PrivateData: LPARAM,
+            hwndWizardDlg: HWND,
+        }
+        type SP_INTERFACE_DEVICE_DATA = SP_DEVICE_INTERFACE_DATA;
+        type SP_INTERFACE_DEVICE_DETAIL_DATA = SP_INTERFACE_DEVICE_DETAIL_DATA_A;
+        type SP_INTERFACE_DEVICE_DETAIL_DATA_A = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+        type SP_INTERFACE_DEVICE_DETAIL_DATA_W = SP_DEVICE_INTERFACE_DETAIL_DATA_W;
+        const SP_MAX_MACHINENAME_LENGTH: u32 = 263;
+        #[arch(X64 | Arm64)]
+        struct SP_NEWDEVICEWIZARD_DATA {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Flags: u32,
+            DynamicPages: [HPROPSHEETPAGE; 20],
+            NumDynamicPages: u32,
+            hwndWizardDlg: HWND,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_NEWDEVICEWIZARD_DATA {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Flags: u32,
+            DynamicPages: [HPROPSHEETPAGE; 20],
+            NumDynamicPages: u32,
+            hwndWizardDlg: HWND,
+        }
+        type SP_ORIGINAL_FILE_INFO = SP_ORIGINAL_FILE_INFO_A;
+        #[arch(X64 | Arm64)]
+        struct SP_ORIGINAL_FILE_INFO_A {
+            cbSize: u32,
+            OriginalInfName: [i8; 260],
+            OriginalCatalogName: [i8; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ORIGINAL_FILE_INFO_A {
+            cbSize: u32,
+            OriginalInfName: [i8; 260],
+            OriginalCatalogName: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_ORIGINAL_FILE_INFO_W {
+            cbSize: u32,
+            OriginalInfName: [u16; 260],
+            OriginalCatalogName: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_ORIGINAL_FILE_INFO_W {
+            cbSize: u32,
+            OriginalInfName: [u16; 260],
+            OriginalCatalogName: [u16; 260],
+        }
+        type SP_POWERMESSAGEWAKE_PARAMS = SP_POWERMESSAGEWAKE_PARAMS_A;
+        struct SP_POWERMESSAGEWAKE_PARAMS_A {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            PowerMessageWake: [i8; 512],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_POWERMESSAGEWAKE_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            PowerMessageWake: [u16; 512],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_POWERMESSAGEWAKE_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            PowerMessageWake: [u16; 512],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_PROPCHANGE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            StateChange: u32,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_PROPCHANGE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            StateChange: u32,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_PROPSHEETPAGE_REQUEST {
+            cbSize: u32,
+            PageRequested: u32,
+            DeviceInfoSet: HDEVINFO,
+            DeviceInfoData: PSP_DEVINFO_DATA,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_PROPSHEETPAGE_REQUEST {
+            cbSize: u32,
+            PageRequested: u32,
+            DeviceInfoSet: HDEVINFO,
+            DeviceInfoData: PSP_DEVINFO_DATA,
+        }
+        type SP_REGISTER_CONTROL_STATUS = SP_REGISTER_CONTROL_STATUSA;
+        #[arch(X64 | Arm64)]
+        struct SP_REGISTER_CONTROL_STATUSA {
+            cbSize: u32,
+            FileName: PCSTR,
+            Win32Error: u32,
+            FailureCode: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_REGISTER_CONTROL_STATUSA {
+            cbSize: u32,
+            FileName: PCSTR,
+            Win32Error: u32,
+            FailureCode: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_REGISTER_CONTROL_STATUSW {
+            cbSize: u32,
+            FileName: PCWSTR,
+            Win32Error: u32,
+            FailureCode: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_REGISTER_CONTROL_STATUSW {
+            cbSize: u32,
+            FileName: PCWSTR,
+            Win32Error: u32,
+            FailureCode: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_REMOVEDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_REMOVEDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        type SP_SELECTDEVICE_PARAMS = SP_SELECTDEVICE_PARAMS_A;
+        struct SP_SELECTDEVICE_PARAMS_A {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Title: [i8; 60],
+            Instructions: [i8; 256],
+            ListLabel: [i8; 30],
+            SubTitle: [i8; 256],
+            Reserved: [u8; 2],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_SELECTDEVICE_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Title: [u16; 60],
+            Instructions: [u16; 256],
+            ListLabel: [u16; 30],
+            SubTitle: [u16; 256],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_SELECTDEVICE_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Title: [u16; 60],
+            Instructions: [u16; 256],
+            ListLabel: [u16; 30],
+            SubTitle: [u16; 256],
+        }
+        type SP_TROUBLESHOOTER_PARAMS = SP_TROUBLESHOOTER_PARAMS_A;
+        struct SP_TROUBLESHOOTER_PARAMS_A {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ChmFile: [i8; 260],
+            HtmlTroubleShooter: [i8; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_TROUBLESHOOTER_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ChmFile: [u16; 260],
+            HtmlTroubleShooter: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_TROUBLESHOOTER_PARAMS_W {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            ChmFile: [u16; 260],
+            HtmlTroubleShooter: [u16; 260],
+        }
+        #[arch(X64 | Arm64)]
+        struct SP_UNREMOVEDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SP_UNREMOVEDEVICE_PARAMS {
+            ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+            Scope: u32,
+            HwProfile: u32,
+        }
+        const SRCINFO_DESCRIPTION: u32 = 3;
+        const SRCINFO_FLAGS: u32 = 4;
+        const SRCINFO_PATH: u32 = 1;
+        const SRCINFO_TAGFILE: u32 = 2;
+        const SRCINFO_TAGFILE2: u32 = 5;
+        const SRCLIST_APPEND: u32 = 512;
+        const SRCLIST_NOBROWSE: u32 = 2;
+        const SRCLIST_NOSTRIPPLATFORM: u32 = 1024;
+        const SRCLIST_SUBDIRS: u32 = 256;
+        const SRCLIST_SYSIFADMIN: u32 = 64;
+        const SRCLIST_SYSTEM: u32 = 16;
+        const SRCLIST_TEMPORARY: u32 = 1;
+        const SRCLIST_USER: u32 = 32;
+        const SRC_FLAGS_CABFILE: u32 = 16;
+        const SUOI_FORCEDELETE: u32 = 1;
+        const SUOI_INTERNAL1: u32 = 2;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddInstallSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddInstallSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddSectionToDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddSectionToDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddToDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddToDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, FileSize: i64, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddToSourceListA(Flags: u32, Source: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAddToSourceListW(Flags: u32, Source: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAdjustDiskSpaceListA(DiskSpace: HDSKSPC, DriveRoot: PCSTR, Amount: i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupAdjustDiskSpaceListW(DiskSpace: HDSKSPC, DriveRoot: PCWSTR, Amount: i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupBackupErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, SourceFile: PCSTR, #[opt] TargetFile: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupBackupErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, SourceFile: PCWSTR, #[opt] TargetFile: PCWSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCancelTemporarySourceList() -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCloseFileQueue(QueueHandle: HSPFILEQ) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCloseInfFile(InfHandle: HINF);
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCloseLog();
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCommitFileQueueA(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_A, Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCommitFileQueueW(#[opt] Owner: HWND, QueueHandle: HSPFILEQ, MsgHandler: PSP_FILE_CALLBACK_W, Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupConfigureWmiFromInfSectionA(InfHandle: HINF, SectionName: PCSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupConfigureWmiFromInfSectionW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCopyErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, PathToSource: PCSTR, SourceFile: PCSTR, #[opt] TargetPathFile: PCSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCopyErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, PathToSource: PCWSTR, SourceFile: PCWSTR, #[opt] TargetPathFile: PCWSTR, Win32ErrorCode: u32, Style: u32, #[len_param(9)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCopyOEMInfA(SourceInfFileName: PCSTR, #[opt] OEMSourceMediaLocation: PCSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PSTR, DestinationInfFileNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DestinationInfFileNameComponent: *mut PSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCopyOEMInfW(SourceInfFileName: PCWSTR, #[opt] OEMSourceMediaLocation: PCWSTR, OEMSourceMediaType: u32, CopyStyle: u32, #[len_param(5)] #[out] #[opt] DestinationInfFileName: PWSTR, DestinationInfFileNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DestinationInfFileNameComponent: *mut PWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCreateDiskSpaceListA(#[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupCreateDiskSpaceListW(#[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDecompressOrCopyFileA(SourceFileName: PCSTR, TargetFileName: PCSTR, #[opt] CompressionType: *const u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDecompressOrCopyFileW(SourceFileName: PCWSTR, TargetFileName: PCWSTR, #[opt] CompressionType: *const u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDefaultQueueCallbackA(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDefaultQueueCallbackW(Context: *const void, Notification: u32, Param1: usize, Param2: usize) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDeleteErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, File: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDeleteErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, File: PCWSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDestroyDiskSpaceList(#[in] #[out] DiskSpace: HDSKSPC) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiAskForOEMDisk(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiBuildClassInfoList(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiBuildClassInfoListExA(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiBuildClassInfoListExW(Flags: u32, #[len_param(2)] #[opt] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiBuildDriverInfoList(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, DriverType: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCallClassInstaller(InstallFunction: DI_FUNCTION, DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCancelDriverInfoSearch(DeviceInfoSet: HDEVINFO) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiChangeState(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassGuidsFromNameA(ClassName: PCSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassGuidsFromNameExA(ClassName: PCSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassGuidsFromNameExW(ClassName: PCWSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassGuidsFromNameW(ClassName: PCWSTR, #[len_param(2)] ClassGuidList: *mut GUID, ClassGuidListSize: u32, RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassNameFromGuidA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassNameFromGuidExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassNameFromGuidExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiClassNameFromGuidW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDevRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDevRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceName: PCSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInfoList(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInfoListExA(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInfoListExW(#[opt] ClassGuid: *const GUID, #[opt] hwndParent: HWND, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceName: PCWSTR, ClassGuid: *const GUID, #[opt] DeviceDescription: PCWSTR, #[opt] hwndParent: HWND, CreationFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCSTR, CreationFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInterfaceRegKeyA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCSTR) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInterfaceRegKeyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM, #[opt] InfHandle: HINF, #[opt] InfSectionName: PCWSTR) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiCreateDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, #[opt] ReferenceString: PCWSTR, CreationFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDeleteDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDeleteDeviceInfo(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDeleteDeviceInterfaceData(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDeleteDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDestroyClassImageList(ClassImageListData: *const SP_CLASSIMAGELIST_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDestroyDeviceInfoList(DeviceInfoSet: HDEVINFO) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDestroyDriverInfoList(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiDrawMiniIcon(hdc: HDC, rc: RECT, MiniIconIndex: i32, Flags: u32) -> i32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiEnumDeviceInfo(DeviceInfoSet: HDEVINFO, MemberIndex: u32, DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiEnumDeviceInterfaces(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, InterfaceClassGuid: *const GUID, MemberIndex: u32, DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiEnumDriverInfoA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiEnumDriverInfoW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverType: u32, MemberIndex: u32, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualModelsSectionA(Context: *const INFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualModelsSectionW(Context: *const INFCONTEXT, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualSectionToInstallA(InfHandle: HINF, InfSectionName: PCSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualSectionToInstallExA(InfHandle: HINF, InfSectionName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualSectionToInstallExW(InfHandle: HINF, InfSectionName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[len_param(4)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetActualSectionToInstallW(InfHandle: HINF, InfSectionName: PCWSTR, #[len_param(3)] #[out] #[opt] InfSectionWithExt: PWSTR, InfSectionWithExtSize: u32, #[opt] RequiredSize: *mut u32, #[opt] Extension: *mut PWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassBitmapIndex(#[opt] ClassGuid: *const GUID, MiniIconIndex: *mut i32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDescriptionA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDescriptionExA(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDescriptionExW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDescriptionW(ClassGuid: *const GUID, #[len_param(2)] #[out] ClassDescription: PWSTR, ClassDescriptionSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevPropertySheetsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERA, PropertySheetHeaderPageListSize: u32, #[opt] RequiredSize: *mut u32, PropertySheetType: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevPropertySheetsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, PropertySheetHeader: LPPROPSHEETHEADERW, PropertySheetHeaderPageListSize: u32, #[opt] RequiredSize: *mut u32, PropertySheetType: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevsA(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCSTR, #[opt] hwndParent: HWND, Flags: u32) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevsExA(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevsExW(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCWSTR, #[opt] hwndParent: HWND, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassDevsW(#[opt] ClassGuid: *const GUID, #[opt] Enumerator: PCWSTR, #[opt] hwndParent: HWND, Flags: u32) -> HDEVINFO;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassImageIndex(ClassImageListData: *const SP_CLASSIMAGELIST_DATA, ClassGuid: *const GUID, ImageIndex: *mut i32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassImageList(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassImageListExA(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassImageListExW(ClassImageListData: *mut SP_CLASSIMAGELIST_DATA, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *mut SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *mut SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassPropertyKeys(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassPropertyKeysExW(ClassGuid: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(4)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(4)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetCustomDevicePropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, CustomPropertyName: PCSTR, Flags: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(6)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetCustomDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, CustomPropertyName: PCWSTR, Flags: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(6)] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInfoListClass(DeviceInfoSet: HDEVINFO, ClassGuid: *mut GUID) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInfoListDetailA(DeviceInfoSet: HDEVINFO, DeviceInfoSetDetailData: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInfoListDetailW(DeviceInfoSet: HDEVINFO, DeviceInfoSetDetailData: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *mut SP_DEVINSTALL_PARAMS_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *mut SP_DEVINSTALL_PARAMS_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInstanceIdA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PSTR, DeviceInstanceIdSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInstanceIdW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[out] #[opt] DeviceInstanceId: PWSTR, DeviceInstanceIdSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInterfaceAlias(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, AliasInterfaceClassGuid: *const GUID, AliasDeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInterfaceDetailA(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[in] #[out] #[opt] DeviceInterfaceDetailData: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, DeviceInterfaceDetailDataSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInterfaceDetailW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[size_param(3)] #[opt] DeviceInterfaceDetailData: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, DeviceInterfaceDetailDataSize: u32, #[opt] RequiredSize: *mut u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInterfacePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDevicePropertyKeys(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, #[len_param(3)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, PropertyKeyCount: u32, #[opt] RequiredPropertyKeyCount: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Property: u32, #[opt] PropertyRegDataType: *mut u32, #[size_param(5)] #[opt] PropertyBuffer: *mut u8, PropertyBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDriverInfoDetailA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: *mut SP_DRVINFO_DETAIL_DATA_A, DriverInfoDetailDataSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDriverInfoDetailW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, #[size_param(4)] #[in] #[out] #[opt] DriverInfoDetailData: *mut SP_DRVINFO_DETAIL_DATA_W, DriverInfoDetailDataSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, DriverInstallParams: *mut SP_DRVINSTALL_PARAMS) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, DriverInstallParams: *mut SP_DRVINSTALL_PARAMS) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileFriendlyNameA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileFriendlyNameExA(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileFriendlyNameExW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileFriendlyNameW(HwProfile: u32, #[len_param(2)] #[out] FriendlyName: PWSTR, FriendlyNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileList(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileListExA(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetHwProfileListExW(#[len_param(1)] HwProfileList: *mut u32, HwProfileListSize: u32, RequiredSize: *mut u32, #[opt] CurrentlyActiveIndex: *mut u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetINFClassA(InfName: PCSTR, ClassGuid: *mut GUID, #[len_param(3)] #[out] ClassName: PSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetINFClassW(InfName: PCWSTR, ClassGuid: *mut GUID, #[len_param(3)] #[out] ClassName: PWSTR, ClassNameSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetSelectedDevice(DeviceInfoSet: HDEVINFO, DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[out] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiGetWizardPage(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, InstallWizardData: *const SP_INSTALLWIZARD_DATA, PageType: u32, Flags: u32) -> HPROPSHEETPAGE;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallClassA(#[opt] hwndParent: HWND, InfFileName: PCSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallClassExA(#[opt] hwndParent: HWND, #[opt] InfFileName: PCSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallClassExW(#[opt] hwndParent: HWND, #[opt] InfFileName: PCWSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ, #[opt] InterfaceClassGuid: *const GUID, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallClassW(#[opt] hwndParent: HWND, InfFileName: PCWSTR, Flags: u32, #[opt] FileQueue: HSPFILEQ) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallDeviceInterfaces(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiInstallDriverFiles(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiLoadClassIcon(ClassGuid: *const GUID, #[opt] LargeIcon: *mut HICON, #[opt] MiniIconIndex: *mut i32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiLoadDeviceIcon(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, cxIcon: u32, cyIcon: u32, Flags: u32, hIcon: *mut HICON) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenClassRegKey(#[opt] ClassGuid: *const GUID, samDesired: REGSAM) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenClassRegKeyExA(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenClassRegKeyExW(#[opt] ClassGuid: *const GUID, samDesired: REGSAM, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDevRegKey(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, Scope: u32, HwProfile: u32, KeyType: u32, samDesired: REGSAM) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDeviceInfoA(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDeviceInfoW(DeviceInfoSet: HDEVINFO, DeviceInstanceId: PCWSTR, #[opt] hwndParent: HWND, OpenFlags: u32, #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDeviceInterfaceA(DeviceInfoSet: HDEVINFO, DevicePath: PCSTR, OpenFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDeviceInterfaceRegKey(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, #[reserved] Reserved: u32, samDesired: REGSAM) -> HKEY;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiOpenDeviceInterfaceW(DeviceInfoSet: HDEVINFO, DevicePath: PCWSTR, OpenFlags: u32, #[opt] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiRegisterCoDeviceInstallers(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiRegisterDeviceInfo(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Flags: u32, #[opt] CompareProc: PSP_DETSIG_CMPPROC, #[opt] CompareContext: *const void, #[opt] DupDeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiRemoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiRemoveDeviceInterface(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiRestartDevices(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSelectBestCompatDrv(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSelectDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSelectOEMDrv(#[opt] hwndParent: HWND, DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *const SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[size_param(3)] #[opt] ClassInstallParams: *const SP_CLASSINSTALL_HEADER, ClassInstallParamsSize: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassPropertyExW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassPropertyW(ClassGuid: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassRegistryPropertyA(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetClassRegistryPropertyW(ClassGuid: *const GUID, Property: u32, #[size_param(3)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, #[opt] MachineName: PCWSTR, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *const SP_DEVINSTALL_PARAMS_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DeviceInstallParams: *const SP_DEVINSTALL_PARAMS_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceInterfaceDefault(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInterfaceData: *mut SP_DEVICE_INTERFACE_DATA, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceInterfacePropertyW(DeviceInfoSet: HDEVINFO, DeviceInterfaceData: *const SP_DEVICE_INTERFACE_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDevicePropertyW(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(5)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceRegistryPropertyA(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDeviceRegistryPropertyW(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA, Property: u32, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDriverInstallParamsA(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_A, DriverInstallParams: *const SP_DRVINSTALL_PARAMS) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetDriverInstallParamsW(DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, DriverInfoData: PSP_DRVINFO_DATA_W, DriverInstallParams: *const SP_DRVINSTALL_PARAMS) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetSelectedDevice(DeviceInfoSet: HDEVINFO, DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetSelectedDriverA(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiSetSelectedDriverW(DeviceInfoSet: HDEVINFO, #[in] #[out] #[opt] DeviceInfoData: *mut SP_DEVINFO_DATA, #[in] #[out] #[opt] DriverInfoData: PSP_DRVINFO_DATA_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDiUnremoveDevice(DeviceInfoSet: HDEVINFO, #[in] #[out] DeviceInfoData: *mut SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDuplicateDiskSpaceListA(DiskSpace: HDSKSPC, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupDuplicateDiskSpaceListW(DiskSpace: HDSKSPC, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32, Flags: u32) -> HDSKSPC;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupEnumInfSectionsA(InfHandle: HINF, Index: u32, #[len_param(3)] #[out] #[opt] Buffer: PSTR, Size: u32, #[opt] SizeNeeded: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupEnumInfSectionsW(InfHandle: HINF, Index: u32, #[len_param(3)] #[out] #[opt] Buffer: PWSTR, Size: u32, #[opt] SizeNeeded: *mut u32) -> BOOL;
+        #[repr(i32)]
+        enum SetupFileLogInfo {
+            SetupFileLogSourceFilename = 0,
+            SetupFileLogChecksum = 1,
+            SetupFileLogDiskTagfile = 2,
+            SetupFileLogDiskDescription = 3,
+            SetupFileLogOtherInfo = 4,
+            SetupFileLogMax = 5,
+        }
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFindFirstLineA(InfHandle: HINF, Section: PCSTR, #[opt] Key: PCSTR, Context: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFindFirstLineW(InfHandle: HINF, Section: PCWSTR, #[opt] Key: PCWSTR, Context: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFindNextLine(ContextIn: *const INFCONTEXT, ContextOut: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFindNextMatchLineA(ContextIn: *const INFCONTEXT, #[opt] Key: PCSTR, ContextOut: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFindNextMatchLineW(ContextIn: *const INFCONTEXT, #[opt] Key: PCWSTR, ContextOut: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFreeSourceListA(#[in] #[out] List: *mut *mut PCSTR, Count: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupFreeSourceListW(#[in] #[out] List: *mut *mut PCWSTR, Count: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetBackupInformationA(QueueHandle: HSPFILEQ, #[in] #[out] BackupParams: PSP_BACKUP_QUEUE_PARAMS_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetBackupInformationW(QueueHandle: HSPFILEQ, #[in] #[out] BackupParams: PSP_BACKUP_QUEUE_PARAMS_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetBinaryField(Context: *const INFCONTEXT, FieldIndex: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut u8, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFieldCount(Context: *const INFCONTEXT) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileCompressionInfoA(SourceFileName: PCSTR, ActualSourceFileName: *mut PSTR, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileCompressionInfoExA(SourceFileName: PCSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PCSTR, ActualSourceFileNameBufferLen: u32, #[opt] RequiredBufferLen: *mut u32, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileCompressionInfoExW(SourceFileName: PCWSTR, #[len_param(2)] #[opt] ActualSourceFileNameBuffer: PCWSTR, ActualSourceFileNameBufferLen: u32, #[opt] RequiredBufferLen: *mut u32, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileCompressionInfoW(SourceFileName: PCWSTR, ActualSourceFileName: *mut PWSTR, SourceFileSize: *mut u32, TargetFileSize: *mut u32, CompressionType: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileQueueCount(FileQueue: HSPFILEQ, SubQueueFileOp: u32, NumOperations: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetFileQueueFlags(FileQueue: HSPFILEQ, Flags: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfDriverStoreLocationA(FileName: PCSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCSTR, #[len_param(4)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfDriverStoreLocationW(FileName: PCWSTR, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] LocaleName: PCWSTR, #[len_param(4)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfFileListA(#[opt] DirectoryPath: PCSTR, InfStyle: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfFileListW(#[opt] DirectoryPath: PCWSTR, InfStyle: u32, #[len_param(3)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfInformationA(InfSpec: *const void, SearchControl: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut SP_INF_INFORMATION, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfInformationW(InfSpec: *const void, SearchControl: u32, #[size_param(3)] #[opt] ReturnBuffer: *mut SP_INF_INFORMATION, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfPublishedNameA(DriverStoreLocation: PCSTR, #[len_param(2)] #[out] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetInfPublishedNameW(DriverStoreLocation: PCWSTR, #[len_param(2)] #[out] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetIntField(Context: *const INFCONTEXT, FieldIndex: u32, IntegerValue: *mut i32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineByIndexA(InfHandle: HINF, Section: PCSTR, Index: u32, Context: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineByIndexW(InfHandle: HINF, Section: PCWSTR, Index: u32, Context: *mut INFCONTEXT) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineCountA(InfHandle: HINF, Section: PCSTR) -> i32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineCountW(InfHandle: HINF, Section: PCWSTR) -> i32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineTextA(#[opt] Context: *const INFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCSTR, #[opt] Key: PCSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetLineTextW(#[opt] Context: *const INFCONTEXT, #[opt] InfHandle: HINF, #[opt] Section: PCWSTR, #[opt] Key: PCWSTR, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetMultiSzFieldA(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetMultiSzFieldW(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetNonInteractiveMode() -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceFileLocationA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCSTR, SourceId: *mut u32, #[len_param(5)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceFileLocationW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCWSTR, SourceId: *mut u32, #[len_param(5)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceFileSizeA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCSTR, #[opt] Section: PCSTR, FileSize: *mut u32, RoundingFactor: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceFileSizeW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] FileName: PCWSTR, #[opt] Section: PCWSTR, FileSize: *mut u32, RoundingFactor: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceInfoA(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetSourceInfoW(InfHandle: HINF, SourceId: u32, InfoDesired: u32, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetStringFieldA(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetStringFieldW(Context: *const INFCONTEXT, FieldIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetTargetPathA(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] Section: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetTargetPathW(InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] Section: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupGetThreadLogToken() -> SP_LOG_TOKEN;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInitDefaultQueueCallback(#[opt] OwnerWindow: HWND) -> *mut void;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInitDefaultQueueCallbackEx(#[opt] OwnerWindow: HWND, #[opt] AlternateProgressWindow: HWND, ProgressMessage: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> *mut void;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInitializeFileLogA(#[opt] LogFileName: PCSTR, Flags: u32) -> HSPFILELOG;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInitializeFileLogW(#[opt] LogFileName: PCWSTR, Flags: u32) -> HSPFILELOG;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFileA(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFileExA(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCSTR, #[opt] SourcePathRoot: PCSTR, #[opt] DestinationName: PCSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void, FileWasInUse: *mut BOOL) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFileExW(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void, FileWasInUse: *mut BOOL) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFileW(#[opt] InfHandle: HINF, #[opt] InfContext: *const INFCONTEXT, #[opt] SourceFile: PCWSTR, #[opt] SourcePathRoot: PCWSTR, #[opt] DestinationName: PCWSTR, CopyStyle: u32, #[opt] CopyMsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFilesFromInfSectionA(InfHandle: HINF, #[opt] LayoutInfHandle: HINF, FileQueue: HSPFILEQ, SectionName: PCSTR, #[opt] SourceRootPath: PCSTR, CopyFlags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFilesFromInfSectionW(InfHandle: HINF, #[opt] LayoutInfHandle: HINF, FileQueue: HSPFILEQ, SectionName: PCWSTR, #[opt] SourceRootPath: PCWSTR, CopyFlags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFromInfSectionA(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_A, #[opt] Context: *const void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallFromInfSectionW(#[opt] Owner: HWND, InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] RelativeKeyRoot: HKEY, #[opt] SourceRootPath: PCWSTR, CopyFlags: u32, #[opt] MsgHandler: PSP_FILE_CALLBACK_W, #[opt] Context: *const void, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallServicesFromInfSectionA(InfHandle: HINF, SectionName: PCSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallServicesFromInfSectionExA(InfHandle: HINF, SectionName: PCSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallServicesFromInfSectionExW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32, #[opt] DeviceInfoSet: HDEVINFO, #[opt] DeviceInfoData: *const SP_DEVINFO_DATA, #[reserved] Reserved1: *const void, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupInstallServicesFromInfSectionW(InfHandle: HINF, SectionName: PCWSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupIterateCabinetA(CabinetFile: PCSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_A, Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupIterateCabinetW(CabinetFile: PCWSTR, #[reserved] Reserved: u32, MsgHandler: PSP_FILE_CALLBACK_W, Context: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupLogErrorA(MessageString: PCSTR, Severity: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupLogErrorW(MessageString: PCWSTR, Severity: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupLogFileA(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCSTR, SourceFilename: PCSTR, TargetFilename: PCSTR, Checksum: u32, #[opt] DiskTagfile: PCSTR, #[opt] DiskDescription: PCSTR, #[opt] OtherInfo: PCSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupLogFileW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, SourceFilename: PCWSTR, TargetFilename: PCWSTR, Checksum: u32, #[opt] DiskTagfile: PCWSTR, #[opt] DiskDescription: PCWSTR, #[opt] OtherInfo: PCWSTR, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenAppendInfFileA(#[opt] FileName: PCSTR, InfHandle: HINF, #[opt] ErrorLine: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenAppendInfFileW(#[opt] FileName: PCWSTR, InfHandle: HINF, #[opt] ErrorLine: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenFileQueue() -> HSPFILEQ;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenInfFileA(FileName: PCSTR, #[opt] InfClass: PCSTR, InfStyle: u32, #[opt] ErrorLine: *mut u32) -> HINF;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenInfFileW(FileName: PCWSTR, #[opt] InfClass: PCWSTR, InfStyle: u32, #[opt] ErrorLine: *mut u32) -> HINF;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenLog(Erase: BOOL) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupOpenMasterInf() -> HINF;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupPrepareQueueForRestoreA(QueueHandle: HSPFILEQ, BackupPath: PCSTR, RestoreFlags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupPrepareQueueForRestoreW(QueueHandle: HSPFILEQ, BackupPath: PCWSTR, RestoreFlags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupPromptForDiskA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, #[opt] DiskName: PCSTR, #[opt] PathToSource: PCSTR, FileSought: PCSTR, #[opt] TagFile: PCSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupPromptForDiskW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, #[opt] DiskName: PCWSTR, #[opt] PathToSource: PCWSTR, FileSought: PCWSTR, #[opt] TagFile: PCWSTR, DiskPromptStyle: u32, #[len_param(8)] #[out] #[opt] PathBuffer: PWSTR, PathBufferSize: u32, #[opt] PathRequiredSize: *mut u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupPromptReboot(#[opt] FileQueue: HSPFILEQ, #[opt] Owner: HWND, ScanOnly: BOOL) -> i32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryDrivesInDiskSpaceListA(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryDrivesInDiskSpaceListW(DiskSpace: HDSKSPC, #[len_param(2)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryFileLogA(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCSTR, TargetFilename: PCSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryFileLogW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, TargetFilename: PCWSTR, DesiredInfo: SetupFileLogInfo, #[len_param(5)] #[out] #[opt] DataOut: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfFileInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfFileInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[len_param(3)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfOriginalFileInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, OriginalFileInfo: *mut SP_ORIGINAL_FILE_INFO_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfOriginalFileInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, OriginalFileInfo: *mut SP_ORIGINAL_FILE_INFO_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfVersionInformationA(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueryInfVersionInformationW(InfInformation: *const SP_INF_INFORMATION, InfIndex: u32, #[opt] Key: PCWSTR, #[len_param(4)] #[out] #[opt] ReturnBuffer: PWSTR, ReturnBufferSize: u32, #[opt] RequiredSize: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQuerySourceListA(Flags: u32, List: *mut *mut PCSTR, Count: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQuerySourceListW(Flags: u32, List: *mut *mut PCWSTR, Count: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQuerySpaceRequiredOnDriveA(DiskSpace: HDSKSPC, DriveSpec: PCSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQuerySpaceRequiredOnDriveW(DiskSpace: HDSKSPC, DriveSpec: PCWSTR, SpaceRequired: *mut i64, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopyA(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCSTR, #[opt] SourcePath: PCSTR, SourceFilename: PCSTR, #[opt] SourceDescription: PCSTR, #[opt] SourceTagfile: PCSTR, TargetDirectory: PCSTR, #[opt] TargetFilename: PCSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopyIndirectA(CopyParams: *const SP_FILE_COPY_PARAMS_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopyIndirectW(CopyParams: *const SP_FILE_COPY_PARAMS_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopySectionA(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCSTR, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopySectionW(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCWSTR, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCWSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueCopyW(QueueHandle: HSPFILEQ, #[opt] SourceRootPath: PCWSTR, #[opt] SourcePath: PCWSTR, SourceFilename: PCWSTR, #[opt] SourceDescription: PCWSTR, #[opt] SourceTagfile: PCWSTR, TargetDirectory: PCWSTR, #[opt] TargetFilename: PCWSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDefaultCopyA(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] SourceRootPath: PCSTR, SourceFilename: PCSTR, #[opt] TargetFilename: PCSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDefaultCopyW(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] SourceRootPath: PCWSTR, SourceFilename: PCWSTR, #[opt] TargetFilename: PCWSTR, CopyStyle: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDeleteA(QueueHandle: HSPFILEQ, PathPart1: PCSTR, #[opt] PathPart2: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDeleteSectionA(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDeleteSectionW(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueDeleteW(QueueHandle: HSPFILEQ, PathPart1: PCWSTR, #[opt] PathPart2: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueRenameA(QueueHandle: HSPFILEQ, SourcePath: PCSTR, #[opt] SourceFilename: PCSTR, #[opt] TargetPath: PCSTR, TargetFilename: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueRenameSectionA(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueRenameSectionW(QueueHandle: HSPFILEQ, InfHandle: HINF, #[opt] ListInfHandle: HINF, Section: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupQueueRenameW(QueueHandle: HSPFILEQ, SourcePath: PCWSTR, #[opt] SourceFilename: PCWSTR, #[opt] TargetPath: PCWSTR, TargetFilename: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFileLogEntryA(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCSTR, #[opt] TargetFilename: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFileLogEntryW(FileLogHandle: HSPFILELOG, #[opt] LogSectionName: PCWSTR, #[opt] TargetFilename: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFromDiskSpaceListA(DiskSpace: HDSKSPC, TargetFilespec: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFromDiskSpaceListW(DiskSpace: HDSKSPC, TargetFilespec: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFromSourceListA(Flags: u32, Source: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveFromSourceListW(Flags: u32, Source: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveInstallSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveInstallSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] LayoutInfHandle: HINF, SectionName: PCWSTR, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveSectionFromDiskSpaceListA(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRemoveSectionFromDiskSpaceListW(DiskSpace: HDSKSPC, InfHandle: HINF, #[opt] ListInfHandle: HINF, SectionName: PCWSTR, Operation: u32, #[reserved] Reserved1: *const void, #[reserved] Reserved2: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRenameErrorA(hwndParent: HWND, #[opt] DialogTitle: PCSTR, SourceFile: PCSTR, TargetFile: PCSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupRenameErrorW(hwndParent: HWND, #[opt] DialogTitle: PCWSTR, SourceFile: PCWSTR, TargetFile: PCWSTR, Win32ErrorCode: u32, Style: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupScanFileQueueA(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_A, #[opt] CallbackContext: *const void, Result: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupScanFileQueueW(FileQueue: HSPFILEQ, Flags: u32, #[opt] Window: HWND, #[opt] CallbackRoutine: PSP_FILE_CALLBACK_W, #[opt] CallbackContext: *const void, Result: *mut u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetDirectoryIdA(InfHandle: HINF, Id: u32, #[opt] Directory: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetDirectoryIdExA(InfHandle: HINF, Id: u32, #[opt] Directory: PCSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetDirectoryIdExW(InfHandle: HINF, Id: u32, #[opt] Directory: PCWSTR, Flags: u32, #[reserved] Reserved1: u32, #[reserved] Reserved2: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetDirectoryIdW(InfHandle: HINF, Id: u32, #[opt] Directory: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetFileQueueAlternatePlatformA(QueueHandle: HSPFILEQ, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] AlternateDefaultCatalogFile: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetFileQueueAlternatePlatformW(QueueHandle: HSPFILEQ, #[opt] AlternatePlatformInfo: PSP_ALTPLATFORM_INFO, #[opt] AlternateDefaultCatalogFile: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetFileQueueFlags(FileQueue: HSPFILEQ, FlagMask: u32, Flags: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetNonInteractiveMode(NonInteractiveFlag: BOOL) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetPlatformPathOverrideA(#[opt] Override: PCSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetPlatformPathOverrideW(#[opt] Override: PCWSTR) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetSourceListA(Flags: u32, #[len_param(2)] SourceList: *const PCSTR, SourceCount: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetSourceListW(Flags: u32, #[len_param(2)] SourceList: *const PCWSTR, SourceCount: u32) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupSetThreadLogToken(LogToken: SP_LOG_TOKEN);
+        #[library("SETUPAPI.dll")]
+        extern fn SetupTermDefaultQueueCallback(Context: *const void);
+        #[library("SETUPAPI.dll")]
+        extern fn SetupTerminateFileLog(FileLogHandle: HSPFILELOG) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupUninstallNewlyCopiedInfs(FileQueue: HSPFILEQ, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupUninstallOEMInfA(InfFileName: PCSTR, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupUninstallOEMInfW(InfFileName: PCWSTR, Flags: u32, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupVerifyInfFileA(InfName: PCSTR, #[opt] AltPlatformInfo: PSP_ALTPLATFORM_INFO, #[in] #[out] InfSignerInfo: PSP_INF_SIGNER_INFO_A) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupVerifyInfFileW(InfName: PCWSTR, #[opt] AltPlatformInfo: PSP_ALTPLATFORM_INFO, #[in] #[out] InfSignerInfo: PSP_INF_SIGNER_INFO_W) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn SetupWriteTextLog(LogToken: SP_LOG_TOKEN, Category: u32, Flags: u32, MessageStr: PCSTR, ...);
+        #[library("SETUPAPI.dll")]
+        extern fn SetupWriteTextLogError(LogToken: SP_LOG_TOKEN, Category: u32, LogFlags: u32, Error: u32, MessageStr: PCSTR, ...);
+        #[library("SETUPAPI.dll")]
+        extern fn SetupWriteTextLogInfLine(LogToken: SP_LOG_TOKEN, Flags: u32, InfHandle: HINF, Context: *const INFCONTEXT);
+    }
+}

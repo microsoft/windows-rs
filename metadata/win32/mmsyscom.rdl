@@ -1,0 +1,125 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CALLBACK_EVENT: u32 = 327680;
+        const CALLBACK_FUNCTION: u32 = 196608;
+        const CALLBACK_NULL: u32 = 0;
+        const CALLBACK_TASK: u32 = 131072;
+        const CALLBACK_THREAD: u32 = 131072;
+        const CALLBACK_TYPEMASK: u32 = 458752;
+        const CALLBACK_WINDOW: u32 = 65536;
+        extern fn DRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        type HDRVR = *mut void;
+        const JOYERR_BASE: u32 = 160;
+        extern fn LPDRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        type LPMMTIME = *mut MMTIME;
+        type LPUINT = *mut u32;
+        const MAXERRORLENGTH: u32 = 256;
+        const MAXPNAMELEN: u32 = 32;
+        const MAX_JOYSTICKOEMVXDNAME: u32 = 260;
+        const MCIERR_BASE: u32 = 256;
+        const MCI_CD_OFFSET: u32 = 1088;
+        const MCI_SEQ_OFFSET: u32 = 1216;
+        const MCI_STRING_OFFSET: u32 = 512;
+        const MCI_VD_OFFSET: u32 = 1024;
+        const MCI_WAVE_OFFSET: u32 = 1152;
+        const MIDIERR_BASE: u32 = 64;
+        const MIXERR_BASE: u32 = 1024;
+        type MMRESULT = u32;
+        const MMSYSERR_ALLOCATED: u32 = 4;
+        const MMSYSERR_BADDB: u32 = 14;
+        const MMSYSERR_BADDEVICEID: u32 = 2;
+        const MMSYSERR_BADERRNUM: u32 = 9;
+        const MMSYSERR_BASE: u32 = 0;
+        const MMSYSERR_DELETEERROR: u32 = 18;
+        const MMSYSERR_ERROR: u32 = 1;
+        const MMSYSERR_HANDLEBUSY: u32 = 12;
+        const MMSYSERR_INVALFLAG: u32 = 10;
+        const MMSYSERR_INVALHANDLE: u32 = 5;
+        const MMSYSERR_INVALIDALIAS: u32 = 13;
+        const MMSYSERR_INVALPARAM: u32 = 11;
+        const MMSYSERR_KEYNOTFOUND: u32 = 15;
+        const MMSYSERR_LASTERROR: u32 = 21;
+        const MMSYSERR_MOREDATA: u32 = 21;
+        const MMSYSERR_NODRIVER: u32 = 6;
+        const MMSYSERR_NODRIVERCB: u32 = 20;
+        const MMSYSERR_NOERROR: u32 = 0;
+        const MMSYSERR_NOMEM: u32 = 7;
+        const MMSYSERR_NOTENABLED: u32 = 3;
+        const MMSYSERR_NOTSUPPORTED: u32 = 8;
+        const MMSYSERR_READERROR: u32 = 16;
+        const MMSYSERR_VALNOTFOUND: u32 = 19;
+        const MMSYSERR_WRITEERROR: u32 = 17;
+        #[packed(1)]
+        struct MMTIME {
+            wType: u32,
+            u: #[packed(1)] union {
+                ms: u32,
+                sample: u32,
+                cb: u32,
+                ticks: u32,
+                smpte: struct {
+                    hour: u8,
+                    min: u8,
+                    sec: u8,
+                    frame: u8,
+                    fps: u8,
+                    dummy: u8,
+                    pad: [u8; 2],
+                },
+                midi: #[packed(1)] struct {
+                    songptrpos: u32,
+                },
+            },
+        }
+        type MMVERSION = u32;
+        const MM_DRVM_CLOSE: u32 = 977;
+        const MM_DRVM_DATA: u32 = 978;
+        const MM_DRVM_ERROR: u32 = 979;
+        const MM_DRVM_OPEN: u32 = 976;
+        const MM_JOY1BUTTONDOWN: u32 = 949;
+        const MM_JOY1BUTTONUP: u32 = 951;
+        const MM_JOY1MOVE: u32 = 928;
+        const MM_JOY1ZMOVE: u32 = 930;
+        const MM_JOY2BUTTONDOWN: u32 = 950;
+        const MM_JOY2BUTTONUP: u32 = 952;
+        const MM_JOY2MOVE: u32 = 929;
+        const MM_JOY2ZMOVE: u32 = 931;
+        const MM_MCINOTIFY: u32 = 953;
+        const MM_MCISIGNAL: u32 = 971;
+        const MM_MIM_CLOSE: u32 = 962;
+        const MM_MIM_DATA: u32 = 963;
+        const MM_MIM_ERROR: u32 = 965;
+        const MM_MIM_LONGDATA: u32 = 964;
+        const MM_MIM_LONGERROR: u32 = 966;
+        const MM_MIM_MOREDATA: u32 = 972;
+        const MM_MIM_OPEN: u32 = 961;
+        const MM_MIXM_CONTROL_CHANGE: u32 = 977;
+        const MM_MIXM_LINE_CHANGE: u32 = 976;
+        const MM_MOM_CLOSE: u32 = 968;
+        const MM_MOM_DONE: u32 = 969;
+        const MM_MOM_OPEN: u32 = 967;
+        const MM_MOM_POSITIONCB: u32 = 970;
+        const MM_STREAM_CLOSE: u32 = 981;
+        const MM_STREAM_DONE: u32 = 982;
+        const MM_STREAM_ERROR: u32 = 983;
+        const MM_STREAM_OPEN: u32 = 980;
+        const MM_WIM_CLOSE: u32 = 959;
+        const MM_WIM_DATA: u32 = 960;
+        const MM_WIM_OPEN: u32 = 958;
+        const MM_WOM_CLOSE: u32 = 956;
+        const MM_WOM_DONE: u32 = 957;
+        const MM_WOM_OPEN: u32 = 955;
+        type NPMMTIME = *mut MMTIME;
+        extern fn PDRVCALLBACK(hdrvr: HDRVR, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        type PMMTIME = *mut MMTIME;
+        const TIMERR_BASE: u32 = 96;
+        const TIME_BYTES: u32 = 4;
+        const TIME_MIDI: u32 = 16;
+        const TIME_MS: u32 = 1;
+        const TIME_SAMPLES: u32 = 2;
+        const TIME_SMPTE: u32 = 8;
+        const TIME_TICKS: u32 = 32;
+        const WAVERR_BASE: u32 = 32;
+    }
+}

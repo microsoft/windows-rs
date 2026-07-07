@@ -1,0 +1,29 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d3d11.dll")]
+        extern fn D3D11On12CreateDevice(pDevice: IUnknown, Flags: u32, #[len_param(3)] #[opt] pFeatureLevels: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, #[len_param(5)] #[opt] ppCommandQueues: *const IUnknown, NumQueues: u32, NodeMask: u32, ppDevice: *mut ID3D11Device, ppImmediateContext: *mut ID3D11DeviceContext, #[opt] pChosenFeatureLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
+        struct D3D11_RESOURCE_FLAGS {
+            BindFlags: u32,
+            MiscFlags: u32,
+            CPUAccessFlags: u32,
+            StructureByteStride: u32,
+        }
+        #[guid(0x85611e73_70a9_490e_9614_a9e302777904)]
+        interface ID3D11On12Device: IUnknown {
+            fn CreateWrappedResource(&self, pResource12: IUnknown, pFlags11: *const D3D11_RESOURCE_FLAGS, InState: D3D12_RESOURCE_STATES, OutState: D3D12_RESOURCE_STATES, riid: *const GUID, #[iid_is] ppResource11: *mut *mut void) -> HRESULT;
+            fn ReleaseWrappedResources(&self, #[len_param(1)] ppResources: *const ID3D11Resource, NumResources: u32);
+            fn AcquireWrappedResources(&self, #[len_param(1)] ppResources: *const ID3D11Resource, NumResources: u32);
+        }
+        #[guid(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d)]
+        interface ID3D11On12Device1: ID3D11On12Device {
+            fn GetD3D12Device(&self, riid: *const GUID, #[iid_is] ppvDevice: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xdc90f331_4740_43fa_866e_67f12cb58223)]
+        interface ID3D11On12Device2: ID3D11On12Device1 {
+            fn UnwrapUnderlyingResource(&self, pResource11: ID3D11Resource, pCommandQueue: ID3D12CommandQueue, riid: *const GUID, #[iid_is] ppvResource12: *mut *mut void) -> HRESULT;
+            fn ReturnUnderlyingResource(&self, pResource11: ID3D11Resource, NumSync: u32, #[len_param(1)] pSignalValues: *const u64, #[len_param(1)] ppFences: *const ID3D12Fence) -> HRESULT;
+        }
+        extern fn PFN_D3D11ON12_CREATE_DEVICE(param0: IUnknown, param1: u32, #[len_param(3)] #[opt] param2: *const D3D_FEATURE_LEVEL, FeatureLevels: u32, #[len_param(5)] #[opt] param4: *const IUnknown, NumQueues: u32, param6: u32, param7: *mut ID3D11Device, param8: *mut ID3D11DeviceContext, #[opt] param9: *mut D3D_FEATURE_LEVEL) -> HRESULT;
+    }
+}

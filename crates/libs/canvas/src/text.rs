@@ -114,10 +114,17 @@ impl TextFormat {
 }
 
 pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
-    static SHARED: std::sync::OnceLock<IDWriteFactory> = std::sync::OnceLock::new();
+    // The DirectWrite shared factory is thread-safe, but the faithful in-house
+    // metadata does not mark `IDWriteFactory` `[agile]`, so it is neither `Send` nor
+    // `Sync`. Wrap it for the process-wide `OnceLock`.
+    struct SharedFactory(IDWriteFactory);
+    unsafe impl Send for SharedFactory {}
+    unsafe impl Sync for SharedFactory {}
+
+    static SHARED: std::sync::OnceLock<SharedFactory> = std::sync::OnceLock::new();
 
     if let Some(factory) = SHARED.get() {
-        return Ok(factory.clone());
+        return Ok(factory.0.clone());
     }
 
     let mut factory: Option<IDWriteFactory> = None;
@@ -130,5 +137,5 @@ pub(crate) fn dwrite_factory() -> Result<IDWriteFactory> {
         .ok()?;
     }
     let factory = factory.ok_or_else(Error::empty)?;
-    Ok(SHARED.get_or_init(|| factory).clone())
+    Ok(SHARED.get_or_init(|| SharedFactory(factory)).0.clone())
 }

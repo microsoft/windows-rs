@@ -1,0 +1,29 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CancelIo(hFile: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CancelIoEx(hFile: HANDLE, #[opt] lpOverlapped: *const OVERLAPPED) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CancelSynchronousIo(hThread: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateIoCompletionPort(FileHandle: HANDLE, #[opt] ExistingCompletionPort: HANDLE, CompletionKey: usize, NumberOfConcurrentThreads: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn DeviceIoControl(hDevice: HANDLE, dwIoControlCode: u32, #[size_param(3)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(5)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, #[opt] lpBytesReturned: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetOverlappedResult(hFile: HANDLE, lpOverlapped: *const OVERLAPPED, lpNumberOfBytesTransferred: *mut u32, bWait: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetOverlappedResultEx(hFile: HANDLE, lpOverlapped: *const OVERLAPPED, lpNumberOfBytesTransferred: *mut u32, dwMilliseconds: u32, bAlertable: BOOL) -> BOOL;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn GetQueuedCompletionStatus(CompletionPort: HANDLE, lpNumberOfBytesTransferred: *mut u32, lpCompletionKey: *mut u64, lpOverlapped: *mut LPOVERLAPPED, dwMilliseconds: u32) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn GetQueuedCompletionStatus(CompletionPort: HANDLE, lpNumberOfBytesTransferred: *mut u32, lpCompletionKey: *mut u32, lpOverlapped: *mut LPOVERLAPPED, dwMilliseconds: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetQueuedCompletionStatusEx(CompletionPort: HANDLE, #[len_param(2)] lpCompletionPortEntries: *mut OVERLAPPED_ENTRY, ulCount: u32, ulNumEntriesRemoved: *mut u32, dwMilliseconds: u32, fAlertable: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PostQueuedCompletionStatus(CompletionPort: HANDLE, dwNumberOfBytesTransferred: u32, dwCompletionKey: usize, #[opt] lpOverlapped: *const OVERLAPPED) -> BOOL;
+    }
+}

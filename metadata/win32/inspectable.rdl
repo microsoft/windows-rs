@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
+        interface IInspectable: IUnknown {
+            fn GetIids(&self, iidCount: *mut u32, iids: *mut *mut GUID) -> HRESULT;
+            fn GetRuntimeClassName(&self, className: *mut HSTRING) -> HRESULT;
+            fn GetTrustLevel(&self, trustLevel: *mut TrustLevel) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum TrustLevel {
+            BaseTrust = 0,
+            PartialTrust = 1,
+            FullTrust = 2,
+        }
+    }
+}

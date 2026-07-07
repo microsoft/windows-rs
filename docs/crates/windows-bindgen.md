@@ -61,9 +61,7 @@ Then `include!` or `mod` the generated file and call into it:
 ```rust,ignore
 mod bindings;
 
-fn main() {
-    unsafe { println!("{}", bindings::GetTickCount()); }
-}
+unsafe { println!("{}", bindings::GetTickCount()); }
 ```
 
 ## Filters
@@ -205,14 +203,12 @@ windows-bindgen = "0.66"
 
 ```rust,no_run
 // gen/src/main.rs
-fn main() {
-    windows_bindgen::bindgen([
-        "--out", "tickcount/src/bindings.rs",
-        "--flat",
-        "--sys",
-        "--filter", "GetTickCount64",
-    ]);
-}
+windows_bindgen::bindgen([
+    "--out", "tickcount/src/bindings.rs",
+    "--flat",
+    "--sys",
+    "--filter", "GetTickCount64",
+]);
 ```
 
 `--out` is resolved relative to the current directory, so run the tool from the

@@ -1,0 +1,74 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct D3DCOLORVALUE {
+            r: f32,
+            g: f32,
+            b: f32,
+            a: f32,
+        }
+        const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1;
+        const DXGI_CPU_ACCESS_FIELD: u32 = 15;
+        const DXGI_CPU_ACCESS_NONE: u32 = 0;
+        const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2;
+        const DXGI_CPU_ACCESS_SCRATCH: u32 = 3;
+        struct DXGI_GAMMA_CONTROL {
+            Scale: DXGI_RGB,
+            Offset: DXGI_RGB,
+            GammaCurve: [DXGI_RGB; 1025],
+        }
+        struct DXGI_GAMMA_CONTROL_CAPABILITIES {
+            ScaleAndOffsetSupported: BOOL,
+            MaxConvertedValue: f32,
+            MinConvertedValue: f32,
+            NumGammaControlPoints: u32,
+            ControlPointPositions: [f32; 1025],
+        }
+        struct DXGI_JPEG_AC_HUFFMAN_TABLE {
+            CodeCounts: [u8; 16],
+            CodeValues: [u8; 162],
+        }
+        struct DXGI_JPEG_DC_HUFFMAN_TABLE {
+            CodeCounts: [u8; 12],
+            CodeValues: [u8; 12],
+        }
+        struct DXGI_JPEG_QUANTIZATION_TABLE {
+            Elements: [u8; 64],
+        }
+        struct DXGI_MODE_DESC {
+            Width: u32,
+            Height: u32,
+            RefreshRate: DXGI_RATIONAL,
+            Format: DXGI_FORMAT,
+            ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
+            Scaling: DXGI_MODE_SCALING,
+        }
+        #[repr(i32)]
+        enum DXGI_MODE_ROTATION {
+            DXGI_MODE_ROTATION_UNSPECIFIED = 0,
+            DXGI_MODE_ROTATION_IDENTITY = 1,
+            DXGI_MODE_ROTATION_ROTATE90 = 2,
+            DXGI_MODE_ROTATION_ROTATE180 = 3,
+            DXGI_MODE_ROTATION_ROTATE270 = 4,
+        }
+        #[repr(i32)]
+        enum DXGI_MODE_SCALING {
+            DXGI_MODE_SCALING_UNSPECIFIED = 0,
+            DXGI_MODE_SCALING_CENTERED = 1,
+            DXGI_MODE_SCALING_STRETCHED = 2,
+        }
+        #[repr(i32)]
+        enum DXGI_MODE_SCANLINE_ORDER {
+            DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED = 0,
+            DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE = 1,
+            DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST = 2,
+            DXGI_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST = 3,
+        }
+        struct DXGI_RGB {
+            Red: f32,
+            Green: f32,
+            Blue: f32,
+        }
+        type DXGI_RGBA = D3DCOLORVALUE;
+    }
+}

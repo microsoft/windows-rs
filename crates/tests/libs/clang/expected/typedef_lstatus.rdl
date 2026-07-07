@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    type WIN32_ERROR = u32;
+}

@@ -1,0 +1,25 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn InitializeSListHead(ListHead: *mut SLIST_HEADER);
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedFlushSList(#[in] #[out] ListHead: *mut SLIST_HEADER) -> PSLIST_ENTRY;
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedPopEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER) -> PSLIST_ENTRY;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedPushEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] ListEntry: *mut SLIST_ENTRY) -> PSLIST_ENTRY;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedPushEntrySList(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] ListEntry: *mut SINGLE_LIST_ENTRY) -> PSLIST_ENTRY;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedPushListSListEx(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] List: *mut SLIST_ENTRY, #[in] #[out] ListEnd: *mut SLIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn InterlockedPushListSListEx(#[in] #[out] ListHead: *mut SLIST_HEADER, #[in] #[out] List: *mut SINGLE_LIST_ENTRY, #[in] #[out] ListEnd: *mut SINGLE_LIST_ENTRY, Count: u32) -> PSLIST_ENTRY;
+        #[library("KERNEL32.dll")]
+        extern fn QueryDepthSList(ListHead: *const SLIST_HEADER) -> u16;
+    }
+}

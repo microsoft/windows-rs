@@ -1,0 +1,477 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DOMDocument: GUID = 0x2933bf90_7b36_11d2_b20e_00c04f983e60;
+        const DOMFreeThreadedDocument: GUID = 0x2933bf91_7b36_11d2_b20e_00c04f983e60;
+        #[repr(i32)]
+        enum DOMNodeType {
+            NODE_INVALID = 0,
+            NODE_ELEMENT = 1,
+            NODE_ATTRIBUTE = 2,
+            NODE_TEXT = 3,
+            NODE_CDATA_SECTION = 4,
+            NODE_ENTITY_REFERENCE = 5,
+            NODE_ENTITY = 6,
+            NODE_PROCESSING_INSTRUCTION = 7,
+            NODE_COMMENT = 8,
+            NODE_DOCUMENT = 9,
+            NODE_DOCUMENT_TYPE = 10,
+            NODE_DOCUMENT_FRAGMENT = 11,
+            NODE_NOTATION = 12,
+        }
+        #[guid(0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596)]
+        interface IXMLAttribute: IDispatch {
+            #[special]
+            fn get_name(&self, #[retval] n: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_value(&self, #[retval] v: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x2933bf85_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMAttribute: IXMLDOMNode {
+            #[special]
+            fn get_name(&self, #[retval] attributeName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_value(&self, #[retval] attributeValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_value(&self, attributeValue: VARIANT) -> HRESULT;
+        }
+        #[guid(0x2933bf8a_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMCDATASection: IXMLDOMText {}
+        #[guid(0x2933bf84_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMCharacterData: IXMLDOMNode {
+            #[special]
+            fn get_data(&self, #[retval] data: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_data(&self, data: BSTR) -> HRESULT;
+            #[special]
+            fn get_length(&self, #[retval] dataLength: *mut i32) -> HRESULT;
+            fn substringData(&self, offset: i32, count: i32, #[retval] data: *mut BSTR) -> HRESULT;
+            fn appendData(&self, data: BSTR) -> HRESULT;
+            fn insertData(&self, offset: i32, data: BSTR) -> HRESULT;
+            fn deleteData(&self, offset: i32, count: i32) -> HRESULT;
+            fn replaceData(&self, offset: i32, count: i32, data: BSTR) -> HRESULT;
+        }
+        #[guid(0x2933bf88_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMComment: IXMLDOMCharacterData {}
+        #[guid(0x2933bf81_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMDocument: IXMLDOMNode {
+            #[special]
+            fn get_doctype(&self, #[retval] documentType: *mut IXMLDOMDocumentType) -> HRESULT;
+            #[special]
+            fn get_implementation(&self, #[retval] r#impl: *mut IXMLDOMImplementation) -> HRESULT;
+            #[special]
+            fn get_documentElement(&self, #[retval] DOMElement: *mut IXMLDOMElement) -> HRESULT;
+            fn putref_documentElement(&self, DOMElement: IXMLDOMElement) -> HRESULT;
+            fn createElement(&self, tagName: BSTR, #[retval] element: *mut IXMLDOMElement) -> HRESULT;
+            fn createDocumentFragment(&self, #[retval] docFrag: *mut IXMLDOMDocumentFragment) -> HRESULT;
+            fn createTextNode(&self, data: BSTR, #[retval] text: *mut IXMLDOMText) -> HRESULT;
+            fn createComment(&self, data: BSTR, #[retval] comment: *mut IXMLDOMComment) -> HRESULT;
+            fn createCDATASection(&self, data: BSTR, #[retval] cdata: *mut IXMLDOMCDATASection) -> HRESULT;
+            fn createProcessingInstruction(&self, target: BSTR, data: BSTR, #[retval] pi: *mut IXMLDOMProcessingInstruction) -> HRESULT;
+            fn createAttribute(&self, name: BSTR, #[retval] attribute: *mut IXMLDOMAttribute) -> HRESULT;
+            fn createEntityReference(&self, name: BSTR, #[retval] entityRef: *mut IXMLDOMEntityReference) -> HRESULT;
+            fn getElementsByTagName(&self, tagName: BSTR, #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+            fn createNode(&self, Type: VARIANT, name: BSTR, namespaceURI: BSTR, #[retval] node: *mut IXMLDOMNode) -> HRESULT;
+            fn nodeFromID(&self, idString: BSTR, #[retval] node: *mut IXMLDOMNode) -> HRESULT;
+            fn load(&self, xmlSource: VARIANT, #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_readyState(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn get_parseError(&self, #[retval] errorObj: *mut IXMLDOMParseError) -> HRESULT;
+            #[special]
+            fn get_url(&self, #[retval] urlString: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_async(&self, #[retval] isAsync: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_async(&self, isAsync: VARIANT_BOOL) -> HRESULT;
+            fn abort(&self) -> HRESULT;
+            fn loadXML(&self, bstrXML: BSTR, #[retval] isSuccessful: *mut VARIANT_BOOL) -> HRESULT;
+            fn save(&self, destination: VARIANT) -> HRESULT;
+            #[special]
+            fn get_validateOnParse(&self, #[retval] isValidating: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_validateOnParse(&self, isValidating: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_resolveExternals(&self, #[retval] isResolving: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_resolveExternals(&self, isResolving: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_preserveWhiteSpace(&self, #[retval] isPreserving: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_preserveWhiteSpace(&self, isPreserving: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_onreadystatechange(&self, readystatechangeSink: VARIANT) -> HRESULT;
+            #[special]
+            fn put_ondataavailable(&self, ondataavailableSink: VARIANT) -> HRESULT;
+            #[special]
+            fn put_ontransformnode(&self, ontransformnodeSink: VARIANT) -> HRESULT;
+        }
+        #[guid(0x3efaa413_272f_11d2_836f_0000f87a7782)]
+        interface IXMLDOMDocumentFragment: IXMLDOMNode {}
+        #[guid(0x2933bf8b_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMDocumentType: IXMLDOMNode {
+            #[special]
+            fn get_name(&self, #[retval] rootName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_entities(&self, #[retval] entityMap: *mut IXMLDOMNamedNodeMap) -> HRESULT;
+            #[special]
+            fn get_notations(&self, #[retval] notationMap: *mut IXMLDOMNamedNodeMap) -> HRESULT;
+        }
+        #[guid(0x2933bf86_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMElement: IXMLDOMNode {
+            #[special]
+            fn get_tagName(&self, #[retval] tagName: *mut BSTR) -> HRESULT;
+            fn getAttribute(&self, name: BSTR, #[retval] value: *mut VARIANT) -> HRESULT;
+            fn setAttribute(&self, name: BSTR, value: VARIANT) -> HRESULT;
+            fn removeAttribute(&self, name: BSTR) -> HRESULT;
+            fn getAttributeNode(&self, name: BSTR, #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+            fn setAttributeNode(&self, DOMAttribute: IXMLDOMAttribute, #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+            fn removeAttributeNode(&self, DOMAttribute: IXMLDOMAttribute, #[retval] attributeNode: *mut IXMLDOMAttribute) -> HRESULT;
+            fn getElementsByTagName(&self, tagName: BSTR, #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+            fn normalize(&self) -> HRESULT;
+        }
+        #[guid(0x2933bf8d_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMEntity: IXMLDOMNode {
+            #[special]
+            fn get_publicId(&self, #[retval] publicID: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_systemId(&self, #[retval] systemID: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_notationName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x2933bf8e_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMEntityReference: IXMLDOMNode {}
+        #[guid(0x2933bf8f_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMImplementation: IDispatch {
+            fn hasFeature(&self, feature: BSTR, version: BSTR, #[retval] hasFeature: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2933bf83_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMNamedNodeMap: IDispatch {
+            fn getNamedItem(&self, name: BSTR, #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
+            fn setNamedItem(&self, newItem: IXMLDOMNode, #[retval] nameItem: *mut IXMLDOMNode) -> HRESULT;
+            fn removeNamedItem(&self, name: BSTR, #[retval] namedItem: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_item(&self, index: i32, #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_length(&self, #[retval] listLength: *mut i32) -> HRESULT;
+            fn getQualifiedItem(&self, baseName: BSTR, namespaceURI: BSTR, #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
+            fn removeQualifiedItem(&self, baseName: BSTR, namespaceURI: BSTR, #[retval] qualifiedItem: *mut IXMLDOMNode) -> HRESULT;
+            fn nextNode(&self, #[retval] nextItem: *mut IXMLDOMNode) -> HRESULT;
+            fn reset(&self) -> HRESULT;
+            #[special]
+            fn get__newEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x2933bf80_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMNode: IDispatch {
+            #[special]
+            fn get_nodeName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_nodeValue(&self, #[retval] value: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_nodeValue(&self, value: VARIANT) -> HRESULT;
+            #[special]
+            fn get_nodeType(&self, #[retval] r#type: *mut DOMNodeType) -> HRESULT;
+            #[special]
+            fn get_parentNode(&self, #[retval] parent: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_childNodes(&self, #[retval] childList: *mut IXMLDOMNodeList) -> HRESULT;
+            #[special]
+            fn get_firstChild(&self, #[retval] firstChild: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_lastChild(&self, #[retval] lastChild: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_previousSibling(&self, #[retval] previousSibling: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_nextSibling(&self, #[retval] nextSibling: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_attributes(&self, #[retval] attributeMap: *mut IXMLDOMNamedNodeMap) -> HRESULT;
+            fn insertBefore(&self, newChild: IXMLDOMNode, refChild: VARIANT, #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
+            fn replaceChild(&self, newChild: IXMLDOMNode, oldChild: IXMLDOMNode, #[retval] outOldChild: *mut IXMLDOMNode) -> HRESULT;
+            fn removeChild(&self, childNode: IXMLDOMNode, #[retval] oldChild: *mut IXMLDOMNode) -> HRESULT;
+            fn appendChild(&self, newChild: IXMLDOMNode, #[retval] outNewChild: *mut IXMLDOMNode) -> HRESULT;
+            fn hasChildNodes(&self, #[retval] hasChild: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ownerDocument(&self, #[retval] XMLDOMDocument: *mut IXMLDOMDocument) -> HRESULT;
+            fn cloneNode(&self, deep: VARIANT_BOOL, #[retval] cloneRoot: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_nodeTypeString(&self, #[retval] nodeType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_text(&self, #[retval] text: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_text(&self, text: BSTR) -> HRESULT;
+            #[special]
+            fn get_specified(&self, #[retval] isSpecified: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_definition(&self, #[retval] definitionNode: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_nodeTypedValue(&self, #[retval] typedValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_nodeTypedValue(&self, typedValue: VARIANT) -> HRESULT;
+            #[special]
+            fn get_dataType(&self, #[retval] dataTypeName: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_dataType(&self, dataTypeName: BSTR) -> HRESULT;
+            #[special]
+            fn get_xml(&self, #[retval] xmlString: *mut BSTR) -> HRESULT;
+            fn transformNode(&self, stylesheet: IXMLDOMNode, #[retval] xmlString: *mut BSTR) -> HRESULT;
+            fn selectNodes(&self, queryString: BSTR, #[retval] resultList: *mut IXMLDOMNodeList) -> HRESULT;
+            fn selectSingleNode(&self, queryString: BSTR, #[retval] resultNode: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_parsed(&self, #[retval] isParsed: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_namespaceURI(&self, #[retval] namespaceURI: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_prefix(&self, #[retval] prefixString: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_baseName(&self, #[retval] nameString: *mut BSTR) -> HRESULT;
+            fn transformNodeToObject(&self, stylesheet: IXMLDOMNode, outputObject: VARIANT) -> HRESULT;
+        }
+        #[guid(0x2933bf82_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMNodeList: IDispatch {
+            #[special]
+            fn get_item(&self, index: i32, #[retval] listItem: *mut IXMLDOMNode) -> HRESULT;
+            #[special]
+            fn get_length(&self, #[retval] listLength: *mut i32) -> HRESULT;
+            fn nextNode(&self, #[retval] nextItem: *mut IXMLDOMNode) -> HRESULT;
+            fn reset(&self) -> HRESULT;
+            #[special]
+            fn get__newEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x2933bf8c_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMNotation: IXMLDOMNode {
+            #[special]
+            fn get_publicId(&self, #[retval] publicID: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_systemId(&self, #[retval] systemID: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x3efaa426_272f_11d2_836f_0000f87a7782)]
+        interface IXMLDOMParseError: IDispatch {
+            #[special]
+            fn get_errorCode(&self, #[retval] errorCode: *mut i32) -> HRESULT;
+            #[special]
+            fn get_url(&self, #[retval] urlString: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_reason(&self, #[retval] reasonString: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_srcText(&self, #[retval] sourceString: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_line(&self, #[retval] lineNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_linepos(&self, #[retval] linePosition: *mut i32) -> HRESULT;
+            #[special]
+            fn get_filepos(&self, #[retval] filePosition: *mut i32) -> HRESULT;
+        }
+        #[guid(0x2933bf89_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMProcessingInstruction: IXMLDOMNode {
+            #[special]
+            fn get_target(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_data(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_data(&self, value: BSTR) -> HRESULT;
+        }
+        #[guid(0x2933bf87_7b36_11d2_b20e_00c04f983e60)]
+        interface IXMLDOMText: IXMLDOMCharacterData {
+            fn splitText(&self, offset: i32, #[retval] rightHandTextNode: *mut IXMLDOMText) -> HRESULT;
+        }
+        #[guid(0x310afa62_0575_11d2_9ca9_0060b0ec3d39)]
+        interface IXMLDSOControl: IDispatch {
+            #[special]
+            fn get_XMLDocument(&self, #[retval] ppDoc: *mut IXMLDOMDocument) -> HRESULT;
+            #[special]
+            fn put_XMLDocument(&self, ppDoc: IXMLDOMDocument) -> HRESULT;
+            #[special]
+            fn get_JavaDSOCompatible(&self, #[retval] fJavaDSOCompatible: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_JavaDSOCompatible(&self, fJavaDSOCompatible: BOOL) -> HRESULT;
+            #[special]
+            fn get_readyState(&self, #[retval] state: *mut i32) -> HRESULT;
+        }
+        #[guid(0xf52e2b61_18a1_11d1_b105_00805f49916b)]
+        interface IXMLDocument: IDispatch {
+            #[special]
+            fn get_root(&self, #[retval] p: *mut IXMLElement) -> HRESULT;
+            #[special]
+            fn get_fileSize(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_fileModifiedDate(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_fileUpdatedDate(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_URL(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_URL(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_mimeType(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_readyState(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn get_charset(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_charset(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_version(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_doctype(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_dtdURL(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            fn createElement(&self, vType: VARIANT, #[opt] var1: VARIANT, #[retval] ppElem: *mut IXMLElement) -> HRESULT;
+        }
+        #[guid(0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9)]
+        interface IXMLDocument2: IDispatch {
+            #[special]
+            fn get_root(&self, #[retval] p: *mut IXMLElement2) -> HRESULT;
+            #[special]
+            fn get_fileSize(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_fileModifiedDate(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_fileUpdatedDate(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_URL(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_URL(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_mimeType(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_readyState(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn get_charset(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_charset(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_version(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_doctype(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_dtdURL(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            fn createElement(&self, vType: VARIANT, #[opt] var1: VARIANT, #[retval] ppElem: *mut IXMLElement2) -> HRESULT;
+            #[special]
+            fn get_async(&self, #[retval] pf: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_async(&self, f: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e)]
+        interface IXMLElement: IDispatch {
+            #[special]
+            fn get_tagName(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_tagName(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_parent(&self, #[retval] ppParent: *mut IXMLElement) -> HRESULT;
+            fn setAttribute(&self, strPropertyName: BSTR, PropertyValue: VARIANT) -> HRESULT;
+            fn getAttribute(&self, strPropertyName: BSTR, #[retval] PropertyValue: *mut VARIANT) -> HRESULT;
+            fn removeAttribute(&self, strPropertyName: BSTR) -> HRESULT;
+            #[special]
+            fn get_children(&self, #[retval] pp: *mut IXMLElementCollection) -> HRESULT;
+            #[special]
+            fn get_type(&self, #[retval] plType: *mut i32) -> HRESULT;
+            #[special]
+            fn get_text(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_text(&self, p: BSTR) -> HRESULT;
+            fn addChild(&self, pChildElem: IXMLElement, lIndex: i32, lReserved: i32) -> HRESULT;
+            fn removeChild(&self, pChildElem: IXMLElement) -> HRESULT;
+        }
+        #[guid(0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9)]
+        interface IXMLElement2: IDispatch {
+            #[special]
+            fn get_tagName(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_tagName(&self, p: BSTR) -> HRESULT;
+            #[special]
+            fn get_parent(&self, #[retval] ppParent: *mut IXMLElement2) -> HRESULT;
+            fn setAttribute(&self, strPropertyName: BSTR, PropertyValue: VARIANT) -> HRESULT;
+            fn getAttribute(&self, strPropertyName: BSTR, #[retval] PropertyValue: *mut VARIANT) -> HRESULT;
+            fn removeAttribute(&self, strPropertyName: BSTR) -> HRESULT;
+            #[special]
+            fn get_children(&self, #[retval] pp: *mut IXMLElementCollection) -> HRESULT;
+            #[special]
+            fn get_type(&self, #[retval] plType: *mut i32) -> HRESULT;
+            #[special]
+            fn get_text(&self, #[retval] p: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_text(&self, p: BSTR) -> HRESULT;
+            fn addChild(&self, pChildElem: IXMLElement2, lIndex: i32, lReserved: i32) -> HRESULT;
+            fn removeChild(&self, pChildElem: IXMLElement2) -> HRESULT;
+            #[special]
+            fn get_attributes(&self, #[retval] pp: *mut IXMLElementCollection) -> HRESULT;
+        }
+        #[guid(0x65725580_9b5d_11d0_9bfe_00c04fc99c8e)]
+        interface IXMLElementCollection: IDispatch {
+            #[special]
+            fn put_length(&self, v: i32) -> HRESULT;
+            #[special]
+            fn get_length(&self, #[retval] p: *mut i32) -> HRESULT;
+            #[special]
+            fn get__newEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn item(&self, #[opt] var1: VARIANT, #[opt] var2: VARIANT, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e)]
+        interface IXMLError: IUnknown {
+            fn GetErrorInfo(&self, pErrorReturn: *mut XML_ERROR) -> HRESULT;
+        }
+        #[guid(0xed8c108d_4349_11d2_91a4_00c04f7969e8)]
+        interface IXMLHttpRequest: IDispatch {
+            fn open(&self, bstrMethod: BSTR, bstrUrl: BSTR, #[opt] varAsync: VARIANT, #[opt] bstrUser: VARIANT, #[opt] bstrPassword: VARIANT) -> HRESULT;
+            fn setRequestHeader(&self, bstrHeader: BSTR, bstrValue: BSTR) -> HRESULT;
+            fn getResponseHeader(&self, bstrHeader: BSTR, #[retval] pbstrValue: *mut BSTR) -> HRESULT;
+            fn getAllResponseHeaders(&self, #[retval] pbstrHeaders: *mut BSTR) -> HRESULT;
+            fn send(&self, #[opt] varBody: VARIANT) -> HRESULT;
+            fn abort(&self) -> HRESULT;
+            #[special]
+            fn get_status(&self, #[retval] plStatus: *mut i32) -> HRESULT;
+            #[special]
+            fn get_statusText(&self, #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_responseXML(&self, #[retval] ppBody: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_responseText(&self, #[retval] pbstrBody: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_responseBody(&self, #[retval] pvarBody: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_responseStream(&self, #[retval] pvarBody: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_readyState(&self, #[retval] plState: *mut i32) -> HRESULT;
+            #[special]
+            fn put_onreadystatechange(&self, pReadyStateSink: IDispatch) -> HRESULT;
+        }
+        #[guid(0x3efaa425_272f_11d2_836f_0000f87a7782)]
+        interface IXTLRuntime: IXMLDOMNode {
+            fn uniqueID(&self, pNode: IXMLDOMNode, #[retval] pID: *mut i32) -> HRESULT;
+            fn depth(&self, pNode: IXMLDOMNode, #[retval] pDepth: *mut i32) -> HRESULT;
+            fn childNumber(&self, pNode: IXMLDOMNode, #[retval] pNumber: *mut i32) -> HRESULT;
+            fn ancestorChildNumber(&self, bstrNodeName: BSTR, pNode: IXMLDOMNode, #[retval] pNumber: *mut i32) -> HRESULT;
+            fn absoluteChildNumber(&self, pNode: IXMLDOMNode, #[retval] pNumber: *mut i32) -> HRESULT;
+            fn formatIndex(&self, lIndex: i32, bstrFormat: BSTR, #[retval] pbstrFormattedString: *mut BSTR) -> HRESULT;
+            fn formatNumber(&self, dblNumber: f64, bstrFormat: BSTR, #[retval] pbstrFormattedString: *mut BSTR) -> HRESULT;
+            fn formatDate(&self, varDate: VARIANT, bstrFormat: BSTR, #[opt] varDestLocale: VARIANT, #[retval] pbstrFormattedString: *mut BSTR) -> HRESULT;
+            fn formatTime(&self, varTime: VARIANT, bstrFormat: BSTR, #[opt] varDestLocale: VARIANT, #[retval] pbstrFormattedString: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x3efaa427_272f_11d2_836f_0000f87a7782)]
+        interface XMLDOMDocumentEvents: IDispatch {}
+        const XMLDSOControl: GUID = 0x550dda30_0541_11d2_9ca9_0060b0ec3d39;
+        const XMLDocument: GUID = 0xcfc399af_d876_11d0_9c10_00c04fc99c8e;
+        #[repr(i32)]
+        enum XMLELEM_TYPE {
+            XMLELEMTYPE_ELEMENT = 0,
+            XMLELEMTYPE_TEXT = 1,
+            XMLELEMTYPE_COMMENT = 2,
+            XMLELEMTYPE_DOCUMENT = 3,
+            XMLELEMTYPE_DTD = 4,
+            XMLELEMTYPE_PI = 5,
+            XMLELEMTYPE_OTHER = 6,
+        }
+        const XMLHTTPRequest: GUID = 0xed8c108e_4349_11d2_91a4_00c04f7969e8;
+        struct XML_ERROR {
+            _nLine: u32,
+            _pchBuf: BSTR,
+            _cchBuf: u32,
+            _ich: u32,
+            _pszFound: BSTR,
+            _pszExpected: BSTR,
+            _reserved1: u32,
+            _reserved2: u32,
+        }
+    }
+}

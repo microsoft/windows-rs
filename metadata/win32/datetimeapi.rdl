@@ -1,0 +1,19 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn GetDateFormatA(Locale: LCID, dwFlags: u32, #[opt] lpDate: *const SYSTEMTIME, #[opt] lpFormat: PCSTR, #[len_param(5)] #[out] #[opt] lpDateStr: PSTR, cchDate: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetDateFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, #[opt] lpDate: *const SYSTEMTIME, #[opt] lpFormat: PCWSTR, #[len_param(5)] #[out] #[opt] lpDateStr: PWSTR, cchDate: i32, #[opt] lpCalendar: PCWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetDateFormatW(Locale: LCID, dwFlags: u32, #[opt] lpDate: *const SYSTEMTIME, #[opt] lpFormat: PCWSTR, #[len_param(5)] #[out] #[opt] lpDateStr: PWSTR, cchDate: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetDurationFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, #[opt] lpDuration: *const SYSTEMTIME, ullDuration: u64, #[opt] lpFormat: PCWSTR, #[len_param(6)] #[out] #[opt] lpDurationStr: PWSTR, cchDuration: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTimeFormatA(Locale: LCID, dwFlags: u32, #[opt] lpTime: *const SYSTEMTIME, #[opt] lpFormat: PCSTR, #[len_param(5)] #[out] #[opt] lpTimeStr: PSTR, cchTime: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTimeFormatEx(#[opt] lpLocaleName: PCWSTR, dwFlags: u32, #[opt] lpTime: *const SYSTEMTIME, #[opt] lpFormat: PCWSTR, #[len_param(5)] #[out] #[opt] lpTimeStr: PWSTR, cchTime: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTimeFormatW(Locale: LCID, dwFlags: u32, #[opt] lpTime: *const SYSTEMTIME, #[opt] lpFormat: PCWSTR, #[len_param(5)] #[out] #[opt] lpTimeStr: PWSTR, cchTime: i32) -> i32;
+    }
+}

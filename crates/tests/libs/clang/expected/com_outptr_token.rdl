@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct GUID {
+        Data1: u32,
+    }
+    type HRESULT = i32;
+    #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
+    interface IDXGIObject {
+        fn GetParent(&self, riid: *const GUID, #[iid_is] #[retval] ppParent: *mut *mut void) -> i32;
+        fn EnumThings(&self, Thing: u32, ppThing: *mut IThing) -> i32;
+    }
+    #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
+    interface IThing {
+        fn DoThing(&self,) -> i32;
+    }
+    type REFIID = *const GUID;
+}

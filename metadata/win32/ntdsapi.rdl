@@ -1,0 +1,962 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2;
+        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1;
+        const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0;
+        #[encoding("ansi")]
+        const ADAM_SCP_FSMO_NAMING_STRING: String = "naming";
+        #[encoding("utf-16")]
+        const ADAM_SCP_FSMO_NAMING_STRING_W: String = "naming";
+        #[encoding("ansi")]
+        const ADAM_SCP_FSMO_SCHEMA_STRING: String = "schema";
+        #[encoding("utf-16")]
+        const ADAM_SCP_FSMO_SCHEMA_STRING_W: String = "schema";
+        #[encoding("ansi")]
+        const ADAM_SCP_FSMO_STRING: String = "fsmo:";
+        #[encoding("utf-16")]
+        const ADAM_SCP_FSMO_STRING_W: String = "fsmo:";
+        #[encoding("ansi")]
+        const ADAM_SCP_INSTANCE_NAME_STRING: String = "instance:";
+        #[encoding("utf-16")]
+        const ADAM_SCP_INSTANCE_NAME_STRING_W: String = "instance:";
+        #[encoding("ansi")]
+        const ADAM_SCP_PARTITION_STRING: String = "partition:";
+        #[encoding("utf-16")]
+        const ADAM_SCP_PARTITION_STRING_W: String = "partition:";
+        #[encoding("ansi")]
+        const ADAM_SCP_SITE_NAME_STRING: String = "site:";
+        #[encoding("utf-16")]
+        const ADAM_SCP_SITE_NAME_STRING_W: String = "site:";
+        const DS_BEHAVIOR_LONGHORN: u32 = 3;
+        const DS_BEHAVIOR_WIN2000: u32 = 0;
+        const DS_BEHAVIOR_WIN2003: u32 = 2;
+        const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1;
+        const DS_BEHAVIOR_WIN2008: u32 = 3;
+        const DS_BEHAVIOR_WIN2008R2: u32 = 4;
+        const DS_BEHAVIOR_WIN2012: u32 = 5;
+        const DS_BEHAVIOR_WIN2012R2: u32 = 6;
+        const DS_BEHAVIOR_WIN2016: u32 = 7;
+        const DS_BEHAVIOR_WIN2025: u32 = 10;
+        const DS_BEHAVIOR_WIN7: u32 = 4;
+        const DS_BEHAVIOR_WIN8: u32 = 5;
+        const DS_BEHAVIOR_WINBLUE: u32 = 6;
+        const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7;
+        const DS_DEFAULT_LOCALE: u32 = 1033;
+        const DS_DEFAULT_LOCALE_COMPARE_FLAGS: u32 = 200707;
+        struct DS_DOMAIN_CONTROLLER_INFO_1A {
+            NetbiosName: PSTR,
+            DnsHostName: PSTR,
+            SiteName: PSTR,
+            ComputerObjectName: PSTR,
+            ServerObjectName: PSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+        }
+        struct DS_DOMAIN_CONTROLLER_INFO_1W {
+            NetbiosName: PWSTR,
+            DnsHostName: PWSTR,
+            SiteName: PWSTR,
+            ComputerObjectName: PWSTR,
+            ServerObjectName: PWSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+        }
+        struct DS_DOMAIN_CONTROLLER_INFO_2A {
+            NetbiosName: PSTR,
+            DnsHostName: PSTR,
+            SiteName: PSTR,
+            SiteObjectName: PSTR,
+            ComputerObjectName: PSTR,
+            ServerObjectName: PSTR,
+            NtdsDsaObjectName: PSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+            fIsGc: BOOL,
+            SiteObjectGuid: GUID,
+            ComputerObjectGuid: GUID,
+            ServerObjectGuid: GUID,
+            NtdsDsaObjectGuid: GUID,
+        }
+        struct DS_DOMAIN_CONTROLLER_INFO_2W {
+            NetbiosName: PWSTR,
+            DnsHostName: PWSTR,
+            SiteName: PWSTR,
+            SiteObjectName: PWSTR,
+            ComputerObjectName: PWSTR,
+            ServerObjectName: PWSTR,
+            NtdsDsaObjectName: PWSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+            fIsGc: BOOL,
+            SiteObjectGuid: GUID,
+            ComputerObjectGuid: GUID,
+            ServerObjectGuid: GUID,
+            NtdsDsaObjectGuid: GUID,
+        }
+        struct DS_DOMAIN_CONTROLLER_INFO_3A {
+            NetbiosName: PSTR,
+            DnsHostName: PSTR,
+            SiteName: PSTR,
+            SiteObjectName: PSTR,
+            ComputerObjectName: PSTR,
+            ServerObjectName: PSTR,
+            NtdsDsaObjectName: PSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+            fIsGc: BOOL,
+            fIsRodc: BOOL,
+            SiteObjectGuid: GUID,
+            ComputerObjectGuid: GUID,
+            ServerObjectGuid: GUID,
+            NtdsDsaObjectGuid: GUID,
+        }
+        struct DS_DOMAIN_CONTROLLER_INFO_3W {
+            NetbiosName: PWSTR,
+            DnsHostName: PWSTR,
+            SiteName: PWSTR,
+            SiteObjectName: PWSTR,
+            ComputerObjectName: PWSTR,
+            ServerObjectName: PWSTR,
+            NtdsDsaObjectName: PWSTR,
+            fIsPdc: BOOL,
+            fDsEnabled: BOOL,
+            fIsGc: BOOL,
+            fIsRodc: BOOL,
+            SiteObjectGuid: GUID,
+            ComputerObjectGuid: GUID,
+            ServerObjectGuid: GUID,
+            NtdsDsaObjectGuid: GUID,
+        }
+        const DS_DOMAIN_SIMPLE_NAME: u32 = 8;
+        const DS_ENTERPRISE_SIMPLE_NAME: u32 = 8;
+        const DS_EXIST_ADVISORY_MODE: u32 = 1;
+        const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1;
+        const DS_INSTANCETYPE_NC_COMING: u32 = 16;
+        const DS_INSTANCETYPE_NC_GOING: u32 = 32;
+        const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4;
+        const DS_KCC_FLAG_ASYNC_OP: u32 = 1;
+        const DS_KCC_FLAG_DAMPED: u32 = 2;
+        #[repr(i32)]
+        enum DS_KCC_TASKID {
+            DS_KCC_TASKID_UPDATE_TOPOLOGY = 0,
+        }
+        const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2;
+        const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1;
+        const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0;
+        #[repr(i32)]
+        enum DS_NAME_ERROR {
+            DS_NAME_NO_ERROR = 0,
+            DS_NAME_ERROR_RESOLVING = 1,
+            DS_NAME_ERROR_NOT_FOUND = 2,
+            DS_NAME_ERROR_NOT_UNIQUE = 3,
+            DS_NAME_ERROR_NO_MAPPING = 4,
+            DS_NAME_ERROR_DOMAIN_ONLY = 5,
+            DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING = 6,
+            DS_NAME_ERROR_TRUST_REFERRAL = 7,
+        }
+        #[repr(i32)]
+        enum DS_NAME_FLAGS {
+            DS_NAME_NO_FLAGS = 0,
+            DS_NAME_FLAG_SYNTACTICAL_ONLY = 1,
+            DS_NAME_FLAG_EVAL_AT_DC = 2,
+            DS_NAME_FLAG_GCVERIFY = 4,
+            DS_NAME_FLAG_TRUST_REFERRAL = 8,
+        }
+        #[repr(i32)]
+        enum DS_NAME_FORMAT {
+            DS_UNKNOWN_NAME = 0,
+            DS_FQDN_1779_NAME = 1,
+            DS_NT4_ACCOUNT_NAME = 2,
+            DS_DISPLAY_NAME = 3,
+            DS_UNIQUE_ID_NAME = 6,
+            DS_CANONICAL_NAME = 7,
+            DS_USER_PRINCIPAL_NAME = 8,
+            DS_CANONICAL_NAME_EX = 9,
+            DS_SERVICE_PRINCIPAL_NAME = 10,
+            DS_SID_OR_SID_HISTORY_NAME = 11,
+            DS_DNS_DOMAIN_NAME = 12,
+        }
+        const DS_NAME_LEGAL_FLAGS: u32 = 1;
+        struct DS_NAME_RESULTA {
+            cItems: u32,
+            rItems: PDS_NAME_RESULT_ITEMA,
+        }
+        struct DS_NAME_RESULTW {
+            cItems: u32,
+            rItems: PDS_NAME_RESULT_ITEMW,
+        }
+        struct DS_NAME_RESULT_ITEMA {
+            status: u32,
+            pDomain: PSTR,
+            pName: PSTR,
+        }
+        struct DS_NAME_RESULT_ITEMW {
+            status: u32,
+            pDomain: PWSTR,
+            pName: PWSTR,
+        }
+        const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1;
+        const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32;
+        const DS_REPADD_CRITICAL: u32 = 2048;
+        const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64;
+        const DS_REPADD_DISABLE_PERIODIC: u32 = 128;
+        const DS_REPADD_INITIAL: u32 = 4;
+        const DS_REPADD_INTERSITE_MESSAGING: u32 = 16;
+        const DS_REPADD_NEVER_NOTIFY: u32 = 512;
+        const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216;
+        const DS_REPADD_PERIODIC: u32 = 8;
+        const DS_REPADD_SELECT_SECRETS: u32 = 4096;
+        const DS_REPADD_TWO_WAY: u32 = 1024;
+        const DS_REPADD_USE_COMPRESSION: u32 = 256;
+        const DS_REPADD_WRITEABLE: u32 = 2;
+        const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1;
+        const DS_REPDEL_IGNORE_ERRORS: u32 = 8;
+        const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4;
+        const DS_REPDEL_LOCAL_ONLY: u32 = 16;
+        const DS_REPDEL_NO_SOURCE: u32 = 32;
+        const DS_REPDEL_REF_OK: u32 = 64;
+        const DS_REPDEL_WRITEABLE: u32 = 2;
+        struct DS_REPL_ATTR_META_DATA {
+            pszAttributeName: PWSTR,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+        }
+        struct DS_REPL_ATTR_META_DATA_2 {
+            pszAttributeName: PWSTR,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            pszLastOriginatingDsaDN: PWSTR,
+        }
+        struct DS_REPL_ATTR_META_DATA_BLOB {
+            oszAttributeName: u32,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            oszLastOriginatingDsaDN: u32,
+        }
+        struct DS_REPL_ATTR_VALUE_META_DATA {
+            cNumEntries: u32,
+            dwEnumerationContext: u32,
+            rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
+        }
+        struct DS_REPL_ATTR_VALUE_META_DATA_2 {
+            cNumEntries: u32,
+            dwEnumerationContext: u32,
+            rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
+        }
+        struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
+            cNumEntries: u32,
+            dwEnumerationContext: u32,
+            rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
+        }
+        struct DS_REPL_CURSOR {
+            uuidSourceDsaInvocationID: GUID,
+            usnAttributeFilter: USN,
+        }
+        struct DS_REPL_CURSORS {
+            cNumCursors: u32,
+            dwReserved: u32,
+            rgCursor: [DS_REPL_CURSOR; 1],
+        }
+        struct DS_REPL_CURSORS_2 {
+            cNumCursors: u32,
+            dwEnumerationContext: u32,
+            rgCursor: [DS_REPL_CURSOR_2; 1],
+        }
+        struct DS_REPL_CURSORS_3W {
+            cNumCursors: u32,
+            dwEnumerationContext: u32,
+            rgCursor: [DS_REPL_CURSOR_3W; 1],
+        }
+        struct DS_REPL_CURSOR_2 {
+            uuidSourceDsaInvocationID: GUID,
+            usnAttributeFilter: USN,
+            ftimeLastSyncSuccess: FILETIME,
+        }
+        struct DS_REPL_CURSOR_3W {
+            uuidSourceDsaInvocationID: GUID,
+            usnAttributeFilter: USN,
+            ftimeLastSyncSuccess: FILETIME,
+            pszSourceDsaDN: PWSTR,
+        }
+        struct DS_REPL_CURSOR_BLOB {
+            uuidSourceDsaInvocationID: GUID,
+            usnAttributeFilter: USN,
+            ftimeLastSyncSuccess: FILETIME,
+            oszSourceDsaDN: u32,
+        }
+        const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1;
+        #[repr(i32)]
+        enum DS_REPL_INFO_TYPE {
+            DS_REPL_INFO_NEIGHBORS = 0,
+            DS_REPL_INFO_CURSORS_FOR_NC = 1,
+            DS_REPL_INFO_METADATA_FOR_OBJ = 2,
+            DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES = 3,
+            DS_REPL_INFO_KCC_DSA_LINK_FAILURES = 4,
+            DS_REPL_INFO_PENDING_OPS = 5,
+            DS_REPL_INFO_METADATA_FOR_ATTR_VALUE = 6,
+            DS_REPL_INFO_CURSORS_2_FOR_NC = 7,
+            DS_REPL_INFO_CURSORS_3_FOR_NC = 8,
+            DS_REPL_INFO_METADATA_2_FOR_OBJ = 9,
+            DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE = 10,
+            DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE = 11,
+            DS_REPL_INFO_TYPE_MAX = 12,
+        }
+        struct DS_REPL_KCC_DSA_FAILURESW {
+            cNumEntries: u32,
+            dwReserved: u32,
+            rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
+        }
+        struct DS_REPL_KCC_DSA_FAILUREW {
+            pszDsaDN: PWSTR,
+            uuidDsaObjGuid: GUID,
+            ftimeFirstFailure: FILETIME,
+            cNumFailures: u32,
+            dwLastResult: u32,
+        }
+        struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
+            oszDsaDN: u32,
+            uuidDsaObjGuid: GUID,
+            ftimeFirstFailure: FILETIME,
+            cNumFailures: u32,
+            dwLastResult: u32,
+        }
+        const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456;
+        const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728;
+        const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64;
+        const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536;
+        const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072;
+        const DS_REPL_NBR_GCSPN: u32 = 1048576;
+        const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864;
+        const DS_REPL_NBR_MODIFIABLE_MASK: u32 = 1006633568;
+        const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152;
+        const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024;
+        const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912;
+        const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824;
+        const DS_REPL_NBR_PREEMPTED: u32 = 16777216;
+        const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048;
+        const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096;
+        const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32;
+        const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512;
+        const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128;
+        const DS_REPL_NBR_WRITEABLE: u32 = 16;
+        struct DS_REPL_NEIGHBORSW {
+            cNumNeighbors: u32,
+            dwReserved: u32,
+            rgNeighbor: [DS_REPL_NEIGHBORW; 1],
+        }
+        struct DS_REPL_NEIGHBORW {
+            pszNamingContext: PWSTR,
+            pszSourceDsaDN: PWSTR,
+            pszSourceDsaAddress: PWSTR,
+            pszAsyncIntersiteTransportDN: PWSTR,
+            dwReplicaFlags: u32,
+            dwReserved: u32,
+            uuidNamingContextObjGuid: GUID,
+            uuidSourceDsaObjGuid: GUID,
+            uuidSourceDsaInvocationID: GUID,
+            uuidAsyncIntersiteTransportObjGuid: GUID,
+            usnLastObjChangeSynced: USN,
+            usnAttributeFilter: USN,
+            ftimeLastSyncSuccess: FILETIME,
+            ftimeLastSyncAttempt: FILETIME,
+            dwLastSyncResult: u32,
+            cNumConsecutiveSyncFailures: u32,
+        }
+        struct DS_REPL_NEIGHBORW_BLOB {
+            oszNamingContext: u32,
+            oszSourceDsaDN: u32,
+            oszSourceDsaAddress: u32,
+            oszAsyncIntersiteTransportDN: u32,
+            dwReplicaFlags: u32,
+            dwReserved: u32,
+            uuidNamingContextObjGuid: GUID,
+            uuidSourceDsaObjGuid: GUID,
+            uuidSourceDsaInvocationID: GUID,
+            uuidAsyncIntersiteTransportObjGuid: GUID,
+            usnLastObjChangeSynced: USN,
+            usnAttributeFilter: USN,
+            ftimeLastSyncSuccess: FILETIME,
+            ftimeLastSyncAttempt: FILETIME,
+            dwLastSyncResult: u32,
+            cNumConsecutiveSyncFailures: u32,
+        }
+        struct DS_REPL_OBJ_META_DATA {
+            cNumEntries: u32,
+            dwReserved: u32,
+            rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
+        }
+        struct DS_REPL_OBJ_META_DATA_2 {
+            cNumEntries: u32,
+            dwReserved: u32,
+            rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
+        }
+        struct DS_REPL_OPW {
+            ftimeEnqueued: FILETIME,
+            ulSerialNumber: u32,
+            ulPriority: u32,
+            OpType: DS_REPL_OP_TYPE,
+            ulOptions: u32,
+            pszNamingContext: PWSTR,
+            pszDsaDN: PWSTR,
+            pszDsaAddress: PWSTR,
+            uuidNamingContextObjGuid: GUID,
+            uuidDsaObjGuid: GUID,
+        }
+        struct DS_REPL_OPW_BLOB {
+            ftimeEnqueued: FILETIME,
+            ulSerialNumber: u32,
+            ulPriority: u32,
+            OpType: DS_REPL_OP_TYPE,
+            ulOptions: u32,
+            oszNamingContext: u32,
+            oszDsaDN: u32,
+            oszDsaAddress: u32,
+            uuidNamingContextObjGuid: GUID,
+            uuidDsaObjGuid: GUID,
+        }
+        #[repr(i32)]
+        enum DS_REPL_OP_TYPE {
+            DS_REPL_OP_TYPE_SYNC = 0,
+            DS_REPL_OP_TYPE_ADD = 1,
+            DS_REPL_OP_TYPE_DELETE = 2,
+            DS_REPL_OP_TYPE_MODIFY = 3,
+            DS_REPL_OP_TYPE_UPDATE_REFS = 4,
+        }
+        struct DS_REPL_PENDING_OPSW {
+            ftimeCurrentOpStarted: FILETIME,
+            cNumPendingOps: u32,
+            rgPendingOp: [DS_REPL_OPW; 1],
+        }
+        struct DS_REPL_QUEUE_STATISTICSW {
+            ftimeCurrentOpStarted: FILETIME,
+            cNumPendingOps: u32,
+            ftimeOldestSync: FILETIME,
+            ftimeOldestAdd: FILETIME,
+            ftimeOldestMod: FILETIME,
+            ftimeOldestDel: FILETIME,
+            ftimeOldestUpdRefs: FILETIME,
+        }
+        type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
+        struct DS_REPL_VALUE_META_DATA {
+            pszAttributeName: PWSTR,
+            pszObjectDn: PWSTR,
+            cbData: u32,
+            pbData: *mut u8,
+            ftimeDeleted: FILETIME,
+            ftimeCreated: FILETIME,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+        }
+        struct DS_REPL_VALUE_META_DATA_2 {
+            pszAttributeName: PWSTR,
+            pszObjectDn: PWSTR,
+            cbData: u32,
+            pbData: *mut u8,
+            ftimeDeleted: FILETIME,
+            ftimeCreated: FILETIME,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            pszLastOriginatingDsaDN: PWSTR,
+        }
+        struct DS_REPL_VALUE_META_DATA_BLOB {
+            oszAttributeName: u32,
+            oszObjectDn: u32,
+            cbData: u32,
+            obData: u32,
+            ftimeDeleted: FILETIME,
+            ftimeCreated: FILETIME,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            oszLastOriginatingDsaDN: u32,
+        }
+        struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
+            oszAttributeName: u32,
+            oszObjectDn: u32,
+            cbData: u32,
+            obData: u32,
+            ftimeDeleted: FILETIME,
+            ftimeCreated: FILETIME,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            oszLastOriginatingDsaDN: u32,
+            dwUserIdentifier: u32,
+            dwPriorLinkState: u32,
+            dwCurrentLinkState: u32,
+        }
+        struct DS_REPL_VALUE_META_DATA_EXT {
+            pszAttributeName: PWSTR,
+            pszObjectDn: PWSTR,
+            cbData: u32,
+            pbData: *mut u8,
+            ftimeDeleted: FILETIME,
+            ftimeCreated: FILETIME,
+            dwVersion: u32,
+            ftimeLastOriginatingChange: FILETIME,
+            uuidLastOriginatingDsaInvocationID: GUID,
+            usnOriginatingChange: USN,
+            usnLocalChange: USN,
+            pszLastOriginatingDsaDN: PWSTR,
+            dwUserIdentifier: u32,
+            dwPriorLinkState: u32,
+            dwCurrentLinkState: u32,
+        }
+        const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1;
+        const DS_REPMOD_UPDATE_ADDRESS: u32 = 2;
+        const DS_REPMOD_UPDATE_FLAGS: u32 = 1;
+        const DS_REPMOD_UPDATE_INSTANCE: u32 = 2;
+        const DS_REPMOD_UPDATE_RESULT: u32 = 8;
+        const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4;
+        const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16;
+        const DS_REPMOD_WRITEABLE: u32 = 2;
+        const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1;
+        const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64;
+        const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8;
+        struct DS_REPSYNCALL_ERRINFOA {
+            pszSvrId: PSTR,
+            error: DS_REPSYNCALL_ERROR,
+            dwWin32Err: u32,
+            pszSrcId: PSTR,
+        }
+        struct DS_REPSYNCALL_ERRINFOW {
+            pszSvrId: PWSTR,
+            error: DS_REPSYNCALL_ERROR,
+            dwWin32Err: u32,
+            pszSrcId: PWSTR,
+        }
+        #[repr(i32)]
+        enum DS_REPSYNCALL_ERROR {
+            DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER = 0,
+            DS_REPSYNCALL_WIN32_ERROR_REPLICATING = 1,
+            DS_REPSYNCALL_SERVER_UNREACHABLE = 2,
+        }
+        #[repr(i32)]
+        enum DS_REPSYNCALL_EVENT {
+            DS_REPSYNCALL_EVENT_ERROR = 0,
+            DS_REPSYNCALL_EVENT_SYNC_STARTED = 1,
+            DS_REPSYNCALL_EVENT_SYNC_COMPLETED = 2,
+            DS_REPSYNCALL_EVENT_FINISHED = 3,
+        }
+        const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4;
+        const DS_REPSYNCALL_NO_OPTIONS: u32 = 0;
+        const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32;
+        const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16;
+        struct DS_REPSYNCALL_SYNCA {
+            pszSrcId: PSTR,
+            pszDstId: PSTR,
+            pszNC: PSTR,
+            pguidSrc: *mut GUID,
+            pguidDst: *mut GUID,
+        }
+        struct DS_REPSYNCALL_SYNCW {
+            pszSrcId: PWSTR,
+            pszDstId: PWSTR,
+            pszNC: PWSTR,
+            pguidSrc: *mut GUID,
+            pguidDst: *mut GUID,
+        }
+        const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2;
+        struct DS_REPSYNCALL_UPDATEA {
+            event: DS_REPSYNCALL_EVENT,
+            pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
+            pSync: *mut DS_REPSYNCALL_SYNCA,
+        }
+        struct DS_REPSYNCALL_UPDATEW {
+            event: DS_REPSYNCALL_EVENT,
+            pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
+            pSync: *mut DS_REPSYNCALL_SYNCW,
+        }
+        const DS_REPSYNC_ABANDONED: u32 = 32768;
+        const DS_REPSYNC_ADD_REFERENCE: u32 = 512;
+        const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1;
+        const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576;
+        const DS_REPSYNC_CRITICAL: u32 = 2097152;
+        const DS_REPSYNC_FORCE: u32 = 256;
+        const DS_REPSYNC_FULL: u32 = 32;
+        const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304;
+        const DS_REPSYNC_INITIAL: u32 = 8192;
+        const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536;
+        const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8;
+        const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024;
+        const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096;
+        const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216;
+        const DS_REPSYNC_NOTIFICATION: u32 = 524288;
+        const DS_REPSYNC_NO_DISCARD: u32 = 128;
+        const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072;
+        const DS_REPSYNC_PERIODIC: u32 = 4;
+        const DS_REPSYNC_PREEMPTED: u32 = 8388608;
+        const DS_REPSYNC_REQUEUE: u32 = 262144;
+        const DS_REPSYNC_SELECT_SECRETS: u32 = 32768;
+        const DS_REPSYNC_TWO_WAY: u32 = 2048;
+        const DS_REPSYNC_URGENT: u32 = 64;
+        const DS_REPSYNC_USE_COMPRESSION: u32 = 16384;
+        const DS_REPSYNC_WRITEABLE: u32 = 2;
+        const DS_REPUPD_ADD_REFERENCE: u32 = 4;
+        const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1;
+        const DS_REPUPD_DELETE_REFERENCE: u32 = 8;
+        const DS_REPUPD_REFERENCE_GCSPN: u32 = 16;
+        const DS_REPUPD_WRITEABLE: u32 = 2;
+        const DS_ROLE_DOMAIN_OWNER: u32 = 1;
+        const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4;
+        const DS_ROLE_PDC_OWNER: u32 = 2;
+        const DS_ROLE_RID_OWNER: u32 = 3;
+        const DS_ROLE_SCHEMA_OWNER: u32 = 0;
+        const DS_SCHEMA_GUID_ATTR: u32 = 1;
+        const DS_SCHEMA_GUID_ATTR_SET: u32 = 2;
+        const DS_SCHEMA_GUID_CLASS: u32 = 3;
+        const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4;
+        struct DS_SCHEMA_GUID_MAPA {
+            guid: GUID,
+            guidType: u32,
+            pName: PSTR,
+        }
+        struct DS_SCHEMA_GUID_MAPW {
+            guid: GUID,
+            guidType: u32,
+            pName: PWSTR,
+        }
+        const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0;
+        struct DS_SITE_COST_INFO {
+            errorCode: u32,
+            cost: u32,
+        }
+        #[repr(i32)]
+        enum DS_SPN_NAME_TYPE {
+            DS_SPN_DNS_HOST = 0,
+            DS_SPN_DN_HOST = 1,
+            DS_SPN_NB_HOST = 2,
+            DS_SPN_DOMAIN = 3,
+            DS_SPN_NB_DOMAIN = 4,
+            DS_SPN_SERVICE = 5,
+        }
+        #[repr(i32)]
+        enum DS_SPN_WRITE_OP {
+            DS_SPN_ADD_SPN_OP = 0,
+            DS_SPN_REPLACE_SPN_OP = 1,
+            DS_SPN_DELETE_SPN_OP = 2,
+        }
+        #[encoding("ansi")]
+        const DS_SYNCED_EVENT_NAME: String = "NTDSInitialSyncsCompleted";
+        #[encoding("utf-16")]
+        const DS_SYNCED_EVENT_NAME_W: String = "NTDSInitialSyncsCompleted";
+        #[library("NTDSAPI.dll")]
+        extern fn DsAddSidHistoryA(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCSTR, SrcPrincipal: PCSTR, #[opt] SrcDomainController: PCSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCSTR, DstPrincipal: PCSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsAddSidHistoryW(hDS: HANDLE, #[reserved] Flags: u32, SrcDomain: PCWSTR, SrcPrincipal: PCWSTR, #[opt] SrcDomainController: PCWSTR, #[opt] SrcDomainCreds: RPC_AUTH_IDENTITY_HANDLE, DstDomain: PCWSTR, DstPrincipal: PCWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindByInstanceA(#[opt] ServerName: PCSTR, #[opt] Annotation: PCSTR, #[opt] InstanceGuid: *const GUID, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindByInstanceW(#[opt] ServerName: PCWSTR, #[opt] Annotation: PCWSTR, #[opt] InstanceGuid: *const GUID, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindToISTGA(#[opt] SiteName: PCSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindToISTGW(#[opt] SiteName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithCredA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithCredW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnExA(#[opt] DomainControllerName: PCSTR, #[opt] DnsDomainName: PCSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnExW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, #[opt] BindFlags: u32, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindWithSpnW(#[opt] DomainControllerName: PCWSTR, #[opt] DnsDomainName: PCWSTR, #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[opt] ServicePrincipalName: PCWSTR, phDS: *mut HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsBindingSetTimeout(hDS: HANDLE, cTimeoutSecs: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsClientMakeSpnForTargetServerA(ServiceClass: PCSTR, ServiceName: PCSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsClientMakeSpnForTargetServerW(ServiceClass: PCWSTR, ServiceName: PCWSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(2)] #[out] pszSpn: PWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackNamesA(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCSTR, ppResult: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackNamesW(#[opt] hDS: HANDLE, flags: DS_NAME_FLAGS, formatOffered: DS_NAME_FORMAT, formatDesired: DS_NAME_FORMAT, cNames: u32, #[len_param(4)] rpNames: *const PCWSTR, ppResult: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeDomainControllerInfoA(InfoLevel: u32, cInfo: u32, #[len_param(1)] pInfo: *const void);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeDomainControllerInfoW(InfoLevel: u32, cInfo: u32, #[len_param(1)] pInfo: *const void);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeNameResultA(pResult: *const DS_NAME_RESULTA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeNameResultW(pResult: *const DS_NAME_RESULTW);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreePasswordCredentials(AuthIdentity: RPC_AUTH_IDENTITY_HANDLE);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSchemaGuidMapA(pGuidMap: *const DS_SCHEMA_GUID_MAPA);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSchemaGuidMapW(pGuidMap: *const DS_SCHEMA_GUID_MAPW);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSpnArrayA(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PSTR);
+        #[library("NTDSAPI.dll")]
+        extern fn DsFreeSpnArrayW(cSpn: u32, #[len_param(0)] #[in] #[out] rpszSpn: *mut PWSTR);
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetDomainControllerInfoA(hDs: HANDLE, DomainName: PCSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetDomainControllerInfoW(hDs: HANDLE, DomainName: PCWSTR, InfoLevel: u32, pcOut: *mut u32, ppInfo: *mut *mut void) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetSpnA(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCSTR, #[opt] ServiceName: PCSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[opt] pInstanceNames: *const PCSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetSpnW(ServiceType: DS_SPN_NAME_TYPE, ServiceClass: PCWSTR, #[opt] ServiceName: PCWSTR, InstancePort: u16, cInstanceNames: u16, #[len_param(4)] #[opt] pInstanceNames: *const PCWSTR, #[len_param(4)] #[opt] pInstancePorts: *const u16, pcSpn: *mut u32, prpszSpn: *mut *mut PWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsInheritSecurityIdentityA(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCSTR, DstPrincipal: PCSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsInheritSecurityIdentityW(hDS: HANDLE, #[reserved] Flags: u32, SrcPrincipal: PCWSTR, DstPrincipal: PCWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListDomainsInSiteA(hDs: HANDLE, site: PCSTR, ppDomains: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListDomainsInSiteW(hDs: HANDLE, site: PCWSTR, ppDomains: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListInfoForServerA(hDs: HANDLE, server: PCSTR, ppInfo: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListInfoForServerW(hDs: HANDLE, server: PCWSTR, ppInfo: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListRolesA(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListRolesW(hDs: HANDLE, ppRoles: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersForDomainInSiteA(hDs: HANDLE, domain: PCSTR, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersForDomainInSiteW(hDs: HANDLE, domain: PCWSTR, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersInSiteA(hDs: HANDLE, site: PCSTR, ppServers: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListServersInSiteW(hDs: HANDLE, site: PCWSTR, ppServers: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListSitesA(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsListSitesW(hDs: HANDLE, ppSites: *mut PDS_NAME_RESULTW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakePasswordCredentialsA(#[opt] User: PCSTR, #[opt] Domain: PCSTR, #[opt] Password: PCSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakePasswordCredentialsW(#[opt] User: PCWSTR, #[opt] Domain: PCWSTR, #[opt] Password: PCWSTR, pAuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMapSchemaGuidsA(hDs: HANDLE, cGuids: u32, #[len_param(1)] rGuids: *const GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMapSchemaGuidsW(hDs: HANDLE, cGuids: u32, #[len_param(1)] rGuids: *const GUID, ppGuidMap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesByCostA(hDS: HANDLE, pszFromSite: PCSTR, #[len_param(3)] rgszToSites: *const PSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesByCostW(hDS: HANDLE, pwszFromSite: PCWSTR, #[len_param(3)] rgwszToSites: *const PWSTR, cToSites: u32, #[reserved] dwFlags: u32, prgSiteInfo: *mut PDS_SITE_COST_INFO) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuerySitesFree(rgSiteInfo: *const DS_SITE_COST_INFO);
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsDomainA(hDs: HANDLE, DomainDN: PCSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsDomainW(hDs: HANDLE, DomainDN: PCWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsServerA(hDs: HANDLE, ServerDN: PCSTR, #[opt] DomainDN: PCSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsRemoveDsServerW(hDs: HANDLE, ServerDN: PCWSTR, #[opt] DomainDN: PCWSTR, #[opt] fLastDcInDomain: *mut BOOL, fCommit: BOOL) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaAddA(hDS: HANDLE, NameContext: PCSTR, SourceDsaDn: PCSTR, TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: *const SCHEDULE, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaAddW(hDS: HANDLE, NameContext: PCWSTR, SourceDsaDn: PCWSTR, TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: *const SCHEDULE, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaConsistencyCheck(hDS: HANDLE, TaskID: DS_KCC_TASKID, dwFlags: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaDelA(hDS: HANDLE, NameContext: PCSTR, DsaSrc: PCSTR, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaDelW(hDS: HANDLE, NameContext: PCWSTR, DsaSrc: PCWSTR, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaFreeInfo(InfoType: DS_REPL_INFO_TYPE, pInfo: *const void);
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaGetInfo2W(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[opt] puuidForSourceDsaObjGuid: *const GUID, #[opt] pszAttributeName: PCWSTR, #[opt] pszValue: PCWSTR, dwFlags: u32, dwEnumerationContext: u32, ppInfo: *mut *mut void) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaGetInfoW(hDS: HANDLE, InfoType: DS_REPL_INFO_TYPE, #[opt] pszObject: PCWSTR, #[opt] puuidForSourceDsaObjGuid: *const GUID, ppInfo: *mut *mut void) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaModifyA(hDS: HANDLE, NameContext: PCSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCSTR, SourceDsaAddress: PCSTR, #[opt] pSchedule: *const SCHEDULE, #[reserved] ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaModifyW(hDS: HANDLE, NameContext: PCWSTR, #[opt] pUuidSourceDsa: *const GUID, #[reserved] TransportDn: PCWSTR, SourceDsaAddress: PCWSTR, #[opt] pSchedule: *const SCHEDULE, ReplicaFlags: u32, ModifyFields: u32, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncAllA(hDS: HANDLE, pszNameContext: PCSTR, ulFlags: u32, pFnCallBack: *mut u8, #[opt] pCallbackData: *const void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncAllW(hDS: HANDLE, pszNameContext: PCWSTR, ulFlags: u32, pFnCallBack: *mut u8, #[opt] pCallbackData: *const void, pErrors: *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaSyncW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaUpdateRefsA(hDS: HANDLE, NameContext: PCSTR, DsaDest: PCSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaUpdateRefsW(hDS: HANDLE, NameContext: PCWSTR, DsaDest: PCWSTR, pUuidDsaDest: *const GUID, Options: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaVerifyObjectsA(hDS: HANDLE, NameContext: PCSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsReplicaVerifyObjectsW(hDS: HANDLE, NameContext: PCWSTR, pUuidDsaSrc: *const GUID, ulOptions: u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsServerRegisterSpnA(Operation: DS_SPN_WRITE_OP, ServiceClass: PCSTR, #[opt] UserObjectDN: PCSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsServerRegisterSpnW(Operation: DS_SPN_WRITE_OP, ServiceClass: PCWSTR, #[opt] UserObjectDN: PCWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnBindA(phDS: *const HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnBindW(phDS: *const HANDLE) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsWriteAccountSpnA(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsWriteAccountSpnW(hDS: HANDLE, Operation: DS_SPN_WRITE_OP, pszAccount: PCWSTR, cSpn: u32, #[len_param(3)] rpszSpn: *const PCWSTR) -> u32;
+        const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4;
+        const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2;
+        const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1;
+        const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8;
+        const FRSCONN_MAX_PRIORITY: u32 = 8;
+        const FRSCONN_PRIORITY_MASK: u32 = 1879048192;
+        #[encoding("ansi")]
+        const GUID_COMPUTRS_CONTAINER_A: String = "aa312825768811d1aded00c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_COMPUTRS_CONTAINER_W: String = "aa312825768811d1aded00c04fd8d5cd";
+        #[encoding("ansi")]
+        const GUID_DATABASE_32K_PAGES_OPTIONAL_FEATURE_A: String = "c62a9852731e4f75ae2473ae2775aab8";
+        #[encoding("utf-16")]
+        const GUID_DATABASE_32K_PAGES_OPTIONAL_FEATURE_W: String = "c62a9852731e4f75ae2473ae2775aab8";
+        #[encoding("ansi")]
+        const GUID_DELETED_OBJECTS_CONTAINER_A: String = "18e2ea80684f11d2b9aa00c04f79f805";
+        #[encoding("utf-16")]
+        const GUID_DELETED_OBJECTS_CONTAINER_W: String = "18e2ea80684f11d2b9aa00c04f79f805";
+        #[encoding("ansi")]
+        const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: String = "a361b2ffffd211d1aa4b00c04fd7d83a";
+        #[encoding("utf-16")]
+        const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: String = "a361b2ffffd211d1aa4b00c04fd7d83a";
+        #[encoding("ansi")]
+        const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: String = "22b70c67d56e4efb91e9300fca3dc1aa";
+        #[encoding("utf-16")]
+        const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: String = "22b70c67d56e4efb91e9300fca3dc1aa";
+        #[encoding("ansi")]
+        const GUID_INFRASTRUCTURE_CONTAINER_A: String = "2fbac1870ade11d297c400c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_INFRASTRUCTURE_CONTAINER_W: String = "2fbac1870ade11d297c400c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_KEYS_CONTAINER_W: String = "683A24E2E8164BD3AF86AC3C2CF3F981";
+        #[encoding("ansi")]
+        const GUID_LOSTANDFOUND_CONTAINER_A: String = "ab8153b7768811d1aded00c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_LOSTANDFOUND_CONTAINER_W: String = "ab8153b7768811d1aded00c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: String = "1EB93889E40C45DF9F0C64D23BBB6237";
+        #[encoding("ansi")]
+        const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: String = "f4be92a4c777485e878e9421d53087db";
+        #[encoding("utf-16")]
+        const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: String = "f4be92a4c777485e878e9421d53087db";
+        #[encoding("ansi")]
+        const GUID_NTDS_QUOTAS_CONTAINER_A: String = "6227f0af1fc2410d8e3bb10615bb5b0f";
+        #[encoding("utf-16")]
+        const GUID_NTDS_QUOTAS_CONTAINER_W: String = "6227f0af1fc2410d8e3bb10615bb5b0f";
+        #[encoding("ansi")]
+        const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: String = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+        #[encoding("utf-16")]
+        const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: String = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+        #[encoding("ansi")]
+        const GUID_PROGRAM_DATA_CONTAINER_A: String = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+        #[encoding("utf-16")]
+        const GUID_PROGRAM_DATA_CONTAINER_W: String = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+        #[encoding("ansi")]
+        const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: String = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+        #[encoding("utf-16")]
+        const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: String = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+        #[encoding("ansi")]
+        const GUID_SYSTEMS_CONTAINER_A: String = "ab1d30f3768811d1aded00c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_SYSTEMS_CONTAINER_W: String = "ab1d30f3768811d1aded00c04fd8d5cd";
+        #[encoding("ansi")]
+        const GUID_USERS_CONTAINER_A: String = "a9d1ca15768811d1aded00c04fd8d5cd";
+        #[encoding("utf-16")]
+        const GUID_USERS_CONTAINER_W: String = "a9d1ca15768811d1aded00c04fd8d5cd";
+        const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1;
+        const NTDSAPI_BIND_FIND_BINDING: u32 = 2;
+        const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4;
+        const NTDSCONN_KCC_GC_TOPOLOGY: u32 = 1;
+        const NTDSCONN_KCC_INTERSITE_GC_TOPOLOGY: u32 = 32;
+        const NTDSCONN_KCC_INTERSITE_TOPOLOGY: u32 = 64;
+        const NTDSCONN_KCC_MINIMIZE_HOPS_TOPOLOGY: u32 = 4;
+        const NTDSCONN_KCC_NO_REASON: u32 = 0;
+        const NTDSCONN_KCC_OSCILLATING_CONNECTION_TOPOLOGY: u32 = 16;
+        const NTDSCONN_KCC_REDUNDANT_SERVER_TOPOLOGY: u32 = 512;
+        const NTDSCONN_KCC_RING_TOPOLOGY: u32 = 2;
+        const NTDSCONN_KCC_SERVER_FAILOVER_TOPOLOGY: u32 = 128;
+        const NTDSCONN_KCC_SITE_FAILOVER_TOPOLOGY: u32 = 256;
+        const NTDSCONN_KCC_STALE_SERVERS_TOPOLOGY: u32 = 8;
+        const NTDSCONN_OPT_DISABLE_INTERSITE_COMPRESSION: u32 = 16;
+        const NTDSCONN_OPT_IGNORE_SCHEDULE_MASK: u32 = 2147483648;
+        const NTDSCONN_OPT_IS_GENERATED: u32 = 1;
+        const NTDSCONN_OPT_OVERRIDE_NOTIFY_DEFAULT: u32 = 4;
+        const NTDSCONN_OPT_RODC_TOPOLOGY: u32 = 64;
+        const NTDSCONN_OPT_TWOWAY_SYNC: u32 = 2;
+        const NTDSCONN_OPT_USER_OWNED_SCHEDULE: u32 = 32;
+        const NTDSCONN_OPT_USE_NOTIFY: u32 = 8;
+        const NTDSDSA_OPT_BLOCK_RPC: u32 = 64;
+        const NTDSDSA_OPT_DISABLE_INBOUND_REPL: u32 = 2;
+        const NTDSDSA_OPT_DISABLE_NTDSCONN_XLATE: u32 = 8;
+        const NTDSDSA_OPT_DISABLE_OUTBOUND_REPL: u32 = 4;
+        const NTDSDSA_OPT_DISABLE_SPN_REGISTRATION: u32 = 16;
+        const NTDSDSA_OPT_GENERATE_OWN_TOPO: u32 = 32;
+        const NTDSDSA_OPT_IS_GC: u32 = 1;
+        const NTDSSETTINGS_DEFAULT_SERVER_REDUNDANCY: u32 = 2;
+        const NTDSSETTINGS_OPT_FORCE_KCC_W2K_ELECTION: u32 = 128;
+        const NTDSSETTINGS_OPT_FORCE_KCC_WHISTLER_BEHAVIOR: u32 = 64;
+        const NTDSSETTINGS_OPT_IS_AUTO_TOPOLOGY_DISABLED: u32 = 1;
+        const NTDSSETTINGS_OPT_IS_GROUP_CACHING_ENABLED: u32 = 32;
+        const NTDSSETTINGS_OPT_IS_INTER_SITE_AUTO_TOPOLOGY_DISABLED: u32 = 16;
+        const NTDSSETTINGS_OPT_IS_RAND_BH_SELECTION_DISABLED: u32 = 256;
+        const NTDSSETTINGS_OPT_IS_REDUNDANT_SERVER_TOPOLOGY_ENABLED: u32 = 1024;
+        const NTDSSETTINGS_OPT_IS_SCHEDULE_HASHING_ENABLED: u32 = 512;
+        const NTDSSETTINGS_OPT_IS_TOPL_CLEANUP_DISABLED: u32 = 2;
+        const NTDSSETTINGS_OPT_IS_TOPL_DETECT_STALE_DISABLED: u32 = 8;
+        const NTDSSETTINGS_OPT_IS_TOPL_MIN_HOPS_DISABLED: u32 = 4;
+        const NTDSSETTINGS_OPT_W2K3_BRIDGES_REQUIRED: u32 = 4096;
+        const NTDSSETTINGS_OPT_W2K3_IGNORE_SCHEDULES: u32 = 2048;
+        const NTDSSITECONN_OPT_DISABLE_COMPRESSION: u32 = 4;
+        const NTDSSITECONN_OPT_TWOWAY_SYNC: u32 = 2;
+        const NTDSSITECONN_OPT_USE_NOTIFY: u32 = 1;
+        const NTDSSITELINK_OPT_DISABLE_COMPRESSION: u32 = 4;
+        const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2;
+        const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1;
+        const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2;
+        const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1;
+        type PDS_DOMAIN_CONTROLLER_INFO_1A = *mut DS_DOMAIN_CONTROLLER_INFO_1A;
+        type PDS_DOMAIN_CONTROLLER_INFO_1W = *mut DS_DOMAIN_CONTROLLER_INFO_1W;
+        type PDS_DOMAIN_CONTROLLER_INFO_2A = *mut DS_DOMAIN_CONTROLLER_INFO_2A;
+        type PDS_DOMAIN_CONTROLLER_INFO_2W = *mut DS_DOMAIN_CONTROLLER_INFO_2W;
+        type PDS_DOMAIN_CONTROLLER_INFO_3A = *mut DS_DOMAIN_CONTROLLER_INFO_3A;
+        type PDS_DOMAIN_CONTROLLER_INFO_3W = *mut DS_DOMAIN_CONTROLLER_INFO_3W;
+        type PDS_NAME_RESULTA = *mut DS_NAME_RESULTA;
+        type PDS_NAME_RESULTW = *mut DS_NAME_RESULTW;
+        type PDS_NAME_RESULT_ITEMA = *mut DS_NAME_RESULT_ITEMA;
+        type PDS_NAME_RESULT_ITEMW = *mut DS_NAME_RESULT_ITEMW;
+        type PDS_REPSYNCALL_ERRINFOA = *mut DS_REPSYNCALL_ERRINFOA;
+        type PDS_REPSYNCALL_ERRINFOW = *mut DS_REPSYNCALL_ERRINFOW;
+        type PDS_REPSYNCALL_SYNCA = *mut DS_REPSYNCALL_SYNCA;
+        type PDS_REPSYNCALL_SYNCW = *mut DS_REPSYNCALL_SYNCW;
+        type PDS_REPSYNCALL_UPDATEA = *mut DS_REPSYNCALL_UPDATEA;
+        type PDS_REPSYNCALL_UPDATEW = *mut DS_REPSYNCALL_UPDATEW;
+        type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
+        type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
+        type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
+    }
+}

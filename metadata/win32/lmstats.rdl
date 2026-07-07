@@ -1,0 +1,75 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
+        type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
+        #[library("NETAPI32.dll")]
+        extern fn NetStatisticsGet(ServerName: LPTSTR, Service: LPTSTR, Level: u32, Options: u32, Buffer: *mut LPBYTE) -> u32;
+        type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
+        type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
+        const STATSOPT_CLR: u32 = 1;
+        const STATS_NO_VALUE: i32 = -1;
+        const STATS_OVERFLOW: i32 = -2;
+        struct STAT_SERVER_0 {
+            sts0_start: u32,
+            sts0_fopens: u32,
+            sts0_devopens: u32,
+            sts0_jobsqueued: u32,
+            sts0_sopens: u32,
+            sts0_stimedout: u32,
+            sts0_serrorout: u32,
+            sts0_pwerrors: u32,
+            sts0_permerrors: u32,
+            sts0_syserrors: u32,
+            sts0_bytessent_low: u32,
+            sts0_bytessent_high: u32,
+            sts0_bytesrcvd_low: u32,
+            sts0_bytesrcvd_high: u32,
+            sts0_avresponse: u32,
+            sts0_reqbufneed: u32,
+            sts0_bigbufneed: u32,
+        }
+        struct STAT_WORKSTATION_0 {
+            StatisticsStartTime: LARGE_INTEGER,
+            BytesReceived: LARGE_INTEGER,
+            SmbsReceived: LARGE_INTEGER,
+            PagingReadBytesRequested: LARGE_INTEGER,
+            NonPagingReadBytesRequested: LARGE_INTEGER,
+            CacheReadBytesRequested: LARGE_INTEGER,
+            NetworkReadBytesRequested: LARGE_INTEGER,
+            BytesTransmitted: LARGE_INTEGER,
+            SmbsTransmitted: LARGE_INTEGER,
+            PagingWriteBytesRequested: LARGE_INTEGER,
+            NonPagingWriteBytesRequested: LARGE_INTEGER,
+            CacheWriteBytesRequested: LARGE_INTEGER,
+            NetworkWriteBytesRequested: LARGE_INTEGER,
+            InitiallyFailedOperations: u32,
+            FailedCompletionOperations: u32,
+            ReadOperations: u32,
+            RandomReadOperations: u32,
+            ReadSmbs: u32,
+            LargeReadSmbs: u32,
+            SmallReadSmbs: u32,
+            WriteOperations: u32,
+            RandomWriteOperations: u32,
+            WriteSmbs: u32,
+            LargeWriteSmbs: u32,
+            SmallWriteSmbs: u32,
+            RawReadsDenied: u32,
+            RawWritesDenied: u32,
+            NetworkErrors: u32,
+            Sessions: u32,
+            FailedSessions: u32,
+            Reconnects: u32,
+            CoreConnects: u32,
+            Lanman20Connects: u32,
+            Lanman21Connects: u32,
+            LanmanNtConnects: u32,
+            ServerDisconnects: u32,
+            HungSessions: u32,
+            UseCount: u32,
+            FailedUseCount: u32,
+            CurrentCommands: u32,
+        }
+    }
+}

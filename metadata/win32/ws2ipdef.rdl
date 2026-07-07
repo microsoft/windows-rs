@@ -1,0 +1,296 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct GROUP_FILTER {
+            gf_interface: u32,
+            gf_group: SOCKADDR_STORAGE,
+            gf_fmode: MULTICAST_MODE_TYPE,
+            gf_numsrc: u32,
+            gf_slist: [SOCKADDR_STORAGE; 1],
+        }
+        struct GROUP_REQ {
+            gr_interface: u32,
+            gr_group: SOCKADDR_STORAGE,
+        }
+        struct GROUP_SOURCE_REQ {
+            gsr_interface: u32,
+            gsr_group: SOCKADDR_STORAGE,
+            gsr_source: SOCKADDR_STORAGE,
+        }
+        struct ICMP_ERROR_INFO {
+            srcaddress: SOCKADDR_INET,
+            protocol: IPPROTO,
+            r#type: u8,
+            code: u8,
+        }
+        const IFF_BROADCAST: u32 = 2;
+        const IFF_LOOPBACK: u32 = 4;
+        const IFF_MULTICAST: u32 = 16;
+        const IFF_POINTTOPOINT: u32 = 8;
+        const IFF_UP: u32 = 1;
+        const IN6ADDR_6TO4PREFIX_LENGTH: u32 = 16;
+        const IN6ADDR_LINKLOCALPREFIX_LENGTH: u32 = 64;
+        const IN6ADDR_MULTICASTPREFIX_LENGTH: u32 = 8;
+        const IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH: u32 = 104;
+        const IN6ADDR_TEREDOPREFIX_LENGTH: u32 = 32;
+        const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96;
+        struct IN6_PKTINFO {
+            ipi6_addr: IN6_ADDR,
+            ipi6_ifindex: u32,
+        }
+        struct IN6_PKTINFO_EX {
+            pkt_info: IN6_PKTINFO,
+            scope_id: SCOPE_ID,
+        }
+        const INET6_ADDRSTRLEN: u32 = 65;
+        const INET_ADDRSTRLEN: u32 = 22;
+        struct INTERFACE_INFO {
+            iiFlags: u32,
+            iiAddress: sockaddr_gen,
+            iiBroadcastAddress: sockaddr_gen,
+            iiNetmask: sockaddr_gen,
+        }
+        struct INTERFACE_INFO_EX {
+            iiFlags: u32,
+            iiAddress: SOCKET_ADDRESS,
+            iiBroadcastAddress: SOCKET_ADDRESS,
+            iiNetmask: SOCKET_ADDRESS,
+        }
+        struct IN_PKTINFO {
+            ipi_addr: IN_ADDR,
+            ipi_ifindex: u32,
+        }
+        struct IN_PKTINFO_EX {
+            pkt_info: IN_PKTINFO,
+            scope_id: SCOPE_ID,
+        }
+        struct IN_RECVERR {
+            protocol: IPPROTO,
+            info: u32,
+            r#type: u8,
+            code: u8,
+        }
+        const IPV6_ADDRESS_BITS: u32 = 128;
+        const IPV6_ADD_IFLIST: u32 = 29;
+        const IPV6_ADD_MEMBERSHIP: u32 = 12;
+        const IPV6_CHECKSUM: u32 = 26;
+        const IPV6_DEL_IFLIST: u32 = 30;
+        const IPV6_DONTFRAG: u32 = 14;
+        const IPV6_DROP_MEMBERSHIP: u32 = 13;
+        const IPV6_ECN: u32 = 50;
+        const IPV6_GET_IFLIST: u32 = 33;
+        const IPV6_HDRINCL: u32 = 2;
+        const IPV6_HOPLIMIT: u32 = 21;
+        const IPV6_HOPOPTS: u32 = 1;
+        const IPV6_IFLIST: u32 = 28;
+        const IPV6_JOIN_GROUP: u32 = 12;
+        const IPV6_LEAVE_GROUP: u32 = 13;
+        struct IPV6_MREQ {
+            ipv6mr_multiaddr: IN6_ADDR,
+            ipv6mr_interface: u32,
+        }
+        const IPV6_MTU: u32 = 72;
+        const IPV6_MTU_DISCOVER: u32 = 71;
+        const IPV6_MULTICAST_HOPS: u32 = 10;
+        const IPV6_MULTICAST_IF: u32 = 9;
+        const IPV6_MULTICAST_LOOP: u32 = 11;
+        const IPV6_NRT_INTERFACE: u32 = 74;
+        const IPV6_PKTINFO: u32 = 19;
+        const IPV6_PKTINFO_EX: u32 = 51;
+        const IPV6_PROTECTION_LEVEL: u32 = 23;
+        const IPV6_RECVDSTADDR: u32 = 25;
+        const IPV6_RECVECN: u32 = 50;
+        const IPV6_RECVERR: u32 = 75;
+        const IPV6_RECVIF: u32 = 24;
+        const IPV6_RECVRTHDR: u32 = 38;
+        const IPV6_RECVTCLASS: u32 = 40;
+        const IPV6_RTHDR: u32 = 32;
+        const IPV6_TCLASS: u32 = 39;
+        const IPV6_UNICAST_HOPS: u32 = 4;
+        const IPV6_UNICAST_IF: u32 = 31;
+        const IPV6_USER_MTU: u32 = 76;
+        const IPV6_V6ONLY: u32 = 27;
+        const IPV6_WFP_REDIRECT_CONTEXT: u32 = 70;
+        const IPV6_WFP_REDIRECT_RECORDS: u32 = 60;
+        const IP_ADD_IFLIST: u32 = 29;
+        const IP_ADD_MEMBERSHIP: u32 = 12;
+        const IP_ADD_SOURCE_MEMBERSHIP: u32 = 15;
+        const IP_BLOCK_SOURCE: u32 = 17;
+        const IP_DEL_IFLIST: u32 = 30;
+        const IP_DONTFRAGMENT: u32 = 14;
+        const IP_DROP_MEMBERSHIP: u32 = 13;
+        const IP_DROP_SOURCE_MEMBERSHIP: u32 = 16;
+        const IP_ECN: u32 = 50;
+        const IP_GET_IFLIST: u32 = 33;
+        const IP_HDRINCL: u32 = 2;
+        const IP_HOPLIMIT: u32 = 21;
+        const IP_IFLIST: u32 = 28;
+        struct IP_MREQ {
+            imr_multiaddr: IN_ADDR,
+            imr_interface: IN_ADDR,
+        }
+        struct IP_MREQ_SOURCE {
+            imr_multiaddr: IN_ADDR,
+            imr_sourceaddr: IN_ADDR,
+            imr_interface: IN_ADDR,
+        }
+        struct IP_MSFILTER {
+            imsf_multiaddr: IN_ADDR,
+            imsf_interface: IN_ADDR,
+            imsf_fmode: MULTICAST_MODE_TYPE,
+            imsf_numsrc: u32,
+            imsf_slist: [IN_ADDR; 1],
+        }
+        const IP_MTU: u32 = 73;
+        const IP_MTU_DISCOVER: u32 = 71;
+        const IP_MULTICAST_IF: u32 = 9;
+        const IP_MULTICAST_LOOP: u32 = 11;
+        const IP_MULTICAST_TTL: u32 = 10;
+        const IP_NRT_INTERFACE: u32 = 74;
+        const IP_OPTIONS: u32 = 1;
+        const IP_ORIGINAL_ARRIVAL_IF: u32 = 47;
+        const IP_PKTINFO: u32 = 19;
+        const IP_PKTINFO_EX: u32 = 51;
+        const IP_PROTECTION_LEVEL: u32 = 23;
+        const IP_RECEIVE_BROADCAST: u32 = 22;
+        const IP_RECVDSTADDR: u32 = 25;
+        const IP_RECVECN: u32 = 50;
+        const IP_RECVERR: u32 = 75;
+        const IP_RECVIF: u32 = 24;
+        const IP_RECVRTHDR: u32 = 38;
+        const IP_RECVTCLASS: u32 = 40;
+        const IP_RECVTOS: u32 = 40;
+        const IP_RECVTTL: u32 = 21;
+        const IP_RTHDR: u32 = 32;
+        const IP_TCLASS: u32 = 39;
+        const IP_TOS: u32 = 3;
+        const IP_TTL: u32 = 4;
+        const IP_UNBLOCK_SOURCE: u32 = 18;
+        const IP_UNICAST_IF: u32 = 31;
+        const IP_UNSPECIFIED_HOP_LIMIT: i32 = -1;
+        const IP_UNSPECIFIED_TYPE_OF_SERVICE: i32 = -1;
+        const IP_USER_MTU: u32 = 76;
+        const IP_WFP_REDIRECT_CONTEXT: u32 = 70;
+        const IP_WFP_REDIRECT_RECORDS: u32 = 60;
+        type LPINTERFACE_INFO = *mut INTERFACE_INFO;
+        type LPINTERFACE_INFO_EX = *mut INTERFACE_INFO_EX;
+        type LPSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
+        type LPSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
+        type LPSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
+        const MCAST_BLOCK_SOURCE: u32 = 43;
+        const MCAST_JOIN_GROUP: u32 = 41;
+        const MCAST_JOIN_SOURCE_GROUP: u32 = 45;
+        const MCAST_LEAVE_GROUP: u32 = 42;
+        const MCAST_LEAVE_SOURCE_GROUP: u32 = 46;
+        const MCAST_UNBLOCK_SOURCE: u32 = 44;
+        #[repr(i32)]
+        enum MULTICAST_MODE_TYPE {
+            MCAST_INCLUDE = 0,
+            MCAST_EXCLUDE = 1,
+        }
+        type PGROUP_FILTER = *mut GROUP_FILTER;
+        type PGROUP_REQ = *mut GROUP_REQ;
+        type PGROUP_SOURCE_REQ = *mut GROUP_SOURCE_REQ;
+        type PICMP_ERROR_INFO = *mut ICMP_ERROR_INFO;
+        type PIN6_PKTINFO = *mut IN6_PKTINFO;
+        type PIN6_PKTINFO_EX = *mut IN6_PKTINFO_EX;
+        type PIN_PKTINFO = *mut IN_PKTINFO;
+        type PIN_PKTINFO_EX = *mut IN_PKTINFO_EX;
+        type PIN_RECVERR = *mut IN_RECVERR;
+        type PIPV6_MREQ = *mut IPV6_MREQ;
+        type PIP_MREQ = *mut IP_MREQ;
+        type PIP_MREQ_SOURCE = *mut IP_MREQ_SOURCE;
+        type PIP_MSFILTER = *mut IP_MSFILTER;
+        #[repr(i32)]
+        enum PMTUD_STATE {
+            IP_PMTUDISC_NOT_SET = 0,
+            IP_PMTUDISC_DO = 1,
+            IP_PMTUDISC_DONT = 2,
+            IP_PMTUDISC_PROBE = 3,
+            IP_PMTUDISC_MAX = 4,
+        }
+        type PPMTUD_STATE = *mut PMTUD_STATE;
+        const PROTECTION_LEVEL_DEFAULT: u32 = 4294967295;
+        const PROTECTION_LEVEL_EDGERESTRICTED: u32 = 20;
+        const PROTECTION_LEVEL_RESTRICTED: u32 = 30;
+        const PROTECTION_LEVEL_UNRESTRICTED: u32 = 10;
+        type PSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
+        type PSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
+        type PSOCKADDR_IN6_PAIR = *mut SOCKADDR_IN6_PAIR;
+        type PSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
+        type PSOCKADDR_INET = *mut SOCKADDR_INET;
+        const SIOCGIPMSFILTER: i32 = -2147191684;
+        const SIOCGMSFILTER: i32 = -2147191681;
+        const SIOCSIPMSFILTER: i32 = -2147191683;
+        const SIOCSMSFILTER: i32 = -2147191682;
+        const SIO_GET_INTERFACE_LIST: u32 = 1074033791;
+        const SIO_GET_INTERFACE_LIST_EX: u32 = 1074033790;
+        const SIO_GET_MULTICAST_FILTER: i32 = -2147191684;
+        const SIO_IDEAL_SEND_BACKLOG_CHANGE: u32 = 536900730;
+        const SIO_IDEAL_SEND_BACKLOG_QUERY: u32 = 1074033787;
+        const SIO_SET_MULTICAST_FILTER: i32 = -2147191683;
+        type SOCKADDR_IN6 = SOCKADDR_IN6_LH;
+        struct SOCKADDR_IN6_LH {
+            sin6_family: ADDRESS_FAMILY,
+            sin6_port: u16,
+            sin6_flowinfo: u32,
+            sin6_addr: IN6_ADDR,
+            Anonymous: union {
+                sin6_scope_id: u32,
+                sin6_scope_struct: SCOPE_ID,
+            },
+        }
+        struct SOCKADDR_IN6_PAIR {
+            SourceAddress: PSOCKADDR_IN6,
+            DestinationAddress: PSOCKADDR_IN6,
+        }
+        struct SOCKADDR_IN6_W2KSP1 {
+            sin6_family: i16,
+            sin6_port: u16,
+            sin6_flowinfo: u32,
+            sin6_addr: IN6_ADDR,
+            sin6_scope_id: u32,
+        }
+        union SOCKADDR_INET {
+            Ipv4: SOCKADDR_IN,
+            Ipv6: SOCKADDR_IN6,
+            si_family: ADDRESS_FAMILY,
+        }
+        const TCP_ATMARK: u32 = 8;
+        const TCP_CONGESTION_ALGORITHM: u32 = 12;
+        const TCP_DELAY_FIN_ACK: u32 = 13;
+        const TCP_EXPEDITED_1122: u32 = 2;
+        const TCP_FAIL_CONNECT_ON_ICMP_ERROR: u32 = 18;
+        const TCP_FASTOPEN: u32 = 15;
+        const TCP_ICMP_ERROR_INFO: u32 = 19;
+        const TCP_KEEPALIVE: u32 = 3;
+        const TCP_KEEPCNT: u32 = 16;
+        const TCP_KEEPIDLE: u32 = 3;
+        const TCP_KEEPINTVL: u32 = 17;
+        const TCP_MAXRT: u32 = 5;
+        const TCP_MAXRTMS: u32 = 14;
+        const TCP_MAXSEG: u32 = 4;
+        const TCP_NOSYNRETRIES: u32 = 9;
+        const TCP_NOURG: u32 = 7;
+        const TCP_OFFLOAD_NOT_PREFERRED: u32 = 1;
+        const TCP_OFFLOAD_NO_PREFERENCE: u32 = 0;
+        const TCP_OFFLOAD_PREFERENCE: u32 = 11;
+        const TCP_OFFLOAD_PREFERRED: u32 = 2;
+        const TCP_STDURG: u32 = 6;
+        const TCP_TIMESTAMPS: u32 = 10;
+        const UDP_COALESCED_INFO: u32 = 3;
+        const UDP_RECV_MAX_COALESCED_SIZE: u32 = 3;
+        const UDP_SEND_MSG_SIZE: u32 = 2;
+        union sockaddr_gen {
+            Address: SOCKADDR,
+            AddressIn: SOCKADDR_IN,
+            AddressIn6: sockaddr_in6_old,
+        }
+        struct sockaddr_in6_old {
+            sin6_family: i16,
+            sin6_port: u16,
+            sin6_flowinfo: u32,
+            sin6_addr: IN6_ADDR,
+        }
+    }
+}

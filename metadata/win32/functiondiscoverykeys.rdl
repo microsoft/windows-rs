@@ -1,0 +1,70 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_AD_PRINTER: String = "Published Printer";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_ASP_INFRA: String = "AspInfra";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH: String = "Bluetooth";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_BLUETOOTH_LE: String = "Bluetooth Low Energy";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_NETBIOS: String = "NetBIOS";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_PNP: String = "PnP";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_UPNP: String = "UPnP";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_WFD: String = "WiFiDirect";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_WSD: String = "WSD";
+        #[encoding("utf-16")]
+        const DEVICEDISPLAY_DISCOVERYMETHOD_WUSB: String = "WUSB";
+        const FD_Visibility_Default: u32 = 0;
+        const FD_Visibility_Hidden: u32 = 1;
+        const FMTID_Device: GUID = 0x78c34fc8_104a_4aca_9ea4_524d52996e57;
+        const FMTID_DeviceInterface: GUID = 0x53808008_07bb_4661_bc3c_b5953e708560;
+        const FMTID_FD: GUID = 0x904b03a2_471d_423c_a584_f3483238a146;
+        const FMTID_PNPX: GUID = 0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd;
+        const FMTID_PNPXDynamicProperty: GUID = 0x4fc5077e_b686_44be_93e3_86cafe368ccd;
+        const FMTID_Pairing: GUID = 0x8807cae6_7db6_4f10_8ee4_435eaa1392bc;
+        const FMTID_WSD: GUID = 0x92506491_ff95_4724_a05a_5b81885a7c92;
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_CAMERA: String = "Cameras";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_COMPUTER: String = "Computers";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_DISPLAYS: String = "Displays";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_FAX: String = "FAX";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_GAMING_DEVICE: String = "Gaming";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_HOME_AUTOMATION_SYSTEM: String = "HomeAutomation";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_HOME_SECURITY_SYSTEM: String = "HomeSecurity";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_INPUTDEVICE: String = "Input";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_MFP: String = "MFP";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_MULTIMEDIA_DEVICE: String = "MediaDevices";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_NETWORK_INFRASTRUCTURE: String = "NetworkInfrastructure";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_OTHER: String = "Other";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_PRINTER: String = "Printers";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_SCANNER: String = "Scanners";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_STORAGE: String = "Storage";
+        #[encoding("utf-16")]
+        const PNPX_DEVICECATEGORY_TELEPHONE: String = "Phones";
+        const PNPX_INSTALLSTATE_FAILED: u32 = 3;
+        const PNPX_INSTALLSTATE_INSTALLED: u32 = 1;
+        const PNPX_INSTALLSTATE_INSTALLING: u32 = 2;
+        const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0;
+    }
+}

@@ -1,0 +1,941 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11;
+        struct BUSDATA {
+            BusDataType: u32,
+            BusNumber: u32,
+            SlotNumber: u32,
+            Buffer: *mut void,
+            Offset: u32,
+            Length: u32,
+        }
+        const CANNOT_ALLOCATE_MEMORY: u32 = 9;
+        const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048;
+        #[arch(X64)]
+        const CURRENT_KD_SECONDARY_VERSION: u32 = 2;
+        #[arch(X86 | Arm64)]
+        const CURRENT_KD_SECONDARY_VERSION: u32 = 0;
+        struct DBGKD_DEBUG_DATA_HEADER32 {
+            List: LIST_ENTRY32,
+            OwnerTag: u32,
+            Size: u32,
+        }
+        struct DBGKD_DEBUG_DATA_HEADER64 {
+            List: LIST_ENTRY64,
+            OwnerTag: u32,
+            Size: u32,
+        }
+        struct DBGKD_GET_VERSION32 {
+            MajorVersion: u16,
+            MinorVersion: u16,
+            ProtocolVersion: u16,
+            Flags: u16,
+            KernBase: u32,
+            PsLoadedModuleList: u32,
+            MachineType: u16,
+            ThCallbackStack: u16,
+            NextCallback: u16,
+            FramePointer: u16,
+            KiCallUserMode: u32,
+            KeUserCallbackDispatcher: u32,
+            BreakpointWithStatus: u32,
+            DebuggerDataList: u32,
+        }
+        struct DBGKD_GET_VERSION64 {
+            MajorVersion: u16,
+            MinorVersion: u16,
+            ProtocolVersion: u8,
+            KdSecondaryVersion: u8,
+            Flags: u16,
+            MachineType: u16,
+            MaxPacketType: u8,
+            MaxStateChange: u8,
+            MaxManipulate: u8,
+            Simulation: u8,
+            Unused: [u16; 1],
+            KernBase: u64,
+            PsLoadedModuleList: u64,
+            DebuggerDataList: u64,
+        }
+        #[repr(i32)]
+        enum DBGKD_MAJOR_TYPES {
+            DBGKD_MAJOR_NT = 0,
+            DBGKD_MAJOR_XBOX = 1,
+            DBGKD_MAJOR_BIG = 2,
+            DBGKD_MAJOR_EXDI = 3,
+            DBGKD_MAJOR_NTBD = 4,
+            DBGKD_MAJOR_EFI = 5,
+            DBGKD_MAJOR_TNT = 6,
+            DBGKD_MAJOR_SINGULARITY = 7,
+            DBGKD_MAJOR_HYPERVISOR = 8,
+            DBGKD_MAJOR_MIDORI = 9,
+            DBGKD_MAJOR_CE = 10,
+            DBGKD_MAJOR_COUNT = 11,
+        }
+        const DBGKD_SIMULATION_EXDI: i32 = 1;
+        const DBGKD_SIMULATION_NONE: i32 = 0;
+        const DBGKD_VERS_FLAG_DATA: u32 = 2;
+        const DBGKD_VERS_FLAG_HAL_IN_NTOS: u32 = 64;
+        const DBGKD_VERS_FLAG_HSS: u32 = 16;
+        const DBGKD_VERS_FLAG_MP: u32 = 1;
+        const DBGKD_VERS_FLAG_NOMM: u32 = 8;
+        const DBGKD_VERS_FLAG_PARTITIONS: u32 = 32;
+        const DBGKD_VERS_FLAG_PTR64: u32 = 4;
+        const DBG_DUMP_ADDRESS_AT_END: u32 = 131072;
+        const DBG_DUMP_ADDRESS_OF_FIELD: u32 = 65536;
+        const DBG_DUMP_ARRAY: u32 = 32768;
+        const DBG_DUMP_BLOCK_RECURSE: u32 = 2097152;
+        const DBG_DUMP_CALL_FOR_EACH: u32 = 8;
+        const DBG_DUMP_COMPACT_OUT: u32 = 8192;
+        const DBG_DUMP_COPY_TYPE_DATA: u32 = 262144;
+        const DBG_DUMP_FIELD_ARRAY: u32 = 16;
+        const DBG_DUMP_FIELD_CALL_BEFORE_PRINT: u32 = 1;
+        const DBG_DUMP_FIELD_COPY_FIELD_DATA: u32 = 32;
+        const DBG_DUMP_FIELD_DEFAULT_STRING: u32 = 65536;
+        const DBG_DUMP_FIELD_FULL_NAME: u32 = 8;
+        const DBG_DUMP_FIELD_GUID_STRING: u32 = 524288;
+        const DBG_DUMP_FIELD_MULTI_STRING: u32 = 262144;
+        const DBG_DUMP_FIELD_NO_CALLBACK_REQ: u32 = 2;
+        const DBG_DUMP_FIELD_NO_PRINT: u32 = 16384;
+        const DBG_DUMP_FIELD_RECUR_ON_THIS: u32 = 4;
+        const DBG_DUMP_FIELD_RETURN_ADDRESS: u32 = 4096;
+        const DBG_DUMP_FIELD_SIZE_IN_BITS: u32 = 8192;
+        const DBG_DUMP_FIELD_UTF32_STRING: u32 = 1048576;
+        const DBG_DUMP_FIELD_WCHAR_STRING: u32 = 131072;
+        const DBG_DUMP_FUNCTION_FORMAT: u32 = 1048576;
+        const DBG_DUMP_GET_SIZE_ONLY: u32 = 128;
+        const DBG_DUMP_LIST: u32 = 32;
+        const DBG_DUMP_MATCH_SIZE: u32 = 4194304;
+        const DBG_DUMP_NO_INDENT: u32 = 1;
+        const DBG_DUMP_NO_OFFSET: u32 = 2;
+        const DBG_DUMP_NO_PRINT: u32 = 64;
+        const DBG_DUMP_READ_PHYSICAL: u32 = 524288;
+        const DBG_DUMP_VERBOSE: u32 = 4;
+        const DBG_RETURN_SUBTYPES: u32 = 0;
+        const DBG_RETURN_TYPE: u32 = 0;
+        const DBG_RETURN_TYPE_VALUES: u32 = 0;
+        struct DEBUG_TYPED_DATA {
+            ModBase: u64,
+            Offset: u64,
+            EngineHandle: u64,
+            Data: u64,
+            Size: u32,
+            Flags: u32,
+            TypeId: u32,
+            BaseTypeId: u32,
+            Tag: u32,
+            Register: u32,
+            Internal: [u64; 9],
+        }
+        const DEBUG_TYPED_DATA_IS_IN_MEMORY: u32 = 1;
+        const DEBUG_TYPED_DATA_PHYSICAL_CACHED: u32 = 4;
+        const DEBUG_TYPED_DATA_PHYSICAL_DEFAULT: u32 = 2;
+        const DEBUG_TYPED_DATA_PHYSICAL_MEMORY: u32 = 14;
+        const DEBUG_TYPED_DATA_PHYSICAL_UNCACHED: u32 = 6;
+        const DEBUG_TYPED_DATA_PHYSICAL_WRITE_COMBINED: u32 = 8;
+        const EXIT_ON_CONTROLC: u32 = 8;
+        struct EXTSTACKTRACE {
+            FramePointer: u32,
+            ProgramCounter: u32,
+            ReturnAddress: u32,
+            Args: [u32; 4],
+        }
+        struct EXTSTACKTRACE32 {
+            FramePointer: u32,
+            ProgramCounter: u32,
+            ReturnAddress: u32,
+            Args: [u32; 4],
+        }
+        struct EXTSTACKTRACE64 {
+            FramePointer: u64,
+            ProgramCounter: u64,
+            ReturnAddress: u64,
+            Args: [u64; 4],
+        }
+        struct EXT_API_VERSION {
+            MajorVersion: u16,
+            MinorVersion: u16,
+            Revision: u16,
+            Reserved: u16,
+        }
+        const EXT_API_VERSION_NUMBER: u32 = 5;
+        const EXT_API_VERSION_NUMBER32: u32 = 5;
+        const EXT_API_VERSION_NUMBER64: u32 = 6;
+        struct EXT_FIND_FILE {
+            FileName: PCWSTR,
+            IndexedSize: u64,
+            ImageTimeDateStamp: u32,
+            ImageCheckSum: u32,
+            ExtraInfo: *mut void,
+            ExtraInfoSize: u32,
+            Flags: u32,
+            FileMapping: *mut void,
+            FileMappingSize: u64,
+            FileHandle: HANDLE,
+            FoundFileName: PWSTR,
+            FoundFileNameChars: u32,
+        }
+        const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1;
+        struct EXT_MATCH_PATTERN_A {
+            Str: PCSTR,
+            Pattern: PCSTR,
+            CaseSensitive: u32,
+        }
+        const EXT_TDF_PHYSICAL_CACHED: u32 = 4;
+        const EXT_TDF_PHYSICAL_DEFAULT: u32 = 2;
+        const EXT_TDF_PHYSICAL_MEMORY: u32 = 14;
+        const EXT_TDF_PHYSICAL_UNCACHED: u32 = 6;
+        const EXT_TDF_PHYSICAL_WRITE_COMBINED: u32 = 8;
+        #[repr(i32)]
+        enum EXT_TDOP {
+            EXT_TDOP_COPY = 0,
+            EXT_TDOP_RELEASE = 1,
+            EXT_TDOP_SET_FROM_EXPR = 2,
+            EXT_TDOP_SET_FROM_U64_EXPR = 3,
+            EXT_TDOP_GET_FIELD = 4,
+            EXT_TDOP_EVALUATE = 5,
+            EXT_TDOP_GET_TYPE_NAME = 6,
+            EXT_TDOP_OUTPUT_TYPE_NAME = 7,
+            EXT_TDOP_OUTPUT_SIMPLE_VALUE = 8,
+            EXT_TDOP_OUTPUT_FULL_VALUE = 9,
+            EXT_TDOP_HAS_FIELD = 10,
+            EXT_TDOP_GET_FIELD_OFFSET = 11,
+            EXT_TDOP_GET_ARRAY_ELEMENT = 12,
+            EXT_TDOP_GET_DEREFERENCE = 13,
+            EXT_TDOP_GET_TYPE_SIZE = 14,
+            EXT_TDOP_OUTPUT_TYPE_DEFINITION = 15,
+            EXT_TDOP_GET_POINTER_TO = 16,
+            EXT_TDOP_SET_FROM_TYPE_ID_AND_U64 = 17,
+            EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64 = 18,
+            EXT_TDOP_COUNT = 19,
+        }
+        struct EXT_TYPED_DATA {
+            Operation: EXT_TDOP,
+            Flags: u32,
+            InData: DEBUG_TYPED_DATA,
+            OutData: DEBUG_TYPED_DATA,
+            InStrIndex: u32,
+            In32: u32,
+            Out32: u32,
+            In64: u64,
+            Out64: u64,
+            StrBufferIndex: u32,
+            StrBufferChars: u32,
+            StrCharsNeeded: u32,
+            DataBufferIndex: u32,
+            DataBufferBytes: u32,
+            DataBytesNeeded: u32,
+            Status: HRESULT,
+            Reserved: [u64; 8],
+        }
+        const FIELDS_DID_NOT_MATCH: u32 = 4;
+        struct FIELD_INFO {
+            fName: PUCHAR,
+            printName: PUCHAR,
+            size: u32,
+            fOptions: u32,
+            address: u64,
+            Anonymous: union {
+                fieldCallBack: *mut void,
+                pBuffer: *mut void,
+            },
+            TypeId: u32,
+            FieldOffset: u32,
+            BufferSize: u32,
+            BitField: FIELD_INFO_1,
+            _bitfield: u32,
+        }
+        struct FIELD_INFO_1 {
+            Position: u16,
+            Size: u16,
+        }
+        struct GET_CONTEXT_EX {
+            Status: u32,
+            ContextSize: u32,
+            pContext: *mut void,
+        }
+        struct GET_CURRENT_PROCESS_ADDRESS {
+            Processor: u32,
+            CurrentThread: u64,
+            Address: u64,
+        }
+        struct GET_CURRENT_THREAD_ADDRESS {
+            Processor: u32,
+            Address: u64,
+        }
+        struct GET_EXPRESSION_EX {
+            Expression: PCSTR,
+            Remainder: PCSTR,
+            Value: u64,
+        }
+        struct GET_INPUT_LINE {
+            Prompt: PCSTR,
+            Buffer: PSTR,
+            BufferSize: u32,
+            InputSize: u32,
+        }
+        struct GET_PEB_ADDRESS {
+            CurrentThread: u64,
+            Address: u64,
+        }
+        struct GET_SET_SYMPATH {
+            Args: PCSTR,
+            Result: PSTR,
+            Length: i32,
+        }
+        struct GET_TEB_ADDRESS {
+            Address: u64,
+        }
+        const IG_DISASSEMBLE_BUFFER: u32 = 44;
+        const IG_DUMP_SYMBOL_INFO: u32 = 22;
+        const IG_FIND_FILE: u32 = 40;
+        const IG_GET_ANY_MODULE_IN_RANGE: u32 = 45;
+        const IG_GET_BUS_DATA: u32 = 20;
+        const IG_GET_CACHE_SIZE: u32 = 32;
+        const IG_GET_CLR_DATA_INTERFACE: u32 = 38;
+        const IG_GET_CONTEXT_EX: u32 = 48;
+        const IG_GET_CURRENT_PROCESS: u32 = 26;
+        const IG_GET_CURRENT_PROCESS_HANDLE: u32 = 28;
+        const IG_GET_CURRENT_THREAD: u32 = 25;
+        const IG_GET_DEBUGGER_DATA: u32 = 14;
+        const IG_GET_EXCEPTION_RECORD: u32 = 18;
+        const IG_GET_EXPRESSION_EX: u32 = 30;
+        const IG_GET_INPUT_LINE: u32 = 29;
+        const IG_GET_KERNEL_VERSION: u32 = 15;
+        const IG_GET_PEB_ADDRESS: u32 = 129;
+        const IG_GET_SET_SYMPATH: u32 = 17;
+        const IG_GET_TEB_ADDRESS: u32 = 128;
+        const IG_GET_THREAD_OS_INFO: u32 = 37;
+        const IG_GET_TYPE_SIZE: u32 = 27;
+        const IG_IS_PTR64: u32 = 19;
+        const IG_KD_CONTEXT: u32 = 1;
+        const IG_KSTACK_HELP: u32 = 10;
+        const IG_LOWMEM_CHECK: u32 = 23;
+        const IG_MATCH_PATTERN_A: u32 = 39;
+        const IG_OBSOLETE_PLACEHOLDER_36: u32 = 36;
+        const IG_PHYSICAL_TO_VIRTUAL: u32 = 47;
+        const IG_POINTER_SEARCH_PHYSICAL: u32 = 35;
+        const IG_QUERY_TARGET_INTERFACE: u32 = 42;
+        const IG_READ_CONTROL_SPACE: u32 = 2;
+        const IG_READ_IO_SPACE: u32 = 4;
+        const IG_READ_IO_SPACE_EX: u32 = 8;
+        const IG_READ_MSR: u32 = 12;
+        const IG_READ_PHYSICAL: u32 = 6;
+        const IG_READ_PHYSICAL_WITH_FLAGS: u32 = 33;
+        const IG_RELOAD_SYMBOLS: u32 = 16;
+        const IG_SEARCH_MEMORY: u32 = 24;
+        const IG_SET_BUS_DATA: u32 = 21;
+        const IG_SET_THREAD: u32 = 11;
+        const IG_TRANSLATE_VIRTUAL_TO_PHYSICAL: u32 = 31;
+        const IG_TYPED_DATA: u32 = 43;
+        const IG_TYPED_DATA_OBSOLETE: u32 = 41;
+        const IG_VIRTUAL_TO_PHYSICAL: u32 = 46;
+        const IG_WRITE_CONTROL_SPACE: u32 = 3;
+        const IG_WRITE_IO_SPACE: u32 = 5;
+        const IG_WRITE_IO_SPACE_EX: u32 = 9;
+        const IG_WRITE_MSR: u32 = 13;
+        const IG_WRITE_PHYSICAL: u32 = 7;
+        const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34;
+        const INCORRECT_VERSION_INFO: u32 = 7;
+        const INSUFFICIENT_SPACE_TO_COPY: u32 = 10;
+        struct IOSPACE {
+            Address: u32,
+            Length: u32,
+            Data: u32,
+        }
+        struct IOSPACE32 {
+            Address: u32,
+            Length: u32,
+            Data: u32,
+        }
+        struct IOSPACE64 {
+            Address: u64,
+            Length: u32,
+            Data: u32,
+        }
+        struct IOSPACE_EX {
+            Address: u32,
+            Length: u32,
+            Data: u32,
+            InterfaceType: u32,
+            BusNumber: u32,
+            AddressSpace: u32,
+        }
+        struct IOSPACE_EX32 {
+            Address: u32,
+            Length: u32,
+            Data: u32,
+            InterfaceType: u32,
+            BusNumber: u32,
+            AddressSpace: u32,
+        }
+        struct IOSPACE_EX64 {
+            Address: u64,
+            Length: u32,
+            Data: u32,
+            InterfaceType: u32,
+            BusNumber: u32,
+            AddressSpace: u32,
+        }
+        const KDBG_TAG: u32 = 1195525195;
+        struct KDDEBUGGER_DATA32 {
+            Header: DBGKD_DEBUG_DATA_HEADER32,
+            KernBase: u32,
+            BreakpointWithStatus: u32,
+            SavedContext: u32,
+            ThCallbackStack: u16,
+            NextCallback: u16,
+            FramePointer: u16,
+            _bitfield: u16,
+            KiCallUserMode: u32,
+            KeUserCallbackDispatcher: u32,
+            PsLoadedModuleList: u32,
+            PsActiveProcessHead: u32,
+            PspCidTable: u32,
+            ExpSystemResourcesList: u32,
+            ExpPagedPoolDescriptor: u32,
+            ExpNumberOfPagedPools: u32,
+            KeTimeIncrement: u32,
+            KeBugCheckCallbackListHead: u32,
+            KiBugcheckData: u32,
+            IopErrorLogListHead: u32,
+            ObpRootDirectoryObject: u32,
+            ObpTypeObjectType: u32,
+            MmSystemCacheStart: u32,
+            MmSystemCacheEnd: u32,
+            MmSystemCacheWs: u32,
+            MmPfnDatabase: u32,
+            MmSystemPtesStart: u32,
+            MmSystemPtesEnd: u32,
+            MmSubsectionBase: u32,
+            MmNumberOfPagingFiles: u32,
+            MmLowestPhysicalPage: u32,
+            MmHighestPhysicalPage: u32,
+            MmNumberOfPhysicalPages: u32,
+            MmMaximumNonPagedPoolInBytes: u32,
+            MmNonPagedSystemStart: u32,
+            MmNonPagedPoolStart: u32,
+            MmNonPagedPoolEnd: u32,
+            MmPagedPoolStart: u32,
+            MmPagedPoolEnd: u32,
+            MmPagedPoolInformation: u32,
+            MmPageSize: u32,
+            MmSizeOfPagedPoolInBytes: u32,
+            MmTotalCommitLimit: u32,
+            MmTotalCommittedPages: u32,
+            MmSharedCommit: u32,
+            MmDriverCommit: u32,
+            MmProcessCommit: u32,
+            MmPagedPoolCommit: u32,
+            MmExtendedCommit: u32,
+            MmZeroedPageListHead: u32,
+            MmFreePageListHead: u32,
+            MmStandbyPageListHead: u32,
+            MmModifiedPageListHead: u32,
+            MmModifiedNoWritePageListHead: u32,
+            MmAvailablePages: u32,
+            MmResidentAvailablePages: u32,
+            PoolTrackTable: u32,
+            NonPagedPoolDescriptor: u32,
+            MmHighestUserAddress: u32,
+            MmSystemRangeStart: u32,
+            MmUserProbeAddress: u32,
+            KdPrintCircularBuffer: u32,
+            KdPrintCircularBufferEnd: u32,
+            KdPrintWritePointer: u32,
+            KdPrintRolloverCount: u32,
+            MmLoadedUserImageList: u32,
+        }
+        struct KDDEBUGGER_DATA64 {
+            Header: DBGKD_DEBUG_DATA_HEADER64,
+            KernBase: u64,
+            BreakpointWithStatus: u64,
+            SavedContext: u64,
+            ThCallbackStack: u16,
+            NextCallback: u16,
+            FramePointer: u16,
+            _bitfield: u16,
+            KiCallUserMode: u64,
+            KeUserCallbackDispatcher: u64,
+            PsLoadedModuleList: u64,
+            PsActiveProcessHead: u64,
+            PspCidTable: u64,
+            ExpSystemResourcesList: u64,
+            ExpPagedPoolDescriptor: u64,
+            ExpNumberOfPagedPools: u64,
+            KeTimeIncrement: u64,
+            KeBugCheckCallbackListHead: u64,
+            KiBugcheckData: u64,
+            IopErrorLogListHead: u64,
+            ObpRootDirectoryObject: u64,
+            ObpTypeObjectType: u64,
+            MmSystemCacheStart: u64,
+            MmSystemCacheEnd: u64,
+            MmSystemCacheWs: u64,
+            MmPfnDatabase: u64,
+            MmSystemPtesStart: u64,
+            MmSystemPtesEnd: u64,
+            MmSubsectionBase: u64,
+            MmNumberOfPagingFiles: u64,
+            MmLowestPhysicalPage: u64,
+            MmHighestPhysicalPage: u64,
+            MmNumberOfPhysicalPages: u64,
+            MmMaximumNonPagedPoolInBytes: u64,
+            MmNonPagedSystemStart: u64,
+            MmNonPagedPoolStart: u64,
+            MmNonPagedPoolEnd: u64,
+            MmPagedPoolStart: u64,
+            MmPagedPoolEnd: u64,
+            MmPagedPoolInformation: u64,
+            MmPageSize: u64,
+            MmSizeOfPagedPoolInBytes: u64,
+            MmTotalCommitLimit: u64,
+            MmTotalCommittedPages: u64,
+            MmSharedCommit: u64,
+            MmDriverCommit: u64,
+            MmProcessCommit: u64,
+            MmPagedPoolCommit: u64,
+            MmExtendedCommit: u64,
+            MmZeroedPageListHead: u64,
+            MmFreePageListHead: u64,
+            MmStandbyPageListHead: u64,
+            MmModifiedPageListHead: u64,
+            MmModifiedNoWritePageListHead: u64,
+            MmAvailablePages: u64,
+            MmResidentAvailablePages: u64,
+            PoolTrackTable: u64,
+            NonPagedPoolDescriptor: u64,
+            MmHighestUserAddress: u64,
+            MmSystemRangeStart: u64,
+            MmUserProbeAddress: u64,
+            KdPrintCircularBuffer: u64,
+            KdPrintCircularBufferEnd: u64,
+            KdPrintWritePointer: u64,
+            KdPrintRolloverCount: u64,
+            MmLoadedUserImageList: u64,
+            NtBuildLab: u64,
+            KiNormalSystemCall: u64,
+            KiProcessorBlock: u64,
+            MmUnloadedDrivers: u64,
+            MmLastUnloadedDriver: u64,
+            MmTriageActionTaken: u64,
+            MmSpecialPoolTag: u64,
+            KernelVerifier: u64,
+            MmVerifierData: u64,
+            MmAllocatedNonPagedPool: u64,
+            MmPeakCommitment: u64,
+            MmTotalCommitLimitMaximum: u64,
+            CmNtCSDVersion: u64,
+            MmPhysicalMemoryBlock: u64,
+            MmSessionBase: u64,
+            MmSessionSize: u64,
+            MmSystemParentTablePage: u64,
+            MmVirtualTranslationBase: u64,
+            OffsetKThreadNextProcessor: u16,
+            OffsetKThreadTeb: u16,
+            OffsetKThreadKernelStack: u16,
+            OffsetKThreadInitialStack: u16,
+            OffsetKThreadApcProcess: u16,
+            OffsetKThreadState: u16,
+            OffsetKThreadBStore: u16,
+            OffsetKThreadBStoreLimit: u16,
+            SizeEProcess: u16,
+            OffsetEprocessPeb: u16,
+            OffsetEprocessParentCID: u16,
+            OffsetEprocessDirectoryTableBase: u16,
+            SizePrcb: u16,
+            OffsetPrcbDpcRoutine: u16,
+            OffsetPrcbCurrentThread: u16,
+            OffsetPrcbMhz: u16,
+            OffsetPrcbCpuType: u16,
+            OffsetPrcbVendorString: u16,
+            OffsetPrcbProcStateContext: u16,
+            OffsetPrcbNumber: u16,
+            SizeEThread: u16,
+            L1tfHighPhysicalBitIndex: u8,
+            L1tfSwizzleBitIndex: u8,
+            Padding0: u32,
+            KdPrintCircularBufferPtr: u64,
+            KdPrintBufferSize: u64,
+            KeLoaderBlock: u64,
+            SizePcr: u16,
+            OffsetPcrSelfPcr: u16,
+            OffsetPcrCurrentPrcb: u16,
+            OffsetPcrContainedPrcb: u16,
+            OffsetPcrInitialBStore: u16,
+            OffsetPcrBStoreLimit: u16,
+            OffsetPcrInitialStack: u16,
+            OffsetPcrStackLimit: u16,
+            OffsetPrcbPcrPage: u16,
+            OffsetPrcbProcStateSpecialReg: u16,
+            GdtR0Code: u16,
+            GdtR0Data: u16,
+            GdtR0Pcr: u16,
+            GdtR3Code: u16,
+            GdtR3Data: u16,
+            GdtR3Teb: u16,
+            GdtLdt: u16,
+            GdtTss: u16,
+            Gdt64R3CmCode: u16,
+            Gdt64R3CmTeb: u16,
+            IopNumTriageDumpDataBlocks: u64,
+            IopTriageDumpDataBlocks: u64,
+            VfCrashDataBlock: u64,
+            MmBadPagesDetected: u64,
+            MmZeroedPageSingleBitErrorsDetected: u64,
+            EtwpDebuggerData: u64,
+            OffsetPrcbContext: u16,
+            OffsetPrcbMaxBreakpoints: u16,
+            OffsetPrcbMaxWatchpoints: u16,
+            OffsetKThreadStackLimit: u32,
+            OffsetKThreadStackBase: u32,
+            OffsetKThreadQueueListEntry: u32,
+            OffsetEThreadIrpList: u32,
+            OffsetPrcbIdleThread: u16,
+            OffsetPrcbNormalDpcState: u16,
+            OffsetPrcbDpcStack: u16,
+            OffsetPrcbIsrStack: u16,
+            SizeKDPC_STACK_FRAME: u16,
+            OffsetKPriQueueThreadListHead: u16,
+            OffsetKThreadWaitReason: u16,
+            Padding1: u16,
+            PteBase: u64,
+            RetpolineStubFunctionTable: u64,
+            RetpolineStubFunctionTableSize: u32,
+            RetpolineStubOffset: u32,
+            RetpolineStubSize: u32,
+            OffsetEProcessMmHotPatchContext: u16,
+            OffsetKThreadShadowStackLimit: u32,
+            OffsetKThreadShadowStackBase: u32,
+            ShadowStackEnabled: u64,
+            PointerAuthMask: u64,
+            OffsetPrcbExceptionStack: u16,
+            PointerIgnoreBits: u64,
+        }
+        const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2;
+        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0;
+        const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1;
+        const KD_SECONDARY_VERSION_DEFAULT: u32 = 0;
+        type LPEXT_API_VERSION = *mut EXT_API_VERSION;
+        const MEMORY_READ_ERROR: u32 = 1;
+        const NULL_FIELD_NAME: u32 = 6;
+        const NULL_SYM_DUMP_PARAM: u32 = 5;
+        type PBUSDATA = *mut BUSDATA;
+        type PDBGKD_DEBUG_DATA_HEADER32 = *mut DBGKD_DEBUG_DATA_HEADER32;
+        type PDBGKD_DEBUG_DATA_HEADER64 = *mut DBGKD_DEBUG_DATA_HEADER64;
+        type PDBGKD_GET_VERSION32 = *mut DBGKD_GET_VERSION32;
+        type PDBGKD_GET_VERSION64 = *mut DBGKD_GET_VERSION64;
+        type PDEBUG_TYPED_DATA = *mut DEBUG_TYPED_DATA;
+        type PEXTSTACKTRACE = *mut EXTSTACKTRACE;
+        type PEXTSTACKTRACE32 = *mut EXTSTACKTRACE32;
+        type PEXTSTACKTRACE64 = *mut EXTSTACKTRACE64;
+        type PEXT_FIND_FILE = *mut EXT_FIND_FILE;
+        type PEXT_MATCH_PATTERN_A = *mut EXT_MATCH_PATTERN_A;
+        type PEXT_TYPED_DATA = *mut EXT_TYPED_DATA;
+        type PFIELD_INFO = *mut FIELD_INFO;
+        type PGET_CONTEXT_EX = *mut GET_CONTEXT_EX;
+        type PGET_CURRENT_PROCESS_ADDRESS = *mut GET_CURRENT_PROCESS_ADDRESS;
+        type PGET_CURRENT_THREAD_ADDRESS = *mut GET_CURRENT_THREAD_ADDRESS;
+        type PGET_EXPRESSION_EX = *mut GET_EXPRESSION_EX;
+        type PGET_INPUT_LINE = *mut GET_INPUT_LINE;
+        type PGET_PEB_ADDRESS = *mut GET_PEB_ADDRESS;
+        type PGET_SET_SYMPATH = *mut GET_SET_SYMPATH;
+        type PGET_TEB_ADDRESS = *mut GET_TEB_ADDRESS;
+        struct PHYSICAL {
+            Address: u64,
+            BufLen: u32,
+            Buf: [u8; 1],
+        }
+        struct PHYSICAL_TO_VIRTUAL {
+            Status: u32,
+            Size: u32,
+            PdeAddress: u64,
+        }
+        struct PHYSICAL_WITH_FLAGS {
+            Address: u64,
+            BufLen: u32,
+            Flags: u32,
+            Buf: [u8; 1],
+        }
+        const PHYS_FLAG_CACHED: u32 = 1;
+        const PHYS_FLAG_DEFAULT: u32 = 0;
+        const PHYS_FLAG_UNCACHED: u32 = 2;
+        const PHYS_FLAG_WRITE_COMBINED: u32 = 3;
+        type PIOSPACE = *mut IOSPACE;
+        type PIOSPACE32 = *mut IOSPACE32;
+        type PIOSPACE64 = *mut IOSPACE64;
+        type PIOSPACE_EX = *mut IOSPACE_EX;
+        type PIOSPACE_EX32 = *mut IOSPACE_EX32;
+        type PIOSPACE_EX64 = *mut IOSPACE_EX64;
+        type PKDDEBUGGER_DATA32 = *mut KDDEBUGGER_DATA32;
+        type PKDDEBUGGER_DATA64 = *mut KDDEBUGGER_DATA64;
+        struct POINTER_SEARCH_PHYSICAL {
+            Offset: u64,
+            Length: u64,
+            PointerMin: u64,
+            PointerMax: u64,
+            Flags: u32,
+            MatchOffsets: PULONG64,
+            MatchOffsetsSize: u32,
+            MatchOffsetsCount: u32,
+        }
+        #[repr(i32)]
+        enum POOL_HEADER_FIELD_NAME {
+            DbgkdPreviousSize = 0,
+            DbgkdPoolIndex = 1,
+            DbgkdBlockSize = 2,
+            DbgkdPoolType = 3,
+            DbgkdUlong1 = 4,
+        }
+        union POOL_HEADER_SIZE_64 {
+            Anonymous: struct {
+                UnsafePrevSize: u8,
+                Unused1: u8,
+                UnsafeSize: u8,
+                UnsafePoolType: u8,
+            },
+            Ulong1: u32,
+        }
+        type PPHYSICAL = *mut PHYSICAL;
+        type PPHYSICAL_TO_VIRTUAL = *mut PHYSICAL_TO_VIRTUAL;
+        type PPHYSICAL_WITH_FLAGS = *mut PHYSICAL_WITH_FLAGS;
+        type PPOINTER_SEARCH_PHYSICAL = *mut POINTER_SEARCH_PHYSICAL;
+        type PPOOL_HEADER_SIZE_64 = *mut POOL_HEADER_SIZE_64;
+        type PPROCESSORINFO = *mut PROCESSORINFO;
+        type PREADCONTROLSPACE = *mut READCONTROLSPACE;
+        type PREADCONTROLSPACE32 = *mut READCONTROLSPACE32;
+        type PREADCONTROLSPACE64 = *mut READCONTROLSPACE64;
+        type PREAD_WRITE_MSR = *mut READ_WRITE_MSR;
+        struct PROCESSORINFO {
+            Processor: u16,
+            NumberProcessors: u16,
+        }
+        type PSEARCHMEMORY = *mut SEARCHMEMORY;
+        extern fn PSYM_DUMP_FIELD_CALLBACK(pField: *mut FIELD_INFO, UserContext: *mut void) -> u32;
+        type PSYM_DUMP_PARAM = *mut SYM_DUMP_PARAM;
+        type PTRANSLATE_VIRTUAL_TO_PHYSICAL = *mut TRANSLATE_VIRTUAL_TO_PHYSICAL;
+        const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648;
+        const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1;
+        const PTR_SEARCH_PHYS_PTE: u32 = 2;
+        const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4;
+        const PTR_SEARCH_PHYS_SIZE_MASK: u32 = 120;
+        const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3;
+        type PVIRTUAL_TO_PHYSICAL = *mut VIRTUAL_TO_PHYSICAL;
+        type PWDBGEXTS_CLR_DATA_INTERFACE = *mut WDBGEXTS_CLR_DATA_INTERFACE;
+        type PWDBGEXTS_DISASSEMBLE_BUFFER = *mut WDBGEXTS_DISASSEMBLE_BUFFER;
+        type PWDBGEXTS_MODULE_IN_RANGE = *mut WDBGEXTS_MODULE_IN_RANGE;
+        type PWDBGEXTS_QUERY_INTERFACE = *mut WDBGEXTS_QUERY_INTERFACE;
+        type PWDBGEXTS_THREAD_OS_INFO = *mut WDBGEXTS_THREAD_OS_INFO;
+        extern fn PWINDBG_CHECK_CONTROL_C() -> u32;
+        extern fn PWINDBG_CHECK_VERSION() -> u32;
+        extern fn PWINDBG_DISASM(#[in] #[out] lpOffset: *mut usize, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
+        extern fn PWINDBG_DISASM32(#[in] #[out] lpOffset: *mut u32, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
+        extern fn PWINDBG_DISASM64(#[in] #[out] lpOffset: *mut u64, #[len_const(2000)] #[out] lpBuffer: PSTR, fShowEffectiveAddress: u32) -> u32;
+        type PWINDBG_EXTENSION_APIS = *mut WINDBG_EXTENSION_APIS;
+        extern fn PWINDBG_EXTENSION_API_VERSION() -> LPEXT_API_VERSION;
+        extern fn PWINDBG_EXTENSION_DLL_INIT(lpExtensionApis: *const WINDBG_EXTENSION_APIS, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_DLL_INIT32(lpExtensionApis: *const WINDBG_EXTENSION_APIS32, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_DLL_INIT64(lpExtensionApis: *const WINDBG_EXTENSION_APIS64, MajorVersion: u16, MinorVersion: u16);
+        extern fn PWINDBG_EXTENSION_ROUTINE(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: PCSTR);
+        extern fn PWINDBG_EXTENSION_ROUTINE32(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: PCSTR);
+        extern fn PWINDBG_EXTENSION_ROUTINE64(hCurrentProcess: HANDLE, hCurrentThread: HANDLE, dwCurrentPc: u64, dwProcessor: u32, lpArgumentString: PCSTR);
+        extern fn PWINDBG_GET_EXPRESSION(lpExpression: PCSTR) -> usize;
+        extern fn PWINDBG_GET_EXPRESSION32(lpExpression: PCSTR) -> u32;
+        extern fn PWINDBG_GET_EXPRESSION64(lpExpression: PCSTR) -> u64;
+        extern fn PWINDBG_GET_SYMBOL(offset: *const void, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut usize);
+        extern fn PWINDBG_GET_SYMBOL32(offset: u32, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut u32);
+        extern fn PWINDBG_GET_SYMBOL64(offset: u64, #[len_const(256)] pchBuffer: *mut i8, pDisplacement: *mut u64);
+        #[arch(Arm64)]
+        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *mut ARM64_NT_CONTEXT, cbSizeOfContext: u32) -> u32;
+        #[arch(X86 | X64)]
+        extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *mut CONTEXT, cbSizeOfContext: u32) -> u32;
+        extern fn PWINDBG_IOCTL_ROUTINE(IoctlType: u16, lpvData: *mut void, cbSize: u32) -> u32;
+        type PWINDBG_OLDKD_EXTENSION_APIS = *mut WINDBG_OLDKD_EXTENSION_APIS;
+        extern fn PWINDBG_OLDKD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *const WINDBG_OLDKD_EXTENSION_APIS, lpArgumentString: PCSTR);
+        extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(address: u64, #[size_param(2)] buffer: *mut void, count: u32, bytesread: *mut u32) -> u32;
+        extern fn PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(address: u64, #[size_param(2)] buffer: *const void, length: u32, byteswritten: *mut u32) -> u32;
+        type PWINDBG_OLD_EXTENSION_APIS = *mut WINDBG_OLD_EXTENSION_APIS;
+        extern fn PWINDBG_OLD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *const WINDBG_EXTENSION_APIS, lpArgumentString: PCSTR);
+        type PWINDBG_OUTPUT_ROUTINE = *mut u8;
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
+        extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
+        #[arch(Arm64)]
+        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *const ARM64_NT_CONTEXT, cbSizeOfContext: u32) -> u32;
+        #[arch(X86 | X64)]
+        extern fn PWINDBG_SET_THREAD_CONTEXT_ROUTINE(Processor: u32, #[size_param(2)] lpContext: *const CONTEXT, cbSizeOfContext: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE, Frames: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE32(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE32, Frames: u32) -> u32;
+        extern fn PWINDBG_STACKTRACE_ROUTINE64(FramePointer: u64, StackPointer: u64, ProgramCounter: u64, #[len_param(4)] StackFrames: *mut EXTSTACKTRACE64, Frames: u32) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(offset: usize, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(offset: u32, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(offset: u64, #[size_param(2)] lpBuffer: *const void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+        struct READCONTROLSPACE {
+            Processor: u16,
+            Address: u32,
+            BufLen: u32,
+            Buf: [u8; 1],
+        }
+        struct READCONTROLSPACE32 {
+            Processor: u16,
+            Address: u32,
+            BufLen: u32,
+            Buf: [u8; 1],
+        }
+        struct READCONTROLSPACE64 {
+            Processor: u16,
+            Address: u64,
+            BufLen: u32,
+            Buf: [u8; 1],
+        }
+        struct READ_WRITE_MSR {
+            Msr: u32,
+            Value: i64,
+        }
+        struct SEARCHMEMORY {
+            SearchAddress: u64,
+            SearchLength: u64,
+            FoundAddress: u64,
+            PatternLength: u32,
+            Pattern: *mut void,
+        }
+        const SYMBOL_TYPE_INDEX_NOT_FOUND: u32 = 2;
+        const SYMBOL_TYPE_INFO_NOT_FOUND: u32 = 3;
+        struct SYM_DUMP_PARAM {
+            size: u32,
+            sName: PUCHAR,
+            Options: u32,
+            addr: u64,
+            listLink: PFIELD_INFO,
+            Anonymous: union {
+                Context: *mut void,
+                pBuffer: *mut void,
+            },
+            CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
+            nFields: u32,
+            Fields: PFIELD_INFO,
+            ModBase: u64,
+            TypeId: u32,
+            TypeSize: u32,
+            BufferSize: u32,
+            _bitfield: u32,
+        }
+        struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
+            Virtual: u64,
+            Physical: u64,
+        }
+        const UNAVAILABLE_ERROR: u32 = 12;
+        struct VIRTUAL_TO_PHYSICAL {
+            Status: u32,
+            Size: u32,
+            PdeAddress: u64,
+            Virtual: u64,
+            Physical: u64,
+        }
+        const WDBGEXTS_ADDRESS_DEFAULT: u32 = 0;
+        const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648;
+        const WDBGEXTS_ADDRESS_SEG16: u32 = 1;
+        const WDBGEXTS_ADDRESS_SEG32: u32 = 2;
+        struct WDBGEXTS_CLR_DATA_INTERFACE {
+            Iid: *const GUID,
+            Iface: *mut void,
+        }
+        struct WDBGEXTS_DISASSEMBLE_BUFFER {
+            InOffset: u64,
+            OutOffset: u64,
+            AddrFlags: u32,
+            FormatFlags: u32,
+            DataBufferBytes: u32,
+            DisasmBufferChars: u32,
+            DataBuffer: *mut void,
+            DisasmBuffer: PWSTR,
+            Reserved0: [u64; 3],
+        }
+        const WDBGEXTS_MAXSIZE_T: i32 = -1;
+        struct WDBGEXTS_MODULE_IN_RANGE {
+            Start: u64,
+            End: u64,
+            FoundModBase: u64,
+            FoundModSize: u32,
+        }
+        struct WDBGEXTS_QUERY_INTERFACE {
+            Iid: *const GUID,
+            Iface: *mut void,
+        }
+        struct WDBGEXTS_THREAD_OS_INFO {
+            ThreadId: u32,
+            ExitStatus: u32,
+            PriorityClass: u32,
+            Priority: u32,
+            CreateTime: u64,
+            ExitTime: u64,
+            KernelTime: u64,
+            UserTime: u64,
+            StartOffset: u64,
+            Affinity: u64,
+        }
+        struct WINDBG_EXTENSION_APIS {
+            nSize: u32,
+            lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+            lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+            lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+            lpDisasmRoutine: PWINDBG_DISASM,
+            lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+            lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
+            lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
+            lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+            lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+            lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+            lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
+        }
+        struct WINDBG_EXTENSION_APIS32 {
+            nSize: u32,
+            lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+            lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+            lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+            lpDisasmRoutine: PWINDBG_DISASM32,
+            lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+            lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+            lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+            lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+            lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+            lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+            lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
+        }
+        struct WINDBG_EXTENSION_APIS64 {
+            nSize: u32,
+            lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+            lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
+            lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
+            lpDisasmRoutine: PWINDBG_DISASM64,
+            lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+            lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
+            lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
+            lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+            lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+            lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+            lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
+        }
+        struct WINDBG_OLDKD_EXTENSION_APIS {
+            nSize: u32,
+            lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+            lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+            lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+            lpDisasmRoutine: PWINDBG_DISASM32,
+            lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+            lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+            lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+            lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
+            lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
+        }
+        struct WINDBG_OLD_EXTENSION_APIS {
+            nSize: u32,
+            lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+            lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+            lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+            lpDisasmRoutine: PWINDBG_DISASM,
+            lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+        }
+    }
+}

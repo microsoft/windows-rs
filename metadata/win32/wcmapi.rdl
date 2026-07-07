@@ -1,0 +1,110 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;
+        type PWCM_CONNECTION_COST_DATA = *mut WCM_CONNECTION_COST_DATA;
+        type PWCM_CONNECTION_COST_SOURCE = *mut WCM_CONNECTION_COST_SOURCE;
+        type PWCM_DATAPLAN_STATUS = *mut WCM_DATAPLAN_STATUS;
+        type PWCM_MEDIA_TYPE = *mut WCM_MEDIA_TYPE;
+        type PWCM_POLICY_VALUE = *mut WCM_POLICY_VALUE;
+        type PWCM_PROFILE_INFO = *mut WCM_PROFILE_INFO;
+        type PWCM_PROFILE_INFO_LIST = *mut WCM_PROFILE_INFO_LIST;
+        type PWCM_PROPERTY = *mut WCM_PROPERTY;
+        type PWCM_USAGE_DATA = *mut WCM_USAGE_DATA;
+        const WCM_API_VERSION: u32 = 1;
+        const WCM_API_VERSION_1_0: u32 = 1;
+        struct WCM_BILLING_CYCLE_INFO {
+            StartDate: FILETIME,
+            Duration: WCM_TIME_INTERVAL,
+            Reset: BOOL,
+        }
+        #[repr(i32)]
+        enum WCM_CONNECTION_COST {
+            WCM_CONNECTION_COST_UNKNOWN = 0,
+            WCM_CONNECTION_COST_UNRESTRICTED = 1,
+            WCM_CONNECTION_COST_FIXED = 2,
+            WCM_CONNECTION_COST_VARIABLE = 4,
+            WCM_CONNECTION_COST_OVERDATALIMIT = 65536,
+            WCM_CONNECTION_COST_CONGESTED = 131072,
+            WCM_CONNECTION_COST_ROAMING = 262144,
+            WCM_CONNECTION_COST_APPROACHINGDATALIMIT = 524288,
+        }
+        struct WCM_CONNECTION_COST_DATA {
+            ConnectionCost: u32,
+            CostSource: WCM_CONNECTION_COST_SOURCE,
+        }
+        #[repr(i32)]
+        enum WCM_CONNECTION_COST_SOURCE {
+            WCM_CONNECTION_COST_SOURCE_DEFAULT = 0,
+            WCM_CONNECTION_COST_SOURCE_GP = 1,
+            WCM_CONNECTION_COST_SOURCE_USER = 2,
+            WCM_CONNECTION_COST_SOURCE_OPERATOR = 3,
+        }
+        struct WCM_DATAPLAN_STATUS {
+            UsageData: WCM_USAGE_DATA,
+            DataLimitInMegabytes: u32,
+            InboundBandwidthInKbps: u32,
+            OutboundBandwidthInKbps: u32,
+            BillingCycle: WCM_BILLING_CYCLE_INFO,
+            MaxTransferSizeInMegabytes: u32,
+            Reserved: u32,
+        }
+        const WCM_MAX_PROFILE_NAME: u32 = 256;
+        #[repr(i32)]
+        enum WCM_MEDIA_TYPE {
+            wcm_media_unknown = 0,
+            wcm_media_ethernet = 1,
+            wcm_media_wlan = 2,
+            wcm_media_mbn = 3,
+            wcm_media_invalid = 4,
+            wcm_media_max = 5,
+        }
+        struct WCM_POLICY_VALUE {
+            fValue: BOOL,
+            fIsGroupPolicy: BOOL,
+        }
+        struct WCM_PROFILE_INFO {
+            strProfileName: [u16; 256],
+            AdapterGUID: GUID,
+            Media: WCM_MEDIA_TYPE,
+        }
+        struct WCM_PROFILE_INFO_LIST {
+            dwNumberOfItems: u32,
+            ProfileInfo: [WCM_PROFILE_INFO; 1],
+        }
+        #[repr(i32)]
+        enum WCM_PROPERTY {
+            wcm_global_property_domain_policy = 0,
+            wcm_global_property_minimize_policy = 1,
+            wcm_global_property_roaming_policy = 2,
+            wcm_global_property_powermanagement_policy = 3,
+            wcm_intf_property_connection_cost = 4,
+            wcm_intf_property_dataplan_status = 5,
+            wcm_intf_property_hotspot_profile = 6,
+        }
+        struct WCM_TIME_INTERVAL {
+            wYear: u16,
+            wMonth: u16,
+            wDay: u16,
+            wHour: u16,
+            wMinute: u16,
+            wSecond: u16,
+            wMilliseconds: u16,
+        }
+        const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
+        struct WCM_USAGE_DATA {
+            UsageInMegabytes: u32,
+            LastSyncTime: FILETIME,
+        }
+        #[library("wcmapi.dll")]
+        extern fn WcmFreeMemory(pMemory: *mut void);
+        #[library("wcmapi.dll")]
+        extern fn WcmGetProfileList(#[reserved] pReserved: *const void, ppProfileList: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
+        #[library("wcmapi.dll")]
+        extern fn WcmQueryProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *const void, pdwDataSize: *mut u32, ppData: *mut PBYTE) -> u32;
+        #[library("wcmapi.dll")]
+        extern fn WcmSetProfileList(pProfileList: *const WCM_PROFILE_INFO_LIST, dwPosition: u32, fIgnoreUnknownProfiles: BOOL, #[reserved] pReserved: *const void) -> u32;
+        #[library("wcmapi.dll")]
+        extern fn WcmSetProperty(#[opt] pInterface: *const GUID, #[opt] strProfileName: PCWSTR, Property: WCM_PROPERTY, #[reserved] pReserved: *const void, dwDataSize: u32, #[len_param(4)] #[opt] pbData: *const u8) -> u32;
+    }
+}

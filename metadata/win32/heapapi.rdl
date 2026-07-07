@@ -1,0 +1,46 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessHeap() -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessHeaps(NumberOfHeaps: u32, #[len_param(0)] ProcessHeaps: *mut HANDLE) -> u32;
+        struct HEAP_SUMMARY {
+            cb: u32,
+            cbAllocated: usize,
+            cbCommitted: usize,
+            cbReserved: usize,
+            cbMaxReserve: usize,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn HeapAlloc(hHeap: HANDLE, dwFlags: u32, dwBytes: usize) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn HeapCompact(hHeap: HANDLE, dwFlags: u32) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn HeapCreate(flOptions: u32, dwInitialSize: usize, dwMaximumSize: usize) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn HeapDestroy(hHeap: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapFree(#[in] #[out] hHeap: HANDLE, dwFlags: u32, lpMem: *mut void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapLock(hHeap: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapQueryInformation(#[opt] HeapHandle: HANDLE, HeapInformationClass: HEAP_INFORMATION_CLASS, #[size_param(3)] #[opt] HeapInformation: *mut void, HeapInformationLength: usize, #[opt] ReturnLength: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, dwFlags: u32, lpMem: *mut void, dwBytes: usize) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn HeapSetInformation(#[opt] HeapHandle: HANDLE, HeapInformationClass: HEAP_INFORMATION_CLASS, #[size_param(3)] #[opt] HeapInformation: *const void, HeapInformationLength: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapSize(hHeap: HANDLE, dwFlags: u32, lpMem: *const void) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn HeapSummary(hHeap: HANDLE, dwFlags: u32, #[out] lpSummary: LPHEAP_SUMMARY) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapUnlock(hHeap: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapValidate(hHeap: HANDLE, dwFlags: u32, #[opt] lpMem: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn HeapWalk(hHeap: HANDLE, #[in] #[out] lpEntry: *mut PROCESS_HEAP_ENTRY) -> BOOL;
+        type LPHEAP_SUMMARY = PHEAP_SUMMARY;
+        type PHEAP_SUMMARY = *mut HEAP_SUMMARY;
+    }
+}

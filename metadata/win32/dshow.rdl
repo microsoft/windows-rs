@@ -1,0 +1,7 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const OAFALSE: u32 = 0;
+        const OATRUE: i32 = -1;
+    }
+}

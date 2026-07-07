@@ -1,0 +1,88 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CORRECTIVE_ACTION {
+            CORRECTIVE_ACTION_NONE = 0,
+            CORRECTIVE_ACTION_GET_SUGGESTIONS = 1,
+            CORRECTIVE_ACTION_REPLACE = 2,
+            CORRECTIVE_ACTION_DELETE = 3,
+        }
+        #[guid(0x803e3bd4_2828_4410_8290_418d1d73c762)]
+        interface IEnumSpellingError: IUnknown {
+            fn Next(&self, #[retval] value: *mut ISpellingError) -> HRESULT;
+        }
+        #[guid(0x432e5f85_35cf_4606_a801_6f70277e1d7a)]
+        interface IOptionDescription: IUnknown {
+            #[special]
+            fn get_Id(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_Heading(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_Labels(&self, #[retval] value: *mut IEnumString) -> HRESULT;
+        }
+        #[guid(0xb6fd0b71_e2bc_4653_8d05_f197e412770b)]
+        interface ISpellChecker: IUnknown {
+            #[special]
+            fn get_LanguageTag(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            fn Check(&self, text: PCWSTR, #[retval] value: *mut IEnumSpellingError) -> HRESULT;
+            fn Suggest(&self, word: PCWSTR, #[retval] value: *mut IEnumString) -> HRESULT;
+            fn Add(&self, word: PCWSTR) -> HRESULT;
+            fn Ignore(&self, word: PCWSTR) -> HRESULT;
+            fn AutoCorrect(&self, from: PCWSTR, to: PCWSTR) -> HRESULT;
+            fn GetOptionValue(&self, optionId: PCWSTR, #[retval] value: *mut u8) -> HRESULT;
+            #[special]
+            fn get_OptionIds(&self, #[retval] value: *mut IEnumString) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            #[special]
+            fn get_LocalizedName(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+            fn add_SpellCheckerChanged(&self, handler: ISpellCheckerChangedEventHandler, #[retval] eventCookie: *mut u32) -> HRESULT;
+            fn remove_SpellCheckerChanged(&self, eventCookie: u32) -> HRESULT;
+            fn GetOptionDescription(&self, optionId: PCWSTR, #[retval] value: *mut IOptionDescription) -> HRESULT;
+            fn ComprehensiveCheck(&self, text: PCWSTR, #[retval] value: *mut IEnumSpellingError) -> HRESULT;
+        }
+        #[guid(0xe7ed1c71_87f7_4378_a840_c9200dacee47)]
+        interface ISpellChecker2: ISpellChecker {
+            fn Remove(&self, word: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x0b83a5b0_792f_4eab_9799_acf52c5ed08a)]
+        interface ISpellCheckerChangedEventHandler: IUnknown {
+            fn Invoke(&self, sender: ISpellChecker) -> HRESULT;
+        }
+        #[guid(0x8e018a9d_2415_4677_bf08_794ea61f94bb)]
+        interface ISpellCheckerFactory: IUnknown {
+            #[special]
+            fn get_SupportedLanguages(&self, #[retval] value: *mut IEnumString) -> HRESULT;
+            fn IsSupported(&self, languageTag: PCWSTR, #[retval] value: *mut BOOL) -> HRESULT;
+            fn CreateSpellChecker(&self, languageTag: PCWSTR, #[retval] value: *mut ISpellChecker) -> HRESULT;
+        }
+        #[guid(0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3)]
+        interface ISpellingError: IUnknown {
+            #[special]
+            fn get_StartIndex(&self, #[retval] value: *mut u32) -> HRESULT;
+            #[special]
+            fn get_Length(&self, #[retval] value: *mut u32) -> HRESULT;
+            #[special]
+            fn get_CorrectiveAction(&self, #[retval] value: *mut CORRECTIVE_ACTION) -> HRESULT;
+            #[special]
+            fn get_Replacement(&self, #[retval] value: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xaa176b85_0e12_4844_8e1a_eef1da77f586)]
+        interface IUserDictionariesRegistrar: IUnknown {
+            fn RegisterUserDictionary(&self, dictionaryPath: PCWSTR, languageTag: PCWSTR) -> HRESULT;
+            fn UnregisterUserDictionary(&self, dictionaryPath: PCWSTR, languageTag: PCWSTR) -> HRESULT;
+        }
+        const MIN_SPELLING_NTDDI: u32 = 100794368;
+        const SpellCheckerFactory: GUID = 0x7ab36653_1796_484b_bdfa_e74f1db7c1dc;
+        #[repr(i32)]
+        enum WORDLIST_TYPE {
+            WORDLIST_TYPE_IGNORE = 0,
+            WORDLIST_TYPE_ADD = 1,
+            WORDLIST_TYPE_EXCLUDE = 2,
+            WORDLIST_TYPE_AUTOCORRECT = 3,
+        }
+    }
+}

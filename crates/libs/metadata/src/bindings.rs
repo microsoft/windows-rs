@@ -1,31 +1,3 @@
-pub type CorElementType = u8;
-pub const ELEMENT_TYPE_ARRAY: CorElementType = 20;
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = 2;
-pub const ELEMENT_TYPE_BYREF: CorElementType = 16;
-pub const ELEMENT_TYPE_CHAR: CorElementType = 3;
-pub const ELEMENT_TYPE_CLASS: CorElementType = 18;
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = 32;
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = 31;
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = 21;
-pub const ELEMENT_TYPE_I: CorElementType = 24;
-pub const ELEMENT_TYPE_I1: CorElementType = 4;
-pub const ELEMENT_TYPE_I2: CorElementType = 6;
-pub const ELEMENT_TYPE_I4: CorElementType = 8;
-pub const ELEMENT_TYPE_I8: CorElementType = 10;
-pub const ELEMENT_TYPE_OBJECT: CorElementType = 28;
-pub const ELEMENT_TYPE_PTR: CorElementType = 15;
-pub const ELEMENT_TYPE_R4: CorElementType = 12;
-pub const ELEMENT_TYPE_R8: CorElementType = 13;
-pub const ELEMENT_TYPE_STRING: CorElementType = 14;
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = 29;
-pub const ELEMENT_TYPE_U: CorElementType = 25;
-pub const ELEMENT_TYPE_U1: CorElementType = 5;
-pub const ELEMENT_TYPE_U2: CorElementType = 7;
-pub const ELEMENT_TYPE_U4: CorElementType = 9;
-pub const ELEMENT_TYPE_U8: CorElementType = 11;
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = 17;
-pub const ELEMENT_TYPE_VAR: CorElementType = 19;
-pub const ELEMENT_TYPE_VOID: CorElementType = 1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
@@ -64,12 +36,10 @@ pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
-pub type IMAGE_DIRECTORY_ENTRY = u16;
-pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14;
-pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64;
-pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024;
-pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256;
-pub type IMAGE_DLL_CHARACTERISTICS = u16;
+pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: u32 = 14;
+pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: u32 = 64;
+pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: u32 = 1024;
+pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: u32 = 256;
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
@@ -98,31 +68,29 @@ impl Default for IMAGE_DOS_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const IMAGE_DOS_SIGNATURE: u16 = 23117;
-pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256;
-pub type IMAGE_FILE_CHARACTERISTICS = u16;
-pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2;
+pub const IMAGE_DOS_SIGNATURE: u32 = 23117;
+pub const IMAGE_FILE_32BIT_MACHINE: u32 = 256;
+pub const IMAGE_FILE_DLL: u32 = 8192;
+pub const IMAGE_FILE_EXECUTABLE_IMAGE: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_FILE_HEADER {
-    pub Machine: IMAGE_FILE_MACHINE,
+    pub Machine: u16,
     pub NumberOfSections: u16,
     pub TimeDateStamp: u32,
     pub PointerToSymbolTable: u32,
     pub NumberOfSymbols: u32,
     pub SizeOfOptionalHeader: u16,
-    pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
+    pub Characteristics: u16,
 }
-pub type IMAGE_FILE_MACHINE = u16;
-pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332;
-pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267;
-pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523;
+pub const IMAGE_FILE_MACHINE_I386: u32 = 332;
+pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: u32 = 267;
+pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: u32 = 523;
 pub const IMAGE_NT_SIGNATURE: u32 = 17744;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
-    pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
+    pub Magic: u16,
     pub MajorLinkerVersion: u8,
     pub MinorLinkerVersion: u8,
     pub SizeOfCode: u32,
@@ -144,8 +112,8 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub SizeOfImage: u32,
     pub SizeOfHeaders: u32,
     pub CheckSum: u32,
-    pub Subsystem: IMAGE_SUBSYSTEM,
-    pub DllCharacteristics: IMAGE_DLL_CHARACTERISTICS,
+    pub Subsystem: u16,
+    pub DllCharacteristics: u16,
     pub SizeOfStackReserve: u32,
     pub SizeOfStackCommit: u32,
     pub SizeOfHeapReserve: u32,
@@ -162,7 +130,7 @@ impl Default for IMAGE_OPTIONAL_HEADER32 {
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
-    pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
+    pub Magic: u16,
     pub MajorLinkerVersion: u8,
     pub MinorLinkerVersion: u8,
     pub SizeOfCode: u32,
@@ -183,8 +151,8 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub SizeOfImage: u32,
     pub SizeOfHeaders: u32,
     pub CheckSum: u32,
-    pub Subsystem: IMAGE_SUBSYSTEM,
-    pub DllCharacteristics: IMAGE_DLL_CHARACTERISTICS,
+    pub Subsystem: u16,
+    pub DllCharacteristics: u16,
     pub SizeOfStackReserve: u64,
     pub SizeOfStackCommit: u64,
     pub SizeOfHeapReserve: u64,
@@ -198,8 +166,6 @@ impl Default for IMAGE_OPTIONAL_HEADER64 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
-pub type IMAGE_SECTION_CHARACTERISTICS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
@@ -212,7 +178,7 @@ pub struct IMAGE_SECTION_HEADER {
     pub PointerToLinenumbers: u32,
     pub NumberOfRelocations: u16,
     pub NumberOfLinenumbers: u16,
-    pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
+    pub Characteristics: u32,
 }
 impl Default for IMAGE_SECTION_HEADER {
     fn default() -> Self {
@@ -230,5 +196,4 @@ impl Default for IMAGE_SECTION_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type IMAGE_SUBSYSTEM = u16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3;
+pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: u32 = 3;

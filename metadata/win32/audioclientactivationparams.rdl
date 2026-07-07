@@ -1,0 +1,27 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct AUDIOCLIENT_ACTIVATION_PARAMS {
+            ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
+            Anonymous: union {
+                ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
+            },
+        }
+        #[repr(i32)]
+        enum AUDIOCLIENT_ACTIVATION_TYPE {
+            AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT = 0,
+            AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK = 1,
+        }
+        struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
+            TargetProcessId: u32,
+            ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
+        }
+        #[repr(i32)]
+        enum PROCESS_LOOPBACK_MODE {
+            PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE = 0,
+            PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE = 1,
+        }
+        #[encoding("utf-16")]
+        const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: String = "VAD\\Process_Loopback";
+    }
+}

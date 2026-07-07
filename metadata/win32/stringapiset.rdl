@@ -1,0 +1,21 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CompareStringEx(#[opt] lpLocaleName: PCWSTR, dwCmpFlags: u32, lpString1: *const u16, cchCount1: i32, lpString2: *const u16, cchCount2: i32, #[reserved] lpVersionInformation: *const NLSVERSIONINFO, #[reserved] lpReserved: *const void, #[reserved] lParam: LPARAM) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn CompareStringOrdinal(lpString1: *const u16, cchCount1: i32, lpString2: *const u16, cchCount2: i32, bIgnoreCase: BOOL) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn CompareStringW(Locale: LCID, dwCmpFlags: u32, lpString1: *const u16, cchCount1: i32, lpString2: *const u16, cchCount2: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn FoldStringW(dwMapFlags: u32, lpSrcStr: *const u16, cchSrc: i32, #[len_param(4)] #[out] #[opt] lpDestStr: PWSTR, cchDest: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn GetStringTypeExW(Locale: LCID, dwInfoType: u32, lpSrcStr: *const u16, cchSrc: i32, #[len_param(3)] lpCharType: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetStringTypeW(dwInfoType: u32, lpSrcStr: *const u16, cchSrc: i32, lpCharType: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MultiByteToWideChar(CodePage: u32, dwFlags: u32, lpMultiByteStr: *const i8, cbMultiByte: i32, #[len_param(5)] #[out] #[opt] lpWideCharStr: PWSTR, cchWideChar: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn WideCharToMultiByte(CodePage: u32, dwFlags: u32, lpWideCharStr: *const u16, cchWideChar: i32, #[size_param(5)] #[out] #[opt] lpMultiByteStr: PSTR, cbMultiByte: i32, #[opt] lpDefaultChar: *const i8, #[opt] lpUsedDefaultChar: *mut BOOL) -> i32;
+    }
+}

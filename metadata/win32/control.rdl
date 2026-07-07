@@ -1,0 +1,291 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CLSID_FilgraphManager: GUID = 0xe436ebb3_524f_11ce_9f53_0020af0ba770;
+        const FilgraphManager: GUID = 0xe436ebb3_524f_11ce_9f53_0020af0ba770;
+        #[guid(0x56a868b9_0ad4_11ce_b03a_0020af0ba770)]
+        interface IAMCollection: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn Item(&self, lItem: i32, ppUnk: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xbc9bcf80_dcd2_11d2_abf6_00a0c905f375)]
+        interface IAMStats: IDispatch {
+            fn Reset(&self) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn GetValueByIndex(&self, lIndex: i32, szName: *mut BSTR, lCount: *mut i32, dLast: *mut f64, dAverage: *mut f64, dStdDev: *mut f64, dMin: *mut f64, dMax: *mut f64) -> HRESULT;
+            fn GetValueByName(&self, szName: BSTR, lIndex: *mut i32, lCount: *mut i32, dLast: *mut f64, dAverage: *mut f64, dStdDev: *mut f64, dMin: *mut f64, dMax: *mut f64) -> HRESULT;
+            fn GetIndex(&self, szName: BSTR, lCreate: i32, plIndex: *mut i32) -> HRESULT;
+            fn AddValue(&self, lIndex: i32, dValue: f64) -> HRESULT;
+        }
+        #[guid(0x56a868b3_0ad4_11ce_b03a_0020af0ba770)]
+        interface IBasicAudio: IDispatch {
+            #[special]
+            fn put_Volume(&self, lVolume: i32) -> HRESULT;
+            #[special]
+            fn get_Volume(&self, #[retval] plVolume: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Balance(&self, lBalance: i32) -> HRESULT;
+            #[special]
+            fn get_Balance(&self, #[retval] plBalance: *mut i32) -> HRESULT;
+        }
+        #[guid(0x56a868b5_0ad4_11ce_b03a_0020af0ba770)]
+        interface IBasicVideo: IDispatch {
+            #[special]
+            fn get_AvgTimePerFrame(&self, #[retval] pAvgTimePerFrame: *mut f64) -> HRESULT;
+            #[special]
+            fn get_BitRate(&self, #[retval] pBitRate: *mut i32) -> HRESULT;
+            #[special]
+            fn get_BitErrorRate(&self, #[retval] pBitErrorRate: *mut i32) -> HRESULT;
+            #[special]
+            fn get_VideoWidth(&self, #[retval] pVideoWidth: *mut i32) -> HRESULT;
+            #[special]
+            fn get_VideoHeight(&self, #[retval] pVideoHeight: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SourceLeft(&self, SourceLeft: i32) -> HRESULT;
+            #[special]
+            fn get_SourceLeft(&self, #[retval] pSourceLeft: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SourceWidth(&self, SourceWidth: i32) -> HRESULT;
+            #[special]
+            fn get_SourceWidth(&self, #[retval] pSourceWidth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SourceTop(&self, SourceTop: i32) -> HRESULT;
+            #[special]
+            fn get_SourceTop(&self, #[retval] pSourceTop: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SourceHeight(&self, SourceHeight: i32) -> HRESULT;
+            #[special]
+            fn get_SourceHeight(&self, #[retval] pSourceHeight: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DestinationLeft(&self, DestinationLeft: i32) -> HRESULT;
+            #[special]
+            fn get_DestinationLeft(&self, #[retval] pDestinationLeft: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DestinationWidth(&self, DestinationWidth: i32) -> HRESULT;
+            #[special]
+            fn get_DestinationWidth(&self, #[retval] pDestinationWidth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DestinationTop(&self, DestinationTop: i32) -> HRESULT;
+            #[special]
+            fn get_DestinationTop(&self, #[retval] pDestinationTop: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DestinationHeight(&self, DestinationHeight: i32) -> HRESULT;
+            #[special]
+            fn get_DestinationHeight(&self, #[retval] pDestinationHeight: *mut i32) -> HRESULT;
+            fn SetSourcePosition(&self, Left: i32, Top: i32, Width: i32, Height: i32) -> HRESULT;
+            fn GetSourcePosition(&self, pLeft: *mut i32, pTop: *mut i32, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn SetDefaultSourcePosition(&self) -> HRESULT;
+            fn SetDestinationPosition(&self, Left: i32, Top: i32, Width: i32, Height: i32) -> HRESULT;
+            fn GetDestinationPosition(&self, pLeft: *mut i32, pTop: *mut i32, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn SetDefaultDestinationPosition(&self) -> HRESULT;
+            fn GetVideoSize(&self, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn GetVideoPaletteEntries(&self, StartIndex: i32, Entries: i32, pRetrieved: *mut i32, pPalette: *mut i32) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBufferSize: *mut i32, pDIBImage: *mut i32) -> HRESULT;
+            fn IsUsingDefaultSource(&self) -> HRESULT;
+            fn IsUsingDefaultDestination(&self) -> HRESULT;
+        }
+        #[guid(0x329bb360_f6ea_11d1_9038_00a0c9697298)]
+        interface IBasicVideo2: IBasicVideo {
+            fn GetPreferredAspectRatio(&self, plAspectX: *mut i32, plAspectY: *mut i32) -> HRESULT;
+        }
+        #[guid(0x56a868b8_0ad4_11ce_b03a_0020af0ba770)]
+        interface IDeferredCommand: IUnknown {
+            fn Cancel(&self) -> HRESULT;
+            fn Confidence(&self, pConfidence: *mut i32) -> HRESULT;
+            fn Postpone(&self, newtime: f64) -> HRESULT;
+            fn GetHResult(&self, phrResult: *mut HRESULT) -> HRESULT;
+        }
+        #[guid(0x56a868ba_0ad4_11ce_b03a_0020af0ba770)]
+        interface IFilterInfo: IDispatch {
+            fn FindPin(&self, strPinID: BSTR, ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_VendorInfo(&self, #[retval] strVendorInfo: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Filter(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Pins(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_IsFileSource(&self, #[retval] pbIsSource: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Filename(&self, #[retval] pstrFilename: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Filename(&self, strFilename: BSTR) -> HRESULT;
+        }
+        #[guid(0x56a868b1_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaControl: IDispatch {
+            fn Run(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn GetState(&self, msTimeout: i32, pfs: *mut OAFilterState) -> HRESULT;
+            fn RenderFile(&self, strFilename: BSTR) -> HRESULT;
+            fn AddSourceFilter(&self, strFilename: BSTR, ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_FilterCollection(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_RegFilterCollection(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn StopWhenReady(&self) -> HRESULT;
+        }
+        #[guid(0x56a868b6_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaEvent: IDispatch {
+            fn GetEventHandle(&self, hEvent: *mut OAEVENT) -> HRESULT;
+            fn GetEvent(&self, lEventCode: *mut i32, lParam1: *mut isize, lParam2: *mut isize, msTimeout: i32) -> HRESULT;
+            fn WaitForCompletion(&self, msTimeout: i32, pEvCode: *mut i32) -> HRESULT;
+            fn CancelDefaultHandling(&self, lEvCode: i32) -> HRESULT;
+            fn RestoreDefaultHandling(&self, lEvCode: i32) -> HRESULT;
+            fn FreeEventParams(&self, lEvCode: i32, lParam1: isize, lParam2: isize) -> HRESULT;
+        }
+        #[guid(0x56a868c0_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaEventEx: IMediaEvent {
+            fn SetNotifyWindow(&self, hwnd: OAHWND, lMsg: i32, lInstanceData: isize) -> HRESULT;
+            fn SetNotifyFlags(&self, lNoNotifyFlags: i32) -> HRESULT;
+            fn GetNotifyFlags(&self, lplNoNotifyFlags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x56a868b2_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaPosition: IDispatch {
+            #[special]
+            fn get_Duration(&self, #[retval] plength: *mut f64) -> HRESULT;
+            #[special]
+            fn put_CurrentPosition(&self, llTime: f64) -> HRESULT;
+            #[special]
+            fn get_CurrentPosition(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            #[special]
+            fn get_StopTime(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            #[special]
+            fn put_StopTime(&self, llTime: f64) -> HRESULT;
+            #[special]
+            fn get_PrerollTime(&self, #[retval] pllTime: *mut f64) -> HRESULT;
+            #[special]
+            fn put_PrerollTime(&self, llTime: f64) -> HRESULT;
+            #[special]
+            fn put_Rate(&self, dRate: f64) -> HRESULT;
+            #[special]
+            fn get_Rate(&self, #[retval] pdRate: *mut f64) -> HRESULT;
+            fn CanSeekForward(&self, #[retval] pCanSeekForward: *mut i32) -> HRESULT;
+            fn CanSeekBackward(&self, #[retval] pCanSeekBackward: *mut i32) -> HRESULT;
+        }
+        #[guid(0x56a868bc_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaTypeInfo: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] strType: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Subtype(&self, #[retval] strType: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x56a868bd_0ad4_11ce_b03a_0020af0ba770)]
+        interface IPinInfo: IDispatch {
+            #[special]
+            fn get_Pin(&self, #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_ConnectedTo(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_ConnectionMediaType(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_FilterInfo(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] ppUnk: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Direction(&self, #[retval] ppDirection: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PinID(&self, #[retval] strPinID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_MediaTypes(&self, #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn Connect(&self, pPin: IUnknown) -> HRESULT;
+            fn ConnectDirect(&self, pPin: IUnknown) -> HRESULT;
+            fn ConnectWithType(&self, pPin: IUnknown, pMediaType: IDispatch) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn Render(&self) -> HRESULT;
+        }
+        #[guid(0x56a868b7_0ad4_11ce_b03a_0020af0ba770)]
+        interface IQueueCommand: IUnknown {
+            fn InvokeAtStreamTime(&self, pCmd: *mut IDeferredCommand, time: f64, iid: *const GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, pDispParams: *const VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
+            fn InvokeAtPresentationTime(&self, pCmd: *mut IDeferredCommand, time: f64, iid: *const GUID, dispidMethod: i32, wFlags: i16, cArgs: i32, pDispParams: *const VARIANT, #[in] #[out] pvarResult: *mut VARIANT, puArgErr: *mut i16) -> HRESULT;
+        }
+        #[guid(0x56a868bb_0ad4_11ce_b03a_0020af0ba770)]
+        interface IRegFilterInfo: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] strName: *mut BSTR) -> HRESULT;
+            fn Filter(&self, ppUnk: *mut IDispatch) -> HRESULT;
+        }
+        #[guid(0x56a868b4_0ad4_11ce_b03a_0020af0ba770)]
+        interface IVideoWindow: IDispatch {
+            #[special]
+            fn put_Caption(&self, strCaption: BSTR) -> HRESULT;
+            #[special]
+            fn get_Caption(&self, #[retval] strCaption: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_WindowStyle(&self, WindowStyle: i32) -> HRESULT;
+            #[special]
+            fn get_WindowStyle(&self, #[retval] WindowStyle: *mut i32) -> HRESULT;
+            #[special]
+            fn put_WindowStyleEx(&self, WindowStyleEx: i32) -> HRESULT;
+            #[special]
+            fn get_WindowStyleEx(&self, #[retval] WindowStyleEx: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AutoShow(&self, AutoShow: i32) -> HRESULT;
+            #[special]
+            fn get_AutoShow(&self, #[retval] AutoShow: *mut i32) -> HRESULT;
+            #[special]
+            fn put_WindowState(&self, WindowState: i32) -> HRESULT;
+            #[special]
+            fn get_WindowState(&self, #[retval] WindowState: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BackgroundPalette(&self, BackgroundPalette: i32) -> HRESULT;
+            #[special]
+            fn get_BackgroundPalette(&self, #[retval] pBackgroundPalette: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Visible(&self, Visible: i32) -> HRESULT;
+            #[special]
+            fn get_Visible(&self, #[retval] pVisible: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Left(&self, Left: i32) -> HRESULT;
+            #[special]
+            fn get_Left(&self, #[retval] pLeft: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Width(&self, Width: i32) -> HRESULT;
+            #[special]
+            fn get_Width(&self, #[retval] pWidth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Top(&self, Top: i32) -> HRESULT;
+            #[special]
+            fn get_Top(&self, #[retval] pTop: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Height(&self, Height: i32) -> HRESULT;
+            #[special]
+            fn get_Height(&self, #[retval] pHeight: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Owner(&self, Owner: OAHWND) -> HRESULT;
+            #[special]
+            fn get_Owner(&self, #[retval] Owner: *mut OAHWND) -> HRESULT;
+            #[special]
+            fn put_MessageDrain(&self, Drain: OAHWND) -> HRESULT;
+            #[special]
+            fn get_MessageDrain(&self, #[retval] Drain: *mut OAHWND) -> HRESULT;
+            #[special]
+            fn get_BorderColor(&self, #[retval] Color: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BorderColor(&self, Color: i32) -> HRESULT;
+            #[special]
+            fn get_FullScreenMode(&self, #[retval] FullScreenMode: *mut i32) -> HRESULT;
+            #[special]
+            fn put_FullScreenMode(&self, FullScreenMode: i32) -> HRESULT;
+            fn SetWindowForeground(&self, Focus: i32) -> HRESULT;
+            fn NotifyOwnerMessage(&self, hwnd: OAHWND, uMsg: i32, wParam: isize, lParam: isize) -> HRESULT;
+            fn SetWindowPosition(&self, Left: i32, Top: i32, Width: i32, Height: i32) -> HRESULT;
+            fn GetWindowPosition(&self, pLeft: *mut i32, pTop: *mut i32, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn GetMinIdealImageSize(&self, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn GetMaxIdealImageSize(&self, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn GetRestorePosition(&self, pLeft: *mut i32, pTop: *mut i32, pWidth: *mut i32, pHeight: *mut i32) -> HRESULT;
+            fn HideCursor(&self, HideCursor: i32) -> HRESULT;
+            fn IsCursorHidden(&self, CursorHidden: *mut i32) -> HRESULT;
+        }
+        const LIBID_QuartzTypeLib: GUID = 0x56a868b0_0ad4_11ce_b03a_0020af0ba770;
+        type OAEVENT = isize;
+        type OAFilterState = i32;
+        type OAHWND = isize;
+    }
+}

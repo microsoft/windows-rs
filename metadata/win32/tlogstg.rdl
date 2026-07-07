@@ -1,0 +1,54 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x7ebfdd85_ad18_11d3_a4c5_00c04f72d6b8)]
+        interface IEnumTravelLogEntry: IUnknown {
+            fn Next(&self, cElt: u32, rgElt: *mut ITravelLogEntry, pcEltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cElt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumTravelLogEntry) -> HRESULT;
+        }
+        #[guid(0x241c033e_e659_43da_aa4d_4086dbc4758d)]
+        interface ITravelLogClient: IUnknown {
+            fn FindWindowByIndex(&self, dwID: u32, ppunk: *mut IUnknown) -> HRESULT;
+            fn GetWindowData(&self, pStream: IStream, pWinData: *mut WINDOWDATA) -> HRESULT;
+            fn LoadHistoryPosition(&self, pszUrlLocation: PCWSTR, dwPosition: u32) -> HRESULT;
+        }
+        #[guid(0x7ebfdd87_ad18_11d3_a4c5_00c04f72d6b8)]
+        interface ITravelLogEntry: IUnknown {
+            fn GetTitle(&self, ppszTitle: *mut PWSTR) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7ebfdd80_ad18_11d3_a4c5_00c04f72d6b8)]
+        interface ITravelLogStg: IUnknown {
+            fn CreateEntry(&self, pszUrl: PCWSTR, pszTitle: PCWSTR, ptleRelativeTo: ITravelLogEntry, fPrepend: BOOL, pptle: *mut ITravelLogEntry) -> HRESULT;
+            fn TravelTo(&self, ptle: ITravelLogEntry) -> HRESULT;
+            fn EnumEntries(&self, flags: TLENUMF, ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
+            fn FindEntries(&self, flags: TLENUMF, pszUrl: PCWSTR, ppenum: *mut IEnumTravelLogEntry) -> HRESULT;
+            fn GetCount(&self, flags: TLENUMF, pcEntries: *mut u32) -> HRESULT;
+            fn RemoveEntry(&self, ptle: ITravelLogEntry) -> HRESULT;
+            fn GetRelativeEntry(&self, iOffset: i32, ptle: *mut ITravelLogEntry) -> HRESULT;
+        }
+        type LPCWINDOWDATA = *const WINDOWDATA;
+        type LPWINDOWDATA = *mut WINDOWDATA;
+        type TLENUMF = u32;
+        struct WINDOWDATA {
+            dwWindowID: u32,
+            uiCP: u32,
+            pidl: LPITEMIDLIST,
+            lpszUrl: PWSTR,
+            lpszUrlLocation: PWSTR,
+            lpszTitle: PWSTR,
+        }
+        #[repr(i32)]
+        enum tagTLENUMF {
+            TLEF_RELATIVE_INCLUDE_CURRENT = 1,
+            TLEF_RELATIVE_BACK = 16,
+            TLEF_RELATIVE_FORE = 32,
+            TLEF_INCLUDE_UNINVOKEABLE = 64,
+            TLEF_ABSOLUTE = 49,
+            TLEF_EXCLUDE_SUBFRAME_ENTRIES = 128,
+            TLEF_EXCLUDE_ABOUT_PAGES = 256,
+        }
+    }
+}

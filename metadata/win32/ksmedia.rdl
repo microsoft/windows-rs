@@ -1,0 +1,4262 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct APO_CLASS_UUID {}
+        struct AUDIOENDPOINT_CLASS_UUID {}
+        const AUDIOLOOPBACK_TAPPOINT_CAPS_POSTVOLUMEMUTE: u32 = 2;
+        const AUDIOLOOPBACK_TAPPOINT_CAPS_PREVOLUMEMUTE: u32 = 1;
+        #[repr(i32)]
+        enum AUDIOLOOPBACK_TAPPOINT_TYPE {
+            AUDIOLOOPBACK_TAPPOINT_PREVOLUMEMUTE = 0,
+            AUDIOLOOPBACK_TAPPOINT_POSTVOLUMEMUTE = 1,
+        }
+        const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000;
+        const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128;
+        #[repr(i32)]
+        enum AUDIOPOSTURE_ORIENTATION {
+            AUDIOPOSTURE_ORIENTATION_NOTROTATED = 0,
+            AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE = 1,
+            AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE = 2,
+            AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE = 3,
+        }
+        struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+            ResourceGroupAcquired: BOOL,
+            ResourceGroupName: [u16; 256],
+        }
+        #[repr(i32)]
+        enum AUDIO_CURVE_TYPE {
+            AUDIO_CURVE_TYPE_NONE = 0,
+            AUDIO_CURVE_TYPE_WINDOWS_FADE = 1,
+        }
+        struct AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION {}
+        struct AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL {}
+        struct AUDIO_EFFECT_TYPE_BASS_BOOST {}
+        struct AUDIO_EFFECT_TYPE_BASS_MANAGEMENT {}
+        struct AUDIO_EFFECT_TYPE_BEAMFORMING {}
+        struct AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL {}
+        struct AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION {}
+        struct AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION {}
+        struct AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS {}
+        struct AUDIO_EFFECT_TYPE_EQUALIZER {}
+        struct AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING {}
+        struct AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER {}
+        struct AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION {}
+        struct AUDIO_EFFECT_TYPE_ROOM_CORRECTION {}
+        struct AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION {}
+        struct AUDIO_EFFECT_TYPE_SPEAKER_FILL {}
+        struct AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION {}
+        struct AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES {}
+        struct AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND {}
+        struct AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS {}
+        struct AUDIO_SIGNALPROCESSINGMODE_DEFAULT {}
+        struct AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH {}
+        struct AUDIO_SIGNALPROCESSINGMODE_MEDIA {}
+        struct AUDIO_SIGNALPROCESSINGMODE_MOVIE {}
+        struct AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION {}
+        struct AUDIO_SIGNALPROCESSINGMODE_RAW {}
+        struct AUDIO_SIGNALPROCESSINGMODE_SPEECH {}
+        struct BLUETOOTHLE_MIDI_SERVICE_UUID {}
+        struct BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC {}
+        #[repr(i32)]
+        enum CAPTURE_MEMORY_ALLOCATION_FLAGS {
+            KS_CAPTURE_ALLOC_INVALID = 0,
+            KS_CAPTURE_ALLOC_SYSTEM = 1,
+            KS_CAPTURE_ALLOC_VRAM = 2,
+            KS_CAPTURE_ALLOC_SYSTEM_AGP = 4,
+            KS_CAPTURE_ALLOC_VRAM_MAPPED = 8,
+            KS_CAPTURE_ALLOC_SECURE_BUFFER = 16,
+        }
+        struct CC_BYTE_PAIR {
+            Decoded: [u8; 2],
+            Reserved: u16,
+        }
+        struct CC_HW_FIELD {
+            ScanlinesRequested: VBICODECFILTERING_SCANLINES,
+            fieldFlags: u32,
+            PictureNumber: i64,
+            Lines: [CC_BYTE_PAIR; 12],
+        }
+        const CC_MAX_HW_DECODE_LINES: u32 = 12;
+        struct CLSID_KsIBasicAudioInterfaceHandler {}
+        struct CODECAPI_ALLSETTINGS {}
+        struct CODECAPI_AUDIO_ENCODER {}
+        struct CODECAPI_CHANGELISTS {}
+        struct CODECAPI_CURRENTCHANGELIST {}
+        struct CODECAPI_SETALLDEFAULTS {}
+        struct CODECAPI_SUPPORTSEVENTS {}
+        struct CODECAPI_VIDEO_ENCODER {}
+        #[repr(i32)]
+        enum CONSTRICTOR_OPTION {
+            CONSTRICTOR_OPTION_DISABLE = 0,
+            CONSTRICTOR_OPTION_MUTE = 1,
+        }
+        const DDPF_FOURCC: u32 = 4;
+        struct DDPIXELFORMAT {
+            dwSize: u32,
+            dwFlags: u32,
+            dwFourCC: u32,
+            Anonymous: union {
+                dwRGBBitCount: u32,
+                dwYUVBitCount: u32,
+                dwZBufferBitDepth: u32,
+                dwAlphaBitDepth: u32,
+            },
+            Anonymous2: union {
+                dwRBitMask: u32,
+                dwYBitMask: u32,
+            },
+            Anonymous3: union {
+                dwGBitMask: u32,
+                dwUBitMask: u32,
+            },
+            Anonymous4: union {
+                dwBBitMask: u32,
+                dwVBitMask: u32,
+            },
+            Anonymous5: union {
+                dwRGBAlphaBitMask: u32,
+                dwYUVAlphaBitMask: u32,
+                dwRGBZBitMask: u32,
+                dwYUVZBitMask: u32,
+            },
+        }
+        struct DDVIDEOPORTCONNECT {
+            dwSize: u32,
+            dwPortWidth: u32,
+            guidTypeID: GUID,
+            dwFlags: u32,
+            dwReserved1: usize,
+        }
+        struct DEVCAPS {
+            CanRecord: i32,
+            CanRecordStrobe: i32,
+            HasAudio: i32,
+            HasVideo: i32,
+            UsesFiles: i32,
+            CanSave: i32,
+            DeviceType: i32,
+            TCRead: i32,
+            TCWrite: i32,
+            CTLRead: i32,
+            IndexRead: i32,
+            Preroll: i32,
+            Postroll: i32,
+            SyncAcc: i32,
+            NormRate: i32,
+            CanPreview: i32,
+            CanMonitorSrc: i32,
+            CanTest: i32,
+            VideoIn: i32,
+            AudioIn: i32,
+            Calibrate: i32,
+            SeekType: i32,
+            SimulatedHardware: i32,
+        }
+        struct DS3DVECTOR {
+            Anonymous: union {
+                x: f32,
+                dvX: f32,
+            },
+            Anonymous2: union {
+                y: f32,
+                dvY: f32,
+            },
+            Anonymous3: union {
+                z: f32,
+                dvZ: f32,
+            },
+        }
+        #[repr(i32)]
+        enum EDeviceControlUseType {
+            eDeviceControlUseMissing = 0,
+            eDeviceControlUsePrimary = 1,
+            eDeviceControlUseSecondary = 2,
+        }
+        struct ENCAPIPARAM_BITRATE {}
+        struct ENCAPIPARAM_BITRATE_MODE {}
+        struct ENCAPIPARAM_PEAK_BITRATE {}
+        #[repr(i32)]
+        enum EPcxConnectionType {
+            eConnTypeUnknown = 0,
+            eConnType3Point5mm = 1,
+            eConnTypeQuarter = 2,
+            eConnTypeAtapiInternal = 3,
+            eConnTypeRCA = 4,
+            eConnTypeOptical = 5,
+            eConnTypeOtherDigital = 6,
+            eConnTypeOtherAnalog = 7,
+            eConnTypeMultichannelAnalogDIN = 8,
+            eConnTypeXlrProfessional = 9,
+            eConnTypeRJ11Modem = 10,
+            eConnTypeCombination = 11,
+        }
+        #[repr(i32)]
+        enum EPcxGenLocation {
+            eGenLocPrimaryBox = 0,
+            eGenLocInternal = 1,
+            eGenLocSeparate = 2,
+            eGenLocOther = 3,
+            EPcxGenLocation_enum_count = 4,
+        }
+        #[repr(i32)]
+        enum EPcxGeoLocation {
+            eGeoLocRear = 1,
+            eGeoLocFront = 2,
+            eGeoLocLeft = 3,
+            eGeoLocRight = 4,
+            eGeoLocTop = 5,
+            eGeoLocBottom = 6,
+            eGeoLocRearPanel = 7,
+            eGeoLocRiser = 8,
+            eGeoLocInsideMobileLid = 9,
+            eGeoLocDrivebay = 10,
+            eGeoLocHDMI = 11,
+            eGeoLocOutsideMobileLid = 12,
+            eGeoLocATAPI = 13,
+            eGeoLocNotApplicable = 14,
+            eGeoLocReserved6 = 15,
+            EPcxGeoLocation_enum_count = 16,
+        }
+        #[repr(i32)]
+        enum EPxcPortConnection {
+            ePortConnJack = 0,
+            ePortConnIntegratedDevice = 1,
+            ePortConnBothIntegratedAndJack = 2,
+            ePortConnUnknown = 3,
+        }
+        struct EVENTSETID_CROSSBAR {}
+        struct EVENTSETID_TUNER {}
+        struct EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST {}
+        struct EVENTSETID_VIDEODECODER {}
+        struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
+            Size: u32,
+            PrimaryChannelCount: u32,
+            PrimaryChannelStartPosition: u32,
+            PrimaryChannelMask: u32,
+            InterleavedChannelCount: u32,
+            InterleavedChannelStartPosition: u32,
+            InterleavedChannelMask: u32,
+        }
+        const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: u32 = 2;
+        const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1;
+        struct KSAC3_ALTERNATE_AUDIO {
+            fStereo: BOOL,
+            DualMode: u32,
+        }
+        const KSAC3_ALTERNATE_AUDIO_1: u32 = 1;
+        const KSAC3_ALTERNATE_AUDIO_2: u32 = 2;
+        const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3;
+        struct KSAC3_BIT_STREAM_MODE {
+            BitStreamMode: i32,
+        }
+        struct KSAC3_DIALOGUE_LEVEL {
+            DialogueLevel: u32,
+        }
+        struct KSAC3_DOWNMIX {
+            fDownMix: BOOL,
+            fDolbySurround: BOOL,
+        }
+        struct KSAC3_ERROR_CONCEALMENT {
+            fRepeatPreviousBlock: BOOL,
+            fErrorInCurrentBlock: BOOL,
+        }
+        struct KSAC3_ROOM_TYPE {
+            fLargeRoom: BOOL,
+        }
+        const KSAC3_SERVICE_COMMENTARY: u32 = 5;
+        const KSAC3_SERVICE_DIALOG_ONLY: u32 = 4;
+        const KSAC3_SERVICE_EMERGENCY_FLASH: u32 = 6;
+        const KSAC3_SERVICE_HEARING_IMPAIRED: u32 = 3;
+        const KSAC3_SERVICE_MAIN_AUDIO: u32 = 0;
+        const KSAC3_SERVICE_NO_DIALOG: u32 = 1;
+        const KSAC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2;
+        const KSAC3_SERVICE_VOICE_OVER: u32 = 7;
+        struct KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL {}
+        struct KSALGORITHMINSTANCE_SYSTEM_AGC {}
+        struct KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR {}
+        struct KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS {}
+        struct KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT {}
+        struct KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE {}
+        struct KSATTRIBUTEID_VIDEOFORMAT_DX12 {}
+        struct KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
+            AttributeHeader: KSATTRIBUTE,
+            TapPoint: AUDIOLOOPBACK_TAPPOINT_TYPE,
+        }
+        struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
+            AttributeHeader: KSATTRIBUTE,
+            SignalProcessingMode: GUID,
+        }
+        const KSAUDDECOUTMODE_PCM_51: u32 = 2;
+        const KSAUDDECOUTMODE_SPDIFF: u32 = 4;
+        const KSAUDDECOUTMODE_STEREO_ANALOG: u32 = 1;
+        struct KSAUDFNAME_3D_CENTER {}
+        struct KSAUDFNAME_3D_DEPTH {}
+        struct KSAUDFNAME_3D_STEREO {}
+        struct KSAUDFNAME_ALTERNATE_MICROPHONE {}
+        struct KSAUDFNAME_AUX {}
+        struct KSAUDFNAME_AUX_MUTE {}
+        struct KSAUDFNAME_AUX_VOLUME {}
+        struct KSAUDFNAME_BASS {}
+        struct KSAUDFNAME_CD_AUDIO {}
+        struct KSAUDFNAME_CD_IN_VOLUME {}
+        struct KSAUDFNAME_CD_MUTE {}
+        struct KSAUDFNAME_CD_VOLUME {}
+        struct KSAUDFNAME_LINE_IN {}
+        struct KSAUDFNAME_LINE_IN_VOLUME {}
+        struct KSAUDFNAME_LINE_MUTE {}
+        struct KSAUDFNAME_LINE_VOLUME {}
+        struct KSAUDFNAME_MASTER_MUTE {}
+        struct KSAUDFNAME_MASTER_VOLUME {}
+        struct KSAUDFNAME_MICROPHONE_BOOST {}
+        struct KSAUDFNAME_MIC_IN_VOLUME {}
+        struct KSAUDFNAME_MIC_MUTE {}
+        struct KSAUDFNAME_MIC_VOLUME {}
+        struct KSAUDFNAME_MIDI {}
+        struct KSAUDFNAME_MIDI_IN_VOLUME {}
+        struct KSAUDFNAME_MIDI_MUTE {}
+        struct KSAUDFNAME_MIDI_VOLUME {}
+        struct KSAUDFNAME_MIDRANGE {}
+        struct KSAUDFNAME_MONO_MIX {}
+        struct KSAUDFNAME_MONO_MIX_MUTE {}
+        struct KSAUDFNAME_MONO_MIX_VOLUME {}
+        struct KSAUDFNAME_MONO_OUT {}
+        struct KSAUDFNAME_MONO_OUT_MUTE {}
+        struct KSAUDFNAME_MONO_OUT_VOLUME {}
+        struct KSAUDFNAME_PC_SPEAKER {}
+        struct KSAUDFNAME_PC_SPEAKER_MUTE {}
+        struct KSAUDFNAME_PC_SPEAKER_VOLUME {}
+        struct KSAUDFNAME_PEAKMETER {}
+        struct KSAUDFNAME_RECORDING_CONTROL {}
+        struct KSAUDFNAME_RECORDING_SOURCE {}
+        struct KSAUDFNAME_STEREO_MIX {}
+        struct KSAUDFNAME_STEREO_MIX_MUTE {}
+        struct KSAUDFNAME_STEREO_MIX_VOLUME {}
+        struct KSAUDFNAME_TREBLE {}
+        struct KSAUDFNAME_VIDEO {}
+        struct KSAUDFNAME_VIDEO_MUTE {}
+        struct KSAUDFNAME_VIDEO_VOLUME {}
+        struct KSAUDFNAME_VOLUME_CONTROL {}
+        struct KSAUDFNAME_WAVE_IN_VOLUME {}
+        struct KSAUDFNAME_WAVE_MUTE {}
+        struct KSAUDFNAME_WAVE_OUT_MIX {}
+        struct KSAUDFNAME_WAVE_VOLUME {}
+        struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
+            MinBufferBytes: u32,
+            MaxBufferBytes: u32,
+        }
+        struct KSAUDIOENGINE_DESCRIPTOR {
+            nHostPinId: u32,
+            nOffloadPinId: u32,
+            nLoopbackPinId: u32,
+        }
+        struct KSAUDIOENGINE_DEVICECONTROLS {
+            Volume: EDeviceControlUseType,
+            Mute: EDeviceControlUseType,
+            PeakMeter: EDeviceControlUseType,
+        }
+        struct KSAUDIOENGINE_VOLUMELEVEL {
+            TargetVolume: i32,
+            CurveType: AUDIO_CURVE_TYPE,
+            CurveDuration: u64,
+        }
+        struct KSAUDIOMODULE_DESCRIPTOR {
+            ClassId: GUID,
+            InstanceId: u32,
+            VersionMajor: u32,
+            VersionMinor: u32,
+            Name: [u16; 128],
+        }
+        struct KSAUDIOMODULE_NOTIFICATION {
+            Anonymous: union {
+                ProviderId: struct {
+                    DeviceId: GUID,
+                    ClassId: GUID,
+                    InstanceId: u32,
+                    Reserved: u32,
+                },
+                Alignment: i64,
+            },
+        }
+        struct KSAUDIOMODULE_PROPERTY {
+            Property: KSPROPERTY,
+            ClassId: GUID,
+            InstanceId: u32,
+        }
+        struct KSAUDIO_CHANNEL_CONFIG {
+            ActiveSpeakerPositions: i32,
+        }
+        struct KSAUDIO_COPY_PROTECTION {
+            fCopyrighted: BOOL,
+            fOriginal: BOOL,
+        }
+        const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647;
+        const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0;
+        struct KSAUDIO_DYNAMIC_RANGE {
+            QuietCompression: u32,
+            LoudCompression: u32,
+        }
+        struct KSAUDIO_MICROPHONE_COORDINATES {
+            usType: u16,
+            wXCoord: i16,
+            wYCoord: i16,
+            wZCoord: i16,
+            wVerticalAngle: i16,
+            wHorizontalAngle: i16,
+        }
+        struct KSAUDIO_MIC_ARRAY_GEOMETRY {
+            usVersion: u16,
+            usMicArrayType: u16,
+            wVerticalAngleBegin: i16,
+            wVerticalAngleEnd: i16,
+            wHorizontalAngleBegin: i16,
+            wHorizontalAngleEnd: i16,
+            usFrequencyBandLo: u16,
+            usFrequencyBandHi: u16,
+            usNumberOfMicrophones: u16,
+            KsMicCoord: [KSAUDIO_MICROPHONE_COORDINATES; 1],
+        }
+        struct KSAUDIO_MIXCAP_TABLE {
+            InputChannels: u32,
+            OutputChannels: u32,
+            Capabilities: [KSAUDIO_MIX_CAPS; 1],
+        }
+        struct KSAUDIO_MIXLEVEL {
+            Mute: BOOL,
+            Level: i32,
+        }
+        struct KSAUDIO_MIX_CAPS {
+            Mute: BOOL,
+            Minimum: i32,
+            Maximum: i32,
+            Anonymous: union {
+                Reset: i32,
+                Resolution: i32,
+            },
+        }
+        struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
+            MinPacketPeriodInHns: u32,
+            PacketSizeFileAlignment: u32,
+            Reserved: u32,
+            NumProcessingModeConstraints: u32,
+            ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
+        }
+        struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
+            MinPacketPeriodInHns: u32,
+            PacketSizeFileAlignment: u32,
+            MaxPacketSizeInBytes: u32,
+            NumProcessingModeConstraints: u32,
+            ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
+        }
+        struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+            ProcessingMode: GUID,
+            SamplesPerProcessingPacket: u32,
+            ProcessingPacketDurationInHns: u32,
+        }
+        struct KSAUDIO_POSITION {
+            PlayOffset: DWORDLONG,
+            WriteOffset: DWORDLONG,
+        }
+        struct KSAUDIO_POSITIONEX {
+            TimerFrequency: LARGE_INTEGER,
+            TimeStamp1: LARGE_INTEGER,
+            Position: KSAUDIO_POSITION,
+            TimeStamp2: LARGE_INTEGER,
+        }
+        struct KSAUDIO_PRESENTATION_POSITION {
+            u64PositionInBlocks: u64,
+            u64QPCPosition: u64,
+        }
+        const KSAUDIO_QUALITY_ADVANCED: u32 = 3;
+        const KSAUDIO_QUALITY_BASIC: u32 = 2;
+        const KSAUDIO_QUALITY_PC: u32 = 1;
+        const KSAUDIO_QUALITY_WORST: u32 = 0;
+        const KSAUDIO_SPEAKER_1POINT1: u32 = 12;
+        const KSAUDIO_SPEAKER_2POINT1: u32 = 11;
+        const KSAUDIO_SPEAKER_3POINT0: u32 = 7;
+        const KSAUDIO_SPEAKER_3POINT1: u32 = 15;
+        const KSAUDIO_SPEAKER_5POINT0: u32 = 1543;
+        const KSAUDIO_SPEAKER_5POINT1: u32 = 63;
+        const KSAUDIO_SPEAKER_5POINT1_BACK: u32 = 63;
+        const KSAUDIO_SPEAKER_5POINT1_SURROUND: u32 = 1551;
+        const KSAUDIO_SPEAKER_7POINT0: u32 = 1591;
+        const KSAUDIO_SPEAKER_7POINT1: u32 = 255;
+        const KSAUDIO_SPEAKER_7POINT1_SURROUND: u32 = 1599;
+        const KSAUDIO_SPEAKER_7POINT1_WIDE: u32 = 255;
+        const KSAUDIO_SPEAKER_DIRECTOUT: u32 = 0;
+        const KSAUDIO_SPEAKER_GROUND_FRONT_CENTER: u32 = 4;
+        const KSAUDIO_SPEAKER_GROUND_FRONT_LEFT: u32 = 1;
+        const KSAUDIO_SPEAKER_GROUND_FRONT_RIGHT: u32 = 2;
+        const KSAUDIO_SPEAKER_GROUND_REAR_LEFT: u32 = 16;
+        const KSAUDIO_SPEAKER_GROUND_REAR_RIGHT: u32 = 32;
+        const KSAUDIO_SPEAKER_MONO: u32 = 4;
+        const KSAUDIO_SPEAKER_QUAD: u32 = 51;
+        const KSAUDIO_SPEAKER_STEREO: u32 = 3;
+        const KSAUDIO_SPEAKER_SUPER_WOOFER: u32 = 8;
+        const KSAUDIO_SPEAKER_SURROUND: u32 = 263;
+        const KSAUDIO_SPEAKER_TOP_MIDDLE: u32 = 2048;
+        const KSAUDIO_STEREO_SPEAKER_GEOMETRY_HEADPHONE: i32 = -1;
+        const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MAX: u32 = 180;
+        const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN: u32 = 5;
+        const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: u32 = 10;
+        const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: u32 = 20;
+        struct KSCAMERAPROFILE_BalancedVideoAndPhoto {}
+        struct KSCAMERAPROFILE_CompressedCamera {}
+        const KSCAMERAPROFILE_FLAGS_FACEDETECTION: u32 = 8;
+        const KSCAMERAPROFILE_FLAGS_PHOTOHDR: u32 = 4;
+        const KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH: u32 = 32;
+        const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: u32 = 16;
+        const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u32 = 2;
+        const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u32 = 1;
+        struct KSCAMERAPROFILE_FaceAuth_Mode {}
+        struct KSCAMERAPROFILE_HDRWithWCGPhoto {}
+        struct KSCAMERAPROFILE_HDRWithWCGVideo {}
+        struct KSCAMERAPROFILE_HighFrameRate {}
+        struct KSCAMERAPROFILE_HighQualityPhoto {}
+        struct KSCAMERAPROFILE_Legacy {}
+        struct KSCAMERAPROFILE_PhotoSequence {}
+        struct KSCAMERAPROFILE_VariablePhotoSequence {}
+        struct KSCAMERAPROFILE_VideoConferencing {}
+        struct KSCAMERAPROFILE_VideoHDR8 {}
+        struct KSCAMERAPROFILE_VideoRecording {}
+        const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: u32 = 1;
+        struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
+            Resolution: SIZE,
+            MaxFrameRate: struct {
+                Numerator: i32,
+                Denominator: i32,
+            },
+            MaskResolution: SIZE,
+            SubType: GUID,
+        }
+        const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: u32 = 4;
+        struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
+            PitchAngle: i32,
+            YawAngle: i32,
+            Flag: u32,
+            Reserved: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808;
+        const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904;
+        const KSCAMERA_EXTENDEDPROP_CAPS_MASK: u64 = 18374686479671623680;
+        const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680;
+        const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: u32 = 1;
+        struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
+            ResolutionX: i32,
+            ResolutionY: i32,
+            PorchTop: i32,
+            PorchLeft: i32,
+            PorchBottom: i32,
+            PorchRight: i32,
+            NonUpscalingWindowSize: i32,
+            MinWindowSize: i32,
+            MaxWindowSize: i32,
+            Reserved: i32,
+        }
+        struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
+            Size: u32,
+            Count: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MASK: u32 = 1;
+        struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
+            OriginX: i32,
+            OriginY: i32,
+            WindowSize: i32,
+            Reserved: u32,
+        }
+        struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
+            Mode: u32,
+            Min: i32,
+            Max: i32,
+            Value: i32,
+            Reserved: u64,
+        }
+        const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_EVCOMP_QUARTERSTEP: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_EVCOMP_SIXTHSTEP: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_STARE: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_BACKGROUND_SUBTRACTION: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_DISABLED: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_ADVANCED_MASK: u32 = 24;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_BLINK: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_MASK: u32 = 7;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PHOTO: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: u32 = 2;
+        struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
+            NormalizedFocalLengthX: u32,
+            NormalizedFocalLengthY: u32,
+            Flag: u32,
+            Reserved: u32,
+        }
+        struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
+            DefaultDiagonalFieldOfViewInDegrees: u16,
+            DiscreteFoVStopsCount: u16,
+            DiscreteFoVStops: [u16; 360],
+            Reserved: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295;
+        const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808;
+        const KSCAMERA_EXTENDEDPROP_FLAG_MASK: u64 = 18374686479671623680;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_AUTO: u32 = 256;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_MASK: u32 = 384;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_ON: u32 = 128;
+        const KSCAMERA_EXTENDEDPROP_FLASH_AUTO: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_FLASH_AUTO_ADJUSTABLEPOWER: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_FLASH_MODE_MASK: u32 = 15;
+        const KSCAMERA_EXTENDEDPROP_FLASH_MULTIFLASHSUPPORTED: u32 = 64;
+        const KSCAMERA_EXTENDEDPROP_FLASH_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_FLASH_ON_ADJUSTABLEPOWER: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_FLASH_REDEYEREDUCTION: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_FLASH_SINGLEFLASH: u32 = 32;
+        const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_ON: u32 = 1;
+        #[repr(i32)]
+        enum KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+            KSCAMERA_EXTENDEDPROP_FOCUSSTATE_UNINITIALIZED = 0,
+            KSCAMERA_EXTENDEDPROP_FOCUSSTATE_LOST = 1,
+            KSCAMERA_EXTENDEDPROP_FOCUSSTATE_SEARCHING = 2,
+            KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FOCUSED = 3,
+            KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FAILED = 4,
+        }
+        const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS: u32 = 256;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUSLOCK: u32 = 512;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_HYPERFOCAL: u32 = 33554432;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_INFINITY: u32 = 16777216;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_MASK: u32 = 117440512;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_NEAREST: u32 = 67108864;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_DRIVERFALLBACK_OFF: u32 = 2048;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_MODE_ADVANCED_MASK: u32 = 7680;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_MODE_MASK: u32 = 263;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_FULLRANGE: u32 = 262144;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_HYPERFOCAL: u32 = 1048576;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_INFINITY: u32 = 524288;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MACRO: u32 = 65536;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MASK: u32 = 2031616;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_NORMAL: u32 = 131072;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_REGIONBASED: u32 = 4096;
+        const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: u32 = 1024;
+        const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_ON: u32 = 1;
+        struct KSCAMERA_EXTENDEDPROP_HEADER {
+            Version: u32,
+            PinId: u32,
+            Size: u32,
+            Result: u32,
+            Flags: u64,
+            Capability: u64,
+        }
+        const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALTERNATING_FRAME_ILLUMINATION: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALWAYS_ON: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_OFF: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_ISO_100: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_ISO_12800: u32 = 1024;
+        const KSCAMERA_EXTENDEDPROP_ISO_1600: u32 = 128;
+        const KSCAMERA_EXTENDEDPROP_ISO_200: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_ISO_25600: u32 = 2048;
+        const KSCAMERA_EXTENDEDPROP_ISO_3200: u32 = 256;
+        const KSCAMERA_EXTENDEDPROP_ISO_400: u32 = 32;
+        const KSCAMERA_EXTENDEDPROP_ISO_50: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_ISO_6400: u32 = 512;
+        const KSCAMERA_EXTENDEDPROP_ISO_80: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_ISO_800: u32 = 64;
+        const KSCAMERA_EXTENDEDPROP_ISO_AUTO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: u64 = 36028797018963968;
+        struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
+            BufferAlignment: i32,
+            MaxMetadataBufferSize: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: u32 = 256;
+        const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: u32 = 255;
+        const KSCAMERA_EXTENDEDPROP_METADATA_SYSTEMMEMORY: u32 = 1;
+        #[repr(i32)]
+        enum KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_16 = 4,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_32 = 5,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_64 = 6,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_128 = 7,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_256 = 8,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_512 = 9,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_1024 = 10,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_2048 = 11,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_4096 = 12,
+            KSCAMERA_EXTENDEDPROP_MetadataAlignment_8192 = 13,
+        }
+        const KSCAMERA_EXTENDEDPROP_OIS_AUTO: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_OIS_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_OIS_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_DEFAULT: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_LATENCY: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PERF_MASK: u32 = 28;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PHOTO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_POWER: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PRIMARYUSE_MASK: u32 = 3;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_QUALITY: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: u32 = 1;
+        struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
+            RequestedHistoryFrames: u32,
+            MaxHistoryFrames: u32,
+            SubMode: u32,
+            Reserved: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_NONE: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_VARIABLE: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_16X: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_2X: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: u32 = 0;
+        struct KSCAMERA_EXTENDEDPROP_PROFILE {
+            ProfileId: GUID,
+            Index: u32,
+            Reserved: u32,
+        }
+        const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_MASK: u32 = 3;
+        const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u32 = 1;
+        #[repr(i32)]
+        enum KSCAMERA_EXTENDEDPROP_ROITYPE {
+            KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN = 0,
+            KSCAMERA_EXTENDEDPROP_ROITYPE_FACE = 1,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
+            ControlId: u32,
+            MaxNumberOfROIs: u32,
+            Capability: u64,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
+            Size: u32,
+            ConfigCapCount: u32,
+            Reserved: u64,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
+            ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
+            Reserved: u64,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
+            ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
+            Reserved: u64,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
+            Region: RECT,
+            Flags: u64,
+            Weight: i32,
+            RegionOfInterestType: i32,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
+            ControlId: u32,
+            ROICount: u32,
+            Result: u32,
+            Reserved: u32,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
+            Size: u32,
+            ControlCount: u32,
+            Reserved: u64,
+        }
+        struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
+            ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
+            Reserved: u64,
+        }
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: u32 = 1024;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_BEACH: u32 = 32;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_CANDLELIGHT: u32 = 128;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_LANDSCAPE: u32 = 256;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_MACRO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_MANUAL: u64 = 36028797018963968;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHT: u32 = 16;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHTPORTRAIT: u32 = 512;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_PORTRAIT: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_SNOW: u32 = 8;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_SPORT: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET: u32 = 64;
+        const KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED: u32 = 2;
+        struct KSCAMERA_EXTENDEDPROP_VALUE {
+            Value: union {
+                dbl: f64,
+                ull: u64,
+                ul: u32,
+                ratio: ULARGE_INTEGER,
+                l: i32,
+                ll: i64,
+            },
+        }
+        const KSCAMERA_EXTENDEDPROP_VFR_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_VFR_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOHDR_AUTO: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_VIDEOHDR_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_VIDEOHDR_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_AUTO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MASK: u32 = 7;
+        struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
+            Mode: u32,
+            Min: i32,
+            Max: i32,
+            Step: i32,
+            VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
+            Reserved: u64,
+        }
+        const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_AUTO: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_OFF: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_ON: u32 = 4;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_OFF: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON_ADJUSTABLEPOWER: u32 = 2;
+        const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_DISABLED: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_ENABLED: u32 = 1;
+        #[repr(i32)]
+        enum KSCAMERA_EXTENDEDPROP_WBPRESET {
+            KSCAMERA_EXTENDEDPROP_WBPRESET_CLOUDY = 1,
+            KSCAMERA_EXTENDEDPROP_WBPRESET_DAYLIGHT = 2,
+            KSCAMERA_EXTENDEDPROP_WBPRESET_FLASH = 3,
+            KSCAMERA_EXTENDEDPROP_WBPRESET_FLUORESCENT = 4,
+            KSCAMERA_EXTENDEDPROP_WBPRESET_TUNGSTEN = 5,
+            KSCAMERA_EXTENDEDPROP_WBPRESET_CANDLELIGHT = 6,
+        }
+        #[repr(i32)]
+        enum KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+            KSCAMERA_EXTENDEDPROP_WHITEBALANCE_TEMPERATURE = 1,
+            KSCAMERA_EXTENDEDPROP_WHITEBALANCE_PRESET = 2,
+        }
+        const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u32 = 0;
+        const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u32 = 1;
+        const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u32 = 2;
+        struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
+            PhotoResWidth: u32,
+            PhotoResHeight: u32,
+            PreviewFPSNum: u32,
+            PreviewFPSDenom: u32,
+            CaptureFPSNum: u32,
+            CaptureFPSDenom: u32,
+        }
+        struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            MaskCoverageBoundingBox: RECT,
+            MaskResolution: SIZE,
+            ForegroundBoundingBox: RECT,
+            MaskData: [u8; 1],
+        }
+        struct KSCAMERA_METADATA_CAPTURESTATS {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            Flags: u32,
+            Reserved: u32,
+            ExposureTime: u64,
+            ExposureCompensationFlags: u64,
+            ExposureCompensationValue: i32,
+            IsoSpeed: u32,
+            FocusState: u32,
+            LensPosition: u32,
+            WhiteBalance: u32,
+            Flash: u32,
+            FlashPower: u32,
+            ZoomFactor: u32,
+            SceneMode: u64,
+            SensorFramerate: u64,
+        }
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: u32 = 2;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: u32 = 1;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASH: u32 = 64;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASHPOWER: u32 = 128;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FOCUSSTATE: u32 = 8;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ISOSPEED: u32 = 4;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_LENSPOSITION: u32 = 16;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SCENEMODE: u32 = 512;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE: u32 = 1024;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE: u32 = 32;
+        const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR: u32 = 256;
+        struct KSCAMERA_METADATA_DIGITALWINDOW {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            Window: KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING,
+        }
+        struct KSCAMERA_METADATA_FRAMEILLUMINATION {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            Flags: u32,
+            Reserved: u32,
+        }
+        const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1;
+        struct KSCAMERA_METADATA_ITEMHEADER {
+            MetadataId: u32,
+            Size: u32,
+        }
+        struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            PhotoConfirmationIndex: u32,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum KSCAMERA_MetadataId {
+            MetadataId_Standard_Start = 1,
+            MetadataId_PhotoConfirmation = 1,
+            MetadataId_UsbVideoHeader = 2,
+            MetadataId_CaptureStats = 3,
+            MetadataId_CameraExtrinsics = 4,
+            MetadataId_CameraIntrinsics = 5,
+            MetadataId_FrameIllumination = 6,
+            MetadataId_DigitalWindow = 7,
+            MetadataId_BackgroundSegmentationMask = 8,
+            MetadataId_Standard_End = 8,
+            MetadataId_Custom_Start = -2147483648,
+        }
+        const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296;
+        struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
+            Size: u32,
+            ItemCount: u32,
+            Flags: u64,
+        }
+        struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
+            Size: u32,
+            Type: u32,
+            Flags: u64,
+        }
+        struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
+            Size: u32,
+            Reserved: u32,
+            Id: GUID,
+        }
+        struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
+            Size: u32,
+            Id: u32,
+            ItemCount: u32,
+            Reserved: u32,
+        }
+        struct KSCAMERA_PERFRAMESETTING_HEADER {
+            Size: u32,
+            FrameCount: u32,
+            Id: GUID,
+            Flags: u64,
+            LoopCount: u32,
+            Reserved: u32,
+        }
+        struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
+            Size: u32,
+            Type: u32,
+            Flags: u64,
+        }
+        #[repr(i32)]
+        enum KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+            KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_TIME = 1,
+            KSCAMERA_PERFRAMESETTING_ITEM_FLASH = 2,
+            KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_COMPENSATION = 3,
+            KSCAMERA_PERFRAMESETTING_ITEM_ISO = 4,
+            KSCAMERA_PERFRAMESETTING_ITEM_FOCUS = 5,
+            KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION = 6,
+            KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM = 7,
+        }
+        const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592;
+        struct KSCAMERA_PROFILE_CONCURRENCYINFO {
+            ReferenceGuid: GUID,
+            Reserved: u32,
+            ProfileCount: u32,
+            Profiles: PKSCAMERA_PROFILE_INFO,
+        }
+        struct KSCAMERA_PROFILE_INFO {
+            ProfileId: GUID,
+            Index: u32,
+            PinCount: u32,
+            Pins: PKSCAMERA_PROFILE_PININFO,
+        }
+        struct KSCAMERA_PROFILE_MEDIAINFO {
+            Resolution: struct {
+                X: u32,
+                Y: u32,
+            },
+            MaxFrameRate: struct {
+                Numerator: u32,
+                Denominator: u32,
+            },
+            Flags: u64,
+            Data0: u32,
+            Data1: u32,
+            Data2: u32,
+            Data3: u32,
+        }
+        struct KSCAMERA_PROFILE_PININFO {
+            PinCategory: GUID,
+            Anonymous: union {
+                Anonymous: struct {
+                    PinIndex: u16,
+                    ProfileSensorType: u16,
+                },
+                Reserved: u32,
+            },
+            MediaInfoCount: u32,
+            MediaInfos: PKSCAMERA_PROFILE_MEDIAINFO,
+        }
+        struct KSCATEGORY_ACOUSTIC_ECHO_CANCEL {}
+        struct KSCATEGORY_AUDIO {}
+        struct KSCATEGORY_CROSSBAR {}
+        struct KSCATEGORY_ENCODER {}
+        struct KSCATEGORY_ESCALANTE_PLATFORM_DRIVER {}
+        struct KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR {}
+        struct KSCATEGORY_MULTIPLEXER {}
+        struct KSCATEGORY_NETWORK {}
+        struct KSCATEGORY_REALTIME {}
+        struct KSCATEGORY_TEXT {}
+        struct KSCATEGORY_TOPOLOGY {}
+        struct KSCATEGORY_TVAUDIO {}
+        struct KSCATEGORY_TVTUNER {}
+        struct KSCATEGORY_VBICODEC {}
+        struct KSCATEGORY_VIDEO {}
+        struct KSCATEGORY_VIRTUAL {}
+        struct KSCATEGORY_VPMUX {}
+        struct KSCATEGORY_WDMAUD_USE_PIN_NAME {}
+        struct KSCOMPONENTID_USBAUDIO {}
+        const KSCameraProfileSensorType_Custom: u32 = 128;
+        const KSCameraProfileSensorType_Depth: u32 = 4;
+        const KSCameraProfileSensorType_ImageSegmentation: u32 = 16;
+        const KSCameraProfileSensorType_Infrared: u32 = 2;
+        const KSCameraProfileSensorType_PoseTracking: u32 = 8;
+        const KSCameraProfileSensorType_RGB: u32 = 1;
+        #[packed(1)]
+        struct KSDATAFORMAT_DSOUND {
+            DataFormat: KSDATAFORMAT,
+            BufferDesc: KSDSOUND_BUFFERDESC,
+        }
+        struct KSDATAFORMAT_SPECIFIER_AC3_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_ANALOGVIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_DSOUND {}
+        struct KSDATAFORMAT_SPECIFIER_H264_VIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_IMAGE {}
+        struct KSDATAFORMAT_SPECIFIER_JPEG_IMAGE {}
+        struct KSDATAFORMAT_SPECIFIER_LPCM_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO {}
+        struct KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO {}
+        struct KSDATAFORMAT_SPECIFIER_VBI {}
+        struct KSDATAFORMAT_SPECIFIER_VC_ID {}
+        struct KSDATAFORMAT_SPECIFIER_VIDEOINFO {}
+        struct KSDATAFORMAT_SPECIFIER_VIDEOINFO2 {}
+        struct KSDATAFORMAT_SPECIFIER_WAVEFORMATEX {}
+        struct KSDATAFORMAT_SUBTYPE_AC3_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_ADPCM {}
+        struct KSDATAFORMAT_SUBTYPE_ALAW {}
+        struct KSDATAFORMAT_SUBTYPE_ANALOG {}
+        struct KSDATAFORMAT_SUBTYPE_CC {}
+        struct KSDATAFORMAT_SUBTYPE_D16 {}
+        struct KSDATAFORMAT_SUBTYPE_DRM {}
+        struct KSDATAFORMAT_SUBTYPE_DSS_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_DSS_VIDEO {}
+        struct KSDATAFORMAT_SUBTYPE_DTS_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_AAC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21_PROFILE4 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DST {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3 {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_BL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_LC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_BL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_LC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_BL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_LC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_BL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_LC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_BL {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_LC {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO {}
+        struct KSDATAFORMAT_SUBTYPE_IMAGE_RGB32 {}
+        struct KSDATAFORMAT_SUBTYPE_JPEG {}
+        struct KSDATAFORMAT_SUBTYPE_L16 {}
+        struct KSDATAFORMAT_SUBTYPE_L16_CUSTOM {}
+        struct KSDATAFORMAT_SUBTYPE_L16_IR {}
+        struct KSDATAFORMAT_SUBTYPE_L8 {}
+        struct KSDATAFORMAT_SUBTYPE_L8_CUSTOM {}
+        struct KSDATAFORMAT_SUBTYPE_L8_IR {}
+        struct KSDATAFORMAT_SUBTYPE_LPCM_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_Line21_BytePair {}
+        struct KSDATAFORMAT_SUBTYPE_Line21_GOPPacket {}
+        struct KSDATAFORMAT_SUBTYPE_MIDI {}
+        struct KSDATAFORMAT_SUBTYPE_MIDI_BUS {}
+        struct KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM {}
+        struct KSDATAFORMAT_SUBTYPE_MJPG_DEPTH {}
+        struct KSDATAFORMAT_SUBTYPE_MJPG_IR {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG1Packet {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG1Payload {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG1Video {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO {}
+        struct KSDATAFORMAT_SUBTYPE_MPEGLAYER3 {}
+        struct KSDATAFORMAT_SUBTYPE_MPEG_HEAAC {}
+        struct KSDATAFORMAT_SUBTYPE_MULAW {}
+        struct KSDATAFORMAT_SUBTYPE_NABTS {}
+        struct KSDATAFORMAT_SUBTYPE_NABTS_FEC {}
+        struct KSDATAFORMAT_SUBTYPE_OVERLAY {}
+        struct KSDATAFORMAT_SUBTYPE_RAW8 {}
+        struct KSDATAFORMAT_SUBTYPE_RIFF {}
+        struct KSDATAFORMAT_SUBTYPE_RIFFMIDI {}
+        struct KSDATAFORMAT_SUBTYPE_RIFFWAVE {}
+        struct KSDATAFORMAT_SUBTYPE_SDDS_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO {}
+        struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO {}
+        struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO {}
+        struct KSDATAFORMAT_SUBTYPE_SUBPICTURE {}
+        struct KSDATAFORMAT_SUBTYPE_TELETEXT {}
+        struct KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET {}
+        struct KSDATAFORMAT_SUBTYPE_VPVBI {}
+        struct KSDATAFORMAT_SUBTYPE_VPVideo {}
+        struct KSDATAFORMAT_SUBTYPE_WMAUDIO2 {}
+        struct KSDATAFORMAT_SUBTYPE_WMAUDIO3 {}
+        struct KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS {}
+        struct KSDATAFORMAT_TYPE_ANALOGAUDIO {}
+        struct KSDATAFORMAT_TYPE_ANALOGVIDEO {}
+        struct KSDATAFORMAT_TYPE_AUDIO {}
+        struct KSDATAFORMAT_TYPE_AUXLine21Data {}
+        struct KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK {}
+        struct KSDATAFORMAT_TYPE_IMAGE {}
+        struct KSDATAFORMAT_TYPE_MIDI {}
+        struct KSDATAFORMAT_TYPE_MPEG2_PES {}
+        struct KSDATAFORMAT_TYPE_MPEG2_PROGRAM {}
+        struct KSDATAFORMAT_TYPE_MPEG2_TRANSPORT {}
+        struct KSDATAFORMAT_TYPE_MUSIC {}
+        struct KSDATAFORMAT_TYPE_NABTS {}
+        struct KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM {}
+        struct KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER {}
+        struct KSDATAFORMAT_TYPE_STANDARD_PES_PACKET {}
+        struct KSDATAFORMAT_TYPE_TEXT {}
+        struct KSDATAFORMAT_TYPE_VBI {}
+        struct KSDATAFORMAT_TYPE_VIDEO {}
+        #[packed(1)]
+        struct KSDATAFORMAT_WAVEFORMATEX {
+            DataFormat: KSDATAFORMAT,
+            WaveFormatEx: WAVEFORMATEX,
+        }
+        #[packed(1)]
+        struct KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
+            DataFormat: KSDATAFORMAT,
+            WaveFormatExt: WAVEFORMATEXTENSIBLE,
+        }
+        struct KSDATARANGE_AUDIO {
+            DataRange: KSDATARANGE,
+            MaximumChannels: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+        }
+        struct KSDATARANGE_MUSIC {
+            DataRange: KSDATARANGE,
+            Technology: GUID,
+            Channels: u32,
+            Notes: u32,
+            ChannelMask: u32,
+        }
+        struct KSDEVICE_PROFILE_INFO {
+            Type: u32,
+            Size: u32,
+            Anonymous: union {
+                Camera: struct {
+                    Info: KSCAMERA_PROFILE_INFO,
+                    Reserved: u32,
+                    ConcurrencyCount: u32,
+                    Concurrency: PKSCAMERA_PROFILE_CONCURRENCYINFO,
+                },
+            },
+        }
+        const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1;
+        const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0;
+        struct KSDISPLAYCHANGE {
+            PelsWidth: u32,
+            PelsHeight: u32,
+            BitsPerPel: u32,
+            DeviceID: [u16; 1],
+        }
+        struct KSDS3D_BUFFER_ALL {
+            Position: DS3DVECTOR,
+            Velocity: DS3DVECTOR,
+            InsideConeAngle: u32,
+            OutsideConeAngle: u32,
+            ConeOrientation: DS3DVECTOR,
+            ConeOutsideVolume: i32,
+            MinDistance: f32,
+            MaxDistance: f32,
+            Mode: u32,
+        }
+        struct KSDS3D_BUFFER_CONE_ANGLES {
+            InsideConeAngle: u32,
+            OutsideConeAngle: u32,
+        }
+        #[repr(i32)]
+        enum KSDS3D_HRTF_COEFF_FORMAT {
+            FLOAT_COEFF = 0,
+            SHORT_COEFF = 1,
+            KSDS3D_COEFF_COUNT = 2,
+        }
+        struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
+            FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
+            CoeffFormat: KSDS3D_HRTF_COEFF_FORMAT,
+            Version: KSDS3D_HRTF_FILTER_VERSION,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum KSDS3D_HRTF_FILTER_METHOD {
+            DIRECT_FORM = 0,
+            CASCADE_FORM = 1,
+            KSDS3D_FILTER_METHOD_COUNT = 2,
+        }
+        #[repr(i32)]
+        enum KSDS3D_HRTF_FILTER_QUALITY {
+            FULL_FILTER = 0,
+            LIGHT_FILTER = 1,
+            KSDS3D_FILTER_QUALITY_COUNT = 2,
+        }
+        #[repr(i32)]
+        enum KSDS3D_HRTF_FILTER_VERSION {
+            DS3D_HRTF_VERSION_1 = 0,
+        }
+        struct KSDS3D_HRTF_INIT_MSG {
+            Size: u32,
+            Quality: KSDS3D_HRTF_FILTER_QUALITY,
+            SampleRate: f32,
+            MaxFilterSize: u32,
+            FilterTransientMuteLength: u32,
+            FilterOverlapBufferLength: u32,
+            OutputOverlapBufferLength: u32,
+            Reserved: u32,
+        }
+        struct KSDS3D_HRTF_PARAMS_MSG {
+            Size: u32,
+            Enabled: u32,
+            SwapChannels: BOOL,
+            ZeroAzimuth: BOOL,
+            CrossFadeOutput: BOOL,
+            FilterSize: u32,
+        }
+        struct KSDS3D_ITD_PARAMS {
+            Channel: i32,
+            VolSmoothScale: f32,
+            TotalDryAttenuation: f32,
+            TotalWetAttenuation: f32,
+            SmoothFrequency: i32,
+            Delay: i32,
+        }
+        struct KSDS3D_ITD_PARAMS_MSG {
+            Enabled: u32,
+            LeftParams: KSDS3D_ITD_PARAMS,
+            RightParams: KSDS3D_ITD_PARAMS,
+            Reserved: u32,
+        }
+        struct KSDS3D_LISTENER_ALL {
+            Position: DS3DVECTOR,
+            Velocity: DS3DVECTOR,
+            OrientFront: DS3DVECTOR,
+            OrientTop: DS3DVECTOR,
+            DistanceFactor: f32,
+            RolloffFactor: f32,
+            DopplerFactor: f32,
+        }
+        struct KSDS3D_LISTENER_ORIENTATION {
+            Front: DS3DVECTOR,
+            Top: DS3DVECTOR,
+        }
+        const KSDSOUND_3D_MODE_DISABLE: u32 = 2;
+        const KSDSOUND_3D_MODE_HEADRELATIVE: u32 = 1;
+        const KSDSOUND_3D_MODE_NORMAL: u32 = 0;
+        #[packed(1)]
+        struct KSDSOUND_BUFFERDESC {
+            Flags: u32,
+            Control: u32,
+            WaveFormatEx: WAVEFORMATEX,
+        }
+        const KSDSOUND_BUFFER_CTRL_3D: u32 = 1;
+        const KSDSOUND_BUFFER_CTRL_FREQUENCY: u32 = 2;
+        const KSDSOUND_BUFFER_CTRL_HRTF_3D: u32 = 1073741824;
+        const KSDSOUND_BUFFER_CTRL_PAN: u32 = 4;
+        const KSDSOUND_BUFFER_CTRL_POSITIONNOTIFY: u32 = 16;
+        const KSDSOUND_BUFFER_CTRL_VOLUME: u32 = 8;
+        const KSDSOUND_BUFFER_LOCHARDWARE: u32 = 4;
+        const KSDSOUND_BUFFER_LOCSOFTWARE: u32 = 8;
+        const KSDSOUND_BUFFER_PRIMARY: u32 = 1;
+        const KSDSOUND_BUFFER_STATIC: u32 = 2;
+        struct KSEVENTSETID_AudioControlChange {}
+        struct KSEVENTSETID_CameraAsyncControl {}
+        struct KSEVENTSETID_CameraEvent {}
+        struct KSEVENTSETID_DynamicFormatChange {}
+        struct KSEVENTSETID_EXTDEV_Command {}
+        struct KSEVENTSETID_ExtendedCameraControl {}
+        struct KSEVENTSETID_LoopedStreaming {}
+        struct KSEVENTSETID_SoundDetector {}
+        struct KSEVENTSETID_Telephony {}
+        struct KSEVENTSETID_VIDCAPTOSTI {}
+        struct KSEVENTSETID_VIDCAP_TVAUDIO {}
+        struct KSEVENTSETID_VPNotify {}
+        struct KSEVENTSETID_VPVBINotify {}
+        #[repr(i32)]
+        enum KSEVENT_AUDIO_CONTROL_CHANGE {
+            KSEVENT_CONTROL_CHANGE = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_CAMERACONTROL {
+            KSEVENT_CAMERACONTROL_FOCUS = 0,
+            KSEVENT_CAMERACONTROL_ZOOM = 1,
+        }
+        #[repr(i32)]
+        enum KSEVENT_CAMERAEVENT {
+            KSEVENT_PHOTO_SAMPLE_SCANNED = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_CROSSBAR {
+            KSEVENT_CROSSBAR_CHANGED = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_DEVCMD {
+            KSEVENT_EXTDEV_COMMAND_NOTIFY_INTERIM_READY = 0,
+            KSEVENT_EXTDEV_COMMAND_CONTROL_INTERIM_READY = 1,
+            KSEVENT_EXTDEV_COMMAND_BUSRESET = 2,
+            KSEVENT_EXTDEV_TIMECODE_UPDATE = 3,
+            KSEVENT_EXTDEV_OPERATION_MODE_UPDATE = 4,
+            KSEVENT_EXTDEV_TRANSPORT_STATE_UPDATE = 5,
+            KSEVENT_EXTDEV_NOTIFY_REMOVAL = 6,
+            KSEVENT_EXTDEV_NOTIFY_MEDIUM_CHANGE = 7,
+        }
+        #[repr(i32)]
+        enum KSEVENT_DYNAMICFORMATCHANGE {
+            KSEVENT_DYNAMIC_FORMAT_CHANGE = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_LOOPEDSTREAMING {
+            KSEVENT_LOOPEDSTREAMING_POSITION = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_SOUNDDETECTOR {
+            KSEVENT_SOUNDDETECTOR_MATCHDETECTED = 1,
+        }
+        #[repr(i32)]
+        enum KSEVENT_TELEPHONY {
+            KSEVENT_TELEPHONY_ENDPOINTPAIRS_CHANGED = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_TUNER {
+            KSEVENT_TUNER_CHANGED = 0,
+            KSEVENT_TUNER_INITIATE_SCAN = 1,
+        }
+        struct KSEVENT_TUNER_INITIATE_SCAN_S {
+            EventData: KSEVENTDATA,
+            StartFrequency: u32,
+            EndFrequency: u32,
+        }
+        #[repr(i32)]
+        enum KSEVENT_TVAUDIO {
+            KSEVENT_TVAUDIO_CHANGED = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_VIDCAPTOSTI {
+            KSEVENT_VIDCAPTOSTI_EXT_TRIGGER = 0,
+            KSEVENT_VIDCAP_AUTO_UPDATE = 1,
+            KSEVENT_VIDCAP_SEARCH = 2,
+        }
+        #[repr(i32)]
+        enum KSEVENT_VIDEODECODER {
+            KSEVENT_VIDEODECODER_CHANGED = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_VPNOTIFY {
+            KSEVENT_VPNOTIFY_FORMATCHANGE = 0,
+        }
+        #[repr(i32)]
+        enum KSEVENT_VPVBINOTIFY {
+            KSEVENT_VPVBINOTIFY_FORMATCHANGE = 0,
+        }
+        struct KSGOP_USERDATA {
+            sc: u32,
+            reserved1: u32,
+            cFields: u8,
+            l21Data: [i8; 3],
+        }
+        struct KSINTERFACESETID_Media {}
+        #[repr(i32)]
+        enum KSINTERFACE_MEDIA {
+            KSINTERFACE_MEDIA_MUSIC = 0,
+            KSINTERFACE_MEDIA_WAVE_BUFFERED = 1,
+            KSINTERFACE_MEDIA_WAVE_QUEUED = 2,
+        }
+        struct KSJACK_DESCRIPTION {
+            ChannelMapping: u32,
+            Color: u32,
+            ConnectionType: EPcxConnectionType,
+            GeoLocation: EPcxGeoLocation,
+            GenLocation: EPcxGenLocation,
+            PortConnection: EPxcPortConnection,
+            IsConnected: BOOL,
+        }
+        struct KSJACK_DESCRIPTION2 {
+            DeviceStateInfo: u32,
+            JackCapabilities: u32,
+        }
+        struct KSJACK_DESCRIPTION3 {
+            ConfigId: u32,
+        }
+        #[repr(i32)]
+        enum KSJACK_SINK_CONNECTIONTYPE {
+            KSJACK_SINK_CONNECTIONTYPE_HDMI = 0,
+            KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT = 1,
+        }
+        struct KSJACK_SINK_INFORMATION {
+            ConnType: KSJACK_SINK_CONNECTIONTYPE,
+            ManufacturerId: u16,
+            ProductId: u16,
+            AudioLatency: u16,
+            HDCPCapable: BOOL,
+            AICapable: BOOL,
+            SinkDescriptionLength: u8,
+            SinkDescription: [u16; 32],
+            PortId: LUID,
+        }
+        struct KSMEDIUMSETID_MidiBus {}
+        struct KSMEDIUMSETID_VPBus {}
+        struct KSMETHODSETID_Wavetable {}
+        #[repr(i32)]
+        enum KSMETHOD_WAVETABLE {
+            KSMETHOD_WAVETABLE_WAVE_ALLOC = 0,
+            KSMETHOD_WAVETABLE_WAVE_FREE = 1,
+            KSMETHOD_WAVETABLE_WAVE_FIND = 2,
+            KSMETHOD_WAVETABLE_WAVE_WRITE = 3,
+        }
+        #[repr(i32)]
+        enum KSMICARRAY_MICARRAYTYPE {
+            KSMICARRAY_MICARRAYTYPE_LINEAR = 0,
+            KSMICARRAY_MICARRAYTYPE_PLANAR = 1,
+            KSMICARRAY_MICARRAYTYPE_3D = 2,
+        }
+        #[repr(i32)]
+        enum KSMICARRAY_MICTYPE {
+            KSMICARRAY_MICTYPE_OMNIDIRECTIONAL = 0,
+            KSMICARRAY_MICTYPE_SUBCARDIOID = 1,
+            KSMICARRAY_MICTYPE_CARDIOID = 2,
+            KSMICARRAY_MICTYPE_SUPERCARDIOID = 3,
+            KSMICARRAY_MICTYPE_HYPERCARDIOID = 4,
+            KSMICARRAY_MICTYPE_8SHAPED = 5,
+            KSMICARRAY_MICTYPE_VENDORDEFINED = 15,
+        }
+        struct KSMIDILOOPED_BUFFER {
+            BufferAddress: *mut void,
+            ActualBufferSize: u32,
+        }
+        struct KSMIDILOOPED_BUFFER_PROPERTY {
+            Property: KSPROPERTY,
+            RequestedBufferSize: u32,
+        }
+        struct KSMIDILOOPED_EVENT {
+            WriteEvent: HANDLE,
+        }
+        struct KSMIDILOOPED_EVENT2 {
+            WriteEvent: HANDLE,
+            ReadEvent: HANDLE,
+        }
+        struct KSMIDILOOPED_REGISTERS {
+            WritePosition: *mut void,
+            ReadPosition: *mut void,
+        }
+        const KSMPEGVIDMODE_LTRBOX: u32 = 2;
+        const KSMPEGVIDMODE_PANSCAN: u32 = 1;
+        const KSMPEGVIDMODE_SCALE: u32 = 4;
+        struct KSMPEGVID_RECT {
+            StartX: u32,
+            StartY: u32,
+            EndX: u32,
+            EndY: u32,
+        }
+        struct KSMULTIPLE_DATA_PROP {
+            Property: KSPROPERTY,
+            MultipleItem: KSMULTIPLE_ITEM,
+        }
+        struct KSMUSICFORMAT {
+            TimeDeltaMs: u32,
+            ByteCount: u32,
+        }
+        struct KSMUSIC_TECHNOLOGY_FMSYNTH {}
+        struct KSMUSIC_TECHNOLOGY_PORT {}
+        struct KSMUSIC_TECHNOLOGY_SQSYNTH {}
+        struct KSMUSIC_TECHNOLOGY_SWSYNTH {}
+        struct KSMUSIC_TECHNOLOGY_WAVETABLE {}
+        const KSNODEPIN_DEMUX_IN: u32 = 0;
+        const KSNODEPIN_DEMUX_OUT: u32 = 1;
+        const KSNODEPIN_STANDARD_IN: u32 = 1;
+        const KSNODEPIN_STANDARD_OUT: u32 = 0;
+        const KSNODEPIN_SUM_MUX_IN: u32 = 1;
+        const KSNODEPIN_SUM_MUX_OUT: u32 = 0;
+        struct KSNODEPROPERTY {
+            Property: KSPROPERTY,
+            NodeId: u32,
+            Reserved: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
+            NodeProperty: KSNODEPROPERTY,
+            ListenerId: *mut void,
+        }
+        #[arch(X86)]
+        struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
+            NodeProperty: KSNODEPROPERTY,
+            ListenerId: *mut void,
+            Reserved: u32,
+        }
+        struct KSNODEPROPERTY_AUDIO_CHANNEL {
+            NodeProperty: KSNODEPROPERTY,
+            Channel: i32,
+            Reserved: u32,
+        }
+        struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
+            NodeProperty: KSNODEPROPERTY,
+            DevSpecificId: u32,
+            DeviceInfo: u32,
+            Length: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct KSNODEPROPERTY_AUDIO_PROPERTY {
+            NodeProperty: KSNODEPROPERTY,
+            AppContext: *mut void,
+            Length: u32,
+        }
+        #[arch(X86)]
+        struct KSNODEPROPERTY_AUDIO_PROPERTY {
+            NodeProperty: KSNODEPROPERTY,
+            AppContext: *mut void,
+            Length: u32,
+            Reserved: u32,
+        }
+        struct KSNODETYPE_1394_DA_STREAM {}
+        struct KSNODETYPE_1394_DV_STREAM_SOUNDTRACK {}
+        struct KSNODETYPE_3D_EFFECTS {}
+        struct KSNODETYPE_ADC {}
+        struct KSNODETYPE_AGC {}
+        struct KSNODETYPE_ANALOG_CONNECTOR {}
+        struct KSNODETYPE_ANALOG_TAPE {}
+        struct KSNODETYPE_AUDIO_ENGINE {}
+        struct KSNODETYPE_AUDIO_KEYWORDDETECTOR {}
+        struct KSNODETYPE_AUDIO_LOOPBACK {}
+        struct KSNODETYPE_AUDIO_MODULE {}
+        struct KSNODETYPE_BIDIRECTIONAL_UNDEFINED {}
+        struct KSNODETYPE_CABLE_TUNER_AUDIO {}
+        struct KSNODETYPE_CD_PLAYER {}
+        struct KSNODETYPE_CHORUS {}
+        struct KSNODETYPE_COMMUNICATION_SPEAKER {}
+        struct KSNODETYPE_DAC {}
+        struct KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE {}
+        struct KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE {}
+        struct KSNODETYPE_DELAY {}
+        struct KSNODETYPE_DEMUX {}
+        struct KSNODETYPE_DESKTOP_MICROPHONE {}
+        struct KSNODETYPE_DESKTOP_SPEAKER {}
+        struct KSNODETYPE_DEV_SPECIFIC {}
+        struct KSNODETYPE_DIGITAL_AUDIO_INTERFACE {}
+        struct KSNODETYPE_DISPLAYPORT_INTERFACE {}
+        struct KSNODETYPE_DOWN_LINE_PHONE {}
+        struct KSNODETYPE_DRM_DESCRAMBLE {}
+        struct KSNODETYPE_DSS_AUDIO {}
+        struct KSNODETYPE_DVD_AUDIO {}
+        struct KSNODETYPE_DYN_RANGE_COMPRESSOR {}
+        struct KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE {}
+        struct KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE {}
+        struct KSNODETYPE_EMBEDDED_UNDEFINED {}
+        struct KSNODETYPE_EQUALIZATION_NOISE {}
+        struct KSNODETYPE_EQUALIZER {}
+        struct KSNODETYPE_EXTERNAL_UNDEFINED {}
+        struct KSNODETYPE_FM_RX {}
+        struct KSNODETYPE_HANDSET {}
+        struct KSNODETYPE_HDMI_INTERFACE {}
+        struct KSNODETYPE_HEADPHONES {}
+        struct KSNODETYPE_HEADSET {}
+        struct KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO {}
+        struct KSNODETYPE_INPUT_UNDEFINED {}
+        struct KSNODETYPE_LEGACY_AUDIO_CONNECTOR {}
+        struct KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE {}
+        struct KSNODETYPE_LINE_CONNECTOR {}
+        struct KSNODETYPE_LOUDNESS {}
+        struct KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER {}
+        struct KSNODETYPE_MICROPHONE {}
+        struct KSNODETYPE_MICROPHONE_ARRAY {}
+        struct KSNODETYPE_MIDI_ELEMENT {}
+        struct KSNODETYPE_MIDI_JACK {}
+        struct KSNODETYPE_MINIDISK {}
+        struct KSNODETYPE_MULTITRACK_RECORDER {}
+        struct KSNODETYPE_MUTE {}
+        struct KSNODETYPE_MUX {}
+        struct KSNODETYPE_NOISE_SUPPRESS {}
+        struct KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE {}
+        struct KSNODETYPE_OUTPUT_UNDEFINED {}
+        struct KSNODETYPE_PARAMETRIC_EQUALIZER {}
+        struct KSNODETYPE_PEAKMETER {}
+        struct KSNODETYPE_PERSONAL_MICROPHONE {}
+        struct KSNODETYPE_PHONE_LINE {}
+        struct KSNODETYPE_PHONOGRAPH {}
+        struct KSNODETYPE_PROCESSING_MICROPHONE_ARRAY {}
+        struct KSNODETYPE_PROLOGIC_DECODER {}
+        struct KSNODETYPE_PROLOGIC_ENCODER {}
+        struct KSNODETYPE_RADIO_RECEIVER {}
+        struct KSNODETYPE_RADIO_TRANSMITTER {}
+        struct KSNODETYPE_REVERB {}
+        struct KSNODETYPE_ROOM_SPEAKER {}
+        struct KSNODETYPE_SATELLITE_RECEIVER_AUDIO {}
+        struct KSNODETYPE_SPDIF_INTERFACE {}
+        struct KSNODETYPE_SPEAKER {}
+        struct KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION {}
+        struct KSNODETYPE_SPEAKERS_STATIC_JACK {}
+        struct KSNODETYPE_SRC {}
+        struct KSNODETYPE_STEREO_WIDE {}
+        struct KSNODETYPE_SUM {}
+        struct KSNODETYPE_SUPERMIX {}
+        struct KSNODETYPE_SYNTHESIZER {}
+        struct KSNODETYPE_TELEPHONE {}
+        struct KSNODETYPE_TELEPHONY_BIDI {}
+        struct KSNODETYPE_TELEPHONY_UNDEFINED {}
+        struct KSNODETYPE_TONE {}
+        struct KSNODETYPE_TV_TUNER_AUDIO {}
+        struct KSNODETYPE_UPDOWN_MIX {}
+        struct KSNODETYPE_VCR_AUDIO {}
+        struct KSNODETYPE_VIDEO_CAMERA_TERMINAL {}
+        struct KSNODETYPE_VIDEO_DISC_AUDIO {}
+        struct KSNODETYPE_VIDEO_INPUT_MTT {}
+        struct KSNODETYPE_VIDEO_INPUT_TERMINAL {}
+        struct KSNODETYPE_VIDEO_OUTPUT_MTT {}
+        struct KSNODETYPE_VIDEO_OUTPUT_TERMINAL {}
+        struct KSNODETYPE_VIDEO_PROCESSING {}
+        struct KSNODETYPE_VIDEO_SELECTOR {}
+        struct KSNODETYPE_VIDEO_STREAMING {}
+        struct KSNODETYPE_VOLUME {}
+        struct KSNOTIFICATIONID_AudioModule {}
+        struct KSNOTIFICATIONID_SoundDetector {}
+        struct KSPROPERTYSETID_ExtendedCameraControl {}
+        struct KSPROPERTYSETID_NetworkCameraControl {}
+        struct KSPROPERTYSETID_PerFrameSettingControl {}
+        struct KSPROPERTYSETID_WindowsCameraEffect {}
+        #[repr(i32)]
+        enum KSPROPERTY_AC3 {
+            KSPROPERTY_AC3_ERROR_CONCEALMENT = 1,
+            KSPROPERTY_AC3_ALTERNATE_AUDIO = 2,
+            KSPROPERTY_AC3_DOWNMIX = 3,
+            KSPROPERTY_AC3_BIT_STREAM_MODE = 4,
+            KSPROPERTY_AC3_DIALOGUE_LEVEL = 5,
+            KSPROPERTY_AC3_LANGUAGE_CODE = 6,
+            KSPROPERTY_AC3_ROOM_TYPE = 7,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_ALLOCATOR_CONTROL {
+            KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT = 0,
+            KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE = 1,
+            KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS = 2,
+            KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE = 3,
+        }
+        struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
+            InterleavedCapSupported: u32,
+        }
+        struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
+            InterleavedCapPossible: u32,
+        }
+        struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
+            CX: u32,
+            CY: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDDECOUT {
+            KSPROPERTY_AUDDECOUT_MODES = 0,
+            KSPROPERTY_AUDDECOUT_CUR_MODE = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIO {
+            KSPROPERTY_AUDIO_LATENCY = 1,
+            KSPROPERTY_AUDIO_COPY_PROTECTION = 2,
+            KSPROPERTY_AUDIO_CHANNEL_CONFIG = 3,
+            KSPROPERTY_AUDIO_VOLUMELEVEL = 4,
+            KSPROPERTY_AUDIO_POSITION = 5,
+            KSPROPERTY_AUDIO_DYNAMIC_RANGE = 6,
+            KSPROPERTY_AUDIO_QUALITY = 7,
+            KSPROPERTY_AUDIO_SAMPLING_RATE = 8,
+            KSPROPERTY_AUDIO_DYNAMIC_SAMPLING_RATE = 9,
+            KSPROPERTY_AUDIO_MIX_LEVEL_TABLE = 10,
+            KSPROPERTY_AUDIO_MIX_LEVEL_CAPS = 11,
+            KSPROPERTY_AUDIO_MUX_SOURCE = 12,
+            KSPROPERTY_AUDIO_MUTE = 13,
+            KSPROPERTY_AUDIO_BASS = 14,
+            KSPROPERTY_AUDIO_MID = 15,
+            KSPROPERTY_AUDIO_TREBLE = 16,
+            KSPROPERTY_AUDIO_BASS_BOOST = 17,
+            KSPROPERTY_AUDIO_EQ_LEVEL = 18,
+            KSPROPERTY_AUDIO_NUM_EQ_BANDS = 19,
+            KSPROPERTY_AUDIO_EQ_BANDS = 20,
+            KSPROPERTY_AUDIO_AGC = 21,
+            KSPROPERTY_AUDIO_DELAY = 22,
+            KSPROPERTY_AUDIO_LOUDNESS = 23,
+            KSPROPERTY_AUDIO_WIDE_MODE = 24,
+            KSPROPERTY_AUDIO_WIDENESS = 25,
+            KSPROPERTY_AUDIO_REVERB_LEVEL = 26,
+            KSPROPERTY_AUDIO_CHORUS_LEVEL = 27,
+            KSPROPERTY_AUDIO_DEV_SPECIFIC = 28,
+            KSPROPERTY_AUDIO_DEMUX_DEST = 29,
+            KSPROPERTY_AUDIO_STEREO_ENHANCE = 30,
+            KSPROPERTY_AUDIO_MANUFACTURE_GUID = 31,
+            KSPROPERTY_AUDIO_PRODUCT_GUID = 32,
+            KSPROPERTY_AUDIO_CPU_RESOURCES = 33,
+            KSPROPERTY_AUDIO_STEREO_SPEAKER_GEOMETRY = 34,
+            KSPROPERTY_AUDIO_SURROUND_ENCODE = 35,
+            KSPROPERTY_AUDIO_3D_INTERFACE = 36,
+            KSPROPERTY_AUDIO_PEAKMETER = 37,
+            KSPROPERTY_AUDIO_ALGORITHM_INSTANCE = 38,
+            KSPROPERTY_AUDIO_FILTER_STATE = 39,
+            KSPROPERTY_AUDIO_PREFERRED_STATUS = 40,
+            KSPROPERTY_AUDIO_PEQ_MAX_BANDS = 41,
+            KSPROPERTY_AUDIO_PEQ_NUM_BANDS = 42,
+            KSPROPERTY_AUDIO_PEQ_BAND_CENTER_FREQ = 43,
+            KSPROPERTY_AUDIO_PEQ_BAND_Q_FACTOR = 44,
+            KSPROPERTY_AUDIO_PEQ_BAND_LEVEL = 45,
+            KSPROPERTY_AUDIO_CHORUS_MODULATION_RATE = 46,
+            KSPROPERTY_AUDIO_CHORUS_MODULATION_DEPTH = 47,
+            KSPROPERTY_AUDIO_REVERB_TIME = 48,
+            KSPROPERTY_AUDIO_REVERB_DELAY_FEEDBACK = 49,
+            KSPROPERTY_AUDIO_POSITIONEX = 50,
+            KSPROPERTY_AUDIO_MIC_ARRAY_GEOMETRY = 51,
+            KSPROPERTY_AUDIO_PRESENTATION_POSITION = 52,
+            KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_POSITION = 53,
+            KSPROPERTY_AUDIO_LINEAR_BUFFER_POSITION = 54,
+            KSPROPERTY_AUDIO_PEAKMETER2 = 55,
+            KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_LASTBUFFER_POSITION = 56,
+            KSPROPERTY_AUDIO_VOLUMELIMIT_ENGAGED = 57,
+            KSPROPERTY_AUDIO_MIC_SENSITIVITY = 58,
+            KSPROPERTY_AUDIO_MIC_SNR = 59,
+            KSPROPERTY_AUDIO_MIC_SENSITIVITY2 = 60,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIOENGINE {
+            KSPROPERTY_AUDIOENGINE_LFXENABLE = 0,
+            KSPROPERTY_AUDIOENGINE_GFXENABLE = 1,
+            KSPROPERTY_AUDIOENGINE_MIXFORMAT = 2,
+            KSPROPERTY_AUDIOENGINE_DEVICEFORMAT = 4,
+            KSPROPERTY_AUDIOENGINE_SUPPORTEDDEVICEFORMATS = 5,
+            KSPROPERTY_AUDIOENGINE_DESCRIPTOR = 6,
+            KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE = 7,
+            KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION = 8,
+            KSPROPERTY_AUDIOENGINE_VOLUMELEVEL = 9,
+            KSPROPERTY_AUDIOENGINE_DEVICECONTROLS = 10,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIOLOOPBACK {
+            KSPROPERTY_AUDIOLOOPBACK_TAPPOINT_CAPS = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIOMODULE {
+            KSPROPERTY_AUDIOMODULE_DESCRIPTORS = 1,
+            KSPROPERTY_AUDIOMODULE_COMMAND = 2,
+            KSPROPERTY_AUDIOMODULE_NOTIFICATION_DEVICE_ID = 3,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIOPOSTURE {
+            KSPROPERTY_AUDIOPOSTURE_ORIENTATION = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+            KSPROPERTY_AUDIORESOURCEMANAGEMENT_RESOURCEGROUP = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_AUDIOSIGNALPROCESSING {
+            KSPROPERTY_AUDIOSIGNALPROCESSING_MODES = 0,
+        }
+        const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1;
+        #[repr(i32)]
+        enum KSPROPERTY_BIBLIOGRAPHIC {
+            KSPROPERTY_BIBLIOGRAPHIC_LEADER = 1380207648,
+            KSPROPERTY_BIBLIOGRAPHIC_LCCN = 808529952,
+            KSPROPERTY_BIBLIOGRAPHIC_ISBN = 808595488,
+            KSPROPERTY_BIBLIOGRAPHIC_ISSN = 842149920,
+            KSPROPERTY_BIBLIOGRAPHIC_CATALOGINGSOURCE = 808726560,
+            KSPROPERTY_BIBLIOGRAPHIC_MAINPERSONALNAME = 808464672,
+            KSPROPERTY_BIBLIOGRAPHIC_MAINCORPORATEBODY = 808530208,
+            KSPROPERTY_BIBLIOGRAPHIC_MAINMEETINGNAME = 825307424,
+            KSPROPERTY_BIBLIOGRAPHIC_MAINUNIFORMTITLE = 808661280,
+            KSPROPERTY_BIBLIOGRAPHIC_UNIFORMTITLE = 808727072,
+            KSPROPERTY_BIBLIOGRAPHIC_TITLESTATEMENT = 892613152,
+            KSPROPERTY_BIBLIOGRAPHIC_VARYINGFORMTITLE = 909390368,
+            KSPROPERTY_BIBLIOGRAPHIC_PUBLICATION = 808858144,
+            KSPROPERTY_BIBLIOGRAPHIC_PHYSICALDESCRIPTION = 808465184,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTITLE = 808727584,
+            KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENT = 809055264,
+            KSPROPERTY_BIBLIOGRAPHIC_GENERALNOTE = 808465696,
+            KSPROPERTY_BIBLIOGRAPHIC_BIBLIOGRAPHYNOTE = 875574560,
+            KSPROPERTY_BIBLIOGRAPHIC_CONTENTSNOTE = 892351776,
+            KSPROPERTY_BIBLIOGRAPHIC_CREATIONCREDIT = 942683424,
+            KSPROPERTY_BIBLIOGRAPHIC_CITATION = 808531232,
+            KSPROPERTY_BIBLIOGRAPHIC_PARTICIPANT = 825308448,
+            KSPROPERTY_BIBLIOGRAPHIC_SUMMARY = 808596768,
+            KSPROPERTY_BIBLIOGRAPHIC_TARGETAUDIENCE = 825373984,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDFORMAVAILABLE = 808662304,
+            KSPROPERTY_BIBLIOGRAPHIC_SYSTEMDETAILS = 942880032,
+            KSPROPERTY_BIBLIOGRAPHIC_AWARDS = 909653280,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYPERSONALNAME = 808465952,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTOPICALTERM = 808793632,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYGEOGRAPHIC = 825570848,
+            KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMGENRE = 892679712,
+            KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMCURRICULUM = 943011360,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYUNIFORMTITLE = 808662816,
+            KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYRELATED = 808728352,
+            KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTPERSONALNAME = 808466464,
+            KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTUNIFORMTITLE = 808663072,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_BTAUDIO {
+            KSPROPERTY_ONESHOT_RECONNECT = 0,
+            KSPROPERTY_ONESHOT_DISCONNECT = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMODE = 0,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOFRAMERATE = 1,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMAXFRAMERATE = 2,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTRIGGERTIME = 3,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_WARMSTART = 4,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_MAXVIDFPS_PHOTORES = 5,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTHUMBNAIL = 6,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_SCENEMODE = 7,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_TORCHMODE = 8,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FLASHMODE = 9,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_OPTIMIZATIONHINT = 10,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_WHITEBALANCEMODE = 11,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_EXPOSUREMODE = 12,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSMODE = 13,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ISO = 14,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW = 15,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_EVCOMPENSATION = 16,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_CAMERAANGLEOFFSET = 17,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_METADATA = 18,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSPRIORITY = 19,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSSTATE = 20,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_CONFIGCAPS = 21,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_ISPCONTROL = 22,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOCONFIRMATION = 23,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ZOOM = 24,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_MCC = 25,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ISO_ADVANCED = 26,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOSTABILIZATION = 27,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_VFR = 28,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FACEDETECTION = 29,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOHDR = 30,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_HISTOGRAM = 31,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_OIS = 32,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_ADVANCEDPHOTO = 33,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_PROFILE = 34,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FACEAUTH_MODE = 35,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_SECURE_MODE = 36,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOTEMPORALDENOISING = 37,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_IRTORCHMODE = 38,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_RELATIVEPANELOPTIMIZATION = 39,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_EYEGAZECORRECTION = 40,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION = 41,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS = 42,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW = 43,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FRAMERATE_THROTTLE = 44,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW2_CONFIGCAPS = 45,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW2 = 46,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_END = 47,
+            KSPROPERTY_CAMERACONTROL_EXTENDED_END2 = 47,
+        }
+        const KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE: u32 = 0;
+        const KSPROPERTY_CAMERACONTROL_FLAGS_ASYNCHRONOUS: u32 = 4;
+        const KSPROPERTY_CAMERACONTROL_FLAGS_AUTO: u32 = 1;
+        const KSPROPERTY_CAMERACONTROL_FLAGS_MANUAL: u32 = 2;
+        const KSPROPERTY_CAMERACONTROL_FLAGS_RELATIVE: u32 = 16;
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_FLASH {
+            KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID = 0,
+        }
+        const KSPROPERTY_CAMERACONTROL_FLASH_AUTO: u32 = 2;
+        const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_AUTO: u32 = 1;
+        const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_MANUAL: u32 = 2;
+        const KSPROPERTY_CAMERACONTROL_FLASH_OFF: u32 = 0;
+        const KSPROPERTY_CAMERACONTROL_FLASH_ON: u32 = 1;
+        struct KSPROPERTY_CAMERACONTROL_FLASH_S {
+            Flash: u32,
+            Capabilities: u32,
+        }
+        struct KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
+            Property: KSPROPERTY,
+            lOcularFocalLength: i32,
+            lObjectiveFocalLengthMin: i32,
+            lObjectiveFocalLengthMax: i32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+            KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID = 0,
+        }
+        const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: u32 = 1;
+        struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
+            Capabilities: u32,
+            Reserved0: u32,
+        }
+        const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: u32 = 2;
+        struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
+            NodeProperty: KSNODEPROPERTY,
+            lOcularFocalLength: i32,
+            lObjectiveFocalLengthMin: i32,
+            lObjectiveFocalLengthMax: i32,
+        }
+        type KSPROPERTY_CAMERACONTROL_NODE_S = PKSPROPERTY_CAMERACONTROL_NODE_S;
+        struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
+            NodeProperty: KSP_NODE,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+            KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CAPABILITY = 0,
+            KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_SET = 1,
+            KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CLEAR = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+            KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID = 0,
+        }
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE: u32 = 512;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_FOCUS: u32 = 256;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_WB: u32 = 1024;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONVERGEMODE: u32 = 1073741824;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_ASYNC: u32 = 2147483648;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO: u32 = 1;
+        const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL: u32 = 2;
+        struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
+            FocusRect: RECT,
+            AutoFocusLock: BOOL,
+            AutoExposureLock: BOOL,
+            AutoWhitebalanceLock: BOOL,
+            Anonymous: union {
+                Capabilities: u32,
+                Configuration: u32,
+            },
+        }
+        struct KSPROPERTY_CAMERACONTROL_S {
+            Property: KSPROPERTY,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        struct KSPROPERTY_CAMERACONTROL_S2 {
+            Property: KSPROPERTY,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
+        }
+        struct KSPROPERTY_CAMERACONTROL_S_EX {
+            Property: KSPROPERTY,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+            FocusRect: RECT,
+        }
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: u32 = 4;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_AUTO: u32 = 1;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_MANUAL: u32 = 2;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_HIGH: u32 = 1;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW: u32 = 3;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: u32 = 2;
+        const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: u32 = 0;
+        struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
+            VideoStabilizationMode: u32,
+            Capabilities: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+            KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE_PROPERTY_ID = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+            KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR = 0,
+            KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET = 1,
+        }
+        type KSPROPERTY_COMPOSIT_ON = BOOL;
+        #[repr(i32)]
+        enum KSPROPERTY_COPYPROT {
+            KSPROPERTY_DVDCOPY_CHLG_KEY = 1,
+            KSPROPERTY_DVDCOPY_DVD_KEY1 = 2,
+            KSPROPERTY_DVDCOPY_DEC_KEY2 = 3,
+            KSPROPERTY_DVDCOPY_TITLE_KEY = 4,
+            KSPROPERTY_COPY_MACROVISION = 5,
+            KSPROPERTY_DVDCOPY_REGION = 6,
+            KSPROPERTY_DVDCOPY_SET_COPY_STATE = 7,
+            KSPROPERTY_DVDCOPY_DISC_KEY = 128,
+        }
+        struct KSPROPERTY_CROSSBAR_ACTIVE_S {
+            Property: KSPROPERTY,
+            IndexInputPin: u32,
+            Active: u32,
+        }
+        struct KSPROPERTY_CROSSBAR_CAPS_S {
+            Property: KSPROPERTY,
+            NumberOfInputs: u32,
+            NumberOfOutputs: u32,
+        }
+        struct KSPROPERTY_CROSSBAR_PININFO_S {
+            Property: KSPROPERTY,
+            Direction: KSPIN_DATAFLOW,
+            Index: u32,
+            PinType: u32,
+            RelatedPinIndex: u32,
+            Medium: KSPIN_MEDIUM,
+        }
+        struct KSPROPERTY_CROSSBAR_ROUTE_S {
+            Property: KSPROPERTY,
+            IndexInputPin: u32,
+            IndexOutputPin: u32,
+            CanRoute: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_CYCLIC {
+            KSPROPERTY_CYCLIC_POSITION = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_DIRECTSOUND3DBUFFER {
+            KSPROPERTY_DIRECTSOUND3DBUFFER_ALL = 0,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_POSITION = 1,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_VELOCITY = 2,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_CONEANGLES = 3,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_CONEORIENTATION = 4,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_CONEOUTSIDEVOLUME = 5,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_MINDISTANCE = 6,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_MAXDISTANCE = 7,
+            KSPROPERTY_DIRECTSOUND3DBUFFER_MODE = 8,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_DIRECTSOUND3DLISTENER {
+            KSPROPERTY_DIRECTSOUND3DLISTENER_ALL = 0,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_POSITION = 1,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_VELOCITY = 2,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_ORIENTATION = 3,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_DISTANCEFACTOR = 4,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_ROLLOFFFACTOR = 5,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_DOPPLERFACTOR = 6,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_BATCH = 7,
+            KSPROPERTY_DIRECTSOUND3DLISTENER_ALLOCATION = 8,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_DRMAUDIOSTREAM {
+            KSPROPERTY_DRMAUDIOSTREAM_CONTENTID = 0,
+        }
+        struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
+            Property: KSPROPERTY,
+            PictureNumber: i64,
+            DropCount: i64,
+            AverageFrameSize: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_DVDSUBPIC {
+            KSPROPERTY_DVDSUBPIC_PALETTE = 0,
+            KSPROPERTY_DVDSUBPIC_HLI = 1,
+            KSPROPERTY_DVDSUBPIC_COMPOSIT_ON = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_EXTDEVICE {
+            KSPROPERTY_EXTDEVICE_ID = 0,
+            KSPROPERTY_EXTDEVICE_VERSION = 1,
+            KSPROPERTY_EXTDEVICE_POWER_STATE = 2,
+            KSPROPERTY_EXTDEVICE_PORT = 3,
+            KSPROPERTY_EXTDEVICE_CAPABILITIES = 4,
+        }
+        struct KSPROPERTY_EXTDEVICE_S {
+            Property: KSPROPERTY,
+            u: union {
+                Capabilities: DEVCAPS,
+                DevPort: u32,
+                PowerState: u32,
+                pawchString: [u16; 260],
+                NodeUniqueID: [u32; 2],
+            },
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_EXTENSION_UNIT {
+            KSPROPERTY_EXTENSION_UNIT_INFO = 0,
+            KSPROPERTY_EXTENSION_UNIT_CONTROL = 1,
+            KSPROPERTY_EXTENSION_UNIT_PASS_THROUGH = 65535,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_EXTXPORT {
+            KSPROPERTY_EXTXPORT_CAPABILITIES = 0,
+            KSPROPERTY_EXTXPORT_INPUT_SIGNAL_MODE = 1,
+            KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE = 2,
+            KSPROPERTY_EXTXPORT_LOAD_MEDIUM = 3,
+            KSPROPERTY_EXTXPORT_MEDIUM_INFO = 4,
+            KSPROPERTY_EXTXPORT_STATE = 5,
+            KSPROPERTY_EXTXPORT_STATE_NOTIFY = 6,
+            KSPROPERTY_EXTXPORT_TIMECODE_SEARCH = 7,
+            KSPROPERTY_EXTXPORT_ATN_SEARCH = 8,
+            KSPROPERTY_EXTXPORT_RTC_SEARCH = 9,
+            KSPROPERTY_RAW_AVC_CMD = 10,
+        }
+        struct KSPROPERTY_EXTXPORT_NODE_S {
+            NodeProperty: KSP_NODE,
+            u: union {
+                Capabilities: u32,
+                SignalMode: u32,
+                LoadMedium: u32,
+                MediumInfo: MEDIUM_INFO,
+                XPrtState: TRANSPORT_STATE,
+                Timecode: struct {
+                    frame: u8,
+                    second: u8,
+                    minute: u8,
+                    hour: u8,
+                },
+                dwTimecode: u32,
+                dwAbsTrackNumber: u32,
+                RawAVC: struct {
+                    PayloadSize: u32,
+                    Payload: [u8; 512],
+                },
+            },
+        }
+        struct KSPROPERTY_EXTXPORT_S {
+            Property: KSPROPERTY,
+            u: union {
+                Capabilities: u32,
+                SignalMode: u32,
+                LoadMedium: u32,
+                MediumInfo: MEDIUM_INFO,
+                XPrtState: TRANSPORT_STATE,
+                Timecode: struct {
+                    frame: u8,
+                    second: u8,
+                    minute: u8,
+                    hour: u8,
+                },
+                dwTimecode: u32,
+                dwAbsTrackNumber: u32,
+                RawAVC: struct {
+                    PayloadSize: u32,
+                    Payload: [u8; 512],
+                },
+            },
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_FMRX_CONTROL {
+            KSPROPERTY_FMRX_STATE = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_FMRX_TOPOLOGY {
+            KSPROPERTY_FMRX_ENDPOINTID = 0,
+            KSPROPERTY_FMRX_VOLUME = 1,
+            KSPROPERTY_FMRX_ANTENNAENDPOINTID = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_HRTF3D {
+            KSPROPERTY_HRTF3D_PARAMS = 0,
+            KSPROPERTY_HRTF3D_INITIALIZE = 1,
+            KSPROPERTY_HRTF3D_FILTER_FORMAT = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_INTERLEAVEDAUDIO {
+            KSPROPERTY_INTERLEAVEDAUDIO_FORMATINFORMATION = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_ITD3D {
+            KSPROPERTY_ITD3D_PARAMS = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_JACK {
+            KSPROPERTY_JACK_DESCRIPTION = 1,
+            KSPROPERTY_JACK_DESCRIPTION2 = 2,
+            KSPROPERTY_JACK_SINK_INFO = 3,
+            KSPROPERTY_JACK_CONTAINERID = 4,
+            KSPROPERTY_JACK_DESCRIPTION3 = 5,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_MIDILOOPEDSTREAMING {
+            KSPROPERTY_MIDILOOPEDSTREAMING_BUFFER = 0,
+            KSPROPERTY_MIDILOOPEDSTREAMING_REGISTERS = 1,
+            KSPROPERTY_MIDILOOPEDSTREAMING_NOTIFICATION_EVENT = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_MPEG2VID {
+            KSPROPERTY_MPEG2VID_MODES = 0,
+            KSPROPERTY_MPEG2VID_CUR_MODE = 1,
+            KSPROPERTY_MPEG2VID_4_3_RECT = 2,
+            KSPROPERTY_MPEG2VID_16_9_RECT = 3,
+            KSPROPERTY_MPEG2VID_16_9_PANSCAN = 4,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+            KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX = 1,
+        }
+        struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
+            Header: KSCAMERA_METADATA_ITEMHEADER,
+            EventFilter: [u16; 1],
+        }
+        struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
+            MetadataItems: u32,
+            Size: u32,
+            PTZStatus: BOOL,
+            Events: BOOL,
+            Analytics: BOOL,
+            Reserved: BOOL,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+            KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO = 0,
+        }
+        struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
+            Size: u32,
+            Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+            KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_DISABLE = 0,
+            KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_HOSTNTP = 1,
+            KSPROPERYT_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+            KSPROPERTY_NETWORKCAMERACONTROL_NTP = 0,
+            KSPROPERTY_NETWORKCAMERACONTROL_URI = 1,
+            KSPROPERTY_NETWORKCAMERACONTROL_METADATA = 2,
+            KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML = 3,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_OVERLAYUPDATE {
+            KSPROPERTY_OVERLAYUPDATE_INTERESTS = 0,
+            KSPROPERTY_OVERLAYUPDATE_CLIPLIST = 1,
+            KSPROPERTY_OVERLAYUPDATE_PALETTE = 2,
+            KSPROPERTY_OVERLAYUPDATE_COLORKEY = 4,
+            KSPROPERTY_OVERLAYUPDATE_VIDEOPOSITION = 8,
+            KSPROPERTY_OVERLAYUPDATE_DISPLAYCHANGE = 16,
+            KSPROPERTY_OVERLAYUPDATE_COLORREF = 268435456,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_RTAUDIO {
+            KSPROPERTY_RTAUDIO_GETPOSITIONFUNCTION = 0,
+            KSPROPERTY_RTAUDIO_BUFFER = 1,
+            KSPROPERTY_RTAUDIO_HWLATENCY = 2,
+            KSPROPERTY_RTAUDIO_POSITIONREGISTER = 3,
+            KSPROPERTY_RTAUDIO_CLOCKREGISTER = 4,
+            KSPROPERTY_RTAUDIO_BUFFER_WITH_NOTIFICATION = 5,
+            KSPROPERTY_RTAUDIO_REGISTER_NOTIFICATION_EVENT = 6,
+            KSPROPERTY_RTAUDIO_UNREGISTER_NOTIFICATION_EVENT = 7,
+            KSPROPERTY_RTAUDIO_QUERY_NOTIFICATION_SUPPORT = 8,
+            KSPROPERTY_RTAUDIO_PACKETCOUNT = 9,
+            KSPROPERTY_RTAUDIO_PRESENTATION_POSITION = 10,
+            KSPROPERTY_RTAUDIO_GETREADPACKET = 11,
+            KSPROPERTY_RTAUDIO_SETWRITEPACKET = 12,
+            KSPROPERTY_RTAUDIO_PACKETVREGISTER = 13,
+        }
+        struct KSPROPERTY_SELECTOR_NODE_S {
+            NodeProperty: KSP_NODE,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        struct KSPROPERTY_SELECTOR_S {
+            Property: KSPROPERTY,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_SOUNDDETECTOR {
+            KSPROPERTY_SOUNDDETECTOR_SUPPORTEDPATTERNS = 1,
+            KSPROPERTY_SOUNDDETECTOR_PATTERNS = 2,
+            KSPROPERTY_SOUNDDETECTOR_ARMED = 3,
+            KSPROPERTY_SOUNDDETECTOR_MATCHRESULT = 4,
+            KSPROPERTY_SOUNDDETECTOR_RESET = 5,
+            KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT = 6,
+        }
+        struct KSPROPERTY_SPHLI {
+            HLISS: u16,
+            Reserved: u16,
+            StartPTM: u32,
+            EndPTM: u32,
+            StartX: u16,
+            StartY: u16,
+            StopX: u16,
+            StopY: u16,
+            ColCon: KS_COLCON,
+        }
+        struct KSPROPERTY_SPPAL {
+            sppal: [KS_DVD_YUV; 16],
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TELEPHONY_CONTROL {
+            KSPROPERTY_TELEPHONY_PROVIDERID = 0,
+            KSPROPERTY_TELEPHONY_CALLINFO = 1,
+            KSPROPERTY_TELEPHONY_CALLCONTROL = 2,
+            KSPROPERTY_TELEPHONY_PROVIDERCHANGE = 3,
+            KSPROPERTY_TELEPHONY_CALLHOLD = 4,
+            KSPROPERTY_TELEPHONY_MUTE_TX = 5,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TELEPHONY_TOPOLOGY {
+            KSPROPERTY_TELEPHONY_ENDPOINTIDPAIR = 0,
+            KSPROPERTY_TELEPHONY_VOLUME = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TIMECODE {
+            KSPROPERTY_TIMECODE_READER = 0,
+            KSPROPERTY_ATN_READER = 1,
+            KSPROPERTY_RTC_READER = 2,
+        }
+        struct KSPROPERTY_TIMECODE_NODE_S {
+            NodeProperty: KSP_NODE,
+            TimecodeSamp: TIMECODE_SAMPLE,
+        }
+        struct KSPROPERTY_TIMECODE_S {
+            Property: KSPROPERTY,
+            TimecodeSamp: TIMECODE_SAMPLE,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TOPOLOGYNODE {
+            KSPROPERTY_TOPOLOGYNODE_ENABLE = 1,
+            KSPROPERTY_TOPOLOGYNODE_RESET = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TUNER {
+            KSPROPERTY_TUNER_CAPS = 0,
+            KSPROPERTY_TUNER_MODE_CAPS = 1,
+            KSPROPERTY_TUNER_MODE = 2,
+            KSPROPERTY_TUNER_STANDARD = 3,
+            KSPROPERTY_TUNER_FREQUENCY = 4,
+            KSPROPERTY_TUNER_INPUT = 5,
+            KSPROPERTY_TUNER_STATUS = 6,
+            KSPROPERTY_TUNER_IF_MEDIUM = 7,
+            KSPROPERTY_TUNER_SCAN_CAPS = 8,
+            KSPROPERTY_TUNER_SCAN_STATUS = 9,
+            KSPROPERTY_TUNER_STANDARD_MODE = 10,
+            KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS = 11,
+        }
+        struct KSPROPERTY_TUNER_CAPS_S {
+            Property: KSPROPERTY,
+            ModesSupported: u32,
+            VideoMedium: KSPIN_MEDIUM,
+            TVAudioMedium: KSPIN_MEDIUM,
+            RadioAudioMedium: KSPIN_MEDIUM,
+        }
+        struct KSPROPERTY_TUNER_FREQUENCY_S {
+            Property: KSPROPERTY,
+            Frequency: u32,
+            LastFrequency: u32,
+            TuningFlags: u32,
+            VideoSubChannel: u32,
+            AudioSubChannel: u32,
+            Channel: u32,
+            Country: u32,
+        }
+        struct KSPROPERTY_TUNER_IF_MEDIUM_S {
+            Property: KSPROPERTY,
+            IFMedium: KSPIN_MEDIUM,
+        }
+        struct KSPROPERTY_TUNER_INPUT_S {
+            Property: KSPROPERTY,
+            InputIndex: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_TUNER_MODES {
+            KSPROPERTY_TUNER_MODE_TV = 1,
+            KSPROPERTY_TUNER_MODE_FM_RADIO = 2,
+            KSPROPERTY_TUNER_MODE_AM_RADIO = 4,
+            KSPROPERTY_TUNER_MODE_DSS = 8,
+            KSPROPERTY_TUNER_MODE_ATSC = 16,
+        }
+        struct KSPROPERTY_TUNER_MODE_CAPS_S {
+            Property: KSPROPERTY,
+            Mode: u32,
+            StandardsSupported: u32,
+            MinFrequency: u32,
+            MaxFrequency: u32,
+            TuningGranularity: u32,
+            NumberOfInputs: u32,
+            SettlingTime: u32,
+            Strategy: u32,
+        }
+        struct KSPROPERTY_TUNER_MODE_S {
+            Property: KSPROPERTY,
+            Mode: u32,
+        }
+        struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
+            Property: KSPROPERTY,
+            NetworkType: GUID,
+            BufferSize: u32,
+            NetworkTunerCapabilities: *mut void,
+        }
+        struct KSPROPERTY_TUNER_SCAN_CAPS_S {
+            Property: KSPROPERTY,
+            fSupportsHardwareAssistedScanning: BOOL,
+            SupportedBroadcastStandards: u32,
+            GUIDBucket: *mut void,
+            lengthofBucket: u32,
+        }
+        struct KSPROPERTY_TUNER_SCAN_STATUS_S {
+            Property: KSPROPERTY,
+            LockStatus: TunerLockType,
+            CurrentFrequency: u32,
+        }
+        struct KSPROPERTY_TUNER_STANDARD_MODE_S {
+            Property: KSPROPERTY,
+            AutoDetect: BOOL,
+        }
+        struct KSPROPERTY_TUNER_STANDARD_S {
+            Property: KSPROPERTY,
+            Standard: u32,
+        }
+        struct KSPROPERTY_TUNER_STATUS_S {
+            Property: KSPROPERTY,
+            CurrentFrequency: u32,
+            PLLOffset: u32,
+            SignalStrength: u32,
+            Busy: u32,
+        }
+        struct KSPROPERTY_TVAUDIO_CAPS_S {
+            Property: KSPROPERTY,
+            Capabilities: u32,
+            InputMedium: KSPIN_MEDIUM,
+            OutputMedium: KSPIN_MEDIUM,
+        }
+        struct KSPROPERTY_TVAUDIO_S {
+            Property: KSPROPERTY,
+            Mode: u32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VBICAP {
+            KSPROPERTY_VBICAP_PROPERTIES_PROTECTION = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VBICODECFILTERING {
+            KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY = 1,
+            KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY = 2,
+            KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_REQUESTED_BIT_ARRAY = 3,
+            KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_DISCOVERED_BIT_ARRAY = 4,
+            KSPROPERTY_VBICODECFILTERING_STATISTICS = 5,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
+            Property: KSPROPERTY,
+            Substreams: VBICODECFILTERING_CC_SUBSTREAMS,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
+            Property: KSPROPERTY,
+            Substreams: VBICODECFILTERING_NABTS_SUBSTREAMS,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
+            Property: KSPROPERTY,
+            Scanlines: VBICODECFILTERING_SCANLINES,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_CC_PIN,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_CC,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_COMMON_PIN,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_COMMON,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_NABTS_PIN,
+        }
+        struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
+            Property: KSPROPERTY,
+            Statistics: VBICODECFILTERING_STATISTICS_NABTS,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_CAMERACONTROL {
+            KSPROPERTY_CAMERACONTROL_PAN = 0,
+            KSPROPERTY_CAMERACONTROL_TILT = 1,
+            KSPROPERTY_CAMERACONTROL_ROLL = 2,
+            KSPROPERTY_CAMERACONTROL_ZOOM = 3,
+            KSPROPERTY_CAMERACONTROL_EXPOSURE = 4,
+            KSPROPERTY_CAMERACONTROL_IRIS = 5,
+            KSPROPERTY_CAMERACONTROL_FOCUS = 6,
+            KSPROPERTY_CAMERACONTROL_SCANMODE = 7,
+            KSPROPERTY_CAMERACONTROL_PRIVACY = 8,
+            KSPROPERTY_CAMERACONTROL_PANTILT = 9,
+            KSPROPERTY_CAMERACONTROL_PAN_RELATIVE = 10,
+            KSPROPERTY_CAMERACONTROL_TILT_RELATIVE = 11,
+            KSPROPERTY_CAMERACONTROL_ROLL_RELATIVE = 12,
+            KSPROPERTY_CAMERACONTROL_ZOOM_RELATIVE = 13,
+            KSPROPERTY_CAMERACONTROL_EXPOSURE_RELATIVE = 14,
+            KSPROPERTY_CAMERACONTROL_IRIS_RELATIVE = 15,
+            KSPROPERTY_CAMERACONTROL_FOCUS_RELATIVE = 16,
+            KSPROPERTY_CAMERACONTROL_PANTILT_RELATIVE = 17,
+            KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH = 18,
+            KSPROPERTY_CAMERACONTROL_AUTO_EXPOSURE_PRIORITY = 19,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_CROSSBAR {
+            KSPROPERTY_CROSSBAR_CAPS = 0,
+            KSPROPERTY_CROSSBAR_PININFO = 1,
+            KSPROPERTY_CROSSBAR_CAN_ROUTE = 2,
+            KSPROPERTY_CROSSBAR_ROUTE = 3,
+            KSPROPERTY_CROSSBAR_INPUT_ACTIVE = 4,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+            KSPROPERTY_DROPPEDFRAMES_CURRENT = 0,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_SELECTOR {
+            KSPROPERTY_SELECTOR_SOURCE_NODE_ID = 0,
+            KSPROPERTY_SELECTOR_NUM_SOURCES = 1,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_TVAUDIO {
+            KSPROPERTY_TVAUDIO_CAPS = 0,
+            KSPROPERTY_TVAUDIO_MODE = 1,
+            KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES = 2,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+            KSPROPERTY_VIDEOCOMPRESSION_GETINFO = 0,
+            KSPROPERTY_VIDEOCOMPRESSION_KEYFRAME_RATE = 1,
+            KSPROPERTY_VIDEOCOMPRESSION_PFRAMES_PER_KEYFRAME = 2,
+            KSPROPERTY_VIDEOCOMPRESSION_QUALITY = 3,
+            KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME = 4,
+            KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_FRAME_SIZE = 5,
+            KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE = 6,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_VIDEOCONTROL {
+            KSPROPERTY_VIDEOCONTROL_CAPS = 0,
+            KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE = 1,
+            KSPROPERTY_VIDEOCONTROL_FRAME_RATES = 2,
+            KSPROPERTY_VIDEOCONTROL_MODE = 3,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_VIDEODECODER {
+            KSPROPERTY_VIDEODECODER_CAPS = 0,
+            KSPROPERTY_VIDEODECODER_STANDARD = 1,
+            KSPROPERTY_VIDEODECODER_STATUS = 2,
+            KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE = 3,
+            KSPROPERTY_VIDEODECODER_VCR_TIMING = 4,
+            KSPROPERTY_VIDEODECODER_STATUS2 = 5,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_VIDEOENCODER {
+            KSPROPERTY_VIDEOENCODER_CAPS = 0,
+            KSPROPERTY_VIDEOENCODER_STANDARD = 1,
+            KSPROPERTY_VIDEOENCODER_COPYPROTECTION = 2,
+            KSPROPERTY_VIDEOENCODER_CC_ENABLE = 3,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+            KSPROPERTY_VIDEOPROCAMP_BRIGHTNESS = 0,
+            KSPROPERTY_VIDEOPROCAMP_CONTRAST = 1,
+            KSPROPERTY_VIDEOPROCAMP_HUE = 2,
+            KSPROPERTY_VIDEOPROCAMP_SATURATION = 3,
+            KSPROPERTY_VIDEOPROCAMP_SHARPNESS = 4,
+            KSPROPERTY_VIDEOPROCAMP_GAMMA = 5,
+            KSPROPERTY_VIDEOPROCAMP_COLORENABLE = 6,
+            KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE = 7,
+            KSPROPERTY_VIDEOPROCAMP_BACKLIGHT_COMPENSATION = 8,
+            KSPROPERTY_VIDEOPROCAMP_GAIN = 9,
+            KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER = 10,
+            KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER_LIMIT = 11,
+            KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE_COMPONENT = 12,
+            KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY = 13,
+        }
+        struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            DefaultKeyFrameRate: i32,
+            DefaultPFrameRate: i32,
+            DefaultQuality: i32,
+            NumberOfQualitySettings: i32,
+            Capabilities: i32,
+        }
+        struct KSPROPERTY_VIDEOCOMPRESSION_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            Value: i32,
+        }
+        struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            Value: i32,
+            Flags: u32,
+        }
+        struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            RangeIndex: u32,
+            Dimensions: SIZE,
+            CurrentActualFrameRate: i64,
+            CurrentMaxAvailableFrameRate: i64,
+        }
+        struct KSPROPERTY_VIDEOCONTROL_CAPS_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            VideoControlCaps: u32,
+        }
+        struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            RangeIndex: u32,
+            Dimensions: SIZE,
+        }
+        struct KSPROPERTY_VIDEOCONTROL_MODE_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            Mode: i32,
+        }
+        struct KSPROPERTY_VIDEODECODER_CAPS_S {
+            Property: KSPROPERTY,
+            StandardsSupported: u32,
+            Capabilities: u32,
+            SettlingTime: u32,
+            HSyncPerVSync: u32,
+        }
+        struct KSPROPERTY_VIDEODECODER_S {
+            Property: KSPROPERTY,
+            Value: u32,
+        }
+        struct KSPROPERTY_VIDEODECODER_STATUS2_S {
+            Property: KSPROPERTY,
+            NumberOfLines: u32,
+            SignalLocked: u32,
+            ChromaLock: u32,
+        }
+        struct KSPROPERTY_VIDEODECODER_STATUS_S {
+            Property: KSPROPERTY,
+            NumberOfLines: u32,
+            SignalLocked: u32,
+        }
+        struct KSPROPERTY_VIDEOENCODER_S {
+            Property: KSPROPERTY,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        const KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO: u32 = 1;
+        const KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL: u32 = 2;
+        struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
+            NodeProperty: KSP_NODE,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
+            NodeProperty: KSP_NODE,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
+        }
+        struct KSPROPERTY_VIDEOPROCAMP_S {
+            Property: KSPROPERTY,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        struct KSPROPERTY_VIDEOPROCAMP_S2 {
+            Property: KSPROPERTY,
+            Value1: i32,
+            Flags: u32,
+            Capabilities: u32,
+            Value2: i32,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VIDMEM_TRANSPORT {
+            KSPROPERTY_DISPLAY_ADAPTER_GUID = 1,
+            KSPROPERTY_PREFERRED_CAPTURE_SURFACE = 2,
+            KSPROPERTY_CURRENT_CAPTURE_SURFACE = 3,
+            KSPROPERTY_MAP_CAPTURE_HANDLE_TO_VRAM_ADDRESS = 4,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_VPCONFIG {
+            KSPROPERTY_VPCONFIG_NUMCONNECTINFO = 0,
+            KSPROPERTY_VPCONFIG_GETCONNECTINFO = 1,
+            KSPROPERTY_VPCONFIG_SETCONNECTINFO = 2,
+            KSPROPERTY_VPCONFIG_VPDATAINFO = 3,
+            KSPROPERTY_VPCONFIG_MAXPIXELRATE = 4,
+            KSPROPERTY_VPCONFIG_INFORMVPINPUT = 5,
+            KSPROPERTY_VPCONFIG_NUMVIDEOFORMAT = 6,
+            KSPROPERTY_VPCONFIG_GETVIDEOFORMAT = 7,
+            KSPROPERTY_VPCONFIG_SETVIDEOFORMAT = 8,
+            KSPROPERTY_VPCONFIG_INVERTPOLARITY = 9,
+            KSPROPERTY_VPCONFIG_DECIMATIONCAPABILITY = 10,
+            KSPROPERTY_VPCONFIG_SCALEFACTOR = 11,
+            KSPROPERTY_VPCONFIG_DDRAWHANDLE = 12,
+            KSPROPERTY_VPCONFIG_VIDEOPORTID = 13,
+            KSPROPERTY_VPCONFIG_DDRAWSURFACEHANDLE = 14,
+            KSPROPERTY_VPCONFIG_SURFACEPARAMS = 15,
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_WAVE {
+            KSPROPERTY_WAVE_COMPATIBLE_CAPABILITIES = 0,
+            KSPROPERTY_WAVE_INPUT_CAPABILITIES = 1,
+            KSPROPERTY_WAVE_OUTPUT_CAPABILITIES = 2,
+            KSPROPERTY_WAVE_BUFFER = 3,
+            KSPROPERTY_WAVE_FREQUENCY = 4,
+            KSPROPERTY_WAVE_VOLUME = 5,
+            KSPROPERTY_WAVE_PAN = 6,
+        }
+        struct KSPROPSETID_AC3 {}
+        struct KSPROPSETID_Audio {}
+        struct KSPROPSETID_AudioBufferDuration {}
+        struct KSPROPSETID_AudioDecoderOut {}
+        struct KSPROPSETID_AudioEngine {}
+        struct KSPROPSETID_AudioLoopback {}
+        struct KSPROPSETID_AudioModule {}
+        struct KSPROPSETID_AudioPosture {}
+        struct KSPROPSETID_AudioResourceManagement {}
+        struct KSPROPSETID_AudioSignalProcessing {}
+        struct KSPROPSETID_Bibliographic {}
+        struct KSPROPSETID_BtAudio {}
+        struct KSPROPSETID_CopyProt {}
+        struct KSPROPSETID_Cyclic {}
+        struct KSPROPSETID_DirectSound3DBuffer {}
+        struct KSPROPSETID_DirectSound3DListener {}
+        struct KSPROPSETID_DrmAudioStream {}
+        struct KSPROPSETID_DvdSubPic {}
+        struct KSPROPSETID_FMRXControl {}
+        struct KSPROPSETID_FMRXTopology {}
+        struct KSPROPSETID_Hrtf3d {}
+        struct KSPROPSETID_InterleavedAudio {}
+        struct KSPROPSETID_Itd3d {}
+        struct KSPROPSETID_Jack {}
+        struct KSPROPSETID_MPEG4_MediaType_Attributes {}
+        struct KSPROPSETID_MidiLoopedStreaming {}
+        struct KSPROPSETID_Mpeg2Vid {}
+        struct KSPROPSETID_OverlayUpdate {}
+        struct KSPROPSETID_RtAudio {}
+        struct KSPROPSETID_SoundDetector {}
+        struct KSPROPSETID_SoundDetector2 {}
+        struct KSPROPSETID_TSRateChange {}
+        struct KSPROPSETID_TelephonyControl {}
+        struct KSPROPSETID_TelephonyTopology {}
+        struct KSPROPSETID_TopologyNode {}
+        struct KSPROPSETID_VBICAP_PROPERTIES {}
+        struct KSPROPSETID_VBICodecFiltering {}
+        struct KSPROPSETID_VPConfig {}
+        struct KSPROPSETID_VPVBIConfig {}
+        struct KSPROPSETID_VramCapture {}
+        struct KSPROPSETID_Wave {}
+        struct KSRTAUDIO_BUFFER {
+            BufferAddress: *mut void,
+            ActualBufferSize: u32,
+            CallMemoryBarrier: BOOL,
+        }
+        struct KSRTAUDIO_BUFFER32 {
+            BufferAddress: u32,
+            ActualBufferSize: u32,
+            CallMemoryBarrier: BOOL,
+        }
+        struct KSRTAUDIO_BUFFER_PROPERTY {
+            Property: KSPROPERTY,
+            BaseAddress: *mut void,
+            RequestedBufferSize: u32,
+        }
+        struct KSRTAUDIO_BUFFER_PROPERTY32 {
+            Property: KSPROPERTY,
+            BaseAddress: u32,
+            RequestedBufferSize: u32,
+        }
+        struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
+            Property: KSPROPERTY,
+            BaseAddress: *mut void,
+            RequestedBufferSize: u32,
+            NotificationCount: u32,
+        }
+        struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
+            Property: KSPROPERTY,
+            BaseAddress: u32,
+            RequestedBufferSize: u32,
+            NotificationCount: u32,
+        }
+        struct KSRTAUDIO_GETREADPACKET_INFO {
+            PacketNumber: u32,
+            Flags: u32,
+            PerformanceCounterValue: u64,
+            MoreData: BOOL,
+        }
+        struct KSRTAUDIO_HWLATENCY {
+            FifoSize: u32,
+            ChipsetDelay: u32,
+            CodecDelay: u32,
+        }
+        struct KSRTAUDIO_HWREGISTER {
+            Register: *mut void,
+            Width: u32,
+            Numerator: u64,
+            Denominator: u64,
+            Accuracy: u32,
+        }
+        struct KSRTAUDIO_HWREGISTER32 {
+            Register: u32,
+            Width: u32,
+            Numerator: u64,
+            Denominator: u64,
+            Accuracy: u32,
+        }
+        struct KSRTAUDIO_HWREGISTER_PROPERTY {
+            Property: KSPROPERTY,
+            BaseAddress: *mut void,
+        }
+        struct KSRTAUDIO_HWREGISTER_PROPERTY32 {
+            Property: KSPROPERTY,
+            BaseAddress: u32,
+        }
+        struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
+            Property: KSPROPERTY,
+            NotificationEvent: HANDLE,
+        }
+        struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
+            Property: KSPROPERTY,
+            NotificationEvent: u32,
+        }
+        struct KSRTAUDIO_PACKETVREGISTER {
+            CompletedPacketCount: PULONG64,
+            CompletedPacketQPC: PULONG64,
+            CompletedPacketHash: PULONG64,
+        }
+        struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
+            Property: KSPROPERTY,
+            BaseAddress: *mut void,
+        }
+        struct KSRTAUDIO_SETWRITEPACKET_INFO {
+            PacketNumber: u32,
+            Flags: u32,
+            EosPacketLength: u32,
+        }
+        struct KSSOUNDDETECTORPROPERTY {
+            Property: KSPROPERTY,
+            EventId: GUID,
+        }
+        struct KSTELEPHONY_CALLCONTROL {
+            CallType: TELEPHONY_CALLTYPE,
+            CallControlOp: TELEPHONY_CALLCONTROLOP,
+        }
+        struct KSTELEPHONY_CALLINFO {
+            CallType: TELEPHONY_CALLTYPE,
+            CallState: TELEPHONY_CALLSTATE,
+        }
+        struct KSTELEPHONY_PROVIDERCHANGE {
+            CallType: TELEPHONY_CALLTYPE,
+            ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
+        }
+        struct KSTOPOLOGY_ENDPOINTID {
+            TopologyName: [u16; 260],
+            PinId: u32,
+        }
+        struct KSTOPOLOGY_ENDPOINTIDPAIR {
+            RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
+            CaptureEndpoint: KSTOPOLOGY_ENDPOINTID,
+        }
+        struct KSVPMAXPIXELRATE {
+            Size: KS_AMVPSIZE,
+            MaxPixelsPerSecond: u32,
+            Reserved: u32,
+        }
+        struct KSVPSIZE_PROP {
+            Property: KSPROPERTY,
+            Size: KS_AMVPSIZE,
+        }
+        struct KSVPSURFACEPARAMS {
+            dwPitch: u32,
+            dwXOrigin: u32,
+            dwYOrigin: u32,
+        }
+        struct KSWAVETABLE_WAVE_DESC {
+            Identifier: KSIDENTIFIER,
+            Size: u32,
+            Looped: BOOL,
+            LoopPoint: u32,
+            InROM: BOOL,
+            Format: KSDATAFORMAT,
+        }
+        struct KSWAVE_BUFFER {
+            Attributes: u32,
+            BufferSize: u32,
+            BufferAddress: *mut void,
+        }
+        const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1;
+        const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2;
+        struct KSWAVE_COMPATCAPS {
+            ulDeviceType: u32,
+        }
+        const KSWAVE_COMPATCAPS_INPUT: u32 = 0;
+        const KSWAVE_COMPATCAPS_OUTPUT: u32 = 1;
+        struct KSWAVE_INPUT_CAPABILITIES {
+            MaximumChannelsPerConnection: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+            TotalConnections: u32,
+            ActiveConnections: u32,
+        }
+        struct KSWAVE_OUTPUT_CAPABILITIES {
+            MaximumChannelsPerConnection: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+            TotalConnections: u32,
+            StaticConnections: u32,
+            StreamingConnections: u32,
+            ActiveConnections: u32,
+            ActiveStaticConnections: u32,
+            ActiveStreamingConnections: u32,
+            Total3DConnections: u32,
+            Static3DConnections: u32,
+            Streaming3DConnections: u32,
+            Active3DConnections: u32,
+            ActiveStatic3DConnections: u32,
+            ActiveStreaming3DConnections: u32,
+            TotalSampleMemory: u32,
+            FreeSampleMemory: u32,
+            LargestFreeContiguousSampleMemory: u32,
+        }
+        struct KSWAVE_VOLUME {
+            LeftAttenuation: i32,
+            RightAttenuation: i32,
+        }
+        const KS_AMCONTROL_COLORINFO_PRESENT: u32 = 128;
+        const KS_AMCONTROL_PAD_TO_16x9: u32 = 4;
+        const KS_AMCONTROL_PAD_TO_4x3: u32 = 2;
+        const KS_AMCONTROL_USED: u32 = 1;
+        #[repr(i32)]
+        enum KS_AMPixAspectRatio {
+            KS_PixAspectRatio_NTSC4x3 = 0,
+            KS_PixAspectRatio_NTSC16x9 = 1,
+            KS_PixAspectRatio_PAL4x3 = 2,
+            KS_PixAspectRatio_PAL16x9 = 3,
+        }
+        struct KS_AMVPDATAINFO {
+            dwSize: u32,
+            dwMicrosecondsPerField: u32,
+            amvpDimInfo: KS_AMVPDIMINFO,
+            dwPictAspectRatioX: u32,
+            dwPictAspectRatioY: u32,
+            bEnableDoubleClock: BOOL,
+            bEnableVACT: BOOL,
+            bDataIsInterlaced: BOOL,
+            lHalfLinesOdd: i32,
+            bFieldPolarityInverted: BOOL,
+            dwNumLinesInVREF: u32,
+            lHalfLinesEven: i32,
+            dwReserved1: u32,
+        }
+        struct KS_AMVPDIMINFO {
+            dwFieldWidth: u32,
+            dwFieldHeight: u32,
+            dwVBIWidth: u32,
+            dwVBIHeight: u32,
+            rcValidRegion: RECT,
+        }
+        struct KS_AMVPSIZE {
+            dwWidth: u32,
+            dwHeight: u32,
+        }
+        #[repr(i32)]
+        enum KS_AMVP_MODE {
+            KS_AMVP_MODE_WEAVE = 0,
+            KS_AMVP_MODE_BOBINTERLEAVED = 1,
+            KS_AMVP_MODE_BOBNONINTERLEAVED = 2,
+            KS_AMVP_MODE_SKIPEVEN = 3,
+            KS_AMVP_MODE_SKIPODD = 4,
+        }
+        #[repr(i32)]
+        enum KS_AMVP_SELECTFORMATBY {
+            KS_AMVP_DO_NOT_CARE = 0,
+            KS_AMVP_BEST_BANDWIDTH = 1,
+            KS_AMVP_INPUT_SAME_AS_OUTPUT = 2,
+        }
+        struct KS_AM_ExactRateChange {
+            OutputZeroTime: REFERENCE_TIME,
+            Rate: i32,
+        }
+        type KS_AM_MaxFullDataRate = i32;
+        #[repr(i32)]
+        enum KS_AM_PROPERTY_TS_RATE_CHANGE {
+            KS_AM_RATE_SimpleRateChange = 1,
+            KS_AM_RATE_ExactRateChange = 2,
+            KS_AM_RATE_MaxFullDataRate = 3,
+            KS_AM_RATE_Step = 4,
+        }
+        struct KS_AM_SimpleRateChange {
+            StartTime: REFERENCE_TIME,
+            Rate: i32,
+        }
+        type KS_AM_Step = u32;
+        const KS_AM_UseNewCSSKey: u32 = 1;
+        struct KS_ANALOGVIDEOINFO {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwActiveWidth: u32,
+            dwActiveHeight: u32,
+            AvgTimePerFrame: REFERENCE_TIME,
+        }
+        #[repr(i32)]
+        enum KS_AnalogVideoStandard {
+            KS_AnalogVideo_None = 0,
+            KS_AnalogVideo_NTSC_M = 1,
+            KS_AnalogVideo_NTSC_M_J = 2,
+            KS_AnalogVideo_NTSC_433 = 4,
+            KS_AnalogVideo_PAL_B = 16,
+            KS_AnalogVideo_PAL_D = 32,
+            KS_AnalogVideo_PAL_G = 64,
+            KS_AnalogVideo_PAL_H = 128,
+            KS_AnalogVideo_PAL_I = 256,
+            KS_AnalogVideo_PAL_M = 512,
+            KS_AnalogVideo_PAL_N = 1024,
+            KS_AnalogVideo_PAL_60 = 2048,
+            KS_AnalogVideo_SECAM_B = 4096,
+            KS_AnalogVideo_SECAM_D = 8192,
+            KS_AnalogVideo_SECAM_G = 16384,
+            KS_AnalogVideo_SECAM_H = 32768,
+            KS_AnalogVideo_SECAM_K = 65536,
+            KS_AnalogVideo_SECAM_K1 = 131072,
+            KS_AnalogVideo_SECAM_L = 262144,
+            KS_AnalogVideo_SECAM_L1 = 524288,
+            KS_AnalogVideo_PAL_N_COMBO = 1048576,
+        }
+        const KS_AnalogVideo_NTSC_Mask: u32 = 7;
+        const KS_AnalogVideo_PAL_Mask: u32 = 1052656;
+        const KS_AnalogVideo_SECAM_Mask: u32 = 1044480;
+        struct KS_BITMAPINFOHEADER {
+            biSize: u32,
+            biWidth: i32,
+            biHeight: i32,
+            biPlanes: u16,
+            biBitCount: u16,
+            biCompression: u32,
+            biSizeImage: u32,
+            biXPelsPerMeter: i32,
+            biYPelsPerMeter: i32,
+            biClrUsed: u32,
+            biClrImportant: u32,
+        }
+        const KS_BI_BITFIELDS: u32 = 3;
+        const KS_BI_JPEG: u32 = 4;
+        const KS_BI_RGB: u32 = 0;
+        const KS_BI_RLE4: u32 = 2;
+        const KS_BI_RLE8: u32 = 1;
+        const KS_CC_SUBSTREAM_EVEN: u32 = 2;
+        const KS_CC_SUBSTREAM_FIELD1_MASK: u32 = 240;
+        const KS_CC_SUBSTREAM_FIELD2_MASK: u32 = 7936;
+        const KS_CC_SUBSTREAM_ODD: u32 = 1;
+        const KS_CC_SUBSTREAM_SERVICE_CC1: u32 = 16;
+        const KS_CC_SUBSTREAM_SERVICE_CC2: u32 = 32;
+        const KS_CC_SUBSTREAM_SERVICE_CC3: u32 = 256;
+        const KS_CC_SUBSTREAM_SERVICE_CC4: u32 = 512;
+        const KS_CC_SUBSTREAM_SERVICE_T1: u32 = 64;
+        const KS_CC_SUBSTREAM_SERVICE_T2: u32 = 128;
+        const KS_CC_SUBSTREAM_SERVICE_T3: u32 = 1024;
+        const KS_CC_SUBSTREAM_SERVICE_T4: u32 = 2048;
+        const KS_CC_SUBSTREAM_SERVICE_XDS: u32 = 4096;
+        struct KS_COLCON {
+            _bitfield1: u8,
+            _bitfield2: u8,
+            _bitfield3: u8,
+            _bitfield4: u8,
+        }
+        const KS_COPYPROTECT_RestrictDuplication: u32 = 1;
+        struct KS_COPY_MACROVISION {
+            MACROVISIONLevel: u32,
+        }
+        #[repr(i32)]
+        enum KS_COPY_MACROVISION_LEVEL {
+            KS_MACROVISION_DISABLED = 0,
+            KS_MACROVISION_LEVEL1 = 1,
+            KS_MACROVISION_LEVEL2 = 2,
+            KS_MACROVISION_LEVEL3 = 3,
+        }
+        #[repr(i32)]
+        enum KS_CameraControlAsyncOperation {
+            KS_CAMERACONTROL_ASYNC_START = 1,
+            KS_CAMERACONTROL_ASYNC_STOP = 2,
+            KS_CAMERACONTROL_ASYNC_RESET = 3,
+        }
+        #[repr(i32)]
+        enum KS_CompressionCaps {
+            KS_CompressionCaps_CanQuality = 1,
+            KS_CompressionCaps_CanCrunch = 2,
+            KS_CompressionCaps_CanKeyFrame = 4,
+            KS_CompressionCaps_CanBFrame = 8,
+            KS_CompressionCaps_CanWindow = 16,
+        }
+        struct KS_DATAFORMAT_H264VIDEOINFO {
+            DataFormat: KSDATAFORMAT,
+            H264VideoInfoHeader: KS_H264VIDEOINFO,
+        }
+        struct KS_DATAFORMAT_IMAGEINFO {
+            DataFormat: KSDATAFORMAT,
+            ImageInfoHeader: KS_BITMAPINFOHEADER,
+        }
+        struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
+            DataFormat: KSDATAFORMAT,
+            MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
+        }
+        struct KS_DATAFORMAT_VBIINFOHEADER {
+            DataFormat: KSDATAFORMAT,
+            VBIInfoHeader: KS_VBIINFOHEADER,
+        }
+        struct KS_DATAFORMAT_VIDEOINFOHEADER {
+            DataFormat: KSDATAFORMAT,
+            VideoInfoHeader: KS_VIDEOINFOHEADER,
+        }
+        struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
+            DataFormat: KSDATAFORMAT,
+            VideoInfoHeader2: KS_VIDEOINFOHEADER2,
+        }
+        struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
+            DataFormat: KSDATAFORMAT,
+            VideoInfo: KS_VIDEOINFO,
+        }
+        struct KS_DATARANGE_ANALOGVIDEO {
+            DataRange: KSDATARANGE,
+            AnalogVideoInfo: KS_ANALOGVIDEOINFO,
+        }
+        struct KS_DATARANGE_H264_VIDEO {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfoHeader: KS_H264VIDEOINFO,
+        }
+        struct KS_DATARANGE_IMAGE {
+            DataRange: KSDATARANGE,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            ImageInfoHeader: KS_BITMAPINFOHEADER,
+        }
+        struct KS_DATARANGE_MPEG1_VIDEO {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfoHeader: KS_MPEG1VIDEOINFO,
+        }
+        struct KS_DATARANGE_MPEG2_VIDEO {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfoHeader: KS_MPEGVIDEOINFO2,
+        }
+        struct KS_DATARANGE_VIDEO {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfoHeader: KS_VIDEOINFOHEADER,
+        }
+        struct KS_DATARANGE_VIDEO2 {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfoHeader: KS_VIDEOINFOHEADER2,
+        }
+        struct KS_DATARANGE_VIDEO_PALETTE {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VideoInfo: KS_VIDEOINFO,
+        }
+        struct KS_DATARANGE_VIDEO_VBI {
+            DataRange: KSDATARANGE,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            StreamDescriptionFlags: u32,
+            MemoryAllocationFlags: u32,
+            ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
+            VBIInfoHeader: KS_VBIINFOHEADER,
+        }
+        #[repr(i32)]
+        enum KS_DVDCOPYSTATE {
+            KS_DVDCOPYSTATE_INITIALIZE = 0,
+            KS_DVDCOPYSTATE_INITIALIZE_TITLE = 1,
+            KS_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED = 2,
+            KS_DVDCOPYSTATE_AUTHENTICATION_REQUIRED = 3,
+            KS_DVDCOPYSTATE_DONE = 4,
+        }
+        struct KS_DVDCOPY_BUSKEY {
+            BusKey: [u8; 5],
+            Reserved: [u8; 1],
+        }
+        struct KS_DVDCOPY_CHLGKEY {
+            ChlgKey: [u8; 10],
+            Reserved: [u8; 2],
+        }
+        struct KS_DVDCOPY_DISCKEY {
+            DiscKey: [u8; 2048],
+        }
+        struct KS_DVDCOPY_REGION {
+            Reserved: u8,
+            RegionData: u8,
+            Reserved2: [u8; 2],
+        }
+        struct KS_DVDCOPY_SET_COPY_STATE {
+            DVDCopyState: u32,
+        }
+        struct KS_DVDCOPY_TITLEKEY {
+            KeyFlags: u32,
+            ReservedNT: [u32; 2],
+            TitleKey: [u8; 6],
+            Reserved: [u8; 2],
+        }
+        const KS_DVD_CGMS_COPY_ONCE: u32 = 16;
+        const KS_DVD_CGMS_COPY_PERMITTED: u32 = 0;
+        const KS_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24;
+        const KS_DVD_CGMS_NO_COPY: u32 = 24;
+        const KS_DVD_CGMS_RESERVED_MASK: u32 = 120;
+        const KS_DVD_COPYRIGHTED: u32 = 64;
+        const KS_DVD_COPYRIGHT_MASK: u32 = 64;
+        const KS_DVD_NOT_COPYRIGHTED: u32 = 0;
+        const KS_DVD_SECTOR_NOT_PROTECTED: u32 = 0;
+        const KS_DVD_SECTOR_PROTECTED: u32 = 32;
+        const KS_DVD_SECTOR_PROTECT_MASK: u32 = 32;
+        struct KS_DVD_YCrCb {
+            Reserved: u8,
+            Y: u8,
+            Cr: u8,
+            Cb: u8,
+        }
+        struct KS_DVD_YUV {
+            Reserved: u8,
+            Y: u8,
+            V: u8,
+            U: u8,
+        }
+        struct KS_FRAME_INFO {
+            ExtendedHeaderSize: u32,
+            dwFrameFlags: u32,
+            PictureNumber: i64,
+            DropCount: i64,
+            hDirectDraw: HANDLE,
+            hSurfaceHandle: HANDLE,
+            DirectDrawRect: RECT,
+            Anonymous: union {
+                lSurfacePitch: i32,
+                Reserved1: u32,
+            },
+            Reserved2: u32,
+            Anonymous2: union {
+                Anonymous: struct {
+                    Reserved3: u32,
+                    Reserved4: u32,
+                },
+                FrameCompletionNumber: u64,
+            },
+        }
+        struct KS_H264VIDEOINFO {
+            wWidth: u16,
+            wHeight: u16,
+            wSARwidth: u16,
+            wSARheight: u16,
+            wProfile: u16,
+            bLevelIDC: u8,
+            wConstrainedToolset: u16,
+            bmSupportedUsages: u32,
+            bmCapabilities: u16,
+            bmSVCCapabilities: u32,
+            bmMVCCapabilities: u32,
+            dwFrameInterval: u32,
+            bMaxCodecConfigDelay: u8,
+            bmSupportedSliceModes: u8,
+            bmSupportedSyncFrameTypes: u8,
+            bResolutionScaling: u8,
+            bSimulcastSupport: u8,
+            bmSupportedRateControlModes: u8,
+            wMaxMBperSecOneResolutionNoScalability: u16,
+            wMaxMBperSecTwoResolutionsNoScalability: u16,
+            wMaxMBperSecThreeResolutionsNoScalability: u16,
+            wMaxMBperSecFourResolutionsNoScalability: u16,
+            wMaxMBperSecOneResolutionTemporalScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalScalablility: u16,
+            wMaxMBperSecThreeResolutionsTemporalScalability: u16,
+            wMaxMBperSecFourResolutionsTemporalScalability: u16,
+            wMaxMBperSecOneResolutionTemporalQualityScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalQualityScalability: u16,
+            wMaxMBperSecThreeResolutionsTemporalQualityScalablity: u16,
+            wMaxMBperSecFourResolutionsTemporalQualityScalability: u16,
+            wMaxMBperSecOneResolutionTemporalSpatialScalability: u16,
+            wMaxMBperSecTwoResolutionsTemporalSpatialScalability: u16,
+            wMaxMBperSecThreeResolutionsTemporalSpatialScalablity: u16,
+            wMaxMBperSecFourResolutionsTemporalSpatialScalability: u16,
+            wMaxMBperSecOneResolutionFullScalability: u16,
+            wMaxMBperSecTwoResolutionsFullScalability: u16,
+            wMaxMBperSecThreeResolutionsFullScalability: u16,
+            wMaxMBperSecFourResolutionsFullScalability: u16,
+        }
+        const KS_INTERLACE_1FieldPerSample: u32 = 2;
+        const KS_INTERLACE_DisplayModeBobOnly: u32 = 0;
+        const KS_INTERLACE_DisplayModeBobOrWeave: u32 = 128;
+        const KS_INTERLACE_DisplayModeMask: u32 = 192;
+        const KS_INTERLACE_DisplayModeWeaveOnly: u32 = 64;
+        const KS_INTERLACE_Field1First: u32 = 4;
+        const KS_INTERLACE_FieldPatBothIrregular: u32 = 48;
+        const KS_INTERLACE_FieldPatBothRegular: u32 = 32;
+        const KS_INTERLACE_FieldPatField1Only: u32 = 0;
+        const KS_INTERLACE_FieldPatField2Only: u32 = 16;
+        const KS_INTERLACE_FieldPatternMask: u32 = 48;
+        const KS_INTERLACE_IsInterlaced: u32 = 1;
+        const KS_INTERLACE_UNUSED: u32 = 8;
+        const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
+        struct KS_MPEG1VIDEOINFO {
+            hdr: KS_VIDEOINFOHEADER,
+            dwStartTimeCode: u32,
+            cbSequenceHeader: u32,
+            bSequenceHeader: [u8; 1],
+        }
+        #[repr(i32)]
+        enum KS_MPEG2Level {
+            KS_MPEG2Level_Low = 0,
+            KS_MPEG2Level_Main = 1,
+            KS_MPEG2Level_High1440 = 2,
+            KS_MPEG2Level_High = 3,
+        }
+        #[repr(i32)]
+        enum KS_MPEG2Profile {
+            KS_MPEG2Profile_Simple = 0,
+            KS_MPEG2Profile_Main = 1,
+            KS_MPEG2Profile_SNRScalable = 2,
+            KS_MPEG2Profile_SpatiallyScalable = 3,
+            KS_MPEG2Profile_High = 4,
+        }
+        const KS_MPEG2_27MhzTimebase: u32 = 256;
+        const KS_MPEG2_DSS_UserData: u32 = 64;
+        const KS_MPEG2_DVB_UserData: u32 = 128;
+        const KS_MPEG2_DVDLine21Field1: u32 = 2;
+        const KS_MPEG2_DVDLine21Field2: u32 = 4;
+        const KS_MPEG2_DoPanScan: u32 = 1;
+        const KS_MPEG2_FilmCameraMode: u32 = 16;
+        const KS_MPEG2_LetterboxAnalogOut: u32 = 32;
+        const KS_MPEG2_SourceIsLetterboxed: u32 = 8;
+        const KS_MPEG2_WidescreenAnalogOut: u32 = 512;
+        struct KS_MPEGAUDIOINFO {
+            dwFlags: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+            dwReserved3: u32,
+        }
+        const KS_MPEGAUDIOINFO_27MhzTimebase: u32 = 1;
+        struct KS_MPEGVIDEOINFO2 {
+            hdr: KS_VIDEOINFOHEADER2,
+            dwStartTimeCode: u32,
+            cbSequenceHeader: u32,
+            dwProfile: u32,
+            dwLevel: u32,
+            dwFlags: u32,
+            bSequenceHeader: [u32; 1],
+        }
+        const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: u32 = 2224;
+        const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_CONTENT_BASE: u32 = 2208;
+        const KS_NABTS_GROUPID_MICROSOFT_RESERVED_TEST_DATA_BASE: u32 = 2288;
+        const KS_NABTS_GROUPID_NETWORK_WIDE_ADVERTISER_BASE: u32 = 2160;
+        const KS_NABTS_GROUPID_NETWORK_WIDE_CONTENT_BASE: u32 = 2144;
+        const KS_NABTS_GROUPID_ORIGINAL_CONTENT_ADVERTISER_BASE: u32 = 2064;
+        const KS_NABTS_GROUPID_ORIGINAL_CONTENT_BASE: u32 = 2048;
+        const KS_NABTS_GROUPID_PRODUCTION_COMPANY_ADVERTISER_BASE: u32 = 2096;
+        const KS_NABTS_GROUPID_PRODUCTION_COMPANY_CONTENT_BASE: u32 = 2080;
+        const KS_NABTS_GROUPID_SYNDICATED_SHOW_ADVERTISER_BASE: u32 = 2128;
+        const KS_NABTS_GROUPID_SYNDICATED_SHOW_CONTENT_BASE: u32 = 2112;
+        const KS_NABTS_GROUPID_TELEVISION_STATION_ADVERTISER_BASE: u32 = 2192;
+        const KS_NABTS_GROUPID_TELEVISION_STATION_CONTENT_BASE: u32 = 2176;
+        #[repr(i32)]
+        enum KS_PhysicalConnectorType {
+            KS_PhysConn_Video_Tuner = 1,
+            KS_PhysConn_Video_Composite = 2,
+            KS_PhysConn_Video_SVideo = 3,
+            KS_PhysConn_Video_RGB = 4,
+            KS_PhysConn_Video_YRYBY = 5,
+            KS_PhysConn_Video_SerialDigital = 6,
+            KS_PhysConn_Video_ParallelDigital = 7,
+            KS_PhysConn_Video_SCSI = 8,
+            KS_PhysConn_Video_AUX = 9,
+            KS_PhysConn_Video_1394 = 10,
+            KS_PhysConn_Video_USB = 11,
+            KS_PhysConn_Video_VideoDecoder = 12,
+            KS_PhysConn_Video_VideoEncoder = 13,
+            KS_PhysConn_Video_SCART = 14,
+            KS_PhysConn_Audio_Tuner = 4096,
+            KS_PhysConn_Audio_Line = 4097,
+            KS_PhysConn_Audio_Mic = 4098,
+            KS_PhysConn_Audio_AESDigital = 4099,
+            KS_PhysConn_Audio_SPDIFDigital = 4100,
+            KS_PhysConn_Audio_SCSI = 4101,
+            KS_PhysConn_Audio_AUX = 4102,
+            KS_PhysConn_Audio_1394 = 4103,
+            KS_PhysConn_Audio_USB = 4104,
+            KS_PhysConn_Audio_AudioDecoder = 4105,
+        }
+        struct KS_RGBQUAD {
+            rgbBlue: u8,
+            rgbGreen: u8,
+            rgbRed: u8,
+            rgbReserved: u8,
+        }
+        struct KS_SECURE_CAMERA_SCENARIO_ID {}
+        const KS_SIZE_PREHEADER: u32 = 48;
+        struct KS_TRUECOLORINFO {
+            dwBitMasks: [u32; 3],
+            bmiColors: [KS_RGBQUAD; 256],
+        }
+        #[repr(i32)]
+        enum KS_TUNER_STRATEGY {
+            KS_TUNER_STRATEGY_PLL = 1,
+            KS_TUNER_STRATEGY_SIGNAL_STRENGTH = 2,
+            KS_TUNER_STRATEGY_DRIVER_TUNES = 4,
+        }
+        #[repr(i32)]
+        enum KS_TUNER_TUNING_FLAGS {
+            KS_TUNER_TUNING_EXACT = 1,
+            KS_TUNER_TUNING_FINE = 2,
+            KS_TUNER_TUNING_COARSE = 3,
+        }
+        const KS_TVAUDIO_MODE_LANG_A: u32 = 16;
+        const KS_TVAUDIO_MODE_LANG_B: u32 = 32;
+        const KS_TVAUDIO_MODE_LANG_C: u32 = 64;
+        const KS_TVAUDIO_MODE_MONO: u32 = 1;
+        const KS_TVAUDIO_MODE_STEREO: u32 = 2;
+        const KS_TVAUDIO_PRESET_LANG_A: u32 = 4096;
+        const KS_TVAUDIO_PRESET_LANG_B: u32 = 8192;
+        const KS_TVAUDIO_PRESET_LANG_C: u32 = 16384;
+        const KS_TVAUDIO_PRESET_STEREO: u32 = 512;
+        const KS_TVTUNER_CHANGE_BEGIN_TUNE: u32 = 1;
+        const KS_TVTUNER_CHANGE_END_TUNE: u32 = 2;
+        struct KS_TVTUNER_CHANGE_INFO {
+            dwFlags: u32,
+            dwCountryCode: u32,
+            dwAnalogVideoStandard: u32,
+            dwChannel: u32,
+        }
+        const KS_VBICAP_PROTECTION_MV_DETECTED: u32 = 4;
+        const KS_VBICAP_PROTECTION_MV_HARDWARE: u32 = 2;
+        const KS_VBICAP_PROTECTION_MV_PRESENT: u32 = 1;
+        const KS_VBIDATARATE_CC: u32 = 503493;
+        const KS_VBIDATARATE_NABTS: u32 = 5727272;
+        struct KS_VBIINFOHEADER {
+            StartLine: u32,
+            EndLine: u32,
+            SamplingFrequency: u32,
+            MinLineStartTime: u32,
+            MaxLineStartTime: u32,
+            ActualLineStartTime: u32,
+            ActualLineEndTime: u32,
+            VideoStandard: u32,
+            SamplesPerLine: u32,
+            StrideInBytes: u32,
+            BufferSize: u32,
+        }
+        const KS_VBISAMPLINGRATE_47X_NABTS: u32 = 27000000;
+        const KS_VBISAMPLINGRATE_4X_NABTS: u32 = 22909088;
+        const KS_VBISAMPLINGRATE_5X_NABTS: u32 = 28636360;
+        const KS_VBI_FLAG_FIELD1: u32 = 1;
+        const KS_VBI_FLAG_FIELD2: u32 = 2;
+        const KS_VBI_FLAG_MV_DETECTED: u32 = 1024;
+        const KS_VBI_FLAG_MV_HARDWARE: u32 = 512;
+        const KS_VBI_FLAG_MV_PRESENT: u32 = 256;
+        const KS_VBI_FLAG_TVTUNER_CHANGE: u32 = 16;
+        const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: u32 = 32;
+        struct KS_VBI_FRAME_INFO {
+            ExtendedHeaderSize: u32,
+            dwFrameFlags: u32,
+            PictureNumber: i64,
+            DropCount: i64,
+            dwSamplingFrequency: u32,
+            TvTunerChangeInfo: KS_TVTUNER_CHANGE_INFO,
+            VBIInfoHeader: KS_VBIINFOHEADER,
+        }
+        #[repr(i32)]
+        enum KS_VIDEODECODER_FLAGS {
+            KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT = 1,
+            KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING = 2,
+            KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED = 4,
+        }
+        struct KS_VIDEOINFO {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
+            AvgTimePerFrame: REFERENCE_TIME,
+            bmiHeader: KS_BITMAPINFOHEADER,
+            Anonymous: union {
+                bmiColors: [KS_RGBQUAD; 256],
+                dwBitMasks: [u32; 3],
+                TrueColorInfo: KS_TRUECOLORINFO,
+            },
+        }
+        struct KS_VIDEOINFOHEADER {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
+            AvgTimePerFrame: REFERENCE_TIME,
+            bmiHeader: KS_BITMAPINFOHEADER,
+        }
+        struct KS_VIDEOINFOHEADER2 {
+            rcSource: RECT,
+            rcTarget: RECT,
+            dwBitRate: u32,
+            dwBitErrorRate: u32,
+            AvgTimePerFrame: REFERENCE_TIME,
+            dwInterlaceFlags: u32,
+            dwCopyProtectFlags: u32,
+            dwPictAspectRatioX: u32,
+            dwPictAspectRatioY: u32,
+            Anonymous: union {
+                dwControlFlags: u32,
+                dwReserved1: u32,
+            },
+            dwReserved2: u32,
+            bmiHeader: KS_BITMAPINFOHEADER,
+        }
+        const KS_VIDEOSTREAM_CAPTURE: u32 = 2;
+        const KS_VIDEOSTREAM_CC: u32 = 256;
+        const KS_VIDEOSTREAM_EDS: u32 = 512;
+        const KS_VIDEOSTREAM_IS_VPE: u32 = 32768;
+        const KS_VIDEOSTREAM_NABTS: u32 = 32;
+        const KS_VIDEOSTREAM_PREVIEW: u32 = 1;
+        const KS_VIDEOSTREAM_STILL: u32 = 4096;
+        const KS_VIDEOSTREAM_TELETEXT: u32 = 1024;
+        const KS_VIDEOSTREAM_VBI: u32 = 16;
+        const KS_VIDEO_ALLOC_VPE_AGP: u32 = 4;
+        const KS_VIDEO_ALLOC_VPE_DISPLAY: u32 = 2;
+        const KS_VIDEO_ALLOC_VPE_SYSTEM: u32 = 1;
+        const KS_VIDEO_FLAG_B_FRAME: u32 = 32;
+        const KS_VIDEO_FLAG_FIELD1: u32 = 1;
+        const KS_VIDEO_FLAG_FIELD1FIRST: u32 = 4;
+        const KS_VIDEO_FLAG_FIELD2: u32 = 2;
+        const KS_VIDEO_FLAG_FIELD_MASK: u32 = 3;
+        const KS_VIDEO_FLAG_FRAME: u32 = 0;
+        const KS_VIDEO_FLAG_IPB_MASK: u32 = 48;
+        const KS_VIDEO_FLAG_I_FRAME: u32 = 0;
+        const KS_VIDEO_FLAG_P_FRAME: u32 = 16;
+        const KS_VIDEO_FLAG_REPEAT_FIELD: u32 = 64;
+        const KS_VIDEO_FLAG_WEAVE: u32 = 8;
+        struct KS_VIDEO_STREAM_CONFIG_CAPS {
+            guid: GUID,
+            VideoStandard: u32,
+            InputSize: SIZE,
+            MinCroppingSize: SIZE,
+            MaxCroppingSize: SIZE,
+            CropGranularityX: i32,
+            CropGranularityY: i32,
+            CropAlignX: i32,
+            CropAlignY: i32,
+            MinOutputSize: SIZE,
+            MaxOutputSize: SIZE,
+            OutputGranularityX: i32,
+            OutputGranularityY: i32,
+            StretchTapsX: i32,
+            StretchTapsY: i32,
+            ShrinkTapsX: i32,
+            ShrinkTapsY: i32,
+            MinFrameInterval: i64,
+            MaxFrameInterval: i64,
+            MinBitsPerSecond: i32,
+            MaxBitsPerSecond: i32,
+        }
+        #[repr(i32)]
+        enum KS_VideoControlFlags {
+            KS_VideoControlFlag_FlipHorizontal = 1,
+            KS_VideoControlFlag_FlipVertical = 2,
+            KS_Obsolete_VideoControlFlag_ExternalTriggerEnable = 16,
+            KS_Obsolete_VideoControlFlag_Trigger = 32,
+            KS_VideoControlFlag_ExternalTriggerEnable = 4,
+            KS_VideoControlFlag_Trigger = 8,
+            KS_VideoControlFlag_IndependentImagePin = 64,
+            KS_VideoControlFlag_StillCapturePreviewFrame = 128,
+            KS_VideoControlFlag_StartPhotoSequenceCapture = 256,
+            KS_VideoControlFlag_StopPhotoSequenceCapture = 512,
+        }
+        #[repr(i32)]
+        enum KS_VideoStreamingHints {
+            KS_StreamingHint_FrameInterval = 256,
+            KS_StreamingHint_KeyFrameRate = 512,
+            KS_StreamingHint_PFrameRate = 1024,
+            KS_StreamingHint_CompQuality = 2048,
+            KS_StreamingHint_CompWindowSize = 4096,
+        }
+        const KS_iBLUE: u32 = 2;
+        const KS_iEGA_COLORS: u32 = 16;
+        const KS_iGREEN: u32 = 1;
+        const KS_iMASK_COLORS: u32 = 3;
+        const KS_iMAXBITS: u32 = 8;
+        const KS_iPALETTE: u32 = 8;
+        const KS_iPALETTE_COLORS: u32 = 256;
+        const KS_iRED: u32 = 0;
+        const KS_iTRUECOLOR: u32 = 16;
+        struct LOOPEDSTREAMING_POSITION_EVENT_DATA {
+            KsEventData: KSEVENTDATA,
+            Position: DWORDLONG,
+        }
+        type LPDDPIXELFORMAT = *mut DDPIXELFORMAT;
+        type LPDDVIDEOPORTCONNECT = *mut DDVIDEOPORTCONNECT;
+        const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11;
+        const MAX_RESOURCEGROUPID_LENGTH: u32 = 256;
+        const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32;
+        const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17;
+        struct MEDIUM_INFO {
+            MediaPresent: BOOL,
+            MediaType: u32,
+            RecordInhibit: BOOL,
+        }
+        struct NABTSFEC_BUFFER {
+            dataSize: u32,
+            groupID: u16,
+            Reserved: u16,
+            data: [u8; 448],
+        }
+        #[packed(1)]
+        struct NABTS_BUFFER {
+            ScanlinesRequested: VBICODECFILTERING_SCANLINES,
+            PictureNumber: i64,
+            NabtsLines: [NABTS_BUFFER_LINE; 11],
+        }
+        struct NABTS_BUFFER_LINE {
+            Confidence: u8,
+            Bytes: [u8; 36],
+        }
+        const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1;
+        const NABTS_BYTES_PER_LINE: u32 = 36;
+        const NABTS_LINES_PER_BUNDLE: u32 = 16;
+        const NABTS_PAYLOAD_PER_LINE: u32 = 28;
+        type PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP = *mut AUDIORESOURCEMANAGEMENT_RESOURCEGROUP;
+        type PCAPTURE_MEMORY_ALLOCATION_FLAGS = *mut CAPTURE_MEMORY_ALLOCATION_FLAGS;
+        type PCC_BYTE_PAIR = *mut CC_BYTE_PAIR;
+        type PCC_HW_FIELD = *mut CC_HW_FIELD;
+        type PDEVCAPS = *mut DEVCAPS;
+        type PDS3DVECTOR = *mut DS3DVECTOR;
+        struct PINNAME_DISPLAYPORT_OUT {}
+        struct PINNAME_HDMI_OUT {}
+        struct PINNAME_IMAGE {}
+        struct PINNAME_SPDIF_IN {}
+        struct PINNAME_SPDIF_OUT {}
+        struct PINNAME_VIDEO_ANALOGVIDEOIN {}
+        struct PINNAME_VIDEO_CAPTURE {}
+        struct PINNAME_VIDEO_CC {}
+        struct PINNAME_VIDEO_CC_CAPTURE {}
+        struct PINNAME_VIDEO_EDS {}
+        struct PINNAME_VIDEO_NABTS {}
+        struct PINNAME_VIDEO_NABTS_CAPTURE {}
+        struct PINNAME_VIDEO_PREVIEW {}
+        struct PINNAME_VIDEO_STILL {}
+        struct PINNAME_VIDEO_TELETEXT {}
+        struct PINNAME_VIDEO_TIMECODE {}
+        struct PINNAME_VIDEO_VBI {}
+        struct PINNAME_VIDEO_VIDEOPORT {}
+        struct PINNAME_VIDEO_VIDEOPORT_VBI {}
+        type PKSAC3_ALTERNATE_AUDIO = *mut KSAC3_ALTERNATE_AUDIO;
+        type PKSAC3_BIT_STREAM_MODE = *mut KSAC3_BIT_STREAM_MODE;
+        type PKSAC3_DIALOGUE_LEVEL = *mut KSAC3_DIALOGUE_LEVEL;
+        type PKSAC3_DOWNMIX = *mut KSAC3_DOWNMIX;
+        type PKSAC3_ERROR_CONCEALMENT = *mut KSAC3_ERROR_CONCEALMENT;
+        type PKSAC3_ROOM_TYPE = *mut KSAC3_ROOM_TYPE;
+        type PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT = *mut KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT;
+        type PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE = *mut KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE;
+        type PKSAUDIOENGINE_BUFFER_SIZE_RANGE = *mut KSAUDIOENGINE_BUFFER_SIZE_RANGE;
+        type PKSAUDIOENGINE_DESCRIPTOR = *mut KSAUDIOENGINE_DESCRIPTOR;
+        type PKSAUDIOENGINE_DEVICECONTROLS = *mut KSAUDIOENGINE_DEVICECONTROLS;
+        type PKSAUDIOENGINE_VOLUMELEVEL = *mut KSAUDIOENGINE_VOLUMELEVEL;
+        type PKSAUDIOMODULE_DESCRIPTOR = *mut KSAUDIOMODULE_DESCRIPTOR;
+        type PKSAUDIOMODULE_NOTIFICATION = *mut KSAUDIOMODULE_NOTIFICATION;
+        type PKSAUDIOMODULE_PROPERTY = *mut KSAUDIOMODULE_PROPERTY;
+        type PKSAUDIO_CHANNEL_CONFIG = *mut KSAUDIO_CHANNEL_CONFIG;
+        type PKSAUDIO_COPY_PROTECTION = *mut KSAUDIO_COPY_PROTECTION;
+        type PKSAUDIO_DYNAMIC_RANGE = *mut KSAUDIO_DYNAMIC_RANGE;
+        type PKSAUDIO_MICROPHONE_COORDINATES = *mut KSAUDIO_MICROPHONE_COORDINATES;
+        type PKSAUDIO_MIC_ARRAY_GEOMETRY = *mut KSAUDIO_MIC_ARRAY_GEOMETRY;
+        type PKSAUDIO_MIXCAP_TABLE = *mut KSAUDIO_MIXCAP_TABLE;
+        type PKSAUDIO_MIXLEVEL = *mut KSAUDIO_MIXLEVEL;
+        type PKSAUDIO_MIX_CAPS = *mut KSAUDIO_MIX_CAPS;
+        type PKSAUDIO_POSITION = *mut KSAUDIO_POSITION;
+        type PKSAUDIO_POSITIONEX = *mut KSAUDIO_POSITIONEX;
+        type PKSAUDIO_PRESENTATION_POSITION = *mut KSAUDIO_PRESENTATION_POSITION;
+        type PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS;
+        type PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET = *mut KSCAMERA_EXTENDEDPROP_CAMERAOFFSET;
+        type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS;
+        type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER;
+        type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING;
+        type PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION = *mut KSCAMERA_EXTENDEDPROP_EVCOMPENSATION;
+        type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW;
+        type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS;
+        type PKSCAMERA_EXTENDEDPROP_HEADER = *mut KSCAMERA_EXTENDEDPROP_HEADER;
+        type PKSCAMERA_EXTENDEDPROP_METADATAINFO = *mut KSCAMERA_EXTENDEDPROP_METADATAINFO;
+        type PKSCAMERA_EXTENDEDPROP_PHOTOMODE = *mut KSCAMERA_EXTENDEDPROP_PHOTOMODE;
+        type PKSCAMERA_EXTENDEDPROP_PROFILE = *mut KSCAMERA_EXTENDEDPROP_PROFILE;
+        type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS;
+        type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER;
+        type PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE = *mut KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE;
+        type PKSCAMERA_EXTENDEDPROP_ROI_FOCUS = *mut KSCAMERA_EXTENDEDPROP_ROI_FOCUS;
+        type PKSCAMERA_EXTENDEDPROP_ROI_INFO = *mut KSCAMERA_EXTENDEDPROP_ROI_INFO;
+        type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL;
+        type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER;
+        type PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE = *mut KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE;
+        type PKSCAMERA_EXTENDEDPROP_VALUE = *mut KSCAMERA_EXTENDEDPROP_VALUE;
+        type PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING = *mut KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING;
+        type PKSCAMERA_MAXVIDEOFPS_FORPHOTORES = *mut KSCAMERA_MAXVIDEOFPS_FORPHOTORES;
+        type PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK = *mut KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK;
+        type PKSCAMERA_METADATA_CAPTURESTATS = *mut KSCAMERA_METADATA_CAPTURESTATS;
+        type PKSCAMERA_METADATA_DIGITALWINDOW = *mut KSCAMERA_METADATA_DIGITALWINDOW;
+        type PKSCAMERA_METADATA_FRAMEILLUMINATION = *mut KSCAMERA_METADATA_FRAMEILLUMINATION;
+        type PKSCAMERA_METADATA_ITEMHEADER = *mut KSCAMERA_METADATA_ITEMHEADER;
+        type PKSCAMERA_METADATA_PHOTOCONFIRMATION = *mut KSCAMERA_METADATA_PHOTOCONFIRMATION;
+        type PKSCAMERA_PERFRAMESETTING_CAP_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_HEADER;
+        type PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER;
+        type PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM = *mut KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM;
+        type PKSCAMERA_PERFRAMESETTING_FRAME_HEADER = *mut KSCAMERA_PERFRAMESETTING_FRAME_HEADER;
+        type PKSCAMERA_PERFRAMESETTING_HEADER = *mut KSCAMERA_PERFRAMESETTING_HEADER;
+        type PKSCAMERA_PERFRAMESETTING_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_ITEM_HEADER;
+        type PKSCAMERA_PROFILE_CONCURRENCYINFO = *mut KSCAMERA_PROFILE_CONCURRENCYINFO;
+        type PKSCAMERA_PROFILE_INFO = *mut KSCAMERA_PROFILE_INFO;
+        type PKSCAMERA_PROFILE_MEDIAINFO = *mut KSCAMERA_PROFILE_MEDIAINFO;
+        type PKSCAMERA_PROFILE_PININFO = *mut KSCAMERA_PROFILE_PININFO;
+        type PKSDATAFORMAT_DSOUND = *mut KSDATAFORMAT_DSOUND;
+        type PKSDATAFORMAT_WAVEFORMATEX = *mut KSDATAFORMAT_WAVEFORMATEX;
+        type PKSDATAFORMAT_WAVEFORMATEXTENSIBLE = *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE;
+        type PKSDATARANGE_AUDIO = *mut KSDATARANGE_AUDIO;
+        type PKSDATARANGE_MUSIC = *mut KSDATARANGE_MUSIC;
+        type PKSDEVICE_PROFILE_INFO = *mut KSDEVICE_PROFILE_INFO;
+        type PKSDISPLAYCHANGE = *mut KSDISPLAYCHANGE;
+        type PKSDS3D_BUFFER_ALL = *mut KSDS3D_BUFFER_ALL;
+        type PKSDS3D_BUFFER_CONE_ANGLES = *mut KSDS3D_BUFFER_CONE_ANGLES;
+        type PKSDS3D_HRTF_FILTER_FORMAT_MSG = *mut KSDS3D_HRTF_FILTER_FORMAT_MSG;
+        type PKSDS3D_HRTF_INIT_MSG = *mut KSDS3D_HRTF_INIT_MSG;
+        type PKSDS3D_HRTF_PARAMS_MSG = *mut KSDS3D_HRTF_PARAMS_MSG;
+        type PKSDS3D_ITD_PARAMS = *mut KSDS3D_ITD_PARAMS;
+        type PKSDS3D_ITD_PARAMS_MSG = *mut KSDS3D_ITD_PARAMS_MSG;
+        type PKSDS3D_LISTENER_ALL = *mut KSDS3D_LISTENER_ALL;
+        type PKSDS3D_LISTENER_ORIENTATION = *mut KSDS3D_LISTENER_ORIENTATION;
+        type PKSDSOUND_BUFFERDESC = *mut KSDSOUND_BUFFERDESC;
+        type PKSEVENT_TUNER_INITIATE_SCAN_S = *mut KSEVENT_TUNER_INITIATE_SCAN_S;
+        type PKSGOP_USERDATA = *mut KSGOP_USERDATA;
+        type PKSJACK_DESCRIPTION = *mut KSJACK_DESCRIPTION;
+        type PKSJACK_DESCRIPTION2 = *mut KSJACK_DESCRIPTION2;
+        type PKSJACK_DESCRIPTION3 = *mut KSJACK_DESCRIPTION3;
+        type PKSJACK_SINK_INFORMATION = *mut KSJACK_SINK_INFORMATION;
+        type PKSMIDILOOPED_BUFFER = *mut KSMIDILOOPED_BUFFER;
+        type PKSMIDILOOPED_BUFFER_PROPERTY = *mut KSMIDILOOPED_BUFFER_PROPERTY;
+        type PKSMIDILOOPED_EVENT = *mut KSMIDILOOPED_EVENT;
+        type PKSMIDILOOPED_EVENT2 = *mut KSMIDILOOPED_EVENT2;
+        type PKSMIDILOOPED_REGISTERS = *mut KSMIDILOOPED_REGISTERS;
+        type PKSMPEGVID_RECT = *mut KSMPEGVID_RECT;
+        type PKSMULTIPLE_DATA_PROP = *mut KSMULTIPLE_DATA_PROP;
+        type PKSMUSICFORMAT = *mut KSMUSICFORMAT;
+        type PKSNODEPROPERTY = *mut KSNODEPROPERTY;
+        type PKSNODEPROPERTY_AUDIO_3D_LISTENER = *mut KSNODEPROPERTY_AUDIO_3D_LISTENER;
+        type PKSNODEPROPERTY_AUDIO_CHANNEL = *mut KSNODEPROPERTY_AUDIO_CHANNEL;
+        type PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC = *mut KSNODEPROPERTY_AUDIO_DEV_SPECIFIC;
+        type PKSNODEPROPERTY_AUDIO_PROPERTY = *mut KSNODEPROPERTY_AUDIO_PROPERTY;
+        type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S;
+        type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S;
+        type PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S;
+        type PKSPROPERTY_CAMERACONTROL_FLASH_S = *mut KSPROPERTY_CAMERACONTROL_FLASH_S;
+        type PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S;
+        type PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S = *mut KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S;
+        type PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S;
+        struct PKSPROPERTY_CAMERACONTROL_NODE_S {
+            NodeProperty: KSP_NODE,
+            Value: i32,
+            Flags: u32,
+            Capabilities: u32,
+        }
+        type PKSPROPERTY_CAMERACONTROL_NODE_S2 = *mut KSPROPERTY_CAMERACONTROL_NODE_S2;
+        type PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S = *mut KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S;
+        type PKSPROPERTY_CAMERACONTROL_S = *mut KSPROPERTY_CAMERACONTROL_S;
+        type PKSPROPERTY_CAMERACONTROL_S2 = *mut KSPROPERTY_CAMERACONTROL_S2;
+        type PKSPROPERTY_CAMERACONTROL_S_EX = *mut KSPROPERTY_CAMERACONTROL_S_EX;
+        type PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S = *mut KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S;
+        type PKSPROPERTY_COMPOSIT_ON = *mut BOOL;
+        type PKSPROPERTY_CROSSBAR_ACTIVE_S = *mut KSPROPERTY_CROSSBAR_ACTIVE_S;
+        type PKSPROPERTY_CROSSBAR_CAPS_S = *mut KSPROPERTY_CROSSBAR_CAPS_S;
+        type PKSPROPERTY_CROSSBAR_PININFO_S = *mut KSPROPERTY_CROSSBAR_PININFO_S;
+        type PKSPROPERTY_CROSSBAR_ROUTE_S = *mut KSPROPERTY_CROSSBAR_ROUTE_S;
+        type PKSPROPERTY_DROPPEDFRAMES_CURRENT_S = *mut KSPROPERTY_DROPPEDFRAMES_CURRENT_S;
+        type PKSPROPERTY_EXTDEVICE_S = *mut KSPROPERTY_EXTDEVICE_S;
+        type PKSPROPERTY_EXTENSION_UNIT = *mut KSPROPERTY_EXTENSION_UNIT;
+        type PKSPROPERTY_EXTXPORT_NODE_S = *mut KSPROPERTY_EXTXPORT_NODE_S;
+        type PKSPROPERTY_EXTXPORT_S = *mut KSPROPERTY_EXTXPORT_S;
+        type PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO;
+        type PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO;
+        type PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER = *mut KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER;
+        type PKSPROPERTY_SELECTOR_NODE_S = *mut KSPROPERTY_SELECTOR_NODE_S;
+        type PKSPROPERTY_SELECTOR_S = *mut KSPROPERTY_SELECTOR_S;
+        type PKSPROPERTY_SPHLI = *mut KSPROPERTY_SPHLI;
+        type PKSPROPERTY_SPPAL = *mut KSPROPERTY_SPPAL;
+        type PKSPROPERTY_TIMECODE_NODE_S = *mut KSPROPERTY_TIMECODE_NODE_S;
+        type PKSPROPERTY_TIMECODE_S = *mut KSPROPERTY_TIMECODE_S;
+        type PKSPROPERTY_TUNER_CAPS_S = *mut KSPROPERTY_TUNER_CAPS_S;
+        type PKSPROPERTY_TUNER_FREQUENCY_S = *mut KSPROPERTY_TUNER_FREQUENCY_S;
+        type PKSPROPERTY_TUNER_IF_MEDIUM_S = *mut KSPROPERTY_TUNER_IF_MEDIUM_S;
+        type PKSPROPERTY_TUNER_INPUT_S = *mut KSPROPERTY_TUNER_INPUT_S;
+        type PKSPROPERTY_TUNER_MODE_CAPS_S = *mut KSPROPERTY_TUNER_MODE_CAPS_S;
+        type PKSPROPERTY_TUNER_MODE_S = *mut KSPROPERTY_TUNER_MODE_S;
+        type PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S;
+        type PKSPROPERTY_TUNER_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_SCAN_CAPS_S;
+        type PKSPROPERTY_TUNER_SCAN_STATUS_S = *mut KSPROPERTY_TUNER_SCAN_STATUS_S;
+        type PKSPROPERTY_TUNER_STANDARD_MODE_S = *mut KSPROPERTY_TUNER_STANDARD_MODE_S;
+        type PKSPROPERTY_TUNER_STANDARD_S = *mut KSPROPERTY_TUNER_STANDARD_S;
+        type PKSPROPERTY_TUNER_STATUS_S = *mut KSPROPERTY_TUNER_STATUS_S;
+        type PKSPROPERTY_TVAUDIO_CAPS_S = *mut KSPROPERTY_TVAUDIO_CAPS_S;
+        type PKSPROPERTY_TVAUDIO_S = *mut KSPROPERTY_TVAUDIO_S;
+        type PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S;
+        type PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S;
+        type PKSPROPERTY_VBICODECFILTERING_SCANLINES_S = *mut KSPROPERTY_VBICODECFILTERING_SCANLINES_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S;
+        type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S;
+        type PKSPROPERTY_VIDCAP_SELECTOR = *mut KSPROPERTY_VIDCAP_SELECTOR;
+        type PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S = *mut KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S;
+        type PKSPROPERTY_VIDEOCOMPRESSION_S = *mut KSPROPERTY_VIDEOCOMPRESSION_S;
+        type PKSPROPERTY_VIDEOCOMPRESSION_S1 = *mut KSPROPERTY_VIDEOCOMPRESSION_S1;
+        type PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S = *mut KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S;
+        type PKSPROPERTY_VIDEOCONTROL_CAPS_S = *mut KSPROPERTY_VIDEOCONTROL_CAPS_S;
+        type PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S = *mut KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S;
+        type PKSPROPERTY_VIDEOCONTROL_MODE_S = *mut KSPROPERTY_VIDEOCONTROL_MODE_S;
+        type PKSPROPERTY_VIDEODECODER_CAPS_S = *mut KSPROPERTY_VIDEODECODER_CAPS_S;
+        type PKSPROPERTY_VIDEODECODER_S = *mut KSPROPERTY_VIDEODECODER_S;
+        type PKSPROPERTY_VIDEODECODER_STATUS2_S = *mut KSPROPERTY_VIDEODECODER_STATUS2_S;
+        type PKSPROPERTY_VIDEODECODER_STATUS_S = *mut KSPROPERTY_VIDEODECODER_STATUS_S;
+        type PKSPROPERTY_VIDEOENCODER_S = *mut KSPROPERTY_VIDEOENCODER_S;
+        type PKSPROPERTY_VIDEOPROCAMP_NODE_S = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S;
+        type PKSPROPERTY_VIDEOPROCAMP_NODE_S2 = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S2;
+        type PKSPROPERTY_VIDEOPROCAMP_S = *mut KSPROPERTY_VIDEOPROCAMP_S;
+        type PKSPROPERTY_VIDEOPROCAMP_S2 = *mut KSPROPERTY_VIDEOPROCAMP_S2;
+        type PKSRTAUDIO_BUFFER = *mut KSRTAUDIO_BUFFER;
+        type PKSRTAUDIO_BUFFER32 = *mut KSRTAUDIO_BUFFER32;
+        type PKSRTAUDIO_BUFFER_PROPERTY = *mut KSRTAUDIO_BUFFER_PROPERTY;
+        type PKSRTAUDIO_BUFFER_PROPERTY32 = *mut KSRTAUDIO_BUFFER_PROPERTY32;
+        type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION;
+        type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32;
+        type PKSRTAUDIO_GETREADPACKET_INFO = *mut KSRTAUDIO_GETREADPACKET_INFO;
+        type PKSRTAUDIO_HWLATENCY = *mut KSRTAUDIO_HWLATENCY;
+        type PKSRTAUDIO_HWREGISTER = *mut KSRTAUDIO_HWREGISTER;
+        type PKSRTAUDIO_HWREGISTER32 = *mut KSRTAUDIO_HWREGISTER32;
+        type PKSRTAUDIO_HWREGISTER_PROPERTY = *mut KSRTAUDIO_HWREGISTER_PROPERTY;
+        type PKSRTAUDIO_HWREGISTER_PROPERTY32 = *mut KSRTAUDIO_HWREGISTER_PROPERTY32;
+        type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY;
+        type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32;
+        type PKSRTAUDIO_PACKETVREGISTER = *mut KSRTAUDIO_PACKETVREGISTER;
+        type PKSRTAUDIO_PACKETVREGISTER_PROPERTY = *mut KSRTAUDIO_PACKETVREGISTER_PROPERTY;
+        type PKSRTAUDIO_SETWRITEPACKET_INFO = *mut KSRTAUDIO_SETWRITEPACKET_INFO;
+        type PKSSOUNDDETECTORPROPERTY = *mut KSSOUNDDETECTORPROPERTY;
+        type PKSTELEPHONY_CALLCONTROL = *mut KSTELEPHONY_CALLCONTROL;
+        type PKSTELEPHONY_CALLINFO = *mut KSTELEPHONY_CALLINFO;
+        type PKSTELEPHONY_PROVIDERCHANGE = *mut KSTELEPHONY_PROVIDERCHANGE;
+        type PKSTOPOLOGY_ENDPOINTID = *mut KSTOPOLOGY_ENDPOINTID;
+        type PKSTOPOLOGY_ENDPOINTIDPAIR = *mut KSTOPOLOGY_ENDPOINTIDPAIR;
+        type PKSVPMAXPIXELRATE = *mut KSVPMAXPIXELRATE;
+        type PKSVPSIZE_PROP = *mut KSVPSIZE_PROP;
+        type PKSVPSURFACEPARAMS = *mut KSVPSURFACEPARAMS;
+        type PKSWAVETABLE_WAVE_DESC = *mut KSWAVETABLE_WAVE_DESC;
+        type PKSWAVE_BUFFER = *mut KSWAVE_BUFFER;
+        type PKSWAVE_COMPATCAPS = *mut KSWAVE_COMPATCAPS;
+        type PKSWAVE_INPUT_CAPABILITIES = *mut KSWAVE_INPUT_CAPABILITIES;
+        type PKSWAVE_OUTPUT_CAPABILITIES = *mut KSWAVE_OUTPUT_CAPABILITIES;
+        type PKSWAVE_VOLUME = *mut KSWAVE_VOLUME;
+        type PKS_AMVPDATAINFO = *mut KS_AMVPDATAINFO;
+        type PKS_AMVPDIMINFO = *mut KS_AMVPDIMINFO;
+        type PKS_AMVPSIZE = *mut KS_AMVPSIZE;
+        type PKS_AM_ExactRateChange = *mut KS_AM_ExactRateChange;
+        type PKS_AM_SimpleRateChange = *mut KS_AM_SimpleRateChange;
+        type PKS_ANALOGVIDEOINFO = *mut KS_ANALOGVIDEOINFO;
+        type PKS_BITMAPINFOHEADER = *mut KS_BITMAPINFOHEADER;
+        type PKS_COLCON = *mut KS_COLCON;
+        type PKS_COPY_MACROVISION = *mut KS_COPY_MACROVISION;
+        type PKS_COPY_MACROVISION_LEVEL = *mut KS_COPY_MACROVISION_LEVEL;
+        type PKS_DATAFORMAT_H264VIDEOINFO = *mut KS_DATAFORMAT_H264VIDEOINFO;
+        type PKS_DATAFORMAT_IMAGEINFO = *mut KS_DATAFORMAT_IMAGEINFO;
+        type PKS_DATAFORMAT_MPEGVIDEOINFO2 = *mut KS_DATAFORMAT_MPEGVIDEOINFO2;
+        type PKS_DATAFORMAT_VBIINFOHEADER = *mut KS_DATAFORMAT_VBIINFOHEADER;
+        type PKS_DATAFORMAT_VIDEOINFOHEADER = *mut KS_DATAFORMAT_VIDEOINFOHEADER;
+        type PKS_DATAFORMAT_VIDEOINFOHEADER2 = *mut KS_DATAFORMAT_VIDEOINFOHEADER2;
+        type PKS_DATAFORMAT_VIDEOINFO_PALETTE = *mut KS_DATAFORMAT_VIDEOINFO_PALETTE;
+        type PKS_DATARANGE_ANALOGVIDEO = *mut KS_DATARANGE_ANALOGVIDEO;
+        type PKS_DATARANGE_H264_VIDEO = *mut KS_DATARANGE_H264_VIDEO;
+        type PKS_DATARANGE_IMAGE = *mut KS_DATARANGE_IMAGE;
+        type PKS_DATARANGE_MPEG1_VIDEO = *mut KS_DATARANGE_MPEG1_VIDEO;
+        type PKS_DATARANGE_MPEG2_VIDEO = *mut KS_DATARANGE_MPEG2_VIDEO;
+        type PKS_DATARANGE_VIDEO = *mut KS_DATARANGE_VIDEO;
+        type PKS_DATARANGE_VIDEO2 = *mut KS_DATARANGE_VIDEO2;
+        type PKS_DATARANGE_VIDEO_PALETTE = *mut KS_DATARANGE_VIDEO_PALETTE;
+        type PKS_DATARANGE_VIDEO_VBI = *mut KS_DATARANGE_VIDEO_VBI;
+        type PKS_DVDCOPY_BUSKEY = *mut KS_DVDCOPY_BUSKEY;
+        type PKS_DVDCOPY_CHLGKEY = *mut KS_DVDCOPY_CHLGKEY;
+        type PKS_DVDCOPY_DISCKEY = *mut KS_DVDCOPY_DISCKEY;
+        type PKS_DVDCOPY_REGION = *mut KS_DVDCOPY_REGION;
+        type PKS_DVDCOPY_SET_COPY_STATE = *mut KS_DVDCOPY_SET_COPY_STATE;
+        type PKS_DVDCOPY_TITLEKEY = *mut KS_DVDCOPY_TITLEKEY;
+        type PKS_DVD_YCrCb = *mut KS_DVD_YCrCb;
+        type PKS_DVD_YUV = *mut KS_DVD_YUV;
+        type PKS_FRAME_INFO = *mut KS_FRAME_INFO;
+        type PKS_H264VIDEOINFO = *mut KS_H264VIDEOINFO;
+        type PKS_MPEG1VIDEOINFO = *mut KS_MPEG1VIDEOINFO;
+        type PKS_MPEGAUDIOINFO = *mut KS_MPEGAUDIOINFO;
+        type PKS_MPEGVIDEOINFO2 = *mut KS_MPEGVIDEOINFO2;
+        type PKS_RGBQUAD = *mut KS_RGBQUAD;
+        type PKS_TRUECOLORINFO = *mut KS_TRUECOLORINFO;
+        type PKS_TVTUNER_CHANGE_INFO = *mut KS_TVTUNER_CHANGE_INFO;
+        type PKS_VBIINFOHEADER = *mut KS_VBIINFOHEADER;
+        type PKS_VBI_FRAME_INFO = *mut KS_VBI_FRAME_INFO;
+        type PKS_VIDEOINFO = *mut KS_VIDEOINFO;
+        type PKS_VIDEOINFOHEADER = *mut KS_VIDEOINFOHEADER;
+        type PKS_VIDEOINFOHEADER2 = *mut KS_VIDEOINFOHEADER2;
+        type PKS_VIDEO_STREAM_CONFIG_CAPS = *mut KS_VIDEO_STREAM_CONFIG_CAPS;
+        type PLOOPEDSTREAMING_POSITION_EVENT_DATA = *mut LOOPEDSTREAMING_POSITION_EVENT_DATA;
+        type PMEDIUM_INFO = *mut MEDIUM_INFO;
+        type PNABTSFEC_BUFFER = *mut NABTSFEC_BUFFER;
+        type PNABTS_BUFFER = *mut NABTS_BUFFER;
+        type PNABTS_BUFFER_LINE = *mut NABTS_BUFFER_LINE;
+        struct PROPSETID_ALLOCATOR_CONTROL {}
+        struct PROPSETID_EXT_DEVICE {}
+        struct PROPSETID_EXT_TRANSPORT {}
+        struct PROPSETID_TIMECODE_READER {}
+        struct PROPSETID_TUNER {}
+        struct PROPSETID_VIDCAP_CAMERACONTROL {}
+        struct PROPSETID_VIDCAP_CAMERACONTROL_FLASH {}
+        struct PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY {}
+        struct PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST {}
+        struct PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION {}
+        struct PROPSETID_VIDCAP_CROSSBAR {}
+        struct PROPSETID_VIDCAP_DROPPEDFRAMES {}
+        struct PROPSETID_VIDCAP_SELECTOR {}
+        struct PROPSETID_VIDCAP_TVAUDIO {}
+        struct PROPSETID_VIDCAP_VIDEOCOMPRESSION {}
+        struct PROPSETID_VIDCAP_VIDEOCONTROL {}
+        struct PROPSETID_VIDCAP_VIDEODECODER {}
+        struct PROPSETID_VIDCAP_VIDEOENCODER {}
+        struct PROPSETID_VIDCAP_VIDEOPROCAMP {}
+        type PSECURE_BUFFER_INFO = *mut SECURE_BUFFER_INFO;
+        type PTIMECODE = *mut TIMECODE;
+        type PTIMECODE_SAMPLE = *mut TIMECODE_SAMPLE;
+        type PTRANSPORTAUDIOPARMS = *mut TRANSPORTAUDIOPARMS;
+        type PTRANSPORTBASICPARMS = *mut TRANSPORTBASICPARMS;
+        type PTRANSPORTSTATUS = *mut TRANSPORTSTATUS;
+        type PTRANSPORTVIDEOPARMS = *mut TRANSPORTVIDEOPARMS;
+        type PTRANSPORT_STATE = *mut TRANSPORT_STATE;
+        type PTUNER_ANALOG_CAPS_S = *mut TUNER_ANALOG_CAPS_S;
+        type PUMPDATAFORMAT = *mut UMPDATAFORMAT;
+        type PVBICAP_PROPERTIES_PROTECTION_S = *mut VBICAP_PROPERTIES_PROTECTION_S;
+        type PVBICODECFILTERING_CC_SUBSTREAMS = *mut VBICODECFILTERING_CC_SUBSTREAMS;
+        type PVBICODECFILTERING_NABTS_SUBSTREAMS = *mut VBICODECFILTERING_NABTS_SUBSTREAMS;
+        type PVBICODECFILTERING_SCANLINES = *mut VBICODECFILTERING_SCANLINES;
+        type PVBICODECFILTERING_STATISTICS_CC = *mut VBICODECFILTERING_STATISTICS_CC;
+        type PVBICODECFILTERING_STATISTICS_CC_PIN = *mut VBICODECFILTERING_STATISTICS_CC_PIN;
+        type PVBICODECFILTERING_STATISTICS_COMMON = *mut VBICODECFILTERING_STATISTICS_COMMON;
+        type PVBICODECFILTERING_STATISTICS_COMMON_PIN = *mut VBICODECFILTERING_STATISTICS_COMMON_PIN;
+        type PVBICODECFILTERING_STATISTICS_NABTS = *mut VBICODECFILTERING_STATISTICS_NABTS;
+        type PVBICODECFILTERING_STATISTICS_NABTS_PIN = *mut VBICODECFILTERING_STATISTICS_NABTS_PIN;
+        type PVBICODECFILTERING_STATISTICS_TELETEXT = *mut VBICODECFILTERING_STATISTICS_TELETEXT;
+        type PVBICODECFILTERING_STATISTICS_TELETEXT_PIN = *mut VBICODECFILTERING_STATISTICS_TELETEXT_PIN;
+        type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
+        type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
+        type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
+        type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
+        type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
+        type PWST_BUFFER = *mut WST_BUFFER;
+        type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
+        struct SECURE_BUFFER_INFO {
+            guidBufferIdentifier: GUID,
+            cbBufferSize: u32,
+            cbCaptured: u32,
+            ullReserved: [u64; 16],
+        }
+        struct SOUNDDETECTOR_PATTERNHEADER {
+            Size: u32,
+            PatternType: GUID,
+        }
+        #[repr(i32)]
+        enum TELEPHONY_CALLCONTROLOP {
+            TELEPHONY_CALLCONTROLOP_DISABLE = 0,
+            TELEPHONY_CALLCONTROLOP_ENABLE = 1,
+        }
+        #[repr(i32)]
+        enum TELEPHONY_CALLSTATE {
+            TELEPHONY_CALLSTATE_DISABLED = 0,
+            TELEPHONY_CALLSTATE_ENABLED = 1,
+            TELEPHONY_CALLSTATE_HOLD = 2,
+            TELEPHONY_CALLSTATE_PROVIDERTRANSITION = 3,
+        }
+        #[repr(i32)]
+        enum TELEPHONY_CALLTYPE {
+            TELEPHONY_CALLTYPE_CIRCUITSWITCHED = 0,
+            TELEPHONY_CALLTYPE_PACKETSWITCHED_LTE = 1,
+            TELEPHONY_CALLTYPE_PACKETSWITCHED_WLAN = 2,
+        }
+        #[repr(i32)]
+        enum TELEPHONY_PROVIDERCHANGEOP {
+            TELEPHONY_PROVIDERCHANGEOP_END = 0,
+            TELEPHONY_PROVIDERCHANGEOP_BEGIN = 1,
+            TELEPHONY_PROVIDERCHANGEOP_CANCEL = 2,
+        }
+        union TIMECODE {
+            Anonymous: struct {
+                wFrameRate: u16,
+                wFrameFract: u16,
+                dwFrames: u32,
+            },
+            qw: DWORDLONG,
+        }
+        struct TIMECODE_SAMPLE {
+            qwTick: i64,
+            timecode: TIMECODE,
+            dwUser: u32,
+            dwFlags: u32,
+        }
+        struct TRANSPORTAUDIOPARMS {
+            EnableOutput: i32,
+            EnableRecord: i32,
+            EnableSelsync: i32,
+            Input: i32,
+            MonitorSource: i32,
+        }
+        struct TRANSPORTBASICPARMS {
+            TimeFormat: i32,
+            TimeReference: i32,
+            Superimpose: i32,
+            EndStopAction: i32,
+            RecordFormat: i32,
+            StepFrames: i32,
+            SetpField: i32,
+            Preroll: i32,
+            RecPreroll: i32,
+            Postroll: i32,
+            EditDelay: i32,
+            PlayTCDelay: i32,
+            RecTCDelay: i32,
+            EditField: i32,
+            FrameServo: i32,
+            ColorFrameServo: i32,
+            ServoRef: i32,
+            WarnGenlock: i32,
+            SetTracking: i32,
+            VolumeName: [TCHAR; 40],
+            Ballistic: [i32; 20],
+            Speed: i32,
+            CounterFormat: i32,
+            TunerChannel: i32,
+            TunerNumber: i32,
+            TimerEvent: i32,
+            TimerStartDay: i32,
+            TimerStartTime: i32,
+            TimerStopDay: i32,
+            TimerStopTime: i32,
+        }
+        struct TRANSPORTSTATUS {
+            Mode: i32,
+            LastError: i32,
+            RecordInhibit: i32,
+            ServoLock: i32,
+            MediaPresent: i32,
+            MediaLength: i32,
+            MediaSize: i32,
+            MediaTrackCount: i32,
+            MediaTrackLength: i32,
+            MediaTrackSide: i32,
+            MediaType: i32,
+            LinkMode: i32,
+            NotifyOn: i32,
+        }
+        struct TRANSPORTVIDEOPARMS {
+            OutputMode: i32,
+            Input: i32,
+        }
+        struct TRANSPORT_STATE {
+            Mode: u32,
+            State: u32,
+        }
+        struct TUNER_ANALOG_CAPS_S {
+            Mode: u32,
+            StandardsSupported: u32,
+            MinFrequency: u32,
+            MaxFrequency: u32,
+            TuningGranularity: u32,
+            SettlingTime: u32,
+            ScanSensingRange: u32,
+            FineTuneSensingRange: u32,
+        }
+        #[repr(i32)]
+        enum TunerLockType {
+            Tuner_LockType_None = 0,
+            Tuner_LockType_Within_Scan_Sensing_Range = 1,
+            Tuner_LockType_Locked = 2,
+        }
+        struct UMPDATAFORMAT {
+            Position: i64,
+            ByteCount: u32,
+        }
+        struct VBICAP_PROPERTIES_PROTECTION_S {
+            Property: KSPROPERTY,
+            StreamIndex: u32,
+            Status: u32,
+        }
+        struct VBICODECFILTERING_CC_SUBSTREAMS {
+            SubstreamMask: u32,
+        }
+        struct VBICODECFILTERING_NABTS_SUBSTREAMS {
+            SubstreamMask: [u32; 128],
+        }
+        struct VBICODECFILTERING_SCANLINES {
+            DwordBitArray: [u32; 32],
+        }
+        struct VBICODECFILTERING_STATISTICS_CC {
+            Common: VBICODECFILTERING_STATISTICS_COMMON,
+        }
+        struct VBICODECFILTERING_STATISTICS_CC_PIN {
+            Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
+        }
+        struct VBICODECFILTERING_STATISTICS_COMMON {
+            InputSRBsProcessed: u32,
+            OutputSRBsProcessed: u32,
+            SRBsIgnored: u32,
+            InputSRBsMissing: u32,
+            OutputSRBsMissing: u32,
+            OutputFailures: u32,
+            InternalErrors: u32,
+            ExternalErrors: u32,
+            InputDiscontinuities: u32,
+            DSPFailures: u32,
+            TvTunerChanges: u32,
+            VBIHeaderChanges: u32,
+            LineConfidenceAvg: u32,
+            BytesOutput: u32,
+        }
+        struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
+            SRBsProcessed: u32,
+            SRBsIgnored: u32,
+            SRBsMissing: u32,
+            InternalErrors: u32,
+            ExternalErrors: u32,
+            Discontinuities: u32,
+            LineConfidenceAvg: u32,
+            BytesOutput: u32,
+        }
+        struct VBICODECFILTERING_STATISTICS_NABTS {
+            Common: VBICODECFILTERING_STATISTICS_COMMON,
+            FECBundleBadLines: u32,
+            FECQueueOverflows: u32,
+            FECCorrectedLines: u32,
+            FECUncorrectableLines: u32,
+            BundlesProcessed: u32,
+            BundlesSent2IP: u32,
+            FilteredLines: u32,
+        }
+        struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
+            Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
+        }
+        struct VBICODECFILTERING_STATISTICS_TELETEXT {
+            Common: VBICODECFILTERING_STATISTICS_COMMON,
+        }
+        struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
+            Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
+        }
+        #[repr(i32)]
+        enum VIDEOENCODER_BITRATE_MODE {
+            ConstantBitRate = 0,
+            VariableBitRateAverage = 1,
+            VariableBitRatePeak = 2,
+        }
+        struct VIDEOFORMAT_DX12 {
+            Header: KSATTRIBUTE,
+            resourceLayout: u32,
+            resourceFlags: u32,
+            customLayout: GUID,
+        }
+        struct VRAM_SURFACE_INFO {
+            hSurface: usize,
+            VramPhysicalAddress: i64,
+            cbCaptured: u32,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwLinearSize: u32,
+            lPitch: i32,
+            ullReserved: [u64; 16],
+        }
+        struct VRAM_SURFACE_INFO_PROPERTY_S {
+            Property: KSPROPERTY,
+            pVramSurfaceInfo: PVRAM_SURFACE_INFO,
+        }
+        #[packed(1)]
+        struct WAVEFORMATEXTENSIBLE_IEC61937 {
+            FormatExt: WAVEFORMATEXTENSIBLE,
+            dwEncodedSamplesPerSec: u32,
+            dwEncodedChannelCount: u32,
+            dwAverageBytesPerSec: u32,
+        }
+        struct WNF_KSCAMERA_STREAMSTATE_INFO {
+            ProcessId: u32,
+            SessionId: u32,
+            StreamState: u32,
+            Reserved: u32,
+        }
+        struct WST_BUFFER {
+            ScanlinesRequested: VBICODECFILTERING_SCANLINES,
+            WstLines: [WST_BUFFER_LINE; 17],
+        }
+        struct WST_BUFFER_LINE {
+            Confidence: u8,
+            Bytes: [u8; 42],
+        }
+        const WST_BYTES_PER_LINE: u32 = 42;
+        const WST_TVTUNER_CHANGE_BEGIN_TUNE: u32 = 4096;
+        const WST_TVTUNER_CHANGE_END_TUNE: u32 = 8192;
+        const eGeoLocReserved5: u32 = 14;
+    }
+}

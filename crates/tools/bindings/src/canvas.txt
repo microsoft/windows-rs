@@ -2,91 +2,93 @@
 --flat --minimal --dead-code
 
 --filter
-    Windows::Win32::Foundation::{D2DERR_RECREATE_TARGET, GENERIC_READ}
-    Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_ALPHA_MODE_PREMULTIPLIED
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_BEZIER_SEGMENT
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_FIGURE_BEGIN_FILLED
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_FIGURE_BEGIN_HOLLOW
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_FIGURE_END_CLOSED
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_FIGURE_END_OPEN
-    Windows::Win32::Graphics::Direct2D::Common::D2D1_GRADIENT_STOP
-    Windows::Win32::Graphics::Direct2D::Common::ID2D1SimplifiedGeometrySink::{BeginFigure, EndFigure, Close}
-    Windows::Win32::Graphics::Direct2D::D2D1_BITMAP_OPTIONS_CANNOT_DRAW
-    Windows::Win32::Graphics::Direct2D::D2D1_BITMAP_OPTIONS_TARGET
-    Windows::Win32::Graphics::Direct2D::D2D1_BITMAP_PROPERTIES1
-    Windows::Win32::Graphics::Direct2D::D2D1_CAP_STYLE_FLAT
-    Windows::Win32::Graphics::Direct2D::D2D1_CAP_STYLE_ROUND
-    Windows::Win32::Graphics::Direct2D::D2D1_CAP_STYLE_SQUARE
-    Windows::Win32::Graphics::Direct2D::D2D1_CAP_STYLE_TRIANGLE
-    Windows::Win32::Graphics::Direct2D::D2D1_DASH_STYLE_DASH
-    Windows::Win32::Graphics::Direct2D::D2D1_DASH_STYLE_DASH_DOT
-    Windows::Win32::Graphics::Direct2D::D2D1_DASH_STYLE_DOT
-    Windows::Win32::Graphics::Direct2D::D2D1_DASH_STYLE_SOLID
-    Windows::Win32::Graphics::Direct2D::D2D1_DEVICE_CONTEXT_OPTIONS_NONE
-    Windows::Win32::Graphics::Direct2D::D2D1_DRAW_TEXT_OPTIONS_NONE
-    Windows::Win32::Graphics::Direct2D::D2D1_ELLIPSE
-    Windows::Win32::Graphics::Direct2D::D2D1_EXTEND_MODE_CLAMP
-    Windows::Win32::Graphics::Direct2D::D2D1_FACTORY_TYPE_SINGLE_THREADED
-    Windows::Win32::Graphics::Direct2D::D2D1_GAMMA_2_2
-    Windows::Win32::Graphics::Direct2D::D2D1_INTERPOLATION_MODE_LINEAR
-    Windows::Win32::Graphics::Direct2D::D2D1_LINE_JOIN_BEVEL
-    Windows::Win32::Graphics::Direct2D::D2D1_LINE_JOIN_MITER
-    Windows::Win32::Graphics::Direct2D::D2D1_LINE_JOIN_ROUND
-    Windows::Win32::Graphics::Direct2D::D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES
-    Windows::Win32::Graphics::Direct2D::D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES
-    Windows::Win32::Graphics::Direct2D::D2D1_ROUNDED_RECT
-    Windows::Win32::Graphics::Direct2D::D2D1CreateFactory
-    Windows::Win32::Graphics::Direct2D::ID2D1Bitmap::GetSize
-    Windows::Win32::Graphics::Direct2D::ID2D1Device::CreateDeviceContext
-    Windows::Win32::Graphics::Direct2D::ID2D1DeviceContext::{CreateBitmap, CreateBitmapFromDxgiSurface, CreateBitmapFromWicBitmap, CreateEffect, SetTarget, GetTarget, DrawBitmap, DrawImage}
-    Windows::Win32::Graphics::Direct2D::ID2D1Effect::{SetInput, GetOutput}
-    Windows::Win32::Graphics::Direct2D::ID2D1Factory1::{CreateDevice, CreateStrokeStyle}
-    Windows::Win32::Graphics::Direct2D::ID2D1Factory1::CreatePathGeometry
-    Windows::Win32::Graphics::Direct2D::ID2D1Geometry::{GetBounds, FillContainsPoint, StrokeContainsPoint}
-    Windows::Win32::Graphics::Direct2D::ID2D1GeometrySink::{AddLine, AddBezier}
-    Windows::Win32::Graphics::Direct2D::ID2D1PathGeometry::Open
-    Windows::Win32::Graphics::Direct2D::ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
-    Windows::Win32::Graphics::Direct2D::ID2D1SolidColorBrush::SetColor
-    Windows::Win32::Graphics::Direct3D::D3D_DRIVER_TYPE_HARDWARE
-    Windows::Win32::Graphics::Direct3D::D3D_DRIVER_TYPE_WARP
-    Windows::Win32::Graphics::Direct3D::D3D_FEATURE_LEVEL_11_0
-    Windows::Win32::Graphics::Direct3D11::D3D11_CREATE_DEVICE_BGRA_SUPPORT
-    Windows::Win32::Graphics::Direct3D11::D3D11_SDK_VERSION
-    Windows::Win32::Graphics::Direct3D11::D3D11CreateDevice
-    Windows::Win32::Graphics::DirectWrite::DWRITE_FACTORY_TYPE_SHARED
-    Windows::Win32::Graphics::DirectWrite::DWRITE_FONT_STRETCH_NORMAL
-    Windows::Win32::Graphics::DirectWrite::DWRITE_FONT_STYLE_NORMAL
-    Windows::Win32::Graphics::DirectWrite::DWRITE_PARAGRAPH_ALIGNMENT_CENTER
-    Windows::Win32::Graphics::DirectWrite::DWRITE_PARAGRAPH_ALIGNMENT_FAR
-    Windows::Win32::Graphics::DirectWrite::DWRITE_PARAGRAPH_ALIGNMENT_NEAR
-    Windows::Win32::Graphics::DirectWrite::DWRITE_TEXT_ALIGNMENT_CENTER
-    Windows::Win32::Graphics::DirectWrite::DWRITE_TEXT_ALIGNMENT_LEADING
-    Windows::Win32::Graphics::DirectWrite::DWRITE_TEXT_ALIGNMENT_TRAILING
-    Windows::Win32::Graphics::DirectWrite::DWriteCreateFactory
-    Windows::Win32::Graphics::DirectWrite::IDWriteFactory::CreateTextFormat
-    Windows::Win32::Graphics::DirectWrite::IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment}
-    Windows::Win32::Graphics::Dxgi::Common::DXGI_ALPHA_MODE_PREMULTIPLIED
-    Windows::Win32::Graphics::Dxgi::Common::DXGI_FORMAT_B8G8R8A8_UNORM
-    Windows::Win32::Graphics::Dxgi::Common::DXGI_FORMAT_UNKNOWN
-    Windows::Win32::Graphics::Dxgi::DXGI_ERROR_DEVICE_HUNG
-    Windows::Win32::Graphics::Dxgi::DXGI_ERROR_DEVICE_REMOVED
-    Windows::Win32::Graphics::Dxgi::DXGI_ERROR_DEVICE_RESET
-    Windows::Win32::Graphics::Dxgi::DXGI_ERROR_DRIVER_INTERNAL_ERROR
-    Windows::Win32::Graphics::Dxgi::DXGI_SWAP_CHAIN_DESC1
-    Windows::Win32::Graphics::Dxgi::DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL
-    Windows::Win32::Graphics::Dxgi::DXGI_USAGE_RENDER_TARGET_OUTPUT
-    Windows::Win32::Graphics::Dxgi::IDXGIDevice::GetAdapter
-    Windows::Win32::Graphics::Dxgi::IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
-    Windows::Win32::Graphics::Dxgi::IDXGIObject::GetParent
-    Windows::Win32::Graphics::Dxgi::IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
-    Windows::Win32::Graphics::Dxgi::IDXGISwapChain2::SetMatrixTransform
-    Windows::Win32::Graphics::Imaging::CLSID_WICImagingFactory
-    Windows::Win32::Graphics::Imaging::GUID_WICPixelFormat32bppPBGRA
-    Windows::Win32::Graphics::Imaging::IWICBitmapDecoder::GetFrame
-    Windows::Win32::Graphics::Imaging::IWICFormatConverter::Initialize
-    Windows::Win32::Graphics::Imaging::IWICImagingFactory::{CreateDecoderFromFilename, CreateFormatConverter}
-    Windows::Win32::Graphics::Imaging::WICBitmapDitherTypeNone
-    Windows::Win32::Graphics::Imaging::WICBitmapPaletteTypeMedianCut
-    Windows::Win32::Graphics::Imaging::WICDecodeMetadataCacheOnDemand
-    Windows::Win32::System::Com::{CLSCTX_INPROC_SERVER, CoCreateInstance}
+    D2DERR_RECREATE_TARGET
+    GENERIC_READ
+    CLSID_D2D1Shadow
+    D2D1_ALPHA_MODE_PREMULTIPLIED
+    D2D1_BEZIER_SEGMENT
+    D2D1_FIGURE_BEGIN_FILLED
+    D2D1_FIGURE_BEGIN_HOLLOW
+    D2D1_FIGURE_END_CLOSED
+    D2D1_FIGURE_END_OPEN
+    D2D1_GRADIENT_STOP
+    ID2D1SimplifiedGeometrySink::{BeginFigure, EndFigure, Close}
+    D2D1_BITMAP_OPTIONS_CANNOT_DRAW
+    D2D1_BITMAP_OPTIONS_TARGET
+    D2D1_BITMAP_PROPERTIES1
+    D2D1_CAP_STYLE_FLAT
+    D2D1_CAP_STYLE_ROUND
+    D2D1_CAP_STYLE_SQUARE
+    D2D1_CAP_STYLE_TRIANGLE
+    D2D1_DASH_STYLE_DASH
+    D2D1_DASH_STYLE_DASH_DOT
+    D2D1_DASH_STYLE_DOT
+    D2D1_DASH_STYLE_SOLID
+    D2D1_DEVICE_CONTEXT_OPTIONS_NONE
+    D2D1_DRAW_TEXT_OPTIONS_NONE
+    D2D1_ELLIPSE
+    D2D1_EXTEND_MODE_CLAMP
+    D2D1_FACTORY_TYPE_SINGLE_THREADED
+    D2D1_GAMMA_2_2
+    D2D1_INTERPOLATION_MODE_LINEAR
+    D2D1_LINE_JOIN_BEVEL
+    D2D1_LINE_JOIN_MITER
+    D2D1_LINE_JOIN_ROUND
+    D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES
+    D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES
+    D2D1_ROUNDED_RECT
+    D2D1CreateFactory
+    ID2D1Bitmap::GetSize
+    ID2D1Device::CreateDeviceContext
+    ID2D1DeviceContext::{CreateBitmap, CreateBitmapFromDxgiSurface, CreateBitmapFromWicBitmap, CreateEffect, SetTarget, GetTarget, DrawBitmap, DrawImage}
+    ID2D1Effect::{SetInput, GetOutput}
+    ID2D1Factory1::{CreateDevice, CreateStrokeStyle}
+    ID2D1Factory1::CreatePathGeometry
+    ID2D1Geometry::{GetBounds, FillContainsPoint, StrokeContainsPoint}
+    ID2D1GeometrySink::{AddLine, AddBezier}
+    ID2D1PathGeometry::Open
+    ID2D1RenderTarget::{BeginDraw, EndDraw, Clear, DrawEllipse, FillEllipse, DrawLine, DrawRectangle, FillRectangle, DrawRoundedRectangle, FillRoundedRectangle, DrawText, DrawGeometry, FillGeometry, CreateSolidColorBrush, CreateGradientStopCollection, CreateLinearGradientBrush, CreateRadialGradientBrush, GetTransform, SetTransform, SetDpi, GetDpi, GetPixelSize}
+    ID2D1SolidColorBrush::SetColor
+    D3D_DRIVER_TYPE_HARDWARE
+    D3D_DRIVER_TYPE_WARP
+    D3D_FEATURE_LEVEL_11_0
+    D3D11_CREATE_DEVICE_BGRA_SUPPORT
+    D3D11_SDK_VERSION
+    D3D11CreateDevice
+    DWRITE_FACTORY_TYPE_SHARED
+    DWRITE_FONT_STRETCH_NORMAL
+    DWRITE_FONT_STYLE_NORMAL
+    DWRITE_PARAGRAPH_ALIGNMENT_CENTER
+    DWRITE_PARAGRAPH_ALIGNMENT_FAR
+    DWRITE_PARAGRAPH_ALIGNMENT_NEAR
+    DWRITE_TEXT_ALIGNMENT_CENTER
+    DWRITE_TEXT_ALIGNMENT_LEADING
+    DWRITE_TEXT_ALIGNMENT_TRAILING
+    DWriteCreateFactory
+    IDWriteFactory::CreateTextFormat
+    IDWriteTextFormat::{SetTextAlignment, SetParagraphAlignment}
+    DXGI_ALPHA_MODE_PREMULTIPLIED
+    DXGI_FORMAT_B8G8R8A8_UNORM
+    DXGI_FORMAT_UNKNOWN
+    DXGI_ERROR_DEVICE_HUNG
+    DXGI_ERROR_DEVICE_REMOVED
+    DXGI_ERROR_DEVICE_RESET
+    DXGI_ERROR_DRIVER_INTERNAL_ERROR
+    DXGI_SWAP_CHAIN_DESC1
+    DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL
+    DXGI_USAGE_RENDER_TARGET_OUTPUT
+    IDXGIDevice::GetAdapter
+    IDXGIFactory2::{CreateSwapChainForComposition, CreateSwapChainForHwnd}
+    IDXGIObject::GetParent
+    IDXGISwapChain::{Present, GetBuffer, ResizeBuffers}
+    IDXGISwapChain2::SetMatrixTransform
+    CLSID_WICImagingFactory
+    GUID_WICPixelFormat32bppPBGRA
+    IWICBitmapDecoder::GetFrame
+    IWICFormatConverter::Initialize
+    IWICImagingFactory::{CreateDecoderFromFilename, CreateFormatConverter}
+    WICBitmapDitherTypeNone
+    WICBitmapPaletteTypeMedianCut
+    WICDecodeMetadataCacheOnDemand
+    CLSCTX_INPROC_SERVER
+    CoCreateInstance

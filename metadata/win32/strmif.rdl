@@ -1,0 +1,2377 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADVISE_ALL: u32 = 15;
+        const ADVISE_ALL2: u32 = 31;
+        const ADVISE_CLIPPING: i32 = 1;
+        const ADVISE_COLORKEY: i32 = 4;
+        const ADVISE_DISPLAY_CHANGE: i32 = 16;
+        const ADVISE_NONE: i32 = 0;
+        const ADVISE_PALETTE: i32 = 2;
+        const ADVISE_POSITION: i32 = 8;
+        struct ALLOCATOR_PROPERTIES {
+            cBuffers: i32,
+            cbBuffer: i32,
+            cbAlign: i32,
+            cbPrefix: i32,
+        }
+        struct AMCOPPCommand {
+            macKDI: GUID,
+            guidCommandID: GUID,
+            dwSequence: u32,
+            cbSizeData: u32,
+            CommandData: [u8; 4056],
+        }
+        struct AMCOPPSignature {
+            Signature: [u8; 256],
+        }
+        struct AMCOPPStatusInput {
+            rApp: GUID,
+            guidStatusRequestID: GUID,
+            dwSequence: u32,
+            cbSizeData: u32,
+            StatusData: [u8; 4056],
+        }
+        struct AMCOPPStatusOutput {
+            macKDI: GUID,
+            cbSizeData: u32,
+            COPPStatus: [u8; 4076],
+        }
+        #[repr(i32)]
+        enum AMOVERLAYFX {
+            AMOVERFX_NOFX = 0,
+            AMOVERFX_MIRRORLEFTRIGHT = 2,
+            AMOVERFX_MIRRORUPDOWN = 4,
+            AMOVERFX_DEINTERLACE = 8,
+        }
+        #[repr(i32)]
+        enum AMPROPERTY_PIN {
+            AMPROPERTY_PIN_CATEGORY = 0,
+            AMPROPERTY_PIN_MEDIUM = 1,
+        }
+        #[repr(i32)]
+        enum AMTVAudioEventType {
+            AMTVAUDIO_EVENT_CHANGED = 1,
+        }
+        #[repr(i32)]
+        enum AMTunerEventType {
+            AMTUNER_EVENT_CHANGED = 1,
+        }
+        #[repr(i32)]
+        enum AMTunerModeType {
+            AMTUNER_MODE_DEFAULT = 0,
+            AMTUNER_MODE_TV = 1,
+            AMTUNER_MODE_FM_RADIO = 2,
+            AMTUNER_MODE_AM_RADIO = 4,
+            AMTUNER_MODE_DSS = 8,
+        }
+        #[repr(i32)]
+        enum AMTunerSignalStrength {
+            AMTUNER_HASNOSIGNALSTRENGTH = -1,
+            AMTUNER_NOSIGNAL = 0,
+            AMTUNER_SIGNALPRESENT = 1,
+        }
+        #[repr(i32)]
+        enum AMTunerSubChannel {
+            AMTUNER_SUBCHAN_NO_TUNE = -2,
+            AMTUNER_SUBCHAN_DEFAULT = -1,
+        }
+        #[repr(i32)]
+        enum AM_DVD_GRAPH_FLAGS {
+            AM_DVD_HWDEC_PREFER = 1,
+            AM_DVD_HWDEC_ONLY = 2,
+            AM_DVD_SWDEC_PREFER = 4,
+            AM_DVD_SWDEC_ONLY = 8,
+            AM_DVD_NOVPE = 256,
+            AM_DVD_DO_NOT_CLEAR = 512,
+            AM_DVD_VMR9_ONLY = 2048,
+            AM_DVD_EVR_ONLY = 4096,
+            AM_DVD_EVR_QOS = 8192,
+            AM_DVD_ADAPT_GRAPH = 16384,
+            AM_DVD_MASK = 65535,
+        }
+        struct AM_DVD_RENDERSTATUS {
+            hrVPEStatus: HRESULT,
+            bDvdVolInvalid: BOOL,
+            bDvdVolUnknown: BOOL,
+            bNoLine21In: BOOL,
+            bNoLine21Out: BOOL,
+            iNumStreams: i32,
+            iNumStreamsFailed: i32,
+            dwFailedStreamsFlag: u32,
+        }
+        #[repr(i32)]
+        enum AM_DVD_STREAM_FLAGS {
+            AM_DVD_STREAM_VIDEO = 1,
+            AM_DVD_STREAM_AUDIO = 2,
+            AM_DVD_STREAM_SUBPIC = 4,
+        }
+        #[repr(i32)]
+        enum AM_FILESINK_FLAGS {
+            AM_FILE_OVERWRITE = 1,
+        }
+        #[repr(i32)]
+        enum AM_FILTER_FLAGS {
+            AM_FILTER_FLAGS_REMOVABLE = 1,
+        }
+        const AM_GBF_NODDSURFACELOCK: u32 = 8;
+        const AM_GBF_NOTASYNCPOINT: u32 = 2;
+        const AM_GBF_NOWAIT: u32 = 4;
+        const AM_GBF_PREVFRAMESKIPPED: u32 = 1;
+        const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7;
+        const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6;
+        const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1;
+        #[repr(i32)]
+        enum AM_GRAPH_CONFIG_RECONNECT_FLAGS {
+            AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT = 1,
+            AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS = 2,
+            AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS = 4,
+        }
+        struct AM_MEDIA_TYPE {
+            majortype: GUID,
+            subtype: GUID,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            lSampleSize: u32,
+            formattype: GUID,
+            pUnk: IUnknown,
+            cbFormat: u32,
+            pbFormat: *mut u8,
+        }
+        const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5;
+        const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4;
+        const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3;
+        const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
+        const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
+        struct AM_SAMPLE2_PROPERTIES {
+            cbData: u32,
+            dwTypeSpecificFlags: u32,
+            dwSampleFlags: u32,
+            lActual: i32,
+            tStart: REFERENCE_TIME,
+            tStop: REFERENCE_TIME,
+            dwStreamId: u32,
+            pMediaType: *mut AM_MEDIA_TYPE,
+            pbBuffer: *mut u8,
+            cbBuffer: i32,
+        }
+        #[repr(i32)]
+        enum AM_SEEKING_SEEKING_CAPABILITIES {
+            AM_SEEKING_CanSeekAbsolute = 1,
+            AM_SEEKING_CanSeekForwards = 2,
+            AM_SEEKING_CanSeekBackwards = 4,
+            AM_SEEKING_CanGetCurrentPos = 8,
+            AM_SEEKING_CanGetStopPos = 16,
+            AM_SEEKING_CanGetDuration = 32,
+            AM_SEEKING_CanPlayBackwards = 64,
+            AM_SEEKING_CanDoSegments = 128,
+            AM_SEEKING_Source = 256,
+        }
+        #[repr(i32)]
+        enum AM_SEEKING_SEEKING_FLAGS {
+            AM_SEEKING_NoPositioning = 0,
+            AM_SEEKING_AbsolutePositioning = 1,
+            AM_SEEKING_RelativePositioning = 2,
+            AM_SEEKING_IncrementalPositioning = 3,
+            AM_SEEKING_PositioningBitsMask = 3,
+            AM_SEEKING_SeekToKeyFrame = 4,
+            AM_SEEKING_ReturnTime = 8,
+            AM_SEEKING_Segment = 16,
+            AM_SEEKING_NoFlush = 32,
+        }
+        struct AM_STREAM_INFO {
+            tStart: REFERENCE_TIME,
+            tStop: REFERENCE_TIME,
+            dwStartCookie: u32,
+            dwStopCookie: u32,
+            dwFlags: u32,
+        }
+        #[repr(i32)]
+        enum AM_STREAM_INFO_FLAGS {
+            AM_STREAM_INFO_START_DEFINED = 1,
+            AM_STREAM_INFO_STOP_DEFINED = 2,
+            AM_STREAM_INFO_DISCARDING = 4,
+            AM_STREAM_INFO_STOP_SEND_EXTRA = 16,
+        }
+        struct AUDIO_STREAM_CONFIG_CAPS {
+            guid: GUID,
+            MinimumChannels: u32,
+            MaximumChannels: u32,
+            ChannelsGranularity: u32,
+            MinimumBitsPerSample: u32,
+            MaximumBitsPerSample: u32,
+            BitsPerSampleGranularity: u32,
+            MinimumSampleFrequency: u32,
+            MaximumSampleFrequency: u32,
+            SampleFrequencyGranularity: u32,
+        }
+        #[repr(i32)]
+        enum AnalogVideoStandard {
+            AnalogVideo_None = 0,
+            AnalogVideo_NTSC_M = 1,
+            AnalogVideo_NTSC_M_J = 2,
+            AnalogVideo_NTSC_433 = 4,
+            AnalogVideo_PAL_B = 16,
+            AnalogVideo_PAL_D = 32,
+            AnalogVideo_PAL_G = 64,
+            AnalogVideo_PAL_H = 128,
+            AnalogVideo_PAL_I = 256,
+            AnalogVideo_PAL_M = 512,
+            AnalogVideo_PAL_N = 1024,
+            AnalogVideo_PAL_60 = 2048,
+            AnalogVideo_SECAM_B = 4096,
+            AnalogVideo_SECAM_D = 8192,
+            AnalogVideo_SECAM_G = 16384,
+            AnalogVideo_SECAM_H = 32768,
+            AnalogVideo_SECAM_K = 65536,
+            AnalogVideo_SECAM_K1 = 131072,
+            AnalogVideo_SECAM_L = 262144,
+            AnalogVideo_SECAM_L1 = 524288,
+            AnalogVideo_PAL_N_COMBO = 1048576,
+            AnalogVideoMask_MCE_NTSC = 1052167,
+            AnalogVideoMask_MCE_PAL = 496,
+            AnalogVideoMask_MCE_SECAM = 1044480,
+        }
+        const AnalogVideo_NTSC_Mask: u32 = 7;
+        const AnalogVideo_PAL_Mask: u32 = 1052656;
+        const AnalogVideo_SECAM_Mask: u32 = 1044480;
+        const CDEF_BYPASS_CLASS_MANAGER: u32 = 2;
+        const CDEF_CLASS_DEFAULT: u32 = 1;
+        const CDEF_DEVMON_CMGR_DEVICE: u32 = 16;
+        const CDEF_DEVMON_DMO: u32 = 32;
+        const CDEF_DEVMON_FILTER: u32 = 128;
+        const CDEF_DEVMON_PNP_DEVICE: u32 = 64;
+        const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240;
+        const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8;
+        const CHARS_IN_GUID: u32 = 39;
+        const CK_INDEX: i32 = 1;
+        const CK_NOCOLORKEY: i32 = 0;
+        const CK_RGB: i32 = 2;
+        struct COLORKEY {
+            KeyType: u32,
+            PaletteIndex: u32,
+            LowColorValue: COLORREF,
+            HighColorValue: COLORREF,
+        }
+        #[repr(i32)]
+        enum CameraControlFlags {
+            CameraControl_Flags_Auto = 1,
+            CameraControl_Flags_Manual = 2,
+        }
+        #[repr(i32)]
+        enum CameraControlProperty {
+            CameraControl_Pan = 0,
+            CameraControl_Tilt = 1,
+            CameraControl_Roll = 2,
+            CameraControl_Zoom = 3,
+            CameraControl_Exposure = 4,
+            CameraControl_Iris = 5,
+            CameraControl_Focus = 6,
+        }
+        struct CodecAPIEventData {
+            guid: GUID,
+            dataLength: u32,
+            reserved: [u32; 3],
+        }
+        #[repr(i32)]
+        enum CompressionCaps {
+            CompressionCaps_CanQuality = 1,
+            CompressionCaps_CanCrunch = 2,
+            CompressionCaps_CanKeyFrame = 4,
+            CompressionCaps_CanBFrame = 8,
+            CompressionCaps_CanWindow = 16,
+        }
+        #[repr(i32)]
+        enum DECIMATION_USAGE {
+            DECIMATION_LEGACY = 0,
+            DECIMATION_USE_DECODER_ONLY = 1,
+            DECIMATION_USE_VIDEOPORT_ONLY = 2,
+            DECIMATION_USE_OVERLAY_ONLY = 3,
+            DECIMATION_DEFAULT = 4,
+        }
+        const DECODER_CAP_NOTSUPPORTED: u32 = 0;
+        const DECODER_CAP_SUPPORTED: u32 = 1;
+        struct DVD_ATR {
+            ulCAT: u32,
+            pbATRI: [u8; 768],
+        }
+        #[repr(i32)]
+        enum DVD_AUDIO_APPMODE {
+            DVD_AudioMode_None = 0,
+            DVD_AudioMode_Karaoke = 1,
+            DVD_AudioMode_Surround = 2,
+            DVD_AudioMode_Other = 3,
+        }
+        const DVD_AUDIO_CAPS_AC3: u32 = 1;
+        const DVD_AUDIO_CAPS_DTS: u32 = 8;
+        const DVD_AUDIO_CAPS_LPCM: u32 = 4;
+        const DVD_AUDIO_CAPS_MPEG2: u32 = 2;
+        const DVD_AUDIO_CAPS_SDDS: u32 = 16;
+        #[repr(i32)]
+        enum DVD_AUDIO_FORMAT {
+            DVD_AudioFormat_AC3 = 0,
+            DVD_AudioFormat_MPEG1 = 1,
+            DVD_AudioFormat_MPEG1_DRC = 2,
+            DVD_AudioFormat_MPEG2 = 3,
+            DVD_AudioFormat_MPEG2_DRC = 4,
+            DVD_AudioFormat_LPCM = 5,
+            DVD_AudioFormat_DTS = 6,
+            DVD_AudioFormat_SDDS = 7,
+            DVD_AudioFormat_Other = 8,
+        }
+        #[repr(i32)]
+        enum DVD_AUDIO_LANG_EXT {
+            DVD_AUD_EXT_NotSpecified = 0,
+            DVD_AUD_EXT_Captions = 1,
+            DVD_AUD_EXT_VisuallyImpaired = 2,
+            DVD_AUD_EXT_DirectorComments1 = 3,
+            DVD_AUD_EXT_DirectorComments2 = 4,
+        }
+        type DVD_AudioATR = [u8; 8];
+        struct DVD_AudioAttributes {
+            AppMode: DVD_AUDIO_APPMODE,
+            AppModeData: u8,
+            AudioFormat: DVD_AUDIO_FORMAT,
+            Language: LCID,
+            LanguageExtension: DVD_AUDIO_LANG_EXT,
+            fHasMultichannelInfo: BOOL,
+            dwFrequency: u32,
+            bQuantization: u8,
+            bNumberOfChannels: u8,
+            dwReserved: [u32; 2],
+        }
+        #[repr(i32)]
+        enum DVD_CMD_FLAGS {
+            DVD_CMD_FLAG_None = 0,
+            DVD_CMD_FLAG_Flush = 1,
+            DVD_CMD_FLAG_SendEvents = 2,
+            DVD_CMD_FLAG_Block = 4,
+            DVD_CMD_FLAG_StartWhenRendered = 8,
+            DVD_CMD_FLAG_EndAfterRendered = 16,
+        }
+        struct DVD_DECODER_CAPS {
+            dwSize: u32,
+            dwAudioCaps: u32,
+            dFwdMaxRateVideo: f64,
+            dFwdMaxRateAudio: f64,
+            dFwdMaxRateSP: f64,
+            dBwdMaxRateVideo: f64,
+            dBwdMaxRateAudio: f64,
+            dBwdMaxRateSP: f64,
+            dwRes1: u32,
+            dwRes2: u32,
+            dwRes3: u32,
+            dwRes4: u32,
+        }
+        const DVD_DEFAULT_AUDIO_STREAM: u32 = 15;
+        #[repr(i32)]
+        enum DVD_DISC_SIDE {
+            DVD_SIDE_A = 1,
+            DVD_SIDE_B = 2,
+        }
+        #[repr(i32)]
+        enum DVD_DOMAIN {
+            DVD_DOMAIN_FirstPlay = 1,
+            DVD_DOMAIN_VideoManagerMenu = 2,
+            DVD_DOMAIN_VideoTitleSetMenu = 3,
+            DVD_DOMAIN_Title = 4,
+            DVD_DOMAIN_Stop = 5,
+        }
+        #[repr(i32)]
+        enum DVD_FRAMERATE {
+            DVD_FPS_25 = 1,
+            DVD_FPS_30NonDrop = 3,
+        }
+        struct DVD_HMSF_TIMECODE {
+            bHours: u8,
+            bMinutes: u8,
+            bSeconds: u8,
+            bFrames: u8,
+        }
+        #[repr(i32)]
+        enum DVD_KARAOKE_ASSIGNMENT {
+            DVD_Assignment_reserved0 = 0,
+            DVD_Assignment_reserved1 = 1,
+            DVD_Assignment_LR = 2,
+            DVD_Assignment_LRM = 3,
+            DVD_Assignment_LR1 = 4,
+            DVD_Assignment_LRM1 = 5,
+            DVD_Assignment_LR12 = 6,
+            DVD_Assignment_LRM12 = 7,
+        }
+        #[repr(i32)]
+        enum DVD_KARAOKE_CONTENTS {
+            DVD_Karaoke_GuideVocal1 = 1,
+            DVD_Karaoke_GuideVocal2 = 2,
+            DVD_Karaoke_GuideMelody1 = 4,
+            DVD_Karaoke_GuideMelody2 = 8,
+            DVD_Karaoke_GuideMelodyA = 16,
+            DVD_Karaoke_GuideMelodyB = 32,
+            DVD_Karaoke_SoundEffectA = 64,
+            DVD_Karaoke_SoundEffectB = 128,
+        }
+        #[repr(i32)]
+        enum DVD_KARAOKE_DOWNMIX {
+            DVD_Mix_0to0 = 1,
+            DVD_Mix_1to0 = 2,
+            DVD_Mix_2to0 = 4,
+            DVD_Mix_3to0 = 8,
+            DVD_Mix_4to0 = 16,
+            DVD_Mix_Lto0 = 32,
+            DVD_Mix_Rto0 = 64,
+            DVD_Mix_0to1 = 256,
+            DVD_Mix_1to1 = 512,
+            DVD_Mix_2to1 = 1024,
+            DVD_Mix_3to1 = 2048,
+            DVD_Mix_4to1 = 4096,
+            DVD_Mix_Lto1 = 8192,
+            DVD_Mix_Rto1 = 16384,
+        }
+        struct DVD_KaraokeAttributes {
+            bVersion: u8,
+            fMasterOfCeremoniesInGuideVocal1: BOOL,
+            fDuet: BOOL,
+            ChannelAssignment: DVD_KARAOKE_ASSIGNMENT,
+            wChannelContents: [u16; 8],
+        }
+        #[repr(i32)]
+        enum DVD_MENU_ID {
+            DVD_MENU_Title = 2,
+            DVD_MENU_Root = 3,
+            DVD_MENU_Subpicture = 4,
+            DVD_MENU_Audio = 5,
+            DVD_MENU_Angle = 6,
+            DVD_MENU_Chapter = 7,
+        }
+        struct DVD_MUA_Coeff {
+            log2_alpha: f64,
+            log2_beta: f64,
+        }
+        struct DVD_MUA_MixingInfo {
+            fMixTo0: BOOL,
+            fMixTo1: BOOL,
+            fMix0InPhase: BOOL,
+            fMix1InPhase: BOOL,
+            dwSpeakerPosition: u32,
+        }
+        struct DVD_MenuAttributes {
+            fCompatibleRegion: [BOOL; 8],
+            VideoAttributes: DVD_VideoAttributes,
+            fAudioPresent: BOOL,
+            AudioAttributes: DVD_AudioAttributes,
+            fSubpicturePresent: BOOL,
+            SubpictureAttributes: DVD_SubpictureAttributes,
+        }
+        struct DVD_MultichannelAudioAttributes {
+            Info: [DVD_MUA_MixingInfo; 8],
+            Coeff: [DVD_MUA_Coeff; 8],
+        }
+        #[repr(i32)]
+        enum DVD_NavCmdType {
+            DVD_NavCmdType_Pre = 1,
+            DVD_NavCmdType_Post = 2,
+            DVD_NavCmdType_Cell = 3,
+            DVD_NavCmdType_Button = 4,
+        }
+        #[repr(i32)]
+        enum DVD_OPTION_FLAG {
+            DVD_ResetOnStop = 1,
+            DVD_NotifyParentalLevelChange = 2,
+            DVD_HMSF_TimeCodeEvents = 3,
+            DVD_AudioDuringFFwdRew = 4,
+            DVD_EnableNonblockingAPIs = 5,
+            DVD_CacheSizeInMB = 6,
+            DVD_EnablePortableBookmarks = 7,
+            DVD_EnableExtendedCopyProtectErrors = 8,
+            DVD_NotifyPositionChange = 9,
+            DVD_IncreaseOutputControl = 10,
+            DVD_EnableStreaming = 11,
+            DVD_EnableESOutput = 12,
+            DVD_EnableTitleLength = 13,
+            DVD_DisableStillThrottle = 14,
+            DVD_EnableLoggingEvents = 15,
+            DVD_MaxReadBurstInKB = 16,
+            DVD_ReadBurstPeriodInMS = 17,
+            DVD_RestartDisc = 18,
+            DVD_EnableCC = 19,
+        }
+        #[repr(i32)]
+        enum DVD_PARENTAL_LEVEL {
+            DVD_PARENTAL_LEVEL_8 = 32768,
+            DVD_PARENTAL_LEVEL_7 = 16384,
+            DVD_PARENTAL_LEVEL_6 = 8192,
+            DVD_PARENTAL_LEVEL_5 = 4096,
+            DVD_PARENTAL_LEVEL_4 = 2048,
+            DVD_PARENTAL_LEVEL_3 = 1024,
+            DVD_PARENTAL_LEVEL_2 = 512,
+            DVD_PARENTAL_LEVEL_1 = 256,
+        }
+        struct DVD_PLAYBACK_LOCATION {
+            TitleNum: u32,
+            ChapterNum: u32,
+            TimeCode: u32,
+        }
+        struct DVD_PLAYBACK_LOCATION2 {
+            TitleNum: u32,
+            ChapterNum: u32,
+            TimeCode: DVD_HMSF_TIMECODE,
+            TimeCodeFlags: u32,
+        }
+        #[repr(i32)]
+        enum DVD_PREFERRED_DISPLAY_MODE {
+            DISPLAY_CONTENT_DEFAULT = 0,
+            DISPLAY_16x9 = 1,
+            DISPLAY_4x3_PANSCAN_PREFERRED = 2,
+            DISPLAY_4x3_LETTERBOX_PREFERRED = 3,
+        }
+        type DVD_REGISTER = u16;
+        #[repr(i32)]
+        enum DVD_RELATIVE_BUTTON {
+            DVD_Relative_Upper = 1,
+            DVD_Relative_Lower = 2,
+            DVD_Relative_Left = 3,
+            DVD_Relative_Right = 4,
+        }
+        const DVD_STREAM_DATA_CURRENT: u32 = 2048;
+        const DVD_STREAM_DATA_VMGM: u32 = 1024;
+        const DVD_STREAM_DATA_VTSM: u32 = 1025;
+        #[repr(i32)]
+        enum DVD_SUBPICTURE_CODING {
+            DVD_SPCoding_RunLength = 0,
+            DVD_SPCoding_Extended = 1,
+            DVD_SPCoding_Other = 2,
+        }
+        #[repr(i32)]
+        enum DVD_SUBPICTURE_LANG_EXT {
+            DVD_SP_EXT_NotSpecified = 0,
+            DVD_SP_EXT_Caption_Normal = 1,
+            DVD_SP_EXT_Caption_Big = 2,
+            DVD_SP_EXT_Caption_Children = 3,
+            DVD_SP_EXT_CC_Normal = 5,
+            DVD_SP_EXT_CC_Big = 6,
+            DVD_SP_EXT_CC_Children = 7,
+            DVD_SP_EXT_Forced = 9,
+            DVD_SP_EXT_DirectorComments_Normal = 13,
+            DVD_SP_EXT_DirectorComments_Big = 14,
+            DVD_SP_EXT_DirectorComments_Children = 15,
+        }
+        #[repr(i32)]
+        enum DVD_SUBPICTURE_TYPE {
+            DVD_SPType_NotSpecified = 0,
+            DVD_SPType_Language = 1,
+            DVD_SPType_Other = 2,
+        }
+        type DVD_SubpictureATR = [u8; 6];
+        struct DVD_SubpictureAttributes {
+            Type: DVD_SUBPICTURE_TYPE,
+            CodingMode: DVD_SUBPICTURE_CODING,
+            Language: LCID,
+            LanguageExtension: DVD_SUBPICTURE_LANG_EXT,
+        }
+        struct DVD_TIMECODE {
+            _bitfield: u32,
+        }
+        #[repr(i32)]
+        enum DVD_TIMECODE_FLAGS {
+            DVD_TC_FLAG_25fps = 1,
+            DVD_TC_FLAG_30fps = 2,
+            DVD_TC_FLAG_DropFrame = 4,
+            DVD_TC_FLAG_Interpolated = 8,
+        }
+        #[repr(i32)]
+        enum DVD_TITLE_APPMODE {
+            DVD_AppMode_Not_Specified = 0,
+            DVD_AppMode_Karaoke = 1,
+            DVD_AppMode_Other = 3,
+        }
+        const DVD_TITLE_MENU: u32 = 0;
+        #[repr(i32)]
+        enum DVD_TextCharSet {
+            DVD_CharSet_Unicode = 0,
+            DVD_CharSet_ISO646 = 1,
+            DVD_CharSet_JIS_Roman_Kanji = 2,
+            DVD_CharSet_ISO8859_1 = 3,
+            DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana = 4,
+        }
+        #[repr(i32)]
+        enum DVD_TextStringType {
+            DVD_Struct_Volume = 1,
+            DVD_Struct_Title = 2,
+            DVD_Struct_ParentalID = 3,
+            DVD_Struct_PartOfTitle = 4,
+            DVD_Struct_Cell = 5,
+            DVD_Stream_Audio = 16,
+            DVD_Stream_Subpicture = 17,
+            DVD_Stream_Angle = 18,
+            DVD_Channel_Audio = 32,
+            DVD_General_Name = 48,
+            DVD_General_Comments = 49,
+            DVD_Title_Series = 56,
+            DVD_Title_Movie = 57,
+            DVD_Title_Video = 58,
+            DVD_Title_Album = 59,
+            DVD_Title_Song = 60,
+            DVD_Title_Other = 63,
+            DVD_Title_Sub_Series = 64,
+            DVD_Title_Sub_Movie = 65,
+            DVD_Title_Sub_Video = 66,
+            DVD_Title_Sub_Album = 67,
+            DVD_Title_Sub_Song = 68,
+            DVD_Title_Sub_Other = 71,
+            DVD_Title_Orig_Series = 72,
+            DVD_Title_Orig_Movie = 73,
+            DVD_Title_Orig_Video = 74,
+            DVD_Title_Orig_Album = 75,
+            DVD_Title_Orig_Song = 76,
+            DVD_Title_Orig_Other = 79,
+            DVD_Other_Scene = 80,
+            DVD_Other_Cut = 81,
+            DVD_Other_Take = 82,
+        }
+        struct DVD_TitleAttributes {
+            Anonymous: union {
+                AppMode: DVD_TITLE_APPMODE,
+                TitleLength: DVD_HMSF_TIMECODE,
+            },
+            VideoAttributes: DVD_VideoAttributes,
+            ulNumberOfAudioStreams: u32,
+            AudioAttributes: [DVD_AudioAttributes; 8],
+            MultichannelAudioAttributes: [DVD_MultichannelAudioAttributes; 8],
+            ulNumberOfSubpictureStreams: u32,
+            SubpictureAttributes: [DVD_SubpictureAttributes; 32],
+        }
+        #[repr(i32)]
+        enum DVD_VIDEO_COMPRESSION {
+            DVD_VideoCompression_Other = 0,
+            DVD_VideoCompression_MPEG1 = 1,
+            DVD_VideoCompression_MPEG2 = 2,
+        }
+        type DVD_VideoATR = [u8; 2];
+        struct DVD_VideoAttributes {
+            fPanscanPermitted: BOOL,
+            fLetterboxPermitted: BOOL,
+            ulAspectX: u32,
+            ulAspectY: u32,
+            ulFrameRate: u32,
+            ulFrameHeight: u32,
+            Compression: DVD_VIDEO_COMPRESSION,
+            fLine21Field1InGOP: BOOL,
+            fLine21Field2InGOP: BOOL,
+            ulSourceResolutionX: u32,
+            ulSourceResolutionY: u32,
+            fIsSourceLetterboxed: BOOL,
+            fIsFilmMode: BOOL,
+        }
+        struct DVINFO {
+            dwDVAAuxSrc: u32,
+            dwDVAAuxCtl: u32,
+            dwDVAAuxSrc1: u32,
+            dwDVAAuxCtl1: u32,
+            dwDVVAuxSrc: u32,
+            dwDVVAuxCtl: u32,
+            dwDVReserved: [u32; 2],
+        }
+        struct FILTER_INFO {
+            achName: [u16; 128],
+            pGraph: IFilterGraph,
+        }
+        #[repr(i32)]
+        enum FILTER_STATE {
+            State_Stopped = 0,
+            State_Paused = 1,
+            State_Running = 2,
+        }
+        type GPRMARRAY = [DVD_REGISTER; 16];
+        type HEVENT = usize;
+        type HSEMAPHORE = usize;
+        #[guid(0xc6e13350_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMAnalogVideoDecoder: IUnknown {
+            fn get_AvailableTVFormats(&self, lAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn put_TVFormat(&self, lAnalogVideoStandard: i32) -> HRESULT;
+            fn get_TVFormat(&self, plAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn get_HorizontalLocked(&self, plLocked: *mut i32) -> HRESULT;
+            fn put_VCRHorizontalLocking(&self, lVCRHorizontalLocking: i32) -> HRESULT;
+            fn get_VCRHorizontalLocking(&self, plVCRHorizontalLocking: *mut i32) -> HRESULT;
+            fn get_NumberOfLines(&self, plNumberOfLines: *mut i32) -> HRESULT;
+            fn put_OutputEnable(&self, lOutputEnable: i32) -> HRESULT;
+            fn get_OutputEnable(&self, plOutputEnable: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc6e133b0_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMAnalogVideoEncoder: IUnknown {
+            fn get_AvailableTVFormats(&self, lAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn put_TVFormat(&self, lAnalogVideoStandard: i32) -> HRESULT;
+            fn get_TVFormat(&self, plAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn put_CopyProtection(&self, lVideoCopyProtection: i32) -> HRESULT;
+            fn get_CopyProtection(&self, lVideoCopyProtection: *mut i32) -> HRESULT;
+            fn put_CCEnable(&self, lCCEnable: i32) -> HRESULT;
+            fn get_CCEnable(&self, lCCEnable: *mut i32) -> HRESULT;
+        }
+        #[guid(0xcf7b26fc_9a00_485b_8147_3e789d5e8f67)]
+        interface IAMAsyncReaderTimestampScaling: IUnknown {
+            fn GetTimestampMode(&self, pfRaw: *mut BOOL) -> HRESULT;
+            fn SetTimestampMode(&self, fRaw: BOOL) -> HRESULT;
+        }
+        #[guid(0x54c39221_8380_11d0_b3f0_00aa003761c5)]
+        interface IAMAudioInputMixer: IUnknown {
+            fn put_Enable(&self, fEnable: BOOL) -> HRESULT;
+            fn get_Enable(&self, pfEnable: *mut BOOL) -> HRESULT;
+            fn put_Mono(&self, fMono: BOOL) -> HRESULT;
+            fn get_Mono(&self, pfMono: *mut BOOL) -> HRESULT;
+            fn put_MixLevel(&self, Level: f64) -> HRESULT;
+            fn get_MixLevel(&self, pLevel: *mut f64) -> HRESULT;
+            fn put_Pan(&self, Pan: f64) -> HRESULT;
+            fn get_Pan(&self, pPan: *mut f64) -> HRESULT;
+            fn put_Loudness(&self, fLoudness: BOOL) -> HRESULT;
+            fn get_Loudness(&self, pfLoudness: *mut BOOL) -> HRESULT;
+            fn put_Treble(&self, Treble: f64) -> HRESULT;
+            fn get_Treble(&self, pTreble: *mut f64) -> HRESULT;
+            fn get_TrebleRange(&self, pRange: *mut f64) -> HRESULT;
+            fn put_Bass(&self, Bass: f64) -> HRESULT;
+            fn get_Bass(&self, pBass: *mut f64) -> HRESULT;
+            fn get_BassRange(&self, pRange: *mut f64) -> HRESULT;
+        }
+        #[guid(0x22320cb2_d41a_11d2_bf7c_d7cb9df0bf93)]
+        interface IAMAudioRendererStats: IUnknown {
+            fn GetStatParam(&self, dwParam: u32, pdwParam1: *mut u32, pdwParam2: *mut u32) -> HRESULT;
+        }
+        #[guid(0x56ed71a0_af5f_11d0_b3f0_00aa003761c5)]
+        interface IAMBufferNegotiation: IUnknown {
+            fn SuggestAllocatorProperties(&self, pprop: *const ALLOCATOR_PROPERTIES) -> HRESULT;
+            fn GetAllocatorProperties(&self, pprop: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
+        }
+        #[guid(0xc6e13370_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMCameraControl: IUnknown {
+            fn GetRange(&self, Property: i32, pMin: *mut i32, pMax: *mut i32, pSteppingDelta: *mut i32, pDefault: *mut i32, pCapsFlags: *mut i32) -> HRESULT;
+            fn Set(&self, Property: i32, lValue: i32, Flags: i32) -> HRESULT;
+            fn Get(&self, Property: i32, lValue: *mut i32, Flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x6feded3e_0ff1_4901_a2f1_43f7012c8515)]
+        interface IAMCertifiedOutputProtection: IUnknown {
+            fn KeyExchange(&self, pRandom: *mut GUID, VarLenCertGH: *mut *mut u8, pdwLengthCertGH: *mut u32) -> HRESULT;
+            fn SessionSequenceStart(&self, pSig: *const AMCOPPSignature) -> HRESULT;
+            fn ProtectionCommand(&self, cmd: *const AMCOPPCommand) -> HRESULT;
+            fn ProtectionStatus(&self, pStatusInput: *const AMCOPPStatusInput, pStatusOutput: *mut AMCOPPStatusOutput) -> HRESULT;
+        }
+        #[guid(0x4d5466b0_a49c_11d1_abe8_00a0c905f375)]
+        interface IAMClockAdjust: IUnknown {
+            fn SetClockDelta(&self, rtDelta: REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x9fd52741_176d_4b36_8f51_ca8f933223be)]
+        interface IAMClockSlave: IUnknown {
+            fn SetErrorTolerance(&self, dwTolerance: u32) -> HRESULT;
+            fn GetErrorTolerance(&self, pdwTolerance: *mut u32) -> HRESULT;
+        }
+        #[guid(0x670d1d20_a068_11d0_b3f0_00aa003761c5)]
+        interface IAMCopyCaptureFileProgress: IUnknown {
+            fn Progress(&self, iProgress: i32) -> HRESULT;
+        }
+        #[guid(0xc6e13380_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMCrossbar: IUnknown {
+            fn get_PinCounts(&self, OutputPinCount: *mut i32, InputPinCount: *mut i32) -> HRESULT;
+            fn CanRoute(&self, OutputPinIndex: i32, InputPinIndex: i32) -> HRESULT;
+            fn Route(&self, OutputPinIndex: i32, InputPinIndex: i32) -> HRESULT;
+            fn get_IsRoutedTo(&self, OutputPinIndex: i32, InputPinIndex: *mut i32) -> HRESULT;
+            fn get_CrossbarPinInfo(&self, IsInputPin: BOOL, PinIndex: i32, PinIndexRelated: *mut i32, PhysicalType: *mut i32) -> HRESULT;
+        }
+        #[guid(0xc0dff467_d499_4986_972b_e1d9090fa941)]
+        interface IAMDecoderCaps: IUnknown {
+            fn GetDecoderCaps(&self, dwCapIndex: u32, lpdwCap: *mut u32) -> HRESULT;
+        }
+        #[guid(0xc6545bf0_e76b_11d0_bd52_00a0c911ce86)]
+        interface IAMDevMemoryAllocator: IUnknown {
+            fn GetInfo(&self, pdwcbTotalFree: *mut u32, pdwcbLargestFree: *mut u32, pdwcbTotalMemory: *mut u32, pdwcbMinimumChunk: *mut u32) -> HRESULT;
+            fn CheckMemory(&self, pBuffer: *const u8) -> HRESULT;
+            fn Alloc(&self, ppBuffer: *mut *mut u8, #[in] #[out] pdwcbBuffer: *mut u32) -> HRESULT;
+            fn Free(&self, pBuffer: *const u8) -> HRESULT;
+            fn GetDevMemoryObject(&self, ppUnkInnner: *mut IUnknown, pUnkOuter: IUnknown) -> HRESULT;
+        }
+        #[guid(0xc6545bf1_e76b_11d0_bd52_00a0c911ce86)]
+        interface IAMDevMemoryControl: IUnknown {
+            fn QueryWriteSync(&self) -> HRESULT;
+            fn WriteSync(&self) -> HRESULT;
+            fn GetDevId(&self, pdwDevId: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf90a6130_b658_11d2_ae49_0000f8754b99)]
+        interface IAMDeviceRemoval: IUnknown {
+            fn DeviceInfo(&self, pclsidInterfaceClass: *mut GUID, pwszSymbolicLink: *mut PWSTR) -> HRESULT;
+            fn Reassociate(&self) -> HRESULT;
+            fn Disassociate(&self) -> HRESULT;
+        }
+        #[guid(0xc6e13344_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMDroppedFrames: IUnknown {
+            fn GetNumDropped(&self, plDropped: *mut i32) -> HRESULT;
+            fn GetNumNotDropped(&self, plNotDropped: *mut i32) -> HRESULT;
+            fn GetDroppedInfo(&self, lSize: i32, plArray: *mut i32, plNumCopied: *mut i32) -> HRESULT;
+            fn GetAverageFrameSize(&self, plAverageSize: *mut i32) -> HRESULT;
+        }
+        #[guid(0xb5730a90_1a2c_11cf_8c23_00aa006b6814)]
+        interface IAMExtDevice: IUnknown {
+            fn GetCapability(&self, Capability: i32, pValue: *mut i32, pdblValue: *mut f64) -> HRESULT;
+            fn get_ExternalDeviceID(&self, ppszData: *mut PWSTR) -> HRESULT;
+            fn get_ExternalDeviceVersion(&self, ppszData: *mut PWSTR) -> HRESULT;
+            fn put_DevicePower(&self, PowerMode: i32) -> HRESULT;
+            fn get_DevicePower(&self, pPowerMode: *mut i32) -> HRESULT;
+            fn Calibrate(&self, hEvent: HEVENT, Mode: i32, pStatus: *mut i32) -> HRESULT;
+            fn put_DevicePort(&self, DevicePort: i32) -> HRESULT;
+            fn get_DevicePort(&self, pDevicePort: *mut i32) -> HRESULT;
+        }
+        #[guid(0xa03cd5f0_3045_11cf_8c44_00aa006b6814)]
+        interface IAMExtTransport: IUnknown {
+            fn GetCapability(&self, Capability: i32, pValue: *mut i32, pdblValue: *mut f64) -> HRESULT;
+            fn put_MediaState(&self, State: i32) -> HRESULT;
+            fn get_MediaState(&self, pState: *mut i32) -> HRESULT;
+            fn put_LocalControl(&self, State: i32) -> HRESULT;
+            fn get_LocalControl(&self, pState: *mut i32) -> HRESULT;
+            fn GetStatus(&self, StatusItem: i32, pValue: *mut i32) -> HRESULT;
+            fn GetTransportBasicParameters(&self, Param: i32, #[in] #[out] pValue: *mut i32, #[in] #[out] ppszData: *mut PWSTR) -> HRESULT;
+            fn SetTransportBasicParameters(&self, Param: i32, Value: i32, pszData: PCWSTR) -> HRESULT;
+            fn GetTransportVideoParameters(&self, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetTransportVideoParameters(&self, Param: i32, Value: i32) -> HRESULT;
+            fn GetTransportAudioParameters(&self, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetTransportAudioParameters(&self, Param: i32, Value: i32) -> HRESULT;
+            fn put_Mode(&self, Mode: i32) -> HRESULT;
+            fn get_Mode(&self, pMode: *mut i32) -> HRESULT;
+            fn put_Rate(&self, dblRate: f64) -> HRESULT;
+            fn get_Rate(&self, pdblRate: *mut f64) -> HRESULT;
+            fn GetChase(&self, pEnabled: *mut i32, pOffset: *mut i32, phEvent: *mut HEVENT) -> HRESULT;
+            fn SetChase(&self, Enable: i32, Offset: i32, hEvent: HEVENT) -> HRESULT;
+            fn GetBump(&self, pSpeed: *mut i32, pDuration: *mut i32) -> HRESULT;
+            fn SetBump(&self, Speed: i32, Duration: i32) -> HRESULT;
+            fn get_AntiClogControl(&self, pEnabled: *mut i32) -> HRESULT;
+            fn put_AntiClogControl(&self, Enable: i32) -> HRESULT;
+            fn GetEditPropertySet(&self, EditID: i32, pState: *mut i32) -> HRESULT;
+            fn SetEditPropertySet(&self, #[in] #[out] pEditID: *mut i32, State: i32) -> HRESULT;
+            fn GetEditProperty(&self, EditID: i32, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetEditProperty(&self, EditID: i32, Param: i32, Value: i32) -> HRESULT;
+            fn get_EditStart(&self, pValue: *mut i32) -> HRESULT;
+            fn put_EditStart(&self, Value: i32) -> HRESULT;
+        }
+        #[guid(0x56a868fd_0ad4_11ce_b0a3_0020af0ba770)]
+        interface IAMFilterGraphCallback: IUnknown {
+            fn UnableToRender(&self, pPin: IPin) -> HRESULT;
+        }
+        #[guid(0x2dd74950_a890_11d1_abe8_00a0c905f375)]
+        interface IAMFilterMiscFlags: IUnknown {
+            fn GetMiscFlags(&self) -> u32;
+        }
+        #[guid(0x4995f511_9ddb_4f12_bd3b_f04611807b79)]
+        interface IAMGraphBuilderCallback: IUnknown {
+            fn SelectedFilter(&self, pMon: IMoniker) -> HRESULT;
+            fn CreatedFilter(&self, pFil: IBaseFilter) -> HRESULT;
+        }
+        #[guid(0x632105fa_072e_11d3_8af9_00c04fb6bd3d)]
+        interface IAMGraphStreams: IUnknown {
+            fn FindUpstreamInterface(&self, pPin: IPin, riid: *const GUID, ppvInterface: *mut *mut void, dwFlags: u32) -> HRESULT;
+            fn SyncUsingStreamOffset(&self, bUseStreamOffset: BOOL) -> HRESULT;
+            fn SetMaxGraphLatency(&self, rtMaxGraphLatency: REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x62ea93ba_ec62_11d2_b770_00c04fb6bd3d)]
+        interface IAMLatency: IUnknown {
+            fn GetLatency(&self, prtLatency: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x8e1c39a1_de53_11cf_aa63_0080c744528d)]
+        interface IAMOpenProgress: IUnknown {
+            fn QueryProgress(&self, pllTotal: *mut i64, pllCurrent: *mut i64) -> HRESULT;
+            fn AbortOperation(&self) -> HRESULT;
+        }
+        #[guid(0x62fae250_7e65_4460_bfc9_6398b322073c)]
+        interface IAMOverlayFX: IUnknown {
+            fn QueryOverlayFXCaps(&self, lpdwOverlayFXCaps: *mut u32) -> HRESULT;
+            fn SetOverlayFX(&self, dwOverlayFX: u32) -> HRESULT;
+            fn GetOverlayFX(&self, lpdwOverlayFX: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf938c991_3029_11cf_8c44_00aa006b6814)]
+        interface IAMPhysicalPinInfo: IUnknown {
+            fn GetPhysicalType(&self, pType: *mut i32, ppszType: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x0e26a181_f40c_4635_8786_976284b52981)]
+        interface IAMPluginControl: IUnknown {
+            fn GetPreferredClsid(&self, subType: *const GUID, clsid: *mut GUID) -> HRESULT;
+            fn GetPreferredClsidByIndex(&self, index: u32, subType: *mut GUID, clsid: *mut GUID) -> HRESULT;
+            fn SetPreferredClsid(&self, subType: *const GUID, #[opt] clsid: *const GUID) -> HRESULT;
+            fn IsDisabled(&self, clsid: *const GUID) -> HRESULT;
+            fn GetDisabledByIndex(&self, index: u32, clsid: *mut GUID) -> HRESULT;
+            fn SetDisabled(&self, clsid: *const GUID, disabled: BOOL) -> HRESULT;
+            fn IsLegacyDisabled(&self, dllName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xf185fe76_e64e_11d2_b76e_00c04fb6bd3d)]
+        interface IAMPushSource: IAMLatency {
+            fn GetPushSourceFlags(&self, pFlags: *mut u32) -> HRESULT;
+            fn SetPushSourceFlags(&self, Flags: u32) -> HRESULT;
+            fn SetStreamOffset(&self, rtOffset: REFERENCE_TIME) -> HRESULT;
+            fn GetStreamOffset(&self, prtOffset: *mut REFERENCE_TIME) -> HRESULT;
+            fn GetMaxStreamOffset(&self, prtMaxOffset: *mut REFERENCE_TIME) -> HRESULT;
+            fn SetMaxStreamOffset(&self, rtMaxOffset: REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x8389d2d0_77d7_11d1_abe6_00a0c905f375)]
+        interface IAMResourceControl: IUnknown {
+            fn Reserve(&self, dwFlags: u32, #[reserved] pvReserved: *const void) -> HRESULT;
+        }
+        #[guid(0xc6e13340_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMStreamConfig: IUnknown {
+            fn SetFormat(&self, pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn GetFormat(&self, ppmt: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn GetNumberOfCapabilities(&self, piCount: *mut i32, piSize: *mut i32) -> HRESULT;
+            fn GetStreamCaps(&self, iIndex: i32, ppmt: *mut *mut AM_MEDIA_TYPE, pSCC: *mut u8) -> HRESULT;
+        }
+        #[guid(0x36b73881_c2c8_11cf_8b46_00805f6cef60)]
+        interface IAMStreamControl: IUnknown {
+            fn StartAt(&self, #[opt] ptStart: *const REFERENCE_TIME, dwCookie: u32) -> HRESULT;
+            fn StopAt(&self, #[opt] ptStop: *const REFERENCE_TIME, bSendExtra: BOOL, dwCookie: u32) -> HRESULT;
+            fn GetInfo(&self, pInfo: *mut AM_STREAM_INFO) -> HRESULT;
+        }
+        #[guid(0xc1960960_17f5_11d1_abe1_00a0c905f375)]
+        interface IAMStreamSelect: IUnknown {
+            fn Count(&self, pcStreams: *mut u32) -> HRESULT;
+            fn Info(&self, lIndex: i32, #[opt] ppmt: *mut *mut AM_MEDIA_TYPE, #[opt] pdwFlags: *mut u32, #[opt] plcid: *mut LCID, #[opt] pdwGroup: *mut u32, #[opt] ppszName: *mut PWSTR, #[opt] ppObject: *mut IUnknown, #[opt] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Enable(&self, lIndex: i32, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x83ec1c30_23d1_11d1_99e6_00a0c9560266)]
+        interface IAMTVAudio: IUnknown {
+            fn GetHardwareSupportedTVAudioModes(&self, plModes: *mut i32) -> HRESULT;
+            fn GetAvailableTVAudioModes(&self, plModes: *mut i32) -> HRESULT;
+            fn get_TVAudioMode(&self, plMode: *mut i32) -> HRESULT;
+            fn put_TVAudioMode(&self, lMode: i32) -> HRESULT;
+            fn RegisterNotificationCallBack(&self, pNotify: IAMTunerNotification, lEvents: i32) -> HRESULT;
+            fn UnRegisterNotificationCallBack(&self, pNotify: IAMTunerNotification) -> HRESULT;
+        }
+        #[guid(0x83ec1c33_23d1_11d1_99e6_00a0c9560266)]
+        interface IAMTVAudioNotification: IUnknown {
+            fn OnEvent(&self, Event: AMTVAudioEventType) -> HRESULT;
+        }
+        #[guid(0x211a8766_03ac_11d1_8d13_00aa00bd8339)]
+        interface IAMTVTuner: IAMTuner {
+            fn get_AvailableTVFormats(&self, lAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn get_TVFormat(&self, plAnalogVideoStandard: *mut i32) -> HRESULT;
+            fn AutoTune(&self, lChannel: i32, plFoundSignal: *mut i32) -> HRESULT;
+            fn StoreAutoTune(&self) -> HRESULT;
+            fn get_NumInputConnections(&self, plNumInputConnections: *mut i32) -> HRESULT;
+            fn put_InputType(&self, lIndex: i32, InputType: TunerInputType) -> HRESULT;
+            fn get_InputType(&self, lIndex: i32, pInputType: *mut TunerInputType) -> HRESULT;
+            fn put_ConnectInput(&self, lIndex: i32) -> HRESULT;
+            fn get_ConnectInput(&self, plIndex: *mut i32) -> HRESULT;
+            fn get_VideoFrequency(&self, lFreq: *mut i32) -> HRESULT;
+            fn get_AudioFrequency(&self, lFreq: *mut i32) -> HRESULT;
+        }
+        #[guid(0x9b496ce2_811b_11cf_8c77_00aa006b6814)]
+        interface IAMTimecodeDisplay: IUnknown {
+            fn GetTCDisplayEnable(&self, pState: *mut i32) -> HRESULT;
+            fn SetTCDisplayEnable(&self, State: i32) -> HRESULT;
+            fn GetTCDisplay(&self, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetTCDisplay(&self, Param: i32, Value: i32) -> HRESULT;
+        }
+        #[guid(0x9b496ce0_811b_11cf_8c77_00aa006b6814)]
+        interface IAMTimecodeGenerator: IUnknown {
+            fn GetTCGMode(&self, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetTCGMode(&self, Param: i32, Value: i32) -> HRESULT;
+            fn put_VITCLine(&self, Line: i32) -> HRESULT;
+            fn get_VITCLine(&self, pLine: *mut i32) -> HRESULT;
+            fn SetTimecode(&self, pTimecodeSample: *const TIMECODE_SAMPLE) -> HRESULT;
+            fn GetTimecode(&self, pTimecodeSample: *mut TIMECODE_SAMPLE) -> HRESULT;
+        }
+        #[guid(0x9b496ce1_811b_11cf_8c77_00aa006b6814)]
+        interface IAMTimecodeReader: IUnknown {
+            fn GetTCRMode(&self, Param: i32, pValue: *mut i32) -> HRESULT;
+            fn SetTCRMode(&self, Param: i32, Value: i32) -> HRESULT;
+            fn put_VITCLine(&self, Line: i32) -> HRESULT;
+            fn get_VITCLine(&self, pLine: *mut i32) -> HRESULT;
+            fn GetTimecode(&self, pTimecodeSample: *mut TIMECODE_SAMPLE) -> HRESULT;
+        }
+        #[guid(0x211a8761_03ac_11d1_8d13_00aa00bd8339)]
+        interface IAMTuner: IUnknown {
+            fn put_Channel(&self, lChannel: i32, lVideoSubChannel: i32, lAudioSubChannel: i32) -> HRESULT;
+            fn get_Channel(&self, plChannel: *mut i32, plVideoSubChannel: *mut i32, plAudioSubChannel: *mut i32) -> HRESULT;
+            fn ChannelMinMax(&self, lChannelMin: *mut i32, lChannelMax: *mut i32) -> HRESULT;
+            fn put_CountryCode(&self, lCountryCode: i32) -> HRESULT;
+            fn get_CountryCode(&self, plCountryCode: *mut i32) -> HRESULT;
+            fn put_TuningSpace(&self, lTuningSpace: i32) -> HRESULT;
+            fn get_TuningSpace(&self, plTuningSpace: *mut i32) -> HRESULT;
+            fn Logon(&self, hCurrentUser: HANDLE) -> HRESULT;
+            fn Logout(&self) -> HRESULT;
+            fn SignalPresent(&self, plSignalStrength: *mut i32) -> HRESULT;
+            fn put_Mode(&self, lMode: AMTunerModeType) -> HRESULT;
+            fn get_Mode(&self, plMode: *mut AMTunerModeType) -> HRESULT;
+            fn GetAvailableModes(&self, plModes: *mut i32) -> HRESULT;
+            fn RegisterNotificationCallBack(&self, pNotify: IAMTunerNotification, lEvents: i32) -> HRESULT;
+            fn UnRegisterNotificationCallBack(&self, pNotify: IAMTunerNotification) -> HRESULT;
+        }
+        #[guid(0x211a8760_03ac_11d1_8d13_00aa00bd8339)]
+        interface IAMTunerNotification: IUnknown {
+            fn OnEvent(&self, Event: AMTunerEventType) -> HRESULT;
+        }
+        #[guid(0xd8d715a0_6e5e_11d0_b3f0_00aa003761c5)]
+        interface IAMVfwCaptureDialogs: IUnknown {
+            fn HasDialog(&self, iDialog: i32) -> HRESULT;
+            fn ShowDialog(&self, iDialog: i32, hwnd: HWND) -> HRESULT;
+            fn SendDriverMessage(&self, iDialog: i32, uMsg: i32, dw1: i32, dw2: i32) -> HRESULT;
+        }
+        #[guid(0xd8d715a3_6e5e_11d0_b3f0_00aa003761c5)]
+        interface IAMVfwCompressDialogs: IUnknown {
+            fn ShowDialog(&self, iDialog: i32, hwnd: HWND) -> HRESULT;
+            fn GetState(&self, #[size_param(1)] pState: *mut void, #[in] #[out] pcbState: *mut i32) -> HRESULT;
+            fn SetState(&self, #[size_param(1)] pState: *const void, cbState: i32) -> HRESULT;
+            fn SendDriverMessage(&self, uMsg: i32, dw1: i32, dw2: i32) -> HRESULT;
+        }
+        #[guid(0xc6e13343_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMVideoCompression: IUnknown {
+            fn put_KeyFrameRate(&self, KeyFrameRate: i32) -> HRESULT;
+            fn get_KeyFrameRate(&self, pKeyFrameRate: *mut i32) -> HRESULT;
+            fn put_PFramesPerKeyFrame(&self, PFramesPerKeyFrame: i32) -> HRESULT;
+            fn get_PFramesPerKeyFrame(&self, pPFramesPerKeyFrame: *mut i32) -> HRESULT;
+            fn put_Quality(&self, Quality: f64) -> HRESULT;
+            fn get_Quality(&self, pQuality: *mut f64) -> HRESULT;
+            fn put_WindowSize(&self, WindowSize: DWORDLONG) -> HRESULT;
+            fn get_WindowSize(&self, pWindowSize: *mut DWORDLONG) -> HRESULT;
+            fn GetInfo(&self, #[size_param(1)] #[out] #[opt] pszVersion: PWSTR, #[in] #[out] #[opt] pcbVersion: *mut i32, #[size_param(3)] #[out] #[opt] pszDescription: PWSTR, #[in] #[out] #[opt] pcbDescription: *mut i32, #[opt] pDefaultKeyFrameRate: *mut i32, #[opt] pDefaultPFramesPerKey: *mut i32, #[opt] pDefaultQuality: *mut f64, #[opt] pCapabilities: *mut i32) -> HRESULT;
+            fn OverrideKeyFrame(&self, FrameNumber: i32) -> HRESULT;
+            fn OverrideFrameSize(&self, FrameNumber: i32, Size: i32) -> HRESULT;
+        }
+        #[guid(0x6a2e0670_28e4_11d0_a18c_00a0c9118956)]
+        interface IAMVideoControl: IUnknown {
+            fn GetCaps(&self, pPin: IPin, pCapsFlags: *mut i32) -> HRESULT;
+            fn SetMode(&self, pPin: IPin, Mode: i32) -> HRESULT;
+            fn GetMode(&self, pPin: IPin, Mode: *mut i32) -> HRESULT;
+            fn GetCurrentActualFrameRate(&self, pPin: IPin, ActualFrameRate: *mut i64) -> HRESULT;
+            fn GetMaxAvailableFrameRate(&self, pPin: IPin, iIndex: i32, Dimensions: SIZE, MaxAvailableFrameRate: *mut i64) -> HRESULT;
+            fn GetFrameRateList(&self, pPin: IPin, iIndex: i32, Dimensions: SIZE, ListSize: *mut i32, FrameRates: *mut *mut i64) -> HRESULT;
+        }
+        #[guid(0x60d32930_13da_11d3_9ec6_c4fcaef5c7be)]
+        interface IAMVideoDecimationProperties: IUnknown {
+            fn QueryDecimationUsage(&self, lpUsage: *mut DECIMATION_USAGE) -> HRESULT;
+            fn SetDecimationUsage(&self, Usage: DECIMATION_USAGE) -> HRESULT;
+        }
+        #[guid(0xc6e13360_30ac_11d0_a18c_00a0c9118956)]
+        interface IAMVideoProcAmp: IUnknown {
+            fn GetRange(&self, Property: i32, pMin: *mut i32, pMax: *mut i32, pSteppingDelta: *mut i32, pDefault: *mut i32, pCapsFlags: *mut i32) -> HRESULT;
+            fn Set(&self, Property: i32, lValue: i32, Flags: i32) -> HRESULT;
+            fn Get(&self, Property: i32, lValue: *mut i32, Flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0xa3d8cec0_7e5a_11cf_bbc5_00805f6cef20)]
+        interface IAMovieSetup: IUnknown {
+            fn Register(&self) -> HRESULT;
+            fn Unregister(&self) -> HRESULT;
+        }
+        #[guid(0x56a868aa_0ad4_11ce_b03a_0020af0ba770)]
+        interface IAsyncReader: IUnknown {
+            fn RequestAllocator(&self, pPreferred: IMemAllocator, pProps: *const ALLOCATOR_PROPERTIES, ppActual: *mut IMemAllocator) -> HRESULT;
+            fn Request(&self, pSample: IMediaSample, dwUser: usize) -> HRESULT;
+            fn WaitForNext(&self, dwTimeout: u32, #[opt] ppSample: *mut IMediaSample, pdwUser: *mut usize) -> HRESULT;
+            fn SyncReadAligned(&self, pSample: IMediaSample) -> HRESULT;
+            fn SyncRead(&self, llPosition: i64, lLength: i32, #[size_param(1)] pBuffer: *mut u8) -> HRESULT;
+            fn Length(&self, pTotal: *mut i64, pAvailable: *mut i64) -> HRESULT;
+            fn BeginFlush(&self) -> HRESULT;
+            fn EndFlush(&self) -> HRESULT;
+        }
+        #[guid(0x211a8765_03ac_11d1_8d13_00aa00bd8339)]
+        interface IBPCSatelliteTuner: IAMTuner {
+            fn get_DefaultSubChannelTypes(&self, plDefaultVideoType: *mut i32, plDefaultAudioType: *mut i32) -> HRESULT;
+            fn put_DefaultSubChannelTypes(&self, lDefaultVideoType: i32, lDefaultAudioType: i32) -> HRESULT;
+            fn IsTapingPermitted(&self) -> HRESULT;
+        }
+        #[guid(0x56a86895_0ad4_11ce_b03a_0020af0ba770)]
+        interface IBaseFilter: IMediaFilter {
+            fn EnumPins(&self, ppEnum: *mut IEnumPins) -> HRESULT;
+            fn FindPin(&self, Id: PCWSTR, ppPin: *mut IPin) -> HRESULT;
+            fn QueryFilterInfo(&self, pInfo: *mut FILTER_INFO) -> HRESULT;
+            fn JoinFilterGraph(&self, #[opt] pGraph: IFilterGraph, #[opt] pName: PCWSTR) -> HRESULT;
+            fn QueryVendorInfo(&self, pVendorInfo: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xbf87b6e0_8c27_11d0_b3f0_00aa003761c5)]
+        interface ICaptureGraphBuilder: IUnknown {
+            fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
+            fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
+            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
+            fn RenderStream(&self, #[opt] pCategory: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
+            fn ControlStream(&self, #[opt] pCategory: *const GUID, pFilter: IBaseFilter, pstart: *const REFERENCE_TIME, pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
+            fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
+            fn CopyCaptureFile(&self, lpwstrOld: PCWSTR, lpwstrNew: PCWSTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
+        }
+        #[guid(0x93e5a4e0_2d50_11d2_abfa_00a0c9c6e38d)]
+        interface ICaptureGraphBuilder2: IUnknown {
+            fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
+            fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
+            fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
+            fn RenderStream(&self, #[opt] pCategory: *const GUID, pType: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
+            fn ControlStream(&self, pCategory: *const GUID, pType: *const GUID, pFilter: IBaseFilter, #[opt] pstart: *const REFERENCE_TIME, #[opt] pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
+            fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
+            fn CopyCaptureFile(&self, lpwstrOld: PCWSTR, lpwstrNew: PCWSTR, fAllowEscAbort: i32, pCallback: IAMCopyCaptureFileProgress) -> HRESULT;
+            fn FindPin(&self, pSource: IUnknown, pindir: PIN_DIRECTION, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, fUnconnected: BOOL, num: i32, ppPin: *mut IPin) -> HRESULT;
+        }
+        #[guid(0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da)]
+        interface ICodecAPI: IUnknown {
+            fn IsSupported(&self, Api: *const GUID) -> HRESULT;
+            fn IsModifiable(&self, Api: *const GUID) -> HRESULT;
+            fn GetParameterRange(&self, Api: *const GUID, ValueMin: *mut VARIANT, ValueMax: *mut VARIANT, SteppingDelta: *mut VARIANT) -> HRESULT;
+            fn GetParameterValues(&self, Api: *const GUID, Values: *mut *mut VARIANT, ValuesCount: *mut u32) -> HRESULT;
+            fn GetDefaultValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
+            fn GetValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
+            fn SetValue(&self, Api: *const GUID, Value: *const VARIANT) -> HRESULT;
+            fn RegisterForEvent(&self, Api: *const GUID, userData: isize) -> HRESULT;
+            fn UnregisterForEvent(&self, Api: *const GUID) -> HRESULT;
+            fn SetAllDefaults(&self) -> HRESULT;
+            fn SetValueWithNotify(&self, Api: *const GUID, Value: *const VARIANT, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
+            fn SetAllDefaultsWithNotify(&self, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
+            fn GetAllSettings(&self, param0: IStream) -> HRESULT;
+            fn SetAllSettings(&self, param0: IStream) -> HRESULT;
+            fn SetAllSettingsWithNotify(&self, param0: IStream, ChangedParam: *mut *mut GUID, ChangedParamCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5acd6aa0_f482_11ce_8b67_00aa00a3f1a6)]
+        interface IConfigAviMux: IUnknown {
+            fn SetMasterStream(&self, iStream: i32) -> HRESULT;
+            fn GetMasterStream(&self, pStream: *mut i32) -> HRESULT;
+            fn SetOutputCompatibilityIndex(&self, fOldIndex: BOOL) -> HRESULT;
+            fn GetOutputCompatibilityIndex(&self, pfOldIndex: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xbee3d220_157b_11d0_bd23_00a0c911ce86)]
+        interface IConfigInterleaving: IUnknown {
+            fn put_Mode(&self, mode: InterleavingMode) -> HRESULT;
+            fn get_Mode(&self, pMode: *mut InterleavingMode) -> HRESULT;
+            fn put_Interleaving(&self, prtInterleave: *const REFERENCE_TIME, prtPreroll: *const REFERENCE_TIME) -> HRESULT;
+            fn get_Interleaving(&self, prtInterleave: *mut REFERENCE_TIME, prtPreroll: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x29840822_5b84_11d0_bd3b_00a0c911ce86)]
+        interface ICreateDevEnum: IUnknown {
+            fn CreateClassEnumerator(&self, clsidDeviceClass: *const GUID, ppEnumMoniker: *mut IEnumMoniker, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x153acc21_d83b_11d1_82bf_00a0c9696c8f)]
+        interface IDDrawExclModeVideo: IUnknown {
+            fn SetDDrawObject(&self, pDDrawObject: IDirectDraw) -> HRESULT;
+            fn GetDDrawObject(&self, ppDDrawObject: *mut IDirectDraw, pbUsingExternal: *mut BOOL) -> HRESULT;
+            fn SetDDrawSurface(&self, pDDrawSurface: IDirectDrawSurface) -> HRESULT;
+            fn GetDDrawSurface(&self, ppDDrawSurface: *mut IDirectDrawSurface, pbUsingExternal: *mut BOOL) -> HRESULT;
+            fn SetDrawParameters(&self, prcSource: *const RECT, prcTarget: *const RECT) -> HRESULT;
+            fn GetNativeVideoProps(&self, pdwVideoWidth: *mut u32, pdwVideoHeight: *mut u32, pdwPictAspectRatioX: *mut u32, pdwPictAspectRatioY: *mut u32) -> HRESULT;
+            fn SetCallbackInterface(&self, pCallback: IDDrawExclModeVideoCallback, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x913c24a0_20ab_11d2_9038_00a0c9697298)]
+        interface IDDrawExclModeVideoCallback: IUnknown {
+            fn OnUpdateOverlay(&self, bBefore: BOOL, dwFlags: u32, bOldVisible: BOOL, prcOldSrc: *const RECT, prcOldDest: *const RECT, bNewVisible: BOOL, prcNewSrc: *const RECT, prcNewDest: *const RECT) -> HRESULT;
+            fn OnUpdateColorKey(&self, pKey: *const COLORKEY, dwColor: u32) -> HRESULT;
+            fn OnUpdateSize(&self, dwWidth: u32, dwHeight: u32, dwARWidth: u32, dwARHeight: u32) -> HRESULT;
+        }
+        #[guid(0xd18e17a0_aacb_11d0_afb0_00aa00b67a42)]
+        interface IDVEnc: IUnknown {
+            fn get_IFormatResolution(&self, VideoFormat: *mut i32, DVFormat: *mut i32, Resolution: *mut i32, fDVInfo: u8, sDVInfo: *mut DVINFO) -> HRESULT;
+            fn put_IFormatResolution(&self, VideoFormat: i32, DVFormat: i32, Resolution: i32, fDVInfo: u8, sDVInfo: *const DVINFO) -> HRESULT;
+        }
+        #[guid(0x58473a19_2bc8_4663_8012_25f81babddd1)]
+        interface IDVRGB219: IUnknown {
+            fn SetRGB219(&self, bState: BOOL) -> HRESULT;
+        }
+        #[guid(0x92a3a302_da7c_4a1f_ba7e_1802bb5d2d02)]
+        interface IDVSplitter: IUnknown {
+            fn DiscardAlternateVideoFrames(&self, nDiscard: i32) -> HRESULT;
+        }
+        #[guid(0x2e5ea3e0_e924_11d2_b6da_00a0c995e8df)]
+        interface IDecimateVideoImage: IUnknown {
+            fn SetDecimationImageSize(&self, lWidth: i32, lHeight: i32) -> HRESULT;
+            fn ResetDecimationImageSize(&self) -> HRESULT;
+        }
+        #[guid(0x56a868af_0ad4_11ce_b03a_0020af0ba770)]
+        interface IDistributorNotify: IUnknown {
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Run(&self, tStart: REFERENCE_TIME) -> HRESULT;
+            fn SetSyncSource(&self, pClock: IReferenceClock) -> HRESULT;
+            fn NotifyGraphChange(&self) -> HRESULT;
+        }
+        #[guid(0x48efb120_ab49_11d2_aed2_00a0c995e8d5)]
+        interface IDrawVideoImage: IUnknown {
+            fn DrawVideoImageBegin(&self) -> HRESULT;
+            fn DrawVideoImageEnd(&self) -> HRESULT;
+            fn DrawVideoImageDraw(&self, hdc: HDC, lprcSrc: *const RECT, lprcDst: *const RECT) -> HRESULT;
+        }
+        #[guid(0x5a4a97e4_94ee_4a55_9751_74b5643aa27d)]
+        interface IDvdCmd: IUnknown {
+            fn WaitForStart(&self) -> HRESULT;
+            fn WaitForEnd(&self) -> HRESULT;
+        }
+        #[guid(0xa70efe61_e2a3_11d0_a9be_00aa0061be93)]
+        interface IDvdControl: IUnknown {
+            fn TitlePlay(&self, ulTitle: u32) -> HRESULT;
+            fn ChapterPlay(&self, ulTitle: u32, ulChapter: u32) -> HRESULT;
+            fn TimePlay(&self, ulTitle: u32, bcdTime: u32) -> HRESULT;
+            fn StopForResume(&self) -> HRESULT;
+            fn GoUp(&self) -> HRESULT;
+            fn TimeSearch(&self, bcdTime: u32) -> HRESULT;
+            fn ChapterSearch(&self, ulChapter: u32) -> HRESULT;
+            fn PrevPGSearch(&self) -> HRESULT;
+            fn TopPGSearch(&self) -> HRESULT;
+            fn NextPGSearch(&self) -> HRESULT;
+            fn ForwardScan(&self, dwSpeed: f64) -> HRESULT;
+            fn BackwardScan(&self, dwSpeed: f64) -> HRESULT;
+            fn MenuCall(&self, MenuID: DVD_MENU_ID) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn UpperButtonSelect(&self) -> HRESULT;
+            fn LowerButtonSelect(&self) -> HRESULT;
+            fn LeftButtonSelect(&self) -> HRESULT;
+            fn RightButtonSelect(&self) -> HRESULT;
+            fn ButtonActivate(&self) -> HRESULT;
+            fn ButtonSelectAndActivate(&self, ulButton: u32) -> HRESULT;
+            fn StillOff(&self) -> HRESULT;
+            fn PauseOn(&self) -> HRESULT;
+            fn PauseOff(&self) -> HRESULT;
+            fn MenuLanguageSelect(&self, Language: LCID) -> HRESULT;
+            fn AudioStreamChange(&self, ulAudio: u32) -> HRESULT;
+            fn SubpictureStreamChange(&self, ulSubPicture: u32, bDisplay: BOOL) -> HRESULT;
+            fn AngleChange(&self, ulAngle: u32) -> HRESULT;
+            fn ParentalLevelSelect(&self, ulParentalLevel: u32) -> HRESULT;
+            fn ParentalCountrySelect(&self, wCountry: u16) -> HRESULT;
+            fn KaraokeAudioPresentationModeChange(&self, ulMode: u32) -> HRESULT;
+            fn VideoModePreferrence(&self, ulPreferredDisplayMode: u32) -> HRESULT;
+            fn SetRoot(&self, pszPath: PCWSTR) -> HRESULT;
+            fn MouseActivate(&self, point: POINT) -> HRESULT;
+            fn MouseSelect(&self, point: POINT) -> HRESULT;
+            fn ChapterPlayAutoStop(&self, ulTitle: u32, ulChapter: u32, ulChaptersToPlay: u32) -> HRESULT;
+        }
+        #[guid(0x33bc7430_eec0_11d2_8201_00a0c9d74842)]
+        interface IDvdControl2: IUnknown {
+            fn PlayTitle(&self, ulTitle: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayChapterInTitle(&self, ulTitle: u32, ulChapter: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayAtTimeInTitle(&self, ulTitle: u32, pStartTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn ReturnFromSubmenu(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayAtTime(&self, pTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayChapter(&self, ulChapter: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayPrevChapter(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn ReplayChapter(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayNextChapter(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayForwards(&self, dSpeed: f64, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayBackwards(&self, dSpeed: f64, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn ShowMenu(&self, MenuID: DVD_MENU_ID, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn Resume(&self, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SelectRelativeButton(&self, buttonDir: DVD_RELATIVE_BUTTON) -> HRESULT;
+            fn ActivateButton(&self) -> HRESULT;
+            fn SelectButton(&self, ulButton: u32) -> HRESULT;
+            fn SelectAndActivateButton(&self, ulButton: u32) -> HRESULT;
+            fn StillOff(&self) -> HRESULT;
+            fn Pause(&self, bState: BOOL) -> HRESULT;
+            fn SelectAudioStream(&self, ulAudio: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SelectSubpictureStream(&self, ulSubPicture: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SetSubpictureState(&self, bState: BOOL, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SelectAngle(&self, ulAngle: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SelectParentalLevel(&self, ulParentalLevel: u32) -> HRESULT;
+            fn SelectParentalCountry(&self, bCountry: [u8; 2]) -> HRESULT;
+            fn SelectKaraokeAudioPresentationMode(&self, ulMode: u32) -> HRESULT;
+            fn SelectVideoModePreference(&self, ulPreferredDisplayMode: u32) -> HRESULT;
+            fn SetDVDDirectory(&self, pszwPath: PCWSTR) -> HRESULT;
+            fn ActivateAtPosition(&self, point: POINT) -> HRESULT;
+            fn SelectAtPosition(&self, point: POINT) -> HRESULT;
+            fn PlayChaptersAutoStop(&self, ulTitle: u32, ulChapter: u32, ulChaptersToPlay: u32, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn AcceptParentalLevelChange(&self, bAccept: BOOL) -> HRESULT;
+            fn SetOption(&self, flag: DVD_OPTION_FLAG, fState: BOOL) -> HRESULT;
+            fn SetState(&self, pState: IDvdState, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn PlayPeriodInTitleAutoStop(&self, ulTitle: u32, pStartTime: *const DVD_HMSF_TIMECODE, pEndTime: *const DVD_HMSF_TIMECODE, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SetGPRM(&self, ulIndex: u32, wValue: u16, dwFlags: u32, ppCmd: *mut IDvdCmd) -> HRESULT;
+            fn SelectDefaultMenuLanguage(&self, Language: LCID) -> HRESULT;
+            fn SelectDefaultAudioLanguage(&self, Language: LCID, audioExtension: DVD_AUDIO_LANG_EXT) -> HRESULT;
+            fn SelectDefaultSubpictureLanguage(&self, Language: LCID, subpictureExtension: DVD_SUBPICTURE_LANG_EXT) -> HRESULT;
+        }
+        #[guid(0xfcc152b6_f372_11d0_8e00_00c04fd7c08b)]
+        interface IDvdGraphBuilder: IUnknown {
+            fn GetFiltergraph(&self, ppGB: *mut IGraphBuilder) -> HRESULT;
+            fn GetDvdInterface(&self, riid: *const GUID, ppvIF: *mut *mut void) -> HRESULT;
+            fn RenderDvdVideoVolume(&self, lpcwszPathName: PCWSTR, dwFlags: u32, pStatus: *mut AM_DVD_RENDERSTATUS) -> HRESULT;
+        }
+        #[guid(0xa70efe60_e2a3_11d0_a9be_00aa0061be93)]
+        interface IDvdInfo: IUnknown {
+            fn GetCurrentDomain(&self, pDomain: *mut DVD_DOMAIN) -> HRESULT;
+            fn GetCurrentLocation(&self, pLocation: *mut DVD_PLAYBACK_LOCATION) -> HRESULT;
+            fn GetTotalTitleTime(&self, pulTotalTime: *mut u32) -> HRESULT;
+            fn GetCurrentButton(&self, pulButtonsAvailable: *mut u32, pulCurrentButton: *mut u32) -> HRESULT;
+            fn GetCurrentAngle(&self, pulAnglesAvailable: *mut u32, pulCurrentAngle: *mut u32) -> HRESULT;
+            fn GetCurrentAudio(&self, pulStreamsAvailable: *mut u32, pulCurrentStream: *mut u32) -> HRESULT;
+            fn GetCurrentSubpicture(&self, pulStreamsAvailable: *mut u32, pulCurrentStream: *mut u32, pIsDisabled: *mut BOOL) -> HRESULT;
+            fn GetCurrentUOPS(&self, pUOP: *mut VALID_UOP_SOMTHING_OR_OTHER) -> HRESULT;
+            fn GetAllSPRMs(&self, pRegisterArray: *mut SPRMARRAY) -> HRESULT;
+            fn GetAllGPRMs(&self, pRegisterArray: *mut GPRMARRAY) -> HRESULT;
+            fn GetAudioLanguage(&self, ulStream: u32, pLanguage: *mut LCID) -> HRESULT;
+            fn GetSubpictureLanguage(&self, ulStream: u32, pLanguage: *mut LCID) -> HRESULT;
+            fn GetTitleAttributes(&self, ulTitle: u32, pATR: *mut DVD_ATR) -> HRESULT;
+            fn GetVMGAttributes(&self, pATR: *mut DVD_ATR) -> HRESULT;
+            fn GetCurrentVideoAttributes(&self, pATR: *mut DVD_VideoATR) -> HRESULT;
+            fn GetCurrentAudioAttributes(&self, pATR: *mut DVD_AudioATR) -> HRESULT;
+            fn GetCurrentSubpictureAttributes(&self, pATR: *mut DVD_SubpictureATR) -> HRESULT;
+            fn GetCurrentVolumeInfo(&self, pulNumOfVol: *mut u32, pulThisVolNum: *mut u32, pSide: *mut DVD_DISC_SIDE, pulNumOfTitles: *mut u32) -> HRESULT;
+            fn GetDVDTextInfo(&self, #[size_param(1)] pTextManager: *mut u8, ulBufSize: u32, pulActualSize: *mut u32) -> HRESULT;
+            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, pulCountryCode: *mut u32) -> HRESULT;
+            fn GetNumberOfChapters(&self, ulTitle: u32, pulNumberOfChapters: *mut u32) -> HRESULT;
+            fn GetTitleParentalLevels(&self, ulTitle: u32, pulParentalLevels: *mut u32) -> HRESULT;
+            fn GetRoot(&self, #[len_param(1)] #[out] pRoot: PSTR, ulBufSize: u32, pulActualSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x34151510_eec0_11d2_8201_00a0c9d74842)]
+        interface IDvdInfo2: IUnknown {
+            fn GetCurrentDomain(&self, pDomain: *mut DVD_DOMAIN) -> HRESULT;
+            fn GetCurrentLocation(&self, pLocation: *mut DVD_PLAYBACK_LOCATION2) -> HRESULT;
+            fn GetTotalTitleTime(&self, pTotalTime: *mut DVD_HMSF_TIMECODE, ulTimeCodeFlags: *mut u32) -> HRESULT;
+            fn GetCurrentButton(&self, pulButtonsAvailable: *mut u32, pulCurrentButton: *mut u32) -> HRESULT;
+            fn GetCurrentAngle(&self, pulAnglesAvailable: *mut u32, pulCurrentAngle: *mut u32) -> HRESULT;
+            fn GetCurrentAudio(&self, pulStreamsAvailable: *mut u32, pulCurrentStream: *mut u32) -> HRESULT;
+            fn GetCurrentSubpicture(&self, pulStreamsAvailable: *mut u32, pulCurrentStream: *mut u32, pbIsDisabled: *mut BOOL) -> HRESULT;
+            fn GetCurrentUOPS(&self, pulUOPs: *mut u32) -> HRESULT;
+            fn GetAllSPRMs(&self, pRegisterArray: *mut SPRMARRAY) -> HRESULT;
+            fn GetAllGPRMs(&self, pRegisterArray: *mut GPRMARRAY) -> HRESULT;
+            fn GetAudioLanguage(&self, ulStream: u32, pLanguage: *mut LCID) -> HRESULT;
+            fn GetSubpictureLanguage(&self, ulStream: u32, pLanguage: *mut LCID) -> HRESULT;
+            fn GetTitleAttributes(&self, ulTitle: u32, pMenu: *mut DVD_MenuAttributes, pTitle: *mut DVD_TitleAttributes) -> HRESULT;
+            fn GetVMGAttributes(&self, pATR: *mut DVD_MenuAttributes) -> HRESULT;
+            fn GetCurrentVideoAttributes(&self, pATR: *mut DVD_VideoAttributes) -> HRESULT;
+            fn GetAudioAttributes(&self, ulStream: u32, pATR: *mut DVD_AudioAttributes) -> HRESULT;
+            fn GetKaraokeAttributes(&self, ulStream: u32, pAttributes: *mut DVD_KaraokeAttributes) -> HRESULT;
+            fn GetSubpictureAttributes(&self, ulStream: u32, pATR: *mut DVD_SubpictureAttributes) -> HRESULT;
+            fn GetDVDVolumeInfo(&self, pulNumOfVolumes: *mut u32, pulVolume: *mut u32, pSide: *mut DVD_DISC_SIDE, pulNumOfTitles: *mut u32) -> HRESULT;
+            fn GetDVDTextNumberOfLanguages(&self, pulNumOfLangs: *mut u32) -> HRESULT;
+            fn GetDVDTextLanguageInfo(&self, ulLangIndex: u32, pulNumOfStrings: *mut u32, pLangCode: *mut LCID, pbCharacterSet: *mut DVD_TextCharSet) -> HRESULT;
+            fn GetDVDTextStringAsNative(&self, ulLangIndex: u32, ulStringIndex: u32, pbBuffer: *mut u8, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
+            fn GetDVDTextStringAsUnicode(&self, ulLangIndex: u32, ulStringIndex: u32, pchwBuffer: *mut u16, ulMaxBufferSize: u32, pulActualSize: *mut u32, pType: *mut DVD_TextStringType) -> HRESULT;
+            fn GetPlayerParentalLevel(&self, pulParentalLevel: *mut u32, #[out] pbCountryCode: [u8; 2]) -> HRESULT;
+            fn GetNumberOfChapters(&self, ulTitle: u32, pulNumOfChapters: *mut u32) -> HRESULT;
+            fn GetTitleParentalLevels(&self, ulTitle: u32, pulParentalLevels: *mut u32) -> HRESULT;
+            fn GetDVDDirectory(&self, #[len_param(1)] #[out] pszwPath: PWSTR, ulMaxSize: u32, pulActualSize: *mut u32) -> HRESULT;
+            fn IsAudioStreamEnabled(&self, ulStreamNum: u32, pbEnabled: *mut BOOL) -> HRESULT;
+            fn GetDiscID(&self, pszwPath: PCWSTR, pullDiscID: *mut u64) -> HRESULT;
+            fn GetState(&self, pStateData: *mut IDvdState) -> HRESULT;
+            fn GetMenuLanguages(&self, pLanguages: *mut LCID, ulMaxLanguages: u32, pulActualLanguages: *mut u32) -> HRESULT;
+            fn GetButtonAtPosition(&self, point: POINT, pulButtonIndex: *mut u32) -> HRESULT;
+            fn GetCmdFromEvent(&self, lParam1: isize, pCmdObj: *mut IDvdCmd) -> HRESULT;
+            fn GetDefaultMenuLanguage(&self, pLanguage: *mut LCID) -> HRESULT;
+            fn GetDefaultAudioLanguage(&self, pLanguage: *mut LCID, pAudioExtension: *mut DVD_AUDIO_LANG_EXT) -> HRESULT;
+            fn GetDefaultSubpictureLanguage(&self, pLanguage: *mut LCID, pSubpictureExtension: *mut DVD_SUBPICTURE_LANG_EXT) -> HRESULT;
+            fn GetDecoderCaps(&self, pCaps: *mut DVD_DECODER_CAPS) -> HRESULT;
+            fn GetButtonRect(&self, ulButton: u32, pRect: *mut RECT) -> HRESULT;
+            fn IsSubpictureStreamEnabled(&self, ulStreamNum: u32, pbEnabled: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x86303d6d_1c4a_4087_ab42_f711167048ef)]
+        interface IDvdState: IUnknown {
+            fn GetDiscID(&self, pullUniqueID: *mut u64) -> HRESULT;
+            fn GetParentalLevel(&self, pulParentalLevel: *mut u32) -> HRESULT;
+        }
+        #[guid(0x70423839_6acc_4b23_b079_21dbf08156a5)]
+        interface IEncoderAPI: IUnknown {
+            fn IsSupported(&self, Api: *const GUID) -> HRESULT;
+            fn IsAvailable(&self, Api: *const GUID) -> HRESULT;
+            fn GetParameterRange(&self, Api: *const GUID, ValueMin: *mut VARIANT, ValueMax: *mut VARIANT, SteppingDelta: *mut VARIANT) -> HRESULT;
+            fn GetParameterValues(&self, Api: *const GUID, Values: *mut *mut VARIANT, ValuesCount: *mut u32) -> HRESULT;
+            fn GetDefaultValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
+            fn GetValue(&self, Api: *const GUID, Value: *mut VARIANT) -> HRESULT;
+            fn SetValue(&self, Api: *const GUID, Value: *const VARIANT) -> HRESULT;
+        }
+        #[guid(0x56a86893_0ad4_11ce_b03a_0020af0ba770)]
+        interface IEnumFilters: IUnknown {
+            fn Next(&self, cFilters: u32, #[len_param(0)] ppFilter: *mut IBaseFilter, #[opt] pcFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cFilters: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumFilters) -> HRESULT;
+        }
+        #[guid(0x89c31040_846b_11ce_97d3_00aa0055595a)]
+        interface IEnumMediaTypes: IUnknown {
+            fn Next(&self, cMediaTypes: u32, #[len_param(0)] ppMediaTypes: *mut *mut AM_MEDIA_TYPE, #[opt] pcFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cMediaTypes: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumMediaTypes) -> HRESULT;
+        }
+        #[guid(0x56a86892_0ad4_11ce_b03a_0020af0ba770)]
+        interface IEnumPins: IUnknown {
+            fn Next(&self, cPins: u32, #[len_param(0)] ppPins: *mut IPin, #[opt] pcFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cPins: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumPins) -> HRESULT;
+        }
+        #[guid(0x56a868a4_0ad4_11ce_b03a_0020af0ba770)]
+        interface IEnumRegFilters: IUnknown {
+            fn Next(&self, cFilters: u32, #[len_param(0)] apRegFilter: *mut *mut REGFILTER, #[in] #[out] #[opt] pcFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, cFilters: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumRegFilters) -> HRESULT;
+        }
+        #[guid(0x945c1566_6202_46fc_96c7_d87f289c6534)]
+        interface IEnumStreamIdMap: IUnknown {
+            fn Next(&self, cRequest: u32, #[len_param(0)] pStreamIdMap: *mut STREAM_ID_MAP, #[opt] pcReceived: *mut u32) -> HRESULT;
+            fn Skip(&self, cRecords: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnumStreamIdMap: *mut IEnumStreamIdMap) -> HRESULT;
+        }
+        #[guid(0xa2104830_7c70_11cf_8bce_00aa00a3f1a6)]
+        interface IFileSinkFilter: IUnknown {
+            fn SetFileName(&self, pszFileName: PCWSTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn GetCurFile(&self, ppszFileName: *mut PWSTR, pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+        }
+        #[guid(0x00855b90_ce1b_11d0_bd4f_00a0c911ce86)]
+        interface IFileSinkFilter2: IFileSinkFilter {
+            fn SetMode(&self, dwFlags: u32) -> HRESULT;
+            fn GetMode(&self, pdwFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x56a868a6_0ad4_11ce_b03a_0020af0ba770)]
+        interface IFileSourceFilter: IUnknown {
+            fn Load(&self, pszFileName: PCWSTR, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn GetCurFile(&self, ppszFileName: *mut PWSTR, #[opt] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+        }
+        #[guid(0xdcfbdcf6_0dc2_45f5_9ab2_7c330ea09c29)]
+        interface IFilterChain: IUnknown {
+            fn StartChain(&self, pStartFilter: IBaseFilter, pEndFilter: IBaseFilter) -> HRESULT;
+            fn PauseChain(&self, pStartFilter: IBaseFilter, pEndFilter: IBaseFilter) -> HRESULT;
+            fn StopChain(&self, pStartFilter: IBaseFilter, pEndFilter: IBaseFilter) -> HRESULT;
+            fn RemoveChain(&self, pStartFilter: IBaseFilter, pEndFilter: IBaseFilter) -> HRESULT;
+        }
+        #[guid(0x56a8689f_0ad4_11ce_b03a_0020af0ba770)]
+        interface IFilterGraph: IUnknown {
+            fn AddFilter(&self, pFilter: IBaseFilter, pName: PCWSTR) -> HRESULT;
+            fn RemoveFilter(&self, pFilter: IBaseFilter) -> HRESULT;
+            fn EnumFilters(&self, ppEnum: *mut IEnumFilters) -> HRESULT;
+            fn FindFilterByName(&self, pName: PCWSTR, ppFilter: *mut IBaseFilter) -> HRESULT;
+            fn ConnectDirect(&self, ppinOut: IPin, ppinIn: IPin, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn Reconnect(&self, ppin: IPin) -> HRESULT;
+            fn Disconnect(&self, ppin: IPin) -> HRESULT;
+            fn SetDefaultSyncSource(&self) -> HRESULT;
+        }
+        #[guid(0x36b73882_c2c8_11cf_8b46_00805f6cef60)]
+        interface IFilterGraph2: IGraphBuilder {
+            fn AddSourceFilterForMoniker(&self, pMoniker: IMoniker, pCtx: IBindCtx, lpcwstrFilterName: PCWSTR, ppFilter: *mut IBaseFilter) -> HRESULT;
+            fn ReconnectEx(&self, ppin: IPin, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn RenderEx(&self, pPinOut: IPin, dwFlags: u32, #[reserved] pvContext: *const u32) -> HRESULT;
+        }
+        #[guid(0xaaf38154_b80b_422f_91e6_b66467509a07)]
+        interface IFilterGraph3: IFilterGraph2 {
+            fn SetSyncSourceEx(&self, pClockForMostOfFilterGraph: IReferenceClock, pClockForFilter: IReferenceClock, pFilter: IBaseFilter) -> HRESULT;
+        }
+        #[guid(0x56a868a3_0ad4_11ce_b03a_0020af0ba770)]
+        interface IFilterMapper: IUnknown {
+            fn RegisterFilter(&self, clsid: GUID, Name: PCWSTR, dwMerit: u32) -> HRESULT;
+            fn RegisterFilterInstance(&self, clsid: GUID, Name: PCWSTR, MRId: *mut GUID) -> HRESULT;
+            fn RegisterPin(&self, Filter: GUID, Name: PCWSTR, bRendered: BOOL, bOutput: BOOL, bZero: BOOL, bMany: BOOL, ConnectsToFilter: GUID, ConnectsToPin: PCWSTR) -> HRESULT;
+            fn RegisterPinType(&self, clsFilter: GUID, strName: PCWSTR, clsMajorType: GUID, clsSubType: GUID) -> HRESULT;
+            fn UnregisterFilter(&self, Filter: GUID) -> HRESULT;
+            fn UnregisterFilterInstance(&self, MRId: GUID) -> HRESULT;
+            fn UnregisterPin(&self, Filter: GUID, Name: PCWSTR) -> HRESULT;
+            fn EnumMatchingFilters(&self, ppEnum: *mut IEnumRegFilters, dwMerit: u32, bInputNeeded: BOOL, clsInMaj: GUID, clsInSub: GUID, bRender: BOOL, bOututNeeded: BOOL, clsOutMaj: GUID, clsOutSub: GUID) -> HRESULT;
+        }
+        #[guid(0xb79bb0b0_33c1_11d1_abe1_00a0c905f375)]
+        interface IFilterMapper2: IUnknown {
+            fn CreateCategory(&self, clsidCategory: *const GUID, dwCategoryMerit: u32, Description: PCWSTR) -> HRESULT;
+            fn UnregisterFilter(&self, pclsidCategory: *const GUID, szInstance: PCWSTR, Filter: *const GUID) -> HRESULT;
+            fn RegisterFilter(&self, clsidFilter: *const GUID, Name: PCWSTR, #[in] #[out] #[opt] ppMoniker: *mut IMoniker, pclsidCategory: *const GUID, szInstance: PCWSTR, prf2: *const REGFILTER2) -> HRESULT;
+            fn EnumMatchingFilters(&self, ppEnum: *mut IEnumMoniker, dwFlags: u32, bExactMatch: BOOL, dwMerit: u32, bInputNeeded: BOOL, cInputTypes: u32, #[opt] pInputTypes: *const GUID, #[opt] pMedIn: *const REGPINMEDIUM, #[opt] pPinCategoryIn: *const GUID, bRender: BOOL, bOutputNeeded: BOOL, cOutputTypes: u32, #[opt] pOutputTypes: *const GUID, #[opt] pMedOut: *const REGPINMEDIUM, #[opt] pPinCategoryOut: *const GUID) -> HRESULT;
+        }
+        #[guid(0xb79bb0b1_33c1_11d1_abe1_00a0c905f375)]
+        interface IFilterMapper3: IFilterMapper2 {
+            fn GetICreateDevEnum(&self, ppEnum: *mut ICreateDevEnum) -> HRESULT;
+        }
+        #[guid(0xa8809222_07bb_48ea_951c_33158100625b)]
+        interface IGetCapabilitiesKey: IUnknown {
+            fn GetCapabilitiesKey(&self, pHKey: *mut HKEY) -> HRESULT;
+        }
+        #[guid(0x56a868a9_0ad4_11ce_b03a_0020af0ba770)]
+        interface IGraphBuilder: IFilterGraph {
+            fn Connect(&self, ppinOut: IPin, ppinIn: IPin) -> HRESULT;
+            fn Render(&self, ppinOut: IPin) -> HRESULT;
+            fn RenderFile(&self, lpcwstrFile: PCWSTR, #[opt] lpcwstrPlayList: PCWSTR) -> HRESULT;
+            fn AddSourceFilter(&self, lpcwstrFileName: PCWSTR, #[opt] lpcwstrFilterName: PCWSTR, ppFilter: *mut IBaseFilter) -> HRESULT;
+            fn SetLogFile(&self, hFile: usize) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+            fn ShouldOperationContinue(&self) -> HRESULT;
+        }
+        #[guid(0x03a1eb8e_32bf_4245_8502_114d08a9cb88)]
+        interface IGraphConfig: IUnknown {
+            fn Reconnect(&self, pOutputPin: IPin, pInputPin: IPin, pmtFirstConnection: *const AM_MEDIA_TYPE, pUsingFilter: IBaseFilter, hAbortEvent: HANDLE, dwFlags: u32) -> HRESULT;
+            fn Reconfigure(&self, pCallback: IGraphConfigCallback, pvContext: *const void, dwFlags: u32, hAbortEvent: HANDLE) -> HRESULT;
+            fn AddFilterToCache(&self, pFilter: IBaseFilter) -> HRESULT;
+            fn EnumCacheFilter(&self, pEnum: *mut IEnumFilters) -> HRESULT;
+            fn RemoveFilterFromCache(&self, pFilter: IBaseFilter) -> HRESULT;
+            fn GetStartTime(&self, prtStart: *mut REFERENCE_TIME) -> HRESULT;
+            fn PushThroughData(&self, pOutputPin: IPin, pConnection: IPinConnection, hEventAbort: HANDLE) -> HRESULT;
+            fn SetFilterFlags(&self, pFilter: IBaseFilter, dwFlags: u32) -> HRESULT;
+            fn GetFilterFlags(&self, pFilter: IBaseFilter, pdwFlags: *mut u32) -> HRESULT;
+            fn RemoveFilterEx(&self, pFilter: IBaseFilter, Flags: u32) -> HRESULT;
+        }
+        #[guid(0xade0fd60_d19d_11d2_abf6_00a0c905f375)]
+        interface IGraphConfigCallback: IUnknown {
+            fn Reconfigure(&self, pvContext: *mut void, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x56a868ab_0ad4_11ce_b03a_0020af0ba770)]
+        interface IGraphVersion: IUnknown {
+            fn QueryVersion(&self, pVersion: *mut i32) -> HRESULT;
+        }
+        #[guid(0xb8e8bd60_0bfe_11d0_af91_00aa00b67a42)]
+        interface IIPDVDec: IUnknown {
+            fn get_IPDisplay(&self, displayPix: *mut i32) -> HRESULT;
+            fn put_IPDisplay(&self, displayPix: i32) -> HRESULT;
+        }
+        #[guid(0xd0e04c47_25b8_4369_925a_362a01d95444)]
+        interface IMPEG2StreamIdMap: IUnknown {
+            fn MapStreamId(&self, ulStreamId: u32, MediaSampleContent: u32, ulSubstreamFilterValue: u32, iDataOffset: i32) -> HRESULT;
+            fn UnmapStreamId(&self, culStreamId: u32, #[len_param(0)] pulStreamId: *const u32) -> HRESULT;
+            fn EnumStreamIdMap(&self, ppIEnumStreamIdMap: *mut IEnumStreamIdMap) -> HRESULT;
+        }
+        #[guid(0x56a868a2_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaEventSink: IUnknown {
+            fn Notify(&self, EventCode: i32, EventParam1: isize, EventParam2: isize) -> HRESULT;
+        }
+        #[guid(0x56a86899_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaFilter: IPersist {
+            fn Stop(&self) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Run(&self, tStart: REFERENCE_TIME) -> HRESULT;
+            fn GetState(&self, dwMilliSecsTimeout: u32, State: *mut FILTER_STATE) -> HRESULT;
+            fn SetSyncSource(&self, #[opt] pClock: IReferenceClock) -> HRESULT;
+            fn GetSyncSource(&self, pClock: *mut IReferenceClock) -> HRESULT;
+        }
+        #[guid(0x6025a880_c0d5_11d0_bd4e_00a0c911ce86)]
+        interface IMediaPropertyBag: IPropertyBag {
+            fn EnumProperty(&self, iProperty: u32, #[in] #[out] pvarPropertyName: *mut VARIANT, #[in] #[out] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x56a8689a_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMediaSample: IUnknown {
+            fn GetPointer(&self, ppBuffer: *mut *mut u8) -> HRESULT;
+            fn GetSize(&self) -> i32;
+            fn GetTime(&self, pTimeStart: *mut REFERENCE_TIME, pTimeEnd: *mut REFERENCE_TIME) -> HRESULT;
+            fn SetTime(&self, #[opt] pTimeStart: *const REFERENCE_TIME, #[opt] pTimeEnd: *const REFERENCE_TIME) -> HRESULT;
+            fn IsSyncPoint(&self) -> HRESULT;
+            fn SetSyncPoint(&self, bIsSyncPoint: BOOL) -> HRESULT;
+            fn IsPreroll(&self) -> HRESULT;
+            fn SetPreroll(&self, bIsPreroll: BOOL) -> HRESULT;
+            fn GetActualDataLength(&self) -> i32;
+            fn SetActualDataLength(&self, param0: i32) -> HRESULT;
+            fn GetMediaType(&self, ppMediaType: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn SetMediaType(&self, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn IsDiscontinuity(&self) -> HRESULT;
+            fn SetDiscontinuity(&self, bDiscontinuity: BOOL) -> HRESULT;
+            fn GetMediaTime(&self, pTimeStart: *mut i64, pTimeEnd: *mut i64) -> HRESULT;
+            fn SetMediaTime(&self, #[opt] pTimeStart: *const i64, #[opt] pTimeEnd: *const i64) -> HRESULT;
+        }
+        #[guid(0x36b73884_c2c8_11cf_8b46_00805f6cef60)]
+        interface IMediaSample2: IMediaSample {
+            fn GetProperties(&self, cbProperties: u32, #[size_param(0)] pbProperties: *mut u8) -> HRESULT;
+            fn SetProperties(&self, cbProperties: u32, #[size_param(0)] pbProperties: *const u8) -> HRESULT;
+        }
+        #[guid(0x68961e68_832b_41ea_bc91_63593f3e70e3)]
+        interface IMediaSample2Config: IUnknown {
+            fn GetSurface(&self, ppDirect3DSurface9: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x36b73880_c2c8_11cf_8b46_00805f6cef60)]
+        interface IMediaSeeking: IUnknown {
+            fn GetCapabilities(&self, pCapabilities: *mut u32) -> HRESULT;
+            fn CheckCapabilities(&self, #[in] #[out] pCapabilities: *mut u32) -> HRESULT;
+            fn IsFormatSupported(&self, pFormat: *const GUID) -> HRESULT;
+            fn QueryPreferredFormat(&self, pFormat: *mut GUID) -> HRESULT;
+            fn GetTimeFormat(&self, pFormat: *mut GUID) -> HRESULT;
+            fn IsUsingTimeFormat(&self, pFormat: *const GUID) -> HRESULT;
+            fn SetTimeFormat(&self, pFormat: *const GUID) -> HRESULT;
+            fn GetDuration(&self, pDuration: *mut i64) -> HRESULT;
+            fn GetStopPosition(&self, pStop: *mut i64) -> HRESULT;
+            fn GetCurrentPosition(&self, pCurrent: *mut i64) -> HRESULT;
+            fn ConvertTimeFormat(&self, pTarget: *mut i64, #[opt] pTargetFormat: *const GUID, Source: i64, #[opt] pSourceFormat: *const GUID) -> HRESULT;
+            fn SetPositions(&self, #[in] #[out] #[opt] pCurrent: *mut i64, dwCurrentFlags: u32, #[in] #[out] #[opt] pStop: *mut i64, dwStopFlags: u32) -> HRESULT;
+            fn GetPositions(&self, #[opt] pCurrent: *mut i64, #[opt] pStop: *mut i64) -> HRESULT;
+            fn GetAvailable(&self, #[opt] pEarliest: *mut i64, #[opt] pLatest: *mut i64) -> HRESULT;
+            fn SetRate(&self, dRate: f64) -> HRESULT;
+            fn GetRate(&self, pdRate: *mut f64) -> HRESULT;
+            fn GetPreroll(&self, pllPreroll: *mut i64) -> HRESULT;
+        }
+        #[guid(0x56a8689c_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMemAllocator: IUnknown {
+            fn SetProperties(&self, pRequest: *const ALLOCATOR_PROPERTIES, pActual: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
+            fn GetProperties(&self, pProps: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn Decommit(&self) -> HRESULT;
+            fn GetBuffer(&self, ppBuffer: *mut IMediaSample, #[opt] pStartTime: *const REFERENCE_TIME, #[opt] pEndTime: *const REFERENCE_TIME, dwFlags: u32) -> HRESULT;
+            fn ReleaseBuffer(&self, pBuffer: IMediaSample) -> HRESULT;
+        }
+        #[guid(0x379a0cf0_c1de_11d2_abf5_00a0c905f375)]
+        interface IMemAllocatorCallbackTemp: IMemAllocator {
+            fn SetNotify(&self, pNotify: IMemAllocatorNotifyCallbackTemp) -> HRESULT;
+            fn GetFreeCount(&self, plBuffersFree: *mut i32) -> HRESULT;
+        }
+        #[guid(0x92980b30_c1de_11d2_abf5_00a0c905f375)]
+        interface IMemAllocatorNotifyCallbackTemp: IUnknown {
+            fn NotifyRelease(&self) -> HRESULT;
+        }
+        #[guid(0x56a8689d_0ad4_11ce_b03a_0020af0ba770)]
+        interface IMemInputPin: IUnknown {
+            fn GetAllocator(&self, ppAllocator: *mut IMemAllocator) -> HRESULT;
+            fn NotifyAllocator(&self, pAllocator: IMemAllocator, bReadOnly: BOOL) -> HRESULT;
+            fn GetAllocatorRequirements(&self, pProps: *mut ALLOCATOR_PROPERTIES) -> HRESULT;
+            fn Receive(&self, pSample: IMediaSample) -> HRESULT;
+            fn ReceiveMultiple(&self, #[len_param(1)] pSamples: *const IMediaSample, nSamples: i32, nSamplesProcessed: *mut i32) -> HRESULT;
+            fn ReceiveCanBlock(&self) -> HRESULT;
+        }
+        #[guid(0x436eee9c_264f_4242_90e1_4e330c107512)]
+        interface IMpeg2Demultiplexer: IUnknown {
+            fn CreateOutputPin(&self, pMediaType: *const AM_MEDIA_TYPE, pszPinName: PCWSTR, ppIPin: *mut IPin) -> HRESULT;
+            fn SetOutputPinMediaType(&self, pszPinName: PCWSTR, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn DeleteOutputPin(&self, pszPinName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x56a868a1_0ad4_11ce_b03a_0020af0ba770)]
+        interface IOverlay: IUnknown {
+            fn GetPalette(&self, #[in] #[out] pdwColors: *mut u32, ppPalette: *mut *mut PALETTEENTRY) -> HRESULT;
+            fn SetPalette(&self, dwColors: u32, #[len_param(0)] pPalette: *const PALETTEENTRY) -> HRESULT;
+            fn GetDefaultColorKey(&self, pColorKey: *mut COLORKEY) -> HRESULT;
+            fn GetColorKey(&self, pColorKey: *mut COLORKEY) -> HRESULT;
+            fn SetColorKey(&self, #[in] #[out] pColorKey: *mut COLORKEY) -> HRESULT;
+            fn GetWindowHandle(&self, pHwnd: *mut HWND) -> HRESULT;
+            fn GetClipList(&self, pSourceRect: *mut RECT, pDestinationRect: *mut RECT, ppRgnData: *mut *mut RGNDATA) -> HRESULT;
+            fn GetVideoPosition(&self, pSourceRect: *mut RECT, pDestinationRect: *mut RECT) -> HRESULT;
+            fn Advise(&self, pOverlayNotify: IOverlayNotify, dwInterests: u32) -> HRESULT;
+            fn Unadvise(&self) -> HRESULT;
+        }
+        #[guid(0x56a868a0_0ad4_11ce_b03a_0020af0ba770)]
+        interface IOverlayNotify: IUnknown {
+            fn OnPaletteChange(&self, dwColors: u32, pPalette: *const PALETTEENTRY) -> HRESULT;
+            fn OnClipChange(&self, pSourceRect: *const RECT, pDestinationRect: *const RECT, pRgnData: *const RGNDATA) -> HRESULT;
+            fn OnColorKeyChange(&self, pColorKey: *const COLORKEY) -> HRESULT;
+            fn OnPositionChange(&self, pSourceRect: *const RECT, pDestinationRect: *const RECT) -> HRESULT;
+        }
+        #[guid(0x680efa10_d535_11d1_87c8_00a0c9223196)]
+        interface IOverlayNotify2: IOverlayNotify {
+            fn OnDisplayChange(&self, hMonitor: HMONITOR) -> HRESULT;
+        }
+        #[guid(0x5738e040_b67f_11d0_bd4d_00a0c911ce86)]
+        interface IPersistMediaPropertyBag: IPersist {
+            fn InitNew(&self) -> HRESULT;
+            fn Load(&self, pPropBag: IMediaPropertyBag, pErrorLog: IErrorLog) -> HRESULT;
+            fn Save(&self, pPropBag: IMediaPropertyBag, fClearDirty: BOOL, fSaveAllProperties: BOOL) -> HRESULT;
+        }
+        #[guid(0x56a86891_0ad4_11ce_b03a_0020af0ba770)]
+        interface IPin: IUnknown {
+            fn Connect(&self, pReceivePin: IPin, #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn ReceiveConnection(&self, pConnector: IPin, pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn ConnectedTo(&self, pPin: *mut IPin) -> HRESULT;
+            fn ConnectionMediaType(&self, pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn QueryPinInfo(&self, pInfo: *mut PIN_INFO) -> HRESULT;
+            fn QueryDirection(&self, pPinDir: *mut PIN_DIRECTION) -> HRESULT;
+            fn QueryId(&self, Id: *mut PWSTR) -> HRESULT;
+            fn QueryAccept(&self, pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn EnumMediaTypes(&self, ppEnum: *mut IEnumMediaTypes) -> HRESULT;
+            fn QueryInternalConnections(&self, #[len_param(1)] #[opt] apPin: *mut IPin, #[in] #[out] nPin: *mut u32) -> HRESULT;
+            fn EndOfStream(&self) -> HRESULT;
+            fn BeginFlush(&self) -> HRESULT;
+            fn EndFlush(&self) -> HRESULT;
+            fn NewSegment(&self, tStart: REFERENCE_TIME, tStop: REFERENCE_TIME, dRate: f64) -> HRESULT;
+        }
+        #[guid(0x4a9a62d3_27d4_403d_91e9_89f540e55534)]
+        interface IPinConnection: IUnknown {
+            fn DynamicQueryAccept(&self, pmt: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn NotifyEndOfStream(&self, hNotifyEvent: HANDLE) -> HRESULT;
+            fn IsEndPin(&self) -> HRESULT;
+            fn DynamicDisconnect(&self) -> HRESULT;
+        }
+        #[guid(0xc56e9858_dbf3_4f6b_8119_384af2060deb)]
+        interface IPinFlowControl: IUnknown {
+            fn Block(&self, dwBlockFlags: u32, hEvent: HANDLE) -> HRESULT;
+        }
+        #[guid(0x56a868a5_0ad4_11ce_b03a_0020af0ba770)]
+        interface IQualityControl: IUnknown {
+            fn Notify(&self, pSelf: IBaseFilter, q: Quality) -> HRESULT;
+            fn SetSink(&self, piqc: IQualityControl) -> HRESULT;
+        }
+        #[guid(0x36b73885_c2c8_11cf_8b46_00805f6cef60)]
+        interface IReferenceClock2: IReferenceClock {}
+        #[guid(0xebec459c_2eca_4d42_a8af_30df557614b8)]
+        interface IReferenceClockTimerControl: IUnknown {
+            fn SetDefaultTimerResolution(&self, timerResolution: REFERENCE_TIME) -> HRESULT;
+            fn GetDefaultTimerResolution(&self, pTimerResolution: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x7b3a2f01_0751_48dd_b556_004785171c54)]
+        interface IRegisterServiceProvider: IUnknown {
+            fn RegisterService(&self, guidService: *const GUID, pUnkObject: IUnknown) -> HRESULT;
+        }
+        #[guid(0x56a868ad_0ad4_11ce_b03a_0020af0ba770)]
+        interface IResourceConsumer: IUnknown {
+            fn AcquireResource(&self, idResource: i32) -> HRESULT;
+            fn ReleaseResource(&self, idResource: i32) -> HRESULT;
+        }
+        #[guid(0x56a868ac_0ad4_11ce_b03a_0020af0ba770)]
+        interface IResourceManager: IUnknown {
+            fn Register(&self, pName: PCWSTR, cResource: i32, plToken: *mut i32) -> HRESULT;
+            fn RegisterGroup(&self, pName: PCWSTR, cResource: i32, #[len_param(1)] palTokens: *const i32, plToken: *mut i32) -> HRESULT;
+            fn RequestResource(&self, idResource: i32, pFocusObject: IUnknown, pConsumer: IResourceConsumer) -> HRESULT;
+            fn NotifyAcquire(&self, idResource: i32, pConsumer: IResourceConsumer, hr: HRESULT) -> HRESULT;
+            fn NotifyRelease(&self, idResource: i32, pConsumer: IResourceConsumer, bStillWant: BOOL) -> HRESULT;
+            fn CancelRequest(&self, idResource: i32, pConsumer: IResourceConsumer) -> HRESULT;
+            fn SetFocus(&self, pFocusObject: IUnknown) -> HRESULT;
+            fn ReleaseFocus(&self, pFocusObject: IUnknown) -> HRESULT;
+        }
+        #[guid(0x36b73883_c2c8_11cf_8b46_00805f6cef60)]
+        interface ISeekingPassThru: IUnknown {
+            fn Init(&self, bSupportRendering: BOOL, pPin: IPin) -> HRESULT;
+        }
+        #[guid(0x56a868bf_0ad4_11ce_b03a_0020af0ba770)]
+        interface IStreamBuilder: IUnknown {
+            fn Render(&self, ppinOut: IPin, pGraph: IGraphBuilder) -> HRESULT;
+            fn Backout(&self, ppinOut: IPin, pGraph: IGraphBuilder) -> HRESULT;
+        }
+        #[guid(0xede80b5c_bad6_4623_b537_65586c9f8dfd)]
+        interface IVMRAspectRatioControl: IUnknown {
+            fn GetAspectRatioMode(&self, lpdwARMode: *mut u32) -> HRESULT;
+            fn SetAspectRatioMode(&self, dwARMode: u32) -> HRESULT;
+        }
+        #[guid(0xbb057577_0db8_4e6a_87a7_1a8c9a505a0f)]
+        interface IVMRDeinterlaceControl: IUnknown {
+            fn GetNumberOfDeinterlaceModes(&self, lpVideoDescription: *const VMRVideoDesc, #[in] #[out] lpdwNumDeinterlaceModes: *mut u32, lpDeinterlaceModes: *mut GUID) -> HRESULT;
+            fn GetDeinterlaceModeCaps(&self, lpDeinterlaceMode: *const GUID, lpVideoDescription: *const VMRVideoDesc, #[in] #[out] lpDeinterlaceCaps: *mut VMRDeinterlaceCaps) -> HRESULT;
+            fn GetDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *mut GUID) -> HRESULT;
+            fn SetDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *const GUID) -> HRESULT;
+            fn GetDeinterlacePrefs(&self, lpdwDeinterlacePrefs: *mut u32) -> HRESULT;
+            fn SetDeinterlacePrefs(&self, dwDeinterlacePrefs: u32) -> HRESULT;
+            fn GetActualDeinterlaceMode(&self, dwStreamID: u32, lpDeinterlaceMode: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x9e5530c5_7034_48b4_bb46_0b8a6efc8e36)]
+        interface IVMRFilterConfig: IUnknown {
+            fn SetImageCompositor(&self, lpVMRImgCompositor: IVMRImageCompositor) -> HRESULT;
+            fn SetNumberOfStreams(&self, dwMaxStreams: u32) -> HRESULT;
+            fn GetNumberOfStreams(&self, pdwMaxStreams: *mut u32) -> HRESULT;
+            fn SetRenderingPrefs(&self, dwRenderFlags: u32) -> HRESULT;
+            fn GetRenderingPrefs(&self, pdwRenderFlags: *mut u32) -> HRESULT;
+            fn SetRenderingMode(&self, Mode: u32) -> HRESULT;
+            fn GetRenderingMode(&self, pMode: *mut u32) -> HRESULT;
+        }
+        #[guid(0x7a4fb5af_479f_4074_bb40_ce6722e43c82)]
+        interface IVMRImageCompositor: IUnknown {
+            fn InitCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7) -> HRESULT;
+            fn TermCompositionTarget(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7) -> HRESULT;
+            fn SetStreamMediaType(&self, dwStrmID: u32, pmt: *const AM_MEDIA_TYPE, fTexture: BOOL) -> HRESULT;
+            fn CompositeImage(&self, pD3DDevice: IUnknown, pddsRenderTarget: IDirectDrawSurface7, pmtRenderTarget: *const AM_MEDIA_TYPE, rtStart: REFERENCE_TIME, rtEnd: REFERENCE_TIME, dwClrBkGnd: u32, pVideoStreamInfo: *const VMRVIDEOSTREAMINFO, cStreams: u32) -> HRESULT;
+        }
+        #[guid(0xce704fe7_e71e_41fb_baa2_c4403e1182f5)]
+        interface IVMRImagePresenter: IUnknown {
+            fn StartPresenting(&self, dwUserID: usize) -> HRESULT;
+            fn StopPresenting(&self, dwUserID: usize) -> HRESULT;
+            fn PresentImage(&self, dwUserID: usize, lpPresInfo: *const VMRPRESENTATIONINFO) -> HRESULT;
+        }
+        #[guid(0x9f3a1c85_8555_49ba_935f_be5b5b29d178)]
+        interface IVMRImagePresenterConfig: IUnknown {
+            fn SetRenderingPrefs(&self, dwRenderFlags: u32) -> HRESULT;
+            fn GetRenderingPrefs(&self, dwRenderFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0xe6f7ce40_4673_44f1_8f77_5499d68cb4ea)]
+        interface IVMRImagePresenterExclModeConfig: IVMRImagePresenterConfig {
+            fn SetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: IDirectDraw7, lpPrimarySurf: IDirectDrawSurface7) -> HRESULT;
+            fn GetXlcModeDDObjAndPrimarySurface(&self, lpDDObj: *mut IDirectDraw7, lpPrimarySurf: *mut IDirectDrawSurface7) -> HRESULT;
+        }
+        #[guid(0x1e673275_0257_40aa_af20_7c608d4a0428)]
+        interface IVMRMixerBitmap: IUnknown {
+            fn SetAlphaBitmap(&self, pBmpParms: *const VMRALPHABITMAP) -> HRESULT;
+            fn UpdateAlphaBitmapParameters(&self, pBmpParms: *const VMRALPHABITMAP) -> HRESULT;
+            fn GetAlphaBitmapParameters(&self, pBmpParms: *mut VMRALPHABITMAP) -> HRESULT;
+        }
+        #[guid(0x1c1a17b0_bed0_415d_974b_dc6696131599)]
+        interface IVMRMixerControl: IUnknown {
+            fn SetAlpha(&self, dwStreamID: u32, Alpha: f32) -> HRESULT;
+            fn GetAlpha(&self, dwStreamID: u32, pAlpha: *mut f32) -> HRESULT;
+            fn SetZOrder(&self, dwStreamID: u32, dwZ: u32) -> HRESULT;
+            fn GetZOrder(&self, dwStreamID: u32, pZ: *mut u32) -> HRESULT;
+            fn SetOutputRect(&self, dwStreamID: u32, pRect: *const NORMALIZEDRECT) -> HRESULT;
+            fn GetOutputRect(&self, dwStreamID: u32, pRect: *mut NORMALIZEDRECT) -> HRESULT;
+            fn SetBackgroundClr(&self, ClrBkg: COLORREF) -> HRESULT;
+            fn GetBackgroundClr(&self, lpClrBkg: *const COLORREF) -> HRESULT;
+            fn SetMixingPrefs(&self, dwMixerPrefs: u32) -> HRESULT;
+            fn GetMixingPrefs(&self, pdwMixerPrefs: *mut u32) -> HRESULT;
+        }
+        #[guid(0x9cf0b1b6_fbaa_4b7f_88cf_cf1f130a0dce)]
+        interface IVMRMonitorConfig: IUnknown {
+            fn SetMonitor(&self, pGUID: *const VMRGUID) -> HRESULT;
+            fn GetMonitor(&self, pGUID: *mut VMRGUID) -> HRESULT;
+            fn SetDefaultMonitor(&self, pGUID: *const VMRGUID) -> HRESULT;
+            fn GetDefaultMonitor(&self, pGUID: *mut VMRGUID) -> HRESULT;
+            fn GetAvailableMonitors(&self, pInfo: *mut VMRMONITORINFO, dwMaxInfoArraySize: u32, pdwNumDevices: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa9849bbe_9ec8_4263_b764_62730f0d15d0)]
+        interface IVMRSurface: IUnknown {
+            fn IsSurfaceLocked(&self) -> HRESULT;
+            fn LockSurface(&self, lpSurface: *mut *mut u8) -> HRESULT;
+            fn UnlockSurface(&self) -> HRESULT;
+            fn GetSurface(&self, lplpSurface: *mut IDirectDrawSurface7) -> HRESULT;
+        }
+        #[guid(0x31ce832e_4484_458b_8cca_f4d7e3db0b52)]
+        interface IVMRSurfaceAllocator: IUnknown {
+            fn AllocateSurface(&self, dwUserID: usize, lpAllocInfo: *const VMRALLOCATIONINFO, #[in] #[out] lpdwActualBuffers: *mut u32, lplpSurface: *mut IDirectDrawSurface7) -> HRESULT;
+            fn FreeSurface(&self, dwID: usize) -> HRESULT;
+            fn PrepareSurface(&self, dwUserID: usize, lpSurface: IDirectDrawSurface7, dwSurfaceFlags: u32) -> HRESULT;
+            fn AdviseNotify(&self, lpIVMRSurfAllocNotify: IVMRSurfaceAllocatorNotify) -> HRESULT;
+        }
+        #[guid(0xaada05a8_5a4e_4729_af0b_cea27aed51e2)]
+        interface IVMRSurfaceAllocatorNotify: IUnknown {
+            fn AdviseSurfaceAllocator(&self, dwUserID: usize, lpIVRMSurfaceAllocator: IVMRSurfaceAllocator) -> HRESULT;
+            fn SetDDrawDevice(&self, lpDDrawDevice: IDirectDraw7, hMonitor: HMONITOR) -> HRESULT;
+            fn ChangeDDrawDevice(&self, lpDDrawDevice: IDirectDraw7, hMonitor: HMONITOR) -> HRESULT;
+            fn RestoreDDrawSurfaces(&self) -> HRESULT;
+            fn NotifyEvent(&self, EventCode: i32, Param1: isize, Param2: isize) -> HRESULT;
+            fn SetBorderColor(&self, clrBorder: COLORREF) -> HRESULT;
+        }
+        #[guid(0x058d1f11_2a54_4bef_bd54_df706626b727)]
+        interface IVMRVideoStreamControl: IUnknown {
+            fn SetColorKey(&self, lpClrKey: *const DDCOLORKEY) -> HRESULT;
+            fn GetColorKey(&self, lpClrKey: *mut DDCOLORKEY) -> HRESULT;
+            fn SetStreamActiveState(&self, fActive: BOOL) -> HRESULT;
+            fn GetStreamActiveState(&self, lpfActive: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x0eb1088c_4dcd_46f0_878f_39dae86a51b7)]
+        interface IVMRWindowlessControl: IUnknown {
+            fn GetNativeVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32, lpARWidth: *mut i32, lpARHeight: *mut i32) -> HRESULT;
+            fn GetMinIdealVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32) -> HRESULT;
+            fn GetMaxIdealVideoSize(&self, lpWidth: *mut i32, lpHeight: *mut i32) -> HRESULT;
+            fn SetVideoPosition(&self, lpSRCRect: *const RECT, lpDSTRect: *const RECT) -> HRESULT;
+            fn GetVideoPosition(&self, lpSRCRect: *mut RECT, lpDSTRect: *mut RECT) -> HRESULT;
+            fn GetAspectRatioMode(&self, lpAspectRatioMode: *mut u32) -> HRESULT;
+            fn SetAspectRatioMode(&self, AspectRatioMode: u32) -> HRESULT;
+            fn SetVideoClippingWindow(&self, hwnd: HWND) -> HRESULT;
+            fn RepaintVideo(&self, hwnd: HWND, hdc: HDC) -> HRESULT;
+            fn DisplayModeChanged(&self) -> HRESULT;
+            fn GetCurrentImage(&self, lpDib: *mut *mut u8) -> HRESULT;
+            fn SetBorderColor(&self, Clr: COLORREF) -> HRESULT;
+            fn GetBorderColor(&self, lpClr: *mut COLORREF) -> HRESULT;
+            fn SetColorKey(&self, Clr: COLORREF) -> HRESULT;
+            fn GetColorKey(&self, lpClr: *mut COLORREF) -> HRESULT;
+        }
+        #[guid(0xaac18c18_e186_46d2_825d_a1f8dc8e395a)]
+        interface IVPManager: IUnknown {
+            fn SetVideoPortIndex(&self, dwVideoPortIndex: u32) -> HRESULT;
+            fn GetVideoPortIndex(&self, pdwVideoPortIndex: *mut u32) -> HRESULT;
+        }
+        #[guid(0x02997c3b_8e1b_460e_9270_545e0de9563e)]
+        interface IVideoEncoder: IEncoderAPI {}
+        #[guid(0xe46a9787_2b71_444d_a4b5_1fab7b708d6a)]
+        interface IVideoFrameStep: IUnknown {
+            fn Step(&self, dwFrames: u32, #[opt] pStepObject: IUnknown) -> HRESULT;
+            fn CanStep(&self, bMultiple: i32, #[opt] pStepObject: IUnknown) -> HRESULT;
+            fn CancelStep(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum InterleavingMode {
+            INTERLEAVE_NONE = 0,
+            INTERLEAVE_CAPTURE = 1,
+            INTERLEAVE_FULL = 2,
+            INTERLEAVE_NONE_BUFFERED = 3,
+        }
+        type LPAMCOPPCommand = *mut AMCOPPCommand;
+        type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
+        type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
+        const MAX_FILTER_NAME: u32 = 128;
+        const MAX_NUMBER_OF_STREAMS: i32 = 16;
+        const MAX_PIN_NAME: u32 = 128;
+        const MERIT_DO_NOT_USE: i32 = 2097152;
+        const MERIT_HW_COMPRESSOR: i32 = 1048656;
+        const MERIT_NORMAL: i32 = 6291456;
+        const MERIT_PREFERRED: i32 = 8388608;
+        const MERIT_SW_COMPRESSOR: i32 = 1048576;
+        const MERIT_UNLIKELY: i32 = 4194304;
+        const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2;
+        const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1;
+        const MPEG2_PROGRAM_PACK_HEADER: u32 = 3;
+        const MPEG2_PROGRAM_PES_STREAM: u32 = 4;
+        const MPEG2_PROGRAM_STREAM_MAP: u32 = 0;
+        const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5;
+        struct NORMALIZEDRECT {
+            left: f32,
+            top: f32,
+            right: f32,
+            bottom: f32,
+        }
+        type PDVINFO = *mut DVINFO;
+        #[repr(i32)]
+        enum PIN_DIRECTION {
+            PINDIR_INPUT = 0,
+            PINDIR_OUTPUT = 1,
+        }
+        struct PIN_INFO {
+            pFilter: IBaseFilter,
+            dir: PIN_DIRECTION,
+            achName: [u16; 128],
+        }
+        type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
+        type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
+        #[repr(i32)]
+        enum PhysicalConnectorType {
+            PhysConn_Video_Tuner = 1,
+            PhysConn_Video_Composite = 2,
+            PhysConn_Video_SVideo = 3,
+            PhysConn_Video_RGB = 4,
+            PhysConn_Video_YRYBY = 5,
+            PhysConn_Video_SerialDigital = 6,
+            PhysConn_Video_ParallelDigital = 7,
+            PhysConn_Video_SCSI = 8,
+            PhysConn_Video_AUX = 9,
+            PhysConn_Video_1394 = 10,
+            PhysConn_Video_USB = 11,
+            PhysConn_Video_VideoDecoder = 12,
+            PhysConn_Video_VideoEncoder = 13,
+            PhysConn_Video_SCART = 14,
+            PhysConn_Video_Black = 15,
+            PhysConn_Audio_Tuner = 4096,
+            PhysConn_Audio_Line = 4097,
+            PhysConn_Audio_Mic = 4098,
+            PhysConn_Audio_AESDigital = 4099,
+            PhysConn_Audio_SPDIFDigital = 4100,
+            PhysConn_Audio_SCSI = 4101,
+            PhysConn_Audio_AUX = 4102,
+            PhysConn_Audio_1394 = 4103,
+            PhysConn_Audio_USB = 4104,
+            PhysConn_Audio_AudioDecoder = 4105,
+        }
+        struct Quality {
+            Type: QualityMessageType,
+            Proportion: i32,
+            Late: REFERENCE_TIME,
+            TimeStamp: REFERENCE_TIME,
+        }
+        #[repr(i32)]
+        enum QualityMessageType {
+            Famine = 0,
+            Flood = 1,
+        }
+        struct REGFILTER {
+            Clsid: GUID,
+            Name: PWSTR,
+        }
+        struct REGFILTER2 {
+            dwVersion: u32,
+            dwMerit: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    cPins: u32,
+                    rgPins: *const REGFILTERPINS,
+                },
+                Anonymous2: struct {
+                    cPins2: u32,
+                    rgPins2: *const REGFILTERPINS2,
+                },
+            },
+        }
+        struct REGFILTERPINS {
+            strName: PWSTR,
+            bRendered: BOOL,
+            bOutput: BOOL,
+            bZero: BOOL,
+            bMany: BOOL,
+            clsConnectsToFilter: *const GUID,
+            strConnectsToPin: *const u16,
+            nMediaTypes: u32,
+            lpMediaType: *const REGPINTYPES,
+        }
+        struct REGFILTERPINS2 {
+            dwFlags: u32,
+            cInstances: u32,
+            nMediaTypes: u32,
+            lpMediaType: *const REGPINTYPES,
+            nMediums: u32,
+            lpMedium: *const REGPINMEDIUM,
+            clsPinCategory: *const GUID,
+        }
+        struct REGPINMEDIUM {
+            clsMedium: GUID,
+            dw1: u32,
+            dw2: u32,
+        }
+        struct REGPINTYPES {
+            clsMajorType: *const GUID,
+            clsMinorType: *const GUID,
+        }
+        const REG_PINFLAG_B_MANY: i32 = 4;
+        const REG_PINFLAG_B_OUTPUT: i32 = 8;
+        const REG_PINFLAG_B_RENDERER: i32 = 2;
+        const REG_PINFLAG_B_ZERO: i32 = 1;
+        type SPRMARRAY = [DVD_REGISTER; 24];
+        struct STREAM_ID_MAP {
+            stream_id: u32,
+            dwMediaSampleContent: u32,
+            ulSubstreamFilterValue: u32,
+            iDataOffset: i32,
+        }
+        const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456;
+        #[repr(i32)]
+        enum TVAudioMode {
+            AMTVAUDIO_MODE_MONO = 1,
+            AMTVAUDIO_MODE_STEREO = 2,
+            AMTVAUDIO_MODE_LANG_A = 16,
+            AMTVAUDIO_MODE_LANG_B = 32,
+            AMTVAUDIO_MODE_LANG_C = 64,
+            AMTVAUDIO_PRESET_STEREO = 512,
+            AMTVAUDIO_PRESET_LANG_A = 4096,
+            AMTVAUDIO_PRESET_LANG_B = 8192,
+            AMTVAUDIO_PRESET_LANG_C = 16384,
+        }
+        #[repr(i32)]
+        enum TunerInputType {
+            TunerInputCable = 0,
+            TunerInputAntenna = 1,
+        }
+        #[repr(i32)]
+        enum VALID_UOP_FLAG {
+            UOP_FLAG_Play_Title_Or_AtTime = 1,
+            UOP_FLAG_Play_Chapter = 2,
+            UOP_FLAG_Play_Title = 4,
+            UOP_FLAG_Stop = 8,
+            UOP_FLAG_ReturnFromSubMenu = 16,
+            UOP_FLAG_Play_Chapter_Or_AtTime = 32,
+            UOP_FLAG_PlayPrev_Or_Replay_Chapter = 64,
+            UOP_FLAG_PlayNext_Chapter = 128,
+            UOP_FLAG_Play_Forwards = 256,
+            UOP_FLAG_Play_Backwards = 512,
+            UOP_FLAG_ShowMenu_Title = 1024,
+            UOP_FLAG_ShowMenu_Root = 2048,
+            UOP_FLAG_ShowMenu_SubPic = 4096,
+            UOP_FLAG_ShowMenu_Audio = 8192,
+            UOP_FLAG_ShowMenu_Angle = 16384,
+            UOP_FLAG_ShowMenu_Chapter = 32768,
+            UOP_FLAG_Resume = 65536,
+            UOP_FLAG_Select_Or_Activate_Button = 131072,
+            UOP_FLAG_Still_Off = 262144,
+            UOP_FLAG_Pause_On = 524288,
+            UOP_FLAG_Select_Audio_Stream = 1048576,
+            UOP_FLAG_Select_SubPic_Stream = 2097152,
+            UOP_FLAG_Select_Angle = 4194304,
+            UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode = 8388608,
+            UOP_FLAG_Select_Video_Mode_Preference = 16777216,
+        }
+        type VALID_UOP_SOMTHING_OR_OTHER = u32;
+        struct VIDEO_STREAM_CONFIG_CAPS {
+            guid: GUID,
+            VideoStandard: u32,
+            InputSize: SIZE,
+            MinCroppingSize: SIZE,
+            MaxCroppingSize: SIZE,
+            CropGranularityX: i32,
+            CropGranularityY: i32,
+            CropAlignX: i32,
+            CropAlignY: i32,
+            MinOutputSize: SIZE,
+            MaxOutputSize: SIZE,
+            OutputGranularityX: i32,
+            OutputGranularityY: i32,
+            StretchTapsX: i32,
+            StretchTapsY: i32,
+            ShrinkTapsX: i32,
+            ShrinkTapsY: i32,
+            MinFrameInterval: i64,
+            MaxFrameInterval: i64,
+            MinBitsPerSecond: i32,
+            MaxBitsPerSecond: i32,
+        }
+        struct VMRALLOCATIONINFO {
+            dwFlags: u32,
+            lpHdr: LPBITMAPINFOHEADER,
+            lpPixFmt: LPDDPIXELFORMAT,
+            szAspectRatio: SIZE,
+            dwMinBuffers: u32,
+            dwMaxBuffers: u32,
+            dwInterlaceFlags: u32,
+            szNativeSize: SIZE,
+        }
+        struct VMRALPHABITMAP {
+            dwFlags: u32,
+            hdc: HDC,
+            pDDS: IDirectDrawSurface7,
+            rSrc: RECT,
+            rDest: NORMALIZEDRECT,
+            fAlpha: f32,
+            clrSrcKey: COLORREF,
+        }
+        const VMRBITMAP_DISABLE: u32 = 1;
+        const VMRBITMAP_ENTIREDDS: u32 = 4;
+        const VMRBITMAP_HDC: u32 = 2;
+        const VMRBITMAP_SRCCOLORKEY: u32 = 8;
+        const VMRBITMAP_SRCRECT: u32 = 16;
+        struct VMRDeinterlaceCaps {
+            dwSize: u32,
+            dwNumPreviousOutputFrames: u32,
+            dwNumForwardRefSamples: u32,
+            dwNumBackwardRefSamples: u32,
+            DeinterlaceTechnology: VMRDeinterlaceTech,
+        }
+        #[repr(i32)]
+        enum VMRDeinterlacePrefs {
+            DeinterlacePref_NextBest = 1,
+            DeinterlacePref_BOB = 2,
+            DeinterlacePref_Weave = 4,
+            DeinterlacePref_Mask = 7,
+        }
+        #[repr(i32)]
+        enum VMRDeinterlaceTech {
+            DeinterlaceTech_Unknown = 0,
+            DeinterlaceTech_BOBLineReplicate = 1,
+            DeinterlaceTech_BOBVerticalStretch = 2,
+            DeinterlaceTech_MedianFiltering = 4,
+            DeinterlaceTech_EdgeFiltering = 16,
+            DeinterlaceTech_FieldAdaptive = 32,
+            DeinterlaceTech_PixelAdaptive = 64,
+            DeinterlaceTech_MotionVectorSteered = 128,
+        }
+        struct VMRFrequency {
+            dwNumerator: u32,
+            dwDenominator: u32,
+        }
+        struct VMRGUID {
+            pGUID: *mut GUID,
+            GUID: GUID,
+        }
+        struct VMRMONITORINFO {
+            guid: VMRGUID,
+            rcMonitor: RECT,
+            hMon: HMONITOR,
+            dwFlags: u32,
+            szDevice: [u16; 32],
+            szDescription: [u16; 256],
+            liDriverVersion: LARGE_INTEGER,
+            dwVendorId: u32,
+            dwDeviceId: u32,
+            dwSubSysId: u32,
+            dwRevision: u32,
+        }
+        #[repr(i32)]
+        enum VMRMixerPrefs {
+            MixerPref_NoDecimation = 1,
+            MixerPref_DecimateOutput = 2,
+            MixerPref_ARAdjustXorY = 4,
+            MixerPref_DecimationReserved = 8,
+            MixerPref_DecimateMask = 15,
+            MixerPref_BiLinearFiltering = 16,
+            MixerPref_PointFiltering = 32,
+            MixerPref_FilteringMask = 240,
+            MixerPref_RenderTargetRGB = 256,
+            MixerPref_RenderTargetYUV = 4096,
+            MixerPref_RenderTargetYUV420 = 512,
+            MixerPref_RenderTargetYUV422 = 1024,
+            MixerPref_RenderTargetYUV444 = 2048,
+            MixerPref_RenderTargetReserved = 57344,
+            MixerPref_RenderTargetMask = 65280,
+            MixerPref_DynamicSwitchToBOB = 65536,
+            MixerPref_DynamicDecimateBy2 = 131072,
+            MixerPref_DynamicReserved = 786432,
+            MixerPref_DynamicMask = 983040,
+        }
+        #[repr(i32)]
+        enum VMRMode {
+            VMRMode_Windowed = 1,
+            VMRMode_Windowless = 2,
+            VMRMode_Renderless = 4,
+            VMRMode_Mask = 7,
+        }
+        struct VMRPRESENTATIONINFO {
+            dwFlags: u32,
+            lpSurf: IDirectDrawSurface7,
+            rtStart: REFERENCE_TIME,
+            rtEnd: REFERENCE_TIME,
+            szAspectRatio: SIZE,
+            rcSrc: RECT,
+            rcDst: RECT,
+            dwTypeSpecificFlags: u32,
+            dwInterlaceFlags: u32,
+        }
+        #[repr(i32)]
+        enum VMRPresentationFlags {
+            VMRSample_SyncPoint = 1,
+            VMRSample_Preroll = 2,
+            VMRSample_Discontinuity = 4,
+            VMRSample_TimeValid = 8,
+            VMRSample_SrcDstRectsValid = 16,
+        }
+        #[repr(i32)]
+        enum VMRRenderPrefs {
+            RenderPrefs_RestrictToInitialMonitor = 0,
+            RenderPrefs_ForceOffscreen = 1,
+            RenderPrefs_ForceOverlays = 2,
+            RenderPrefs_AllowOverlays = 0,
+            RenderPrefs_AllowOffscreen = 0,
+            RenderPrefs_DoNotRenderColorKeyAndBorder = 8,
+            RenderPrefs_Reserved = 16,
+            RenderPrefs_PreferAGPMemWhenMixing = 32,
+            RenderPrefs_Mask = 63,
+        }
+        #[repr(i32)]
+        enum VMRSurfaceAllocationFlags {
+            AMAP_PIXELFORMAT_VALID = 1,
+            AMAP_3D_TARGET = 2,
+            AMAP_ALLOW_SYSMEM = 4,
+            AMAP_FORCE_SYSMEM = 8,
+            AMAP_DIRECTED_FLIP = 16,
+            AMAP_DXVA_TARGET = 32,
+        }
+        struct VMRVIDEOSTREAMINFO {
+            pddsVideoSurface: IDirectDrawSurface7,
+            dwWidth: u32,
+            dwHeight: u32,
+            dwStrmID: u32,
+            fAlpha: f32,
+            ddClrKey: DDCOLORKEY,
+            rNormal: NORMALIZEDRECT,
+        }
+        struct VMRVideoDesc {
+            dwSize: u32,
+            dwSampleWidth: u32,
+            dwSampleHeight: u32,
+            SingleFieldPerSample: BOOL,
+            dwFourCC: u32,
+            InputSampleFreq: VMRFrequency,
+            OutputFrameFreq: VMRFrequency,
+        }
+        #[repr(i32)]
+        enum VMR_ASPECT_RATIO_MODE {
+            VMR_ARMODE_NONE = 0,
+            VMR_ARMODE_LETTER_BOX = 1,
+        }
+        const VMR_NOTSUPPORTED: u32 = 0;
+        const VMR_SUPPORTED: u32 = 1;
+        #[repr(i32)]
+        enum VfwCaptureDialogs {
+            VfwCaptureDialog_Source = 1,
+            VfwCaptureDialog_Format = 2,
+            VfwCaptureDialog_Display = 4,
+        }
+        #[repr(i32)]
+        enum VfwCompressDialogs {
+            VfwCompressDialog_Config = 1,
+            VfwCompressDialog_About = 2,
+            VfwCompressDialog_QueryConfig = 4,
+            VfwCompressDialog_QueryAbout = 8,
+        }
+        #[repr(i32)]
+        enum VideoControlFlags {
+            VideoControlFlag_FlipHorizontal = 1,
+            VideoControlFlag_FlipVertical = 2,
+            VideoControlFlag_ExternalTriggerEnable = 4,
+            VideoControlFlag_Trigger = 8,
+        }
+        #[repr(i32)]
+        enum VideoCopyProtectionType {
+            VideoCopyProtectionMacrovisionBasic = 0,
+            VideoCopyProtectionMacrovisionCBI = 1,
+        }
+        #[repr(i32)]
+        enum VideoProcAmpFlags {
+            VideoProcAmp_Flags_Auto = 1,
+            VideoProcAmp_Flags_Manual = 2,
+        }
+        #[repr(i32)]
+        enum VideoProcAmpProperty {
+            VideoProcAmp_Brightness = 0,
+            VideoProcAmp_Contrast = 1,
+            VideoProcAmp_Hue = 2,
+            VideoProcAmp_Saturation = 3,
+            VideoProcAmp_Sharpness = 4,
+            VideoProcAmp_Gamma = 5,
+            VideoProcAmp_ColorEnable = 6,
+            VideoProcAmp_WhiteBalance = 7,
+            VideoProcAmp_BacklightCompensation = 8,
+            VideoProcAmp_Gain = 9,
+        }
+        #[repr(i32)]
+        enum _AMRESCTL_RESERVEFLAGS {
+            AMRESCTL_RESERVEFLAGS_RESERVE = 0,
+            AMRESCTL_RESERVEFLAGS_UNRESERVE = 1,
+        }
+        #[repr(i32)]
+        enum _AMSTREAMSELECTENABLEFLAGS {
+            AMSTREAMSELECTENABLE_ENABLE = 1,
+            AMSTREAMSELECTENABLE_ENABLEALL = 2,
+        }
+        #[repr(i32)]
+        enum _AMSTREAMSELECTINFOFLAGS {
+            AMSTREAMSELECTINFO_ENABLED = 1,
+            AMSTREAMSELECTINFO_EXCLUSIVE = 2,
+        }
+        #[repr(i32)]
+        enum _AM_AUDIO_RENDERER_STAT_PARAM {
+            AM_AUDREND_STAT_PARAM_BREAK_COUNT = 1,
+            AM_AUDREND_STAT_PARAM_SLAVE_MODE = 2,
+            AM_AUDREND_STAT_PARAM_SILENCE_DUR = 3,
+            AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR = 4,
+            AM_AUDREND_STAT_PARAM_DISCONTINUITIES = 5,
+            AM_AUDREND_STAT_PARAM_SLAVE_RATE = 6,
+            AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR = 7,
+            AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR = 8,
+            AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR = 9,
+            AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR = 10,
+            AM_AUDREND_STAT_PARAM_BUFFERFULLNESS = 11,
+            AM_AUDREND_STAT_PARAM_JITTER = 12,
+        }
+        #[repr(i32)]
+        enum _AM_FILTER_MISC_FLAGS {
+            AM_FILTER_MISC_FLAGS_IS_RENDERER = 1,
+            AM_FILTER_MISC_FLAGS_IS_SOURCE = 2,
+        }
+        #[repr(i32)]
+        enum _AM_INTF_SEARCH_FLAGS {
+            AM_INTF_SEARCH_INPUT_PIN = 1,
+            AM_INTF_SEARCH_OUTPUT_PIN = 2,
+            AM_INTF_SEARCH_FILTER = 4,
+        }
+        #[repr(i32)]
+        enum _AM_OVERLAY_NOTIFY_FLAGS {
+            AM_OVERLAY_NOTIFY_VISIBLE_CHANGE = 1,
+            AM_OVERLAY_NOTIFY_SOURCE_CHANGE = 2,
+            AM_OVERLAY_NOTIFY_DEST_CHANGE = 4,
+        }
+        #[repr(i32)]
+        enum _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
+            AM_PIN_FLOW_CONTROL_BLOCK = 1,
+        }
+        #[repr(i32)]
+        enum _AM_PUSHSOURCE_FLAGS {
+            AM_PUSHSOURCECAPS_INTERNAL_RM = 1,
+            AM_PUSHSOURCECAPS_NOT_LIVE = 2,
+            AM_PUSHSOURCECAPS_PRIVATE_CLOCK = 4,
+            AM_PUSHSOURCEREQS_USE_STREAM_CLOCK = 65536,
+            AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN = 131072,
+        }
+        #[repr(i32)]
+        enum _AM_RENSDEREXFLAGS {
+            AM_RENDEREX_RENDERTOEXISTINGRENDERERS = 1,
+        }
+        #[repr(i32)]
+        enum _DVDECODERRESOLUTION {
+            DVDECODERRESOLUTION_720x480 = 1000,
+            DVDECODERRESOLUTION_360x240 = 1001,
+            DVDECODERRESOLUTION_180x120 = 1002,
+            DVDECODERRESOLUTION_88x60 = 1003,
+        }
+        #[repr(i32)]
+        enum _DVENCODERFORMAT {
+            DVENCODERFORMAT_DVSD = 2007,
+            DVENCODERFORMAT_DVHD = 2008,
+            DVENCODERFORMAT_DVSL = 2009,
+        }
+        #[repr(i32)]
+        enum _DVENCODERRESOLUTION {
+            DVENCODERRESOLUTION_720x480 = 2012,
+            DVENCODERRESOLUTION_360x240 = 2013,
+            DVENCODERRESOLUTION_180x120 = 2014,
+            DVENCODERRESOLUTION_88x60 = 2015,
+        }
+        #[repr(i32)]
+        enum _DVENCODERVIDEOFORMAT {
+            DVENCODERVIDEOFORMAT_NTSC = 2000,
+            DVENCODERVIDEOFORMAT_PAL = 2001,
+        }
+        #[repr(i32)]
+        enum _DVRESOLUTION {
+            DVRESOLUTION_FULL = 1000,
+            DVRESOLUTION_HALF = 1001,
+            DVRESOLUTION_QUARTER = 1002,
+            DVRESOLUTION_DC = 1003,
+        }
+        #[repr(i32)]
+        enum _REM_FILTER_FLAGS {
+            REMFILTERF_LEAVECONNECTED = 1,
+        }
+        #[repr(i32)]
+        enum tagAM_MEDIAEVENT_FLAGS {
+            AM_MEDIAEVENT_NONOTIFY = 1,
+        }
+        #[repr(i32)]
+        enum tagAM_SAMPLE_PROPERTY_FLAGS {
+            AM_SAMPLE_SPLICEPOINT = 1,
+            AM_SAMPLE_PREROLL = 2,
+            AM_SAMPLE_DATADISCONTINUITY = 4,
+            AM_SAMPLE_TYPECHANGED = 8,
+            AM_SAMPLE_TIMEVALID = 16,
+            AM_SAMPLE_TIMEDISCONTINUITY = 64,
+            AM_SAMPLE_FLUSH_ON_PAUSE = 128,
+            AM_SAMPLE_STOPVALID = 256,
+            AM_SAMPLE_ENDOFSTREAM = 512,
+            AM_STREAM_MEDIA = 0,
+            AM_STREAM_CONTROL = 1,
+        }
+    }
+}

@@ -1,0 +1,49 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DS_MANGLE_FOR {
+            DS_MANGLE_UNKNOWN = 0,
+            DS_MANGLE_OBJECT_RDN_FOR_DELETION = 1,
+            DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT = 2,
+        }
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpn2A(#[len_param(1)] pszSpn: PCSTR, cSpn: u32, #[in] #[out] #[opt] pcServiceClass: *mut u32, #[len_param(2)] #[out] #[opt] ServiceClass: PSTR, #[in] #[out] #[opt] pcServiceName: *mut u32, #[len_param(4)] #[out] #[opt] ServiceName: PSTR, #[in] #[out] #[opt] pcInstanceName: *mut u32, #[len_param(6)] #[out] #[opt] InstanceName: PSTR, #[opt] pInstancePort: *mut u16) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpn2W(#[len_param(1)] pszSpn: PCWSTR, cSpn: u32, #[in] #[out] #[opt] pcServiceClass: *mut u32, #[len_param(2)] #[out] #[opt] ServiceClass: PWSTR, #[in] #[out] #[opt] pcServiceName: *mut u32, #[len_param(4)] #[out] #[opt] ServiceName: PWSTR, #[in] #[out] #[opt] pcInstanceName: *mut u32, #[len_param(6)] #[out] #[opt] InstanceName: PWSTR, #[opt] pInstancePort: *mut u16) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpn3W(pszSpn: PCWSTR, cSpn: u32, pcHostName: *mut u32, #[len_param(2)] #[out] HostName: PWSTR, pcInstanceName: *mut u32, #[len_param(4)] #[out] InstanceName: PWSTR, pPortNumber: *mut u16, pcDomainName: *mut u32, #[len_param(7)] #[out] DomainName: PWSTR, pcRealmName: *mut u32, #[len_param(9)] #[out] RealmName: PWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpn4W(pszSpn: PCWSTR, cSpn: u32, pcHostName: *mut u32, #[len_param(2)] #[out] HostName: PWSTR, pcInstanceName: *mut u32, #[len_param(4)] #[out] InstanceName: PWSTR, pcPortName: *mut u32, #[len_param(6)] #[out] PortName: PWSTR, pcDomainName: *mut u32, #[len_param(8)] #[out] DomainName: PWSTR, pcRealmName: *mut u32, #[len_param(10)] #[out] RealmName: PWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpnA(pszSpn: PCSTR, #[in] #[out] #[opt] pcServiceClass: *mut u32, #[len_param(1)] #[out] #[opt] ServiceClass: PSTR, #[in] #[out] #[opt] pcServiceName: *mut u32, #[len_param(3)] #[out] #[opt] ServiceName: PSTR, #[in] #[out] #[opt] pcInstanceName: *mut u32, #[len_param(5)] #[out] #[opt] InstanceName: PSTR, #[opt] pInstancePort: *mut u16) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackSpnW(pszSpn: PCWSTR, #[in] #[out] #[opt] pcServiceClass: *mut u32, #[len_param(1)] #[out] #[opt] ServiceClass: PWSTR, #[in] #[out] #[opt] pcServiceName: *mut u32, #[len_param(3)] #[out] #[opt] ServiceName: PWSTR, #[in] #[out] #[opt] pcInstanceName: *mut u32, #[len_param(5)] #[out] #[opt] InstanceName: PWSTR, #[opt] pInstancePort: *mut u16) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackUnquotedMangledRdnA(#[len_param(1)] pszRDN: PCSTR, cchRDN: u32, #[opt] pGuid: *mut GUID, #[opt] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsCrackUnquotedMangledRdnW(#[len_param(1)] pszRDN: PCWSTR, cchRDN: u32, #[opt] pGuid: *mut GUID, #[opt] peDsMangleFor: *mut DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsGetRdnW(#[in] #[out] ppDN: *mut LPCWCH, #[in] #[out] pcDN: *mut u32, ppKey: *mut LPCWCH, pcKey: *mut u32, ppVal: *mut LPCWCH, pcVal: *mut u32) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsIsMangledDnA(pszDn: PCSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsIsMangledDnW(pszDn: PCWSTR, eDsMangleFor: DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsIsMangledRdnValueA(#[len_param(1)] pszRdn: PCSTR, cRdn: u32, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsIsMangledRdnValueW(#[len_param(1)] pszRdn: PCWSTR, cRdn: u32, eDsMangleForDesired: DS_MANGLE_FOR) -> BOOL;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakeSpnA(ServiceClass: PCSTR, ServiceName: PCSTR, #[opt] InstanceName: PCSTR, InstancePort: u16, #[opt] Referrer: PCSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(5)] #[out] #[opt] pszSpn: PSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsMakeSpnW(ServiceClass: PCWSTR, ServiceName: PCWSTR, #[opt] InstanceName: PCWSTR, InstancePort: u16, #[opt] Referrer: PCWSTR, #[in] #[out] pcSpnLength: *mut u32, #[len_param(5)] #[out] #[opt] pszSpn: PWSTR) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuoteRdnValueA(cUnquotedRdnValueLength: u32, #[len_param(0)] psUnquotedRdnValue: *const i8, #[in] #[out] pcQuotedRdnValueLength: *mut u32, #[len_param(2)] psQuotedRdnValue: *mut i8) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsQuoteRdnValueW(cUnquotedRdnValueLength: u32, #[len_param(0)] psUnquotedRdnValue: *const u16, #[in] #[out] pcQuotedRdnValueLength: *mut u32, #[len_param(2)] psQuotedRdnValue: *mut u16) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnquoteRdnValueA(cQuotedRdnValueLength: u32, #[len_param(0)] psQuotedRdnValue: *const i8, #[in] #[out] pcUnquotedRdnValueLength: *mut u32, #[len_param(2)] psUnquotedRdnValue: *mut i8) -> u32;
+        #[library("NTDSAPI.dll")]
+        extern fn DsUnquoteRdnValueW(cQuotedRdnValueLength: u32, #[len_param(0)] psQuotedRdnValue: *const u16, #[in] #[out] pcUnquotedRdnValueLength: *mut u32, #[len_param(2)] psUnquotedRdnValue: *mut u16) -> u32;
+    }
+}

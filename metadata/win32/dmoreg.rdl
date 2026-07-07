@@ -1,0 +1,38 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
+        const DMOCATEGORY_AGC: GUID = 0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1;
+        const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: GUID = 0xf665aaba_3e09_4920_aa5f_219811148f09;
+        const DMOCATEGORY_AUDIO_DECODER: GUID = 0x57f2db8b_e6bb_4513_9d43_dcd2a6593125;
+        const DMOCATEGORY_AUDIO_EFFECT: GUID = 0xf3602b3f_0592_48df_a4cd_674721e7ebeb;
+        const DMOCATEGORY_AUDIO_ENCODER: GUID = 0x33d9a761_90c8_11d0_bd43_00a0c911ce86;
+        const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
+        const DMOCATEGORY_VIDEO_DECODER: GUID = 0x4a69b442_28be_4991_969c_b500adf5d8a8;
+        const DMOCATEGORY_VIDEO_EFFECT: GUID = 0xd990ee14_776c_4723_be46_3da2f56f10b9;
+        const DMOCATEGORY_VIDEO_ENCODER: GUID = 0x33d9a760_90c8_11d0_bd43_00a0c911ce86;
+        #[library("msdmo.dll")]
+        extern fn DMOEnum(guidCategory: *const GUID, dwFlags: u32, cInTypes: u32, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *const DMO_PARTIAL_MEDIATYPE, ppEnum: *mut IEnumDMO) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn DMOGetName(clsidDMO: *const GUID, #[len_const(80)] #[out] szName: [u16; 80]) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn DMOGetTypes(clsidDMO: *const GUID, ulInputTypesRequested: u32, pulInputTypesSupplied: *mut u32, pInputTypes: *mut DMO_PARTIAL_MEDIATYPE, ulOutputTypesRequested: u32, pulOutputTypesSupplied: *mut u32, pOutputTypes: *mut DMO_PARTIAL_MEDIATYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn DMORegister(szName: PCWSTR, clsidDMO: *const GUID, guidCategory: *const GUID, dwFlags: u32, cInTypes: u32, pInTypes: *const DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *const DMO_PARTIAL_MEDIATYPE) -> HRESULT;
+        #[library("msdmo.dll")]
+        extern fn DMOUnregister(clsidDMO: *const GUID, guidCategory: *const GUID) -> HRESULT;
+        #[repr(i32)]
+        enum DMO_ENUM_FLAGS {
+            DMO_ENUMF_INCLUDE_KEYED = 1,
+        }
+        struct DMO_PARTIAL_MEDIATYPE {
+            r#type: GUID,
+            subtype: GUID,
+        }
+        #[repr(i32)]
+        enum DMO_REGISTER_FLAGS {
+            DMO_REGISTERF_IS_KEYED = 1,
+        }
+        type PDMO_PARTIAL_MEDIATYPE = *mut DMO_PARTIAL_MEDIATYPE;
+    }
+}

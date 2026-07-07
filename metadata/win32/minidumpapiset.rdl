@@ -1,0 +1,1148 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        union CPU_INFORMATION {
+            X86CpuInfo: struct {
+                VendorId: [u32; 3],
+                VersionInformation: u32,
+                FeatureInformation: u32,
+                AMDExtendedCpuFeatures: u32,
+            },
+            OtherCpuInfo: #[packed(4)] struct {
+                ProcessorFeatures: [u64; 2],
+            },
+        }
+        #[arch(X86)]
+        struct MINIDUMP_CALLBACK_INFORMATION {
+            CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
+            CallbackParam: *mut void,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_CALLBACK_INFORMATION {
+            CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
+            CallbackParam: *mut void,
+        }
+        struct MINIDUMP_CALLBACK_INPUT {
+            ProcessId: u32,
+            ProcessHandle: HANDLE,
+            CallbackType: u32,
+            Anonymous: union {
+                Status: HRESULT,
+                Thread: MINIDUMP_THREAD_CALLBACK,
+                ThreadEx: MINIDUMP_THREAD_EX_CALLBACK,
+                Module: MINIDUMP_MODULE_CALLBACK,
+                IncludeThread: MINIDUMP_INCLUDE_THREAD_CALLBACK,
+                IncludeModule: MINIDUMP_INCLUDE_MODULE_CALLBACK,
+                Io: MINIDUMP_IO_CALLBACK,
+                ReadMemoryFailure: MINIDUMP_READ_MEMORY_FAILURE_CALLBACK,
+                SecondaryFlags: u32,
+                VmQuery: MINIDUMP_VM_QUERY_CALLBACK,
+                VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
+                VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
+                CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
+            },
+        }
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_CALLBACK_OUTPUT {
+            Anonymous: #[packed(4)] union {
+                ModuleWriteFlags: u32,
+                ThreadWriteFlags: u32,
+                SecondaryFlags: u32,
+                Anonymous: #[packed(4)] struct {
+                    MemoryBase: u64,
+                    MemorySize: u32,
+                },
+                Anonymous2: struct {
+                    CheckCancel: BOOL,
+                    Cancel: BOOL,
+                },
+                Handle: HANDLE,
+                Anonymous3: struct {
+                    VmRegion: MINIDUMP_MEMORY_INFO,
+                    Continue: BOOL,
+                },
+                Anonymous4: struct {
+                    VmQueryStatus: HRESULT,
+                    VmQueryResult: MINIDUMP_MEMORY_INFO,
+                },
+                Anonymous5: struct {
+                    VmReadStatus: HRESULT,
+                    VmReadBytesCompleted: u32,
+                },
+                CompressedMemoryStreamStart: MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK,
+                Status: HRESULT,
+            },
+        }
+        #[arch(X86)]
+        struct MINIDUMP_CALLBACK_OUTPUT {
+            Anonymous: union {
+                ModuleWriteFlags: u32,
+                ThreadWriteFlags: u32,
+                SecondaryFlags: u32,
+                Anonymous: #[packed(4)] struct {
+                    MemoryBase: u64,
+                    MemorySize: u32,
+                },
+                Anonymous2: struct {
+                    CheckCancel: BOOL,
+                    Cancel: BOOL,
+                },
+                Handle: HANDLE,
+                Anonymous3: struct {
+                    VmRegion: MINIDUMP_MEMORY_INFO,
+                    Continue: BOOL,
+                },
+                Anonymous4: struct {
+                    VmQueryStatus: HRESULT,
+                    VmQueryResult: MINIDUMP_MEMORY_INFO,
+                },
+                Anonymous5: struct {
+                    VmReadStatus: HRESULT,
+                    VmReadBytesCompleted: u32,
+                },
+                CompressedMemoryStreamStart: MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK,
+                Status: HRESULT,
+            },
+        }
+        extern fn MINIDUMP_CALLBACK_ROUTINE(#[in] #[out] CallbackParam: *mut void, CallbackInput: *const MINIDUMP_CALLBACK_INPUT, #[in] #[out] CallbackOutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> BOOL;
+        #[repr(i32)]
+        enum MINIDUMP_CALLBACK_TYPE {
+            ModuleCallback = 0,
+            ThreadCallback = 1,
+            ThreadExCallback = 2,
+            IncludeThreadCallback = 3,
+            IncludeModuleCallback = 4,
+            MemoryCallback = 5,
+            CancelCallback = 6,
+            WriteKernelMinidumpCallback = 7,
+            KernelMinidumpStatusCallback = 8,
+            RemoveMemoryCallback = 9,
+            IncludeVmRegionCallback = 10,
+            IoStartCallback = 11,
+            IoWriteAllCallback = 12,
+            IoFinishCallback = 13,
+            ReadMemoryFailureCallback = 14,
+            SecondaryFlagsCallback = 15,
+            IsProcessSnapshotCallback = 16,
+            VmStartCallback = 17,
+            VmQueryCallback = 18,
+            VmPreReadCallback = 19,
+            VmPostReadCallback = 20,
+            CompressedMemoryStreamStartCallback = 21,
+            CompressedMemoryStreamFinishCallback = 22,
+        }
+        #[packed(4)]
+        struct MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
+            CompressedStreamSize: u64,
+            StreamCompressionRate: u32,
+        }
+        #[arch(X86)]
+        struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
+            MaxParallelism: u32,
+            MaxTransferSize: u32,
+            NumaNodeInfoArray: PNUMA_NODE_RELATIONSHIP,
+            NumaNodeInfoArraySize: u32,
+            Reserved: u32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
+            MaxParallelism: u32,
+            MaxTransferSize: u32,
+            NumaNodeInfoArray: PNUMA_NODE_RELATIONSHIP,
+            NumaNodeInfoArraySize: u32,
+            Reserved: u32,
+        }
+        struct MINIDUMP_DIRECTORY {
+            StreamType: u32,
+            Location: MINIDUMP_LOCATION_DESCRIPTOR,
+        }
+        #[packed(4)]
+        struct MINIDUMP_EXCEPTION {
+            ExceptionCode: u32,
+            ExceptionFlags: u32,
+            ExceptionRecord: u64,
+            ExceptionAddress: u64,
+            NumberParameters: u32,
+            __unusedAlignment: u32,
+            ExceptionInformation: [u64; 15],
+        }
+        #[arch(X86)]
+        struct MINIDUMP_EXCEPTION_INFORMATION {
+            ThreadId: u32,
+            ExceptionPointers: PEXCEPTION_POINTERS,
+            ClientPointers: BOOL,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_EXCEPTION_INFORMATION {
+            ThreadId: u32,
+            ExceptionPointers: PEXCEPTION_POINTERS,
+            ClientPointers: BOOL,
+        }
+        #[packed(4)]
+        struct MINIDUMP_EXCEPTION_INFORMATION64 {
+            ThreadId: u32,
+            ExceptionRecord: u64,
+            ContextRecord: u64,
+            ClientPointers: BOOL,
+        }
+        struct MINIDUMP_EXCEPTION_STREAM {
+            ThreadId: u32,
+            __alignment: u32,
+            ExceptionRecord: MINIDUMP_EXCEPTION,
+            ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
+        }
+        #[packed(4)]
+        struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
+            MinimumAddress: u64,
+            MaximumAddress: u64,
+            BaseAddress: u64,
+            EntryCount: u32,
+            SizeOfAlignPad: u32,
+        }
+        struct MINIDUMP_FUNCTION_TABLE_STREAM {
+            SizeOfHeader: u32,
+            SizeOfDescriptor: u32,
+            SizeOfNativeDescriptor: u32,
+            SizeOfFunctionEntry: u32,
+            NumberOfDescriptors: u32,
+            SizeOfAlignPad: u32,
+        }
+        struct MINIDUMP_HANDLE_DATA_STREAM {
+            SizeOfHeader: u32,
+            SizeOfDescriptor: u32,
+            NumberOfDescriptors: u32,
+            Reserved: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_HANDLE_DESCRIPTOR {
+            Handle: u64,
+            TypeNameRva: RVA,
+            ObjectNameRva: RVA,
+            Attributes: u32,
+            GrantedAccess: u32,
+            HandleCount: u32,
+            PointerCount: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
+            Handle: u64,
+            TypeNameRva: RVA,
+            ObjectNameRva: RVA,
+            Attributes: u32,
+            GrantedAccess: u32,
+            HandleCount: u32,
+            PointerCount: u32,
+            ObjectInfoRva: RVA,
+            Reserved0: u32,
+        }
+        type MINIDUMP_HANDLE_DESCRIPTOR_N = MINIDUMP_HANDLE_DESCRIPTOR_2;
+        struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
+            NextInfoRva: RVA,
+            InfoType: u32,
+            SizeOfInfo: u32,
+        }
+        #[repr(i32)]
+        enum MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
+            MiniHandleObjectInformationNone = 0,
+            MiniThreadInformation1 = 1,
+            MiniMutantInformation1 = 2,
+            MiniMutantInformation2 = 3,
+            MiniProcessInformation1 = 4,
+            MiniProcessInformation2 = 5,
+            MiniEventInformation1 = 6,
+            MiniSectionInformation1 = 7,
+            MiniSemaphoreInformation1 = 8,
+            MiniHandleObjectInformationTypeMax = 9,
+        }
+        struct MINIDUMP_HANDLE_OPERATION_LIST {
+            SizeOfHeader: u32,
+            SizeOfEntry: u32,
+            NumberOfEntries: u32,
+            Reserved: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_HEADER {
+            Signature: u32,
+            Version: u32,
+            NumberOfStreams: u32,
+            StreamDirectoryRva: RVA,
+            CheckSum: u32,
+            Anonymous: union {
+                Reserved: u32,
+                TimeDateStamp: u32,
+            },
+            Flags: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
+            BaseOfImage: u64,
+        }
+        struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
+            ThreadId: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_IO_CALLBACK {
+            Handle: HANDLE,
+            Offset: u64,
+            Buffer: *mut void,
+            BufferBytes: u32,
+        }
+        struct MINIDUMP_LOCATION_DESCRIPTOR {
+            DataSize: u32,
+            Rva: RVA,
+        }
+        #[packed(4)]
+        struct MINIDUMP_LOCATION_DESCRIPTOR64 {
+            DataSize: u64,
+            Rva: RVA64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_MEMORY64_LIST {
+            NumberOfMemoryRanges: u64,
+            BaseRva: RVA64,
+            MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 0],
+        }
+        #[packed(4)]
+        struct MINIDUMP_MEMORY_DESCRIPTOR {
+            StartOfMemoryRange: u64,
+            Memory: MINIDUMP_LOCATION_DESCRIPTOR,
+        }
+        #[packed(4)]
+        struct MINIDUMP_MEMORY_DESCRIPTOR64 {
+            StartOfMemoryRange: u64,
+            DataSize: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_MEMORY_INFO {
+            BaseAddress: u64,
+            AllocationBase: u64,
+            AllocationProtect: u32,
+            __alignment1: u32,
+            RegionSize: u64,
+            State: u32,
+            Protect: u32,
+            Type: u32,
+            __alignment2: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_MEMORY_INFO_LIST {
+            SizeOfHeader: u32,
+            SizeOfEntry: u32,
+            NumberOfEntries: u64,
+        }
+        struct MINIDUMP_MEMORY_LIST {
+            NumberOfMemoryRanges: u32,
+            MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 0],
+        }
+        const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: u32 = 4;
+        const MINIDUMP_MISC1_PROCESS_ID: u32 = 1;
+        const MINIDUMP_MISC1_PROCESS_TIMES: u32 = 2;
+        const MINIDUMP_MISC3_PROCESS_EXECUTE_FLAGS: u32 = 32;
+        const MINIDUMP_MISC3_PROCESS_INTEGRITY: u32 = 16;
+        const MINIDUMP_MISC3_PROTECTED_PROCESS: u32 = 128;
+        const MINIDUMP_MISC3_TIMEZONE: u32 = 64;
+        const MINIDUMP_MISC4_BUILDSTRING: u32 = 256;
+        const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512;
+        struct MINIDUMP_MISC_INFO {
+            SizeOfInfo: u32,
+            Flags1: u32,
+            ProcessId: u32,
+            ProcessCreateTime: u32,
+            ProcessUserTime: u32,
+            ProcessKernelTime: u32,
+        }
+        struct MINIDUMP_MISC_INFO_2 {
+            SizeOfInfo: u32,
+            Flags1: u32,
+            ProcessId: u32,
+            ProcessCreateTime: u32,
+            ProcessUserTime: u32,
+            ProcessKernelTime: u32,
+            ProcessorMaxMhz: u32,
+            ProcessorCurrentMhz: u32,
+            ProcessorMhzLimit: u32,
+            ProcessorMaxIdleState: u32,
+            ProcessorCurrentIdleState: u32,
+        }
+        struct MINIDUMP_MISC_INFO_3 {
+            SizeOfInfo: u32,
+            Flags1: u32,
+            ProcessId: u32,
+            ProcessCreateTime: u32,
+            ProcessUserTime: u32,
+            ProcessKernelTime: u32,
+            ProcessorMaxMhz: u32,
+            ProcessorCurrentMhz: u32,
+            ProcessorMhzLimit: u32,
+            ProcessorMaxIdleState: u32,
+            ProcessorCurrentIdleState: u32,
+            ProcessIntegrityLevel: u32,
+            ProcessExecuteFlags: u32,
+            ProtectedProcess: u32,
+            TimeZoneId: u32,
+            TimeZone: TIME_ZONE_INFORMATION,
+        }
+        struct MINIDUMP_MISC_INFO_4 {
+            SizeOfInfo: u32,
+            Flags1: u32,
+            ProcessId: u32,
+            ProcessCreateTime: u32,
+            ProcessUserTime: u32,
+            ProcessKernelTime: u32,
+            ProcessorMaxMhz: u32,
+            ProcessorCurrentMhz: u32,
+            ProcessorMhzLimit: u32,
+            ProcessorMaxIdleState: u32,
+            ProcessorCurrentIdleState: u32,
+            ProcessIntegrityLevel: u32,
+            ProcessExecuteFlags: u32,
+            ProtectedProcess: u32,
+            TimeZoneId: u32,
+            TimeZone: TIME_ZONE_INFORMATION,
+            BuildString: [u16; 260],
+            DbgBldStr: [u16; 40],
+        }
+        struct MINIDUMP_MISC_INFO_5 {
+            SizeOfInfo: u32,
+            Flags1: u32,
+            ProcessId: u32,
+            ProcessCreateTime: u32,
+            ProcessUserTime: u32,
+            ProcessKernelTime: u32,
+            ProcessorMaxMhz: u32,
+            ProcessorCurrentMhz: u32,
+            ProcessorMhzLimit: u32,
+            ProcessorMaxIdleState: u32,
+            ProcessorCurrentIdleState: u32,
+            ProcessIntegrityLevel: u32,
+            ProcessExecuteFlags: u32,
+            ProtectedProcess: u32,
+            TimeZoneId: u32,
+            TimeZone: TIME_ZONE_INFORMATION,
+            BuildString: [u16; 260],
+            DbgBldStr: [u16; 40],
+            XStateData: XSTATE_CONFIG_FEATURE_MSC_INFO,
+            ProcessCookie: u32,
+        }
+        type MINIDUMP_MISC_INFO_N = MINIDUMP_MISC_INFO_5;
+        #[packed(4)]
+        struct MINIDUMP_MODULE {
+            BaseOfImage: u64,
+            SizeOfImage: u32,
+            CheckSum: u32,
+            TimeDateStamp: u32,
+            ModuleNameRva: RVA,
+            VersionInfo: VS_FIXEDFILEINFO,
+            CvRecord: MINIDUMP_LOCATION_DESCRIPTOR,
+            MiscRecord: MINIDUMP_LOCATION_DESCRIPTOR,
+            Reserved0: u64,
+            Reserved1: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_MODULE_CALLBACK {
+            FullPath: PWCHAR,
+            BaseOfImage: u64,
+            SizeOfImage: u32,
+            CheckSum: u32,
+            TimeDateStamp: u32,
+            VersionInfo: VS_FIXEDFILEINFO,
+            CvRecord: *mut void,
+            SizeOfCvRecord: u32,
+            MiscRecord: *mut void,
+            SizeOfMiscRecord: u32,
+        }
+        struct MINIDUMP_MODULE_LIST {
+            NumberOfModules: u32,
+            Modules: [MINIDUMP_MODULE; 0],
+        }
+        const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1;
+        #[packed(4)]
+        struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
+            Revision: u16,
+            PageFaultCount: u32,
+            PeakWorkingSetSize: u64,
+            WorkingSetSize: u64,
+            QuotaPeakPagedPoolUsage: u64,
+            QuotaPagedPoolUsage: u64,
+            QuotaPeakNonPagedPoolUsage: u64,
+            QuotaNonPagedPoolUsage: u64,
+            PagefileUsage: u64,
+            PeakPagefileUsage: u64,
+            PrivateUsage: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
+            Revision: u16,
+            Flags: u16,
+            PageFaultCount: u32,
+            PeakWorkingSetSize: u64,
+            WorkingSetSize: u64,
+            QuotaPeakPagedPoolUsage: u64,
+            QuotaPagedPoolUsage: u64,
+            QuotaPeakNonPagedPoolUsage: u64,
+            QuotaNonPagedPoolUsage: u64,
+            PagefileUsage: u64,
+            PeakPagefileUsage: u64,
+            PeakVirtualSize: u64,
+            VirtualSize: u64,
+            PrivateUsage: u64,
+            PrivateWorkingSetSize: u64,
+            SharedCommitUsage: u64,
+            JobSharedCommitUsage: u64,
+            JobPrivateCommitUsage: u64,
+            JobPeakPrivateCommitUsage: u64,
+            JobPrivateCommitLimit: u64,
+            JobTotalCommitLimit: u64,
+        }
+        const MINIDUMP_PROCESS_VM_COUNTERS_EX: u32 = 4;
+        const MINIDUMP_PROCESS_VM_COUNTERS_EX2: u32 = 8;
+        const MINIDUMP_PROCESS_VM_COUNTERS_JOB: u32 = 16;
+        type MINIDUMP_PROCESS_VM_COUNTERS_N = MINIDUMP_PROCESS_VM_COUNTERS_2;
+        const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: u32 = 2;
+        #[packed(4)]
+        struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
+            Offset: u64,
+            Bytes: u32,
+            FailureStatus: HRESULT,
+        }
+        #[repr(i32)]
+        enum MINIDUMP_SECONDARY_FLAGS {
+            MiniSecondaryWithoutPowerInfo = 1,
+            MiniSecondaryValidFlags = 1,
+        }
+        const MINIDUMP_SIGNATURE: u32 = 1347241037;
+        #[repr(i32)]
+        enum MINIDUMP_STREAM_TYPE {
+            UnusedStream = 0,
+            ReservedStream0 = 1,
+            ReservedStream1 = 2,
+            ThreadListStream = 3,
+            ModuleListStream = 4,
+            MemoryListStream = 5,
+            ExceptionStream = 6,
+            SystemInfoStream = 7,
+            ThreadExListStream = 8,
+            Memory64ListStream = 9,
+            CommentStreamA = 10,
+            CommentStreamW = 11,
+            HandleDataStream = 12,
+            FunctionTableStream = 13,
+            UnloadedModuleListStream = 14,
+            MiscInfoStream = 15,
+            MemoryInfoListStream = 16,
+            ThreadInfoListStream = 17,
+            HandleOperationListStream = 18,
+            TokenStream = 19,
+            JavaScriptDataStream = 20,
+            SystemMemoryInfoStream = 21,
+            ProcessVmCountersStream = 22,
+            IptTraceStream = 23,
+            ThreadNamesStream = 24,
+            CompressedMemoryStream = 25,
+            CompressedMemoryStreamSQL = 28672,
+            ceStreamNull = 32768,
+            ceStreamSystemInfo = 32769,
+            ceStreamException = 32770,
+            ceStreamModuleList = 32771,
+            ceStreamProcessList = 32772,
+            ceStreamThreadList = 32773,
+            ceStreamThreadContextList = 32774,
+            ceStreamThreadCallStackList = 32775,
+            ceStreamMemoryVirtualList = 32776,
+            ceStreamMemoryPhysicalList = 32777,
+            ceStreamBucketParameters = 32778,
+            ceStreamProcessModuleMap = 32779,
+            ceStreamDiagnosisList = 32780,
+            LastReservedStream = 65535,
+        }
+        struct MINIDUMP_STRING {
+            Length: u32,
+            Buffer: [u16; 0],
+        }
+        const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2;
+        const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1;
+        const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4;
+        const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES: u32 = 16;
+        const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8;
+        const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: u32 = 32;
+        #[packed(4)]
+        struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
+            TimerResolution: u32,
+            PageSize: u32,
+            NumberOfPhysicalPages: u32,
+            LowestPhysicalPageNumber: u32,
+            HighestPhysicalPageNumber: u32,
+            AllocationGranularity: u32,
+            MinimumUserModeAddress: u64,
+            MaximumUserModeAddress: u64,
+            ActiveProcessorsAffinityMask: u64,
+            NumberOfProcessors: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
+            AvailablePages: u64,
+            CommittedPages: u64,
+            CommitLimit: u64,
+            PeakCommitment: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
+            CurrentSize: u64,
+            PeakSize: u64,
+            PageFaultCount: u32,
+            MinimumWorkingSet: u64,
+            MaximumWorkingSet: u64,
+            CurrentSizeIncludingTransitionInPages: u64,
+            PeakSizeIncludingTransitionInPages: u64,
+            TransitionRePurposeCount: u32,
+            Flags: u32,
+        }
+        struct MINIDUMP_SYSTEM_INFO {
+            ProcessorArchitecture: u16,
+            ProcessorLevel: u16,
+            ProcessorRevision: u16,
+            Anonymous: union {
+                Reserved0: u16,
+                Anonymous: struct {
+                    NumberOfProcessors: u8,
+                    ProductType: u8,
+                },
+            },
+            MajorVersion: u32,
+            MinorVersion: u32,
+            BuildNumber: u32,
+            PlatformId: u32,
+            CSDVersionRva: RVA,
+            Anonymous2: union {
+                Reserved1: u32,
+                Anonymous: struct {
+                    SuiteMask: u16,
+                    Reserved2: u16,
+                },
+            },
+            Cpu: CPU_INFORMATION,
+        }
+        struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
+            Revision: u16,
+            Flags: u16,
+            BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
+            FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
+            BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
+            PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
+        }
+        struct MINIDUMP_SYSTEM_MEMORY_INFO_2 {
+            Revision: u16,
+            Flags: u16,
+            BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
+            FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
+            BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
+            PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2,
+        }
+        type MINIDUMP_SYSTEM_MEMORY_INFO_N = MINIDUMP_SYSTEM_MEMORY_INFO_2;
+        #[packed(4)]
+        struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
+            IdleProcessTime: u64,
+            IoReadTransferCount: u64,
+            IoWriteTransferCount: u64,
+            IoOtherTransferCount: u64,
+            IoReadOperationCount: u32,
+            IoWriteOperationCount: u32,
+            IoOtherOperationCount: u32,
+            AvailablePages: u32,
+            CommittedPages: u32,
+            CommitLimit: u32,
+            PeakCommitment: u32,
+            PageFaultCount: u32,
+            CopyOnWriteCount: u32,
+            TransitionCount: u32,
+            CacheTransitionCount: u32,
+            DemandZeroCount: u32,
+            PageReadCount: u32,
+            PageReadIoCount: u32,
+            CacheReadCount: u32,
+            CacheIoCount: u32,
+            DirtyPagesWriteCount: u32,
+            DirtyWriteIoCount: u32,
+            MappedPagesWriteCount: u32,
+            MappedWriteIoCount: u32,
+            PagedPoolPages: u32,
+            NonPagedPoolPages: u32,
+            PagedPoolAllocs: u32,
+            PagedPoolFrees: u32,
+            NonPagedPoolAllocs: u32,
+            NonPagedPoolFrees: u32,
+            FreeSystemPtes: u32,
+            ResidentSystemCodePage: u32,
+            TotalSystemDriverPages: u32,
+            TotalSystemCodePages: u32,
+            NonPagedPoolLookasideHits: u32,
+            PagedPoolLookasideHits: u32,
+            AvailablePagedPoolPages: u32,
+            ResidentSystemCachePage: u32,
+            ResidentPagedPoolPage: u32,
+            ResidentSystemDriverPage: u32,
+            CcFastReadNoWait: u32,
+            CcFastReadWait: u32,
+            CcFastReadResourceMiss: u32,
+            CcFastReadNotPossible: u32,
+            CcFastMdlReadNoWait: u32,
+            CcFastMdlReadWait: u32,
+            CcFastMdlReadResourceMiss: u32,
+            CcFastMdlReadNotPossible: u32,
+            CcMapDataNoWait: u32,
+            CcMapDataWait: u32,
+            CcMapDataNoWaitMiss: u32,
+            CcMapDataWaitMiss: u32,
+            CcPinMappedDataCount: u32,
+            CcPinReadNoWait: u32,
+            CcPinReadWait: u32,
+            CcPinReadNoWaitMiss: u32,
+            CcPinReadWaitMiss: u32,
+            CcCopyReadNoWait: u32,
+            CcCopyReadWait: u32,
+            CcCopyReadNoWaitMiss: u32,
+            CcCopyReadWaitMiss: u32,
+            CcMdlReadNoWait: u32,
+            CcMdlReadWait: u32,
+            CcMdlReadNoWaitMiss: u32,
+            CcMdlReadWaitMiss: u32,
+            CcReadAheadIos: u32,
+            CcLazyWriteIos: u32,
+            CcLazyWritePages: u32,
+            CcDataFlushes: u32,
+            CcDataPages: u32,
+            ContextSwitches: u32,
+            FirstLevelTbFills: u32,
+            SecondLevelTbFills: u32,
+            SystemCalls: u32,
+            CcTotalDirtyPages: u64,
+            CcDirtyPageThreshold: u64,
+            ResidentAvailablePages: i64,
+            SharedCommittedPages: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 {
+            IdleProcessTime: u64,
+            IoReadTransferCount: u64,
+            IoWriteTransferCount: u64,
+            IoOtherTransferCount: u64,
+            IoReadOperationCount: u32,
+            IoWriteOperationCount: u32,
+            IoOtherOperationCount: u32,
+            AvailablePages: u32,
+            CommittedPages: u32,
+            CommitLimit: u32,
+            PeakCommitment: u32,
+            PageFaultCount: u32,
+            CopyOnWriteCount: u32,
+            TransitionCount: u32,
+            CacheTransitionCount: u32,
+            DemandZeroCount: u32,
+            PageReadCount: u32,
+            PageReadIoCount: u32,
+            CacheReadCount: u32,
+            CacheIoCount: u32,
+            DirtyPagesWriteCount: u32,
+            DirtyWriteIoCount: u32,
+            MappedPagesWriteCount: u32,
+            MappedWriteIoCount: u32,
+            PagedPoolPages: u32,
+            NonPagedPoolPages: u32,
+            PagedPoolAllocs: u32,
+            PagedPoolFrees: u32,
+            NonPagedPoolAllocs: u32,
+            NonPagedPoolFrees: u32,
+            FreeSystemPtes: u32,
+            ResidentSystemCodePage: u32,
+            TotalSystemDriverPages: u32,
+            TotalSystemCodePages: u32,
+            NonPagedPoolLookasideHits: u32,
+            PagedPoolLookasideHits: u32,
+            AvailablePagedPoolPages: u32,
+            ResidentSystemCachePage: u32,
+            ResidentPagedPoolPage: u32,
+            ResidentSystemDriverPage: u32,
+            CcFastReadNoWait: u32,
+            CcFastReadWait: u32,
+            CcFastReadResourceMiss: u32,
+            CcFastReadNotPossible: u32,
+            CcFastMdlReadNoWait: u32,
+            CcFastMdlReadWait: u32,
+            CcFastMdlReadResourceMiss: u32,
+            CcFastMdlReadNotPossible: u32,
+            CcMapDataNoWait: u32,
+            CcMapDataWait: u32,
+            CcMapDataNoWaitMiss: u32,
+            CcMapDataWaitMiss: u32,
+            CcPinMappedDataCount: u32,
+            CcPinReadNoWait: u32,
+            CcPinReadWait: u32,
+            CcPinReadNoWaitMiss: u32,
+            CcPinReadWaitMiss: u32,
+            CcCopyReadNoWait: u32,
+            CcCopyReadWait: u32,
+            CcCopyReadNoWaitMiss: u32,
+            CcCopyReadWaitMiss: u32,
+            CcMdlReadNoWait: u32,
+            CcMdlReadWait: u32,
+            CcMdlReadNoWaitMiss: u32,
+            CcMdlReadWaitMiss: u32,
+            CcReadAheadIos: u32,
+            CcLazyWriteIos: u32,
+            CcLazyWritePages: u32,
+            CcDataFlushes: u32,
+            CcDataPages: u32,
+            ContextSwitches: u32,
+            FirstLevelTbFills: u32,
+            SecondLevelTbFills: u32,
+            SystemCalls: u32,
+            CcTotalDirtyPages: u64,
+            CcDirtyPageThreshold: u64,
+            ResidentAvailablePages: i64,
+            SharedCommittedPages: u64,
+            MdlPagesAllocated: u64,
+            PfnDatabaseCommittedPages: u64,
+            SystemPageTableCommittedPages: u64,
+            ContiguousPagesAllocated: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_THREAD {
+            ThreadId: u32,
+            SuspendCount: u32,
+            PriorityClass: u32,
+            Priority: u32,
+            Teb: u64,
+            Stack: MINIDUMP_MEMORY_DESCRIPTOR,
+            ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
+        }
+        #[arch(Arm64)]
+        struct MINIDUMP_THREAD_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Pad: u32,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+        }
+        #[arch(X64)]
+        struct MINIDUMP_THREAD_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct MINIDUMP_THREAD_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+        }
+        #[packed(4)]
+        struct MINIDUMP_THREAD_EX {
+            ThreadId: u32,
+            SuspendCount: u32,
+            PriorityClass: u32,
+            Priority: u32,
+            Teb: u64,
+            Stack: MINIDUMP_MEMORY_DESCRIPTOR,
+            ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
+            BackingStore: MINIDUMP_MEMORY_DESCRIPTOR,
+        }
+        #[arch(Arm64)]
+        struct MINIDUMP_THREAD_EX_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Pad: u32,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+            BackingStoreBase: u64,
+            BackingStoreEnd: u64,
+        }
+        #[arch(X64)]
+        struct MINIDUMP_THREAD_EX_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+            BackingStoreBase: u64,
+            BackingStoreEnd: u64,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct MINIDUMP_THREAD_EX_CALLBACK {
+            ThreadId: u32,
+            ThreadHandle: HANDLE,
+            Context: CONTEXT,
+            SizeOfContext: u32,
+            StackBase: u64,
+            StackEnd: u64,
+            BackingStoreBase: u64,
+            BackingStoreEnd: u64,
+        }
+        struct MINIDUMP_THREAD_EX_LIST {
+            NumberOfThreads: u32,
+            Threads: [MINIDUMP_THREAD_EX; 0],
+        }
+        #[packed(4)]
+        struct MINIDUMP_THREAD_INFO {
+            ThreadId: u32,
+            DumpFlags: u32,
+            DumpError: u32,
+            ExitStatus: u32,
+            CreateTime: u64,
+            ExitTime: u64,
+            KernelTime: u64,
+            UserTime: u64,
+            StartAddress: u64,
+            Affinity: u64,
+        }
+        const MINIDUMP_THREAD_INFO_ERROR_THREAD: u32 = 1;
+        const MINIDUMP_THREAD_INFO_EXITED_THREAD: u32 = 4;
+        const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: u32 = 16;
+        const MINIDUMP_THREAD_INFO_INVALID_INFO: u32 = 8;
+        const MINIDUMP_THREAD_INFO_INVALID_TEB: u32 = 32;
+        struct MINIDUMP_THREAD_INFO_LIST {
+            SizeOfHeader: u32,
+            SizeOfEntry: u32,
+            NumberOfEntries: u32,
+        }
+        const MINIDUMP_THREAD_INFO_WRITING_THREAD: u32 = 2;
+        struct MINIDUMP_THREAD_LIST {
+            NumberOfThreads: u32,
+            Threads: [MINIDUMP_THREAD; 0],
+        }
+        #[packed(4)]
+        struct MINIDUMP_THREAD_NAME {
+            ThreadId: u32,
+            RvaOfThreadName: RVA64,
+        }
+        struct MINIDUMP_THREAD_NAME_LIST {
+            NumberOfThreadNames: u32,
+            ThreadNames: [MINIDUMP_THREAD_NAME; 0],
+        }
+        #[packed(4)]
+        struct MINIDUMP_TOKEN_INFO_HEADER {
+            TokenSize: u32,
+            TokenId: u32,
+            TokenHandle: u64,
+        }
+        struct MINIDUMP_TOKEN_INFO_LIST {
+            TokenListSize: u32,
+            TokenListEntries: u32,
+            ListHeaderSize: u32,
+            ElementHeaderSize: u32,
+        }
+        #[repr(i32)]
+        enum MINIDUMP_TYPE {
+            MiniDumpNormal = 0,
+            MiniDumpWithDataSegs = 1,
+            MiniDumpWithFullMemory = 2,
+            MiniDumpWithHandleData = 4,
+            MiniDumpFilterMemory = 8,
+            MiniDumpScanMemory = 16,
+            MiniDumpWithUnloadedModules = 32,
+            MiniDumpWithIndirectlyReferencedMemory = 64,
+            MiniDumpFilterModulePaths = 128,
+            MiniDumpWithProcessThreadData = 256,
+            MiniDumpWithPrivateReadWriteMemory = 512,
+            MiniDumpWithoutOptionalData = 1024,
+            MiniDumpWithFullMemoryInfo = 2048,
+            MiniDumpWithThreadInfo = 4096,
+            MiniDumpWithCodeSegs = 8192,
+            MiniDumpWithoutAuxiliaryState = 16384,
+            MiniDumpWithFullAuxiliaryState = 32768,
+            MiniDumpWithPrivateWriteCopyMemory = 65536,
+            MiniDumpIgnoreInaccessibleMemory = 131072,
+            MiniDumpWithTokenInformation = 262144,
+            MiniDumpWithModuleHeaders = 524288,
+            MiniDumpFilterTriage = 1048576,
+            MiniDumpWithAvxXStateContext = 2097152,
+            MiniDumpWithIptTrace = 4194304,
+            MiniDumpScanInaccessiblePartialPages = 8388608,
+            MiniDumpFilterWriteCombinedMemory = 16777216,
+            MiniDumpWithMemoryCompressed = 67108864,
+            MiniDumpValidTypeFlags = 100663295,
+            MiniDumpNoIgnoreInaccessibleMemory = 33554432,
+            MiniDumpValidTypeFlagsEx = 134217727,
+        }
+        #[packed(4)]
+        struct MINIDUMP_UNLOADED_MODULE {
+            BaseOfImage: u64,
+            SizeOfImage: u32,
+            CheckSum: u32,
+            TimeDateStamp: u32,
+            ModuleNameRva: RVA,
+        }
+        struct MINIDUMP_UNLOADED_MODULE_LIST {
+            SizeOfHeader: u32,
+            SizeOfEntry: u32,
+            NumberOfEntries: u32,
+        }
+        struct MINIDUMP_USER_RECORD {
+            Type: u32,
+            Memory: MINIDUMP_LOCATION_DESCRIPTOR,
+        }
+        #[arch(X86)]
+        struct MINIDUMP_USER_STREAM {
+            Type: u32,
+            BufferSize: u32,
+            Buffer: *mut void,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_USER_STREAM {
+            Type: u32,
+            BufferSize: u32,
+            Buffer: *mut void,
+        }
+        #[arch(X86)]
+        struct MINIDUMP_USER_STREAM_INFORMATION {
+            UserStreamCount: u32,
+            UserStreamArray: PMINIDUMP_USER_STREAM,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MINIDUMP_USER_STREAM_INFORMATION {
+            UserStreamCount: u32,
+            UserStreamArray: PMINIDUMP_USER_STREAM,
+        }
+        const MINIDUMP_VERSION: u32 = 42899;
+        #[packed(4)]
+        struct MINIDUMP_VM_POST_READ_CALLBACK {
+            Offset: u64,
+            Buffer: *mut void,
+            Size: u32,
+            Completed: u32,
+            Status: HRESULT,
+        }
+        #[packed(4)]
+        struct MINIDUMP_VM_PRE_READ_CALLBACK {
+            Offset: u64,
+            Buffer: *mut void,
+            Size: u32,
+        }
+        #[packed(4)]
+        struct MINIDUMP_VM_QUERY_CALLBACK {
+            Offset: u64,
+        }
+        #[repr(i32)]
+        enum MODULE_WRITE_FLAGS {
+            ModuleWriteModule = 1,
+            ModuleWriteDataSeg = 2,
+            ModuleWriteMiscRecord = 4,
+            ModuleWriteCvRecord = 8,
+            ModuleReferencedByMemory = 16,
+            ModuleWriteTlsData = 32,
+            ModuleWriteCodeSegs = 64,
+        }
+        #[library("dbghelp.dll")]
+        extern fn MiniDumpReadDumpStream(BaseOfDump: *const void, StreamNumber: u32, Dir: *mut PMINIDUMP_DIRECTORY, StreamPointer: *mut *mut void, #[opt] StreamSize: *mut u32) -> BOOL;
+        #[library("dbghelp.dll")]
+        extern fn MiniDumpWriteDump(hProcess: HANDLE, ProcessId: u32, hFile: HANDLE, DumpType: MINIDUMP_TYPE, #[opt] ExceptionParam: *const MINIDUMP_EXCEPTION_INFORMATION, #[opt] UserStreamParam: *const MINIDUMP_USER_STREAM_INFORMATION, #[opt] CallbackParam: *const MINIDUMP_CALLBACK_INFORMATION) -> BOOL;
+        type PCPU_INFORMATION = *mut CPU_INFORMATION;
+        type PMINIDUMP_CALLBACK_INFORMATION = *mut MINIDUMP_CALLBACK_INFORMATION;
+        type PMINIDUMP_CALLBACK_INPUT = *mut MINIDUMP_CALLBACK_INPUT;
+        type PMINIDUMP_CALLBACK_OUTPUT = *mut MINIDUMP_CALLBACK_OUTPUT;
+        type PMINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK = *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK;
+        type PMINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK = *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK;
+        type PMINIDUMP_DIRECTORY = *mut MINIDUMP_DIRECTORY;
+        type PMINIDUMP_EXCEPTION = *mut MINIDUMP_EXCEPTION;
+        type PMINIDUMP_EXCEPTION_INFORMATION = *mut MINIDUMP_EXCEPTION_INFORMATION;
+        type PMINIDUMP_EXCEPTION_INFORMATION64 = *mut MINIDUMP_EXCEPTION_INFORMATION64;
+        type PMINIDUMP_EXCEPTION_STREAM = *mut MINIDUMP_EXCEPTION_STREAM;
+        type PMINIDUMP_FUNCTION_TABLE_DESCRIPTOR = *mut MINIDUMP_FUNCTION_TABLE_DESCRIPTOR;
+        type PMINIDUMP_FUNCTION_TABLE_STREAM = *mut MINIDUMP_FUNCTION_TABLE_STREAM;
+        type PMINIDUMP_HANDLE_DATA_STREAM = *mut MINIDUMP_HANDLE_DATA_STREAM;
+        type PMINIDUMP_HANDLE_DESCRIPTOR = *mut MINIDUMP_HANDLE_DESCRIPTOR;
+        type PMINIDUMP_HANDLE_DESCRIPTOR_2 = *mut MINIDUMP_HANDLE_DESCRIPTOR_2;
+        type PMINIDUMP_HANDLE_DESCRIPTOR_N = *mut MINIDUMP_HANDLE_DESCRIPTOR_N;
+        type PMINIDUMP_HANDLE_OPERATION_LIST = *mut MINIDUMP_HANDLE_OPERATION_LIST;
+        type PMINIDUMP_HEADER = *mut MINIDUMP_HEADER;
+        type PMINIDUMP_INCLUDE_MODULE_CALLBACK = *mut MINIDUMP_INCLUDE_MODULE_CALLBACK;
+        type PMINIDUMP_INCLUDE_THREAD_CALLBACK = *mut MINIDUMP_INCLUDE_THREAD_CALLBACK;
+        type PMINIDUMP_IO_CALLBACK = *mut MINIDUMP_IO_CALLBACK;
+        type PMINIDUMP_MEMORY64_LIST = *mut MINIDUMP_MEMORY64_LIST;
+        type PMINIDUMP_MEMORY_DESCRIPTOR = *mut MINIDUMP_MEMORY_DESCRIPTOR;
+        type PMINIDUMP_MEMORY_DESCRIPTOR64 = *mut MINIDUMP_MEMORY_DESCRIPTOR64;
+        type PMINIDUMP_MEMORY_INFO = *mut MINIDUMP_MEMORY_INFO;
+        type PMINIDUMP_MEMORY_INFO_LIST = *mut MINIDUMP_MEMORY_INFO_LIST;
+        type PMINIDUMP_MEMORY_LIST = *mut MINIDUMP_MEMORY_LIST;
+        type PMINIDUMP_MISC_INFO = *mut MINIDUMP_MISC_INFO;
+        type PMINIDUMP_MISC_INFO_2 = *mut MINIDUMP_MISC_INFO_2;
+        type PMINIDUMP_MISC_INFO_3 = *mut MINIDUMP_MISC_INFO_3;
+        type PMINIDUMP_MISC_INFO_4 = *mut MINIDUMP_MISC_INFO_4;
+        type PMINIDUMP_MISC_INFO_5 = *mut MINIDUMP_MISC_INFO_5;
+        type PMINIDUMP_MISC_INFO_N = *mut MINIDUMP_MISC_INFO_N;
+        type PMINIDUMP_MODULE = *mut MINIDUMP_MODULE;
+        type PMINIDUMP_MODULE_CALLBACK = *mut MINIDUMP_MODULE_CALLBACK;
+        type PMINIDUMP_MODULE_LIST = *mut MINIDUMP_MODULE_LIST;
+        type PMINIDUMP_PROCESS_VM_COUNTERS_1 = *mut MINIDUMP_PROCESS_VM_COUNTERS_1;
+        type PMINIDUMP_PROCESS_VM_COUNTERS_2 = *mut MINIDUMP_PROCESS_VM_COUNTERS_2;
+        type PMINIDUMP_PROCESS_VM_COUNTERS_N = *mut MINIDUMP_PROCESS_VM_COUNTERS_N;
+        type PMINIDUMP_READ_MEMORY_FAILURE_CALLBACK = *mut MINIDUMP_READ_MEMORY_FAILURE_CALLBACK;
+        type PMINIDUMP_STRING = *mut MINIDUMP_STRING;
+        type PMINIDUMP_SYSTEM_BASIC_INFORMATION = *mut MINIDUMP_SYSTEM_BASIC_INFORMATION;
+        type PMINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION = *mut MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION;
+        type PMINIDUMP_SYSTEM_FILECACHE_INFORMATION = *mut MINIDUMP_SYSTEM_FILECACHE_INFORMATION;
+        type PMINIDUMP_SYSTEM_INFO = *mut MINIDUMP_SYSTEM_INFO;
+        type PMINIDUMP_SYSTEM_MEMORY_INFO_1 = *mut MINIDUMP_SYSTEM_MEMORY_INFO_1;
+        type PMINIDUMP_SYSTEM_MEMORY_INFO_2 = *mut MINIDUMP_SYSTEM_MEMORY_INFO_2;
+        type PMINIDUMP_SYSTEM_MEMORY_INFO_N = *mut MINIDUMP_SYSTEM_MEMORY_INFO_N;
+        type PMINIDUMP_SYSTEM_PERFORMANCE_INFORMATION = *mut MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION;
+        type PMINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 = *mut MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2;
+        type PMINIDUMP_THREAD = *mut MINIDUMP_THREAD;
+        type PMINIDUMP_THREAD_CALLBACK = *mut MINIDUMP_THREAD_CALLBACK;
+        type PMINIDUMP_THREAD_EX = *mut MINIDUMP_THREAD_EX;
+        type PMINIDUMP_THREAD_EX_CALLBACK = *mut MINIDUMP_THREAD_EX_CALLBACK;
+        type PMINIDUMP_THREAD_EX_LIST = *mut MINIDUMP_THREAD_EX_LIST;
+        type PMINIDUMP_THREAD_INFO = *mut MINIDUMP_THREAD_INFO;
+        type PMINIDUMP_THREAD_INFO_LIST = *mut MINIDUMP_THREAD_INFO_LIST;
+        type PMINIDUMP_THREAD_LIST = *mut MINIDUMP_THREAD_LIST;
+        type PMINIDUMP_THREAD_NAME = *mut MINIDUMP_THREAD_NAME;
+        type PMINIDUMP_THREAD_NAME_LIST = *mut MINIDUMP_THREAD_NAME_LIST;
+        type PMINIDUMP_TOKEN_INFO_HEADER = *mut MINIDUMP_TOKEN_INFO_HEADER;
+        type PMINIDUMP_TOKEN_INFO_LIST = *mut MINIDUMP_TOKEN_INFO_LIST;
+        type PMINIDUMP_UNLOADED_MODULE = *mut MINIDUMP_UNLOADED_MODULE;
+        type PMINIDUMP_UNLOADED_MODULE_LIST = *mut MINIDUMP_UNLOADED_MODULE_LIST;
+        type PMINIDUMP_USER_RECORD = *mut MINIDUMP_USER_RECORD;
+        type PMINIDUMP_USER_STREAM = *mut MINIDUMP_USER_STREAM;
+        type PMINIDUMP_USER_STREAM_INFORMATION = *mut MINIDUMP_USER_STREAM_INFORMATION;
+        type PMINIDUMP_VM_POST_READ_CALLBACK = *mut MINIDUMP_VM_POST_READ_CALLBACK;
+        type PMINIDUMP_VM_PRE_READ_CALLBACK = *mut MINIDUMP_VM_PRE_READ_CALLBACK;
+        type PMINIDUMP_VM_QUERY_CALLBACK = *mut MINIDUMP_VM_QUERY_CALLBACK;
+        type PXSTATE_CONFIG_FEATURE_MSC_INFO = *mut XSTATE_CONFIG_FEATURE_MSC_INFO;
+        type RVA = u32;
+        type RVA64 = u64;
+        #[repr(i32)]
+        enum THREAD_WRITE_FLAGS {
+            ThreadWriteThread = 1,
+            ThreadWriteStack = 2,
+            ThreadWriteContext = 4,
+            ThreadWriteBackingStore = 8,
+            ThreadWriteInstructionWindow = 16,
+            ThreadWriteThreadData = 32,
+            ThreadWriteThreadInfo = 64,
+        }
+        #[packed(4)]
+        struct XSTATE_CONFIG_FEATURE_MSC_INFO {
+            SizeOfInfo: u32,
+            ContextSize: u32,
+            EnabledFeatures: u64,
+            Features: [XSTATE_FEATURE; 64],
+        }
+    }
+}

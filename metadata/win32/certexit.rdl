@@ -1,0 +1,25 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const EXITEVENT_CERTDENIED: u32 = 4;
+        const EXITEVENT_CERTIMPORTED: u32 = 512;
+        const EXITEVENT_CERTISSUED: u32 = 1;
+        const EXITEVENT_CERTPENDING: u32 = 2;
+        const EXITEVENT_CERTRETRIEVEPENDING: u32 = 16;
+        const EXITEVENT_CERTREVOKED: u32 = 8;
+        const EXITEVENT_CRLISSUED: u32 = 32;
+        const EXITEVENT_INVALID: u32 = 0;
+        const EXITEVENT_SHUTDOWN: u32 = 64;
+        const EXITEVENT_STARTUP: u32 = 128;
+        #[guid(0xe19ae1a0_7364_11d0_8816_00a0c903b83c)]
+        interface ICertExit: IDispatch {
+            fn Initialize(&self, strConfig: BSTR, #[retval] pEventMask: *mut i32) -> HRESULT;
+            fn Notify(&self, ExitEvent: i32, Context: i32) -> HRESULT;
+            fn GetDescription(&self, #[retval] pstrDescription: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x0abf484b_d049_464d_a7ed_552e7529b0ff)]
+        interface ICertExit2: ICertExit {
+            fn GetManageModule(&self, #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x917fe891_3d13_4138_9809_934c8abeb12c)]
+        interface IWSDDeviceHost: IUnknown {
+            fn Init(&self, pszLocalId: PCWSTR, #[opt] pContext: IWSDXMLContext, #[len_param(3)] #[opt] ppHostAddresses: *const IWSDAddress, #[opt] dwHostAddressCount: u32) -> HRESULT;
+            fn Start(&self, ullInstanceId: u64, pScopeList: *const WSD_URI_LIST, #[opt] pNotificationSink: IWSDDeviceHostNotify) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Terminate(&self) -> HRESULT;
+            fn RegisterPortType(&self, pPortType: *const WSD_PORT_TYPE) -> HRESULT;
+            fn SetMetadata(&self, pThisModelMetadata: *const WSD_THIS_MODEL_METADATA, pThisDeviceMetadata: *const WSD_THIS_DEVICE_METADATA, #[opt] pHostMetadata: *const WSD_HOST_METADATA, #[opt] pCustomMetadata: *const WSD_METADATA_SECTION_LIST) -> HRESULT;
+            fn RegisterService(&self, pszServiceId: PCWSTR, pService: IUnknown) -> HRESULT;
+            fn RetireService(&self, pszServiceId: PCWSTR) -> HRESULT;
+            fn AddDynamicService(&self, pszServiceId: PCWSTR, #[opt] pszEndpointAddress: PCWSTR, #[opt] pPortType: *const WSD_PORT_TYPE, #[opt] pPortName: *const WSDXML_NAME, #[opt] pAny: *const WSDXML_ELEMENT, #[opt] pService: IUnknown) -> HRESULT;
+            fn RemoveDynamicService(&self, pszServiceId: PCWSTR) -> HRESULT;
+            fn SetServiceDiscoverable(&self, pszServiceId: PCWSTR, fDiscoverable: BOOL) -> HRESULT;
+            fn SignalEvent(&self, pszServiceId: PCWSTR, #[opt] pBody: *const void, pOperation: *const WSD_OPERATION) -> HRESULT;
+        }
+        #[guid(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0)]
+        interface IWSDDeviceHostNotify: IUnknown {
+            fn GetService(&self, pszServiceId: PCWSTR, ppService: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6)]
+        interface IWSDServiceMessaging: IUnknown {
+            fn SendResponse(&self, #[opt] pBody: *const void, pOperation: *const WSD_OPERATION, pMessageParameters: IWSDMessageParameters) -> HRESULT;
+            fn FaultRequest(&self, pRequestHeader: *const WSD_SOAP_HEADER, pMessageParameters: IWSDMessageParameters, #[opt] pFault: *const WSD_SOAP_FAULT) -> HRESULT;
+        }
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDeviceHost(pszLocalId: PCWSTR, pContext: IWSDXMLContext, ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDeviceHost2(pszLocalId: PCWSTR, pContext: IWSDXMLContext, #[len_param(3)] #[opt] pConfigParams: *const WSD_CONFIG_PARAM, dwConfigParamCount: u32, ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
+        #[library("wsdapi.dll")]
+        extern fn WSDCreateDeviceHostAdvanced(pszLocalId: PCWSTR, pContext: IWSDXMLContext, #[len_param(3)] #[opt] ppHostAddresses: *const IWSDAddress, dwHostAddressCount: u32, ppDeviceHost: *mut IWSDDeviceHost) -> HRESULT;
+    }
+}

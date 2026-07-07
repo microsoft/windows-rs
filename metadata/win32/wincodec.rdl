@@ -1,0 +1,1185 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CATID_WICBitmapDecoders: GUID = 0x7ed96837_96f0_4812_b211_f13c24117ed3;
+        const CATID_WICBitmapEncoders: GUID = 0xac757296_3522_4e11_9862_c17be5a1767e;
+        const CATID_WICFormatConverters: GUID = 0x7835eae8_bf14_49d1_93ce_533a407b2248;
+        const CATID_WICMetadataReader: GUID = 0x05af94d8_7174_4cd2_be4a_4124b80ee4b8;
+        const CATID_WICMetadataWriter: GUID = 0xabe3b9a4_257d_4b97_bd1a_294af496222e;
+        const CATID_WICPixelFormats: GUID = 0x2b46e70f_cda7_473e_89f6_dc9630a2390b;
+        const CLSID_WICAdngDecoder: GUID = 0x981d9411_909e_42a7_8f5d_a747ff052edb;
+        const CLSID_WICBmpDecoder: GUID = 0x6b462062_7cbf_400d_9fdb_813dd10f2778;
+        const CLSID_WICBmpEncoder: GUID = 0x69be8bb4_d66d_47c8_865a_ed1589433782;
+        const CLSID_WICDdsDecoder: GUID = 0x9053699f_a341_429d_9e90_ee437cf80c73;
+        const CLSID_WICDdsEncoder: GUID = 0xa61dde94_66ce_4ac1_881b_71680588895e;
+        const CLSID_WICDefaultFormatConverter: GUID = 0x1a3f11dc_b514_4b17_8c5f_2154513852f1;
+        const CLSID_WICFormatConverterHighColor: GUID = 0xac75d454_9f37_48f8_b972_4e19bc856011;
+        const CLSID_WICFormatConverterNChannel: GUID = 0xc17cabb2_d4a3_47d7_a557_339b2efbd4f1;
+        const CLSID_WICFormatConverterWMPhoto: GUID = 0x9cb5172b_d600_46ba_ab77_77bb7e3a00d9;
+        const CLSID_WICGifDecoder: GUID = 0x381dda3c_9ce9_4834_a23e_1f98f8fc52be;
+        const CLSID_WICGifEncoder: GUID = 0x114f5598_0b22_40a0_86a1_c83ea495adbd;
+        const CLSID_WICHeifDecoder: GUID = 0xe9a4a80a_44fe_4de4_8971_7150b10a5199;
+        const CLSID_WICHeifEncoder: GUID = 0x0dbecec1_9eb3_4860_9c6f_ddbe86634575;
+        const CLSID_WICIcoDecoder: GUID = 0xc61bfcdf_2e0f_4aad_a8d7_e06bafebcdfe;
+        const CLSID_WICImagingCategories: GUID = 0xfae3d380_fea4_4623_8c75_c6b61110b681;
+        const CLSID_WICImagingFactory: GUID = 0xcacaf262_9370_4615_a13b_9f5539da4c0a;
+        const CLSID_WICImagingFactory1: GUID = 0xcacaf262_9370_4615_a13b_9f5539da4c0a;
+        const CLSID_WICImagingFactory2: GUID = 0x317d06e8_5f24_433d_bdf7_79ce68d8abc2;
+        const CLSID_WICJpegDecoder: GUID = 0x9456a480_e88b_43ea_9e73_0b2d9b71b1ca;
+        const CLSID_WICJpegEncoder: GUID = 0x1a34f5c1_4a5a_46dc_b644_1f4567e7a676;
+        const CLSID_WICJpegQualcommPhoneEncoder: GUID = 0x68ed5c62_f534_4979_b2b3_686a12b2b34c;
+        const CLSID_WICJpegXLDecoder: GUID = 0xfc6ceece_aef5_4a23_96ec_5984ffb486d9;
+        const CLSID_WICJpegXLEncoder: GUID = 0x0e4ecd3b_1ba6_4636_8198_56c73040964a;
+        const CLSID_WICPlanarFormatConverter: GUID = 0x184132b8_32f8_4784_9131_dd7224b23438;
+        const CLSID_WICPngDecoder: GUID = 0x389ea17b_5078_4cde_b6ef_25c15175c751;
+        const CLSID_WICPngDecoder1: GUID = 0x389ea17b_5078_4cde_b6ef_25c15175c751;
+        const CLSID_WICPngDecoder2: GUID = 0xe018945b_aa86_4008_9bd4_6777a1e40c11;
+        const CLSID_WICPngEncoder: GUID = 0x27949969_876a_41d7_9447_568f6a35a4dc;
+        const CLSID_WICRAWDecoder: GUID = 0x41945702_8302_44a6_9445_ac98e8afa086;
+        const CLSID_WICTiffDecoder: GUID = 0xb54e85d9_fe23_499f_8b88_6acea713752b;
+        const CLSID_WICTiffEncoder: GUID = 0x0131be10_2001_4c5f_a9b0_cc88fab64ce8;
+        const CLSID_WICWebpDecoder: GUID = 0x7693e886_51c9_4070_8419_9f70738ec8fa;
+        const CLSID_WICWmpDecoder: GUID = 0xa26cec36_234c_4950_ae16_e34aace71d0d;
+        const CLSID_WICWmpEncoder: GUID = 0xac4ce3cb_e1c1_44cd_8215_5a1665509ec2;
+        const FACILITY_WINCODEC_ERR: u32 = 2200;
+        const GUID_ContainerFormatAdng: GUID = 0xf3ff6d0d_38c0_41c4_b1fe_1f3824f17b84;
+        const GUID_ContainerFormatBmp: GUID = 0x0af1d87e_fcfe_4188_bdeb_a7906471cbe3;
+        const GUID_ContainerFormatDds: GUID = 0x9967cb95_2e85_4ac8_8ca2_83d7ccd425c9;
+        const GUID_ContainerFormatGif: GUID = 0x1f8a5601_7d4d_4cbd_9c82_1bc8d4eeb9a5;
+        const GUID_ContainerFormatHeif: GUID = 0xe1e62521_6787_405b_a339_500715b5763f;
+        const GUID_ContainerFormatIco: GUID = 0xa3a860c4_338f_4c17_919a_fba4b5628f21;
+        const GUID_ContainerFormatJpeg: GUID = 0x19e4a5aa_5662_4fc5_a0c0_1758028e1057;
+        const GUID_ContainerFormatJpegXL: GUID = 0xfec14e3f_427a_4736_aae6_27ed84f69322;
+        const GUID_ContainerFormatPng: GUID = 0x1b7cfaf4_713f_473c_bbcd_6137425faeaf;
+        const GUID_ContainerFormatRaw: GUID = 0xfe99ce60_f19c_433c_a3ae_00acefa9ca21;
+        const GUID_ContainerFormatTiff: GUID = 0x163bcc30_e2e9_4f0b_961d_a3e9fdb788a3;
+        const GUID_ContainerFormatWebp: GUID = 0xe094b0e2_67f2_45b3_b0ea_115337ca7cf3;
+        const GUID_ContainerFormatWmp: GUID = 0x57a37caa_367a_4540_916b_f183c5093a4b;
+        const GUID_VendorMicrosoft: GUID = 0xf0e749ca_edef_4589_a73a_ee0e626a2a2b;
+        const GUID_VendorMicrosoftBuiltIn: GUID = 0x257a30fd_06b6_462b_aea4_63f70b86e533;
+        const GUID_WICPixelFormat112bpp6ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc937;
+        const GUID_WICPixelFormat112bpp7Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92a;
+        const GUID_WICPixelFormat128bpp7ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc938;
+        const GUID_WICPixelFormat128bpp8Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92b;
+        const GUID_WICPixelFormat128bppPRGBAFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91a;
+        const GUID_WICPixelFormat128bppRGBAFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91e;
+        const GUID_WICPixelFormat128bppRGBAFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc919;
+        const GUID_WICPixelFormat128bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc941;
+        const GUID_WICPixelFormat128bppRGBFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91b;
+        const GUID_WICPixelFormat144bpp8ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc939;
+        const GUID_WICPixelFormat16bppBGR555: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc909;
+        const GUID_WICPixelFormat16bppBGR565: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90a;
+        const GUID_WICPixelFormat16bppBGRA5551: GUID = 0x05ec7c2b_f1e6_4961_ad46_e1cc810a87d2;
+        const GUID_WICPixelFormat16bppCbCr: GUID = 0xff95ba6e_11e0_4263_bb45_01721f3460a4;
+        const GUID_WICPixelFormat16bppCbQuantizedDctCoefficients: GUID = 0xd2c4ff61_56a5_49c2_8b5c_4c1925964837;
+        const GUID_WICPixelFormat16bppCrQuantizedDctCoefficients: GUID = 0x2fe354f0_1680_42d8_9231_e73c0565bfc1;
+        const GUID_WICPixelFormat16bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90b;
+        const GUID_WICPixelFormat16bppGrayFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc913;
+        const GUID_WICPixelFormat16bppGrayHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93e;
+        const GUID_WICPixelFormat16bppYQuantizedDctCoefficients: GUID = 0xa355f433_48e8_4a42_84d8_e2aa26ca80a4;
+        const GUID_WICPixelFormat1bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc901;
+        const GUID_WICPixelFormat24bpp3Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc920;
+        const GUID_WICPixelFormat24bppBGR: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90c;
+        const GUID_WICPixelFormat24bppRGB: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90d;
+        const GUID_WICPixelFormat24bppRGBGain: GUID = 0xa5022b24_7109_443b_9948_25b6ed8f39fd;
+        const GUID_WICPixelFormat2bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc906;
+        const GUID_WICPixelFormat2bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc902;
+        const GUID_WICPixelFormat32bpp3ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92e;
+        const GUID_WICPixelFormat32bpp4Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc921;
+        const GUID_WICPixelFormat32bppBGR: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90e;
+        const GUID_WICPixelFormat32bppBGR101010: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc914;
+        const GUID_WICPixelFormat32bppBGRA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90f;
+        const GUID_WICPixelFormat32bppBGRGain: GUID = 0x837d6738_208a_43e0_8995_79ab74407402;
+        const GUID_WICPixelFormat32bppCMYK: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91c;
+        const GUID_WICPixelFormat32bppGrayFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93f;
+        const GUID_WICPixelFormat32bppGrayFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc911;
+        const GUID_WICPixelFormat32bppPBGRA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc910;
+        const GUID_WICPixelFormat32bppPRGBA: GUID = 0x3cc4a650_a527_4d37_a916_3142c7ebedba;
+        const GUID_WICPixelFormat32bppR10G10B10A2: GUID = 0x604e1bb5_8a3c_4b65_b11c_bc0b8dd75b7f;
+        const GUID_WICPixelFormat32bppR10G10B10A2HDR10: GUID = 0x9c215c5d_1acc_4f0e_a4bc_70fb3ae8fd28;
+        const GUID_WICPixelFormat32bppRGB: GUID = 0xd98c6b95_3efe_47d6_bb25_eb1748ab0cf1;
+        const GUID_WICPixelFormat32bppRGBA: GUID = 0xf5c7ad2d_6a8d_43dd_a7a8_a29935261ae9;
+        const GUID_WICPixelFormat32bppRGBA1010102: GUID = 0x25238d72_fcf9_4522_b514_5578e5ad55e0;
+        const GUID_WICPixelFormat32bppRGBA1010102XR: GUID = 0x00de6b9a_c101_434b_b502_d0165ee1122c;
+        const GUID_WICPixelFormat32bppRGBE: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93d;
+        const GUID_WICPixelFormat40bpp4ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92f;
+        const GUID_WICPixelFormat40bpp5Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc922;
+        const GUID_WICPixelFormat40bppCMYKAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92c;
+        const GUID_WICPixelFormat48bpp3Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc926;
+        const GUID_WICPixelFormat48bpp5ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc930;
+        const GUID_WICPixelFormat48bpp6Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc923;
+        const GUID_WICPixelFormat48bppBGR: GUID = 0xe605a384_b468_46ce_bb2e_36f180e64313;
+        const GUID_WICPixelFormat48bppBGRFixedPoint: GUID = 0x49ca140e_cab6_493b_9ddf_60187c37532a;
+        const GUID_WICPixelFormat48bppRGB: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc915;
+        const GUID_WICPixelFormat48bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc912;
+        const GUID_WICPixelFormat48bppRGBHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93b;
+        const GUID_WICPixelFormat4bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc907;
+        const GUID_WICPixelFormat4bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc903;
+        const GUID_WICPixelFormat56bpp6ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc931;
+        const GUID_WICPixelFormat56bpp7Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc924;
+        const GUID_WICPixelFormat64bpp3ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc934;
+        const GUID_WICPixelFormat64bpp4Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc927;
+        const GUID_WICPixelFormat64bpp7ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc932;
+        const GUID_WICPixelFormat64bpp8Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc925;
+        const GUID_WICPixelFormat64bppBGRA: GUID = 0x1562ff7c_d352_46f9_979e_42976b792246;
+        const GUID_WICPixelFormat64bppBGRAFixedPoint: GUID = 0x356de33c_54d2_4a23_bb04_9b7bf9b1d42d;
+        const GUID_WICPixelFormat64bppCMYK: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91f;
+        const GUID_WICPixelFormat64bppPBGRA: GUID = 0x8c518e8e_a4ec_468b_ae70_c9a35a9c5530;
+        const GUID_WICPixelFormat64bppPRGBA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc917;
+        const GUID_WICPixelFormat64bppPRGBAHalf: GUID = 0x58ad26c2_c623_4d9d_b320_387e49f8c442;
+        const GUID_WICPixelFormat64bppRGB: GUID = 0xa1182111_186d_4d42_bc6a_9c8303a8dff9;
+        const GUID_WICPixelFormat64bppRGBA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc916;
+        const GUID_WICPixelFormat64bppRGBAFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91d;
+        const GUID_WICPixelFormat64bppRGBAHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93a;
+        const GUID_WICPixelFormat64bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc940;
+        const GUID_WICPixelFormat64bppRGBHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc942;
+        const GUID_WICPixelFormat72bpp8ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc933;
+        const GUID_WICPixelFormat80bpp4ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc935;
+        const GUID_WICPixelFormat80bpp5Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc928;
+        const GUID_WICPixelFormat80bppCMYKAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92d;
+        const GUID_WICPixelFormat8bppAlpha: GUID = 0xe6cd0116_eeba_4161_aa85_27dd9fb3a895;
+        const GUID_WICPixelFormat8bppCb: GUID = 0x1339f224_6bfe_4c3e_9302_e4f3a6d0ca2a;
+        const GUID_WICPixelFormat8bppCr: GUID = 0xb8145053_2116_49f0_8835_ed844b205c51;
+        const GUID_WICPixelFormat8bppDepth: GUID = 0x4c9c9f45_1d89_4e31_9bc7_69343a0dca69;
+        const GUID_WICPixelFormat8bppGain: GUID = 0xa884022a_af13_4c16_b746_619bf618b878;
+        const GUID_WICPixelFormat8bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc908;
+        const GUID_WICPixelFormat8bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc904;
+        const GUID_WICPixelFormat8bppY: GUID = 0x91b4db54_2df9_42f0_b449_2909bb3df88e;
+        const GUID_WICPixelFormat96bpp5ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc936;
+        const GUID_WICPixelFormat96bpp6Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc929;
+        const GUID_WICPixelFormat96bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc918;
+        const GUID_WICPixelFormat96bppRGBFloat: GUID = 0xe3fed78f_e8db_4acf_84c1_e97f6136b327;
+        const GUID_WICPixelFormatBlackWhite: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc905;
+        const GUID_WICPixelFormatDontCare: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc900;
+        #[guid(0x00000121_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmap: IWICBitmapSource {
+            fn Lock(&self, prcLock: *const WICRect, flags: u32, ppILock: *mut IWICBitmapLock) -> HRESULT;
+            fn SetPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn SetResolution(&self, dpiX: f64, dpiY: f64) -> HRESULT;
+        }
+        #[guid(0xe4fbcf03_223d_4e81_9333_d635556dd1b5)]
+        interface IWICBitmapClipper: IWICBitmapSource {
+            fn Initialize(&self, pISource: IWICBitmapSource, prc: *const WICRect) -> HRESULT;
+        }
+        #[guid(0xe87a44c4_b76e_4c47_8b09_298eb12a2714)]
+        interface IWICBitmapCodecInfo: IWICComponentInfo {
+            fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> HRESULT;
+            fn GetPixelFormats(&self, cFormats: u32, #[in] #[out] pguidPixelFormats: *mut GUID, pcActual: *mut u32) -> HRESULT;
+            fn GetColorManagementVersion(&self, cchColorManagementVersion: u32, #[in] #[out] wzColorManagementVersion: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetDeviceManufacturer(&self, cchDeviceManufacturer: u32, #[in] #[out] wzDeviceManufacturer: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetDeviceModels(&self, cchDeviceModels: u32, #[in] #[out] wzDeviceModels: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetMimeTypes(&self, cchMimeTypes: u32, #[in] #[out] wzMimeTypes: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetFileExtensions(&self, cchFileExtensions: u32, #[in] #[out] wzFileExtensions: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn DoesSupportAnimation(&self, pfSupportAnimation: *mut BOOL) -> HRESULT;
+            fn DoesSupportChromakey(&self, pfSupportChromakey: *mut BOOL) -> HRESULT;
+            fn DoesSupportLossless(&self, pfSupportLossless: *mut BOOL) -> HRESULT;
+            fn DoesSupportMultiframe(&self, pfSupportMultiframe: *mut BOOL) -> HRESULT;
+            fn MatchesMimeType(&self, wzMimeType: PCWSTR, pfMatches: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x64c1024e_c3cf_4462_8078_88c2b11c46d9)]
+        interface IWICBitmapCodecProgressNotification: IUnknown {
+            fn RegisterProgressNotification(&self, #[opt] pfnProgressNotification: PFNProgressNotification, #[opt] pvData: *const void, dwProgressFlags: u32) -> HRESULT;
+        }
+        #[guid(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf)]
+        interface IWICBitmapDecoder: IUnknown {
+            fn QueryCapability(&self, pIStream: IStream, pdwCapability: *mut u32) -> HRESULT;
+            fn Initialize(&self, pIStream: IStream, cacheOptions: WICDecodeOptions) -> HRESULT;
+            fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> HRESULT;
+            fn GetDecoderInfo(&self, ppIDecoderInfo: *mut IWICBitmapDecoderInfo) -> HRESULT;
+            fn CopyPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn GetMetadataQueryReader(&self, ppIMetadataQueryReader: *mut IWICMetadataQueryReader) -> HRESULT;
+            fn GetPreview(&self, ppIBitmapSource: *mut IWICBitmapSource) -> HRESULT;
+            fn GetColorContexts(&self, cCount: u32, #[in] #[out] ppIColorContexts: *mut IWICColorContext, pcActualCount: *mut u32) -> HRESULT;
+            fn GetThumbnail(&self, ppIThumbnail: *mut IWICBitmapSource) -> HRESULT;
+            fn GetFrameCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetFrame(&self, index: u32, ppIBitmapFrame: *mut IWICBitmapFrameDecode) -> HRESULT;
+        }
+        #[guid(0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5)]
+        interface IWICBitmapDecoderInfo: IWICBitmapCodecInfo {
+            fn GetPatterns(&self, cbSizePatterns: u32, #[size_param(0)] #[opt] pPatterns: *mut WICBitmapPattern, #[opt] pcPatterns: *mut u32, pcbPatternsActual: *mut u32) -> HRESULT;
+            fn MatchesPattern(&self, pIStream: IStream, pfMatches: *mut BOOL) -> HRESULT;
+            fn CreateInstance(&self, ppIBitmapDecoder: *mut IWICBitmapDecoder) -> HRESULT;
+        }
+        #[guid(0x00000103_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmapEncoder: IUnknown {
+            fn Initialize(&self, pIStream: IStream, cacheOption: WICBitmapEncoderCacheOption) -> HRESULT;
+            fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> HRESULT;
+            fn GetEncoderInfo(&self, ppIEncoderInfo: *mut IWICBitmapEncoderInfo) -> HRESULT;
+            fn SetColorContexts(&self, cCount: u32, ppIColorContext: *const IWICColorContext) -> HRESULT;
+            fn SetPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> HRESULT;
+            fn SetPreview(&self, pIPreview: IWICBitmapSource) -> HRESULT;
+            fn CreateNewFrame(&self, ppIFrameEncode: *mut IWICBitmapFrameEncode, #[in] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+        }
+        #[guid(0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb)]
+        interface IWICBitmapEncoderInfo: IWICBitmapCodecInfo {
+            fn CreateInstance(&self, ppIBitmapEncoder: *mut IWICBitmapEncoder) -> HRESULT;
+        }
+        #[guid(0x5009834f_2d6a_41ce_9e1b_17c5aff7a782)]
+        interface IWICBitmapFlipRotator: IWICBitmapSource {
+            fn Initialize(&self, pISource: IWICBitmapSource, options: WICBitmapTransformOptions) -> HRESULT;
+        }
+        #[guid(0x0c599495_a120_4222_9130_a8c29410bd0b)]
+        interface IWICBitmapFrameChainReader: IUnknown {
+            fn GetChainedFrameCount(&self, chainType: WICBitmapChainType, pCount: *mut u32) -> HRESULT;
+            fn GetChainedFrame(&self, chainType: WICBitmapChainType, index: u32, ppIBitmapFrame: *mut IWICBitmapFrameDecode) -> HRESULT;
+        }
+        #[guid(0x40d9ea28_4768_47b3_8c12_558a48e98e38)]
+        interface IWICBitmapFrameChainWriter: IUnknown {
+            fn AppendFrameToChain(&self, chainType: WICBitmapChainType, ppIFrameEncode: *mut IWICBitmapFrameEncode, #[in] #[out] ppIEncoderOptions: *mut IPropertyBag2) -> HRESULT;
+            fn DoesSupportChainType(&self, chainType: WICBitmapChainType, pfIsSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x3b16811b_6a43_4ec9_a813_3d930c13b940)]
+        interface IWICBitmapFrameDecode: IWICBitmapSource {
+            fn GetMetadataQueryReader(&self, ppIMetadataQueryReader: *mut IWICMetadataQueryReader) -> HRESULT;
+            fn GetColorContexts(&self, cCount: u32, #[in] #[out] ppIColorContexts: *mut IWICColorContext, pcActualCount: *mut u32) -> HRESULT;
+            fn GetThumbnail(&self, ppIThumbnail: *mut IWICBitmapSource) -> HRESULT;
+        }
+        #[guid(0x00000105_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmapFrameEncode: IUnknown {
+            fn Initialize(&self, pIEncoderOptions: IPropertyBag2) -> HRESULT;
+            fn SetSize(&self, uiWidth: u32, uiHeight: u32) -> HRESULT;
+            fn SetResolution(&self, dpiX: f64, dpiY: f64) -> HRESULT;
+            fn SetPixelFormat(&self, #[in] #[out] pPixelFormat: *mut WICPixelFormatGUID) -> HRESULT;
+            fn SetColorContexts(&self, cCount: u32, ppIColorContext: *const IWICColorContext) -> HRESULT;
+            fn SetPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> HRESULT;
+            fn WritePixels(&self, lineCount: u32, cbStride: u32, cbBufferSize: u32, pbPixels: *const u8) -> HRESULT;
+            fn WriteSource(&self, pIBitmapSource: IWICBitmapSource, prc: *const WICRect) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+        }
+        #[guid(0x00000123_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmapLock: IUnknown {
+            fn GetSize(&self, puiWidth: *mut u32, puiHeight: *mut u32) -> HRESULT;
+            fn GetStride(&self, pcbStride: *mut u32) -> HRESULT;
+            fn GetDataPointer(&self, pcbBufferSize: *mut u32, ppbData: *mut WICInProcPointer) -> HRESULT;
+            fn GetPixelFormat(&self, pPixelFormat: *mut WICPixelFormatGUID) -> HRESULT;
+        }
+        #[guid(0x00000302_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmapScaler: IWICBitmapSource {
+            fn Initialize(&self, pISource: IWICBitmapSource, uiWidth: u32, uiHeight: u32, mode: WICBitmapInterpolationMode) -> HRESULT;
+        }
+        #[guid(0x00000120_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICBitmapSource: IUnknown {
+            fn GetSize(&self, puiWidth: *mut u32, puiHeight: *mut u32) -> HRESULT;
+            fn GetPixelFormat(&self, pPixelFormat: *mut WICPixelFormatGUID) -> HRESULT;
+            fn GetResolution(&self, pDpiX: *mut f64, pDpiY: *mut f64) -> HRESULT;
+            fn CopyPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn CopyPixels(&self, prc: *const WICRect, cbStride: u32, cbBufferSize: u32, pbBuffer: *mut u8) -> HRESULT;
+        }
+        #[guid(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940)]
+        interface IWICBitmapSourceTransform: IUnknown {
+            fn CopyPixels(&self, prc: *const WICRect, uiWidth: u32, uiHeight: u32, pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, nStride: u32, cbBufferSize: u32, pbBuffer: *mut u8) -> HRESULT;
+            fn GetClosestSize(&self, #[in] #[out] puiWidth: *mut u32, #[in] #[out] puiHeight: *mut u32) -> HRESULT;
+            fn GetClosestPixelFormat(&self, #[in] #[out] pguidDstFormat: *mut WICPixelFormatGUID) -> HRESULT;
+            fn DoesSupportTransform(&self, dstTransform: WICBitmapTransformOptions, pfIsSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xc3373fdf_6d39_4e5f_8e79_bf40c0b7ed77)]
+        interface IWICBitmapSourceTransform2: IWICBitmapSourceTransform {
+            fn GetColorContextsForPixelFormat(&self, pPixelFormat: *const WICPixelFormatGUID, cCount: u32, ppIColorContexts: *const IWICColorContext, pcActualCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x44728ded_1edf_4fe9_b50b_c89a264c9439)]
+        interface IWICBitmapToneMapper: IWICBitmapSource {
+            fn InitializeForHdrTarget(&self, pISource: IWICBitmapSource, guidDstFormat: REFWICPixelFormatGUID, fLuminanceInNits: f32, fWhiteLevelInNits: f32, mode: WICBitmapToneMappingMode) -> HRESULT;
+            fn InitializeForSdrTarget(&self, pISource: IWICBitmapSource, guidDstFormat: REFWICPixelFormatGUID, mode: WICBitmapToneMappingMode) -> HRESULT;
+        }
+        #[guid(0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d)]
+        interface IWICColorContext: IUnknown {
+            fn InitializeFromFilename(&self, wzFilename: PCWSTR) -> HRESULT;
+            fn InitializeFromMemory(&self, pbBuffer: *const u8, cbBufferSize: u32) -> HRESULT;
+            fn InitializeFromExifColorSpace(&self, value: u32) -> HRESULT;
+            fn GetType(&self, pType: *mut WICColorContextType) -> HRESULT;
+            fn GetProfileBytes(&self, cbBuffer: u32, #[in] #[out] pbBuffer: *mut u8, pcbActual: *mut u32) -> HRESULT;
+            fn GetExifColorSpace(&self, pValue: *mut u32) -> HRESULT;
+        }
+        #[guid(0xb66f034f_d0e2_40ab_b436_6de39e321a94)]
+        interface IWICColorTransform: IWICBitmapSource {
+            fn Initialize(&self, pIBitmapSource: IWICBitmapSource, pIContextSource: IWICColorContext, pIContextDest: IWICColorContext, pixelFmtDest: REFWICPixelFormatGUID) -> HRESULT;
+        }
+        #[guid(0x23bc3f0a_698b_4357_886b_f24d50671334)]
+        interface IWICComponentInfo: IUnknown {
+            fn GetComponentType(&self, pType: *mut WICComponentType) -> HRESULT;
+            fn GetCLSID(&self, pclsid: *mut GUID) -> HRESULT;
+            fn GetSigningStatus(&self, pStatus: *mut u32) -> HRESULT;
+            fn GetAuthor(&self, cchAuthor: u32, #[in] #[out] wzAuthor: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetVendorGUID(&self, pguidVendor: *mut GUID) -> HRESULT;
+            fn GetVersion(&self, cchVersion: u32, #[in] #[out] wzVersion: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetSpecVersion(&self, cchSpecVersion: u32, #[in] #[out] wzSpecVersion: *mut u16, pcchActual: *mut u32) -> HRESULT;
+            fn GetFriendlyName(&self, cchFriendlyName: u32, #[in] #[out] wzFriendlyName: *mut u16, pcchActual: *mut u32) -> HRESULT;
+        }
+        #[guid(0xcaf65cc4_8ebe_4718_a21f_8dbf40bb7e25)]
+        interface IWICD3DTextureSource: IUnknown {
+            fn GetTexture(&self, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
+            fn GetTransformedTexture(&self, #[opt] prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
+            fn DoesSupportD3DDeviceType(&self, riid: *const GUID, pfIsSupported: *mut BOOL) -> HRESULT;
+            fn GetD3DTextureOptions(&self, ppID3DTextureOptions: *mut IPropertyBag2) -> HRESULT;
+        }
+        #[guid(0x409cd537_8532_40cb_9774_e2feb2df4e9c)]
+        interface IWICDdsDecoder: IUnknown {
+            fn GetParameters(&self, pParameters: *mut WICDdsParameters) -> HRESULT;
+            fn GetFrame(&self, arrayIndex: u32, mipLevel: u32, sliceIndex: u32, #[retval] ppIBitmapFrame: *mut IWICBitmapFrameDecode) -> HRESULT;
+        }
+        #[guid(0x5cacdb4c_407e_41b3_b936_d0f010cd6732)]
+        interface IWICDdsEncoder: IUnknown {
+            fn SetParameters(&self, pParameters: *const WICDdsParameters) -> HRESULT;
+            fn GetParameters(&self, pParameters: *mut WICDdsParameters) -> HRESULT;
+            fn CreateNewFrame(&self, ppIFrameEncode: *mut IWICBitmapFrameEncode, #[opt] pArrayIndex: *mut u32, #[opt] pMipLevel: *mut u32, #[opt] pSliceIndex: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464)]
+        interface IWICDdsFrameDecode: IUnknown {
+            fn GetSizeInBlocks(&self, pWidthInBlocks: *mut u32, pHeightInBlocks: *mut u32) -> HRESULT;
+            fn GetFormatInfo(&self, pFormatInfo: *mut WICDdsFormatInfo) -> HRESULT;
+            fn CopyBlocks(&self, prcBoundsInBlocks: *const WICRect, cbStride: u32, cbBufferSize: u32, pbBuffer: *mut u8) -> HRESULT;
+        }
+        #[guid(0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d)]
+        interface IWICDevelopRaw: IWICBitmapFrameDecode {
+            fn QueryRawCapabilitiesInfo(&self, #[in] #[out] pInfo: *mut WICRawCapabilitiesInfo) -> HRESULT;
+            fn LoadParameterSet(&self, ParameterSet: WICRawParameterSet) -> HRESULT;
+            fn GetCurrentParameterSet(&self, ppCurrentParameterSet: *mut IPropertyBag2) -> HRESULT;
+            fn SetExposureCompensation(&self, ev: f64) -> HRESULT;
+            fn GetExposureCompensation(&self, pEV: *mut f64) -> HRESULT;
+            fn SetWhitePointRGB(&self, Red: u32, Green: u32, Blue: u32) -> HRESULT;
+            fn GetWhitePointRGB(&self, pRed: *mut u32, pGreen: *mut u32, pBlue: *mut u32) -> HRESULT;
+            fn SetNamedWhitePoint(&self, WhitePoint: WICNamedWhitePoint) -> HRESULT;
+            fn GetNamedWhitePoint(&self, pWhitePoint: *mut WICNamedWhitePoint) -> HRESULT;
+            fn SetWhitePointKelvin(&self, WhitePointKelvin: u32) -> HRESULT;
+            fn GetWhitePointKelvin(&self, pWhitePointKelvin: *mut u32) -> HRESULT;
+            fn GetKelvinRangeInfo(&self, pMinKelvinTemp: *mut u32, pMaxKelvinTemp: *mut u32, pKelvinTempStepValue: *mut u32) -> HRESULT;
+            fn SetContrast(&self, Contrast: f64) -> HRESULT;
+            fn GetContrast(&self, pContrast: *mut f64) -> HRESULT;
+            fn SetGamma(&self, Gamma: f64) -> HRESULT;
+            fn GetGamma(&self, pGamma: *mut f64) -> HRESULT;
+            fn SetSharpness(&self, Sharpness: f64) -> HRESULT;
+            fn GetSharpness(&self, pSharpness: *mut f64) -> HRESULT;
+            fn SetSaturation(&self, Saturation: f64) -> HRESULT;
+            fn GetSaturation(&self, pSaturation: *mut f64) -> HRESULT;
+            fn SetTint(&self, Tint: f64) -> HRESULT;
+            fn GetTint(&self, pTint: *mut f64) -> HRESULT;
+            fn SetNoiseReduction(&self, NoiseReduction: f64) -> HRESULT;
+            fn GetNoiseReduction(&self, pNoiseReduction: *mut f64) -> HRESULT;
+            fn SetDestinationColorContext(&self, pColorContext: IWICColorContext) -> HRESULT;
+            fn SetToneCurve(&self, cbToneCurveSize: u32, #[size_param(0)] pToneCurve: *const WICRawToneCurve) -> HRESULT;
+            fn GetToneCurve(&self, cbToneCurveBufferSize: u32, #[size_param(0)] #[opt] pToneCurve: *mut WICRawToneCurve, #[in] #[out] #[opt] pcbActualToneCurveBufferSize: *mut u32) -> HRESULT;
+            fn SetRotation(&self, Rotation: f64) -> HRESULT;
+            fn GetRotation(&self, pRotation: *mut f64) -> HRESULT;
+            fn SetRenderMode(&self, RenderMode: WICRawRenderMode) -> HRESULT;
+            fn GetRenderMode(&self, pRenderMode: *mut WICRawRenderMode) -> HRESULT;
+            fn SetNotificationCallback(&self, pCallback: IWICDevelopRawNotificationCallback) -> HRESULT;
+        }
+        #[guid(0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b)]
+        interface IWICDevelopRawNotificationCallback: IUnknown {
+            fn Notify(&self, NotificationMask: u32) -> HRESULT;
+        }
+        #[guid(0xde9d91d2_70b4_4f41_836c_25fcd39626d3)]
+        interface IWICDisplayAdaptationControl: IUnknown {
+            fn DoesSupportChangingMaxLuminance(&self, pguidDstFormat: *const WICPixelFormatGUID, pfIsSupported: *mut BOOL) -> HRESULT;
+            fn SetDisplayMaxLuminance(&self, fLuminanceInNits: f32) -> HRESULT;
+            fn GetDisplayMaxLuminance(&self, #[retval] pfLuminanceInNits: *mut f32) -> HRESULT;
+        }
+        #[guid(0xd7508d29_3ab7_447e_a676_4d80d7de726b)]
+        interface IWICDisplayAdaptationControl2: IWICDisplayAdaptationControl {
+            fn SetSdrWhiteLevel(&self, fWhiteLevelInNits: f32) -> HRESULT;
+            fn GetSdrWhiteLevel(&self, #[retval] pfWhiteLevelInNits: *mut f32) -> HRESULT;
+            fn SetToneMappingMode(&self, mode: WICBitmapToneMappingMode) -> HRESULT;
+            fn GetToneMappingMode(&self, #[retval] mode: *mut WICBitmapToneMappingMode) -> HRESULT;
+            fn DoesSupportToneMappingMode(&self, mode: WICBitmapToneMappingMode, pfIsSupported: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xdc2bb46d_3f07_481e_8625_220c4aedbb33)]
+        interface IWICEnumMetadataItem: IUnknown {
+            fn Next(&self, celt: u32, #[in] #[out] rgeltSchema: *mut PROPVARIANT, #[in] #[out] rgeltId: *mut PROPVARIANT, #[in] #[out] #[opt] rgeltValue: *mut PROPVARIANT, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnumMetadataItem: *mut IWICEnumMetadataItem) -> HRESULT;
+        }
+        #[guid(0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f)]
+        interface IWICFastMetadataEncoder: IUnknown {
+            fn Commit(&self) -> HRESULT;
+            fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+        }
+        #[guid(0x00000301_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICFormatConverter: IWICBitmapSource {
+            fn Initialize(&self, pISource: IWICBitmapSource, dstFormat: REFWICPixelFormatGUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> HRESULT;
+            fn CanConvert(&self, srcPixelFormat: REFWICPixelFormatGUID, dstPixelFormat: REFWICPixelFormatGUID, pfCanConvert: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f)]
+        interface IWICFormatConverterInfo: IWICComponentInfo {
+            fn GetPixelFormats(&self, cFormats: u32, #[in] #[out] pPixelFormatGUIDs: *mut WICPixelFormatGUID, pcActual: *mut u32) -> HRESULT;
+            fn CreateInstance(&self, ppIConverter: *mut IWICFormatConverter) -> HRESULT;
+        }
+        #[guid(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999)]
+        interface IWICImageEncoder: IUnknown {
+            fn WriteFrame(&self, pImage: ID2D1Image, pFrameEncode: IWICBitmapFrameEncode, pImageParameters: *const WICImageParameters) -> HRESULT;
+            fn WriteFrameThumbnail(&self, pImage: ID2D1Image, pFrameEncode: IWICBitmapFrameEncode, pImageParameters: *const WICImageParameters) -> HRESULT;
+            fn WriteThumbnail(&self, pImage: ID2D1Image, pEncoder: IWICBitmapEncoder, pImageParameters: *const WICImageParameters) -> HRESULT;
+        }
+        #[guid(0xec5ec8a9_c395_4314_9c77_54d7a935ff70)]
+        interface IWICImagingFactory: IUnknown {
+            fn CreateDecoderFromFilename(&self, wzFilename: PCWSTR, pguidVendor: *const GUID, dwDesiredAccess: u32, metadataOptions: WICDecodeOptions, #[retval] ppIDecoder: *mut IWICBitmapDecoder) -> HRESULT;
+            fn CreateDecoderFromStream(&self, pIStream: IStream, pguidVendor: *const GUID, metadataOptions: WICDecodeOptions, #[retval] ppIDecoder: *mut IWICBitmapDecoder) -> HRESULT;
+            fn CreateDecoderFromFileHandle(&self, hFile: usize, pguidVendor: *const GUID, metadataOptions: WICDecodeOptions, #[retval] ppIDecoder: *mut IWICBitmapDecoder) -> HRESULT;
+            fn CreateComponentInfo(&self, clsidComponent: *const GUID, ppIInfo: *mut IWICComponentInfo) -> HRESULT;
+            fn CreateDecoder(&self, guidContainerFormat: *const GUID, pguidVendor: *const GUID, #[retval] ppIDecoder: *mut IWICBitmapDecoder) -> HRESULT;
+            fn CreateEncoder(&self, guidContainerFormat: *const GUID, pguidVendor: *const GUID, #[retval] ppIEncoder: *mut IWICBitmapEncoder) -> HRESULT;
+            fn CreatePalette(&self, ppIPalette: *mut IWICPalette) -> HRESULT;
+            fn CreateFormatConverter(&self, ppIFormatConverter: *mut IWICFormatConverter) -> HRESULT;
+            fn CreateBitmapScaler(&self, ppIBitmapScaler: *mut IWICBitmapScaler) -> HRESULT;
+            fn CreateBitmapClipper(&self, ppIBitmapClipper: *mut IWICBitmapClipper) -> HRESULT;
+            fn CreateBitmapFlipRotator(&self, ppIBitmapFlipRotator: *mut IWICBitmapFlipRotator) -> HRESULT;
+            fn CreateStream(&self, ppIWICStream: *mut IWICStream) -> HRESULT;
+            fn CreateColorContext(&self, ppIWICColorContext: *mut IWICColorContext) -> HRESULT;
+            fn CreateColorTransformer(&self, ppIWICColorTransform: *mut IWICColorTransform) -> HRESULT;
+            fn CreateBitmap(&self, uiWidth: u32, uiHeight: u32, pixelFormat: REFWICPixelFormatGUID, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromSource(&self, pIBitmapSource: IWICBitmapSource, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromSourceRect(&self, pIBitmapSource: IWICBitmapSource, x: u32, y: u32, width: u32, height: u32, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromMemory(&self, uiWidth: u32, uiHeight: u32, pixelFormat: REFWICPixelFormatGUID, cbStride: u32, cbBufferSize: u32, pbBuffer: *const u8, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromHBITMAP(&self, hBitmap: HBITMAP, hPalette: HPALETTE, options: WICBitmapAlphaChannelOption, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateBitmapFromHICON(&self, hIcon: HICON, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+            fn CreateComponentEnumerator(&self, componentTypes: u32, options: u32, ppIEnumUnknown: *mut IEnumUnknown) -> HRESULT;
+            fn CreateFastMetadataEncoderFromDecoder(&self, pIDecoder: IWICBitmapDecoder, ppIFastEncoder: *mut IWICFastMetadataEncoder) -> HRESULT;
+            fn CreateFastMetadataEncoderFromFrameDecode(&self, pIFrameDecoder: IWICBitmapFrameDecode, ppIFastEncoder: *mut IWICFastMetadataEncoder) -> HRESULT;
+            fn CreateQueryWriter(&self, guidMetadataFormat: *const GUID, pguidVendor: *const GUID, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+            fn CreateQueryWriterFromReader(&self, pIQueryReader: IWICMetadataQueryReader, pguidVendor: *const GUID, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> HRESULT;
+        }
+        #[guid(0x7b816b45_1996_4476_b132_de9e247c8af0)]
+        interface IWICImagingFactory2: IWICImagingFactory {
+            fn CreateImageEncoder(&self, pD2DDevice: ID2D1Device, ppWICImageEncoder: *mut IWICImageEncoder) -> HRESULT;
+        }
+        #[guid(0x489b3d8b_624a_4258_b678_7eece70f299d)]
+        interface IWICImagingFactory3: IWICImagingFactory2 {
+            fn CreateBitmapToneMapper(&self, ppToneMapper: *mut IWICBitmapToneMapper) -> HRESULT;
+        }
+        #[guid(0x8939f66e_c46a_4c21_a9d1_98b327ce1679)]
+        interface IWICJpegFrameDecode: IUnknown {
+            fn DoesSupportIndexing(&self, pfIndexingSupported: *mut BOOL) -> HRESULT;
+            fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalIntervalSize: u32) -> HRESULT;
+            fn ClearIndexing(&self) -> HRESULT;
+            fn GetAcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetDcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetQuantizationTable(&self, scanIndex: u32, tableIndex: u32, pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
+            fn GetFrameHeader(&self, pFrameHeader: *mut WICJpegFrameHeader) -> HRESULT;
+            fn GetScanHeader(&self, scanIndex: u32, pScanHeader: *mut WICJpegScanHeader) -> HRESULT;
+            fn CopyScan(&self, scanIndex: u32, scanOffset: u32, cbScanData: u32, pbScanData: *mut u8, pcbScanDataActual: *mut u32) -> HRESULT;
+            fn CopyMinimalStream(&self, streamOffset: u32, cbStreamData: u32, pbStreamData: *mut u8, pcbStreamDataActual: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2f0c601f_d2c6_468c_abfa_49495d983ed1)]
+        interface IWICJpegFrameEncode: IUnknown {
+            fn GetAcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pAcHuffmanTable: *mut DXGI_JPEG_AC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetDcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pDcHuffmanTable: *mut DXGI_JPEG_DC_HUFFMAN_TABLE) -> HRESULT;
+            fn GetQuantizationTable(&self, scanIndex: u32, tableIndex: u32, pQuantizationTable: *mut DXGI_JPEG_QUANTIZATION_TABLE) -> HRESULT;
+            fn WriteScan(&self, cbScanData: u32, pbScanData: *const u8) -> HRESULT;
+        }
+        #[guid(0x30989668_e1c9_4597_b395_458eedb808df)]
+        interface IWICMetadataQueryReader: IUnknown {
+            fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> HRESULT;
+            fn GetLocation(&self, cchMaxLength: u32, #[in] #[out] wzNamespace: *mut u16, pcchActualLength: *mut u32) -> HRESULT;
+            fn GetMetadataByName(&self, wzName: PCWSTR, #[in] #[out] pvarValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetEnumerator(&self, ppIEnumString: *mut IEnumString) -> HRESULT;
+        }
+        #[guid(0xa721791a_0def_4d06_bd91_2118bf1db10b)]
+        interface IWICMetadataQueryWriter: IWICMetadataQueryReader {
+            fn SetMetadataByName(&self, wzName: PCWSTR, pvarValue: *const PROPVARIANT) -> HRESULT;
+            fn RemoveMetadataByName(&self, wzName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x00000040_a8f2_4877_ba0a_fd2b6645fb94)]
+        interface IWICPalette: IUnknown {
+            fn InitializePredefined(&self, ePaletteType: WICBitmapPaletteType, fAddTransparentColor: BOOL) -> HRESULT;
+            fn InitializeCustom(&self, pColors: *const WICColor, cCount: u32) -> HRESULT;
+            fn InitializeFromBitmap(&self, pISurface: IWICBitmapSource, cCount: u32, fAddTransparentColor: BOOL) -> HRESULT;
+            fn InitializeFromPalette(&self, pIPalette: IWICPalette) -> HRESULT;
+            fn GetType(&self, pePaletteType: *mut WICBitmapPaletteType) -> HRESULT;
+            fn GetColorCount(&self, pcCount: *mut u32) -> HRESULT;
+            fn GetColors(&self, cCount: u32, pColors: *mut WICColor, pcActualColors: *mut u32) -> HRESULT;
+            fn IsBlackWhite(&self, pfIsBlackWhite: *mut BOOL) -> HRESULT;
+            fn IsGrayscale(&self, pfIsGrayscale: *mut BOOL) -> HRESULT;
+            fn HasAlpha(&self, pfHasAlpha: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xe8eda601_3d48_431a_ab44_69059be88bbe)]
+        interface IWICPixelFormatInfo: IWICComponentInfo {
+            fn GetFormatGUID(&self, pFormat: *mut GUID) -> HRESULT;
+            fn GetColorContext(&self, ppIColorContext: *mut IWICColorContext) -> HRESULT;
+            fn GetBitsPerPixel(&self, puiBitsPerPixel: *mut u32) -> HRESULT;
+            fn GetChannelCount(&self, puiChannelCount: *mut u32) -> HRESULT;
+            fn GetChannelMask(&self, uiChannelIndex: u32, cbMaskBuffer: u32, #[in] #[out] pbMaskBuffer: *mut u8, pcbActual: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa9db33a2_af5f_43c7_b679_74f5984b5aa4)]
+        interface IWICPixelFormatInfo2: IWICPixelFormatInfo {
+            fn SupportsTransparency(&self, pfSupportsTransparency: *mut BOOL) -> HRESULT;
+            fn GetNumericRepresentation(&self, pNumericRepresentation: *mut WICPixelFormatNumericRepresentation) -> HRESULT;
+        }
+        #[guid(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a)]
+        interface IWICPlanarBitmapFrameEncode: IUnknown {
+            fn WritePixels(&self, lineCount: u32, pPlanes: *const WICBitmapPlane, cPlanes: u32) -> HRESULT;
+            fn WriteSource(&self, ppPlanes: *const IWICBitmapSource, cPlanes: u32, prcSource: *const WICRect) -> HRESULT;
+        }
+        #[guid(0x3aff9cce_be95_4303_b927_e7d16ff4a613)]
+        interface IWICPlanarBitmapSourceTransform: IUnknown {
+            fn DoesSupportTransform(&self, #[in] #[out] puiWidth: *mut u32, #[in] #[out] puiHeight: *mut u32, dstTransform: WICBitmapTransformOptions, dstPlanarOptions: WICPlanarOptions, pguidDstFormats: *const WICPixelFormatGUID, pPlaneDescriptions: *mut WICBitmapPlaneDescription, cPlanes: u32, pfIsSupported: *mut BOOL) -> HRESULT;
+            fn CopyPixels(&self, prcSource: *const WICRect, uiWidth: u32, uiHeight: u32, dstTransform: WICBitmapTransformOptions, dstPlanarOptions: WICPlanarOptions, pDstPlanes: *const WICBitmapPlane, cPlanes: u32) -> HRESULT;
+        }
+        #[guid(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96)]
+        interface IWICPlanarFormatConverter: IWICBitmapSource {
+            fn Initialize(&self, ppPlanes: *const IWICBitmapSource, cPlanes: u32, dstFormat: REFWICPixelFormatGUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> HRESULT;
+            fn CanConvert(&self, pSrcPixelFormats: *const WICPixelFormatGUID, cSrcPlanes: u32, dstPixelFormat: REFWICPixelFormatGUID, pfCanConvert: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c)]
+        interface IWICProgressCallback: IUnknown {
+            fn Notify(&self, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> HRESULT;
+        }
+        #[guid(0xdaac296f_7aa5_4dbf_8d15_225c5976f891)]
+        interface IWICProgressiveLevelControl: IUnknown {
+            fn GetLevelCount(&self, #[retval] pcLevels: *mut u32) -> HRESULT;
+            fn GetCurrentLevel(&self, #[retval] pnLevel: *mut u32) -> HRESULT;
+            fn SetCurrentLevel(&self, nLevel: u32) -> HRESULT;
+        }
+        #[guid(0x135ff860_22b7_4ddf_b0f6_218f4f299a43)]
+        interface IWICStream: IStream {
+            fn InitializeFromIStream(&self, pIStream: IStream) -> HRESULT;
+            fn InitializeFromFilename(&self, wzFileName: PCWSTR, dwDesiredAccess: u32) -> HRESULT;
+            fn InitializeFromMemory(&self, pbBuffer: *const u8, cbBufferSize: u32) -> HRESULT;
+            fn InitializeFromIStreamRegion(&self, pIStream: IStream, ulOffset: ULARGE_INTEGER, ulMaxSize: ULARGE_INTEGER) -> HRESULT;
+        }
+        extern fn PFNProgressNotification(pvData: *mut void, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> HRESULT;
+        type REFWICPixelFormatGUID = *const GUID;
+        #[repr(i32)]
+        enum WIC8BIMIptcDigestProperties {
+            WIC8BIMIptcDigestPString = 1,
+            WIC8BIMIptcDigestIptcDigest = 2,
+            WIC8BIMIptcDigestProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WIC8BIMIptcProperties {
+            WIC8BIMIptcPString = 0,
+            WIC8BIMIptcEmbeddedIPTC = 1,
+            WIC8BIMIptcProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WIC8BIMResolutionInfoProperties {
+            WIC8BIMResolutionInfoPString = 1,
+            WIC8BIMResolutionInfoHResolution = 2,
+            WIC8BIMResolutionInfoHResolutionUnit = 3,
+            WIC8BIMResolutionInfoWidthUnit = 4,
+            WIC8BIMResolutionInfoVResolution = 5,
+            WIC8BIMResolutionInfoVResolutionUnit = 6,
+            WIC8BIMResolutionInfoHeightUnit = 7,
+            WIC8BIMResolutionInfoProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapAlphaChannelOption {
+            WICBitmapUseAlpha = 0,
+            WICBitmapUsePremultipliedAlpha = 1,
+            WICBitmapIgnoreAlpha = 2,
+            WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapChainType {
+            WICBitmapChainType_Alternate = 1,
+            WICBitmapChainType_Layer = 2,
+            WICBitmapChainType_Preview = 3,
+            WICBitmapChainType_Thumbnail = 4,
+            WICBitmapChainType_AlphaMap = 5,
+            WICBitmapChainType_DepthMap = 6,
+            WICBitmapChainType_GainMap = 7,
+            WICBITMAPCHAINTYPE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapCreateCacheOption {
+            WICBitmapNoCache = 0,
+            WICBitmapCacheOnDemand = 1,
+            WICBitmapCacheOnLoad = 2,
+            WICBITMAPCREATECACHEOPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapDecoderCapabilities {
+            WICBitmapDecoderCapabilitySameEncoder = 1,
+            WICBitmapDecoderCapabilityCanDecodeAllImages = 2,
+            WICBitmapDecoderCapabilityCanDecodeSomeImages = 4,
+            WICBitmapDecoderCapabilityCanEnumerateMetadata = 8,
+            WICBitmapDecoderCapabilityCanDecodeThumbnail = 16,
+            WICBITMAPDECODERCAPABILITIES_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapDitherType {
+            WICBitmapDitherTypeNone = 0,
+            WICBitmapDitherTypeSolid = 0,
+            WICBitmapDitherTypeOrdered4x4 = 1,
+            WICBitmapDitherTypeOrdered8x8 = 2,
+            WICBitmapDitherTypeOrdered16x16 = 3,
+            WICBitmapDitherTypeSpiral4x4 = 4,
+            WICBitmapDitherTypeSpiral8x8 = 5,
+            WICBitmapDitherTypeDualSpiral4x4 = 6,
+            WICBitmapDitherTypeDualSpiral8x8 = 7,
+            WICBitmapDitherTypeErrorDiffusion = 8,
+            WICBITMAPDITHERTYPE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapEncoderCacheOption {
+            WICBitmapEncoderCacheInMemory = 0,
+            WICBitmapEncoderCacheTempFile = 1,
+            WICBitmapEncoderNoCache = 2,
+            WICBITMAPENCODERCACHEOPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapInterpolationMode {
+            WICBitmapInterpolationModeNearestNeighbor = 0,
+            WICBitmapInterpolationModeLinear = 1,
+            WICBitmapInterpolationModeCubic = 2,
+            WICBitmapInterpolationModeFant = 3,
+            WICBitmapInterpolationModeHighQualityCubic = 4,
+            WICBITMAPINTERPOLATIONMODE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapLockFlags {
+            WICBitmapLockRead = 1,
+            WICBitmapLockWrite = 2,
+            WICBITMAPLOCKFLAGS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapPaletteType {
+            WICBitmapPaletteTypeCustom = 0,
+            WICBitmapPaletteTypeMedianCut = 1,
+            WICBitmapPaletteTypeFixedBW = 2,
+            WICBitmapPaletteTypeFixedHalftone8 = 3,
+            WICBitmapPaletteTypeFixedHalftone27 = 4,
+            WICBitmapPaletteTypeFixedHalftone64 = 5,
+            WICBitmapPaletteTypeFixedHalftone125 = 6,
+            WICBitmapPaletteTypeFixedHalftone216 = 7,
+            WICBitmapPaletteTypeFixedWebPalette = 7,
+            WICBitmapPaletteTypeFixedHalftone252 = 8,
+            WICBitmapPaletteTypeFixedHalftone256 = 9,
+            WICBitmapPaletteTypeFixedGray4 = 10,
+            WICBitmapPaletteTypeFixedGray16 = 11,
+            WICBitmapPaletteTypeFixedGray256 = 12,
+            WICBITMAPPALETTETYPE_FORCE_DWORD = 2147483647,
+        }
+        struct WICBitmapPattern {
+            Position: ULARGE_INTEGER,
+            Length: u32,
+            Pattern: *mut u8,
+            Mask: *mut u8,
+            EndOfStream: BOOL,
+        }
+        struct WICBitmapPlane {
+            Format: WICPixelFormatGUID,
+            pbBuffer: *mut u8,
+            cbStride: u32,
+            cbBufferSize: u32,
+        }
+        struct WICBitmapPlaneDescription {
+            Format: WICPixelFormatGUID,
+            Width: u32,
+            Height: u32,
+        }
+        #[repr(i32)]
+        enum WICBitmapToneMappingMode {
+            WICBitmapToneMappingMode_None = 0,
+            WICBitmapToneMappingMode_Default = 1,
+            WICBitmapToneMappingMode_D2D = 2,
+            WICBitmapToneMappingMode_GainMap = 3,
+            WICBITMAPTONEMAPPINGMODE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICBitmapTransformOptions {
+            WICBitmapTransformRotate0 = 0,
+            WICBitmapTransformRotate90 = 1,
+            WICBitmapTransformRotate180 = 2,
+            WICBitmapTransformRotate270 = 3,
+            WICBitmapTransformFlipHorizontal = 8,
+            WICBitmapTransformFlipVertical = 16,
+            WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD = 2147483647,
+        }
+        type WICColor = u32;
+        #[repr(i32)]
+        enum WICColorContextType {
+            WICColorContextUninitialized = 0,
+            WICColorContextProfile = 1,
+            WICColorContextExifColorSpace = 2,
+        }
+        #[repr(i32)]
+        enum WICComponentEnumerateOptions {
+            WICComponentEnumerateDefault = 0,
+            WICComponentEnumerateRefresh = 1,
+            WICComponentEnumerateDisabled = -2147483648,
+            WICComponentEnumerateUnsigned = 1073741824,
+            WICComponentEnumerateBuiltInOnly = 536870912,
+            WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICComponentSigning {
+            WICComponentSigned = 1,
+            WICComponentUnsigned = 2,
+            WICComponentSafe = 4,
+            WICComponentDisabled = -2147483648,
+            WICCOMPONENTSIGNING_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICComponentType {
+            WICDecoder = 1,
+            WICEncoder = 2,
+            WICPixelFormatConverter = 4,
+            WICMetadataReader = 8,
+            WICMetadataWriter = 16,
+            WICPixelFormat = 32,
+            WICAllComponents = 63,
+            WICCOMPONENTTYPE_FORCE_DWORD = 2147483647,
+        }
+        #[library("WindowsCodecs.dll")]
+        extern fn WICConvertBitmapSource(dstFormat: REFWICPixelFormatGUID, pISrc: IWICBitmapSource, ppIDst: *mut IWICBitmapSource) -> HRESULT;
+        #[library("WindowsCodecs.dll")]
+        extern fn WICCreateBitmapFromSection(width: u32, height: u32, pixelFormat: REFWICPixelFormatGUID, hSection: HANDLE, stride: u32, offset: u32, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+        #[library("WindowsCodecs.dll")]
+        extern fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelFormat: REFWICPixelFormatGUID, hSection: HANDLE, stride: u32, offset: u32, desiredAccessLevel: WICSectionAccessLevel, ppIBitmap: *mut IWICBitmap) -> HRESULT;
+        #[repr(i32)]
+        enum WICDdsAlphaMode {
+            WICDdsAlphaModeUnknown = 0,
+            WICDdsAlphaModeStraight = 1,
+            WICDdsAlphaModePremultiplied = 2,
+            WICDdsAlphaModeOpaque = 3,
+            WICDdsAlphaModeCustom = 4,
+            WICDDSALPHAMODE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICDdsDimension {
+            WICDdsTexture1D = 0,
+            WICDdsTexture2D = 1,
+            WICDdsTexture3D = 2,
+            WICDdsTextureCube = 3,
+            WICDDSTEXTURE_FORCE_DWORD = 2147483647,
+        }
+        struct WICDdsFormatInfo {
+            DxgiFormat: DXGI_FORMAT,
+            BytesPerBlock: u32,
+            BlockWidth: u32,
+            BlockHeight: u32,
+        }
+        struct WICDdsParameters {
+            Width: u32,
+            Height: u32,
+            Depth: u32,
+            MipLevels: u32,
+            ArraySize: u32,
+            DxgiFormat: DXGI_FORMAT,
+            Dimension: WICDdsDimension,
+            AlphaMode: WICDdsAlphaMode,
+        }
+        #[repr(i32)]
+        enum WICDecodeOptions {
+            WICDecodeMetadataCacheOnDemand = 0,
+            WICDecodeMetadataCacheOnLoad = 1,
+            WICMETADATACACHEOPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGainMapProperties {
+            WICGainMapMetadata = 1,
+            WICGainMapProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGifApplicationExtensionProperties {
+            WICGifApplicationExtensionApplication = 1,
+            WICGifApplicationExtensionData = 2,
+            WICGifApplicationExtensionProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGifCommentExtensionProperties {
+            WICGifCommentExtensionText = 1,
+            WICGifCommentExtensionProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGifGraphicControlExtensionProperties {
+            WICGifGraphicControlExtensionDisposal = 1,
+            WICGifGraphicControlExtensionUserInputFlag = 2,
+            WICGifGraphicControlExtensionTransparencyFlag = 3,
+            WICGifGraphicControlExtensionDelay = 4,
+            WICGifGraphicControlExtensionTransparentColorIndex = 5,
+            WICGifGraphicControlExtensionProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGifImageDescriptorProperties {
+            WICGifImageDescriptorLeft = 1,
+            WICGifImageDescriptorTop = 2,
+            WICGifImageDescriptorWidth = 3,
+            WICGifImageDescriptorHeight = 4,
+            WICGifImageDescriptorLocalColorTableFlag = 5,
+            WICGifImageDescriptorInterlaceFlag = 6,
+            WICGifImageDescriptorSortFlag = 7,
+            WICGifImageDescriptorLocalColorTableSize = 8,
+            WICGifImageDescriptorProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICGifLogicalScreenDescriptorProperties {
+            WICGifLogicalScreenSignature = 1,
+            WICGifLogicalScreenDescriptorWidth = 2,
+            WICGifLogicalScreenDescriptorHeight = 3,
+            WICGifLogicalScreenDescriptorGlobalColorTableFlag = 4,
+            WICGifLogicalScreenDescriptorColorResolution = 5,
+            WICGifLogicalScreenDescriptorSortFlag = 6,
+            WICGifLogicalScreenDescriptorGlobalColorTableSize = 7,
+            WICGifLogicalScreenDescriptorBackgroundColorIndex = 8,
+            WICGifLogicalScreenDescriptorPixelAspectRatio = 9,
+            WICGifLogicalScreenDescriptorProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICHeifCompressionOption {
+            WICHeifCompressionDontCare = 0,
+            WICHeifCompressionNone = 1,
+            WICHeifCompressionHEVC = 2,
+            WICHeifCompressionAV1 = 3,
+            WICHeifCompressionJpegXL = 4,
+            WICHeifCompressionBrotli = 5,
+            WICHeifCompressionDeflate = 6,
+            WICHEIFCOMPRESSIONOPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICHeifHdrProperties {
+            WICHeifHdrMaximumLuminanceLevel = 1,
+            WICHeifHdrMaximumFrameAverageLuminanceLevel = 2,
+            WICHeifHdrMinimumMasteringDisplayLuminanceLevel = 3,
+            WICHeifHdrMaximumMasteringDisplayLuminanceLevel = 4,
+            WICHeifHdrCustomVideoPrimaries = 5,
+            WICHeifHdrProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICHeifProperties {
+            WICHeifOrientation = 1,
+            WICHeifLayeredImageCanvasColor = 2,
+            WICHeifLayeredImageLayerPositions = 3,
+            WICHeifProperties_FORCE_DWORD = 2147483647,
+        }
+        struct WICImageParameters {
+            PixelFormat: D2D1_PIXEL_FORMAT,
+            DpiX: f32,
+            DpiY: f32,
+            Top: f32,
+            Left: f32,
+            PixelWidth: u32,
+            PixelHeight: u32,
+        }
+        type WICInProcPointer = *mut u8;
+        #[repr(i32)]
+        enum WICJpegChrominanceProperties {
+            WICJpegChrominanceTable = 1,
+            WICJpegChrominanceProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegCommentProperties {
+            WICJpegCommentText = 1,
+            WICJpegCommentProperties_FORCE_DWORD = 2147483647,
+        }
+        struct WICJpegFrameHeader {
+            Width: u32,
+            Height: u32,
+            TransferMatrix: WICJpegTransferMatrix,
+            ScanType: WICJpegScanType,
+            cComponents: u32,
+            ComponentIdentifiers: u32,
+            SampleFactors: u32,
+            QuantizationTableIndices: u32,
+        }
+        #[repr(i32)]
+        enum WICJpegIndexingOptions {
+            WICJpegIndexingOptionsGenerateOnDemand = 0,
+            WICJpegIndexingOptionsGenerateOnLoad = 1,
+            WICJpegIndexingOptions_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegLuminanceProperties {
+            WICJpegLuminanceTable = 1,
+            WICJpegLuminanceProperties_FORCE_DWORD = 2147483647,
+        }
+        struct WICJpegScanHeader {
+            cComponents: u32,
+            RestartInterval: u32,
+            ComponentSelectors: u32,
+            HuffmanTableIndices: u32,
+            StartSpectralSelection: u8,
+            EndSpectralSelection: u8,
+            SuccessiveApproximationHigh: u8,
+            SuccessiveApproximationLow: u8,
+        }
+        #[repr(i32)]
+        enum WICJpegScanType {
+            WICJpegScanTypeInterleaved = 0,
+            WICJpegScanTypePlanarComponents = 1,
+            WICJpegScanTypeProgressive = 2,
+            WICJpegScanType_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegTransferMatrix {
+            WICJpegTransferMatrixIdentity = 0,
+            WICJpegTransferMatrixBT601 = 1,
+            WICJpegTransferMatrix_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegXLAnimFrameProperties {
+            WICJpegXLAnimFrameDurationInTicks = 1,
+            WICJpegXLAnimFrameName = 2,
+            WICJpegXLAnimFrameProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegXLAnimProperties {
+            WICJpegXLAnimLoopCount = 1,
+            WICJpegXLAnimFrameTicksPerSecondNumerator = 2,
+            WICJpegXLAnimFrameTicksPerSecondDenominator = 3,
+            WICJpegXLAnimProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICJpegYCrCbSubsamplingOption {
+            WICJpegYCrCbSubsamplingDefault = 0,
+            WICJpegYCrCbSubsampling420 = 1,
+            WICJpegYCrCbSubsampling422 = 2,
+            WICJpegYCrCbSubsampling444 = 3,
+            WICJpegYCrCbSubsampling440 = 4,
+            WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD = 2147483647,
+        }
+        #[library("WindowsCodecs.dll")]
+        extern fn WICMapGuidToShortName(guid: *const GUID, cchName: u32, #[len_param(1)] #[in] #[out] #[opt] wzName: *mut u16, pcchActual: *mut u32) -> HRESULT;
+        #[library("WindowsCodecs.dll")]
+        extern fn WICMapSchemaToName(guidMetadataFormat: *const GUID, pwzSchema: PCWSTR, cchName: u32, #[len_param(2)] #[in] #[out] #[opt] wzName: *mut u16, pcchActual: *mut u32) -> HRESULT;
+        #[library("WindowsCodecs.dll")]
+        extern fn WICMapShortNameToGuid(wzName: PCWSTR, pguid: *mut GUID) -> HRESULT;
+        #[repr(i32)]
+        enum WICNamedWhitePoint {
+            WICWhitePointDefault = 1,
+            WICWhitePointDaylight = 2,
+            WICWhitePointCloudy = 4,
+            WICWhitePointShade = 8,
+            WICWhitePointTungsten = 16,
+            WICWhitePointFluorescent = 32,
+            WICWhitePointFlash = 64,
+            WICWhitePointUnderwater = 128,
+            WICWhitePointCustom = 256,
+            WICWhitePointAutoWhiteBalance = 512,
+            WICWhitePointAsShot = 1,
+            WICNAMEDWHITEPOINT_FORCE_DWORD = 2147483647,
+        }
+        type WICPixelFormatGUID = GUID;
+        #[repr(i32)]
+        enum WICPixelFormatNumericRepresentation {
+            WICPixelFormatNumericRepresentationUnspecified = 0,
+            WICPixelFormatNumericRepresentationIndexed = 1,
+            WICPixelFormatNumericRepresentationUnsignedInteger = 2,
+            WICPixelFormatNumericRepresentationSignedInteger = 3,
+            WICPixelFormatNumericRepresentationFixed = 4,
+            WICPixelFormatNumericRepresentationFloat = 5,
+            WICPixelFormatNumericRepresentation_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPlanarOptions {
+            WICPlanarOptionsDefault = 0,
+            WICPlanarOptionsPreserveSubsampling = 1,
+            WICPLANAROPTIONS_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngBkgdProperties {
+            WICPngBkgdBackgroundColor = 1,
+            WICPngBkgdProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngChrmProperties {
+            WICPngChrmWhitePointX = 1,
+            WICPngChrmWhitePointY = 2,
+            WICPngChrmRedX = 3,
+            WICPngChrmRedY = 4,
+            WICPngChrmGreenX = 5,
+            WICPngChrmGreenY = 6,
+            WICPngChrmBlueX = 7,
+            WICPngChrmBlueY = 8,
+            WICPngChrmProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngFilterOption {
+            WICPngFilterUnspecified = 0,
+            WICPngFilterNone = 1,
+            WICPngFilterSub = 2,
+            WICPngFilterUp = 3,
+            WICPngFilterAverage = 4,
+            WICPngFilterPaeth = 5,
+            WICPngFilterAdaptive = 6,
+            WICPNGFILTEROPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngGamaProperties {
+            WICPngGamaGamma = 1,
+            WICPngGamaProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngHistProperties {
+            WICPngHistFrequencies = 1,
+            WICPngHistProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngIccpProperties {
+            WICPngIccpProfileName = 1,
+            WICPngIccpProfileData = 2,
+            WICPngIccpProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngItxtProperties {
+            WICPngItxtKeyword = 1,
+            WICPngItxtCompressionFlag = 2,
+            WICPngItxtLanguageTag = 3,
+            WICPngItxtTranslatedKeyword = 4,
+            WICPngItxtText = 5,
+            WICPngItxtProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngSrgbProperties {
+            WICPngSrgbRenderingIntent = 1,
+            WICPngSrgbProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICPngTimeProperties {
+            WICPngTimeYear = 1,
+            WICPngTimeMonth = 2,
+            WICPngTimeDay = 3,
+            WICPngTimeHour = 4,
+            WICPngTimeMinute = 5,
+            WICPngTimeSecond = 6,
+            WICPngTimeProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICProgressNotification {
+            WICProgressNotificationBegin = 65536,
+            WICProgressNotificationEnd = 131072,
+            WICProgressNotificationFrequent = 262144,
+            WICProgressNotificationAll = -65536,
+            WICPROGRESSNOTIFICATION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICProgressOperation {
+            WICProgressOperationCopyPixels = 1,
+            WICProgressOperationWritePixels = 2,
+            WICProgressOperationAll = 65535,
+            WICPROGRESSOPERATION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICRawCapabilities {
+            WICRawCapabilityNotSupported = 0,
+            WICRawCapabilityGetSupported = 1,
+            WICRawCapabilityFullySupported = 2,
+            WICRAWCAPABILITIES_FORCE_DWORD = 2147483647,
+        }
+        struct WICRawCapabilitiesInfo {
+            cbSize: u32,
+            CodecMajorVersion: u32,
+            CodecMinorVersion: u32,
+            ExposureCompensationSupport: WICRawCapabilities,
+            ContrastSupport: WICRawCapabilities,
+            RGBWhitePointSupport: WICRawCapabilities,
+            NamedWhitePointSupport: WICRawCapabilities,
+            NamedWhitePointSupportMask: u32,
+            KelvinWhitePointSupport: WICRawCapabilities,
+            GammaSupport: WICRawCapabilities,
+            TintSupport: WICRawCapabilities,
+            SaturationSupport: WICRawCapabilities,
+            SharpnessSupport: WICRawCapabilities,
+            NoiseReductionSupport: WICRawCapabilities,
+            DestinationColorProfileSupport: WICRawCapabilities,
+            ToneCurveSupport: WICRawCapabilities,
+            RotationSupport: WICRawRotationCapabilities,
+            RenderModeSupport: WICRawCapabilities,
+        }
+        const WICRawChangeNotification_Contrast: u32 = 16;
+        const WICRawChangeNotification_DestinationColorContext: u32 = 1024;
+        const WICRawChangeNotification_ExposureCompensation: u32 = 1;
+        const WICRawChangeNotification_Gamma: u32 = 32;
+        const WICRawChangeNotification_KelvinWhitePoint: u32 = 4;
+        const WICRawChangeNotification_NamedWhitePoint: u32 = 2;
+        const WICRawChangeNotification_NoiseReduction: u32 = 512;
+        const WICRawChangeNotification_RGBWhitePoint: u32 = 8;
+        const WICRawChangeNotification_RenderMode: u32 = 8192;
+        const WICRawChangeNotification_Rotation: u32 = 4096;
+        const WICRawChangeNotification_Saturation: u32 = 128;
+        const WICRawChangeNotification_Sharpness: u32 = 64;
+        const WICRawChangeNotification_Tint: u32 = 256;
+        const WICRawChangeNotification_ToneCurve: u32 = 2048;
+        #[repr(i32)]
+        enum WICRawParameterSet {
+            WICAsShotParameterSet = 1,
+            WICUserAdjustedParameterSet = 2,
+            WICAutoAdjustedParameterSet = 3,
+            WICRAWPARAMETERSET_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICRawRenderMode {
+            WICRawRenderModeDraft = 1,
+            WICRawRenderModeNormal = 2,
+            WICRawRenderModeBestQuality = 3,
+            WICRAWRENDERMODE_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICRawRotationCapabilities {
+            WICRawRotationCapabilityNotSupported = 0,
+            WICRawRotationCapabilityGetSupported = 1,
+            WICRawRotationCapabilityNinetyDegreesSupported = 2,
+            WICRawRotationCapabilityFullySupported = 3,
+            WICRAWROTATIONCAPABILITIES_FORCE_DWORD = 2147483647,
+        }
+        struct WICRawToneCurve {
+            cPoints: u32,
+            aPoints: [WICRawToneCurvePoint; 1],
+        }
+        struct WICRawToneCurvePoint {
+            Input: f64,
+            Output: f64,
+        }
+        struct WICRect {
+            X: i32,
+            Y: i32,
+            Width: i32,
+            Height: i32,
+        }
+        #[repr(i32)]
+        enum WICSectionAccessLevel {
+            WICSectionAccessLevelRead = 1,
+            WICSectionAccessLevelReadWrite = 3,
+            WICSectionAccessLevel_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICTiffCompressionOption {
+            WICTiffCompressionDontCare = 0,
+            WICTiffCompressionNone = 1,
+            WICTiffCompressionCCITT3 = 2,
+            WICTiffCompressionCCITT4 = 3,
+            WICTiffCompressionLZW = 4,
+            WICTiffCompressionRLE = 5,
+            WICTiffCompressionZIP = 6,
+            WICTiffCompressionLZWHDifferencing = 7,
+            WICTIFFCOMPRESSIONOPTION_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICWebpAnimProperties {
+            WICWebpAnimLoopCount = 1,
+            WICWebpAnimProperties_FORCE_DWORD = 2147483647,
+        }
+        #[repr(i32)]
+        enum WICWebpAnmfProperties {
+            WICWebpAnmfFrameDuration = 1,
+            WICWebpAnmfProperties_FORCE_DWORD = 2147483647,
+        }
+        const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0;
+        const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464;
+        const WIC_JPEG_MAX_COMPONENT_COUNT: u32 = 4;
+        const WIC_JPEG_MAX_TABLE_INDEX: u32 = 3;
+        const WIC_JPEG_QUANTIZATION_BASELINE_ONE: u32 = 0;
+        const WIC_JPEG_QUANTIZATION_BASELINE_THREE: u32 = 65792;
+        const WIC_JPEG_SAMPLE_FACTORS_ONE: u32 = 17;
+        const WIC_JPEG_SAMPLE_FACTORS_THREE_420: u32 = 1118498;
+        const WIC_JPEG_SAMPLE_FACTORS_THREE_422: u32 = 1118497;
+        const WIC_JPEG_SAMPLE_FACTORS_THREE_440: u32 = 1118482;
+        const WIC_JPEG_SAMPLE_FACTORS_THREE_444: u32 = 1118481;
+        const WINCODEC_ERR_ABORTED: i32 = -2147467260;
+        const WINCODEC_ERR_ACCESSDENIED: i32 = -2147024891;
+        const WINCODEC_ERR_BASE: u32 = 8192;
+        const WINCODEC_ERR_GENERIC_ERROR: i32 = -2147467259;
+        const WINCODEC_ERR_INVALIDPARAMETER: i32 = -2147024809;
+        const WINCODEC_ERR_NOTIMPLEMENTED: i32 = -2147467263;
+        const WINCODEC_ERR_OUTOFMEMORY: i32 = -2147024882;
+        const WINCODEC_ERR_VALUEOVERFLOW: i32 = -2147024362;
+        const WINCODEC_SDK_VERSION: u32 = 567;
+        const WINCODEC_SDK_VERSION1: u32 = 566;
+        const WINCODEC_SDK_VERSION2: u32 = 567;
+    }
+}

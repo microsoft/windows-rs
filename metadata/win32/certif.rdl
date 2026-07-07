@@ -1,0 +1,38 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ENUMEXT_OBJECTID: u32 = 1;
+        #[guid(0x4ba9eb90_732c_11d0_8816_00a0c903b83c)]
+        interface ICertServerExit: IDispatch {
+            fn SetContext(&self, Context: i32) -> HRESULT;
+            fn GetRequestProperty(&self, strPropertyName: BSTR, PropertyType: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetRequestAttribute(&self, strAttributeName: BSTR, #[retval] pstrAttributeValue: *mut BSTR) -> HRESULT;
+            fn GetCertificateProperty(&self, strPropertyName: BSTR, PropertyType: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetCertificateExtension(&self, strExtensionName: BSTR, Type: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+            fn GetCertificateExtensionFlags(&self, #[retval] pExtFlags: *mut i32) -> HRESULT;
+            fn EnumerateExtensionsSetup(&self, Flags: i32) -> HRESULT;
+            fn EnumerateExtensions(&self, #[retval] pstrExtensionName: *mut BSTR) -> HRESULT;
+            fn EnumerateExtensionsClose(&self) -> HRESULT;
+            fn EnumerateAttributesSetup(&self, Flags: i32) -> HRESULT;
+            fn EnumerateAttributes(&self, #[retval] pstrAttributeName: *mut BSTR) -> HRESULT;
+            fn EnumerateAttributesClose(&self) -> HRESULT;
+        }
+        #[guid(0xaa000922_ffbe_11cf_8800_00a0c903b83c)]
+        interface ICertServerPolicy: IDispatch {
+            fn SetContext(&self, Context: i32) -> HRESULT;
+            fn GetRequestProperty(&self, strPropertyName: BSTR, PropertyType: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetRequestAttribute(&self, strAttributeName: BSTR, #[retval] pstrAttributeValue: *mut BSTR) -> HRESULT;
+            fn GetCertificateProperty(&self, strPropertyName: BSTR, PropertyType: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn SetCertificateProperty(&self, strPropertyName: BSTR, PropertyType: i32, pvarPropertyValue: *const VARIANT) -> HRESULT;
+            fn GetCertificateExtension(&self, strExtensionName: BSTR, Type: i32, #[retval] pvarValue: *mut VARIANT) -> HRESULT;
+            fn GetCertificateExtensionFlags(&self, #[retval] pExtFlags: *mut i32) -> HRESULT;
+            fn SetCertificateExtension(&self, strExtensionName: BSTR, Type: i32, ExtFlags: i32, pvarValue: *const VARIANT) -> HRESULT;
+            fn EnumerateExtensionsSetup(&self, Flags: i32) -> HRESULT;
+            fn EnumerateExtensions(&self, #[retval] pstrExtensionName: *mut BSTR) -> HRESULT;
+            fn EnumerateExtensionsClose(&self) -> HRESULT;
+            fn EnumerateAttributesSetup(&self, Flags: i32) -> HRESULT;
+            fn EnumerateAttributes(&self, #[retval] pstrAttributeName: *mut BSTR) -> HRESULT;
+            fn EnumerateAttributesClose(&self) -> HRESULT;
+        }
+    }
+}

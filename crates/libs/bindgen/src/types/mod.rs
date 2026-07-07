@@ -159,46 +159,72 @@ impl Type {
     }
 
     pub fn remap(namespace: &str, name: &str) -> Remap {
+        // WinRT / .NET system projections keep full-name matching: their names
+        // (`Guid`, `HResult`, `Type`) differ from the C spellings and would be
+        // ambiguous if matched by name alone.
         match (namespace, name) {
-            ("System", "Guid") => Remap::Type(Self::GUID),
-            ("Windows.Win32.Foundation", "PSTR") => Remap::Type(Self::PSTR),
-            ("Windows.Win32.Foundation", "PWSTR") => Remap::Type(Self::PWSTR),
-            ("Windows.Win32.System.WinRT", "HSTRING") => Remap::Type(Self::String),
-            ("Windows.Win32.Foundation", "BSTR") => Remap::Type(Self::BSTR),
-            ("Windows.Win32.System.WinRT", "IInspectable") => Remap::Type(Self::Object),
-            ("Windows.Win32.Foundation", "CHAR") => Remap::Type(Self::I8),
-            ("Windows.Win32.Foundation", "BOOLEAN") => Remap::Type(Self::Bool),
-            ("Windows.Win32.Foundation", "BOOL") => Remap::Type(Self::BOOL),
-            ("Windows.Win32.System.Com", "IUnknown") => Remap::Type(Self::IUnknown),
-            ("System", "Type") => Remap::Type(Self::Type),
-
-            ("Windows.Foundation", "HResult") | ("Windows.Win32.Foundation", "HRESULT") => {
-                Remap::Type(Self::HRESULT)
-            }
-
-            ("Windows.Foundation", "EventRegistrationToken")
-            | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Remap::Type(Self::I64),
-
-            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"))
-            }
-
-            ("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
-            | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"))
-            }
-
-            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
-            | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"))
-            }
-
-            ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"))
-            }
-
-            _ => Remap::None,
+            ("System", "Guid") => return Remap::Type(Self::GUID),
+            ("System", "Type") => return Remap::Type(Self::Type),
+            ("Windows.Foundation", "HResult") => return Remap::Type(Self::HRESULT),
+            ("Windows.Foundation", "EventRegistrationToken") => return Remap::Type(Self::I64),
+            _ => {}
         }
+
+        // The Win32 core types are matched by name alone so that both the
+        // win32metadata namespaces (e.g. `Windows.Win32.Foundation.HRESULT`) and
+        // the in-house faithful metadata's flat namespace (`Windows.Win32.HRESULT`)
+        // resolve to the same hard-coded core type. These C spellings are
+        // unambiguous, so the namespace they live in does not matter.
+        if namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.") {
+            match name {
+                "GUID" => return Remap::Type(Self::GUID),
+                "HRESULT" => return Remap::Type(Self::HRESULT),
+                "PSTR" => return Remap::Type(Self::PSTR),
+                "PWSTR" => return Remap::Type(Self::PWSTR),
+                "PCSTR" => return Remap::Type(Self::PCSTR),
+                "PCWSTR" => return Remap::Type(Self::PCWSTR),
+                "BSTR" => return Remap::Type(Self::BSTR),
+                "HSTRING" => return Remap::Type(Self::String),
+                "IInspectable" => return Remap::Type(Self::Object),
+                "IUnknown" => return Remap::Type(Self::IUnknown),
+                "CHAR" => return Remap::Type(Self::I8),
+                "BOOLEAN" => return Remap::Type(Self::Bool),
+                "BOOL" => return Remap::Type(Self::BOOL),
+                "EventRegistrationToken" => return Remap::Type(Self::I64),
+
+                // `LARGE_INTEGER` / `ULARGE_INTEGER` are faithfully scraped as unions
+                // (their `QuadPart` / `LowPart`+`HighPart` overlay), but the reference
+                // winmd and every published `windows` / `windows-sys` binding collapse
+                // them to their 64-bit scalar. Remap at gen time — like `CHAR` / `BOOLEAN`
+                // above — so the in-house union metadata stays faithful while consumers see
+                // the ergonomic `i64` / `u64`.
+                "LARGE_INTEGER" => return Remap::Type(Self::I64),
+                "ULARGE_INTEGER" => return Remap::Type(Self::U64),
+
+                // Numerics substitutions swap a faithful Win32 struct for its
+                // layout-identical `Windows.Foundation.Numerics` projection (an
+                // ergonomic gen-time choice — the winmd keeps the D2D/D3D struct).
+                // These must be matched by name, not shape: the same `{ f32; f32 }`
+                // layout is reused under many names that map to *different* Numerics
+                // types. Matched across any `Windows.Win32*` namespace so both the
+                // sub-namespaced reference winmd and the flat in-house metadata hit.
+                "D2D_MATRIX_3X2_F" => {
+                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"));
+                }
+                "D3DMATRIX" | "D2D_MATRIX_4X4_F" => {
+                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"));
+                }
+                "D2D_POINT_2F" | "D2D_VECTOR_2F" => {
+                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"));
+                }
+                "D2D_VECTOR_4F" => {
+                    return Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"));
+                }
+                _ => {}
+            }
+        }
+
+        Remap::None
     }
 
     pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
@@ -861,7 +887,7 @@ impl Type {
             }
             Self::GUID => quote! {
                 #[repr(C)]
-                #[derive(Clone, Copy)]
+                #[derive(Clone, Copy, Default)]
                 pub struct GUID {
                     pub data1: u32,
                     pub data2: u16,

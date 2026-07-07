@@ -1,17 +1,16 @@
 use super::*;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use windows_metadata::AsRow;
 
-/// Write a struct/union type definition and any nested types it contains.
+/// Write a struct/union type definition, emitting any anonymous nested types
+/// inline at the field that references them.
 ///
-/// Returns a list of `(name, tokens)` pairs — the un-nested helper types first,
-/// followed by the top-level type itself — so all of them can be inserted into
-/// the layout as independent, flat definitions.
-///
-/// Nested types are promoted to the enclosing namespace with a synthesised name
-/// using the same numeric-suffix scheme as `windows-bindgen`: `OUTER_0`,
-/// `OUTER_1`, `OUTER_0_0`, etc., where the index is the position of the nested
-/// type in the parent's nested-class list.
+/// Returns a list of `(name, tokens)` pairs. The top-level type is always
+/// present. Nested types that are referenced *directly* by a field (the common
+/// C anonymous-member case) are emitted inline within it; any nested type that
+/// is instead referenced through an array/pointer (or not referenced at all) is
+/// hoisted to a flat top-level sibling using the `windows-bindgen` naming scheme
+/// (`OUTER_0`, `OUTER_0_0`, …) and appears as an additional entry in the list.
 pub fn write_struct_items(
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
@@ -24,139 +23,207 @@ pub fn write_struct_items(
     }
 
     let namespace = item.namespace();
-    let outer_name = item.name();
-    let outer_packing = item
-        .class_layout()
-        .map(|l| l.packing_size())
-        .filter(|&s| s > 0);
-
-    // Collect all un-nested helper types (depth-first so leaves come first).
-    let mut unnested: Vec<(String, TokenStream)> = vec![];
-    let flat_names = collect_nested(
+    let mut hoisted: Vec<(String, TokenStream)> = vec![];
+    let tokens = write_record(
         namespace,
         item,
-        outer_name,
+        false,
         item.arches(),
-        outer_packing,
-        &mut unnested,
+        packing_of(item),
+        &mut hoisted,
     )?;
+    hoisted.push((item.name().to_string(), tokens));
+    Ok(hoisted)
+}
 
-    // Write the main type using flat name references for any nested fields.
-    let name_ident = write_ident(outer_name);
+/// Recursively write a struct/union.
+///
+/// When `inline` is `true` the record is written as an anonymous inline nested
+/// type (no name, keyword-first) suitable for use at a field's type position;
+/// otherwise it is written as a named top-level type.
+///
+/// `parent_arches`/`parent_packing` carry the effective architecture and packing
+/// inherited from enclosing types so that any *hoisted* (array/pointer-wrapped)
+/// nested helper gets the correct `#[arch]`/`#[packed]` even when it has none of
+/// its own. Directly-inlined nested types instead carry their own attributes,
+/// which round-trip 1:1 through the reader.
+fn write_record(
+    namespace: &str,
+    item: &metadata::reader::TypeDef,
+    inline: bool,
+    parent_arches: i32,
+    parent_packing: Option<u16>,
+    hoisted: &mut Vec<(String, TokenStream)>,
+) -> Result<TokenStream, Error> {
+    let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
+
+    // The leaf names referenced *directly* (bare) by a field — these are inlined.
+    let bare: HashSet<String> = item
+        .fields()
+        .filter_map(|field| match field.ty() {
+            metadata::Type::ValueName(tn) if tn.namespace.is_empty() && !tn.name.contains('/') => {
+                Some(tn.name)
+            }
+            _ => None,
+        })
+        .collect();
+
+    // Hoist any nested type that is not consumed by a bare field reference. Its
+    // index in the parent's nested-class list drives the flat name, matching the
+    // scheme used elsewhere so wrapped references resolve.
+    let mut flat_names: HashMap<String, String> = HashMap::new();
+    for (index, child) in nested.iter().enumerate() {
+        if bare.contains(child.name()) {
+            continue;
+        }
+        let flat_name = format!("{}_{index}", item.name());
+        flat_names.insert(child.name().to_string(), flat_name.clone());
+        let effective_arches = parent_arches | child.arches();
+        let effective_packing = packing_of(child).or(parent_packing);
+        hoist_subtree(
+            namespace,
+            child,
+            &flat_name,
+            effective_arches,
+            effective_packing,
+            hoisted,
+        )?;
+    }
+
+    // Nested children consumed inline, keyed by leaf name.
+    let inline_map: HashMap<String, metadata::reader::TypeDef> = nested
+        .iter()
+        .filter(|child| bare.contains(child.name()))
+        .map(|child| (child.name().to_string(), *child))
+        .collect();
+
     let fields: Vec<TokenStream> = item
         .fields()
-        .map(|field| write_field_flat(namespace, &field, &flat_names))
+        .map(|field| -> Result<TokenStream, Error> {
+            if let metadata::Type::ValueName(tn) = field.ty()
+                && tn.namespace.is_empty()
+                && let Some(child) = inline_map.get(&tn.name)
+            {
+                let effective_arches = parent_arches | child.arches();
+                let effective_packing = packing_of(child).or(parent_packing);
+                let inner = write_record(
+                    namespace,
+                    child,
+                    true,
+                    effective_arches,
+                    effective_packing,
+                    hoisted,
+                )?;
+                let name = write_ident(field.name());
+                let field_attrs =
+                    write_custom_attributes(field.attributes(), namespace, field.index())?;
+                return Ok(quote! { #(#field_attrs)* #name: #inner, });
+            }
+            write_field_flat(namespace, &field, &flat_names)
+        })
         .collect::<Result<Vec<_>, _>>()?;
 
     let keyword = struct_keyword(item);
     let packed_attr = write_packed_attr(item);
-    let arch_attr = write_arch_attr(item.arches());
+    let align_attr = write_align_attr(item);
+    // A nested type's architecture is always that of its enclosing type — it cannot
+    // diverge — so the `#[arch]` is redundant noise on an inline nested record and is
+    // emitted only on top-level types. The reader re-derives it from the parent.
+    let arch_attr = if inline {
+        quote! {}
+    } else {
+        write_arch_attr(item.arches())
+    };
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
-        &["SupportedArchitectureAttribute"],
+        &["SupportedArchitectureAttribute", "AlignmentAttribute"],
     )?;
 
-    let main_tokens = quote! {
-        #packed_attr
-        #arch_attr
-        #(#custom_attrs)*
-        #keyword #name_ident {
-            #(#fields)*
-        }
-    };
-
-    unnested.push((outer_name.to_string(), main_tokens));
-    Ok(unnested)
+    if inline {
+        Ok(quote! {
+            #packed_attr #align_attr #(#custom_attrs)*
+            #keyword {
+                #(#fields)*
+            }
+        })
+    } else {
+        let name_ident = write_ident(item.name());
+        Ok(quote! {
+            #packed_attr
+            #align_attr
+            #arch_attr
+            #(#custom_attrs)*
+            #keyword #name_ident {
+                #(#fields)*
+            }
+        })
+    }
 }
 
-/// Recursively collect all nested types of `parent`, emitting each as a flat
-/// top-level type.  Returns a map from the nested type's leaf name (as stored
-/// in the metadata) to the synthesised flat name used in the emitted rdl.
-///
-/// The naming scheme matches `windows-bindgen`: each nested type is named
-/// `{outer_flat_name}_{index}` where `index` is the 0-based position of the
-/// nested type in the parent's nested-class list.
-///
-/// `parent_arches` carries the effective `SupportedArchitecture` bits from all
-/// enclosing types so that every un-nested helper type gets the correct
-/// architecture constraint even when the nested type itself has none.
-///
-/// `parent_packing` carries the effective packing from all enclosing types so
-/// that every un-nested helper type gets the correct `#[packed(N)]` attribute
-/// even when the nested type itself has no `ClassLayout` record.
-fn collect_nested(
+/// Recursively hoist a nested type (and all of its descendants) to flat
+/// top-level siblings, using `windows-bindgen`'s numeric-suffix naming scheme.
+/// This is the fallback path for nested types that cannot be inlined because
+/// they are referenced through an array/pointer.
+fn hoist_subtree(
     namespace: &str,
-    parent: &metadata::reader::TypeDef,
-    outer_flat_name: &str,
-    parent_arches: i32,
-    parent_packing: Option<u16>,
-    output: &mut Vec<(String, TokenStream)>,
-) -> Result<HashMap<String, String>, Error> {
-    let mut flat_names: HashMap<String, String> = HashMap::new();
-
-    for (index, nested) in parent.index().nested(*parent).enumerate() {
-        let nested_leaf = nested.name();
-        let flat_name = format!("{outer_flat_name}_{index}");
-        flat_names.insert(nested_leaf.to_string(), flat_name.clone());
-
-        // Combine the parent's arch constraint with any constraint on the
-        // nested type itself.  Using OR means that whichever bits are set by
-        // either level are preserved, so a completely unrestricted nested type
-        // correctly inherits the parent's restriction.
-        let nested_arches = nested.arches();
-        let effective_arches = parent_arches | nested_arches;
-
-        // Use the nested type's own packing if present; otherwise inherit from
-        // the parent so that anonymous inner types of a packed struct/union are
-        // also emitted with the correct `#[packed(N)]` attribute.
-        let own_packing = nested
-            .class_layout()
-            .map(|l| l.packing_size())
-            .filter(|&s| s > 0);
-        let effective_packing = own_packing.or(parent_packing);
-
-        // Recurse before emitting so that leaves appear before their parents.
-        let child_flat_names = collect_nested(
+    node: &metadata::reader::TypeDef,
+    flat_name: &str,
+    arches: i32,
+    packing: Option<u16>,
+    hoisted: &mut Vec<(String, TokenStream)>,
+) -> Result<(), Error> {
+    // Hoist descendants first so leaves precede their parents, collecting the
+    // flat names used to rewrite this node's fields.
+    let mut child_flat_names: HashMap<String, String> = HashMap::new();
+    for (index, child) in node.index().nested(*node).enumerate() {
+        let child_flat = format!("{flat_name}_{index}");
+        child_flat_names.insert(child.name().to_string(), child_flat.clone());
+        let effective_arches = arches | child.arches();
+        let effective_packing = packing_of(&child).or(packing);
+        hoist_subtree(
             namespace,
-            &nested,
-            &flat_name,
+            &child,
+            &child_flat,
             effective_arches,
             effective_packing,
-            output,
+            hoisted,
         )?;
-
-        let name_ident = write_ident(&flat_name);
-        let fields: Vec<TokenStream> = nested
-            .fields()
-            .map(|field| write_field_flat(namespace, &field, &child_flat_names))
-            .collect::<Result<Vec<_>, _>>()?;
-        let keyword = struct_keyword(&nested);
-
-        // Write a SupportedArchitecture attribute when needed, and all other
-        // custom attributes on the nested type (excluding SupportedArchitecture
-        // so we don't emit it twice when the nested type already has one).
-        let arch_attr = write_arch_attr(effective_arches);
-        let packed_attr = write_packed_attr_value(effective_packing);
-        let custom_attrs = write_custom_attributes_except(
-            nested.attributes(),
-            namespace,
-            nested.index(),
-            &["SupportedArchitectureAttribute"],
-        )?;
-
-        output.push((
-            flat_name,
-            quote! { #packed_attr #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
-        ));
     }
 
-    Ok(flat_names)
+    let name_ident = write_ident(flat_name);
+    let fields: Vec<TokenStream> = node
+        .fields()
+        .map(|field| write_field_flat(namespace, &field, &child_flat_names))
+        .collect::<Result<Vec<_>, _>>()?;
+    let keyword = struct_keyword(node);
+    let arch_attr = write_arch_attr(arches);
+    let packed_attr = write_packed_attr_value(packing);
+    let align_attr = write_align_attr(node);
+    let custom_attrs = write_custom_attributes_except(
+        node.attributes(),
+        namespace,
+        node.index(),
+        &["SupportedArchitectureAttribute", "AlignmentAttribute"],
+    )?;
+
+    hoisted.push((
+        flat_name.to_string(),
+        quote! { #packed_attr #align_attr #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
+    ));
+    Ok(())
 }
 
-/// Write a single struct/union field, replacing any reference to a nested type
-/// with the corresponding flat name from `flat_names`.
+/// The non-zero packing size of a type's `ClassLayout`, if any.
+fn packing_of(item: &metadata::reader::TypeDef) -> Option<u16> {
+    item.class_layout()
+        .map(|l| l.packing_size())
+        .filter(|&s| s > 0)
+}
+
+/// Write a single struct/union field, replacing any reference to a hoisted
+/// nested type with the corresponding flat name from `flat_names`.
 fn write_field_flat(
     namespace: &str,
     item: &metadata::reader::Field,
@@ -215,11 +282,7 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
 /// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
 /// non-zero packing size, otherwise returns an empty token stream.
 fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
-    let packing = item
-        .class_layout()
-        .map(|l| l.packing_size())
-        .filter(|&s| s > 0);
-    write_packed_attr_value(packing)
+    write_packed_attr_value(packing_of(item))
 }
 
 /// Emits a `#[packed(N)]` token stream for the given packing size, or an empty
@@ -230,4 +293,20 @@ fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
         return quote! { #[packed(#size_literal)] };
     }
     quote! {}
+}
+
+/// Emits an `#[align(N)]` token stream if the type carries an
+/// `AlignmentAttribute` (forced over-alignment from `__declspec(align(N))` /
+/// `alignas(N)`), otherwise returns an empty token stream. Unlike packing,
+/// forced alignment is *not* inherited by nested helper types — each type
+/// carries its own attribute.
+fn write_align_attr(item: &metadata::reader::TypeDef) -> TokenStream {
+    let Some(attribute) = item.find_attribute("AlignmentAttribute") else {
+        return quote! {};
+    };
+    let Some((_, metadata::Value::I32(alignment))) = attribute.value().into_iter().next() else {
+        return quote! {};
+    };
+    let size_literal = Literal::i32_unsuffixed(alignment);
+    quote! { #[align(#size_literal)] }
 }

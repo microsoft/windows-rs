@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const WM_CTLCOLOR: u32 = 25;
+    }
+}

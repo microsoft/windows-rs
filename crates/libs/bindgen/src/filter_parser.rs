@@ -339,6 +339,32 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return vec![base(ResolvedKind::Namespace(full_path))];
     }
 
+    // Bare type with members: no namespace prefix matched, so treat the first
+    // segment as a type searched across all namespaces and the rest as members.
+    // This lets `--flat` filters drop namespaces entirely (e.g. `IAgileReference::Resolve`
+    // instead of `Windows::Win32::System::WinRT::IAgileReference::Resolve`), resolving
+    // identically against both namespaced and flat metadata.
+    let type_name = &segments[0];
+    let member_segments = &segments[1..];
+    let mut results = Vec::new();
+    for (namespace, types) in reader.iter() {
+        if types.get(type_name.as_str()).is_some() {
+            let members = if member_segments == ["*"] {
+                vec!["*".to_string()]
+            } else {
+                member_segments.to_vec()
+            };
+            results.push(base(ResolvedKind::Members {
+                namespace: namespace.to_string(),
+                name: type_name.clone(),
+                members,
+            }));
+        }
+    }
+    if !results.is_empty() {
+        return results;
+    }
+
     panic!("could not resolve filter entry `{}`", segments.join("::"));
 }
 
@@ -463,8 +489,7 @@ mod resolution_tests {
     #[test]
     fn resolve_method_group() {
         let reader = test_reader();
-        let entries =
-            parse_filter_entry("Windows::Win32::Graphics::Dxgi::IDXGIDevice::{GetAdapter}");
+        let entries = parse_filter_entry("IDXGIDevice::{GetAdapter}");
         let resolved = resolve_entries(reader, &entries);
         assert_eq!(resolved.len(), 1);
         match &resolved[0].kind {
@@ -473,7 +498,7 @@ mod resolution_tests {
                 name,
                 members,
             } => {
-                assert_eq!(namespace, "Windows.Win32.Graphics.Dxgi");
+                assert_eq!(namespace, "Windows.Win32");
                 assert_eq!(name, "IDXGIDevice");
                 assert_eq!(members, &["GetAdapter"]);
             }
@@ -503,7 +528,7 @@ mod resolution_tests {
         assert_eq!(resolved.len(), 1);
         match &resolved[0].kind {
             ResolvedKind::Type { namespace, name } => {
-                assert_eq!(namespace, "Windows.Win32.Foundation");
+                assert_eq!(namespace, "Windows.Win32");
                 assert_eq!(name, "CloseHandle");
             }
             other => panic!("expected Type, got {other:?}"),
@@ -535,7 +560,7 @@ mod resolution_tests {
     #[test]
     fn resolve_type_star() {
         let reader = test_reader();
-        let entries = parse_filter_entry("Windows::Win32::Graphics::Dxgi::IDXGIDevice::*");
+        let entries = parse_filter_entry("IDXGIDevice::*");
         let resolved = resolve_entries(reader, &entries);
         assert_eq!(resolved.len(), 1);
         match &resolved[0].kind {
@@ -544,7 +569,7 @@ mod resolution_tests {
                 name,
                 members,
             } => {
-                assert_eq!(namespace, "Windows.Win32.Graphics.Dxgi");
+                assert_eq!(namespace, "Windows.Win32");
                 assert_eq!(name, "IDXGIDevice");
                 assert_eq!(members, &["*"]);
             }

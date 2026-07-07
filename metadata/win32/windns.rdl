@@ -1,0 +1,603 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DNS_ADDRESS_STRING_LENGTH: u32 = 65;
+        struct DNS_APPLICATION_SETTINGS {
+            Version: u32,
+            Flags: u64,
+        }
+        const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1;
+        const DNS_APP_SETTINGS_VERSION1: u32 = 1;
+        const DNS_CLASS_ALL: u32 = 255;
+        const DNS_CLASS_ANY: u32 = 255;
+        const DNS_CLASS_CHAOS: u32 = 3;
+        const DNS_CLASS_CSNET: u32 = 2;
+        const DNS_CLASS_HESIOD: u32 = 4;
+        const DNS_CLASS_INTERNET: u32 = 1;
+        const DNS_CLASS_NONE: u32 = 254;
+        const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768;
+        const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164;
+        const DNS_CONFIG_FLAG_ALLOC: u32 = 1;
+        #[repr(i32)]
+        enum DNS_CONFIG_TYPE {
+            DnsConfigPrimaryDomainName_W = 0,
+            DnsConfigPrimaryDomainName_A = 1,
+            DnsConfigPrimaryDomainName_UTF8 = 2,
+            DnsConfigAdapterDomainName_W = 3,
+            DnsConfigAdapterDomainName_A = 4,
+            DnsConfigAdapterDomainName_UTF8 = 5,
+            DnsConfigDnsServerList = 6,
+            DnsConfigSearchList = 7,
+            DnsConfigAdapterInfo = 8,
+            DnsConfigPrimaryHostNameRegistrationEnabled = 9,
+            DnsConfigAdapterHostNameRegistrationEnabled = 10,
+            DnsConfigAddressRegistrationMaxCount = 11,
+            DnsConfigHostName_W = 12,
+            DnsConfigHostName_A = 13,
+            DnsConfigHostName_UTF8 = 14,
+            DnsConfigFullHostName_W = 15,
+            DnsConfigFullHostName_A = 16,
+            DnsConfigFullHostName_UTF8 = 17,
+            DnsConfigNameServer = 18,
+        }
+        struct DNS_CONNECTION_IFINDEX_ENTRY {
+            pwszConnectionName: PCWSTR,
+            dwIfIndex: u32,
+        }
+        struct DNS_CONNECTION_IFINDEX_LIST {
+            pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
+            nEntries: u32,
+        }
+        struct DNS_CONNECTION_NAME {
+            wszName: [u16; 65],
+        }
+        struct DNS_CONNECTION_NAME_LIST {
+            cNames: u32,
+            pNames: *mut DNS_CONNECTION_NAME,
+        }
+        const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64;
+        struct DNS_CONNECTION_POLICY_ENTRY {
+            pwszHost: PCWSTR,
+            pwszAppId: PCWSTR,
+            cbAppSid: u32,
+            pbAppSid: PBYTE,
+            nConnections: u32,
+            ppwszConnections: *mut PCWSTR,
+            dwPolicyEntryFlags: u32,
+        }
+        struct DNS_CONNECTION_POLICY_ENTRY_LIST {
+            pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
+            nEntries: u32,
+        }
+        const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1;
+        #[repr(i32)]
+        enum DNS_CONNECTION_POLICY_TAG {
+            TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT = 0,
+            TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER = 1,
+            TAG_DNS_CONNECTION_POLICY_TAG_WWWPT = 2,
+        }
+        struct DNS_CONNECTION_PROXY_ELEMENT {
+            Type: DNS_CONNECTION_PROXY_TYPE,
+            Info: DNS_CONNECTION_PROXY_INFO,
+        }
+        struct DNS_CONNECTION_PROXY_INFO {
+            Version: u32,
+            pwszFriendlyName: *mut u16,
+            Flags: u32,
+            Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
+            Anonymous: union {
+                Config: DNS_CONNECTION_PROXY_INFO_0_0,
+                Script: DNS_CONNECTION_PROXY_INFO_0_1,
+            },
+        }
+        struct DNS_CONNECTION_PROXY_INFO_0_0 {
+            pwszServer: *mut u16,
+            pwszUsername: *mut u16,
+            pwszPassword: *mut u16,
+            pwszException: *mut u16,
+            pwszExtraInfo: *mut u16,
+            Port: u16,
+        }
+        struct DNS_CONNECTION_PROXY_INFO_0_1 {
+            pwszScript: *mut u16,
+            pwszUsername: *mut u16,
+            pwszPassword: *mut u16,
+        }
+        const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1;
+        struct DNS_CONNECTION_PROXY_INFO_EX {
+            ProxyInfo: DNS_CONNECTION_PROXY_INFO,
+            dwInterfaceIndex: u32,
+            pwszConnectionName: *mut u16,
+            fDirectConfiguration: BOOL,
+            hConnection: HANDLE,
+        }
+        const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024;
+        const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024;
+        const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2;
+        const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1;
+        const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64;
+        const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128;
+        const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256;
+        #[repr(i32)]
+        enum DNS_CONNECTION_PROXY_INFO_SWITCH {
+            DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG = 0,
+            DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT = 1,
+            DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD = 2,
+        }
+        const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128;
+        struct DNS_CONNECTION_PROXY_LIST {
+            cProxies: u32,
+            pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
+        }
+        #[repr(i32)]
+        enum DNS_CONNECTION_PROXY_TYPE {
+            DNS_CONNECTION_PROXY_TYPE_NULL = 0,
+            DNS_CONNECTION_PROXY_TYPE_HTTP = 1,
+            DNS_CONNECTION_PROXY_TYPE_WAP = 2,
+            DNS_CONNECTION_PROXY_TYPE_SOCKS4 = 4,
+            DNS_CONNECTION_PROXY_TYPE_SOCKS5 = 5,
+        }
+        #[repr(i32)]
+        enum DNS_FREE_TYPE {
+            DnsFreeFlat = 0,
+            DnsFreeRecordList = 1,
+            DnsFreeParsedMessageFields = 2,
+        }
+        #[encoding("ansi")]
+        const DNS_IP4_REVERSE_DOMAIN_STRING_A: String = "in-addr.arpa.";
+        #[encoding("utf-16")]
+        const DNS_IP4_REVERSE_DOMAIN_STRING_W: String = "in-addr.arpa.";
+        #[encoding("ansi")]
+        const DNS_IP6_REVERSE_DOMAIN_STRING_A: String = "ip6.arpa.";
+        #[encoding("utf-16")]
+        const DNS_IP6_REVERSE_DOMAIN_STRING_W: String = "ip6.arpa.";
+        const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31;
+        const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31;
+        const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
+        const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75;
+        const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75;
+        const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75;
+        const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255;
+        #[repr(i32)]
+        enum DNS_NAME_FORMAT {
+            DnsNameDomain = 0,
+            DnsNameDomainLabel = 1,
+            DnsNameHostnameFull = 2,
+            DnsNameHostnameLabel = 3,
+            DnsNameWildcard = 4,
+            DnsNameSrvRecord = 5,
+            DnsNameValidateTld = 6,
+        }
+        const DNS_OPCODE_IQUERY: u32 = 1;
+        const DNS_OPCODE_NOTIFY: u32 = 4;
+        const DNS_OPCODE_QUERY: u32 = 0;
+        const DNS_OPCODE_SERVER_STATUS: u32 = 2;
+        const DNS_OPCODE_UNKNOWN: u32 = 3;
+        const DNS_OPCODE_UPDATE: u32 = 5;
+        const DNS_PORT_HOST_ORDER: u32 = 53;
+        const DNS_PORT_NET_ORDER: u32 = 13568;
+        const DNS_PROTOCOL_DOH: u32 = 3;
+        const DNS_PROTOCOL_DOT: u32 = 4;
+        const DNS_PROTOCOL_NO_WIRE: u32 = 5;
+        const DNS_PROTOCOL_TCP: u32 = 2;
+        const DNS_PROTOCOL_UDP: u32 = 1;
+        const DNS_PROTOCOL_UNSPECIFIED: u32 = 0;
+        extern fn DNS_PROXY_COMPLETION_ROUTINE(#[opt] completionContext: *const void, status: DNS_STATUS);
+        struct DNS_PROXY_INFORMATION {
+            version: u32,
+            proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
+            proxyName: PWSTR,
+        }
+        #[repr(i32)]
+        enum DNS_PROXY_INFORMATION_TYPE {
+            DNS_PROXY_INFORMATION_DIRECT = 0,
+            DNS_PROXY_INFORMATION_DEFAULT_SETTINGS = 1,
+            DNS_PROXY_INFORMATION_PROXY_NAME = 2,
+            DNS_PROXY_INFORMATION_DOES_NOT_EXIST = 3,
+        }
+        const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1;
+        const DNS_QUERY_ADDRCONFIG: u32 = 8192;
+        const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608;
+        const DNS_QUERY_BYPASS_CACHE: u32 = 8;
+        const DNS_QUERY_CACHE_ONLY: u32 = 16;
+        #[align(8)]
+        struct DNS_QUERY_CANCEL {
+            Reserved: [i8; 32],
+        }
+        extern fn DNS_QUERY_COMPLETION_ROUTINE(pQueryContext: *const void, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
+        const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152;
+        const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432;
+        const DNS_QUERY_DNSSEC_OK: u32 = 16777216;
+        const DNS_QUERY_DNSSEC_REQUIRED: u32 = 67108864;
+        const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576;
+        const DNS_QUERY_DUAL_ADDR: u32 = 16384;
+        const DNS_QUERY_MULTICAST_ONLY: u32 = 1024;
+        const DNS_QUERY_NO_HOSTS_FILE: u32 = 64;
+        const DNS_QUERY_NO_LOCAL_NAME: u32 = 32;
+        const DNS_QUERY_NO_MULTICAST: u32 = 2048;
+        const DNS_QUERY_NO_NETBT: u32 = 128;
+        const DNS_QUERY_NO_RECURSION: u32 = 4;
+        const DNS_QUERY_NO_WIRE_QUERY: u32 = 16;
+        const DNS_QUERY_PARSE_ALL_RECORDS: u64 = 288230376151711744;
+        #[align(8)]
+        struct DNS_QUERY_RAW_CANCEL {
+            reserved: [i8; 32],
+        }
+        extern fn DNS_QUERY_RAW_COMPLETION_ROUTINE(queryContext: *const void, queryResults: *const DNS_QUERY_RAW_RESULT);
+        const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: u32 = 1;
+        struct DNS_QUERY_RAW_REQUEST {
+            version: u32,
+            resultsVersion: u32,
+            dnsQueryRawSize: u32,
+            dnsQueryRaw: *mut u8,
+            dnsQueryName: PWSTR,
+            dnsQueryType: u16,
+            queryOptions: u64,
+            interfaceIndex: u32,
+            queryCompletionCallback: DNS_QUERY_RAW_COMPLETION_ROUTINE,
+            queryContext: *mut void,
+            queryRawOptions: u64,
+            customServersSize: u32,
+            customServers: *mut DNS_CUSTOM_SERVER,
+            protocol: u32,
+            Anonymous: union {
+                sourceAddr: SOCKADDR_INET,
+                maxSa: [i8; 32],
+            },
+        }
+        const DNS_QUERY_RAW_REQUEST_VERSION1: u32 = 1;
+        struct DNS_QUERY_RAW_RESULT {
+            version: u32,
+            queryStatus: DNS_STATUS,
+            queryOptions: u64,
+            queryRawOptions: u64,
+            responseFlags: u64,
+            queryRawResponseSize: u32,
+            queryRawResponse: *mut u8,
+            queryRecords: PDNS_RECORD,
+            protocol: u32,
+            Anonymous: union {
+                sourceAddr: SOCKADDR_INET,
+                maxSa: [i8; 32],
+            },
+        }
+        const DNS_QUERY_RAW_RESULTS_VERSION1: u32 = 1;
+        struct DNS_QUERY_REQUEST {
+            Version: u32,
+            QueryName: PCWSTR,
+            QueryType: u16,
+            QueryOptions: u64,
+            pDnsServerList: PDNS_ADDR_ARRAY,
+            InterfaceIndex: u32,
+            pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
+            pQueryContext: *mut void,
+        }
+        struct DNS_QUERY_REQUEST3 {
+            Version: u32,
+            QueryName: PCWSTR,
+            QueryType: u16,
+            QueryOptions: u64,
+            pDnsServerList: PDNS_ADDR_ARRAY,
+            InterfaceIndex: u32,
+            pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
+            pQueryContext: *mut void,
+            IsNetworkQueryRequired: BOOL,
+            RequiredNetworkIndex: u32,
+            cCustomServers: u32,
+            pCustomServers: *mut DNS_CUSTOM_SERVER,
+        }
+        const DNS_QUERY_REQUEST_VERSION1: u32 = 1;
+        const DNS_QUERY_REQUEST_VERSION2: u32 = 2;
+        const DNS_QUERY_REQUEST_VERSION3: u32 = 3;
+        const DNS_QUERY_RESERVED: u32 = 4026531840;
+        struct DNS_QUERY_RESULT {
+            Version: u32,
+            QueryStatus: DNS_STATUS,
+            QueryOptions: u64,
+            pQueryRecords: PDNS_RECORD,
+            Reserved: *mut void,
+        }
+        const DNS_QUERY_RESULTS_VERSION1: u32 = 1;
+        const DNS_QUERY_RETURN_MESSAGE: u32 = 512;
+        const DNS_QUERY_STANDARD: u32 = 0;
+        const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096;
+        const DNS_QUERY_USE_TCP_ONLY: u32 = 2;
+        const DNS_QUERY_WIRE_ONLY: u32 = 256;
+        const DNS_RCLASS_ALL: u32 = 65280;
+        const DNS_RCLASS_ANY: u32 = 65280;
+        const DNS_RCLASS_CHAOS: u32 = 768;
+        const DNS_RCLASS_CSNET: u32 = 512;
+        const DNS_RCLASS_HESIOD: u32 = 1024;
+        const DNS_RCLASS_INTERNET: u32 = 256;
+        const DNS_RCLASS_MDNS_CACHE_FLUSH: u32 = 128;
+        const DNS_RCLASS_NONE: u32 = 65024;
+        const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128;
+        const DNS_RCODE_BADKEY: u32 = 17;
+        const DNS_RCODE_BADSIG: u32 = 16;
+        const DNS_RCODE_BADTIME: u32 = 18;
+        const DNS_RCODE_BADVERS: u32 = 16;
+        const DNS_RCODE_FORMAT_ERROR: u32 = 1;
+        const DNS_RCODE_FORMERR: u32 = 1;
+        const DNS_RCODE_MAX: u32 = 15;
+        const DNS_RCODE_NAME_ERROR: u32 = 3;
+        const DNS_RCODE_NOERROR: u32 = 0;
+        const DNS_RCODE_NOTAUTH: u32 = 9;
+        const DNS_RCODE_NOTIMPL: u32 = 4;
+        const DNS_RCODE_NOTZONE: u32 = 10;
+        const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4;
+        const DNS_RCODE_NO_ERROR: u32 = 0;
+        const DNS_RCODE_NXDOMAIN: u32 = 3;
+        const DNS_RCODE_NXRRSET: u32 = 8;
+        const DNS_RCODE_REFUSED: u32 = 5;
+        const DNS_RCODE_SERVER_FAILURE: u32 = 2;
+        const DNS_RCODE_SERVFAIL: u32 = 2;
+        const DNS_RCODE_YXDOMAIN: u32 = 6;
+        const DNS_RCODE_YXRRSET: u32 = 7;
+        struct DNS_RRSET {
+            pFirstRR: PDNS_RECORD,
+            pLastRR: PDNS_RECORD,
+        }
+        extern fn DNS_SERVICE_BROWSE_CALLBACK(Status: u32, pQueryContext: *const void, pDnsRecord: *const DNS_RECORDA);
+        struct DNS_SERVICE_BROWSE_REQUEST {
+            Version: u32,
+            InterfaceIndex: u32,
+            QueryName: PCWSTR,
+            Anonymous: union {
+                pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
+                pBrowseCallbackV2: DNS_QUERY_COMPLETION_ROUTINE,
+            },
+            pQueryContext: *mut void,
+        }
+        struct DNS_SERVICE_CANCEL {
+            reserved: *mut void,
+        }
+        struct DNS_SERVICE_INSTANCE {
+            pszInstanceName: PWSTR,
+            pszHostName: PWSTR,
+            ip4Address: *mut IP4_ADDRESS,
+            ip6Address: *mut IP6_ADDRESS,
+            wPort: u16,
+            wPriority: u16,
+            wWeight: u16,
+            dwPropertyCount: u32,
+            keys: *mut PWSTR,
+            values: *mut PWSTR,
+            dwInterfaceIndex: u32,
+        }
+        extern fn DNS_SERVICE_REGISTER_COMPLETE(Status: u32, pQueryContext: *const void, pInstance: *const DNS_SERVICE_INSTANCE);
+        struct DNS_SERVICE_REGISTER_REQUEST {
+            Version: u32,
+            InterfaceIndex: u32,
+            pServiceInstance: PDNS_SERVICE_INSTANCE,
+            pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE,
+            pQueryContext: *mut void,
+            hCredentials: HANDLE,
+            unicastEnabled: BOOL,
+        }
+        extern fn DNS_SERVICE_RESOLVE_COMPLETE(Status: u32, pQueryContext: *const void, pInstance: *const DNS_SERVICE_INSTANCE);
+        struct DNS_SERVICE_RESOLVE_REQUEST {
+            Version: u32,
+            InterfaceIndex: u32,
+            QueryName: PWSTR,
+            pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
+            pQueryContext: *mut void,
+        }
+        const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512;
+        const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048;
+        const DNS_UPDATE_REMOTE_SERVER: u32 = 16384;
+        const DNS_UPDATE_RESERVED: u32 = 4294901760;
+        const DNS_UPDATE_SECURITY_OFF: u32 = 16;
+        const DNS_UPDATE_SECURITY_ON: u32 = 32;
+        const DNS_UPDATE_SECURITY_ONLY: u32 = 256;
+        const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0;
+        const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192;
+        const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024;
+        const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096;
+        const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1;
+        const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2;
+        const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5;
+        const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4;
+        const DNS_VALSVR_ERROR_NO_TCP: u32 = 16;
+        const DNS_VALSVR_ERROR_REFUSED: u32 = 6;
+        const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255;
+        const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3;
+        const DNS_WINS_FLAG_LOCAL: u32 = 65536;
+        const DNS_WINS_FLAG_SCOPE: u32 = 2147483648;
+        #[packed(1)]
+        struct DNS_WIRE_QUESTION {
+            QuestionType: u16,
+            QuestionClass: u16,
+        }
+        #[packed(1)]
+        struct DNS_WIRE_RECORD {
+            RecordType: u16,
+            RecordClass: u16,
+            TimeToLive: u32,
+            DataLength: u16,
+        }
+        #[library("DNSAPI.dll")]
+        extern fn DnsAcquireContextHandle_A(CredentialFlags: u32, #[opt] Credentials: *const void, pContext: *mut HANDLE) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsAcquireContextHandle_W(CredentialFlags: u32, #[opt] Credentials: *const void, pContext: *mut HANDLE) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsCancelQuery(pCancelHandle: *const DNS_QUERY_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsCancelQueryRaw(cancelHandle: *const DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionDeletePolicyEntries(PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionDeleteProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionFreeProxyInfo(#[in] #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO);
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionFreeProxyInfoEx(#[in] #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX);
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionFreeProxyList(#[in] #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST);
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetNameList(pNameList: *mut DNS_CONNECTION_NAME_LIST) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE, pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszHostUrl: PCWSTR, #[len_param(2)] #[opt] pSelectionContext: *const u8, dwSelectionContextLength: u32, dwExplicitInterfaceIndex: u32, pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszHostUrl: PCWSTR, #[len_param(2)] #[opt] pSelectionContext: *const u8, dwSelectionContextLength: u32, dwExplicitInterfaceIndex: u32, #[opt] pwszConnectionName: PCWSTR, pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetProxyList(pwszConnectionName: PCWSTR, pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionSetPolicyEntries(PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, pPolicyEntryList: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionSetProxyInfo(pwszConnectionName: PCWSTR, Type: DNS_CONNECTION_PROXY_TYPE, pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> u32;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionUpdateIfIndexTable(pConnectionIfIndexEntries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsExtractRecordsFromMessage_UTF8(pDnsBuffer: *const DNS_MESSAGE_BUFFER, wMessageLength: u16, ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsExtractRecordsFromMessage_W(pDnsBuffer: *const DNS_MESSAGE_BUFFER, wMessageLength: u16, ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsFree(pData: *mut void, FreeType: DNS_FREE_TYPE);
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut u32, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
+        #[library("DNSAPI.dll")]
+        extern fn DnsFreeProxyName(proxyName: PWSTR);
+        const DnsFreeRecordListDeep: u32 = 1;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsGetApplicationSettings(pcServers: *mut u32, ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsGetProxyInformation(hostName: PCWSTR, #[in] #[out] proxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[out] #[opt] defaultProxyInformation: *mut DNS_PROXY_INFORMATION, #[opt] completionRoutine: DNS_PROXY_COMPLETION_ROUTINE, #[opt] completionContext: *const void) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsIsFlatRecord(pRecord: *const DNS_RECORDA, ullFlags: u64, pfFlat: *mut BOOL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsModifyRecordsInSet_A(#[opt] pAddRecords: *const DNS_RECORDA, #[opt] pDeleteRecords: *const DNS_RECORDA, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsModifyRecordsInSet_UTF8(#[opt] pAddRecords: *const DNS_RECORDA, #[opt] pDeleteRecords: *const DNS_RECORDA, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsModifyRecordsInSet_W(#[opt] pAddRecords: *const DNS_RECORDA, #[opt] pDeleteRecords: *const DNS_RECORDA, Options: u32, #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsNameCompare_A(pName1: PCSTR, pName2: PCSTR) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsNameCompare_W(pName1: PCWSTR, pName2: PCWSTR) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQueryConfig(Config: DNS_CONFIG_TYPE, Flag: u32, #[opt] pwsAdapterName: PCWSTR, #[opt] pReserved: *const void, #[size_param(5)] #[opt] pBuffer: *mut void, #[in] #[out] pBufLen: *mut u32) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQueryEx(pQueryRequest: *const DNS_QUERY_REQUEST, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT, #[in] #[out] #[opt] pCancelHandle: *mut DNS_QUERY_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQueryRaw(queryRequest: *const DNS_QUERY_RAW_REQUEST, #[in] #[out] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQueryRawResultFree(queryResults: *mut DNS_QUERY_RAW_RESULT);
+        #[library("DNSAPI.dll")]
+        extern fn DnsQuery_A(pszName: PCSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQuery_UTF8(pszName: PCSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsQuery_W(pszName: PCWSTR, wType: u16, Options: u32, #[in] #[out] #[opt] pExtra: *mut void, ppQueryResults: *mut PDNS_RECORD, pReserved: *mut *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsRecordCompare(pRecord1: *const DNS_RECORDA, pRecord2: *const DNS_RECORDA) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsRecordCopyEx(pRecord: *const DNS_RECORDA, CharSetIn: DNS_CHARSET, CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: *mut DNS_RECORDA, #[in] #[out] pRR2: *mut DNS_RECORDA, ppDiff1: *mut PDNS_RECORD, ppDiff2: *mut PDNS_RECORD) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsRecordSetCopyEx(pRecordSet: *const DNS_RECORDA, CharSetIn: DNS_CHARSET, CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsRecordSetDetach(#[in] #[out] pRecordList: *mut DNS_RECORDA) -> PDNS_RECORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsReleaseContextHandle(hContext: HANDLE);
+        #[library("DNSAPI.dll")]
+        extern fn DnsReplaceRecordSetA(pReplaceSet: *const DNS_RECORDA, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsReplaceRecordSetUTF8(pReplaceSet: *const DNS_RECORDA, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsReplaceRecordSetW(pReplaceSet: *const DNS_RECORDA, Options: u32, #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: *mut void, #[in] #[out] #[opt] pReserved: *mut void) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceBrowse(pRequest: *const DNS_SERVICE_BROWSE_REQUEST, #[in] #[out] pCancel: *mut DNS_SERVICE_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceBrowseCancel(pCancelHandle: *const DNS_SERVICE_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceConstructInstance(pServiceName: PCWSTR, pHostName: PCWSTR, #[opt] pIp4: *const u32, #[opt] pIp6: *const IP6_ADDRESS, wPort: u16, wPriority: u16, wWeight: u16, dwPropertiesCount: u32, #[len_param(7)] keys: *const PCWSTR, #[len_param(7)] values: *const PCWSTR) -> PDNS_SERVICE_INSTANCE;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceCopyInstance(pOrig: *const DNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceDeRegister(pRequest: *const DNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: *mut DNS_SERVICE_CANCEL) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceFreeInstance(pInstance: *const DNS_SERVICE_INSTANCE);
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceRegister(pRequest: *const DNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: *mut DNS_SERVICE_CANCEL) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceRegisterCancel(pCancelHandle: *const DNS_SERVICE_CANCEL) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceResolve(pRequest: *const DNS_SERVICE_RESOLVE_REQUEST, #[in] #[out] pCancel: *mut DNS_SERVICE_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsServiceResolveCancel(pCancelHandle: *const DNS_SERVICE_CANCEL) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsSetApplicationSettings(cServers: u32, #[len_param(0)] pServers: *const DNS_CUSTOM_SERVER, #[opt] pSettings: *const DNS_APPLICATION_SETTINGS) -> u32;
+        #[library("DNSAPI.dll")]
+        extern fn DnsStartMulticastQuery(pQueryRequest: *const MDNS_QUERY_REQUEST, #[in] #[out] pHandle: *mut MDNS_QUERY_HANDLE) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsStopMulticastQuery(#[in] #[out] pHandle: *mut MDNS_QUERY_HANDLE) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsValidateName_A(pszName: PCSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsValidateName_UTF8(pszName: PCSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsValidateName_W(pszName: PCWSTR, Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern "C" fn DnsValidateServerStatus(server: *const SOCKADDR, #[opt] queryName: PCWSTR, serverStatus: *mut u32) -> DNS_STATUS;
+        #[library("DNSAPI.dll")]
+        extern fn DnsWriteQuestionToBuffer_UTF8(#[in] #[out] pDnsBuffer: *mut DNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: *mut u32, pszName: PCSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
+        #[library("DNSAPI.dll")]
+        extern fn DnsWriteQuestionToBuffer_W(#[in] #[out] pDnsBuffer: *mut DNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: *mut u32, pszName: PCWSTR, wType: u16, Xid: u16, fRecursionDesired: BOOL) -> BOOL;
+        const INTERNET_DEFAULT_DNS_PORT: u32 = 53;
+        const INTERNET_DEFAULT_DOT_PORT: u32 = 853;
+        struct IP4_ARRAY {
+            AddrCount: u32,
+            AddrArray: [IP4_ADDRESS; 1],
+        }
+        const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65;
+        const IP6_ADDRESS_STRING_LENGTH: u32 = 65;
+        extern fn MDNS_QUERY_CALLBACK(pQueryContext: *const void, #[in] #[out] pQueryHandle: *mut MDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
+        struct MDNS_QUERY_HANDLE {
+            nameBuf: [u16; 256],
+            wType: u16,
+            pSubscription: *mut void,
+            pWnfCallbackParams: *mut void,
+            stateNameData: [u32; 2],
+        }
+        struct MDNS_QUERY_REQUEST {
+            Version: u32,
+            ulRefCount: u32,
+            Query: PCWSTR,
+            QueryType: u16,
+            QueryOptions: u64,
+            InterfaceIndex: u32,
+            pQueryCallback: PMDNS_QUERY_CALLBACK,
+            pQueryContext: *mut void,
+            fAnswerReceived: BOOL,
+            ulResendCount: u32,
+        }
+        type PDNS_CONNECTION_POLICY_ENTRY = *mut DNS_CONNECTION_POLICY_ENTRY;
+        type PDNS_CONNECTION_PROXY_INFO = *mut DNS_CONNECTION_PROXY_INFO;
+        type PDNS_CONNECTION_PROXY_INFO_EX = *mut DNS_CONNECTION_PROXY_INFO_EX;
+        type PDNS_QUERY_CANCEL = *mut DNS_QUERY_CANCEL;
+        extern fn PDNS_QUERY_COMPLETION_ROUTINE(pQueryContext: *const void, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
+        type PDNS_QUERY_REQUEST = *mut DNS_QUERY_REQUEST;
+        type PDNS_QUERY_REQUEST3 = *mut DNS_QUERY_REQUEST3;
+        type PDNS_QUERY_RESULT = *mut DNS_QUERY_RESULT;
+        type PDNS_RRSET = *mut DNS_RRSET;
+        extern fn PDNS_SERVICE_BROWSE_CALLBACK(Status: u32, pQueryContext: *const void, pDnsRecord: *const DNS_RECORDA);
+        type PDNS_SERVICE_BROWSE_REQUEST = *mut DNS_SERVICE_BROWSE_REQUEST;
+        type PDNS_SERVICE_CANCEL = *mut DNS_SERVICE_CANCEL;
+        type PDNS_SERVICE_INSTANCE = *mut DNS_SERVICE_INSTANCE;
+        extern fn PDNS_SERVICE_REGISTER_COMPLETE(Status: u32, pQueryContext: *const void, pInstance: *const DNS_SERVICE_INSTANCE);
+        type PDNS_SERVICE_REGISTER_REQUEST = *mut DNS_SERVICE_REGISTER_REQUEST;
+        extern fn PDNS_SERVICE_RESOLVE_COMPLETE(Status: u32, pQueryContext: *const void, pInstance: *const DNS_SERVICE_INSTANCE);
+        type PDNS_SERVICE_RESOLVE_REQUEST = *mut DNS_SERVICE_RESOLVE_REQUEST;
+        type PDNS_WIRE_QUESTION = *mut DNS_WIRE_QUESTION;
+        type PDNS_WIRE_RECORD = *mut DNS_WIRE_RECORD;
+        type PIP4_ARRAY = *mut IP4_ARRAY;
+        extern fn PMDNS_QUERY_CALLBACK(pQueryContext: *const void, #[in] #[out] pQueryHandle: *mut MDNS_QUERY_HANDLE, #[in] #[out] pQueryResults: *mut DNS_QUERY_RESULT);
+        type PMDNS_QUERY_HANDLE = *mut MDNS_QUERY_HANDLE;
+        type PMDNS_QUERY_REQUEST = *mut MDNS_QUERY_REQUEST;
+    }
+}

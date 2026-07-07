@@ -1,0 +1,60 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FLOWSPEC {
+            TokenRate: u32,
+            TokenBucketSize: u32,
+            PeakBandwidth: u32,
+            Latency: u32,
+            DelayVariation: u32,
+            ServiceType: SERVICETYPE,
+            MaxSduSize: u32,
+            MinimumPolicedSize: u32,
+        }
+        type LPFLOWSPEC = *mut FLOWSPEC;
+        type LPQOS_OBJECT_HDR = *mut QOS_OBJECT_HDR;
+        type LPQOS_SD_MODE = *mut QOS_SD_MODE;
+        type LPQOS_SHAPING_RATE = *mut QOS_SHAPING_RATE;
+        type PFLOWSPEC = *mut FLOWSPEC;
+        const POSITIVE_INFINITY_RATE: u32 = 4294967294;
+        const QOS_GENERAL_ID_BASE: u32 = 2000;
+        const QOS_NOT_SPECIFIED: u32 = 4294967295;
+        const QOS_OBJECT_DESTADDR: u32 = 2004;
+        const QOS_OBJECT_END_OF_LIST: u32 = 2001;
+        struct QOS_OBJECT_HDR {
+            ObjectType: u32,
+            ObjectLength: u32,
+        }
+        const QOS_OBJECT_SD_MODE: u32 = 2002;
+        const QOS_OBJECT_SHAPING_RATE: u32 = 2003;
+        struct QOS_SD_MODE {
+            ObjectHdr: QOS_OBJECT_HDR,
+            ShapeDiscardMode: u32,
+        }
+        struct QOS_SHAPING_RATE {
+            ObjectHdr: QOS_OBJECT_HDR,
+            ShapingRate: u32,
+        }
+        type SERVICETYPE = u32;
+        const SERVICETYPE_BESTEFFORT: u32 = 1;
+        const SERVICETYPE_CONTROLLEDLOAD: u32 = 2;
+        const SERVICETYPE_GENERAL_INFORMATION: u32 = 5;
+        const SERVICETYPE_GUARANTEED: u32 = 3;
+        const SERVICETYPE_NETWORK_CONTROL: u32 = 10;
+        const SERVICETYPE_NETWORK_UNAVAILABLE: u32 = 4;
+        const SERVICETYPE_NOCHANGE: u32 = 6;
+        const SERVICETYPE_NONCONFORMING: u32 = 9;
+        const SERVICETYPE_NOTRAFFIC: u32 = 0;
+        const SERVICETYPE_QUALITATIVE: u32 = 13;
+        const SERVICE_BESTEFFORT: u32 = 2147549184;
+        const SERVICE_CONTROLLEDLOAD: u32 = 2147614720;
+        const SERVICE_GUARANTEED: u32 = 2147745792;
+        const SERVICE_NO_QOS_SIGNALING: u32 = 1073741824;
+        const SERVICE_NO_TRAFFIC_CONTROL: u32 = 2164260864;
+        const SERVICE_QUALITATIVE: u32 = 2149580800;
+        const TC_NONCONF_BORROW: u32 = 0;
+        const TC_NONCONF_BORROW_PLUS: u32 = 3;
+        const TC_NONCONF_DISCARD: u32 = 2;
+        const TC_NONCONF_SHAPE: u32 = 1;
+    }
+}

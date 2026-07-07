@@ -225,8 +225,8 @@ impl DownloadStartingArgs {
     /// Overrides the absolute path the download is written to, choosing a custom
     /// destination instead of the default.
     pub fn set_result_file_path(&self, path: &str) -> Result<()> {
-        let path = string::encode(path);
-        unsafe { self.0.SetResultFilePath(path.as_ptr()) }
+        let path = HSTRING::from(path);
+        unsafe { self.0.SetResultFilePath(&path) }
     }
 
     /// Returns `true` if the host has marked the download as handled,

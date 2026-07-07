@@ -2,4 +2,6 @@
 #[win32]
 mod Test {
     extern fn Callback(value: u32) -> u32;
+    extern "C" fn CdeclCallback(value: u32) -> u32;
+    extern "fastcall" fn FastcallCallback(value: u32) -> u32;
 }

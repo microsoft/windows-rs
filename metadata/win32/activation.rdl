@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x00000035_0000_0000_c000_000000000046)]
+        interface IActivationFactory: IInspectable {
+            fn ActivateInstance(&self, instance: *mut IInspectable) -> HRESULT;
+        }
+    }
+}

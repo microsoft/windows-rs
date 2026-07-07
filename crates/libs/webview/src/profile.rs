@@ -56,8 +56,8 @@ impl Profile {
 
     /// Sets the folder downloads are saved to by default.
     pub fn set_default_download_folder_path(&self, path: &str) -> Result<()> {
-        let path = string::encode(path);
-        unsafe { self.0.SetDefaultDownloadFolderPath(path.as_ptr()) }
+        let path = HSTRING::from(path);
+        unsafe { self.0.SetDefaultDownloadFolderPath(&path) }
     }
 
     /// Returns the colour scheme reported to pages.

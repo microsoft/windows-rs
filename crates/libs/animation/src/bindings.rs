@@ -1,4 +1,4 @@
-windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 pub type CLSCTX = u32;
 pub const CLSCTX_INPROC_SERVER: CLSCTX = 1;
 windows_core::imp::define_interface!(
@@ -429,6 +429,6 @@ pub const UIAnimationManager2: windows_core::GUID =
     windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
 pub const UIAnimationTransitionLibrary2: windows_core::GUID =
     windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
-pub type UI_ANIMATION_KEYFRAME = isize;
+pub type UI_ANIMATION_KEYFRAME = *mut core::ffi::c_void;
 pub type UI_ANIMATION_SCHEDULING_RESULT = i32;
 pub type UI_ANIMATION_UPDATE_RESULT = i32;

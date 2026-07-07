@@ -1,0 +1,237 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CAIF_DSENTRY: u32 = 1;
+        const CAIF_LOCAL: u32 = 8;
+        const CAIF_REGISTRY: u32 = 4;
+        const CAIF_REGISTRYPARENT: u32 = 16;
+        const CAIF_SHAREDFOLDERENTRY: u32 = 2;
+        const CC_DEFAULTCONFIG: u32 = 0;
+        const CC_FIRSTCONFIG: u32 = 2;
+        const CC_LOCALACTIVECONFIG: u32 = 4;
+        const CC_LOCALCONFIG: u32 = 3;
+        const CC_UIPICKCONFIG: u32 = 1;
+        const CC_UIPICKCONFIGSKIPLOCALCA: u32 = 5;
+        const CCertConfig: GUID = 0x372fce38_4324_11d0_8810_00a0c903b83c;
+        const CCertGetConfig: GUID = 0xc6cc49b0_ce17_11d0_8833_00a0c903b83c;
+        const CCertRequest: GUID = 0x98aff3f0_5524_11d0_8812_00a0c903b83c;
+        const CCertServerExit: GUID = 0x4c4a5e40_732c_11d0_8816_00a0c903b83c;
+        const CCertServerPolicy: GUID = 0xaa000926_ffbe_11cf_8800_00a0c903b83c;
+        const CR_DISP_DENIED: u32 = 2;
+        const CR_DISP_ERROR: u32 = 1;
+        const CR_DISP_INCOMPLETE: u32 = 0;
+        const CR_DISP_ISSUED: u32 = 3;
+        const CR_DISP_ISSUED_OUT_OF_BAND: u32 = 4;
+        const CR_DISP_REVOKED: u32 = 6;
+        const CR_DISP_UNDER_SUBMISSION: u32 = 5;
+        const CR_GEMT_DEFAULT: u32 = 0;
+        const CR_GEMT_HRESULT_STRING: u32 = 1;
+        const CR_GEMT_HTTP_ERROR: u32 = 2;
+        const CR_IN_BASE64: u32 = 1;
+        const CR_IN_BASE64HEADER: u32 = 0;
+        const CR_IN_BINARY: u32 = 2;
+        const CR_IN_CERTIFICATETRANSPARENCY: u32 = 67108864;
+        const CR_IN_CHALLENGERESPONSE: u32 = 1280;
+        const CR_IN_CLIENTFLAGSMASK: u32 = 30540031;
+        const CR_IN_CLIENTIDNONE: u32 = 4194304;
+        const CR_IN_CMC: u32 = 1024;
+        const CR_IN_CONNECTONLY: u32 = 8388608;
+        const CR_IN_CRLS: u32 = 524288;
+        const CR_IN_ENCODEANY: u32 = 255;
+        const CR_IN_ENCODEMASK: u32 = 255;
+        const CR_IN_FORMATANY: u32 = 0;
+        const CR_IN_FORMATMASK: u32 = 65280;
+        const CR_IN_FULLRESPONSE: u32 = 262144;
+        const CR_IN_HTTP: u32 = 196608;
+        const CR_IN_KEYGEN: u32 = 512;
+        const CR_IN_MACHINE: u32 = 1048576;
+        const CR_IN_PKCS10: u32 = 256;
+        const CR_IN_PKCS7: u32 = 768;
+        const CR_IN_PRESIGN: u32 = 134217728;
+        const CR_IN_RETURNCHALLENGE: u32 = 16777216;
+        const CR_IN_ROBO: u32 = 2097152;
+        const CR_IN_RPC: u32 = 131072;
+        const CR_IN_SCEP: u32 = 65536;
+        const CR_IN_SCEPPOST: u32 = 33554432;
+        const CR_IN_SIGNEDCERTIFICATETIMESTAMPLIST: u32 = 1536;
+        const CR_OUT_BASE64: u32 = 1;
+        const CR_OUT_BASE64HEADER: u32 = 0;
+        const CR_OUT_BASE64REQUESTHEADER: u32 = 3;
+        const CR_OUT_BASE64X509CRLHEADER: u32 = 9;
+        const CR_OUT_BINARY: u32 = 2;
+        const CR_OUT_CHAIN: u32 = 256;
+        const CR_OUT_CRLS: u32 = 512;
+        const CR_OUT_ENCODEMASK: u32 = 255;
+        const CR_OUT_HEX: u32 = 4;
+        const CR_OUT_HEXADDR: u32 = 10;
+        const CR_OUT_HEXASCII: u32 = 5;
+        const CR_OUT_HEXASCIIADDR: u32 = 11;
+        const CR_OUT_HEXRAW: u32 = 12;
+        const CR_OUT_NOCR: u32 = 2147483648;
+        const CR_OUT_NOCRLF: u32 = 1073741824;
+        const CR_PROP_ADVANCEDSERVER: u32 = 28;
+        const CR_PROP_BASECRL: u32 = 17;
+        const CR_PROP_BASECRLPUBLISHSTATUS: u32 = 30;
+        const CR_PROP_CABACKWARDCROSSCERT: u32 = 36;
+        const CR_PROP_CABACKWARDCROSSCERTSTATE: u32 = 38;
+        const CR_PROP_CACERTSTATE: u32 = 19;
+        const CR_PROP_CACERTSTATUSCODE: u32 = 34;
+        const CR_PROP_CACERTVERSION: u32 = 39;
+        const CR_PROP_CAFORWARDCROSSCERT: u32 = 35;
+        const CR_PROP_CAFORWARDCROSSCERTSTATE: u32 = 37;
+        const CR_PROP_CANAME: u32 = 6;
+        const CR_PROP_CAPROPIDMAX: u32 = 21;
+        const CR_PROP_CASIGCERT: u32 = 12;
+        const CR_PROP_CASIGCERTCHAIN: u32 = 13;
+        const CR_PROP_CASIGCERTCOUNT: u32 = 11;
+        const CR_PROP_CASIGCERTCRLCHAIN: u32 = 32;
+        const CR_PROP_CATYPE: u32 = 10;
+        const CR_PROP_CAXCHGCERT: u32 = 15;
+        const CR_PROP_CAXCHGCERTCHAIN: u32 = 16;
+        const CR_PROP_CAXCHGCERTCOUNT: u32 = 14;
+        const CR_PROP_CAXCHGCERTCRLCHAIN: u32 = 33;
+        const CR_PROP_CERTAIAOCSPURLS: u32 = 43;
+        const CR_PROP_CERTAIAURLS: u32 = 42;
+        const CR_PROP_CERTCDPURLS: u32 = 41;
+        const CR_PROP_CRLPARTITIONCOUNT: u32 = 46;
+        const CR_PROP_CRLSTATE: u32 = 20;
+        const CR_PROP_DELTACRL: u32 = 18;
+        const CR_PROP_DELTACRLPUBLISHSTATUS: u32 = 31;
+        const CR_PROP_DNSNAME: u32 = 22;
+        const CR_PROP_EXITCOUNT: u32 = 3;
+        const CR_PROP_EXITDESCRIPTION: u32 = 4;
+        const CR_PROP_FILEVERSION: u32 = 1;
+        const CR_PROP_KRACERT: u32 = 26;
+        const CR_PROP_KRACERTCOUNT: u32 = 25;
+        const CR_PROP_KRACERTSTATE: u32 = 27;
+        const CR_PROP_KRACERTUSEDCOUNT: u32 = 24;
+        const CR_PROP_LOCALENAME: u32 = 44;
+        const CR_PROP_NONE: u32 = 0;
+        const CR_PROP_PARENTCA: u32 = 9;
+        const CR_PROP_PARTITIONED_BASECRL: u32 = 47;
+        const CR_PROP_PARTITIONED_BASECRLPUBLISHSTATUS: u32 = 49;
+        const CR_PROP_PARTITIONED_DELTACRL: u32 = 48;
+        const CR_PROP_PARTITIONED_DELTACRLPUBLISHSTATUS: u32 = 50;
+        const CR_PROP_POLICYDESCRIPTION: u32 = 5;
+        const CR_PROP_PRODUCTVERSION: u32 = 2;
+        const CR_PROP_ROLESEPARATIONENABLED: u32 = 23;
+        const CR_PROP_SANITIZEDCANAME: u32 = 7;
+        const CR_PROP_SANITIZEDCASHORTNAME: u32 = 40;
+        const CR_PROP_SCEPMAX: u32 = 1002;
+        const CR_PROP_SCEPMIN: u32 = 1000;
+        const CR_PROP_SCEPSERVERCAPABILITIES: u32 = 1001;
+        const CR_PROP_SCEPSERVERCERTS: u32 = 1000;
+        const CR_PROP_SCEPSERVERCERTSCHAIN: u32 = 1002;
+        const CR_PROP_SHAREDFOLDER: u32 = 8;
+        const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45;
+        const CR_PROP_TEMPLATES: u32 = 29;
+        const FR_PROP_ATTESTATIONCHALLENGE: u32 = 20;
+        const FR_PROP_ATTESTATIONPROVIDERNAME: u32 = 21;
+        const FR_PROP_BODYPARTSTRING: u32 = 3;
+        const FR_PROP_CAEXCHANGECERTIFICATE: u32 = 17;
+        const FR_PROP_CAEXCHANGECERTIFICATECHAIN: u32 = 18;
+        const FR_PROP_CAEXCHANGECERTIFICATECRLCHAIN: u32 = 19;
+        const FR_PROP_CAEXCHANGECERTIFICATEHASH: u32 = 16;
+        const FR_PROP_CLAIMCHALLENGE: u32 = 22;
+        const FR_PROP_ENCRYPTEDKEYHASH: u32 = 14;
+        const FR_PROP_FAILINFO: u32 = 7;
+        const FR_PROP_FULLRESPONSE: u32 = 1;
+        const FR_PROP_FULLRESPONSENOPKCS7: u32 = 15;
+        const FR_PROP_ISSUEDCERTIFICATE: u32 = 11;
+        const FR_PROP_ISSUEDCERTIFICATECHAIN: u32 = 12;
+        const FR_PROP_ISSUEDCERTIFICATECRLCHAIN: u32 = 13;
+        const FR_PROP_ISSUEDCERTIFICATEHASH: u32 = 10;
+        const FR_PROP_NONE: u32 = 0;
+        const FR_PROP_OTHERINFOCHOICE: u32 = 6;
+        const FR_PROP_PENDINFOTIME: u32 = 9;
+        const FR_PROP_PENDINFOTOKEN: u32 = 8;
+        const FR_PROP_STATUS: u32 = 4;
+        const FR_PROP_STATUSINFOCOUNT: u32 = 2;
+        const FR_PROP_STATUSSTRING: u32 = 5;
+        #[guid(0x372fce34_4324_11d0_8810_00a0c903b83c)]
+        interface ICertConfig: IDispatch {
+            fn Reset(&self, Index: i32, #[retval] pCount: *mut i32) -> HRESULT;
+            fn Next(&self, #[retval] pIndex: *mut i32) -> HRESULT;
+            fn GetField(&self, strFieldName: BSTR, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetConfig(&self, Flags: i32, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x7a18edde_7e78_4163_8ded_78e2c9cee924)]
+        interface ICertConfig2: ICertConfig {
+            fn SetSharedFolder(&self, strSharedFolder: BSTR) -> HRESULT;
+        }
+        #[guid(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c)]
+        interface ICertGetConfig: IDispatch {
+            fn GetConfig(&self, Flags: i32, #[retval] pstrOut: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x014e4840_5523_11d0_8812_00a0c903b83c)]
+        interface ICertRequest: IDispatch {
+            fn Submit(&self, Flags: i32, strRequest: BSTR, strAttributes: BSTR, strConfig: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn RetrievePending(&self, RequestId: i32, strConfig: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetLastStatus(&self, #[retval] pStatus: *mut i32) -> HRESULT;
+            fn GetRequestId(&self, #[retval] pRequestId: *mut i32) -> HRESULT;
+            fn GetDispositionMessage(&self, #[retval] pstrDispositionMessage: *mut BSTR) -> HRESULT;
+            fn GetCACertificate(&self, fExchangeCertificate: i32, strConfig: BSTR, Flags: i32, #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn GetCertificate(&self, Flags: i32, #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xa4772988_4a85_4fa9_824e_b5cf5c16405a)]
+        interface ICertRequest2: ICertRequest {
+            fn GetIssuedCertificate(&self, strConfig: BSTR, RequestId: i32, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetErrorMessageText(&self, hrMessage: i32, Flags: i32, #[retval] pstrErrorMessageText: *mut BSTR) -> HRESULT;
+            fn GetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn GetCAPropertyFlags(&self, strConfig: BSTR, PropId: i32, #[retval] pPropFlags: *mut i32) -> HRESULT;
+            fn GetCAPropertyDisplayName(&self, strConfig: BSTR, PropId: i32, #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
+            fn GetFullResponseProperty(&self, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3)]
+        interface ICertRequest3: ICertRequest2 {
+            fn SetCredential(&self, hWnd: i32, AuthType: X509EnrollmentAuthFlags, strCredential: BSTR, strPassword: BSTR) -> HRESULT;
+            fn GetRequestIdString(&self, #[retval] pstrRequestId: *mut BSTR) -> HRESULT;
+            fn GetIssuedCertificate2(&self, strConfig: BSTR, strRequestId: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetRefreshPolicy(&self, #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum X509EnrollmentAuthFlags {
+            X509AuthNone = 0,
+            X509AuthAnonymous = 1,
+            X509AuthKerberos = 2,
+            X509AuthUsername = 4,
+            X509AuthCertificate = 8,
+        }
+        #[encoding("utf-16")]
+        const wszCONFIG_AUTHORITY: String = "Authority";
+        #[encoding("utf-16")]
+        const wszCONFIG_COMMENT: String = "Comment";
+        #[encoding("utf-16")]
+        const wszCONFIG_COMMONNAME: String = "CommonName";
+        #[encoding("utf-16")]
+        const wszCONFIG_CONFIG: String = "Config";
+        #[encoding("utf-16")]
+        const wszCONFIG_COUNTRY: String = "Country";
+        #[encoding("utf-16")]
+        const wszCONFIG_DESCRIPTION: String = "Description";
+        #[encoding("utf-16")]
+        const wszCONFIG_EXCHANGECERTIFICATE: String = "ExchangeCertificate";
+        #[encoding("utf-16")]
+        const wszCONFIG_FLAGS: String = "Flags";
+        #[encoding("utf-16")]
+        const wszCONFIG_LOCALITY: String = "Locality";
+        #[encoding("utf-16")]
+        const wszCONFIG_ORGANIZATION: String = "Organization";
+        #[encoding("utf-16")]
+        const wszCONFIG_ORGUNIT: String = "OrgUnit";
+        #[encoding("utf-16")]
+        const wszCONFIG_SANITIZEDNAME: String = "SanitizedName";
+        #[encoding("utf-16")]
+        const wszCONFIG_SANITIZEDSHORTNAME: String = "SanitizedShortName";
+        #[encoding("utf-16")]
+        const wszCONFIG_SERVER: String = "Server";
+        #[encoding("utf-16")]
+        const wszCONFIG_SHORTNAME: String = "ShortName";
+        #[encoding("utf-16")]
+        const wszCONFIG_SIGNATURECERTIFICATE: String = "SignatureCertificate";
+        #[encoding("utf-16")]
+        const wszCONFIG_STATE: String = "State";
+        #[encoding("utf-16")]
+        const wszCONFIG_WEBENROLLMENTSERVERS: String = "WebEnrollmentServers";
+    }
+}

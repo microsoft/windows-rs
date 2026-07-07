@@ -1,0 +1,184 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BLOCK_NTLM_INFO {
+            BlockNTLM: BOOLEAN,
+            Reserved1: u8,
+            Reserved2: u16,
+            Reserved3: u32,
+        }
+        const CREATE_BYPASS_CSC: u32 = 2;
+        const CREATE_CRED_RESET: u32 = 4;
+        const CREATE_GLOBAL_MAPPING: u32 = 256;
+        const CREATE_NO_CONNECT: u32 = 1;
+        const CREATE_PERSIST_MAPPING: u32 = 32;
+        const CREATE_REQUIRE_CONNECTION_INTEGRITY: u32 = 8;
+        const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16;
+        const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64;
+        type LPUSE_INFO_0 = *mut USE_INFO_0;
+        type LPUSE_INFO_1 = *mut USE_INFO_1;
+        type LPUSE_INFO_2 = *mut USE_INFO_2;
+        type LPUSE_INFO_3 = *mut USE_INFO_3;
+        type LPUSE_INFO_4 = *mut USE_INFO_4;
+        type LPUSE_INFO_5 = *mut USE_INFO_5;
+        #[library("NETAPI32.dll")]
+        extern fn NetUseAdd(#[opt] servername: LPTSTR, LevelFlags: u32, buf: *mut u8, #[opt] parm_err: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUseDel(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, ForceLevelFlags: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUseEnum(#[opt] UncServerName: PCWSTR, LevelFlags: u32, BufPtr: *mut LPBYTE, PreferedMaximumSize: u32, #[opt] EntriesRead: *mut u32, TotalEntries: *mut u32, #[in] #[out] #[opt] ResumeHandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetUseGetInfo(#[opt] UncServerName: PCWSTR, UseName: PCWSTR, LevelFlags: u32, bufptr: *mut LPBYTE) -> u32;
+        type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
+        type PSMB_COMPRESSION_INFO = *mut SMB_COMPRESSION_INFO;
+        type PSMB_TREE_CONNECT_PARAMETERS = *mut SMB_TREE_CONNECT_PARAMETERS;
+        type PSMB_USE_OPTION_COMPRESSION_PARAMETERS = *mut SMB_USE_OPTION_COMPRESSION_PARAMETERS;
+        type PTRANSPORT_INFO = *mut TRANSPORT_INFO;
+        type PTRANSPORT_INFO_FLAG = *mut TRANSPORT_INFO_FLAG;
+        type PTRANSPORT_TYPE = *mut TRANSPORT_TYPE;
+        type PUSE_INFO_0 = *mut USE_INFO_0;
+        type PUSE_INFO_1 = *mut USE_INFO_1;
+        type PUSE_INFO_2 = *mut USE_INFO_2;
+        type PUSE_INFO_3 = *mut USE_INFO_3;
+        type PUSE_INFO_4 = *mut USE_INFO_4;
+        type PUSE_INFO_5 = *mut USE_INFO_5;
+        type PUSE_OPTION_BLOCK_NTLM_PARAMETERS = *mut USE_OPTION_BLOCK_NTLM_PARAMETERS;
+        type PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS = *mut USE_OPTION_DEFERRED_CONNECTION_PARAMETERS;
+        type PUSE_OPTION_GENERIC = *mut USE_OPTION_GENERIC;
+        type PUSE_OPTION_PROPERTIES = *mut USE_OPTION_PROPERTIES;
+        type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS;
+        struct SMB_COMPRESSION_INFO {
+            Switch: BOOLEAN,
+            Reserved1: u8,
+            Reserved2: u16,
+            Reserved3: u32,
+        }
+        struct SMB_TREE_CONNECT_PARAMETERS {
+            EABufferOffset: u32,
+            EABufferLen: u32,
+            CreateOptions: u32,
+            TreeConnectAttributes: u32,
+        }
+        struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+            Tag: u32,
+            Length: u16,
+            Reserved: u16,
+        }
+        struct TRANSPORT_INFO {
+            Type: TRANSPORT_TYPE,
+            SkipCertificateCheck: BOOLEAN,
+            TcpPort: u16,
+            QuicPort: u16,
+            RdmaPort: u16,
+            Flags: u32,
+        }
+        #[repr(i32)]
+        enum TRANSPORT_INFO_FLAG {
+            NoneFlag = 0,
+            TcpPortSetFlag = 1,
+            QuicPortSetFlag = 2,
+            RdmaPortSetFlag = 4,
+        }
+        #[repr(i32)]
+        enum TRANSPORT_TYPE {
+            UseTransportType_None = 0,
+            UseTransportType_Wsk = 1,
+            UseTransportType_Quic = 2,
+        }
+        const USE_ASGTYPE_PARMNUM: u32 = 4;
+        const USE_AUTHIDENTITY_PARMNUM: u32 = 8;
+        const USE_CHARDEV: u32 = 2;
+        const USE_CONN: u32 = 4;
+        const USE_DEFAULT_CREDENTIALS: u32 = 4;
+        const USE_DISCONN: u32 = 2;
+        const USE_DISKDEV: u32 = 0;
+        const USE_DOMAINNAME_PARMNUM: u32 = 6;
+        const USE_FLAGS_PARMNUM: u32 = 7;
+        const USE_FLAG_GLOBAL_MAPPING: u32 = 65536;
+        struct USE_INFO_0 {
+            ui0_local: PWSTR,
+            ui0_remote: PWSTR,
+        }
+        struct USE_INFO_1 {
+            ui1_local: PWSTR,
+            ui1_remote: PWSTR,
+            ui1_password: PWSTR,
+            ui1_status: u32,
+            ui1_asg_type: u32,
+            ui1_refcount: u32,
+            ui1_usecount: u32,
+        }
+        struct USE_INFO_2 {
+            ui2_local: PWSTR,
+            ui2_remote: PWSTR,
+            ui2_password: PWSTR,
+            ui2_status: u32,
+            ui2_asg_type: u32,
+            ui2_refcount: u32,
+            ui2_usecount: u32,
+            ui2_username: PWSTR,
+            ui2_domainname: PWSTR,
+        }
+        struct USE_INFO_3 {
+            ui3_ui2: USE_INFO_2,
+            ui3_flags: u32,
+        }
+        struct USE_INFO_4 {
+            ui4_ui3: USE_INFO_3,
+            ui4_auth_identity_length: u32,
+            ui4_auth_identity: PBYTE,
+        }
+        struct USE_INFO_5 {
+            ui4_ui3: USE_INFO_3,
+            ui4_auth_identity_length: u32,
+            ui4_auth_identity: PBYTE,
+            ui5_security_descriptor_length: u32,
+            ui5_security_descriptor: PBYTE,
+            ui5_use_options_length: u32,
+            ui5_use_options: PBYTE,
+        }
+        const USE_IPC: u32 = 3;
+        const USE_LOCAL_PARMNUM: u32 = 1;
+        const USE_NETERR: u32 = 3;
+        const USE_OK: u32 = 0;
+        const USE_OPTIONS_PARMNUM: u32 = 10;
+        struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
+            Tag: u32,
+            Length: u16,
+            Reserved: u16,
+        }
+        const USE_OPTION_BLOCK_NTLM_PARAMS: u32 = 1315925058;
+        struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+            Tag: u32,
+            Length: u16,
+            Reserved: u16,
+        }
+        const USE_OPTION_DEFERRED_CONNECTION_PARAMS: u32 = 1130784068;
+        struct USE_OPTION_GENERIC {
+            Tag: u32,
+            Length: u16,
+            Reserved: u16,
+        }
+        struct USE_OPTION_PROPERTIES {
+            Tag: u32,
+            pInfo: *mut void,
+            Length: usize,
+        }
+        const USE_OPTION_SMB_COMPRESSION_PARAMS: u32 = 1349349187;
+        struct USE_OPTION_TRANSPORT_PARAMETERS {
+            Tag: u32,
+            Length: u16,
+            Reserved: u16,
+        }
+        const USE_OPTION_TRANSPORT_PARAMS: u32 = 1348563540;
+        const USE_PASSWORD_PARMNUM: u32 = 3;
+        const USE_PAUSED: u32 = 1;
+        const USE_RECONN: u32 = 5;
+        const USE_REMOTE_PARMNUM: u32 = 2;
+        const USE_SD_PARMNUM: u32 = 9;
+        const USE_SESSLOST: u32 = 2;
+        const USE_SPOOLDEV: u32 = 1;
+        const USE_USERNAME_PARMNUM: u32 = 5;
+        const USE_WILDCARD: i32 = -1;
+    }
+}

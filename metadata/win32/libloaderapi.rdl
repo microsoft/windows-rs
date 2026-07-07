@@ -1,0 +1,132 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn AddDllDirectory(NewDirectory: PCWSTR) -> DLL_DIRECTORY_COOKIE;
+        const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1;
+        type DLL_DIRECTORY_COOKIE = *mut void;
+        const DONT_RESOLVE_DLL_REFERENCES: u32 = 1;
+        #[library("KERNEL32.dll")]
+        extern fn DisableThreadLibraryCalls(hLibModule: HMODULE) -> BOOL;
+        extern fn ENUMRESLANGPROCA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, wLanguage: u16, lParam: isize) -> BOOL;
+        extern fn ENUMRESLANGPROCW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, wLanguage: u16, lParam: isize) -> BOOL;
+        extern fn ENUMRESNAMEPROCA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, lParam: isize) -> BOOL;
+        extern fn ENUMRESNAMEPROCW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, lParam: isize) -> BOOL;
+        extern fn ENUMRESTYPEPROCA(#[opt] hModule: HMODULE, lpType: PCSTR, lParam: isize) -> BOOL;
+        extern fn ENUMRESTYPEPROCW(#[opt] hModule: HMODULE, lpType: PCWSTR, lParam: isize) -> BOOL;
+        struct ENUMUILANG {
+            NumOfEnumUILang: u32,
+            SizeOfEnumUIBuffer: u32,
+            pEnumUIBuffer: *mut LANGID,
+        }
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceLanguagesExA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, lpEnumFunc: ENUMRESLANGPROCA, #[opt] lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceLanguagesExW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, lpEnumFunc: ENUMRESLANGPROCW, #[opt] lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceNamesA(#[opt] hModule: HMODULE, lpType: PCSTR, lpEnumFunc: ENUMRESNAMEPROCA, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceNamesExA(#[opt] hModule: HMODULE, lpType: PCSTR, lpEnumFunc: ENUMRESNAMEPROCA, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceNamesExW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpEnumFunc: ENUMRESNAMEPROCW, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceNamesW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpEnumFunc: ENUMRESNAMEPROCW, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceTypesExA(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCA, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceTypesExW(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCW, lParam: isize, dwFlags: u32, LangId: LANGID) -> BOOL;
+        const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024;
+        const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512;
+        const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256;
+        #[library("KERNEL32.dll")]
+        extern fn FindResourceExW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, wLanguage: u16) -> HRSRC;
+        #[library("KERNEL32.dll")]
+        extern fn FindResourceW(#[opt] hModule: HMODULE, lpName: PCWSTR, lpType: PCWSTR) -> HRSRC;
+        #[library("KERNEL32.dll")]
+        extern fn FindStringOrdinal(dwFindStringOrdinalFlags: u32, #[len_param(2)] lpStringSource: PCWSTR, cchSource: i32, #[len_param(4)] lpStringValue: PCWSTR, cchValue: i32, bIgnoreCase: BOOL) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn FreeLibrary(hLibModule: HMODULE) -> BOOL;
+        #[noreturn]
+        #[library("KERNEL32.dll")]
+        extern fn FreeLibraryAndExitThread(hLibModule: HMODULE, dwExitCode: u32);
+        #[library("KERNEL32.dll")]
+        extern fn FreeResource(hResData: HGLOBAL) -> BOOL;
+        const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4;
+        const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1;
+        const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleFileNameA(#[opt] hModule: HMODULE, #[len_param(2)] #[out] lpFilename: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleFileNameW(#[opt] hModule: HMODULE, #[len_param(2)] #[out] lpFilename: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleHandleA(#[opt] lpModuleName: PCSTR) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleHandleExA(dwFlags: u32, #[opt] lpModuleName: PCSTR, phModule: *mut HMODULE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleHandleExW(dwFlags: u32, #[opt] lpModuleName: PCWSTR, phModule: *mut HMODULE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetModuleHandleW(#[opt] lpModuleName: PCWSTR) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcAddress(hModule: HMODULE, lpProcName: PCSTR) -> FARPROC;
+        const LOAD_IGNORE_CODE_AUTHZ_LEVEL: u32 = 16;
+        const LOAD_LIBRARY_AS_DATAFILE: u32 = 2;
+        const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: u32 = 64;
+        const LOAD_LIBRARY_AS_IMAGE_RESOURCE: u32 = 32;
+        const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768;
+        const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: u32 = 128;
+        const LOAD_LIBRARY_SAFE_CURRENT_DIRS: u32 = 8192;
+        const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: u32 = 512;
+        const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
+        const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: u32 = 256;
+        const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 2048;
+        const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: u32 = 16384;
+        const LOAD_LIBRARY_SEARCH_USER_DIRS: u32 = 1024;
+        const LOAD_WITH_ALTERED_SEARCH_PATH: u32 = 8;
+        #[library("KERNEL32.dll")]
+        extern fn LoadLibraryA(lpLibFileName: PCSTR) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn LoadLibraryExA(lpLibFileName: PCSTR, #[reserved] hFile: HANDLE, dwFlags: u32) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn LoadLibraryExW(lpLibFileName: PCWSTR, #[reserved] hFile: HANDLE, dwFlags: u32) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn LoadLibraryW(lpLibFileName: PCWSTR) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn LoadResource(#[opt] hModule: HMODULE, hResInfo: HRSRC) -> HGLOBAL;
+        #[library("USER32.dll")]
+        extern fn LoadStringA(#[opt] hInstance: HINSTANCE, uID: u32, #[len_param(3)] #[out] lpBuffer: PSTR, cchBufferMax: i32) -> i32;
+        #[library("USER32.dll")]
+        extern fn LoadStringW(#[opt] hInstance: HINSTANCE, uID: u32, #[len_param(3)] #[out] lpBuffer: PWSTR, cchBufferMax: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn LockResource(hResData: HGLOBAL) -> *mut void;
+        type PCREDIRECTION_DESCRIPTOR = *const REDIRECTION_DESCRIPTOR;
+        type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIPTOR;
+        type PDLL_DIRECTORY_COOKIE = *mut *mut void;
+        type PENUMUILANG = *mut ENUMUILANG;
+        extern fn PGET_MODULE_HANDLE_EXA(dwFlags: u32, #[opt] lpModuleName: PCSTR, phModule: *mut HMODULE) -> BOOL;
+        extern fn PGET_MODULE_HANDLE_EXW(dwFlags: u32, #[opt] lpModuleName: PCWSTR, phModule: *mut HMODULE) -> BOOL;
+        type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
+        type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
+        struct REDIRECTION_DESCRIPTOR {
+            Version: u32,
+            FunctionCount: u32,
+            Redirections: PCREDIRECTION_FUNCTION_DESCRIPTOR,
+        }
+        struct REDIRECTION_FUNCTION_DESCRIPTOR {
+            DllName: PCSTR,
+            FunctionName: PCSTR,
+            RedirectionTarget: *mut void,
+        }
+        const RESOURCE_ENUM_LN: u32 = 1;
+        const RESOURCE_ENUM_MODULE_EXACT: u32 = 16;
+        const RESOURCE_ENUM_MUI: u32 = 2;
+        const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4;
+        const RESOURCE_ENUM_VALIDATE: u32 = 8;
+        #[library("KERNEL32.dll")]
+        extern fn RemoveDllDirectory(Cookie: DLL_DIRECTORY_COOKIE) -> BOOL;
+        const SUPPORT_LANG_NUMBER: u32 = 32;
+        #[library("KERNEL32.dll")]
+        extern fn SetDefaultDllDirectories(DirectoryFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SizeofResource(#[opt] hModule: HMODULE, hResInfo: HRSRC) -> u32;
+    }
+}

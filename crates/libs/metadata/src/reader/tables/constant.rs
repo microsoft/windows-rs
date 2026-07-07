@@ -11,8 +11,11 @@ impl<'a> Constant<'a> {
             ELEMENT_TYPE_I4 => Type::I32,
             ELEMENT_TYPE_U8 => Type::U64,
             ELEMENT_TYPE_I8 => Type::I64,
+            ELEMENT_TYPE_U => Type::USize,
+            ELEMENT_TYPE_I => Type::ISize,
             ELEMENT_TYPE_R4 => Type::F32,
             ELEMENT_TYPE_R8 => Type::F64,
+            ELEMENT_TYPE_BOOLEAN => Type::Bool,
             ELEMENT_TYPE_STRING => Type::String,
             rest => panic!("{rest:?}"),
         }
@@ -34,8 +37,11 @@ impl<'a> Constant<'a> {
             Type::U32 => Value::U32(blob.read_u32()),
             Type::I64 => Value::I64(blob.read_i64()),
             Type::U64 => Value::U64(blob.read_u64()),
+            Type::ISize => Value::ISize(blob.read_i64()),
+            Type::USize => Value::USize(blob.read_u64()),
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
+            Type::Bool => Value::Bool(blob.read_bool()),
             Type::String => Value::Utf16(blob.read_utf16()),
             rest => panic!("{rest:?}"),
         }

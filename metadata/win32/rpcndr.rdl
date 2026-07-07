@@ -1,0 +1,755 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ARRAY_INFO {
+            Dimension: i32,
+            BufferConformanceMark: *mut u32,
+            BufferVarianceMark: *mut u32,
+            MaxCountArray: *mut u32,
+            OffsetArray: *mut u32,
+            ActualCountArray: *mut u32,
+        }
+        union CLIENT_CALL_RETURN {
+            Pointer: *mut void,
+            Simple: isize,
+        }
+        struct COMM_FAULT_OFFSETS {
+            CommOffset: i16,
+            FaultOffset: i16,
+        }
+        extern fn CS_TAG_GETTING_ROUTINE(hBinding: RPC_BINDING_HANDLE, fServerSide: i32, pulSendingTag: *mut u32, pulDesiredReceivingTag: *mut u32, pulReceivingTag: *mut u32, pStatus: *mut error_status_t);
+        extern fn CS_TYPE_FROM_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pNetworkData: *mut byte, ulNetworkDataLength: u32, ulLocalBufferSize: u32, pLocalData: *mut void, pulLocalDataLength: *mut u32, pStatus: *mut error_status_t);
+        extern fn CS_TYPE_LOCAL_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulNetworkBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulLocalBufferSize: *mut u32, pStatus: *mut error_status_t);
+        extern fn CS_TYPE_NET_SIZE_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, ulLocalBufferSize: u32, conversionType: *mut IDL_CS_CONVERT, pulNetworkBufferSize: *mut u32, pStatus: *mut error_status_t);
+        extern fn CS_TYPE_TO_NETCS_ROUTINE(hBinding: RPC_BINDING_HANDLE, ulNetworkCodeSet: u32, pLocalData: *mut void, ulLocalDataLength: u32, pNetworkData: *mut byte, pulNetworkDataLength: *mut u32, pStatus: *mut error_status_t);
+        extern fn EXPR_EVAL(param0: *mut MIDL_STUB_MESSAGE);
+        struct FULL_PTR_XLAT_TABLES {
+            RefIdToPointer: *mut void,
+            PointerToRefId: *mut void,
+            NextRefId: u32,
+            XlatSide: XLAT_SIDE,
+        }
+        struct GENERIC_BINDING_INFO {
+            pObj: *mut void,
+            Size: u32,
+            pfnBind: GENERIC_BINDING_ROUTINE,
+            pfnUnbind: GENERIC_UNBIND_ROUTINE,
+        }
+        extern fn GENERIC_BINDING_ROUTINE(param0: *mut void) -> *mut void;
+        struct GENERIC_BINDING_ROUTINE_PAIR {
+            pfnBind: GENERIC_BINDING_ROUTINE,
+            pfnUnbind: GENERIC_UNBIND_ROUTINE,
+        }
+        extern fn GENERIC_UNBIND_ROUTINE(param0: *mut void, param1: *mut u8);
+        #[repr(i32)]
+        enum IDL_CS_CONVERT {
+            IDL_CS_NO_CONVERT = 0,
+            IDL_CS_IN_PLACE_CONVERT = 1,
+            IDL_CS_NEW_BUFFER_CONVERT = 2,
+        }
+        struct MALLOC_FREE_STRUCT {
+            pfnAllocate: *mut u8,
+            pfnFree: *mut u8,
+        }
+        struct MIDL_FORMAT_STRING {
+            Pad: i16,
+            Format: [u8; 0],
+        }
+        struct MIDL_INTERCEPTION_INFO {
+            Version: u32,
+            ProcString: PFORMAT_STRING,
+            ProcFormatOffsetTable: *const u16,
+            ProcCount: u32,
+            TypeString: PFORMAT_STRING,
+        }
+        struct MIDL_INTERFACE_METHOD_PROPERTIES {
+            MethodCount: u16,
+            MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
+        }
+        struct MIDL_METHOD_PROPERTY {
+            Id: u32,
+            Value: usize,
+        }
+        struct MIDL_METHOD_PROPERTY_MAP {
+            Count: u32,
+            Properties: *const MIDL_METHOD_PROPERTY,
+        }
+        struct MIDL_SERVER_INFO {
+            pStubDesc: PMIDL_STUB_DESC,
+            DispatchTable: *const SERVER_ROUTINE,
+            ProcString: PFORMAT_STRING,
+            FmtStringOffset: *const u16,
+            ThunkTable: *const STUB_THUNK,
+            pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
+            nCount: usize,
+            pSyntaxInfo: PMIDL_SYNTAX_INFO,
+        }
+        struct MIDL_STUBLESS_PROXY_INFO {
+            pStubDesc: PMIDL_STUB_DESC,
+            ProcFormatString: PFORMAT_STRING,
+            FormatStringOffset: *const u16,
+            pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
+            nCount: usize,
+            pSyntaxInfo: PMIDL_SYNTAX_INFO,
+        }
+        struct MIDL_STUB_DESC {
+            RpcInterfaceInformation: *mut void,
+            pfnAllocate: *mut u8,
+            pfnFree: *mut u8,
+            IMPLICIT_HANDLE_INFO: union {
+                pAutoHandle: *mut handle_t,
+                pPrimitiveHandle: *mut handle_t,
+                pGenericBindingInfo: PGENERIC_BINDING_INFO,
+            },
+            apfnNdrRundownRoutines: *const NDR_RUNDOWN,
+            aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
+            apfnExprEval: *const EXPR_EVAL,
+            aXmitQuintuple: *const XMIT_ROUTINE_QUINTUPLE,
+            pFormatTypes: *const u8,
+            fCheckBounds: i32,
+            Version: u32,
+            pMallocFreeStruct: *mut MALLOC_FREE_STRUCT,
+            MIDLVersion: i32,
+            CommFaultOffsets: *const COMM_FAULT_OFFSETS,
+            aUserMarshalQuadruple: *const USER_MARSHAL_ROUTINE_QUADRUPLE,
+            NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
+            mFlags: usize,
+            CsRoutineTables: *const NDR_CS_ROUTINES,
+            ProxyServerInfo: *mut void,
+            pExprInfo: *const NDR_EXPR_DESC,
+        }
+        struct MIDL_STUB_MESSAGE {
+            RpcMsg: PRPC_MESSAGE,
+            Buffer: *mut u8,
+            BufferStart: *mut u8,
+            BufferEnd: *mut u8,
+            BufferMark: *mut u8,
+            BufferLength: u32,
+            MemorySize: u32,
+            Memory: *mut u8,
+            IsClient: u8,
+            Pad: u8,
+            uFlags2: u16,
+            ReuseBuffer: i32,
+            pAllocAllNodesContext: *mut NDR_ALLOC_ALL_NODES_CONTEXT,
+            pPointerQueueState: *mut NDR_POINTER_QUEUE_STATE,
+            IgnoreEmbeddedPointers: i32,
+            PointerBufferMark: *mut u8,
+            CorrDespIncrement: u8,
+            uFlags: u8,
+            UniquePtrCount: u16,
+            MaxCount: usize,
+            Offset: u32,
+            ActualCount: u32,
+            pfnAllocate: *mut u8,
+            pfnFree: *mut u8,
+            StackTop: *mut u8,
+            pPresentedType: *mut u8,
+            pTransmitType: *mut u8,
+            SavedHandle: handle_t,
+            StubDesc: *const MIDL_STUB_DESC,
+            FullPtrXlatTables: *mut FULL_PTR_XLAT_TABLES,
+            FullPtrRefId: u32,
+            PointerLength: u32,
+            _bitfield: u32,
+            dwDestContext: u32,
+            pvDestContext: *mut void,
+            SavedContextHandles: *mut NDR_SCONTEXT,
+            ParamNumber: i32,
+            pRpcChannelBuffer: IRpcChannelBuffer,
+            pArrayInfo: PARRAY_INFO,
+            SizePtrCountArray: *mut u32,
+            SizePtrOffsetArray: *mut u32,
+            SizePtrLengthArray: *mut u32,
+            pArgQueue: *mut void,
+            dwStubPhase: u32,
+            LowStackMark: *mut void,
+            pAsyncMsg: PNDR_ASYNC_MESSAGE,
+            pCorrInfo: PNDR_CORRELATION_INFO,
+            pCorrMemory: *mut u8,
+            pMemoryList: *mut void,
+            pCSInfo: isize,
+            ConformanceMark: *mut u8,
+            VarianceMark: *mut u8,
+            Unused: isize,
+            pContext: *mut _NDR_PROC_CONTEXT,
+            ContextHandleHash: *mut void,
+            pUserMarshalList: *mut void,
+            pFullPtrFormat: *mut u8,
+            Reserved51_4: isize,
+            Reserved51_5: isize,
+        }
+        struct MIDL_SYNTAX_INFO {
+            TransferSyntax: RPC_SYNTAX_IDENTIFIER,
+            DispatchTable: *mut RPC_DISPATCH_TABLE,
+            ProcString: PFORMAT_STRING,
+            FmtStringOffset: *const u16,
+            TypeString: PFORMAT_STRING,
+            aUserMarshalQuadruple: *const void,
+            pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
+            pReserved2: usize,
+        }
+        struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+            Version: u32,
+            TypeFormatString: PFORMAT_STRING,
+            FormatStringSize: u16,
+            TypeOffset: u16,
+            StubDesc: PMIDL_STUB_DESC,
+        }
+        const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: u32 = 1;
+        const MidlInterceptionInfoVersionOne: i32 = 1;
+        const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
+        #[library("RPCRT4.dll")]
+        extern fn NDRCContextBinding(CContext: NDR_CCONTEXT) -> RPC_BINDING_HANDLE;
+        #[library("RPCRT4.dll")]
+        extern fn NDRCContextMarshall(#[opt] CContext: NDR_CCONTEXT, pBuff: *mut void);
+        #[library("RPCRT4.dll")]
+        extern fn NDRCContextUnmarshall(#[in] #[out] #[opt] pCContext: *mut NDR_CCONTEXT, hBinding: RPC_BINDING_HANDLE, pBuff: *const void, DataRepresentation: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextMarshall(CContext: *const _NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN);
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextMarshall2(BindingHandle: RPC_BINDING_HANDLE, CContext: *const _NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN, #[opt] CtxGuard: *const void, Flags: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextMarshallEx(BindingHandle: RPC_BINDING_HANDLE, CContext: *const _NDR_SCONTEXT, pBuff: *mut void, userRunDownIn: NDR_RUNDOWN);
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextUnmarshall(pBuff: *const void, DataRepresentation: u32) -> NDR_SCONTEXT;
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextUnmarshall2(BindingHandle: RPC_BINDING_HANDLE, #[opt] pBuff: *const void, DataRepresentation: u32, #[opt] CtxGuard: *const void, Flags: u32) -> NDR_SCONTEXT;
+        #[library("RPCRT4.dll")]
+        extern fn NDRSContextUnmarshallEx(BindingHandle: RPC_BINDING_HANDLE, pBuff: *const void, DataRepresentation: u32) -> NDR_SCONTEXT;
+        struct NDR_ALLOC_ALL_NODES_CONTEXT {}
+        const NDR_ASCII_CHAR: u32 = 0;
+        const NDR_BIG_ENDIAN: u32 = 0;
+        type NDR_CCONTEXT = *mut void;
+        const NDR_CHAR_REP_MASK: u32 = 15;
+        struct NDR_CS_ROUTINES {
+            pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
+            pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
+        }
+        struct NDR_CS_SIZE_CONVERT_ROUTINES {
+            pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
+            pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
+            pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
+            pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
+        }
+        const NDR_EBCDIC_CHAR: u32 = 1;
+        struct NDR_EXPR_DESC {
+            pOffset: *const u16,
+            pFormatExpr: PFORMAT_STRING,
+        }
+        const NDR_FLOAT_REP_MASK: u32 = 65280;
+        const NDR_IBM_FLOAT: u32 = 768;
+        const NDR_IEEE_FLOAT: u32 = 0;
+        const NDR_INT_REP_MASK: u32 = 240;
+        const NDR_LITTLE_ENDIAN: u32 = 16;
+        const NDR_LOCAL_DATA_REPRESENTATION: u32 = 16;
+        const NDR_LOCAL_ENDIAN: u32 = 16;
+        extern fn NDR_NOTIFY2_ROUTINE(flag: boolean);
+        extern fn NDR_NOTIFY_ROUTINE();
+        struct NDR_POINTER_QUEUE_STATE {}
+        extern fn NDR_RUNDOWN(context: *mut void);
+        type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
+        struct NDR_USER_MARSHAL_INFO {
+            InformationLevel: u32,
+            Anonymous: union {
+                Level1: NDR_USER_MARSHAL_INFO_LEVEL1,
+            },
+        }
+        struct NDR_USER_MARSHAL_INFO_LEVEL1 {
+            Buffer: *mut void,
+            BufferSize: u32,
+            pfnAllocate: *mut u8,
+            pfnFree: *mut u8,
+            pRpcChannelBuffer: IRpcChannelBuffer,
+            Reserved: [usize; 5],
+        }
+        const NDR_VAX_FLOAT: u32 = 256;
+        #[library("RPCRT4.dll")]
+        extern "C" fn Ndr64AsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern fn Ndr64AsyncServerCall64(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn Ndr64AsyncServerCallAll(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern "C" fn Ndr64DcomAsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern fn Ndr64DcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: *mut RPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrAllocate(pStubMsg: *mut MIDL_STUB_MESSAGE, Len: usize) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrAsyncClientCall(pStubDescriptor: *const MIDL_STUB_DESC, pFormat: *const u8, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern fn NdrAsyncServerCall(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrByteCountPointerBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrByteCountPointerFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrByteCountPointerMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrByteCountPointerUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrClearOutParameters(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8, ArgAddr: *mut void);
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrClientCall2(pStubDescriptor: *const MIDL_STUB_DESC, pFormat: *const u8, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrClientCall3(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern fn NdrClientContextMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ContextHandle: NDR_CCONTEXT, fCheck: i32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrClientContextUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pContextHandle: *mut NDR_CCONTEXT, BindHandle: RPC_BINDING_HANDLE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrClientInitialize(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC, ProcNum: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrClientInitializeNew(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC, ProcNum: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexArrayBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexArrayFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexArrayMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexArrayMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexArrayUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexStructBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexStructFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexStructMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexStructMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrComplexStructUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantArrayBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantArrayFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantArrayMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantArrayMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantArrayUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStringBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStringMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStringMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStringUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStructBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStructFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStructMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStructMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantStructUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingArrayBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingArrayFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingArrayMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingArrayMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingArrayUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingStructBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingStructFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingStructMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingStructMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrConformantVaryingStructUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrContextHandleInitialize(pStubMsg: *const MIDL_STUB_MESSAGE, pFormat: *const u8) -> NDR_SCONTEXT;
+        #[library("RPCRT4.dll")]
+        extern fn NdrContextHandleSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConvert(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrConvert2(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8, NumberParams: i32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrCorrelationFree(pStubMsg: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrCorrelationInitialize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut void, CacheSize: u32, flags: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrCorrelationPass(pStubMsg: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrCreateServerInterfaceFromStub(pStub: IRpcStubBuffer, #[in] #[out] pServerIf: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern "C" fn NdrDcomAsyncClientCall(pStubDescriptor: *const MIDL_STUB_DESC, pFormat: *const u8, ...) -> CLIENT_CALL_RETURN;
+        #[library("RPCRT4.dll")]
+        extern fn NdrDcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: *mut RPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrEncapsulatedUnionBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrEncapsulatedUnionFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrEncapsulatedUnionMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrEncapsulatedUnionMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrEncapsulatedUnionUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrFixedArrayBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrFixedArrayFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrFixedArrayMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrFixedArrayMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrFixedArrayUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrFreeBuffer(pStubMsg: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrFullPointerXlatFree(pXlatTables: *mut FULL_PTR_XLAT_TABLES);
+        #[library("RPCRT4.dll")]
+        extern fn NdrFullPointerXlatInit(NumberOfPointers: u32, XlatSide: XLAT_SIDE) -> PFULL_PTR_XLAT_TABLES;
+        #[library("RPCRT4.dll")]
+        extern fn NdrGetBuffer(pStubMsg: *mut MIDL_STUB_MESSAGE, BufferLength: u32, Handle: RPC_BINDING_HANDLE) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrGetDcomProtocolVersion(pStubMsg: *mut MIDL_STUB_MESSAGE, pVersion: *mut RPC_VERSION) -> HRESULT;
+        #[library("RPCRT4.dll")]
+        extern fn NdrGetUserMarshalInfo(pFlags: *const u32, InformationLevel: u32, pMarshalInfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn NdrInterfacePointerBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrInterfacePointerFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrInterfacePointerMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrInterfacePointerMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrInterfacePointerUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrMapCommAndFaultStatus(pStubMsg: *mut MIDL_STUB_MESSAGE, pCommStatus: *mut u32, pFaultStatus: *mut u32, Status: RPC_STATUS) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonConformantStringBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonConformantStringMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonConformantStringMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonConformantStringUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonEncapsulatedUnionBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonEncapsulatedUnionFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonEncapsulatedUnionMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonEncapsulatedUnionMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNonEncapsulatedUnionUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNsGetBuffer(pStubMsg: *mut MIDL_STUB_MESSAGE, BufferLength: u32, Handle: RPC_BINDING_HANDLE) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrNsSendReceive(pStubMsg: *mut MIDL_STUB_MESSAGE, pBufferEnd: *mut u8, pAutoHandle: *mut RPC_BINDING_HANDLE) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrOleAllocate(Size: usize) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn NdrOleFree(NodeToFree: *const void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPartialIgnoreClientBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPartialIgnoreClientMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPartialIgnoreServerInitialize(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut void, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPartialIgnoreServerUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPointerBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPointerFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrPointerMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrPointerMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrPointerUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrRangeUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSmClientAllocate(Size: usize) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSmClientFree(NodeToFree: *const void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSmSetClientToOsf(pMessage: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSsDefaultAllocate(Size: usize) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSsDefaultFree(NodeToFree: *const void);
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSsDisableAllocate(pMessage: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrRpcSsEnableAllocate(pMessage: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrSendReceive(pStubMsg: *mut MIDL_STUB_MESSAGE, pBufferEnd: *mut u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerCall2(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerCallAll(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerCallNdr64(pRpcMsg: *mut RPC_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerContextMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ContextHandle: *mut _NDR_SCONTEXT, RundownRoutine: NDR_RUNDOWN);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerContextNewMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ContextHandle: *mut _NDR_SCONTEXT, RundownRoutine: NDR_RUNDOWN, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerContextNewUnmarshall(pStubMsg: *const MIDL_STUB_MESSAGE, pFormat: *const u8) -> NDR_SCONTEXT;
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerContextUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE) -> NDR_SCONTEXT;
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerInitialize(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerInitializeMarshall(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerInitializeNew(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerInitializePartial(pRpcMsg: *mut RPC_MESSAGE, pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC, RequestedBufferSize: u32);
+        #[library("RPCRT4.dll")]
+        extern fn NdrServerInitializeUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pStubDescriptor: *const MIDL_STUB_DESC, pRpcMsg: *mut RPC_MESSAGE) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleStructBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleStructFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleStructMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleStructMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleStructUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleTypeMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrSimpleTypeUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrStubCall2(pThis: *mut void, pChannel: *mut void, pRpcMsg: *mut RPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrStubCall3(pThis: *mut void, pChannel: *mut void, pRpcMsg: *mut RPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalSimpleTypeConvert(pFlags: *mut u32, pBuffer: *mut u8, FormatChar: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrUserMarshalUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrVaryingArrayBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrVaryingArrayFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrVaryingArrayMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrVaryingArrayMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrVaryingArrayUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrXmitOrRepAsBufferSize(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrXmitOrRepAsFree(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8);
+        #[library("RPCRT4.dll")]
+        extern fn NdrXmitOrRepAsMarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: *const u8) -> *mut u8;
+        #[library("RPCRT4.dll")]
+        extern fn NdrXmitOrRepAsMemorySize(pStubMsg: *mut MIDL_STUB_MESSAGE, pFormat: *const u8) -> u32;
+        #[library("RPCRT4.dll")]
+        extern fn NdrXmitOrRepAsUnmarshall(pStubMsg: *mut MIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: *const u8, fMustAlloc: u8) -> *mut u8;
+        type PARAM_OFFSETTABLE = *mut u16;
+        type PARRAY_INFO = *mut ARRAY_INFO;
+        type PFORMAT_STRING = *const u8;
+        type PFULL_PTR_XLAT_TABLES = *mut FULL_PTR_XLAT_TABLES;
+        type PGENERIC_BINDING_INFO = *mut GENERIC_BINDING_INFO;
+        type PGENERIC_BINDING_ROUTINE_PAIR = *mut GENERIC_BINDING_ROUTINE_PAIR;
+        type PMIDL_INTERCEPTION_INFO = *mut MIDL_INTERCEPTION_INFO;
+        type PMIDL_METHOD_PROPERTY = *mut MIDL_METHOD_PROPERTY;
+        type PMIDL_METHOD_PROPERTY_MAP = *mut MIDL_METHOD_PROPERTY_MAP;
+        type PMIDL_SERVER_INFO = *mut MIDL_SERVER_INFO;
+        type PMIDL_STUBLESS_PROXY_INFO = *mut MIDL_STUBLESS_PROXY_INFO;
+        type PMIDL_STUB_DESC = *const MIDL_STUB_DESC;
+        type PMIDL_STUB_MESSAGE = *mut MIDL_STUB_MESSAGE;
+        type PMIDL_SYNTAX_INFO = *mut MIDL_SYNTAX_INFO;
+        type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO;
+        type PMIDL_XMIT_TYPE = *mut void;
+        type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
+        type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
+        type PPARAM_OFFSETTABLE = *mut u16;
+        #[repr(i32)]
+        enum PROXY_PHASE {
+            PROXY_CALCSIZE = 0,
+            PROXY_GETBUFFER = 1,
+            PROXY_MARSHAL = 2,
+            PROXY_SENDRECEIVE = 3,
+            PROXY_UNMARSHAL = 4,
+        }
+        type PSCONTEXT_QUEUE = *mut SCONTEXT_QUEUE;
+        type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
+        type RPC_BUFPTR = *mut u8;
+        extern fn RPC_CLIENT_ALLOC(Size: usize) -> *mut void;
+        extern fn RPC_CLIENT_FREE(Ptr: *const void);
+        type RPC_LENGTH = u32;
+        type RPC_SS_THREAD_HANDLE = *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmAllocate(Size: usize, pStatus: *mut RPC_STATUS) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmClientFree(pNodeToFree: *const void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmDestroyClientContext(ContextHandle: *const *const void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmDisableAllocate() -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmEnableAllocate() -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmFree(NodeToFree: *const void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmGetThreadHandle(pStatus: *mut RPC_STATUS) -> RPC_SS_THREAD_HANDLE;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmSetClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmSetThreadHandle(Id: RPC_SS_THREAD_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSmSwapClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE, OldClientAlloc: *mut RPC_CLIENT_ALLOC, OldClientFree: *mut RPC_CLIENT_FREE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsAllocate(Size: usize) -> *mut void;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsDestroyClientContext(ContextHandle: *const *const void);
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsDisableAllocate();
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsEnableAllocate();
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsFree(NodeToFree: *const void);
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsGetThreadHandle() -> RPC_SS_THREAD_HANDLE;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsSetClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE);
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsSetThreadHandle(Id: RPC_SS_THREAD_HANDLE);
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsSwapClientAllocFree(ClientAlloc: RPC_CLIENT_ALLOC, ClientFree: RPC_CLIENT_FREE, OldClientAlloc: *mut RPC_CLIENT_ALLOC, OldClientFree: *mut RPC_CLIENT_FREE);
+        #[library("RPCRT4.dll")]
+        extern fn RpcUserFree(AsyncHandle: handle_t, pBuffer: *mut void);
+        struct SCONTEXT_QUEUE {
+            NumberOfObjects: u32,
+            ArrayOfObjects: *mut NDR_SCONTEXT,
+        }
+        extern fn SERVER_ROUTINE() -> i32;
+        #[repr(i32)]
+        enum STUB_PHASE {
+            STUB_UNMARSHAL = 0,
+            STUB_CALL_SERVER = 1,
+            STUB_MARSHAL = 2,
+            STUB_CALL_SERVER_NO_HRESULT = 3,
+        }
+        extern fn STUB_THUNK(param0: *mut MIDL_STUB_MESSAGE);
+        const TARGET_IS_NT100_OR_LATER: u32 = 1;
+        const TARGET_IS_NT1012_OR_LATER: u32 = 1;
+        const TARGET_IS_NT102_OR_LATER: u32 = 1;
+        const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1;
+        const TARGET_IS_NT40_OR_LATER: u32 = 1;
+        const TARGET_IS_NT50_OR_LATER: u32 = 1;
+        const TARGET_IS_NT51_OR_LATER: u32 = 1;
+        const TARGET_IS_NT60_OR_LATER: u32 = 1;
+        const TARGET_IS_NT61_OR_LATER: u32 = 1;
+        const TARGET_IS_NT62_OR_LATER: u32 = 1;
+        const TARGET_IS_NT63_OR_LATER: u32 = 1;
+        const USER_CALL_IS_ASYNC: u32 = 256;
+        const USER_CALL_NEW_CORRELATION_DESC: u32 = 512;
+        struct USER_MARSHAL_CB {
+            Flags: u32,
+            pStubMsg: PMIDL_STUB_MESSAGE,
+            pReserve: PFORMAT_STRING,
+            Signature: u32,
+            CBType: USER_MARSHAL_CB_TYPE,
+            pFormat: PFORMAT_STRING,
+            pTypeFormat: PFORMAT_STRING,
+        }
+        const USER_MARSHAL_CB_SIGNATURE: u32 = 1431523907;
+        #[repr(i32)]
+        enum USER_MARSHAL_CB_TYPE {
+            USER_MARSHAL_CB_BUFFER_SIZE = 0,
+            USER_MARSHAL_CB_MARSHALL = 1,
+            USER_MARSHAL_CB_UNMARSHALL = 2,
+            USER_MARSHAL_CB_FREE = 3,
+        }
+        const USER_MARSHAL_FC_BYTE: u32 = 1;
+        const USER_MARSHAL_FC_CHAR: u32 = 2;
+        const USER_MARSHAL_FC_DOUBLE: u32 = 12;
+        const USER_MARSHAL_FC_FLOAT: u32 = 10;
+        const USER_MARSHAL_FC_HYPER: u32 = 11;
+        const USER_MARSHAL_FC_LONG: u32 = 8;
+        const USER_MARSHAL_FC_SHORT: u32 = 6;
+        const USER_MARSHAL_FC_SMALL: u32 = 3;
+        const USER_MARSHAL_FC_ULONG: u32 = 9;
+        const USER_MARSHAL_FC_USHORT: u32 = 7;
+        const USER_MARSHAL_FC_USMALL: u32 = 4;
+        const USER_MARSHAL_FC_WCHAR: u32 = 5;
+        extern fn USER_MARSHAL_FREEING_ROUTINE(param0: *mut u32, param1: *mut void);
+        extern fn USER_MARSHAL_MARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+        struct USER_MARSHAL_ROUTINE_QUADRUPLE {
+            pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
+            pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
+            pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
+            pfnFree: USER_MARSHAL_FREEING_ROUTINE,
+        }
+        extern fn USER_MARSHAL_SIZING_ROUTINE(param0: *mut u32, param1: u32, param2: *mut void) -> u32;
+        extern fn USER_MARSHAL_UNMARSHALLING_ROUTINE(param0: *mut u32, param1: *mut u8, param2: *mut void) -> *mut u8;
+        #[repr(i32)]
+        enum XLAT_SIDE {
+            XLAT_SERVER = 1,
+            XLAT_CLIENT = 2,
+        }
+        extern fn XMIT_HELPER_ROUTINE(param0: *mut MIDL_STUB_MESSAGE);
+        struct XMIT_ROUTINE_QUINTUPLE {
+            pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
+            pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
+            pfnFreeXmit: XMIT_HELPER_ROUTINE,
+            pfnFreeInst: XMIT_HELPER_ROUTINE,
+        }
+        struct _NDR_ASYNC_MESSAGE {}
+        struct _NDR_CORRELATION_INFO {}
+        struct _NDR_PROC_CONTEXT {}
+        struct _NDR_SCONTEXT {
+            pad: [*mut void; 2],
+            userContext: *mut void,
+        }
+        type boolean = u8;
+        type byte = u8;
+        const cbNDRContext: u32 = 20;
+        type cs_byte = byte;
+        type error_status_t = u32;
+        #[repr(i32)]
+        enum system_handle_t {
+            SYSTEM_HANDLE_FILE = 0,
+            SYSTEM_HANDLE_SEMAPHORE = 1,
+            SYSTEM_HANDLE_EVENT = 2,
+            SYSTEM_HANDLE_MUTEX = 3,
+            SYSTEM_HANDLE_PROCESS = 4,
+            SYSTEM_HANDLE_TOKEN = 5,
+            SYSTEM_HANDLE_SECTION = 6,
+            SYSTEM_HANDLE_REG_KEY = 7,
+            SYSTEM_HANDLE_THREAD = 8,
+            SYSTEM_HANDLE_COMPOSITION_OBJECT = 9,
+            SYSTEM_HANDLE_SOCKET = 10,
+            SYSTEM_HANDLE_JOB = 11,
+            SYSTEM_HANDLE_PIPE = 12,
+            SYSTEM_HANDLE_MAX = 12,
+            SYSTEM_HANDLE_INVALID = 255,
+        }
+    }
+}

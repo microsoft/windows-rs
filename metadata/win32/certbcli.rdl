@@ -1,0 +1,88 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
+        const CSBACKUP_TYPE_FULL: u32 = 1;
+        const CSBACKUP_TYPE_LOGS_ONLY: u32 = 2;
+        const CSBACKUP_TYPE_MASK: u32 = 3;
+        type CSBFT = u16;
+        const CSBFT_CERTSERVER_DATABASE: u32 = 68;
+        const CSBFT_CHECKPOINT_DIR: u32 = 131;
+        const CSBFT_DATABASE_DIRECTORY: u32 = 64;
+        const CSBFT_DIRECTORY: u32 = 128;
+        const CSBFT_LOG: u32 = 33;
+        const CSBFT_LOG_DIR: u32 = 130;
+        const CSBFT_LOG_DIRECTORY: u32 = 32;
+        const CSBFT_PATCH_FILE: u32 = 37;
+        const CSBFT_UNKNOWN: u32 = 15;
+        const CSCONTROL_RESTART: u32 = 3;
+        const CSCONTROL_SHUTDOWN: u32 = 1;
+        const CSCONTROL_SUSPEND: u32 = 2;
+        struct CSEDB_RSTMAPW {
+            pwszDatabaseName: *mut u16,
+            pwszNewDatabaseName: *mut u16,
+        }
+        const CSRESTORE_TYPE_CATCHUP: u32 = 4;
+        const CSRESTORE_TYPE_FULL: u32 = 1;
+        const CSRESTORE_TYPE_MASK: u32 = 5;
+        const CSRESTORE_TYPE_ONLINE: u32 = 2;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupClose(hbc: HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupEnd(hbc: HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupFree(pv: *mut void);
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzBackupLogFiles: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupGetDatabaseNamesW(hbc: HCSBC, ppwszzAttachmentInformation: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupGetDynamicFileListW(hbc: HCSBC, ppwszzFileList: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupOpenFileW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut LARGE_INTEGER) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupPrepareW(pwszServerName: *const u16, grbitJet: u32, dwBackupFlags: u32, phbc: *mut HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupRead(hbc: HCSBC, pvBuffer: *mut void, cbBuffer: u32, pcbRead: *mut u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvBackupTruncateLogs(hbc: HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvIsServerOnlineW(pwszServerName: *const u16, pfServerOnline: *mut BOOL) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestoreEnd(hbc: HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestoreGetDatabaseLocationsW(hbc: HCSBC, ppwszzDatabaseLocationList: *mut PWSTR, pcbSize: *mut u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestorePrepareW(pwszServerName: *const u16, dwRestoreFlags: u32, phbc: *mut HCSBC) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestoreRegisterComplete(hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        #[library("certadm.dll")]
+        extern fn CertSrvServerControlW(pwszServerName: *const u16, dwControlFlags: u32, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
+        extern fn FNCERTSRVBACKUPCLOSE(hbc: HCSBC) -> HRESULT;
+        extern fn FNCERTSRVBACKUPEND(hbc: HCSBC) -> HRESULT;
+        extern fn FNCERTSRVBACKUPFREE(pv: *mut void);
+        extern fn FNCERTSRVBACKUPGETBACKUPLOGSW(hbc: HCSBC, ppwszzBackupLogFiles: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
+        extern fn FNCERTSRVBACKUPGETDATABASENAMESW(hbc: HCSBC, ppwszzAttachmentInformation: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
+        extern fn FNCERTSRVBACKUPGETDYNAMICFILELISTW(hbc: HCSBC, ppwszzFileList: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
+        extern fn FNCERTSRVBACKUPOPENFILEW(hbc: HCSBC, pwszAttachmentName: *const u16, cbReadHintSize: u32, pliFileSize: *mut LARGE_INTEGER) -> HRESULT;
+        extern fn FNCERTSRVBACKUPPREPAREW(pwszServerName: *const u16, grbitJet: u32, dwBackupFlags: u32, phbc: *mut HCSBC) -> HRESULT;
+        extern fn FNCERTSRVBACKUPREAD(hbc: HCSBC, pvBuffer: *mut void, cbBuffer: u32, pcbRead: *mut u32) -> HRESULT;
+        extern fn FNCERTSRVBACKUPTRUNCATELOGS(hbc: HCSBC) -> HRESULT;
+        extern fn FNCERTSRVISSERVERONLINEW(pwszServerName: *const u16, pfServerOnline: *mut BOOL) -> HRESULT;
+        extern fn FNCERTSRVRESTOREEND(hbc: HCSBC) -> HRESULT;
+        extern fn FNCERTSRVRESTOREGETDATABASELOCATIONSW(hbc: HCSBC, ppwszzDatabaseLocationList: *mut *mut u16, pcbSize: *mut u32) -> HRESULT;
+        extern fn FNCERTSRVRESTOREPREPAREW(pwszServerName: *const u16, dwRestoreFlags: u32, phbc: *mut HCSBC) -> HRESULT;
+        extern fn FNCERTSRVRESTOREREGISTERCOMPLETE(hbc: HCSBC, hrRestoreState: HRESULT) -> HRESULT;
+        extern fn FNCERTSRVRESTOREREGISTERW(hbc: HCSBC, pwszCheckPointFilePath: *const u16, pwszLogPath: *const u16, rgrstmap: [CSEDB_RSTMAPW; 0], crstmap: i32, pwszBackupLogPath: *const u16, genLow: u32, genHigh: u32) -> HRESULT;
+        extern fn FNCERTSRVSERVERCONTROLW(pwszServerName: *const u16, dwControlFlags: u32, pcbOut: *mut u32, ppbOut: *mut *mut u8) -> HRESULT;
+        type HCSBC = *mut void;
+        #[encoding("ansi")]
+        const szBACKUPANNOTATION: String = "Cert Server Backup Interface";
+        #[encoding("ansi")]
+        const szRESTOREANNOTATION: String = "Cert Server Restore Interface";
+    }
+}

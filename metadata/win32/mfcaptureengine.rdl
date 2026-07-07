@@ -1,0 +1,131 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xa6bba433_176b_48b2_b375_53aa03473207)]
+        interface IMFCaptureEngine: IUnknown {
+            fn Initialize(&self, pEventCallback: IMFCaptureEngineOnEventCallback, #[opt] pAttributes: IMFAttributes, #[opt] pAudioSource: IUnknown, #[opt] pVideoSource: IUnknown) -> HRESULT;
+            fn StartPreview(&self) -> HRESULT;
+            fn StopPreview(&self) -> HRESULT;
+            fn StartRecord(&self) -> HRESULT;
+            fn StopRecord(&self, bFinalize: BOOL, bFlushUnprocessedSamples: BOOL) -> HRESULT;
+            fn TakePhoto(&self) -> HRESULT;
+            fn GetSink(&self, mfCaptureEngineSinkType: MF_CAPTURE_ENGINE_SINK_TYPE, ppSink: *mut IMFCaptureSink) -> HRESULT;
+            fn GetSource(&self, ppSource: *mut IMFCaptureSource) -> HRESULT;
+        }
+        #[guid(0x8f02d140_56fc_4302_a705_3a97c78be779)]
+        interface IMFCaptureEngineClassFactory: IUnknown {
+            fn CreateInstance(&self, clsid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xaeda51c0_9025_4983_9012_de597b88b089)]
+        interface IMFCaptureEngineOnEventCallback: IUnknown {
+            fn OnEvent(&self, pEvent: IMFMediaEvent) -> HRESULT;
+        }
+        #[guid(0x52150b82_ab39_4467_980f_e48bf0822ecd)]
+        interface IMFCaptureEngineOnSampleCallback: IUnknown {
+            fn OnSample(&self, #[opt] pSample: IMFSample) -> HRESULT;
+        }
+        #[guid(0xe37ceed7_340f_4514_9f4d_9c2ae026100b)]
+        interface IMFCaptureEngineOnSampleCallback2: IMFCaptureEngineOnSampleCallback {
+            fn OnSynchronizedEvent(&self, pEvent: IMFMediaEvent) -> HRESULT;
+        }
+        #[guid(0xd2d43cc8_48bb_4aa7_95db_10c06977e777)]
+        interface IMFCapturePhotoSink: IMFCaptureSink {
+            fn SetOutputFileName(&self, fileName: PCWSTR) -> HRESULT;
+            fn SetSampleCallback(&self, pCallback: IMFCaptureEngineOnSampleCallback) -> HRESULT;
+            fn SetOutputByteStream(&self, pByteStream: IMFByteStream) -> HRESULT;
+        }
+        #[guid(0x77346cfd_5b49_4d73_ace0_5b52a859f2e0)]
+        interface IMFCapturePreviewSink: IMFCaptureSink {
+            fn SetRenderHandle(&self, handle: HANDLE) -> HRESULT;
+            fn SetRenderSurface(&self, pSurface: IUnknown) -> HRESULT;
+            fn UpdateVideo(&self, #[opt] pSrc: *const MFVideoNormalizedRect, #[opt] pDst: *const RECT, #[opt] pBorderClr: *const COLORREF) -> HRESULT;
+            fn SetSampleCallback(&self, dwStreamSinkIndex: u32, pCallback: IMFCaptureEngineOnSampleCallback) -> HRESULT;
+            fn GetMirrorState(&self, pfMirrorState: *mut BOOL) -> HRESULT;
+            fn SetMirrorState(&self, fMirrorState: BOOL) -> HRESULT;
+            fn GetRotation(&self, dwStreamIndex: u32, pdwRotationValue: *mut u32) -> HRESULT;
+            fn SetRotation(&self, dwStreamIndex: u32, dwRotationValue: u32) -> HRESULT;
+            fn SetCustomSink(&self, pMediaSink: IMFMediaSink) -> HRESULT;
+        }
+        #[guid(0x3323b55a_f92a_4fe2_8edc_e9bfc0634d77)]
+        interface IMFCaptureRecordSink: IMFCaptureSink {
+            fn SetOutputByteStream(&self, pByteStream: IMFByteStream, guidContainerType: *const GUID) -> HRESULT;
+            fn SetOutputFileName(&self, fileName: PCWSTR) -> HRESULT;
+            fn SetSampleCallback(&self, dwStreamSinkIndex: u32, pCallback: IMFCaptureEngineOnSampleCallback) -> HRESULT;
+            fn SetCustomSink(&self, pMediaSink: IMFMediaSink) -> HRESULT;
+            fn GetRotation(&self, dwStreamIndex: u32, pdwRotationValue: *mut u32) -> HRESULT;
+            fn SetRotation(&self, dwStreamIndex: u32, dwRotationValue: u32) -> HRESULT;
+        }
+        #[guid(0x72d6135b_35e9_412c_b926_fd5265f2a885)]
+        interface IMFCaptureSink: IUnknown {
+            fn GetOutputMediaType(&self, dwSinkStreamIndex: u32, #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetService(&self, dwSinkStreamIndex: u32, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn AddStream(&self, dwSourceStreamIndex: u32, pMediaType: IMFMediaType, #[opt] pAttributes: IMFAttributes, #[opt] pdwSinkStreamIndex: *mut u32) -> HRESULT;
+            fn Prepare(&self) -> HRESULT;
+            fn RemoveAllStreams(&self) -> HRESULT;
+        }
+        #[guid(0xf9e4219e_6197_4b5e_b888_bee310ab2c59)]
+        interface IMFCaptureSink2: IMFCaptureSink {
+            fn SetOutputMediaType(&self, dwStreamIndex: u32, pMediaType: IMFMediaType, #[opt] pEncodingAttributes: IMFAttributes) -> HRESULT;
+        }
+        #[guid(0x439a42a8_0d2c_4505_be83_f79b2a05d5c4)]
+        interface IMFCaptureSource: IUnknown {
+            fn GetCaptureDeviceSource(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn GetCaptureDeviceActivate(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppActivate: *mut IMFActivate) -> HRESULT;
+            fn GetService(&self, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn AddEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
+            fn RemoveEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
+            fn RemoveAllEffects(&self, dwSourceStreamIndex: u32) -> HRESULT;
+            fn GetAvailableDeviceMediaType(&self, dwSourceStreamIndex: u32, dwMediaTypeIndex: u32, #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn SetCurrentDeviceMediaType(&self, dwSourceStreamIndex: u32, pMediaType: IMFMediaType) -> HRESULT;
+            fn GetCurrentDeviceMediaType(&self, dwSourceStreamIndex: u32, ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetDeviceStreamCount(&self, pdwStreamCount: *mut u32) -> HRESULT;
+            fn GetDeviceStreamCategory(&self, dwSourceStreamIndex: u32, pStreamCategory: *mut MF_CAPTURE_ENGINE_STREAM_CATEGORY) -> HRESULT;
+            fn GetMirrorState(&self, dwStreamIndex: u32, pfMirrorState: *mut BOOL) -> HRESULT;
+            fn SetMirrorState(&self, dwStreamIndex: u32, fMirrorState: BOOL) -> HRESULT;
+            fn GetStreamIndexFromFriendlyName(&self, uifriendlyName: u32, pdwActualStreamIndex: *mut u32) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
+            MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT = 0,
+            MF_CAPTURE_ENGINE_AUDIO_PROCESSING_RAW = 1,
+        }
+        #[repr(i32)]
+        enum MF_CAPTURE_ENGINE_DEVICE_TYPE {
+            MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO = 0,
+            MF_CAPTURE_ENGINE_DEVICE_TYPE_VIDEO = 1,
+        }
+        const MF_CAPTURE_ENGINE_MEDIASOURCE: i32 = -1;
+        #[repr(i32)]
+        enum MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_OTHER = 0,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_COMMUNICATIONS = 1,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_MEDIA = 2,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_GAMECHAT = 3,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_SPEECH = 4,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_FARFIELDSPEECH = 5,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH = 6,
+            MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING = 7,
+        }
+        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO: i32 = -9;
+        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA: i32 = -10;
+        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO: i32 = -8;
+        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW: i32 = -6;
+        const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_RECORD: i32 = -7;
+        #[repr(i32)]
+        enum MF_CAPTURE_ENGINE_SINK_TYPE {
+            MF_CAPTURE_ENGINE_SINK_TYPE_RECORD = 0,
+            MF_CAPTURE_ENGINE_SINK_TYPE_PREVIEW = 1,
+            MF_CAPTURE_ENGINE_SINK_TYPE_PHOTO = 2,
+        }
+        #[repr(i32)]
+        enum MF_CAPTURE_ENGINE_STREAM_CATEGORY {
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_PREVIEW = 0,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_CAPTURE = 1,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_INDEPENDENT = 2,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_DEPENDENT = 3,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_AUDIO = 4,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_UNSUPPORTED = 5,
+            MF_CAPTURE_ENGINE_STREAM_CATEGORY_METADATA = 6,
+        }
+    }
+}

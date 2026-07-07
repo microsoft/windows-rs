@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const E_INK_COLLECTOR_BUSY: i32 = -2144862205;
+        const E_INK_COLLECTOR_ENABLED: i32 = -2144862201;
+        const E_INK_EMPTY_RECOGNITION_RESULT: i32 = -2144862199;
+        const E_INK_EXCEPTION: i32 = -2144862207;
+        const E_INK_INCOMPATIBLE_OBJECT: i32 = -2144862204;
+        const E_INK_INVALID_MODE: i32 = -2144862202;
+        const E_INK_MISMATCHED_INK_OBJECT: i32 = -2144862206;
+        const E_INK_NO_STROKES_TO_RECOGNIZE: i32 = -2144862200;
+        const E_INK_OVERLAPPING_INPUT_RECT: i32 = -2144862192;
+        const E_INK_WINDOW_NOT_SET: i32 = -2144862203;
+        const FACILITY_INK: u32 = 40;
+        const TPC_E_INSUFFICIENT_BUFFER: i32 = -2147024774;
+    }
+}

@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    const CW_USEDEFAULT: i32 = -2147483648;
+    const INT_CAST: i32 = 5;
+    const LONG_MIN_STYLE: i32 = -2147483648;
+}

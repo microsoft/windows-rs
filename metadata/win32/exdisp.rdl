@@ -1,0 +1,440 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum BrowserNavConstants {
+            navOpenInNewWindow = 1,
+            navNoHistory = 2,
+            navNoReadFromCache = 4,
+            navNoWriteToCache = 8,
+            navAllowAutosearch = 16,
+            navBrowserBar = 32,
+            navHyperlink = 64,
+            navEnforceRestricted = 128,
+            navNewWindowsManaged = 256,
+            navUntrustedForDownload = 512,
+            navTrustedForActiveX = 1024,
+            navOpenInNewTab = 2048,
+            navOpenInBackgroundTab = 4096,
+            navKeepWordWheelText = 8192,
+            navVirtualTab = 16384,
+            navBlockRedirectsXDomain = 32768,
+            navOpenNewForegroundTab = 65536,
+            navTravelLogScreenshot = 131072,
+            navDeferUnload = 262144,
+            navSpeculative = 524288,
+            navSuggestNewWindow = 1048576,
+            navSuggestNewTab = 2097152,
+            navReserved1 = 4194304,
+            navHomepageNavigate = 8388608,
+            navRefresh = 16777216,
+            navHostNavigation = 33554432,
+            navReserved2 = 67108864,
+            navReserved3 = 134217728,
+            navReserved4 = 268435456,
+            navReserved5 = 536870912,
+            navReserved6 = 1073741824,
+            navReserved7 = -2147483648,
+        }
+        const CScriptErrorList: GUID = 0xefd01300_160f_11d2_bb2e_00805ff7efca;
+        #[repr(i32)]
+        enum CommandStateChangeConstants {
+            CSC_UPDATECOMMANDS = -1,
+            CSC_NAVIGATEFORWARD = 1,
+            CSC_NAVIGATEBACK = 2,
+        }
+        #[guid(0x55136806_b2de_11d1_b9f2_00a0c98bc547)]
+        interface DShellNameSpaceEvents: IDispatch {}
+        #[guid(0xfe4106e0_399a_11d0_a48c_00a0c90a8f39)]
+        interface DShellWindowsEvents: IDispatch {}
+        #[guid(0xeab22ac2_30c1_11cf_a7eb_0000c05bae0b)]
+        interface DWebBrowserEvents: IDispatch {}
+        #[guid(0x34a715a0_6587_11d0_924a_0020afc7ac4d)]
+        interface DWebBrowserEvents2: IDispatch {}
+        #[guid(0xf3470f24_15fd_11d2_bb2e_00805ff7efca)]
+        interface IScriptErrorList: IDispatch {
+            fn advanceError(&self) -> HRESULT;
+            fn retreatError(&self) -> HRESULT;
+            fn canAdvanceError(&self, #[retval] pfCanAdvance: *mut BOOL) -> HRESULT;
+            fn canRetreatError(&self, #[retval] pfCanRetreat: *mut BOOL) -> HRESULT;
+            fn getErrorLine(&self, #[retval] plLine: *mut i32) -> HRESULT;
+            fn getErrorChar(&self, #[retval] plChar: *mut i32) -> HRESULT;
+            fn getErrorCode(&self, #[retval] plCode: *mut i32) -> HRESULT;
+            fn getErrorMsg(&self, #[retval] pstr: *mut BSTR) -> HRESULT;
+            fn getErrorUrl(&self, #[retval] pstr: *mut BSTR) -> HRESULT;
+            fn getAlwaysShowLockState(&self, #[retval] pfAlwaysShowLocked: *mut BOOL) -> HRESULT;
+            fn getDetailsPaneOpen(&self, #[retval] pfDetailsPaneOpen: *mut BOOL) -> HRESULT;
+            fn setDetailsPaneOpen(&self, fDetailsPaneOpen: BOOL) -> HRESULT;
+            fn getPerErrorDisplay(&self, #[retval] pfPerErrorDisplay: *mut BOOL) -> HRESULT;
+            fn setPerErrorDisplay(&self, fPerErrorDisplay: BOOL) -> HRESULT;
+        }
+        #[guid(0x55136804_b2de_11d1_b9f2_00a0c98bc547)]
+        interface IShellFavoritesNameSpace: IDispatch {
+            fn MoveSelectionUp(&self) -> HRESULT;
+            fn MoveSelectionDown(&self) -> HRESULT;
+            fn ResetSort(&self) -> HRESULT;
+            fn NewFolder(&self) -> HRESULT;
+            fn Synchronize(&self) -> HRESULT;
+            fn Import(&self) -> HRESULT;
+            fn Export(&self) -> HRESULT;
+            fn InvokeContextMenuCommand(&self, strCommand: BSTR) -> HRESULT;
+            fn MoveSelectionTo(&self) -> HRESULT;
+            #[special]
+            fn get_SubscriptionsEnabled(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            fn CreateSubscriptionForSelection(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            fn DeleteSubscriptionForSelection(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetRoot(&self, bstrFullPath: BSTR) -> HRESULT;
+        }
+        #[guid(0xe572d3c9_37be_4ae2_825d_d521763e3108)]
+        interface IShellNameSpace: IShellFavoritesNameSpace {
+            #[special]
+            fn get_EnumOptions(&self, #[retval] pgrfEnumFlags: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EnumOptions(&self, lVal: i32) -> HRESULT;
+            #[special]
+            fn get_SelectedItem(&self, #[retval] pItem: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn put_SelectedItem(&self, pItem: IDispatch) -> HRESULT;
+            #[special]
+            fn get_Root(&self, #[retval] pvar: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Root(&self, var: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Depth(&self, #[retval] piDepth: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Depth(&self, iDepth: i32) -> HRESULT;
+            #[special]
+            fn get_Mode(&self, #[retval] puMode: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Mode(&self, uMode: u32) -> HRESULT;
+            #[special]
+            fn get_Flags(&self, #[retval] pdwFlags: *mut u32) -> HRESULT;
+            #[special]
+            fn put_Flags(&self, dwFlags: u32) -> HRESULT;
+            #[special]
+            fn put_TVFlags(&self, dwFlags: u32) -> HRESULT;
+            #[special]
+            fn get_TVFlags(&self, #[retval] dwFlags: *mut u32) -> HRESULT;
+            #[special]
+            fn get_Columns(&self, #[retval] bstrColumns: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Columns(&self, bstrColumns: BSTR) -> HRESULT;
+            #[special]
+            fn get_CountViewTypes(&self, #[retval] piTypes: *mut i32) -> HRESULT;
+            fn SetViewType(&self, iType: i32) -> HRESULT;
+            fn SelectedItems(&self, #[retval] ppid: *mut IDispatch) -> HRESULT;
+            fn Expand(&self, var: VARIANT, iDepth: i32) -> HRESULT;
+            fn UnselectAll(&self) -> HRESULT;
+        }
+        #[guid(0x729fe2f8_1ea8_11d1_8f85_00c04fc2fbe1)]
+        interface IShellUIHelper: IDispatch {
+            fn ResetFirstBootMode(&self) -> HRESULT;
+            fn ResetSafeMode(&self) -> HRESULT;
+            fn RefreshOfflineDesktop(&self) -> HRESULT;
+            fn AddFavorite(&self, URL: BSTR, #[opt] Title: *const VARIANT) -> HRESULT;
+            fn AddChannel(&self, URL: BSTR) -> HRESULT;
+            fn AddDesktopComponent(&self, URL: BSTR, Type: BSTR, #[opt] Left: *const VARIANT, #[opt] Top: *const VARIANT, #[opt] Width: *const VARIANT, #[opt] Height: *const VARIANT) -> HRESULT;
+            fn IsSubscribed(&self, URL: BSTR, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            fn NavigateAndFind(&self, URL: BSTR, strQuery: BSTR, varTargetFrame: *const VARIANT) -> HRESULT;
+            fn ImportExportFavorites(&self, fImport: VARIANT_BOOL, strImpExpPath: BSTR) -> HRESULT;
+            fn AutoCompleteSaveForm(&self, #[opt] Form: *const VARIANT) -> HRESULT;
+            fn AutoScan(&self, strSearch: BSTR, strFailureUrl: BSTR, #[opt] pvarTargetFrame: *const VARIANT) -> HRESULT;
+            fn AutoCompleteAttach(&self, #[opt] Reserved: *const VARIANT) -> HRESULT;
+            fn ShowBrowserUI(&self, bstrName: BSTR, pvarIn: *const VARIANT, #[retval] pvarOut: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xa7fe6eda_1932_4281_b881_87b31b8bc52c)]
+        interface IShellUIHelper2: IShellUIHelper {
+            fn AddSearchProvider(&self, URL: BSTR) -> HRESULT;
+            fn RunOnceShown(&self) -> HRESULT;
+            fn SkipRunOnce(&self) -> HRESULT;
+            fn CustomizeSettings(&self, fSQM: VARIANT_BOOL, fPhishing: VARIANT_BOOL, bstrLocale: BSTR) -> HRESULT;
+            fn SqmEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn PhishingEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn BrandImageUri(&self, #[retval] pbstrUri: *mut BSTR) -> HRESULT;
+            fn SkipTabsWelcome(&self) -> HRESULT;
+            fn DiagnoseConnection(&self) -> HRESULT;
+            fn CustomizeClearType(&self, fSet: VARIANT_BOOL) -> HRESULT;
+            fn IsSearchProviderInstalled(&self, URL: BSTR, #[retval] pdwResult: *mut u32) -> HRESULT;
+            fn IsSearchMigrated(&self, #[retval] pfMigrated: *mut VARIANT_BOOL) -> HRESULT;
+            fn DefaultSearchProvider(&self, #[retval] pbstrName: *mut BSTR) -> HRESULT;
+            fn RunOnceRequiredSettingsComplete(&self, fComplete: VARIANT_BOOL) -> HRESULT;
+            fn RunOnceHasShown(&self, #[retval] pfShown: *mut VARIANT_BOOL) -> HRESULT;
+            fn SearchGuideUrl(&self, #[retval] pbstrUrl: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x528df2ec_d419_40bc_9b6d_dcdbf9c1b25d)]
+        interface IShellUIHelper3: IShellUIHelper2 {
+            fn AddService(&self, URL: BSTR) -> HRESULT;
+            fn IsServiceInstalled(&self, URL: BSTR, Verb: BSTR, #[retval] pdwResult: *mut u32) -> HRESULT;
+            fn InPrivateFilteringEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn AddToFavoritesBar(&self, URL: BSTR, Title: BSTR, #[opt] Type: *const VARIANT) -> HRESULT;
+            fn BuildNewTabPage(&self) -> HRESULT;
+            fn SetRecentlyClosedVisible(&self, fVisible: VARIANT_BOOL) -> HRESULT;
+            fn SetActivitiesVisible(&self, fVisible: VARIANT_BOOL) -> HRESULT;
+            fn ContentDiscoveryReset(&self) -> HRESULT;
+            fn IsSuggestedSitesEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn EnableSuggestedSites(&self, fEnable: VARIANT_BOOL) -> HRESULT;
+            fn NavigateToSuggestedSites(&self, bstrRelativeUrl: BSTR) -> HRESULT;
+            fn ShowTabsHelp(&self) -> HRESULT;
+            fn ShowInPrivateHelp(&self) -> HRESULT;
+        }
+        #[guid(0xb36e6a53_8073_499e_824c_d776330a333e)]
+        interface IShellUIHelper4: IShellUIHelper3 {
+            fn msIsSiteMode(&self, #[retval] pfSiteMode: *mut VARIANT_BOOL) -> HRESULT;
+            fn msSiteModeShowThumbBar(&self) -> HRESULT;
+            fn msSiteModeAddThumbBarButton(&self, bstrIconURL: BSTR, bstrTooltip: BSTR, #[retval] pvarButtonID: *mut VARIANT) -> HRESULT;
+            fn msSiteModeUpdateThumbBarButton(&self, ButtonID: VARIANT, fEnabled: VARIANT_BOOL, fVisible: VARIANT_BOOL) -> HRESULT;
+            fn msSiteModeSetIconOverlay(&self, IconUrl: BSTR, #[opt] pvarDescription: *const VARIANT) -> HRESULT;
+            fn msSiteModeClearIconOverlay(&self) -> HRESULT;
+            fn msAddSiteMode(&self) -> HRESULT;
+            fn msSiteModeCreateJumpList(&self, bstrHeader: BSTR) -> HRESULT;
+            fn msSiteModeAddJumpListItem(&self, bstrName: BSTR, bstrActionUri: BSTR, bstrIconUri: BSTR, #[opt] pvarWindowType: *const VARIANT) -> HRESULT;
+            fn msSiteModeClearJumpList(&self) -> HRESULT;
+            fn msSiteModeShowJumpList(&self) -> HRESULT;
+            fn msSiteModeAddButtonStyle(&self, uiButtonID: VARIANT, bstrIconUrl: BSTR, bstrTooltip: BSTR, #[retval] pvarStyleID: *mut VARIANT) -> HRESULT;
+            fn msSiteModeShowButtonStyle(&self, uiButtonID: VARIANT, uiStyleID: VARIANT) -> HRESULT;
+            fn msSiteModeActivate(&self) -> HRESULT;
+            fn msIsSiteModeFirstRun(&self, fPreserveState: VARIANT_BOOL, #[retval] puiFirstRun: *mut VARIANT) -> HRESULT;
+            fn msAddTrackingProtectionList(&self, URL: BSTR, bstrFilterName: BSTR) -> HRESULT;
+            fn msTrackingProtectionEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn msActiveXFilteringEnabled(&self, #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xa2a08b09_103d_4d3f_b91c_ea455ca82efa)]
+        interface IShellUIHelper5: IShellUIHelper4 {
+            fn msProvisionNetworks(&self, bstrProvisioningXml: BSTR, #[retval] puiResult: *mut VARIANT) -> HRESULT;
+            fn msReportSafeUrl(&self) -> HRESULT;
+            fn msSiteModeRefreshBadge(&self) -> HRESULT;
+            fn msSiteModeClearBadge(&self) -> HRESULT;
+            fn msDiagnoseConnectionUILess(&self) -> HRESULT;
+            fn msLaunchNetworkClientHelp(&self) -> HRESULT;
+            fn msChangeDefaultBrowser(&self, fChange: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x987a573e_46ee_4e89_96ab_ddf7f8fdc98c)]
+        interface IShellUIHelper6: IShellUIHelper5 {
+            fn msStopPeriodicTileUpdate(&self) -> HRESULT;
+            fn msStartPeriodicTileUpdate(&self, pollingUris: VARIANT, #[opt] startTime: VARIANT, #[opt] uiUpdateRecurrence: VARIANT) -> HRESULT;
+            fn msStartPeriodicTileUpdateBatch(&self, pollingUris: VARIANT, #[opt] startTime: VARIANT, #[opt] uiUpdateRecurrence: VARIANT) -> HRESULT;
+            fn msClearTile(&self) -> HRESULT;
+            fn msEnableTileNotificationQueue(&self, fChange: VARIANT_BOOL) -> HRESULT;
+            fn msPinnedSiteState(&self, #[retval] pvarSiteState: *mut VARIANT) -> HRESULT;
+            fn msEnableTileNotificationQueueForSquare150x150(&self, fChange: VARIANT_BOOL) -> HRESULT;
+            fn msEnableTileNotificationQueueForWide310x150(&self, fChange: VARIANT_BOOL) -> HRESULT;
+            fn msEnableTileNotificationQueueForSquare310x310(&self, fChange: VARIANT_BOOL) -> HRESULT;
+            fn msScheduledTileNotification(&self, bstrNotificationXml: BSTR, bstrNotificationId: BSTR, bstrNotificationTag: BSTR, #[opt] startTime: VARIANT, #[opt] expirationTime: VARIANT) -> HRESULT;
+            fn msRemoveScheduledTileNotification(&self, bstrNotificationId: BSTR) -> HRESULT;
+            fn msStartPeriodicBadgeUpdate(&self, pollingUri: BSTR, #[opt] startTime: VARIANT, #[opt] uiUpdateRecurrence: VARIANT) -> HRESULT;
+            fn msStopPeriodicBadgeUpdate(&self) -> HRESULT;
+            fn msLaunchInternetOptions(&self) -> HRESULT;
+        }
+        #[guid(0x60e567c8_9573_4ab2_a264_637c6c161cb1)]
+        interface IShellUIHelper7: IShellUIHelper6 {
+            fn SetExperimentalFlag(&self, bstrFlagString: BSTR, vfFlag: VARIANT_BOOL) -> HRESULT;
+            fn GetExperimentalFlag(&self, bstrFlagString: BSTR, #[retval] vfFlag: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetExperimentalValue(&self, bstrValueString: BSTR, dwValue: u32) -> HRESULT;
+            fn GetExperimentalValue(&self, bstrValueString: BSTR, #[retval] pdwValue: *mut u32) -> HRESULT;
+            fn ResetAllExperimentalFlagsAndValues(&self) -> HRESULT;
+            fn GetNeedIEAutoLaunchFlag(&self, bstrUrl: BSTR, #[retval] flag: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetNeedIEAutoLaunchFlag(&self, bstrUrl: BSTR, flag: VARIANT_BOOL) -> HRESULT;
+            fn HasNeedIEAutoLaunchFlag(&self, bstrUrl: BSTR, #[retval] exists: *mut VARIANT_BOOL) -> HRESULT;
+            fn LaunchIE(&self, bstrUrl: BSTR, automated: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x66debcf2_05b0_4f07_b49b_b96241a65db2)]
+        interface IShellUIHelper8: IShellUIHelper7 {
+            fn GetCVListData(&self, #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetCVListLocalData(&self, #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetEMIEListData(&self, #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetEMIEListLocalData(&self, #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn OpenFavoritesPane(&self) -> HRESULT;
+            fn OpenFavoritesSettings(&self) -> HRESULT;
+            fn LaunchInHVSI(&self, bstrUrl: BSTR) -> HRESULT;
+        }
+        #[guid(0x6cdf73b0_7f2f_451f_bc0f_63e0f3284e54)]
+        interface IShellUIHelper9: IShellUIHelper8 {
+            fn GetOSSku(&self, #[retval] pdwResult: *mut u32) -> HRESULT;
+        }
+        #[guid(0x85cb6900_4d95_11cf_960c_0080c7f4ee85)]
+        interface IShellWindows: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, #[opt] index: VARIANT, #[retval] Folder: *mut IDispatch) -> HRESULT;
+            fn _NewEnum(&self, #[retval] ppunk: *mut IUnknown) -> HRESULT;
+            fn Register(&self, pid: IDispatch, hwnd: i32, swClass: i32, plCookie: *mut i32) -> HRESULT;
+            fn RegisterPending(&self, lThreadId: i32, pvarloc: *const VARIANT, pvarlocRoot: *const VARIANT, swClass: i32, plCookie: *mut i32) -> HRESULT;
+            fn Revoke(&self, lCookie: i32) -> HRESULT;
+            fn OnNavigate(&self, lCookie: i32, pvarLoc: *const VARIANT) -> HRESULT;
+            fn OnActivated(&self, lCookie: i32, fActive: VARIANT_BOOL) -> HRESULT;
+            fn FindWindowSW(&self, pvarLoc: *const VARIANT, pvarLocRoot: *const VARIANT, swClass: i32, phwnd: *mut i32, swfwOptions: i32, #[retval] ppdispOut: *mut IDispatch) -> HRESULT;
+            fn OnCreated(&self, lCookie: i32, punk: IUnknown) -> HRESULT;
+            fn ProcessAttachDetach(&self, fAttach: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xeab22ac1_30c1_11cf_a7eb_0000c05bae0b)]
+        interface IWebBrowser: IDispatch {
+            fn GoBack(&self) -> HRESULT;
+            fn GoForward(&self) -> HRESULT;
+            fn GoHome(&self) -> HRESULT;
+            fn GoSearch(&self) -> HRESULT;
+            fn Navigate(&self, URL: BSTR, #[opt] Flags: *const VARIANT, #[opt] TargetFrameName: *const VARIANT, #[opt] PostData: *const VARIANT, #[opt] Headers: *const VARIANT) -> HRESULT;
+            fn Refresh(&self) -> HRESULT;
+            fn Refresh2(&self, #[opt] Level: *const VARIANT) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            #[special]
+            fn get_Application(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Container(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_Document(&self, #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_TopLevelContainer(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] Type: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Left(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Left(&self, Left: i32) -> HRESULT;
+            #[special]
+            fn get_Top(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Top(&self, Top: i32) -> HRESULT;
+            #[special]
+            fn get_Width(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Width(&self, Width: i32) -> HRESULT;
+            #[special]
+            fn get_Height(&self, #[retval] pl: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Height(&self, Height: i32) -> HRESULT;
+            #[special]
+            fn get_LocationName(&self, #[retval] LocationName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_LocationURL(&self, #[retval] LocationURL: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Busy(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xd30c1661_cdaf_11d0_8a3e_00c04fc9e26e)]
+        interface IWebBrowser2: IWebBrowserApp {
+            fn Navigate2(&self, URL: *const VARIANT, #[opt] Flags: *const VARIANT, #[opt] TargetFrameName: *const VARIANT, #[opt] PostData: *const VARIANT, #[opt] Headers: *const VARIANT) -> HRESULT;
+            fn QueryStatusWB(&self, cmdID: OLECMDID, #[retval] pcmdf: *mut OLECMDF) -> HRESULT;
+            fn ExecWB(&self, cmdID: OLECMDID, cmdexecopt: OLECMDEXECOPT, #[opt] pvaIn: *const VARIANT, #[in] #[out] #[opt] pvaOut: *mut VARIANT) -> HRESULT;
+            fn ShowBrowserBar(&self, pvaClsid: *const VARIANT, #[opt] pvarShow: *const VARIANT, #[opt] pvarSize: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_ReadyState(&self, #[retval] plReadyState: *mut READYSTATE) -> HRESULT;
+            #[special]
+            fn get_Offline(&self, #[retval] pbOffline: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Offline(&self, bOffline: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Silent(&self, #[retval] pbSilent: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Silent(&self, bSilent: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RegisterAsBrowser(&self, #[retval] pbRegister: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RegisterAsBrowser(&self, bRegister: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RegisterAsDropTarget(&self, #[retval] pbRegister: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_RegisterAsDropTarget(&self, bRegister: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_TheaterMode(&self, #[retval] pbRegister: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_TheaterMode(&self, bRegister: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AddressBar(&self, #[retval] Value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AddressBar(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Resizable(&self, #[retval] Value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Resizable(&self, Value: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x0002df05_0000_0000_c000_000000000046)]
+        interface IWebBrowserApp: IWebBrowser {
+            fn Quit(&self) -> HRESULT;
+            fn ClientToWindow(&self, #[in] #[out] pcx: *mut i32, #[in] #[out] pcy: *mut i32) -> HRESULT;
+            fn PutProperty(&self, Property: BSTR, vtValue: VARIANT) -> HRESULT;
+            fn GetProperty(&self, Property: BSTR, #[retval] pvtValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_HWND(&self, #[retval] pHWND: *mut SHANDLE_PTR) -> HRESULT;
+            #[special]
+            fn get_FullName(&self, #[retval] FullName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Path(&self, #[retval] Path: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Visible(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Visible(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StatusBar(&self, #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_StatusBar(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_StatusText(&self, #[retval] StatusText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_StatusText(&self, StatusText: BSTR) -> HRESULT;
+            #[special]
+            fn get_ToolBar(&self, #[retval] Value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ToolBar(&self, Value: i32) -> HRESULT;
+            #[special]
+            fn get_MenuBar(&self, #[retval] Value: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_MenuBar(&self, Value: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_FullScreen(&self, #[retval] pbFullScreen: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_FullScreen(&self, bFullScreen: VARIANT_BOOL) -> HRESULT;
+        }
+        const InternetExplorer: GUID = 0x0002df01_0000_0000_c000_000000000046;
+        const InternetExplorerMedium: GUID = 0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e;
+        #[repr(i32)]
+        enum NewProcessCauseConstants {
+            ProtectedModeRedirect = 1,
+        }
+        #[repr(i32)]
+        enum RefreshConstants {
+            REFRESH_NORMAL = 0,
+            REFRESH_IFEXPIRED = 1,
+            REFRESH_COMPLETELY = 3,
+        }
+        #[repr(i32)]
+        enum SecureLockIconConstants {
+            secureLockIconUnsecure = 0,
+            secureLockIconMixed = 1,
+            secureLockIconSecureUnknownBits = 2,
+            secureLockIconSecure40Bit = 3,
+            secureLockIconSecure56Bit = 4,
+            secureLockIconSecureFortezza = 5,
+            secureLockIconSecure128Bit = 6,
+        }
+        const ShellBrowserWindow: GUID = 0xc08afd90_f2a1_11d1_8455_00a0c91f3880;
+        const ShellNameSpace: GUID = 0x55136805_b2de_11d1_b9f2_00a0c98bc547;
+        const ShellUIHelper: GUID = 0x64ab4bb7_111e_11d1_8f79_00c04fc2fbe1;
+        #[repr(i32)]
+        enum ShellWindowFindWindowOptions {
+            SWFO_NEEDDISPATCH = 1,
+            SWFO_INCLUDEPENDING = 2,
+            SWFO_COOKIEPASSED = 4,
+        }
+        #[repr(i32)]
+        enum ShellWindowTypeConstants {
+            SWC_EXPLORER = 0,
+            SWC_BROWSER = 1,
+            SWC_3RDPARTY = 2,
+            SWC_CALLBACK = 4,
+            SWC_DESKTOP = 8,
+        }
+        const ShellWindows: GUID = 0x9ba05972_f6a8_11cf_a442_00a0c90a8f39;
+        const WebBrowser: GUID = 0x8856f961_340a_11d0_a96b_00c04fd705a2;
+        const WebBrowser_V1: GUID = 0xeab22ac3_30c1_11cf_a7eb_0000c05bae0b;
+        const navCheckDontShowHVSINeedHost: i32 = -2147483648;
+        const navCheckDontShowNeedHVSI: u32 = 1073741824;
+        const navCheckDontShowNeedIE: u32 = 536870912;
+        const navDisableDownloadSave: u32 = 67108864;
+        const navServerRedirectedVtabSwitch: u32 = 134217728;
+        const navUserInitiatedAction: u32 = 4194304;
+        const navVtabSwitchNotUserInitiatedAction: u32 = 268435456;
+    }
+}

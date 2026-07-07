@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CMM_READONLY: u32 = 2;
+        const CMM_REFRESHONLY: u32 = 1;
+        #[guid(0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb)]
+        interface ICertManageModule: IDispatch {
+            fn GetProperty(&self, strConfig: BSTR, strStorageLocation: BSTR, strPropertyName: BSTR, Flags: i32, #[retval] pvarProperty: *mut VARIANT) -> HRESULT;
+            fn SetProperty(&self, strConfig: BSTR, strStorageLocation: BSTR, strPropertyName: BSTR, Flags: i32, pvarProperty: *const VARIANT) -> HRESULT;
+            fn Configure(&self, strConfig: BSTR, strStorageLocation: BSTR, Flags: i32) -> HRESULT;
+        }
+    }
+}

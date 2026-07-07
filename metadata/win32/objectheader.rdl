@@ -1,0 +1,12 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct NDIS_OBJECT_HEADER {
+            Type: u8,
+            Revision: u8,
+            Size: u16,
+        }
+        const NDIS_OBJECT_REVISION_1: u32 = 1;
+        type PNDIS_OBJECT_HEADER = *mut NDIS_OBJECT_HEADER;
+    }
+}

@@ -1,0 +1,332 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const INSTALLMESSAGE_TYPEMASK: u32 = 4278190080;
+        #[repr(i32)]
+        enum MSICOLINFO {
+            MSICOLINFO_NAMES = 0,
+            MSICOLINFO_TYPES = 1,
+        }
+        #[repr(i32)]
+        enum MSICONDITION {
+            MSICONDITION_FALSE = 0,
+            MSICONDITION_TRUE = 1,
+            MSICONDITION_NONE = 2,
+            MSICONDITION_ERROR = 3,
+        }
+        #[repr(i32)]
+        enum MSICOSTTREE {
+            MSICOSTTREE_SELFONLY = 0,
+            MSICOSTTREE_CHILDREN = 1,
+            MSICOSTTREE_PARENTS = 2,
+            MSICOSTTREE_RESERVED = 3,
+        }
+        #[repr(i32)]
+        enum MSIDBERROR {
+            MSIDBERROR_INVALIDARG = -3,
+            MSIDBERROR_MOREDATA = -2,
+            MSIDBERROR_FUNCTIONERROR = -1,
+            MSIDBERROR_NOERROR = 0,
+            MSIDBERROR_DUPLICATEKEY = 1,
+            MSIDBERROR_REQUIRED = 2,
+            MSIDBERROR_BADLINK = 3,
+            MSIDBERROR_OVERFLOW = 4,
+            MSIDBERROR_UNDERFLOW = 5,
+            MSIDBERROR_NOTINSET = 6,
+            MSIDBERROR_BADVERSION = 7,
+            MSIDBERROR_BADCASE = 8,
+            MSIDBERROR_BADGUID = 9,
+            MSIDBERROR_BADWILDCARD = 10,
+            MSIDBERROR_BADIDENTIFIER = 11,
+            MSIDBERROR_BADLANGUAGE = 12,
+            MSIDBERROR_BADFILENAME = 13,
+            MSIDBERROR_BADPATH = 14,
+            MSIDBERROR_BADCONDITION = 15,
+            MSIDBERROR_BADFORMATTED = 16,
+            MSIDBERROR_BADTEMPLATE = 17,
+            MSIDBERROR_BADDEFAULTDIR = 18,
+            MSIDBERROR_BADREGPATH = 19,
+            MSIDBERROR_BADCUSTOMSOURCE = 20,
+            MSIDBERROR_BADPROPERTY = 21,
+            MSIDBERROR_MISSINGDATA = 22,
+            MSIDBERROR_BADCATEGORY = 23,
+            MSIDBERROR_BADKEYTABLE = 24,
+            MSIDBERROR_BADMAXMINVALUES = 25,
+            MSIDBERROR_BADCABINET = 26,
+            MSIDBERROR_BADSHORTCUT = 27,
+            MSIDBERROR_STRINGOVERFLOW = 28,
+            MSIDBERROR_BADLOCALIZEATTRIB = 29,
+        }
+        const MSIDBOPEN_CREATE: LPCTSTR = 3;
+        const MSIDBOPEN_CREATEDIRECT: LPCTSTR = 4;
+        const MSIDBOPEN_DIRECT: LPCTSTR = 2;
+        const MSIDBOPEN_READONLY: LPCTSTR = 0;
+        const MSIDBOPEN_TRANSACT: LPCTSTR = 1;
+        #[repr(i32)]
+        enum MSIDBSTATE {
+            MSIDBSTATE_ERROR = -1,
+            MSIDBSTATE_READ = 0,
+            MSIDBSTATE_WRITE = 1,
+        }
+        #[repr(i32)]
+        enum MSIMODIFY {
+            MSIMODIFY_SEEK = -1,
+            MSIMODIFY_REFRESH = 0,
+            MSIMODIFY_INSERT = 1,
+            MSIMODIFY_UPDATE = 2,
+            MSIMODIFY_ASSIGN = 3,
+            MSIMODIFY_REPLACE = 4,
+            MSIMODIFY_MERGE = 5,
+            MSIMODIFY_DELETE = 6,
+            MSIMODIFY_INSERT_TEMPORARY = 7,
+            MSIMODIFY_VALIDATE = 8,
+            MSIMODIFY_VALIDATE_NEW = 9,
+            MSIMODIFY_VALIDATE_FIELD = 10,
+            MSIMODIFY_VALIDATE_DELETE = 11,
+        }
+        #[repr(i32)]
+        enum MSIRUNMODE {
+            MSIRUNMODE_ADMIN = 0,
+            MSIRUNMODE_ADVERTISE = 1,
+            MSIRUNMODE_MAINTENANCE = 2,
+            MSIRUNMODE_ROLLBACKENABLED = 3,
+            MSIRUNMODE_LOGENABLED = 4,
+            MSIRUNMODE_OPERATIONS = 5,
+            MSIRUNMODE_REBOOTATEND = 6,
+            MSIRUNMODE_REBOOTNOW = 7,
+            MSIRUNMODE_CABINET = 8,
+            MSIRUNMODE_SOURCESHORTNAMES = 9,
+            MSIRUNMODE_TARGETSHORTNAMES = 10,
+            MSIRUNMODE_RESERVED11 = 11,
+            MSIRUNMODE_WINDOWS9X = 12,
+            MSIRUNMODE_ZAWENABLED = 13,
+            MSIRUNMODE_RESERVED14 = 14,
+            MSIRUNMODE_RESERVED15 = 15,
+            MSIRUNMODE_SCHEDULED = 16,
+            MSIRUNMODE_ROLLBACK = 17,
+            MSIRUNMODE_COMMIT = 18,
+        }
+        #[repr(i32)]
+        enum MSITRANSFORM_ERROR {
+            MSITRANSFORM_ERROR_ADDEXISTINGROW = 1,
+            MSITRANSFORM_ERROR_DELMISSINGROW = 2,
+            MSITRANSFORM_ERROR_ADDEXISTINGTABLE = 4,
+            MSITRANSFORM_ERROR_DELMISSINGTABLE = 8,
+            MSITRANSFORM_ERROR_UPDATEMISSINGROW = 16,
+            MSITRANSFORM_ERROR_CHANGECODEPAGE = 32,
+            MSITRANSFORM_ERROR_VIEWTRANSFORM = 256,
+        }
+        #[repr(i32)]
+        enum MSITRANSFORM_VALIDATE {
+            MSITRANSFORM_VALIDATE_LANGUAGE = 1,
+            MSITRANSFORM_VALIDATE_PRODUCT = 2,
+            MSITRANSFORM_VALIDATE_PLATFORM = 4,
+            MSITRANSFORM_VALIDATE_MAJORVERSION = 8,
+            MSITRANSFORM_VALIDATE_MINORVERSION = 16,
+            MSITRANSFORM_VALIDATE_UPDATEVERSION = 32,
+            MSITRANSFORM_VALIDATE_NEWLESSBASEVERSION = 64,
+            MSITRANSFORM_VALIDATE_NEWLESSEQUALBASEVERSION = 128,
+            MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION = 256,
+            MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION = 512,
+            MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION = 1024,
+            MSITRANSFORM_VALIDATE_UPGRADECODE = 2048,
+        }
+        const MSI_NULL_INTEGER: u32 = 2147483648;
+        #[library("msi.dll")]
+        extern fn MsiCreateRecord(cParams: u32) -> MSIHANDLE;
+        #[library("msi.dll")]
+        extern fn MsiCreateTransformSummaryInfoA(hDatabase: MSIHANDLE, hDatabaseReference: MSIHANDLE, szTransformFile: PCSTR, iErrorConditions: i32, iValidation: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiCreateTransformSummaryInfoW(hDatabase: MSIHANDLE, hDatabaseReference: MSIHANDLE, szTransformFile: PCWSTR, iErrorConditions: i32, iValidation: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseApplyTransformA(hDatabase: MSIHANDLE, szTransformFile: PCSTR, iErrorConditions: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseApplyTransformW(hDatabase: MSIHANDLE, szTransformFile: PCWSTR, iErrorConditions: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseCommit(hDatabase: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseExportA(hDatabase: MSIHANDLE, szTableName: PCSTR, szFolderPath: PCSTR, szFileName: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseExportW(hDatabase: MSIHANDLE, szTableName: PCWSTR, szFolderPath: PCWSTR, szFileName: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseGenerateTransformA(hDatabase: MSIHANDLE, hDatabaseReference: MSIHANDLE, szTransformFile: PCSTR, iReserved1: i32, iReserved2: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseGenerateTransformW(hDatabase: MSIHANDLE, hDatabaseReference: MSIHANDLE, szTransformFile: PCWSTR, iReserved1: i32, iReserved2: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseGetPrimaryKeysA(hDatabase: MSIHANDLE, szTableName: PCSTR, phRecord: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseGetPrimaryKeysW(hDatabase: MSIHANDLE, szTableName: PCWSTR, phRecord: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseImportA(hDatabase: MSIHANDLE, szFolderPath: PCSTR, szFileName: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseImportW(hDatabase: MSIHANDLE, szFolderPath: PCWSTR, szFileName: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseIsTablePersistentA(hDatabase: MSIHANDLE, szTableName: PCSTR) -> MSICONDITION;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseIsTablePersistentW(hDatabase: MSIHANDLE, szTableName: PCWSTR) -> MSICONDITION;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseMergeA(hDatabase: MSIHANDLE, hDatabaseMerge: MSIHANDLE, szTableName: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseMergeW(hDatabase: MSIHANDLE, hDatabaseMerge: MSIHANDLE, szTableName: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseOpenViewA(hDatabase: MSIHANDLE, szQuery: PCSTR, phView: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDatabaseOpenViewW(hDatabase: MSIHANDLE, szQuery: PCWSTR, phView: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDoActionA(hInstall: MSIHANDLE, szAction: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiDoActionW(hInstall: MSIHANDLE, szAction: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiEnableUIPreview(hDatabase: MSIHANDLE, phPreview: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiEnumComponentCostsA(hInstall: MSIHANDLE, szComponent: PCSTR, dwIndex: u32, iState: INSTALLSTATE, #[len_param(5)] #[out] szDriveBuf: PSTR, #[in] #[out] pcchDriveBuf: *mut u32, piCost: *mut i32, piTempCost: *mut i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiEnumComponentCostsW(hInstall: MSIHANDLE, szComponent: PCWSTR, dwIndex: u32, iState: INSTALLSTATE, #[len_param(5)] #[out] szDriveBuf: PWSTR, #[in] #[out] pcchDriveBuf: *mut u32, piCost: *mut i32, piTempCost: *mut i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiEvaluateConditionA(hInstall: MSIHANDLE, szCondition: PCSTR) -> MSICONDITION;
+        #[library("msi.dll")]
+        extern fn MsiEvaluateConditionW(hInstall: MSIHANDLE, szCondition: PCWSTR) -> MSICONDITION;
+        #[library("msi.dll")]
+        extern fn MsiFormatRecordA(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[len_param(3)] #[out] #[opt] szResultBuf: PSTR, #[in] #[out] #[opt] pcchResultBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiFormatRecordW(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[len_param(3)] #[out] #[opt] szResultBuf: PWSTR, #[in] #[out] #[opt] pcchResultBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetActiveDatabase(hInstall: MSIHANDLE) -> MSIHANDLE;
+        #[library("msi.dll")]
+        extern fn MsiGetComponentStateA(hInstall: MSIHANDLE, szComponent: PCSTR, piInstalled: *mut INSTALLSTATE, piAction: *mut INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetComponentStateW(hInstall: MSIHANDLE, szComponent: PCWSTR, piInstalled: *mut INSTALLSTATE, piAction: *mut INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetDatabaseState(hDatabase: MSIHANDLE) -> MSIDBSTATE;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureCostA(hInstall: MSIHANDLE, szFeature: PCSTR, iCostTree: MSICOSTTREE, iState: INSTALLSTATE, piCost: *mut i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureCostW(hInstall: MSIHANDLE, szFeature: PCWSTR, iCostTree: MSICOSTTREE, iState: INSTALLSTATE, piCost: *mut i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureStateA(hInstall: MSIHANDLE, szFeature: PCSTR, piInstalled: *mut INSTALLSTATE, piAction: *mut INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureStateW(hInstall: MSIHANDLE, szFeature: PCWSTR, piInstalled: *mut INSTALLSTATE, piAction: *mut INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureValidStatesA(hInstall: MSIHANDLE, szFeature: PCSTR, lpInstallStates: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetFeatureValidStatesW(hInstall: MSIHANDLE, szFeature: PCWSTR, lpInstallStates: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetLanguage(hInstall: MSIHANDLE) -> LANGID;
+        #[library("msi.dll")]
+        extern fn MsiGetLastErrorRecord() -> MSIHANDLE;
+        #[library("msi.dll")]
+        extern fn MsiGetMode(hInstall: MSIHANDLE, eRunMode: MSIRUNMODE) -> BOOL;
+        #[library("msi.dll")]
+        extern fn MsiGetPropertyA(hInstall: MSIHANDLE, szName: PCSTR, #[len_param(3)] #[out] #[opt] szValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetPropertyW(hInstall: MSIHANDLE, szName: PCWSTR, #[len_param(3)] #[out] #[opt] szValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetSourcePathA(hInstall: MSIHANDLE, szFolder: PCSTR, #[len_param(3)] #[out] #[opt] szPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetSourcePathW(hInstall: MSIHANDLE, szFolder: PCWSTR, #[len_param(3)] #[out] #[opt] szPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetSummaryInformationA(hDatabase: MSIHANDLE, szDatabasePath: PCSTR, uiUpdateCount: u32, phSummaryInfo: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetSummaryInformationW(hDatabase: MSIHANDLE, szDatabasePath: PCWSTR, uiUpdateCount: u32, phSummaryInfo: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetTargetPathA(hInstall: MSIHANDLE, szFolder: PCSTR, #[len_param(3)] #[out] #[opt] szPathBuf: PSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiGetTargetPathW(hInstall: MSIHANDLE, szFolder: PCWSTR, #[len_param(3)] #[out] #[opt] szPathBuf: PWSTR, #[in] #[out] #[opt] pcchPathBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiOpenDatabaseA(szDatabasePath: PCSTR, szPersist: PCSTR, phDatabase: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiOpenDatabaseW(szDatabasePath: PCWSTR, szPersist: PCWSTR, phDatabase: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiPreviewBillboardA(hPreview: MSIHANDLE, szControlName: PCSTR, szBillboard: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiPreviewBillboardW(hPreview: MSIHANDLE, szControlName: PCWSTR, szBillboard: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiPreviewDialogA(hPreview: MSIHANDLE, szDialogName: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiPreviewDialogW(hPreview: MSIHANDLE, szDialogName: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiProcessMessage(hInstall: MSIHANDLE, eMessageType: INSTALLMESSAGE, hRecord: MSIHANDLE) -> i32;
+        #[library("msi.dll")]
+        extern fn MsiRecordClearData(hRecord: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordDataSize(hRecord: MSIHANDLE, iField: u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordGetFieldCount(hRecord: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordGetInteger(hRecord: MSIHANDLE, iField: u32) -> i32;
+        #[library("msi.dll")]
+        extern fn MsiRecordGetStringA(hRecord: MSIHANDLE, iField: u32, #[len_param(3)] #[out] #[opt] szValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordGetStringW(hRecord: MSIHANDLE, iField: u32, #[len_param(3)] #[out] #[opt] szValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordIsNull(hRecord: MSIHANDLE, iField: u32) -> BOOL;
+        #[library("msi.dll")]
+        extern fn MsiRecordReadStream(hRecord: MSIHANDLE, iField: u32, #[size_param(3)] #[opt] szDataBuf: *mut i8, #[in] #[out] pcbDataBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordSetInteger(hRecord: MSIHANDLE, iField: u32, iValue: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordSetStreamA(hRecord: MSIHANDLE, iField: u32, szFilePath: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordSetStreamW(hRecord: MSIHANDLE, iField: u32, szFilePath: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordSetStringA(hRecord: MSIHANDLE, iField: u32, szValue: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiRecordSetStringW(hRecord: MSIHANDLE, iField: u32, szValue: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSequenceA(hInstall: MSIHANDLE, szTable: PCSTR, iSequenceMode: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSequenceW(hInstall: MSIHANDLE, szTable: PCWSTR, iSequenceMode: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetComponentStateA(hInstall: MSIHANDLE, szComponent: PCSTR, iState: INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetComponentStateW(hInstall: MSIHANDLE, szComponent: PCWSTR, iState: INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetFeatureAttributesA(hInstall: MSIHANDLE, szFeature: PCSTR, dwAttributes: u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetFeatureAttributesW(hInstall: MSIHANDLE, szFeature: PCWSTR, dwAttributes: u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetFeatureStateA(hInstall: MSIHANDLE, szFeature: PCSTR, iState: INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetFeatureStateW(hInstall: MSIHANDLE, szFeature: PCWSTR, iState: INSTALLSTATE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetInstallLevel(hInstall: MSIHANDLE, iInstallLevel: i32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetMode(hInstall: MSIHANDLE, eRunMode: MSIRUNMODE, fState: BOOL) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetPropertyA(hInstall: MSIHANDLE, szName: PCSTR, szValue: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetPropertyW(hInstall: MSIHANDLE, szName: PCWSTR, szValue: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetTargetPathA(hInstall: MSIHANDLE, szFolder: PCSTR, szFolderPath: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSetTargetPathW(hInstall: MSIHANDLE, szFolder: PCWSTR, szFolderPath: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoGetPropertyA(hSummaryInfo: MSIHANDLE, uiProperty: u32, puiDataType: *mut u32, piValue: *mut i32, #[opt] pftValue: *mut FILETIME, #[len_param(6)] #[out] #[opt] szValueBuf: PSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoGetPropertyCount(hSummaryInfo: MSIHANDLE, puiPropertyCount: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoGetPropertyW(hSummaryInfo: MSIHANDLE, uiProperty: u32, puiDataType: *mut u32, piValue: *mut i32, #[opt] pftValue: *mut FILETIME, #[len_param(6)] #[out] #[opt] szValueBuf: PWSTR, #[in] #[out] #[opt] pcchValueBuf: *mut u32) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoPersist(hSummaryInfo: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoSetPropertyA(hSummaryInfo: MSIHANDLE, uiProperty: u32, uiDataType: u32, iValue: i32, pftValue: *mut FILETIME, szValue: PCSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiSummaryInfoSetPropertyW(hSummaryInfo: MSIHANDLE, uiProperty: u32, uiDataType: u32, iValue: i32, pftValue: *mut FILETIME, szValue: PCWSTR) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiVerifyDiskSpace(hInstall: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiViewClose(hView: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiViewExecute(hView: MSIHANDLE, hRecord: MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiViewFetch(hView: MSIHANDLE, phRecord: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiViewGetColumnInfo(hView: MSIHANDLE, eColumnInfo: MSICOLINFO, phRecord: *mut MSIHANDLE) -> u32;
+        #[library("msi.dll")]
+        extern fn MsiViewGetErrorA(hView: MSIHANDLE, #[len_param(2)] #[out] #[opt] szColumnNameBuffer: PSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> MSIDBERROR;
+        #[library("msi.dll")]
+        extern fn MsiViewGetErrorW(hView: MSIHANDLE, #[len_param(2)] #[out] #[opt] szColumnNameBuffer: PWSTR, #[in] #[out] #[opt] pcchBuf: *mut u32) -> MSIDBERROR;
+        #[library("msi.dll")]
+        extern fn MsiViewModify(hView: MSIHANDLE, eModifyMode: MSIMODIFY, hRecord: MSIHANDLE) -> u32;
+    }
+}

@@ -1,0 +1,16 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum BSOS_OPTIONS {
+            BSOS_DEFAULT = 0,
+            BSOS_PREFERDESTINATIONSTREAM = 1,
+        }
+        #[library("api-ms-win-shcore-stream-winrt-l1-1-0.dll")]
+        extern fn CreateRandomAccessStreamOnFile(filePath: PCWSTR, accessMode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("api-ms-win-shcore-stream-winrt-l1-1-0.dll")]
+        extern fn CreateRandomAccessStreamOverStream(stream: IStream, options: BSOS_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("api-ms-win-shcore-stream-winrt-l1-1-0.dll")]
+        extern fn CreateStreamOverRandomAccessStream(randomAccessStream: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+    }
+}

@@ -1,25 +1,24 @@
-windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
+windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : u32, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PCWSTR, nsize : u32, arguments : *const va_list) -> u32);
 windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut *mut core::ffi::c_void) -> HRESULT);
-windows_link::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
+windows_link::link!("kernel32.dll" "system" fn GetLastError() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
-windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
-windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
+windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> BOOL);
+windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : u32) -> HMODULE);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : HRESULT, cchmax : u32, message : PCWSTR) -> BOOL);
 windows_link::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : *mut core::ffi::c_void) -> HRESULT);
 windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
 windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 pub type BOOL = i32;
 pub type BSTR = *const u16;
-pub const ERROR_INVALID_DATA: WIN32_ERROR = 13;
-pub const ERROR_NO_UNICODE_TRANSLATION: WIN32_ERROR = 1113;
+pub const ERROR_INVALID_DATA: u32 = 13;
+pub const ERROR_NO_UNICODE_TRANSLATION: u32 = 1113;
 pub const E_UNEXPECTED: HRESULT = 0x8000FFFF_u32 as _;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256;
-pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512;
-pub type FORMAT_MESSAGE_OPTIONS = u32;
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
+pub const FORMAT_MESSAGE_FROM_HMODULE: u32 = 2048;
+pub const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GUID {
     pub data1: u32,
     pub data2: u16,
@@ -27,9 +26,8 @@ pub struct GUID {
     pub data4: [u8; 8],
 }
 pub type HANDLE = *mut core::ffi::c_void;
-pub type HEAP_FLAGS = u32;
 pub type HINSTANCE = *mut core::ffi::c_void;
-pub type HMODULE = *mut core::ffi::c_void;
+pub type HMODULE = HINSTANCE;
 pub type HRESULT = i32;
 pub const IID_IErrorInfo: GUID = GUID {
     data1: 0x1cf2b120,
@@ -80,9 +78,7 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
-pub type LOAD_LIBRARY_FLAGS = u32;
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096;
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
-pub type PWSTR = *mut u16;
-pub type WIN32_ERROR = u32;
+pub type va_list = *mut i8;

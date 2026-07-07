@@ -1,0 +1,6 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CONSOLE_TEXTMODE_BUFFER: u32 = 1;
+    }
+}

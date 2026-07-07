@@ -1,0 +1,267 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type JOYCAPS = JOYCAPSA;
+        type JOYCAPS2 = JOYCAPS2A;
+        #[packed(1)]
+        struct JOYCAPS2A {
+            wMid: u16,
+            wPid: u16,
+            szPname: [i8; 32],
+            wXmin: u32,
+            wXmax: u32,
+            wYmin: u32,
+            wYmax: u32,
+            wZmin: u32,
+            wZmax: u32,
+            wNumButtons: u32,
+            wPeriodMin: u32,
+            wPeriodMax: u32,
+            wRmin: u32,
+            wRmax: u32,
+            wUmin: u32,
+            wUmax: u32,
+            wVmin: u32,
+            wVmax: u32,
+            wCaps: u32,
+            wMaxAxes: u32,
+            wNumAxes: u32,
+            wMaxButtons: u32,
+            szRegKey: [i8; 32],
+            szOEMVxD: [i8; 260],
+            ManufacturerGuid: GUID,
+            ProductGuid: GUID,
+            NameGuid: GUID,
+        }
+        #[packed(1)]
+        struct JOYCAPS2W {
+            wMid: u16,
+            wPid: u16,
+            szPname: [u16; 32],
+            wXmin: u32,
+            wXmax: u32,
+            wYmin: u32,
+            wYmax: u32,
+            wZmin: u32,
+            wZmax: u32,
+            wNumButtons: u32,
+            wPeriodMin: u32,
+            wPeriodMax: u32,
+            wRmin: u32,
+            wRmax: u32,
+            wUmin: u32,
+            wUmax: u32,
+            wVmin: u32,
+            wVmax: u32,
+            wCaps: u32,
+            wMaxAxes: u32,
+            wNumAxes: u32,
+            wMaxButtons: u32,
+            szRegKey: [u16; 32],
+            szOEMVxD: [u16; 260],
+            ManufacturerGuid: GUID,
+            ProductGuid: GUID,
+            NameGuid: GUID,
+        }
+        #[packed(1)]
+        struct JOYCAPSA {
+            wMid: u16,
+            wPid: u16,
+            szPname: [i8; 32],
+            wXmin: u32,
+            wXmax: u32,
+            wYmin: u32,
+            wYmax: u32,
+            wZmin: u32,
+            wZmax: u32,
+            wNumButtons: u32,
+            wPeriodMin: u32,
+            wPeriodMax: u32,
+            wRmin: u32,
+            wRmax: u32,
+            wUmin: u32,
+            wUmax: u32,
+            wVmin: u32,
+            wVmax: u32,
+            wCaps: u32,
+            wMaxAxes: u32,
+            wNumAxes: u32,
+            wMaxButtons: u32,
+            szRegKey: [i8; 32],
+            szOEMVxD: [i8; 260],
+        }
+        #[packed(1)]
+        struct JOYCAPSW {
+            wMid: u16,
+            wPid: u16,
+            szPname: [u16; 32],
+            wXmin: u32,
+            wXmax: u32,
+            wYmin: u32,
+            wYmax: u32,
+            wZmin: u32,
+            wZmax: u32,
+            wNumButtons: u32,
+            wPeriodMin: u32,
+            wPeriodMax: u32,
+            wRmin: u32,
+            wRmax: u32,
+            wUmin: u32,
+            wUmax: u32,
+            wVmin: u32,
+            wVmax: u32,
+            wCaps: u32,
+            wMaxAxes: u32,
+            wNumAxes: u32,
+            wMaxButtons: u32,
+            szRegKey: [u16; 32],
+            szOEMVxD: [u16; 260],
+        }
+        const JOYCAPS_HASPOV: u32 = 16;
+        const JOYCAPS_HASR: u32 = 2;
+        const JOYCAPS_HASU: u32 = 4;
+        const JOYCAPS_HASV: u32 = 8;
+        const JOYCAPS_HASZ: u32 = 1;
+        const JOYCAPS_POV4DIR: u32 = 32;
+        const JOYCAPS_POVCTS: u32 = 64;
+        const JOYERR_NOCANDO: u32 = 166;
+        const JOYERR_NOERROR: u32 = 0;
+        const JOYERR_PARMS: u32 = 165;
+        const JOYERR_UNPLUGGED: u32 = 167;
+        #[packed(1)]
+        struct JOYINFO {
+            wXpos: u32,
+            wYpos: u32,
+            wZpos: u32,
+            wButtons: u32,
+        }
+        #[packed(1)]
+        struct JOYINFOEX {
+            dwSize: u32,
+            dwFlags: u32,
+            dwXpos: u32,
+            dwYpos: u32,
+            dwZpos: u32,
+            dwRpos: u32,
+            dwUpos: u32,
+            dwVpos: u32,
+            dwButtons: u32,
+            dwButtonNumber: u32,
+            dwPOV: u32,
+            dwReserved1: u32,
+            dwReserved2: u32,
+        }
+        const JOYSTICKID1: u32 = 0;
+        const JOYSTICKID2: u32 = 1;
+        const JOY_BUTTON1: u32 = 1;
+        const JOY_BUTTON10: u32 = 512;
+        const JOY_BUTTON11: u32 = 1024;
+        const JOY_BUTTON12: u32 = 2048;
+        const JOY_BUTTON13: u32 = 4096;
+        const JOY_BUTTON14: u32 = 8192;
+        const JOY_BUTTON15: u32 = 16384;
+        const JOY_BUTTON16: u32 = 32768;
+        const JOY_BUTTON17: u32 = 65536;
+        const JOY_BUTTON18: u32 = 131072;
+        const JOY_BUTTON19: u32 = 262144;
+        const JOY_BUTTON1CHG: u32 = 256;
+        const JOY_BUTTON2: u32 = 2;
+        const JOY_BUTTON20: u32 = 524288;
+        const JOY_BUTTON21: u32 = 1048576;
+        const JOY_BUTTON22: u32 = 2097152;
+        const JOY_BUTTON23: u32 = 4194304;
+        const JOY_BUTTON24: u32 = 8388608;
+        const JOY_BUTTON25: u32 = 16777216;
+        const JOY_BUTTON26: u32 = 33554432;
+        const JOY_BUTTON27: u32 = 67108864;
+        const JOY_BUTTON28: u32 = 134217728;
+        const JOY_BUTTON29: u32 = 268435456;
+        const JOY_BUTTON2CHG: u32 = 512;
+        const JOY_BUTTON3: u32 = 4;
+        const JOY_BUTTON30: u32 = 536870912;
+        const JOY_BUTTON31: u32 = 1073741824;
+        const JOY_BUTTON32: u32 = 2147483648;
+        const JOY_BUTTON3CHG: u32 = 1024;
+        const JOY_BUTTON4: u32 = 8;
+        const JOY_BUTTON4CHG: u32 = 2048;
+        const JOY_BUTTON5: u32 = 16;
+        const JOY_BUTTON6: u32 = 32;
+        const JOY_BUTTON7: u32 = 64;
+        const JOY_BUTTON8: u32 = 128;
+        const JOY_BUTTON9: u32 = 256;
+        const JOY_CAL_READ3: u32 = 262144;
+        const JOY_CAL_READ4: u32 = 524288;
+        const JOY_CAL_READ5: u32 = 4194304;
+        const JOY_CAL_READ6: u32 = 8388608;
+        const JOY_CAL_READALWAYS: u32 = 65536;
+        const JOY_CAL_READRONLY: u32 = 33554432;
+        const JOY_CAL_READUONLY: u32 = 67108864;
+        const JOY_CAL_READVONLY: u32 = 134217728;
+        const JOY_CAL_READXONLY: u32 = 1048576;
+        const JOY_CAL_READXYONLY: u32 = 131072;
+        const JOY_CAL_READYONLY: u32 = 2097152;
+        const JOY_CAL_READZONLY: u32 = 16777216;
+        const JOY_POVBACKWARD: u32 = 18000;
+        const JOY_POVCENTERED: u16 = 65535;
+        const JOY_POVFORWARD: u32 = 0;
+        const JOY_POVLEFT: u32 = 27000;
+        const JOY_POVRIGHT: u32 = 9000;
+        const JOY_RETURNALL: u32 = 255;
+        const JOY_RETURNBUTTONS: u32 = 128;
+        const JOY_RETURNCENTERED: u32 = 1024;
+        const JOY_RETURNPOV: u32 = 64;
+        const JOY_RETURNPOVCTS: u32 = 512;
+        const JOY_RETURNR: u32 = 8;
+        const JOY_RETURNRAWDATA: u32 = 256;
+        const JOY_RETURNU: u32 = 16;
+        const JOY_RETURNV: u32 = 32;
+        const JOY_RETURNX: u32 = 1;
+        const JOY_RETURNY: u32 = 2;
+        const JOY_RETURNZ: u32 = 4;
+        const JOY_USEDEADZONE: u32 = 2048;
+        type LPJOYCAPS = LPJOYCAPSA;
+        type LPJOYCAPS2 = LPJOYCAPS2A;
+        type LPJOYCAPS2A = *mut JOYCAPS2A;
+        type LPJOYCAPS2W = *mut JOYCAPS2W;
+        type LPJOYCAPSA = *mut JOYCAPSA;
+        type LPJOYCAPSW = *mut JOYCAPSW;
+        type LPJOYINFO = *mut JOYINFO;
+        type LPJOYINFOEX = *mut JOYINFOEX;
+        type NPJOYCAPS = NPJOYCAPSA;
+        type NPJOYCAPS2 = NPJOYCAPS2A;
+        type NPJOYCAPS2A = *mut JOYCAPS2A;
+        type NPJOYCAPS2W = *mut JOYCAPS2W;
+        type NPJOYCAPSA = *mut JOYCAPSA;
+        type NPJOYCAPSW = *mut JOYCAPSW;
+        type NPJOYINFO = *mut JOYINFO;
+        type NPJOYINFOEX = *mut JOYINFOEX;
+        type PJOYCAPS = PJOYCAPSA;
+        type PJOYCAPS2 = PJOYCAPS2A;
+        type PJOYCAPS2A = *mut JOYCAPS2A;
+        type PJOYCAPS2W = *mut JOYCAPS2W;
+        type PJOYCAPSA = *mut JOYCAPSA;
+        type PJOYCAPSW = *mut JOYCAPSW;
+        type PJOYINFO = *mut JOYINFO;
+        type PJOYINFOEX = *mut JOYINFOEX;
+        #[library("WINMM.dll")]
+        extern fn joyConfigChanged(dwFlags: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyGetDevCapsA(uJoyID: usize, #[size_param(2)] pjc: *mut JOYCAPSA, cbjc: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyGetDevCapsW(uJoyID: usize, #[size_param(2)] pjc: *mut JOYCAPSW, cbjc: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyGetNumDevs() -> u32;
+        #[library("WINMM.dll")]
+        extern fn joyGetPos(uJoyID: u32, pji: *mut JOYINFO) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyGetPosEx(uJoyID: u32, pji: *mut JOYINFOEX) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyGetThreshold(uJoyID: u32, puThreshold: *mut u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joyReleaseCapture(uJoyID: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joySetCapture(hwnd: HWND, uJoyID: u32, uPeriod: u32, fChanged: BOOL) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn joySetThreshold(uJoyID: u32, uThreshold: u32) -> MMRESULT;
+    }
+}

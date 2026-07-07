@@ -1,0 +1,33 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5ab89b06_8194_425f_ab3b_d7a96e350161)]
+        interface IXpsPrintJob: IUnknown {
+            fn Cancel(&self) -> HRESULT;
+            fn GetJobStatus(&self, #[retval] jobStatus: *mut XPS_JOB_STATUS) -> HRESULT;
+        }
+        #[guid(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca)]
+        interface IXpsPrintJobStream: ISequentialStream {
+            fn Close(&self) -> HRESULT;
+        }
+        #[library("XPSPRINT.DLL")]
+        extern fn StartXpsPrintJob(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, printablePagesOn: *const u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> HRESULT;
+        #[library("XPSPRINT.DLL")]
+        extern fn StartXpsPrintJob1(printerName: PCWSTR, jobName: PCWSTR, outputFileName: PCWSTR, progressEvent: HANDLE, completionEvent: HANDLE, xpsPrintJob: *mut IXpsPrintJob, printContentReceiver: *mut IXpsOMPackageTarget) -> HRESULT;
+        #[repr(i32)]
+        enum XPS_JOB_COMPLETION {
+            XPS_JOB_IN_PROGRESS = 0,
+            XPS_JOB_COMPLETED = 1,
+            XPS_JOB_CANCELLED = 2,
+            XPS_JOB_FAILED = 3,
+        }
+        struct XPS_JOB_STATUS {
+            jobId: u32,
+            currentDocument: i32,
+            currentPage: i32,
+            currentPageTotal: i32,
+            completion: XPS_JOB_COMPLETION,
+            jobStatus: HRESULT,
+        }
+    }
+}

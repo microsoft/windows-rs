@@ -1,0 +1,7 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn GetAppContainerNamedObjectPath(#[opt] Token: HANDLE, #[opt] AppContainerSid: PSID, ObjectPathLength: u32, #[len_param(2)] #[out] #[opt] ObjectPath: PWSTR, ReturnLength: *mut u32) -> BOOL;
+    }
+}

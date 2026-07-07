@@ -1,0 +1,949 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const AM_MEDIA_TYPE_REPRESENTATION: GUID = 0xe2e42ad2_132c_491e_a268_3c7c2dca181f;
+        const CLSID_MFSourceResolver: GUID = 0x90eab60f_e43a_4188_bcc4_e47fdf04868c;
+        struct CapturedMetadataExposureCompensation {
+            Flags: u64,
+            Value: i32,
+        }
+        struct CapturedMetadataISOGains {
+            AnalogGain: f32,
+            DigitalGain: f32,
+        }
+        struct CapturedMetadataWhiteBalanceGains {
+            R: f32,
+            G: f32,
+            B: f32,
+        }
+        const D3DFMT_A16B16G16R16F: u32 = 113;
+        const D3DFMT_A2B10G10R10: u32 = 31;
+        const D3DFMT_A8R8G8B8: u32 = 21;
+        const D3DFMT_D16: u32 = 80;
+        const D3DFMT_L16: u32 = 81;
+        const D3DFMT_L8: u32 = 50;
+        const D3DFMT_P8: u32 = 41;
+        const D3DFMT_R5G6B5: u32 = 23;
+        const D3DFMT_R8G8B8: u32 = 20;
+        const D3DFMT_X1R5G5B5: u32 = 24;
+        const D3DFMT_X8R8G8B8: u32 = 22;
+        struct DIRTYRECT_INFO {
+            FrameNumber: u32,
+            NumDirtyRects: u32,
+            DirtyRects: [RECT; 1],
+        }
+        struct DigitalWindowSetting {
+            OriginX: f64,
+            OriginY: f64,
+            WindowSize: f64,
+        }
+        #[repr(i32)]
+        enum EAllocationType {
+            eAllocationTypeDynamic = 0,
+            eAllocationTypeRT = 1,
+            eAllocationTypePageable = 2,
+            eAllocationTypeIgnore = 3,
+        }
+        const FORMAT_MFVideoFormat: GUID = 0xaed4ab2d_7326_43cb_9464_c879cab9c43d;
+        struct FaceCharacterization {
+            BlinkScoreLeft: u32,
+            BlinkScoreRight: u32,
+            FacialExpression: u32,
+            FacialExpressionScore: u32,
+        }
+        struct FaceCharacterizationBlobHeader {
+            Size: u32,
+            Count: u32,
+        }
+        struct FaceRectInfo {
+            Region: RECT,
+            confidenceLevel: i32,
+        }
+        struct FaceRectInfoBlobHeader {
+            Size: u32,
+            Count: u32,
+        }
+        struct HistogramBlobHeader {
+            Size: u32,
+            Histograms: u32,
+        }
+        struct HistogramDataHeader {
+            Size: u32,
+            ChannelMask: u32,
+            Linear: u32,
+        }
+        struct HistogramGrid {
+            Width: u32,
+            Height: u32,
+            Region: RECT,
+        }
+        struct HistogramHeader {
+            Size: u32,
+            Bins: u32,
+            FourCC: u32,
+            ChannelMasks: u32,
+            Grid: HistogramGrid,
+        }
+        struct InputQPSettings {
+            minBlockSize: u32,
+            maxBlockSize: u32,
+            stepsBlockSize: u32,
+            dataType: eAVEncVideoQPMapElementDataType,
+            minValue: i16,
+            maxValue: i16,
+            steps: u16,
+        }
+        const LOCAL_D3DFMT_DEFINES: u32 = 1;
+        struct MACROBLOCK_DATA {
+            flags: u32,
+            motionVectorX: i16,
+            motionVectorY: i16,
+            QPDelta: i32,
+        }
+        const MACROBLOCK_FLAG_DIRTY: u32 = 2;
+        const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16;
+        const MACROBLOCK_FLAG_HAS_QP: u32 = 32;
+        const MACROBLOCK_FLAG_MOTION: u32 = 4;
+        const MACROBLOCK_FLAG_SKIP: u32 = 1;
+        const MACROBLOCK_FLAG_VIDEO: u32 = 8;
+        struct MFASYNCRESULT {
+            Base: IMFAsyncResult,
+            overlapped: OVERLAPPED,
+            pCallback: IMFAsyncCallback,
+            hrStatusResult: HRESULT,
+            dwBytesTransferred: u32,
+            hEvent: HANDLE,
+        }
+        #[repr(i32)]
+        enum MFASYNC_WORKQUEUE_TYPE {
+            MF_STANDARD_WORKQUEUE = 0,
+            MF_WINDOW_WORKQUEUE = 1,
+            MF_MULTITHREADED_WORKQUEUE = 2,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFAddPeriodicCallback(Callback: MFPERIODICCALLBACK, pContext: IUnknown, #[opt] pdwKey: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFAllocateSerialWorkQueue(dwWorkQueue: u32, pdwWorkQueue: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFAllocateWorkQueue(pdwWorkQueue: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFAllocateWorkQueueEx(WorkQueueType: MFASYNC_WORKQUEUE_TYPE, pdwWorkQueue: *mut u32) -> HRESULT;
+        const MFAudioFormat_AAC_HDCP: GUID = 0x419bce76_8b72_400f_adeb_84b57d63484d;
+        const MFAudioFormat_ADTS_HDCP: GUID = 0xda4963a3_14d8_4dcf_92b7_193eb84363db;
+        const MFAudioFormat_Base_HDCP: GUID = 0x3884b5bc_e277_43fd_983d_038aa8d9b605;
+        const MFAudioFormat_DTS_HD: GUID = 0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645;
+        const MFAudioFormat_DTS_LBR: GUID = 0xc2fe6f0a_4e3c_4df1_9b60_50863091e4b9;
+        const MFAudioFormat_DTS_RAW: GUID = 0xe06d8033_db46_11cf_b4d1_00805f6cbbea;
+        const MFAudioFormat_DTS_UHD: GUID = 0x87020117_ace3_42de_b73e_c656706263f8;
+        const MFAudioFormat_DTS_UHDY: GUID = 0x9b9cca00_91b9_4ccc_883a_8f787ac3cc86;
+        const MFAudioFormat_DTS_XLL: GUID = 0x45b37c1b_8c70_4e59_a7be_a1e42c81c80d;
+        const MFAudioFormat_Dolby_AC3: GUID = 0xe06d802c_db46_11cf_b4d1_00805f6cbbea;
+        const MFAudioFormat_Dolby_AC3_HDCP: GUID = 0x97663a80_8ffb_4445_a6ba_792d908f497f;
+        const MFAudioFormat_Dolby_AC4_V1: GUID = 0x36b7927c_3d87_4a2a_9196_a21ad9e935e6;
+        const MFAudioFormat_Dolby_AC4_V1_ES: GUID = 0x9d8dccc6_d156_4fb8_979c_a85be7d21dfa;
+        const MFAudioFormat_Dolby_AC4_V2: GUID = 0x7998b2a0_17dd_49b6_8dfa_9b278552a2ac;
+        const MFAudioFormat_Dolby_AC4_V2_ES: GUID = 0x7e58c9f9_b070_45f4_8ccd_a99a0417c1ac;
+        const MFAudioFormat_Dolby_DDPlus: GUID = 0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd;
+        const MFAudioFormat_Float_SpatialObjects: GUID = 0xfa39cd94_bc64_4ab1_9b71_dcd09d5a7e7a;
+        const MFAudioFormat_IAMF: GUID = 0x78a8eba0_f446_4851_a55d_5372280e6b0b;
+        const MFAudioFormat_LPCM: GUID = 0xe06d8032_db46_11cf_b4d1_00805f6cbbea;
+        const MFAudioFormat_MPEGH: GUID = 0x7c13c441_ebf8_4931_b678_800b19242236;
+        const MFAudioFormat_MPEGH_ES: GUID = 0x19ee97fe_1be0_4255_a876_e99f53a42ae3;
+        const MFAudioFormat_PCM_HDCP: GUID = 0xa5e7ff01_8411_4acc_a865_5f4941288d80;
+        const MFAudioFormat_Vorbis: GUID = 0x8d2fd10b_5841_4a6b_8905_588fec1aded9;
+        #[library("MFPlat.DLL")]
+        extern fn MFAverageTimePerFrameToFrameRate(unAverageTimePerFrame: u64, punNumerator: *mut u32, punDenominator: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFBeginCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFilePath: PCWSTR, pCallback: IMFAsyncCallback, pState: IUnknown, ppCancelCookie: *mut IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFBeginRegisterWorkQueueWithMMCSS(dwWorkQueueId: u32, wszClass: PCWSTR, dwTaskId: u32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFBeginRegisterWorkQueueWithMMCSSEx(dwWorkQueueId: u32, wszClass: PCWSTR, dwTaskId: u32, lPriority: i32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFBeginUnregisterWorkQueueWithMMCSS(dwWorkQueueId: u32, pDoneCallback: IMFAsyncCallback, pDoneState: IUnknown) -> HRESULT;
+        const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4;
+        const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2;
+        const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1;
+        #[library("MFPlat.DLL")]
+        extern fn MFCalculateBitmapImageSize(#[size_param(1)] pBMIH: *const BITMAPINFOHEADER, cbBufSize: u32, pcbImageSize: *mut u32, #[opt] pbKnown: *mut BOOL) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCalculateImageSize(guidSubtype: *const GUID, unWidth: u32, unHeight: u32, pcbImageSize: *mut u32) -> HRESULT;
+        struct MFCameraExtrinsic_CalibratedTransform {
+            CalibrationId: GUID,
+            Position: MF_FLOAT3,
+            Orientation: MF_QUATERNION,
+        }
+        struct MFCameraExtrinsics {
+            TransformCount: u32,
+            CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
+        }
+        struct MFCameraIntrinsic_DistortionModel {
+            Radial_k1: f32,
+            Radial_k2: f32,
+            Radial_k3: f32,
+            Tangential_p1: f32,
+            Tangential_p2: f32,
+        }
+        struct MFCameraIntrinsic_PinholeCameraModel {
+            FocalLength: MF_FLOAT2,
+            PrincipalPoint: MF_FLOAT2,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFCancelCreateFile(pCancelCookie: IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCancelWorkItem(Key: MFWORKITEM_KEY) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCombineSamples(pSample: IMFSample, pSampleToAdd: IMFSample, dwMaxMergedDurationInMS: u32, pMerged: *mut BOOL) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCompareFullToPartialMediaType(pMFTypeFull: IMFMediaType, pMFTypePartial: IMFMediaType) -> BOOL;
+        #[library("MFPlat.DLL")]
+        extern fn MFConvertColorInfoFromDXVA(#[in] #[out] pToFormat: *mut MFVIDEOFORMAT, dwFromDXVA: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFConvertColorInfoToDXVA(pdwToDXVA: *mut u32, pFromFormat: *const MFVIDEOFORMAT) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFConvertFromFP16Array(#[len_param(2)] pDest: *mut f32, #[len_param(2)] pSrc: *const u16, dwCount: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFConvertToFP16Array(#[len_param(2)] pDest: *mut u16, #[len_param(2)] pSrc: *const f32, dwCount: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCopyImage(pDest: *mut u8, lDestStride: i32, pSrc: *const u8, lSrcStride: i32, dwWidthInBytes: u32, dwLines: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreate2DMediaBuffer(dwWidth: u32, dwHeight: u32, dwFourCC: u32, fBottomUp: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateAMMediaTypeFromMFMediaType(pMFType: IMFMediaType, guidFormatBlockType: GUID, #[in] #[out] ppAMType: *mut *mut AM_MEDIA_TYPE) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateAlignedMemoryBuffer(cbMaxLength: u32, cbAligment: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateAsyncResult(punkObject: IUnknown, pCallback: IMFAsyncCallback, punkState: IUnknown, ppAsyncResult: *mut IMFAsyncResult) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateAttributes(ppMFAttributes: *mut IMFAttributes, cInitialSize: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateAudioMediaType(pAudioFormat: *const WAVEFORMATEX, ppIAudioMediaType: *mut IMFAudioMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateCollection(ppIMFCollection: *mut IMFCollection) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateDXGICrossAdapterBuffer(riid: *const GUID, punkDevice: IUnknown, pMediaType: IMFMediaType, uSubresource: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateDXGIDeviceManager(resetToken: *mut u32, ppDeviceManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateDXGISurfaceBuffer(riid: *const GUID, punkSurface: IUnknown, uSubresourceIndex: u32, fBottomUpWhenLinear: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateDXSurfaceBuffer(riid: *const GUID, punkSurface: IUnknown, fBottomUpWhenLinear: BOOL, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateEventQueue(ppMediaEventQueue: *mut IMFMediaEventQueue) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, pwszFileURL: PCWSTR, ppIByteStream: *mut IMFByteStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateLegacyMediaBufferOnMFMediaBuffer(#[opt] pSample: IMFSample, pMFMediaBuffer: IMFMediaBuffer, cbOffset: u32, ppMediaBuffer: *mut IMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMFByteStreamWrapper(pStream: IMFByteStream, ppStreamWrapper: *mut IMFByteStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMFVideoFormatFromMFMediaType(pMFType: IMFMediaType, ppMFVF: *mut *mut MFVIDEOFORMAT, #[opt] pcbSize: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaBufferFromMediaType(pMediaType: IMFMediaType, llDuration: i64, dwMinLength: u32, dwMinAlignment: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaBufferWrapper(pBuffer: IMFMediaBuffer, cbOffset: u32, dwLength: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaEvent(met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, #[opt] pvValue: *const PROPVARIANT, ppEvent: *mut IMFMediaEvent) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaType(ppMFType: *mut IMFMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMediaTypeFromRepresentation(guidRepresentation: GUID, pvRepresentation: *const void, ppIMediaType: *mut IMFMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMemoryBuffer(cbMaxLength: u32, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMuxStreamAttributes(pAttributesToMux: IMFCollection, ppMuxAttribs: *mut IMFAttributes) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMuxStreamMediaType(pMediaTypesToMux: IMFCollection, ppMuxMediaType: *mut IMFMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateMuxStreamSample(pSamplesToMux: IMFCollection, ppMuxSample: *mut IMFSample) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateSample(ppIMFSample: *mut IMFSample) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateTempFile(AccessMode: MF_FILE_ACCESSMODE, OpenMode: MF_FILE_OPENMODE, fFlags: MF_FILE_FLAGS, ppIByteStream: *mut IMFByteStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateVideoMediaType(pVideoFormat: *const MFVIDEOFORMAT, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, dwPixelAspectRatioX: u32, dwPixelAspectRatioY: u32, InterlaceMode: MFVideoInterlaceMode, VideoFlags: u64, qwFramesPerSecondNumerator: u64, qwFramesPerSecondDenominator: u64, dwMaxBitRate: u32, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(#[size_param(1)] pbmihBitMapInfoHeader: *const BITMAPINFOHEADER, cbBitMapInfoHeader: u32, dwPixelAspectRatioX: u32, dwPixelAspectRatioY: u32, InterlaceMode: MFVideoInterlaceMode, VideoFlags: u64, dwFramesPerSecondNumerator: u32, dwFramesPerSecondDenominator: u32, dwMaxBitRate: u32, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateVideoMediaTypeFromSubtype(pAMSubtype: *const GUID, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateWICBitmapBuffer(riid: *const GUID, punkSurface: IUnknown, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFCreateWaveFormatExFromMFMediaType(pMFType: IMFMediaType, ppWF: *mut *mut WAVEFORMATEX, #[opt] pcbSize: *mut u32, Flags: u32) -> HRESULT;
+        #[repr(i32)]
+        enum MFDepthMeasurement {
+            DistanceToFocalPlane = 0,
+            DistanceToOpticalCenter = 1,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFEndCreateFile(pResult: IMFAsyncResult, ppFile: *mut IMFByteStream) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFEndRegisterWorkQueueWithMMCSS(pResult: IMFAsyncResult, pdwTaskId: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFEndUnregisterWorkQueueWithMMCSS(pResult: IMFAsyncResult) -> HRESULT;
+        struct MFFOLDDOWN_MATRIX {
+            cbSize: u32,
+            cSrcChannels: u32,
+            cDstChannels: u32,
+            dwChannelMask: u32,
+            Coeff: [i32; 64],
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFFrameRateToAverageTimePerFrame(unNumerator: u32, unDenominator: u32, punAverageTimePerFrame: *mut u64) -> HRESULT;
+        #[repr(i32)]
+        enum MFFrameSourceTypes {
+            MFFrameSourceTypes_Color = 1,
+            MFFrameSourceTypes_Infrared = 2,
+            MFFrameSourceTypes_Depth = 4,
+            MFFrameSourceTypes_Image = 8,
+            MFFrameSourceTypes_Custom = 128,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFGetAttributesAsBlob(pAttributes: IMFAttributes, #[size_param(2)] pBuf: *mut u8, cbBufSize: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetAttributesAsBlobSize(pAttributes: IMFAttributes, pcbBufSize: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetContentProtectionSystemCLSID(guidProtectionSystemID: *const GUID, pclsid: *mut GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetDXGIDeviceManageMode(pDeviceManager: IUnknown, mode: *mut MF_DXGI_DEVICE_MANAGER_MODE) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetMFTMerit(#[in] #[out] pMFT: IUnknown, cbVerifier: u32, #[size_param(1)] verifier: *const u8, merit: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetPlaneSize(format: u32, dwWidth: u32, dwHeight: u32, pdwPlaneSize: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetPluginControl(ppPluginControl: *mut IMFPluginControl) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetStrideForBitmapInfoHeader(format: u32, dwWidth: u32, pStride: *mut i32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetTimerPeriodicity(Periodicity: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetUncompressedVideoFormat(pVideoFormat: *const MFVIDEOFORMAT) -> u32;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetWorkQueueMMCSSClass(dwWorkQueueId: u32, #[len_param(2)] #[out] #[opt] pwszClass: PWSTR, #[in] #[out] pcchClass: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetWorkQueueMMCSSPriority(dwWorkQueueId: u32, lPriority: *mut i32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFGetWorkQueueMMCSSTaskId(dwWorkQueueId: u32, pdwTaskId: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFHeapAlloc(nSize: usize, dwFlags: u32, #[opt] pszFile: *const i8, line: i32, eat: EAllocationType) -> *mut void;
+        #[library("MFPlat.DLL")]
+        extern fn MFHeapFree(pv: *mut void);
+        const MFImageFormat_JPEG: GUID = 0x19e4a5aa_5662_4fc5_a0c0_1758028e1057;
+        const MFImageFormat_RGB32: GUID = 0x00000016_0000_0010_8000_00aa00389b71;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitAMMediaTypeFromMFMediaType(pMFType: IMFMediaType, guidFormatBlockType: GUID, #[in] #[out] pAMType: *mut AM_MEDIA_TYPE) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitAttributesFromBlob(pAttributes: IMFAttributes, #[size_param(2)] pBuf: *const u8, cbBufSize: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromAMMediaType(pMFType: IMFMediaType, pAMType: *const AM_MEDIA_TYPE) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromMFVideoFormat(pMFType: IMFMediaType, #[size_param(2)] pMFVF: *const MFVIDEOFORMAT, cbBufSize: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromMPEG1VideoInfo(pMFType: IMFMediaType, #[size_param(2)] pMP1VI: *const MPEG1VIDEOINFO, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromMPEG2VideoInfo(pMFType: IMFMediaType, #[size_param(2)] pMP2VI: *const MPEG2VIDEOINFO, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromVideoInfoHeader(pMFType: IMFMediaType, #[size_param(2)] pVIH: *const VIDEOINFOHEADER, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromVideoInfoHeader2(pMFType: IMFMediaType, #[size_param(2)] pVIH2: *const VIDEOINFOHEADER2, cbBufSize: u32, #[opt] pSubtype: *const GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitMediaTypeFromWaveFormatEx(pMFType: IMFMediaType, #[size_param(2)] pWaveFormat: *const WAVEFORMATEX, cbBufSize: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitVideoFormat(pVideoFormat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInitVideoFormat_RGB(pVideoFormat: *const MFVIDEOFORMAT, dwWidth: u32, dwHeight: u32, D3Dfmt: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFInvokeCallback(pAsyncResult: IMFAsyncResult) -> HRESULT;
+        #[library("EVR.dll")]
+        extern fn MFIsFormatYUV(Format: u32) -> BOOL;
+        #[library("MFPlat.DLL")]
+        extern fn MFLockDXGIDeviceManager(#[opt] pResetToken: *mut u32, ppManager: *mut IMFDXGIDeviceManager) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFLockPlatform() -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFLockSharedWorkQueue(wszClass: PCWSTR, BasePriority: i32, #[in] #[out] pdwTaskId: *mut u32, pID: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFLockWorkQueue(dwWorkQueue: u32) -> HRESULT;
+        const MFMPEG4Format_Base: GUID = 0x00000000_767a_494d_b478_f29d25dc9037;
+        #[library("MFPlat.DLL")]
+        extern fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> DXGI_FORMAT;
+        #[library("MFPlat.DLL")]
+        extern fn MFMapDXGIFormatToDX9Format(dx11: DXGI_FORMAT) -> u32;
+        const MFMediaType_Audio: GUID = 0x73647561_0000_0010_8000_00aa00389b71;
+        const MFMediaType_Binary: GUID = 0x72178c25_e45b_11d5_bc2a_00b0d0f3f4ab;
+        const MFMediaType_Default: GUID = 0x81a412e6_8103_4b06_857f_1862781024ac;
+        const MFMediaType_FileTransfer: GUID = 0x72178c26_e45b_11d5_bc2a_00b0d0f3f4ab;
+        const MFMediaType_HTML: GUID = 0x72178c24_e45b_11d5_bc2a_00b0d0f3f4ab;
+        const MFMediaType_Image: GUID = 0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab;
+        const MFMediaType_Metadata: GUID = 0x2c8fa20c_82bb_4782_90a0_98a2a5bd8ef8;
+        const MFMediaType_MultiplexedFrames: GUID = 0x6ea542b0_281f_4231_a464_fe2f5022501c;
+        const MFMediaType_Perception: GUID = 0x597ff6f9_6ea2_4670_85b4_ea84073fe940;
+        const MFMediaType_Protected: GUID = 0x7b4b6fe6_9d04_4494_be14_7e0bd076c8e4;
+        const MFMediaType_SAMI: GUID = 0xe69669a0_3dcd_40cb_9e2e_3708387c0616;
+        const MFMediaType_Script: GUID = 0x72178c22_e45b_11d5_bc2a_00b0d0f3f4ab;
+        const MFMediaType_Stream: GUID = 0xe436eb83_524f_11ce_9f53_0020af0ba770;
+        const MFMediaType_Subtitle: GUID = 0xa6d13581_ed50_4e65_ae08_26065576aacc;
+        const MFMediaType_Video: GUID = 0x73646976_0000_0010_8000_00aa00389b71;
+        extern fn MFPERIODICCALLBACK(pContext: IUnknown);
+        struct MFPinholeCameraIntrinsic_IntrinsicModel {
+            Width: u32,
+            Height: u32,
+            CameraModel: MFCameraIntrinsic_PinholeCameraModel,
+            DistortionModel: MFCameraIntrinsic_DistortionModel,
+        }
+        struct MFPinholeCameraIntrinsics {
+            IntrinsicModelCount: u32,
+            IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFPutWaitingWorkItem(hEvent: HANDLE, Priority: i32, pResult: IMFAsyncResult, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFPutWorkItem(dwQueue: u32, pCallback: IMFAsyncCallback, pState: IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFPutWorkItem2(dwQueue: u32, Priority: i32, pCallback: IMFAsyncCallback, #[opt] pState: IUnknown) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFPutWorkItemEx(dwQueue: u32, pResult: IMFAsyncResult) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFPutWorkItemEx2(dwQueue: u32, Priority: i32, pResult: IMFAsyncResult) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFRegisterLocalByteStreamHandler(szFileExtension: PCWSTR, szMimeType: PCWSTR, pActivate: IMFActivate) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFRegisterLocalSchemeHandler(szScheme: PCWSTR, pActivate: IMFActivate) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFRegisterPlatformWithMMCSS(wszClass: PCWSTR, #[in] #[out] pdwTaskId: *mut u32, lPriority: i32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFRemovePeriodicCallback(dwKey: u32) -> HRESULT;
+        const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64;
+        const MFSESSIONCAP_PAUSE: u32 = 4;
+        const MFSESSIONCAP_RATE_FORWARD: u32 = 16;
+        const MFSESSIONCAP_RATE_REVERSE: u32 = 32;
+        const MFSESSIONCAP_SEEK: u32 = 2;
+        const MFSESSIONCAP_START: u32 = 1;
+        const MFSTARTUP_FULL: u32 = 0;
+        const MFSTARTUP_LITE: u32 = 1;
+        const MFSTARTUP_NOSOCKET: u32 = 1;
+        #[repr(i32)]
+        enum MFSampleEncryptionProtectionScheme {
+            MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE = 0,
+            MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CTR = 1,
+            MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC = 2,
+        }
+        struct MFSampleExtensionPsnrYuv {
+            psnrY: f32,
+            psnrU: f32,
+            psnrV: f32,
+        }
+        const MFSampleExtension_3DVideo: GUID = 0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005;
+        const MFSampleExtension_3DVideo_SampleFormat: GUID = 0x08671772_e36f_4cff_97b3_d72e20987a48;
+        const MFSampleExtension_AccumulatedNonRefPicPercent: GUID = 0x79ea74df_a740_445b_bc98_c9ed1f260eee;
+        const MFSampleExtension_BottomFieldFirst: GUID = 0x941ce0a3_6ae3_4dda_9a08_a64298340617;
+        const MFSampleExtension_CameraExtrinsics: GUID = 0x6b761658_b7ec_4c3b_8225_8623cabec31d;
+        const MFSampleExtension_CaptureMetadata: GUID = 0x2ebe23a8_faf5_444a_a6a2_eb810880ab5d;
+        const MFSampleExtension_ChromaOnly: GUID = 0x1eb9179c_a01f_4845_8c04_0e65a26eb04f;
+        const MFSampleExtension_CleanPoint: GUID = 0x9cdf01d8_a0f0_43ba_b077_eaa06cbd728a;
+        const MFSampleExtension_ClosedCaption_CEA708: GUID = 0x26f09068_e744_47dc_aa03_dbf20403bde6;
+        const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: u32 = 256;
+        const MFSampleExtension_Content_KeyID: GUID = 0xc6c7f5b0_acca_415b_87d9_10441469efc6;
+        const MFSampleExtension_DecodeTimestamp: GUID = 0x73a954d4_09e2_4861_befc_94bd97c08e6e;
+        const MFSampleExtension_Depth_MaxReliableDepth: GUID = 0xe45545d1_1f0f_4a32_a8a7_6101a24ea8be;
+        const MFSampleExtension_Depth_MinReliableDepth: GUID = 0x5f8582b2_e36b_47c8_9b87_fee1ca72c5b0;
+        const MFSampleExtension_DerivedFromTopField: GUID = 0x6852465a_ae1c_4553_8e9b_c3420fcb1637;
+        const MFSampleExtension_DescrambleData: GUID = 0x43483be6_4903_4314_b032_2951365936fc;
+        const MFSampleExtension_DirtyRects: GUID = 0x9ba70225_b342_4e97_9126_0b566ab7ea7e;
+        const MFSampleExtension_Discontinuity: GUID = 0x9cdf01d9_a0f0_43ba_b077_eaa06cbd728a;
+        const MFSampleExtension_Encryption_ClearSliceHeaderData: GUID = 0x5509a4f4_320d_4e6c_8d1a_94c66dd20cb0;
+        const MFSampleExtension_Encryption_CryptByteBlock: GUID = 0x9d84289b_0c7f_4713_ab95_108ab42ad801;
+        const MFSampleExtension_Encryption_HardwareProtection: GUID = 0x9a2b2d2b_8270_43e3_8448_994f426e8886;
+        const MFSampleExtension_Encryption_HardwareProtection_KeyInfo: GUID = 0xb2372080_455b_4dd7_9989_1a955784b754;
+        const MFSampleExtension_Encryption_HardwareProtection_KeyInfoID: GUID = 0x8cbfcceb_94a5_4de1_8231_a85e47cf81e7;
+        const MFSampleExtension_Encryption_HardwareProtection_VideoDecryptorContext: GUID = 0x693470c8_e837_47a0_88cb_535b905e3582;
+        const MFSampleExtension_Encryption_KeyID: GUID = 0x76376591_795f_4da1_86ed_9d46eca109a9;
+        const MFSampleExtension_Encryption_NALUTypes: GUID = 0xb0f067c7_714c_416c_8d59_5f4ddf8913b6;
+        const MFSampleExtension_Encryption_Opaque_Data: GUID = 0x224d77e5_1391_4ffb_9f41_b432f68c611d;
+        const MFSampleExtension_Encryption_ProtectionScheme: GUID = 0xd054d096_28bb_45da_87ec_74f351871406;
+        const MFSampleExtension_Encryption_ResumeVideoOutput: GUID = 0xa435aba5_afde_4cf5_bc1c_f6acaf13949d;
+        const MFSampleExtension_Encryption_SEIData: GUID = 0x3cf0e972_4542_4687_9999_585f565fba7d;
+        const MFSampleExtension_Encryption_SPSPPSData: GUID = 0xaede0fa2_0e0c_453c_b7f3_de8693364d11;
+        const MFSampleExtension_Encryption_SampleID: GUID = 0x6698b84e_0afa_4330_aeb2_1c0a98d7a44d;
+        const MFSampleExtension_Encryption_SkipByteBlock: GUID = 0x0d550548_8317_4ab1_845f_d06306e293e3;
+        const MFSampleExtension_Encryption_SubSampleMappingSplit: GUID = 0xfe0254b9_2aa5_4edc_99f7_17e89dbf9174;
+        const MFSampleExtension_Encryption_SubSample_Mapping: GUID = 0x8444f27a_69a1_48da_bd08_11cef36830d2;
+        const MFSampleExtension_FeatureMap: GUID = 0xa032d165_46fc_400a_b449_49de53e62a6e;
+        const MFSampleExtension_ForwardedDecodeUnitType: GUID = 0x089e57c7_47d3_4a26_bf9c_4b64fafb5d1e;
+        const MFSampleExtension_ForwardedDecodeUnits: GUID = 0x424c754c_97c8_48d6_8777_fc41f7b60879;
+        const MFSampleExtension_FrameCorruption: GUID = 0xb4dd4a8c_0beb_44c4_8b75_b02b913b04f0;
+        const MFSampleExtension_FramePsnrYuv: GUID = 0x1c633a3d_566f_4752_833b_2907df5415e1;
+        const MFSampleExtension_GenKeyCtx: GUID = 0x188120cb_d7da_4b59_9b3e_9252fd37301c;
+        const MFSampleExtension_GenKeyFunc: GUID = 0x441ca1ee_6b1f_4501_903a_de87df42f6ed;
+        const MFSampleExtension_HDCP_FrameCounter: GUID = 0x9d389c60_f507_4aa6_a40a_71027a02f3de;
+        const MFSampleExtension_HDCP_OptionalHeader: GUID = 0x9a2e7390_121f_455f_8376_c97428e0b540;
+        const MFSampleExtension_HDCP_StreamID: GUID = 0x177e5d74_c370_4a7a_95a2_36833c01d0af;
+        const MFSampleExtension_Interlaced: GUID = 0xb1d5830a_deb8_40e3_90fa_389943716461;
+        const MFSampleExtension_LastSlice: GUID = 0x2b5d5457_5547_4f07_b8c8_b4a3a9a1daac;
+        const MFSampleExtension_LongTermReferenceFrameInfo: GUID = 0x9154733f_e1bd_41bf_81d3_fcd918f71332;
+        const MFSampleExtension_MDLCacheCookie: GUID = 0x5f002af9_d8f9_41a3_b6c3_a2ad43f647ad;
+        const MFSampleExtension_MULTIPLEXED_MANAGER: GUID = 0x8dcdee79_6b5a_4c45_8db9_20b395f02fcf;
+        const MFSampleExtension_MaxDecodeFrameSize: GUID = 0xd3cc654f_f9f3_4a13_889f_f04eb2b5b957;
+        const MFSampleExtension_MeanAbsoluteDifference: GUID = 0x1cdbde11_08b4_4311_a6dd_0f9f371907aa;
+        const MFSampleExtension_MoveRegions: GUID = 0xe2a6c693_3a8b_4b8d_95d0_f60281a12fb7;
+        const MFSampleExtension_NALULengthInfo: GUID = 0x19124e7c_ad4b_465f_bb18_20186287b6af;
+        const MFSampleExtension_PacketCrossOffsets: GUID = 0x2789671d_389f_40bb_90d9_c282f77f9abd;
+        const MFSampleExtension_PhotoThumbnail: GUID = 0x74bbc85c_c8bb_42dc_b586_da17ffd35dcc;
+        const MFSampleExtension_PhotoThumbnailMediaType: GUID = 0x61ad5420_ebf8_4143_89af_6bf25f672def;
+        const MFSampleExtension_PinholeCameraIntrinsics: GUID = 0x4ee3b6c5_6a15_4e72_9761_70c1db8b9fe3;
+        const MFSampleExtension_ROIRectangle: GUID = 0x3414a438_4998_4d2c_be82_be3ca0b24d43;
+        const MFSampleExtension_RepeatFirstField: GUID = 0x304d257c_7493_4fbd_b149_9228de8d9a99;
+        const MFSampleExtension_RepeatFrame: GUID = 0x88be738f_0711_4f42_b458_344aed42ec2f;
+        const MFSampleExtension_SampleKeyID: GUID = 0x9ed713c8_9b87_4b26_8297_a93b0c5a8acc;
+        const MFSampleExtension_SingleField: GUID = 0x9d85f816_658b_455a_bde0_9fa7e15ab8f9;
+        const MFSampleExtension_SpatialLayerId: GUID = 0xb7aabc7b_2396_457a_879e_623bfab6e0ac;
+        const MFSampleExtension_TargetGlobalLuminance: GUID = 0x3f60ef36_31ef_4daf_8360_940397e41ef3;
+        const MFSampleExtension_TemporalLayerId: GUID = 0xb3c1fcd2_b331_4376_b974_ad647769b2b0;
+        const MFSampleExtension_Timestamp: GUID = 0x1e436999_69be_4c7a_9369_70068c0260cb;
+        const MFSampleExtension_Token: GUID = 0x8294da66_f328_4805_b551_00deb4c57a61;
+        const MFSampleExtension_VideoEncodeBitsUsedMap: GUID = 0x6894263d_e6e2_4bcc_849d_8570365f5114;
+        const MFSampleExtension_VideoEncodeD3D12ReconstructedPicture: GUID = 0x3e8a1b7f_5c92_4d6e_b834_f0a729e65c48;
+        const MFSampleExtension_VideoEncodeInputAbsoluteQPMap: GUID = 0x432a6e9a_f1ed_456e_8dc3_6f8985649eb9;
+        const MFSampleExtension_VideoEncodeInputDeltaQPMap: GUID = 0xdab419c3_bf21_4b46_8692_9a7bf0a71769;
+        const MFSampleExtension_VideoEncodePictureType: GUID = 0x973704e6_cd14_483c_8f20_c9fc0928bad5;
+        const MFSampleExtension_VideoEncodeQP: GUID = 0xb2efe478_f979_4c66_b95e_ee2b82c82f36;
+        const MFSampleExtension_VideoEncodeQPMap: GUID = 0x2c68a331_b712_49ca_860a_3a1d58237d88;
+        const MFSampleExtension_VideoEncodeSatdMap: GUID = 0xadf61d96_c2d3_4b57_a138_dde4d351eaa9;
+        #[library("MFPlat.DLL")]
+        extern fn MFScheduleWorkItem(pCallback: IMFAsyncCallback, pState: IUnknown, Timeout: i64, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFScheduleWorkItemEx(pResult: IMFAsyncResult, Timeout: i64, #[opt] pKey: *mut MFWORKITEM_KEY) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFShutdown() -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFSplitSample(pSample: IMFSample, #[len_param(2)] pOutputSamples: *mut IMFSample, dwOutputSampleMaxCount: u32, pdwOutputSampleCount: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFStartup(Version: u32, dwFlags: u32) -> HRESULT;
+        const MFStreamExtension_CameraExtrinsics: GUID = 0x686196d0_13e2_41d9_9638_ef032c272a52;
+        const MFStreamExtension_PinholeCameraIntrinsics: GUID = 0xdbac0455_0ec8_4aef_9c32_7a3ee3456f53;
+        const MFStreamFormat_MPEG2Program: GUID = 0x263067d1_d330_45dc_b669_34d986e4e3e1;
+        const MFStreamFormat_MPEG2Transport: GUID = 0xe06d8023_db46_11cf_b4d1_00805f6cbbea;
+        const MFSubtitleFormat_ATSC: GUID = 0x7fa7faa3_feae_4e16_aedf_36b9acfbb099;
+        const MFSubtitleFormat_CustomUserData: GUID = 0x1bb3d849_6614_4d80_8882_ed24aa82da92;
+        const MFSubtitleFormat_PGS: GUID = 0x71f40e4a_1278_4442_b30d_39dd1d7722bc;
+        const MFSubtitleFormat_SRT: GUID = 0x5e467f2e_77ca_4ca5_8391_d142ed4b76c8;
+        const MFSubtitleFormat_SSA: GUID = 0x57176a1b_1a9e_4eea_abef_c61760198ac4;
+        const MFSubtitleFormat_TTML: GUID = 0x73e73992_9a10_4356_9557_7194e91e3e54;
+        const MFSubtitleFormat_VobSub: GUID = 0x6b8e40f4_8d2c_4ced_ad91_5960e45b4433;
+        const MFSubtitleFormat_WebVTT: GUID = 0xc886d215_f485_40bb_8db6_fadbc619a45d;
+        const MFSubtitleFormat_XML: GUID = 0x2006f94f_29ca_4195_b8db_00ded8ff0c97;
+        #[library("MFPlat.DLL")]
+        extern fn MFTEnum(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, ppclsidMFT: *mut *mut GUID, pcMFTs: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTEnum2(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes, pppMFTActivate: *mut *mut IMFActivate, pnumMFTActivate: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTEnumEx(guidCategory: GUID, Flags: u32, #[opt] pInputType: *const MFT_REGISTER_TYPE_INFO, #[opt] pOutputType: *const MFT_REGISTER_TYPE_INFO, pppMFTActivate: *mut *mut IMFActivate, pnumMFTActivate: *mut u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTGetInfo(clsidMFT: GUID, #[opt] pszName: *mut PWSTR, ppInputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcInputTypes: *mut u32, ppOutputTypes: *mut *mut MFT_REGISTER_TYPE_INFO, #[opt] pcOutputTypes: *mut u32, ppAttributes: *mut IMFAttributes) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTRegister(clsidMFT: GUID, guidCategory: GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO, #[opt] pAttributes: IMFAttributes) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTRegisterLocal(pClassFactory: IClassFactory, guidCategory: *const GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTRegisterLocalByCLSID(clisdMFT: *const GUID, guidCategory: *const GUID, pszName: PCWSTR, Flags: u32, cInputTypes: u32, #[len_param(4)] #[opt] pInputTypes: *const MFT_REGISTER_TYPE_INFO, cOutputTypes: u32, #[len_param(6)] #[opt] pOutputTypes: *const MFT_REGISTER_TYPE_INFO) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTUnregister(clsidMFT: GUID) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTUnregisterLocal(#[opt] pClassFactory: IClassFactory) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFTUnregisterLocalByCLSID(clsidMFT: GUID) -> HRESULT;
+        const MFT_CATEGORY_AUDIO_DECODER: GUID = 0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7;
+        const MFT_CATEGORY_AUDIO_EFFECT: GUID = 0x11064c48_3648_4ed0_932e_05ce8ac811b7;
+        const MFT_CATEGORY_AUDIO_ENCODER: GUID = 0x91c64bd0_f91e_4d8c_9276_db248279d975;
+        const MFT_CATEGORY_DEMULTIPLEXER: GUID = 0xa8700a7a_939b_44c5_99d7_76226b23b3f1;
+        const MFT_CATEGORY_ENCRYPTOR: GUID = 0xb0c687be_01cd_44b5_b8b2_7c1d7e058b1f;
+        const MFT_CATEGORY_MULTIPLEXER: GUID = 0x059c561e_05ae_4b61_b69d_55b61ee54a7b;
+        const MFT_CATEGORY_OTHER: GUID = 0x90175d57_b7ea_4901_aeb3_933a8747756f;
+        const MFT_CATEGORY_VIDEO_DECODER: GUID = 0xd6c02d4b_6833_45b4_971a_05a4b04bab91;
+        const MFT_CATEGORY_VIDEO_EFFECT: GUID = 0x12e17c21_532c_4a6e_8a1c_40825a736397;
+        const MFT_CATEGORY_VIDEO_ENCODER: GUID = 0xf79eac7d_e545_4387_bdee_d647d7bde42a;
+        const MFT_CATEGORY_VIDEO_PROCESSOR: GUID = 0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302;
+        const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: GUID = 0x145cd8b4_92f4_4b23_8ae7_e0df06c2da95;
+        const MFT_ENCODER_ERROR: GUID = 0xc8d1eda4_98e4_41d5_9297_44f53852f90e;
+        const MFT_ENUM_ADAPTER_LUID: GUID = 0x1d39518c_e220_4da8_a07f_ba172552d6b1;
+        const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: GUID = 0x62c56928_9a4e_443b_b9dc_cac830c24100;
+        const MFT_GFX_DRIVER_VERSION_ID_Attribute: GUID = 0xf34b9093_05e0_4b16_993d_3e2a2cde6ad3;
+        const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: GUID = 0x53476a11_3f13_49fb_ac42_ee2733c96741;
+        #[library("MFPlat.DLL")]
+        extern fn MFUnlockDXGIDeviceManager() -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFUnlockPlatform() -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFUnlockWorkQueue(dwWorkQueue: u32) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFUnregisterPlatformFromMMCSS() -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFUnwrapMediaType(pWrap: IMFMediaType, ppOrig: *mut IMFMediaType) -> HRESULT;
+        #[library("MFPlat.DLL")]
+        extern fn MFValidateMediaTypeSize(FormatType: GUID, #[size_param(2)] #[opt] pBlock: *const u8, cbSize: u32) -> HRESULT;
+        #[repr(i32)]
+        enum MFVideo3DFormat {
+            MFVideo3DSampleFormat_BaseView = 0,
+            MFVideo3DSampleFormat_MultiView = 1,
+            MFVideo3DSampleFormat_Packed_LeftRight = 2,
+            MFVideo3DSampleFormat_Packed_TopBottom = 3,
+        }
+        #[repr(i32)]
+        enum MFVideo3DSampleFormat {
+            MFSampleExtension_3DVideo_MultiView = 1,
+            MFSampleExtension_3DVideo_Packed = 0,
+        }
+        #[repr(i32)]
+        enum MFVideoDRMFlags {
+            MFVideoDRMFlag_None = 0,
+            MFVideoDRMFlag_AnalogProtected = 1,
+            MFVideoDRMFlag_DigitallyProtected = 2,
+        }
+        const MFVideoFormat_Base_HDCP: GUID = 0xeac3b9d5_bd14_4237_8f1f_bab428e49312;
+        const MFVideoFormat_H264_ES: GUID = 0x3f40f4f0_5622_4ff8_b6d8_a17a584bee5e;
+        const MFVideoFormat_H264_HDCP: GUID = 0x5d0ce9dd_9817_49da_bdfd_f5f5b98f18a6;
+        const MFVideoFormat_HEVC_HDCP: GUID = 0x3cfe0fe6_05c4_47dc_9d70_4bdb2959720f;
+        const MFVideoFormat_MPEG2: GUID = 0xe06d8026_db46_11cf_b4d1_00805f6cbbea;
+        #[repr(i32)]
+        enum MFVideoPadFlags {
+            MFVideoPadFlag_PAD_TO_None = 0,
+            MFVideoPadFlag_PAD_TO_4x3 = 1,
+            MFVideoPadFlag_PAD_TO_16x9 = 2,
+        }
+        #[repr(i32)]
+        enum MFVideoRotationFormat {
+            MFVideoRotationFormat_0 = 0,
+            MFVideoRotationFormat_90 = 90,
+            MFVideoRotationFormat_180 = 180,
+            MFVideoRotationFormat_270 = 270,
+        }
+        #[repr(i32)]
+        enum MFVideoSrcContentHintFlags {
+            MFVideoSrcContentHintFlag_None = 0,
+            MFVideoSrcContentHintFlag_16x9 = 1,
+            MFVideoSrcContentHintFlag_235_1 = 2,
+        }
+        type MFWORKITEM_KEY = u64;
+        #[repr(i32)]
+        enum MFWaveFormatExConvertFlags {
+            MFWaveFormatExConvertFlag_Normal = 0,
+            MFWaveFormatExConvertFlag_ForceExtensible = 1,
+        }
+        #[library("MFPlat.DLL")]
+        extern fn MFWrapMediaType(pOrig: IMFMediaType, MajorType: *const GUID, SubType: *const GUID, ppWrap: *mut IMFMediaType) -> HRESULT;
+        const MF_1024_BYTE_ALIGNMENT: u32 = 1023;
+        const MF_128_BYTE_ALIGNMENT: u32 = 127;
+        const MF_16_BYTE_ALIGNMENT: u32 = 15;
+        const MF_1_BYTE_ALIGNMENT: u32 = 0;
+        const MF_2048_BYTE_ALIGNMENT: u32 = 2047;
+        const MF_256_BYTE_ALIGNMENT: u32 = 255;
+        const MF_2_BYTE_ALIGNMENT: u32 = 1;
+        const MF_32_BYTE_ALIGNMENT: u32 = 31;
+        const MF_4096_BYTE_ALIGNMENT: u32 = 4095;
+        const MF_4_BYTE_ALIGNMENT: u32 = 3;
+        const MF_512_BYTE_ALIGNMENT: u32 = 511;
+        const MF_64_BYTE_ALIGNMENT: u32 = 63;
+        const MF_8192_BYTE_ALIGNMENT: u32 = 8191;
+        const MF_8_BYTE_ALIGNMENT: u32 = 7;
+        const MF_API_VERSION: u32 = 112;
+        const MF_CAPTURE_METADATA_DIGITALWINDOW: GUID = 0x276f72a2_59c8_4f69_97b4_068b8c0ec044;
+        const MF_CAPTURE_METADATA_EXIF: GUID = 0x2e9575b8_8c31_4a02_8575_42b197b71592;
+        const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: GUID = 0xd198aa75_4b62_4345_abf3_3c31fa12c299;
+        const MF_CAPTURE_METADATA_EXPOSURE_TIME: GUID = 0x16b9ae99_cd84_4063_879d_a28c7633729e;
+        const MF_CAPTURE_METADATA_FACEROICHARACTERIZATIONS: GUID = 0xb927a1a8_18ef_46d3_b3af_69372f94d9b2;
+        const MF_CAPTURE_METADATA_FACEROIS: GUID = 0x864f25a6_349f_46b1_a30e_54cc22928a47;
+        const MF_CAPTURE_METADATA_FACEROITIMESTAMPS: GUID = 0xe94d50cc_3da0_44d4_bb34_83198a741868;
+        const MF_CAPTURE_METADATA_FIRST_SCANLINE_START_TIME_QPC: GUID = 0x6a2c49f1_e052_46b6_b2d9_73c1558709af;
+        const MF_CAPTURE_METADATA_FLASH: GUID = 0x4a51520b_fb36_446c_9df2_68171b9a0389;
+        const MF_CAPTURE_METADATA_FLASH_POWER: GUID = 0x9c0e0d49_0205_491a_bc9d_2d6e1f4d5684;
+        const MF_CAPTURE_METADATA_FOCUSSTATE: GUID = 0xa87ee154_997f_465d_b91f_29d53b982b88;
+        const MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK: GUID = 0x03f14dd3_75dd_433a_a8e2_1e3f5f2a50a0;
+        const MF_CAPTURE_METADATA_FRAME_ILLUMINATION: GUID = 0x6d688ffc_63d3_46fe_bada_5b947db0d080;
+        const MF_CAPTURE_METADATA_FRAME_RAWSTREAM: GUID = 0x9252077b_2680_49b9_ae02_b19075973b70;
+        const MF_CAPTURE_METADATA_HISTOGRAM: GUID = 0x85358432_2ef6_4ba9_a3fb_06d82974b895;
+        const MF_CAPTURE_METADATA_ISO_GAINS: GUID = 0x05802ac9_0e1d_41c7_a8c8_7e7369f84e1e;
+        const MF_CAPTURE_METADATA_ISO_SPEED: GUID = 0xe528a68f_b2e3_44fe_8b65_07bf4b5a13ff;
+        const MF_CAPTURE_METADATA_LAST_SCANLINE_END_TIME_QPC: GUID = 0xdccadecb_c4d4_400d_b418_10e88525e1f6;
+        const MF_CAPTURE_METADATA_LENS_POSITION: GUID = 0xb5fc8e86_11d1_4e70_819b_723a89fa4520;
+        const MF_CAPTURE_METADATA_PHOTO_FRAME_FLASH: GUID = 0x0f9dd6c6_6003_45d8_bd59_f1f53e3d04e8;
+        const MF_CAPTURE_METADATA_REQUESTED_FRAME_SETTING_ID: GUID = 0xbb3716d9_8a61_47a4_8197_459c7ff174d5;
+        const MF_CAPTURE_METADATA_SCANLINE_DIRECTION: GUID = 0x6496a3ba_1907_49e6_b0c3_123795f380a9;
+        const MF_CAPTURE_METADATA_SCANLINE_TIME_QPC_ACCURACY: GUID = 0x4cd79c51_f765_4b09_b1e1_27d1f7ebea09;
+        const MF_CAPTURE_METADATA_SCENE_MODE: GUID = 0x9cc3b54d_5ed3_4bae_b388_7670aef59e13;
+        const MF_CAPTURE_METADATA_SENSORFRAMERATE: GUID = 0xdb51357e_9d3d_4962_b06d_07ce650d9a0a;
+        const MF_CAPTURE_METADATA_UVC_PAYLOADHEADER: GUID = 0xf9f88a87_e1dd_441e_95cb_42e21a64f1d9;
+        const MF_CAPTURE_METADATA_WHITEBALANCE: GUID = 0xc736fd77_0fb9_4e2e_97a2_fcd490739ee9;
+        const MF_CAPTURE_METADATA_WHITEBALANCE_GAINS: GUID = 0xe7570c8f_2dcb_4c7c_aace_22ece7cce647;
+        const MF_CAPTURE_METADATA_ZOOMFACTOR: GUID = 0xe50b0b81_e501_42c2_abf2_857ecb13fa5c;
+        #[repr(i32)]
+        enum MF_CUSTOM_DECODE_UNIT_TYPE {
+            MF_DECODE_UNIT_NAL = 0,
+            MF_DECODE_UNIT_SEI = 1,
+        }
+        const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: GUID = 0xf13bbe3c_36d4_410a_b985_7a951a1e6294;
+        const MF_DEVICESTREAM_ATTRIBUTE_FACEAUTH_CAPABILITY: GUID = 0xcb6fd12a_2248_4e41_ad46_e78bb90ab9fc;
+        const MF_DEVICESTREAM_ATTRIBUTE_FRAMESOURCE_TYPES: GUID = 0x17145fd1_1b2b_423c_8001_2b6833ed3588;
+        const MF_DEVICESTREAM_ATTRIBUTE_SECURE_CAPABILITY: GUID = 0x940fd626_ea6e_4684_9840_36bd6ec9fbef;
+        const MF_DEVICESTREAM_MULTIPLEXED_MANAGER: GUID = 0x6ea542b0_281f_4231_a464_fe2f5022501c;
+        const MF_DISABLE_FRAME_CORRUPTION_INFO: GUID = 0x7086e16c_49c5_4201_882a_8538f38cf13a;
+        const MF_EVENT_DO_THINNING: GUID = 0x321ea6fb_dad9_46e4_b31d_d2eae7090e30;
+        const MF_EVENT_MFT_CONTEXT: GUID = 0xb7cd31f1_899e_4b41_80c9_26a896d32977;
+        const MF_EVENT_MFT_INPUT_STREAM_ID: GUID = 0xf29c2cca_7ae6_42d2_b284_bf837cc874e2;
+        const MF_EVENT_OUTPUT_NODE: GUID = 0x830f1a8b_c060_46dd_a801_1c95dec9b107;
+        const MF_EVENT_PRESENTATION_TIME_OFFSET: GUID = 0x5ad914d1_9b45_4a8d_a2c0_81d1e50bfb07;
+        const MF_EVENT_SCRUBSAMPLE_TIME: GUID = 0x9ac712b3_dcb8_44d5_8d0c_37455a2782e3;
+        const MF_EVENT_SESSIONCAPS: GUID = 0x7e5ebcd0_11b8_4abe_afad_10f6599a7f42;
+        const MF_EVENT_SESSIONCAPS_DELTA: GUID = 0x7e5ebcd1_11b8_4abe_afad_10f6599a7f42;
+        const MF_EVENT_SOURCE_ACTUAL_START: GUID = 0xa8cc55a9_6b31_419f_845d_ffb351a2434b;
+        const MF_EVENT_SOURCE_CHARACTERISTICS: GUID = 0x47db8490_8b22_4f52_afda_9ce1b2d3cfa8;
+        const MF_EVENT_SOURCE_CHARACTERISTICS_OLD: GUID = 0x47db8491_8b22_4f52_afda_9ce1b2d3cfa8;
+        const MF_EVENT_SOURCE_FAKE_START: GUID = 0xa8cc55a7_6b31_419f_845d_ffb351a2434b;
+        const MF_EVENT_SOURCE_PROJECTSTART: GUID = 0xa8cc55a8_6b31_419f_845d_ffb351a2434b;
+        const MF_EVENT_SOURCE_TOPOLOGY_CANCELED: GUID = 0xdb62f650_9a5e_4704_acf3_563bc6a73364;
+        const MF_EVENT_START_PRESENTATION_TIME: GUID = 0x5ad914d0_9b45_4a8d_a2c0_81d1e50bfb07;
+        const MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT: GUID = 0x5ad914d2_9b45_4a8d_a2c0_81d1e50bfb07;
+        const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: GUID = 0x5063449d_cc29_4fc6_a75a_d247b35af85c;
+        const MF_EVENT_STREAM_METADATA_KEYDATA: GUID = 0xcd59a4a1_4a3b_4bbd_8665_72a40fbea776;
+        const MF_EVENT_STREAM_METADATA_SYSTEMID: GUID = 0x1ea2ef64_ba16_4a36_8719_fe7560ba32ad;
+        const MF_EVENT_TOPOLOGY_STATUS: GUID = 0x30c5018d_9a53_454b_ad9e_6d5f8fa7c43b;
+        const MF_E_DXGI_DEVICE_NOT_INITIALIZED: HRESULT = -2147217408;
+        const MF_E_DXGI_NEW_VIDEO_DEVICE: HRESULT = -2147217407;
+        const MF_E_DXGI_VIDEO_DEVICE_LOCKED: HRESULT = -2147217406;
+        struct MF_FLOAT2 {
+            x: f32,
+            y: f32,
+        }
+        struct MF_FLOAT3 {
+            x: f32,
+            y: f32,
+            z: f32,
+        }
+        const MF_HISTOGRAM_CHANNEL_B: u32 = 8;
+        const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16;
+        const MF_HISTOGRAM_CHANNEL_Cr: u32 = 32;
+        const MF_HISTOGRAM_CHANNEL_G: u32 = 4;
+        const MF_HISTOGRAM_CHANNEL_R: u32 = 2;
+        const MF_HISTOGRAM_CHANNEL_Y: u32 = 1;
+        const MF_LOW_LATENCY: GUID = 0x9c27891a_ed7a_40e1_88e8_b22727a024ee;
+        const MF_MEDIATYPE_MULTIPLEXED_MANAGER: GUID = 0x13c78fb5_f275_4ea0_bb5f_0249832b0d6e;
+        const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1;
+        const MF_METADATATIMESTAMPS_DEVICE: u32 = 1;
+        const MF_METADATATIMESTAMPS_PRESENTATION: u32 = 2;
+        const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: GUID = 0x7632f0e6_9538_4d61_acda_ea29c8c14456;
+        const MF_MT_AAC_PAYLOAD_TYPE: GUID = 0xbfbabe79_7434_4d1c_94f0_72a3b9e17188;
+        const MF_MT_ALL_SAMPLES_INDEPENDENT: GUID = 0xc9173739_5e56_461c_b713_46fb995cb95f;
+        const MF_MT_ALPHA_MODE: GUID = 0x5d959b0d_4cbf_4d04_919f_3f5f7f284211;
+        const MF_MT_AM_FORMAT_TYPE: GUID = 0x73d1072d_1870_4174_a063_29ff4ff6c11e;
+        const MF_MT_ARBITRARY_FORMAT: GUID = 0x5a75b249_0d7d_49a1_a1c3_e0d87f0cade5;
+        const MF_MT_ARBITRARY_HEADER: GUID = 0x9e6bd6f5_0109_4f95_84ac_9309153a19fc;
+        const MF_MT_AUDIO_AVG_BYTES_PER_SECOND: GUID = 0x1aab75c8_cfef_451c_ab95_ac034b8e1731;
+        const MF_MT_AUDIO_BITS_PER_SAMPLE: GUID = 0xf2deb57f_40fa_4764_aa33_ed4f2d1ff669;
+        const MF_MT_AUDIO_BLOCK_ALIGNMENT: GUID = 0x322de230_9eeb_43bd_ab7a_ff412251541d;
+        const MF_MT_AUDIO_CHANNEL_MASK: GUID = 0x55fb5765_644a_4caf_8479_938983bb1588;
+        const MF_MT_AUDIO_FLAC_MAX_BLOCK_SIZE: GUID = 0x8b81adae_4b5a_4d40_8022_f38d09ca3c5c;
+        const MF_MT_AUDIO_FLOAT_SAMPLES_PER_SECOND: GUID = 0xfb3b724a_cfb5_4319_aefe_6e42b2406132;
+        const MF_MT_AUDIO_FOLDDOWN_MATRIX: GUID = 0x9d62927c_36be_4cf2_b5c4_a3926e3e8711;
+        const MF_MT_AUDIO_NUM_CHANNELS: GUID = 0x37e48bf5_645e_4c5b_89de_ada9e29b696a;
+        const MF_MT_AUDIO_PREFER_WAVEFORMATEX: GUID = 0xa901aaba_e037_458a_bdf6_545be2074042;
+        const MF_MT_AUDIO_SAMPLES_PER_BLOCK: GUID = 0xaab15aac_e13a_4995_9222_501ea15c6877;
+        const MF_MT_AUDIO_SAMPLES_PER_SECOND: GUID = 0x5faeeae7_0290_4c31_9e8a_c534f68d9dba;
+        const MF_MT_AUDIO_VALID_BITS_PER_SAMPLE: GUID = 0xd9bf8d6a_9530_4b7c_9ddf_ff6fd58bbd06;
+        const MF_MT_AUDIO_WMADRC_AVGREF: GUID = 0x9d62927f_36be_4cf2_b5c4_a3926e3e8711;
+        const MF_MT_AUDIO_WMADRC_AVGTARGET: GUID = 0x9d629280_36be_4cf2_b5c4_a3926e3e8711;
+        const MF_MT_AUDIO_WMADRC_PEAKREF: GUID = 0x9d62927d_36be_4cf2_b5c4_a3926e3e8711;
+        const MF_MT_AUDIO_WMADRC_PEAKTARGET: GUID = 0x9d62927e_36be_4cf2_b5c4_a3926e3e8711;
+        const MF_MT_AVG_BITRATE: GUID = 0x20332624_fb0d_4d9e_bd0d_cbf6786c102e;
+        const MF_MT_AVG_BIT_ERROR_RATE: GUID = 0x799cabd6_3508_4db4_a3c7_569cd533deb1;
+        const MF_MT_COMPRESSED: GUID = 0x3afd0cee_18f2_4ba5_a110_8bea502e1f92;
+        const MF_MT_CONTAINER_RATE_SCALING: GUID = 0x83877f5e_0444_4e28_8479_6db0989b8c09;
+        const MF_MT_CUSTOM_VIDEO_PRIMARIES: GUID = 0x47537213_8cfb_4722_aa34_fbc9e24d77b8;
+        const MF_MT_DECODER_MAX_DPB_COUNT: GUID = 0x67be144c_88b7_4ca9_9628_c808d5262217;
+        const MF_MT_DECODER_USE_MAX_RESOLUTION: GUID = 0x4c547c24_af9a_4f38_96ad_978773cf53e7;
+        const MF_MT_DEFAULT_STRIDE: GUID = 0x644b4e48_1e02_4516_b0eb_c01ca9d49ac6;
+        const MF_MT_DEPTH_MEASUREMENT: GUID = 0xfd5ac489_0917_4bb6_9d54_3122bf70144b;
+        const MF_MT_DEPTH_VALUE_UNIT: GUID = 0x21a800f5_3189_4797_beba_f13cd9a31a5e;
+        const MF_MT_DRM_FLAGS: GUID = 0x8772f323_355a_4cc7_bb78_6d61a048ae82;
+        const MF_MT_DV_AAUX_CTRL_PACK_0: GUID = 0xf731004e_1dd1_4515_aabe_f0c06aa536ac;
+        const MF_MT_DV_AAUX_CTRL_PACK_1: GUID = 0xcd1f470d_1f04_4fe0_bfb9_d07ae0386ad8;
+        const MF_MT_DV_AAUX_SRC_PACK_0: GUID = 0x84bd5d88_0fb8_4ac8_be4b_a8848bef98f3;
+        const MF_MT_DV_AAUX_SRC_PACK_1: GUID = 0x720e6544_0225_4003_a651_0196563a958e;
+        const MF_MT_DV_VAUX_CTRL_PACK: GUID = 0x2f84e1c4_0da1_4788_938e_0dfbfbb34b48;
+        const MF_MT_DV_VAUX_SRC_PACK: GUID = 0x41402d9d_7b57_43c6_b129_2cb997f15009;
+        const MF_MT_FIXED_SIZE_SAMPLES: GUID = 0xb8ebefaf_b718_4e04_b0a9_116775e3321b;
+        const MF_MT_FORWARD_CUSTOM_NALU: GUID = 0xed336efd_244f_428d_9153_28f399458890;
+        const MF_MT_FORWARD_CUSTOM_SEI: GUID = 0xe27362f1_b136_41d1_9594_3a7e4febf2d1;
+        const MF_MT_FRAME_RATE: GUID = 0xc459a2e8_3d2c_4e44_b132_fee5156c7bb0;
+        const MF_MT_FRAME_RATE_RANGE_MAX: GUID = 0xe3371d41_b4cf_4a05_bd4e_20b88bb2c4d6;
+        const MF_MT_FRAME_RATE_RANGE_MIN: GUID = 0xd2e7558c_dc1f_403f_9a72_d28bb1eb3b5e;
+        const MF_MT_FRAME_SIZE: GUID = 0x1652c33d_d6b2_4012_b834_72030849a37d;
+        const MF_MT_GEOMETRIC_APERTURE: GUID = 0x66758743_7e5f_400d_980a_aa8596c85696;
+        const MF_MT_H264_CAPABILITIES: GUID = 0xbb3bd508_490a_11e0_99e4_1316dfd72085;
+        const MF_MT_H264_LAYOUT_PER_STREAM: GUID = 0x85e299b2_90e3_4fe8_b2f5_c067e0bfe57a;
+        const MF_MT_H264_MAX_CODEC_CONFIG_DELAY: GUID = 0xf5929986_4c45_4fbb_bb49_6cc534d05b9b;
+        const MF_MT_H264_MAX_MB_PER_SEC: GUID = 0x45256d30_7215_4576_9336_b0f1bcd59bb2;
+        const MF_MT_H264_RATE_CONTROL_MODES: GUID = 0x705177d8_45cb_11e0_ac7d_b91ce0d72085;
+        const MF_MT_H264_RESOLUTION_SCALING: GUID = 0xe3854272_f715_4757_ba90_1b696c773457;
+        const MF_MT_H264_SIMULCAST_SUPPORT: GUID = 0x9ea2d63d_53f0_4a34_b94e_9de49a078cb3;
+        const MF_MT_H264_SUPPORTED_RATE_CONTROL_MODES: GUID = 0x6a8ac47e_519c_4f18_9bb3_7eeaaea5594d;
+        const MF_MT_H264_SUPPORTED_SLICE_MODES: GUID = 0xc8be1937_4d64_4549_8343_a8086c0bfda5;
+        const MF_MT_H264_SUPPORTED_SYNC_FRAME_TYPES: GUID = 0x89a52c01_f282_48d2_b522_22e6ae633199;
+        const MF_MT_H264_SUPPORTED_USAGES: GUID = 0x60b1a998_dc01_40ce_9736_aba845a2dbdc;
+        const MF_MT_H264_SVC_CAPABILITIES: GUID = 0xf8993abe_d937_4a8f_bbca_6966fe9e1152;
+        const MF_MT_H264_USAGE: GUID = 0x359ce3a5_af00_49ca_a2f4_2ac94ca82b61;
+        const MF_MT_IMAGE_LOSS_TOLERANT: GUID = 0xed062cf4_e34e_4922_be99_934032133d7c;
+        const MF_MT_INTERLACE_MODE: GUID = 0xe2724bb8_e676_4806_b4b2_a8d6efb44ccd;
+        const MF_MT_IN_BAND_PARAMETER_SET: GUID = 0x75da5090_910b_4a03_896c_7b898feea5af;
+        const MF_MT_MAJOR_TYPE: GUID = 0x48eba18e_f8c9_4687_bf11_0a74c9f96a8f;
+        const MF_MT_MAX_FRAME_AVERAGE_LUMINANCE_LEVEL: GUID = 0x58d4bf57_6f52_4733_a195_a9e29ecf9e27;
+        const MF_MT_MAX_KEYFRAME_SPACING: GUID = 0xc16eb52b_73a1_476f_8d62_839d6a020652;
+        const MF_MT_MAX_LUMINANCE_LEVEL: GUID = 0x50253128_c110_4de4_98ae_46a324fae6da;
+        const MF_MT_MAX_MASTERING_LUMINANCE: GUID = 0xd6c6b997_272f_4ca1_8d00_8042111a0ff6;
+        const MF_MT_MINIMUM_DISPLAY_APERTURE: GUID = 0xd7388766_18fe_48c6_a177_ee894867c8c4;
+        const MF_MT_MIN_MASTERING_LUMINANCE: GUID = 0x839a4460_4e7e_4b4f_ae79_cc08905c7b27;
+        const MF_MT_MPEG2_CONTENT_PACKET: GUID = 0x825d55e4_4f12_4197_9eb3_59b6e4710f06;
+        const MF_MT_MPEG2_FLAGS: GUID = 0x31e3991d_f701_4b2f_b426_8ae3bda9e04b;
+        const MF_MT_MPEG2_HDCP: GUID = 0x168f1b4a_3e91_450f_aea7_e4baeadae5ba;
+        const MF_MT_MPEG2_LEVEL: GUID = 0x96f66574_11c5_4015_8666_bff516436da7;
+        const MF_MT_MPEG2_ONE_FRAME_PER_PACKET: GUID = 0x91a49eb5_1d20_4b42_ace8_804269bf95ed;
+        const MF_MT_MPEG2_PROFILE: GUID = 0xad76a80b_2d5c_4e0b_b375_64e520137036;
+        const MF_MT_MPEG2_STANDARD: GUID = 0xa20af9e8_928a_4b26_aaa9_f05c74cac47c;
+        const MF_MT_MPEG2_TIMECODE: GUID = 0x5229ba10_e29d_4f80_a59c_df4f180207d2;
+        const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: GUID = 0x9aa7e155_b64a_4c1d_a500_455d600b6560;
+        const MF_MT_MPEG4_SAMPLE_DESCRIPTION: GUID = 0x261e9d83_9529_4b8f_a111_8b9c950a81a9;
+        const MF_MT_MPEG4_TRACK_TYPE: GUID = 0x54f486dd_9327_4f6d_80ab_6f709ebb4cce;
+        const MF_MT_MPEGH_AUDIO_PROFILE_LEVEL_INDICATION: GUID = 0x51267a39_dd0c_4bb9_a7bd_9173ad4b131c;
+        const MF_MT_MPEG_SEQUENCE_HEADER: GUID = 0x3c036de7_3ad0_4c9e_9216_ee6d6ac21cb3;
+        const MF_MT_MPEG_START_TIME_CODE: GUID = 0x91f67885_4333_4280_97cd_bd5a6c03a06e;
+        const MF_MT_ORIGINAL_4CC: GUID = 0xd7be3fe0_2bc7_492d_b843_61a1919b70c3;
+        const MF_MT_ORIGINAL_WAVE_FORMAT_TAG: GUID = 0x8cbbc843_9fd9_49c2_882f_a72586c408ad;
+        const MF_MT_OUTPUT_BUFFER_NUM: GUID = 0xa505d3ac_f930_436e_8ede_93a509ce23b2;
+        const MF_MT_PAD_CONTROL_FLAGS: GUID = 0x4d0e73e5_80ea_4354_a9d0_1176ceb028ea;
+        const MF_MT_PALETTE: GUID = 0x6d283f42_9846_4410_afd9_654d503b1a54;
+        const MF_MT_PAN_SCAN_APERTURE: GUID = 0x79614dde_9187_48fb_b8c7_4d52689de649;
+        const MF_MT_PAN_SCAN_ENABLED: GUID = 0x4b7f6bc3_8b13_40b2_a993_abf630b8204e;
+        const MF_MT_PIXEL_ASPECT_RATIO: GUID = 0xc6376a1e_8d0a_4027_be45_6d9a0ad39bb6;
+        const MF_MT_REALTIME_CONTENT: GUID = 0xbb12d222_2bdb_425e_91ec_2308e189a58f;
+        const MF_MT_SAMPLE_SIZE: GUID = 0xdad3ab78_1990_408b_bce2_eba673dacc10;
+        const MF_MT_SECURE: GUID = 0xc5acc4fd_0304_4ecf_809f_47bc97ff63bd;
+        const MF_MT_SOURCE_CONTENT_HINT: GUID = 0x68aca3cc_22d0_44e6_85f8_28167197fa38;
+        const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: GUID = 0x6842f6e7_d43e_4ebb_9c9c_c96f41784863;
+        const MF_MT_SPATIAL_AUDIO_IS_PREVIRTUALIZED: GUID = 0x4eacab51_ffe5_421a_a2a7_8b7409a1cac4;
+        const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: GUID = 0xdcfba24a_2609_4240_a721_3faea76a4df9;
+        const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: GUID = 0x11aa80b4_e0da_47c6_8060_96c1259ae50d;
+        const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: GUID = 0x83e96ec9_1184_417e_8254_9f269158fc06;
+        const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_FORMAT_ID: GUID = 0x2ab71bc0_6223_4ba7_ad64_7b94b47ae792;
+        const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_LENGTH: GUID = 0x094ba8be_d723_489f_92fa_766777b34726;
+        const MF_MT_SUBTYPE: GUID = 0xf7e34c9a_42e8_4714_b74b_cb29d72c35e5;
+        const MF_MT_TIMESTAMP_CAN_BE_DTS: GUID = 0x24974215_1b7b_41e4_8625_ac469f2dedaa;
+        const MF_MT_TRANSFER_FUNCTION: GUID = 0x5fb0fce9_be5c_4935_a811_ec838f8eed93;
+        const MF_MT_USER_DATA: GUID = 0xb6bc765f_4c3b_40a4_bd51_2535b66fe09d;
+        const MF_MT_VIDEO_3D: GUID = 0xcb5e88cf_7b5b_476b_85aa_1ca5ae187555;
+        const MF_MT_VIDEO_3D_FIRST_IS_LEFT: GUID = 0xec298493_0ada_4ea1_a4fe_cbbd36ce9331;
+        const MF_MT_VIDEO_3D_FORMAT: GUID = 0x5315d8a0_87c5_4697_b793_6606c67c049b;
+        const MF_MT_VIDEO_3D_LEFT_IS_BASE: GUID = 0x6d4b7bff_5629_4404_948c_c634f4ce26d4;
+        const MF_MT_VIDEO_3D_NUM_VIEWS: GUID = 0xbb077e8a_dcbf_42eb_af60_418df98aa495;
+        const MF_MT_VIDEO_CHROMA_SITING: GUID = 0x65df2370_c773_4c33_aa64_843e068efb0c;
+        const MF_MT_VIDEO_H264_NO_FMOASO: GUID = 0xed461cd6_ec9f_416a_a8a3_26d7d31018d7;
+        const MF_MT_VIDEO_LEVEL: GUID = 0x96f66574_11c5_4015_8666_bff516436da7;
+        const MF_MT_VIDEO_LIGHTING: GUID = 0x53a0529c_890b_4216_8bf9_599367ad6d20;
+        const MF_MT_VIDEO_NOMINAL_RANGE: GUID = 0xc21b8ee5_b956_4071_8daf_325edf5cab11;
+        const MF_MT_VIDEO_NO_FRAME_ORDERING: GUID = 0x3f5b106f_6bc2_4ee3_b7ed_8902c18f5351;
+        const MF_MT_VIDEO_PRIMARIES: GUID = 0xdbfbe4d7_0740_4ee0_8192_850ab0e21935;
+        const MF_MT_VIDEO_PROFILE: GUID = 0xad76a80b_2d5c_4e0b_b375_64e520137036;
+        const MF_MT_VIDEO_RENDERER_EXTENSION_PROFILE: GUID = 0x8437d4b9_d448_4fcd_9b6b_839bf96c7798;
+        const MF_MT_VIDEO_ROTATION: GUID = 0xc380465d_2271_428c_9b83_ecea3b4a85c1;
+        const MF_MT_WRAPPED_TYPE: GUID = 0x4d3f7b23_d02f_4e6c_9bee_e4bf2c6c695d;
+        const MF_MT_YUV_MATRIX: GUID = 0x3e23d450_2c75_4d25_a00e_b91670d12327;
+        struct MF_QUATERNION {
+            x: f32,
+            y: f32,
+            z: f32,
+            w: f32,
+        }
+        const MF_SDK_VERSION: u32 = 2;
+        const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: GUID = 0xf715cf3e_a964_4c3f_94ae_9d6ba7264641;
+        #[repr(i32)]
+        enum MF_TOPOSTATUS {
+            MF_TOPOSTATUS_INVALID = 0,
+            MF_TOPOSTATUS_READY = 100,
+            MF_TOPOSTATUS_STARTED_SOURCE = 200,
+            MF_TOPOSTATUS_DYNAMIC_CHANGED = 210,
+            MF_TOPOSTATUS_SINK_SWITCHED = 300,
+            MF_TOPOSTATUS_ENDED = 400,
+        }
+        const MF_VERSION: u32 = 131184;
+        const MF_VIDEO_MAX_MB_PER_SEC: GUID = 0xe3f2e203_d445_4b8c_9211_ae390d3ba017;
+        const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: GUID = 0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9;
+        #[library("MFPlat.DLL")]
+        extern fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
+        struct MOVEREGION_INFO {
+            FrameNumber: u32,
+            NumMoveRegions: u32,
+            MoveRegions: [MOVE_RECT; 1],
+        }
+        struct MOVE_RECT {
+            SourcePoint: POINT,
+            DestRect: RECT,
+        }
+        struct MPEG2VIDEOINFO {}
+        struct MT_ARBITRARY_HEADER {
+            majortype: GUID,
+            subtype: GUID,
+            bFixedSizeSamples: BOOL,
+            bTemporalCompression: BOOL,
+            lSampleSize: u32,
+            formattype: GUID,
+        }
+        struct MT_CUSTOM_VIDEO_PRIMARIES {
+            fRx: f32,
+            fRy: f32,
+            fGx: f32,
+            fGy: f32,
+            fBx: f32,
+            fBy: f32,
+            fWx: f32,
+            fWy: f32,
+        }
+        struct MetadataTimeStamps {
+            Flags: u32,
+            Device: i64,
+            Presentation: i64,
+        }
+        type PROI_AREA = *mut ROI_AREA;
+        struct ROI_AREA {
+            rect: RECT,
+            QPDelta: i32,
+        }
+        struct VIDEOINFOHEADER2 {}
+        #[repr(i32)]
+        enum _MFT_ENUM_FLAG {
+            MFT_ENUM_FLAG_SYNCMFT = 1,
+            MFT_ENUM_FLAG_ASYNCMFT = 2,
+            MFT_ENUM_FLAG_HARDWARE = 4,
+            MFT_ENUM_FLAG_FIELDOFUSE = 8,
+            MFT_ENUM_FLAG_LOCALMFT = 16,
+            MFT_ENUM_FLAG_TRANSCODE_ONLY = 32,
+            MFT_ENUM_FLAG_SORTANDFILTER = 64,
+            MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY = 192,
+            MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY = 320,
+            MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE = 576,
+            MFT_ENUM_FLAG_UNTRUSTED_STOREMFT = 1024,
+            MFT_ENUM_FLAG_ALL = 63,
+        }
+        #[repr(i32)]
+        enum eAVEncVideoQPMapElementDataType {
+            CODEC_API_QP_MAP_INT8 = 0,
+            CODEC_API_QP_MAP_INT16 = 1,
+            CODEC_API_QP_MAP_INT32 = 2,
+            CODEC_API_QP_MAP_UINT8 = -2147483648,
+            CODEC_API_QP_MAP_UINT16 = -2147483647,
+            CODEC_API_QP_MAP_UINT32 = -2147483646,
+        }
+    }
+}

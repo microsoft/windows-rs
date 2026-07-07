@@ -122,7 +122,7 @@ impl SwapChain {
         if self.device_lost_flag.get() {
             return Ok(false);
         }
-        let result = unsafe { self.swap_chain.Present(1, 0).ok() };
+        let result = unsafe { self.swap_chain.Present(1, 0) };
         if check_device_lost(&result) {
             return Ok(false);
         }
@@ -131,7 +131,7 @@ impl SwapChain {
 
     /// Creates a solid color brush.
     pub fn create_solid_brush(&self, color: ColorF) -> Result<Brush> {
-        let c: D2D1_COLOR_F = color.into();
+        let c: D2D_COLOR_F = color.into();
         unsafe { self.d2d_context.CreateSolidColorBrush(&c, None).map(Brush) }
     }
 

@@ -1,0 +1,436 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const APPCRASH_EVENT: String = "APPCRASH";
+        type HREPORT = HANDLE;
+        type HREPORTSTORE = *mut void;
+        #[encoding("utf-16")]
+        const PACKAGED_APPCRASH_EVENT: String = "MoAppCrash";
+        type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
+        type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
+        type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
+        extern fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbIsCustomDebugger: *mut BOOL, #[len_param(4)] #[out] pwszDebuggerLaunch: PWSTR, #[in] #[out] pchDebuggerLaunch: *mut u32, pbIsDebuggerAutolaunch: *mut BOOL) -> HRESULT;
+        extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbOwnershipClaimed: *mut BOOL, #[len_param(4)] #[out] pwszEventName: PWSTR, #[in] #[out] pchSize: *mut u32, pdwSignatureCount: *mut u32) -> HRESULT;
+        extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(pContext: *const void, pExceptionInformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwIndex: u32, #[len_param(4)] #[out] pwszName: PWSTR, #[in] #[out] pchName: *mut u32, #[len_param(6)] #[out] pwszValue: PWSTR, #[in] #[out] pchValue: *mut u32) -> HRESULT;
+        type PHREPORTSTORE = *mut *mut void;
+        type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
+        type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
+        type PWER_DUMP_CUSTOM_OPTIONS_V3 = *mut WER_DUMP_CUSTOM_OPTIONS_V3;
+        type PWER_EXCEPTION_INFORMATION = *mut WER_EXCEPTION_INFORMATION;
+        type PWER_REPORT_INFORMATION = *mut WER_REPORT_INFORMATION;
+        type PWER_REPORT_INFORMATION_V3 = *mut WER_REPORT_INFORMATION_V3;
+        type PWER_REPORT_INFORMATION_V4 = *mut WER_REPORT_INFORMATION_V4;
+        type PWER_REPORT_INFORMATION_V5 = *mut WER_REPORT_INFORMATION_V5;
+        type PWER_REPORT_METADATA_V1 = *mut WER_REPORT_METADATA_V1;
+        type PWER_REPORT_METADATA_V2 = *mut WER_REPORT_METADATA_V2;
+        type PWER_REPORT_METADATA_V3 = *mut WER_REPORT_METADATA_V3;
+        type PWER_REPORT_PARAMETER = WER_REPORT_PARAMETER;
+        type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
+        type PWER_RUNTIME_EXCEPTION_INFORMATION = *mut WER_RUNTIME_EXCEPTION_INFORMATION;
+        type PWER_SUBMIT_RESULT = *mut WER_SUBMIT_RESULT;
+        #[repr(i32)]
+        enum REPORT_STORE_TYPES {
+            E_STORE_USER_ARCHIVE = 0,
+            E_STORE_USER_QUEUE = 1,
+            E_STORE_MACHINE_ARCHIVE = 2,
+            E_STORE_MACHINE_QUEUE = 3,
+            E_STORE_INVALID = 4,
+        }
+        #[repr(i32)]
+        enum WER_CONSENT {
+            WerConsentNotAsked = 1,
+            WerConsentApproved = 2,
+            WerConsentDenied = 3,
+            WerConsentAlwaysPrompt = 4,
+            WerConsentMax = 5,
+        }
+        const WER_DUMP_AUXILIARY: u32 = 2;
+        const WER_DUMP_AUX_PROMOTE: u32 = 4;
+        struct WER_DUMP_CUSTOM_OPTIONS {
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
+            bOnlyThisThread: BOOL,
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
+        }
+        struct WER_DUMP_CUSTOM_OPTIONS_V2 {
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
+            bOnlyThisThread: BOOL,
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
+            dwPreferredModuleResetFlags: u32,
+            dwOtherModuleResetFlags: u32,
+        }
+        struct WER_DUMP_CUSTOM_OPTIONS_V3 {
+            dwSize: u32,
+            dwMask: u32,
+            dwDumpFlags: u32,
+            bOnlyThisThread: BOOL,
+            dwExceptionThreadFlags: u32,
+            dwOtherThreadFlags: u32,
+            dwExceptionThreadExFlags: u32,
+            dwOtherThreadExFlags: u32,
+            dwPreferredModuleFlags: u32,
+            dwOtherModuleFlags: u32,
+            wzPreferredModuleList: [u16; 256],
+            dwPreferredModuleResetFlags: u32,
+            dwOtherModuleResetFlags: u32,
+            pvDumpKey: *mut void,
+            hSnapshot: HANDLE,
+            dwThreadID: u32,
+        }
+        const WER_DUMP_MASK_DUMPTYPE: u32 = 1;
+        const WER_DUMP_MASK_ONLY_THISTHREAD: u32 = 2;
+        const WER_DUMP_MASK_OTHERTHREADFLAGS: u32 = 16;
+        const WER_DUMP_MASK_OTHERTHREADFLAGS_EX: u32 = 32;
+        const WER_DUMP_MASK_OTHER_MODULESFLAGS: u32 = 128;
+        const WER_DUMP_MASK_PREFERRED_MODULESFLAGS: u32 = 64;
+        const WER_DUMP_MASK_PREFERRED_MODULE_LIST: u32 = 256;
+        const WER_DUMP_MASK_START: u32 = 1;
+        const WER_DUMP_MASK_THREADFLAGS: u32 = 4;
+        const WER_DUMP_MASK_THREADFLAGS_EX: u32 = 8;
+        const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1;
+        #[repr(i32)]
+        enum WER_DUMP_TYPE {
+            WerDumpTypeNone = 0,
+            WerDumpTypeMicroDump = 1,
+            WerDumpTypeMiniDump = 2,
+            WerDumpTypeHeapDump = 3,
+            WerDumpTypeTriageDump = 4,
+            WerDumpTypeMax = 5,
+        }
+        struct WER_EXCEPTION_INFORMATION {
+            pExceptionPointers: PEXCEPTION_POINTERS,
+            bClientPointers: BOOL,
+        }
+        const WER_E_CABBING_FAILURE: i32 = -2147024865;
+        const WER_E_INSUFFICIENT_BUFFER: i32 = -2147024774;
+        const WER_E_INVALID_STATE: i32 = -2147019873;
+        const WER_E_LENGTH_EXCEEDED: i32 = -2147023613;
+        const WER_E_MISSING_DUMP: i32 = -2147024323;
+        const WER_E_NOT_FOUND: i32 = -2147023728;
+        const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: u32 = 16;
+        const WER_FAULT_REPORTING_CRITICAL: u32 = 512;
+        const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128;
+        const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256;
+        const WER_FAULT_REPORTING_DURABLE: u32 = 1024;
+        const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: u32 = 4;
+        const WER_FAULT_REPORTING_FLAG_NOHEAP: u32 = 1;
+        const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64;
+        const WER_FAULT_REPORTING_FLAG_QUEUE: u32 = 2;
+        const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: u32 = 8;
+        const WER_FAULT_REPORTING_NO_UI: u32 = 32;
+        const WER_FILE_ANONYMOUS_DATA: u32 = 2;
+        const WER_FILE_COMPRESSED: u32 = 4;
+        const WER_FILE_DELETE_WHEN_DONE: u32 = 1;
+        #[repr(i32)]
+        enum WER_FILE_TYPE {
+            WerFileTypeMicrodump = 1,
+            WerFileTypeMinidump = 2,
+            WerFileTypeHeapdump = 3,
+            WerFileTypeUserDocument = 4,
+            WerFileTypeOther = 5,
+            WerFileTypeTriagedump = 6,
+            WerFileTypeCustomDump = 7,
+            WerFileTypeAuxiliaryDump = 8,
+            WerFileTypeEtlTrace = 9,
+            WerFileTypeAuxiliaryHeapDump = 10,
+            WerFileTypeMax = 11,
+        }
+        const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128;
+        const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260;
+        const WER_MAX_DESCRIPTION_LENGTH: u32 = 512;
+        const WER_MAX_EVENT_NAME_LENGTH: u32 = 64;
+        const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128;
+        const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64;
+        const WER_MAX_MEM_BLOCK_SIZE: u32 = 65536;
+        const WER_MAX_PARAM_COUNT: u32 = 10;
+        const WER_MAX_PARAM_LENGTH: u32 = 260;
+        const WER_MAX_PREFERRED_MODULES: u32 = 128;
+        const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256;
+        const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4;
+        const WER_MAX_REGISTERED_ENTRIES: u32 = 512;
+        const WER_MAX_REGISTERED_METADATA: u32 = 8;
+        const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16;
+        const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128;
+        const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720;
+        const WER_METADATA_KEY_MAX_LENGTH: u32 = 64;
+        const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128;
+        const WER_P0: u32 = 0;
+        const WER_P1: u32 = 1;
+        const WER_P2: u32 = 2;
+        const WER_P3: u32 = 3;
+        const WER_P4: u32 = 4;
+        const WER_P5: u32 = 5;
+        const WER_P6: u32 = 6;
+        const WER_P7: u32 = 7;
+        const WER_P8: u32 = 8;
+        const WER_P9: u32 = 9;
+        #[repr(i32)]
+        enum WER_REGISTER_FILE_TYPE {
+            WerRegFileTypeUserDocument = 1,
+            WerRegFileTypeOther = 2,
+            WerRegFileTypeMax = 3,
+        }
+        struct WER_REPORT_INFORMATION {
+            dwSize: u32,
+            hProcess: HANDLE,
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
+            hwndParent: HWND,
+        }
+        struct WER_REPORT_INFORMATION_V3 {
+            dwSize: u32,
+            hProcess: HANDLE,
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
+            hwndParent: HWND,
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
+        }
+        struct WER_REPORT_INFORMATION_V4 {
+            dwSize: u32,
+            hProcess: HANDLE,
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
+            hwndParent: HWND,
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
+            rgbApplicationIdentity: [u8; 16],
+            hSnapshot: HANDLE,
+            hDeleteFilesImpersonationToken: HANDLE,
+        }
+        struct WER_REPORT_INFORMATION_V5 {
+            dwSize: u32,
+            hProcess: HANDLE,
+            wzConsentKey: [u16; 64],
+            wzFriendlyEventName: [u16; 128],
+            wzApplicationName: [u16; 128],
+            wzApplicationPath: [u16; 260],
+            wzDescription: [u16; 512],
+            hwndParent: HWND,
+            wzNamespacePartner: [u16; 64],
+            wzNamespaceGroup: [u16; 64],
+            rgbApplicationIdentity: [u8; 16],
+            hSnapshot: HANDLE,
+            hDeleteFilesImpersonationToken: HANDLE,
+            submitResultMax: WER_SUBMIT_RESULT,
+        }
+        struct WER_REPORT_METADATA_V1 {
+            Signature: WER_REPORT_SIGNATURE,
+            BucketId: GUID,
+            ReportId: GUID,
+            CreationTime: FILETIME,
+            SizeInBytes: u64,
+        }
+        struct WER_REPORT_METADATA_V2 {
+            Signature: WER_REPORT_SIGNATURE,
+            BucketId: GUID,
+            ReportId: GUID,
+            CreationTime: FILETIME,
+            SizeInBytes: u64,
+            CabId: [u16; 260],
+            ReportStatus: u32,
+            ReportIntegratorId: GUID,
+            NumberOfFiles: u32,
+            SizeOfFileNames: u32,
+            FileNames: *mut u16,
+        }
+        struct WER_REPORT_METADATA_V3 {
+            Signature: WER_REPORT_SIGNATURE,
+            BucketId: GUID,
+            ReportId: GUID,
+            CreationTime: FILETIME,
+            SizeInBytes: u64,
+            CabId: [u16; 260],
+            ReportStatus: u32,
+            ReportIntegratorId: GUID,
+            NumberOfFiles: u32,
+            SizeOfFileNames: u32,
+            FileNames: *mut u16,
+            FriendlyEventName: [u16; 128],
+            ApplicationName: [u16; 128],
+            ApplicationPath: [u16; 260],
+            Description: [u16; 512],
+            BucketIdString: [u16; 260],
+            LegacyBucketId: u64,
+        }
+        struct WER_REPORT_PARAMETER {
+            Name: [u16; 129],
+            Value: [u16; 260],
+        }
+        struct WER_REPORT_SIGNATURE {
+            EventName: [u16; 65],
+            Parameters: [WER_REPORT_PARAMETER; 10],
+        }
+        #[repr(i32)]
+        enum WER_REPORT_TYPE {
+            WerReportNonCritical = 0,
+            WerReportCritical = 1,
+            WerReportApplicationCrash = 2,
+            WerReportApplicationHang = 3,
+            WerReportKernel = 4,
+            WerReportInvalid = 5,
+        }
+        #[repr(i32)]
+        enum WER_REPORT_UI {
+            WerUIAdditionalDataDlgHeader = 1,
+            WerUIIconFilePath = 2,
+            WerUIConsentDlgHeader = 3,
+            WerUIConsentDlgBody = 4,
+            WerUIOnlineSolutionCheckText = 5,
+            WerUIOfflineSolutionCheckText = 6,
+            WerUICloseText = 7,
+            WerUICloseDlgHeader = 8,
+            WerUICloseDlgBody = 9,
+            WerUICloseDlgButtonText = 10,
+            WerUIMax = 11,
+        }
+        #[encoding("ansi")]
+        const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: String = "OutOfProcessExceptionEventDebuggerLaunchCallback";
+        #[encoding("ansi")]
+        const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: String = "OutOfProcessExceptionEventCallback";
+        #[encoding("ansi")]
+        const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: String = "OutOfProcessExceptionEventSignatureCallback";
+        struct WER_RUNTIME_EXCEPTION_INFORMATION {
+            dwSize: u32,
+            hProcess: HANDLE,
+            hThread: HANDLE,
+            exceptionRecord: EXCEPTION_RECORD,
+            context: CONTEXT,
+            pwszReportId: PCWSTR,
+            bIsFatal: BOOL,
+            dwReserved: u32,
+        }
+        const WER_SUBMIT_ADD_REGISTERED_DATA: u32 = 16;
+        const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: u32 = 4096;
+        const WER_SUBMIT_BYPASS_DATA_THROTTLING: u32 = 2048;
+        const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768;
+        const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384;
+        const WER_SUBMIT_DISCARD_IF_QUEUED: u32 = 128;
+        const WER_SUBMIT_HONOR_RECOVERY: u32 = 1;
+        const WER_SUBMIT_HONOR_RESTART: u32 = 2;
+        const WER_SUBMIT_NO_ARCHIVE: u32 = 256;
+        const WER_SUBMIT_NO_CLOSE_UI: u32 = 64;
+        const WER_SUBMIT_NO_QUEUE: u32 = 128;
+        const WER_SUBMIT_OUTOFPROCESS: u32 = 32;
+        const WER_SUBMIT_OUTOFPROCESS_ASYNC: u32 = 1024;
+        const WER_SUBMIT_QUEUE: u32 = 4;
+        const WER_SUBMIT_REPORT_MACHINE_ID: u32 = 8192;
+        #[repr(i32)]
+        enum WER_SUBMIT_RESULT {
+            WerReportQueued = 1,
+            WerReportUploaded = 2,
+            WerReportDebug = 3,
+            WerReportFailed = 4,
+            WerDisabled = 5,
+            WerReportCancelled = 6,
+            WerDisabledQueue = 7,
+            WerReportAsync = 8,
+            WerCustomAction = 9,
+            WerThrottled = 10,
+            WerReportUploadedCab = 11,
+            WerStorageLocationNotFound = 12,
+            WerSubmitResultMax = 13,
+        }
+        const WER_SUBMIT_SHOW_DEBUG: u32 = 8;
+        const WER_SUBMIT_START_MINIMIZED: u32 = 512;
+        #[library("wer.dll")]
+        extern fn WerAddExcludedApplication(pwzExeName: PCWSTR, bAllUsers: BOOL) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerFreeString(pwszStr: PCWSTR);
+        #[library("KERNEL32.dll")]
+        extern fn WerGetFlags(hProcess: HANDLE, pdwFlags: *mut u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterAdditionalProcess(processId: u32, captureExtraInfoForThreadId: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterAppLocalDump(localAppDataRelativePath: PCWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterCustomMetadata(key: PCWSTR, value: PCWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterExcludedMemoryBlock(address: *const void, size: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterFile(pwzFile: PCWSTR, regFileType: WER_REGISTER_FILE_TYPE, dwFlags: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterMemoryBlock(pvAddress: *const void, dwSize: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerRegisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, pContext: *const void) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerRemoveExcludedApplication(pwzExeName: PCWSTR, bAllUsers: BOOL) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportAddDump(hReportHandle: HREPORT, hProcess: HANDLE, #[opt] hThread: HANDLE, dumpType: WER_DUMP_TYPE, #[opt] pExceptionParam: *const WER_EXCEPTION_INFORMATION, #[opt] pDumpCustomOptions: *const WER_DUMP_CUSTOM_OPTIONS, dwFlags: u32) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportAddFile(hReportHandle: HREPORT, pwzPath: PCWSTR, repFileType: WER_FILE_TYPE, dwFileFlags: u32) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportCloseHandle(hReportHandle: HREPORT) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportCreate(pwzEventType: PCWSTR, repType: WER_REPORT_TYPE, #[opt] pReportInformation: *const WER_REPORT_INFORMATION, phReportHandle: *mut HREPORT) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportSetParameter(hReportHandle: HREPORT, dwparamID: u32, #[opt] pwzName: PCWSTR, pwzValue: PCWSTR) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportSetUIOption(hReportHandle: HREPORT, repUITypeID: WER_REPORT_UI, pwzValue: PCWSTR) -> HRESULT;
+        #[library("wer.dll")]
+        extern fn WerReportSubmit(hReportHandle: HREPORT, consent: WER_CONSENT, dwFlags: u32, #[opt] pSubmitResult: *mut WER_SUBMIT_RESULT) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerSetFlags(dwFlags: u32) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreClose(#[opt] hReportStore: HREPORTSTORE);
+        #[library("wer.dll")]
+        extern "C" fn WerStoreGetFirstReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut PCWSTR) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreGetNextReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut PCWSTR) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreGetReportCount(hReportStore: HREPORTSTORE, pdwReportCount: *mut u32) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreGetSizeOnDisk(hReportStore: HREPORTSTORE, pqwSizeInBytes: *mut u64) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreOpen(repStoreType: REPORT_STORE_TYPES, phReportStore: *mut *mut void) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStorePurge() -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreQueryReportMetadataV1(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V1) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreQueryReportMetadataV2(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V2) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreQueryReportMetadataV3(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V3) -> HRESULT;
+        #[library("wer.dll")]
+        extern "C" fn WerStoreUploadReport(hReportStore: HREPORTSTORE, pszReportKey: PCWSTR, dwFlags: u32, #[opt] pSubmitResult: *mut WER_SUBMIT_RESULT) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterAdditionalProcess(processId: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterAppLocalDump() -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterCustomMetadata(key: PCWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterExcludedMemoryBlock(address: *const void) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterFile(pwzFilePath: PCWSTR) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterMemoryBlock(pvAddress: *const void) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn WerUnregisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: PCWSTR, pContext: *const void) -> HRESULT;
+    }
+}

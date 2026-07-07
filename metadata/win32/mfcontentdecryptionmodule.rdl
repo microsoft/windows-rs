@@ -1,0 +1,44 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x87be986c_10be_4943_bf48_4b54ce1983a2)]
+        interface IMFContentDecryptionModule: IUnknown {
+            fn SetContentEnabler(&self, contentEnabler: IMFContentEnabler, result: IMFAsyncResult) -> HRESULT;
+            fn GetSuspendNotify(&self, notify: *mut IMFCdmSuspendNotify) -> HRESULT;
+            fn SetPMPHostApp(&self, pmpHostApp: IMFPMPHostApp) -> HRESULT;
+            fn CreateSession(&self, sessionType: MF_MEDIAKEYSESSION_TYPE, callbacks: IMFContentDecryptionModuleSessionCallbacks, session: *mut IMFContentDecryptionModuleSession) -> HRESULT;
+            fn SetServerCertificate(&self, certificate: *const u8, certificateSize: u32) -> HRESULT;
+            fn CreateTrustedInput(&self, contentInitData: *const u8, contentInitDataSize: u32, trustedInput: *mut IMFTrustedInput) -> HRESULT;
+            fn GetProtectionSystemIds(&self, systemIds: *mut *mut GUID, count: *mut u32) -> HRESULT;
+        }
+        #[guid(0xa853d1f4_e2a0_4303_9edc_f1a68ee43136)]
+        interface IMFContentDecryptionModuleAccess: IUnknown {
+            fn CreateContentDecryptionModule(&self, contentDecryptionModuleProperties: IPropertyStore, contentDecryptionModule: *mut IMFContentDecryptionModule) -> HRESULT;
+            fn GetConfiguration(&self, configuration: *mut IPropertyStore) -> HRESULT;
+            fn GetKeySystem(&self, keySystem: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7d5abf16_4cbb_4e08_b977_9ba59049943e)]
+        interface IMFContentDecryptionModuleFactory: IUnknown {
+            fn IsTypeSupported(&self, keySystem: PCWSTR, #[opt] contentType: PCWSTR) -> BOOL;
+            fn CreateContentDecryptionModuleAccess(&self, keySystem: PCWSTR, configurations: *const IPropertyStore, numConfigurations: u32, contentDecryptionModuleAccess: *mut IMFContentDecryptionModuleAccess) -> HRESULT;
+        }
+        #[guid(0x4e233efd_1dd2_49e8_b577_d63eee4c0d33)]
+        interface IMFContentDecryptionModuleSession: IUnknown {
+            fn GetSessionId(&self, sessionId: *mut PWSTR) -> HRESULT;
+            fn GetExpiration(&self, expiration: *mut f64) -> HRESULT;
+            fn GetKeyStatuses(&self, keyStatuses: *mut *mut MFMediaKeyStatus, numKeyStatuses: *mut u32) -> HRESULT;
+            fn Load(&self, sessionId: PCWSTR, loaded: *mut BOOL) -> HRESULT;
+            fn GenerateRequest(&self, initDataType: PCWSTR, initData: *const u8, initDataSize: u32) -> HRESULT;
+            fn Update(&self, response: *const u8, responseSize: u32) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn Remove(&self) -> HRESULT;
+        }
+        #[guid(0x3f96ee40_ad81_4096_8470_59a4b770f89a)]
+        interface IMFContentDecryptionModuleSessionCallbacks: IUnknown {
+            fn KeyMessage(&self, messageType: MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messageSize: u32, #[opt] destinationURL: PCWSTR) -> HRESULT;
+            fn KeyStatusChanged(&self) -> HRESULT;
+        }
+        #[library("MF.dll")]
+        extern fn MFCreateEncryptedMediaExtensionsStoreActivate(pmpHost: IMFPMPHostApp, objectStream: IStream, classId: PCWSTR, activate: *mut IMFActivate) -> HRESULT;
+    }
+}

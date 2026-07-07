@@ -1,0 +1,39 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct AT_ENUM {
+            JobId: u32,
+            JobTime: usize,
+            DaysOfMonth: u32,
+            DaysOfWeek: u8,
+            Flags: u8,
+            Command: PWSTR,
+        }
+        struct AT_INFO {
+            JobTime: usize,
+            DaysOfMonth: u32,
+            DaysOfWeek: u8,
+            Flags: u8,
+            Command: PWSTR,
+        }
+        const JOB_ADD_CURRENT_DATE: u32 = 8;
+        const JOB_EXEC_ERROR: u32 = 2;
+        const JOB_INPUT_FLAGS: u32 = 25;
+        const JOB_NONINTERACTIVE: u32 = 16;
+        const JOB_OUTPUT_FLAGS: u32 = 23;
+        const JOB_RUNS_TODAY: u32 = 4;
+        const JOB_RUN_PERIODICALLY: u32 = 1;
+        type LPAT_ENUM = *mut AT_ENUM;
+        type LPAT_INFO = *mut AT_INFO;
+        #[library("NETAPI32.dll")]
+        extern fn NetScheduleJobAdd(Servername: PCWSTR, Buffer: *mut u8, JobId: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetScheduleJobDel(Servername: PCWSTR, MinJobId: u32, MaxJobId: u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetScheduleJobEnum(Servername: PCWSTR, PointerToBuffer: *mut LPBYTE, PrefferedMaximumLength: u32, EntriesRead: *mut u32, TotalEntries: *mut u32, ResumeHandle: *mut u32) -> u32;
+        #[library("NETAPI32.dll")]
+        extern fn NetScheduleJobGetInfo(Servername: PCWSTR, JobId: u32, PointerToBuffer: *mut LPBYTE) -> u32;
+        type PAT_ENUM = *mut AT_ENUM;
+        type PAT_INFO = *mut AT_INFO;
+    }
+}

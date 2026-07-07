@@ -1,0 +1,96 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d3d10_1.dll")]
+        extern fn D3D10CreateDevice1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        #[library("d3d10_1.dll")]
+        extern fn D3D10CreateDeviceAndSwapChain1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
+        const D3D10_1_GS_INPUT_REGISTER_COUNT: u32 = 32;
+        const D3D10_1_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32;
+        const D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128;
+        const D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32;
+        const D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENTS: u32 = 1;
+        const D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
+        const D3D10_1_PS_OUTPUT_MASK_REGISTER_COUNT: u32 = 1;
+        const D3D10_1_SDK_VERSION: u32 = 32;
+        const D3D10_1_SHADER_MAJOR_VERSION: u32 = 4;
+        const D3D10_1_SHADER_MINOR_VERSION: u32 = 1;
+        const D3D10_1_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048;
+        const D3D10_1_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256;
+        const D3D10_1_SO_BUFFER_SLOT_COUNT: u32 = 4;
+        const D3D10_1_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1;
+        const D3D10_1_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64;
+        const D3D10_1_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32;
+        const D3D10_1_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
+        const D3D10_1_VS_INPUT_REGISTER_COUNT: u32 = 32;
+        const D3D10_1_VS_OUTPUT_REGISTER_COUNT: u32 = 32;
+        struct D3D10_BLEND_DESC1 {
+            AlphaToCoverageEnable: BOOL,
+            IndependentBlendEnable: BOOL,
+            RenderTarget: [D3D10_RENDER_TARGET_BLEND_DESC1; 8],
+        }
+        #[repr(i32)]
+        enum D3D10_FEATURE_LEVEL1 {
+            D3D10_FEATURE_LEVEL_10_0 = 40960,
+            D3D10_FEATURE_LEVEL_10_1 = 41216,
+            D3D10_FEATURE_LEVEL_9_1 = 37120,
+            D3D10_FEATURE_LEVEL_9_2 = 37376,
+            D3D10_FEATURE_LEVEL_9_3 = 37632,
+        }
+        struct D3D10_RENDER_TARGET_BLEND_DESC1 {
+            BlendEnable: BOOL,
+            SrcBlend: D3D10_BLEND,
+            DestBlend: D3D10_BLEND,
+            BlendOp: D3D10_BLEND_OP,
+            SrcBlendAlpha: D3D10_BLEND,
+            DestBlendAlpha: D3D10_BLEND,
+            BlendOpAlpha: D3D10_BLEND_OP,
+            RenderTargetWriteMask: u8,
+        }
+        struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
+            Format: DXGI_FORMAT,
+            ViewDimension: D3D10_SRV_DIMENSION1,
+            Anonymous: union {
+                Buffer: D3D10_BUFFER_SRV,
+                Texture1D: D3D10_TEX1D_SRV,
+                Texture1DArray: D3D10_TEX1D_ARRAY_SRV,
+                Texture2D: D3D10_TEX2D_SRV,
+                Texture2DArray: D3D10_TEX2D_ARRAY_SRV,
+                Texture2DMS: D3D10_TEX2DMS_SRV,
+                Texture2DMSArray: D3D10_TEX2DMS_ARRAY_SRV,
+                Texture3D: D3D10_TEX3D_SRV,
+                TextureCube: D3D10_TEXCUBE_SRV,
+                TextureCubeArray: D3D10_TEXCUBE_ARRAY_SRV1,
+            },
+        }
+        type D3D10_SRV_DIMENSION1 = D3D_SRV_DIMENSION;
+        #[repr(i32)]
+        enum D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
+            D3D10_STANDARD_MULTISAMPLE_PATTERN = -1,
+            D3D10_CENTER_MULTISAMPLE_PATTERN = -2,
+        }
+        struct D3D10_TEXCUBE_ARRAY_SRV1 {
+            MostDetailedMip: u32,
+            MipLevels: u32,
+            First2DArrayFace: u32,
+            NumCubes: u32,
+        }
+        #[guid(0xedad8d99_8a35_4d6d_8566_2ea276cde161)]
+        interface ID3D10BlendState1: ID3D10BlendState {
+            fn GetDesc1(&self, pDesc: *mut D3D10_BLEND_DESC1);
+        }
+        #[guid(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10Device1: ID3D10Device {
+            fn CreateShaderResourceView1(&self, pResource: ID3D10Resource, #[opt] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, #[opt] ppSRView: *mut ID3D10ShaderResourceView1) -> HRESULT;
+            fn CreateBlendState1(&self, pBlendStateDesc: *const D3D10_BLEND_DESC1, #[opt] ppBlendState: *mut ID3D10BlendState1) -> HRESULT;
+            fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
+        }
+        #[guid(0x9b7e4c87_342c_4106_a19f_4f2704f689f0)]
+        interface ID3D10ShaderResourceView1: ID3D10ShaderResourceView {
+            fn GetDesc1(&self, pDesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
+        }
+        extern fn PFN_D3D10_CREATE_DEVICE1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ID3D10Device1) -> HRESULT;
+        extern fn PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(param0: IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut DXGI_SWAP_CHAIN_DESC, param7: *mut IDXGISwapChain, param8: *mut ID3D10Device1) -> HRESULT;
+    }
+}

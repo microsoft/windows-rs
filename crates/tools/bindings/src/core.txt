@@ -14,9 +14,9 @@
     FreeLibrary
     GetProcAddress
     IAgileObject
-    Windows.Win32.System.WinRT.IAgileReference.Resolve
-    Windows.Win32.System.WinRT.IWeakReference.Resolve
-    Windows.Win32.System.WinRT.IWeakReferenceSource.GetWeakReference
+    IAgileReference.Resolve
+    IWeakReference.Resolve
+    IWeakReferenceSource.GetWeakReference
     JSCRIPT_E_CANTEXECUTE
     LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     LoadLibraryExA

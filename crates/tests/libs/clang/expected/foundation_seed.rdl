@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Memory {
+                #[library("test.dll")]
+                extern fn DoThing(enabled: super::super::Foundation::BOOL, count: u32, index: u32, lp: super::super::Foundation::LPARAM, wp: super::super::Foundation::WPARAM, lr: super::super::Foundation::LRESULT, status: super::super::Foundation::NTSTATUS, flag: super::super::Foundation::BOOLEAN) -> super::super::Foundation::HRESULT;
+                #[library("test.dll")]
+                extern fn OpenThing(reserved: *mut void) -> super::super::Foundation::HANDLE;
+            }
+        }
+    }
+}

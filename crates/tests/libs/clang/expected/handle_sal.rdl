@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library("user32.dll")]
+    extern fn MakeRoHandle() -> RoHandle;
+    type RoHandle = *mut void;
+    struct RoHandle__ {
+        unused: i32,
+    }
+}

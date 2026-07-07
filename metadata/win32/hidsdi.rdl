@@ -1,0 +1,64 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct HIDD_ATTRIBUTES {
+            Size: u32,
+            VendorID: u16,
+            ProductID: u16,
+            VersionNumber: u16,
+        }
+        #[arch(X86)]
+        struct HIDD_CONFIGURATION {
+            cookie: *mut void,
+            size: u32,
+            RingBufferSize: u32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct HIDD_CONFIGURATION {
+            cookie: *mut void,
+            size: u32,
+            RingBufferSize: u32,
+        }
+        #[library("HID.DLL")]
+        extern fn HidD_FlushQueue(HidDeviceObject: HANDLE) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_FreePreparsedData(PreparsedData: *const _HIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetAttributes(HidDeviceObject: HANDLE, Attributes: *mut HIDD_ATTRIBUTES) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetConfiguration(HidDeviceObject: HANDLE, #[size_param(2)] Configuration: *mut HIDD_CONFIGURATION, ConfigurationLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetFeature(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetHidGuid(HidGuid: *mut GUID);
+        #[library("HID.DLL")]
+        extern fn HidD_GetIndexedString(HidDeviceObject: HANDLE, StringIndex: u32, #[size_param(3)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetInputReport(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *mut void, ReportBufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetManufacturerString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetMsGenreDescriptor(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetNumInputBuffers(HidDeviceObject: HANDLE, NumberBuffers: *mut u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetPhysicalDescriptor(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetPreparsedData(HidDeviceObject: HANDLE, PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetProductString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_GetSerialNumberString(HidDeviceObject: HANDLE, #[size_param(2)] Buffer: *mut void, BufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_SetConfiguration(HidDeviceObject: HANDLE, #[size_param(2)] Configuration: *const HIDD_CONFIGURATION, ConfigurationLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_SetFeature(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *const void, ReportBufferLength: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_SetNumInputBuffers(HidDeviceObject: HANDLE, NumberBuffers: u32) -> BOOLEAN;
+        #[library("HID.DLL")]
+        extern fn HidD_SetOutputReport(HidDeviceObject: HANDLE, #[size_param(2)] ReportBuffer: *const void, ReportBufferLength: u32) -> BOOLEAN;
+        type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;
+        type PHIDD_CONFIGURATION = *mut HIDD_CONFIGURATION;
+    }
+}

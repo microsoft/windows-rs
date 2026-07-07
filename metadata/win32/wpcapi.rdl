@@ -1,0 +1,74 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x95e87780_e158_489e_b452_bbb850790715)]
+        interface IWPCGamesSettings: IWPCSettings {
+            fn IsBlocked(&self, guidAppID: GUID, pdwReasons: *mut u32) -> HRESULT;
+        }
+        #[guid(0xbef54196_2d02_4a26_b6e5_d65af295d0f1)]
+        interface IWPCProviderConfig: IUnknown {
+            fn GetUserSummary(&self, bstrSID: BSTR, pbstrUserSummary: *mut BSTR) -> HRESULT;
+            fn Configure(&self, hWnd: HWND, bstrSID: BSTR) -> HRESULT;
+            fn RequestOverride(&self, hWnd: HWND, bstrPath: BSTR, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x50b6a267_c4bd_450b_adb5_759073837c9e)]
+        interface IWPCProviderState: IUnknown {
+            fn Enable(&self) -> HRESULT;
+            fn Disable(&self) -> HRESULT;
+        }
+        #[guid(0x41eba572_23ed_4779_bec1_8df96206c44c)]
+        interface IWPCProviderSupport: IUnknown {
+            fn GetCurrent(&self, pguidProvider: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340)]
+        interface IWPCSettings: IUnknown {
+            fn IsLoggingRequired(&self, pfRequired: *mut BOOL) -> HRESULT;
+            fn GetLastSettingsChangeTime(&self, pTime: *mut SYSTEMTIME) -> HRESULT;
+            fn GetRestrictions(&self, pdwRestrictions: *mut u32) -> HRESULT;
+        }
+        #[guid(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa)]
+        interface IWPCWebSettings: IWPCSettings {
+            fn GetSettings(&self, pdwSettings: *mut u32) -> HRESULT;
+            fn RequestURLOverride(&self, hWnd: HWND, pcszURL: PCWSTR, cURLs: u32, ppcszSubURLs: *const PCWSTR, pfChanged: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x28b4d88b_e072_49e6_804d_26edbe21a7b9)]
+        interface IWindowsParentalControls: IWindowsParentalControlsCore {
+            fn GetGamesSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCGamesSettings) -> HRESULT;
+        }
+        #[guid(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05)]
+        interface IWindowsParentalControlsCore: IUnknown {
+            fn GetVisibility(&self, peVisibility: *mut WPCFLAG_VISIBILITY) -> HRESULT;
+            fn GetUserSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCSettings) -> HRESULT;
+            fn GetWebSettings(&self, pcszSID: PCWSTR, ppSettings: *mut IWPCWebSettings) -> HRESULT;
+            fn GetWebFilterInfo(&self, pguidID: *mut GUID, #[in] #[out] ppszName: *mut PWSTR) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum WPCFLAG_OVERRIDE {
+            WPCFLAG_APPLICATION = 1,
+        }
+        #[repr(i32)]
+        enum WPCFLAG_RESTRICTION {
+            WPCFLAG_NO_RESTRICTION = 0,
+            WPCFLAG_LOGGING_REQUIRED = 1,
+            WPCFLAG_WEB_FILTERED = 2,
+            WPCFLAG_HOURS_RESTRICTED = 4,
+            WPCFLAG_GAMES_BLOCKED = 8,
+            WPCFLAG_APPS_RESTRICTED = 16,
+            WPCFLAG_TIME_ALLOWANCE_RESTRICTED = 32,
+            WPCFLAG_GAMES_RESTRICTED = 64,
+        }
+        #[repr(i32)]
+        enum WPCFLAG_VISIBILITY {
+            WPCFLAG_WPC_VISIBLE = 0,
+            WPCFLAG_WPC_HIDDEN = 1,
+        }
+        #[repr(i32)]
+        enum WPCFLAG_WEB_SETTING {
+            WPCFLAG_WEB_SETTING_NOTBLOCKED = 0,
+            WPCFLAG_WEB_SETTING_DOWNLOADSBLOCKED = 1,
+        }
+        const WindowsParentalControls: GUID = 0xe77cc89b_7401_4c04_8ced_149db35add04;
+        const WpcProviderSupport: GUID = 0xbb18c7a0_2186_4be0_97d8_04847b628e02;
+        const WpcSettingsProvider: GUID = 0x355dffaa_3b9f_435c_b428_5d44290bc5f2;
+    }
+}

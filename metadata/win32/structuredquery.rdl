@@ -1,0 +1,210 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CASE_REQUIREMENT {
+            CASE_REQUIREMENT_ANY = 0,
+            CASE_REQUIREMENT_UPPER_IF_AQS = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum CONDITION_CREATION_OPTIONS {
+            CONDITION_CREATION_DEFAULT = 0,
+            CONDITION_CREATION_NONE = 0,
+            CONDITION_CREATION_SIMPLIFY = 1,
+            CONDITION_CREATION_VECTOR_AND = 2,
+            CONDITION_CREATION_VECTOR_OR = 4,
+            CONDITION_CREATION_VECTOR_LEAF = 8,
+            CONDITION_CREATION_USE_CONTENT_LOCALE = 16,
+        }
+        const CompoundCondition: GUID = 0x116f8d13_101e_4fa5_84d4_ff8279381935;
+        const ConditionFactory: GUID = 0xe03e85b0_7be3_4000_ba98_6c13de9fa486;
+        struct HITRANGE {
+            iPosition: u32,
+            cLength: u32,
+        }
+        #[guid(0xa5efe073_b16f_474f_9f3e_9f8b497a3e08)]
+        interface IConditionFactory: IUnknown {
+            fn MakeNot(&self, pcSub: ICondition, fSimplify: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
+            fn MakeAndOr(&self, ct: CONDITION_TYPE, peuSubs: IEnumUnknown, fSimplify: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
+            fn MakeLeaf(&self, pszPropertyName: PCWSTR, cop: CONDITION_OPERATION, pszValueType: PCWSTR, ppropvar: *const PROPVARIANT, pPropertyNameTerm: IRichChunk, pOperationTerm: IRichChunk, pValueTerm: IRichChunk, fExpand: BOOL, #[retval] ppcResult: *mut ICondition) -> HRESULT;
+            fn Resolve(&self, pc: ICondition, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[opt] pstReferenceTime: *const SYSTEMTIME, ppcResolved: *mut ICondition) -> HRESULT;
+        }
+        #[guid(0x71d222e1_432f_429e_8c13_b6dafde5077a)]
+        interface IConditionFactory2: IConditionFactory {
+            fn CreateTrueFalse(&self, fVal: BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateNegation(&self, pcSub: ICondition, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCompoundFromObjectArray(&self, ct: CONDITION_TYPE, #[opt] poaSubs: IObjectArray, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCompoundFromArray(&self, ct: CONDITION_TYPE, ppcondSubs: *const ICondition, cSubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateStringLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, pszValue: PCWSTR, #[opt] pszLocaleName: PCWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateIntegerLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, lValue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBooleanLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, fValue: BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateLeaf(&self, propkey: *const PROPERTYKEY, cop: CONDITION_OPERATION, propvar: *const PROPVARIANT, #[opt] pszSemanticType: PCWSTR, #[opt] pszLocaleName: PCWSTR, #[opt] pPropertyNameTerm: IRichChunk, #[opt] pOperationTerm: IRichChunk, #[opt] pValueTerm: IRichChunk, cco: CONDITION_CREATION_OPTIONS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ResolveCondition(&self, pc: ICondition, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[opt] pstReferenceTime: *const SYSTEMTIME, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117)]
+        interface IConditionGenerator: IUnknown {
+            fn Initialize(&self, pSchemaProvider: ISchemaProvider) -> HRESULT;
+            fn RecognizeNamedEntities(&self, pszInputString: PCWSTR, lcidUserLocale: LCID, pTokenCollection: ITokenCollection, #[in] #[out] pNamedEntities: INamedEntityCollector) -> HRESULT;
+            fn GenerateForLeaf(&self, pConditionFactory: IConditionFactory, pszPropertyName: PCWSTR, cop: CONDITION_OPERATION, pszValueType: PCWSTR, pszValue: PCWSTR, pszValue2: PCWSTR, pPropertyNameTerm: IRichChunk, pOperationTerm: IRichChunk, pValueTerm: IRichChunk, automaticWildcard: BOOL, pNoStringQuery: *mut BOOL, #[retval] ppQueryExpression: *mut ICondition) -> HRESULT;
+            fn DefaultPhrase(&self, pszValueType: PCWSTR, ppropvar: *const PROPVARIANT, fUseEnglish: BOOL, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x24264891_e80b_4fd3_b7ce_4ff2fae8931f)]
+        interface IEntity: IUnknown {
+            fn Name(&self, #[retval] ppszName: *mut PWSTR) -> HRESULT;
+            fn Base(&self, #[retval] pBaseEntity: *mut IEntity) -> HRESULT;
+            fn Relationships(&self, riid: *const GUID, #[retval] #[iid_is] pRelationships: *mut *mut void) -> HRESULT;
+            fn GetRelationship(&self, pszRelationName: PCWSTR, #[retval] pRelationship: *mut IRelationship) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn NamedEntities(&self, riid: *const GUID, #[retval] #[iid_is] pNamedEntities: *mut *mut void) -> HRESULT;
+            fn GetNamedEntity(&self, pszValue: PCWSTR, #[retval] ppNamedEntity: *mut INamedEntity) -> HRESULT;
+            fn DefaultPhrase(&self, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x6bf0a714_3c18_430b_8b5d_83b1c234d3db)]
+        interface IInterval: IUnknown {
+            fn GetLimits(&self, pilkLower: *mut INTERVAL_LIMIT_KIND, ppropvarLower: *mut PROPVARIANT, pilkUpper: *mut INTERVAL_LIMIT_KIND, ppropvarUpper: *mut PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0x780102b0_c43b_4876_bc7b_5e9ba5c88794)]
+        interface IMetaData: IUnknown {
+            fn GetData(&self, ppszKey: *mut PWSTR, ppszValue: *mut PWSTR) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum INTERVAL_LIMIT_KIND {
+            ILK_EXPLICIT_INCLUDED = 0,
+            ILK_EXPLICIT_EXCLUDED = 1,
+            ILK_NEGATIVE_INFINITY = 2,
+            ILK_POSITIVE_INFINITY = 3,
+        }
+        #[guid(0xabdbd0b1_7d54_49fb_ab5c_bff4130004cd)]
+        interface INamedEntity: IUnknown {
+            fn GetValue(&self, #[retval] ppszValue: *mut PWSTR) -> HRESULT;
+            fn DefaultPhrase(&self, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xaf2440f6_8afc_47d0_9a7f_396a0acfb43d)]
+        interface INamedEntityCollector: IUnknown {
+            fn Add(&self, beginSpan: u32, endSpan: u32, beginActual: u32, endActual: u32, pType: IEntity, pszValue: PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> HRESULT;
+        }
+        #[guid(0x2ebdee67_3505_43f8_9946_ea44abc8e5b0)]
+        interface IQueryParser: IUnknown {
+            fn Parse(&self, pszInputString: PCWSTR, pCustomProperties: IEnumUnknown, #[retval] ppSolution: *mut IQuerySolution) -> HRESULT;
+            fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, pOptionValue: *const PROPVARIANT) -> HRESULT;
+            fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, #[retval] pOptionValue: *mut PROPVARIANT) -> HRESULT;
+            fn SetMultiOption(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszOptionKey: PCWSTR, pOptionValue: *const PROPVARIANT) -> HRESULT;
+            fn GetSchemaProvider(&self, #[retval] ppSchemaProvider: *mut ISchemaProvider) -> HRESULT;
+            fn RestateToString(&self, pCondition: ICondition, fUseEnglish: BOOL, ppszQueryString: *mut PWSTR) -> HRESULT;
+            fn ParsePropertyValue(&self, pszPropertyName: PCWSTR, pszInputString: PCWSTR, #[retval] ppSolution: *mut IQuerySolution) -> HRESULT;
+            fn RestatePropertyValueToString(&self, pCondition: ICondition, fUseEnglish: BOOL, ppszPropertyName: *mut PWSTR, ppszQueryString: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xa879e3c4_af77_44fb_8f37_ebd1487cf920)]
+        interface IQueryParserManager: IUnknown {
+            fn CreateLoadedParser(&self, pszCatalog: PCWSTR, langidForKeywords: LANGID, riid: *const GUID, #[retval] #[iid_is] ppQueryParser: *mut *mut void) -> HRESULT;
+            fn InitializeOptions(&self, fUnderstandNQS: BOOL, fAutoWildCard: BOOL, pQueryParser: IQueryParser) -> HRESULT;
+            fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, pOptionValue: *const PROPVARIANT) -> HRESULT;
+        }
+        #[guid(0xd6ebc66b_8921_4193_afdd_a1789fb7ff57)]
+        interface IQuerySolution: IConditionFactory {
+            fn GetQuery(&self, #[opt] ppQueryNode: *mut ICondition, #[opt] ppMainType: *mut IEntity) -> HRESULT;
+            fn GetErrors(&self, riid: *const GUID, #[retval] #[iid_is] ppParseErrors: *mut *mut void) -> HRESULT;
+            fn GetLexicalData(&self, ppszInputString: *mut PWSTR, #[opt] ppTokens: *mut ITokenCollection, #[opt] plcid: *mut LCID, #[opt] ppWordBreaker: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x2769280b_5108_498c_9c7f_a51239b63147)]
+        interface IRelationship: IUnknown {
+            fn Name(&self, #[retval] ppszName: *mut PWSTR) -> HRESULT;
+            fn IsReal(&self, #[retval] pIsReal: *mut BOOL) -> HRESULT;
+            fn Destination(&self, #[retval] pDestinationEntity: *mut IEntity) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn DefaultPhrase(&self, #[retval] ppszPhrase: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xca3fdca2_bfbe_4eed_90d7_0caef0a1bda1)]
+        interface ISchemaLocalizerSupport: IUnknown {
+            fn Localize(&self, pszGlobalString: PCWSTR, #[retval] ppszLocalString: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x8cf89bcb_394c_49b2_ae28_a59dd4ed7f68)]
+        interface ISchemaProvider: IUnknown {
+            fn Entities(&self, riid: *const GUID, #[retval] #[iid_is] pEntities: *mut *mut void) -> HRESULT;
+            fn RootEntity(&self, #[retval] pRootEntity: *mut IEntity) -> HRESULT;
+            fn GetEntity(&self, pszEntityName: PCWSTR, #[retval] pEntity: *mut IEntity) -> HRESULT;
+            fn MetaData(&self, riid: *const GUID, #[retval] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn Localize(&self, lcid: LCID, pSchemaLocalizerSupport: ISchemaLocalizerSupport) -> HRESULT;
+            fn SaveBinary(&self, pszSchemaBinaryPath: PCWSTR) -> HRESULT;
+            fn LookupAuthoredNamedEntity(&self, pEntity: IEntity, pszInputString: PCWSTR, pTokenCollection: ITokenCollection, cTokensBegin: u32, pcTokensLength: *mut u32, ppszValue: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x22d8b4f2_f577_4adb_a335_c2ae88416fab)]
+        interface ITokenCollection: IUnknown {
+            fn NumberOfTokens(&self, pCount: *mut u32) -> HRESULT;
+            fn GetToken(&self, i: u32, #[opt] pBegin: *mut u32, #[opt] pLength: *mut u32, ppsz: *mut PWSTR) -> HRESULT;
+        }
+        const Interval: GUID = 0xd957171f_4bf9_4de2_bcd5_c70a7ca55836;
+        const LeafCondition: GUID = 0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2;
+        #[repr(i32)]
+        enum NAMED_ENTITY_CERTAINTY {
+            NEC_LOW = 0,
+            NEC_MEDIUM = 1,
+            NEC_HIGH = 2,
+        }
+        const NegationCondition: GUID = 0x8de9c74c_605a_4acd_bee3_2b222aa2d23d;
+        #[repr(i32)]
+        enum QUERY_PARSER_MANAGER_OPTION {
+            QPMO_SCHEMA_BINARY_NAME = 0,
+            QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH = 1,
+            QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH = 2,
+            QPMO_LOCALIZED_SCHEMA_BINARY_PATH = 3,
+            QPMO_APPEND_LCID_TO_LOCALIZED_PATH = 4,
+            QPMO_LOCALIZER_SUPPORT = 5,
+        }
+        const QueryParser: GUID = 0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b;
+        const QueryParserManager: GUID = 0x5088b39a_29b4_4d9d_8245_4ee289222f66;
+        #[repr(i32)]
+        enum STRUCTURED_QUERY_MULTIOPTION {
+            SQMO_VIRTUAL_PROPERTY = 0,
+            SQMO_DEFAULT_PROPERTY = 1,
+            SQMO_GENERATOR_FOR_TYPE = 2,
+            SQMO_MAP_PROPERTY = 3,
+        }
+        #[repr(i32)]
+        enum STRUCTURED_QUERY_PARSE_ERROR {
+            SQPE_NONE = 0,
+            SQPE_EXTRA_OPENING_PARENTHESIS = 1,
+            SQPE_EXTRA_CLOSING_PARENTHESIS = 2,
+            SQPE_IGNORED_MODIFIER = 3,
+            SQPE_IGNORED_CONNECTOR = 4,
+            SQPE_IGNORED_KEYWORD = 5,
+            SQPE_UNHANDLED = 6,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum STRUCTURED_QUERY_RESOLVE_OPTION {
+            SQRO_DEFAULT = 0,
+            SQRO_DONT_RESOLVE_DATETIME = 1,
+            SQRO_ALWAYS_ONE_INTERVAL = 2,
+            SQRO_DONT_SIMPLIFY_CONDITION_TREES = 4,
+            SQRO_DONT_MAP_RELATIONS = 8,
+            SQRO_DONT_RESOLVE_RANGES = 16,
+            SQRO_DONT_REMOVE_UNRESTRICTED_KEYWORDS = 32,
+            SQRO_DONT_SPLIT_WORDS = 64,
+            SQRO_IGNORE_PHRASE_ORDER = 128,
+            SQRO_ADD_VALUE_TYPE_FOR_PLAIN_VALUES = 256,
+            SQRO_ADD_ROBUST_ITEM_NAME = 512,
+        }
+        #[repr(i32)]
+        enum STRUCTURED_QUERY_SINGLE_OPTION {
+            SQSO_SCHEMA = 0,
+            SQSO_LOCALE_WORD_BREAKING = 1,
+            SQSO_WORD_BREAKER = 2,
+            SQSO_NATURAL_SYNTAX = 3,
+            SQSO_AUTOMATIC_WILDCARD = 4,
+            SQSO_TRACE_LEVEL = 5,
+            SQSO_LANGUAGE_KEYWORDS = 6,
+            SQSO_SYNTAX = 7,
+            SQSO_TIME_ZONE = 8,
+            SQSO_IMPLICIT_CONNECTOR = 9,
+            SQSO_CONNECTOR_CASE = 10,
+        }
+        #[repr(i32)]
+        enum STRUCTURED_QUERY_SYNTAX {
+            SQS_NO_SYNTAX = 0,
+            SQS_ADVANCED_QUERY_SYNTAX = 1,
+            SQS_NATURAL_QUERY_SYNTAX = 2,
+        }
+    }
+}

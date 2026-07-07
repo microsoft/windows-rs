@@ -1,0 +1,127 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FILE_EXTENT {
+            VolumeOffset: u64,
+            ExtentLength: u64,
+        }
+        const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312;
+        const IOCTL_VOLUME_BC_VERSION: u32 = 1;
+        const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316;
+        const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540;
+        const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352;
+        const IOCTL_VOLUME_IS_CSV: u32 = 5636192;
+        const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168;
+        const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116;
+        const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112;
+        const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136;
+        const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128;
+        const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132;
+        const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348;
+        const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324;
+        const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340;
+        const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562;
+        const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120;
+        const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568;
+        const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124;
+        const IOCTL_VOLUME_READ_PLEX: u32 = 5652526;
+        const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148;
+        const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100;
+        const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180;
+        type PFILE_EXTENT = *mut FILE_EXTENT;
+        type PVOLUME_ALLOCATE_BC_STREAM_INPUT = *mut VOLUME_ALLOCATE_BC_STREAM_INPUT;
+        type PVOLUME_ALLOCATE_BC_STREAM_OUTPUT = *mut VOLUME_ALLOCATE_BC_STREAM_OUTPUT;
+        type PVOLUME_ALLOCATION_HINT_INPUT = *mut VOLUME_ALLOCATION_HINT_INPUT;
+        type PVOLUME_ALLOCATION_HINT_OUTPUT = *mut VOLUME_ALLOCATION_HINT_OUTPUT;
+        type PVOLUME_CRITICAL_IO = *mut VOLUME_CRITICAL_IO;
+        type PVOLUME_FAILOVER_SET = *mut VOLUME_FAILOVER_SET;
+        type PVOLUME_GET_BC_PROPERTIES_INPUT = *mut VOLUME_GET_BC_PROPERTIES_INPUT;
+        type PVOLUME_GET_BC_PROPERTIES_OUTPUT = *mut VOLUME_GET_BC_PROPERTIES_OUTPUT;
+        type PVOLUME_LOGICAL_OFFSET = *mut VOLUME_LOGICAL_OFFSET;
+        type PVOLUME_NUMBER = *mut VOLUME_NUMBER;
+        type PVOLUME_PHYSICAL_OFFSET = *mut VOLUME_PHYSICAL_OFFSET;
+        type PVOLUME_PHYSICAL_OFFSETS = *mut VOLUME_PHYSICAL_OFFSETS;
+        type PVOLUME_READ_PLEX_INPUT = *mut VOLUME_READ_PLEX_INPUT;
+        type PVOLUME_SET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_SET_GPT_ATTRIBUTES_INFORMATION;
+        type PVOLUME_SHRINK_INFO = *mut VOLUME_SHRINK_INFO;
+        struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
+            Version: u32,
+            RequestsPerPeriod: u32,
+            Period: u32,
+            RetryFailures: BOOLEAN,
+            Discardable: BOOLEAN,
+            Reserved1: [BOOLEAN; 2],
+            LowestByteOffset: u64,
+            HighestByteOffset: u64,
+            AccessType: u32,
+            AccessMode: u32,
+        }
+        struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+            RequestSize: u64,
+            NumOutStandingRequests: u32,
+        }
+        struct VOLUME_ALLOCATION_HINT_INPUT {
+            ClusterSize: u32,
+            NumberOfClusters: u32,
+            StartingClusterNumber: i64,
+        }
+        struct VOLUME_ALLOCATION_HINT_OUTPUT {
+            Bitmap: [u32; 1],
+        }
+        struct VOLUME_CRITICAL_IO {
+            AccessType: u32,
+            ExtentsCount: u32,
+            Extents: [FILE_EXTENT; 1],
+        }
+        struct VOLUME_FAILOVER_SET {
+            NumberOfDisks: u32,
+            DiskNumbers: [u32; 1],
+        }
+        struct VOLUME_GET_BC_PROPERTIES_INPUT {
+            Version: u32,
+            Reserved1: u32,
+            LowestByteOffset: u64,
+            HighestByteOffset: u64,
+            AccessType: u32,
+            AccessMode: u32,
+        }
+        struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
+            MaximumRequestsPerPeriod: u32,
+            MinimumPeriod: u32,
+            MaximumRequestSize: u64,
+            EstimatedTimePerRequest: u32,
+            NumOutStandingRequests: u32,
+            RequestSize: u64,
+        }
+        struct VOLUME_LOGICAL_OFFSET {
+            LogicalOffset: i64,
+        }
+        struct VOLUME_NUMBER {
+            VolumeNumber: u32,
+            VolumeManagerName: [u16; 8],
+        }
+        struct VOLUME_PHYSICAL_OFFSET {
+            DiskNumber: u32,
+            Offset: i64,
+        }
+        struct VOLUME_PHYSICAL_OFFSETS {
+            NumberOfPhysicalOffsets: u32,
+            PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
+        }
+        struct VOLUME_READ_PLEX_INPUT {
+            ByteOffset: LARGE_INTEGER,
+            Length: u32,
+            PlexNumber: u32,
+        }
+        struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+            GptAttributes: u64,
+            RevertOnClose: BOOLEAN,
+            ApplyToAllConnectedVolumes: BOOLEAN,
+            Reserved1: u16,
+            Reserved2: u32,
+        }
+        struct VOLUME_SHRINK_INFO {
+            VolumeSize: u64,
+        }
+    }
+}

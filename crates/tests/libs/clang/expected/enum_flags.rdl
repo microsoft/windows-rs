@@ -1,10 +1,17 @@
 #[win32]
 mod Test {
-    #[repr(i32)]
+    #[repr(u32)]
     #[flags]
     enum FileAccess {
         FileAccess_Read = 1,
         FileAccess_Write = 2,
         FileAccess_Execute = 4,
+    }
+    #[repr(u32)]
+    #[flags]
+    enum HighBitFlags {
+        HighBitFlags_None = 0,
+        HighBitFlags_Low = 1,
+        HighBitFlags_High = 2147483648,
     }
 }

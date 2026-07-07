@@ -1,0 +1,394 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x7815cbba_ddf7_478c_a46c_7b6c738b7978)]
+        interface IUIAnimationInterpolator: IUnknown {
+            fn SetInitialValueAndVelocity(&self, initialValue: f64, initialVelocity: f64) -> HRESULT;
+            fn SetDuration(&self, duration: f64) -> HRESULT;
+            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+            fn GetFinalValue(&self, value: *mut f64) -> HRESULT;
+            fn InterpolateValue(&self, offset: f64, value: *mut f64) -> HRESULT;
+            fn InterpolateVelocity(&self, offset: f64, velocity: *mut f64) -> HRESULT;
+            fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
+        }
+        #[guid(0xea76aff8_ea22_4a23_a0ef_a6a966703518)]
+        interface IUIAnimationInterpolator2: IUnknown {
+            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
+            fn SetInitialValueAndVelocity(&self, #[len_param(2)] initialValue: *const f64, #[len_param(2)] initialVelocity: *const f64, cDimension: u32) -> HRESULT;
+            fn SetDuration(&self, duration: f64) -> HRESULT;
+            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+            fn GetFinalValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
+            fn InterpolateValue(&self, offset: f64, #[len_param(2)] value: *mut f64, cDimension: u32) -> HRESULT;
+            fn InterpolateVelocity(&self, offset: f64, #[len_param(2)] velocity: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetPrimitiveInterpolation(&self, interpolation: IUIAnimationPrimitiveInterpolation, cDimension: u32) -> HRESULT;
+            fn GetDependencies(&self, initialValueDependencies: *mut UI_ANIMATION_DEPENDENCIES, initialVelocityDependencies: *mut UI_ANIMATION_DEPENDENCIES, durationDependencies: *mut UI_ANIMATION_DEPENDENCIES) -> HRESULT;
+        }
+        #[guid(0x2d3b15a4_4762_47ab_a030_b23221df3ae0)]
+        interface IUIAnimationLoopIterationChangeHandler2: IUnknown {
+            fn OnLoopIterationChanged(&self, storyboard: IUIAnimationStoryboard2, id: usize, newIterationCount: u32, oldIterationCount: u32) -> HRESULT;
+        }
+        #[guid(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8)]
+        interface IUIAnimationManager: IUnknown {
+            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
+            fn ScheduleTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, timeNow: f64) -> HRESULT;
+            fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn FinishAllStoryboards(&self, completionDeadline: f64) -> HRESULT;
+            fn AbandonAllStoryboards(&self) -> HRESULT;
+            fn Update(&self, timeNow: f64, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
+            fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn GetStatus(&self, status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn SetManagerEventHandler(&self, #[opt] handler: IUIAnimationManagerEventHandler) -> HRESULT;
+            fn SetCancelPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison) -> HRESULT;
+            fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0xd8b6f7d4_4109_4d3f_acee_879926968cb1)]
+        interface IUIAnimationManager2: IUnknown {
+            fn CreateAnimationVectorVariable(&self, #[len_param(1)] initialValue: *const f64, cDimension: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn CreateAnimationVariable(&self, initialValue: f64, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn ScheduleTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, timeNow: f64) -> HRESULT;
+            fn CreateStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn FinishAllStoryboards(&self, completionDeadline: f64) -> HRESULT;
+            fn AbandonAllStoryboards(&self) -> HRESULT;
+            fn Update(&self, timeNow: f64, #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn GetVariableFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn GetStoryboardFromTag(&self, #[opt] object: IUnknown, id: u32, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn EstimateNextEventTime(&self, seconds: *mut f64) -> HRESULT;
+            fn GetStatus(&self, status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+            fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn SetManagerEventHandler(&self, #[opt] handler: IUIAnimationManagerEventHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetCancelPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            fn SetTrimPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            fn SetCompressPriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            fn SetConcludePriorityComparison(&self, #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
+            fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0x783321ed_78a3_4366_b574_6af607a64788)]
+        interface IUIAnimationManagerEventHandler: IUnknown {
+            fn OnManagerStatusChanged(&self, newStatus: UI_ANIMATION_MANAGER_STATUS, previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+        }
+        #[guid(0xf6e022ba_bff3_42ec_9033_e073f33e83c3)]
+        interface IUIAnimationManagerEventHandler2: IUnknown {
+            fn OnManagerStatusChanged(&self, newStatus: UI_ANIMATION_MANAGER_STATUS, previousStatus: UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
+        }
+        #[guid(0xbab20d63_4361_45da_a24f_ab8508846b5b)]
+        interface IUIAnimationPrimitiveInterpolation: IUnknown {
+            fn AddCubic(&self, dimension: u32, beginOffset: f64, constantCoefficient: f32, linearCoefficient: f32, quadraticCoefficient: f32, cubicCoefficient: f32) -> HRESULT;
+            fn AddSinusoidal(&self, dimension: u32, beginOffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> HRESULT;
+        }
+        #[guid(0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44)]
+        interface IUIAnimationPriorityComparison: IUnknown {
+            fn HasPriority(&self, scheduledStoryboard: IUIAnimationStoryboard, newStoryboard: IUIAnimationStoryboard, priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
+        }
+        #[guid(0x5b6d7a37_4621_467c_8b05_70131de62ddb)]
+        interface IUIAnimationPriorityComparison2: IUnknown {
+            fn HasPriority(&self, scheduledStoryboard: IUIAnimationStoryboard2, newStoryboard: IUIAnimationStoryboard2, priorityEffect: UI_ANIMATION_PRIORITY_EFFECT) -> HRESULT;
+        }
+        #[guid(0xa8ff128f_9bf9_4af1_9e67_e5e410defb84)]
+        interface IUIAnimationStoryboard: IUnknown {
+            fn AddTransition(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition) -> HRESULT;
+            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable, transition: IUIAnimationTransition, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, repetitionCount: i32) -> HRESULT;
+            fn HoldVariable(&self, variable: IUIAnimationVariable) -> HRESULT;
+            fn SetLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn Schedule(&self, timeNow: f64, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Conclude(&self) -> HRESULT;
+            fn Finish(&self, completionDeadline: f64) -> HRESULT;
+            fn Abandon(&self) -> HRESULT;
+            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
+            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
+            fn GetStatus(&self, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn GetElapsedTime(&self, elapsedTime: *mut f64) -> HRESULT;
+            fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler) -> HRESULT;
+        }
+        #[guid(0xae289cd2_12d4_4945_9419_9e41be034df2)]
+        interface IUIAnimationStoryboard2: IUnknown {
+            fn AddTransition(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2) -> HRESULT;
+            fn AddKeyframeAtOffset(&self, existingKeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddKeyframeAfterTransition(&self, transition: IUIAnimationTransition2, keyframe: *mut UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddTransitionAtKeyframe(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn AddTransitionBetweenKeyframes(&self, variable: IUIAnimationVariable2, transition: IUIAnimationTransition2, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
+            fn RepeatBetweenKeyframes(&self, startKeyframe: UI_ANIMATION_KEYFRAME, endKeyframe: UI_ANIMATION_KEYFRAME, cRepetition: f64, repeatMode: UI_ANIMATION_REPEAT_MODE, #[opt] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, id: usize, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn HoldVariable(&self, variable: IUIAnimationVariable2) -> HRESULT;
+            fn SetLongestAcceptableDelay(&self, delay: f64) -> HRESULT;
+            fn SetSkipDuration(&self, secondsDuration: f64) -> HRESULT;
+            fn Schedule(&self, timeNow: f64, #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Conclude(&self) -> HRESULT;
+            fn Finish(&self, completionDeadline: f64) -> HRESULT;
+            fn Abandon(&self) -> HRESULT;
+            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
+            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
+            fn GetStatus(&self, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn GetElapsedTime(&self, elapsedTime: *mut f64) -> HRESULT;
+            fn SetStoryboardEventHandler(&self, #[opt] handler: IUIAnimationStoryboardEventHandler2, fRegisterStatusChangeForNextAnimationEvent: BOOL, fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
+        }
+        #[guid(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6)]
+        interface IUIAnimationStoryboardEventHandler: IUnknown {
+            fn OnStoryboardStatusChanged(&self, storyboard: IUIAnimationStoryboard, newStatus: UI_ANIMATION_STORYBOARD_STATUS, previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn OnStoryboardUpdated(&self, storyboard: IUIAnimationStoryboard) -> HRESULT;
+        }
+        #[guid(0xbac5f55a_ba7c_414c_b599_fbf850f553c6)]
+        interface IUIAnimationStoryboardEventHandler2: IUnknown {
+            fn OnStoryboardStatusChanged(&self, storyboard: IUIAnimationStoryboard2, newStatus: UI_ANIMATION_STORYBOARD_STATUS, previousStatus: UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
+            fn OnStoryboardUpdated(&self, storyboard: IUIAnimationStoryboard2) -> HRESULT;
+        }
+        #[guid(0x6b0efad1_a053_41d6_9085_33a689144665)]
+        interface IUIAnimationTimer: IUnknown {
+            fn SetTimerUpdateHandler(&self, #[opt] updateHandler: IUIAnimationTimerUpdateHandler, idleBehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> HRESULT;
+            fn SetTimerEventHandler(&self, #[opt] handler: IUIAnimationTimerEventHandler) -> HRESULT;
+            fn Enable(&self) -> HRESULT;
+            fn Disable(&self) -> HRESULT;
+            fn IsEnabled(&self) -> HRESULT;
+            fn GetTime(&self, seconds: *mut f64) -> HRESULT;
+            fn SetFrameRateThreshold(&self, framesPerSecond: u32) -> HRESULT;
+        }
+        #[guid(0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25)]
+        interface IUIAnimationTimerClientEventHandler: IUnknown {
+            fn OnTimerClientStatusChanged(&self, newStatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousStatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> HRESULT;
+        }
+        #[guid(0x274a7dea_d771_4095_abbd_8df7abd23ce3)]
+        interface IUIAnimationTimerEventHandler: IUnknown {
+            fn OnPreUpdate(&self) -> HRESULT;
+            fn OnPostUpdate(&self) -> HRESULT;
+            fn OnRenderingTooSlow(&self, framesPerSecond: u32) -> HRESULT;
+        }
+        #[guid(0x195509b7_5d5e_4e3e_b278_ee3759b367ad)]
+        interface IUIAnimationTimerUpdateHandler: IUnknown {
+            fn OnUpdate(&self, timeNow: f64, result: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn SetTimerClientEventHandler(&self, handler: IUIAnimationTimerClientEventHandler) -> HRESULT;
+            fn ClearTimerClientEventHandler(&self) -> HRESULT;
+        }
+        #[guid(0xdc6ce252_f731_41cf_b610_614b6ca049ad)]
+        interface IUIAnimationTransition: IUnknown {
+            fn SetInitialValue(&self, value: f64) -> HRESULT;
+            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
+            fn IsDurationKnown(&self) -> HRESULT;
+            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+        }
+        #[guid(0x62ff9123_a85a_4e9b_a218_435a93e268fd)]
+        interface IUIAnimationTransition2: IUnknown {
+            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
+            fn SetInitialValue(&self, value: f64) -> HRESULT;
+            fn SetInitialVectorValue(&self, #[len_param(1)] value: *const f64, cDimension: u32) -> HRESULT;
+            fn SetInitialVelocity(&self, velocity: f64) -> HRESULT;
+            fn SetInitialVectorVelocity(&self, #[len_param(1)] velocity: *const f64, cDimension: u32) -> HRESULT;
+            fn IsDurationKnown(&self) -> HRESULT;
+            fn GetDuration(&self, duration: *mut f64) -> HRESULT;
+        }
+        #[guid(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d)]
+        interface IUIAnimationTransitionFactory: IUnknown {
+            fn CreateTransition(&self, interpolator: IUIAnimationInterpolator, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+        }
+        #[guid(0x937d4916_c1a6_42d5_88d8_30344d6efe31)]
+        interface IUIAnimationTransitionFactory2: IUnknown {
+            fn CreateTransition(&self, interpolator: IUIAnimationInterpolator2, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+        }
+        #[guid(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e)]
+        interface IUIAnimationTransitionLibrary: IUnknown {
+            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateConstantTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateDiscreteTransition(&self, delay: f64, finalValue: f64, hold: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransition(&self, duration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumValue: f64, maximumValue: f64, period: f64, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateReversalTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateCubicTransition(&self, duration: f64, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, maximumDuration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
+        }
+        #[guid(0x03cfae53_9580_4ee3_b363_2ece51b4af6a)]
+        interface IUIAnimationTransitionLibrary2: IUnknown {
+            fn CreateInstantaneousTransition(&self, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousVectorTransition(&self, #[len_param(1)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateConstantTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteTransition(&self, delay: f64, finalValue: f64, hold: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteVectorTransition(&self, delay: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, hold: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransition(&self, duration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransition(&self, duration: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransitionFromSpeed(&self, speed: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumValue: f64, maximumValue: f64, period: f64, slope: UI_ANIMATION_SLOPE, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalValue: f64, accelerationRatio: f64, decelerationRatio: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateReversalTransition(&self, duration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicTransition(&self, duration: f64, finalValue: f64, finalVelocity: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicVectorTransition(&self, duration: f64, #[len_param(3)] finalValue: *const f64, #[len_param(3)] finalVelocity: *const f64, cDimension: u32, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, maximumDuration: f64, finalValue: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, finalValue: f64, finalVelocity: f64, acceleration: f64, #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearTransition(&self, duration: f64, finalValue: f64, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicBezierLinearVectorTransition(&self, duration: f64, #[len_param(2)] finalValue: *const f64, cDimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
+        }
+        #[guid(0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9)]
+        interface IUIAnimationVariable: IUnknown {
+            fn GetValue(&self, value: *mut f64) -> HRESULT;
+            fn GetFinalValue(&self, finalValue: *mut f64) -> HRESULT;
+            fn GetPreviousValue(&self, previousValue: *mut f64) -> HRESULT;
+            fn GetIntegerValue(&self, value: *mut i32) -> HRESULT;
+            fn GetFinalIntegerValue(&self, finalValue: *mut i32) -> HRESULT;
+            fn GetPreviousIntegerValue(&self, previousValue: *mut i32) -> HRESULT;
+            fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn SetLowerBound(&self, bound: f64) -> HRESULT;
+            fn SetUpperBound(&self, bound: f64) -> HRESULT;
+            fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
+            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
+            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
+            fn SetVariableChangeHandler(&self, #[opt] handler: IUIAnimationVariableChangeHandler) -> HRESULT;
+            fn SetVariableIntegerChangeHandler(&self, #[opt] handler: IUIAnimationVariableIntegerChangeHandler) -> HRESULT;
+        }
+        #[guid(0x4914b304_96ab_44d9_9e77_d5109b7e7466)]
+        interface IUIAnimationVariable2: IUnknown {
+            fn GetDimension(&self, dimension: *mut u32) -> HRESULT;
+            fn GetValue(&self, value: *mut f64) -> HRESULT;
+            fn GetVectorValue(&self, #[len_param(1)] value: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetCurve(&self, animation: IDCompositionAnimation) -> HRESULT;
+            fn GetVectorCurve(&self, #[len_param(1)] animation: *const IDCompositionAnimation, cDimension: u32) -> HRESULT;
+            fn GetFinalValue(&self, finalValue: *mut f64) -> HRESULT;
+            fn GetFinalVectorValue(&self, #[len_param(1)] finalValue: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetPreviousValue(&self, previousValue: *mut f64) -> HRESULT;
+            fn GetPreviousVectorValue(&self, #[len_param(1)] previousValue: *mut f64, cDimension: u32) -> HRESULT;
+            fn GetIntegerValue(&self, value: *mut i32) -> HRESULT;
+            fn GetIntegerVectorValue(&self, #[len_param(1)] value: *mut i32, cDimension: u32) -> HRESULT;
+            fn GetFinalIntegerValue(&self, finalValue: *mut i32) -> HRESULT;
+            fn GetFinalIntegerVectorValue(&self, #[len_param(1)] finalValue: *mut i32, cDimension: u32) -> HRESULT;
+            fn GetPreviousIntegerValue(&self, previousValue: *mut i32) -> HRESULT;
+            fn GetPreviousIntegerVectorValue(&self, #[len_param(1)] previousValue: *mut i32, cDimension: u32) -> HRESULT;
+            fn GetCurrentStoryboard(&self, #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn SetLowerBound(&self, bound: f64) -> HRESULT;
+            fn SetLowerBoundVector(&self, #[len_param(1)] bound: *const f64, cDimension: u32) -> HRESULT;
+            fn SetUpperBound(&self, bound: f64) -> HRESULT;
+            fn SetUpperBoundVector(&self, #[len_param(1)] bound: *const f64, cDimension: u32) -> HRESULT;
+            fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> HRESULT;
+            fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
+            fn GetTag(&self, object: *mut IUnknown, #[opt] id: *mut u32) -> HRESULT;
+            fn SetVariableChangeHandler(&self, #[opt] handler: IUIAnimationVariableChangeHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetVariableIntegerChangeHandler(&self, #[opt] handler: IUIAnimationVariableIntegerChangeHandler2, fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetVariableCurveChangeHandler(&self, #[opt] handler: IUIAnimationVariableCurveChangeHandler2) -> HRESULT;
+        }
+        #[guid(0x6358b7ba_87d2_42d5_bf71_82e919dd5862)]
+        interface IUIAnimationVariableChangeHandler: IUnknown {
+            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: f64, previousValue: f64) -> HRESULT;
+        }
+        #[guid(0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42)]
+        interface IUIAnimationVariableChangeHandler2: IUnknown {
+            fn OnValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] newValue: *const f64, #[len_param(4)] previousValue: *const f64, cDimension: u32) -> HRESULT;
+        }
+        #[guid(0x72895e91_0145_4c21_9192_5aab40eddf80)]
+        interface IUIAnimationVariableCurveChangeHandler2: IUnknown {
+            fn OnCurveChanged(&self, variable: IUIAnimationVariable2) -> HRESULT;
+        }
+        #[guid(0xbb3e1550_356e_44b0_99da_85ac6017865e)]
+        interface IUIAnimationVariableIntegerChangeHandler: IUnknown {
+            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard, variable: IUIAnimationVariable, newValue: i32, previousValue: i32) -> HRESULT;
+        }
+        #[guid(0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58)]
+        interface IUIAnimationVariableIntegerChangeHandler2: IUnknown {
+            fn OnIntegerValueChanged(&self, storyboard: IUIAnimationStoryboard2, variable: IUIAnimationVariable2, #[len_param(4)] newValue: *const i32, #[len_param(4)] previousValue: *const i32, cDimension: u32) -> HRESULT;
+        }
+        const UIAnimationManager: GUID = 0x4c1fc63a_695c_47e8_a339_1a194be3d0b8;
+        const UIAnimationManager2: GUID = 0xd25d8842_8884_4a4a_b321_091314379bdd;
+        const UIAnimationTimer: GUID = 0xbfcd4a0c_06b6_4384_b768_0daa792c380e;
+        const UIAnimationTransitionFactory: GUID = 0x8a9b1cdd_fcd7_419c_8b44_42fd17db1887;
+        const UIAnimationTransitionFactory2: GUID = 0x84302f97_7f7b_4040_b190_72ac9d18e420;
+        const UIAnimationTransitionLibrary: GUID = 0x1d6322ad_aa85_4ef5_a828_86d71067d145;
+        const UIAnimationTransitionLibrary2: GUID = 0x812f944a_c5c8_4cd9_b0a6_b3da802f228d;
+        #[repr(u32)]
+        #[flags]
+        enum UI_ANIMATION_DEPENDENCIES {
+            UI_ANIMATION_DEPENDENCY_NONE = 0,
+            UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES = 1,
+            UI_ANIMATION_DEPENDENCY_FINAL_VALUE = 2,
+            UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY = 4,
+            UI_ANIMATION_DEPENDENCY_DURATION = 8,
+        }
+        const UI_ANIMATION_DIMENSION_UNKNOWN: u32 = 4294967295;
+        #[repr(i32)]
+        enum UI_ANIMATION_IDLE_BEHAVIOR {
+            UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE = 0,
+            UI_ANIMATION_IDLE_BEHAVIOR_DISABLE = 1,
+        }
+        const UI_ANIMATION_ITERATION_NONE: u32 = 4294967295;
+        type UI_ANIMATION_KEYFRAME = *mut void;
+        const UI_ANIMATION_KEYFRAME_STORYBOARD_START: UI_ANIMATION_KEYFRAME = -1;
+        #[repr(i32)]
+        enum UI_ANIMATION_MANAGER_STATUS {
+            UI_ANIMATION_MANAGER_IDLE = 0,
+            UI_ANIMATION_MANAGER_BUSY = 1,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_MODE {
+            UI_ANIMATION_MODE_DISABLED = 0,
+            UI_ANIMATION_MODE_SYSTEM_DEFAULT = 1,
+            UI_ANIMATION_MODE_ENABLED = 2,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_PRIORITY_EFFECT {
+            UI_ANIMATION_PRIORITY_EFFECT_FAILURE = 0,
+            UI_ANIMATION_PRIORITY_EFFECT_DELAY = 1,
+        }
+        const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1;
+        const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1;
+        const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2;
+        #[repr(i32)]
+        enum UI_ANIMATION_REPEAT_MODE {
+            UI_ANIMATION_REPEAT_MODE_NORMAL = 0,
+            UI_ANIMATION_REPEAT_MODE_ALTERNATE = 1,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_ROUNDING_MODE {
+            UI_ANIMATION_ROUNDING_NEAREST = 0,
+            UI_ANIMATION_ROUNDING_FLOOR = 1,
+            UI_ANIMATION_ROUNDING_CEILING = 2,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_SCHEDULING_RESULT {
+            UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE = 0,
+            UI_ANIMATION_SCHEDULING_INSUFFICIENT_PRIORITY = 1,
+            UI_ANIMATION_SCHEDULING_ALREADY_SCHEDULED = 2,
+            UI_ANIMATION_SCHEDULING_SUCCEEDED = 3,
+            UI_ANIMATION_SCHEDULING_DEFERRED = 4,
+        }
+        const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1;
+        const UI_ANIMATION_SECONDS_INFINITE: i32 = -1;
+        #[repr(i32)]
+        enum UI_ANIMATION_SLOPE {
+            UI_ANIMATION_SLOPE_INCREASING = 0,
+            UI_ANIMATION_SLOPE_DECREASING = 1,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_STORYBOARD_STATUS {
+            UI_ANIMATION_STORYBOARD_BUILDING = 0,
+            UI_ANIMATION_STORYBOARD_SCHEDULED = 1,
+            UI_ANIMATION_STORYBOARD_CANCELLED = 2,
+            UI_ANIMATION_STORYBOARD_PLAYING = 3,
+            UI_ANIMATION_STORYBOARD_TRUNCATED = 4,
+            UI_ANIMATION_STORYBOARD_FINISHED = 5,
+            UI_ANIMATION_STORYBOARD_READY = 6,
+            UI_ANIMATION_STORYBOARD_INSUFFICIENT_PRIORITY = 7,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_TIMER_CLIENT_STATUS {
+            UI_ANIMATION_TIMER_CLIENT_IDLE = 0,
+            UI_ANIMATION_TIMER_CLIENT_BUSY = 1,
+        }
+        #[repr(i32)]
+        enum UI_ANIMATION_UPDATE_RESULT {
+            UI_ANIMATION_UPDATE_NO_CHANGE = 0,
+            UI_ANIMATION_UPDATE_VARIABLES_CHANGED = 1,
+        }
+    }
+}

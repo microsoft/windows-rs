@@ -1,0 +1,207 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FILTER_AGGREGATE_BASIC_INFORMATION {
+            NextEntryOffset: u32,
+            Flags: u32,
+            Type: union {
+                MiniFilter: struct {
+                    FrameID: u32,
+                    NumberOfInstances: u32,
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                    FilterAltitudeLength: u16,
+                    FilterAltitudeBufferOffset: u16,
+                },
+                LegacyFilter: struct {
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                },
+            },
+        }
+        struct FILTER_AGGREGATE_STANDARD_INFORMATION {
+            NextEntryOffset: u32,
+            Flags: u32,
+            Type: union {
+                MiniFilter: struct {
+                    Flags: u32,
+                    FrameID: u32,
+                    NumberOfInstances: u32,
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                    FilterAltitudeLength: u16,
+                    FilterAltitudeBufferOffset: u16,
+                },
+                LegacyFilter: struct {
+                    Flags: u32,
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                    FilterAltitudeLength: u16,
+                    FilterAltitudeBufferOffset: u16,
+                },
+            },
+        }
+        struct FILTER_FULL_INFORMATION {
+            NextEntryOffset: u32,
+            FrameID: u32,
+            NumberOfInstances: u32,
+            FilterNameLength: u16,
+            FilterNameBuffer: [u16; 1],
+        }
+        #[repr(i32)]
+        enum FILTER_INFORMATION_CLASS {
+            FilterFullInformation = 0,
+            FilterAggregateBasicInformation = 1,
+            FilterAggregateStandardInformation = 2,
+        }
+        struct FILTER_MESSAGE_HEADER {
+            ReplyLength: u32,
+            MessageId: u64,
+        }
+        const FILTER_NAME_MAX_CHARS: u32 = 255;
+        struct FILTER_REPLY_HEADER {
+            Status: NTSTATUS,
+            MessageId: u64,
+        }
+        struct FILTER_VOLUME_BASIC_INFORMATION {
+            FilterVolumeNameLength: u16,
+            FilterVolumeName: [u16; 1],
+        }
+        #[repr(i32)]
+        enum FILTER_VOLUME_INFORMATION_CLASS {
+            FilterVolumeBasicInformation = 0,
+            FilterVolumeStandardInformation = 1,
+        }
+        struct FILTER_VOLUME_STANDARD_INFORMATION {
+            NextEntryOffset: u32,
+            Flags: u32,
+            FrameID: u32,
+            FileSystemType: FLT_FILESYSTEM_TYPE,
+            FilterVolumeNameLength: u16,
+            FilterVolumeName: [u16; 1],
+        }
+        const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2;
+        const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1;
+        const FLTFL_ASI_IS_LEGACYFILTER: u32 = 2;
+        const FLTFL_ASI_IS_MINIFILTER: u32 = 1;
+        const FLTFL_IASIL_DETACHED_VOLUME: u32 = 1;
+        const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1;
+        const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2;
+        const FLTFL_IASI_IS_MINIFILTER: u32 = 1;
+        const FLTFL_VSI_DETACHED_VOLUME: u32 = 1;
+        #[repr(i32)]
+        enum FLT_FILESYSTEM_TYPE {
+            FLT_FSTYPE_UNKNOWN = 0,
+            FLT_FSTYPE_RAW = 1,
+            FLT_FSTYPE_NTFS = 2,
+            FLT_FSTYPE_FAT = 3,
+            FLT_FSTYPE_CDFS = 4,
+            FLT_FSTYPE_UDFS = 5,
+            FLT_FSTYPE_LANMAN = 6,
+            FLT_FSTYPE_WEBDAV = 7,
+            FLT_FSTYPE_RDPDR = 8,
+            FLT_FSTYPE_NFS = 9,
+            FLT_FSTYPE_MS_NETWARE = 10,
+            FLT_FSTYPE_NETWARE = 11,
+            FLT_FSTYPE_BSUDF = 12,
+            FLT_FSTYPE_MUP = 13,
+            FLT_FSTYPE_RSFX = 14,
+            FLT_FSTYPE_ROXIO_UDF1 = 15,
+            FLT_FSTYPE_ROXIO_UDF2 = 16,
+            FLT_FSTYPE_ROXIO_UDF3 = 17,
+            FLT_FSTYPE_TACIT = 18,
+            FLT_FSTYPE_FS_REC = 19,
+            FLT_FSTYPE_INCD = 20,
+            FLT_FSTYPE_INCD_FAT = 21,
+            FLT_FSTYPE_EXFAT = 22,
+            FLT_FSTYPE_PSFS = 23,
+            FLT_FSTYPE_GPFS = 24,
+            FLT_FSTYPE_NPFS = 25,
+            FLT_FSTYPE_MSFS = 26,
+            FLT_FSTYPE_CSVFS = 27,
+            FLT_FSTYPE_REFS = 28,
+            FLT_FSTYPE_OPENAFS = 29,
+            FLT_FSTYPE_CIMFS = 30,
+        }
+        type HFILTER = HANDLE;
+        type HFILTER_INSTANCE = HANDLE;
+        type HFILTER_VOLUME = HANDLE;
+        struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+            NextEntryOffset: u32,
+            Flags: u32,
+            Type: union {
+                MiniFilter: struct {
+                    Flags: u32,
+                    FrameID: u32,
+                    VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
+                    InstanceNameLength: u16,
+                    InstanceNameBufferOffset: u16,
+                    AltitudeLength: u16,
+                    AltitudeBufferOffset: u16,
+                    VolumeNameLength: u16,
+                    VolumeNameBufferOffset: u16,
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                    SupportedFeatures: u32,
+                },
+                LegacyFilter: struct {
+                    Flags: u32,
+                    AltitudeLength: u16,
+                    AltitudeBufferOffset: u16,
+                    VolumeNameLength: u16,
+                    VolumeNameBufferOffset: u16,
+                    FilterNameLength: u16,
+                    FilterNameBufferOffset: u16,
+                    SupportedFeatures: u32,
+                },
+            },
+        }
+        struct INSTANCE_BASIC_INFORMATION {
+            NextEntryOffset: u32,
+            InstanceNameLength: u16,
+            InstanceNameBufferOffset: u16,
+        }
+        struct INSTANCE_FULL_INFORMATION {
+            NextEntryOffset: u32,
+            InstanceNameLength: u16,
+            InstanceNameBufferOffset: u16,
+            AltitudeLength: u16,
+            AltitudeBufferOffset: u16,
+            VolumeNameLength: u16,
+            VolumeNameBufferOffset: u16,
+            FilterNameLength: u16,
+            FilterNameBufferOffset: u16,
+        }
+        #[repr(i32)]
+        enum INSTANCE_INFORMATION_CLASS {
+            InstanceBasicInformation = 0,
+            InstancePartialInformation = 1,
+            InstanceFullInformation = 2,
+            InstanceAggregateStandardInformation = 3,
+        }
+        const INSTANCE_NAME_MAX_CHARS: u32 = 255;
+        struct INSTANCE_PARTIAL_INFORMATION {
+            NextEntryOffset: u32,
+            InstanceNameLength: u16,
+            InstanceNameBufferOffset: u16,
+            AltitudeLength: u16,
+            AltitudeBufferOffset: u16,
+        }
+        type PFILTER_AGGREGATE_BASIC_INFORMATION = *mut FILTER_AGGREGATE_BASIC_INFORMATION;
+        type PFILTER_AGGREGATE_STANDARD_INFORMATION = *mut FILTER_AGGREGATE_STANDARD_INFORMATION;
+        type PFILTER_FULL_INFORMATION = *mut FILTER_FULL_INFORMATION;
+        type PFILTER_INFORMATION_CLASS = *mut FILTER_INFORMATION_CLASS;
+        type PFILTER_MESSAGE_HEADER = *mut FILTER_MESSAGE_HEADER;
+        type PFILTER_REPLY_HEADER = *mut FILTER_REPLY_HEADER;
+        type PFILTER_VOLUME_BASIC_INFORMATION = *mut FILTER_VOLUME_BASIC_INFORMATION;
+        type PFILTER_VOLUME_INFORMATION_CLASS = *mut FILTER_VOLUME_INFORMATION_CLASS;
+        type PFILTER_VOLUME_STANDARD_INFORMATION = *mut FILTER_VOLUME_STANDARD_INFORMATION;
+        type PFLT_FILESYSTEM_TYPE = *mut FLT_FILESYSTEM_TYPE;
+        type PINSTANCE_AGGREGATE_STANDARD_INFORMATION = *mut INSTANCE_AGGREGATE_STANDARD_INFORMATION;
+        type PINSTANCE_BASIC_INFORMATION = *mut INSTANCE_BASIC_INFORMATION;
+        type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
+        type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
+        type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
+        const VOLUME_NAME_MAX_CHARS: u32 = 1024;
+    }
+}

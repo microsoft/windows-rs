@@ -1,0 +1,67 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type LPSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+        type LPSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
+        #[repr(i32)]
+        enum NodeContainerType {
+            NodeContainerTypeSequence = 0,
+            NodeContainerTypeAlternative = 1,
+        }
+        type PSDP_ERROR = *mut u16;
+        type PSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+        type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
+        type SDP_ERROR = u16;
+        struct SDP_LARGE_INTEGER_16 {
+            LowPart: u64,
+            HighPart: i64,
+        }
+        #[repr(i32)]
+        enum SDP_SPECIFICTYPE {
+            SDP_ST_NONE = 0,
+            SDP_ST_UINT8 = 16,
+            SDP_ST_UINT16 = 272,
+            SDP_ST_UINT32 = 528,
+            SDP_ST_UINT64 = 784,
+            SDP_ST_UINT128 = 1040,
+            SDP_ST_INT8 = 32,
+            SDP_ST_INT16 = 288,
+            SDP_ST_INT32 = 544,
+            SDP_ST_INT64 = 800,
+            SDP_ST_INT128 = 1056,
+            SDP_ST_UUID16 = 304,
+            SDP_ST_UUID32 = 544,
+            SDP_ST_UUID128 = 1072,
+        }
+        #[repr(i32)]
+        enum SDP_TYPE {
+            SDP_TYPE_NIL = 0,
+            SDP_TYPE_UINT = 1,
+            SDP_TYPE_INT = 2,
+            SDP_TYPE_UUID = 3,
+            SDP_TYPE_STRING = 4,
+            SDP_TYPE_BOOLEAN = 5,
+            SDP_TYPE_SEQUENCE = 6,
+            SDP_TYPE_ALTERNATIVE = 7,
+            SDP_TYPE_URL = 8,
+            SDP_TYPE_CONTAINER = 32,
+        }
+        struct SDP_ULARGE_INTEGER_16 {
+            LowPart: u64,
+            HighPart: u64,
+        }
+        struct SdpAttributeRange {
+            minAttribute: u16,
+            maxAttribute: u16,
+        }
+        struct SdpQueryUuid {
+            u: SdpQueryUuidUnion,
+            uuidType: u16,
+        }
+        union SdpQueryUuidUnion {
+            uuid128: GUID,
+            uuid32: u32,
+            uuid16: u16,
+        }
+    }
+}

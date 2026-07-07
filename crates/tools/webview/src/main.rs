@@ -1,3 +1,4 @@
+use windows_clang::*;
 use windows_rdl::*;
 
 fn main() {
@@ -19,6 +20,7 @@ fn main() {
         .input("crates/tools/webview/WebView2.h")
         .input("crates/tools/webview/WebView2Interop.h")
         .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+        .input("crates/libs/bindgen/default/Windows.winmd")
         .output("target/webview/WebView2.rdl")
         .namespace("WebView2")
         .library("WebView2Loader.dll")
@@ -27,7 +29,8 @@ fn main() {
 
     reader()
         .input("target/webview/WebView2.rdl")
-        .input("crates/libs/bindgen/default")
+        .input("crates/libs/bindgen/default/Windows.Win32.winmd")
+        .input("crates/libs/bindgen/default/Windows.winmd")
         .output("target/webview/WebView2.winmd")
         .write()
         .unwrap();

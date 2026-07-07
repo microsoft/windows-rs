@@ -1,0 +1,208 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ACTION_HEADER {
+            transport_id: u32,
+            action_code: u16,
+            reserved: u16,
+        }
+        struct ADAPTER_STATUS {
+            adapter_address: [u8; 6],
+            rev_major: u8,
+            reserved0: u8,
+            adapter_type: u8,
+            rev_minor: u8,
+            duration: u16,
+            frmr_recv: u16,
+            frmr_xmit: u16,
+            iframe_recv_err: u16,
+            xmit_aborts: u16,
+            xmit_success: u32,
+            recv_success: u32,
+            iframe_xmit_err: u16,
+            recv_buff_unavail: u16,
+            t1_timeouts: u16,
+            ti_timeouts: u16,
+            reserved1: u32,
+            free_ncbs: u16,
+            max_cfg_ncbs: u16,
+            max_ncbs: u16,
+            xmit_buf_unavail: u16,
+            max_dgram_size: u16,
+            pending_sess: u16,
+            max_cfg_sess: u16,
+            max_sess: u16,
+            max_sess_pkt_size: u16,
+            name_count: u16,
+        }
+        #[encoding("ansi")]
+        const ALL_TRANSPORTS: String = "M\0\0\0";
+        const ASYNCH: u32 = 128;
+        const CALL_PENDING: u32 = 2;
+        const DEREGISTERED: u32 = 5;
+        const DUPLICATE: u32 = 6;
+        const DUPLICATE_DEREG: u32 = 7;
+        struct FIND_NAME_BUFFER {
+            length: u8,
+            access_control: u8,
+            frame_control: u8,
+            destination_addr: [u8; 6],
+            source_addr: [u8; 6],
+            routing_info: [u8; 18],
+        }
+        struct FIND_NAME_HEADER {
+            node_count: u16,
+            reserved: u8,
+            unique_group: u8,
+        }
+        const GROUP_NAME: u32 = 128;
+        const HANGUP_COMPLETE: u32 = 5;
+        const HANGUP_PENDING: u32 = 4;
+        struct LANA_ENUM {
+            length: u8,
+            lana: [u8; 255],
+        }
+        const LISTEN_OUTSTANDING: u32 = 1;
+        const MAX_LANA: u32 = 254;
+        #[encoding("ansi")]
+        const MS_NBF: String = "MNBF";
+        struct NAME_BUFFER {
+            name: [u8; 16],
+            name_num: u8,
+            name_flags: u8,
+        }
+        const NAME_FLAGS_MASK: u32 = 135;
+        #[arch(X64 | Arm64)]
+        struct NCB {
+            ncb_command: u8,
+            ncb_retcode: u8,
+            ncb_lsn: u8,
+            ncb_num: u8,
+            ncb_buffer: PUCHAR,
+            ncb_length: u16,
+            ncb_callname: [u8; 16],
+            ncb_name: [u8; 16],
+            ncb_rto: u8,
+            ncb_sto: u8,
+            ncb_post: *mut u8,
+            ncb_lana_num: u8,
+            ncb_cmd_cplt: u8,
+            ncb_reserve: [u8; 18],
+            ncb_event: HANDLE,
+        }
+        #[arch(X86)]
+        struct NCB {
+            ncb_command: u8,
+            ncb_retcode: u8,
+            ncb_lsn: u8,
+            ncb_num: u8,
+            ncb_buffer: PUCHAR,
+            ncb_length: u16,
+            ncb_callname: [u8; 16],
+            ncb_name: [u8; 16],
+            ncb_rto: u8,
+            ncb_sto: u8,
+            ncb_post: *mut u8,
+            ncb_lana_num: u8,
+            ncb_cmd_cplt: u8,
+            ncb_reserve: [u8; 10],
+            ncb_event: HANDLE,
+        }
+        const NCBACTION: u32 = 119;
+        const NCBADDGRNAME: u32 = 54;
+        const NCBADDNAME: u32 = 48;
+        const NCBASTAT: u32 = 51;
+        const NCBCALL: u32 = 16;
+        const NCBCANCEL: u32 = 53;
+        const NCBCHAINSEND: u32 = 23;
+        const NCBCHAINSENDNA: u32 = 114;
+        const NCBDELNAME: u32 = 49;
+        const NCBDGRECV: u32 = 33;
+        const NCBDGRECVBC: u32 = 35;
+        const NCBDGSEND: u32 = 32;
+        const NCBDGSENDBC: u32 = 34;
+        const NCBENUM: u32 = 55;
+        const NCBFINDNAME: u32 = 120;
+        const NCBHANGUP: u32 = 18;
+        const NCBLANSTALERT: u32 = 115;
+        const NCBLISTEN: u32 = 17;
+        const NCBNAMSZ: u32 = 16;
+        const NCBRECV: u32 = 21;
+        const NCBRECVANY: u32 = 22;
+        const NCBRESET: u32 = 50;
+        const NCBSEND: u32 = 20;
+        const NCBSENDNA: u32 = 113;
+        const NCBSSTAT: u32 = 52;
+        const NCBTRACE: u32 = 121;
+        const NCBUNLINK: u32 = 112;
+        const NRC_ACTSES: u32 = 15;
+        const NRC_BADDR: u32 = 7;
+        const NRC_BRIDGE: u32 = 35;
+        const NRC_BUFLEN: u32 = 1;
+        const NRC_CANCEL: u32 = 38;
+        const NRC_CANOCCR: u32 = 36;
+        const NRC_CMDCAN: u32 = 11;
+        const NRC_CMDTMO: u32 = 5;
+        const NRC_DUPENV: u32 = 48;
+        const NRC_DUPNAME: u32 = 13;
+        const NRC_ENVNOTDEF: u32 = 52;
+        const NRC_GOODRET: u32 = 0;
+        const NRC_IFBUSY: u32 = 33;
+        const NRC_ILLCMD: u32 = 3;
+        const NRC_ILLNN: u32 = 19;
+        const NRC_INCOMP: u32 = 6;
+        const NRC_INUSE: u32 = 22;
+        const NRC_INVADDRESS: u32 = 57;
+        const NRC_INVDDID: u32 = 59;
+        const NRC_LOCKFAIL: u32 = 60;
+        const NRC_LOCTFUL: u32 = 17;
+        const NRC_MAXAPPS: u32 = 54;
+        const NRC_NAMCONF: u32 = 25;
+        const NRC_NAMERR: u32 = 23;
+        const NRC_NAMTFUL: u32 = 14;
+        const NRC_NOCALL: u32 = 20;
+        const NRC_NORES: u32 = 9;
+        const NRC_NORESOURCES: u32 = 56;
+        const NRC_NOSAPS: u32 = 55;
+        const NRC_NOWILD: u32 = 21;
+        const NRC_OPENERR: u32 = 63;
+        const NRC_OSRESNOTAV: u32 = 53;
+        const NRC_PENDING: u32 = 255;
+        const NRC_REMTFUL: u32 = 18;
+        const NRC_SABORT: u32 = 24;
+        const NRC_SCLOSED: u32 = 10;
+        const NRC_SNUMOUT: u32 = 8;
+        const NRC_SYSTEM: u32 = 64;
+        const NRC_TOOMANY: u32 = 34;
+        #[library("NETAPI32.dll")]
+        extern fn Netbios(pncb: *mut NCB) -> u8;
+        type PACTION_HEADER = *mut ACTION_HEADER;
+        type PADAPTER_STATUS = *mut ADAPTER_STATUS;
+        type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;
+        type PFIND_NAME_HEADER = *mut FIND_NAME_HEADER;
+        type PLANA_ENUM = *mut LANA_ENUM;
+        type PNAME_BUFFER = *mut NAME_BUFFER;
+        type PNCB = *mut NCB;
+        type PSESSION_BUFFER = *mut SESSION_BUFFER;
+        type PSESSION_HEADER = *mut SESSION_HEADER;
+        const REGISTERED: u32 = 4;
+        const REGISTERING: u32 = 0;
+        const SESSION_ABORTED: u32 = 6;
+        struct SESSION_BUFFER {
+            lsn: u8,
+            state: u8,
+            local_name: [u8; 16],
+            remote_name: [u8; 16],
+            rcvs_outstanding: u8,
+            sends_outstanding: u8,
+        }
+        const SESSION_ESTABLISHED: u32 = 3;
+        struct SESSION_HEADER {
+            sess_name: u8,
+            num_sess: u8,
+            rcv_dg_outstanding: u8,
+            rcv_any_outstanding: u8,
+        }
+        const UNIQUE_NAME: u32 = 0;
+    }
+}

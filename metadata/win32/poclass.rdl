@@ -1,0 +1,339 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ACPI_REAL_TIME {
+            Year: u16,
+            Month: u8,
+            Day: u8,
+            Hour: u8,
+            Minute: u8,
+            Second: u8,
+            Valid: u8,
+            Milliseconds: u16,
+            TimeZone: i16,
+            DayLight: u8,
+            Reserved1: [u8; 3],
+        }
+        const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1;
+        struct ACPI_TIME_AND_ALARM_CAPABILITIES {
+            AcWakeSupported: BOOLEAN,
+            DcWakeSupported: BOOLEAN,
+            S4AcWakeSupported: BOOLEAN,
+            S4DcWakeSupported: BOOLEAN,
+            S5AcWakeSupported: BOOLEAN,
+            S5DcWakeSupported: BOOLEAN,
+            S4S5WakeStatusSupported: BOOLEAN,
+            DeepestWakeSystemState: u32,
+            RealTimeFeaturesSupported: BOOLEAN,
+            RealTimeResolution: ACPI_TIME_RESOLUTION,
+        }
+        const ACPI_TIME_IN_DAYLIGHT: u32 = 2;
+        #[repr(i32)]
+        enum ACPI_TIME_RESOLUTION {
+            AcpiTimeResolutionMilliseconds = 0,
+            AcpiTimeResolutionSeconds = 1,
+            AcpiTimeResolutionMax = 2,
+        }
+        const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047;
+        const ACTIVE_COOLING: u32 = 0;
+        const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824;
+        type BATTERY_CHARGER_ID = GUID;
+        struct BATTERY_CHARGER_STATUS {
+            Type: BATTERY_CHARGING_SOURCE_TYPE,
+            VaData: [u32; 1],
+        }
+        const BATTERY_CHARGING: u32 = 4;
+        struct BATTERY_CHARGING_SOURCE {
+            Type: BATTERY_CHARGING_SOURCE_TYPE,
+            MaxCurrent: u32,
+        }
+        struct BATTERY_CHARGING_SOURCE_INFORMATION {
+            Type: BATTERY_CHARGING_SOURCE_TYPE,
+            SourceOnline: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum BATTERY_CHARGING_SOURCE_TYPE {
+            BatteryChargingSourceType_AC = 1,
+            BatteryChargingSourceType_USB = 2,
+            BatteryChargingSourceType_Wireless = 3,
+            BatteryChargingSourceType_Max = 4,
+        }
+        const BATTERY_CRITICAL: u32 = 8;
+        const BATTERY_DISCHARGING: u32 = 2;
+        struct BATTERY_INFORMATION {
+            Capabilities: u32,
+            Technology: u8,
+            Reserved: [u8; 3],
+            Chemistry: [u8; 4],
+            DesignedCapacity: u32,
+            FullChargedCapacity: u32,
+            DefaultAlert1: u32,
+            DefaultAlert2: u32,
+            CriticalBias: u32,
+            CycleCount: u32,
+        }
+        const BATTERY_IS_SHORT_TERM: u32 = 536870912;
+        struct BATTERY_MANUFACTURE_DATE {
+            Day: u8,
+            Month: u8,
+            Year: u16,
+        }
+        const BATTERY_POWER_ON_LINE: u32 = 1;
+        struct BATTERY_QUERY_INFORMATION {
+            BatteryTag: u32,
+            InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
+            AtRate: u32,
+        }
+        #[repr(i32)]
+        enum BATTERY_QUERY_INFORMATION_LEVEL {
+            BatteryInformation = 0,
+            BatteryGranularityInformation = 1,
+            BatteryTemperature = 2,
+            BatteryEstimatedTime = 3,
+            BatteryDeviceName = 4,
+            BatteryManufactureDate = 5,
+            BatteryManufactureName = 6,
+            BatteryUniqueID = 7,
+            BatterySerialNumber = 8,
+        }
+        const BATTERY_SEALED: u32 = 268435456;
+        const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8;
+        const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1;
+        const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4;
+        const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2;
+        struct BATTERY_SET_INFORMATION {
+            BatteryTag: u32,
+            InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
+            Buffer: [u8; 1],
+        }
+        #[repr(i32)]
+        enum BATTERY_SET_INFORMATION_LEVEL {
+            BatteryCriticalBias = 0,
+            BatteryCharge = 1,
+            BatteryDischarge = 2,
+            BatteryChargingSource = 3,
+            BatteryChargerId = 4,
+            BatteryChargerStatus = 5,
+        }
+        struct BATTERY_STATUS {
+            PowerState: u32,
+            Capacity: u32,
+            Voltage: u32,
+            Rate: i32,
+        }
+        const BATTERY_SYSTEM_BATTERY: u32 = 2147483648;
+        const BATTERY_TAG_INVALID: u32 = 0;
+        const BATTERY_TEST_EXEMPT: u32 = 16;
+        const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295;
+        const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295;
+        const BATTERY_UNKNOWN_RATE: u32 = 2147483648;
+        const BATTERY_UNKNOWN_TIME: u32 = 4294967295;
+        const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
+        struct BATTERY_USB_CHARGER_STATUS {
+            Type: BATTERY_CHARGING_SOURCE_TYPE,
+            Reserved: u32,
+            Flags: u32,
+            MaxCurrent: u32,
+            Voltage: u32,
+            PortType: USB_CHARGER_PORT,
+            PortId: u64,
+            PowerSourceInformation: *mut void,
+            OemCharger: BATTERY_CHARGER_ID,
+        }
+        const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1;
+        const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2;
+        struct BATTERY_WAIT_STATUS {
+            BatteryTag: u32,
+            Timeout: u32,
+            PowerState: u32,
+            LowCapacity: u32,
+            HighCapacity: u32,
+        }
+        struct CUSTOMIZED_IO_CAPABILITIES {
+            SupportedInputs: u32,
+            SupportedOutputs: u32,
+        }
+        struct CUSTOMIZED_IO_QUERY_INPUT_RETURN {
+            FunctionId: u32,
+            ErrorCode: u32,
+            Value: u32,
+        }
+        struct CUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
+            FunctionId: u32,
+            Value: u32,
+        }
+        const GUID_CLASS_INPUT: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
+        const GUID_DEVICE_ACPI_TIME: GUID = 0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c;
+        const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: GUID = 0x629758ee_986e_4d9e_8e47_de27f8ab054d;
+        const GUID_DEVICE_BATTERY: GUID = 0x72631e54_78a4_11d0_bcf7_00aa00b7b32a;
+        const GUID_DEVICE_FAN: GUID = 0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9;
+        const GUID_DEVICE_LID: GUID = 0x4afa3d52_74a7_11d0_be5e_00a0c9062857;
+        const GUID_DEVICE_MEMORY: GUID = 0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021;
+        const GUID_DEVICE_MESSAGE_INDICATOR: GUID = 0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4;
+        const GUID_DEVICE_POWER_ADAPTER: GUID = 0xf76c6c62_7dea_43cd_8689_d9a4af3d8557;
+        const GUID_DEVICE_PROCESSOR: GUID = 0x97fadb10_4e33_40ae_359c_8bef029dbdd0;
+        const GUID_DEVICE_SYS_BUTTON: GUID = 0x4afa3d53_74a7_11d0_be5e_00a0c9062857;
+        const GUID_DEVICE_THERMAL_ZONE: GUID = 0x4afa3d51_74a7_11d0_be5e_00a0c9062857;
+        const GUID_DEVINTERFACE_CUSTOMIZED_IO: GUID = 0x2ed8544a_8eef_4033_b2a0_04aaa507cecb;
+        const GUID_DEVINTERFACE_POWER_LIMIT: GUID = 0x8f366301_091e_4056_b92f_958b27625fce;
+        const GUID_DEVINTERFACE_TEMPERATURE_SENSOR: GUID = 0x2a6c8538_7895_4d56_8567_795d3844858a;
+        const GUID_DEVINTERFACE_THERMAL_COOLING: GUID = 0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f;
+        const GUID_DEVINTERFACE_THERMAL_MANAGER: GUID = 0x927ec093_69a4_4bc0_bd02_711664714463;
+        const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888;
+        const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276;
+        const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440;
+        const IOCTL_BATTERY_QUERY_INFORMATION: u32 = 2703428;
+        const IOCTL_BATTERY_QUERY_STATUS: u32 = 2703436;
+        const IOCTL_BATTERY_QUERY_TAG: u32 = 2703424;
+        const IOCTL_BATTERY_SET_INFORMATION: u32 = 2719816;
+        const IOCTL_GET_ACPI_TIME_AND_ALARM_CAPABILITIES: u32 = 2703900;
+        const IOCTL_GET_PROCESSOR_OBJ_INFO: u32 = 2703744;
+        const IOCTL_GET_SYS_BUTTON_CAPS: u32 = 2703680;
+        const IOCTL_GET_SYS_BUTTON_EVENT: u32 = 2703684;
+        const IOCTL_GET_WAKE_ALARM_POLICY: u32 = 2736652;
+        const IOCTL_GET_WAKE_ALARM_SYSTEM_POWERSTATE: u32 = 2703896;
+        const IOCTL_GET_WAKE_ALARM_VALUE: u32 = 2736648;
+        const IOCTL_NOTIFY_SWITCH_EVENT: u32 = 2703616;
+        const IOCTL_QUERY_CUSTOMIZED_INPUT_FROM_PLATFORM: u32 = 2704004;
+        const IOCTL_QUERY_CUSTOMIZED_IO_CAPABILITIES: u32 = 2704000;
+        const IOCTL_QUERY_LID: u32 = 2703552;
+        const IOCTL_RUN_ACTIVE_COOLING_METHOD: u32 = 2719880;
+        const IOCTL_SEND_CUSTOMIZED_OUTPUT_TO_PLATFORM: u32 = 2720392;
+        const IOCTL_SET_SYS_MESSAGE_INDICATOR: u32 = 2720192;
+        const IOCTL_SET_WAKE_ALARM_POLICY: u32 = 2720260;
+        const IOCTL_SET_WAKE_ALARM_VALUE: u32 = 2720256;
+        const IOCTL_THERMAL_QUERY_INFORMATION: u32 = 2703488;
+        const IOCTL_THERMAL_READ_POLICY: u32 = 2703508;
+        const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504;
+        const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876;
+        const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884;
+        const MAX_ACTIVE_COOLING_LEVELS: u32 = 10;
+        const MAX_BATTERY_STRING_SIZE: u32 = 128;
+        type PACPI_REAL_TIME = *mut ACPI_REAL_TIME;
+        type PACPI_TIME_AND_ALARM_CAPABILITIES = *mut ACPI_TIME_AND_ALARM_CAPABILITIES;
+        type PACPI_TIME_RESOLUTION = *mut ACPI_TIME_RESOLUTION;
+        const PASSIVE_COOLING: u32 = 1;
+        type PBATTERY_CHARGER_ID = *mut GUID;
+        type PBATTERY_CHARGER_STATUS = *mut BATTERY_CHARGER_STATUS;
+        type PBATTERY_CHARGING_SOURCE = *mut BATTERY_CHARGING_SOURCE;
+        type PBATTERY_CHARGING_SOURCE_INFORMATION = *mut BATTERY_CHARGING_SOURCE_INFORMATION;
+        type PBATTERY_CHARGING_SOURCE_TYPE = *mut BATTERY_CHARGING_SOURCE_TYPE;
+        type PBATTERY_INFORMATION = *mut BATTERY_INFORMATION;
+        type PBATTERY_MANUFACTURE_DATE = *mut BATTERY_MANUFACTURE_DATE;
+        type PBATTERY_QUERY_INFORMATION = *mut BATTERY_QUERY_INFORMATION;
+        type PBATTERY_SET_INFORMATION = *mut BATTERY_SET_INFORMATION;
+        type PBATTERY_STATUS = *mut BATTERY_STATUS;
+        type PBATTERY_USB_CHARGER_STATUS = *mut BATTERY_USB_CHARGER_STATUS;
+        type PBATTERY_WAIT_STATUS = *mut BATTERY_WAIT_STATUS;
+        type PCUSTOMIZED_IO_CAPABILITIES = *mut CUSTOMIZED_IO_CAPABILITIES;
+        type PCUSTOMIZED_IO_QUERY_INPUT_RETURN = *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN;
+        type PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER = *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER;
+        struct POWER_ADAPTER_CHARGE_REQUIREMENT {
+            AcAdapterType: u32,
+            MinimumPower: u32,
+            NominalPower: u32,
+            MaximumPower: u32,
+        }
+        union POWER_ADAPTER_POWER_STATES {
+            States: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
+        struct POWER_ADAPTER_SET_STATUS_BUFFER {
+            Version: u8,
+            RecOverride: BOOLEAN,
+            Reserved: [u8; 2],
+        }
+        struct POWER_ADAPTER_STATUS {
+            Version: u8,
+            Reserved: [u8; 3],
+            PowerState: POWER_ADAPTER_POWER_STATES,
+            PeakPower: u32,
+            MaxOutputPower: u32,
+            MaxInputPower: u32,
+            RecStartTime: u64,
+            RecEndTime: u64,
+        }
+        type PPOWER_ADAPTER_CHARGE_REQUIREMENT = *mut POWER_ADAPTER_CHARGE_REQUIREMENT;
+        type PPOWER_ADAPTER_POWER_STATES = *mut POWER_ADAPTER_POWER_STATES;
+        type PPOWER_ADAPTER_SET_STATUS_BUFFER = *mut POWER_ADAPTER_SET_STATUS_BUFFER;
+        type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
+        type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
+        type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
+        struct PROCESSOR_OBJECT_INFO {
+            PhysicalID: u32,
+            PBlkAddress: u32,
+            PBlkLength: u8,
+        }
+        struct PROCESSOR_OBJECT_INFO_EX {
+            PhysicalID: u32,
+            PBlkAddress: u32,
+            PBlkLength: u8,
+            InitialApicId: u32,
+        }
+        type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
+        type PTHERMAL_POLICY = *mut THERMAL_POLICY;
+        type PTHERMAL_WAIT_READ = *mut THERMAL_WAIT_READ;
+        type PUSB_CHARGER_PORT = *mut USB_CHARGER_PORT;
+        type PWAKE_ALARM_INFORMATION = *mut WAKE_ALARM_INFORMATION;
+        const SYS_BUTTON_LID: u32 = 4;
+        const SYS_BUTTON_LID_CHANGED: u32 = 524288;
+        const SYS_BUTTON_LID_CLOSED: u32 = 131072;
+        const SYS_BUTTON_LID_INITIAL: u32 = 262144;
+        const SYS_BUTTON_LID_OPEN: u32 = 65536;
+        const SYS_BUTTON_LID_STATE_MASK: u32 = 196608;
+        const SYS_BUTTON_POWER: u32 = 1;
+        const SYS_BUTTON_SLEEP: u32 = 2;
+        const SYS_BUTTON_WAKE: u32 = 2147483648;
+        struct THERMAL_INFORMATION {
+            ThermalStamp: u32,
+            ThermalConstant1: u32,
+            ThermalConstant2: u32,
+            Processors: KAFFINITY,
+            SamplingPeriod: u32,
+            CurrentTemperature: u32,
+            PassiveTripPoint: u32,
+            CriticalTripPoint: u32,
+            ActiveTripPointCount: u8,
+            ActiveTripPoint: [u32; 10],
+        }
+        struct THERMAL_POLICY {
+            Version: u32,
+            WaitForUpdate: BOOLEAN,
+            Hibernate: BOOLEAN,
+            Critical: BOOLEAN,
+            ThermalStandby: BOOLEAN,
+            ActivationReasons: u32,
+            PassiveLimit: u32,
+            ActiveLevel: u32,
+            OverThrottled: BOOLEAN,
+        }
+        const THERMAL_POLICY_VERSION_1: u32 = 1;
+        const THERMAL_POLICY_VERSION_2: u32 = 2;
+        struct THERMAL_WAIT_READ {
+            Timeout: u32,
+            LowTemperature: u32,
+            HighTemperature: u32,
+        }
+        const THERMAL_WAIT_READ_TIMEOUT_IMMEDIATE: u32 = 0;
+        const THERMAL_WAIT_READ_TIMEOUT_NONE: u32 = 4294967295;
+        const TZ_ACTIVATION_REASON_CURRENT: u32 = 2;
+        const TZ_ACTIVATION_REASON_THERMAL: u32 = 1;
+        const UNKNOWN_CAPACITY: i32 = -1;
+        const UNKNOWN_CURRENT: i32 = -1;
+        const UNKNOWN_RATE: i32 = -2147483648;
+        const UNKNOWN_VOLTAGE: i32 = -1;
+        #[repr(i32)]
+        enum USB_CHARGER_PORT {
+            UsbChargerPort_Legacy = 0,
+            UsbChargerPort_TypeC = 1,
+            UsbChargerPort_Max = 2,
+        }
+        struct WAKE_ALARM_INFORMATION {
+            TimerIdentifier: u32,
+            Timeout: u32,
+        }
+    }
+}

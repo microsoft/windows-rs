@@ -1,0 +1,18 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const NDIS_DEFAULT_PORT_NUMBER: NDIS_PORT_NUMBER = 0;
+        const NDIS_MAXIMUM_PORTS: u32 = 16777216;
+        type NDIS_PORT_NUMBER = u32;
+        #[repr(i32)]
+        enum NDIS_PORT_TYPE {
+            NdisPortTypeUndefined = 0,
+            NdisPortTypeBridge = 1,
+            NdisPortTypeRasConnection = 2,
+            NdisPortType8021xSupplicant = 3,
+            NdisPortTypeMax = 4,
+        }
+        type PNDIS_PORT_NUMBER = *mut u32;
+        type PNDIS_PORT_TYPE = *mut NDIS_PORT_TYPE;
+    }
+}

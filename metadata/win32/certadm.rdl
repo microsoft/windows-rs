@@ -1,0 +1,264 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CA_ACCESS_ADMIN: u32 = 1;
+        const CA_ACCESS_AUDITOR: u32 = 4;
+        const CA_ACCESS_ENROLL: u32 = 512;
+        const CA_ACCESS_MASKROLES: u32 = 255;
+        const CA_ACCESS_OFFICER: u32 = 2;
+        const CA_ACCESS_OPERATOR: u32 = 8;
+        const CA_ACCESS_READ: u32 = 256;
+        const CA_CRL_BASE: u32 = 1;
+        const CA_CRL_DELTA: u32 = 2;
+        const CA_CRL_REPUBLISH: u32 = 16;
+        const CA_DISP_ERROR: u32 = 1;
+        const CA_DISP_INCOMPLETE: u32 = 0;
+        const CA_DISP_INVALID: u32 = 4;
+        const CA_DISP_REVOKED: u32 = 2;
+        const CA_DISP_UNDER_SUBMISSION: u32 = 5;
+        const CA_DISP_VALID: u32 = 3;
+        const CCertAdmin: GUID = 0x37eabaf0_7fb6_11d0_8817_00a0c903b83c;
+        const CCertView: GUID = 0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa;
+        const CDR_EXPIRED: u32 = 1;
+        const CDR_REQUEST_LAST_CHANGED: u32 = 2;
+        const ICF_ALLOWFOREIGN: u32 = 65536;
+        const ICF_EXISTINGROW: u32 = 131072;
+        #[guid(0x34df6950_7fb6_11d0_8817_00a0c903b83c)]
+        interface ICertAdmin: IDispatch {
+            fn IsValidCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn GetRevocationReason(&self, #[retval] pReason: *mut i32) -> HRESULT;
+            fn RevokeCertificate(&self, strConfig: BSTR, strSerialNumber: BSTR, Reason: i32, Date: f64) -> HRESULT;
+            fn SetRequestAttributes(&self, strConfig: BSTR, RequestId: i32, strAttributes: BSTR) -> HRESULT;
+            fn SetCertificateExtension(&self, strConfig: BSTR, RequestId: i32, strExtensionName: BSTR, Type: i32, Flags: i32, pvarValue: *const VARIANT) -> HRESULT;
+            fn DenyRequest(&self, strConfig: BSTR, RequestId: i32) -> HRESULT;
+            fn ResubmitRequest(&self, strConfig: BSTR, RequestId: i32, #[retval] pDisposition: *mut i32) -> HRESULT;
+            fn PublishCRL(&self, strConfig: BSTR, Date: f64) -> HRESULT;
+            fn GetCRL(&self, strConfig: BSTR, Flags: i32, #[retval] pstrCRL: *mut BSTR) -> HRESULT;
+            fn ImportCertificate(&self, strConfig: BSTR, strCertificate: BSTR, Flags: i32, #[retval] pRequestId: *mut i32) -> HRESULT;
+        }
+        #[guid(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39)]
+        interface ICertAdmin2: ICertAdmin {
+            fn PublishCRLs(&self, strConfig: BSTR, Date: f64, CRLFlags: i32) -> HRESULT;
+            fn GetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, Flags: i32, #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
+            fn SetCAProperty(&self, strConfig: BSTR, PropId: i32, PropIndex: i32, PropType: i32, pvarPropertyValue: *const VARIANT) -> HRESULT;
+            fn GetCAPropertyFlags(&self, strConfig: BSTR, PropId: i32, #[retval] pPropFlags: *mut i32) -> HRESULT;
+            fn GetCAPropertyDisplayName(&self, strConfig: BSTR, PropId: i32, #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
+            fn GetArchivedKey(&self, strConfig: BSTR, RequestId: i32, Flags: i32, #[retval] pstrArchivedKey: *mut BSTR) -> HRESULT;
+            fn GetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, #[retval] pvarEntry: *mut VARIANT) -> HRESULT;
+            fn SetConfigEntry(&self, strConfig: BSTR, strNodePath: BSTR, strEntryName: BSTR, pvarEntry: *const VARIANT) -> HRESULT;
+            fn ImportKey(&self, strConfig: BSTR, RequestId: i32, strCertHash: BSTR, Flags: i32, strKey: BSTR) -> HRESULT;
+            fn GetMyRoles(&self, strConfig: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
+            fn DeleteRow(&self, strConfig: BSTR, Flags: i32, Date: f64, Table: i32, RowId: i32, #[retval] pcDeleted: *mut i32) -> HRESULT;
+        }
+        const IKF_OVERWRITE: u32 = 65536;
+        #[guid(0x322e830d_67db_4fe9_9577_4596d9f09294)]
+        interface IOCSPAdmin: IDispatch {
+            #[special]
+            fn get_OCSPServiceProperties(&self, #[retval] ppVal: *mut IOCSPPropertyCollection) -> HRESULT;
+            #[special]
+            fn get_OCSPCAConfigurationCollection(&self, #[retval] pVal: *mut IOCSPCAConfigurationCollection) -> HRESULT;
+            fn GetConfiguration(&self, bstrServerName: BSTR, bForce: VARIANT_BOOL) -> HRESULT;
+            fn SetConfiguration(&self, bstrServerName: BSTR, bForce: VARIANT_BOOL) -> HRESULT;
+            fn GetMyRoles(&self, bstrServerName: BSTR, #[retval] pRoles: *mut i32) -> HRESULT;
+            fn Ping(&self, bstrServerName: BSTR) -> HRESULT;
+            fn SetSecurity(&self, bstrServerName: BSTR, bstrVal: BSTR) -> HRESULT;
+            fn GetSecurity(&self, bstrServerName: BSTR, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn GetSigningCertificates(&self, bstrServerName: BSTR, pCACertVar: *const VARIANT, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn GetHashAlgorithms(&self, bstrServerName: BSTR, bstrCAId: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xaec92b40_3d46_433f_87d1_b84d5c1e790d)]
+        interface IOCSPCAConfiguration: IDispatch {
+            #[special]
+            fn get_Identifier(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_CACertificate(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_HashAlgorithm(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_HashAlgorithm(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_SigningFlags(&self, #[retval] pVal: *mut u32) -> HRESULT;
+            #[special]
+            fn put_SigningFlags(&self, newVal: u32) -> HRESULT;
+            #[special]
+            fn get_SigningCertificate(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_SigningCertificate(&self, newVal: VARIANT) -> HRESULT;
+            #[special]
+            fn get_ReminderDuration(&self, #[retval] pVal: *mut u32) -> HRESULT;
+            #[special]
+            fn put_ReminderDuration(&self, newVal: u32) -> HRESULT;
+            #[special]
+            fn get_ErrorCode(&self, #[retval] pVal: *mut u32) -> HRESULT;
+            #[special]
+            fn get_CSPName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_KeySpec(&self, #[retval] pVal: *mut u32) -> HRESULT;
+            #[special]
+            fn get_ProviderCLSID(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProviderCLSID(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_ProviderProperties(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_ProviderProperties(&self, newVal: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Modified(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LocalRevocationInformation(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_LocalRevocationInformation(&self, newVal: VARIANT) -> HRESULT;
+            #[special]
+            fn get_SigningCertificateTemplate(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SigningCertificateTemplate(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_CAConfig(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CAConfig(&self, newVal: BSTR) -> HRESULT;
+        }
+        #[guid(0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3)]
+        interface IOCSPCAConfigurationCollection: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: i32, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, bstrIdentifier: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn CreateCAConfiguration(&self, bstrIdentifier: BSTR, varCACert: VARIANT, #[retval] ppVal: *mut IOCSPCAConfiguration) -> HRESULT;
+            fn DeleteCAConfiguration(&self, bstrIdentifier: BSTR) -> HRESULT;
+        }
+        #[guid(0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0)]
+        interface IOCSPProperty: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, newVal: VARIANT) -> HRESULT;
+            #[special]
+            fn get_Modified(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe)]
+        interface IOCSPPropertyCollection: IDispatch {
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppVal: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Item(&self, Index: i32, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ItemByName(&self, bstrPropName: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            fn CreateProperty(&self, bstrPropName: BSTR, pVarPropValue: *const VARIANT, #[retval] ppVal: *mut IOCSPProperty) -> HRESULT;
+            fn DeleteProperty(&self, bstrPropName: BSTR) -> HRESULT;
+            fn InitializeFromProperties(&self, pVarProperties: *const VARIANT) -> HRESULT;
+            fn GetAllProperties(&self, #[retval] pVarProperties: *mut VARIANT) -> HRESULT;
+        }
+        const KRA_DISP_EXPIRED: u32 = 0;
+        const KRA_DISP_INVALID: u32 = 4;
+        const KRA_DISP_NOTFOUND: u32 = 1;
+        const KRA_DISP_NOTLOADED: u32 = 6;
+        const KRA_DISP_REVOKED: u32 = 2;
+        const KRA_DISP_UNTRUSTED: u32 = 5;
+        const KRA_DISP_VALID: u32 = 3;
+        const OCSPAdmin: GUID = 0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4;
+        const OCSPPropertyCollection: GUID = 0xf935a528_ba8a_4dd9_ba79_f283275cb2de;
+        #[repr(i32)]
+        enum OCSPRequestFlag {
+            OCSP_RF_REJECT_SIGNED_REQUESTS = 1,
+        }
+        #[repr(i32)]
+        enum OCSPSigningFlag {
+            OCSP_SF_SILENT = 1,
+            OCSP_SF_USE_CACERT = 2,
+            OCSP_SF_ALLOW_SIGNINGCERT_AUTORENEWAL = 4,
+            OCSP_SF_FORCE_SIGNINGCERT_ISSUER_ISCA = 8,
+            OCSP_SF_AUTODISCOVER_SIGNINGCERT = 16,
+            OCSP_SF_MANUAL_ASSIGN_SIGNINGCERT = 32,
+            OCSP_SF_RESPONDER_ID_KEYHASH = 64,
+            OCSP_SF_RESPONDER_ID_NAME = 128,
+            OCSP_SF_ALLOW_NONCE_EXTENSION = 256,
+            OCSP_SF_ALLOW_SIGNINGCERT_AUTOENROLLMENT = 512,
+        }
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_CACERTIFICATE: String = "CACertificate";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_CACONFIG: String = "CAConfig";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_CSPNAME: String = "CSPName";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_ERRORCODE: String = "ErrorCode";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_HASHALGORITHMID: String = "HashAlgorithmId";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_KEYSPEC: String = "KeySpec";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_LOCALREVOCATIONINFORMATION: String = "LocalRevocationInformation";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_PROVIDERCLSID: String = "ProviderCLSID";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_PROVIDERPROPERTIES: String = "Provider";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_REMINDERDURATION: String = "ReminderDuration";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_SIGNINGCERTIFICATE: String = "SigningCertificate";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_SIGNINGCERTIFICATETEMPLATE: String = "SigningCertificateTemplate";
+        #[encoding("utf-16")]
+        const wszOCSPCAPROP_SIGNINGFLAGS: String = "SigningFlags";
+        #[encoding("utf-16")]
+        const wszOCSPCOMMONPROP_MAXINCOMINGMESSAGESIZE: String = "MaxIncomingMessageSize";
+        #[encoding("utf-16")]
+        const wszOCSPCOMMONPROP_MAXNUMOFREQUESTENTRIES: String = "MaxNumOfRequestEntries";
+        #[encoding("utf-16")]
+        const wszOCSPCOMMONPROP_REQFLAGS: String = "RequestFlags";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_DEBUG: String = "ISAPIDebug";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_MAXAGE: String = "MaxAge";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_MAXNUMOFCACHEENTRIES: String = "MaxNumOfCacheEntries";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_NUMOFBACKENDCONNECTIONS: String = "NumOfBackendConnections";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_NUMOFTHREADS: String = "NumOfThreads";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_REFRESHRATE: String = "RefreshRate";
+        #[encoding("utf-16")]
+        const wszOCSPISAPIPROP_VIRTUALROOTNAME: String = "VirtualRootName";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_ARRAYCONTROLLER: String = "ArrayController";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_ARRAYMEMBERS: String = "ArrayMembers";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_AUDITFILTER: String = "AuditFilter";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_DEBUG: String = "Debug";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_ENROLLPOLLINTERVAL: String = "EnrollPollInterval";
+        #[encoding("utf-16")]
+        const wszOCSPPROP_LOGLEVEL: String = "LogLevel";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_ALLOWCAONLYCRLS: String = "AllowCAOnlyCrls";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_ALLOWUSERONLYCRLS: String = "AllowUserOnlyCrls";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_BASECRL: String = "BaseCrl";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_BASECRLURLS: String = "BaseCrlUrls";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_CRLURLTIMEOUT: String = "CrlUrlTimeOut";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_DELTACRL: String = "DeltaCrl";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_DELTACRLURLS: String = "DeltaCrlUrls";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_ERRORCODE: String = "RevocationErrorCode";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_REFRESHTIMEOUT: String = "RefreshTimeOut";
+        #[encoding("utf-16")]
+        const wszOCSPREVPROP_SERIALNUMBERSDIRS: String = "IssuedSerialNumbersDirectories";
+    }
+}

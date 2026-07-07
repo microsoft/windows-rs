@@ -1,0 +1,184 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x190d8637_5cd3_496d_ad24_69636bb5a3b5)]
+        interface IWSMan: IDispatch {
+            fn CreateSession(&self, connection: BSTR, flags: i32, connectionOptions: IDispatch, #[retval] session: *mut IDispatch) -> HRESULT;
+            fn CreateConnectionOptions(&self, #[retval] connectionOptions: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_CommandLine(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xf704e861_9e52_464f_b786_da5eb2320fdd)]
+        interface IWSManConnectionOptions: IDispatch {
+            #[special]
+            fn get_UserName(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_UserName(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn put_Password(&self, password: BSTR) -> HRESULT;
+        }
+        #[guid(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b)]
+        interface IWSManConnectionOptionsEx: IWSManConnectionOptions {
+            #[special]
+            fn get_CertificateThumbprint(&self, #[retval] thumbprint: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_CertificateThumbprint(&self, thumbprint: BSTR) -> HRESULT;
+        }
+        #[guid(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e)]
+        interface IWSManConnectionOptionsEx2: IWSManConnectionOptionsEx {
+            fn SetProxy(&self, accessType: i32, authenticationMechanism: i32, userName: BSTR, password: BSTR) -> HRESULT;
+            fn ProxyIEConfig(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyWinHttpConfig(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAutoDetect(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyNoProxyServer(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseNegotiate(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseBasic(&self, #[retval] value: *mut i32) -> HRESULT;
+            fn ProxyAuthenticationUseDigest(&self, #[retval] value: *mut i32) -> HRESULT;
+        }
+        #[guid(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f)]
+        interface IWSManEnumerator: IDispatch {
+            fn ReadItem(&self, #[retval] resource: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_AtEndOfStream(&self, #[retval] eos: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x2d53bdaa_798e_49e6_a1aa_74d01256f411)]
+        interface IWSManEx: IWSMan {
+            fn CreateResourceLocator(&self, strResourceLocator: BSTR, #[retval] newResourceLocator: *mut IDispatch) -> HRESULT;
+            fn SessionFlagUTF8(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagCredUsernamePassword(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipCACheck(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipCNCheck(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseDigest(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseNegotiate(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseBasic(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseKerberos(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagNoEncryption(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagEnableSPNServerPort(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseNoAuthentication(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagNonXmlText(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnEPR(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnObjectAndEPR(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn GetErrorMessage(&self, errorNumber: u32, #[retval] errorMessage: *mut BSTR) -> HRESULT;
+            fn EnumerationFlagHierarchyDeep(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagHierarchyShallow(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagHierarchyDeepBasePropsOnly(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagReturnObject(&self, #[retval] flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x1d1b5ae0_42d9_4021_8261_3987619512e9)]
+        interface IWSManEx2: IWSManEx {
+            fn SessionFlagUseClientCertificate(&self, #[retval] flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x6400e966_011d_4eac_8474_049e0848afad)]
+        interface IWSManEx3: IWSManEx2 {
+            fn SessionFlagUTF16(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseCredSsp(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagAssociationInstance(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn EnumerationFlagAssociatedInstance(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagSkipRevocationCheck(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagAllowNegotiateImplicitCredentials(&self, #[retval] flags: *mut i32) -> HRESULT;
+            fn SessionFlagUseSsl(&self, #[retval] flags: *mut i32) -> HRESULT;
+        }
+        #[guid(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13)]
+        interface IWSManInternal: IDispatch {
+            fn ConfigSDDL(&self, session: IDispatch, resourceUri: VARIANT, flags: i32, #[retval] resource: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xa7a1ba28_de41_466a_ad0a_c4059ead7428)]
+        interface IWSManResourceLocator: IDispatch {
+            #[special]
+            fn put_ResourceURI(&self, uri: BSTR) -> HRESULT;
+            #[special]
+            fn get_ResourceURI(&self, #[retval] uri: *mut BSTR) -> HRESULT;
+            fn AddSelector(&self, resourceSelName: BSTR, selValue: VARIANT) -> HRESULT;
+            fn ClearSelectors(&self) -> HRESULT;
+            #[special]
+            fn get_FragmentPath(&self, #[retval] text: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FragmentPath(&self, text: BSTR) -> HRESULT;
+            #[special]
+            fn get_FragmentDialect(&self, #[retval] text: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_FragmentDialect(&self, text: BSTR) -> HRESULT;
+            fn AddOption(&self, OptionName: BSTR, OptionValue: VARIANT, mustComply: BOOL) -> HRESULT;
+            #[special]
+            fn put_MustUnderstandOptions(&self, mustUnderstand: BOOL) -> HRESULT;
+            #[special]
+            fn get_MustUnderstandOptions(&self, #[retval] mustUnderstand: *mut BOOL) -> HRESULT;
+            fn ClearOptions(&self) -> HRESULT;
+            #[special]
+            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb)]
+        interface IWSManResourceLocatorInternal: IUnknown {}
+        #[guid(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0)]
+        interface IWSManSession: IDispatch {
+            fn Get(&self, resourceUri: VARIANT, flags: i32, #[retval] resource: *mut BSTR) -> HRESULT;
+            fn Put(&self, resourceUri: VARIANT, resource: BSTR, flags: i32, #[retval] resultResource: *mut BSTR) -> HRESULT;
+            fn Create(&self, resourceUri: VARIANT, resource: BSTR, flags: i32, #[retval] newUri: *mut BSTR) -> HRESULT;
+            fn Delete(&self, resourceUri: VARIANT, flags: i32) -> HRESULT;
+            fn Invoke(&self, actionUri: BSTR, resourceUri: VARIANT, parameters: BSTR, flags: i32, #[retval] result: *mut BSTR) -> HRESULT;
+            fn Enumerate(&self, resourceUri: VARIANT, filter: BSTR, dialect: BSTR, flags: i32, #[retval] resultSet: *mut IDispatch) -> HRESULT;
+            fn Identify(&self, flags: i32, #[retval] result: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Error(&self, #[retval] value: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_BatchItems(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BatchItems(&self, value: i32) -> HRESULT;
+            #[special]
+            fn get_Timeout(&self, #[retval] value: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Timeout(&self, value: i32) -> HRESULT;
+        }
+        const WSMan: GUID = 0xbced617b_ec03_420b_8508_977dc7a686bd;
+        #[repr(i32)]
+        enum WSManEnumFlags {
+            WSManFlagNonXmlText = 1,
+            WSManFlagReturnObject = 0,
+            WSManFlagReturnEPR = 2,
+            WSManFlagReturnObjectAndEPR = 4,
+            WSManFlagHierarchyDeep = 0,
+            WSManFlagHierarchyShallow = 32,
+            WSManFlagHierarchyDeepBasePropsOnly = 64,
+            WSManFlagAssociatedInstance = 0,
+            WSManFlagAssociationInstance = 128,
+        }
+        const WSManInternal: GUID = 0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a;
+        #[repr(i32)]
+        enum WSManProxyAccessTypeFlags {
+            WSManProxyIEConfig = 1,
+            WSManProxyWinHttpConfig = 2,
+            WSManProxyAutoDetect = 4,
+            WSManProxyNoProxyServer = 8,
+        }
+        #[repr(i32)]
+        enum WSManProxyAuthenticationFlags {
+            WSManFlagProxyAuthenticationUseNegotiate = 1,
+            WSManFlagProxyAuthenticationUseBasic = 2,
+            WSManFlagProxyAuthenticationUseDigest = 4,
+        }
+        #[repr(i32)]
+        enum WSManSessionFlags {
+            WSManFlagUTF8 = 1,
+            WSManFlagCredUsernamePassword = 4096,
+            WSManFlagSkipCACheck = 8192,
+            WSManFlagSkipCNCheck = 16384,
+            WSManFlagUseNoAuthentication = 32768,
+            WSManFlagUseDigest = 65536,
+            WSManFlagUseNegotiate = 131072,
+            WSManFlagUseBasic = 262144,
+            WSManFlagUseKerberos = 524288,
+            WSManFlagNoEncryption = 1048576,
+            WSManFlagUseClientCertificate = 2097152,
+            WSManFlagEnableSPNServerPort = 4194304,
+            WSManFlagUTF16 = 8388608,
+            WSManFlagUseCredSsp = 16777216,
+            WSManFlagSkipRevocationCheck = 33554432,
+            WSManFlagAllowNegotiateImplicitCredentials = 67108864,
+            WSManFlagUseSsl = 134217728,
+        }
+    }
+}

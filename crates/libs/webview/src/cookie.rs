@@ -101,25 +101,20 @@ impl CookieManager {
         uri: &str,
         handler: F,
     ) -> Result<()> {
-        let uri = string::encode(uri);
+        let uri = HSTRING::from(uri);
         let handler = handler::GetCookiesCompleted::create(handler);
-        unsafe { self.0.GetCookies(uri.as_ptr(), &handler) }
+        unsafe { self.0.GetCookies(&uri, &handler) }
     }
 
     /// Adds the cookie, or updates the existing cookie with the same name,
     /// domain, and path.
     pub fn add_or_update_cookie(&self, cookie: &Cookie) -> Result<()> {
-        let name = string::encode(&cookie.name);
-        let value = string::encode(&cookie.value);
-        let domain = string::encode(&cookie.domain);
-        let path = string::encode(&cookie.path);
+        let name = HSTRING::from(&cookie.name);
+        let value = HSTRING::from(&cookie.value);
+        let domain = HSTRING::from(&cookie.domain);
+        let path = HSTRING::from(&cookie.path);
         unsafe {
-            let raw = self.0.CreateCookie(
-                name.as_ptr(),
-                value.as_ptr(),
-                domain.as_ptr(),
-                path.as_ptr(),
-            )?;
+            let raw = self.0.CreateCookie(&name, &value, &domain, &path)?;
             raw.SetIsSecure(cookie.is_secure)?;
             raw.SetIsHttpOnly(cookie.is_http_only)?;
             raw.SetSameSite(cookie.same_site.to_raw())?;
@@ -132,9 +127,9 @@ impl CookieManager {
 
     /// Deletes cookies with the matching `name` that apply to `uri`.
     pub fn delete_cookies(&self, name: &str, uri: &str) -> Result<()> {
-        let name = string::encode(name);
-        let uri = string::encode(uri);
-        unsafe { self.0.DeleteCookies(name.as_ptr(), uri.as_ptr()) }
+        let name = HSTRING::from(name);
+        let uri = HSTRING::from(uri);
+        unsafe { self.0.DeleteCookies(&name, &uri) }
     }
 
     /// Deletes cookies with the matching `name`, `domain`, and `path`.
@@ -144,13 +139,10 @@ impl CookieManager {
         domain: &str,
         path: &str,
     ) -> Result<()> {
-        let name = string::encode(name);
-        let domain = string::encode(domain);
-        let path = string::encode(path);
-        unsafe {
-            self.0
-                .DeleteCookiesWithDomainAndPath(name.as_ptr(), domain.as_ptr(), path.as_ptr())
-        }
+        let name = HSTRING::from(name);
+        let domain = HSTRING::from(domain);
+        let path = HSTRING::from(path);
+        unsafe { self.0.DeleteCookiesWithDomainAndPath(&name, &domain, &path) }
     }
 
     /// Deletes all cookies.

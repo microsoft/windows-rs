@@ -1,0 +1,277 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x507c37b4_cf5b_4e95_b0af_14eb9767467e)]
+        interface IVssAsync: IUnknown {
+            fn Cancel(&self) -> HRESULT;
+            fn Wait(&self, dwMilliseconds: u32) -> HRESULT;
+            fn QueryStatus(&self, pHrResult: *mut HRESULT, #[in] #[out] pReserved: *mut i32) -> HRESULT;
+        }
+        #[guid(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3)]
+        interface IVssEnumObject: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[in] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;
+        }
+        type PVSS_APPLICATION_LEVEL = *mut VSS_APPLICATION_LEVEL;
+        type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
+        type PVSS_BACKUP_TYPE = *mut VSS_BACKUP_TYPE;
+        type PVSS_FILE_SPEC_BACKUP_TYPE = *mut VSS_FILE_SPEC_BACKUP_TYPE;
+        type PVSS_HARDWARE_OPTIONS = *mut VSS_HARDWARE_OPTIONS;
+        type PVSS_OBJECT_PROP = *mut VSS_OBJECT_PROP;
+        type PVSS_OBJECT_TYPE = *mut VSS_OBJECT_TYPE;
+        type PVSS_PROVIDER_CAPABILITIES = *mut VSS_PROVIDER_CAPABILITIES;
+        type PVSS_PROVIDER_PROP = *mut VSS_PROVIDER_PROP;
+        type PVSS_PROVIDER_TYPE = *mut VSS_PROVIDER_TYPE;
+        type PVSS_RECOVERY_OPTIONS = *mut VSS_RECOVERY_OPTIONS;
+        type PVSS_RESTORE_TYPE = *mut VSS_RESTORE_TYPE;
+        type PVSS_ROLLFORWARD_TYPE = *mut VSS_ROLLFORWARD_TYPE;
+        type PVSS_SNAPSHOT_CONTEXT = *mut VSS_SNAPSHOT_CONTEXT;
+        type PVSS_SNAPSHOT_PROP = *mut VSS_SNAPSHOT_PROP;
+        type PVSS_SNAPSHOT_PROPERTY_ID = *mut VSS_SNAPSHOT_PROPERTY_ID;
+        type PVSS_SNAPSHOT_STATE = *mut VSS_SNAPSHOT_STATE;
+        type PVSS_VOLUME_SNAPSHOT_ATTRIBUTES = *mut VSS_VOLUME_SNAPSHOT_ATTRIBUTES;
+        type PVSS_WRITER_STATE = *mut VSS_WRITER_STATE;
+        #[repr(i32)]
+        enum VSS_APPLICATION_LEVEL {
+            VSS_APP_UNKNOWN = 0,
+            VSS_APP_SYSTEM = 1,
+            VSS_APP_BACK_END = 2,
+            VSS_APP_FRONT_END = 3,
+            VSS_APP_SYSTEM_RM = 4,
+            VSS_APP_AUTO = -1,
+        }
+        #[repr(i32)]
+        enum VSS_BACKUP_SCHEMA {
+            VSS_BS_UNDEFINED = 0,
+            VSS_BS_DIFFERENTIAL = 1,
+            VSS_BS_INCREMENTAL = 2,
+            VSS_BS_EXCLUSIVE_INCREMENTAL_DIFFERENTIAL = 4,
+            VSS_BS_LOG = 8,
+            VSS_BS_COPY = 16,
+            VSS_BS_TIMESTAMPED = 32,
+            VSS_BS_LAST_MODIFY = 64,
+            VSS_BS_LSN = 128,
+            VSS_BS_WRITER_SUPPORTS_NEW_TARGET = 256,
+            VSS_BS_WRITER_SUPPORTS_RESTORE_WITH_MOVE = 512,
+            VSS_BS_INDEPENDENT_SYSTEM_STATE = 1024,
+            VSS_BS_ROLLFORWARD_RESTORE = 4096,
+            VSS_BS_RESTORE_RENAME = 8192,
+            VSS_BS_AUTHORITATIVE_RESTORE = 16384,
+            VSS_BS_WRITER_SUPPORTS_PARALLEL_RESTORES = 32768,
+        }
+        #[repr(i32)]
+        enum VSS_BACKUP_TYPE {
+            VSS_BT_UNDEFINED = 0,
+            VSS_BT_FULL = 1,
+            VSS_BT_INCREMENTAL = 2,
+            VSS_BT_DIFFERENTIAL = 3,
+            VSS_BT_LOG = 4,
+            VSS_BT_COPY = 5,
+            VSS_BT_OTHER = 6,
+        }
+        #[repr(i32)]
+        enum VSS_FILE_SPEC_BACKUP_TYPE {
+            VSS_FSBT_FULL_BACKUP_REQUIRED = 1,
+            VSS_FSBT_DIFFERENTIAL_BACKUP_REQUIRED = 2,
+            VSS_FSBT_INCREMENTAL_BACKUP_REQUIRED = 4,
+            VSS_FSBT_LOG_BACKUP_REQUIRED = 8,
+            VSS_FSBT_FULL_SNAPSHOT_REQUIRED = 256,
+            VSS_FSBT_DIFFERENTIAL_SNAPSHOT_REQUIRED = 512,
+            VSS_FSBT_INCREMENTAL_SNAPSHOT_REQUIRED = 1024,
+            VSS_FSBT_LOG_SNAPSHOT_REQUIRED = 2048,
+            VSS_FSBT_CREATED_DURING_BACKUP = 65536,
+            VSS_FSBT_ALL_BACKUP_REQUIRED = 15,
+            VSS_FSBT_ALL_SNAPSHOT_REQUIRED = 3840,
+        }
+        #[repr(i32)]
+        enum VSS_HARDWARE_OPTIONS {
+            VSS_BREAKEX_FLAG_MASK_LUNS = 1,
+            VSS_BREAKEX_FLAG_MAKE_READ_WRITE = 2,
+            VSS_BREAKEX_FLAG_REVERT_IDENTITY_ALL = 4,
+            VSS_BREAKEX_FLAG_REVERT_IDENTITY_NONE = 8,
+            VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE = 256,
+            VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY = 512,
+            VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY = 1024,
+            VSS_ONLUNSTATECHANGE_DO_MASK_LUNS = 2048,
+        }
+        type VSS_ID = GUID;
+        struct VSS_OBJECT_PROP {
+            Type: VSS_OBJECT_TYPE,
+            Obj: VSS_OBJECT_UNION,
+        }
+        #[repr(i32)]
+        enum VSS_OBJECT_TYPE {
+            VSS_OBJECT_UNKNOWN = 0,
+            VSS_OBJECT_NONE = 1,
+            VSS_OBJECT_SNAPSHOT_SET = 2,
+            VSS_OBJECT_SNAPSHOT = 3,
+            VSS_OBJECT_PROVIDER = 4,
+            VSS_OBJECT_TYPE_COUNT = 5,
+        }
+        union VSS_OBJECT_UNION {
+            Snap: VSS_SNAPSHOT_PROP,
+            Prov: VSS_PROVIDER_PROP,
+        }
+        #[repr(i32)]
+        enum VSS_PROVIDER_CAPABILITIES {
+            VSS_PRV_CAPABILITY_LEGACY = 1,
+            VSS_PRV_CAPABILITY_COMPLIANT = 2,
+            VSS_PRV_CAPABILITY_LUN_REPOINT = 4,
+            VSS_PRV_CAPABILITY_LUN_RESYNC = 8,
+            VSS_PRV_CAPABILITY_OFFLINE_CREATION = 16,
+            VSS_PRV_CAPABILITY_MULTIPLE_IMPORT = 32,
+            VSS_PRV_CAPABILITY_RECYCLING = 64,
+            VSS_PRV_CAPABILITY_PLEX = 128,
+            VSS_PRV_CAPABILITY_DIFFERENTIAL = 256,
+            VSS_PRV_CAPABILITY_CLUSTERED = 512,
+        }
+        struct VSS_PROVIDER_PROP {
+            m_ProviderId: VSS_ID,
+            m_pwszProviderName: VSS_PWSZ,
+            m_eProviderType: VSS_PROVIDER_TYPE,
+            m_pwszProviderVersion: VSS_PWSZ,
+            m_ProviderVersionId: VSS_ID,
+            m_ClassId: GUID,
+        }
+        #[repr(i32)]
+        enum VSS_PROVIDER_TYPE {
+            VSS_PROV_UNKNOWN = 0,
+            VSS_PROV_SYSTEM = 1,
+            VSS_PROV_SOFTWARE = 2,
+            VSS_PROV_HARDWARE = 3,
+            VSS_PROV_FILESHARE = 4,
+        }
+        type VSS_PWSZ = *mut u16;
+        #[repr(i32)]
+        enum VSS_RECOVERY_OPTIONS {
+            VSS_RECOVERY_REVERT_IDENTITY_ALL = 256,
+            VSS_RECOVERY_NO_VOLUME_CHECK = 512,
+        }
+        #[repr(i32)]
+        enum VSS_RESTORE_TYPE {
+            VSS_RTYPE_UNDEFINED = 0,
+            VSS_RTYPE_BY_COPY = 1,
+            VSS_RTYPE_IMPORT = 2,
+            VSS_RTYPE_OTHER = 3,
+        }
+        #[repr(i32)]
+        enum VSS_ROLLFORWARD_TYPE {
+            VSS_RF_UNDEFINED = 0,
+            VSS_RF_NONE = 1,
+            VSS_RF_ALL = 2,
+            VSS_RF_PARTIAL = 3,
+        }
+        #[repr(i32)]
+        enum VSS_SNAPSHOT_COMPATIBILITY {
+            VSS_SC_DISABLE_DEFRAG = 1,
+            VSS_SC_DISABLE_CONTENTINDEX = 2,
+        }
+        #[repr(i32)]
+        enum VSS_SNAPSHOT_CONTEXT {
+            VSS_CTX_BACKUP = 0,
+            VSS_CTX_FILE_SHARE_BACKUP = 16,
+            VSS_CTX_NAS_ROLLBACK = 25,
+            VSS_CTX_APP_ROLLBACK = 9,
+            VSS_CTX_CLIENT_ACCESSIBLE = 29,
+            VSS_CTX_CLIENT_ACCESSIBLE_WRITERS = 13,
+            VSS_CTX_ALL = -1,
+        }
+        struct VSS_SNAPSHOT_PROP {
+            m_SnapshotId: VSS_ID,
+            m_SnapshotSetId: VSS_ID,
+            m_lSnapshotsCount: i32,
+            m_pwszSnapshotDeviceObject: VSS_PWSZ,
+            m_pwszOriginalVolumeName: VSS_PWSZ,
+            m_pwszOriginatingMachine: VSS_PWSZ,
+            m_pwszServiceMachine: VSS_PWSZ,
+            m_pwszExposedName: VSS_PWSZ,
+            m_pwszExposedPath: VSS_PWSZ,
+            m_ProviderId: VSS_ID,
+            m_lSnapshotAttributes: i32,
+            m_tsCreationTimestamp: VSS_TIMESTAMP,
+            m_eStatus: VSS_SNAPSHOT_STATE,
+        }
+        #[repr(i32)]
+        enum VSS_SNAPSHOT_PROPERTY_ID {
+            VSS_SPROPID_UNKNOWN = 0,
+            VSS_SPROPID_SNAPSHOT_ID = 1,
+            VSS_SPROPID_SNAPSHOT_SET_ID = 2,
+            VSS_SPROPID_SNAPSHOTS_COUNT = 3,
+            VSS_SPROPID_SNAPSHOT_DEVICE = 4,
+            VSS_SPROPID_ORIGINAL_VOLUME = 5,
+            VSS_SPROPID_ORIGINATING_MACHINE = 6,
+            VSS_SPROPID_SERVICE_MACHINE = 7,
+            VSS_SPROPID_EXPOSED_NAME = 8,
+            VSS_SPROPID_EXPOSED_PATH = 9,
+            VSS_SPROPID_PROVIDER_ID = 10,
+            VSS_SPROPID_SNAPSHOT_ATTRIBUTES = 11,
+            VSS_SPROPID_CREATION_TIMESTAMP = 12,
+            VSS_SPROPID_STATUS = 13,
+        }
+        #[repr(i32)]
+        enum VSS_SNAPSHOT_STATE {
+            VSS_SS_UNKNOWN = 0,
+            VSS_SS_PREPARING = 1,
+            VSS_SS_PROCESSING_PREPARE = 2,
+            VSS_SS_PREPARED = 3,
+            VSS_SS_PROCESSING_PRECOMMIT = 4,
+            VSS_SS_PRECOMMITTED = 5,
+            VSS_SS_PROCESSING_COMMIT = 6,
+            VSS_SS_COMMITTED = 7,
+            VSS_SS_PROCESSING_POSTCOMMIT = 8,
+            VSS_SS_PROCESSING_PREFINALCOMMIT = 9,
+            VSS_SS_PREFINALCOMMITTED = 10,
+            VSS_SS_PROCESSING_POSTFINALCOMMIT = 11,
+            VSS_SS_CREATED = 12,
+            VSS_SS_ABORTED = 13,
+            VSS_SS_DELETED = 14,
+            VSS_SS_POSTCOMMITTED = 15,
+            VSS_SS_COUNT = 16,
+        }
+        type VSS_TIMESTAMP = i64;
+        #[repr(i32)]
+        enum VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
+            VSS_VOLSNAP_ATTR_PERSISTENT = 1,
+            VSS_VOLSNAP_ATTR_NO_AUTORECOVERY = 2,
+            VSS_VOLSNAP_ATTR_CLIENT_ACCESSIBLE = 4,
+            VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE = 8,
+            VSS_VOLSNAP_ATTR_NO_WRITERS = 16,
+            VSS_VOLSNAP_ATTR_TRANSPORTABLE = 32,
+            VSS_VOLSNAP_ATTR_NOT_SURFACED = 64,
+            VSS_VOLSNAP_ATTR_NOT_TRANSACTED = 128,
+            VSS_VOLSNAP_ATTR_HARDWARE_ASSISTED = 65536,
+            VSS_VOLSNAP_ATTR_DIFFERENTIAL = 131072,
+            VSS_VOLSNAP_ATTR_PLEX = 262144,
+            VSS_VOLSNAP_ATTR_IMPORTED = 524288,
+            VSS_VOLSNAP_ATTR_EXPOSED_LOCALLY = 1048576,
+            VSS_VOLSNAP_ATTR_EXPOSED_REMOTELY = 2097152,
+            VSS_VOLSNAP_ATTR_AUTORECOVER = 4194304,
+            VSS_VOLSNAP_ATTR_ROLLBACK_RECOVERY = 8388608,
+            VSS_VOLSNAP_ATTR_DELAYED_POSTSNAPSHOT = 16777216,
+            VSS_VOLSNAP_ATTR_TXF_RECOVERY = 33554432,
+            VSS_VOLSNAP_ATTR_FILE_SHARE = 67108864,
+        }
+        #[repr(i32)]
+        enum VSS_WRITER_STATE {
+            VSS_WS_UNKNOWN = 0,
+            VSS_WS_STABLE = 1,
+            VSS_WS_WAITING_FOR_FREEZE = 2,
+            VSS_WS_WAITING_FOR_THAW = 3,
+            VSS_WS_WAITING_FOR_POST_SNAPSHOT = 4,
+            VSS_WS_WAITING_FOR_BACKUP_COMPLETE = 5,
+            VSS_WS_FAILED_AT_IDENTIFY = 6,
+            VSS_WS_FAILED_AT_PREPARE_BACKUP = 7,
+            VSS_WS_FAILED_AT_PREPARE_SNAPSHOT = 8,
+            VSS_WS_FAILED_AT_FREEZE = 9,
+            VSS_WS_FAILED_AT_THAW = 10,
+            VSS_WS_FAILED_AT_POST_SNAPSHOT = 11,
+            VSS_WS_FAILED_AT_BACKUP_COMPLETE = 12,
+            VSS_WS_FAILED_AT_PRE_RESTORE = 13,
+            VSS_WS_FAILED_AT_POST_RESTORE = 14,
+            VSS_WS_FAILED_AT_BACKUPSHUTDOWN = 15,
+            VSS_WS_COUNT = 16,
+        }
+    }
+}

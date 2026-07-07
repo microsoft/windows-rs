@@ -1,0 +1,1127 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ATP_CHANGE: u32 = 1;
+        const ATP_NOCHANGE: u32 = 0;
+        const ATP_NODELIMITER: u32 = 2;
+        const ATP_REPLACEALLTEXT: u32 = 4;
+        const AURL_DISABLEMIXEDLGC: u32 = 32;
+        const AURL_ENABLEDRIVELETTERS: u32 = 16;
+        const AURL_ENABLEEA: u32 = 1;
+        const AURL_ENABLEEAURLS: u32 = 8;
+        const AURL_ENABLEEMAILADDR: u32 = 2;
+        const AURL_ENABLETELNO: u32 = 4;
+        const AURL_ENABLEURL: u32 = 1;
+        extern fn AutoCorrectProc(langid: LANGID, pszBefore: *const u16, pszAfter: *mut u16, cchAfter: i32, pcchReplaced: *mut i32) -> i32;
+        struct BIDIOPTIONS {
+            cbSize: u32,
+            wMask: u16,
+            wEffects: u16,
+        }
+        const BOE_CONTEXTALIGNMENT: u32 = 16;
+        const BOE_CONTEXTREADING: u32 = 8;
+        const BOE_FORCERECALC: u32 = 32;
+        const BOE_LEGACYBIDICLASS: u32 = 64;
+        const BOE_NEUTRALOVERRIDE: u32 = 4;
+        const BOE_UNICODEBIDI: u32 = 128;
+        const BOM_CONTEXTALIGNMENT: u32 = 16;
+        const BOM_CONTEXTREADING: u32 = 8;
+        const BOM_LEGACYBIDICLASS: u32 = 64;
+        const BOM_NEUTRALOVERRIDE: u32 = 4;
+        const BOM_UNICODEBIDI: u32 = 128;
+        #[encoding("ansi")]
+        const CERICHEDIT_CLASSA: String = "RichEditCEA";
+        #[encoding("utf-16")]
+        const CERICHEDIT_CLASSW: String = "RichEditCEW";
+        const CFE_ALLCAPS: u32 = 128;
+        const CFE_AUTOBACKCOLOR: u32 = 67108864;
+        const CFE_AUTOCOLOR: u32 = 1073741824;
+        const CFE_BOLD: u32 = 1;
+        const CFE_DISABLED: u32 = 8192;
+        const CFE_EMBOSS: u32 = 2048;
+        const CFE_EXTENDED: u32 = 33554432;
+        const CFE_FONTBOUND: u32 = 1048576;
+        const CFE_HIDDEN: u32 = 256;
+        const CFE_IMPRINT: u32 = 4096;
+        const CFE_ITALIC: u32 = 2;
+        const CFE_LINK: u32 = 32;
+        const CFE_LINKPROTECTED: u32 = 8388608;
+        const CFE_MATH: u32 = 268435456;
+        const CFE_MATHNOBUILDUP: u32 = 134217728;
+        const CFE_MATHORDINARY: u32 = 536870912;
+        const CFE_OUTLINE: u32 = 512;
+        const CFE_PROTECTED: u32 = 16;
+        const CFE_REVISED: u32 = 16384;
+        const CFE_SHADOW: u32 = 1024;
+        const CFE_SMALLCAPS: u32 = 64;
+        const CFE_STRIKEOUT: u32 = 8;
+        const CFE_SUBSCRIPT: u32 = 65536;
+        const CFE_SUPERSCRIPT: u32 = 131072;
+        const CFE_UNDERLINE: u32 = 4;
+        const CFM_ALL: i32 = -134217665;
+        const CFM_ALL2: i32 = -1;
+        const CFM_ALLCAPS: u32 = 128;
+        const CFM_ALLEFFECTS: u32 = 2115207167;
+        const CFM_ANIMATION: u32 = 262144;
+        const CFM_BACKCOLOR: u32 = 67108864;
+        const CFM_BOLD: u32 = 1;
+        const CFM_CHARSET: u32 = 134217728;
+        const CFM_COLOR: u32 = 1073741824;
+        const CFM_COOKIE: u32 = 16777216;
+        const CFM_DISABLED: u32 = 8192;
+        const CFM_EFFECTS: u32 = 1073741887;
+        const CFM_EFFECTS2: u32 = 1141080063;
+        const CFM_EMBOSS: u32 = 2048;
+        const CFM_EXTENDED: u32 = 33554432;
+        const CFM_FACE: u32 = 536870912;
+        const CFM_FONTBOUND: u32 = 1048576;
+        const CFM_HIDDEN: u32 = 256;
+        const CFM_IMPRINT: u32 = 4096;
+        const CFM_ITALIC: u32 = 2;
+        const CFM_KERNING: u32 = 1048576;
+        const CFM_LCID: u32 = 33554432;
+        const CFM_LINK: u32 = 32;
+        const CFM_LINKPROTECTED: u32 = 8388608;
+        const CFM_MATH: u32 = 268435456;
+        const CFM_MATHNOBUILDUP: u32 = 134217728;
+        const CFM_MATHORDINARY: u32 = 536870912;
+        const CFM_OFFSET: u32 = 268435456;
+        const CFM_OUTLINE: u32 = 512;
+        const CFM_PROTECTED: u32 = 16;
+        const CFM_REVAUTHOR: u32 = 32768;
+        const CFM_REVISED: u32 = 16384;
+        const CFM_SHADOW: u32 = 1024;
+        const CFM_SIZE: u32 = 2147483648;
+        const CFM_SMALLCAPS: u32 = 64;
+        const CFM_SPACING: u32 = 2097152;
+        const CFM_STRIKEOUT: u32 = 8;
+        const CFM_STYLE: u32 = 524288;
+        const CFM_SUBSCRIPT: u32 = 196608;
+        const CFM_SUPERSCRIPT: u32 = 196608;
+        const CFM_UNDERLINE: u32 = 4;
+        const CFM_UNDERLINETYPE: u32 = 8388608;
+        const CFM_WEIGHT: u32 = 4194304;
+        const CFU_CF1UNDERLINE: u32 = 255;
+        const CFU_INVERT: u32 = 254;
+        const CFU_UNDERLINE: u32 = 1;
+        const CFU_UNDERLINEDASH: u32 = 5;
+        const CFU_UNDERLINEDASHDOT: u32 = 6;
+        const CFU_UNDERLINEDASHDOTDOT: u32 = 7;
+        const CFU_UNDERLINEDOTTED: u32 = 4;
+        const CFU_UNDERLINEDOUBLE: u32 = 3;
+        const CFU_UNDERLINEDOUBLEWAVE: u32 = 11;
+        const CFU_UNDERLINEHAIRLINE: u32 = 10;
+        const CFU_UNDERLINEHEAVYWAVE: u32 = 12;
+        const CFU_UNDERLINELONGDASH: u32 = 13;
+        const CFU_UNDERLINENONE: u32 = 0;
+        const CFU_UNDERLINETHICK: u32 = 9;
+        const CFU_UNDERLINETHICKDASH: u32 = 14;
+        const CFU_UNDERLINETHICKDASHDOT: u32 = 15;
+        const CFU_UNDERLINETHICKDASHDOTDOT: u32 = 16;
+        const CFU_UNDERLINETHICKDOTTED: u32 = 17;
+        const CFU_UNDERLINETHICKLONGDASH: u32 = 18;
+        const CFU_UNDERLINEWAVE: u32 = 8;
+        const CFU_UNDERLINEWORD: u32 = 2;
+        struct CHARFORMAT2A {
+            Base: CHARFORMATA,
+            wWeight: u16,
+            sSpacing: i16,
+            crBackColor: COLORREF,
+            lcid: LCID,
+            Anonymous: union {
+                dwReserved: u32,
+                dwCookie: u32,
+            },
+            sStyle: i16,
+            wKerning: u16,
+            bUnderlineType: u8,
+            bAnimation: u8,
+            bRevAuthor: u8,
+            bUnderlineColor: u8,
+        }
+        struct CHARFORMAT2W {
+            Base: CHARFORMATW,
+            wWeight: u16,
+            sSpacing: i16,
+            crBackColor: COLORREF,
+            lcid: LCID,
+            Anonymous: union {
+                dwReserved: u32,
+                dwCookie: u32,
+            },
+            sStyle: i16,
+            wKerning: u16,
+            bUnderlineType: u8,
+            bAnimation: u8,
+            bRevAuthor: u8,
+            bUnderlineColor: u8,
+        }
+        struct CHARFORMATA {
+            cbSize: u32,
+            dwMask: u32,
+            dwEffects: u32,
+            yHeight: i32,
+            yOffset: i32,
+            crTextColor: COLORREF,
+            bCharSet: u8,
+            bPitchAndFamily: u8,
+            szFaceName: [i8; 32],
+        }
+        struct CHARFORMATW {
+            cbSize: u32,
+            dwMask: u32,
+            dwEffects: u32,
+            yHeight: i32,
+            yOffset: i32,
+            crTextColor: COLORREF,
+            bCharSet: u8,
+            bPitchAndFamily: u8,
+            szFaceName: [u16; 32],
+        }
+        struct CHARRANGE {
+            cpMin: i32,
+            cpMax: i32,
+        }
+        #[arch(X86)]
+        struct CLIPBOARDFORMAT {
+            nmhdr: NMHDR,
+            cf: CLIPFORMAT,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct CLIPBOARDFORMAT {
+            nmhdr: NMHDR,
+            cf: CLIPFORMAT,
+        }
+        struct COMPCOLOR {
+            crText: COLORREF,
+            crBackground: COLORREF,
+            dwEffects: u32,
+        }
+        const CTFMODEBIAS_CONVERSATION: u32 = 5;
+        const CTFMODEBIAS_DATETIME: u32 = 4;
+        const CTFMODEBIAS_DEFAULT: u32 = 0;
+        const CTFMODEBIAS_FILENAME: u32 = 1;
+        const CTFMODEBIAS_FULLWIDTHALPHANUMERIC: u32 = 11;
+        const CTFMODEBIAS_HALFWIDTHALPHANUMERIC: u32 = 12;
+        const CTFMODEBIAS_HALFWIDTHKATAKANA: u32 = 10;
+        const CTFMODEBIAS_HANGUL: u32 = 9;
+        const CTFMODEBIAS_HIRAGANA: u32 = 7;
+        const CTFMODEBIAS_KATAKANA: u32 = 8;
+        const CTFMODEBIAS_NAME: u32 = 2;
+        const CTFMODEBIAS_NUMERIC: u32 = 6;
+        const CTFMODEBIAS_READING: u32 = 3;
+        const ECN_ENDCOMPOSITION: u32 = 1;
+        const ECN_NEWTEXT: u32 = 2;
+        const ECOOP_AND: u32 = 3;
+        const ECOOP_OR: u32 = 2;
+        const ECOOP_SET: u32 = 1;
+        const ECOOP_XOR: u32 = 4;
+        const ECO_AUTOHSCROLL: u32 = 128;
+        const ECO_AUTOVSCROLL: u32 = 64;
+        const ECO_AUTOWORDSELECTION: u32 = 1;
+        const ECO_NOHIDESEL: u32 = 256;
+        const ECO_READONLY: u32 = 2048;
+        const ECO_SAVESEL: u32 = 32768;
+        const ECO_SELECTIONBAR: u32 = 16777216;
+        const ECO_VERTICAL: u32 = 4194304;
+        const ECO_WANTRETURN: u32 = 4096;
+        #[arch(X86)]
+        struct EDITSTREAM {
+            dwCookie: usize,
+            dwError: u32,
+            pfnCallback: EDITSTREAMCALLBACK,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct EDITSTREAM {
+            dwCookie: usize,
+            dwError: u32,
+            pfnCallback: EDITSTREAMCALLBACK,
+        }
+        extern fn EDITSTREAMCALLBACK(dwCookie: usize, pbBuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
+        extern fn EDITWORDBREAKPROCEX(pchText: *mut i8, cchText: i32, bCharSet: u8, action: i32) -> i32;
+        const ELLIPSIS_END: u32 = 1;
+        const ELLIPSIS_MASK: u32 = 3;
+        const ELLIPSIS_NONE: u32 = 0;
+        const ELLIPSIS_WORD: u32 = 3;
+        const EMO_ENTER: u32 = 1;
+        const EMO_EXIT: u32 = 0;
+        const EMO_EXPAND: u32 = 3;
+        const EMO_EXPANDDOCUMENT: u32 = 1;
+        const EMO_EXPANDSELECTION: u32 = 0;
+        const EMO_GETVIEWMODE: u32 = 5;
+        const EMO_MOVESELECTION: u32 = 4;
+        const EMO_PROMOTE: u32 = 2;
+        const EM_AUTOURLDETECT: u32 = 1115;
+        const EM_CALLAUTOCORRECTPROC: u32 = 1279;
+        const EM_CANPASTE: u32 = 1074;
+        const EM_CANREDO: u32 = 1109;
+        const EM_CONVPOSITION: u32 = 1132;
+        const EM_DISPLAYBAND: u32 = 1075;
+        const EM_EXGETSEL: u32 = 1076;
+        const EM_EXLIMITTEXT: u32 = 1077;
+        const EM_EXLINEFROMCHAR: u32 = 1078;
+        const EM_EXSETSEL: u32 = 1079;
+        const EM_FINDTEXT: u32 = 1080;
+        const EM_FINDTEXTEX: u32 = 1103;
+        const EM_FINDTEXTEXW: u32 = 1148;
+        const EM_FINDTEXTW: u32 = 1147;
+        const EM_FINDWORDBREAK: u32 = 1100;
+        const EM_FORMATRANGE: u32 = 1081;
+        const EM_GETAUTOCORRECTPROC: u32 = 1257;
+        const EM_GETAUTOURLDETECT: u32 = 1116;
+        const EM_GETBIDIOPTIONS: u32 = 1225;
+        const EM_GETCHARFORMAT: u32 = 1082;
+        const EM_GETCTFMODEBIAS: u32 = 1261;
+        const EM_GETCTFOPENSTATUS: u32 = 1264;
+        const EM_GETEDITSTYLE: u32 = 1229;
+        const EM_GETEDITSTYLEEX: u32 = 1300;
+        const EM_GETELLIPSISMODE: u32 = 1329;
+        const EM_GETELLIPSISSTATE: u32 = 1346;
+        const EM_GETEVENTMASK: u32 = 1083;
+        const EM_GETHYPHENATEINFO: u32 = 1254;
+        const EM_GETIMECOLOR: u32 = 1129;
+        const EM_GETIMECOMPMODE: u32 = 1146;
+        const EM_GETIMECOMPTEXT: u32 = 1266;
+        const EM_GETIMEMODEBIAS: u32 = 1151;
+        const EM_GETIMEOPTIONS: u32 = 1131;
+        const EM_GETIMEPROPERTY: u32 = 1268;
+        const EM_GETLANGOPTIONS: u32 = 1145;
+        const EM_GETOLEINTERFACE: u32 = 1084;
+        const EM_GETOPTIONS: u32 = 1102;
+        const EM_GETPAGE: u32 = 1252;
+        const EM_GETPAGEROTATE: u32 = 1259;
+        const EM_GETPARAFORMAT: u32 = 1085;
+        const EM_GETPUNCTUATION: u32 = 1125;
+        const EM_GETQUERYRTFOBJ: u32 = 1293;
+        const EM_GETREDONAME: u32 = 1111;
+        const EM_GETSCROLLPOS: u32 = 1245;
+        const EM_GETSELTEXT: u32 = 1086;
+        const EM_GETSTORYTYPE: u32 = 1314;
+        const EM_GETTABLEPARMS: u32 = 1289;
+        const EM_GETTEXTEX: u32 = 1118;
+        const EM_GETTEXTLENGTHEX: u32 = 1119;
+        const EM_GETTEXTMODE: u32 = 1114;
+        const EM_GETTEXTRANGE: u32 = 1099;
+        const EM_GETTOUCHOPTIONS: u32 = 1334;
+        const EM_GETTYPOGRAPHYOPTIONS: u32 = 1227;
+        const EM_GETUNDONAME: u32 = 1110;
+        const EM_GETVIEWKIND: u32 = 1250;
+        const EM_GETWORDBREAKPROCEX: u32 = 1104;
+        const EM_GETWORDWRAPMODE: u32 = 1127;
+        const EM_HIDESELECTION: u32 = 1087;
+        const EM_INSERTIMAGE: u32 = 1338;
+        const EM_INSERTTABLE: u32 = 1256;
+        const EM_ISIME: u32 = 1267;
+        const EM_OUTLINE: u32 = 1244;
+        const EM_PASTESPECIAL: u32 = 1088;
+        const EM_RECONVERSION: u32 = 1149;
+        const EM_REDO: u32 = 1108;
+        const EM_REQUESTRESIZE: u32 = 1089;
+        const EM_SELECTIONTYPE: u32 = 1090;
+        const EM_SETAUTOCORRECTPROC: u32 = 1258;
+        const EM_SETBIDIOPTIONS: u32 = 1224;
+        const EM_SETBKGNDCOLOR: u32 = 1091;
+        const EM_SETCHARFORMAT: u32 = 1092;
+        const EM_SETCTFMODEBIAS: u32 = 1262;
+        const EM_SETCTFOPENSTATUS: u32 = 1265;
+        const EM_SETDISABLEOLELINKCONVERSION: u32 = 1428;
+        const EM_SETEDITSTYLE: u32 = 1228;
+        const EM_SETEDITSTYLEEX: u32 = 1299;
+        const EM_SETELLIPSISMODE: u32 = 1330;
+        const EM_SETEVENTMASK: u32 = 1093;
+        const EM_SETFONTSIZE: u32 = 1247;
+        const EM_SETHYPHENATEINFO: u32 = 1255;
+        const EM_SETIMECOLOR: u32 = 1128;
+        const EM_SETIMEMODEBIAS: u32 = 1150;
+        const EM_SETIMEOPTIONS: u32 = 1130;
+        const EM_SETLANGOPTIONS: u32 = 1144;
+        const EM_SETOLECALLBACK: u32 = 1094;
+        const EM_SETOPTIONS: u32 = 1101;
+        const EM_SETPAGE: u32 = 1253;
+        const EM_SETPAGEROTATE: u32 = 1260;
+        const EM_SETPALETTE: u32 = 1117;
+        const EM_SETPARAFORMAT: u32 = 1095;
+        const EM_SETPUNCTUATION: u32 = 1124;
+        const EM_SETQUERYCONVERTOLELINKCALLBACK: u32 = 1427;
+        const EM_SETQUERYRTFOBJ: u32 = 1294;
+        const EM_SETSCROLLPOS: u32 = 1246;
+        const EM_SETSTORYTYPE: u32 = 1315;
+        const EM_SETTABLEPARMS: u32 = 1331;
+        const EM_SETTARGETDEVICE: u32 = 1096;
+        const EM_SETTEXTEX: u32 = 1121;
+        const EM_SETTEXTMODE: u32 = 1113;
+        const EM_SETTOUCHOPTIONS: u32 = 1335;
+        const EM_SETTYPOGRAPHYOPTIONS: u32 = 1226;
+        const EM_SETUIANAME: u32 = 1344;
+        const EM_SETUNDOLIMIT: u32 = 1106;
+        const EM_SETVIEWKIND: u32 = 1251;
+        const EM_SETWORDBREAKPROCEX: u32 = 1105;
+        const EM_SETWORDWRAPMODE: u32 = 1126;
+        const EM_SHOWSCROLLBAR: u32 = 1120;
+        const EM_STOPGROUPTYPING: u32 = 1112;
+        const EM_STREAMIN: u32 = 1097;
+        const EM_STREAMOUT: u32 = 1098;
+        #[arch(X86)]
+        struct ENCORRECTTEXT {
+            nmhdr: NMHDR,
+            chrg: CHARRANGE,
+            seltyp: u16,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENCORRECTTEXT {
+            nmhdr: NMHDR,
+            chrg: CHARRANGE,
+            seltyp: u16,
+        }
+        #[arch(X86)]
+        struct ENDCOMPOSITIONNOTIFY {
+            nmhdr: NMHDR,
+            dwCode: u32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENDCOMPOSITIONNOTIFY {
+            nmhdr: NMHDR,
+            dwCode: u32,
+        }
+        #[arch(X86)]
+        struct ENDROPFILES {
+            nmhdr: NMHDR,
+            hDrop: HANDLE,
+            cp: i32,
+            fProtected: BOOL,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENDROPFILES {
+            nmhdr: NMHDR,
+            hDrop: HANDLE,
+            cp: i32,
+            fProtected: BOOL,
+        }
+        #[arch(X86)]
+        struct ENLINK {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            chrg: CHARRANGE,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENLINK {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            chrg: CHARRANGE,
+        }
+        #[arch(X86)]
+        struct ENLOWFIRTF {
+            nmhdr: NMHDR,
+            szControl: *mut i8,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENLOWFIRTF {
+            nmhdr: NMHDR,
+            szControl: *mut i8,
+        }
+        const ENM_CHANGE: u32 = 1;
+        const ENM_CLIPFORMAT: u32 = 128;
+        const ENM_CORRECTTEXT: u32 = 4194304;
+        const ENM_DRAGDROPDONE: u32 = 16;
+        const ENM_DROPFILES: u32 = 1048576;
+        const ENM_ENDCOMPOSITION: u32 = 536870912;
+        const ENM_GROUPTYPINGCHANGE: u32 = 1073741824;
+        const ENM_HIDELINKTOOLTIP: u32 = 2147483648;
+        const ENM_IMECHANGE: u32 = 8388608;
+        const ENM_KEYEVENTS: u32 = 65536;
+        const ENM_LANGCHANGE: u32 = 16777216;
+        const ENM_LINK: u32 = 67108864;
+        const ENM_LOWFIRTF: u32 = 134217728;
+        const ENM_MOUSEEVENTS: u32 = 131072;
+        const ENM_NONE: u32 = 0;
+        const ENM_OBJECTPOSITIONS: u32 = 33554432;
+        const ENM_PAGECHANGE: u32 = 64;
+        const ENM_PARAGRAPHEXPANDED: u32 = 32;
+        const ENM_PROTECTED: u32 = 2097152;
+        const ENM_REQUESTRESIZE: u32 = 262144;
+        const ENM_SCROLL: u32 = 4;
+        const ENM_SCROLLEVENTS: u32 = 8;
+        const ENM_SELCHANGE: u32 = 524288;
+        const ENM_STARTCOMPOSITION: u32 = 268435456;
+        const ENM_UPDATE: u32 = 2;
+        #[arch(X86)]
+        struct ENOLEOPFAILED {
+            nmhdr: NMHDR,
+            iob: i32,
+            lOper: i32,
+            hr: HRESULT,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENOLEOPFAILED {
+            nmhdr: NMHDR,
+            iob: i32,
+            lOper: i32,
+            hr: HRESULT,
+        }
+        #[arch(X86)]
+        struct ENPROTECTED {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            chrg: CHARRANGE,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENPROTECTED {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            chrg: CHARRANGE,
+        }
+        #[arch(X86)]
+        struct ENSAVECLIPBOARD {
+            nmhdr: NMHDR,
+            cObjectCount: i32,
+            cch: i32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct ENSAVECLIPBOARD {
+            nmhdr: NMHDR,
+            cObjectCount: i32,
+            cch: i32,
+        }
+        const EN_ALIGNLTR: u32 = 1808;
+        const EN_ALIGNRTL: u32 = 1809;
+        const EN_CLIPFORMAT: u32 = 1810;
+        const EN_CORRECTTEXT: u32 = 1797;
+        const EN_DRAGDROPDONE: u32 = 1804;
+        const EN_DROPFILES: u32 = 1795;
+        const EN_ENDCOMPOSITION: u32 = 1812;
+        const EN_IMECHANGE: u32 = 1799;
+        const EN_LINK: u32 = 1803;
+        const EN_LOWFIRTF: u32 = 1807;
+        const EN_MSGFILTER: u32 = 1792;
+        const EN_OBJECTPOSITIONS: u32 = 1802;
+        const EN_OLEOPFAILED: u32 = 1801;
+        const EN_PAGECHANGE: u32 = 1806;
+        const EN_PARAGRAPHEXPANDED: u32 = 1805;
+        const EN_PROTECTED: u32 = 1796;
+        const EN_REQUESTRESIZE: u32 = 1793;
+        const EN_SAVECLIPBOARD: u32 = 1800;
+        const EN_SELCHANGE: u32 = 1794;
+        const EN_STARTCOMPOSITION: u32 = 1811;
+        const EN_STOPNOUNDO: u32 = 1798;
+        const EPR_0: u32 = 0;
+        const EPR_180: u32 = 2;
+        const EPR_270: u32 = 1;
+        const EPR_90: u32 = 3;
+        const EPR_SE: u32 = 5;
+        const ES_DISABLENOSCROLL: u32 = 8192;
+        const ES_EX_NOCALLOLEINIT: u32 = 0;
+        const ES_NOIME: u32 = 524288;
+        const ES_NOOLEDRAGDROP: u32 = 8;
+        const ES_SAVESEL: u32 = 32768;
+        const ES_SELECTIONBAR: u32 = 16777216;
+        const ES_SELFIME: u32 = 262144;
+        const ES_SUNKEN: u32 = 16384;
+        const ES_VERTICAL: u32 = 4194304;
+        #[arch(X86)]
+        struct FINDTEXTA {
+            chrg: CHARRANGE,
+            lpstrText: PCSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct FINDTEXTA {
+            chrg: CHARRANGE,
+            lpstrText: PCSTR,
+        }
+        #[arch(X86)]
+        struct FINDTEXTEXA {
+            chrg: CHARRANGE,
+            lpstrText: PCSTR,
+            chrgText: CHARRANGE,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct FINDTEXTEXA {
+            chrg: CHARRANGE,
+            lpstrText: PCSTR,
+            chrgText: CHARRANGE,
+        }
+        #[arch(X86)]
+        struct FINDTEXTEXW {
+            chrg: CHARRANGE,
+            lpstrText: PCWSTR,
+            chrgText: CHARRANGE,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct FINDTEXTEXW {
+            chrg: CHARRANGE,
+            lpstrText: PCWSTR,
+            chrgText: CHARRANGE,
+        }
+        #[arch(X86)]
+        struct FINDTEXTW {
+            chrg: CHARRANGE,
+            lpstrText: PCWSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct FINDTEXTW {
+            chrg: CHARRANGE,
+            lpstrText: PCWSTR,
+        }
+        #[arch(X86)]
+        struct FORMATRANGE {
+            hdc: HDC,
+            hdcTarget: HDC,
+            rc: RECT,
+            rcPage: RECT,
+            chrg: CHARRANGE,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct FORMATRANGE {
+            hdc: HDC,
+            hdcTarget: HDC,
+            rc: RECT,
+            rcPage: RECT,
+            chrg: CHARRANGE,
+        }
+        const GCMF_GRIPPER: u32 = 1;
+        const GCMF_MOUSEMENU: u32 = 8192;
+        const GCMF_SPELLING: u32 = 2;
+        const GCMF_TOUCHMENU: u32 = 16384;
+        const GCM_MOUSEMENU: u32 = 8192;
+        const GCM_RIGHTMOUSEDROP: u32 = 32768;
+        const GCM_TOUCHMENU: u32 = 16384;
+        #[arch(X86)]
+        struct GETCONTEXTMENUEX {
+            chrg: CHARRANGE,
+            dwFlags: u32,
+            pt: POINT,
+            pvReserved: *mut void,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct GETCONTEXTMENUEX {
+            chrg: CHARRANGE,
+            dwFlags: u32,
+            pt: POINT,
+            pvReserved: *mut void,
+        }
+        #[arch(X86)]
+        struct GETTEXTEX {
+            cb: u32,
+            flags: u32,
+            codepage: u32,
+            lpDefaultChar: PCSTR,
+            lpUsedDefChar: LPBOOL,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct GETTEXTEX {
+            cb: u32,
+            flags: u32,
+            codepage: u32,
+            lpDefaultChar: PCSTR,
+            lpUsedDefChar: LPBOOL,
+        }
+        struct GETTEXTLENGTHEX {
+            flags: u32,
+            codepage: u32,
+        }
+        #[arch(X86)]
+        struct GROUPTYPINGCHANGE {
+            nmhdr: NMHDR,
+            fGroupTyping: BOOL,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct GROUPTYPINGCHANGE {
+            nmhdr: NMHDR,
+            fGroupTyping: BOOL,
+        }
+        const GTL_CLOSE: u32 = 4;
+        const GTL_DEFAULT: u32 = 0;
+        const GTL_NUMBYTES: u32 = 16;
+        const GTL_NUMCHARS: u32 = 8;
+        const GTL_PRECISE: u32 = 2;
+        const GTL_USECRLF: u32 = 1;
+        const GT_DEFAULT: u32 = 0;
+        const GT_NOHIDDENTEXT: u32 = 8;
+        const GT_RAWTEXT: u32 = 4;
+        const GT_SELECTION: u32 = 2;
+        const GT_USECRLF: u32 = 1;
+        #[arch(X86)]
+        struct HYPHENATEINFO {
+            cbSize: i16,
+            dxHyphenateZone: i16,
+            pfnHyphenate: *mut u8,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct HYPHENATEINFO {
+            cbSize: i16,
+            dxHyphenateZone: i16,
+            pfnHyphenate: *mut u8,
+        }
+        struct HYPHRESULT {
+            khyph: KHYPH,
+            ichHyph: i32,
+            chHyph: u16,
+        }
+        const ICM_CTF: u32 = 5;
+        const ICM_LEVEL2: u32 = 2;
+        const ICM_LEVEL2_5: u32 = 3;
+        const ICM_LEVEL2_SUI: u32 = 4;
+        const ICM_LEVEL3: u32 = 1;
+        const ICM_NOTOPEN: u32 = 0;
+        const ICT_RESULTREADSTR: u32 = 1;
+        struct IMECOMPTEXT {
+            cb: i32,
+            flags: u32,
+        }
+        const IMF_AUTOFONT: u32 = 2;
+        const IMF_AUTOFONTSIZEADJUST: u32 = 16;
+        const IMF_AUTOKEYBOARD: u32 = 1;
+        const IMF_CLOSESTATUSWINDOW: u32 = 8;
+        const IMF_DUALFONT: u32 = 128;
+        const IMF_FORCEACTIVE: u32 = 64;
+        const IMF_FORCEDISABLE: u32 = 4;
+        const IMF_FORCEENABLE: u32 = 2;
+        const IMF_FORCEINACTIVE: u32 = 128;
+        const IMF_FORCENONE: u32 = 1;
+        const IMF_FORCEREMEMBER: u32 = 256;
+        const IMF_IMEALWAYSSENDNOTIFY: u32 = 8;
+        const IMF_IMECANCELCOMPLETE: u32 = 4;
+        const IMF_IMEUIINTEGRATION: u32 = 8192;
+        const IMF_MULTIPLEEDIT: u32 = 1024;
+        const IMF_NOIMPLICITLANG: u32 = 64;
+        const IMF_NOKBDLIDFIXUP: u32 = 512;
+        const IMF_NORTFFONTSUBSTITUTE: u32 = 1024;
+        const IMF_SMODE_NONE: u32 = 2;
+        const IMF_SMODE_PLAURALCLAUSE: u32 = 1;
+        const IMF_SPELLCHECKING: u32 = 2048;
+        const IMF_TKBPREDICTION: u32 = 4096;
+        const IMF_UIFONTS: u32 = 32;
+        const IMF_VERTICAL: u32 = 32;
+        #[repr(i32)]
+        enum KHYPH {
+            khyphNil = 0,
+            khyphNormal = 1,
+            khyphAddBefore = 2,
+            khyphChangeBefore = 3,
+            khyphDeleteBefore = 4,
+            khyphChangeAfter = 5,
+            khyphDelAndChange = 6,
+        }
+        const MAX_TABLE_CELLS: u32 = 63;
+        const MAX_TAB_STOPS: u32 = 32;
+        #[encoding("utf-16")]
+        const MSFTEDIT_CLASS: String = "RICHEDIT50W";
+        #[arch(X86)]
+        struct MSGFILTER {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct MSGFILTER {
+            nmhdr: NMHDR,
+            msg: u32,
+            wParam: WPARAM,
+            lParam: LPARAM,
+        }
+        #[arch(X86)]
+        struct OBJECTPOSITIONS {
+            nmhdr: NMHDR,
+            cObjectCount: i32,
+            pcpPositions: *mut i32,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct OBJECTPOSITIONS {
+            nmhdr: NMHDR,
+            cObjectCount: i32,
+            pcpPositions: *mut i32,
+        }
+        const OLEOP_DOVERB: u32 = 1;
+        struct PARAFORMAT {
+            cbSize: u32,
+            dwMask: u32,
+            wNumbering: u16,
+            Anonymous: union {
+                wReserved: u16,
+                wEffects: u16,
+            },
+            dxStartIndent: i32,
+            dxRightIndent: i32,
+            dxOffset: i32,
+            wAlignment: u16,
+            cTabCount: i16,
+            rgxTabs: [i32; 32],
+        }
+        struct PARAFORMAT2 {
+            Base: PARAFORMAT,
+            dySpaceBefore: i32,
+            dySpaceAfter: i32,
+            dyLineSpacing: i32,
+            sStyle: i16,
+            bLineSpacingRule: u8,
+            bOutlineLevel: u8,
+            wShadingWeight: u16,
+            wShadingStyle: u16,
+            wNumberingStart: u16,
+            wNumberingStyle: u16,
+            wNumberingTab: u16,
+            wBorderSpace: u16,
+            wBorderWidth: u16,
+            wBorders: u16,
+        }
+        const PC_DELIMITER: u32 = 4;
+        const PC_FOLLOWING: u32 = 1;
+        const PC_LEADING: u32 = 2;
+        const PC_OVERFLOW: u32 = 3;
+        const PFA_CENTER: u32 = 3;
+        const PFA_FULL_GLYPHS: u32 = 8;
+        const PFA_FULL_INTERLETTER: u32 = 6;
+        const PFA_FULL_INTERWORD: u32 = 4;
+        const PFA_FULL_NEWSPAPER: u32 = 5;
+        const PFA_FULL_SCALED: u32 = 7;
+        const PFA_JUSTIFY: u32 = 4;
+        const PFA_LEFT: u32 = 1;
+        const PFA_RIGHT: u32 = 2;
+        const PFE_BOX: u32 = 1024;
+        const PFE_COLLAPSED: u32 = 256;
+        const PFE_DONOTHYPHEN: u32 = 64;
+        const PFE_KEEP: u32 = 2;
+        const PFE_KEEPNEXT: u32 = 4;
+        const PFE_NOLINENUMBER: u32 = 16;
+        const PFE_NOWIDOWCONTROL: u32 = 32;
+        const PFE_PAGEBREAKBEFORE: u32 = 8;
+        const PFE_RTLPARA: u32 = 1;
+        const PFE_SIDEBYSIDE: u32 = 128;
+        const PFE_TABLE: u32 = 16384;
+        const PFE_TABLEROWDELIMITER: u32 = 4096;
+        const PFE_TEXTWRAPPINGBREAK: u32 = 8192;
+        const PFM_ALIGNMENT: u32 = 8;
+        const PFM_ALL: i32 = -2147418049;
+        const PFM_ALL2: i32 = -788529665;
+        const PFM_BORDER: u32 = 2048;
+        const PFM_BOX: u32 = 67108864;
+        const PFM_COLLAPSED: u32 = 16777216;
+        const PFM_DONOTHYPHEN: u32 = 4194304;
+        const PFM_EFFECTS: u32 = 1358888960;
+        const PFM_KEEP: u32 = 131072;
+        const PFM_KEEPNEXT: u32 = 262144;
+        const PFM_LINESPACING: u32 = 256;
+        const PFM_NOLINENUMBER: u32 = 1048576;
+        const PFM_NOWIDOWCONTROL: u32 = 2097152;
+        const PFM_NUMBERING: u32 = 32;
+        const PFM_NUMBERINGSTART: u32 = 32768;
+        const PFM_NUMBERINGSTYLE: u32 = 8192;
+        const PFM_NUMBERINGTAB: u32 = 16384;
+        const PFM_OFFSET: u32 = 4;
+        const PFM_OFFSETINDENT: u32 = 2147483648;
+        const PFM_OUTLINELEVEL: u32 = 33554432;
+        const PFM_PAGEBREAKBEFORE: u32 = 524288;
+        const PFM_RESERVED2: u32 = 134217728;
+        const PFM_RIGHTINDENT: u32 = 2;
+        const PFM_RTLPARA: u32 = 65536;
+        const PFM_SHADING: u32 = 4096;
+        const PFM_SIDEBYSIDE: u32 = 8388608;
+        const PFM_SPACEAFTER: u32 = 128;
+        const PFM_SPACEBEFORE: u32 = 64;
+        const PFM_STARTINDENT: u32 = 1;
+        const PFM_STYLE: u32 = 1024;
+        const PFM_TABLE: u32 = 1073741824;
+        const PFM_TABLEROWDELIMITER: u32 = 268435456;
+        const PFM_TABSTOPS: u32 = 16;
+        const PFM_TEXTWRAPPINGBREAK: u32 = 536870912;
+        const PFNS_NEWNUMBER: u32 = 32768;
+        const PFNS_NONUMBER: u32 = 1024;
+        const PFNS_PAREN: u32 = 0;
+        const PFNS_PARENS: u32 = 256;
+        const PFNS_PERIOD: u32 = 512;
+        const PFNS_PLAIN: u32 = 768;
+        const PFN_ARABIC: u32 = 2;
+        const PFN_BULLET: u32 = 1;
+        const PFN_LCLETTER: u32 = 3;
+        const PFN_LCROMAN: u32 = 5;
+        const PFN_UCLETTER: u32 = 4;
+        const PFN_UCROMAN: u32 = 6;
+        #[arch(X86)]
+        struct PUNCTUATION {
+            iSize: u32,
+            szPunctuation: PSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct PUNCTUATION {
+            iSize: u32,
+            szPunctuation: PSTR,
+        }
+        #[arch(X86)]
+        struct REPASTESPECIAL {
+            dwAspect: u32,
+            dwParam: usize,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct REPASTESPECIAL {
+            dwAspect: u32,
+            dwParam: usize,
+        }
+        #[arch(X86)]
+        struct REQRESIZE {
+            nmhdr: NMHDR,
+            rc: RECT,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct REQRESIZE {
+            nmhdr: NMHDR,
+            rc: RECT,
+        }
+        #[encoding("utf-16")]
+        const RICHEDIT60_CLASS: String = "RICHEDIT60W";
+        #[encoding("ansi")]
+        const RICHEDIT_CLASS10A: String = "RICHEDIT";
+        #[encoding("ansi")]
+        const RICHEDIT_CLASSA: String = "RichEdit20A";
+        #[encoding("utf-16")]
+        const RICHEDIT_CLASSW: String = "RichEdit20W";
+        #[arch(X86)]
+        struct RICHEDIT_IMAGE_PARAMETERS {
+            xWidth: i32,
+            yHeight: i32,
+            Ascent: i32,
+            Type: i32,
+            pwszAlternateText: PCWSTR,
+            pIStream: IStream,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct RICHEDIT_IMAGE_PARAMETERS {
+            xWidth: i32,
+            yHeight: i32,
+            Ascent: i32,
+            Type: i32,
+            pwszAlternateText: PCWSTR,
+            pIStream: IStream,
+        }
+        const RTO_DISABLEHANDLES: u32 = 2;
+        const RTO_READINGMODE: u32 = 3;
+        const RTO_SHOWHANDLES: u32 = 1;
+        const SCF_ALL: u32 = 4;
+        const SCF_ASSOCIATEFONT: u32 = 16;
+        const SCF_ASSOCIATEFONT2: u32 = 64;
+        const SCF_CHARREPFROMLCID: u32 = 256;
+        const SCF_DEFAULT: u32 = 0;
+        const SCF_NOKBUPDATE: u32 = 32;
+        const SCF_SELECTION: u32 = 1;
+        const SCF_SMARTFONT: u32 = 128;
+        const SCF_USEUIRULES: u32 = 8;
+        const SCF_WORD: u32 = 2;
+        #[arch(X86)]
+        struct SELCHANGE {
+            nmhdr: NMHDR,
+            chrg: CHARRANGE,
+            seltyp: u16,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct SELCHANGE {
+            nmhdr: NMHDR,
+            chrg: CHARRANGE,
+            seltyp: u16,
+        }
+        const SEL_EMPTY: u32 = 0;
+        const SEL_MULTICHAR: u32 = 4;
+        const SEL_MULTIOBJECT: u32 = 8;
+        const SEL_OBJECT: u32 = 2;
+        const SEL_TEXT: u32 = 1;
+        const SES_ALLOWBEEPS: u32 = 256;
+        const SES_BEEPONMAXTEXT: u32 = 2;
+        const SES_BIDI: u32 = 4096;
+        const SES_CTFALLOWEMBED: u32 = 2097152;
+        const SES_CTFALLOWPROOFING: u32 = 8388608;
+        const SES_CTFALLOWSMARTTAG: u32 = 4194304;
+        const SES_CTFNOLOCK: u32 = 268435456;
+        const SES_CUSTOMLOOK: u32 = 524288;
+        const SES_DEFAULTLATINLIGA: u32 = 16;
+        const SES_DRAFTMODE: u32 = 32768;
+        const SES_EMULATE10: u32 = 16;
+        const SES_EMULATESYSEDIT: u32 = 1;
+        const SES_EXTENDBACKCOLOR: u32 = 4;
+        const SES_EX_HANDLEFRIENDLYURL: u32 = 256;
+        const SES_EX_HIDETEMPFORMAT: u32 = 268435456;
+        const SES_EX_MULTITOUCH: u32 = 134217728;
+        const SES_EX_NOACETATESELECTION: u32 = 1048576;
+        const SES_EX_NOMATH: u32 = 64;
+        const SES_EX_NOTABLE: u32 = 4;
+        const SES_EX_NOTHEMING: u32 = 524288;
+        const SES_EX_USEMOUSEWPARAM: u32 = 536870912;
+        const SES_EX_USESINGLELINE: u32 = 2097152;
+        const SES_HIDEGRIDLINES: u32 = 131072;
+        const SES_HYPERLINKTOOLTIPS: u32 = 8;
+        const SES_LBSCROLLNOTIFY: u32 = 1048576;
+        const SES_LOGICALCARET: u32 = 16777216;
+        const SES_LOWERCASE: u32 = 1024;
+        const SES_MAPCPS: u32 = 8;
+        const SES_MAX: u32 = 536870912;
+        const SES_MULTISELECT: u32 = 134217728;
+        const SES_NOEALINEHEIGHTADJUST: u32 = 536870912;
+        const SES_NOFOCUSLINKNOTIFY: u32 = 32;
+        const SES_NOIME: u32 = 128;
+        const SES_NOINPUTSEQUENCECHK: u32 = 2048;
+        const SES_SCROLLONKILLFOCUS: u32 = 8192;
+        const SES_SMARTDRAGDROP: u32 = 67108864;
+        const SES_UPPERCASE: u32 = 512;
+        const SES_USEAIMM: u32 = 64;
+        const SES_USEATFONT: u32 = 262144;
+        const SES_USECRLF: u32 = 32;
+        const SES_USECTF: u32 = 65536;
+        const SES_WORDDRAGDROP: u32 = 33554432;
+        const SES_XLTCRCRLFTOCR: u32 = 16384;
+        struct SETTEXTEX {
+            flags: u32,
+            codepage: u32,
+        }
+        const SFF_KEEPDOCINFO: u32 = 4096;
+        const SFF_PERSISTVIEWSCALE: u32 = 8192;
+        const SFF_PLAINRTF: u32 = 16384;
+        const SFF_PWD: u32 = 2048;
+        const SFF_SELECTION: u32 = 32768;
+        const SFF_WRITEXTRAPAR: u32 = 128;
+        const SF_NCRFORNONASCII: u32 = 64;
+        const SF_RTF: u32 = 2;
+        const SF_RTFNOOBJS: u32 = 3;
+        const SF_RTFVAL: u32 = 1792;
+        const SF_TEXT: u32 = 1;
+        const SF_TEXTIZED: u32 = 4;
+        const SF_UNICODE: u32 = 16;
+        const SF_USECODEPAGE: u32 = 32;
+        const SPF_DONTSETDEFAULT: u32 = 2;
+        const SPF_SETDEFAULT: u32 = 4;
+        const ST_DEFAULT: u32 = 0;
+        const ST_KEEPUNDO: u32 = 1;
+        const ST_NEWCHARS: u32 = 4;
+        const ST_SELECTION: u32 = 2;
+        const ST_UNICODE: u32 = 8;
+        struct TABLECELLPARMS {
+            dxWidth: i32,
+            _bitfield: u16,
+            wShading: u16,
+            dxBrdrLeft: i16,
+            dyBrdrTop: i16,
+            dxBrdrRight: i16,
+            dyBrdrBottom: i16,
+            crBrdrLeft: COLORREF,
+            crBrdrTop: COLORREF,
+            crBrdrRight: COLORREF,
+            crBrdrBottom: COLORREF,
+            crBackPat: COLORREF,
+            crForePat: COLORREF,
+        }
+        struct TABLEROWPARMS {
+            cbRow: u8,
+            cbCell: u8,
+            cCell: u8,
+            cRow: u8,
+            dxCellMargin: i32,
+            dxIndent: i32,
+            dyHeight: i32,
+            _bitfield: u32,
+            cpStartRow: i32,
+            bTableLevel: u8,
+            iCell: u8,
+        }
+        #[repr(i32)]
+        enum TEXTMODE {
+            TM_PLAINTEXT = 1,
+            TM_RICHTEXT = 2,
+            TM_SINGLELEVELUNDO = 4,
+            TM_MULTILEVELUNDO = 8,
+            TM_SINGLECODEPAGE = 16,
+            TM_MULTICODEPAGE = 32,
+        }
+        #[arch(X86)]
+        struct TEXTRANGEA {
+            chrg: CHARRANGE,
+            lpstrText: PSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct TEXTRANGEA {
+            chrg: CHARRANGE,
+            lpstrText: PSTR,
+        }
+        #[arch(X86)]
+        struct TEXTRANGEW {
+            chrg: CHARRANGE,
+            lpstrText: PWSTR,
+        }
+        #[packed(4)]
+        #[arch(X64 | Arm64)]
+        struct TEXTRANGEW {
+            chrg: CHARRANGE,
+            lpstrText: PWSTR,
+        }
+        const TO_ADVANCEDLAYOUT: u32 = 8;
+        const TO_ADVANCEDTYPOGRAPHY: u32 = 1;
+        const TO_DISABLECUSTOMTEXTOUT: u32 = 4;
+        const TO_SIMPLELINEBREAK: u32 = 2;
+        #[repr(i32)]
+        enum UNDONAMEID {
+            UID_UNKNOWN = 0,
+            UID_TYPING = 1,
+            UID_DELETE = 2,
+            UID_DRAGDROP = 3,
+            UID_CUT = 4,
+            UID_PASTE = 5,
+            UID_AUTOTABLE = 6,
+        }
+        const VM_NORMAL: u32 = 4;
+        const VM_OUTLINE: u32 = 2;
+        const VM_PAGE: u32 = 9;
+        const WBF_BREAKAFTER: u8 = 64;
+        const WBF_BREAKLINE: u8 = 32;
+        const WBF_CLASS: u8 = 15;
+        const WBF_CUSTOM: u32 = 512;
+        const WBF_ISWHITE: u8 = 16;
+        const WBF_LEVEL1: u32 = 128;
+        const WBF_LEVEL2: u32 = 256;
+        const WBF_OVERFLOW: u32 = 64;
+        const WBF_WORDBREAK: u32 = 32;
+        const WBF_WORDWRAP: u32 = 16;
+        const WB_CLASSIFY: u32 = 3;
+        const WB_LEFTBREAK: u32 = 6;
+        const WB_MOVEWORDLEFT: u32 = 4;
+        const WB_MOVEWORDNEXT: u32 = 5;
+        const WB_MOVEWORDPREV: u32 = 4;
+        const WB_MOVEWORDRIGHT: u32 = 5;
+        const WB_NEXTBREAK: u32 = 7;
+        const WB_PREVBREAK: u32 = 6;
+        const WB_RIGHTBREAK: u32 = 7;
+        const WCH_EMBEDDING: u16 = 65532;
+        const cchTextLimitDefault: u32 = 32767;
+        const lDefaultTab: u32 = 720;
+        const yHeightCharPtsMost: u32 = 1638;
+    }
+}

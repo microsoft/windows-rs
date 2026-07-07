@@ -1,0 +1,81 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CCH_MAX_PROPSTG_NAME: u32 = 31;
+        const CWCSTORAGENAME: u32 = 32;
+        #[library("ole32.dll")]
+        extern fn CreateILockBytesOnHGlobal(#[opt] hGlobal: HGLOBAL, fDeleteOnRelease: BOOL, pplkbyt: *mut ILockBytes) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn FmtIdToPropStgName(pfmtid: *const GUID, #[out] oszName: PWSTR) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn GetConvertStg(pStg: IStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn GetHGlobalFromILockBytes(plkbyt: ILockBytes, phglobal: *mut HGLOBAL) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn PropStgNameToFmtId(oszName: PCWSTR, pfmtid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn ReadClassStg(pStg: IStorage, pclsid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn ReadClassStm(pStm: IStream, pclsid: *mut GUID) -> HRESULT;
+        type STGFMT = u32;
+        const STGFMT_ANY: u32 = 4;
+        const STGFMT_DOCFILE: u32 = 5;
+        const STGFMT_DOCUMENT: u32 = 0;
+        const STGFMT_FILE: u32 = 3;
+        const STGFMT_NATIVE: u32 = 1;
+        const STGFMT_STORAGE: u32 = 0;
+        const STGM_CONVERT: u32 = 131072;
+        const STGM_CREATE: u32 = 4096;
+        const STGM_DELETEONRELEASE: u32 = 67108864;
+        const STGM_DIRECT: u32 = 0;
+        const STGM_DIRECT_SWMR: u32 = 4194304;
+        const STGM_FAILIFTHERE: u32 = 0;
+        const STGM_NOSCRATCH: u32 = 1048576;
+        const STGM_NOSNAPSHOT: u32 = 2097152;
+        const STGM_PRIORITY: u32 = 262144;
+        const STGM_READ: u32 = 0;
+        const STGM_READWRITE: u32 = 2;
+        const STGM_SHARE_DENY_NONE: u32 = 64;
+        const STGM_SHARE_DENY_READ: u32 = 48;
+        const STGM_SHARE_DENY_WRITE: u32 = 32;
+        const STGM_SHARE_EXCLUSIVE: u32 = 16;
+        const STGM_SIMPLE: u32 = 134217728;
+        const STGM_TRANSACTED: u32 = 65536;
+        const STGM_WRITE: u32 = 1;
+        struct STGOPTIONS {
+            usVersion: u16,
+            reserved: u16,
+            ulSectorSize: u32,
+            pwcsTemplateFile: *const u16,
+        }
+        const STGOPTIONS_VERSION: u32 = 2;
+        #[library("ole32.dll")]
+        extern fn StgCreateDocfile(#[opt] pwcsName: *const u16, grfMode: u32, #[reserved] reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfMode: u32, reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgCreatePropSetStg(pStorage: IStorage, #[reserved] dwReserved: u32, ppPropSetStg: *mut IPropertySetStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgCreatePropStg(pUnk: IUnknown, fmtid: *const GUID, pclsid: *const GUID, grfFlags: u32, #[reserved] dwReserved: u32, ppPropStg: *mut IPropertyStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgCreateStorageEx(#[opt] pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, ppObjectOpen: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgIsStorageFile(pwcsName: *const u16) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgIsStorageILockBytes(plkbyt: ILockBytes) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgOpenPropStg(pUnk: IUnknown, fmtid: *const GUID, grfFlags: u32, #[reserved] dwReserved: u32, ppPropStg: *mut IPropertyStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgOpenStorage(#[opt] pwcsName: *const u16, #[opt] pstgPriority: IStorage, grfMode: u32, #[opt] snbExclude: *const PWSTR, reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgOpenStorageEx(pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, ppObjectOpen: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, #[opt] pstgPriority: IStorage, grfMode: u32, #[opt] snbExclude: *const PWSTR, #[reserved] reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StgSetTimes(lpszName: *const u16, #[opt] pctime: *const FILETIME, #[opt] patime: *const FILETIME, #[opt] pmtime: *const FILETIME) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn WriteClassStg(pStg: IStorage, rclsid: *const GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn WriteClassStm(pStm: IStream, rclsid: *const GUID) -> HRESULT;
+    }
+}

@@ -50,6 +50,8 @@ impl Type {
             Self::I32 => ELEMENT_TYPE_I4,
             Self::U64 => ELEMENT_TYPE_U8,
             Self::I64 => ELEMENT_TYPE_I8,
+            Self::USize => ELEMENT_TYPE_U,
+            Self::ISize => ELEMENT_TYPE_I,
             Self::F32 => ELEMENT_TYPE_R4,
             Self::F64 => ELEMENT_TYPE_R8,
             Self::String => ELEMENT_TYPE_STRING,

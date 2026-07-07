@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn LPTIMECALLBACK(uTimerID: u32, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        extern fn TIMECALLBACK(uTimerID: u32, uMsg: u32, dwUser: usize, dw1: usize, dw2: usize);
+        const TIME_CALLBACK_EVENT_PULSE: u32 = 32;
+        const TIME_CALLBACK_EVENT_SET: u32 = 16;
+        const TIME_CALLBACK_FUNCTION: u32 = 0;
+        const TIME_KILL_SYNCHRONOUS: u32 = 256;
+        const TIME_ONESHOT: u32 = 0;
+        const TIME_PERIODIC: u32 = 1;
+        #[library("WINMM.dll")]
+        extern fn timeKillEvent(uTimerID: u32) -> MMRESULT;
+        #[library("WINMM.dll")]
+        extern fn timeSetEvent(uDelay: u32, uResolution: u32, fptc: LPTIMECALLBACK, dwUser: usize, fuEvent: u32) -> MMRESULT;
+    }
+}

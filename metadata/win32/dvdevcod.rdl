@@ -1,0 +1,83 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DVD_ERROR {
+            DVD_ERROR_Unexpected = 1,
+            DVD_ERROR_CopyProtectFail = 2,
+            DVD_ERROR_InvalidDVD1_0Disc = 3,
+            DVD_ERROR_InvalidDiscRegion = 4,
+            DVD_ERROR_LowParentalLevel = 5,
+            DVD_ERROR_MacrovisionFail = 6,
+            DVD_ERROR_IncompatibleSystemAndDecoderRegions = 7,
+            DVD_ERROR_IncompatibleDiscAndDecoderRegions = 8,
+            DVD_ERROR_CopyProtectOutputFail = 9,
+            DVD_ERROR_CopyProtectOutputNotSupported = 10,
+        }
+        #[repr(i32)]
+        enum DVD_PB_STOPPED {
+            DVD_PB_STOPPED_Other = 0,
+            DVD_PB_STOPPED_NoBranch = 1,
+            DVD_PB_STOPPED_NoFirstPlayDomain = 2,
+            DVD_PB_STOPPED_StopCommand = 3,
+            DVD_PB_STOPPED_Reset = 4,
+            DVD_PB_STOPPED_DiscEjected = 5,
+            DVD_PB_STOPPED_IllegalNavCommand = 6,
+            DVD_PB_STOPPED_PlayPeriodAutoStop = 7,
+            DVD_PB_STOPPED_PlayChapterAutoStop = 8,
+            DVD_PB_STOPPED_ParentalFailure = 9,
+            DVD_PB_STOPPED_RegionFailure = 10,
+            DVD_PB_STOPPED_MacrovisionFailure = 11,
+            DVD_PB_STOPPED_DiscReadError = 12,
+            DVD_PB_STOPPED_CopyProtectFailure = 13,
+            DVD_PB_STOPPED_CopyProtectOutputFailure = 14,
+            DVD_PB_STOPPED_CopyProtectOutputNotSupported = 15,
+        }
+        #[repr(i32)]
+        enum DVD_WARNING {
+            DVD_WARNING_InvalidDVD1_0Disc = 1,
+            DVD_WARNING_FormatNotSupported = 2,
+            DVD_WARNING_IllegalNavCommand = 3,
+            DVD_WARNING_Open = 4,
+            DVD_WARNING_Seek = 5,
+            DVD_WARNING_Read = 6,
+        }
+        const EC_DVDBASE: u32 = 256;
+        const EC_DVD_ANGLES_AVAILABLE: u32 = 275;
+        const EC_DVD_ANGLE_CHANGE: u32 = 262;
+        const EC_DVD_AUDIO_STREAM_CHANGE: u32 = 260;
+        const EC_DVD_BUTTON_AUTO_ACTIVATED: u32 = 277;
+        const EC_DVD_BUTTON_CHANGE: u32 = 263;
+        const EC_DVD_BeginNavigationCommands: u32 = 291;
+        const EC_DVD_CHAPTER_AUTOSTOP: u32 = 270;
+        const EC_DVD_CHAPTER_START: u32 = 259;
+        const EC_DVD_CMD_END: u32 = 279;
+        const EC_DVD_CMD_START: u32 = 278;
+        const EC_DVD_CURRENT_HMSF_TIME: u32 = 282;
+        const EC_DVD_CURRENT_TIME: u32 = 267;
+        const EC_DVD_DISC_EJECTED: u32 = 280;
+        const EC_DVD_DISC_INSERTED: u32 = 281;
+        const EC_DVD_DOMAIN_CHANGE: u32 = 257;
+        const EC_DVD_ERROR: u32 = 268;
+        const EC_DVD_GPRM_Change: u32 = 289;
+        const EC_DVD_KARAOKE_MODE: u32 = 283;
+        const EC_DVD_NO_FP_PGC: u32 = 271;
+        const EC_DVD_NavigationCommand: u32 = 292;
+        const EC_DVD_PARENTAL_LEVEL_CHANGE: u32 = 273;
+        const EC_DVD_PLAYBACK_RATE_CHANGE: u32 = 272;
+        const EC_DVD_PLAYBACK_STOPPED: u32 = 274;
+        const EC_DVD_PLAYPERIOD_AUTOSTOP: u32 = 276;
+        const EC_DVD_PROGRAM_CELL_CHANGE: u32 = 284;
+        const EC_DVD_PROGRAM_CHAIN_CHANGE: u32 = 286;
+        const EC_DVD_SPRM_Change: u32 = 290;
+        const EC_DVD_STILL_OFF: u32 = 266;
+        const EC_DVD_STILL_ON: u32 = 265;
+        const EC_DVD_SUBPICTURE_STREAM_CHANGE: u32 = 261;
+        const EC_DVD_TITLE_CHANGE: u32 = 258;
+        const EC_DVD_TITLE_SET_CHANGE: u32 = 285;
+        const EC_DVD_VALID_UOPS_CHANGE: u32 = 264;
+        const EC_DVD_VOBU_Offset: u32 = 287;
+        const EC_DVD_VOBU_Timestamp: u32 = 288;
+        const EC_DVD_WARNING: u32 = 269;
+    }
+}

@@ -59,7 +59,12 @@ impl Write for Vec<u8> {
 
     fn write_index(&mut self, index: u32, len: usize) {
         if len < (1 << 16) {
-            self.write_u16(index as u16 + 1);
+            let value = index + 1;
+            assert!(
+                value <= u16::MAX as u32,
+                "run-list index {value} overflows a 2-byte column (table len {len})"
+            );
+            self.write_u16(value as u16);
         } else {
             self.write_u32(index + 1);
         }
@@ -99,6 +104,8 @@ impl Write for Vec<u8> {
             Value::I32(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::U64(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::I64(value) => self.extend_from_slice(&value.to_le_bytes()),
+            Value::USize(value) => self.extend_from_slice(&value.to_le_bytes()),
+            Value::ISize(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::F32(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::F64(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::Utf8(value) => {

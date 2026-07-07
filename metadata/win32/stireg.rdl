@@ -1,0 +1,69 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const IS_DIGITAL_CAMERA_STR: String = "IsDigitalCamera";
+        const IS_DIGITAL_CAMERA_VAL: u32 = 1;
+        #[encoding("utf-16")]
+        const REGSTR_VAL_BAUDRATE: String = "BaudRate";
+        #[encoding("ansi")]
+        const REGSTR_VAL_BAUDRATE_A: String = "BaudRate";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DATA_W: String = "DeviceData";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DEVICESUBTYPE_W: String = "DeviceSubType";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DEVICETYPE_W: String = "DeviceType";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DEVICE_NAME_W: String = "DriverDesc";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DEV_NAME_W: String = "DeviceName";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_DRIVER_DESC_W: String = "DriverDesc";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_FRIENDLY_NAME_W: String = "FriendlyName";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_GENERIC_CAPS_W: String = "Capabilities";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_GUID_W: String = "GUID";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_HARDWARE_W: String = "HardwareConfig";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_LAUNCHABLE_W: String = "Launchable";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_LAUNCH_APPS_W: String = "LaunchApplications";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_SHUTDOWNDELAY_W: String = "ShutdownIfUnusedDelay";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_TYPE_W: String = "Type";
+        #[encoding("utf-16")]
+        const REGSTR_VAL_VENDOR_NAME_W: String = "Vendor";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP: String = "DefaultLaunchApp";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A: String = "DefaultLaunchApp";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS: String = "DisableNotifications";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS_A: String = "DisableNotifications";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_ICM_PROFILE: String = "ICMProfile";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_ICM_PROFILE_A: String = "ICMProfile";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_ISIS_NAME: String = "ISISDriverName";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_ISIS_NAME_A: String = "ISISDriverName";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_TIMEOUT: String = "PollTimeout";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_TIMEOUT_A: String = "PollTimeout";
+        #[encoding("utf-16")]
+        const STI_DEVICE_VALUE_TWAIN_NAME: String = "TwainDS";
+        #[encoding("ansi")]
+        const STI_DEVICE_VALUE_TWAIN_NAME_A: String = "TwainDS";
+        #[encoding("utf-16")]
+        const SUPPORTS_MSCPLUS_STR: String = "SupportsMSCPlus";
+        const SUPPORTS_MSCPLUS_VAL: u32 = 1;
+    }
+}

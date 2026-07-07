@@ -1,0 +1,217 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AMBISONICS_CHANNEL_ORDERING {
+            AMBISONICS_CHANNEL_ORDERING_ACN = 0,
+        }
+        #[repr(i32)]
+        enum AMBISONICS_NORMALIZATION {
+            AMBISONICS_NORMALIZATION_SN3D = 0,
+            AMBISONICS_NORMALIZATION_N3D = 1,
+        }
+        struct AMBISONICS_PARAMS {
+            u32Size: u32,
+            u32Version: u32,
+            u32Type: AMBISONICS_TYPE,
+            u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
+            u32Normalization: AMBISONICS_NORMALIZATION,
+            u32Order: u32,
+            u32NumChannels: u32,
+            pu32ChannelMap: *mut u32,
+        }
+        const AMBISONICS_PARAM_VERSION_1: u32 = 1;
+        #[repr(i32)]
+        enum AMBISONICS_TYPE {
+            AMBISONICS_TYPE_FULL3D = 0,
+        }
+        const AUDCLNT_E_ALREADY_INITIALIZED: i32 = -2004287486;
+        const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: i32 = -2004287469;
+        const AUDCLNT_E_BUFFER_ERROR: i32 = -2004287464;
+        const AUDCLNT_E_BUFFER_OPERATION_PENDING: i32 = -2004287477;
+        const AUDCLNT_E_BUFFER_SIZE_ERROR: i32 = -2004287466;
+        const AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: i32 = -2004287463;
+        const AUDCLNT_E_BUFFER_TOO_LARGE: i32 = -2004287482;
+        const AUDCLNT_E_CPUUSAGE_EXCEEDED: i32 = -2004287465;
+        const AUDCLNT_E_DEVICE_INVALIDATED: i32 = -2004287484;
+        const AUDCLNT_E_DEVICE_IN_USE: i32 = -2004287478;
+        const AUDCLNT_E_EFFECT_NOT_AVAILABLE: i32 = -2004287423;
+        const AUDCLNT_E_EFFECT_STATE_READ_ONLY: i32 = -2004287422;
+        const AUDCLNT_E_ENDPOINT_CREATE_FAILED: i32 = -2004287473;
+        const AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: i32 = -2004287454;
+        const AUDCLNT_E_ENGINE_FORMAT_LOCKED: i32 = -2004287447;
+        const AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: i32 = -2004287448;
+        const AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: i32 = -2004287471;
+        const AUDCLNT_E_EVENTHANDLE_NOT_SET: i32 = -2004287468;
+        const AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: i32 = -2004287474;
+        const AUDCLNT_E_EXCLUSIVE_MODE_ONLY: i32 = -2004287470;
+        const AUDCLNT_E_HEADTRACKING_ENABLED: i32 = -2004287440;
+        const AUDCLNT_E_HEADTRACKING_UNSUPPORTED: i32 = -2004287424;
+        const AUDCLNT_E_INCORRECT_BUFFER_SIZE: i32 = -2004287467;
+        const AUDCLNT_E_INVALID_DEVICE_PERIOD: i32 = -2004287456;
+        const AUDCLNT_E_INVALID_SIZE: i32 = -2004287479;
+        const AUDCLNT_E_INVALID_STREAM_FLAG: i32 = -2004287455;
+        const AUDCLNT_E_NONOFFLOAD_MODE_ONLY: i32 = -2004287451;
+        const AUDCLNT_E_NOT_INITIALIZED: i32 = -2004287487;
+        const AUDCLNT_E_NOT_STOPPED: i32 = -2004287483;
+        const AUDCLNT_E_OFFLOAD_MODE_ONLY: i32 = -2004287452;
+        const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: i32 = -2004287453;
+        const AUDCLNT_E_OUT_OF_ORDER: i32 = -2004287481;
+        const AUDCLNT_E_POST_VOLUME_LOOPBACK_UNSUPPORTED: i32 = -2004287421;
+        const AUDCLNT_E_RAW_MODE_UNSUPPORTED: i32 = -2004287449;
+        const AUDCLNT_E_RESOURCES_INVALIDATED: i32 = -2004287450;
+        const AUDCLNT_E_SERVICE_NOT_RUNNING: i32 = -2004287472;
+        const AUDCLNT_E_THREAD_NOT_REGISTERED: i32 = -2004287476;
+        const AUDCLNT_E_UNSUPPORTED_FORMAT: i32 = -2004287480;
+        const AUDCLNT_E_WRONG_ENDPOINT_TYPE: i32 = -2004287485;
+        #[repr(u32)]
+        #[flags]
+        enum AUDCLNT_STREAMOPTIONS {
+            AUDCLNT_STREAMOPTIONS_NONE = 0,
+            AUDCLNT_STREAMOPTIONS_RAW = 1,
+            AUDCLNT_STREAMOPTIONS_MATCH_FORMAT = 2,
+            AUDCLNT_STREAMOPTIONS_AMBISONICS = 4,
+            AUDCLNT_STREAMOPTIONS_POST_VOLUME_LOOPBACK = 8,
+        }
+        const AUDCLNT_S_BUFFER_EMPTY: u32 = 143196161;
+        const AUDCLNT_S_POSITION_STALLED: u32 = 143196163;
+        const AUDCLNT_S_THREAD_ALREADY_REGISTERED: u32 = 143196162;
+        const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1;
+        #[repr(u32)]
+        #[flags]
+        enum AUDIO_DUCKING_OPTIONS {
+            AUDIO_DUCKING_OPTIONS_DEFAULT = 0,
+            AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS = 1,
+        }
+        struct AUDIO_EFFECT {
+            id: GUID,
+            canSetState: BOOL,
+            state: AUDIO_EFFECT_STATE,
+        }
+        #[repr(i32)]
+        enum AUDIO_EFFECT_STATE {
+            AUDIO_EFFECT_STATE_OFF = 0,
+            AUDIO_EFFECT_STATE_ON = 1,
+        }
+        struct AudioClient3ActivationParams {
+            tracingContextId: GUID,
+        }
+        struct AudioClientProperties {
+            cbSize: u32,
+            bIsOffload: BOOL,
+            eCategory: AUDIO_STREAM_CATEGORY,
+            Options: AUDCLNT_STREAMOPTIONS,
+        }
+        #[guid(0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549)]
+        interface IAcousticEchoCancellationControl: IUnknown {
+            fn SetEchoCancellationRenderEndpoint(&self, endpointId: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x28724c91_df35_4856_9f76_d6a26413f3df)]
+        interface IAudioAmbisonicsControl: IUnknown {
+            fn SetData(&self, pAmbisonicsParams: *const AMBISONICS_PARAMS, cbAmbisonicsParams: u32) -> HRESULT;
+            fn SetHeadTracking(&self, bEnableHeadTracking: BOOL) -> HRESULT;
+            fn GetHeadTracking(&self, pbEnableHeadTracking: *mut BOOL) -> HRESULT;
+            fn SetRotation(&self, X: f32, Y: f32, Z: f32, W: f32) -> HRESULT;
+        }
+        #[guid(0xc8adbd64_e71e_48a0_a4de_185c395cd317)]
+        interface IAudioCaptureClient: IUnknown {
+            fn GetBuffer(&self, ppData: *mut *mut u8, pNumFramesToRead: *mut u32, pdwFlags: *mut u32, #[opt] pu64DevicePosition: *mut u64, #[opt] pu64QPCPosition: *mut u64) -> HRESULT;
+            fn ReleaseBuffer(&self, NumFramesRead: u32) -> HRESULT;
+            fn GetNextPacketSize(&self, pNumFramesInNextPacket: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2)]
+        interface IAudioClient: IUnknown {
+            fn Initialize(&self, ShareMode: AUDCLNT_SHAREMODE, StreamFlags: u32, hnsBufferDuration: REFERENCE_TIME, hnsPeriodicity: REFERENCE_TIME, pFormat: *const WAVEFORMATEX, #[opt] AudioSessionGuid: *const GUID) -> HRESULT;
+            fn GetBufferSize(&self, pNumBufferFrames: *mut u32) -> HRESULT;
+            fn GetStreamLatency(&self, phnsLatency: *mut REFERENCE_TIME) -> HRESULT;
+            fn GetCurrentPadding(&self, pNumPaddingFrames: *mut u32) -> HRESULT;
+            fn IsFormatSupported(&self, ShareMode: AUDCLNT_SHAREMODE, pFormat: *const WAVEFORMATEX, #[opt] ppClosestMatch: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetMixFormat(&self, ppDeviceFormat: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn GetDevicePeriod(&self, #[opt] phnsDefaultDevicePeriod: *mut REFERENCE_TIME, #[opt] phnsMinimumDevicePeriod: *mut REFERENCE_TIME) -> HRESULT;
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn SetEventHandle(&self, eventHandle: HANDLE) -> HRESULT;
+            fn GetService(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x726778cd_f60a_4eda_82de_e47610cd78aa)]
+        interface IAudioClient2: IAudioClient {
+            fn IsOffloadCapable(&self, Category: AUDIO_STREAM_CATEGORY, pbOffloadCapable: *mut BOOL) -> HRESULT;
+            fn SetClientProperties(&self, pProperties: *const AudioClientProperties) -> HRESULT;
+            fn GetBufferSizeLimits(&self, pFormat: *const WAVEFORMATEX, bEventDriven: BOOL, phnsMinBufferDuration: *mut REFERENCE_TIME, phnsMaxBufferDuration: *mut REFERENCE_TIME) -> HRESULT;
+        }
+        #[guid(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42)]
+        interface IAudioClient3: IAudioClient2 {
+            fn GetSharedModeEnginePeriod(&self, pFormat: *const WAVEFORMATEX, pDefaultPeriodInFrames: *mut u32, pFundamentalPeriodInFrames: *mut u32, pMinPeriodInFrames: *mut u32, pMaxPeriodInFrames: *mut u32) -> HRESULT;
+            fn GetCurrentSharedModeEnginePeriod(&self, ppFormat: *mut *mut WAVEFORMATEX, pCurrentPeriodInFrames: *mut u32) -> HRESULT;
+            fn InitializeSharedAudioStream(&self, StreamFlags: u32, PeriodInFrames: u32, pFormat: *const WAVEFORMATEX, #[opt] AudioSessionGuid: *const GUID) -> HRESULT;
+        }
+        #[guid(0xc789d381_a28c_4168_b28f_d3a837924dc3)]
+        interface IAudioClientDuckingControl: IUnknown {
+            fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> HRESULT;
+        }
+        #[guid(0xcd63314f_3fba_4a1b_812c_ef96358728e7)]
+        interface IAudioClock: IUnknown {
+            fn GetFrequency(&self, pu64Frequency: *mut u64) -> HRESULT;
+            fn GetPosition(&self, pu64Position: *mut u64, #[opt] pu64QPCPosition: *mut u64) -> HRESULT;
+            fn GetCharacteristics(&self, pdwCharacteristics: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6f49ff73_6727_49ac_a008_d98cf5e70048)]
+        interface IAudioClock2: IUnknown {
+            fn GetDevicePosition(&self, DevicePosition: *mut u64, #[opt] QPCPosition: *mut u64) -> HRESULT;
+        }
+        #[guid(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c)]
+        interface IAudioClockAdjustment: IUnknown {
+            fn SetSampleRate(&self, flSampleRate: f32) -> HRESULT;
+        }
+        #[guid(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6)]
+        interface IAudioEffectsChangedNotificationClient: IUnknown {
+            fn OnAudioEffectsChanged(&self) -> HRESULT;
+        }
+        #[guid(0x4460b3ae_4b44_4527_8676_7548a8acd260)]
+        interface IAudioEffectsManager: IUnknown {
+            fn RegisterAudioEffectsChangedNotificationCallback(&self, client: IAudioEffectsChangedNotificationClient) -> HRESULT;
+            fn UnregisterAudioEffectsChangedNotificationCallback(&self, client: IAudioEffectsChangedNotificationClient) -> HRESULT;
+            fn GetAudioEffects(&self, effects: *mut *mut AUDIO_EFFECT, numEffects: *mut u32) -> HRESULT;
+            fn SetAudioEffectState(&self, effectId: GUID, state: AUDIO_EFFECT_STATE) -> HRESULT;
+        }
+        #[guid(0xf294acfc_3146_4483_a7bf_addca7c260e2)]
+        interface IAudioRenderClient: IUnknown {
+            fn GetBuffer(&self, NumFramesRequested: u32, ppData: *mut *mut u8) -> HRESULT;
+            fn ReleaseBuffer(&self, NumFramesWritten: u32, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x93014887_242d_4068_8a15_cf5e93b90fe3)]
+        interface IAudioStreamVolume: IUnknown {
+            fn GetChannelCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn SetChannelVolume(&self, dwIndex: u32, fLevel: f32) -> HRESULT;
+            fn GetChannelVolume(&self, dwIndex: u32, pfLevel: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *const f32) -> HRESULT;
+            fn GetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *mut f32) -> HRESULT;
+        }
+        #[guid(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74)]
+        interface IAudioViewManagerService: IUnknown {
+            fn SetAudioStreamWindow(&self, hwnd: HWND) -> HRESULT;
+        }
+        #[guid(0x1c158861_b533_4b30_b1cf_e853e51c59b8)]
+        interface IChannelAudioVolume: IUnknown {
+            fn GetChannelCount(&self, pdwCount: *mut u32) -> HRESULT;
+            fn SetChannelVolume(&self, dwIndex: u32, fLevel: f32, EventContext: *const GUID) -> HRESULT;
+            fn GetChannelVolume(&self, dwIndex: u32, pfLevel: *mut f32) -> HRESULT;
+            fn SetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *const f32, EventContext: *const GUID) -> HRESULT;
+            fn GetAllVolumes(&self, dwCount: u32, #[len_param(0)] pfVolumes: *mut f32) -> HRESULT;
+        }
+        #[guid(0x87ce5498_68d6_44e5_9215_6da47ef883d8)]
+        interface ISimpleAudioVolume: IUnknown {
+            fn SetMasterVolume(&self, fLevel: f32, EventContext: *const GUID) -> HRESULT;
+            fn GetMasterVolume(&self, pfLevel: *mut f32) -> HRESULT;
+            fn SetMute(&self, bMute: BOOL, EventContext: *const GUID) -> HRESULT;
+            fn GetMute(&self, pbMute: *mut BOOL) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum _AUDCLNT_BUFFERFLAGS {
+            AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY = 1,
+            AUDCLNT_BUFFERFLAGS_SILENT = 2,
+            AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR = 4,
+        }
+    }
+}

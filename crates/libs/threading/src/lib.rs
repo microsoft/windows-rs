@@ -63,11 +63,18 @@ fn check<D: Default + PartialEq>(result: D) -> D {
     result
 }
 
+// As with `check`, but for the thread pool APIs that report failure by returning a null pointer.
+fn check_ptr<T>(result: *mut T) -> *mut T {
+    assert!(!result.is_null(), "allocation failed");
+
+    result
+}
+
 // This function is `unsafe` as it cannot ensure that the lifetime of the closure is sufficient or
 // whether the `environment` pointer is valid.
 unsafe fn try_submit<F: FnOnce() + Send>(environment: *const TP_CALLBACK_ENVIRON_V3, f: F) {
     unsafe extern "system" fn callback<F: FnOnce() + Send>(
-        _: PTP_CALLBACK_INSTANCE,
+        _: *mut TP_CALLBACK_INSTANCE,
         callback: *mut c_void,
     ) {
         unsafe {

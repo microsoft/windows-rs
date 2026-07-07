@@ -1,0 +1,47 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x40bfe3e3_b75a_4479_ac96_475365749bb8)]
+        interface ICoreInputInterop: IUnknown {
+            fn SetInputSource(&self, value: IUnknown) -> HRESULT;
+            #[special]
+            fn put_MessageHandled(&self, value: boolean) -> HRESULT;
+        }
+        #[guid(0xb8a2acd7_a0f0_40ee_8ee7_c82f59cc5cd4)]
+        interface ICoreInputInterop2: IInspectable {
+            #[special]
+            fn get_WindowHandle(&self, #[retval] window: *mut HWND) -> HRESULT;
+            fn ChangeHostingContext(&self, newParentWindow: HWND, newViewInstanceId: u32) -> HRESULT;
+        }
+        #[guid(0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a)]
+        interface ICoreWindowAdapterInterop: IInspectable {
+            #[special]
+            fn get_AppActivationClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_ApplicationViewClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_CoreApplicationViewClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_HoloViewClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_PositionerClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_SystemNavigationClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_TitleBarClientAdapter(&self, #[retval] value: *mut IUnknown) -> HRESULT;
+            fn SetWindowClientAdapter(&self, value: IUnknown) -> HRESULT;
+        }
+        #[guid(0x0576ab31_a310_4c40_ba31_fd37e0298dfa)]
+        interface ICoreWindowComponentInterop: IUnknown {
+            fn ConfigureComponentInput(&self, hostViewInstanceId: u32, hwndHost: HWND, inputSourceVisual: IUnknown) -> HRESULT;
+            fn GetViewInstanceId(&self, componentViewInstanceId: *mut u32) -> HRESULT;
+        }
+        #[guid(0x45d64a29_a63e_4cb6_b498_5781d298cb4f)]
+        interface ICoreWindowInterop: IUnknown {
+            #[special]
+            fn get_WindowHandle(&self, #[retval] hwnd: *mut HWND) -> HRESULT;
+            #[special]
+            fn put_MessageHandled(&self, value: boolean) -> HRESULT;
+        }
+    }
+}

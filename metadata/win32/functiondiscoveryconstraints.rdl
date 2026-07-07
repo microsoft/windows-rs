@@ -1,0 +1,111 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_ALL: String = "All";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER: String = "1";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER: String = "4";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_FALSE: String = "FALSE";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_PAIRED: String = "Paired";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL: String = "All";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT: String = "Direct";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_TRUE: String = "TRUE";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_UNPAIRED: String = "UnPaired";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_VISIBILITY_ALL: String = "1";
+        #[encoding("utf-16")]
+        const FD_CONSTRAINTVALUE_VISIBILITY_DEFAULT: String = "0";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_COMCLSCONTEXT: String = "COMClsContext";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_INQUIRY_TIMEOUT: String = "InquiryModeTimeout";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_PAIRING_STATE: String = "PairingState";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_PROVIDERINSTANCEID: String = "ProviderInstanceID";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_RECURSESUBCATEGORY: String = "RecurseSubcategory";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_ROUTINGSCOPE: String = "RoutingScope";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_SUBCATEGORY: String = "Subcategory";
+        #[encoding("utf-16")]
+        const FD_QUERYCONSTRAINT_VISIBILITY: String = "Visibility";
+        const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100;
+        const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000;
+        #[encoding("utf-16")]
+        const ONLINE_PROVIDER_DEVICES_QUERYCONSTRAINT_OWNERNAME: String = "OwnerName";
+        #[encoding("utf-16")]
+        const PROVIDERDDO_QUERYCONSTRAINT_DEVICEFUNCTIONDISPLAYOBJECTS: String = "DeviceFunctionDisplayObjects";
+        #[encoding("utf-16")]
+        const PROVIDERDDO_QUERYCONSTRAINT_DEVICEINTERFACES: String = "DeviceInterfaces";
+        #[encoding("utf-16")]
+        const PROVIDERDDO_QUERYCONSTRAINT_ONLYCONNECTEDDEVICES: String = "OnlyConnectedDevices";
+        #[encoding("utf-16")]
+        const PROVIDERPNP_QUERYCONSTRAINT_INTERFACECLASS: String = "InterfaceClass";
+        #[encoding("utf-16")]
+        const PROVIDERPNP_QUERYCONSTRAINT_NOTIFICATIONSONLY: String = "NotifyOnly";
+        #[encoding("utf-16")]
+        const PROVIDERPNP_QUERYCONSTRAINT_NOTPRESENT: String = "NotPresent";
+        #[encoding("utf-16")]
+        const PROVIDERSSDP_QUERYCONSTRAINT_CUSTOMXMLPROPERTY: String = "CustomXmlProperty";
+        #[encoding("utf-16")]
+        const PROVIDERSSDP_QUERYCONSTRAINT_TYPE: String = "Type";
+        #[encoding("utf-16")]
+        const PROVIDERWNET_QUERYCONSTRAINT_PROPERTIES: String = "Properties";
+        #[encoding("utf-16")]
+        const PROVIDERWNET_QUERYCONSTRAINT_RESOURCETYPE: String = "ResourceType";
+        #[encoding("utf-16")]
+        const PROVIDERWNET_QUERYCONSTRAINT_TYPE: String = "Type";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_DIRECTEDADDRESS: String = "RemoteAddress";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_SCOPE: String = "Scope";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_SECURITY_REQUIREMENTS: String = "SecurityRequirements";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_SSL_CERTHASH_FOR_SERVER_AUTH: String = "SSLServerAuthCertHash";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_SSL_CERT_FOR_CLIENT_AUTH: String = "SSLClientAuthCert";
+        #[encoding("utf-16")]
+        const PROVIDERWSD_QUERYCONSTRAINT_TYPE: String = "Type";
+        #[encoding("utf-16")]
+        const SSDP_CONSTRAINTVALUE_TYPE_ALL: String = "ssdp:all";
+        #[encoding("utf-16")]
+        const SSDP_CONSTRAINTVALUE_TYPE_DEVICE_PREFIX: String = "urn:schemas-upnp-org:device:";
+        #[encoding("utf-16")]
+        const SSDP_CONSTRAINTVALUE_TYPE_ROOT: String = "upnp:rootdevice";
+        #[encoding("utf-16")]
+        const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: String = "urn:schemas-upnp-org:service:";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_PROPERTIES_ALL: String = "All";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_PROPERTIES_LIMITED: String = "Limited";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_RESOURCETYPE_DISK: String = "Disk";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_RESOURCETYPE_DISKORPRINTER: String = "DiskOrPrinter";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_RESOURCETYPE_PRINTER: String = "Printer";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_TYPE_ALL: String = "All";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_TYPE_DOMAIN: String = "Domain";
+        #[encoding("utf-16")]
+        const WNET_CONSTRAINTVALUE_TYPE_SERVER: String = "Server";
+        #[encoding("utf-16")]
+        const WSD_CONSTRAINTVALUE_NO_TRUST_VERIFICATION: String = "3";
+        #[encoding("utf-16")]
+        const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL: String = "1";
+        #[encoding("utf-16")]
+        const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE: String = "2";
+    }
+}

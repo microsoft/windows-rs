@@ -1,0 +1,372 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DECODING_SOURCE {
+            DecodingSourceXMLFile = 0,
+            DecodingSourceWbem = 1,
+            DecodingSourceWPP = 2,
+            DecodingSourceTlg = 3,
+            DecodingSourceMax = 4,
+        }
+        #[repr(i32)]
+        enum EVENT_FIELD_TYPE {
+            EventKeywordInformation = 0,
+            EventLevelInformation = 1,
+            EventChannelInformation = 2,
+            EventTaskInformation = 3,
+            EventOpcodeInformation = 4,
+            EventInformationMax = 5,
+        }
+        struct EVENT_MAP_ENTRY {
+            OutputOffset: u32,
+            Anonymous: union {
+                Value: u32,
+                InputOffset: u32,
+            },
+        }
+        struct EVENT_MAP_INFO {
+            NameOffset: u32,
+            Flag: MAP_FLAGS,
+            EntryCount: u32,
+            Anonymous: union {
+                MapEntryValueType: MAP_VALUETYPE,
+                FormatStringOffset: u32,
+            },
+            MapEntryArray: [EVENT_MAP_ENTRY; 1],
+        }
+        struct EVENT_PROPERTY_INFO {
+            Flags: PROPERTY_FLAGS,
+            NameOffset: u32,
+            Anonymous: union {
+                nonStructType: EVENT_PROPERTY_INFO_0_0,
+                structType: EVENT_PROPERTY_INFO_0_1,
+                customSchemaType: EVENT_PROPERTY_INFO_0_2,
+            },
+            Anonymous2: union {
+                count: u16,
+                countPropertyIndex: u16,
+            },
+            Anonymous3: union {
+                length: u16,
+                lengthPropertyIndex: u16,
+            },
+            Anonymous4: union {
+                Reserved: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+        }
+        struct EVENT_PROPERTY_INFO_0_0 {
+            InType: u16,
+            OutType: u16,
+            MapNameOffset: u32,
+        }
+        struct EVENT_PROPERTY_INFO_0_1 {
+            StructStartIndex: u16,
+            NumOfStructMembers: u16,
+            padding: u32,
+        }
+        struct EVENT_PROPERTY_INFO_0_2 {
+            InType: u16,
+            OutType: u16,
+            CustomSchemaOffset: u32,
+        }
+        #[repr(i32)]
+        enum MAP_FLAGS {
+            EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP = 1,
+            EVENTMAP_INFO_FLAG_MANIFEST_BITMAP = 2,
+            EVENTMAP_INFO_FLAG_MANIFEST_PATTERNMAP = 4,
+            EVENTMAP_INFO_FLAG_WBEM_VALUEMAP = 8,
+            EVENTMAP_INFO_FLAG_WBEM_BITMAP = 16,
+            EVENTMAP_INFO_FLAG_WBEM_FLAG = 32,
+            EVENTMAP_INFO_FLAG_WBEM_NO_MAP = 64,
+        }
+        #[repr(i32)]
+        enum MAP_VALUETYPE {
+            EVENTMAP_ENTRY_VALUETYPE_ULONG = 0,
+            EVENTMAP_ENTRY_VALUETYPE_STRING = 1,
+        }
+        const MAX_PAYLOAD_PREDICATES: u32 = 8;
+        struct PAYLOAD_FILTER_PREDICATE {
+            FieldName: PWSTR,
+            CompareOp: u16,
+            Value: PWSTR,
+        }
+        #[repr(i32)]
+        enum PAYLOAD_OPERATOR {
+            PAYLOADFIELD_EQ = 0,
+            PAYLOADFIELD_NE = 1,
+            PAYLOADFIELD_LE = 2,
+            PAYLOADFIELD_GT = 3,
+            PAYLOADFIELD_LT = 4,
+            PAYLOADFIELD_GE = 5,
+            PAYLOADFIELD_BETWEEN = 6,
+            PAYLOADFIELD_NOTBETWEEN = 7,
+            PAYLOADFIELD_MODULO = 8,
+            PAYLOADFIELD_CONTAINS = 20,
+            PAYLOADFIELD_DOESNTCONTAIN = 21,
+            PAYLOADFIELD_IS = 30,
+            PAYLOADFIELD_ISNOT = 31,
+            PAYLOADFIELD_INVALID = 32,
+        }
+        type PEVENT_MAP_ENTRY = *mut EVENT_MAP_ENTRY;
+        type PEVENT_MAP_INFO = *mut EVENT_MAP_INFO;
+        type PEVENT_PROPERTY_INFO = *mut EVENT_PROPERTY_INFO;
+        type PPAYLOAD_FILTER_PREDICATE = *mut PAYLOAD_FILTER_PREDICATE;
+        type PPROPERTY_DATA_DESCRIPTOR = *mut PROPERTY_DATA_DESCRIPTOR;
+        type PPROVIDER_ENUMERATION_INFO = *mut PROVIDER_ENUMERATION_INFO;
+        type PPROVIDER_EVENT_INFO = *mut PROVIDER_EVENT_INFO;
+        type PPROVIDER_FIELD_INFO = *mut PROVIDER_FIELD_INFO;
+        type PPROVIDER_FIELD_INFOARRAY = *mut PROVIDER_FIELD_INFOARRAY;
+        type PPROVIDER_FILTER_INFO = *mut PROVIDER_FILTER_INFO;
+        struct PROPERTY_DATA_DESCRIPTOR {
+            PropertyName: u64,
+            ArrayIndex: u32,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum PROPERTY_FLAGS {
+            PropertyStruct = 1,
+            PropertyParamLength = 2,
+            PropertyParamCount = 4,
+            PropertyWBEMXmlFragment = 8,
+            PropertyParamFixedLength = 16,
+            PropertyParamFixedCount = 32,
+            PropertyHasTags = 64,
+            PropertyHasCustomSchema = 128,
+        }
+        struct PROVIDER_ENUMERATION_INFO {
+            NumberOfProviders: u32,
+            Reserved: u32,
+            TraceProviderInfoArray: [TRACE_PROVIDER_INFO; 1],
+        }
+        struct PROVIDER_EVENT_INFO {
+            NumberOfEvents: u32,
+            Reserved: u32,
+            EventDescriptorsArray: [EVENT_DESCRIPTOR; 1],
+        }
+        struct PROVIDER_FIELD_INFO {
+            NameOffset: u32,
+            DescriptionOffset: u32,
+            Value: u64,
+        }
+        struct PROVIDER_FIELD_INFOARRAY {
+            NumberOfElements: u32,
+            FieldType: EVENT_FIELD_TYPE,
+            FieldInfoArray: [PROVIDER_FIELD_INFO; 1],
+        }
+        struct PROVIDER_FILTER_INFO {
+            Id: u8,
+            Version: u8,
+            MessageOffset: u32,
+            Reserved: u32,
+            PropertyCount: u32,
+            EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
+        }
+        type PTDH_CONTEXT = *mut TDH_CONTEXT;
+        type PTDH_HANDLE = *mut HANDLE;
+        type PTRACE_EVENT_INFO = *mut TRACE_EVENT_INFO;
+        type PTRACE_PROVIDER_INFO = *mut TRACE_PROVIDER_INFO;
+        type TDHSTATUS = u32;
+        struct TDH_CONTEXT {
+            ParameterValue: u64,
+            ParameterType: TDH_CONTEXT_TYPE,
+            ParameterSize: u32,
+        }
+        #[repr(i32)]
+        enum TDH_CONTEXT_TYPE {
+            TDH_CONTEXT_WPP_TMFFILE = 0,
+            TDH_CONTEXT_WPP_TMFSEARCHPATH = 1,
+            TDH_CONTEXT_WPP_GMT = 2,
+            TDH_CONTEXT_POINTERSIZE = 3,
+            TDH_CONTEXT_PDB_PATH = 4,
+            TDH_CONTEXT_MAXIMUM = 5,
+        }
+        type TDH_HANDLE = HANDLE;
+        const TDH_OUTYTPE_ERRORCODE: u32 = 29;
+        #[repr(i32)]
+        enum TEMPLATE_FLAGS {
+            TEMPLATE_EVENT_DATA = 1,
+            TEMPLATE_USER_DATA = 2,
+            TEMPLATE_CONTROL_GUID = 4,
+        }
+        struct TRACE_EVENT_INFO {
+            ProviderGuid: GUID,
+            EventGuid: GUID,
+            EventDescriptor: EVENT_DESCRIPTOR,
+            DecodingSource: DECODING_SOURCE,
+            ProviderNameOffset: u32,
+            LevelNameOffset: u32,
+            ChannelNameOffset: u32,
+            KeywordsNameOffset: u32,
+            TaskNameOffset: u32,
+            OpcodeNameOffset: u32,
+            EventMessageOffset: u32,
+            ProviderMessageOffset: u32,
+            BinaryXMLOffset: u32,
+            BinaryXMLSize: u32,
+            Anonymous: union {
+                EventNameOffset: u32,
+                ActivityIDNameOffset: u32,
+            },
+            Anonymous2: union {
+                EventAttributesOffset: u32,
+                RelatedActivityIDNameOffset: u32,
+            },
+            PropertyCount: u32,
+            TopLevelPropertyCount: u32,
+            Anonymous3: union {
+                Flags: TEMPLATE_FLAGS,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
+        }
+        struct TRACE_PROVIDER_INFO {
+            ProviderGuid: GUID,
+            SchemaSource: u32,
+            ProviderNameOffset: u32,
+        }
+        #[library("tdh.dll")]
+        extern fn TdhAggregatePayloadFilters(PayloadFilterCount: u32, #[len_param(0)] PayloadFilterPtrs: *const *const void, #[len_param(0)] #[opt] EventMatchALLFlags: *const BOOLEAN, EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhCleanupPayloadEventFilterDescriptor(#[in] #[out] EventFilterDescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhCloseDecodingHandle(Handle: TDH_HANDLE) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhCreatePayloadFilter(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, EventMatchANY: BOOLEAN, PayloadPredicateCount: u32, #[len_param(3)] PayloadPredicates: *const PAYLOAD_FILTER_PREDICATE, PayloadFilter: *mut *mut void) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhDeletePayloadFilter(#[in] #[out] PayloadFilter: *mut *mut void) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhEnumerateManifestProviderEvents(ProviderGuid: *const GUID, #[size_param(2)] #[opt] Buffer: *mut PROVIDER_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhEnumerateProviderFieldInformation(pGuid: *const GUID, EventFieldType: EVENT_FIELD_TYPE, #[size_param(3)] #[opt] pBuffer: *mut PROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhEnumerateProviderFilters(Guid: *const GUID, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: *const TDH_CONTEXT, FilterCount: *mut u32, #[size_param(5)] #[opt] Buffer: *mut PPROVIDER_FILTER_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhEnumerateProviders(#[size_param(1)] #[opt] pBuffer: *mut PROVIDER_ENUMERATION_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, #[size_param(2)] #[opt] buffer: *mut PROVIDER_ENUMERATION_INFO, bufferSize: u32, bufferRequired: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhFormatProperty(EventInfo: *const TRACE_EVENT_INFO, #[opt] MapInfo: *const EVENT_MAP_INFO, PointerSize: u32, PropertyInType: u16, PropertyOutType: u16, PropertyLength: u16, UserDataLength: u16, #[size_param(6)] UserData: *const u8, #[in] #[out] BufferSize: *mut u32, #[size_param(8)] #[opt] Buffer: *mut u16, UserDataConsumed: *mut u16) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetDecodingParameter(Handle: TDH_HANDLE, #[in] #[out] TdhContext: *mut TDH_CONTEXT) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetEventInformation(Event: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] TdhContext: *const TDH_CONTEXT, #[size_param(4)] #[opt] Buffer: *mut TRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetEventMapInformation(pEvent: *const EVENT_RECORD, pMapName: PCWSTR, #[size_param(3)] #[opt] pBuffer: *mut EVENT_MAP_INFO, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetManifestEventInformation(ProviderGuid: *const GUID, EventDescriptor: *const EVENT_DESCRIPTOR, #[size_param(3)] #[opt] Buffer: *mut TRACE_EVENT_INFO, #[in] #[out] BufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetProperty(pEvent: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: *const TDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: *const PROPERTY_DATA_DESCRIPTOR, BufferSize: u32, #[size_param(5)] pBuffer: *mut u8) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetPropertySize(pEvent: *const EVENT_RECORD, TdhContextCount: u32, #[len_param(1)] #[opt] pTdhContext: *const TDH_CONTEXT, PropertyDataCount: u32, #[len_param(3)] pPropertyData: *const PROPERTY_DATA_DESCRIPTOR, pPropertySize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetWppMessage(Handle: TDH_HANDLE, EventRecord: *const EVENT_RECORD, #[in] #[out] BufferSize: *mut u32, #[size_param(2)] Buffer: *mut u8) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhGetWppProperty(Handle: TDH_HANDLE, EventRecord: *const EVENT_RECORD, PropertyName: PCWSTR, #[in] #[out] BufferSize: *mut u32, #[size_param(3)] Buffer: *mut u8) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhLoadManifest(Manifest: PCWSTR) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhLoadManifestFromBinary(BinaryPath: PCWSTR) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhLoadManifestFromMemory(#[size_param(1)] pData: *const void, cbData: u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhOpenDecodingHandle(Handle: *mut HANDLE) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhQueryProviderFieldInformation(pGuid: *const GUID, EventFieldValue: u64, EventFieldType: EVENT_FIELD_TYPE, #[size_param(4)] #[opt] pBuffer: *mut PROVIDER_FIELD_INFOARRAY, #[in] #[out] pBufferSize: *mut u32) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhSetDecodingParameter(Handle: TDH_HANDLE, TdhContext: *const TDH_CONTEXT) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhUnloadManifest(Manifest: PCWSTR) -> TDHSTATUS;
+        #[library("tdh.dll")]
+        extern fn TdhUnloadManifestFromMemory(#[size_param(1)] pData: *const void, cbData: u32) -> TDHSTATUS;
+        #[repr(i32)]
+        enum _TDH_IN_TYPE {
+            TDH_INTYPE_NULL = 0,
+            TDH_INTYPE_UNICODESTRING = 1,
+            TDH_INTYPE_ANSISTRING = 2,
+            TDH_INTYPE_INT8 = 3,
+            TDH_INTYPE_UINT8 = 4,
+            TDH_INTYPE_INT16 = 5,
+            TDH_INTYPE_UINT16 = 6,
+            TDH_INTYPE_INT32 = 7,
+            TDH_INTYPE_UINT32 = 8,
+            TDH_INTYPE_INT64 = 9,
+            TDH_INTYPE_UINT64 = 10,
+            TDH_INTYPE_FLOAT = 11,
+            TDH_INTYPE_DOUBLE = 12,
+            TDH_INTYPE_BOOLEAN = 13,
+            TDH_INTYPE_BINARY = 14,
+            TDH_INTYPE_GUID = 15,
+            TDH_INTYPE_POINTER = 16,
+            TDH_INTYPE_FILETIME = 17,
+            TDH_INTYPE_SYSTEMTIME = 18,
+            TDH_INTYPE_SID = 19,
+            TDH_INTYPE_HEXINT32 = 20,
+            TDH_INTYPE_HEXINT64 = 21,
+            TDH_INTYPE_MANIFEST_COUNTEDSTRING = 22,
+            TDH_INTYPE_MANIFEST_COUNTEDANSISTRING = 23,
+            TDH_INTYPE_RESERVED24 = 24,
+            TDH_INTYPE_MANIFEST_COUNTEDBINARY = 25,
+            TDH_INTYPE_COUNTEDSTRING = 300,
+            TDH_INTYPE_COUNTEDANSISTRING = 301,
+            TDH_INTYPE_REVERSEDCOUNTEDSTRING = 302,
+            TDH_INTYPE_REVERSEDCOUNTEDANSISTRING = 303,
+            TDH_INTYPE_NONNULLTERMINATEDSTRING = 304,
+            TDH_INTYPE_NONNULLTERMINATEDANSISTRING = 305,
+            TDH_INTYPE_UNICODECHAR = 306,
+            TDH_INTYPE_ANSICHAR = 307,
+            TDH_INTYPE_SIZET = 308,
+            TDH_INTYPE_HEXDUMP = 309,
+            TDH_INTYPE_WBEMSID = 310,
+        }
+        #[repr(i32)]
+        enum _TDH_OUT_TYPE {
+            TDH_OUTTYPE_NULL = 0,
+            TDH_OUTTYPE_STRING = 1,
+            TDH_OUTTYPE_DATETIME = 2,
+            TDH_OUTTYPE_BYTE = 3,
+            TDH_OUTTYPE_UNSIGNEDBYTE = 4,
+            TDH_OUTTYPE_SHORT = 5,
+            TDH_OUTTYPE_UNSIGNEDSHORT = 6,
+            TDH_OUTTYPE_INT = 7,
+            TDH_OUTTYPE_UNSIGNEDINT = 8,
+            TDH_OUTTYPE_LONG = 9,
+            TDH_OUTTYPE_UNSIGNEDLONG = 10,
+            TDH_OUTTYPE_FLOAT = 11,
+            TDH_OUTTYPE_DOUBLE = 12,
+            TDH_OUTTYPE_BOOLEAN = 13,
+            TDH_OUTTYPE_GUID = 14,
+            TDH_OUTTYPE_HEXBINARY = 15,
+            TDH_OUTTYPE_HEXINT8 = 16,
+            TDH_OUTTYPE_HEXINT16 = 17,
+            TDH_OUTTYPE_HEXINT32 = 18,
+            TDH_OUTTYPE_HEXINT64 = 19,
+            TDH_OUTTYPE_PID = 20,
+            TDH_OUTTYPE_TID = 21,
+            TDH_OUTTYPE_PORT = 22,
+            TDH_OUTTYPE_IPV4 = 23,
+            TDH_OUTTYPE_IPV6 = 24,
+            TDH_OUTTYPE_SOCKETADDRESS = 25,
+            TDH_OUTTYPE_CIMDATETIME = 26,
+            TDH_OUTTYPE_ETWTIME = 27,
+            TDH_OUTTYPE_XML = 28,
+            TDH_OUTTYPE_ERRORCODE = 29,
+            TDH_OUTTYPE_WIN32ERROR = 30,
+            TDH_OUTTYPE_NTSTATUS = 31,
+            TDH_OUTTYPE_HRESULT = 32,
+            TDH_OUTTYPE_CULTURE_INSENSITIVE_DATETIME = 33,
+            TDH_OUTTYPE_JSON = 34,
+            TDH_OUTTYPE_UTF8 = 35,
+            TDH_OUTTYPE_PKCS7_WITH_TYPE_INFO = 36,
+            TDH_OUTTYPE_CODE_POINTER = 37,
+            TDH_OUTTYPE_DATETIME_UTC = 38,
+            TDH_OUTTYPE_REDUCEDSTRING = 300,
+            TDH_OUTTYPE_NOPRINT = 301,
+        }
+    }
+}

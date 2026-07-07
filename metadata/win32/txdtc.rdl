@@ -1,0 +1,323 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum DTCINITIATEDRECOVERYWORK {
+            DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS = 1,
+            DTCINITIATEDRECOVERYWORK_TRANS = 2,
+            DTCINITIATEDRECOVERYWORK_TMDOWN = 3,
+        }
+        #[repr(i32)]
+        enum DTCLUCOMPARESTATE {
+            DTCLUCOMPARESTATE_COMMITTED = 1,
+            DTCLUCOMPARESTATE_HEURISTICCOMMITTED = 2,
+            DTCLUCOMPARESTATE_HEURISTICMIXED = 3,
+            DTCLUCOMPARESTATE_HEURISTICRESET = 4,
+            DTCLUCOMPARESTATE_INDOUBT = 5,
+            DTCLUCOMPARESTATE_RESET = 6,
+        }
+        #[repr(i32)]
+        enum DTCLUCOMPARESTATESCONFIRMATION {
+            DTCLUCOMPARESTATESCONFIRMATION_CONFIRM = 1,
+            DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL = 2,
+        }
+        #[repr(i32)]
+        enum DTCLUCOMPARESTATESERROR {
+            DTCLUCOMPARESTATESERROR_PROTOCOL = 1,
+        }
+        #[repr(i32)]
+        enum DTCLUCOMPARESTATESRESPONSE {
+            DTCLUCOMPARESTATESRESPONSE_OK = 1,
+            DTCLUCOMPARESTATESRESPONSE_PROTOCOL = 2,
+        }
+        #[repr(i32)]
+        enum DTCLUXLN {
+            DTCLUXLN_COLD = 1,
+            DTCLUXLN_WARM = 2,
+        }
+        #[repr(i32)]
+        enum DTCLUXLNCONFIRMATION {
+            DTCLUXLNCONFIRMATION_CONFIRM = 1,
+            DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH = 2,
+            DTCLUXLNCONFIRMATION_COLDWARMMISMATCH = 3,
+            DTCLUXLNCONFIRMATION_OBSOLETE = 4,
+        }
+        #[repr(i32)]
+        enum DTCLUXLNERROR {
+            DTCLUXLNERROR_PROTOCOL = 1,
+            DTCLUXLNERROR_LOGNAMEMISMATCH = 2,
+            DTCLUXLNERROR_COLDWARMMISMATCH = 3,
+        }
+        #[repr(i32)]
+        enum DTCLUXLNRESPONSE {
+            DTCLUXLNRESPONSE_OK_SENDOURXLNBACK = 1,
+            DTCLUXLNRESPONSE_OK_SENDCONFIRMATION = 2,
+            DTCLUXLNRESPONSE_LOGNAMEMISMATCH = 3,
+            DTCLUXLNRESPONSE_COLDWARMMISMATCH = 4,
+        }
+        #[guid(0x4131e760_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuConfigure: IUnknown {
+            fn Add(&self, pucLuPair: *const byte, cbLuPair: u32) -> HRESULT;
+            fn Delete(&self, pucLuPair: *const byte, cbLuPair: u32) -> HRESULT;
+        }
+        #[guid(0xac2b8ad2_d6f0_11d0_b386_00a0c9083365)]
+        interface IDtcLuRecovery: IUnknown {}
+        #[guid(0x4131e762_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRecoveryFactory: IUnknown {
+            fn Create(&self, pucLuPair: *const byte, cbLuPair: u32, ppRecovery: *mut IDtcLuRecovery) -> HRESULT;
+        }
+        #[guid(0x4131e764_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRecoveryInitiatedByDtc: IUnknown {
+            fn GetWork(&self, #[in] #[out] pWork: *mut DTCINITIATEDRECOVERYWORK, #[in] #[out] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x4131e766_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRecoveryInitiatedByDtcStatusWork: IUnknown {
+            fn HandleCheckLuStatus(&self, lRecoverySeqNum: i32) -> HRESULT;
+        }
+        #[guid(0x4131e765_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRecoveryInitiatedByDtcTransWork: IUnknown {
+            fn GetLogNameSizes(&self, pcbOurLogName: *mut u32, pcbRemoteLogName: *mut u32) -> HRESULT;
+            fn GetOurXln(&self, pXln: *mut DTCLUXLN, #[in] #[out] pOurLogName: *mut u8, #[in] #[out] pRemoteLogName: *mut u8, pdwProtocol: *mut u32) -> HRESULT;
+            fn HandleConfirmationFromOurXln(&self, Confirmation: DTCLUXLNCONFIRMATION) -> HRESULT;
+            fn HandleTheirXlnResponse(&self, Xln: DTCLUXLN, pRemoteLogName: *const u8, cbRemoteLogName: u32, dwProtocol: u32, pConfirmation: *mut DTCLUXLNCONFIRMATION) -> HRESULT;
+            fn HandleErrorFromOurXln(&self, Error: DTCLUXLNERROR) -> HRESULT;
+            fn CheckForCompareStates(&self, fCompareStates: *mut BOOL) -> HRESULT;
+            fn GetOurTransIdSize(&self, #[in] #[out] pcbOurTransId: *mut u32) -> HRESULT;
+            fn GetOurCompareStates(&self, #[in] #[out] pOurTransId: *mut u8, pCompareState: *mut DTCLUCOMPARESTATE) -> HRESULT;
+            fn HandleTheirCompareStatesResponse(&self, CompareState: DTCLUCOMPARESTATE, pConfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> HRESULT;
+            fn HandleErrorFromOurCompareStates(&self, Error: DTCLUCOMPARESTATESERROR) -> HRESULT;
+            fn ConversationLost(&self) -> HRESULT;
+            fn GetRecoverySeqNum(&self, plRecoverySeqNum: *mut i32) -> HRESULT;
+            fn ObsoleteRecoverySeqNum(&self, lNewRecoverySeqNum: i32) -> HRESULT;
+        }
+        #[guid(0x4131e768_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRecoveryInitiatedByLu: IUnknown {
+            fn GetObjectToHandleWorkFromLu(&self, ppWork: *mut IDtcLuRecoveryInitiatedByLuWork) -> HRESULT;
+        }
+        #[guid(0xac2b8ad1_d6f0_11d0_b386_00a0c9083365)]
+        interface IDtcLuRecoveryInitiatedByLuWork: IUnknown {
+            fn HandleTheirXln(&self, lRecoverySeqNum: i32, Xln: DTCLUXLN, pRemoteLogName: *const u8, cbRemoteLogName: u32, pOurLogName: *const u8, cbOurLogName: u32, dwProtocol: u32, pResponse: *mut DTCLUXLNRESPONSE) -> HRESULT;
+            fn GetOurLogNameSize(&self, #[in] #[out] pcbOurLogName: *mut u32) -> HRESULT;
+            fn GetOurXln(&self, pXln: *mut DTCLUXLN, #[in] #[out] pOurLogName: *mut u8, pdwProtocol: *mut u32) -> HRESULT;
+            fn HandleConfirmationOfOurXln(&self, Confirmation: DTCLUXLNCONFIRMATION) -> HRESULT;
+            fn HandleTheirCompareStates(&self, #[in] #[out] pRemoteTransId: *mut u8, cbRemoteTransId: u32, CompareState: DTCLUCOMPARESTATE, pResponse: *mut DTCLUCOMPARESTATESRESPONSE, pCompareState: *mut DTCLUCOMPARESTATE) -> HRESULT;
+            fn HandleConfirmationOfOurCompareStates(&self, Confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> HRESULT;
+            fn HandleErrorFromOurCompareStates(&self, Error: DTCLUCOMPARESTATESERROR) -> HRESULT;
+            fn ConversationLost(&self) -> HRESULT;
+        }
+        #[guid(0x4131e769_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRmEnlistment: IUnknown {
+            fn Unplug(&self, fConversationLost: BOOL) -> HRESULT;
+            fn BackedOut(&self) -> HRESULT;
+            fn BackOut(&self) -> HRESULT;
+            fn Committed(&self) -> HRESULT;
+            fn Forget(&self) -> HRESULT;
+            fn RequestCommit(&self) -> HRESULT;
+        }
+        #[guid(0x4131e771_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRmEnlistmentFactory: IUnknown {
+            fn Create(&self, pucLuPair: *const u8, cbLuPair: u32, pITransaction: ITransaction, pTransId: *const u8, cbTransId: u32, pRmEnlistmentSink: IDtcLuRmEnlistmentSink, #[in] #[out] ppRmEnlistment: *mut IDtcLuRmEnlistment) -> HRESULT;
+        }
+        #[guid(0x4131e770_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuRmEnlistmentSink: IUnknown {
+            fn AckUnplug(&self) -> HRESULT;
+            fn TmDown(&self) -> HRESULT;
+            fn SessionLost(&self) -> HRESULT;
+            fn BackedOut(&self) -> HRESULT;
+            fn BackOut(&self) -> HRESULT;
+            fn Committed(&self) -> HRESULT;
+            fn Forget(&self) -> HRESULT;
+            fn Prepare(&self) -> HRESULT;
+            fn RequestCommit(&self) -> HRESULT;
+        }
+        #[guid(0x4131e773_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuSubordinateDtc: IUnknown {
+            fn Unplug(&self, fConversationLost: BOOL) -> HRESULT;
+            fn BackedOut(&self) -> HRESULT;
+            fn BackOut(&self) -> HRESULT;
+            fn Committed(&self) -> HRESULT;
+            fn Forget(&self) -> HRESULT;
+            fn Prepare(&self) -> HRESULT;
+            fn RequestCommit(&self) -> HRESULT;
+        }
+        #[guid(0x4131e775_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuSubordinateDtcFactory: IUnknown {
+            fn Create(&self, pucLuPair: *const u8, cbLuPair: u32, punkTransactionOuter: IUnknown, isoLevel: ISOLEVEL, isoFlags: u32, pOptions: ITransactionOptions, ppTransaction: *mut ITransaction, pTransId: *const u8, cbTransId: u32, pSubordinateDtcSink: IDtcLuSubordinateDtcSink, #[in] #[out] ppSubordinateDtc: *mut IDtcLuSubordinateDtc) -> HRESULT;
+        }
+        #[guid(0x4131e774_1aea_11d0_944b_00a0c905416e)]
+        interface IDtcLuSubordinateDtcSink: IUnknown {
+            fn AckUnplug(&self) -> HRESULT;
+            fn TmDown(&self) -> HRESULT;
+            fn SessionLost(&self) -> HRESULT;
+            fn BackedOut(&self) -> HRESULT;
+            fn BackOut(&self) -> HRESULT;
+            fn Committed(&self) -> HRESULT;
+            fn Forget(&self) -> HRESULT;
+            fn RequestCommit(&self) -> HRESULT;
+        }
+        #[guid(0xc23cc370_87ef_11ce_8081_0080c758527e)]
+        interface IGetDispenser: IUnknown {
+            fn GetDispenser(&self, iid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d)]
+        interface ILastResourceManager: IUnknown {
+            fn TransactionCommitted(&self, pPrepInfo: *const byte, cbPrepInfo: u32) -> HRESULT;
+            fn RecoveryDone(&self) -> HRESULT;
+        }
+        #[guid(0x80c7bfd0_87ee_11ce_8081_0080c758527e)]
+        interface IPrepareInfo: IUnknown {
+            fn GetPrepareInfoSize(&self, pcbPrepInfo: *mut u32) -> HRESULT;
+            fn GetPrepareInfo(&self, pPrepInfo: *mut byte) -> HRESULT;
+        }
+        #[guid(0x5fab2547_9779_11d1_b886_00c04fb9618a)]
+        interface IPrepareInfo2: IUnknown {
+            fn GetPrepareInfoSize(&self, pcbPrepInfo: *mut u32) -> HRESULT;
+            fn GetPrepareInfo(&self, cbPrepareInfo: u32, pPrepInfo: *mut byte) -> HRESULT;
+        }
+        #[guid(0xe793f6d1_f53d_11cf_a60d_00a0c905416e)]
+        interface IRMHelper: IUnknown {
+            fn RMCount(&self, dwcTotalNumberOfRMs: u32) -> HRESULT;
+            fn RMInfo(&self, pXa_Switch: *const xa_switch_t, fCDeclCallingConv: BOOL, pszOpenString: *const i8, pszCloseString: *const i8, guidRMRecovery: GUID) -> HRESULT;
+        }
+        #[guid(0xd136c69a_f749_11d1_8f47_00c04f8ee57d)]
+        interface IResourceManager2: IResourceManager {
+            fn Enlist2(&self, pTransaction: ITransaction, pResAsync: ITransactionResourceAsync, pUOW: *mut XACTUOW, pisoLevel: *mut i32, pXid: *mut XID, ppEnlist: *mut ITransactionEnlistmentAsync) -> HRESULT;
+            fn Reenlist2(&self, pXid: *const XID, dwTimeout: u32, pXactStat: *mut XACTSTAT) -> HRESULT;
+        }
+        #[guid(0x13741d20_87eb_11ce_8081_0080c758527e)]
+        interface IResourceManagerFactory: IUnknown {
+            fn Create(&self, pguidRM: *const GUID, pszRMName: *const i8, pIResMgrSink: IResourceManagerSink, ppResMgr: *mut IResourceManager) -> HRESULT;
+        }
+        #[guid(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d)]
+        interface IResourceManagerFactory2: IResourceManagerFactory {
+            fn CreateEx(&self, pguidRM: *const GUID, pszRMName: *const i8, pIResMgrSink: IResourceManagerSink, riidRequested: *const GUID, #[iid_is] ppvResMgr: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b)]
+        interface IResourceManagerRejoinable: IResourceManager2 {
+            fn Rejoin(&self, pPrepInfo: *const byte, cbPrepInfo: u32, lTimeout: u32, pXactStat: *mut XACTSTAT) -> HRESULT;
+        }
+        #[guid(0x0d563181_defb_11ce_aed1_00aa0051e2c4)]
+        interface IResourceManagerSink: IUnknown {
+            fn TMDown(&self) -> HRESULT;
+        }
+        #[guid(0x82dc88e1_a954_11d1_8f88_00600895e7d5)]
+        interface ITransactionPhase0EnlistmentAsync: IUnknown {
+            fn Enable(&self) -> HRESULT;
+            fn WaitForEnlistment(&self) -> HRESULT;
+            fn Phase0Done(&self) -> HRESULT;
+            fn Unenlist(&self) -> HRESULT;
+            fn GetTransaction(&self, ppITransaction: *mut ITransaction) -> HRESULT;
+        }
+        #[guid(0x82dc88e0_a954_11d1_8f88_00600895e7d5)]
+        interface ITransactionPhase0Factory: IUnknown {
+            fn Create(&self, pPhase0Notify: ITransactionPhase0NotifyAsync, ppPhase0Enlistment: *mut ITransactionPhase0EnlistmentAsync) -> HRESULT;
+        }
+        #[guid(0xef081809_0c76_11d2_87a6_00c04f990f34)]
+        interface ITransactionPhase0NotifyAsync: IUnknown {
+            fn Phase0Request(&self, fAbortingHint: BOOL) -> HRESULT;
+            fn EnlistCompleted(&self, status: HRESULT) -> HRESULT;
+        }
+        #[guid(0x59313e03_b36c_11cf_a539_00aa006887c3)]
+        interface ITransactionReceiver: IUnknown {
+            fn UnmarshalPropagationToken(&self, cbToken: u32, rgbToken: *const byte, ppTransaction: *mut ITransaction) -> HRESULT;
+            fn GetReturnTokenSize(&self, pcbReturnToken: *mut u32) -> HRESULT;
+            fn MarshalReturnToken(&self, cbReturnToken: u32, rgbReturnToken: *mut byte, pcbUsed: *mut u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x59313e02_b36c_11cf_a539_00aa006887c3)]
+        interface ITransactionReceiverFactory: IUnknown {
+            fn Create(&self, ppReceiver: *mut ITransactionReceiver) -> HRESULT;
+        }
+        #[guid(0x59313e01_b36c_11cf_a539_00aa006887c3)]
+        interface ITransactionTransmitter: IUnknown {
+            fn Set(&self, pTransaction: ITransaction) -> HRESULT;
+            fn GetPropagationTokenSize(&self, pcbToken: *mut u32) -> HRESULT;
+            fn MarshalPropagationToken(&self, cbToken: u32, rgbToken: *mut byte, pcbUsed: *mut u32) -> HRESULT;
+            fn UnmarshalReturnToken(&self, cbReturnToken: u32, rgbReturnToken: *const byte) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+        }
+        #[guid(0x59313e00_b36c_11cf_a539_00aa006887c3)]
+        interface ITransactionTransmitterFactory: IUnknown {
+            fn Create(&self, ppTransmitter: *mut ITransactionTransmitter) -> HRESULT;
+        }
+        #[guid(0x5433376c_414d_11d3_b206_00c04fc2f3ef)]
+        interface ITransactionVoterBallotAsync2: IUnknown {
+            fn VoteRequestDone(&self, hr: HRESULT, pboidReason: *const BOID) -> HRESULT;
+        }
+        #[guid(0x5433376a_414d_11d3_b206_00c04fc2f3ef)]
+        interface ITransactionVoterFactory2: IUnknown {
+            fn Create(&self, pTransaction: ITransaction, pVoterNotify: ITransactionVoterNotifyAsync2, ppVoterBallot: *mut ITransactionVoterBallotAsync2) -> HRESULT;
+        }
+        #[guid(0x5433376b_414d_11d3_b206_00c04fc2f3ef)]
+        interface ITransactionVoterNotifyAsync2: ITransactionOutcomeEvents {
+            fn VoteRequest(&self) -> HRESULT;
+        }
+        #[guid(0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e)]
+        interface IXAConfig: IUnknown {
+            fn Initialize(&self, clsidHelperDll: GUID) -> HRESULT;
+            fn Terminate(&self) -> HRESULT;
+        }
+        #[guid(0xe793f6d2_f53d_11cf_a60d_00a0c905416e)]
+        interface IXAObtainRMInfo: IUnknown {
+            fn ObtainRMInfo(&self, pIRMHelper: IRMHelper) -> HRESULT;
+        }
+        #[guid(0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4)]
+        interface IXATransLookup: IUnknown {
+            fn Lookup(&self, ppTransaction: *mut ITransaction) -> HRESULT;
+        }
+        #[guid(0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7)]
+        interface IXATransLookup2: IUnknown {
+            fn Lookup(&self, pXID: *const XID, ppTransaction: *mut ITransaction) -> HRESULT;
+        }
+        struct PROXY_CONFIG_PARAMS {
+            wcThreadsMax: u16,
+        }
+        #[repr(i32)]
+        enum XACT_DTC_CONSTANTS {
+            XACT_E_CONNECTION_REQUEST_DENIED = -2147168000,
+            XACT_E_TOOMANY_ENLISTMENTS = -2147167999,
+            XACT_E_DUPLICATE_GUID = -2147167998,
+            XACT_E_NOTSINGLEPHASE = -2147167997,
+            XACT_E_RECOVERYALREADYDONE = -2147167996,
+            XACT_E_PROTOCOL = -2147167995,
+            XACT_E_RM_FAILURE = -2147167994,
+            XACT_E_RECOVERY_FAILED = -2147167993,
+            XACT_E_LU_NOT_FOUND = -2147167992,
+            XACT_E_DUPLICATE_LU = -2147167991,
+            XACT_E_LU_NOT_CONNECTED = -2147167990,
+            XACT_E_DUPLICATE_TRANSID = -2147167989,
+            XACT_E_LU_BUSY = -2147167988,
+            XACT_E_LU_NO_RECOVERY_PROCESS = -2147167987,
+            XACT_E_LU_DOWN = -2147167986,
+            XACT_E_LU_RECOVERING = -2147167985,
+            XACT_E_LU_RECOVERY_MISMATCH = -2147167984,
+            XACT_E_RM_UNAVAILABLE = -2147167983,
+            XACT_E_LRMRECOVERYALREADYDONE = -2147167982,
+            XACT_E_NOLASTRESOURCEINTERFACE = -2147167981,
+            XACT_S_NONOTIFY = 315648,
+            XACT_OK_NONOTIFY = 315649,
+            dwUSER_MS_SQLSERVER = 65535,
+        }
+        struct XID {
+            formatID: i32,
+            gtrid_length: i32,
+            bqual_length: i32,
+            data: [i8; 128],
+        }
+        struct xa_switch_t {
+            name: [i8; 32],
+            flags: i32,
+            version: i32,
+            xa_open_entry: *mut u8,
+            xa_close_entry: *mut u8,
+            xa_start_entry: *mut u8,
+            xa_end_entry: *mut u8,
+            xa_rollback_entry: *mut u8,
+            xa_prepare_entry: *mut u8,
+            xa_commit_entry: *mut u8,
+            xa_recover_entry: *mut u8,
+            xa_forget_entry: *mut u8,
+            xa_complete_entry: *mut u8,
+        }
+    }
+}

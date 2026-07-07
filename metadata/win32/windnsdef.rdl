@@ -1,0 +1,974 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DDR_MAX_IP_HINTS: u32 = 4;
+        const DNSREC_ADDITIONAL: u32 = 3;
+        const DNSREC_ANSWER: u32 = 1;
+        const DNSREC_AUTHORITY: u32 = 2;
+        const DNSREC_DELETE: u32 = 4;
+        const DNSREC_NOEXIST: u32 = 4;
+        const DNSREC_PREREQ: u32 = 1;
+        const DNSREC_QUESTION: u32 = 0;
+        const DNSREC_SECTION: u32 = 3;
+        const DNSREC_UPDATE: u32 = 2;
+        const DNSREC_ZONE: u32 = 0;
+        const DNSSEC_ALGORITHM_ECDSAP256_SHA256: u32 = 13;
+        const DNSSEC_ALGORITHM_ECDSAP384_SHA384: u32 = 14;
+        const DNSSEC_ALGORITHM_NULL: u32 = 253;
+        const DNSSEC_ALGORITHM_PRIVATE: u32 = 254;
+        const DNSSEC_ALGORITHM_RSAMD5: u32 = 1;
+        const DNSSEC_ALGORITHM_RSASHA1: u32 = 5;
+        const DNSSEC_ALGORITHM_RSASHA1_NSEC3: u32 = 7;
+        const DNSSEC_ALGORITHM_RSASHA256: u32 = 8;
+        const DNSSEC_ALGORITHM_RSASHA512: u32 = 10;
+        const DNSSEC_DIGEST_ALGORITHM_SHA1: u32 = 1;
+        const DNSSEC_DIGEST_ALGORITHM_SHA256: u32 = 2;
+        const DNSSEC_DIGEST_ALGORITHM_SHA384: u32 = 4;
+        const DNSSEC_KEY_FLAG_EXTEND: u32 = 8;
+        const DNSSEC_KEY_FLAG_FLAG10: u32 = 1024;
+        const DNSSEC_KEY_FLAG_FLAG11: u32 = 2048;
+        const DNSSEC_KEY_FLAG_FLAG2: u32 = 4;
+        const DNSSEC_KEY_FLAG_FLAG4: u32 = 16;
+        const DNSSEC_KEY_FLAG_FLAG5: u32 = 32;
+        const DNSSEC_KEY_FLAG_FLAG8: u32 = 256;
+        const DNSSEC_KEY_FLAG_FLAG9: u32 = 512;
+        const DNSSEC_KEY_FLAG_HOST: u32 = 128;
+        const DNSSEC_KEY_FLAG_NOAUTH: u32 = 1;
+        const DNSSEC_KEY_FLAG_NOCONF: u32 = 2;
+        const DNSSEC_KEY_FLAG_NTPE3: u32 = 192;
+        const DNSSEC_KEY_FLAG_SIG0: u32 = 0;
+        const DNSSEC_KEY_FLAG_SIG1: u32 = 4096;
+        const DNSSEC_KEY_FLAG_SIG10: u32 = 40960;
+        const DNSSEC_KEY_FLAG_SIG11: u32 = 45056;
+        const DNSSEC_KEY_FLAG_SIG12: u32 = 49152;
+        const DNSSEC_KEY_FLAG_SIG13: u32 = 53248;
+        const DNSSEC_KEY_FLAG_SIG14: u32 = 57344;
+        const DNSSEC_KEY_FLAG_SIG15: u32 = 61440;
+        const DNSSEC_KEY_FLAG_SIG2: u32 = 8192;
+        const DNSSEC_KEY_FLAG_SIG3: u32 = 12288;
+        const DNSSEC_KEY_FLAG_SIG4: u32 = 16384;
+        const DNSSEC_KEY_FLAG_SIG5: u32 = 20480;
+        const DNSSEC_KEY_FLAG_SIG6: u32 = 24576;
+        const DNSSEC_KEY_FLAG_SIG7: u32 = 28672;
+        const DNSSEC_KEY_FLAG_SIG8: u32 = 32768;
+        const DNSSEC_KEY_FLAG_SIG9: u32 = 36864;
+        const DNSSEC_KEY_FLAG_USER: u32 = 0;
+        const DNSSEC_KEY_FLAG_ZONE: u32 = 64;
+        const DNSSEC_PROTOCOL_DNSSEC: u32 = 3;
+        const DNSSEC_PROTOCOL_EMAIL: u32 = 2;
+        const DNSSEC_PROTOCOL_IPSEC: u32 = 4;
+        const DNSSEC_PROTOCOL_NONE: u32 = 0;
+        const DNSSEC_PROTOCOL_TLS: u32 = 1;
+        struct DNS_AAAA_DATA {
+            Ip6Address: IP6_ADDRESS,
+        }
+        struct DNS_ADDR {
+            MaxSa: [i8; 32],
+            Data: #[packed(1)] union {
+                DnsAddrUserDword: [u32; 8],
+            },
+        }
+        #[packed(1)]
+        struct DNS_ADDR_ARRAY {
+            MaxCount: u32,
+            AddrCount: u32,
+            Tag: u32,
+            Family: u16,
+            WordReserved: u16,
+            Flags: u32,
+            MatchFlag: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            AddrArray: [DNS_ADDR; 1],
+        }
+        const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32;
+        const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20;
+        struct DNS_ATMA_DATA {
+            AddressType: u8,
+            Address: [u8; 20],
+        }
+        const DNS_ATMA_FORMAT_AESA: u32 = 2;
+        const DNS_ATMA_FORMAT_E164: u32 = 1;
+        const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20;
+        const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21;
+        struct DNS_A_DATA {
+            IpAddress: IP4_ADDRESS,
+        }
+        #[repr(i32)]
+        enum DNS_CHARSET {
+            DnsCharSetUnknown = 0,
+            DnsCharSetUnicode = 1,
+            DnsCharSetUtf8 = 2,
+            DnsCharSetAnsi = 3,
+        }
+        struct DNS_CUSTOM_SERVER {
+            dwServerType: u32,
+            ullFlags: u64,
+            Anonymous: union {
+                pwszTemplate: PWSTR,
+                pwszHostname: PWSTR,
+            },
+            Anonymous2: union {
+                ServerAddr: SOCKADDR_INET,
+                MaxSa: [i8; 32],
+            },
+        }
+        const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2;
+        const DNS_CUSTOM_SERVER_TYPE_DOT: u32 = 3;
+        const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1;
+        const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1;
+        const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: u32 = 2;
+        struct DNS_DHCID_DATA {
+            dwByteCount: u32,
+            DHCID: [u8; 1],
+        }
+        struct DNS_DNSKEY_DATA {
+            wFlags: u16,
+            chProtocol: u8,
+            chAlgorithm: u8,
+            wKeyLength: u16,
+            wPad: u16,
+            Key: [u8; 1],
+        }
+        struct DNS_DS_DATA {
+            wKeyTag: u16,
+            chAlgorithm: u8,
+            chDigestType: u8,
+            wDigestLength: u16,
+            wPad: u16,
+            Digest: [u8; 1],
+        }
+        #[packed(1)]
+        struct DNS_HEADER {
+            Xid: u16,
+            _bitfield1: u8,
+            _bitfield2: u8,
+            QuestionCount: u16,
+            AnswerCount: u16,
+            NameServerCount: u16,
+            AdditionalCount: u16,
+        }
+        struct DNS_HEADER_EXT {
+            _bitfield: u16,
+            chRcode: u8,
+            chVersion: u8,
+        }
+        type DNS_KEY_DATA = DNS_DNSKEY_DATA;
+        struct DNS_LOC_DATA {
+            wVersion: u16,
+            wSize: u16,
+            wHorPrec: u16,
+            wVerPrec: u16,
+            dwLatitude: u32,
+            dwLongitude: u32,
+            dwAltitude: u32,
+        }
+        const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64;
+        const DNS_MAX_LABEL_LENGTH: u32 = 63;
+        const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256;
+        const DNS_MAX_NAME_LENGTH: u32 = 255;
+        struct DNS_MESSAGE_BUFFER {
+            MessageHead: DNS_HEADER,
+            MessageBody: [i8; 1],
+        }
+        type DNS_MINFO_DATA = DNS_MINFO_DATAA;
+        struct DNS_MINFO_DATAA {
+            pNameMailbox: PSTR,
+            pNameErrorsMailbox: PSTR,
+        }
+        struct DNS_MINFO_DATAW {
+            pNameMailbox: PWSTR,
+            pNameErrorsMailbox: PWSTR,
+        }
+        type DNS_MX_DATA = DNS_MX_DATAA;
+        struct DNS_MX_DATAA {
+            pNameExchange: PSTR,
+            wPreference: u16,
+            Pad: u16,
+        }
+        struct DNS_MX_DATAW {
+            pNameExchange: PWSTR,
+            wPreference: u16,
+            Pad: u16,
+        }
+        type DNS_NAPTR_DATA = DNS_NAPTR_DATAA;
+        struct DNS_NAPTR_DATAA {
+            wOrder: u16,
+            wPreference: u16,
+            pFlags: PSTR,
+            pService: PSTR,
+            pRegularExpression: PSTR,
+            pReplacement: PSTR,
+        }
+        struct DNS_NAPTR_DATAW {
+            wOrder: u16,
+            wPreference: u16,
+            pFlags: PWSTR,
+            pService: PWSTR,
+            pRegularExpression: PWSTR,
+            pReplacement: PWSTR,
+        }
+        struct DNS_NSEC3PARAM_DATA {
+            chAlgorithm: u8,
+            bFlags: u8,
+            wIterations: u16,
+            bSaltLength: u8,
+            bPad: [u8; 3],
+            pbSalt: [u8; 1],
+        }
+        struct DNS_NSEC3_DATA {
+            chAlgorithm: u8,
+            bFlags: u8,
+            wIterations: u16,
+            bSaltLength: u8,
+            bHashLength: u8,
+            wTypeBitMapsLength: u16,
+            chData: [u8; 1],
+        }
+        type DNS_NSEC_DATA = DNS_NSEC_DATAA;
+        struct DNS_NSEC_DATAA {
+            pNextDomainName: PSTR,
+            wTypeBitMapsLength: u16,
+            wPad: u16,
+            TypeBitMaps: [u8; 1],
+        }
+        struct DNS_NSEC_DATAW {
+            pNextDomainName: PWSTR,
+            wTypeBitMapsLength: u16,
+            wPad: u16,
+            TypeBitMaps: [u8; 1],
+        }
+        struct DNS_NULL_DATA {
+            dwByteCount: u32,
+            Data: [u8; 1],
+        }
+        type DNS_NXT_DATA = DNS_NXT_DATAA;
+        struct DNS_NXT_DATAA {
+            pNameNext: PSTR,
+            wNumTypes: u16,
+            wTypes: [u16; 1],
+        }
+        struct DNS_NXT_DATAW {
+            pNameNext: PWSTR,
+            wNumTypes: u16,
+            wTypes: [u16; 1],
+        }
+        struct DNS_OPT_DATA {
+            wDataLength: u16,
+            wPad: u16,
+            Data: [u8; 1],
+        }
+        type DNS_PTR_DATA = DNS_PTR_DATAA;
+        struct DNS_PTR_DATAA {
+            pNameHost: PSTR,
+        }
+        struct DNS_PTR_DATAW {
+            pNameHost: PWSTR,
+        }
+        type DNS_RECORD = DNS_RECORDA;
+        struct DNS_RECORDA {
+            pNext: *mut DNS_RECORDA,
+            pName: PSTR,
+            wType: u16,
+            wDataLength: u16,
+            Flags: union {
+                DW: u32,
+                S: DNS_RECORD_FLAGS,
+            },
+            dwTtl: u32,
+            dwReserved: u32,
+            Data: union {
+                A: DNS_A_DATA,
+                SOA: DNS_SOA_DATAA,
+                Soa: DNS_SOA_DATAA,
+                PTR: DNS_PTR_DATAA,
+                Ptr: DNS_PTR_DATAA,
+                NS: DNS_PTR_DATAA,
+                Ns: DNS_PTR_DATAA,
+                CNAME: DNS_PTR_DATAA,
+                Cname: DNS_PTR_DATAA,
+                DNAME: DNS_PTR_DATAA,
+                Dname: DNS_PTR_DATAA,
+                MB: DNS_PTR_DATAA,
+                Mb: DNS_PTR_DATAA,
+                MD: DNS_PTR_DATAA,
+                Md: DNS_PTR_DATAA,
+                MF: DNS_PTR_DATAA,
+                Mf: DNS_PTR_DATAA,
+                MG: DNS_PTR_DATAA,
+                Mg: DNS_PTR_DATAA,
+                MR: DNS_PTR_DATAA,
+                Mr: DNS_PTR_DATAA,
+                MINFO: DNS_MINFO_DATAA,
+                Minfo: DNS_MINFO_DATAA,
+                RP: DNS_MINFO_DATAA,
+                Rp: DNS_MINFO_DATAA,
+                MX: DNS_MX_DATAA,
+                Mx: DNS_MX_DATAA,
+                AFSDB: DNS_MX_DATAA,
+                Afsdb: DNS_MX_DATAA,
+                RT: DNS_MX_DATAA,
+                Rt: DNS_MX_DATAA,
+                HINFO: DNS_TXT_DATAA,
+                Hinfo: DNS_TXT_DATAA,
+                ISDN: DNS_TXT_DATAA,
+                Isdn: DNS_TXT_DATAA,
+                TXT: DNS_TXT_DATAA,
+                Txt: DNS_TXT_DATAA,
+                X25: DNS_TXT_DATAA,
+                Null: DNS_NULL_DATA,
+                WKS: DNS_WKS_DATA,
+                Wks: DNS_WKS_DATA,
+                AAAA: DNS_AAAA_DATA,
+                KEY: DNS_KEY_DATA,
+                Key: DNS_KEY_DATA,
+                SIG: DNS_SIG_DATAA,
+                Sig: DNS_SIG_DATAA,
+                ATMA: DNS_ATMA_DATA,
+                Atma: DNS_ATMA_DATA,
+                NXT: DNS_NXT_DATAA,
+                Nxt: DNS_NXT_DATAA,
+                SRV: DNS_SRV_DATAA,
+                Srv: DNS_SRV_DATAA,
+                NAPTR: DNS_NAPTR_DATAA,
+                Naptr: DNS_NAPTR_DATAA,
+                OPT: DNS_OPT_DATA,
+                Opt: DNS_OPT_DATA,
+                DS: DNS_DS_DATA,
+                Ds: DNS_DS_DATA,
+                RRSIG: DNS_RRSIG_DATAA,
+                Rrsig: DNS_RRSIG_DATAA,
+                NSEC: DNS_NSEC_DATAA,
+                Nsec: DNS_NSEC_DATAA,
+                DNSKEY: DNS_DNSKEY_DATA,
+                Dnskey: DNS_DNSKEY_DATA,
+                TKEY: DNS_TKEY_DATAA,
+                Tkey: DNS_TKEY_DATAA,
+                TSIG: DNS_TSIG_DATAA,
+                Tsig: DNS_TSIG_DATAA,
+                WINS: DNS_WINS_DATA,
+                Wins: DNS_WINS_DATA,
+                WINSR: DNS_WINSR_DATAA,
+                WinsR: DNS_WINSR_DATAA,
+                NBSTAT: DNS_WINSR_DATAA,
+                Nbstat: DNS_WINSR_DATAA,
+                DHCID: DNS_DHCID_DATA,
+                NSEC3: DNS_NSEC3_DATA,
+                Nsec3: DNS_NSEC3_DATA,
+                NSEC3PARAM: DNS_NSEC3PARAM_DATA,
+                Nsec3Param: DNS_NSEC3PARAM_DATA,
+                TLSA: DNS_TLSA_DATA,
+                Tlsa: DNS_TLSA_DATA,
+                SVCB: DNS_SVCB_DATA,
+                Svcb: DNS_SVCB_DATA,
+                UNKNOWN: DNS_UNKNOWN_DATA,
+                Unknown: DNS_UNKNOWN_DATA,
+                pDataPtr: PBYTE,
+            },
+        }
+        struct DNS_RECORDW {
+            pNext: *mut DNS_RECORDW,
+            pName: PWSTR,
+            wType: u16,
+            wDataLength: u16,
+            Flags: union {
+                DW: u32,
+                S: DNS_RECORD_FLAGS,
+            },
+            dwTtl: u32,
+            dwReserved: u32,
+            Data: union {
+                A: DNS_A_DATA,
+                SOA: DNS_SOA_DATAW,
+                Soa: DNS_SOA_DATAW,
+                PTR: DNS_PTR_DATAW,
+                Ptr: DNS_PTR_DATAW,
+                NS: DNS_PTR_DATAW,
+                Ns: DNS_PTR_DATAW,
+                CNAME: DNS_PTR_DATAW,
+                Cname: DNS_PTR_DATAW,
+                DNAME: DNS_PTR_DATAW,
+                Dname: DNS_PTR_DATAW,
+                MB: DNS_PTR_DATAW,
+                Mb: DNS_PTR_DATAW,
+                MD: DNS_PTR_DATAW,
+                Md: DNS_PTR_DATAW,
+                MF: DNS_PTR_DATAW,
+                Mf: DNS_PTR_DATAW,
+                MG: DNS_PTR_DATAW,
+                Mg: DNS_PTR_DATAW,
+                MR: DNS_PTR_DATAW,
+                Mr: DNS_PTR_DATAW,
+                MINFO: DNS_MINFO_DATAW,
+                Minfo: DNS_MINFO_DATAW,
+                RP: DNS_MINFO_DATAW,
+                Rp: DNS_MINFO_DATAW,
+                MX: DNS_MX_DATAW,
+                Mx: DNS_MX_DATAW,
+                AFSDB: DNS_MX_DATAW,
+                Afsdb: DNS_MX_DATAW,
+                RT: DNS_MX_DATAW,
+                Rt: DNS_MX_DATAW,
+                HINFO: DNS_TXT_DATAW,
+                Hinfo: DNS_TXT_DATAW,
+                ISDN: DNS_TXT_DATAW,
+                Isdn: DNS_TXT_DATAW,
+                TXT: DNS_TXT_DATAW,
+                Txt: DNS_TXT_DATAW,
+                X25: DNS_TXT_DATAW,
+                Null: DNS_NULL_DATA,
+                WKS: DNS_WKS_DATA,
+                Wks: DNS_WKS_DATA,
+                AAAA: DNS_AAAA_DATA,
+                KEY: DNS_KEY_DATA,
+                Key: DNS_KEY_DATA,
+                SIG: DNS_SIG_DATAW,
+                Sig: DNS_SIG_DATAW,
+                ATMA: DNS_ATMA_DATA,
+                Atma: DNS_ATMA_DATA,
+                NXT: DNS_NXT_DATAW,
+                Nxt: DNS_NXT_DATAW,
+                SRV: DNS_SRV_DATAW,
+                Srv: DNS_SRV_DATAW,
+                NAPTR: DNS_NAPTR_DATAW,
+                Naptr: DNS_NAPTR_DATAW,
+                OPT: DNS_OPT_DATA,
+                Opt: DNS_OPT_DATA,
+                DS: DNS_DS_DATA,
+                Ds: DNS_DS_DATA,
+                RRSIG: DNS_RRSIG_DATAW,
+                Rrsig: DNS_RRSIG_DATAW,
+                NSEC: DNS_NSEC_DATAW,
+                Nsec: DNS_NSEC_DATAW,
+                DNSKEY: DNS_DNSKEY_DATA,
+                Dnskey: DNS_DNSKEY_DATA,
+                TKEY: DNS_TKEY_DATAW,
+                Tkey: DNS_TKEY_DATAW,
+                TSIG: DNS_TSIG_DATAW,
+                Tsig: DNS_TSIG_DATAW,
+                WINS: DNS_WINS_DATA,
+                Wins: DNS_WINS_DATA,
+                WINSR: DNS_WINSR_DATAW,
+                WinsR: DNS_WINSR_DATAW,
+                NBSTAT: DNS_WINSR_DATAW,
+                Nbstat: DNS_WINSR_DATAW,
+                DHCID: DNS_DHCID_DATA,
+                NSEC3: DNS_NSEC3_DATA,
+                Nsec3: DNS_NSEC3_DATA,
+                NSEC3PARAM: DNS_NSEC3PARAM_DATA,
+                Nsec3Param: DNS_NSEC3PARAM_DATA,
+                TLSA: DNS_TLSA_DATA,
+                Tlsa: DNS_TLSA_DATA,
+                SVCB: DNS_SVCB_DATA,
+                Svcb: DNS_SVCB_DATA,
+                UNKNOWN: DNS_UNKNOWN_DATA,
+                Unknown: DNS_UNKNOWN_DATA,
+                pDataPtr: PBYTE,
+            },
+        }
+        #[arch(X64 | Arm64)]
+        const DNS_RECORD_FIXED_SIZE: u32 = 32;
+        #[arch(X86)]
+        const DNS_RECORD_FIXED_SIZE: u32 = 24;
+        struct DNS_RECORD_FLAGS {
+            _bitfield: u32,
+        }
+        type DNS_RECORD_OPT = DNS_RECORD_OPTA;
+        struct DNS_RECORD_OPTA {
+            pNext: *mut DNS_RECORDA,
+            pName: PSTR,
+            wType: u16,
+            wDataLength: u16,
+            Flags: union {
+                DW: u32,
+                S: DNS_RECORD_FLAGS,
+            },
+            ExtHeader: DNS_HEADER_EXT,
+            wPayloadSize: u16,
+            wReserved: u16,
+            Data: union {
+                OPT: DNS_OPT_DATA,
+                Opt: DNS_OPT_DATA,
+            },
+        }
+        struct DNS_RECORD_OPTW {
+            pNext: *mut DNS_RECORDW,
+            pName: PWSTR,
+            wType: u16,
+            wDataLength: u16,
+            Flags: union {
+                DW: u32,
+                S: DNS_RECORD_FLAGS,
+            },
+            ExtHeader: DNS_HEADER_EXT,
+            wPayloadSize: u16,
+            wReserved: u16,
+            Data: union {
+                OPT: DNS_OPT_DATA,
+                Opt: DNS_OPT_DATA,
+            },
+        }
+        const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512;
+        type DNS_RRSIG_DATA = DNS_RRSIG_DATAA;
+        struct DNS_RRSIG_DATAA {
+            wTypeCovered: u16,
+            chAlgorithm: u8,
+            chLabelCount: u8,
+            dwOriginalTtl: u32,
+            dwExpiration: u32,
+            dwTimeSigned: u32,
+            wKeyTag: u16,
+            wSignatureLength: u16,
+            pNameSigner: PSTR,
+            Signature: [u8; 1],
+        }
+        struct DNS_RRSIG_DATAW {
+            wTypeCovered: u16,
+            chAlgorithm: u8,
+            chLabelCount: u8,
+            dwOriginalTtl: u32,
+            dwExpiration: u32,
+            dwTimeSigned: u32,
+            wKeyTag: u16,
+            wSignatureLength: u16,
+            pNameSigner: PWSTR,
+            Signature: [u8; 1],
+        }
+        const DNS_RTYPE_A: u32 = 256;
+        const DNS_RTYPE_A6: u32 = 9728;
+        const DNS_RTYPE_AAAA: u32 = 7168;
+        const DNS_RTYPE_AFSDB: u32 = 4608;
+        const DNS_RTYPE_ALL: u32 = 65280;
+        const DNS_RTYPE_ANY: u32 = 65280;
+        const DNS_RTYPE_ATMA: u32 = 8704;
+        const DNS_RTYPE_AXFR: u32 = 64512;
+        const DNS_RTYPE_CERT: u32 = 9472;
+        const DNS_RTYPE_CNAME: u32 = 1280;
+        const DNS_RTYPE_DHCID: u32 = 12544;
+        const DNS_RTYPE_DNAME: u32 = 9984;
+        const DNS_RTYPE_DNSKEY: u32 = 12288;
+        const DNS_RTYPE_DS: u32 = 11008;
+        const DNS_RTYPE_EID: u32 = 7936;
+        const DNS_RTYPE_GID: u32 = 26112;
+        const DNS_RTYPE_GPOS: u32 = 6912;
+        const DNS_RTYPE_HINFO: u32 = 3328;
+        const DNS_RTYPE_ISDN: u32 = 5120;
+        const DNS_RTYPE_IXFR: u32 = 64256;
+        const DNS_RTYPE_KEY: u32 = 6400;
+        const DNS_RTYPE_KX: u32 = 9216;
+        const DNS_RTYPE_LOC: u32 = 7424;
+        const DNS_RTYPE_MAILA: u32 = 65024;
+        const DNS_RTYPE_MAILB: u32 = 64768;
+        const DNS_RTYPE_MB: u32 = 1792;
+        const DNS_RTYPE_MD: u32 = 768;
+        const DNS_RTYPE_MF: u32 = 1024;
+        const DNS_RTYPE_MG: u32 = 2048;
+        const DNS_RTYPE_MINFO: u32 = 3584;
+        const DNS_RTYPE_MR: u32 = 2304;
+        const DNS_RTYPE_MX: u32 = 3840;
+        const DNS_RTYPE_NAPTR: u32 = 8960;
+        const DNS_RTYPE_NIMLOC: u32 = 8192;
+        const DNS_RTYPE_NS: u32 = 512;
+        const DNS_RTYPE_NSAP: u32 = 5632;
+        const DNS_RTYPE_NSAPPTR: u32 = 5888;
+        const DNS_RTYPE_NSEC: u32 = 12032;
+        const DNS_RTYPE_NSEC3: u32 = 12800;
+        const DNS_RTYPE_NSEC3PARAM: u32 = 13056;
+        const DNS_RTYPE_NULL: u32 = 2560;
+        const DNS_RTYPE_NXT: u32 = 7680;
+        const DNS_RTYPE_OPT: u32 = 10496;
+        const DNS_RTYPE_PTR: u32 = 3072;
+        const DNS_RTYPE_PX: u32 = 6656;
+        const DNS_RTYPE_RP: u32 = 4352;
+        const DNS_RTYPE_RRSIG: u32 = 11776;
+        const DNS_RTYPE_RT: u32 = 5376;
+        const DNS_RTYPE_SIG: u32 = 6144;
+        const DNS_RTYPE_SINK: u32 = 10240;
+        const DNS_RTYPE_SOA: u32 = 1536;
+        const DNS_RTYPE_SRV: u32 = 8448;
+        const DNS_RTYPE_TEXT: u32 = 4096;
+        const DNS_RTYPE_TKEY: u32 = 63744;
+        const DNS_RTYPE_TLSA: u32 = 13312;
+        const DNS_RTYPE_TSIG: u32 = 64000;
+        const DNS_RTYPE_UID: u32 = 25856;
+        const DNS_RTYPE_UINFO: u32 = 25600;
+        const DNS_RTYPE_UNSPEC: u32 = 26368;
+        const DNS_RTYPE_WINS: u32 = 511;
+        const DNS_RTYPE_WINSR: u32 = 767;
+        const DNS_RTYPE_WKS: u32 = 2816;
+        const DNS_RTYPE_X25: u32 = 4864;
+        #[repr(i32)]
+        enum DNS_SECTION {
+            DnsSectionQuestion = 0,
+            DnsSectionAnswer = 1,
+            DnsSectionAuthority = 2,
+            DnsSectionAddtional = 3,
+        }
+        type DNS_SIG_DATA = DNS_SIG_DATAA;
+        type DNS_SIG_DATAA = DNS_RRSIG_DATAA;
+        type DNS_SIG_DATAW = DNS_RRSIG_DATAW;
+        type DNS_SOA_DATA = DNS_SOA_DATAA;
+        struct DNS_SOA_DATAA {
+            pNamePrimaryServer: PSTR,
+            pNameAdministrator: PSTR,
+            dwSerialNo: u32,
+            dwRefresh: u32,
+            dwRetry: u32,
+            dwExpire: u32,
+            dwDefaultTtl: u32,
+        }
+        struct DNS_SOA_DATAW {
+            pNamePrimaryServer: PWSTR,
+            pNameAdministrator: PWSTR,
+            dwSerialNo: u32,
+            dwRefresh: u32,
+            dwRetry: u32,
+            dwExpire: u32,
+            dwDefaultTtl: u32,
+        }
+        type DNS_SRV_DATA = DNS_SRV_DATAA;
+        struct DNS_SRV_DATAA {
+            pNameTarget: PSTR,
+            wPriority: u16,
+            wWeight: u16,
+            wPort: u16,
+            Pad: u16,
+        }
+        struct DNS_SRV_DATAW {
+            pNameTarget: PWSTR,
+            wPriority: u16,
+            wWeight: u16,
+            wPort: u16,
+            Pad: u16,
+        }
+        type DNS_STATUS = i32;
+        struct DNS_SVCB_DATA {
+            wSvcPriority: u16,
+            pszTargetName: PSTR,
+            cSvcParams: u16,
+            pSvcParams: *mut DNS_SVCB_PARAM,
+        }
+        struct DNS_SVCB_PARAM {
+            wSvcParamKey: u16,
+            Anonymous: union {
+                pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
+                pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
+                pMandatory: *mut DNS_SVCB_PARAM_MANDATORY,
+                pAlpn: *mut DNS_SVCB_PARAM_ALPN,
+                wPort: u16,
+                pUnknown: *mut DNS_SVCB_PARAM_UNKNOWN,
+                pszDohPath: PSTR,
+                pReserved: *mut void,
+            },
+        }
+        struct DNS_SVCB_PARAM_ALPN {
+            cIds: u16,
+            rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
+        }
+        struct DNS_SVCB_PARAM_ALPN_ID {
+            cBytes: u8,
+            pbId: *mut u8,
+        }
+        struct DNS_SVCB_PARAM_IPV4 {
+            cIps: u16,
+            rgIps: [IP4_ADDRESS; 1],
+        }
+        struct DNS_SVCB_PARAM_IPV6 {
+            cIps: u16,
+            rgIps: [IP6_ADDRESS; 1],
+        }
+        struct DNS_SVCB_PARAM_MANDATORY {
+            cMandatoryKeys: u16,
+            rgwMandatoryKeys: [u16; 1],
+        }
+        #[repr(i32)]
+        enum DNS_SVCB_PARAM_TYPE {
+            DnsSvcbParamMandatory = 0,
+            DnsSvcbParamAlpn = 1,
+            DnsSvcbParamNoDefaultAlpn = 2,
+            DnsSvcbParamPort = 3,
+            DnsSvcbParamIpv4Hint = 4,
+            DnsSvcbParamEch = 5,
+            DnsSvcbParamIpv6Hint = 6,
+            DnsSvcbParamDohPath = 7,
+            DnsSvcbParamDohPathOpenDns = 65432,
+        }
+        struct DNS_SVCB_PARAM_UNKNOWN {
+            cBytes: u16,
+            pbSvcParamValue: [u8; 1],
+        }
+        type DNS_TKEY_DATA = DNS_TKEY_DATAA;
+        struct DNS_TKEY_DATAA {
+            pNameAlgorithm: PSTR,
+            pAlgorithmPacket: PBYTE,
+            pKey: PBYTE,
+            pOtherData: PBYTE,
+            dwCreateTime: u32,
+            dwExpireTime: u32,
+            wMode: u16,
+            wError: u16,
+            wKeyLength: u16,
+            wOtherLength: u16,
+            cAlgNameLength: u8,
+            bPacketPointers: BOOL,
+        }
+        struct DNS_TKEY_DATAW {
+            pNameAlgorithm: PWSTR,
+            pAlgorithmPacket: PBYTE,
+            pKey: PBYTE,
+            pOtherData: PBYTE,
+            dwCreateTime: u32,
+            dwExpireTime: u32,
+            wMode: u16,
+            wError: u16,
+            wKeyLength: u16,
+            wOtherLength: u16,
+            cAlgNameLength: u8,
+            bPacketPointers: BOOL,
+        }
+        const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2;
+        const DNS_TKEY_MODE_GSS: u32 = 3;
+        const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4;
+        const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1;
+        struct DNS_TLSA_DATA {
+            bCertUsage: u8,
+            bSelector: u8,
+            bMatchingType: u8,
+            bCertificateAssociationDataLength: u16,
+            bPad: [u8; 3],
+            bCertificateAssociationData: [u8; 1],
+        }
+        type DNS_TSIG_DATA = DNS_TSIG_DATAA;
+        struct DNS_TSIG_DATAA {
+            pNameAlgorithm: PSTR,
+            pAlgorithmPacket: PBYTE,
+            pSignature: PBYTE,
+            pOtherData: PBYTE,
+            i64CreateTime: i64,
+            wFudgeTime: u16,
+            wOriginalXid: u16,
+            wError: u16,
+            wSigLength: u16,
+            wOtherLength: u16,
+            cAlgNameLength: u8,
+            bPacketPointers: BOOL,
+        }
+        struct DNS_TSIG_DATAW {
+            pNameAlgorithm: PWSTR,
+            pAlgorithmPacket: PBYTE,
+            pSignature: PBYTE,
+            pOtherData: PBYTE,
+            i64CreateTime: i64,
+            wFudgeTime: u16,
+            wOriginalXid: u16,
+            wError: u16,
+            wSigLength: u16,
+            wOtherLength: u16,
+            cAlgNameLength: u8,
+            bPacketPointers: BOOL,
+        }
+        type DNS_TXT_DATA = DNS_TXT_DATAA;
+        struct DNS_TXT_DATAA {
+            dwStringCount: u32,
+            pStringArray: [PSTR; 1],
+        }
+        struct DNS_TXT_DATAW {
+            dwStringCount: u32,
+            pStringArray: [PWSTR; 1],
+        }
+        const DNS_TYPE_A: u32 = 1;
+        const DNS_TYPE_A6: u32 = 38;
+        const DNS_TYPE_AAAA: u32 = 28;
+        const DNS_TYPE_ADDRS: u32 = 248;
+        const DNS_TYPE_AFSDB: u32 = 18;
+        const DNS_TYPE_ALL: u32 = 255;
+        const DNS_TYPE_ANY: u32 = 255;
+        const DNS_TYPE_ATMA: u32 = 34;
+        const DNS_TYPE_AXFR: u32 = 252;
+        const DNS_TYPE_CERT: u32 = 37;
+        const DNS_TYPE_CNAME: u32 = 5;
+        const DNS_TYPE_DHCID: u32 = 49;
+        const DNS_TYPE_DNAME: u32 = 39;
+        const DNS_TYPE_DNSKEY: u32 = 48;
+        const DNS_TYPE_DS: u32 = 43;
+        const DNS_TYPE_EID: u32 = 31;
+        const DNS_TYPE_GID: u32 = 102;
+        const DNS_TYPE_GPOS: u32 = 27;
+        const DNS_TYPE_HINFO: u32 = 13;
+        const DNS_TYPE_HTTPS: u32 = 65;
+        const DNS_TYPE_ISDN: u32 = 20;
+        const DNS_TYPE_IXFR: u32 = 251;
+        const DNS_TYPE_KEY: u32 = 25;
+        const DNS_TYPE_KX: u32 = 36;
+        const DNS_TYPE_LOC: u32 = 29;
+        const DNS_TYPE_MAILA: u32 = 254;
+        const DNS_TYPE_MAILB: u32 = 253;
+        const DNS_TYPE_MB: u32 = 7;
+        const DNS_TYPE_MD: u32 = 3;
+        const DNS_TYPE_MF: u32 = 4;
+        const DNS_TYPE_MG: u32 = 8;
+        const DNS_TYPE_MINFO: u32 = 14;
+        const DNS_TYPE_MR: u32 = 9;
+        const DNS_TYPE_MX: u32 = 15;
+        const DNS_TYPE_NAPTR: u32 = 35;
+        const DNS_TYPE_NBSTAT: u32 = 65282;
+        const DNS_TYPE_NIMLOC: u32 = 32;
+        const DNS_TYPE_NS: u32 = 2;
+        const DNS_TYPE_NSAP: u32 = 22;
+        const DNS_TYPE_NSAPPTR: u32 = 23;
+        const DNS_TYPE_NSEC: u32 = 47;
+        const DNS_TYPE_NSEC3: u32 = 50;
+        const DNS_TYPE_NSEC3PARAM: u32 = 51;
+        const DNS_TYPE_NULL: u32 = 10;
+        const DNS_TYPE_NXT: u32 = 30;
+        const DNS_TYPE_OPT: u32 = 41;
+        const DNS_TYPE_PTR: u32 = 12;
+        const DNS_TYPE_PX: u32 = 26;
+        const DNS_TYPE_RP: u32 = 17;
+        const DNS_TYPE_RRSIG: u32 = 46;
+        const DNS_TYPE_RT: u32 = 21;
+        const DNS_TYPE_SIG: u32 = 24;
+        const DNS_TYPE_SINK: u32 = 40;
+        const DNS_TYPE_SOA: u32 = 6;
+        const DNS_TYPE_SRV: u32 = 33;
+        const DNS_TYPE_SVCB: u32 = 64;
+        const DNS_TYPE_TEXT: u32 = 16;
+        const DNS_TYPE_TKEY: u32 = 249;
+        const DNS_TYPE_TLSA: u32 = 52;
+        const DNS_TYPE_TSIG: u32 = 250;
+        const DNS_TYPE_UID: u32 = 101;
+        const DNS_TYPE_UINFO: u32 = 100;
+        const DNS_TYPE_UNSPEC: u32 = 103;
+        const DNS_TYPE_WINS: u32 = 65281;
+        const DNS_TYPE_WINSR: u32 = 65282;
+        const DNS_TYPE_WKS: u32 = 11;
+        const DNS_TYPE_X25: u32 = 19;
+        const DNS_TYPE_ZERO: u32 = 0;
+        struct DNS_UNKNOWN_DATA {
+            dwByteCount: u32,
+            bData: [u8; 1],
+        }
+        type DNS_WINSR_DATA = DNS_WINSR_DATAA;
+        struct DNS_WINSR_DATAA {
+            dwMappingFlag: u32,
+            dwLookupTimeout: u32,
+            dwCacheTimeout: u32,
+            pNameResultDomain: PSTR,
+        }
+        struct DNS_WINSR_DATAW {
+            dwMappingFlag: u32,
+            dwLookupTimeout: u32,
+            dwCacheTimeout: u32,
+            pNameResultDomain: PWSTR,
+        }
+        struct DNS_WINS_DATA {
+            dwMappingFlag: u32,
+            dwLookupTimeout: u32,
+            dwCacheTimeout: u32,
+            cWinsServerCount: u32,
+            WinsServers: [IP4_ADDRESS; 1],
+        }
+        struct DNS_WKS_DATA {
+            IpAddress: IP4_ADDRESS,
+            chProtocol: u8,
+            BitMask: [u8; 1],
+        }
+        const DnsSectionPrereq: u32 = 1;
+        const DnsSectionUpdate: u32 = 2;
+        const DnsSectionZone: u32 = 0;
+        type IP4_ADDRESS = u32;
+        const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16;
+        const IP4_ADDRESS_STRING_LENGTH: u32 = 16;
+        #[arch(X64 | Arm64)]
+        union IP6_ADDRESS {
+            IP6Qword: [u64; 2],
+            IP6Dword: [u32; 4],
+            IP6Word: [u16; 8],
+            IP6Byte: [u8; 16],
+        }
+        #[arch(X86)]
+        union IP6_ADDRESS {
+            IP6Dword: [u32; 4],
+            IP6Word: [u16; 8],
+            IP6Byte: [u8; 16],
+        }
+        type PDNS_AAAA_DATA = *mut DNS_AAAA_DATA;
+        type PDNS_ADDR = *mut DNS_ADDR;
+        type PDNS_ADDR_ARRAY = *mut DNS_ADDR_ARRAY;
+        type PDNS_ATMA_DATA = *mut DNS_ATMA_DATA;
+        type PDNS_A_DATA = *mut DNS_A_DATA;
+        type PDNS_DHCID_DATA = *mut DNS_DHCID_DATA;
+        type PDNS_DNSKEY_DATA = *mut DNS_DNSKEY_DATA;
+        type PDNS_DS_DATA = *mut DNS_DS_DATA;
+        type PDNS_HEADER = *mut DNS_HEADER;
+        type PDNS_HEADER_EXT = *mut DNS_HEADER_EXT;
+        type PDNS_KEY_DATA = *mut DNS_DNSKEY_DATA;
+        type PDNS_LOC_DATA = *mut DNS_LOC_DATA;
+        type PDNS_MESSAGE_BUFFER = *mut DNS_MESSAGE_BUFFER;
+        type PDNS_MINFO_DATA = *mut DNS_MINFO_DATAA;
+        type PDNS_MINFO_DATAA = *mut DNS_MINFO_DATAA;
+        type PDNS_MINFO_DATAW = *mut DNS_MINFO_DATAW;
+        type PDNS_MX_DATA = *mut DNS_MX_DATAA;
+        type PDNS_MX_DATAA = *mut DNS_MX_DATAA;
+        type PDNS_MX_DATAW = *mut DNS_MX_DATAW;
+        type PDNS_NAPTR_DATA = *mut DNS_NAPTR_DATAA;
+        type PDNS_NAPTR_DATAA = *mut DNS_NAPTR_DATAA;
+        type PDNS_NAPTR_DATAW = *mut DNS_NAPTR_DATAW;
+        type PDNS_NSEC3PARAM_DATA = *mut DNS_NSEC3PARAM_DATA;
+        type PDNS_NSEC3_DATA = *mut DNS_NSEC3_DATA;
+        type PDNS_NSEC_DATA = *mut DNS_NSEC_DATAA;
+        type PDNS_NSEC_DATAA = *mut DNS_NSEC_DATAA;
+        type PDNS_NSEC_DATAW = *mut DNS_NSEC_DATAW;
+        type PDNS_NULL_DATA = *mut DNS_NULL_DATA;
+        type PDNS_NXT_DATA = *mut DNS_NXT_DATAA;
+        type PDNS_NXT_DATAA = *mut DNS_NXT_DATAA;
+        type PDNS_NXT_DATAW = *mut DNS_NXT_DATAW;
+        type PDNS_OPT_DATA = *mut DNS_OPT_DATA;
+        type PDNS_PTR_DATA = *mut DNS_PTR_DATAA;
+        type PDNS_PTR_DATAA = *mut DNS_PTR_DATAA;
+        type PDNS_PTR_DATAW = *mut DNS_PTR_DATAW;
+        type PDNS_RECORD = *mut DNS_RECORDA;
+        type PDNS_RECORDA = *mut DNS_RECORDA;
+        type PDNS_RECORDW = *mut DNS_RECORDW;
+        type PDNS_RECORD_OPT = *mut DNS_RECORD_OPTA;
+        type PDNS_RECORD_OPTA = *mut DNS_RECORD_OPTA;
+        type PDNS_RECORD_OPTW = *mut DNS_RECORD_OPTW;
+        type PDNS_RRSIG_DATA = *mut DNS_RRSIG_DATAA;
+        type PDNS_RRSIG_DATAA = *mut DNS_RRSIG_DATAA;
+        type PDNS_RRSIG_DATAW = *mut DNS_RRSIG_DATAW;
+        type PDNS_SIG_DATA = *mut DNS_SIG_DATAA;
+        type PDNS_SIG_DATAA = *mut DNS_RRSIG_DATAA;
+        type PDNS_SIG_DATAW = *mut DNS_RRSIG_DATAW;
+        type PDNS_SOA_DATA = *mut DNS_SOA_DATAA;
+        type PDNS_SOA_DATAA = *mut DNS_SOA_DATAA;
+        type PDNS_SOA_DATAW = *mut DNS_SOA_DATAW;
+        type PDNS_SRV_DATA = *mut DNS_SRV_DATAA;
+        type PDNS_SRV_DATAA = *mut DNS_SRV_DATAA;
+        type PDNS_SRV_DATAW = *mut DNS_SRV_DATAW;
+        type PDNS_STATUS = *mut DNS_STATUS;
+        type PDNS_TKEY_DATA = *mut DNS_TKEY_DATAA;
+        type PDNS_TKEY_DATAA = *mut DNS_TKEY_DATAA;
+        type PDNS_TKEY_DATAW = *mut DNS_TKEY_DATAW;
+        type PDNS_TLSA_DATA = *mut DNS_TLSA_DATA;
+        type PDNS_TSIG_DATA = *mut DNS_TSIG_DATAA;
+        type PDNS_TSIG_DATAA = *mut DNS_TSIG_DATAA;
+        type PDNS_TSIG_DATAW = *mut DNS_TSIG_DATAW;
+        type PDNS_TXT_DATA = *mut DNS_TXT_DATAA;
+        type PDNS_TXT_DATAA = *mut DNS_TXT_DATAA;
+        type PDNS_TXT_DATAW = *mut DNS_TXT_DATAW;
+        type PDNS_UNKNOWN_DATA = *mut DNS_UNKNOWN_DATA;
+        type PDNS_WINSR_DATA = *mut DNS_WINSR_DATAA;
+        type PDNS_WINSR_DATAA = *mut DNS_WINSR_DATAA;
+        type PDNS_WINSR_DATAW = *mut DNS_WINSR_DATAW;
+        type PDNS_WINS_DATA = *mut DNS_WINS_DATA;
+        type PDNS_WKS_DATA = *mut DNS_WKS_DATA;
+        type PIP4_ADDRESS = *mut u32;
+        type PIP6_ADDRESS = *mut IP6_ADDRESS;
+        type PQWORD = *mut u64;
+        #[arch(X64 | Arm64)]
+        const SIZEOF_DNS_RECORD_HEADER: u32 = 32;
+        #[arch(X86)]
+        const SIZEOF_DNS_RECORD_HEADER: u32 = 24;
+        const SIZEOF_IP4_ADDRESS: u32 = 4;
+    }
+}

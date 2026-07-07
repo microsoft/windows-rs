@@ -1,0 +1,94 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DOT11_ACCESSNETWORKOPTIONS {
+            AccessNetworkType: u8,
+            Internet: u8,
+            ASRA: u8,
+            ESR: u8,
+            UESA: u8,
+        }
+        #[repr(i32)]
+        enum DOT11_AUTH_ALGORITHM {
+            DOT11_AUTH_ALGO_80211_OPEN = 1,
+            DOT11_AUTH_ALGO_80211_SHARED_KEY = 2,
+            DOT11_AUTH_ALGO_WPA = 3,
+            DOT11_AUTH_ALGO_WPA_PSK = 4,
+            DOT11_AUTH_ALGO_WPA_NONE = 5,
+            DOT11_AUTH_ALGO_RSNA = 6,
+            DOT11_AUTH_ALGO_RSNA_PSK = 7,
+            DOT11_AUTH_ALGO_WPA3 = 8,
+            DOT11_AUTH_ALGO_WPA3_ENT_192 = 8,
+            DOT11_AUTH_ALGO_WPA3_SAE = 9,
+            DOT11_AUTH_ALGO_OWE = 10,
+            DOT11_AUTH_ALGO_WPA3_ENT = 11,
+            DOT11_AUTH_ALGO_IHV_START = -2147483648,
+            DOT11_AUTH_ALGO_IHV_END = -1,
+        }
+        const DOT11_AUTH_ALGORITHM_OPEN_SYSTEM: u32 = 1;
+        const DOT11_AUTH_ALGORITHM_OWE: u32 = 10;
+        const DOT11_AUTH_ALGORITHM_RSNA: u32 = 6;
+        const DOT11_AUTH_ALGORITHM_RSNA_PSK: u32 = 7;
+        const DOT11_AUTH_ALGORITHM_SHARED_KEY: u32 = 2;
+        const DOT11_AUTH_ALGORITHM_WPA: u32 = 3;
+        const DOT11_AUTH_ALGORITHM_WPA3: u32 = 8;
+        const DOT11_AUTH_ALGORITHM_WPA3_ENT: u32 = 11;
+        const DOT11_AUTH_ALGORITHM_WPA3_ENT_192: u32 = 8;
+        const DOT11_AUTH_ALGORITHM_WPA3_SAE: u32 = 9;
+        const DOT11_AUTH_ALGORITHM_WPA_NONE: u32 = 5;
+        const DOT11_AUTH_ALGORITHM_WPA_PSK: u32 = 4;
+        struct DOT11_AUTH_CIPHER_PAIR {
+            AuthAlgoId: DOT11_AUTH_ALGORITHM,
+            CipherAlgoId: DOT11_CIPHER_ALGORITHM,
+        }
+        #[repr(i32)]
+        enum DOT11_BSS_TYPE {
+            dot11_BSS_type_infrastructure = 1,
+            dot11_BSS_type_independent = 2,
+            dot11_BSS_type_any = 3,
+        }
+        #[repr(i32)]
+        enum DOT11_CIPHER_ALGORITHM {
+            DOT11_CIPHER_ALGO_NONE = 0,
+            DOT11_CIPHER_ALGO_WEP40 = 1,
+            DOT11_CIPHER_ALGO_TKIP = 2,
+            DOT11_CIPHER_ALGO_CCMP = 4,
+            DOT11_CIPHER_ALGO_WEP104 = 5,
+            DOT11_CIPHER_ALGO_BIP = 6,
+            DOT11_CIPHER_ALGO_GCMP = 8,
+            DOT11_CIPHER_ALGO_GCMP_256 = 9,
+            DOT11_CIPHER_ALGO_CCMP_256 = 10,
+            DOT11_CIPHER_ALGO_BIP_GMAC_128 = 11,
+            DOT11_CIPHER_ALGO_BIP_GMAC_256 = 12,
+            DOT11_CIPHER_ALGO_BIP_CMAC_256 = 13,
+            DOT11_CIPHER_ALGO_WPA_USE_GROUP = 256,
+            DOT11_CIPHER_ALGO_RSN_USE_GROUP = 256,
+            DOT11_CIPHER_ALGO_WEP = 257,
+            DOT11_CIPHER_ALGO_IHV_START = -2147483648,
+            DOT11_CIPHER_ALGO_IHV_END = -1,
+        }
+        struct DOT11_OI {
+            OILength: u16,
+            OI: [u8; 5],
+        }
+        const DOT11_OI_MAX_LENGTH: u32 = 5;
+        const DOT11_OI_MIN_LENGTH: u32 = 3;
+        struct DOT11_SSID {
+            uSSIDLength: u32,
+            ucSSID: [u8; 32],
+        }
+        const DOT11_SSID_MAX_LENGTH: u32 = 32;
+        struct DOT11_VENUEINFO {
+            VenueGroup: u8,
+            VenueType: u8,
+        }
+        type PDOT11_ACCESSNETWORKOPTIONS = *mut DOT11_ACCESSNETWORKOPTIONS;
+        type PDOT11_AUTH_ALGORITHM = *mut DOT11_AUTH_ALGORITHM;
+        type PDOT11_AUTH_CIPHER_PAIR = *mut DOT11_AUTH_CIPHER_PAIR;
+        type PDOT11_BSS_TYPE = *mut DOT11_BSS_TYPE;
+        type PDOT11_CIPHER_ALGORITHM = *mut DOT11_CIPHER_ALGORITHM;
+        type PDOT11_OI = *mut DOT11_OI;
+        type PDOT11_SSID = *mut DOT11_SSID;
+        type PDOT11_VENUEINFO = *mut DOT11_VENUEINFO;
+    }
+}

@@ -1,0 +1,35 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d2d1.dll")]
+        extern fn D2D1ComputeMaximumScaleFactor(matrix: *const D2D_MATRIX_3X2_F) -> f32;
+        #[repr(i32)]
+        enum D2D1_RENDERING_PRIORITY {
+            D2D1_RENDERING_PRIORITY_NORMAL = 0,
+            D2D1_RENDERING_PRIORITY_LOW = 1,
+            D2D1_RENDERING_PRIORITY_FORCE_DWORD = -1,
+        }
+        #[guid(0x9eb767fd_4269_4467_b8c2_eb30cb305743)]
+        interface ID2D1CommandSink1: ID2D1CommandSink {
+            fn SetPrimitiveBlend1(&self, primitiveBlend: D2D1_PRIMITIVE_BLEND) -> HRESULT;
+        }
+        #[guid(0xd21768e1_23a4_4823_a14b_7c3eba85d658)]
+        interface ID2D1Device1: ID2D1Device {
+            fn GetRenderingPriority(&self) -> D2D1_RENDERING_PRIORITY;
+            fn SetRenderingPriority(&self, renderingPriority: D2D1_RENDERING_PRIORITY);
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext1: *mut ID2D1DeviceContext1) -> HRESULT;
+        }
+        #[guid(0xd37f57e4_6908_459f_a199_e72f24f79987)]
+        interface ID2D1DeviceContext1: ID2D1DeviceContext {
+            fn CreateFilledGeometryRealization(&self, geometry: ID2D1Geometry, flatteningTolerance: f32, geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
+            fn CreateStrokedGeometryRealization(&self, geometry: ID2D1Geometry, flatteningTolerance: f32, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, geometryRealization: *mut ID2D1GeometryRealization) -> HRESULT;
+            fn DrawGeometryRealization(&self, geometryRealization: ID2D1GeometryRealization, brush: ID2D1Brush);
+        }
+        #[guid(0x94f81a73_9212_4376_9c58_b16a3a0d3992)]
+        interface ID2D1Factory2: ID2D1Factory1 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice1: *mut ID2D1Device1) -> HRESULT;
+        }
+        #[guid(0xa16907d7_bc02_4801_99e8_8cf7f485f774)]
+        interface ID2D1GeometryRealization: ID2D1Resource {}
+    }
+}

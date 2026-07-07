@@ -1,0 +1,307 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x3bc15af2_736c_477e_9e51_238af8667dcc)]
+        interface IWbemPath: IUnknown {
+            fn SetText(&self, uMode: u32, pszPath: PCWSTR) -> HRESULT;
+            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+            fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
+            fn SetServer(&self, Name: PCWSTR) -> HRESULT;
+            fn GetServer(&self, #[in] #[out] puNameBufLength: *mut u32, #[len_param(0)] #[out] pName: PWSTR) -> HRESULT;
+            fn GetNamespaceCount(&self, puCount: *mut u32) -> HRESULT;
+            fn SetNamespaceAt(&self, uIndex: u32, pszName: PCWSTR) -> HRESULT;
+            fn GetNamespaceAt(&self, uIndex: u32, #[in] #[out] puNameBufLength: *mut u32, #[len_param(1)] #[out] pName: PWSTR) -> HRESULT;
+            fn RemoveNamespaceAt(&self, uIndex: u32) -> HRESULT;
+            fn RemoveAllNamespaces(&self) -> HRESULT;
+            fn GetScopeCount(&self, puCount: *mut u32) -> HRESULT;
+            fn SetScope(&self, uIndex: u32, pszClass: PCWSTR) -> HRESULT;
+            fn SetScopeFromText(&self, uIndex: u32, pszText: PCWSTR) -> HRESULT;
+            fn GetScope(&self, uIndex: u32, #[in] #[out] puClassNameBufSize: *mut u32, #[len_param(1)] #[out] pszClass: PWSTR, pKeyList: *mut IWbemPathKeyList) -> HRESULT;
+            fn GetScopeAsText(&self, uIndex: u32, #[in] #[out] puTextBufSize: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+            fn RemoveScope(&self, uIndex: u32) -> HRESULT;
+            fn RemoveAllScopes(&self) -> HRESULT;
+            fn SetClassName(&self, Name: PCWSTR) -> HRESULT;
+            fn GetClassName(&self, #[in] #[out] puBuffLength: *mut u32, #[len_param(0)] #[out] #[opt] pszName: PWSTR) -> HRESULT;
+            fn GetKeyList(&self, pOut: *mut IWbemPathKeyList) -> HRESULT;
+            fn CreateClassPart(&self, lFlags: i32, Name: PCWSTR) -> HRESULT;
+            fn DeleteClassPart(&self, lFlags: i32) -> HRESULT;
+            fn IsRelative(&self, wszMachine: PCWSTR, wszNamespace: PCWSTR) -> BOOL;
+            fn IsRelativeOrChild(&self, wszMachine: PCWSTR, wszNamespace: PCWSTR, lFlags: i32) -> BOOL;
+            fn IsLocal(&self, wszMachine: PCWSTR) -> BOOL;
+            fn IsSameClassName(&self, wszClass: PCWSTR) -> BOOL;
+        }
+        #[guid(0x9ae62877_7544_4bb0_aa26_a13824659ed6)]
+        interface IWbemPathKeyList: IUnknown {
+            fn GetCount(&self, puKeyCount: *mut u32) -> HRESULT;
+            fn SetKey(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, pKeyVal: *const void) -> HRESULT;
+            fn SetKey2(&self, wszName: PCWSTR, uFlags: u32, uCimType: u32, pKeyVal: *const VARIANT) -> HRESULT;
+            fn GetKey(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] puKeyValBufSize: *mut u32, #[in] #[out] pKeyVal: *mut void, puApparentCimType: *mut u32) -> HRESULT;
+            fn GetKey2(&self, uKeyIx: u32, uFlags: u32, #[in] #[out] puNameBufSize: *mut u32, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pKeyValue: *mut VARIANT, puApparentCimType: *mut u32) -> HRESULT;
+            fn RemoveKey(&self, wszName: PCWSTR, uFlags: u32) -> HRESULT;
+            fn RemoveAllKeys(&self, uFlags: u32) -> HRESULT;
+            fn MakeSingleton(&self, bSet: boolean) -> HRESULT;
+            fn GetInfo(&self, uRequestedInfo: u32, puResponse: *mut u64) -> HRESULT;
+            fn GetText(&self, lFlags: i32, #[in] #[out] puBuffLength: *mut u32, #[len_param(1)] #[out] pszText: PWSTR) -> HRESULT;
+        }
+        #[guid(0x81166f58_dd98_11d3_a120_00105a1f515a)]
+        interface IWbemQuery: IUnknown {
+            fn Empty(&self) -> HRESULT;
+            fn SetLanguageFeatures(&self, uFlags: u32, uArraySize: u32, puFeatures: *const u32) -> HRESULT;
+            fn TestLanguageFeatures(&self, uFlags: u32, #[in] #[out] uArraySize: *mut u32, puFeatures: *mut u32) -> HRESULT;
+            fn Parse(&self, pszLang: PCWSTR, pszQuery: PCWSTR, uFlags: u32) -> HRESULT;
+            fn GetAnalysis(&self, uAnalysisType: u32, uFlags: u32, pAnalysis: *mut *mut void) -> HRESULT;
+            fn FreeMemory(&self, pMem: *const void) -> HRESULT;
+            fn GetQueryInfo(&self, uAnalysisType: u32, uInfoId: u32, uBufSize: u32, pDestBuf: *mut void) -> HRESULT;
+        }
+        struct SWbemAnalysisMatrix {
+            m_uVersion: u32,
+            m_uMatrixType: u32,
+            m_pszProperty: PCWSTR,
+            m_uPropertyType: u32,
+            m_uEntries: u32,
+            m_pValues: *mut *mut void,
+            m_pbTruthTable: *mut BOOL,
+        }
+        struct SWbemAnalysisMatrixList {
+            m_uVersion: u32,
+            m_uMatrixType: u32,
+            m_uNumMatrices: u32,
+            m_pMatrices: *mut SWbemAnalysisMatrix,
+        }
+        struct SWbemAssocQueryInf {
+            m_uVersion: u32,
+            m_uAnalysisType: u32,
+            m_uFeatureMask: u32,
+            m_pPath: IWbemPath,
+            m_pszPath: PWSTR,
+            m_pszQueryText: PWSTR,
+            m_pszResultClass: PWSTR,
+            m_pszAssocClass: PWSTR,
+            m_pszRole: PWSTR,
+            m_pszResultRole: PWSTR,
+            m_pszRequiredQualifier: PWSTR,
+            m_pszRequiredAssocQualifier: PWSTR,
+        }
+        struct SWbemQueryQualifiedName {
+            m_uVersion: u32,
+            m_uTokenType: u32,
+            m_uNameListSize: u32,
+            m_ppszNameList: *mut PCWSTR,
+            m_bArraysUsed: BOOL,
+            m_pbArrayElUsed: *mut BOOL,
+            m_puArrayIndex: *mut u32,
+        }
+        union SWbemRpnConst {
+            m_pszStrVal: PCWSTR,
+            m_bBoolVal: BOOL,
+            m_lLongVal: i32,
+            m_uLongVal: u32,
+            m_dblVal: f64,
+            m_lVal64: i64,
+            m_uVal64: i64,
+        }
+        struct SWbemRpnEncodedQuery {
+            m_uVersion: u32,
+            m_uTokenType: u32,
+            m_uParsedFeatureMask: u64,
+            m_uDetectedArraySize: u32,
+            m_puDetectedFeatures: *mut u32,
+            m_uSelectListSize: u32,
+            m_ppSelectList: *mut *mut SWbemQueryQualifiedName,
+            m_uFromTargetType: u32,
+            m_pszOptionalFromPath: PCWSTR,
+            m_uFromListSize: u32,
+            m_ppszFromList: *mut PCWSTR,
+            m_uWhereClauseSize: u32,
+            m_ppRpnWhereClause: *mut *mut SWbemRpnQueryToken,
+            m_dblWithinPolling: f64,
+            m_dblWithinWindow: f64,
+            m_uOrderByListSize: u32,
+            m_ppszOrderByList: *mut PCWSTR,
+            m_uOrderDirectionEl: *mut u32,
+        }
+        struct SWbemRpnQueryToken {
+            m_uVersion: u32,
+            m_uTokenType: u32,
+            m_uSubexpressionShape: u32,
+            m_uOperator: u32,
+            m_pRightIdent: *mut SWbemQueryQualifiedName,
+            m_pLeftIdent: *mut SWbemQueryQualifiedName,
+            m_uConstApparentType: u32,
+            m_Const: SWbemRpnConst,
+            m_uConst2ApparentType: u32,
+            m_Const2: SWbemRpnConst,
+            m_pszRightFunc: PCWSTR,
+            m_pszLeftFunc: PCWSTR,
+        }
+        struct SWbemRpnTokenList {
+            m_uVersion: u32,
+            m_uTokenType: u32,
+            m_uNumTokens: u32,
+        }
+        #[repr(i32)]
+        enum WMIQ_ANALYSIS_TYPE {
+            WMIQ_ANALYSIS_RPN_SEQUENCE = 1,
+            WMIQ_ANALYSIS_ASSOC_QUERY = 2,
+            WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX = 3,
+            WMIQ_ANALYSIS_QUERY_TEXT = 4,
+            WMIQ_ANALYSIS_RESERVED = 134217728,
+        }
+        #[repr(i32)]
+        enum WMIQ_ASSOCQ_FLAGS {
+            WMIQ_ASSOCQ_ASSOCIATORS = 1,
+            WMIQ_ASSOCQ_REFERENCES = 2,
+            WMIQ_ASSOCQ_RESULTCLASS = 4,
+            WMIQ_ASSOCQ_ASSOCCLASS = 8,
+            WMIQ_ASSOCQ_ROLE = 16,
+            WMIQ_ASSOCQ_RESULTROLE = 32,
+            WMIQ_ASSOCQ_REQUIREDQUALIFIER = 64,
+            WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER = 128,
+            WMIQ_ASSOCQ_CLASSDEFSONLY = 256,
+            WMIQ_ASSOCQ_KEYSONLY = 512,
+            WMIQ_ASSOCQ_SCHEMAONLY = 1024,
+            WMIQ_ASSOCQ_CLASSREFSONLY = 2048,
+        }
+        #[repr(i32)]
+        enum WMIQ_LANGUAGE_FEATURES {
+            WMIQ_LF1_BASIC_SELECT = 1,
+            WMIQ_LF2_CLASS_NAME_IN_QUERY = 2,
+            WMIQ_LF3_STRING_CASE_FUNCTIONS = 3,
+            WMIQ_LF4_PROP_TO_PROP_TESTS = 4,
+            WMIQ_LF5_COUNT_STAR = 5,
+            WMIQ_LF6_ORDER_BY = 6,
+            WMIQ_LF7_DISTINCT = 7,
+            WMIQ_LF8_ISA = 8,
+            WMIQ_LF9_THIS = 9,
+            WMIQ_LF10_COMPEX_SUBEXPRESSIONS = 10,
+            WMIQ_LF11_ALIASING = 11,
+            WMIQ_LF12_GROUP_BY_HAVING = 12,
+            WMIQ_LF13_WMI_WITHIN = 13,
+            WMIQ_LF14_SQL_WRITE_OPERATIONS = 14,
+            WMIQ_LF15_GO = 15,
+            WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS = 16,
+            WMIQ_LF17_QUALIFIED_NAMES = 17,
+            WMIQ_LF18_ASSOCIATONS = 18,
+            WMIQ_LF19_SYSTEM_PROPERTIES = 19,
+            WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES = 20,
+            WMIQ_LF21_SQL89_JOINS = 21,
+            WMIQ_LF22_SQL92_JOINS = 22,
+            WMIQ_LF23_SUBSELECTS = 23,
+            WMIQ_LF24_UMI_EXTENSIONS = 24,
+            WMIQ_LF25_DATEPART = 25,
+            WMIQ_LF26_LIKE = 26,
+            WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS = 27,
+            WMIQ_LF28_STANDARD_AGGREGATES = 28,
+            WMIQ_LF29_MULTI_LEVEL_ORDER_BY = 29,
+            WMIQ_LF30_WMI_PRAGMAS = 30,
+            WMIQ_LF31_QUALIFIER_TESTS = 31,
+            WMIQ_LF32_SP_EXECUTE = 32,
+            WMIQ_LF33_ARRAY_ACCESS = 33,
+            WMIQ_LF34_UNION = 34,
+            WMIQ_LF35_COMPLEX_SELECT_TARGET = 35,
+            WMIQ_LF36_REFERENCE_TESTS = 36,
+            WMIQ_LF37_SELECT_INTO = 37,
+            WMIQ_LF38_BASIC_DATETIME_TESTS = 38,
+            WMIQ_LF39_COUNT_COLUMN = 39,
+            WMIQ_LF40_BETWEEN = 40,
+            WMIQ_LF_LAST = 40,
+        }
+        #[repr(i32)]
+        enum WMIQ_RPNF_FEATURE {
+            WMIQ_RPNF_WHERE_CLAUSE_PRESENT = 1,
+            WMIQ_RPNF_QUERY_IS_CONJUNCTIVE = 2,
+            WMIQ_RPNF_QUERY_IS_DISJUNCTIVE = 4,
+            WMIQ_RPNF_PROJECTION = 8,
+            WMIQ_RPNF_FEATURE_SELECT_STAR = 16,
+            WMIQ_RPNF_EQUALITY_TESTS_ONLY = 32,
+            WMIQ_RPNF_COUNT_STAR = 64,
+            WMIQ_RPNF_QUALIFIED_NAMES_USED = 128,
+            WMIQ_RPNF_SYSPROP_CLASS_USED = 256,
+            WMIQ_RPNF_PROP_TO_PROP_TESTS = 512,
+            WMIQ_RPNF_ORDER_BY = 1024,
+            WMIQ_RPNF_ISA_USED = 2048,
+            WMIQ_RPNF_GROUP_BY_HAVING = 4096,
+            WMIQ_RPNF_ARRAY_ACCESS_USED = 8192,
+        }
+        #[repr(i32)]
+        enum WMIQ_RPN_TOKEN_FLAGS {
+            WMIQ_RPN_TOKEN_EXPRESSION = 1,
+            WMIQ_RPN_TOKEN_AND = 2,
+            WMIQ_RPN_TOKEN_OR = 3,
+            WMIQ_RPN_TOKEN_NOT = 4,
+            WMIQ_RPN_OP_UNDEFINED = 0,
+            WMIQ_RPN_OP_EQ = 1,
+            WMIQ_RPN_OP_NE = 2,
+            WMIQ_RPN_OP_GE = 3,
+            WMIQ_RPN_OP_LE = 4,
+            WMIQ_RPN_OP_LT = 5,
+            WMIQ_RPN_OP_GT = 6,
+            WMIQ_RPN_OP_LIKE = 7,
+            WMIQ_RPN_OP_ISA = 8,
+            WMIQ_RPN_OP_ISNOTA = 9,
+            WMIQ_RPN_OP_ISNULL = 10,
+            WMIQ_RPN_OP_ISNOTNULL = 11,
+            WMIQ_RPN_LEFT_PROPERTY_NAME = 1,
+            WMIQ_RPN_RIGHT_PROPERTY_NAME = 2,
+            WMIQ_RPN_CONST2 = 4,
+            WMIQ_RPN_CONST = 8,
+            WMIQ_RPN_RELOP = 16,
+            WMIQ_RPN_LEFT_FUNCTION = 32,
+            WMIQ_RPN_RIGHT_FUNCTION = 64,
+            WMIQ_RPN_GET_TOKEN_TYPE = 1,
+            WMIQ_RPN_GET_EXPR_SHAPE = 2,
+            WMIQ_RPN_GET_LEFT_FUNCTION = 3,
+            WMIQ_RPN_GET_RIGHT_FUNCTION = 4,
+            WMIQ_RPN_GET_RELOP = 5,
+            WMIQ_RPN_NEXT_TOKEN = 1,
+            WMIQ_RPN_FROM_UNARY = 1,
+            WMIQ_RPN_FROM_PATH = 2,
+            WMIQ_RPN_FROM_CLASS_LIST = 4,
+            WMIQ_RPN_FROM_MULTIPLE = 8,
+        }
+        const WbemDefPath: GUID = 0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa;
+        const WbemQuery: GUID = 0xeac8a024_21e2_4523_ad73_a71a0aa2f56a;
+        #[repr(i32)]
+        enum tag_WBEM_GET_KEY_FLAGS {
+            WBEMPATH_TEXT = 1,
+            WBEMPATH_QUOTEDTEXT = 2,
+        }
+        #[repr(i32)]
+        enum tag_WBEM_GET_TEXT_FLAGS {
+            WBEMPATH_COMPRESSED = 1,
+            WBEMPATH_GET_RELATIVE_ONLY = 2,
+            WBEMPATH_GET_SERVER_TOO = 4,
+            WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY = 8,
+            WBEMPATH_GET_NAMESPACE_ONLY = 16,
+            WBEMPATH_GET_ORIGINAL = 32,
+        }
+        #[repr(i32)]
+        enum tag_WBEM_PATH_CREATE_FLAG {
+            WBEMPATH_CREATE_ACCEPT_RELATIVE = 1,
+            WBEMPATH_CREATE_ACCEPT_ABSOLUTE = 2,
+            WBEMPATH_CREATE_ACCEPT_ALL = 4,
+            WBEMPATH_TREAT_SINGLE_IDENT_AS_NS = 8,
+        }
+        #[repr(i32)]
+        enum tag_WBEM_PATH_STATUS_FLAG {
+            WBEMPATH_INFO_ANON_LOCAL_MACHINE = 1,
+            WBEMPATH_INFO_HAS_MACHINE_NAME = 2,
+            WBEMPATH_INFO_IS_CLASS_REF = 4,
+            WBEMPATH_INFO_IS_INST_REF = 8,
+            WBEMPATH_INFO_HAS_SUBSCOPES = 16,
+            WBEMPATH_INFO_IS_COMPOUND = 32,
+            WBEMPATH_INFO_HAS_V2_REF_PATHS = 64,
+            WBEMPATH_INFO_HAS_IMPLIED_KEY = 128,
+            WBEMPATH_INFO_CONTAINS_SINGLETON = 256,
+            WBEMPATH_INFO_V1_COMPLIANT = 512,
+            WBEMPATH_INFO_V2_COMPLIANT = 1024,
+            WBEMPATH_INFO_CIM_COMPLIANT = 2048,
+            WBEMPATH_INFO_IS_SINGLETON = 4096,
+            WBEMPATH_INFO_IS_PARENT = 8192,
+            WBEMPATH_INFO_SERVER_NAMESPACE_ONLY = 16384,
+            WBEMPATH_INFO_NATIVE_PATH = 32768,
+            WBEMPATH_INFO_WMI_PATH = 65536,
+            WBEMPATH_INFO_PATH_HAD_SERVER = 131072,
+        }
+    }
+}

@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9)]
+        interface IObjectArray: IUnknown {
+            fn GetCount(&self, pcObjects: *mut u32) -> HRESULT;
+            fn GetAt(&self, uiIndex: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x5632b1a4_e38a_400a_928a_d4cd63230295)]
+        interface IObjectCollection: IObjectArray {
+            fn AddObject(&self, punk: IUnknown) -> HRESULT;
+            fn AddFromArray(&self, poaSource: IObjectArray) -> HRESULT;
+            fn RemoveObjectAt(&self, uiIndex: u32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+    }
+}

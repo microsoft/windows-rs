@@ -1,0 +1,36 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ALLOW_PARTIAL_READS: u32 = 5;
+        const AUTO_CLEAR_STALL: u32 = 2;
+        const AUTO_FLUSH: u32 = 6;
+        const AUTO_SUSPEND: u32 = 129;
+        const DEVICE_SPEED: u32 = 1;
+        const FullSpeed: u32 = 2;
+        const HighSpeed: u32 = 3;
+        const IGNORE_SHORT_PACKETS: u32 = 4;
+        const LowSpeed: u32 = 1;
+        const MAXIMUM_TRANSFER_SIZE: u32 = 8;
+        const PIPE_TRANSFER_TIMEOUT: u32 = 3;
+        type PWINUSB_PIPE_INFORMATION = *mut WINUSB_PIPE_INFORMATION;
+        type PWINUSB_PIPE_INFORMATION_EX = *mut WINUSB_PIPE_INFORMATION_EX;
+        const RAW_IO: u32 = 7;
+        const RESET_PIPE_ON_RESUME: u32 = 9;
+        const SHORT_PACKET_TERMINATE: u32 = 1;
+        const SUSPEND_DELAY: u32 = 131;
+        struct WINUSB_PIPE_INFORMATION {
+            PipeType: USBD_PIPE_TYPE,
+            PipeId: u8,
+            MaximumPacketSize: u16,
+            Interval: u8,
+        }
+        struct WINUSB_PIPE_INFORMATION_EX {
+            PipeType: USBD_PIPE_TYPE,
+            PipeId: u8,
+            MaximumPacketSize: u16,
+            Interval: u8,
+            MaximumBytesPerInterval: u32,
+        }
+        const WinUSB_TestGuid: GUID = 0xda812bff_12c3_46a2_8e2b_dbd3b7834c43;
+    }
+}

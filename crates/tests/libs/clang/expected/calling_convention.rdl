@@ -1,0 +1,20 @@
+#[win32]
+mod Test {
+    #[library("user32.dll")]
+    extern "C" fn CdeclFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn ExportMacroFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "fastcall" fn FastcallFunc(a: i32) -> i32;
+    type HRESULT = i32;
+    #[library("user32.dll")]
+    extern "C" fn PlainFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn StdapiFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn StdapiTypedFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn StdcallFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "system" fn WithCallback(callback: *mut u8);
+}

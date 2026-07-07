@@ -146,7 +146,7 @@ impl WindowBuilder {
             let state = Box::new(self.state);
             SetWindowLongPtrW(hwnd, GWLP_USERDATA, Box::into_raw(state) as _);
 
-            _ = ShowWindow(hwnd, SW_SHOWNORMAL);
+            _ = ShowWindow(hwnd, SW_SHOWNORMAL as i32);
             Ok(Window(hwnd))
         }
     }

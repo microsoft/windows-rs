@@ -66,6 +66,10 @@ impl Encoder<'_> {
             &[],
         )?;
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(callback), arch_bits);
+        }
+
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
             | metadata::MethodAttributes::Abstract

@@ -203,8 +203,10 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
         debug_assert!(!generics.is_empty());
-        // Generic type references use the backtick-suffix convention per ECMA-335 §II.10.7.2.
-        let name = format!("{name}`{}", generics.len());
+        // Strip any existing `N suffix before re-deriving it, so a name read back from a
+        // winmd (IMapView`2) is not doubled (IMapView`2`2) on a winmd->winmd merge.
+        let base = name.split_once('`').map_or(name, |(base, _)| base);
+        let name = format!("{base}`{}", generics.len());
         let type_ref = self.TypeRef(namespace, &name);
 
         let mut buffer = vec![];
@@ -335,7 +337,7 @@ impl File {
         }))
     }
 
-    /// Adds a `MethodSemantics` row linking an accessor method to a property.
+    /// Adds a `MethodSemantics` row linking an accessor method to a property or event.
     pub fn MethodSemantics(
         &mut self,
         semantics: u16,
@@ -445,7 +447,7 @@ impl File {
         }))
     }
 
-    /// Encodes the `Type` in the buffer. Any required `TypeRef` rows will be added to the file, returning the blob offset.
+    /// Encodes the `Type` into the buffer, adding any required `TypeRef` rows to the file.
     fn Type(&mut self, ty: &Type, buffer: &mut Vec<u8>) {
         match ty {
             Type::Void => buffer.push(ELEMENT_TYPE_VOID),
@@ -538,7 +540,9 @@ impl File {
     ) {
         let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
-            let name = format!("{name}`{}", generics.len());
+            // Strip any existing `N suffix before re-deriving it (see TypeSpec).
+            let base = name.split_once('`').map_or(name, |(base, _)| base);
+            let name = format!("{base}`{}", generics.len());
             self.TypeRef(namespace, &name)
         } else {
             self.TypeRef(namespace, name)

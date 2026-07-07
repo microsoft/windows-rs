@@ -1,0 +1,240 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("dxgi.dll")]
+        extern fn CreateDXGIFactory(riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        #[library("dxgi.dll")]
+        extern fn CreateDXGIFactory1(riid: *const GUID, #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        struct DXGI_ADAPTER_DESC {
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
+            AdapterLuid: LUID,
+        }
+        struct DXGI_ADAPTER_DESC1 {
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
+            AdapterLuid: LUID,
+            Flags: u32,
+        }
+        #[repr(i32)]
+        enum DXGI_ADAPTER_FLAG {
+            DXGI_ADAPTER_FLAG_NONE = 0,
+            DXGI_ADAPTER_FLAG_REMOTE = 1,
+            DXGI_ADAPTER_FLAG_SOFTWARE = 2,
+            DXGI_ADAPTER_FLAG_FORCE_DWORD = -1,
+        }
+        struct DXGI_DISPLAY_COLOR_SPACE {
+            PrimaryCoordinates: [[f32; 2]; 8],
+            WhitePoints: [[f32; 2]; 16],
+        }
+        const DXGI_ENUM_MODES_INTERLACED: u32 = 1;
+        const DXGI_ENUM_MODES_SCALING: u32 = 2;
+        struct DXGI_FRAME_STATISTICS {
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
+        }
+        struct DXGI_MAPPED_RECT {
+            Pitch: i32,
+            pBits: *mut u8,
+        }
+        const DXGI_MAP_DISCARD: u32 = 4;
+        const DXGI_MAP_READ: u32 = 1;
+        const DXGI_MAP_WRITE: u32 = 2;
+        const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16;
+        const DXGI_MWA_NO_ALT_ENTER: u32 = 2;
+        const DXGI_MWA_NO_PRINT_SCREEN: u32 = 4;
+        const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1;
+        const DXGI_MWA_VALID: u32 = 7;
+        struct DXGI_OUTPUT_DESC {
+            DeviceName: [u16; 32],
+            DesktopCoordinates: RECT,
+            AttachedToDesktop: BOOL,
+            Rotation: DXGI_MODE_ROTATION,
+            Monitor: HMONITOR,
+        }
+        const DXGI_PRESENT_ALLOW_TEARING: u32 = 512;
+        const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
+        const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
+        const DXGI_PRESENT_RESTART: u32 = 4;
+        const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64;
+        const DXGI_PRESENT_STEREO_PREFER_RIGHT: u32 = 16;
+        const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32;
+        const DXGI_PRESENT_TEST: u32 = 1;
+        const DXGI_PRESENT_USE_DURATION: u32 = 256;
+        #[repr(i32)]
+        enum DXGI_RESIDENCY {
+            DXGI_RESIDENCY_FULLY_RESIDENT = 1,
+            DXGI_RESIDENCY_RESIDENT_IN_SHARED_MEMORY = 2,
+            DXGI_RESIDENCY_EVICTED_TO_DISK = 3,
+        }
+        const DXGI_RESOURCE_PRIORITY_HIGH: u32 = 2684354560;
+        const DXGI_RESOURCE_PRIORITY_LOW: u32 = 1342177280;
+        const DXGI_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200;
+        const DXGI_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640;
+        const DXGI_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920;
+        struct DXGI_SHARED_RESOURCE {
+            Handle: HANDLE,
+        }
+        struct DXGI_SURFACE_DESC {
+            Width: u32,
+            Height: u32,
+            Format: DXGI_FORMAT,
+            SampleDesc: DXGI_SAMPLE_DESC,
+        }
+        struct DXGI_SWAP_CHAIN_DESC {
+            BufferDesc: DXGI_MODE_DESC,
+            SampleDesc: DXGI_SAMPLE_DESC,
+            BufferUsage: DXGI_USAGE,
+            BufferCount: u32,
+            OutputWindow: HWND,
+            Windowed: BOOL,
+            SwapEffect: DXGI_SWAP_EFFECT,
+            Flags: u32,
+        }
+        #[repr(i32)]
+        enum DXGI_SWAP_CHAIN_FLAG {
+            DXGI_SWAP_CHAIN_FLAG_NONPREROTATED = 1,
+            DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH = 2,
+            DXGI_SWAP_CHAIN_FLAG_GDI_COMPATIBLE = 4,
+            DXGI_SWAP_CHAIN_FLAG_RESTRICTED_CONTENT = 8,
+            DXGI_SWAP_CHAIN_FLAG_RESTRICT_SHARED_RESOURCE_DRIVER = 16,
+            DXGI_SWAP_CHAIN_FLAG_DISPLAY_ONLY = 32,
+            DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT = 64,
+            DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER = 128,
+            DXGI_SWAP_CHAIN_FLAG_FULLSCREEN_VIDEO = 256,
+            DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO = 512,
+            DXGI_SWAP_CHAIN_FLAG_HW_PROTECTED = 1024,
+            DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING = 2048,
+            DXGI_SWAP_CHAIN_FLAG_RESTRICTED_TO_ALL_HOLOGRAPHIC_DISPLAYS = 4096,
+            DXGI_SWAP_CHAIN_FLAG_USE_DEFAULT_COLOR_SPACE = 32768,
+        }
+        #[repr(i32)]
+        enum DXGI_SWAP_EFFECT {
+            DXGI_SWAP_EFFECT_DISCARD = 0,
+            DXGI_SWAP_EFFECT_SEQUENTIAL = 1,
+            DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL = 3,
+            DXGI_SWAP_EFFECT_FLIP_DISCARD = 4,
+        }
+        type DXGI_USAGE = u32;
+        const DXGI_USAGE_BACK_BUFFER: u32 = 64;
+        const DXGI_USAGE_DISCARD_ON_PRESENT: u32 = 512;
+        const DXGI_USAGE_READ_ONLY: u32 = 256;
+        const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
+        const DXGI_USAGE_SHADER_INPUT: u32 = 16;
+        const DXGI_USAGE_SHARED: u32 = 128;
+        const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024;
+        #[guid(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0)]
+        interface IDXGIAdapter: IDXGIObject {
+            fn EnumOutputs(&self, Output: u32, #[in] #[out] ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_ADAPTER_DESC) -> HRESULT;
+            fn CheckInterfaceSupport(&self, InterfaceName: *const GUID, pUMDVersion: *mut LARGE_INTEGER) -> HRESULT;
+        }
+        #[guid(0x29038f61_3839_4626_91fd_086879011a05)]
+        interface IDXGIAdapter1: IDXGIAdapter {
+            fn GetDesc1(&self, pDesc: *mut DXGI_ADAPTER_DESC1) -> HRESULT;
+        }
+        #[guid(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c)]
+        interface IDXGIDevice: IDXGIObject {
+            fn GetAdapter(&self, pAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn CreateSurface(&self, pDesc: *const DXGI_SURFACE_DESC, NumSurfaces: u32, Usage: DXGI_USAGE, #[opt] pSharedResource: *const DXGI_SHARED_RESOURCE, #[len_param(1)] ppSurface: *mut IDXGISurface) -> HRESULT;
+            fn QueryResourceResidency(&self, #[len_param(2)] ppResources: *const IUnknown, #[len_param(2)] pResidencyStatus: *mut DXGI_RESIDENCY, NumResources: u32) -> HRESULT;
+            fn SetGPUThreadPriority(&self, Priority: i32) -> HRESULT;
+            fn GetGPUThreadPriority(&self, pPriority: *mut i32) -> HRESULT;
+        }
+        #[guid(0x77db970f_6276_48ba_ba28_070143b4392c)]
+        interface IDXGIDevice1: IDXGIDevice {
+            fn SetMaximumFrameLatency(&self, MaxLatency: u32) -> HRESULT;
+            fn GetMaximumFrameLatency(&self, pMaxLatency: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6)]
+        interface IDXGIDeviceSubObject: IDXGIObject {
+            fn GetDevice(&self, riid: *const GUID, #[retval] #[iid_is] ppDevice: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
+        interface IDXGIFactory: IDXGIObject {
+            fn EnumAdapters(&self, Adapter: u32, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+            fn MakeWindowAssociation(&self, WindowHandle: HWND, Flags: u32) -> HRESULT;
+            fn GetWindowAssociation(&self, pWindowHandle: *mut HWND) -> HRESULT;
+            fn CreateSwapChain(&self, pDevice: IUnknown, pDesc: *const DXGI_SWAP_CHAIN_DESC, ppSwapChain: *mut IDXGISwapChain) -> HRESULT;
+            fn CreateSoftwareAdapter(&self, Module: HMODULE, ppAdapter: *mut IDXGIAdapter) -> HRESULT;
+        }
+        #[guid(0x770aae78_f26f_4dba_a829_253c83d1b387)]
+        interface IDXGIFactory1: IDXGIFactory {
+            fn EnumAdapters1(&self, Adapter: u32, ppAdapter: *mut IDXGIAdapter1) -> HRESULT;
+            fn IsCurrent(&self) -> BOOL;
+        }
+        #[guid(0x9d8e1289_d7b3_465f_8126_250e349af85d)]
+        interface IDXGIKeyedMutex: IDXGIDeviceSubObject {
+            fn AcquireSync(&self, Key: u64, dwMilliseconds: u32) -> HRESULT;
+            fn ReleaseSync(&self, Key: u64) -> HRESULT;
+        }
+        #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
+        interface IDXGIObject: IUnknown {
+            fn SetPrivateData(&self, Name: *const GUID, DataSize: u32, #[size_param(1)] pData: *const void) -> HRESULT;
+            fn SetPrivateDataInterface(&self, Name: *const GUID, #[opt] pUnknown: IUnknown) -> HRESULT;
+            fn GetPrivateData(&self, Name: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] pData: *mut void) -> HRESULT;
+            fn GetParent(&self, riid: *const GUID, #[retval] #[iid_is] ppParent: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xae02eedb_c735_4690_8d52_5a8dc20213aa)]
+        interface IDXGIOutput: IDXGIObject {
+            fn GetDesc(&self, pDesc: *mut DXGI_OUTPUT_DESC) -> HRESULT;
+            fn GetDisplayModeList(&self, EnumFormat: DXGI_FORMAT, Flags: u32, #[in] #[out] pNumModes: *mut u32, #[len_param(2)] #[opt] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
+            fn FindClosestMatchingMode(&self, pModeToMatch: *const DXGI_MODE_DESC, pClosestMatch: *mut DXGI_MODE_DESC, #[opt] pConcernedDevice: IUnknown) -> HRESULT;
+            fn WaitForVBlank(&self) -> HRESULT;
+            fn TakeOwnership(&self, pDevice: IUnknown, Exclusive: BOOL) -> HRESULT;
+            fn ReleaseOwnership(&self);
+            fn GetGammaControlCapabilities(&self, pGammaCaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> HRESULT;
+            fn SetGammaControl(&self, pArray: *const DXGI_GAMMA_CONTROL) -> HRESULT;
+            fn GetGammaControl(&self, pArray: *mut DXGI_GAMMA_CONTROL) -> HRESULT;
+            fn SetDisplaySurface(&self, pScanoutSurface: IDXGISurface) -> HRESULT;
+            fn GetDisplaySurfaceData(&self, pDestination: IDXGISurface) -> HRESULT;
+            fn GetFrameStatistics(&self, pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
+        }
+        #[guid(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b)]
+        interface IDXGIResource: IDXGIDeviceSubObject {
+            fn GetSharedHandle(&self, pSharedHandle: *mut HANDLE) -> HRESULT;
+            fn GetUsage(&self, pUsage: *mut DXGI_USAGE) -> HRESULT;
+            fn SetEvictionPriority(&self, EvictionPriority: u32) -> HRESULT;
+            fn GetEvictionPriority(&self, pEvictionPriority: *mut u32) -> HRESULT;
+        }
+        #[guid(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec)]
+        interface IDXGISurface: IDXGIDeviceSubObject {
+            fn GetDesc(&self, pDesc: *mut DXGI_SURFACE_DESC) -> HRESULT;
+            fn Map(&self, pLockedRect: *mut DXGI_MAPPED_RECT, MapFlags: u32) -> HRESULT;
+            fn Unmap(&self) -> HRESULT;
+        }
+        #[guid(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86)]
+        interface IDXGISurface1: IDXGISurface {
+            fn GetDC(&self, Discard: BOOL, phdc: *mut HDC) -> HRESULT;
+            fn ReleaseDC(&self, #[opt] pDirtyRect: *const RECT) -> HRESULT;
+        }
+        #[guid(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a)]
+        interface IDXGISwapChain: IDXGIDeviceSubObject {
+            fn Present(&self, SyncInterval: u32, Flags: u32) -> HRESULT;
+            fn GetBuffer(&self, Buffer: u32, riid: *const GUID, #[iid_is] #[in] #[out] ppSurface: *mut *mut void) -> HRESULT;
+            fn SetFullscreenState(&self, Fullscreen: BOOL, #[opt] pTarget: IDXGIOutput) -> HRESULT;
+            fn GetFullscreenState(&self, #[opt] pFullscreen: *mut BOOL, ppTarget: *mut IDXGIOutput) -> HRESULT;
+            fn GetDesc(&self, pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
+            fn ResizeBuffers(&self, BufferCount: u32, Width: u32, Height: u32, NewFormat: DXGI_FORMAT, SwapChainFlags: u32) -> HRESULT;
+            fn ResizeTarget(&self, pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;
+            fn GetContainingOutput(&self, ppOutput: *mut IDXGIOutput) -> HRESULT;
+            fn GetFrameStatistics(&self, pStats: *mut DXGI_FRAME_STATISTICS) -> HRESULT;
+            fn GetLastPresentCount(&self, pLastPresentCount: *mut u32) -> HRESULT;
+        }
+    }
+}

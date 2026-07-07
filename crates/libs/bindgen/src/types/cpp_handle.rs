@@ -7,7 +7,21 @@ impl Config<'_> {
         let ty_name = ty.write_name(self);
 
         if self.bindgen.style.emit_bare_typedef() {
+            // An arch-split enum collapses to a single name-keyed entry whose underlying
+            // alias (`-> i32`) is the same on every arch — only its constants, which are
+            // separate items, are arch-specific. Emitting that lone entry's cfg would hide
+            // the type on the arches where its constants live, so drop it for enums. A plain
+            // typedef keeps the def's cfg: an arch-divergent alias (`HALF_PTR = i16` on x86,
+            // `= i32` on x64) has a distinct per-arch definition that must stay gated, and a
+            // pointer alias (`P* = *mut Struct`) may reference an arch-gated pointee.
+            let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;
+            let arches = if is_enum {
+                quote! {}
+            } else {
+                write_arches(def)
+            };
             quote! {
+                #arches
                 pub type #name = #ty_name;
             }
         } else {

@@ -11,8 +11,9 @@
 (Rust Definition Language) — a compact, Rust-like syntax for describing Windows
 APIs — and compiles it into the same ECMA-335 `.winmd` metadata that
 [`windows-bindgen`](windows-bindgen.md) consumes. It also runs the pipeline in
-reverse (`.winmd` → canonical RDL) and can ingest C/C++ headers (via `clang`)
-when an API ships only as a header and has no metadata of its own.
+reverse (`.winmd` → canonical RDL). When an API ships only as a header and has no
+metadata of its own, the companion [`windows-clang`](windows-clang.md) crate scrapes
+the C/C++ headers into RDL that this crate then compiles.
 
 Where `windows-bindgen` answers *"I have metadata, generate Rust"*,
 `windows-rdl` answers *"I don't have metadata yet — produce some"*. The two are
@@ -72,13 +73,14 @@ windows_rdl::reader()
 
 ### C/C++ headers → RDL
 
-When an API ships only a C/C++ header, `clang()` parses it into RDL, which the
-`reader` then compiles to metadata. Each header is parsed as its own translation
-unit — only its own top-level declarations are emitted, not the things it
-`#include`s — so list every header you need as a separate `input`:
+When an API ships only a C/C++ header, the [`windows-clang`](windows-clang.md)
+crate's `clang()` parses it into RDL, which the `reader` then compiles to
+metadata. Each header is parsed as its own translation unit — only its own
+top-level declarations are emitted, not the things it `#include`s — so list every
+header you need as a separate `input`:
 
 ```rust,no_run
-windows_rdl::clang()
+windows_clang::clang()
     .args(["-x", "c++", "--target=x86_64-pc-windows-msvc"])
     .input("Example.h")
     .input("crates/libs/bindgen/default/Windows.Win32.winmd")
@@ -169,10 +171,11 @@ C/C++ header. Two in-repo tools show both shapes:
 - **`tool_reactor`** hand-authors the small set of COM interfaces and bootstrap
   functions that the WinUI/WinAppSDK metadata omits in
   `crates/tools/reactor/src/extras.rdl`, compiles it with `reader()` alongside
-  `Windows.Win32.winmd` into `extras.winmd`, and feeds that to
-  `windows_bindgen::bindgen` together with the standard metadata to generate the
+  the in-house Win32 winmd (`crates/libs/bindgen/default/Windows.Win32.winmd`) into `extras.winmd`, and feeds that
+  to `windows_bindgen::bindgen` together with the standard metadata to generate the
   [`windows-reactor`](windows-reactor.md) bindings.
-  (`crates/tools/reactor/src/main.rs`.)
+  (`crates/tools/reactor/src/main.rs`.) The reactor filter files
+  (`base.txt`/`test.txt`) use the flat `Windows::Win32::<Name>` namespace.
 
 In both cases the `reader` is given the standard metadata as an additional input
 so that references from the authored RDL (Win32 handles, `IUnknown`, structs,
@@ -203,3 +206,73 @@ the `input/*.rdl` fixtures) and `test_clang` (header → RDL goldens under
 `expected/*.rdl`), plus the `rdl_roundtrip` tool. Downstream, `test_bindgen`
 covers the `.winmd` → Rust step that consumes this crate's output. Run
 `cargo test -p test_rdl` and `cargo test -p test_clang`.
+
+## The in-house Windows.Win32.winmd
+
+Beyond compiling authored RDL, `windows-rdl` is the reader stage of an in-repo
+pipeline that builds a **faithful, in-house** `Windows.Win32.winmd` directly from
+the Windows SDK headers, replacing the reference `Windows.Win32.winmd` from
+[win32metadata](https://github.com/microsoft/win32metadata) for the hand-authored
+library crates. The [`windows-clang`](windows-clang.md) scraper (`tool_win32`) reads
+the SDK headers, SAL annotations, and import libs and commits a browsable RDL
+snapshot under `metadata/win32/`; this crate's `reader` compiles that snapshot into
+the winmd. The scraper's design — the faithful-metadata principle, header
+partitioning, the editorial-deviation ledger, and the canonical type remaps — is
+documented in [`windows-clang`](windows-clang.md); this section covers the winmd
+artifact those tools produce.
+
+Every maintained crate that needs Win32 metadata — the minimal-binding library
+crates and `windows-reactor` — resolves against the in-house winmd. The only
+remaining consumers of the reference winmd are the frozen monolithic `windows` /
+`windows-sys` crates and the intentional parity probes.
+
+### The winmd layout
+
+- `crates/libs/bindgen/default/Windows.winmd` — **WinRT** metadata, rebuilt in-house
+  by `tool_windows` by merging the per-contract winmds from the Windows SDK Contracts
+  NuGet package (there is no in-house WinRT *scraper* — the inputs are the SDK's own
+  reference winmds, merged rather than compiled from headers).
+- `crates/libs/bindgen/default/Windows.Win32.winmd` — **in-house** Win32 metadata,
+  written by `tool_win32`. This is what `windows-bindgen`'s bundled `"default"`
+  bindings resolve to.
+- `crates/libs/bindgen/default/Windows.Wdk.winmd` — **in-house** WDK metadata,
+  written by `tool_wdk`.
+- `crates/tools/package/reference/Windows.Win32.winmd` / `Windows.Wdk.winmd` — the
+  frozen **win32metadata reference** winmd, used only by `tool_package`,
+  `tool_features`, and the parity probes.
+
+The committed RDL snapshot (`metadata/win32/*.rdl`) is the reviewable source of
+truth — every scrape change is a readable `git diff`; the merged binary winmd is
+git-ignored and rebuilt by `tool_win32`. The build is deterministic: the writer
+stages tables in `BTreeMap`s and the module MVID is a fixed zero GUID, so
+regeneration is byte-for-byte reproducible across platforms.
+
+### Multi-arch merge
+
+`tool_win32` scrapes each target architecture (x64, arm64, x86) into its own RDL
+set, then `merge_arch_rdl` coalesces them into one winmd. A type identical across
+every arch is emitted once (arch-neutral); a type that diverges is split into
+per-arch copies tagged `#[arch(X86|X64|Arm64)]`. The collapse-or-split decision is
+made structurally by the merge in [`windows-metadata`](windows-metadata.md) — see
+its documentation for the signature that drives it. `merge_arch_rdl` itself is the
+orchestration: it reads each arch's RDL, runs the merge, and writes the combined
+result, using a per-process scratch directory cleaned up on every return path.
+
+### Frozen: tool_package and the monolithic crates
+
+`tool_package` and the monolithic `windows` / `windows-sys` crates stay on the
+win32metadata reference winmd as **frozen legacy**. They do not migrate to the flat
+in-house winmd: the reference winmd's 337 editorial sub-namespaces map 1:1 to 337
+Cargo features, and a flat swap would collapse the published surface into one
+feature-less module — a breaking change not worth making. The reference winmd is
+retained at `crates/tools/package/reference/` and `tool_package` points `--in` at
+it explicitly. Once nothing consumes the reference winmd, `windows-bindgen`'s
+`to_const_type` / `to_const_ptr` const-wrapper reconstruction (a compatibility shim
+for the reference winmd's missing const string wrappers) becomes dead and can be
+removed.
+
+### Outstanding work
+
+- **Round-trip asymmetries.** A few RDL ↔ winmd forms don't round-trip
+  byte-identically (raw identifiers, GUID constants, delegate ABI spelling). The
+  winmd is correct either way; this is a cosmetic writer-side gap.

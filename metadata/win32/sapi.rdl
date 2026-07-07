@@ -1,0 +1,2944 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DEFAULT_WEIGHT: u32 = 1;
+        #[repr(i32)]
+        enum DISPIDSPRG {
+            DISPID_SRGId = 1,
+            DISPID_SRGRecoContext = 2,
+            DISPID_SRGState = 3,
+            DISPID_SRGRules = 4,
+            DISPID_SRGReset = 5,
+            DISPID_SRGCommit = 6,
+            DISPID_SRGCmdLoadFromFile = 7,
+            DISPID_SRGCmdLoadFromObject = 8,
+            DISPID_SRGCmdLoadFromResource = 9,
+            DISPID_SRGCmdLoadFromMemory = 10,
+            DISPID_SRGCmdLoadFromProprietaryGrammar = 11,
+            DISPID_SRGCmdSetRuleState = 12,
+            DISPID_SRGCmdSetRuleIdState = 13,
+            DISPID_SRGDictationLoad = 14,
+            DISPID_SRGDictationUnload = 15,
+            DISPID_SRGDictationSetState = 16,
+            DISPID_SRGSetWordSequenceData = 17,
+            DISPID_SRGSetTextSelection = 18,
+            DISPID_SRGIsPronounceable = 19,
+        }
+        #[repr(i32)]
+        enum DISPIDSPTSI {
+            DISPIDSPTSI_ActiveOffset = 1,
+            DISPIDSPTSI_ActiveLength = 2,
+            DISPIDSPTSI_SelectionOffset = 3,
+            DISPIDSPTSI_SelectionLength = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechAudio {
+            DISPID_SAStatus = 200,
+            DISPID_SABufferInfo = 201,
+            DISPID_SADefaultFormat = 202,
+            DISPID_SAVolume = 203,
+            DISPID_SABufferNotifySize = 204,
+            DISPID_SAEventHandle = 205,
+            DISPID_SASetState = 206,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechAudioBufferInfo {
+            DISPID_SABIMinNotification = 1,
+            DISPID_SABIBufferSize = 2,
+            DISPID_SABIEventBias = 3,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechAudioFormat {
+            DISPID_SAFType = 1,
+            DISPID_SAFGuid = 2,
+            DISPID_SAFGetWaveFormatEx = 3,
+            DISPID_SAFSetWaveFormatEx = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechAudioStatus {
+            DISPID_SASFreeBufferSpace = 1,
+            DISPID_SASNonBlockingIO = 2,
+            DISPID_SASState = 3,
+            DISPID_SASCurrentSeekPosition = 4,
+            DISPID_SASCurrentDevicePosition = 5,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechBaseStream {
+            DISPID_SBSFormat = 1,
+            DISPID_SBSRead = 2,
+            DISPID_SBSWrite = 3,
+            DISPID_SBSSeek = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechCustomStream {
+            DISPID_SCSBaseStream = 100,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechDataKey {
+            DISPID_SDKSetBinaryValue = 1,
+            DISPID_SDKGetBinaryValue = 2,
+            DISPID_SDKSetStringValue = 3,
+            DISPID_SDKGetStringValue = 4,
+            DISPID_SDKSetLongValue = 5,
+            DISPID_SDKGetlongValue = 6,
+            DISPID_SDKOpenKey = 7,
+            DISPID_SDKCreateKey = 8,
+            DISPID_SDKDeleteKey = 9,
+            DISPID_SDKDeleteValue = 10,
+            DISPID_SDKEnumKeys = 11,
+            DISPID_SDKEnumValues = 12,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechFileStream {
+            DISPID_SFSOpen = 100,
+            DISPID_SFSClose = 101,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechGrammarRule {
+            DISPID_SGRAttributes = 1,
+            DISPID_SGRInitialState = 2,
+            DISPID_SGRName = 3,
+            DISPID_SGRId = 4,
+            DISPID_SGRClear = 5,
+            DISPID_SGRAddResource = 6,
+            DISPID_SGRAddState = 7,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechGrammarRuleState {
+            DISPID_SGRSRule = 1,
+            DISPID_SGRSTransitions = 2,
+            DISPID_SGRSAddWordTransition = 3,
+            DISPID_SGRSAddRuleTransition = 4,
+            DISPID_SGRSAddSpecialTransition = 5,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechGrammarRuleStateTransition {
+            DISPID_SGRSTType = 1,
+            DISPID_SGRSTText = 2,
+            DISPID_SGRSTRule = 3,
+            DISPID_SGRSTWeight = 4,
+            DISPID_SGRSTPropertyName = 5,
+            DISPID_SGRSTPropertyId = 6,
+            DISPID_SGRSTPropertyValue = 7,
+            DISPID_SGRSTNextState = 8,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechGrammarRuleStateTransitions {
+            DISPID_SGRSTsCount = 1,
+            DISPID_SGRSTsItem = 0,
+            DISPID_SGRSTs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechGrammarRules {
+            DISPID_SGRsCount = 1,
+            DISPID_SGRsDynamic = 2,
+            DISPID_SGRsAdd = 3,
+            DISPID_SGRsCommit = 4,
+            DISPID_SGRsCommitAndSave = 5,
+            DISPID_SGRsFindRule = 6,
+            DISPID_SGRsItem = 0,
+            DISPID_SGRs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechLexicon {
+            DISPID_SLGenerationId = 1,
+            DISPID_SLGetWords = 2,
+            DISPID_SLAddPronunciation = 3,
+            DISPID_SLAddPronunciationByPhoneIds = 4,
+            DISPID_SLRemovePronunciation = 5,
+            DISPID_SLRemovePronunciationByPhoneIds = 6,
+            DISPID_SLGetPronunciations = 7,
+            DISPID_SLGetGenerationChange = 8,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechLexiconProns {
+            DISPID_SLPsCount = 1,
+            DISPID_SLPsItem = 0,
+            DISPID_SLPs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechLexiconPronunciation {
+            DISPID_SLPType = 1,
+            DISPID_SLPLangId = 2,
+            DISPID_SLPPartOfSpeech = 3,
+            DISPID_SLPPhoneIds = 4,
+            DISPID_SLPSymbolic = 5,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechLexiconWord {
+            DISPID_SLWLangId = 1,
+            DISPID_SLWType = 2,
+            DISPID_SLWWord = 3,
+            DISPID_SLWPronunciations = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechLexiconWords {
+            DISPID_SLWsCount = 1,
+            DISPID_SLWsItem = 0,
+            DISPID_SLWs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechMMSysAudio {
+            DISPID_SMSADeviceId = 300,
+            DISPID_SMSALineId = 301,
+            DISPID_SMSAMMHandle = 302,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechMemoryStream {
+            DISPID_SMSSetData = 100,
+            DISPID_SMSGetData = 101,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechObjectToken {
+            DISPID_SOTId = 1,
+            DISPID_SOTDataKey = 2,
+            DISPID_SOTCategory = 3,
+            DISPID_SOTGetDescription = 4,
+            DISPID_SOTSetId = 5,
+            DISPID_SOTGetAttribute = 6,
+            DISPID_SOTCreateInstance = 7,
+            DISPID_SOTRemove = 8,
+            DISPID_SOTGetStorageFileName = 9,
+            DISPID_SOTRemoveStorageFileName = 10,
+            DISPID_SOTIsUISupported = 11,
+            DISPID_SOTDisplayUI = 12,
+            DISPID_SOTMatchesAttributes = 13,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechObjectTokenCategory {
+            DISPID_SOTCId = 1,
+            DISPID_SOTCDefault = 2,
+            DISPID_SOTCSetId = 3,
+            DISPID_SOTCGetDataKey = 4,
+            DISPID_SOTCEnumerateTokens = 5,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechObjectTokens {
+            DISPID_SOTsCount = 1,
+            DISPID_SOTsItem = 0,
+            DISPID_SOTs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhoneConverter {
+            DISPID_SPCLangId = 1,
+            DISPID_SPCPhoneToId = 2,
+            DISPID_SPCIdToPhone = 3,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseAlternate {
+            DISPID_SPARecoResult = 1,
+            DISPID_SPAStartElementInResult = 2,
+            DISPID_SPANumberOfElementsInResult = 3,
+            DISPID_SPAPhraseInfo = 4,
+            DISPID_SPACommit = 5,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseAlternates {
+            DISPID_SPAsCount = 1,
+            DISPID_SPAsItem = 0,
+            DISPID_SPAs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseBuilder {
+            DISPID_SPPBRestorePhraseFromMemory = 1,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseElement {
+            DISPID_SPEAudioTimeOffset = 1,
+            DISPID_SPEAudioSizeTime = 2,
+            DISPID_SPEAudioStreamOffset = 3,
+            DISPID_SPEAudioSizeBytes = 4,
+            DISPID_SPERetainedStreamOffset = 5,
+            DISPID_SPERetainedSizeBytes = 6,
+            DISPID_SPEDisplayText = 7,
+            DISPID_SPELexicalForm = 8,
+            DISPID_SPEPronunciation = 9,
+            DISPID_SPEDisplayAttributes = 10,
+            DISPID_SPERequiredConfidence = 11,
+            DISPID_SPEActualConfidence = 12,
+            DISPID_SPEEngineConfidence = 13,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseElements {
+            DISPID_SPEsCount = 1,
+            DISPID_SPEsItem = 0,
+            DISPID_SPEs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseInfo {
+            DISPID_SPILanguageId = 1,
+            DISPID_SPIGrammarId = 2,
+            DISPID_SPIStartTime = 3,
+            DISPID_SPIAudioStreamPosition = 4,
+            DISPID_SPIAudioSizeBytes = 5,
+            DISPID_SPIRetainedSizeBytes = 6,
+            DISPID_SPIAudioSizeTime = 7,
+            DISPID_SPIRule = 8,
+            DISPID_SPIProperties = 9,
+            DISPID_SPIElements = 10,
+            DISPID_SPIReplacements = 11,
+            DISPID_SPIEngineId = 12,
+            DISPID_SPIEnginePrivateData = 13,
+            DISPID_SPISaveToMemory = 14,
+            DISPID_SPIGetText = 15,
+            DISPID_SPIGetDisplayAttributes = 16,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseProperties {
+            DISPID_SPPsCount = 1,
+            DISPID_SPPsItem = 0,
+            DISPID_SPPs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseProperty {
+            DISPID_SPPName = 1,
+            DISPID_SPPId = 2,
+            DISPID_SPPValue = 3,
+            DISPID_SPPFirstElement = 4,
+            DISPID_SPPNumberOfElements = 5,
+            DISPID_SPPEngineConfidence = 6,
+            DISPID_SPPConfidence = 7,
+            DISPID_SPPParent = 8,
+            DISPID_SPPChildren = 9,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseReplacement {
+            DISPID_SPRDisplayAttributes = 1,
+            DISPID_SPRText = 2,
+            DISPID_SPRFirstElement = 3,
+            DISPID_SPRNumberOfElements = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseReplacements {
+            DISPID_SPRsCount = 1,
+            DISPID_SPRsItem = 0,
+            DISPID_SPRs_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseRule {
+            DISPID_SPRuleName = 1,
+            DISPID_SPRuleId = 2,
+            DISPID_SPRuleFirstElement = 3,
+            DISPID_SPRuleNumberOfElements = 4,
+            DISPID_SPRuleParent = 5,
+            DISPID_SPRuleChildren = 6,
+            DISPID_SPRuleConfidence = 7,
+            DISPID_SPRuleEngineConfidence = 8,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechPhraseRules {
+            DISPID_SPRulesCount = 1,
+            DISPID_SPRulesItem = 0,
+            DISPID_SPRules_NewEnum = -4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecoContext {
+            DISPID_SRCRecognizer = 1,
+            DISPID_SRCAudioInInterferenceStatus = 2,
+            DISPID_SRCRequestedUIType = 3,
+            DISPID_SRCVoice = 4,
+            DISPID_SRAllowVoiceFormatMatchingOnNextSet = 5,
+            DISPID_SRCVoicePurgeEvent = 6,
+            DISPID_SRCEventInterests = 7,
+            DISPID_SRCCmdMaxAlternates = 8,
+            DISPID_SRCState = 9,
+            DISPID_SRCRetainedAudio = 10,
+            DISPID_SRCRetainedAudioFormat = 11,
+            DISPID_SRCPause = 12,
+            DISPID_SRCResume = 13,
+            DISPID_SRCCreateGrammar = 14,
+            DISPID_SRCCreateResultFromMemory = 15,
+            DISPID_SRCBookmark = 16,
+            DISPID_SRCSetAdaptationData = 17,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecoContextEvents {
+            DISPID_SRCEStartStream = 1,
+            DISPID_SRCEEndStream = 2,
+            DISPID_SRCEBookmark = 3,
+            DISPID_SRCESoundStart = 4,
+            DISPID_SRCESoundEnd = 5,
+            DISPID_SRCEPhraseStart = 6,
+            DISPID_SRCERecognition = 7,
+            DISPID_SRCEHypothesis = 8,
+            DISPID_SRCEPropertyNumberChange = 9,
+            DISPID_SRCEPropertyStringChange = 10,
+            DISPID_SRCEFalseRecognition = 11,
+            DISPID_SRCEInterference = 12,
+            DISPID_SRCERequestUI = 13,
+            DISPID_SRCERecognizerStateChange = 14,
+            DISPID_SRCEAdaptation = 15,
+            DISPID_SRCERecognitionForOtherContext = 16,
+            DISPID_SRCEAudioLevel = 17,
+            DISPID_SRCEEnginePrivate = 18,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecoResult {
+            DISPID_SRRRecoContext = 1,
+            DISPID_SRRTimes = 2,
+            DISPID_SRRAudioFormat = 3,
+            DISPID_SRRPhraseInfo = 4,
+            DISPID_SRRAlternates = 5,
+            DISPID_SRRAudio = 6,
+            DISPID_SRRSpeakAudio = 7,
+            DISPID_SRRSaveToMemory = 8,
+            DISPID_SRRDiscardResultInfo = 9,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecoResult2 {
+            DISPID_SRRSetTextFeedback = 12,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecoResultTimes {
+            DISPID_SRRTStreamTime = 1,
+            DISPID_SRRTLength = 2,
+            DISPID_SRRTTickCount = 3,
+            DISPID_SRRTOffsetFromStart = 4,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecognizer {
+            DISPID_SRRecognizer = 1,
+            DISPID_SRAllowAudioInputFormatChangesOnNextSet = 2,
+            DISPID_SRAudioInput = 3,
+            DISPID_SRAudioInputStream = 4,
+            DISPID_SRIsShared = 5,
+            DISPID_SRState = 6,
+            DISPID_SRStatus = 7,
+            DISPID_SRProfile = 8,
+            DISPID_SREmulateRecognition = 9,
+            DISPID_SRCreateRecoContext = 10,
+            DISPID_SRGetFormat = 11,
+            DISPID_SRSetPropertyNumber = 12,
+            DISPID_SRGetPropertyNumber = 13,
+            DISPID_SRSetPropertyString = 14,
+            DISPID_SRGetPropertyString = 15,
+            DISPID_SRIsUISupported = 16,
+            DISPID_SRDisplayUI = 17,
+            DISPID_SRGetRecognizers = 18,
+            DISPID_SVGetAudioInputs = 19,
+            DISPID_SVGetProfiles = 20,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechRecognizerStatus {
+            DISPID_SRSAudioStatus = 1,
+            DISPID_SRSCurrentStreamPosition = 2,
+            DISPID_SRSCurrentStreamNumber = 3,
+            DISPID_SRSNumberOfActiveRules = 4,
+            DISPID_SRSClsidEngine = 5,
+            DISPID_SRSSupportedLanguages = 6,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechVoice {
+            DISPID_SVStatus = 1,
+            DISPID_SVVoice = 2,
+            DISPID_SVAudioOutput = 3,
+            DISPID_SVAudioOutputStream = 4,
+            DISPID_SVRate = 5,
+            DISPID_SVVolume = 6,
+            DISPID_SVAllowAudioOuputFormatChangesOnNextSet = 7,
+            DISPID_SVEventInterests = 8,
+            DISPID_SVPriority = 9,
+            DISPID_SVAlertBoundary = 10,
+            DISPID_SVSyncronousSpeakTimeout = 11,
+            DISPID_SVSpeak = 12,
+            DISPID_SVSpeakStream = 13,
+            DISPID_SVPause = 14,
+            DISPID_SVResume = 15,
+            DISPID_SVSkip = 16,
+            DISPID_SVGetVoices = 17,
+            DISPID_SVGetAudioOutputs = 18,
+            DISPID_SVWaitUntilDone = 19,
+            DISPID_SVSpeakCompleteEvent = 20,
+            DISPID_SVIsUISupported = 21,
+            DISPID_SVDisplayUI = 22,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechVoiceEvent {
+            DISPID_SVEStreamStart = 1,
+            DISPID_SVEStreamEnd = 2,
+            DISPID_SVEVoiceChange = 3,
+            DISPID_SVEBookmark = 4,
+            DISPID_SVEWord = 5,
+            DISPID_SVEPhoneme = 6,
+            DISPID_SVESentenceBoundary = 7,
+            DISPID_SVEViseme = 8,
+            DISPID_SVEAudioLevel = 9,
+            DISPID_SVEEnginePrivate = 10,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechVoiceStatus {
+            DISPID_SVSCurrentStreamNumber = 1,
+            DISPID_SVSLastStreamNumberQueued = 2,
+            DISPID_SVSLastResult = 3,
+            DISPID_SVSRunningState = 4,
+            DISPID_SVSInputWordPosition = 5,
+            DISPID_SVSInputWordLength = 6,
+            DISPID_SVSInputSentencePosition = 7,
+            DISPID_SVSInputSentenceLength = 8,
+            DISPID_SVSLastBookmark = 9,
+            DISPID_SVSLastBookmarkId = 10,
+            DISPID_SVSPhonemeId = 11,
+            DISPID_SVSVisemeId = 12,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechWaveFormatEx {
+            DISPID_SWFEFormatTag = 1,
+            DISPID_SWFEChannels = 2,
+            DISPID_SWFESamplesPerSec = 3,
+            DISPID_SWFEAvgBytesPerSec = 4,
+            DISPID_SWFEBlockAlign = 5,
+            DISPID_SWFEBitsPerSample = 6,
+            DISPID_SWFEExtraData = 7,
+        }
+        #[repr(i32)]
+        enum DISPID_SpeechXMLRecoResult {
+            DISPID_SRRGetXMLResult = 10,
+            DISPID_SRRGetXMLErrorInfo = 11,
+        }
+        #[guid(0x06b64f9e_7fda_11d2_b4f2_00c04f797396)]
+        interface IEnumSpObjectTokens: IUnknown {
+            fn Next(&self, celt: u32, pelt: *mut ISpObjectToken, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppEnum: *mut IEnumSpObjectTokens) -> HRESULT;
+            fn Item(&self, Index: u32, ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetCount(&self, pCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0xc05c768f_fae8_4ec2_8e07_338321c12452)]
+        interface ISpAudio: ISpStreamFormat {
+            fn SetState(&self, NewState: SPAUDIOSTATE, ullReserved: u64) -> HRESULT;
+            fn SetFormat(&self, rguidFmtId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
+            fn GetStatus(&self, pStatus: *mut SPAUDIOSTATUS) -> HRESULT;
+            fn SetBufferInfo(&self, pBuffInfo: *const SPAUDIOBUFFERINFO) -> HRESULT;
+            fn GetBufferInfo(&self, pBuffInfo: *mut SPAUDIOBUFFERINFO) -> HRESULT;
+            fn GetDefaultFormat(&self, pFormatId: *mut GUID, ppCoMemWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn EventHandle(&self) -> HANDLE;
+            fn GetVolumeLevel(&self, pLevel: *mut u32) -> HRESULT;
+            fn SetVolumeLevel(&self, Level: u32) -> HRESULT;
+            fn GetBufferNotifySize(&self, pcbSize: *mut u32) -> HRESULT;
+            fn SetBufferNotifySize(&self, cbSize: u32) -> HRESULT;
+        }
+        #[guid(0x8565572f_c094_41cc_b56e_10bd9c3ff044)]
+        interface ISpContainerLexicon: ISpLexicon {
+            fn AddLexicon(&self, pAddLexicon: ISpLexicon, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0x14056581_e16c_11d2_bb90_00c04f8ee6c0)]
+        interface ISpDataKey: IUnknown {
+            fn SetData(&self, pszValueName: PCWSTR, cbData: u32, pData: *const u8) -> HRESULT;
+            fn GetData(&self, pszValueName: PCWSTR, pcbData: *const u32, pData: *mut u8) -> HRESULT;
+            fn SetStringValue(&self, #[opt] pszValueName: PCWSTR, pszValue: PCWSTR) -> HRESULT;
+            fn GetStringValue(&self, #[opt] pszValueName: PCWSTR, ppszValue: *mut PWSTR) -> HRESULT;
+            fn SetDWORD(&self, pszValueName: PCWSTR, dwValue: u32) -> HRESULT;
+            fn GetDWORD(&self, pszValueName: PCWSTR, pdwValue: *mut u32) -> HRESULT;
+            fn OpenKey(&self, pszSubKeyName: PCWSTR, ppSubKey: *mut ISpDataKey) -> HRESULT;
+            fn CreateKey(&self, pszSubKey: PCWSTR, ppSubKey: *mut ISpDataKey) -> HRESULT;
+            fn DeleteKey(&self, pszSubKey: PCWSTR) -> HRESULT;
+            fn DeleteValue(&self, pszValueName: PCWSTR) -> HRESULT;
+            fn EnumKeys(&self, Index: u32, ppszSubKeyName: *mut PWSTR) -> HRESULT;
+            fn EnumValues(&self, Index: u32, ppszValueName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e)]
+        interface ISpDisplayAlternates: IUnknown {
+            fn GetDisplayAlternates(&self, pPhrase: *const SPDISPLAYPHRASE, cRequestCount: u32, ppCoMemPhrases: *mut *mut SPDISPLAYPHRASE, pcPhrasesReturned: *mut u32) -> HRESULT;
+            fn SetFullStopTrailSpace(&self, ulTrailSpace: u32) -> HRESULT;
+        }
+        #[guid(0xc360ce4b_76d1_4214_ad68_52657d5083da)]
+        interface ISpEnginePronunciation: IUnknown {
+            fn Normalize(&self, pszWord: PCWSTR, pszLeftContext: PCWSTR, pszRightContext: PCWSTR, LangID: u16, pNormalizationList: *mut SPNORMALIZATIONLIST) -> HRESULT;
+            fn GetPronunciations(&self, pszWord: PCWSTR, pszLeftContext: PCWSTR, pszRightContext: PCWSTR, LangID: u16, #[in] #[out] pEnginePronunciationList: *mut SPWORDPRONUNCIATIONLIST) -> HRESULT;
+        }
+        #[guid(0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628)]
+        interface ISpEventSink: IUnknown {
+            fn AddEvents(&self, pEventArray: *const SPEVENT, ulCount: u32) -> HRESULT;
+            fn GetEventInterest(&self, pullEventInterest: *mut u64) -> HRESULT;
+        }
+        #[guid(0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628)]
+        interface ISpEventSource: ISpNotifySource {
+            fn SetInterest(&self, ullEventInterest: u64, ullQueuedInterest: u64) -> HRESULT;
+            fn GetEvents(&self, ulCount: u32, pEventArray: *mut SPEVENT, pulFetched: *mut u32) -> HRESULT;
+            fn GetInfo(&self, pInfo: *mut SPEVENTSOURCEINFO) -> HRESULT;
+        }
+        #[guid(0x2373a435_6a4b_429e_a6ac_d4231a61975b)]
+        interface ISpEventSource2: ISpEventSource {
+            fn GetEventsEx(&self, ulCount: u32, pEventArray: *mut SPEVENTEX, pulFetched: *mut u32) -> HRESULT;
+        }
+        #[guid(0x8137828f_591a_4a42_be58_49ea7ebaac68)]
+        interface ISpGrammarBuilder: IUnknown {
+            fn ResetGrammar(&self, NewLanguage: u16) -> HRESULT;
+            fn GetRule(&self, pszRuleName: PCWSTR, dwRuleId: u32, dwAttributes: u32, fCreateIfNotExist: BOOL, phInitialState: *mut SPSTATEHANDLE) -> HRESULT;
+            fn ClearRule(&self, hState: SPSTATEHANDLE) -> HRESULT;
+            fn CreateNewState(&self, hState: SPSTATEHANDLE, phState: *mut SPSTATEHANDLE) -> HRESULT;
+            fn AddWordTransition(&self, hFromState: SPSTATEHANDLE, hToState: SPSTATEHANDLE, #[opt] psz: PCWSTR, #[opt] pszSeparators: PCWSTR, eWordType: SPGRAMMARWORDTYPE, Weight: f32, pPropInfo: *const SPPROPERTYINFO) -> HRESULT;
+            fn AddRuleTransition(&self, hFromState: SPSTATEHANDLE, hToState: SPSTATEHANDLE, hRule: SPSTATEHANDLE, Weight: f32, pPropInfo: *const SPPROPERTYINFO) -> HRESULT;
+            fn AddResource(&self, hRuleState: SPSTATEHANDLE, pszResourceName: PCWSTR, #[opt] pszResourceValue: PCWSTR) -> HRESULT;
+            fn Commit(&self, dwReserved: u32) -> HRESULT;
+        }
+        #[guid(0x8ab10026_20cc_4b20_8c22_a49c9ba78f60)]
+        interface ISpGrammarBuilder2: IUnknown {
+            fn AddTextSubset(&self, hFromState: SPSTATEHANDLE, hToState: SPSTATEHANDLE, psz: PCWSTR, eMatchMode: SPMATCHINGMODE) -> HRESULT;
+            fn SetPhoneticAlphabet(&self, phoneticALphabet: PHONETICALPHABET) -> HRESULT;
+        }
+        #[guid(0xda41a7c2_5383_4db2_916b_6c1719e3db58)]
+        interface ISpLexicon: IUnknown {
+            fn GetPronunciations(&self, pszWord: PCWSTR, LangID: u16, dwFlags: u32, #[in] #[out] pWordPronunciationList: *mut SPWORDPRONUNCIATIONLIST) -> HRESULT;
+            fn AddPronunciation(&self, pszWord: PCWSTR, LangID: u16, ePartOfSpeech: SPPARTOFSPEECH, #[opt] pszPronunciation: PCSPPHONEID) -> HRESULT;
+            fn RemovePronunciation(&self, pszWord: PCWSTR, LangID: u16, ePartOfSpeech: SPPARTOFSPEECH, #[opt] pszPronunciation: PCSPPHONEID) -> HRESULT;
+            fn GetGeneration(&self, pdwGeneration: *mut u32) -> HRESULT;
+            fn GetGenerationChange(&self, dwFlags: u32, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
+            fn GetWords(&self, dwFlags: u32, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] #[opt] pdwCookie: *mut u32, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
+        }
+        #[guid(0x15806f6e_1d70_4b48_98e6_3b1a007509ab)]
+        interface ISpMMSysAudio: ISpAudio {
+            fn GetDeviceId(&self, puDeviceId: *mut u32) -> HRESULT;
+            fn SetDeviceId(&self, uDeviceId: u32) -> HRESULT;
+            fn GetMMHandle(&self, pHandle: *mut *mut void) -> HRESULT;
+            fn GetLineId(&self, puLineId: *mut u32) -> HRESULT;
+            fn SetLineId(&self, uLineId: u32) -> HRESULT;
+        }
+        #[no_guid]
+        interface ISpNotifyCallback {
+            fn NotifyCallback(&self, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+        }
+        #[guid(0x259684dc_37c3_11d2_9603_00c04f8ee628)]
+        interface ISpNotifySink: IUnknown {
+            fn Notify(&self) -> HRESULT;
+        }
+        #[guid(0x5eff4aef_8487_11d2_961c_00c04f8ee628)]
+        interface ISpNotifySource: IUnknown {
+            fn SetNotifySink(&self, pNotifySink: ISpNotifySink) -> HRESULT;
+            fn SetNotifyWindowMessage(&self, hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn SetNotifyCallbackFunction(&self, pfnCallback: SPNOTIFYCALLBACK, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn SetNotifyCallbackInterface(&self, pSpCallback: ISpNotifyCallback, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn SetNotifyWin32Event(&self) -> HRESULT;
+            fn WaitForNotifyEvent(&self, dwMilliseconds: u32) -> HRESULT;
+            fn GetNotifyEventHandle(&self) -> HANDLE;
+        }
+        #[guid(0xaca16614_5d3d_11d2_960e_00c04f8ee628)]
+        interface ISpNotifyTranslator: ISpNotifySink {
+            fn InitWindowMessage(&self, hWnd: HWND, Msg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn InitCallback(&self, pfnCallback: SPNOTIFYCALLBACK, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn InitSpNotifyCallback(&self, pSpCallback: ISpNotifyCallback, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn InitWin32Event(&self, hEvent: HANDLE, fCloseHandleOnRelease: BOOL) -> HRESULT;
+            fn Wait(&self, dwMilliseconds: u32) -> HRESULT;
+            fn GetEventHandle(&self) -> HANDLE;
+        }
+        #[guid(0x14056589_e16c_11d2_bb90_00c04f8ee6c0)]
+        interface ISpObjectToken: ISpDataKey {
+            fn SetId(&self, #[opt] pszCategoryId: PCWSTR, pszTokenId: PCWSTR, fCreateIfNotExist: BOOL) -> HRESULT;
+            fn GetId(&self, ppszCoMemTokenId: *mut PWSTR) -> HRESULT;
+            fn GetCategory(&self, ppTokenCategory: *mut ISpObjectTokenCategory) -> HRESULT;
+            fn CreateInstance(&self, pUnkOuter: IUnknown, dwClsContext: u32, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetStorageFileName(&self, clsidCaller: *const GUID, pszValueName: PCWSTR, #[opt] pszFileNameSpecifier: PCWSTR, nFolder: u32, ppszFilePath: *mut PWSTR) -> HRESULT;
+            fn RemoveStorageFileName(&self, clsidCaller: *const GUID, pszKeyName: PCWSTR, fDeleteFile: BOOL) -> HRESULT;
+            fn Remove(&self, #[opt] pclsidCaller: *const GUID) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, punkObject: IUnknown, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, punkObject: IUnknown) -> HRESULT;
+            fn MatchesAttributes(&self, pszAttributes: PCWSTR, pfMatches: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x2d3d3845_39af_4850_bbf9_40b49780011d)]
+        interface ISpObjectTokenCategory: ISpDataKey {
+            fn SetId(&self, pszCategoryId: PCWSTR, fCreateIfNotExist: BOOL) -> HRESULT;
+            fn GetId(&self, ppszCoMemCategoryId: *mut PWSTR) -> HRESULT;
+            fn GetDataKey(&self, spdkl: SPDATAKEYLOCATION, ppDataKey: *mut ISpDataKey) -> HRESULT;
+            fn EnumTokens(&self, #[opt] pzsReqAttribs: PCWSTR, #[opt] pszOptAttribs: PCWSTR, ppEnum: *mut IEnumSpObjectTokens) -> HRESULT;
+            fn SetDefaultTokenId(&self, pszTokenId: PCWSTR) -> HRESULT;
+            fn GetDefaultTokenId(&self, ppszCoMemTokenId: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xb8aab0cf_346f_49d8_9499_c8b03f161d51)]
+        interface ISpObjectTokenInit: ISpObjectToken {
+            fn InitFromDataKey(&self, pszCategoryId: PCWSTR, pszTokenId: PCWSTR, pDataKey: ISpDataKey) -> HRESULT;
+        }
+        #[guid(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0)]
+        interface ISpObjectWithToken: IUnknown {
+            fn SetObjectToken(&self, pToken: ISpObjectToken) -> HRESULT;
+            fn GetObjectToken(&self, ppToken: *mut ISpObjectToken) -> HRESULT;
+        }
+        #[guid(0x8445c581_0cac_4a38_abfe_9b2ce2826455)]
+        interface ISpPhoneConverter: ISpObjectWithToken {
+            fn PhoneToId(&self, pszPhone: PCWSTR, pId: *mut SPPHONEID) -> HRESULT;
+            fn IdToPhone(&self, pId: PCSPPHONEID, pszPhone: *mut u16) -> HRESULT;
+        }
+        #[guid(0x133adcd4_19b4_4020_9fdc_842e78253b17)]
+        interface ISpPhoneticAlphabetConverter: IUnknown {
+            fn GetLangId(&self, #[len_const(1)] pLangID: *mut u16) -> HRESULT;
+            fn SetLangId(&self, LangID: u16) -> HRESULT;
+            fn SAPI2UPS(&self, pszSAPIId: *const SPPHONEID, #[len_param(2)] pszUPSId: *mut SPPHONEID, cMaxLength: u32) -> HRESULT;
+            fn UPS2SAPI(&self, pszUPSId: *const SPPHONEID, #[len_param(2)] pszSAPIId: *mut SPPHONEID, cMaxLength: u32) -> HRESULT;
+            fn GetMaxConvertLength(&self, cSrcLength: u32, bSAPI2UPS: BOOL, #[len_const(1)] pcMaxDestLength: *mut u32) -> HRESULT;
+        }
+        #[guid(0xb2745efd_42ce_48ca_81f1_a96e02538a90)]
+        interface ISpPhoneticAlphabetSelection: IUnknown {
+            fn IsAlphabetUPS(&self, pfIsUPS: *mut BOOL) -> HRESULT;
+            fn SetAlphabetToUPS(&self, fForceUPS: BOOL) -> HRESULT;
+        }
+        #[guid(0x1a5c0354_b621_4b5a_8791_d306ed379e53)]
+        interface ISpPhrase: IUnknown {
+            fn GetPhrase(&self, ppCoMemPhrase: *mut *mut SPPHRASE) -> HRESULT;
+            fn GetSerializedPhrase(&self, ppCoMemPhrase: *mut *mut SPSERIALIZEDPHRASE) -> HRESULT;
+            fn GetText(&self, ulStart: u32, ulCount: u32, fUseTextReplacements: BOOL, ppszCoMemText: *mut PWSTR, #[len_const(1)] #[opt] pbDisplayAttributes: *mut u8) -> HRESULT;
+            fn Discard(&self, dwValueTypes: u32) -> HRESULT;
+        }
+        #[guid(0xf264da52_e457_4696_b856_a737b717af79)]
+        interface ISpPhrase2: ISpPhrase {
+            fn GetXMLResult(&self, ppszCoMemXMLResult: *mut PWSTR, Options: SPXMLRESULTOPTIONS) -> HRESULT;
+            fn GetXMLErrorInfo(&self, pSemanticErrorInfo: *mut SPSEMANTICERRORINFO) -> HRESULT;
+            fn GetAudio(&self, ulStartElement: u32, cElements: u32, ppStream: *mut ISpStreamFormat) -> HRESULT;
+        }
+        #[guid(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d)]
+        interface ISpPhraseAlt: ISpPhrase {
+            fn GetAltInfo(&self, ppParent: *mut ISpPhrase, pulStartElementInParent: *mut u32, pcElementsInParent: *mut u32, pcElementsInAlt: *mut u32) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+        }
+        #[guid(0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4)]
+        interface ISpProperties: IUnknown {
+            fn SetPropertyNum(&self, pName: PCWSTR, lValue: i32) -> HRESULT;
+            fn GetPropertyNum(&self, pName: PCWSTR, plValue: *mut i32) -> HRESULT;
+            fn SetPropertyString(&self, pName: PCWSTR, pValue: PCWSTR) -> HRESULT;
+            fn GetPropertyString(&self, pName: PCWSTR, ppCoMemValue: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xda0cd0f9_14a2_4f09_8c2a_85cc48979345)]
+        interface ISpRecoCategory: IUnknown {
+            fn GetType(&self, peCategoryType: *mut SPCATEGORYTYPE) -> HRESULT;
+        }
+        #[guid(0xf740a62f_7c15_489e_8234_940a33d9272d)]
+        interface ISpRecoContext: ISpEventSource {
+            fn GetRecognizer(&self, ppRecognizer: *mut ISpRecognizer) -> HRESULT;
+            fn CreateGrammar(&self, ullGrammarId: u64, ppGrammar: *mut ISpRecoGrammar) -> HRESULT;
+            fn GetStatus(&self, pStatus: *mut SPRECOCONTEXTSTATUS) -> HRESULT;
+            fn GetMaxAlternates(&self, pcAlternates: *const u32) -> HRESULT;
+            fn SetMaxAlternates(&self, cAlternates: u32) -> HRESULT;
+            fn SetAudioOptions(&self, Options: SPAUDIOOPTIONS, pAudioFormatId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
+            fn GetAudioOptions(&self, pOptions: *const SPAUDIOOPTIONS, pAudioFormatId: *mut GUID, ppCoMemWFEX: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn DeserializeResult(&self, pSerializedResult: *const SPSERIALIZEDRESULT, ppResult: *mut ISpRecoResult) -> HRESULT;
+            fn Bookmark(&self, Options: SPBOOKMARKOPTIONS, ullStreamPosition: u64, lparamEvent: LPARAM) -> HRESULT;
+            fn SetAdaptationData(&self, pAdaptationData: PCWSTR, cch: u32) -> HRESULT;
+            fn Pause(&self, dwReserved: u32) -> HRESULT;
+            fn Resume(&self, dwReserved: u32) -> HRESULT;
+            fn SetVoice(&self, pVoice: ISpVoice, fAllowFormatChanges: BOOL) -> HRESULT;
+            fn GetVoice(&self, ppVoice: *mut ISpVoice) -> HRESULT;
+            fn SetVoicePurgeEvent(&self, ullEventInterest: u64) -> HRESULT;
+            fn GetVoicePurgeEvent(&self, pullEventInterest: *mut u64) -> HRESULT;
+            fn SetContextState(&self, eContextState: SPCONTEXTSTATE) -> HRESULT;
+            fn GetContextState(&self, peContextState: *mut SPCONTEXTSTATE) -> HRESULT;
+        }
+        #[guid(0xbead311c_52ff_437f_9464_6b21054ca73d)]
+        interface ISpRecoContext2: IUnknown {
+            fn SetGrammarOptions(&self, eGrammarOptions: u32) -> HRESULT;
+            fn GetGrammarOptions(&self, peGrammarOptions: *mut u32) -> HRESULT;
+            fn SetAdaptationData2(&self, pAdaptationData: PCWSTR, cch: u32, pTopicName: PCWSTR, eAdaptationSettings: u32, eRelevance: SPADAPTATIONRELEVANCE) -> HRESULT;
+        }
+        #[guid(0x2177db29_7f45_47d0_8554_067e91c80502)]
+        interface ISpRecoGrammar: ISpGrammarBuilder {
+            fn GetGrammarId(&self, pullGrammarId: *mut u64) -> HRESULT;
+            fn GetRecoContext(&self, ppRecoCtxt: *mut ISpRecoContext) -> HRESULT;
+            fn LoadCmdFromFile(&self, pszFileName: PCWSTR, Options: SPLOADOPTIONS) -> HRESULT;
+            fn LoadCmdFromObject(&self, rcid: *const GUID, pszGrammarName: PCWSTR, Options: SPLOADOPTIONS) -> HRESULT;
+            fn LoadCmdFromResource(&self, hModule: HMODULE, pszResourceName: PCWSTR, pszResourceType: PCWSTR, wLanguage: u16, Options: SPLOADOPTIONS) -> HRESULT;
+            fn LoadCmdFromMemory(&self, pGrammar: *const SPBINARYGRAMMAR, Options: SPLOADOPTIONS) -> HRESULT;
+            fn LoadCmdFromProprietaryGrammar(&self, rguidParam: *const GUID, pszStringParam: PCWSTR, pvDataPrarm: *const void, cbDataSize: u32, Options: SPLOADOPTIONS) -> HRESULT;
+            fn SetRuleState(&self, #[opt] pszName: PCWSTR, pReserved: *const void, NewState: SPRULESTATE) -> HRESULT;
+            fn SetRuleIdState(&self, ulRuleId: u32, NewState: SPRULESTATE) -> HRESULT;
+            fn LoadDictation(&self, #[opt] pszTopicName: PCWSTR, Options: SPLOADOPTIONS) -> HRESULT;
+            fn UnloadDictation(&self) -> HRESULT;
+            fn SetDictationState(&self, NewState: SPRULESTATE) -> HRESULT;
+            fn SetWordSequenceData(&self, #[len_param(1)] #[opt] pText: *const u16, cchText: u32, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn SetTextSelection(&self, pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
+            fn IsPronounceable(&self, pszWord: PCWSTR, pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
+            fn SetGrammarState(&self, eGrammarState: SPGRAMMARSTATE) -> HRESULT;
+            fn SaveCmd(&self, pStream: IStream, #[opt] ppszCoMemErrorText: *mut PWSTR) -> HRESULT;
+            fn GetGrammarState(&self, peGrammarState: *mut SPGRAMMARSTATE) -> HRESULT;
+        }
+        #[guid(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3)]
+        interface ISpRecoGrammar2: IUnknown {
+            fn GetRules(&self, ppCoMemRules: *mut *mut SPRULE, puNumRules: *mut u32) -> HRESULT;
+            fn LoadCmdFromFile2(&self, pszFileName: PCWSTR, Options: SPLOADOPTIONS, #[opt] pszSharingUri: PCWSTR, #[opt] pszBaseUri: PCWSTR) -> HRESULT;
+            fn LoadCmdFromMemory2(&self, pGrammar: *const SPBINARYGRAMMAR, Options: SPLOADOPTIONS, #[opt] pszSharingUri: PCWSTR, #[opt] pszBaseUri: PCWSTR) -> HRESULT;
+            fn SetRulePriority(&self, pszRuleName: PCWSTR, ulRuleId: u32, nRulePriority: i32) -> HRESULT;
+            fn SetRuleWeight(&self, pszRuleName: PCWSTR, ulRuleId: u32, flWeight: f32) -> HRESULT;
+            fn SetDictationWeight(&self, flWeight: f32) -> HRESULT;
+            fn SetGrammarLoader(&self, pLoader: ISpeechResourceLoader) -> HRESULT;
+            fn SetSMLSecurityManager(&self, pSMLSecurityManager: IInternetSecurityManager) -> HRESULT;
+        }
+        #[guid(0x20b053be_e235_43cd_9a2a_8d17a48b7842)]
+        interface ISpRecoResult: ISpPhrase {
+            fn GetResultTimes(&self, pTimes: *mut SPRECORESULTTIMES) -> HRESULT;
+            fn GetAlternates(&self, ulStartElement: u32, cElements: u32, ulRequestCount: u32, #[len_param(2)] ppPhrases: *mut ISpPhraseAlt, pcPhrasesReturned: *mut u32) -> HRESULT;
+            fn GetAudio(&self, ulStartElement: u32, cElements: u32, ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn SpeakAudio(&self, ulStartElement: u32, cElements: u32, dwFlags: u32, pulStreamNumber: *mut u32) -> HRESULT;
+            fn Serialize(&self, ppCoMemSerializedResult: *mut *mut SPSERIALIZEDRESULT) -> HRESULT;
+            fn ScaleAudio(&self, pAudioFormatId: *const GUID, pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
+            fn GetRecoContext(&self, ppRecoContext: *mut ISpRecoContext) -> HRESULT;
+        }
+        #[guid(0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e)]
+        interface ISpRecoResult2: ISpRecoResult {
+            fn CommitAlternate(&self, pPhraseAlt: ISpPhraseAlt, ppNewResult: *mut ISpRecoResult) -> HRESULT;
+            fn CommitText(&self, ulStartElement: u32, cElements: u32, #[opt] pszCorrectedData: PCWSTR, eCommitFlags: u32) -> HRESULT;
+            fn SetTextFeedback(&self, pszFeedback: PCWSTR, fSuccessful: BOOL) -> HRESULT;
+        }
+        #[guid(0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c)]
+        interface ISpRecognizer: ISpProperties {
+            fn SetRecognizer(&self, pRecognizer: ISpObjectToken) -> HRESULT;
+            fn GetRecognizer(&self, ppRecognizer: *mut ISpObjectToken) -> HRESULT;
+            fn SetInput(&self, #[opt] pUnkInput: IUnknown, fAllowFormatChanges: BOOL) -> HRESULT;
+            fn GetInputObjectToken(&self, ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetInputStream(&self, ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn CreateRecoContext(&self, ppNewCtxt: *mut ISpRecoContext) -> HRESULT;
+            fn GetRecoProfile(&self, ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn SetRecoProfile(&self, pToken: ISpObjectToken) -> HRESULT;
+            fn IsSharedInstance(&self) -> HRESULT;
+            fn GetRecoState(&self, pState: *mut SPRECOSTATE) -> HRESULT;
+            fn SetRecoState(&self, NewState: SPRECOSTATE) -> HRESULT;
+            fn GetStatus(&self, pStatus: *mut SPRECOGNIZERSTATUS) -> HRESULT;
+            fn GetFormat(&self, WaveFormatType: SPSTREAMFORMATTYPE, pFormatId: *mut GUID, ppCoMemWFEX: *mut *mut WAVEFORMATEX) -> HRESULT;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, #[opt] pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32) -> HRESULT;
+            fn EmulateRecognition(&self, pPhrase: ISpPhrase) -> HRESULT;
+        }
+        #[guid(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3)]
+        interface ISpRecognizer2: IUnknown {
+            fn EmulateRecognitionEx(&self, pPhrase: ISpPhrase, dwCompareFlags: u32) -> HRESULT;
+            fn SetTrainingState(&self, fDoingTraining: BOOL, fAdaptFromTrainingData: BOOL) -> HRESULT;
+            fn ResetAcousticModelAdaptation(&self) -> HRESULT;
+        }
+        #[guid(0xdf1b943c_5838_4aa2_8706_d7cd5b333499)]
+        interface ISpRecognizer3: IUnknown {
+            fn GetCategory(&self, categoryType: SPCATEGORYTYPE, ppCategory: *mut ISpRecoCategory) -> HRESULT;
+            fn SetActiveCategory(&self, pCategory: ISpRecoCategory) -> HRESULT;
+            fn GetActiveCategory(&self, ppCategory: *mut ISpRecoCategory) -> HRESULT;
+        }
+        #[guid(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b)]
+        interface ISpRegDataKey: ISpDataKey {
+            fn SetKey(&self, hkey: HKEY, fReadOnly: BOOL) -> HRESULT;
+        }
+        #[guid(0x93384e18_5014_43d5_adbb_a78e055926bd)]
+        interface ISpResourceManager: IServiceProvider {
+            fn SetObject(&self, guidServiceId: *const GUID, pUnkObject: IUnknown) -> HRESULT;
+            fn GetObject(&self, guidServiceId: *const GUID, ObjectCLSID: *const GUID, ObjectIID: *const GUID, fReleaseWhenLastExternalRefReleased: BOOL, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9)]
+        interface ISpSerializeState: IUnknown {
+            fn GetSerializedState(&self, ppbData: *mut *mut u8, pulSize: *mut u32, dwReserved: u32) -> HRESULT;
+            fn SetSerializedState(&self, pbData: *const u8, ulSize: u32, dwReserved: u32) -> HRESULT;
+        }
+        #[guid(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a)]
+        interface ISpShortcut: IUnknown {
+            fn AddShortcut(&self, pszDisplay: PCWSTR, LangID: u16, pszSpoken: PCWSTR, shType: SPSHORTCUTTYPE) -> HRESULT;
+            fn RemoveShortcut(&self, pszDisplay: PCWSTR, LangID: u16, pszSpoken: PCWSTR, shType: SPSHORTCUTTYPE) -> HRESULT;
+            fn GetShortcuts(&self, LangID: u16, #[in] #[out] pShortcutpairList: *mut SPSHORTCUTPAIRLIST) -> HRESULT;
+            fn GetGeneration(&self, pdwGeneration: *mut u32) -> HRESULT;
+            fn GetWordsFromGenerationChange(&self, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
+            fn GetWords(&self, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] pdwCookie: *mut u32, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
+            fn GetShortcutsForGeneration(&self, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] pdwCookie: *mut u32, #[in] #[out] pShortcutpairList: *mut SPSHORTCUTPAIRLIST) -> HRESULT;
+            fn GetGenerationChange(&self, #[in] #[out] pdwGeneration: *mut u32, #[in] #[out] pShortcutpairList: *mut SPSHORTCUTPAIRLIST) -> HRESULT;
+        }
+        #[guid(0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e)]
+        interface ISpStream: ISpStreamFormat {
+            fn SetBaseStream(&self, pStream: IStream, rguidFormat: *const GUID, pWaveFormatEx: *const WAVEFORMATEX) -> HRESULT;
+            fn GetBaseStream(&self, ppStream: *mut IStream) -> HRESULT;
+            fn BindToFile(&self, pszFileName: PCWSTR, eMode: SPFILEMODE, #[opt] pFormatId: *const GUID, #[opt] pWaveFormatEx: *const WAVEFORMATEX, ullEventInterest: u64) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xbed530be_2606_4f4d_a1c0_54c5cda5566f)]
+        interface ISpStreamFormat: IStream {
+            fn GetFormat(&self, pguidFormatId: *const GUID, ppCoMemWaveFormatEx: *mut *mut WAVEFORMATEX) -> HRESULT;
+        }
+        #[guid(0x678a932c_ea71_4446_9b41_78fda6280a29)]
+        interface ISpStreamFormatConverter: ISpStreamFormat {
+            fn SetBaseStream(&self, pStream: ISpStreamFormat, fSetFormatToBaseStreamFormat: BOOL, fWriteToBaseStream: BOOL) -> HRESULT;
+            fn GetBaseStream(&self, ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn SetFormat(&self, rguidFormatIdOfConvertedStream: *const GUID, pWaveFormatExOfConvertedStream: *const WAVEFORMATEX) -> HRESULT;
+            fn ResetSeekPosition(&self) -> HRESULT;
+            fn ScaleConvertedToBaseOffset(&self, ullOffsetConvertedStream: u64, pullOffsetBaseStream: *mut u64) -> HRESULT;
+            fn ScaleBaseToConvertedOffset(&self, ullOffsetBaseStream: u64, pullOffsetConvertedStream: *mut u64) -> HRESULT;
+        }
+        #[guid(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0)]
+        interface ISpTranscript: IUnknown {
+            fn GetTranscript(&self, ppszTranscript: *mut PWSTR) -> HRESULT;
+            fn AppendTranscript(&self, pszTranscript: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]
+        interface ISpVoice: ISpEventSource {
+            fn SetOutput(&self, pUnkOutput: IUnknown, fAllowFormatChanges: BOOL) -> HRESULT;
+            fn GetOutputObjectToken(&self, ppObjectToken: *mut ISpObjectToken) -> HRESULT;
+            fn GetOutputStream(&self, ppStream: *mut ISpStreamFormat) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn SetVoice(&self, pToken: ISpObjectToken) -> HRESULT;
+            fn GetVoice(&self, ppToken: *mut ISpObjectToken) -> HRESULT;
+            fn Speak(&self, #[opt] pwcs: PCWSTR, dwFlags: u32, #[opt] pulStreamNumber: *mut u32) -> HRESULT;
+            fn SpeakStream(&self, pStream: IStream, dwFlags: u32, #[opt] pulStreamNumber: *mut u32) -> HRESULT;
+            fn GetStatus(&self, pStatus: *mut SPVOICESTATUS, ppszLastBookmark: *mut PWSTR) -> HRESULT;
+            fn Skip(&self, pItemType: PCWSTR, lNumItems: i32, pulNumSkipped: *mut u32) -> HRESULT;
+            fn SetPriority(&self, ePriority: SPVPRIORITY) -> HRESULT;
+            fn GetPriority(&self, pePriority: *mut SPVPRIORITY) -> HRESULT;
+            fn SetAlertBoundary(&self, eBoundary: SPEVENTENUM) -> HRESULT;
+            fn GetAlertBoundary(&self, peBoundary: *mut SPEVENTENUM) -> HRESULT;
+            fn SetRate(&self, RateAdjust: i32) -> HRESULT;
+            fn GetRate(&self, pRateAdjust: *mut i32) -> HRESULT;
+            fn SetVolume(&self, usVolume: u16) -> HRESULT;
+            fn GetVolume(&self, pusVolume: *mut u16) -> HRESULT;
+            fn WaitUntilDone(&self, msTimeout: u32) -> HRESULT;
+            fn SetSyncSpeakTimeout(&self, msTimeout: u32) -> HRESULT;
+            fn GetSyncSpeakTimeout(&self, pmsTimeout: *mut u32) -> HRESULT;
+            fn SpeakCompleteEvent(&self) -> HANDLE;
+            fn IsUISupported(&self, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32, pfSupported: *mut BOOL) -> HRESULT;
+            fn DisplayUI(&self, hwndParent: HWND, pszTitle: PCWSTR, pszTypeOfUI: PCWSTR, pvExtraData: *const void, cbExtraData: u32) -> HRESULT;
+        }
+        #[guid(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6)]
+        interface ISpXMLRecoResult: ISpRecoResult {
+            fn GetXMLResult(&self, ppszCoMemXMLResult: *mut PWSTR, Options: SPXMLRESULTOPTIONS) -> HRESULT;
+            fn GetXMLErrorInfo(&self, pSemanticErrorInfo: *mut SPSEMANTICERRORINFO) -> HRESULT;
+        }
+        #[guid(0xcff8e175_019e_11d3_a08e_00c04f8ef9b5)]
+        interface ISpeechAudio: ISpeechBaseStream {
+            #[special]
+            fn get_Status(&self, #[retval] Status: *mut ISpeechAudioStatus) -> HRESULT;
+            #[special]
+            fn get_BufferInfo(&self, #[retval] BufferInfo: *mut ISpeechAudioBufferInfo) -> HRESULT;
+            #[special]
+            fn get_DefaultFormat(&self, #[retval] StreamFormat: *mut ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_Volume(&self, #[retval] Volume: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Volume(&self, Volume: i32) -> HRESULT;
+            #[special]
+            fn get_BufferNotifySize(&self, #[retval] BufferNotifySize: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BufferNotifySize(&self, BufferNotifySize: i32) -> HRESULT;
+            #[special]
+            fn get_EventHandle(&self, #[retval] EventHandle: *mut i32) -> HRESULT;
+            fn SetState(&self, State: SpeechAudioState) -> HRESULT;
+        }
+        #[guid(0x11b103d8_1142_4edf_a093_82fb3915f8cc)]
+        interface ISpeechAudioBufferInfo: IDispatch {
+            #[special]
+            fn get_MinNotification(&self, #[retval] MinNotification: *mut i32) -> HRESULT;
+            #[special]
+            fn put_MinNotification(&self, MinNotification: i32) -> HRESULT;
+            #[special]
+            fn get_BufferSize(&self, #[retval] BufferSize: *mut i32) -> HRESULT;
+            #[special]
+            fn put_BufferSize(&self, BufferSize: i32) -> HRESULT;
+            #[special]
+            fn get_EventBias(&self, #[retval] EventBias: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EventBias(&self, EventBias: i32) -> HRESULT;
+        }
+        #[guid(0xe6e9c590_3e18_40e3_8299_061f98bde7c7)]
+        interface ISpeechAudioFormat: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] AudioFormat: *mut SpeechAudioFormatType) -> HRESULT;
+            #[special]
+            fn put_Type(&self, AudioFormat: SpeechAudioFormatType) -> HRESULT;
+            #[special]
+            fn get_Guid(&self, #[retval] Guid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Guid(&self, Guid: BSTR) -> HRESULT;
+            fn GetWaveFormatEx(&self, #[retval] SpeechWaveFormatEx: *mut ISpeechWaveFormatEx) -> HRESULT;
+            fn SetWaveFormatEx(&self, SpeechWaveFormatEx: ISpeechWaveFormatEx) -> HRESULT;
+        }
+        #[guid(0xc62d9c91_7458_47f6_862d_1ef86fb0b278)]
+        interface ISpeechAudioStatus: IDispatch {
+            #[special]
+            fn get_FreeBufferSpace(&self, #[retval] FreeBufferSpace: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NonBlockingIO(&self, #[retval] NonBlockingIO: *mut i32) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] State: *mut SpeechAudioState) -> HRESULT;
+            #[special]
+            fn get_CurrentSeekPosition(&self, #[retval] CurrentSeekPosition: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_CurrentDevicePosition(&self, #[retval] CurrentDevicePosition: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x6450336f_7d49_4ced_8097_49d6dee37294)]
+        interface ISpeechBaseStream: IDispatch {
+            #[special]
+            fn get_Format(&self, #[retval] AudioFormat: *mut ISpeechAudioFormat) -> HRESULT;
+            fn putref_Format(&self, AudioFormat: ISpeechAudioFormat) -> HRESULT;
+            fn Read(&self, Buffer: *mut VARIANT, NumberOfBytes: i32, #[retval] BytesRead: *mut i32) -> HRESULT;
+            fn Write(&self, Buffer: VARIANT, #[retval] BytesWritten: *mut i32) -> HRESULT;
+            fn Seek(&self, Position: VARIANT, Origin: SpeechStreamSeekPositionType, #[retval] NewPosition: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae)]
+        interface ISpeechCustomStream: ISpeechBaseStream {
+            #[special]
+            fn get_BaseStream(&self, #[retval] ppUnkStream: *mut IUnknown) -> HRESULT;
+            fn putref_BaseStream(&self, pUnkStream: IUnknown) -> HRESULT;
+        }
+        #[guid(0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd)]
+        interface ISpeechDataKey: IDispatch {
+            fn SetBinaryValue(&self, ValueName: BSTR, Value: VARIANT) -> HRESULT;
+            fn GetBinaryValue(&self, ValueName: BSTR, #[retval] Value: *mut VARIANT) -> HRESULT;
+            fn SetStringValue(&self, ValueName: BSTR, Value: BSTR) -> HRESULT;
+            fn GetStringValue(&self, ValueName: BSTR, #[retval] Value: *mut BSTR) -> HRESULT;
+            fn SetLongValue(&self, ValueName: BSTR, Value: i32) -> HRESULT;
+            fn GetLongValue(&self, ValueName: BSTR, #[retval] Value: *mut i32) -> HRESULT;
+            fn OpenKey(&self, SubKeyName: BSTR, #[retval] SubKey: *mut ISpeechDataKey) -> HRESULT;
+            fn CreateKey(&self, SubKeyName: BSTR, #[retval] SubKey: *mut ISpeechDataKey) -> HRESULT;
+            fn DeleteKey(&self, SubKeyName: BSTR) -> HRESULT;
+            fn DeleteValue(&self, ValueName: BSTR) -> HRESULT;
+            fn EnumKeys(&self, Index: i32, #[retval] SubKeyName: *mut BSTR) -> HRESULT;
+            fn EnumValues(&self, Index: i32, #[retval] ValueName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7)]
+        interface ISpeechFileStream: ISpeechBaseStream {
+            fn Open(&self, FileName: BSTR, FileMode: SpeechStreamFileMode, DoEvents: VARIANT_BOOL) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc)]
+        interface ISpeechGrammarRule: IDispatch {
+            #[special]
+            fn get_Attributes(&self, #[retval] Attributes: *mut SpeechRuleAttributes) -> HRESULT;
+            #[special]
+            fn get_InitialState(&self, #[retval] State: *mut ISpeechGrammarRuleState) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] Id: *mut i32) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn AddResource(&self, ResourceName: BSTR, ResourceValue: BSTR) -> HRESULT;
+            fn AddState(&self, #[retval] State: *mut ISpeechGrammarRuleState) -> HRESULT;
+        }
+        #[guid(0xd4286f2c_ee67_45ae_b928_28d695362eda)]
+        interface ISpeechGrammarRuleState: IDispatch {
+            #[special]
+            fn get_Rule(&self, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            #[special]
+            fn get_Transitions(&self, #[retval] Transitions: *mut ISpeechGrammarRuleStateTransitions) -> HRESULT;
+            fn AddWordTransition(&self, DestState: ISpeechGrammarRuleState, Words: BSTR, Separators: BSTR, Type: SpeechGrammarWordType, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
+            fn AddRuleTransition(&self, DestinationState: ISpeechGrammarRuleState, Rule: ISpeechGrammarRule, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
+            fn AddSpecialTransition(&self, DestinationState: ISpeechGrammarRuleState, Type: SpeechSpecialTransitionType, PropertyName: BSTR, PropertyId: i32, PropertyValue: *const VARIANT, Weight: f32) -> HRESULT;
+        }
+        #[guid(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a)]
+        interface ISpeechGrammarRuleStateTransition: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] Type: *mut SpeechGrammarRuleStateTransitionType) -> HRESULT;
+            #[special]
+            fn get_Text(&self, #[retval] Text: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Rule(&self, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            #[special]
+            fn get_Weight(&self, #[retval] Weight: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_PropertyName(&self, #[retval] PropertyName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PropertyId(&self, #[retval] PropertyId: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PropertyValue(&self, #[retval] PropertyValue: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_NextState(&self, #[retval] NextState: *mut ISpeechGrammarRuleState) -> HRESULT;
+        }
+        #[guid(0xeabce657_75bc_44a2_aa7f_c56476742963)]
+        interface ISpeechGrammarRuleStateTransitions: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Transition: *mut ISpeechGrammarRuleStateTransition) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1)]
+        interface ISpeechGrammarRules: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn FindRule(&self, RuleNameOrId: VARIANT, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Dynamic(&self, #[retval] Dynamic: *mut VARIANT_BOOL) -> HRESULT;
+            fn Add(&self, RuleName: BSTR, Attributes: SpeechRuleAttributes, RuleId: i32, #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn CommitAndSave(&self, ErrorText: *mut BSTR, #[retval] SaveStream: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x3da7627a_c7ae_4b23_8708_638c50362c25)]
+        interface ISpeechLexicon: IDispatch {
+            #[special]
+            fn get_GenerationId(&self, #[retval] GenerationId: *mut i32) -> HRESULT;
+            fn GetWords(&self, Flags: SpeechLexiconType, GenerationID: *mut i32, #[retval] Words: *mut ISpeechLexiconWords) -> HRESULT;
+            fn AddPronunciation(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, bstrPronunciation: BSTR) -> HRESULT;
+            fn AddPronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, PhoneIds: *const VARIANT) -> HRESULT;
+            fn RemovePronunciation(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, bstrPronunciation: BSTR) -> HRESULT;
+            fn RemovePronunciationByPhoneIds(&self, bstrWord: BSTR, LangId: SpeechLanguageId, PartOfSpeech: SpeechPartOfSpeech, PhoneIds: *const VARIANT) -> HRESULT;
+            fn GetPronunciations(&self, bstrWord: BSTR, LangId: SpeechLanguageId, TypeFlags: SpeechLexiconType, #[retval] ppPronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
+            fn GetGenerationChange(&self, #[in] #[out] GenerationID: *mut i32, #[retval] ppWords: *mut ISpeechLexiconWords) -> HRESULT;
+        }
+        #[guid(0x95252c5d_9e43_4f4a_9899_48ee73352f9f)]
+        interface ISpeechLexiconPronunciation: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] LexiconType: *mut SpeechLexiconType) -> HRESULT;
+            #[special]
+            fn get_LangId(&self, #[retval] LangId: *mut SpeechLanguageId) -> HRESULT;
+            #[special]
+            fn get_PartOfSpeech(&self, #[retval] PartOfSpeech: *mut SpeechPartOfSpeech) -> HRESULT;
+            #[special]
+            fn get_PhoneIds(&self, #[retval] PhoneIds: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Symbolic(&self, #[retval] Symbolic: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x72829128_5682_4704_a0d4_3e2bb6f2ead3)]
+        interface ISpeechLexiconPronunciations: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Pronunciation: *mut ISpeechLexiconPronunciation) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff)]
+        interface ISpeechLexiconWord: IDispatch {
+            #[special]
+            fn get_LangId(&self, #[retval] LangId: *mut SpeechLanguageId) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] WordType: *mut SpeechWordType) -> HRESULT;
+            #[special]
+            fn get_Word(&self, #[retval] Word: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Pronunciations(&self, #[retval] Pronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
+        }
+        #[guid(0x8d199862_415e_47d5_ac4f_faa608b424e6)]
+        interface ISpeechLexiconWords: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Word: *mut ISpeechLexiconWord) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44)]
+        interface ISpeechMMSysAudio: ISpeechAudio {
+            #[special]
+            fn get_DeviceId(&self, #[retval] DeviceId: *mut i32) -> HRESULT;
+            #[special]
+            fn put_DeviceId(&self, DeviceId: i32) -> HRESULT;
+            #[special]
+            fn get_LineId(&self, #[retval] LineId: *mut i32) -> HRESULT;
+            #[special]
+            fn put_LineId(&self, LineId: i32) -> HRESULT;
+            #[special]
+            fn get_MMHandle(&self, #[retval] Handle: *mut i32) -> HRESULT;
+        }
+        #[guid(0xeeb14b68_808b_4abe_a5ea_b51da7588008)]
+        interface ISpeechMemoryStream: ISpeechBaseStream {
+            fn SetData(&self, Data: VARIANT) -> HRESULT;
+            fn GetData(&self, #[retval] pData: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xc74a3adc_b727_4500_a84a_b526721c8b8c)]
+        interface ISpeechObjectToken: IDispatch {
+            #[special]
+            fn get_Id(&self, #[retval] ObjectId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DataKey(&self, #[retval] DataKey: *mut ISpeechDataKey) -> HRESULT;
+            #[special]
+            fn get_Category(&self, #[retval] Category: *mut ISpeechObjectTokenCategory) -> HRESULT;
+            fn GetDescription(&self, Locale: i32, #[retval] Description: *mut BSTR) -> HRESULT;
+            fn SetId(&self, Id: BSTR, CategoryID: BSTR, CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
+            fn GetAttribute(&self, AttributeName: BSTR, #[retval] AttributeValue: *mut BSTR) -> HRESULT;
+            fn CreateInstance(&self, pUnkOuter: IUnknown, ClsContext: SpeechTokenContext, #[retval] Object: *mut IUnknown) -> HRESULT;
+            fn Remove(&self, ObjectStorageCLSID: BSTR) -> HRESULT;
+            fn GetStorageFileName(&self, ObjectStorageCLSID: BSTR, KeyName: BSTR, FileName: BSTR, Folder: SpeechTokenShellFolder, #[retval] FilePath: *mut BSTR) -> HRESULT;
+            fn RemoveStorageFileName(&self, ObjectStorageCLSID: BSTR, KeyName: BSTR, DeleteFileA: VARIANT_BOOL) -> HRESULT;
+            fn IsUISupported(&self, TypeOfUI: BSTR, ExtraData: *const VARIANT, Object: IUnknown, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn DisplayUI(&self, hWnd: i32, Title: BSTR, TypeOfUI: BSTR, ExtraData: *const VARIANT, Object: IUnknown) -> HRESULT;
+            fn MatchesAttributes(&self, Attributes: BSTR, #[retval] Matches: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xca7eac50_2d01_4145_86d4_5ae7d70f4469)]
+        interface ISpeechObjectTokenCategory: IDispatch {
+            #[special]
+            fn get_Id(&self, #[retval] Id: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Default(&self, TokenId: BSTR) -> HRESULT;
+            #[special]
+            fn get_Default(&self, #[retval] TokenId: *mut BSTR) -> HRESULT;
+            fn SetId(&self, Id: BSTR, CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
+            fn GetDataKey(&self, Location: SpeechDataKeyLocation, #[retval] DataKey: *mut ISpeechDataKey) -> HRESULT;
+            fn EnumerateTokens(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] Tokens: *mut ISpeechObjectTokens) -> HRESULT;
+        }
+        #[guid(0x9285b776_2e7b_4bc0_b53e_580eb6fa967f)]
+        interface ISpeechObjectTokens: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Token: *mut ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xc3e4f353_433f_43d6_89a1_6a62a7054c3d)]
+        interface ISpeechPhoneConverter: IDispatch {
+            #[special]
+            fn get_LanguageId(&self, #[retval] LanguageId: *mut SpeechLanguageId) -> HRESULT;
+            #[special]
+            fn put_LanguageId(&self, LanguageId: SpeechLanguageId) -> HRESULT;
+            fn PhoneToId(&self, Phonemes: BSTR, #[retval] IdArray: *mut VARIANT) -> HRESULT;
+            fn IdToPhone(&self, IdArray: VARIANT, #[retval] Phonemes: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73)]
+        interface ISpeechPhraseAlternate: IDispatch {
+            #[special]
+            fn get_RecoResult(&self, #[retval] RecoResult: *mut ISpeechRecoResult) -> HRESULT;
+            #[special]
+            fn get_StartElementInResult(&self, #[retval] StartElement: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfElementsInResult(&self, #[retval] NumberOfElements: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PhraseInfo(&self, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+        }
+        #[guid(0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2)]
+        interface ISpeechPhraseAlternates: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] PhraseAlternate: *mut ISpeechPhraseAlternate) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xe6176f96_e373_4801_b223_3b62c068c0b4)]
+        interface ISpeechPhraseElement: IDispatch {
+            #[special]
+            fn get_AudioTimeOffset(&self, #[retval] AudioTimeOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn get_AudioSizeTime(&self, #[retval] AudioSizeTime: *mut i32) -> HRESULT;
+            #[special]
+            fn get_AudioStreamOffset(&self, #[retval] AudioStreamOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn get_AudioSizeBytes(&self, #[retval] AudioSizeBytes: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RetainedStreamOffset(&self, #[retval] RetainedStreamOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RetainedSizeBytes(&self, #[retval] RetainedSizeBytes: *mut i32) -> HRESULT;
+            #[special]
+            fn get_DisplayText(&self, #[retval] DisplayText: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_LexicalForm(&self, #[retval] LexicalForm: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Pronunciation(&self, #[retval] Pronunciation: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_DisplayAttributes(&self, #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
+            #[special]
+            fn get_RequiredConfidence(&self, #[retval] RequiredConfidence: *mut SpeechEngineConfidence) -> HRESULT;
+            #[special]
+            fn get_ActualConfidence(&self, #[retval] ActualConfidence: *mut SpeechEngineConfidence) -> HRESULT;
+            #[special]
+            fn get_EngineConfidence(&self, #[retval] EngineConfidence: *mut f32) -> HRESULT;
+        }
+        #[guid(0x0626b328_3478_467d_a0b3_d0853b93dda3)]
+        interface ISpeechPhraseElements: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Element: *mut ISpeechPhraseElement) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x961559cf_4e67_4662_8bf0_d93f1fcd61b3)]
+        interface ISpeechPhraseInfo: IDispatch {
+            #[special]
+            fn get_LanguageId(&self, #[retval] LanguageId: *mut i32) -> HRESULT;
+            #[special]
+            fn get_GrammarId(&self, #[retval] GrammarId: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_StartTime(&self, #[retval] StartTime: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_AudioStreamPosition(&self, #[retval] AudioStreamPosition: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_AudioSizeBytes(&self, #[retval] pAudioSizeBytes: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RetainedSizeBytes(&self, #[retval] RetainedSizeBytes: *mut i32) -> HRESULT;
+            #[special]
+            fn get_AudioSizeTime(&self, #[retval] AudioSizeTime: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Rule(&self, #[retval] Rule: *mut ISpeechPhraseRule) -> HRESULT;
+            #[special]
+            fn get_Properties(&self, #[retval] Properties: *mut ISpeechPhraseProperties) -> HRESULT;
+            #[special]
+            fn get_Elements(&self, #[retval] Elements: *mut ISpeechPhraseElements) -> HRESULT;
+            #[special]
+            fn get_Replacements(&self, #[retval] Replacements: *mut ISpeechPhraseReplacements) -> HRESULT;
+            #[special]
+            fn get_EngineId(&self, #[retval] EngineIdGuid: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EnginePrivateData(&self, #[retval] PrivateData: *mut VARIANT) -> HRESULT;
+            fn SaveToMemory(&self, #[retval] PhraseBlock: *mut VARIANT) -> HRESULT;
+            fn GetText(&self, StartElement: i32, Elements: i32, UseReplacements: VARIANT_BOOL, #[retval] Text: *mut BSTR) -> HRESULT;
+            fn GetDisplayAttributes(&self, StartElement: i32, Elements: i32, UseReplacements: VARIANT_BOOL, #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
+        }
+        #[guid(0x3b151836_df3a_4e0a_846c_d2adc9334333)]
+        interface ISpeechPhraseInfoBuilder: IDispatch {
+            fn RestorePhraseFromMemory(&self, PhraseInMemory: *const VARIANT, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+        }
+        #[guid(0x08166b47_102e_4b23_a599_bdb98dbfd1f4)]
+        interface ISpeechPhraseProperties: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Property: *mut ISpeechPhraseProperty) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xce563d48_961e_4732_a2e1_378a42b430be)]
+        interface ISpeechPhraseProperty: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] Id: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] Value: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_FirstElement(&self, #[retval] FirstElement: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfElements(&self, #[retval] NumberOfElements: *mut i32) -> HRESULT;
+            #[special]
+            fn get_EngineConfidence(&self, #[retval] Confidence: *mut f32) -> HRESULT;
+            #[special]
+            fn get_Confidence(&self, #[retval] Confidence: *mut SpeechEngineConfidence) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] ParentProperty: *mut ISpeechPhraseProperty) -> HRESULT;
+            #[special]
+            fn get_Children(&self, #[retval] Children: *mut ISpeechPhraseProperties) -> HRESULT;
+        }
+        #[guid(0x2890a410_53a7_4fb5_94ec_06d4998e3d02)]
+        interface ISpeechPhraseReplacement: IDispatch {
+            #[special]
+            fn get_DisplayAttributes(&self, #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
+            #[special]
+            fn get_Text(&self, #[retval] Text: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FirstElement(&self, #[retval] FirstElement: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfElements(&self, #[retval] NumberOfElements: *mut i32) -> HRESULT;
+        }
+        #[guid(0x38bc662f_2257_4525_959e_2069d2596c05)]
+        interface ISpeechPhraseReplacements: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Reps: *mut ISpeechPhraseReplacement) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xa7bfe112_a4a0_48d9_b602_c313843f6964)]
+        interface ISpeechPhraseRule: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] Name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Id(&self, #[retval] Id: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FirstElement(&self, #[retval] FirstElement: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfElements(&self, #[retval] NumberOfElements: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Parent(&self, #[retval] Parent: *mut ISpeechPhraseRule) -> HRESULT;
+            #[special]
+            fn get_Children(&self, #[retval] Children: *mut ISpeechPhraseRules) -> HRESULT;
+            #[special]
+            fn get_Confidence(&self, #[retval] ActualConfidence: *mut SpeechEngineConfidence) -> HRESULT;
+            #[special]
+            fn get_EngineConfidence(&self, #[retval] EngineConfidence: *mut f32) -> HRESULT;
+        }
+        #[guid(0x9047d593_01dd_4b72_81a3_e4a0ca69f407)]
+        interface ISpeechPhraseRules: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] Count: *mut i32) -> HRESULT;
+            fn Item(&self, Index: i32, #[retval] Rule: *mut ISpeechPhraseRule) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x580aa49d_7e1e_4809_b8e2_57da806104b8)]
+        interface ISpeechRecoContext: IDispatch {
+            #[special]
+            fn get_Recognizer(&self, #[retval] Recognizer: *mut ISpeechRecognizer) -> HRESULT;
+            #[special]
+            fn get_AudioInputInterferenceStatus(&self, #[retval] Interference: *mut SpeechInterference) -> HRESULT;
+            #[special]
+            fn get_RequestedUIType(&self, #[retval] UIType: *mut BSTR) -> HRESULT;
+            fn putref_Voice(&self, Voice: ISpeechVoice) -> HRESULT;
+            #[special]
+            fn get_Voice(&self, #[retval] Voice: *mut ISpeechVoice) -> HRESULT;
+            #[special]
+            fn put_AllowVoiceFormatMatchingOnNextSet(&self, Allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowVoiceFormatMatchingOnNextSet(&self, #[retval] pAllow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_VoicePurgeEvent(&self, EventInterest: SpeechRecoEvents) -> HRESULT;
+            #[special]
+            fn get_VoicePurgeEvent(&self, #[retval] EventInterest: *mut SpeechRecoEvents) -> HRESULT;
+            #[special]
+            fn put_EventInterests(&self, EventInterest: SpeechRecoEvents) -> HRESULT;
+            #[special]
+            fn get_EventInterests(&self, #[retval] EventInterest: *mut SpeechRecoEvents) -> HRESULT;
+            #[special]
+            fn put_CmdMaxAlternates(&self, MaxAlternates: i32) -> HRESULT;
+            #[special]
+            fn get_CmdMaxAlternates(&self, #[retval] MaxAlternates: *mut i32) -> HRESULT;
+            #[special]
+            fn put_State(&self, State: SpeechRecoContextState) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] State: *mut SpeechRecoContextState) -> HRESULT;
+            #[special]
+            fn put_RetainedAudio(&self, Option: SpeechRetainedAudioOptions) -> HRESULT;
+            #[special]
+            fn get_RetainedAudio(&self, #[retval] Option: *mut SpeechRetainedAudioOptions) -> HRESULT;
+            fn putref_RetainedAudioFormat(&self, Format: ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_RetainedAudioFormat(&self, #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn CreateGrammar(&self, GrammarId: VARIANT, #[retval] Grammar: *mut ISpeechRecoGrammar) -> HRESULT;
+            fn CreateResultFromMemory(&self, ResultBlock: *const VARIANT, #[retval] Result: *mut ISpeechRecoResult) -> HRESULT;
+            fn Bookmark(&self, Options: SpeechBookmarkOptions, StreamPos: VARIANT, BookmarkId: VARIANT) -> HRESULT;
+            fn SetAdaptationData(&self, AdaptationString: BSTR) -> HRESULT;
+        }
+        #[guid(0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09)]
+        interface ISpeechRecoGrammar: IDispatch {
+            #[special]
+            fn get_Id(&self, #[retval] Id: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_RecoContext(&self, #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            #[special]
+            fn put_State(&self, State: SpeechGrammarState) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] State: *mut SpeechGrammarState) -> HRESULT;
+            #[special]
+            fn get_Rules(&self, #[retval] Rules: *mut ISpeechGrammarRules) -> HRESULT;
+            fn Reset(&self, NewLanguage: SpeechLanguageId) -> HRESULT;
+            fn CmdLoadFromFile(&self, FileName: BSTR, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromObject(&self, ClassId: BSTR, GrammarName: BSTR, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromResource(&self, hModule: i32, ResourceName: VARIANT, ResourceType: VARIANT, LanguageId: SpeechLanguageId, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromMemory(&self, GrammarData: VARIANT, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromProprietaryGrammar(&self, ProprietaryGuid: BSTR, ProprietaryString: BSTR, ProprietaryData: VARIANT, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdSetRuleState(&self, Name: BSTR, State: SpeechRuleState) -> HRESULT;
+            fn CmdSetRuleIdState(&self, RuleId: i32, State: SpeechRuleState) -> HRESULT;
+            fn DictationLoad(&self, TopicName: BSTR, LoadOption: SpeechLoadOption) -> HRESULT;
+            fn DictationUnload(&self) -> HRESULT;
+            fn DictationSetState(&self, State: SpeechRuleState) -> HRESULT;
+            fn SetWordSequenceData(&self, Text: BSTR, TextLength: i32, Info: ISpeechTextSelectionInformation) -> HRESULT;
+            fn SetTextSelection(&self, Info: ISpeechTextSelectionInformation) -> HRESULT;
+            fn IsPronounceable(&self, Word: BSTR, #[retval] WordPronounceable: *mut SpeechWordPronounceable) -> HRESULT;
+        }
+        #[guid(0xed2879cf_ced9_4ee6_a534_de0191d5468d)]
+        interface ISpeechRecoResult: IDispatch {
+            #[special]
+            fn get_RecoContext(&self, #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            #[special]
+            fn get_Times(&self, #[retval] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
+            fn putref_AudioFormat(&self, Format: ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_AudioFormat(&self, #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_PhraseInfo(&self, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn Alternates(&self, RequestCount: i32, StartElement: i32, Elements: i32, #[retval] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
+            fn Audio(&self, StartElement: i32, Elements: i32, #[retval] Stream: *mut ISpeechMemoryStream) -> HRESULT;
+            fn SpeakAudio(&self, StartElement: i32, Elements: i32, Flags: SpeechVoiceSpeakFlags, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            fn SaveToMemory(&self, #[retval] ResultBlock: *mut VARIANT) -> HRESULT;
+            fn DiscardResultInfo(&self, ValueTypes: SpeechDiscardType) -> HRESULT;
+        }
+        #[guid(0x8e0a246d_d3c8_45de_8657_04290c458c3c)]
+        interface ISpeechRecoResult2: ISpeechRecoResult {
+            fn SetTextFeedback(&self, Feedback: BSTR, WasSuccessful: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x6d60eb64_aced_40a6_bbf3_4e557f71dee2)]
+        interface ISpeechRecoResultDispatch: IDispatch {
+            #[special]
+            fn get_RecoContext(&self, #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            #[special]
+            fn get_Times(&self, #[retval] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
+            fn putref_AudioFormat(&self, Format: ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_AudioFormat(&self, #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            #[special]
+            fn get_PhraseInfo(&self, #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn Alternates(&self, RequestCount: i32, StartElement: i32, Elements: i32, #[retval] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
+            fn Audio(&self, StartElement: i32, Elements: i32, #[retval] Stream: *mut ISpeechMemoryStream) -> HRESULT;
+            fn SpeakAudio(&self, StartElement: i32, Elements: i32, Flags: SpeechVoiceSpeakFlags, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            fn SaveToMemory(&self, #[retval] ResultBlock: *mut VARIANT) -> HRESULT;
+            fn DiscardResultInfo(&self, ValueTypes: SpeechDiscardType) -> HRESULT;
+            fn GetXMLResult(&self, Options: SPXMLRESULTOPTIONS, #[retval] pResult: *mut BSTR) -> HRESULT;
+            fn GetXMLErrorInfo(&self, LineNumber: *mut i32, ScriptLine: *mut BSTR, Source: *mut BSTR, Description: *mut BSTR, ResultCode: *mut HRESULT, #[retval] IsError: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetTextFeedback(&self, Feedback: BSTR, WasSuccessful: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0)]
+        interface ISpeechRecoResultTimes: IDispatch {
+            #[special]
+            fn get_StreamTime(&self, #[retval] Time: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_Length(&self, #[retval] Length: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_TickCount(&self, #[retval] TickCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_OffsetFromStart(&self, #[retval] OffsetFromStart: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c)]
+        interface ISpeechRecognizer: IDispatch {
+            fn putref_Recognizer(&self, Recognizer: ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get_Recognizer(&self, #[retval] Recognizer: *mut ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn put_AllowAudioInputFormatChangesOnNextSet(&self, Allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowAudioInputFormatChangesOnNextSet(&self, #[retval] Allow: *mut VARIANT_BOOL) -> HRESULT;
+            fn putref_AudioInput(&self, AudioInput: ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get_AudioInput(&self, #[retval] AudioInput: *mut ISpeechObjectToken) -> HRESULT;
+            fn putref_AudioInputStream(&self, AudioInputStream: ISpeechBaseStream) -> HRESULT;
+            #[special]
+            fn get_AudioInputStream(&self, #[retval] AudioInputStream: *mut ISpeechBaseStream) -> HRESULT;
+            #[special]
+            fn get_IsShared(&self, #[retval] Shared: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_State(&self, State: SpeechRecognizerState) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] State: *mut SpeechRecognizerState) -> HRESULT;
+            #[special]
+            fn get_Status(&self, #[retval] Status: *mut ISpeechRecognizerStatus) -> HRESULT;
+            fn putref_Profile(&self, Profile: ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get_Profile(&self, #[retval] Profile: *mut ISpeechObjectToken) -> HRESULT;
+            fn EmulateRecognition(&self, TextElements: VARIANT, ElementDisplayAttributes: *const VARIANT, LanguageId: i32) -> HRESULT;
+            fn CreateRecoContext(&self, #[retval] NewContext: *mut ISpeechRecoContext) -> HRESULT;
+            fn GetFormat(&self, Type: SpeechFormatType, #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn SetPropertyNumber(&self, Name: BSTR, Value: i32, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetPropertyNumber(&self, Name: BSTR, #[in] #[out] Value: *mut i32, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetPropertyString(&self, Name: BSTR, Value: BSTR, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetPropertyString(&self, Name: BSTR, #[in] #[out] Value: *mut BSTR, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsUISupported(&self, TypeOfUI: BSTR, ExtraData: *const VARIANT, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn DisplayUI(&self, hWndParent: i32, Title: BSTR, TypeOfUI: BSTR, ExtraData: *const VARIANT) -> HRESULT;
+            fn GetRecognizers(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetAudioInputs(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetProfiles(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+        }
+        #[guid(0xbff9e781_53ec_484e_bb8a_0e1b5551e35c)]
+        interface ISpeechRecognizerStatus: IDispatch {
+            #[special]
+            fn get_AudioStatus(&self, #[retval] AudioStatus: *mut ISpeechAudioStatus) -> HRESULT;
+            #[special]
+            fn get_CurrentStreamPosition(&self, #[retval] pCurrentStreamPos: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_CurrentStreamNumber(&self, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_NumberOfActiveRules(&self, #[retval] NumberOfActiveRules: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ClsidEngine(&self, #[retval] ClsidEngine: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_SupportedLanguages(&self, #[retval] SupportedLanguages: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3)]
+        interface ISpeechResourceLoader: IDispatch {
+            fn LoadResource(&self, bstrResourceUri: BSTR, fAlwaysReload: VARIANT_BOOL, pStream: *mut IUnknown, #[opt] pbstrMIMEType: *mut BSTR, pfModified: *mut VARIANT_BOOL, #[opt] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
+            fn GetLocalCopy(&self, bstrResourceUri: BSTR, pbstrLocalPath: *mut BSTR, #[opt] pbstrMIMEType: *mut BSTR, #[opt] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
+            fn ReleaseLocalCopy(&self, pbstrLocalPath: BSTR) -> HRESULT;
+        }
+        #[guid(0x3b9c7e7a_6eee_4ded_9092_11657279adbe)]
+        interface ISpeechTextSelectionInformation: IDispatch {
+            #[special]
+            fn put_ActiveOffset(&self, ActiveOffset: i32) -> HRESULT;
+            #[special]
+            fn get_ActiveOffset(&self, #[retval] ActiveOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn put_ActiveLength(&self, ActiveLength: i32) -> HRESULT;
+            #[special]
+            fn get_ActiveLength(&self, #[retval] ActiveLength: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SelectionOffset(&self, SelectionOffset: i32) -> HRESULT;
+            #[special]
+            fn get_SelectionOffset(&self, #[retval] SelectionOffset: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SelectionLength(&self, SelectionLength: i32) -> HRESULT;
+            #[special]
+            fn get_SelectionLength(&self, #[retval] SelectionLength: *mut i32) -> HRESULT;
+        }
+        #[guid(0x269316d8_57bd_11d2_9eee_00c04f797396)]
+        interface ISpeechVoice: IDispatch {
+            #[special]
+            fn get_Status(&self, #[retval] Status: *mut ISpeechVoiceStatus) -> HRESULT;
+            #[special]
+            fn get_Voice(&self, #[retval] Voice: *mut ISpeechObjectToken) -> HRESULT;
+            fn putref_Voice(&self, Voice: ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get_AudioOutput(&self, #[retval] AudioOutput: *mut ISpeechObjectToken) -> HRESULT;
+            fn putref_AudioOutput(&self, AudioOutput: ISpeechObjectToken) -> HRESULT;
+            #[special]
+            fn get_AudioOutputStream(&self, #[retval] AudioOutputStream: *mut ISpeechBaseStream) -> HRESULT;
+            fn putref_AudioOutputStream(&self, AudioOutputStream: ISpeechBaseStream) -> HRESULT;
+            #[special]
+            fn get_Rate(&self, #[retval] Rate: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Rate(&self, Rate: i32) -> HRESULT;
+            #[special]
+            fn get_Volume(&self, #[retval] Volume: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Volume(&self, Volume: i32) -> HRESULT;
+            #[special]
+            fn put_AllowAudioOutputFormatChangesOnNextSet(&self, Allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowAudioOutputFormatChangesOnNextSet(&self, #[retval] Allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_EventInterests(&self, #[retval] EventInterestFlags: *mut SpeechVoiceEvents) -> HRESULT;
+            #[special]
+            fn put_EventInterests(&self, EventInterestFlags: SpeechVoiceEvents) -> HRESULT;
+            #[special]
+            fn put_Priority(&self, Priority: SpeechVoicePriority) -> HRESULT;
+            #[special]
+            fn get_Priority(&self, #[retval] Priority: *mut SpeechVoicePriority) -> HRESULT;
+            #[special]
+            fn put_AlertBoundary(&self, Boundary: SpeechVoiceEvents) -> HRESULT;
+            #[special]
+            fn get_AlertBoundary(&self, #[retval] Boundary: *mut SpeechVoiceEvents) -> HRESULT;
+            #[special]
+            fn put_SynchronousSpeakTimeout(&self, msTimeout: i32) -> HRESULT;
+            #[special]
+            fn get_SynchronousSpeakTimeout(&self, #[retval] msTimeout: *mut i32) -> HRESULT;
+            fn Speak(&self, Text: BSTR, Flags: SpeechVoiceSpeakFlags, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            fn SpeakStream(&self, Stream: ISpeechBaseStream, Flags: SpeechVoiceSpeakFlags, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            fn Pause(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn Skip(&self, Type: BSTR, NumItems: i32, #[retval] NumSkipped: *mut i32) -> HRESULT;
+            fn GetVoices(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetAudioOutputs(&self, RequiredAttributes: BSTR, OptionalAttributes: BSTR, #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn WaitUntilDone(&self, msTimeout: i32, #[retval] Done: *mut VARIANT_BOOL) -> HRESULT;
+            fn SpeakCompleteEvent(&self, #[retval] Handle: *mut i32) -> HRESULT;
+            fn IsUISupported(&self, TypeOfUI: BSTR, ExtraData: *const VARIANT, #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
+            fn DisplayUI(&self, hWndParent: i32, Title: BSTR, TypeOfUI: BSTR, ExtraData: *const VARIANT) -> HRESULT;
+        }
+        #[guid(0x8be47b07_57f6_11d2_9eee_00c04f797396)]
+        interface ISpeechVoiceStatus: IDispatch {
+            #[special]
+            fn get_CurrentStreamNumber(&self, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastStreamNumberQueued(&self, #[retval] StreamNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastHResult(&self, #[retval] HResult: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RunningState(&self, #[retval] State: *mut SpeechRunState) -> HRESULT;
+            #[special]
+            fn get_InputWordPosition(&self, #[retval] Position: *mut i32) -> HRESULT;
+            #[special]
+            fn get_InputWordLength(&self, #[retval] Length: *mut i32) -> HRESULT;
+            #[special]
+            fn get_InputSentencePosition(&self, #[retval] Position: *mut i32) -> HRESULT;
+            #[special]
+            fn get_InputSentenceLength(&self, #[retval] Length: *mut i32) -> HRESULT;
+            #[special]
+            fn get_LastBookmark(&self, #[retval] Bookmark: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_LastBookmarkId(&self, #[retval] BookmarkId: *mut i32) -> HRESULT;
+            #[special]
+            fn get_PhonemeId(&self, #[retval] PhoneId: *mut i16) -> HRESULT;
+            #[special]
+            fn get_VisemeId(&self, #[retval] VisemeId: *mut i16) -> HRESULT;
+        }
+        #[guid(0x7a1ef0d5_1581_4741_88e4_209a49f11a10)]
+        interface ISpeechWaveFormatEx: IDispatch {
+            #[special]
+            fn get_FormatTag(&self, #[retval] FormatTag: *mut i16) -> HRESULT;
+            #[special]
+            fn put_FormatTag(&self, FormatTag: i16) -> HRESULT;
+            #[special]
+            fn get_Channels(&self, #[retval] Channels: *mut i16) -> HRESULT;
+            #[special]
+            fn put_Channels(&self, Channels: i16) -> HRESULT;
+            #[special]
+            fn get_SamplesPerSec(&self, #[retval] SamplesPerSec: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SamplesPerSec(&self, SamplesPerSec: i32) -> HRESULT;
+            #[special]
+            fn get_AvgBytesPerSec(&self, #[retval] AvgBytesPerSec: *mut i32) -> HRESULT;
+            #[special]
+            fn put_AvgBytesPerSec(&self, AvgBytesPerSec: i32) -> HRESULT;
+            #[special]
+            fn get_BlockAlign(&self, #[retval] BlockAlign: *mut i16) -> HRESULT;
+            #[special]
+            fn put_BlockAlign(&self, BlockAlign: i16) -> HRESULT;
+            #[special]
+            fn get_BitsPerSample(&self, #[retval] BitsPerSample: *mut i16) -> HRESULT;
+            #[special]
+            fn put_BitsPerSample(&self, BitsPerSample: i16) -> HRESULT;
+            #[special]
+            fn get_ExtraData(&self, #[retval] ExtraData: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_ExtraData(&self, ExtraData: VARIANT) -> HRESULT;
+        }
+        #[guid(0xaaec54af_8f85_4924_944d_b79d39d72e19)]
+        interface ISpeechXMLRecoResult: ISpeechRecoResult {
+            fn GetXMLResult(&self, Options: SPXMLRESULTOPTIONS, #[retval] pResult: *mut BSTR) -> HRESULT;
+            fn GetXMLErrorInfo(&self, LineNumber: *mut i32, ScriptLine: *mut BSTR, Source: *mut BSTR, Description: *mut BSTR, ResultCode: *mut i32, #[retval] IsError: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        type PCSPPHONEID = PCWSTR;
+        #[repr(i32)]
+        enum PHONETICALPHABET {
+            PA_Ipa = 0,
+            PA_Ups = 1,
+            PA_Sapi = 2,
+        }
+        type PSPPHONEID = PWSTR;
+        #[repr(i32)]
+        enum SPADAPTATIONRELEVANCE {
+            SPAR_Unknown = 0,
+            SPAR_Low = 1,
+            SPAR_Medium = 2,
+            SPAR_High = 3,
+        }
+        #[repr(i32)]
+        enum SPADAPTATIONSETTINGS {
+            SPADS_Default = 0,
+            SPADS_CurrentRecognizer = 1,
+            SPADS_RecoProfile = 2,
+            SPADS_Immediate = 4,
+            SPADS_Reset = 8,
+            SPADS_HighVolumeDataSource = 16,
+        }
+        struct SPAUDIOBUFFERINFO {
+            ulMsMinNotification: u32,
+            ulMsBufferSize: u32,
+            ulMsEventBias: u32,
+        }
+        #[repr(i32)]
+        enum SPAUDIOOPTIONS {
+            SPAO_NONE = 0,
+            SPAO_RETAIN_AUDIO = 1,
+        }
+        #[repr(i32)]
+        enum SPAUDIOSTATE {
+            SPAS_CLOSED = 0,
+            SPAS_STOP = 1,
+            SPAS_PAUSE = 2,
+            SPAS_RUN = 3,
+        }
+        struct SPAUDIOSTATUS {
+            cbFreeBuffSpace: i32,
+            cbNonBlockingIO: u32,
+            State: SPAUDIOSTATE,
+            CurSeekPos: u64,
+            CurDevicePos: u64,
+            dwAudioLevel: u32,
+            dwReserved2: u32,
+        }
+        struct SPBINARYGRAMMAR {
+            ulTotalSerializedSize: u32,
+        }
+        #[repr(i32)]
+        enum SPBOOKMARKOPTIONS {
+            SPBO_NONE = 0,
+            SPBO_PAUSE = 1,
+            SPBO_AHEAD = 2,
+            SPBO_TIME_UNITS = 4,
+        }
+        #[repr(i32)]
+        enum SPCATEGORYTYPE {
+            SPCT_COMMAND = 0,
+            SPCT_DICTATION = 1,
+            SPCT_SLEEP = 2,
+            SPCT_SUB_COMMAND = 3,
+            SPCT_SUB_DICTATION = 4,
+        }
+        #[encoding("utf-16")]
+        const SPCAT_APPLEXICONS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
+        #[encoding("utf-16")]
+        const SPCAT_AUDIOIN: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
+        #[encoding("utf-16")]
+        const SPCAT_AUDIOOUT: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
+        #[encoding("utf-16")]
+        const SPCAT_PHONECONVERTERS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
+        #[encoding("utf-16")]
+        const SPCAT_RECOGNIZERS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
+        #[encoding("utf-16")]
+        const SPCAT_RECOPROFILES: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
+        #[encoding("utf-16")]
+        const SPCAT_TEXTNORMALIZERS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers";
+        #[encoding("utf-16")]
+        const SPCAT_VOICES: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
+        #[repr(i32)]
+        enum SPCFGRULEATTRIBUTES {
+            SPRAF_TopLevel = 1,
+            SPRAF_Active = 2,
+            SPRAF_Export = 4,
+            SPRAF_Import = 8,
+            SPRAF_Interpreter = 16,
+            SPRAF_Dynamic = 32,
+            SPRAF_Root = 64,
+            SPRAF_AutoPause = 65536,
+            SPRAF_UserDelimited = 131072,
+        }
+        #[repr(i32)]
+        enum SPCOMMITFLAGS {
+            SPCF_NONE = 0,
+            SPCF_ADD_TO_USER_LEXICON = 1,
+            SPCF_DEFINITE_CORRECTION = 2,
+        }
+        #[repr(i32)]
+        enum SPCONTEXTSTATE {
+            SPCS_DISABLED = 0,
+            SPCS_ENABLED = 1,
+        }
+        #[encoding("utf-16")]
+        const SPCURRENT_USER_LEXICON_TOKEN_ID: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
+        #[encoding("utf-16")]
+        const SPCURRENT_USER_SHORTCUT_TOKEN_ID: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
+        #[repr(i32)]
+        enum SPDATAKEYLOCATION {
+            SPDKL_DefaultLocation = 0,
+            SPDKL_CurrentUser = 1,
+            SPDKL_LocalMachine = 2,
+            SPDKL_CurrentConfig = 5,
+        }
+        #[encoding("utf-16")]
+        const SPDICTATION: String = "*";
+        #[repr(i32)]
+        enum SPDISPLAYATTRIBUTES {
+            SPAF_ONE_TRAILING_SPACE = 2,
+            SPAF_TWO_TRAILING_SPACES = 4,
+            SPAF_CONSUME_LEADING_SPACES = 8,
+            SPAF_BUFFER_POSITION = 16,
+            SPAF_ALL = 31,
+            SPAF_USER_SPECIFIED = 128,
+        }
+        struct SPDISPLAYPHRASE {
+            ulNumTokens: u32,
+            pTokens: *mut SPDISPLAYTOKEN,
+        }
+        struct SPDISPLAYTOKEN {
+            pszLexical: *const u16,
+            pszDisplay: *const u16,
+            bDisplayAttributes: u8,
+        }
+        #[encoding("utf-16")]
+        const SPDUI_AddRemoveWord: String = "AddRemoveWord";
+        #[encoding("utf-16")]
+        const SPDUI_AudioProperties: String = "AudioProperties";
+        #[encoding("utf-16")]
+        const SPDUI_AudioVolume: String = "AudioVolume";
+        #[encoding("utf-16")]
+        const SPDUI_EngineProperties: String = "EngineProperties";
+        #[encoding("utf-16")]
+        const SPDUI_MicTraining: String = "MicTraining";
+        #[encoding("utf-16")]
+        const SPDUI_RecoProfileProperties: String = "RecoProfileProperties";
+        #[encoding("utf-16")]
+        const SPDUI_ShareData: String = "ShareData";
+        #[encoding("utf-16")]
+        const SPDUI_Tutorial: String = "Tutorial";
+        #[encoding("utf-16")]
+        const SPDUI_UserEnrollment: String = "UserEnrollment";
+        #[encoding("utf-16")]
+        const SPDUI_UserTraining: String = "UserTraining";
+        #[repr(i32)]
+        enum SPEAKFLAGS {
+            SPF_DEFAULT = 0,
+            SPF_ASYNC = 1,
+            SPF_PURGEBEFORESPEAK = 2,
+            SPF_IS_FILENAME = 4,
+            SPF_IS_XML = 8,
+            SPF_IS_NOT_XML = 16,
+            SPF_PERSIST_XML = 32,
+            SPF_NLP_SPEAK_PUNC = 64,
+            SPF_PARSE_SAPI = 128,
+            SPF_PARSE_SSML = 256,
+            SPF_PARSE_AUTODETECT = 0,
+            SPF_NLP_MASK = 64,
+            SPF_PARSE_MASK = 384,
+            SPF_VOICE_MASK = 511,
+            SPF_UNUSED_FLAGS = -512,
+        }
+        #[repr(i32)]
+        enum SPENDSRSTREAMFLAGS {
+            SPESF_NONE = 0,
+            SPESF_STREAM_RELEASED = 1,
+            SPESF_EMULATED = 2,
+        }
+        struct SPEVENT {
+            _bitfield: SPEVENTENUM,
+            ulStreamNum: u32,
+            ullAudioStreamOffset: u64,
+            wParam: WPARAM,
+            lParam: LPARAM,
+        }
+        #[repr(i32)]
+        enum SPEVENTENUM {
+            SPEI_UNDEFINED = 0,
+            SPEI_START_INPUT_STREAM = 1,
+            SPEI_END_INPUT_STREAM = 2,
+            SPEI_VOICE_CHANGE = 3,
+            SPEI_TTS_BOOKMARK = 4,
+            SPEI_WORD_BOUNDARY = 5,
+            SPEI_PHONEME = 6,
+            SPEI_SENTENCE_BOUNDARY = 7,
+            SPEI_VISEME = 8,
+            SPEI_TTS_AUDIO_LEVEL = 9,
+            SPEI_TTS_PRIVATE = 15,
+            SPEI_MIN_TTS = 1,
+            SPEI_MAX_TTS = 15,
+            SPEI_END_SR_STREAM = 34,
+            SPEI_SOUND_START = 35,
+            SPEI_SOUND_END = 36,
+            SPEI_PHRASE_START = 37,
+            SPEI_RECOGNITION = 38,
+            SPEI_HYPOTHESIS = 39,
+            SPEI_SR_BOOKMARK = 40,
+            SPEI_PROPERTY_NUM_CHANGE = 41,
+            SPEI_PROPERTY_STRING_CHANGE = 42,
+            SPEI_FALSE_RECOGNITION = 43,
+            SPEI_INTERFERENCE = 44,
+            SPEI_REQUEST_UI = 45,
+            SPEI_RECO_STATE_CHANGE = 46,
+            SPEI_ADAPTATION = 47,
+            SPEI_START_SR_STREAM = 48,
+            SPEI_RECO_OTHER_CONTEXT = 49,
+            SPEI_SR_AUDIO_LEVEL = 50,
+            SPEI_SR_RETAINEDAUDIO = 51,
+            SPEI_SR_PRIVATE = 52,
+            SPEI_ACTIVE_CATEGORY_CHANGED = 53,
+            SPEI_RESERVED5 = 54,
+            SPEI_RESERVED6 = 55,
+            SPEI_MIN_SR = 34,
+            SPEI_MAX_SR = 55,
+            SPEI_RESERVED1 = 30,
+            SPEI_RESERVED2 = 33,
+            SPEI_RESERVED3 = 63,
+        }
+        struct SPEVENTEX {
+            _bitfield: SPEVENTENUM,
+            ulStreamNum: u32,
+            ullAudioStreamOffset: u64,
+            wParam: WPARAM,
+            lParam: LPARAM,
+            ullAudioTimeOffset: u64,
+        }
+        #[repr(i32)]
+        enum SPEVENTLPARAMTYPE {
+            SPET_LPARAM_IS_UNDEFINED = 0,
+            SPET_LPARAM_IS_TOKEN = 1,
+            SPET_LPARAM_IS_OBJECT = 2,
+            SPET_LPARAM_IS_POINTER = 3,
+            SPET_LPARAM_IS_STRING = 4,
+        }
+        struct SPEVENTSOURCEINFO {
+            ullEventInterest: u64,
+            ullQueuedInterest: u64,
+            ulCount: u32,
+        }
+        const SPFEI_ALL_EVENTS: i32 = -1;
+        const SPFEI_ALL_SR_EVENTS: u32 = 1073741824;
+        const SPFEI_ALL_TTS_EVENTS: u32 = 1073807358;
+        const SPFEI_FLAGCHECK: u32 = 1073741824;
+        #[repr(i32)]
+        enum SPFILEMODE {
+            SPFM_OPEN_READONLY = 0,
+            SPFM_OPEN_READWRITE = 1,
+            SPFM_CREATE = 2,
+            SPFM_CREATE_ALWAYS = 3,
+            SPFM_NUM_MODES = 4,
+        }
+        #[repr(i32)]
+        enum SPGRAMMAROPTIONS {
+            SPGO_SAPI = 1,
+            SPGO_SRGS = 2,
+            SPGO_UPS = 4,
+            SPGO_SRGS_MS_SCRIPT = 8,
+            SPGO_SRGS_W3C_SCRIPT = 256,
+            SPGO_SRGS_STG_SCRIPT = 512,
+            SPGO_SRGS_SCRIPT = 778,
+            SPGO_FILE = 16,
+            SPGO_HTTP = 32,
+            SPGO_RES = 64,
+            SPGO_OBJECT = 128,
+            SPGO_DEFAULT = 1019,
+            SPGO_ALL = 1023,
+        }
+        #[repr(i32)]
+        enum SPGRAMMARSTATE {
+            SPGS_DISABLED = 0,
+            SPGS_ENABLED = 1,
+            SPGS_EXCLUSIVE = 3,
+        }
+        #[repr(i32)]
+        enum SPGRAMMARWORDTYPE {
+            SPWT_DISPLAY = 0,
+            SPWT_LEXICAL = 1,
+            SPWT_PRONUNCIATION = 2,
+            SPWT_LEXICAL_NO_SPECIAL_CHARS = 3,
+        }
+        #[encoding("utf-16")]
+        const SPINFDICTATION: String = "*+";
+        #[repr(i32)]
+        enum SPINTERFERENCE {
+            SPINTERFERENCE_NONE = 0,
+            SPINTERFERENCE_NOISE = 1,
+            SPINTERFERENCE_NOSIGNAL = 2,
+            SPINTERFERENCE_TOOLOUD = 3,
+            SPINTERFERENCE_TOOQUIET = 4,
+            SPINTERFERENCE_TOOFAST = 5,
+            SPINTERFERENCE_TOOSLOW = 6,
+            SPINTERFERENCE_LATENCY_WARNING = 7,
+            SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN = 8,
+            SPINTERFERENCE_LATENCY_TRUNCATE_END = 9,
+        }
+        #[repr(i32)]
+        enum SPLEXICONTYPE {
+            eLEXTYPE_USER = 1,
+            eLEXTYPE_APP = 2,
+            eLEXTYPE_VENDORLEXICON = 4,
+            eLEXTYPE_LETTERTOSOUND = 8,
+            eLEXTYPE_MORPHOLOGY = 16,
+            eLEXTYPE_RESERVED4 = 32,
+            eLEXTYPE_USER_SHORTCUT = 64,
+            eLEXTYPE_RESERVED6 = 128,
+            eLEXTYPE_RESERVED7 = 256,
+            eLEXTYPE_RESERVED8 = 512,
+            eLEXTYPE_RESERVED9 = 1024,
+            eLEXTYPE_RESERVED10 = 2048,
+            eLEXTYPE_PRIVATE1 = 4096,
+            eLEXTYPE_PRIVATE2 = 8192,
+            eLEXTYPE_PRIVATE3 = 16384,
+            eLEXTYPE_PRIVATE4 = 32768,
+            eLEXTYPE_PRIVATE5 = 65536,
+            eLEXTYPE_PRIVATE6 = 131072,
+            eLEXTYPE_PRIVATE7 = 262144,
+            eLEXTYPE_PRIVATE8 = 524288,
+            eLEXTYPE_PRIVATE9 = 1048576,
+            eLEXTYPE_PRIVATE10 = 2097152,
+            eLEXTYPE_PRIVATE11 = 4194304,
+            eLEXTYPE_PRIVATE12 = 8388608,
+            eLEXTYPE_PRIVATE13 = 16777216,
+            eLEXTYPE_PRIVATE14 = 33554432,
+            eLEXTYPE_PRIVATE15 = 67108864,
+            eLEXTYPE_PRIVATE16 = 134217728,
+            eLEXTYPE_PRIVATE17 = 268435456,
+            eLEXTYPE_PRIVATE18 = 536870912,
+            eLEXTYPE_PRIVATE19 = 1073741824,
+            eLEXTYPE_PRIVATE20 = -2147483648,
+        }
+        #[repr(i32)]
+        enum SPLOADOPTIONS {
+            SPLO_STATIC = 0,
+            SPLO_DYNAMIC = 1,
+        }
+        #[repr(i32)]
+        enum SPMATCHINGMODE {
+            AllWords = 0,
+            Subsequence = 1,
+            OrderedSubset = 3,
+            SubsequenceContentRequired = 5,
+            OrderedSubsetContentRequired = 7,
+        }
+        #[encoding("utf-16")]
+        const SPMMSYS_AUDIO_IN_TOKEN_ID: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\";
+        #[encoding("utf-16")]
+        const SPMMSYS_AUDIO_OUT_TOKEN_ID: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\";
+        struct SPNORMALIZATIONLIST {
+            ulSize: u32,
+            ppszzNormalizedList: *mut *mut u16,
+        }
+        extern fn SPNOTIFYCALLBACK(wParam: WPARAM, lParam: LPARAM);
+        #[repr(i32)]
+        enum SPPARTOFSPEECH {
+            SPPS_NotOverriden = -1,
+            SPPS_Unknown = 0,
+            SPPS_Noun = 4096,
+            SPPS_Verb = 8192,
+            SPPS_Modifier = 12288,
+            SPPS_Function = 16384,
+            SPPS_Interjection = 20480,
+            SPPS_Noncontent = 24576,
+            SPPS_LMA = 28672,
+            SPPS_SuppressWord = 61440,
+        }
+        type SPPHONEID = u16;
+        struct SPPHRASE {
+            Base: SPPHRASE_53,
+            SemanticTagFormat: SPSEMANTICFORMAT,
+        }
+        struct SPPHRASEELEMENT {
+            ulAudioTimeOffset: u32,
+            ulAudioSizeTime: u32,
+            ulAudioStreamOffset: u32,
+            ulAudioSizeBytes: u32,
+            ulRetainedStreamOffset: u32,
+            ulRetainedSizeBytes: u32,
+            pszDisplayText: PCWSTR,
+            pszLexicalForm: PCWSTR,
+            pszPronunciation: *const SPPHONEID,
+            bDisplayAttributes: u8,
+            RequiredConfidence: i8,
+            ActualConfidence: i8,
+            Reserved: u8,
+            SREngineConfidence: f32,
+        }
+        struct SPPHRASEPROPERTY {
+            pszName: PCWSTR,
+            Anonymous: union {
+                ulId: u32,
+                Anonymous: struct {
+                    bType: byte,
+                    bReserved: byte,
+                    usArrayIndex: u16,
+                },
+            },
+            pszValue: PCWSTR,
+            vValue: VARIANT,
+            ulFirstElement: u32,
+            ulCountOfElements: u32,
+            pNextSibling: *const SPPHRASEPROPERTY,
+            pFirstChild: *const SPPHRASEPROPERTY,
+            SREngineConfidence: f32,
+            Confidence: i8,
+        }
+        #[repr(i32)]
+        enum SPPHRASEPROPERTYUNIONTYPE {
+            SPPPUT_UNUSED = 0,
+            SPPPUT_ARRAY_INDEX = 1,
+        }
+        struct SPPHRASEREPLACEMENT {
+            bDisplayAttributes: u8,
+            pszReplacementText: PCWSTR,
+            ulFirstElement: u32,
+            ulCountOfElements: u32,
+        }
+        #[repr(i32)]
+        enum SPPHRASERNG {
+            SPPR_ALL_ELEMENTS = -1,
+        }
+        struct SPPHRASERULE {
+            pszName: PCWSTR,
+            ulId: u32,
+            ulFirstElement: u32,
+            ulCountOfElements: u32,
+            pNextSibling: *const SPPHRASERULE,
+            pFirstChild: *const SPPHRASERULE,
+            SREngineConfidence: f32,
+            Confidence: i8,
+        }
+        struct SPPHRASE_50 {
+            cbSize: u32,
+            LangID: u16,
+            wHomophoneGroupId: u16,
+            ullGrammarID: u64,
+            ftStartTime: u64,
+            ullAudioStreamPosition: u64,
+            ulAudioSizeBytes: u32,
+            ulRetainedSizeBytes: u32,
+            ulAudioSizeTime: u32,
+            Rule: SPPHRASERULE,
+            pProperties: *const SPPHRASEPROPERTY,
+            pElements: *const SPPHRASEELEMENT,
+            cReplacements: u32,
+            pReplacements: *const SPPHRASEREPLACEMENT,
+            SREngineID: GUID,
+            ulSREnginePrivateDataSize: u32,
+            pSREnginePrivateData: *const u8,
+        }
+        struct SPPHRASE_53 {
+            Base: SPPHRASE_50,
+            pSML: PWSTR,
+            pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
+        }
+        #[repr(i32)]
+        enum SPPRONUNCIATIONFLAGS {
+            ePRONFLAG_USED = 1,
+        }
+        struct SPPROPERTYINFO {
+            pszName: PCWSTR,
+            ulId: u32,
+            pszValue: PCWSTR,
+            vValue: VARIANT,
+        }
+        #[encoding("utf-16")]
+        const SPPROP_ADAPTATION_ON: String = "AdaptationOn";
+        #[encoding("utf-16")]
+        const SPPROP_COMPLEX_RESPONSE_SPEED: String = "ComplexResponseSpeed";
+        #[encoding("utf-16")]
+        const SPPROP_HIGH_CONFIDENCE_THRESHOLD: String = "HighConfidenceThreshold";
+        #[encoding("utf-16")]
+        const SPPROP_LOW_CONFIDENCE_THRESHOLD: String = "LowConfidenceThreshold";
+        #[encoding("utf-16")]
+        const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: String = "NormalConfidenceThreshold";
+        #[encoding("utf-16")]
+        const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: String = "PersistedBackgroundAdaptation";
+        #[encoding("utf-16")]
+        const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: String = "PersistedLanguageModelAdaptation";
+        #[encoding("utf-16")]
+        const SPPROP_RESOURCE_USAGE: String = "ResourceUsage";
+        #[encoding("utf-16")]
+        const SPPROP_RESPONSE_SPEED: String = "ResponseSpeed";
+        #[encoding("utf-16")]
+        const SPPROP_UX_IS_LISTENING: String = "UXIsListening";
+        struct SPRECOCONTEXTSTATUS {
+            eInterference: SPINTERFERENCE,
+            szRequestTypeOfUI: [u16; 255],
+            dwReserved1: u32,
+            dwReserved2: u32,
+        }
+        #[repr(i32)]
+        enum SPRECOEVENTFLAGS {
+            SPREF_AutoPause = 1,
+            SPREF_Emulated = 2,
+            SPREF_SMLTimeout = 4,
+            SPREF_ExtendableParse = 8,
+            SPREF_ReSent = 16,
+            SPREF_Hypothesis = 32,
+            SPREF_FalseRecognition = 64,
+        }
+        struct SPRECOGNIZERSTATUS {
+            AudioStatus: SPAUDIOSTATUS,
+            ullRecognitionStreamPos: u64,
+            ulStreamNumber: u32,
+            ulNumActive: u32,
+            clsidEngine: GUID,
+            cLangIDs: u32,
+            aLangID: [u16; 20],
+            ullRecognitionStreamTime: u64,
+        }
+        struct SPRECORESULTTIMES {
+            ftStreamTime: FILETIME,
+            ullLength: u64,
+            dwTickCount: u32,
+            ullStart: u64,
+        }
+        #[repr(i32)]
+        enum SPRECOSTATE {
+            SPRST_INACTIVE = 0,
+            SPRST_ACTIVE = 1,
+            SPRST_ACTIVE_ALWAYS = 2,
+            SPRST_INACTIVE_WITH_PURGE = 3,
+            SPRST_NUM_STATES = 4,
+        }
+        #[encoding("utf-16")]
+        const SPREG_LOCAL_MACHINE_ROOT: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
+        #[encoding("utf-16")]
+        const SPREG_SAFE_USER_TOKENS: String = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
+        #[encoding("utf-16")]
+        const SPREG_USER_ROOT: String = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
+        const SPRP_NORMAL: u32 = 0;
+        const SPRR_ALL_ELEMENTS: i32 = -1;
+        struct SPRULE {
+            pszRuleName: PCWSTR,
+            ulRuleId: u32,
+            dwAttributes: u32,
+        }
+        #[repr(i32)]
+        enum SPRULESTATE {
+            SPRS_INACTIVE = 0,
+            SPRS_ACTIVE = 1,
+            SPRS_ACTIVE_WITH_AUTO_PAUSE = 3,
+            SPRS_ACTIVE_USER_DELIMITED = 4,
+        }
+        #[repr(i32)]
+        enum SPRUNSTATE {
+            SPRS_DONE = 1,
+            SPRS_IS_SPEAKING = 2,
+        }
+        struct SPSEMANTICERRORINFO {
+            ulLineNumber: u32,
+            pszScriptLine: PWSTR,
+            pszSource: PWSTR,
+            pszDescription: PWSTR,
+            hrResultCode: HRESULT,
+        }
+        #[repr(i32)]
+        enum SPSEMANTICFORMAT {
+            SPSMF_SAPI_PROPERTIES = 0,
+            SPSMF_SRGS_SEMANTICINTERPRETATION_MS = 1,
+            SPSMF_SRGS_SAPIPROPERTIES = 2,
+            SPSMF_UPS = 4,
+            SPSMF_SRGS_SEMANTICINTERPRETATION_W3C = 8,
+        }
+        struct SPSERIALIZEDEVENT {
+            _bitfield: SPEVENTENUM,
+            ulStreamNum: u32,
+            ullAudioStreamOffset: u64,
+            SerializedwParam: u32,
+            SerializedlParam: i32,
+        }
+        struct SPSERIALIZEDEVENT64 {
+            _bitfield: SPEVENTENUM,
+            ulStreamNum: u32,
+            ullAudioStreamOffset: u64,
+            SerializedwParam: u64,
+            SerializedlParam: i64,
+        }
+        struct SPSERIALIZEDPHRASE {
+            ulSerializedSize: u32,
+        }
+        struct SPSERIALIZEDRESULT {
+            ulSerializedSize: u32,
+        }
+        struct SPSHORTCUTPAIR {
+            pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
+            LangID: u16,
+            shType: SPSHORTCUTTYPE,
+            pszDisplay: PWSTR,
+            pszSpoken: PWSTR,
+        }
+        struct SPSHORTCUTPAIRLIST {
+            ulSize: u32,
+            pvBuffer: *mut u8,
+            pFirstShortcutPair: *mut SPSHORTCUTPAIR,
+        }
+        #[repr(i32)]
+        enum SPSHORTCUTTYPE {
+            SPSHT_NotOverriden = -1,
+            SPSHT_Unknown = 0,
+            SPSHT_EMAIL = 4096,
+            SPSHT_OTHER = 8192,
+            SPPS_RESERVED1 = 12288,
+            SPPS_RESERVED2 = 16384,
+            SPPS_RESERVED3 = 20480,
+            SPPS_RESERVED4 = 61440,
+        }
+        type SPSTATEHANDLE = *mut void;
+        #[repr(i32)]
+        enum SPSTREAMFORMAT {
+            SPSF_Default = -1,
+            SPSF_NoAssignedFormat = 0,
+            SPSF_Text = 1,
+            SPSF_NonStandardFormat = 2,
+            SPSF_ExtendedAudioFormat = 3,
+            SPSF_8kHz8BitMono = 4,
+            SPSF_8kHz8BitStereo = 5,
+            SPSF_8kHz16BitMono = 6,
+            SPSF_8kHz16BitStereo = 7,
+            SPSF_11kHz8BitMono = 8,
+            SPSF_11kHz8BitStereo = 9,
+            SPSF_11kHz16BitMono = 10,
+            SPSF_11kHz16BitStereo = 11,
+            SPSF_12kHz8BitMono = 12,
+            SPSF_12kHz8BitStereo = 13,
+            SPSF_12kHz16BitMono = 14,
+            SPSF_12kHz16BitStereo = 15,
+            SPSF_16kHz8BitMono = 16,
+            SPSF_16kHz8BitStereo = 17,
+            SPSF_16kHz16BitMono = 18,
+            SPSF_16kHz16BitStereo = 19,
+            SPSF_22kHz8BitMono = 20,
+            SPSF_22kHz8BitStereo = 21,
+            SPSF_22kHz16BitMono = 22,
+            SPSF_22kHz16BitStereo = 23,
+            SPSF_24kHz8BitMono = 24,
+            SPSF_24kHz8BitStereo = 25,
+            SPSF_24kHz16BitMono = 26,
+            SPSF_24kHz16BitStereo = 27,
+            SPSF_32kHz8BitMono = 28,
+            SPSF_32kHz8BitStereo = 29,
+            SPSF_32kHz16BitMono = 30,
+            SPSF_32kHz16BitStereo = 31,
+            SPSF_44kHz8BitMono = 32,
+            SPSF_44kHz8BitStereo = 33,
+            SPSF_44kHz16BitMono = 34,
+            SPSF_44kHz16BitStereo = 35,
+            SPSF_48kHz8BitMono = 36,
+            SPSF_48kHz8BitStereo = 37,
+            SPSF_48kHz16BitMono = 38,
+            SPSF_48kHz16BitStereo = 39,
+            SPSF_TrueSpeech_8kHz1BitMono = 40,
+            SPSF_CCITT_ALaw_8kHzMono = 41,
+            SPSF_CCITT_ALaw_8kHzStereo = 42,
+            SPSF_CCITT_ALaw_11kHzMono = 43,
+            SPSF_CCITT_ALaw_11kHzStereo = 44,
+            SPSF_CCITT_ALaw_22kHzMono = 45,
+            SPSF_CCITT_ALaw_22kHzStereo = 46,
+            SPSF_CCITT_ALaw_44kHzMono = 47,
+            SPSF_CCITT_ALaw_44kHzStereo = 48,
+            SPSF_CCITT_uLaw_8kHzMono = 49,
+            SPSF_CCITT_uLaw_8kHzStereo = 50,
+            SPSF_CCITT_uLaw_11kHzMono = 51,
+            SPSF_CCITT_uLaw_11kHzStereo = 52,
+            SPSF_CCITT_uLaw_22kHzMono = 53,
+            SPSF_CCITT_uLaw_22kHzStereo = 54,
+            SPSF_CCITT_uLaw_44kHzMono = 55,
+            SPSF_CCITT_uLaw_44kHzStereo = 56,
+            SPSF_ADPCM_8kHzMono = 57,
+            SPSF_ADPCM_8kHzStereo = 58,
+            SPSF_ADPCM_11kHzMono = 59,
+            SPSF_ADPCM_11kHzStereo = 60,
+            SPSF_ADPCM_22kHzMono = 61,
+            SPSF_ADPCM_22kHzStereo = 62,
+            SPSF_ADPCM_44kHzMono = 63,
+            SPSF_ADPCM_44kHzStereo = 64,
+            SPSF_GSM610_8kHzMono = 65,
+            SPSF_GSM610_11kHzMono = 66,
+            SPSF_GSM610_22kHzMono = 67,
+            SPSF_GSM610_44kHzMono = 68,
+            SPSF_NUM_FORMATS = 69,
+        }
+        #[repr(i32)]
+        enum SPSTREAMFORMATTYPE {
+            SPWF_INPUT = 0,
+            SPWF_SRENGINE = 1,
+        }
+        struct SPTEXTSELECTIONINFO {
+            ulStartActiveOffset: u32,
+            cchActiveChars: u32,
+            ulStartSelection: u32,
+            cchSelection: u32,
+        }
+        #[encoding("utf-16")]
+        const SPTOKENKEY_ATTRIBUTES: String = "Attributes";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: String = "LatencyTruncateThreshold";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: String = "LatencyUpdateInterval";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_AUDIO_LATENCY_WARNING: String = "LatencyWarningThreshold";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_FILES: String = "Files";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_RETAINEDAUDIO: String = "SecondsPerRetainedAudioEvent";
+        #[encoding("utf-16")]
+        const SPTOKENKEY_UI: String = "UI";
+        #[encoding("utf-16")]
+        const SPTOKENVALUE_CLSID: String = "CLSID";
+        #[encoding("utf-16")]
+        const SPTOPIC_SPELLING: String = "Spelling";
+        #[repr(i32)]
+        enum SPVACTIONS {
+            SPVA_Speak = 0,
+            SPVA_Silence = 1,
+            SPVA_Pronounce = 2,
+            SPVA_Bookmark = 3,
+            SPVA_SpellOut = 4,
+            SPVA_Section = 5,
+            SPVA_ParseUnknownTag = 6,
+        }
+        #[repr(i32)]
+        enum SPVALUETYPE {
+            SPDF_PROPERTY = 1,
+            SPDF_REPLACEMENT = 2,
+            SPDF_RULE = 4,
+            SPDF_DISPLAYTEXT = 8,
+            SPDF_LEXICALFORM = 16,
+            SPDF_PRONUNCIATION = 32,
+            SPDF_AUDIO = 64,
+            SPDF_ALTERNATES = 128,
+            SPDF_ALL = 255,
+        }
+        struct SPVCONTEXT {
+            pCategory: PCWSTR,
+            pBefore: PCWSTR,
+            pAfter: PCWSTR,
+        }
+        #[repr(i32)]
+        enum SPVFEATURE {
+            SPVFEATURE_STRESSED = 1,
+            SPVFEATURE_EMPHASIS = 2,
+        }
+        #[repr(i32)]
+        enum SPVISEMES {
+            SP_VISEME_0 = 0,
+            SP_VISEME_1 = 1,
+            SP_VISEME_2 = 2,
+            SP_VISEME_3 = 3,
+            SP_VISEME_4 = 4,
+            SP_VISEME_5 = 5,
+            SP_VISEME_6 = 6,
+            SP_VISEME_7 = 7,
+            SP_VISEME_8 = 8,
+            SP_VISEME_9 = 9,
+            SP_VISEME_10 = 10,
+            SP_VISEME_11 = 11,
+            SP_VISEME_12 = 12,
+            SP_VISEME_13 = 13,
+            SP_VISEME_14 = 14,
+            SP_VISEME_15 = 15,
+            SP_VISEME_16 = 16,
+            SP_VISEME_17 = 17,
+            SP_VISEME_18 = 18,
+            SP_VISEME_19 = 19,
+            SP_VISEME_20 = 20,
+            SP_VISEME_21 = 21,
+        }
+        #[repr(i32)]
+        enum SPVLIMITS {
+            SPMIN_VOLUME = 0,
+            SPMAX_VOLUME = 100,
+            SPMIN_RATE = -10,
+            SPMAX_RATE = 10,
+        }
+        #[encoding("utf-16")]
+        const SPVOICECATEGORY_TTSRATE: String = "DefaultTTSRate";
+        struct SPVOICESTATUS {
+            ulCurrentStream: u32,
+            ulLastStreamQueued: u32,
+            hrLastResult: HRESULT,
+            dwRunningState: u32,
+            ulInputWordPos: u32,
+            ulInputWordLen: u32,
+            ulInputSentPos: u32,
+            ulInputSentLen: u32,
+            lBookmarkId: i32,
+            PhonemeId: SPPHONEID,
+            VisemeId: SPVISEMES,
+            dwReserved1: u32,
+            dwReserved2: u32,
+        }
+        struct SPVPITCH {
+            MiddleAdj: i32,
+            RangeAdj: i32,
+        }
+        #[repr(i32)]
+        enum SPVPRIORITY {
+            SPVPRI_NORMAL = 0,
+            SPVPRI_ALERT = 1,
+            SPVPRI_OVER = 2,
+        }
+        struct SPVSTATE {
+            eAction: SPVACTIONS,
+            LangID: u16,
+            wReserved: u16,
+            EmphAdj: i32,
+            RateAdj: i32,
+            Volume: u32,
+            PitchAdj: SPVPITCH,
+            SilenceMSecs: u32,
+            pPhoneIds: *mut SPPHONEID,
+            ePartOfSpeech: SPPARTOFSPEECH,
+            Context: SPVCONTEXT,
+        }
+        #[encoding("utf-16")]
+        const SPWILDCARD: String = "...";
+        struct SPWORD {
+            pNextWord: *mut SPWORD,
+            LangID: u16,
+            wReserved: u16,
+            eWordType: SPWORDTYPE,
+            pszWord: PWSTR,
+            pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
+        }
+        struct SPWORDLIST {
+            ulSize: u32,
+            pvBuffer: *mut u8,
+            pFirstWord: *mut SPWORD,
+        }
+        #[repr(i32)]
+        enum SPWORDPRONOUNCEABLE {
+            SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE = 0,
+            SPWP_UNKNOWN_WORD_PRONOUNCEABLE = 1,
+            SPWP_KNOWN_WORD_PRONOUNCEABLE = 2,
+        }
+        struct SPWORDPRONUNCIATION {
+            pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
+            eLexiconType: SPLEXICONTYPE,
+            LangID: u16,
+            wPronunciationFlags: u16,
+            ePartOfSpeech: SPPARTOFSPEECH,
+            szPronunciation: [SPPHONEID; 1],
+        }
+        struct SPWORDPRONUNCIATIONLIST {
+            ulSize: u32,
+            pvBuffer: *mut u8,
+            pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
+        }
+        #[repr(i32)]
+        enum SPWORDTYPE {
+            eWORDTYPE_ADDED = 1,
+            eWORDTYPE_DELETED = 2,
+        }
+        #[repr(i32)]
+        enum SPXMLRESULTOPTIONS {
+            SPXRO_SML = 0,
+            SPXRO_Alternates_SML = 1,
+        }
+        const SP_EMULATE_RESULT: u32 = 1073741824;
+        const SP_GETWHOLEPHRASE: i32 = -1;
+        const SP_HIGH_CONFIDENCE: u32 = 1;
+        const SP_LOW_CONFIDENCE: i32 = -1;
+        const SP_MAX_LANGIDS: u32 = 20;
+        const SP_MAX_PRON_LENGTH: u32 = 384;
+        const SP_MAX_WORD_LENGTH: u32 = 128;
+        const SP_NORMAL_CONFIDENCE: u32 = 0;
+        const SP_STREAMPOS_ASAP: u32 = 0;
+        const SP_STREAMPOS_REALTIME: i32 = -1;
+        const SpAudioFormat: GUID = 0x9ef96870_e160_4792_820d_48cf0649e4ec;
+        const SpCompressedLexicon: GUID = 0x90903716_2f42_11d3_9c26_00c04f8ef87c;
+        const SpCustomStream: GUID = 0x8dbef13f_1948_4aa8_8cf0_048eebed95d8;
+        const SpFileStream: GUID = 0x947812b3_2ae1_4644_ba86_9e90ded7ec91;
+        const SpInProcRecoContext: GUID = 0x73ad6842_ace0_45e8_a4dd_8795881a2c2a;
+        const SpInprocRecognizer: GUID = 0x41b89b6b_9399_11d2_9623_00c04f8ee628;
+        const SpLexicon: GUID = 0x0655e396_25d0_11d3_9c26_00c04f8ef87c;
+        const SpMMAudioEnum: GUID = 0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0;
+        const SpMMAudioIn: GUID = 0xcf3d2e50_53f2_11d2_960c_00c04f8ee628;
+        const SpMMAudioOut: GUID = 0xa8c680eb_3d32_11d2_9ee7_00c04f797396;
+        const SpMemoryStream: GUID = 0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994;
+        const SpNotifyTranslator: GUID = 0xe2ae5372_5d40_11d2_960e_00c04f8ee628;
+        const SpNullPhoneConverter: GUID = 0x455f24e9_7396_4a16_9715_7c0fdbe3efe3;
+        const SpObjectToken: GUID = 0xef411752_3736_4cb4_9c8c_8ef4ccb58efe;
+        const SpObjectTokenCategory: GUID = 0xa910187f_0c7a_45ac_92cc_59edafb77b53;
+        const SpPhoneConverter: GUID = 0x9185f743_1143_4c28_86b5_bff14f20e5c8;
+        const SpPhoneticAlphabetConverter: GUID = 0x4f414126_dfe3_4629_99ee_797978317ead;
+        const SpPhraseInfoBuilder: GUID = 0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1;
+        const SpResourceManager: GUID = 0x96749373_3391_11d2_9ee3_00c04f797396;
+        const SpSharedRecoContext: GUID = 0x47206204_5eca_11d2_960f_00c04f8ee628;
+        const SpSharedRecognizer: GUID = 0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f;
+        const SpShortcut: GUID = 0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa;
+        const SpStream: GUID = 0x715d9c59_4442_11d2_9605_00c04f8ee628;
+        const SpStreamFormatConverter: GUID = 0x7013943a_e2ec_11d2_a086_00c04f8ef9b5;
+        const SpTextSelectionInformation: GUID = 0x0f92030a_cbfd_4ab8_a164_ff5985547ff6;
+        const SpUnCompressedLexicon: GUID = 0xc9e37c15_df92_4727_85d6_72e5eeb6995a;
+        const SpVoice: GUID = 0x96749377_3391_11d2_9ee3_00c04f797396;
+        const SpWaveFormatEx: GUID = 0xc79a574c_63be_44b9_801f_283f87f898be;
+        #[repr(i32)]
+        enum SpeechAudioFormatType {
+            SAFTDefault = -1,
+            SAFTNoAssignedFormat = 0,
+            SAFTText = 1,
+            SAFTNonStandardFormat = 2,
+            SAFTExtendedAudioFormat = 3,
+            SAFT8kHz8BitMono = 4,
+            SAFT8kHz8BitStereo = 5,
+            SAFT8kHz16BitMono = 6,
+            SAFT8kHz16BitStereo = 7,
+            SAFT11kHz8BitMono = 8,
+            SAFT11kHz8BitStereo = 9,
+            SAFT11kHz16BitMono = 10,
+            SAFT11kHz16BitStereo = 11,
+            SAFT12kHz8BitMono = 12,
+            SAFT12kHz8BitStereo = 13,
+            SAFT12kHz16BitMono = 14,
+            SAFT12kHz16BitStereo = 15,
+            SAFT16kHz8BitMono = 16,
+            SAFT16kHz8BitStereo = 17,
+            SAFT16kHz16BitMono = 18,
+            SAFT16kHz16BitStereo = 19,
+            SAFT22kHz8BitMono = 20,
+            SAFT22kHz8BitStereo = 21,
+            SAFT22kHz16BitMono = 22,
+            SAFT22kHz16BitStereo = 23,
+            SAFT24kHz8BitMono = 24,
+            SAFT24kHz8BitStereo = 25,
+            SAFT24kHz16BitMono = 26,
+            SAFT24kHz16BitStereo = 27,
+            SAFT32kHz8BitMono = 28,
+            SAFT32kHz8BitStereo = 29,
+            SAFT32kHz16BitMono = 30,
+            SAFT32kHz16BitStereo = 31,
+            SAFT44kHz8BitMono = 32,
+            SAFT44kHz8BitStereo = 33,
+            SAFT44kHz16BitMono = 34,
+            SAFT44kHz16BitStereo = 35,
+            SAFT48kHz8BitMono = 36,
+            SAFT48kHz8BitStereo = 37,
+            SAFT48kHz16BitMono = 38,
+            SAFT48kHz16BitStereo = 39,
+            SAFTTrueSpeech_8kHz1BitMono = 40,
+            SAFTCCITT_ALaw_8kHzMono = 41,
+            SAFTCCITT_ALaw_8kHzStereo = 42,
+            SAFTCCITT_ALaw_11kHzMono = 43,
+            SAFTCCITT_ALaw_11kHzStereo = 44,
+            SAFTCCITT_ALaw_22kHzMono = 45,
+            SAFTCCITT_ALaw_22kHzStereo = 46,
+            SAFTCCITT_ALaw_44kHzMono = 47,
+            SAFTCCITT_ALaw_44kHzStereo = 48,
+            SAFTCCITT_uLaw_8kHzMono = 49,
+            SAFTCCITT_uLaw_8kHzStereo = 50,
+            SAFTCCITT_uLaw_11kHzMono = 51,
+            SAFTCCITT_uLaw_11kHzStereo = 52,
+            SAFTCCITT_uLaw_22kHzMono = 53,
+            SAFTCCITT_uLaw_22kHzStereo = 54,
+            SAFTCCITT_uLaw_44kHzMono = 55,
+            SAFTCCITT_uLaw_44kHzStereo = 56,
+            SAFTADPCM_8kHzMono = 57,
+            SAFTADPCM_8kHzStereo = 58,
+            SAFTADPCM_11kHzMono = 59,
+            SAFTADPCM_11kHzStereo = 60,
+            SAFTADPCM_22kHzMono = 61,
+            SAFTADPCM_22kHzStereo = 62,
+            SAFTADPCM_44kHzMono = 63,
+            SAFTADPCM_44kHzStereo = 64,
+            SAFTGSM610_8kHzMono = 65,
+            SAFTGSM610_11kHzMono = 66,
+            SAFTGSM610_22kHzMono = 67,
+            SAFTGSM610_44kHzMono = 68,
+        }
+        #[repr(i32)]
+        enum SpeechAudioState {
+            SASClosed = 0,
+            SASStop = 1,
+            SASPause = 2,
+            SASRun = 3,
+        }
+        #[repr(i32)]
+        enum SpeechBookmarkOptions {
+            SBONone = 0,
+            SBOPause = 1,
+        }
+        #[repr(i32)]
+        enum SpeechDataKeyLocation {
+            SDKLDefaultLocation = 0,
+            SDKLCurrentUser = 1,
+            SDKLLocalMachine = 2,
+            SDKLCurrentConfig = 5,
+        }
+        #[repr(i32)]
+        enum SpeechDiscardType {
+            SDTProperty = 1,
+            SDTReplacement = 2,
+            SDTRule = 4,
+            SDTDisplayText = 8,
+            SDTLexicalForm = 16,
+            SDTPronunciation = 32,
+            SDTAudio = 64,
+            SDTAlternates = 128,
+            SDTAll = 255,
+        }
+        #[repr(i32)]
+        enum SpeechDisplayAttributes {
+            SDA_No_Trailing_Space = 0,
+            SDA_One_Trailing_Space = 2,
+            SDA_Two_Trailing_Spaces = 4,
+            SDA_Consume_Leading_Spaces = 8,
+        }
+        #[repr(i32)]
+        enum SpeechEmulationCompareFlags {
+            SECFIgnoreCase = 1,
+            SECFIgnoreKanaType = 65536,
+            SECFIgnoreWidth = 131072,
+            SECFNoSpecialChars = 536870912,
+            SECFEmulateResult = 1073741824,
+            SECFDefault = 196609,
+        }
+        #[repr(i32)]
+        enum SpeechEngineConfidence {
+            SECLowConfidence = -1,
+            SECNormalConfidence = 0,
+            SECHighConfidence = 1,
+        }
+        #[repr(i32)]
+        enum SpeechFormatType {
+            SFTInput = 0,
+            SFTSREngine = 1,
+        }
+        #[repr(i32)]
+        enum SpeechGrammarRuleStateTransitionType {
+            SGRSTTEpsilon = 0,
+            SGRSTTWord = 1,
+            SGRSTTRule = 2,
+            SGRSTTDictation = 3,
+            SGRSTTWildcard = 4,
+            SGRSTTTextBuffer = 5,
+        }
+        #[repr(i32)]
+        enum SpeechGrammarState {
+            SGSEnabled = 1,
+            SGSDisabled = 0,
+            SGSExclusive = 3,
+        }
+        #[repr(i32)]
+        enum SpeechGrammarWordType {
+            SGDisplay = 0,
+            SGLexical = 1,
+            SGPronounciation = 2,
+            SGLexicalNoSpecialChars = 3,
+        }
+        #[repr(i32)]
+        enum SpeechInterference {
+            SINone = 0,
+            SINoise = 1,
+            SINoSignal = 2,
+            SITooLoud = 3,
+            SITooQuiet = 4,
+            SITooFast = 5,
+            SITooSlow = 6,
+        }
+        type SpeechLanguageId = i32;
+        #[repr(i32)]
+        enum SpeechLexiconType {
+            SLTUser = 1,
+            SLTApp = 2,
+        }
+        #[repr(i32)]
+        enum SpeechLoadOption {
+            SLOStatic = 0,
+            SLODynamic = 1,
+        }
+        #[repr(i32)]
+        enum SpeechPartOfSpeech {
+            SPSNotOverriden = -1,
+            SPSUnknown = 0,
+            SPSNoun = 4096,
+            SPSVerb = 8192,
+            SPSModifier = 12288,
+            SPSFunction = 16384,
+            SPSInterjection = 20480,
+            SPSLMA = 28672,
+            SPSSuppressWord = 61440,
+        }
+        #[repr(i32)]
+        enum SpeechRecoContextState {
+            SRCS_Disabled = 0,
+            SRCS_Enabled = 1,
+        }
+        #[repr(i32)]
+        enum SpeechRecoEvents {
+            SREStreamEnd = 1,
+            SRESoundStart = 2,
+            SRESoundEnd = 4,
+            SREPhraseStart = 8,
+            SRERecognition = 16,
+            SREHypothesis = 32,
+            SREBookmark = 64,
+            SREPropertyNumChange = 128,
+            SREPropertyStringChange = 256,
+            SREFalseRecognition = 512,
+            SREInterference = 1024,
+            SRERequestUI = 2048,
+            SREStateChange = 4096,
+            SREAdaptation = 8192,
+            SREStreamStart = 16384,
+            SRERecoOtherContext = 32768,
+            SREAudioLevel = 65536,
+            SREPrivate = 262144,
+            SREAllEvents = 393215,
+        }
+        #[repr(i32)]
+        enum SpeechRecognitionType {
+            SRTStandard = 0,
+            SRTAutopause = 1,
+            SRTEmulated = 2,
+            SRTSMLTimeout = 4,
+            SRTExtendableParse = 8,
+            SRTReSent = 16,
+        }
+        #[repr(i32)]
+        enum SpeechRecognizerState {
+            SRSInactive = 0,
+            SRSActive = 1,
+            SRSActiveAlways = 2,
+            SRSInactiveWithPurge = 3,
+        }
+        #[repr(i32)]
+        enum SpeechRetainedAudioOptions {
+            SRAONone = 0,
+            SRAORetainAudio = 1,
+        }
+        #[repr(i32)]
+        enum SpeechRuleAttributes {
+            SRATopLevel = 1,
+            SRADefaultToActive = 2,
+            SRAExport = 4,
+            SRAImport = 8,
+            SRAInterpreter = 16,
+            SRADynamic = 32,
+            SRARoot = 64,
+        }
+        #[repr(i32)]
+        enum SpeechRuleState {
+            SGDSInactive = 0,
+            SGDSActive = 1,
+            SGDSActiveWithAutoPause = 3,
+            SGDSActiveUserDelimited = 4,
+        }
+        #[repr(i32)]
+        enum SpeechRunState {
+            SRSEDone = 1,
+            SRSEIsSpeaking = 2,
+        }
+        #[repr(i32)]
+        enum SpeechSpecialTransitionType {
+            SSTTWildcard = 1,
+            SSTTDictation = 2,
+            SSTTTextBuffer = 3,
+        }
+        #[repr(i32)]
+        enum SpeechStreamFileMode {
+            SSFMOpenForRead = 0,
+            SSFMOpenReadWrite = 1,
+            SSFMCreate = 2,
+            SSFMCreateForWrite = 3,
+        }
+        #[repr(i32)]
+        enum SpeechStreamSeekPositionType {
+            SSSPTRelativeToStart = 0,
+            SSSPTRelativeToCurrentPosition = 1,
+            SSSPTRelativeToEnd = 2,
+        }
+        #[repr(i32)]
+        enum SpeechTokenContext {
+            STCInprocServer = 1,
+            STCInprocHandler = 2,
+            STCLocalServer = 4,
+            STCRemoteServer = 16,
+            STCAll = 23,
+        }
+        #[repr(i32)]
+        enum SpeechTokenShellFolder {
+            STSF_AppData = 26,
+            STSF_LocalAppData = 28,
+            STSF_CommonAppData = 35,
+            STSF_FlagCreate = 32768,
+        }
+        #[repr(i32)]
+        enum SpeechVisemeFeature {
+            SVF_None = 0,
+            SVF_Stressed = 1,
+            SVF_Emphasis = 2,
+        }
+        #[repr(i32)]
+        enum SpeechVisemeType {
+            SVP_0 = 0,
+            SVP_1 = 1,
+            SVP_2 = 2,
+            SVP_3 = 3,
+            SVP_4 = 4,
+            SVP_5 = 5,
+            SVP_6 = 6,
+            SVP_7 = 7,
+            SVP_8 = 8,
+            SVP_9 = 9,
+            SVP_10 = 10,
+            SVP_11 = 11,
+            SVP_12 = 12,
+            SVP_13 = 13,
+            SVP_14 = 14,
+            SVP_15 = 15,
+            SVP_16 = 16,
+            SVP_17 = 17,
+            SVP_18 = 18,
+            SVP_19 = 19,
+            SVP_20 = 20,
+            SVP_21 = 21,
+        }
+        #[repr(i32)]
+        enum SpeechVoiceEvents {
+            SVEStartInputStream = 2,
+            SVEEndInputStream = 4,
+            SVEVoiceChange = 8,
+            SVEBookmark = 16,
+            SVEWordBoundary = 32,
+            SVEPhoneme = 64,
+            SVESentenceBoundary = 128,
+            SVEViseme = 256,
+            SVEAudioLevel = 512,
+            SVEPrivate = 32768,
+            SVEAllEvents = 33790,
+        }
+        #[repr(i32)]
+        enum SpeechVoicePriority {
+            SVPNormal = 0,
+            SVPAlert = 1,
+            SVPOver = 2,
+        }
+        #[repr(i32)]
+        enum SpeechVoiceSpeakFlags {
+            SVSFDefault = 0,
+            SVSFlagsAsync = 1,
+            SVSFPurgeBeforeSpeak = 2,
+            SVSFIsFilename = 4,
+            SVSFIsXML = 8,
+            SVSFIsNotXML = 16,
+            SVSFPersistXML = 32,
+            SVSFNLPSpeakPunc = 64,
+            SVSFParseSapi = 128,
+            SVSFParseSsml = 256,
+            SVSFParseAutodetect = 0,
+            SVSFNLPMask = 64,
+            SVSFParseMask = 384,
+            SVSFVoiceMask = 511,
+            SVSFUnusedFlags = -512,
+        }
+        #[repr(i32)]
+        enum SpeechWordPronounceable {
+            SWPUnknownWordUnpronounceable = 0,
+            SWPUnknownWordPronounceable = 1,
+            SWPKnownWordPronounceable = 2,
+        }
+        #[repr(i32)]
+        enum SpeechWordType {
+            SWTAdded = 1,
+            SWTDeleted = 2,
+        }
+        #[guid(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d)]
+        interface _ISpeechRecoContextEvents: IDispatch {}
+        #[guid(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8)]
+        interface _ISpeechVoiceEvents: IDispatch {}
+    }
+}

@@ -42,6 +42,54 @@ impl Struct {
             }
         }
 
+        let sys_default =
+            if config.bindgen.style.is_sys() && !config.bindgen.style.derive_std_traits() {
+                // Sys mode drops the blanket `Default` derive, yet Win32 structs still
+                // guarantee `Default` (derived when possible, else a zeroed impl) so that
+                // any struct embedding them can itself derive `Default`. A projected WinRT
+                // struct (e.g. the numerics `Vector2`/`Matrix3x2`) must uphold the same
+                // guarantee. All-scalar structs derive it; anything else gets the zeroed
+                // impl, matching `CppStruct`.
+                let all_scalar = fields.iter().all(|(_, ty)| {
+                    matches!(
+                        ty,
+                        Type::Bool
+                            | Type::Char
+                            | Type::I8
+                            | Type::U8
+                            | Type::I16
+                            | Type::U16
+                            | Type::I32
+                            | Type::U32
+                            | Type::I64
+                            | Type::U64
+                            | Type::F32
+                            | Type::F64
+                            | Type::ISize
+                            | Type::USize
+                            | Type::HRESULT
+                            | Type::BOOL
+                            | Type::GUID
+                    )
+                });
+
+                if all_scalar {
+                    derive.extend(["Default"]);
+                    quote! {}
+                } else {
+                    let name = to_ident(self.def.name());
+                    quote! {
+                        impl Default for #name {
+                            fn default() -> Self {
+                                unsafe { core::mem::zeroed() }
+                            }
+                        }
+                    }
+                }
+            } else {
+                quote! {}
+            };
+
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
         let fields = fields.iter().map(|(name, ty)| {
@@ -84,6 +132,7 @@ impl Struct {
             pub struct #name {
                 #(#fields)*
             }
+            #sys_default
             #win_traits
         }
     }

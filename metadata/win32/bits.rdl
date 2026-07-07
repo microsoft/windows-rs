@@ -1,0 +1,165 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xca29d251_b4bb_4679_a3d9_ae8006119d54)]
+        interface AsyncIBackgroundCopyCallback: IUnknown {
+            fn Begin_JobTransferred(&self, pJob: IBackgroundCopyJob) -> HRESULT;
+            fn Finish_JobTransferred(&self) -> HRESULT;
+            fn Begin_JobError(&self, pJob: IBackgroundCopyJob, pError: IBackgroundCopyError) -> HRESULT;
+            fn Finish_JobError(&self) -> HRESULT;
+            fn Begin_JobModification(&self, pJob: IBackgroundCopyJob, dwReserved: u32) -> HRESULT;
+            fn Finish_JobModification(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum BG_ERROR_CONTEXT {
+            BG_ERROR_CONTEXT_NONE = 0,
+            BG_ERROR_CONTEXT_UNKNOWN = 1,
+            BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER = 2,
+            BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION = 3,
+            BG_ERROR_CONTEXT_LOCAL_FILE = 4,
+            BG_ERROR_CONTEXT_REMOTE_FILE = 5,
+            BG_ERROR_CONTEXT_GENERAL_TRANSPORT = 6,
+            BG_ERROR_CONTEXT_REMOTE_APPLICATION = 7,
+            BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK = 8,
+        }
+        struct BG_FILE_INFO {
+            RemoteName: PWSTR,
+            LocalName: PWSTR,
+        }
+        struct BG_FILE_PROGRESS {
+            BytesTotal: u64,
+            BytesTransferred: u64,
+            Completed: BOOL,
+        }
+        const BG_JOB_ENUM_ALL_USERS: u32 = 1;
+        #[repr(i32)]
+        enum BG_JOB_PRIORITY {
+            BG_JOB_PRIORITY_FOREGROUND = 0,
+            BG_JOB_PRIORITY_HIGH = 1,
+            BG_JOB_PRIORITY_NORMAL = 2,
+            BG_JOB_PRIORITY_LOW = 3,
+        }
+        struct BG_JOB_PROGRESS {
+            BytesTotal: u64,
+            BytesTransferred: u64,
+            FilesTotal: u32,
+            FilesTransferred: u32,
+        }
+        #[repr(i32)]
+        enum BG_JOB_PROXY_USAGE {
+            BG_JOB_PROXY_USAGE_PRECONFIG = 0,
+            BG_JOB_PROXY_USAGE_NO_PROXY = 1,
+            BG_JOB_PROXY_USAGE_OVERRIDE = 2,
+            BG_JOB_PROXY_USAGE_AUTODETECT = 3,
+        }
+        #[repr(i32)]
+        enum BG_JOB_STATE {
+            BG_JOB_STATE_QUEUED = 0,
+            BG_JOB_STATE_CONNECTING = 1,
+            BG_JOB_STATE_TRANSFERRING = 2,
+            BG_JOB_STATE_SUSPENDED = 3,
+            BG_JOB_STATE_ERROR = 4,
+            BG_JOB_STATE_TRANSIENT_ERROR = 5,
+            BG_JOB_STATE_TRANSFERRED = 6,
+            BG_JOB_STATE_ACKNOWLEDGED = 7,
+            BG_JOB_STATE_CANCELLED = 8,
+        }
+        struct BG_JOB_TIMES {
+            CreationTime: FILETIME,
+            ModificationTime: FILETIME,
+            TransferCompletionTime: FILETIME,
+        }
+        #[repr(i32)]
+        enum BG_JOB_TYPE {
+            BG_JOB_TYPE_DOWNLOAD = 0,
+            BG_JOB_TYPE_UPLOAD = 1,
+            BG_JOB_TYPE_UPLOAD_REPLY = 2,
+        }
+        const BG_NOTIFY_DISABLE: u32 = 4;
+        const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32;
+        const BG_NOTIFY_FILE_TRANSFERRED: u32 = 16;
+        const BG_NOTIFY_JOB_ERROR: u32 = 2;
+        const BG_NOTIFY_JOB_MODIFICATION: u32 = 8;
+        const BG_NOTIFY_JOB_TRANSFERRED: u32 = 1;
+        const BG_SIZE_UNKNOWN: i32 = -1;
+        const BackgroundCopyManager: GUID = 0x4991d34b_80a1_4291_83b6_3328366b9097;
+        #[guid(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22)]
+        interface IBackgroundCopyCallback: IUnknown {
+            fn JobTransferred(&self, pJob: IBackgroundCopyJob) -> HRESULT;
+            fn JobError(&self, pJob: IBackgroundCopyJob, pError: IBackgroundCopyError) -> HRESULT;
+            fn JobModification(&self, pJob: IBackgroundCopyJob, dwReserved: u32) -> HRESULT;
+        }
+        #[guid(0x19c613a0_fcb8_4f28_81ae_897c3d078f81)]
+        interface IBackgroundCopyError: IUnknown {
+            fn GetError(&self, pContext: *mut BG_ERROR_CONTEXT, pCode: *mut HRESULT) -> HRESULT;
+            fn GetFile(&self, pVal: *mut IBackgroundCopyFile) -> HRESULT;
+            fn GetErrorDescription(&self, LanguageId: u32, pErrorDescription: *mut PWSTR) -> HRESULT;
+            fn GetErrorContextDescription(&self, LanguageId: u32, pContextDescription: *mut PWSTR) -> HRESULT;
+            fn GetProtocol(&self, pProtocol: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x01b7bd23_fb88_4a77_8490_5891d3e4653a)]
+        interface IBackgroundCopyFile: IUnknown {
+            fn GetRemoteName(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn GetLocalName(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn GetProgress(&self, pVal: *mut BG_FILE_PROGRESS) -> HRESULT;
+        }
+        #[guid(0x37668d37_507e_4160_9316_26306d150b12)]
+        interface IBackgroundCopyJob: IUnknown {
+            fn AddFileSet(&self, cFileCount: u32, pFileSet: *const BG_FILE_INFO) -> HRESULT;
+            fn AddFile(&self, RemoteUrl: PCWSTR, LocalName: PCWSTR) -> HRESULT;
+            fn EnumFiles(&self, pEnum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
+            fn Suspend(&self) -> HRESULT;
+            fn Resume(&self) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+            fn Complete(&self) -> HRESULT;
+            fn GetId(&self, pVal: *mut GUID) -> HRESULT;
+            fn GetType(&self, pVal: *mut BG_JOB_TYPE) -> HRESULT;
+            fn GetProgress(&self, pVal: *mut BG_JOB_PROGRESS) -> HRESULT;
+            fn GetTimes(&self, pVal: *mut BG_JOB_TIMES) -> HRESULT;
+            fn GetState(&self, pVal: *mut BG_JOB_STATE) -> HRESULT;
+            fn GetError(&self, ppError: *mut IBackgroundCopyError) -> HRESULT;
+            fn GetOwner(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn SetDisplayName(&self, Val: PCWSTR) -> HRESULT;
+            fn GetDisplayName(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn SetDescription(&self, Val: PCWSTR) -> HRESULT;
+            fn GetDescription(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn SetPriority(&self, Val: BG_JOB_PRIORITY) -> HRESULT;
+            fn GetPriority(&self, pVal: *mut BG_JOB_PRIORITY) -> HRESULT;
+            fn SetNotifyFlags(&self, Val: u32) -> HRESULT;
+            fn GetNotifyFlags(&self, pVal: *mut u32) -> HRESULT;
+            fn SetNotifyInterface(&self, Val: IUnknown) -> HRESULT;
+            fn GetNotifyInterface(&self, pVal: *mut IUnknown) -> HRESULT;
+            fn SetMinimumRetryDelay(&self, Seconds: u32) -> HRESULT;
+            fn GetMinimumRetryDelay(&self, Seconds: *mut u32) -> HRESULT;
+            fn SetNoProgressTimeout(&self, Seconds: u32) -> HRESULT;
+            fn GetNoProgressTimeout(&self, Seconds: *mut u32) -> HRESULT;
+            fn GetErrorCount(&self, Errors: *mut u32) -> HRESULT;
+            fn SetProxySettings(&self, ProxyUsage: BG_JOB_PROXY_USAGE, ProxyList: *const u16, ProxyBypassList: *const u16) -> HRESULT;
+            fn GetProxySettings(&self, pProxyUsage: *mut BG_JOB_PROXY_USAGE, pProxyList: *mut PWSTR, pProxyBypassList: *mut PWSTR) -> HRESULT;
+            fn TakeOwnership(&self) -> HRESULT;
+        }
+        #[guid(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c)]
+        interface IBackgroundCopyManager: IUnknown {
+            fn CreateJob(&self, DisplayName: PCWSTR, Type: BG_JOB_TYPE, pJobId: *mut GUID, ppJob: *mut IBackgroundCopyJob) -> HRESULT;
+            fn GetJob(&self, jobID: *const GUID, ppJob: *mut IBackgroundCopyJob) -> HRESULT;
+            fn EnumJobs(&self, dwFlags: u32, ppEnum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
+            fn GetErrorDescription(&self, hResult: HRESULT, LanguageId: u32, pErrorDescription: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
+        interface IEnumBackgroundCopyFiles: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IBackgroundCopyFile, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
+            fn GetCount(&self, puCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad)]
+        interface IEnumBackgroundCopyJobs: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IBackgroundCopyJob, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumBackgroundCopyJobs) -> HRESULT;
+            fn GetCount(&self, puCount: *mut u32) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    #[library("")]
+    extern fn CoThing(rguid: REFGUID, out: *mut GUID, count: *const i32) -> i32;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    type REFGUID = *const GUID;
+}

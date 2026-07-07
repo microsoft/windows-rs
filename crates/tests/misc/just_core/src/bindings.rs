@@ -7,29 +7,33 @@ pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
     }
 }
 #[inline]
-pub unsafe fn GetLastError() -> windows_core::WIN32_ERROR {
-    windows_core::link!("kernel32.dll" "system" fn GetLastError() -> windows_core::WIN32_ERROR);
+pub unsafe fn GetLastError() -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetLastError() -> u32);
     unsafe { GetLastError() }
 }
 #[inline]
-pub unsafe fn IsCharLowerA(ch: i8) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_core::BOOL);
-    unsafe { IsCharLowerA(ch).ok() }
+pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
+    windows_core::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut windows_core::GUID));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        HidD_GetHidGuid(&mut result__);
+        result__
+    }
 }
 #[inline]
-pub unsafe fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS);
+pub unsafe fn IsCharLowerA(ch: i8) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_core::BOOL);
+    unsafe { IsCharLowerA(ch) }
+}
+#[inline]
+pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS);
     unsafe { RpcMgmtEnableIdleCleanup() }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
     windows_core::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : *mut core::ffi::c_void));
     unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
-}
-#[inline]
-pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> windows_core::NTSTATUS {
-    windows_core::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> windows_core::NTSTATUS);
-    unsafe { VhfStart(vhfhandle) }
 }
 windows_core::imp::define_interface!(
     IStringable,
@@ -101,3 +105,6 @@ pub struct IStringable_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct RPC_STATUS(pub i32);

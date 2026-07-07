@@ -1,0 +1,81 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BG_DISABLE_BRANCH_CACHE: u32 = 4;
+        const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1;
+        const BG_ENABLE_PEERCACHING_SERVER: u32 = 2;
+        const BG_JOB_DISABLE_BRANCH_CACHE: u32 = 4;
+        const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1;
+        const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2;
+        const BackgroundCopyManager3_0: GUID = 0x659cdea7_489e_11d9_a9cd_000d56965251;
+        #[guid(0x659cdeac_489e_11d9_a9cd_000d56965251)]
+        interface IBackgroundCopyCallback2: IBackgroundCopyCallback {
+            fn FileTransferred(&self, pJob: IBackgroundCopyJob, pFile: IBackgroundCopyFile) -> HRESULT;
+        }
+        #[guid(0x659cdeaa_489e_11d9_a9cd_000d56965251)]
+        interface IBackgroundCopyFile3: IBackgroundCopyFile2 {
+            fn GetTemporaryName(&self, pFilename: *mut PWSTR) -> HRESULT;
+            fn SetValidationState(&self, state: BOOL) -> HRESULT;
+            fn GetValidationState(&self, pState: *mut BOOL) -> HRESULT;
+            fn IsDownloadedFromPeer(&self, pVal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x659cdeae_489e_11d9_a9cd_000d56965251)]
+        interface IBackgroundCopyJob4: IBackgroundCopyJob3 {
+            fn SetPeerCachingFlags(&self, Flags: u32) -> HRESULT;
+            fn GetPeerCachingFlags(&self, pFlags: *mut u32) -> HRESULT;
+            fn GetOwnerIntegrityLevel(&self, pLevel: *mut u32) -> HRESULT;
+            fn GetOwnerElevationState(&self, pElevated: *mut BOOL) -> HRESULT;
+            fn SetMaximumDownloadTime(&self, Timeout: u32) -> HRESULT;
+            fn GetMaximumDownloadTime(&self, pTimeout: *mut u32) -> HRESULT;
+        }
+        #[guid(0x659cdea2_489e_11d9_a9cd_000d56965251)]
+        interface IBitsPeer: IUnknown {
+            fn GetPeerName(&self, pName: *mut PWSTR) -> HRESULT;
+            fn IsAuthenticated(&self, pAuth: *mut BOOL) -> HRESULT;
+            fn IsAvailable(&self, pOnline: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x659cdead_489e_11d9_a9cd_000d56965251)]
+        interface IBitsPeerCacheAdministration: IUnknown {
+            fn GetMaximumCacheSize(&self, pBytes: *mut u32) -> HRESULT;
+            fn SetMaximumCacheSize(&self, Bytes: u32) -> HRESULT;
+            fn GetMaximumContentAge(&self, pSeconds: *mut u32) -> HRESULT;
+            fn SetMaximumContentAge(&self, Seconds: u32) -> HRESULT;
+            fn GetConfigurationFlags(&self, pFlags: *mut u32) -> HRESULT;
+            fn SetConfigurationFlags(&self, Flags: u32) -> HRESULT;
+            fn EnumRecords(&self, ppEnum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
+            fn GetRecord(&self, id: *const GUID, ppRecord: *mut IBitsPeerCacheRecord) -> HRESULT;
+            fn ClearRecords(&self) -> HRESULT;
+            fn DeleteRecord(&self, id: *const GUID) -> HRESULT;
+            fn DeleteUrl(&self, url: PCWSTR) -> HRESULT;
+            fn EnumPeers(&self, ppEnum: *mut IEnumBitsPeers) -> HRESULT;
+            fn ClearPeers(&self) -> HRESULT;
+            fn DiscoverPeers(&self) -> HRESULT;
+        }
+        #[guid(0x659cdeaf_489e_11d9_a9cd_000d56965251)]
+        interface IBitsPeerCacheRecord: IUnknown {
+            fn GetId(&self, pVal: *mut GUID) -> HRESULT;
+            fn GetOriginUrl(&self, pVal: *mut PWSTR) -> HRESULT;
+            fn GetFileSize(&self, pVal: *mut u64) -> HRESULT;
+            fn GetFileModificationTime(&self, pVal: *mut FILETIME) -> HRESULT;
+            fn GetLastAccessTime(&self, pVal: *mut FILETIME) -> HRESULT;
+            fn IsFileValidated(&self) -> HRESULT;
+            fn GetFileRanges(&self, pRangeCount: *mut u32, ppRanges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+        }
+        #[guid(0x659cdea4_489e_11d9_a9cd_000d56965251)]
+        interface IEnumBitsPeerCacheRecords: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IBitsPeerCacheRecord, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
+            fn GetCount(&self, puCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x659cdea5_489e_11d9_a9cd_000d56965251)]
+        interface IEnumBitsPeers: IUnknown {
+            fn Next(&self, celt: u32, rgelt: *mut IBitsPeer, #[in] #[out] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumBitsPeers) -> HRESULT;
+            fn GetCount(&self, puCount: *mut u32) -> HRESULT;
+        }
+    }
+}

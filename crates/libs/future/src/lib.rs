@@ -5,7 +5,7 @@
 mod r#async;
 #[expect(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 mod bindings;
-#[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
+#[expect(non_snake_case, clippy::upper_case_acronyms)]
 mod bindings_impl;
 mod join;
 mod waiter;

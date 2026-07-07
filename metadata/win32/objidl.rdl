@@ -1,0 +1,511 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ADVF {
+            ADVF_NODATA = 1,
+            ADVF_PRIMEFIRST = 2,
+            ADVF_ONLYONCE = 4,
+            ADVF_DATAONSTOP = 64,
+            ADVFCACHE_NOHANDLER = 8,
+            ADVFCACHE_FORCEBUILTIN = 16,
+            ADVFCACHE_ONSAVE = 32,
+        }
+        type ASYNC_STGMEDIUM = STGMEDIUM;
+        #[repr(i32)]
+        enum ApplicationType {
+            ServerApplication = 0,
+            LibraryApplication = 1,
+        }
+        #[guid(0x00000150_0000_0000_c000_000000000046)]
+        interface AsyncIAdviseSink: IUnknown {
+            fn Begin_OnDataChange(&self, pFormatetc: *const FORMATETC, pStgmed: *const STGMEDIUM);
+            fn Finish_OnDataChange(&self);
+            fn Begin_OnViewChange(&self, dwAspect: u32, lindex: i32);
+            fn Finish_OnViewChange(&self);
+            fn Begin_OnRename(&self, pmk: IMoniker);
+            fn Finish_OnRename(&self);
+            fn Begin_OnSave(&self);
+            fn Finish_OnSave(&self);
+            fn Begin_OnClose(&self);
+            fn Finish_OnClose(&self);
+        }
+        #[guid(0x00000151_0000_0000_c000_000000000046)]
+        interface AsyncIAdviseSink2: AsyncIAdviseSink {
+            fn Begin_OnLinkSrcChange(&self, pmk: IMoniker);
+            fn Finish_OnLinkSrcChange(&self);
+        }
+        #[repr(i32)]
+        enum BIND_FLAGS {
+            BIND_MAYBOTHERUSER = 1,
+            BIND_JUSTTESTEXISTENCE = 2,
+        }
+        struct BIND_OPTS {
+            cbStruct: u32,
+            grfFlags: u32,
+            grfMode: u32,
+            dwTickCountDeadline: u32,
+        }
+        struct BIND_OPTS2 {
+            Base: BIND_OPTS,
+            dwTrackFlags: u32,
+            dwClassContext: u32,
+            locale: LCID,
+            pServerInfo: *mut COSERVERINFO,
+        }
+        struct BIND_OPTS3 {
+            Base: BIND_OPTS2,
+            hwnd: HWND,
+        }
+        #[repr(i32)]
+        enum CALLTYPE {
+            CALLTYPE_TOPLEVEL = 1,
+            CALLTYPE_NESTED = 2,
+            CALLTYPE_ASYNC = 3,
+            CALLTYPE_TOPLEVEL_CALLPENDING = 4,
+            CALLTYPE_ASYNC_CALLPENDING = 5,
+        }
+        #[repr(i32)]
+        enum DATADIR {
+            DATADIR_GET = 1,
+            DATADIR_SET = 2,
+        }
+        struct DVTARGETDEVICE {
+            tdSize: u32,
+            tdDriverNameOffset: u16,
+            tdDeviceNameOffset: u16,
+            tdPortNameOffset: u16,
+            tdExtDevmodeOffset: u16,
+            tdData: [u8; 1],
+        }
+        struct FLAG_STGMEDIUM {
+            ContextFlags: i32,
+            fPassOwnership: i32,
+            Stgmed: STGMEDIUM,
+        }
+        struct FORMATETC {
+            cfFormat: CLIPFORMAT,
+            ptd: *mut DVTARGETDEVICE,
+            dwAspect: u32,
+            lindex: i32,
+            tymed: u32,
+        }
+        struct GDI_OBJECT {
+            ObjectType: u32,
+            u: GDI_OBJECT_0,
+        }
+        union GDI_OBJECT_0 {
+            hBitmap: wireHBITMAP,
+            hPalette: wireHPALETTE,
+            hGeneric: wireHGLOBAL,
+        }
+        #[guid(0x0000010f_0000_0000_c000_000000000046)]
+        interface IAdviseSink: IUnknown {
+            fn OnDataChange(&self, pFormatetc: *const FORMATETC, pStgmed: *const STGMEDIUM);
+            fn OnViewChange(&self, dwAspect: u32, lindex: i32);
+            fn OnRename(&self, pmk: IMoniker);
+            fn OnSave(&self);
+            fn OnClose(&self);
+        }
+        #[guid(0x00000125_0000_0000_c000_000000000046)]
+        interface IAdviseSink2: IAdviseSink {
+            fn OnLinkSrcChange(&self, pmk: IMoniker);
+        }
+        #[guid(0xa2f05a09_27a2_42b5_bc0e_ac163ef49d9b)]
+        interface IApartmentShutdown: IUnknown {
+            fn OnUninitialize(&self, ui64ApartmentIdentifier: u64);
+        }
+        #[guid(0x0000000e_0000_0000_c000_000000000046)]
+        interface IBindCtx: IUnknown {
+            fn RegisterObjectBound(&self, punk: IUnknown) -> HRESULT;
+            fn RevokeObjectBound(&self, punk: IUnknown) -> HRESULT;
+            fn ReleaseBoundObjects(&self) -> HRESULT;
+            fn SetBindOptions(&self, pbindopts: *const BIND_OPTS) -> HRESULT;
+            fn GetBindOptions(&self, #[in] #[out] pbindopts: *mut BIND_OPTS) -> HRESULT;
+            fn GetRunningObjectTable(&self, pprot: *mut IRunningObjectTable) -> HRESULT;
+            fn RegisterObjectParam(&self, pszKey: PCWSTR, punk: IUnknown) -> HRESULT;
+            fn GetObjectParam(&self, pszKey: PCWSTR, ppunk: *mut IUnknown) -> HRESULT;
+            fn EnumObjectParam(&self, ppenum: *mut IEnumString) -> HRESULT;
+            fn RevokeObjectParam(&self, pszKey: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x30f3d47a_6447_11d1_8e3c_00c04fb9386d)]
+        interface IBlockingLock: IUnknown {
+            fn Lock(&self, dwTimeout: u32) -> HRESULT;
+            fn Unlock(&self) -> HRESULT;
+        }
+        #[guid(0x00000140_0000_0000_c000_000000000046)]
+        interface IClassActivator: IUnknown {
+            fn GetClassObject(&self, rclsid: *const GUID, dwClassContext: u32, locale: LCID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x00000110_0000_0000_c000_000000000046)]
+        interface IDataAdviseHolder: IUnknown {
+            fn Advise(&self, #[opt] pDataObject: IDataObject, pFetc: *const FORMATETC, advf: u32, pAdvise: IAdviseSink, pdwConnection: *mut u32) -> HRESULT;
+            fn Unadvise(&self, dwConnection: u32) -> HRESULT;
+            fn EnumAdvise(&self, ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+            fn SendOnDataChange(&self, pDataObject: IDataObject, #[reserved] dwReserved: u32, advf: u32) -> HRESULT;
+        }
+        #[guid(0x0000010e_0000_0000_c000_000000000046)]
+        interface IDataObject: IUnknown {
+            fn GetData(&self, pformatetcIn: *const FORMATETC, pmedium: *mut STGMEDIUM) -> HRESULT;
+            fn GetDataHere(&self, pformatetc: *const FORMATETC, #[in] #[out] pmedium: *mut STGMEDIUM) -> HRESULT;
+            fn QueryGetData(&self, pformatetc: *const FORMATETC) -> HRESULT;
+            fn GetCanonicalFormatEtc(&self, pformatectIn: *const FORMATETC, pformatetcOut: *mut FORMATETC) -> HRESULT;
+            fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, fRelease: BOOL) -> HRESULT;
+            fn EnumFormatEtc(&self, dwDirection: u32, ppenumFormatEtc: *mut IEnumFORMATETC) -> HRESULT;
+            fn DAdvise(&self, pformatetc: *const FORMATETC, advf: u32, pAdvSink: IAdviseSink, pdwConnection: *mut u32) -> HRESULT;
+            fn DUnadvise(&self, dwConnection: u32) -> HRESULT;
+            fn EnumDAdvise(&self, ppenumAdvise: *mut IEnumSTATDATA) -> HRESULT;
+        }
+        #[guid(0x0e6d4d92_6738_11cf_9608_00aa00680db4)]
+        interface IDirectWriterLock: IUnknown {
+            fn WaitForWriteAccess(&self, dwTimeout: u32) -> HRESULT;
+            fn ReleaseWriteAccess(&self) -> HRESULT;
+            fn HaveWriteAccess(&self) -> HRESULT;
+        }
+        #[guid(0x947990de_cc28_11d2_a0f7_00805f858fb1)]
+        interface IDummyHICONIncluder: IUnknown {
+            fn Dummy(&self, h1: HICON, h2: HDC) -> HRESULT;
+        }
+        #[guid(0x00000103_0000_0000_c000_000000000046)]
+        interface IEnumFORMATETC: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut FORMATETC, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumFORMATETC) -> HRESULT;
+        }
+        #[guid(0x00000102_0000_0000_c000_000000000046)]
+        interface IEnumMoniker: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut IMoniker, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumMoniker) -> HRESULT;
+        }
+        #[guid(0x00000105_0000_0000_c000_000000000046)]
+        interface IEnumSTATDATA: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut STATDATA, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumSTATDATA) -> HRESULT;
+        }
+        #[guid(0x0000000d_0000_0000_c000_000000000046)]
+        interface IEnumSTATSTG: IUnknown {
+            fn Next(&self, celt: u32, #[len_param(0)] rgelt: *mut STATSTG, #[opt] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppenum: *mut IEnumSTATSTG) -> HRESULT;
+        }
+        #[guid(0x99caf010_415e_11cf_8814_00aa00b569f5)]
+        interface IFillLockBytes: IUnknown {
+            fn FillAppend(&self, #[size_param(1)] pv: *const void, cb: u32, pcbWritten: *mut u32) -> HRESULT;
+            fn FillAt(&self, ulOffset: ULARGE_INTEGER, #[size_param(2)] pv: *const void, cb: u32, pcbWritten: *mut u32) -> HRESULT;
+            fn SetFillSize(&self, ulSize: ULARGE_INTEGER) -> HRESULT;
+            fn Terminate(&self, bCanceled: BOOL) -> HRESULT;
+        }
+        #[guid(0x00000145_0000_0000_c000_000000000046)]
+        interface IForegroundTransfer: IUnknown {
+            fn AllowForegroundTransfer(&self, #[reserved] lpvReserved: *const void) -> HRESULT;
+        }
+        #[guid(0x00000034_0000_0000_c000_000000000046)]
+        interface IInitializeSpy: IUnknown {
+            fn PreInitialize(&self, dwCoInit: u32, dwCurThreadAptRefs: u32) -> HRESULT;
+            fn PostInitialize(&self, hrCoInit: HRESULT, dwCoInit: u32, dwNewThreadAptRefs: u32) -> HRESULT;
+            fn PreUninitialize(&self, dwCurThreadAptRefs: u32) -> HRESULT;
+            fn PostUninitialize(&self, dwNewThreadAptRefs: u32) -> HRESULT;
+        }
+        #[guid(0x0e6d4d90_6738_11cf_9608_00aa00680db4)]
+        interface ILayoutStorage: IUnknown {
+            fn LayoutScript(&self, #[len_param(1)] pStorageLayout: *const StorageLayout, nEntries: u32, #[reserved] glfInterleavedFlag: u32) -> HRESULT;
+            fn BeginMonitor(&self) -> HRESULT;
+            fn EndMonitor(&self) -> HRESULT;
+            fn ReLayoutDocfile(&self, pwcsNewDfName: *const OLECHAR) -> HRESULT;
+            fn ReLayoutDocfileOnILockBytes(&self, pILockBytes: ILockBytes) -> HRESULT;
+        }
+        #[guid(0x0000000a_0000_0000_c000_000000000046)]
+        interface ILockBytes: IUnknown {
+            fn ReadAt(&self, ulOffset: ULARGE_INTEGER, #[size_param(2)] pv: *mut void, cb: u32, #[opt] pcbRead: *mut u32) -> HRESULT;
+            fn WriteAt(&self, ulOffset: ULARGE_INTEGER, #[size_param(2)] pv: *const void, cb: u32, #[opt] pcbWritten: *mut u32) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+            fn SetSize(&self, cb: ULARGE_INTEGER) -> HRESULT;
+            fn LockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn UnlockRegion(&self, libOffset: ULARGE_INTEGER, cb: ULARGE_INTEGER, dwLockType: u32) -> HRESULT;
+            fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: u32) -> HRESULT;
+        }
+        #[guid(0x0000001d_0000_0000_c000_000000000046)]
+        interface IMallocSpy: IUnknown {
+            fn PreAlloc(&self, cbRequest: usize) -> usize;
+            fn PostAlloc(&self, pActual: *const void) -> *mut void;
+            fn PreFree(&self, pRequest: *const void, fSpyed: BOOL) -> *mut void;
+            fn PostFree(&self, fSpyed: BOOL);
+            fn PreRealloc(&self, pRequest: *const void, cbRequest: usize, ppNewRequest: *mut *mut void, fSpyed: BOOL) -> usize;
+            fn PostRealloc(&self, pActual: *const void, fSpyed: BOOL) -> *mut void;
+            fn PreGetSize(&self, pRequest: *const void, fSpyed: BOOL) -> *mut void;
+            fn PostGetSize(&self, cbActual: usize, fSpyed: BOOL) -> usize;
+            fn PreDidAlloc(&self, pRequest: *const void, fSpyed: BOOL) -> *mut void;
+            fn PostDidAlloc(&self, pRequest: *const void, fSpyed: BOOL, fActual: i32) -> i32;
+            fn PreHeapMinimize(&self);
+            fn PostHeapMinimize(&self);
+        }
+        #[guid(0x00000016_0000_0000_c000_000000000046)]
+        interface IMessageFilter: IUnknown {
+            fn HandleInComingCall(&self, dwCallType: u32, htaskCaller: HTASK, dwTickCount: u32, #[opt] lpInterfaceInfo: *const INTERFACEINFO) -> u32;
+            fn RetryRejectedCall(&self, htaskCallee: HTASK, dwTickCount: u32, dwRejectType: u32) -> u32;
+            fn MessagePending(&self, htaskCallee: HTASK, dwTickCount: u32, dwPendingType: u32) -> u32;
+        }
+        #[guid(0x0000000f_0000_0000_c000_000000000046)]
+        interface IMoniker: IPersistStream {
+            fn BindToObject(&self, pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, riidResult: *const GUID, #[iid_is] ppvResult: *mut *mut void) -> HRESULT;
+            fn BindToStorage(&self, pbc: IBindCtx, #[opt] pmkToLeft: IMoniker, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+            fn Reduce(&self, pbc: IBindCtx, dwReduceHowFar: u32, #[in] #[out] ppmkToLeft: *mut IMoniker, ppmkReduced: *mut IMoniker) -> HRESULT;
+            fn ComposeWith(&self, pmkRight: IMoniker, fOnlyIfNotGeneric: BOOL, ppmkComposite: *mut IMoniker) -> HRESULT;
+            fn Enum(&self, fForward: BOOL, ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+            fn IsEqual(&self, pmkOtherMoniker: IMoniker) -> HRESULT;
+            fn Hash(&self, pdwHash: *mut u32) -> HRESULT;
+            fn IsRunning(&self, pbc: IBindCtx, pmkToLeft: IMoniker, pmkNewlyRunning: IMoniker) -> HRESULT;
+            fn GetTimeOfLastChange(&self, pbc: IBindCtx, pmkToLeft: IMoniker, pFileTime: *mut FILETIME) -> HRESULT;
+            fn Inverse(&self, ppmk: *mut IMoniker) -> HRESULT;
+            fn CommonPrefixWith(&self, pmkOther: IMoniker, ppmkPrefix: *mut IMoniker) -> HRESULT;
+            fn RelativePathTo(&self, pmkOther: IMoniker, ppmkRelPath: *mut IMoniker) -> HRESULT;
+            fn GetDisplayName(&self, pbc: IBindCtx, pmkToLeft: IMoniker, ppszDisplayName: *mut PWSTR) -> HRESULT;
+            fn ParseDisplayName(&self, pbc: IBindCtx, pmkToLeft: IMoniker, pszDisplayName: PCWSTR, pchEaten: *mut u32, ppmkOut: *mut IMoniker) -> HRESULT;
+            fn IsSystemMoniker(&self, pdwMksys: *mut u32) -> HRESULT;
+        }
+        struct INTERFACEINFO {
+            pUnk: IUnknown,
+            iid: GUID,
+            wMethod: u16,
+        }
+        #[guid(0x8d19c834_8879_11d1_83e9_00c04fc2c6d4)]
+        interface IOplockStorage: IUnknown {
+            fn CreateStorageEx(&self, pwcsName: PCWSTR, grfMode: u32, stgfmt: u32, grfAttrs: u32, riid: *const GUID, #[iid_is] ppstgOpen: *mut *mut void) -> HRESULT;
+            fn OpenStorageEx(&self, pwcsName: PCWSTR, grfMode: u32, stgfmt: u32, grfAttrs: u32, riid: *const GUID, #[iid_is] ppstgOpen: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0000010c_0000_0000_c000_000000000046)]
+        interface IPersist: IUnknown {
+            fn GetClassID(&self, pClassID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x0000010b_0000_0000_c000_000000000046)]
+        interface IPersistFile: IPersist {
+            fn IsDirty(&self) -> HRESULT;
+            fn Load(&self, pszFileName: PCWSTR, dwMode: u32) -> HRESULT;
+            fn Save(&self, pszFileName: PCWSTR, fRemember: BOOL) -> HRESULT;
+            fn SaveCompleted(&self, pszFileName: PCWSTR) -> HRESULT;
+            fn GetCurFile(&self, ppszFileName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x0000010a_0000_0000_c000_000000000046)]
+        interface IPersistStorage: IPersist {
+            fn IsDirty(&self) -> HRESULT;
+            fn InitNew(&self, pStg: IStorage) -> HRESULT;
+            fn Load(&self, pStg: IStorage) -> HRESULT;
+            fn Save(&self, pStgSave: IStorage, fSameAsLoad: BOOL) -> HRESULT;
+            fn SaveCompleted(&self, pStgNew: IStorage) -> HRESULT;
+            fn HandsOffStorage(&self) -> HRESULT;
+        }
+        #[guid(0x00000109_0000_0000_c000_000000000046)]
+        interface IPersistStream: IPersist {
+            fn IsDirty(&self) -> HRESULT;
+            fn Load(&self, pStm: IStream) -> HRESULT;
+            fn Save(&self, pStm: IStream, fClearDirty: BOOL) -> HRESULT;
+            fn GetSizeMax(&self, pcbSize: *mut ULARGE_INTEGER) -> HRESULT;
+        }
+        #[guid(0x000001d5_0000_0000_c000_000000000046)]
+        interface IProcessLock: IUnknown {
+            fn AddRefOnProcess(&self) -> u32;
+            fn ReleaseRefOnProcess(&self) -> u32;
+        }
+        #[guid(0xa9d758a0_4617_11cf_95fc_00aa00680db4)]
+        interface IProgressNotify: IUnknown {
+            fn OnProgress(&self, dwProgressCurrent: u32, dwProgressMaximum: u32, fAccurate: BOOL, fOwner: BOOL) -> HRESULT;
+        }
+        #[guid(0xf29f6bc0_5021_11ce_aa15_00006901293f)]
+        interface IROTData: IUnknown {
+            fn GetComparisonData(&self, pbData: *mut byte, cbMax: u32, pcbData: *mut u32) -> HRESULT;
+        }
+        #[guid(0x00000012_0000_0000_c000_000000000046)]
+        interface IRootStorage: IUnknown {
+            fn SwitchToFile(&self, pszFile: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x00000126_0000_0000_c000_000000000046)]
+        interface IRunnableObject: IUnknown {
+            fn GetRunningClass(&self, lpClsid: *mut GUID) -> HRESULT;
+            fn Run(&self, pbc: IBindCtx) -> HRESULT;
+            fn IsRunning(&self) -> BOOL;
+            fn LockRunning(&self, fLock: BOOL, fLastUnlockCloses: BOOL) -> HRESULT;
+            fn SetContainedObject(&self, fContained: BOOL) -> HRESULT;
+        }
+        #[guid(0x00000010_0000_0000_c000_000000000046)]
+        interface IRunningObjectTable: IUnknown {
+            fn Register(&self, grfFlags: u32, punkObject: IUnknown, pmkObjectName: IMoniker, pdwRegister: *mut u32) -> HRESULT;
+            fn Revoke(&self, dwRegister: u32) -> HRESULT;
+            fn IsRunning(&self, pmkObjectName: IMoniker) -> HRESULT;
+            fn GetObject(&self, pmkObjectName: IMoniker, ppunkObject: *mut IUnknown) -> HRESULT;
+            fn NoteChangeTime(&self, dwRegister: u32, pfiletime: *const FILETIME) -> HRESULT;
+            fn GetTimeOfLastChange(&self, pmkObjectName: IMoniker, pfiletime: *mut FILETIME) -> HRESULT;
+            fn EnumRunning(&self, ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
+        }
+        #[guid(0x0000000b_0000_0000_c000_000000000046)]
+        interface IStorage: IUnknown {
+            fn CreateStream(&self, pwcsName: *const OLECHAR, grfMode: u32, reserved1: u32, reserved2: u32, ppstm: *mut IStream) -> HRESULT;
+            fn OpenStream(&self, pwcsName: *const OLECHAR, #[reserved] reserved1: *const void, grfMode: u32, reserved2: u32, ppstm: *mut IStream) -> HRESULT;
+            fn CreateStorage(&self, pwcsName: *const OLECHAR, grfMode: u32, reserved1: u32, reserved2: u32, ppstg: *mut IStorage) -> HRESULT;
+            fn OpenStorage(&self, pwcsName: *const OLECHAR, pstgPriority: IStorage, grfMode: u32, snbExclude: *const PWSTR, reserved: u32, ppstg: *mut IStorage) -> HRESULT;
+            fn CopyTo(&self, ciidExclude: u32, #[len_param(0)] #[opt] rgiidExclude: *const GUID, #[opt] snbExclude: *const PWSTR, pstgDest: IStorage) -> HRESULT;
+            fn MoveElementTo(&self, pwcsName: *const OLECHAR, pstgDest: IStorage, pwcsNewName: *const OLECHAR, grfFlags: u32) -> HRESULT;
+            fn Commit(&self, grfCommitFlags: u32) -> HRESULT;
+            fn Revert(&self) -> HRESULT;
+            fn EnumElements(&self, #[reserved] reserved1: u32, #[reserved] reserved2: *const void, #[reserved] reserved3: u32, ppenum: *mut IEnumSTATSTG) -> HRESULT;
+            fn DestroyElement(&self, pwcsName: *const OLECHAR) -> HRESULT;
+            fn RenameElement(&self, pwcsOldName: *const OLECHAR, pwcsNewName: *const OLECHAR) -> HRESULT;
+            fn SetElementTimes(&self, pwcsName: *const OLECHAR, pctime: *const FILETIME, patime: *const FILETIME, pmtime: *const FILETIME) -> HRESULT;
+            fn SetClass(&self, clsid: *const GUID) -> HRESULT;
+            fn SetStateBits(&self, grfStateBits: u32, grfMask: u32) -> HRESULT;
+            fn Stat(&self, pstatstg: *mut STATSTG, grfStatFlag: u32) -> HRESULT;
+        }
+        #[guid(0x000001d4_0000_0000_c000_000000000046)]
+        interface ISurrogateService: IUnknown {
+            fn Init(&self, rguidProcessID: *const GUID, pProcessLock: IProcessLock, pfApplicationAware: *mut BOOL) -> HRESULT;
+            fn ApplicationLaunch(&self, rguidApplID: *const GUID, appType: ApplicationType) -> HRESULT;
+            fn ApplicationFree(&self, rguidApplID: *const GUID) -> HRESULT;
+            fn CatalogRefresh(&self, #[reserved] ulReserved: u32) -> HRESULT;
+            fn ProcessShutdown(&self, shutdownType: ShutdownType) -> HRESULT;
+        }
+        #[guid(0x969dc708_5c76_11d1_8d86_0000f804b057)]
+        interface IThumbnailExtractor: IUnknown {
+            fn ExtractThumbnail(&self, pStg: IStorage, ulLength: u32, ulHeight: u32, pulOutputLength: *mut u32, pulOutputHeight: *mut u32, phOutputBitmap: *mut HBITMAP) -> HRESULT;
+            fn OnFileUpdated(&self, pStg: IStorage) -> HRESULT;
+        }
+        #[guid(0xbc0bf6ae_8878_11d1_83e9_00c04fc2c6d4)]
+        interface ITimeAndNoticeControl: IUnknown {
+            fn SuppressChanges(&self, res1: u32, res2: u32) -> HRESULT;
+        }
+        #[guid(0x00000026_0000_0000_c000_000000000046)]
+        interface IUrlMon: IUnknown {
+            fn AsyncGetClassBits(&self, rclsid: *const GUID, pszTYPE: PCWSTR, pszExt: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, pszCodeBase: PCWSTR, pbc: IBindCtx, dwClassContext: u32, riid: *const GUID, flags: u32) -> HRESULT;
+        }
+        type LPBIND_OPTS = *mut BIND_OPTS;
+        type LPBIND_OPTS2 = *mut BIND_OPTS2;
+        type LPBIND_OPTS3 = *mut BIND_OPTS3;
+        type LPCLIPFORMAT = *mut CLIPFORMAT;
+        type LPFORMATETC = *mut FORMATETC;
+        type LPINTERFACEINFO = *mut INTERFACEINFO;
+        type LPSTATDATA = *mut STATDATA;
+        type LPSTGMEDIUM = *mut STGMEDIUM;
+        #[repr(i32)]
+        enum MKRREDUCE {
+            MKRREDUCE_ONE = 196608,
+            MKRREDUCE_TOUSER = 131072,
+            MKRREDUCE_THROUGHUSER = 65536,
+            MKRREDUCE_ALL = 0,
+        }
+        #[repr(i32)]
+        enum MKSYS {
+            MKSYS_NONE = 0,
+            MKSYS_GENERICCOMPOSITE = 1,
+            MKSYS_FILEMONIKER = 2,
+            MKSYS_ANTIMONIKER = 3,
+            MKSYS_ITEMMONIKER = 4,
+            MKSYS_POINTERMONIKER = 5,
+            MKSYS_CLASSMONIKER = 7,
+            MKSYS_OBJREFMONIKER = 8,
+            MKSYS_SESSIONMONIKER = 9,
+            MKSYS_LUAMONIKER = 10,
+        }
+        #[repr(i32)]
+        enum PENDINGMSG {
+            PENDINGMSG_CANCELCALL = 0,
+            PENDINGMSG_WAITNOPROCESS = 1,
+            PENDINGMSG_WAITDEFPROCESS = 2,
+        }
+        #[repr(i32)]
+        enum PENDINGTYPE {
+            PENDINGTYPE_TOPLEVEL = 1,
+            PENDINGTYPE_NESTED = 2,
+        }
+        struct RemSNB {
+            ulCntStr: u32,
+            ulCntChar: u32,
+            rgString: [OLECHAR; 1],
+        }
+        struct RemSTGMEDIUM {
+            tymed: u32,
+            dwHandleType: u32,
+            pData: u32,
+            pUnkForRelease: u32,
+            cbData: u32,
+            data: [byte; 1],
+        }
+        #[repr(i32)]
+        enum SERVERCALL {
+            SERVERCALL_ISHANDLED = 0,
+            SERVERCALL_REJECTED = 1,
+            SERVERCALL_RETRYLATER = 2,
+        }
+        type SNB = *mut PWSTR;
+        struct STATDATA {
+            formatetc: FORMATETC,
+            advf: u32,
+            pAdvSink: IAdviseSink,
+            dwConnection: u32,
+        }
+        type STGMEDIUM = uSTGMEDIUM;
+        #[repr(i32)]
+        enum ShutdownType {
+            IdleShutdown = 0,
+            ForcedShutdown = 1,
+        }
+        struct StorageLayout {
+            LayoutType: u32,
+            pwcsElementName: *mut OLECHAR,
+            cOffset: LARGE_INTEGER,
+            cBytes: LARGE_INTEGER,
+        }
+        #[repr(i32)]
+        enum TYMED {
+            TYMED_HGLOBAL = 1,
+            TYMED_FILE = 2,
+            TYMED_ISTREAM = 4,
+            TYMED_ISTORAGE = 8,
+            TYMED_GDI = 16,
+            TYMED_MFPICT = 32,
+            TYMED_ENHMF = 64,
+            TYMED_NULL = 0,
+        }
+        struct uSTGMEDIUM {
+            tymed: u32,
+            Anonymous: union {
+                hBitmap: HBITMAP,
+                hMetaFilePict: HMETAFILEPICT,
+                hEnhMetaFile: HENHMETAFILE,
+                hGlobal: HGLOBAL,
+                lpszFileName: PWSTR,
+                pstm: IStream,
+                pstg: IStorage,
+            },
+            pUnkForRelease: IUnknown,
+        }
+        struct userFLAG_STGMEDIUM {
+            ContextFlags: i32,
+            fPassOwnership: i32,
+            Stgmed: userSTGMEDIUM,
+        }
+        struct userSTGMEDIUM {
+            pUnkForRelease: IUnknown,
+        }
+        struct userSTGMEDIUM_0 {
+            tymed: u32,
+            u: userSTGMEDIUM_0_0,
+        }
+        union userSTGMEDIUM_0_0 {
+            hMetaFilePict: wireHMETAFILEPICT,
+            hHEnhMetaFile: wireHENHMETAFILE,
+            hGdiHandle: *mut GDI_OBJECT,
+            hGlobal: wireHGLOBAL,
+            lpszFileName: PWSTR,
+            pstm: *mut BYTE_BLOB,
+            pstg: *mut BYTE_BLOB,
+        }
+        type wireASYNC_STGMEDIUM = *mut userSTGMEDIUM;
+        type wireFLAG_STGMEDIUM = *mut userFLAG_STGMEDIUM;
+        type wireSNB = *mut RemSNB;
+        type wireSTGMEDIUM = *mut userSTGMEDIUM;
+    }
+}

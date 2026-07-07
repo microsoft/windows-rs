@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    type OwnedHandle = *mut void;
+}
+mod Other {
+    type OtherHandle = *mut void;
+}

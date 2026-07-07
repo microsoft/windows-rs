@@ -1,0 +1,10 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("")]
+        extern fn AddAtKeyframe(startKeyframe: SAMPLE_KEYFRAME);
+        #[library("")]
+        extern fn MakeKeyframe(keyframe: *mut SAMPLE_KEYFRAME);
+        type SAMPLE_KEYFRAME = *mut void;
+    }
+}

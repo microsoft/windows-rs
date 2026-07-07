@@ -1,0 +1,1531 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ADVANCED_DUP: u32 = 8192;
+        const ADVANCED_DUPLEX: u32 = 1024;
+        const ALL_PAGES: u32 = 0;
+        const AUTO_ADVANCE: u32 = 512;
+        const AUTO_SOURCE: u32 = 32768;
+        const BACK_FIRST: u32 = 16;
+        const BACK_ONLY: u32 = 64;
+        const BARCODE_READER: u32 = 262144;
+        const BARCODE_READER_READY: u32 = 16384;
+        const BASE_VAL_WIA_ERROR: u32 = 0;
+        const BASE_VAL_WIA_SUCCESS: u32 = 0;
+        const BOTTOM_JUSTIFIED: u32 = 2;
+        const CAPTUREMODE_BURST: u32 = 2;
+        const CAPTUREMODE_NORMAL: u32 = 1;
+        const CAPTUREMODE_TIMELAPSE: u32 = 3;
+        const CENTERED: u32 = 1;
+        const CLSID_WiaDefaultSegFilter: GUID = 0xd4f4d30b_0b29_4508_8922_0c5797d42765;
+        const COPY_PARENT_PROPERTY_VALUES: u32 = 1073741824;
+        const DETECT_DUP: u32 = 64;
+        const DETECT_DUP_AVAIL: u32 = 256;
+        const DETECT_FEED: u32 = 32;
+        const DETECT_FEED_AVAIL: u32 = 128;
+        const DETECT_FILM_TPA: u32 = 1024;
+        const DETECT_FLAT: u32 = 8;
+        const DETECT_SCAN: u32 = 16;
+        const DETECT_STOR: u32 = 4096;
+        const DEVICE_ATTENTION: u32 = 1024;
+        const DUP: u32 = 4;
+        const DUPLEX: u32 = 4;
+        const DUP_READY: u32 = 4;
+        const EFFECTMODE_BW: u32 = 2;
+        const EFFECTMODE_SEPIA: u32 = 3;
+        const EFFECTMODE_STANDARD: u32 = 1;
+        const ENDORSER: u32 = 131072;
+        const ENDORSER_READY: u32 = 8192;
+        const EXPOSUREMETERING_AVERAGE: u32 = 1;
+        const EXPOSUREMETERING_CENTERSPOT: u32 = 4;
+        const EXPOSUREMETERING_CENTERWEIGHT: u32 = 2;
+        const EXPOSUREMETERING_MULTISPOT: u32 = 3;
+        const EXPOSUREMODE_APERTURE_PRIORITY: u32 = 3;
+        const EXPOSUREMODE_AUTO: u32 = 2;
+        const EXPOSUREMODE_MANUAL: u32 = 1;
+        const EXPOSUREMODE_PORTRAIT: u32 = 7;
+        const EXPOSUREMODE_PROGRAM_ACTION: u32 = 6;
+        const EXPOSUREMODE_PROGRAM_CREATIVE: u32 = 5;
+        const EXPOSUREMODE_SHUTTER_PRIORITY: u32 = 4;
+        const FEED: u32 = 1;
+        const FEEDER: u32 = 1;
+        const FEED_READY: u32 = 1;
+        const FILM_TPA: u32 = 512;
+        const FILM_TPA_READY: u32 = 64;
+        const FLASHMODE_AUTO: u32 = 1;
+        const FLASHMODE_EXTERNALSYNC: u32 = 6;
+        const FLASHMODE_FILL: u32 = 3;
+        const FLASHMODE_OFF: u32 = 2;
+        const FLASHMODE_REDEYE_AUTO: u32 = 4;
+        const FLASHMODE_REDEYE_FILL: u32 = 5;
+        const FLAT: u32 = 2;
+        const FLATBED: u32 = 2;
+        const FLAT_COVER_UP: u32 = 8;
+        const FLAT_READY: u32 = 2;
+        const FOCUSMETERING_CENTERSPOT: u32 = 1;
+        const FOCUSMETERING_MULTISPOT: u32 = 2;
+        const FOCUSMODE_AUTO: u32 = 2;
+        const FOCUSMODE_MACROAUTO: u32 = 3;
+        const FOCUSMODE_MANUAL: u32 = 1;
+        const FRONT_FIRST: u32 = 8;
+        const FRONT_ONLY: u32 = 32;
+        const IMPRINTER: u32 = 65536;
+        const IMPRINTER_READY: u32 = 4096;
+        const IT_MSG_DATA: u32 = 2;
+        const IT_MSG_DATA_HEADER: u32 = 1;
+        const IT_MSG_FILE_PREVIEW_DATA: u32 = 6;
+        const IT_MSG_FILE_PREVIEW_DATA_HEADER: u32 = 7;
+        const IT_MSG_NEW_PAGE: u32 = 5;
+        const IT_MSG_STATUS: u32 = 3;
+        const IT_MSG_TERMINATION: u32 = 4;
+        const IT_STATUS_MASK: u32 = 7;
+        const IT_STATUS_PROCESSING_DATA: u32 = 2;
+        const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1;
+        const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4;
+        const LAMP_ERR: u32 = 2048;
+        const LANDSCAPE: u32 = 1;
+        const LANSCAPE: u32 = 1;
+        const LEFT_JUSTIFIED: u32 = 0;
+        const LIGHT_SOURCE_DETECT_READY: u32 = 4;
+        const LIGHT_SOURCE_NEGATIVE: u32 = 4;
+        const LIGHT_SOURCE_POSITIVE: u32 = 2;
+        const LIGHT_SOURCE_PRESENT: u32 = 2;
+        const LIGHT_SOURCE_PRESENT_DETECT: u32 = 1;
+        const LIGHT_SOURCE_READY: u32 = 8;
+        const LIGHT_SOURCE_SELECT: u32 = 1;
+        const MICR_READER: u32 = 1048576;
+        const MICR_READER_READY: u32 = 65536;
+        const MIRRORED: u32 = 1;
+        const MULTIPLE_FEED: u32 = 512;
+        const NEXT_PAGE: u32 = 128;
+        const PAPER_JAM: u32 = 32;
+        const PATCH_CODE_READER: u32 = 524288;
+        const PATCH_CODE_READER_READY: u32 = 32768;
+        const PATH_COVER_UP: u32 = 16;
+        const PORTRAIT: u32 = 0;
+        const POWERMODE_BATTERY: u32 = 2;
+        const POWERMODE_LINE: u32 = 1;
+        const PREFEED: u32 = 256;
+        type PWIA_RAW_HEADER = *mut WIA_RAW_HEADER;
+        const RIGHT_JUSTIFIED: u32 = 2;
+        const ROT180: u32 = 2;
+        const ROT270: u32 = 3;
+        const STOR: u32 = 2048;
+        const STORAGE_FULL: u32 = 256;
+        const STORAGE_READY: u32 = 128;
+        const TOP_JUSTIFIED: u32 = 0;
+        const TRANSPARENCY_DYNAMIC_FRAME_SUPPORT: u32 = 1;
+        const TRANSPARENCY_STATIC_FRAME_SUPPORT: u32 = 2;
+        const TYMED_CALLBACK: u32 = 128;
+        const TYMED_MULTIPAGE_CALLBACK: u32 = 512;
+        const TYMED_MULTIPAGE_FILE: u32 = 256;
+        const WHITEBALANCE_AUTO: u32 = 2;
+        const WHITEBALANCE_DAYLIGHT: u32 = 4;
+        const WHITEBALANCE_FLASH: u32 = 7;
+        const WHITEBALANCE_FLORESCENT: u32 = 5;
+        const WHITEBALANCE_MANUAL: u32 = 1;
+        const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3;
+        const WHITEBALANCE_TUNGSTEN: u32 = 6;
+        const WIA_ACTION_EVENT: u32 = 2;
+        const WIA_ADVANCED_PREVIEW: u32 = 0;
+        const WIA_ALARM_BEEP1: u32 = 1;
+        const WIA_ALARM_BEEP10: u32 = 10;
+        const WIA_ALARM_BEEP2: u32 = 2;
+        const WIA_ALARM_BEEP3: u32 = 3;
+        const WIA_ALARM_BEEP4: u32 = 4;
+        const WIA_ALARM_BEEP5: u32 = 5;
+        const WIA_ALARM_BEEP6: u32 = 6;
+        const WIA_ALARM_BEEP7: u32 = 7;
+        const WIA_ALARM_BEEP8: u32 = 8;
+        const WIA_ALARM_BEEP9: u32 = 9;
+        const WIA_ALARM_NONE: u32 = 0;
+        const WIA_AUTO_CROP_DISABLED: u32 = 0;
+        const WIA_AUTO_CROP_MULTI: u32 = 2;
+        const WIA_AUTO_CROP_SINGLE: u32 = 1;
+        const WIA_AUTO_DESKEW_OFF: u32 = 1;
+        const WIA_AUTO_DESKEW_ON: u32 = 0;
+        struct WIA_BARCODES {
+            Tag: u32,
+            Version: u32,
+            Size: u32,
+            Count: u32,
+            Barcodes: [WIA_BARCODE_INFO; 1],
+        }
+        const WIA_BARCODE_AUTO_SEARCH: u32 = 4;
+        const WIA_BARCODE_AZTEC: u32 = 36;
+        const WIA_BARCODE_CODABAR: u32 = 2;
+        const WIA_BARCODE_CODE128: u32 = 9;
+        const WIA_BARCODE_CODE128A: u32 = 10;
+        const WIA_BARCODE_CODE128B: u32 = 11;
+        const WIA_BARCODE_CODE128C: u32 = 12;
+        const WIA_BARCODE_CODE39: u32 = 5;
+        const WIA_BARCODE_CODE39_FULLASCII: u32 = 7;
+        const WIA_BARCODE_CODE39_MOD43: u32 = 6;
+        const WIA_BARCODE_CODE93: u32 = 8;
+        const WIA_BARCODE_CPCBINARY: u32 = 29;
+        const WIA_BARCODE_CUSTOMBASE: u32 = 32768;
+        const WIA_BARCODE_DATAMATRIX: u32 = 38;
+        const WIA_BARCODE_DATASTRIP: u32 = 39;
+        const WIA_BARCODE_EAN13: u32 = 17;
+        const WIA_BARCODE_EAN8: u32 = 16;
+        const WIA_BARCODE_EZCODE: u32 = 40;
+        const WIA_BARCODE_FIM: u32 = 30;
+        const WIA_BARCODE_GS1128: u32 = 13;
+        const WIA_BARCODE_GS1DATABAR: u32 = 14;
+        const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26;
+        const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0;
+        const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2;
+        struct WIA_BARCODE_INFO {
+            Size: u32,
+            Type: u32,
+            Page: u32,
+            Confidence: u32,
+            XOffset: u32,
+            YOffset: u32,
+            Rotation: u32,
+            Length: u32,
+            Text: [u16; 1],
+        }
+        const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23;
+        const WIA_BARCODE_INTERLEAVED_2OF5: u32 = 4;
+        const WIA_BARCODE_ITF14: u32 = 15;
+        const WIA_BARCODE_JAN: u32 = 34;
+        const WIA_BARCODE_MAXICODE: u32 = 27;
+        const WIA_BARCODE_MSI: u32 = 33;
+        const WIA_BARCODE_NONINTERLEAVED_2OF5: u32 = 3;
+        const WIA_BARCODE_PDF417: u32 = 28;
+        const WIA_BARCODE_PHARMACODE: u32 = 31;
+        const WIA_BARCODE_PLANET: u32 = 22;
+        const WIA_BARCODE_PLESSEY: u32 = 32;
+        const WIA_BARCODE_POSTBAR: u32 = 24;
+        const WIA_BARCODE_POSTNETA: u32 = 18;
+        const WIA_BARCODE_POSTNETB: u32 = 19;
+        const WIA_BARCODE_POSTNETC: u32 = 20;
+        const WIA_BARCODE_POSTNET_DPBC: u32 = 21;
+        const WIA_BARCODE_QRCODE: u32 = 41;
+        const WIA_BARCODE_READER_AUTO: u32 = 1;
+        const WIA_BARCODE_READER_DISABLED: u32 = 0;
+        const WIA_BARCODE_READER_FEEDER_BACK: u32 = 4;
+        const WIA_BARCODE_READER_FEEDER_DUPLEX: u32 = 5;
+        const WIA_BARCODE_READER_FEEDER_FRONT: u32 = 3;
+        const WIA_BARCODE_READER_FLATBED: u32 = 2;
+        const WIA_BARCODE_RM4SCC: u32 = 25;
+        const WIA_BARCODE_SHOTCODE: u32 = 42;
+        const WIA_BARCODE_SMALLAZTEC: u32 = 37;
+        const WIA_BARCODE_SPARQCODE: u32 = 43;
+        const WIA_BARCODE_TELEPEN: u32 = 35;
+        const WIA_BARCODE_UPCA: u32 = 0;
+        const WIA_BARCODE_UPCE: u32 = 1;
+        const WIA_BARCODE_VERTICAL_HORIZONTAL_SEARCH: u32 = 3;
+        const WIA_BARCODE_VERTICAL_SEARCH: u32 = 1;
+        const WIA_BASIC_PREVIEW: u32 = 1;
+        const WIA_BLANK_PAGE_DETECTION_DISABLED: u32 = 0;
+        const WIA_BLANK_PAGE_DISCARD: u32 = 1;
+        const WIA_BLANK_PAGE_JOB_SEPARATOR: u32 = 2;
+        const WIA_CATEGORY_AUTO: GUID = 0xdefe5fd8_6c97_4dde_b11e_cb509b270e11;
+        const WIA_CATEGORY_BARCODE_READER: GUID = 0x36e178a0_473f_494b_af8f_6c3f6d7486fc;
+        const WIA_CATEGORY_ENDORSER: GUID = 0x47102cc3_127f_4771_adfc_991ab8ee1e97;
+        const WIA_CATEGORY_FEEDER: GUID = 0xfe131934_f84c_42ad_8da4_6129cddd7288;
+        const WIA_CATEGORY_FEEDER_BACK: GUID = 0x61ca74d4_39db_42aa_89b1_8c19c9cd4c23;
+        const WIA_CATEGORY_FEEDER_FRONT: GUID = 0x4823175c_3b28_487b_a7e6_eebc17614fd1;
+        const WIA_CATEGORY_FILM: GUID = 0xfcf65be7_3ce3_4473_af85_f5d37d21b68a;
+        const WIA_CATEGORY_FINISHED_FILE: GUID = 0xff2b77ca_cf84_432b_a735_3a130dde2a88;
+        const WIA_CATEGORY_FLATBED: GUID = 0xfb607b1f_43f3_488b_855b_fb703ec342a6;
+        const WIA_CATEGORY_FOLDER: GUID = 0xc692a446_6f5a_481d_85bb_92e2e86fd30a;
+        const WIA_CATEGORY_IMPRINTER: GUID = 0xfc65016d_9202_43dd_91a7_64c2954cfb8b;
+        const WIA_CATEGORY_MICR_READER: GUID = 0x3b86c1ec_71bc_4645_b4d5_1b19da2be978;
+        const WIA_CATEGORY_PATCH_CODE_READER: GUID = 0x8faa1a6d_9c8a_42cd_98b3_ee9700cbc74f;
+        const WIA_CATEGORY_ROOT: GUID = 0xf193526f_59b8_4a26_9888_e16e4f97ce10;
+        const WIA_CMD_BUILD_DEVICE_TREE: GUID = 0x9cba5ce0_dbea_11d2_8416_00c04fa36145;
+        const WIA_CMD_CHANGE_DOCUMENT: GUID = 0x04e725b0_acae_11d2_a093_00c04f72dc3c;
+        const WIA_CMD_DELETE_ALL_ITEMS: GUID = 0xe208c170_acad_11d2_a093_00c04f72dc3c;
+        const WIA_CMD_DELETE_DEVICE_TREE: GUID = 0x73815942_dbea_11d2_8416_00c04fa36145;
+        const WIA_CMD_DIAGNOSTIC: GUID = 0x10ff52f5_de04_4cf0_a5ad_691f8dce0141;
+        const WIA_CMD_FORMAT: GUID = 0xc3a693aa_f788_4d34_a5b0_be7190759a24;
+        const WIA_CMD_PAUSE_FEEDER: GUID = 0x50985e4d_a5b2_4b71_9c95_6d7d7c469a43;
+        const WIA_CMD_START_FEEDER: GUID = 0x5a9df6c9_5f2d_4a39_9d6c_00456d047f00;
+        const WIA_CMD_STOP_FEEDER: GUID = 0xd847b06d_3905_459c_9509_9b29cdb691e7;
+        const WIA_CMD_SYNCHRONIZE: GUID = 0x9b26b7b2_acad_11d2_a093_00c04f72dc3c;
+        const WIA_CMD_TAKE_PICTURE: GUID = 0xaf933cac_acad_11d2_a093_00c04f72dc3c;
+        const WIA_CMD_UNLOAD_DOCUMENT: GUID = 0x1f3b3d8e_acae_11d2_a093_00c04f72dc3c;
+        const WIA_COLOR_DROP_BLUE: u32 = 3;
+        const WIA_COLOR_DROP_DISABLED: u32 = 0;
+        const WIA_COLOR_DROP_GREEN: u32 = 2;
+        const WIA_COLOR_DROP_RED: u32 = 1;
+        const WIA_COLOR_DROP_RGB: u32 = 4;
+        const WIA_COMPRESSION_AUTO: u32 = 100;
+        const WIA_COMPRESSION_BI_RLE4: u32 = 1;
+        const WIA_COMPRESSION_BI_RLE8: u32 = 2;
+        const WIA_COMPRESSION_G3: u32 = 3;
+        const WIA_COMPRESSION_G4: u32 = 4;
+        const WIA_COMPRESSION_JBIG: u32 = 6;
+        const WIA_COMPRESSION_JPEG: u32 = 5;
+        const WIA_COMPRESSION_JPEG2K: u32 = 7;
+        const WIA_COMPRESSION_NONE: u32 = 0;
+        const WIA_COMPRESSION_PNG: u32 = 8;
+        const WIA_DATA_AUTO: u32 = 100;
+        const WIA_DATA_COLOR: u32 = 3;
+        const WIA_DATA_COLOR_DITHER: u32 = 5;
+        const WIA_DATA_COLOR_THRESHOLD: u32 = 4;
+        const WIA_DATA_DITHER: u32 = 1;
+        const WIA_DATA_GRAYSCALE: u32 = 2;
+        const WIA_DATA_RAW_BGR: u32 = 7;
+        const WIA_DATA_RAW_CMY: u32 = 10;
+        const WIA_DATA_RAW_CMYK: u32 = 11;
+        const WIA_DATA_RAW_RGB: u32 = 6;
+        const WIA_DATA_RAW_YUV: u32 = 8;
+        const WIA_DATA_RAW_YUVK: u32 = 9;
+        const WIA_DATA_THRESHOLD: u32 = 0;
+        const WIA_DEPTH_AUTO: u32 = 0;
+        const WIA_DEVICE_COMMANDS: u32 = 1;
+        const WIA_DEVICE_CONNECTED: u32 = 1;
+        const WIA_DEVICE_DIALOG_SINGLE_IMAGE: u32 = 2;
+        const WIA_DEVICE_DIALOG_USE_COMMON_UI: u32 = 4;
+        const WIA_DEVICE_EVENTS: u32 = 2;
+        const WIA_DEVICE_NOT_CONNECTED: u32 = 0;
+        const WIA_DEVINFO_ENUM_ALL: u32 = 15;
+        const WIA_DEVINFO_ENUM_LOCAL: u32 = 16;
+        const WIA_DIP_BAUDRATE: u32 = 12;
+        #[encoding("utf-16")]
+        const WIA_DIP_BAUDRATE_STR: String = "BaudRate";
+        const WIA_DIP_DEV_DESC: u32 = 4;
+        #[encoding("utf-16")]
+        const WIA_DIP_DEV_DESC_STR: String = "Description";
+        const WIA_DIP_DEV_ID: u32 = 2;
+        #[encoding("utf-16")]
+        const WIA_DIP_DEV_ID_STR: String = "Unique Device ID";
+        const WIA_DIP_DEV_NAME: u32 = 7;
+        #[encoding("utf-16")]
+        const WIA_DIP_DEV_NAME_STR: String = "Name";
+        const WIA_DIP_DEV_TYPE: u32 = 5;
+        #[encoding("utf-16")]
+        const WIA_DIP_DEV_TYPE_STR: String = "Type";
+        const WIA_DIP_DRIVER_VERSION: u32 = 15;
+        #[encoding("utf-16")]
+        const WIA_DIP_DRIVER_VERSION_STR: String = "Driver Version";
+        const WIA_DIP_FIRST: u32 = 2;
+        const WIA_DIP_HW_CONFIG: u32 = 11;
+        #[encoding("utf-16")]
+        const WIA_DIP_HW_CONFIG_STR: String = "Hardware Configuration";
+        const WIA_DIP_PNP_ID: u32 = 16;
+        #[encoding("utf-16")]
+        const WIA_DIP_PNP_ID_STR: String = "PnP ID String";
+        const WIA_DIP_PORT_NAME: u32 = 6;
+        #[encoding("utf-16")]
+        const WIA_DIP_PORT_NAME_STR: String = "Port";
+        const WIA_DIP_REMOTE_DEV_ID: u32 = 9;
+        #[encoding("utf-16")]
+        const WIA_DIP_REMOTE_DEV_ID_STR: String = "Remote Device ID";
+        const WIA_DIP_SERVER_NAME: u32 = 8;
+        #[encoding("utf-16")]
+        const WIA_DIP_SERVER_NAME_STR: String = "Server";
+        const WIA_DIP_STI_DRIVER_VERSION: u32 = 17;
+        #[encoding("utf-16")]
+        const WIA_DIP_STI_DRIVER_VERSION_STR: String = "STI Driver Version";
+        const WIA_DIP_STI_GEN_CAPABILITIES: u32 = 13;
+        #[encoding("utf-16")]
+        const WIA_DIP_STI_GEN_CAPABILITIES_STR: String = "STI Generic Capabilities";
+        const WIA_DIP_UI_CLSID: u32 = 10;
+        #[encoding("utf-16")]
+        const WIA_DIP_UI_CLSID_STR: String = "UI Class ID";
+        const WIA_DIP_VEND_DESC: u32 = 3;
+        #[encoding("utf-16")]
+        const WIA_DIP_VEND_DESC_STR: String = "Manufacturer";
+        const WIA_DIP_WIA_VERSION: u32 = 14;
+        #[encoding("utf-16")]
+        const WIA_DIP_WIA_VERSION_STR: String = "WIA Version";
+        const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1;
+        const WIA_DONT_USE_SEGMENTATION_FILTER: u32 = 1;
+        const WIA_DPA_CONNECT_STATUS: u32 = 1027;
+        #[encoding("utf-16")]
+        const WIA_DPA_CONNECT_STATUS_STR: String = "Connect Status";
+        const WIA_DPA_DEVICE_TIME: u32 = 1028;
+        #[encoding("utf-16")]
+        const WIA_DPA_DEVICE_TIME_STR: String = "Device Time";
+        const WIA_DPA_FIRMWARE_VERSION: u32 = 1026;
+        #[encoding("utf-16")]
+        const WIA_DPA_FIRMWARE_VERSION_STR: String = "Firmware Version";
+        const WIA_DPC_ARTIST: u32 = 2091;
+        #[encoding("utf-16")]
+        const WIA_DPC_ARTIST_STR: String = "Artist";
+        const WIA_DPC_BATTERY_STATUS: u32 = 2065;
+        #[encoding("utf-16")]
+        const WIA_DPC_BATTERY_STATUS_STR: String = "Battery Status";
+        const WIA_DPC_BURST_INTERVAL: u32 = 2075;
+        #[encoding("utf-16")]
+        const WIA_DPC_BURST_INTERVAL_STR: String = "Burst Interval";
+        const WIA_DPC_BURST_NUMBER: u32 = 2076;
+        #[encoding("utf-16")]
+        const WIA_DPC_BURST_NUMBER_STR: String = "Burst Number";
+        const WIA_DPC_CAPTURE_DELAY: u32 = 2082;
+        #[encoding("utf-16")]
+        const WIA_DPC_CAPTURE_DELAY_STR: String = "Capture Delay";
+        const WIA_DPC_CAPTURE_MODE: u32 = 2081;
+        #[encoding("utf-16")]
+        const WIA_DPC_CAPTURE_MODE_STR: String = "Capture Mode";
+        const WIA_DPC_COMPRESSION_SETTING: u32 = 2071;
+        #[encoding("utf-16")]
+        const WIA_DPC_COMPRESSION_SETTING_STR: String = "Compression Setting";
+        const WIA_DPC_CONTRAST: u32 = 2080;
+        #[encoding("utf-16")]
+        const WIA_DPC_CONTRAST_STR: String = "Contrast";
+        const WIA_DPC_COPYRIGHT_INFO: u32 = 2092;
+        #[encoding("utf-16")]
+        const WIA_DPC_COPYRIGHT_INFO_STR: String = "Copyright Info";
+        const WIA_DPC_DIGITAL_ZOOM: u32 = 2078;
+        #[encoding("utf-16")]
+        const WIA_DPC_DIGITAL_ZOOM_STR: String = "Digital Zoom";
+        const WIA_DPC_DIMENSION: u32 = 2070;
+        #[encoding("utf-16")]
+        const WIA_DPC_DIMENSION_STR: String = "Dimension";
+        const WIA_DPC_EFFECT_MODE: u32 = 2077;
+        #[encoding("utf-16")]
+        const WIA_DPC_EFFECT_MODE_STR: String = "Effect Mode";
+        const WIA_DPC_EXPOSURE_COMP: u32 = 2053;
+        #[encoding("utf-16")]
+        const WIA_DPC_EXPOSURE_COMP_STR: String = "Exposure Compensation";
+        const WIA_DPC_EXPOSURE_INDEX: u32 = 2083;
+        #[encoding("utf-16")]
+        const WIA_DPC_EXPOSURE_INDEX_STR: String = "Exposure Index";
+        const WIA_DPC_EXPOSURE_METERING_MODE: u32 = 2084;
+        #[encoding("utf-16")]
+        const WIA_DPC_EXPOSURE_METERING_MODE_STR: String = "Exposure Metering Mode";
+        const WIA_DPC_EXPOSURE_MODE: u32 = 2052;
+        #[encoding("utf-16")]
+        const WIA_DPC_EXPOSURE_MODE_STR: String = "Exposure Mode";
+        const WIA_DPC_EXPOSURE_TIME: u32 = 2054;
+        #[encoding("utf-16")]
+        const WIA_DPC_EXPOSURE_TIME_STR: String = "Exposure Time";
+        const WIA_DPC_FLASH_MODE: u32 = 2056;
+        #[encoding("utf-16")]
+        const WIA_DPC_FLASH_MODE_STR: String = "Flash Mode";
+        const WIA_DPC_FNUMBER: u32 = 2055;
+        #[encoding("utf-16")]
+        const WIA_DPC_FNUMBER_STR: String = "F Number";
+        const WIA_DPC_FOCAL_LENGTH: u32 = 2087;
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCAL_LENGTH_STR: String = "Focus Length";
+        const WIA_DPC_FOCUS_DISTANCE: u32 = 2086;
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCUS_DISTANCE_STR: String = "Focus Distance";
+        const WIA_DPC_FOCUS_MANUAL_DIST: u32 = 2058;
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCUS_MANUAL_DIST_STR: String = "Focus Manual Dist";
+        const WIA_DPC_FOCUS_METERING: u32 = 2072;
+        const WIA_DPC_FOCUS_METERING_MODE: u32 = 2085;
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCUS_METERING_MODE_STR: String = "Focus Metering Mode";
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCUS_METERING_STR: String = "Focus Metering Mode";
+        const WIA_DPC_FOCUS_MODE: u32 = 2057;
+        #[encoding("utf-16")]
+        const WIA_DPC_FOCUS_MODE_STR: String = "Focus Mode";
+        const WIA_DPC_PAN_POSITION: u32 = 2060;
+        #[encoding("utf-16")]
+        const WIA_DPC_PAN_POSITION_STR: String = "Pan Position";
+        const WIA_DPC_PICTURES_REMAINING: u32 = 2051;
+        #[encoding("utf-16")]
+        const WIA_DPC_PICTURES_REMAINING_STR: String = "Pictures Remaining";
+        const WIA_DPC_PICTURES_TAKEN: u32 = 2050;
+        #[encoding("utf-16")]
+        const WIA_DPC_PICTURES_TAKEN_STR: String = "Pictures Taken";
+        const WIA_DPC_PICT_HEIGHT: u32 = 2069;
+        #[encoding("utf-16")]
+        const WIA_DPC_PICT_HEIGHT_STR: String = "Picture Height";
+        const WIA_DPC_PICT_WIDTH: u32 = 2068;
+        #[encoding("utf-16")]
+        const WIA_DPC_PICT_WIDTH_STR: String = "Picture Width";
+        const WIA_DPC_POWER_MODE: u32 = 2064;
+        #[encoding("utf-16")]
+        const WIA_DPC_POWER_MODE_STR: String = "Power Mode";
+        const WIA_DPC_RGB_GAIN: u32 = 2088;
+        #[encoding("utf-16")]
+        const WIA_DPC_RGB_GAIN_STR: String = "RGB Gain";
+        const WIA_DPC_SHARPNESS: u32 = 2079;
+        #[encoding("utf-16")]
+        const WIA_DPC_SHARPNESS_STR: String = "Sharpness";
+        const WIA_DPC_THUMB_HEIGHT: u32 = 2067;
+        #[encoding("utf-16")]
+        const WIA_DPC_THUMB_HEIGHT_STR: String = "Thumbnail Height";
+        const WIA_DPC_THUMB_WIDTH: u32 = 2066;
+        #[encoding("utf-16")]
+        const WIA_DPC_THUMB_WIDTH_STR: String = "Thumbnail Width";
+        const WIA_DPC_TILT_POSITION: u32 = 2061;
+        #[encoding("utf-16")]
+        const WIA_DPC_TILT_POSITION_STR: String = "Tilt Position";
+        const WIA_DPC_TIMELAPSE_INTERVAL: u32 = 2073;
+        #[encoding("utf-16")]
+        const WIA_DPC_TIMELAPSE_INTERVAL_STR: String = "Timelapse Interval";
+        const WIA_DPC_TIMELAPSE_NUMBER: u32 = 2074;
+        #[encoding("utf-16")]
+        const WIA_DPC_TIMELAPSE_NUMBER_STR: String = "Timelapse Number";
+        const WIA_DPC_TIMER_MODE: u32 = 2062;
+        #[encoding("utf-16")]
+        const WIA_DPC_TIMER_MODE_STR: String = "Timer Mode";
+        const WIA_DPC_TIMER_VALUE: u32 = 2063;
+        #[encoding("utf-16")]
+        const WIA_DPC_TIMER_VALUE_STR: String = "Timer Value";
+        const WIA_DPC_UPLOAD_URL: u32 = 2090;
+        #[encoding("utf-16")]
+        const WIA_DPC_UPLOAD_URL_STR: String = "Upload URL";
+        const WIA_DPC_WHITE_BALANCE: u32 = 2089;
+        #[encoding("utf-16")]
+        const WIA_DPC_WHITE_BALANCE_STR: String = "White Balance";
+        const WIA_DPC_ZOOM_POSITION: u32 = 2059;
+        #[encoding("utf-16")]
+        const WIA_DPC_ZOOM_POSITION_STR: String = "Zoom Position";
+        const WIA_DPF_FIRST: u32 = 3330;
+        const WIA_DPF_MOUNT_POINT: u32 = 3330;
+        #[encoding("utf-16")]
+        const WIA_DPF_MOUNT_POINT_STR: String = "Directory mount point";
+        const WIA_DPS_DEVICE_ID: u32 = 3114;
+        #[encoding("utf-16")]
+        const WIA_DPS_DEVICE_ID_STR: String = "Device ID";
+        const WIA_DPS_DITHER_PATTERN_DATA: u32 = 3085;
+        #[encoding("utf-16")]
+        const WIA_DPS_DITHER_PATTERN_DATA_STR: String = "Dither Pattern Data";
+        const WIA_DPS_DITHER_SELECT: u32 = 3084;
+        #[encoding("utf-16")]
+        const WIA_DPS_DITHER_SELECT_STR: String = "Dither Select";
+        const WIA_DPS_DOCUMENT_HANDLING_CAPABILITIES: u32 = 3086;
+        #[encoding("utf-16")]
+        const WIA_DPS_DOCUMENT_HANDLING_CAPABILITIES_STR: String = "Document Handling Capabilities";
+        const WIA_DPS_DOCUMENT_HANDLING_CAPACITY: u32 = 3089;
+        #[encoding("utf-16")]
+        const WIA_DPS_DOCUMENT_HANDLING_CAPACITY_STR: String = "Document Handling Capacity";
+        const WIA_DPS_DOCUMENT_HANDLING_SELECT: u32 = 3088;
+        #[encoding("utf-16")]
+        const WIA_DPS_DOCUMENT_HANDLING_SELECT_STR: String = "Document Handling Select";
+        const WIA_DPS_DOCUMENT_HANDLING_STATUS: u32 = 3087;
+        #[encoding("utf-16")]
+        const WIA_DPS_DOCUMENT_HANDLING_STATUS_STR: String = "Document Handling Status";
+        const WIA_DPS_ENDORSER_CHARACTERS: u32 = 3092;
+        #[encoding("utf-16")]
+        const WIA_DPS_ENDORSER_CHARACTERS_STR: String = "Endorser Characters";
+        const WIA_DPS_ENDORSER_STRING: u32 = 3093;
+        #[encoding("utf-16")]
+        const WIA_DPS_ENDORSER_STRING_STR: String = "Endorser String";
+        const WIA_DPS_FILTER_SELECT: u32 = 3083;
+        #[encoding("utf-16")]
+        const WIA_DPS_FILTER_SELECT_STR: String = "Filter Select";
+        const WIA_DPS_FIRST: u32 = 3074;
+        const WIA_DPS_GLOBAL_IDENTITY: u32 = 3115;
+        #[encoding("utf-16")]
+        const WIA_DPS_GLOBAL_IDENTITY_STR: String = "Global Identity";
+        const WIA_DPS_HORIZONTAL_BED_REGISTRATION: u32 = 3079;
+        #[encoding("utf-16")]
+        const WIA_DPS_HORIZONTAL_BED_REGISTRATION_STR: String = "Horizontal Bed Registration";
+        const WIA_DPS_HORIZONTAL_BED_SIZE: u32 = 3074;
+        #[encoding("utf-16")]
+        const WIA_DPS_HORIZONTAL_BED_SIZE_STR: String = "Horizontal Bed Size";
+        const WIA_DPS_HORIZONTAL_SHEET_FEED_SIZE: u32 = 3076;
+        #[encoding("utf-16")]
+        const WIA_DPS_HORIZONTAL_SHEET_FEED_SIZE_STR: String = "Horizontal Sheet Feed Size";
+        const WIA_DPS_MAX_SCAN_TIME: u32 = 3095;
+        #[encoding("utf-16")]
+        const WIA_DPS_MAX_SCAN_TIME_STR: String = "Max Scan Time";
+        const WIA_DPS_MIN_HORIZONTAL_SHEET_FEED_SIZE: u32 = 3104;
+        #[encoding("utf-16")]
+        const WIA_DPS_MIN_HORIZONTAL_SHEET_FEED_SIZE_STR: String = "Minimum Horizontal Sheet Feed Size";
+        const WIA_DPS_MIN_VERTICAL_SHEET_FEED_SIZE: u32 = 3105;
+        #[encoding("utf-16")]
+        const WIA_DPS_MIN_VERTICAL_SHEET_FEED_SIZE_STR: String = "Minimum Vertical Sheet Feed Size";
+        const WIA_DPS_OPTICAL_XRES: u32 = 3090;
+        #[encoding("utf-16")]
+        const WIA_DPS_OPTICAL_XRES_STR: String = "Horizontal Optical Resolution";
+        const WIA_DPS_OPTICAL_YRES: u32 = 3091;
+        #[encoding("utf-16")]
+        const WIA_DPS_OPTICAL_YRES_STR: String = "Vertical Optical Resolution";
+        const WIA_DPS_PAD_COLOR: u32 = 3082;
+        #[encoding("utf-16")]
+        const WIA_DPS_PAD_COLOR_STR: String = "Pad Color";
+        const WIA_DPS_PAGES: u32 = 3096;
+        #[encoding("utf-16")]
+        const WIA_DPS_PAGES_STR: String = "Pages";
+        const WIA_DPS_PAGE_HEIGHT: u32 = 3099;
+        #[encoding("utf-16")]
+        const WIA_DPS_PAGE_HEIGHT_STR: String = "Page Height";
+        const WIA_DPS_PAGE_SIZE: u32 = 3097;
+        #[encoding("utf-16")]
+        const WIA_DPS_PAGE_SIZE_STR: String = "Page Size";
+        const WIA_DPS_PAGE_WIDTH: u32 = 3098;
+        #[encoding("utf-16")]
+        const WIA_DPS_PAGE_WIDTH_STR: String = "Page Width";
+        const WIA_DPS_PLATEN_COLOR: u32 = 3081;
+        #[encoding("utf-16")]
+        const WIA_DPS_PLATEN_COLOR_STR: String = "Platen Color";
+        const WIA_DPS_PREVIEW: u32 = 3100;
+        #[encoding("utf-16")]
+        const WIA_DPS_PREVIEW_STR: String = "Preview";
+        const WIA_DPS_SCAN_AHEAD_PAGES: u32 = 3094;
+        #[encoding("utf-16")]
+        const WIA_DPS_SCAN_AHEAD_PAGES_STR: String = "Scan Ahead Pages";
+        const WIA_DPS_SCAN_AVAILABLE_ITEM: u32 = 3116;
+        #[encoding("utf-16")]
+        const WIA_DPS_SCAN_AVAILABLE_ITEM_STR: String = "Scan Available Item";
+        const WIA_DPS_SERVICE_ID: u32 = 3113;
+        #[encoding("utf-16")]
+        const WIA_DPS_SERVICE_ID_STR: String = "Service ID";
+        const WIA_DPS_SHEET_FEEDER_REGISTRATION: u32 = 3078;
+        #[encoding("utf-16")]
+        const WIA_DPS_SHEET_FEEDER_REGISTRATION_STR: String = "Sheet Feeder Registration";
+        const WIA_DPS_SHOW_PREVIEW_CONTROL: u32 = 3103;
+        #[encoding("utf-16")]
+        const WIA_DPS_SHOW_PREVIEW_CONTROL_STR: String = "Show preview control";
+        const WIA_DPS_TRANSPARENCY: u32 = 3101;
+        const WIA_DPS_TRANSPARENCY_CAPABILITIES: u32 = 3106;
+        #[encoding("utf-16")]
+        const WIA_DPS_TRANSPARENCY_CAPABILITIES_STR: String = "Transparency Adapter Capabilities";
+        const WIA_DPS_TRANSPARENCY_SELECT: u32 = 3102;
+        #[encoding("utf-16")]
+        const WIA_DPS_TRANSPARENCY_SELECT_STR: String = "Transparency Adapter Select";
+        const WIA_DPS_TRANSPARENCY_STATUS: u32 = 3107;
+        #[encoding("utf-16")]
+        const WIA_DPS_TRANSPARENCY_STATUS_STR: String = "Transparency Adapter Status";
+        #[encoding("utf-16")]
+        const WIA_DPS_TRANSPARENCY_STR: String = "Transparency Adapter";
+        const WIA_DPS_USER_NAME: u32 = 3112;
+        #[encoding("utf-16")]
+        const WIA_DPS_USER_NAME_STR: String = "User Name";
+        const WIA_DPS_VERTICAL_BED_REGISTRATION: u32 = 3080;
+        #[encoding("utf-16")]
+        const WIA_DPS_VERTICAL_BED_REGISTRATION_STR: String = "Vertical Bed Registration";
+        const WIA_DPS_VERTICAL_BED_SIZE: u32 = 3075;
+        #[encoding("utf-16")]
+        const WIA_DPS_VERTICAL_BED_SIZE_STR: String = "Vertical Bed Size";
+        const WIA_DPS_VERTICAL_SHEET_FEED_SIZE: u32 = 3077;
+        #[encoding("utf-16")]
+        const WIA_DPS_VERTICAL_SHEET_FEED_SIZE_STR: String = "Vertical Sheet Feed Size";
+        const WIA_DPV_DSHOW_DEVICE_PATH: u32 = 3588;
+        #[encoding("utf-16")]
+        const WIA_DPV_DSHOW_DEVICE_PATH_STR: String = "Directshow Device Path";
+        const WIA_DPV_IMAGES_DIRECTORY: u32 = 3587;
+        #[encoding("utf-16")]
+        const WIA_DPV_IMAGES_DIRECTORY_STR: String = "Images Directory";
+        const WIA_DPV_LAST_PICTURE_TAKEN: u32 = 3586;
+        #[encoding("utf-16")]
+        const WIA_DPV_LAST_PICTURE_TAKEN_STR: String = "Last Picture Taken";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_DATE: String = "$DATE$";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_DAY: String = "$DAY$";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_MONTH: String = "$MONTH$";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_PAGE_COUNT: String = "$PAGE_COUNT$";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_TIME: String = "$TIME$";
+        #[encoding("utf-16")]
+        const WIA_ENDORSER_TOK_YEAR: String = "$YEAR$";
+        const WIA_ERROR_BUSY: i32 = -2145320954;
+        const WIA_ERROR_COVER_OPEN: i32 = -2145320944;
+        const WIA_ERROR_DESTINATION: i32 = -2145320942;
+        const WIA_ERROR_DEVICE_COMMUNICATION: i32 = -2145320950;
+        const WIA_ERROR_DEVICE_LOCKED: i32 = -2145320947;
+        const WIA_ERROR_EXCEPTION_IN_DRIVER: i32 = -2145320946;
+        const WIA_ERROR_GENERAL_ERROR: i32 = -2145320959;
+        const WIA_ERROR_INCORRECT_HARDWARE_SETTING: i32 = -2145320948;
+        const WIA_ERROR_INVALID_COMMAND: i32 = -2145320949;
+        const WIA_ERROR_INVALID_DRIVER_RESPONSE: i32 = -2145320945;
+        const WIA_ERROR_ITEM_DELETED: i32 = -2145320951;
+        const WIA_ERROR_LAMP_OFF: i32 = -2145320943;
+        const WIA_ERROR_MAXIMUM_PRINTER_ENDORSER_COUNTER: i32 = -2145320939;
+        const WIA_ERROR_MULTI_FEED: i32 = -2145320940;
+        const WIA_ERROR_NETWORK_RESERVATION_FAILED: i32 = -2145320941;
+        const WIA_ERROR_OFFLINE: i32 = -2145320955;
+        const WIA_ERROR_PAPER_EMPTY: i32 = -2145320957;
+        const WIA_ERROR_PAPER_JAM: i32 = -2145320958;
+        const WIA_ERROR_PAPER_PROBLEM: i32 = -2145320956;
+        const WIA_ERROR_USER_INTERVENTION: i32 = -2145320952;
+        const WIA_ERROR_WARMING_UP: i32 = -2145320953;
+        const WIA_EVENT_CANCEL_IO: GUID = 0xc860f7b8_9ccd_41ea_bbbf_4dd09c5b1795;
+        const WIA_EVENT_COVER_CLOSED: GUID = 0x6714a1e6_e285_468c_9b8c_da7dc4cbaa05;
+        const WIA_EVENT_COVER_OPEN: GUID = 0x19a12136_fa1c_4f66_900f_8f914ec74ec9;
+        const WIA_EVENT_DEVICE_CONNECTED: GUID = 0xa28bbade_64b6_11d2_a231_00c04fa31809;
+        #[encoding("utf-16")]
+        const WIA_EVENT_DEVICE_CONNECTED_STR: String = "Device Connected";
+        const WIA_EVENT_DEVICE_DISCONNECTED: GUID = 0x143e4e83_6497_11d2_a231_00c04fa31809;
+        #[encoding("utf-16")]
+        const WIA_EVENT_DEVICE_DISCONNECTED_STR: String = "Device Disconnected";
+        const WIA_EVENT_DEVICE_NOT_READY: GUID = 0xd8962d7e_e4dc_4b4d_ba29_668a87f42e6f;
+        const WIA_EVENT_DEVICE_READY: GUID = 0x7523ec6c_988b_419e_9a0a_425ac31b37dc;
+        const WIA_EVENT_FEEDER_EMPTIED: GUID = 0xe70b4b82_6dda_46bb_8ff9_53ceb1a03e35;
+        const WIA_EVENT_FEEDER_LOADED: GUID = 0xcc8d701e_9aba_481d_bf74_78f763dc342a;
+        const WIA_EVENT_FLATBED_LID_CLOSED: GUID = 0xf879af0f_9b29_4283_ad95_d412164d39a9;
+        const WIA_EVENT_FLATBED_LID_OPEN: GUID = 0xba0a0623_437d_4f03_a97d_7793b123113c;
+        const WIA_EVENT_HANDLER_NO_ACTION: GUID = 0xe0372b7d_e115_4525_bc55_b629e68c745a;
+        const WIA_EVENT_HANDLER_PROMPT: GUID = 0x5f4baad0_4d59_4fcd_b213_783ce7a92f22;
+        const WIA_EVENT_ITEM_CREATED: GUID = 0x4c8f4ef5_e14f_11d2_b326_00c04f68ce61;
+        const WIA_EVENT_ITEM_DELETED: GUID = 0x1d22a559_e14f_11d2_b326_00c04f68ce61;
+        const WIA_EVENT_POWER_RESUME: GUID = 0x618f153e_f686_4350_9634_4115a304830c;
+        const WIA_EVENT_POWER_SUSPEND: GUID = 0xa0922ff9_c3b4_411c_9e29_03a66993d2be;
+        const WIA_EVENT_SCAN_EMAIL_IMAGE: GUID = 0xc686dcee_54f2_419e_9a27_2fc7f2e98f9e;
+        const WIA_EVENT_SCAN_FAX_IMAGE: GUID = 0xc00eb793_8c6e_11d2_977a_0000f87a926f;
+        const WIA_EVENT_SCAN_FILM_IMAGE: GUID = 0x9b2b662c_6185_438c_b68b_e39ee25e71cb;
+        const WIA_EVENT_SCAN_IMAGE: GUID = 0xa6c5a715_8c6e_11d2_977a_0000f87a926f;
+        const WIA_EVENT_SCAN_IMAGE2: GUID = 0xfc4767c1_c8b3_48a2_9cfa_2e90cb3d3590;
+        const WIA_EVENT_SCAN_IMAGE3: GUID = 0x154e27be_b617_4653_acc5_0fd7bd4c65ce;
+        const WIA_EVENT_SCAN_IMAGE4: GUID = 0xa65b704a_7f3c_4447_a75d_8a26dfca1fdf;
+        const WIA_EVENT_SCAN_OCR_IMAGE: GUID = 0x9d095b89_37d6_4877_afed_62a297dc6dbe;
+        const WIA_EVENT_SCAN_PRINT_IMAGE: GUID = 0xb441f425_8c6e_11d2_977a_0000f87a926f;
+        const WIA_EVENT_STI_PROXY: GUID = 0xd711f81f_1f0d_422d_8641_927d1b93e5e5;
+        const WIA_EVENT_STORAGE_CREATED: GUID = 0x353308b2_fe73_46c8_895e_fa4551ccc85a;
+        const WIA_EVENT_STORAGE_DELETED: GUID = 0x5e41e75e_9390_44c5_9a51_e47019e390cf;
+        const WIA_EVENT_TREE_UPDATED: GUID = 0xc9859b91_4ab2_4cd6_a1fc_582eec55e585;
+        const WIA_EVENT_VOLUME_INSERT: GUID = 0x9638bbfd_d1bd_11d2_b31f_00c04f68ce61;
+        const WIA_FEEDER_CONTROL_AUTO: u32 = 0;
+        const WIA_FEEDER_CONTROL_MANUAL: u32 = 1;
+        const WIA_FILM_BW_NEGATIVE: u32 = 2;
+        const WIA_FILM_COLOR_NEGATIVE: u32 = 1;
+        const WIA_FILM_COLOR_SLIDE: u32 = 0;
+        const WIA_FINAL_SCAN: u32 = 0;
+        const WIA_FLAG_NOM: u32 = 0;
+        const WIA_FLAG_NUM_ELEMS: u32 = 2;
+        const WIA_FLAG_VALUES: u32 = 1;
+        #[encoding("utf-16")]
+        const WIA_ICON_BUILD_DEVICE_TREE: String = "sti.dll,-2006";
+        #[encoding("utf-16")]
+        const WIA_ICON_CHANGE_DOCUMENT: String = "sti.dll,-2003";
+        #[encoding("utf-16")]
+        const WIA_ICON_COVER_CLOSED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_COVER_OPEN: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_DELETE_ALL_ITEMS: String = "sti.dll,-2002";
+        #[encoding("utf-16")]
+        const WIA_ICON_DELETE_DEVICE_TREE: String = "sti.dll,-2005";
+        #[encoding("utf-16")]
+        const WIA_ICON_DEVICE_CONNECTED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_DEVICE_DISCONNECTED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_DEVICE_NOT_READY: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_DEVICE_READY: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_FEEDER_EMPTIED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_FEEDER_LOADED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_FLATBED_LID_CLOSED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_FLATBED_LID_OPEN: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_ITEM_CREATED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_ITEM_DELETED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_SCAN_BUTTON_PRESS: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_START_FEEDER: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_STOP_FEEDER: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_SYNCHRONIZE: String = "sti.dll,-2000";
+        #[encoding("utf-16")]
+        const WIA_ICON_TAKE_PICTURE: String = "sti.dll,-2001";
+        #[encoding("utf-16")]
+        const WIA_ICON_TREE_UPDATED: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_ICON_UNLOAD_DOCUMENT: String = "sti.dll,-2004";
+        #[encoding("utf-16")]
+        const WIA_ICON_VOLUME_INSERT: String = "sti.dll,-1001";
+        #[encoding("utf-16")]
+        const WIA_IMAGEPROC_FILTER_STR: String = "ImageProcessingFilter";
+        const WIA_INTENT_BEST_PREVIEW: u32 = 262144;
+        const WIA_INTENT_IMAGE_TYPE_COLOR: u32 = 1;
+        const WIA_INTENT_IMAGE_TYPE_GRAYSCALE: u32 = 2;
+        const WIA_INTENT_IMAGE_TYPE_MASK: u32 = 15;
+        const WIA_INTENT_IMAGE_TYPE_TEXT: u32 = 4;
+        const WIA_INTENT_MAXIMIZE_QUALITY: u32 = 131072;
+        const WIA_INTENT_MINIMIZE_SIZE: u32 = 65536;
+        const WIA_INTENT_NONE: u32 = 0;
+        const WIA_INTENT_SIZE_MASK: u32 = 983040;
+        const WIA_IPA_ACCESS_RIGHTS: u32 = 4102;
+        #[encoding("utf-16")]
+        const WIA_IPA_ACCESS_RIGHTS_STR: String = "Access Rights";
+        const WIA_IPA_APP_COLOR_MAPPING: u32 = 4121;
+        #[encoding("utf-16")]
+        const WIA_IPA_APP_COLOR_MAPPING_STR: String = "Application Applies Color Mapping";
+        const WIA_IPA_BITS_PER_CHANNEL: u32 = 4110;
+        #[encoding("utf-16")]
+        const WIA_IPA_BITS_PER_CHANNEL_STR: String = "Bits Per Channel";
+        const WIA_IPA_BUFFER_SIZE: u32 = 4118;
+        #[encoding("utf-16")]
+        const WIA_IPA_BUFFER_SIZE_STR: String = "Buffer Size";
+        const WIA_IPA_BYTES_PER_LINE: u32 = 4113;
+        #[encoding("utf-16")]
+        const WIA_IPA_BYTES_PER_LINE_STR: String = "Bytes Per Line";
+        const WIA_IPA_CHANNELS_PER_PIXEL: u32 = 4109;
+        #[encoding("utf-16")]
+        const WIA_IPA_CHANNELS_PER_PIXEL_STR: String = "Channels Per Pixel";
+        const WIA_IPA_COLOR_PROFILE: u32 = 4117;
+        #[encoding("utf-16")]
+        const WIA_IPA_COLOR_PROFILE_STR: String = "Color Profiles";
+        const WIA_IPA_COMPRESSION: u32 = 4107;
+        #[encoding("utf-16")]
+        const WIA_IPA_COMPRESSION_STR: String = "Compression";
+        const WIA_IPA_DATATYPE: u32 = 4103;
+        #[encoding("utf-16")]
+        const WIA_IPA_DATATYPE_STR: String = "Data Type";
+        const WIA_IPA_DEPTH: u32 = 4104;
+        #[encoding("utf-16")]
+        const WIA_IPA_DEPTH_STR: String = "Bits Per Pixel";
+        const WIA_IPA_FILENAME_EXTENSION: u32 = 4123;
+        #[encoding("utf-16")]
+        const WIA_IPA_FILENAME_EXTENSION_STR: String = "Filename extension";
+        const WIA_IPA_FIRST: u32 = 4098;
+        const WIA_IPA_FORMAT: u32 = 4106;
+        #[encoding("utf-16")]
+        const WIA_IPA_FORMAT_STR: String = "Format";
+        const WIA_IPA_FULL_ITEM_NAME: u32 = 4099;
+        #[encoding("utf-16")]
+        const WIA_IPA_FULL_ITEM_NAME_STR: String = "Full Item Name";
+        const WIA_IPA_GAMMA_CURVES: u32 = 4115;
+        #[encoding("utf-16")]
+        const WIA_IPA_GAMMA_CURVES_STR: String = "Gamma Curves";
+        const WIA_IPA_ICM_PROFILE_NAME: u32 = 4120;
+        #[encoding("utf-16")]
+        const WIA_IPA_ICM_PROFILE_NAME_STR: String = "Color Profile Name";
+        const WIA_IPA_ITEMS_STORED: u32 = 4127;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEMS_STORED_STR: String = "Items Stored";
+        const WIA_IPA_ITEM_CATEGORY: u32 = 4125;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEM_CATEGORY_STR: String = "Item Category";
+        const WIA_IPA_ITEM_FLAGS: u32 = 4101;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEM_FLAGS_STR: String = "Item Flags";
+        const WIA_IPA_ITEM_NAME: u32 = 4098;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEM_NAME_STR: String = "Item Name";
+        const WIA_IPA_ITEM_SIZE: u32 = 4116;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEM_SIZE_STR: String = "Item Size";
+        const WIA_IPA_ITEM_TIME: u32 = 4100;
+        #[encoding("utf-16")]
+        const WIA_IPA_ITEM_TIME_STR: String = "Item Time Stamp";
+        const WIA_IPA_MIN_BUFFER_SIZE: u32 = 4118;
+        #[encoding("utf-16")]
+        const WIA_IPA_MIN_BUFFER_SIZE_STR: String = "Buffer Size";
+        const WIA_IPA_NUMBER_OF_LINES: u32 = 4114;
+        #[encoding("utf-16")]
+        const WIA_IPA_NUMBER_OF_LINES_STR: String = "Number of Lines";
+        const WIA_IPA_PIXELS_PER_LINE: u32 = 4112;
+        #[encoding("utf-16")]
+        const WIA_IPA_PIXELS_PER_LINE_STR: String = "Pixels Per Line";
+        const WIA_IPA_PLANAR: u32 = 4111;
+        #[encoding("utf-16")]
+        const WIA_IPA_PLANAR_STR: String = "Planar";
+        const WIA_IPA_PREFERRED_FORMAT: u32 = 4105;
+        #[encoding("utf-16")]
+        const WIA_IPA_PREFERRED_FORMAT_STR: String = "Preferred Format";
+        const WIA_IPA_PROP_STREAM_COMPAT_ID: u32 = 4122;
+        #[encoding("utf-16")]
+        const WIA_IPA_PROP_STREAM_COMPAT_ID_STR: String = "Stream Compatibility ID";
+        const WIA_IPA_RAW_BITS_PER_CHANNEL: u32 = 4128;
+        #[encoding("utf-16")]
+        const WIA_IPA_RAW_BITS_PER_CHANNEL_STR: String = "Raw Bits Per Channel";
+        const WIA_IPA_REGION_TYPE: u32 = 4119;
+        #[encoding("utf-16")]
+        const WIA_IPA_REGION_TYPE_STR: String = "Region Type";
+        const WIA_IPA_SUPPRESS_PROPERTY_PAGE: u32 = 4124;
+        #[encoding("utf-16")]
+        const WIA_IPA_SUPPRESS_PROPERTY_PAGE_STR: String = "Suppress a property page";
+        const WIA_IPA_TYMED: u32 = 4108;
+        #[encoding("utf-16")]
+        const WIA_IPA_TYMED_STR: String = "Media Type";
+        const WIA_IPA_UPLOAD_ITEM_SIZE: u32 = 4126;
+        #[encoding("utf-16")]
+        const WIA_IPA_UPLOAD_ITEM_SIZE_STR: String = "Upload Item Size";
+        const WIA_IPC_AUDIO_AVAILABLE: u32 = 5125;
+        #[encoding("utf-16")]
+        const WIA_IPC_AUDIO_AVAILABLE_STR: String = "Audio Available";
+        const WIA_IPC_AUDIO_DATA: u32 = 5127;
+        const WIA_IPC_AUDIO_DATA_FORMAT: u32 = 5126;
+        #[encoding("utf-16")]
+        const WIA_IPC_AUDIO_DATA_FORMAT_STR: String = "Audio Format";
+        #[encoding("utf-16")]
+        const WIA_IPC_AUDIO_DATA_STR: String = "Audio Data";
+        const WIA_IPC_FIRST: u32 = 5122;
+        const WIA_IPC_NUM_PICT_PER_ROW: u32 = 5128;
+        #[encoding("utf-16")]
+        const WIA_IPC_NUM_PICT_PER_ROW_STR: String = "Pictures per Row";
+        const WIA_IPC_SEQUENCE: u32 = 5129;
+        #[encoding("utf-16")]
+        const WIA_IPC_SEQUENCE_STR: String = "Sequence Number";
+        const WIA_IPC_THUMBNAIL: u32 = 5122;
+        #[encoding("utf-16")]
+        const WIA_IPC_THUMBNAIL_STR: String = "Thumbnail Data";
+        const WIA_IPC_THUMB_HEIGHT: u32 = 5124;
+        #[encoding("utf-16")]
+        const WIA_IPC_THUMB_HEIGHT_STR: String = "Thumbnail Height";
+        const WIA_IPC_THUMB_WIDTH: u32 = 5123;
+        #[encoding("utf-16")]
+        const WIA_IPC_THUMB_WIDTH_STR: String = "Thumbnail Width";
+        const WIA_IPC_TIMEDELAY: u32 = 5130;
+        #[encoding("utf-16")]
+        const WIA_IPC_TIMEDELAY_STR: String = "Time Delay";
+        const WIA_IPS_ALARM: u32 = 4185;
+        #[encoding("utf-16")]
+        const WIA_IPS_ALARM_STR: String = "Alarm";
+        const WIA_IPS_AUTO_CROP: u32 = 4170;
+        #[encoding("utf-16")]
+        const WIA_IPS_AUTO_CROP_STR: String = "Auto-Crop";
+        const WIA_IPS_AUTO_DESKEW: u32 = 3107;
+        #[encoding("utf-16")]
+        const WIA_IPS_AUTO_DESKEW_STR: String = "Automatic Deskew";
+        const WIA_IPS_BARCODE_READER: u32 = 4150;
+        #[encoding("utf-16")]
+        const WIA_IPS_BARCODE_READER_STR: String = "Barcode Reader";
+        const WIA_IPS_BARCODE_SEARCH_DIRECTION: u32 = 4152;
+        #[encoding("utf-16")]
+        const WIA_IPS_BARCODE_SEARCH_DIRECTION_STR: String = "Barcode Search Direction";
+        const WIA_IPS_BARCODE_SEARCH_TIMEOUT: u32 = 4154;
+        #[encoding("utf-16")]
+        const WIA_IPS_BARCODE_SEARCH_TIMEOUT_STR: String = "Barcode Search Timeout";
+        const WIA_IPS_BLANK_PAGES: u32 = 4167;
+        const WIA_IPS_BLANK_PAGES_SENSITIVITY: u32 = 4192;
+        #[encoding("utf-16")]
+        const WIA_IPS_BLANK_PAGES_SENSITIVITY_STR: String = "Blank Pages Sensitivity";
+        #[encoding("utf-16")]
+        const WIA_IPS_BLANK_PAGES_STR: String = "Blank Pages";
+        const WIA_IPS_BRIGHTNESS: u32 = 6154;
+        #[encoding("utf-16")]
+        const WIA_IPS_BRIGHTNESS_STR: String = "Brightness";
+        const WIA_IPS_COLOR_DROP: u32 = 4176;
+        const WIA_IPS_COLOR_DROP_BLUE: u32 = 4179;
+        #[encoding("utf-16")]
+        const WIA_IPS_COLOR_DROP_BLUE_STR: String = "Color Drop Blue";
+        const WIA_IPS_COLOR_DROP_GREEN: u32 = 4178;
+        #[encoding("utf-16")]
+        const WIA_IPS_COLOR_DROP_GREEN_STR: String = "Color Drop Green";
+        const WIA_IPS_COLOR_DROP_MULTI: u32 = 4191;
+        #[encoding("utf-16")]
+        const WIA_IPS_COLOR_DROP_MULTI_STR: String = "Color Drop Multiple";
+        const WIA_IPS_COLOR_DROP_RED: u32 = 4177;
+        #[encoding("utf-16")]
+        const WIA_IPS_COLOR_DROP_RED_STR: String = "Color Drop Red";
+        #[encoding("utf-16")]
+        const WIA_IPS_COLOR_DROP_STR: String = "Color Drop";
+        const WIA_IPS_CONTRAST: u32 = 6155;
+        #[encoding("utf-16")]
+        const WIA_IPS_CONTRAST_STR: String = "Contrast";
+        const WIA_IPS_CUR_INTENT: u32 = 6146;
+        #[encoding("utf-16")]
+        const WIA_IPS_CUR_INTENT_STR: String = "Current Intent";
+        const WIA_IPS_DESKEW_X: u32 = 6162;
+        #[encoding("utf-16")]
+        const WIA_IPS_DESKEW_X_STR: String = "DeskewX";
+        const WIA_IPS_DESKEW_Y: u32 = 6163;
+        #[encoding("utf-16")]
+        const WIA_IPS_DESKEW_Y_STR: String = "DeskewY";
+        const WIA_IPS_DOCUMENT_HANDLING_SELECT: u32 = 3088;
+        #[encoding("utf-16")]
+        const WIA_IPS_DOCUMENT_HANDLING_SELECT_STR: String = "Document Handling Select";
+        const WIA_IPS_ENABLED_BARCODE_TYPES: u32 = 4156;
+        #[encoding("utf-16")]
+        const WIA_IPS_ENABLED_BARCODE_TYPES_STR: String = "Enabled Barcode Types";
+        const WIA_IPS_ENABLED_PATCH_CODE_TYPES: u32 = 4163;
+        #[encoding("utf-16")]
+        const WIA_IPS_ENABLED_PATCH_CODE_TYPES_STR: String = "Enabled Path Code Types";
+        const WIA_IPS_FEEDER_CONTROL: u32 = 4182;
+        #[encoding("utf-16")]
+        const WIA_IPS_FEEDER_CONTROL_STR: String = "Feeder Control";
+        const WIA_IPS_FILM_NODE_NAME: u32 = 4129;
+        #[encoding("utf-16")]
+        const WIA_IPS_FILM_NODE_NAME_STR: String = "Film Node Name";
+        const WIA_IPS_FILM_SCAN_MODE: u32 = 3104;
+        #[encoding("utf-16")]
+        const WIA_IPS_FILM_SCAN_MODE_STR: String = "Film Scan Mode";
+        const WIA_IPS_FIRST: u32 = 6146;
+        const WIA_IPS_INVERT: u32 = 6160;
+        #[encoding("utf-16")]
+        const WIA_IPS_INVERT_STR: String = "Invert";
+        const WIA_IPS_JOB_SEPARATORS: u32 = 4165;
+        #[encoding("utf-16")]
+        const WIA_IPS_JOB_SEPARATORS_STR: String = "Job Separators";
+        const WIA_IPS_LAMP: u32 = 3105;
+        const WIA_IPS_LAMP_AUTO_OFF: u32 = 3106;
+        #[encoding("utf-16")]
+        const WIA_IPS_LAMP_AUTO_OFF_STR: String = "Lamp Auto Off";
+        #[encoding("utf-16")]
+        const WIA_IPS_LAMP_STR: String = "Lamp";
+        const WIA_IPS_LONG_DOCUMENT: u32 = 4166;
+        #[encoding("utf-16")]
+        const WIA_IPS_LONG_DOCUMENT_STR: String = "Long Document";
+        const WIA_IPS_MAXIMUM_BARCODES_PER_PAGE: u32 = 4151;
+        #[encoding("utf-16")]
+        const WIA_IPS_MAXIMUM_BARCODES_PER_PAGE_STR: String = "Maximum Barcodes Per Page";
+        const WIA_IPS_MAXIMUM_BARCODE_SEARCH_RETRIES: u32 = 4153;
+        #[encoding("utf-16")]
+        const WIA_IPS_MAXIMUM_BARCODE_SEARCH_RETRIES_STR: String = "Barcode Search Retries";
+        const WIA_IPS_MAX_HORIZONTAL_SIZE: u32 = 6165;
+        #[encoding("utf-16")]
+        const WIA_IPS_MAX_HORIZONTAL_SIZE_STR: String = "Maximum Horizontal Scan Size";
+        const WIA_IPS_MAX_VERTICAL_SIZE: u32 = 6166;
+        #[encoding("utf-16")]
+        const WIA_IPS_MAX_VERTICAL_SIZE_STR: String = "Maximum Vertical Scan Size";
+        const WIA_IPS_MICR_READER: u32 = 4164;
+        #[encoding("utf-16")]
+        const WIA_IPS_MICR_READER_STR: String = "MICR Reader";
+        const WIA_IPS_MIN_HORIZONTAL_SIZE: u32 = 6167;
+        #[encoding("utf-16")]
+        const WIA_IPS_MIN_HORIZONTAL_SIZE_STR: String = "Minimum Horizontal Scan Size";
+        const WIA_IPS_MIN_VERTICAL_SIZE: u32 = 6168;
+        #[encoding("utf-16")]
+        const WIA_IPS_MIN_VERTICAL_SIZE_STR: String = "Minimum Vertical Scan Size";
+        const WIA_IPS_MIRROR: u32 = 6158;
+        #[encoding("utf-16")]
+        const WIA_IPS_MIRROR_STR: String = "Mirror";
+        const WIA_IPS_MULTI_FEED: u32 = 4168;
+        const WIA_IPS_MULTI_FEED_DETECT_METHOD: u32 = 4193;
+        #[encoding("utf-16")]
+        const WIA_IPS_MULTI_FEED_DETECT_METHOD_STR: String = "Multi-Feed Detection Method";
+        const WIA_IPS_MULTI_FEED_SENSITIVITY: u32 = 4169;
+        #[encoding("utf-16")]
+        const WIA_IPS_MULTI_FEED_SENSITIVITY_STR: String = "Multi-Feed Sensitivity";
+        #[encoding("utf-16")]
+        const WIA_IPS_MULTI_FEED_STR: String = "Multi-Feed";
+        const WIA_IPS_OPTICAL_XRES: u32 = 3090;
+        #[encoding("utf-16")]
+        const WIA_IPS_OPTICAL_XRES_STR: String = "Horizontal Optical Resolution";
+        const WIA_IPS_OPTICAL_YRES: u32 = 3091;
+        #[encoding("utf-16")]
+        const WIA_IPS_OPTICAL_YRES_STR: String = "Vertical Optical Resolution";
+        const WIA_IPS_ORIENTATION: u32 = 6156;
+        #[encoding("utf-16")]
+        const WIA_IPS_ORIENTATION_STR: String = "Orientation";
+        const WIA_IPS_OVER_SCAN: u32 = 4171;
+        const WIA_IPS_OVER_SCAN_BOTTOM: u32 = 4175;
+        #[encoding("utf-16")]
+        const WIA_IPS_OVER_SCAN_BOTTOM_STR: String = "Overscan Bottom";
+        const WIA_IPS_OVER_SCAN_LEFT: u32 = 4172;
+        #[encoding("utf-16")]
+        const WIA_IPS_OVER_SCAN_LEFT_STR: String = "Overscan Left";
+        const WIA_IPS_OVER_SCAN_RIGHT: u32 = 4173;
+        #[encoding("utf-16")]
+        const WIA_IPS_OVER_SCAN_RIGHT_STR: String = "Overscan Right";
+        #[encoding("utf-16")]
+        const WIA_IPS_OVER_SCAN_STR: String = "Overscan";
+        const WIA_IPS_OVER_SCAN_TOP: u32 = 4174;
+        #[encoding("utf-16")]
+        const WIA_IPS_OVER_SCAN_TOP_STR: String = "Overscan Top";
+        const WIA_IPS_PAGES: u32 = 3096;
+        #[encoding("utf-16")]
+        const WIA_IPS_PAGES_STR: String = "Pages";
+        const WIA_IPS_PAGE_HEIGHT: u32 = 3099;
+        #[encoding("utf-16")]
+        const WIA_IPS_PAGE_HEIGHT_STR: String = "Page Height";
+        const WIA_IPS_PAGE_SIZE: u32 = 3097;
+        #[encoding("utf-16")]
+        const WIA_IPS_PAGE_SIZE_STR: String = "Page Size";
+        const WIA_IPS_PAGE_WIDTH: u32 = 3098;
+        #[encoding("utf-16")]
+        const WIA_IPS_PAGE_WIDTH_STR: String = "Page Width";
+        const WIA_IPS_PATCH_CODE_READER: u32 = 4157;
+        #[encoding("utf-16")]
+        const WIA_IPS_PATCH_CODE_READER_STR: String = "Patch Code Reader";
+        const WIA_IPS_PHOTOMETRIC_INTERP: u32 = 6153;
+        #[encoding("utf-16")]
+        const WIA_IPS_PHOTOMETRIC_INTERP_STR: String = "Photometric Interpretation";
+        const WIA_IPS_PREVIEW: u32 = 3100;
+        #[encoding("utf-16")]
+        const WIA_IPS_PREVIEW_STR: String = "Preview";
+        const WIA_IPS_PREVIEW_TYPE: u32 = 3111;
+        #[encoding("utf-16")]
+        const WIA_IPS_PREVIEW_TYPE_STR: String = "Preview Type";
+        const WIA_IPS_PRINTER_ENDORSER: u32 = 4130;
+        const WIA_IPS_PRINTER_ENDORSER_CHARACTER_ROTATION: u32 = 4187;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_CHARACTER_ROTATION_STR: String = "Printer/Endorser Character Rotation";
+        const WIA_IPS_PRINTER_ENDORSER_COUNTER: u32 = 4132;
+        const WIA_IPS_PRINTER_ENDORSER_COUNTER_DIGITS: u32 = 4190;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_COUNTER_DIGITS_STR: String = "Printer/Endorser Counter Digits";
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_COUNTER_STR: String = "Printer/Endorser Counter";
+        const WIA_IPS_PRINTER_ENDORSER_FONT_TYPE: u32 = 4184;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_FONT_TYPE_STR: String = "Printer/Endorser Font Type";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS: u32 = 4142;
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_DOWNLOAD: u32 = 4149;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_DOWNLOAD_STR: String = "Printer/Endorser Graphics Download";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_HEIGHT: u32 = 4147;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_HEIGHT_STR: String = "Printer/Endorser Graphics Maximum Height";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_WIDTH: u32 = 4145;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_WIDTH_STR: String = "Printer/Endorser Graphics Maximum Width";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_HEIGHT: u32 = 4146;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_HEIGHT_STR: String = "Printer/Endorser Graphics Minimum Height";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_WIDTH: u32 = 4144;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_WIDTH_STR: String = "Printer/Endorser Graphics Minimum Width";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_POSITION: u32 = 4143;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_POSITION_STR: String = "Printer/Endorser Graphics Position";
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_STR: String = "Printer/Endorser Graphics";
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_UPLOAD: u32 = 4148;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_UPLOAD_STR: String = "Printer/Endorser Graphics Upload";
+        const WIA_IPS_PRINTER_ENDORSER_INK: u32 = 4186;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_INK_STR: String = "Printer/Endorser Ink";
+        const WIA_IPS_PRINTER_ENDORSER_MAX_CHARACTERS: u32 = 4188;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_MAX_CHARACTERS_STR: String = "Printer/Endorser Maximum Characters";
+        const WIA_IPS_PRINTER_ENDORSER_MAX_GRAPHICS: u32 = 4189;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_MAX_GRAPHICS_STR: String = "Printer/Endorser Maximum Graphics";
+        const WIA_IPS_PRINTER_ENDORSER_NUM_LINES: u32 = 4136;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_NUM_LINES_STR: String = "Printer/Endorser Lines";
+        const WIA_IPS_PRINTER_ENDORSER_ORDER: u32 = 4131;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_ORDER_STR: String = "Printer/Endorser Order";
+        const WIA_IPS_PRINTER_ENDORSER_PADDING: u32 = 4183;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_PADDING_STR: String = "Printer/Endorser Padding";
+        const WIA_IPS_PRINTER_ENDORSER_STEP: u32 = 4133;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_STEP_STR: String = "Printer/Endorser Step";
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_STR: String = "Printer/Endorser";
+        const WIA_IPS_PRINTER_ENDORSER_STRING: u32 = 4137;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_STRING_STR: String = "Printer/Endorser String";
+        const WIA_IPS_PRINTER_ENDORSER_TEXT_DOWNLOAD: u32 = 4141;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_TEXT_DOWNLOAD_STR: String = "Printer/Endorser Text Download";
+        const WIA_IPS_PRINTER_ENDORSER_TEXT_UPLOAD: u32 = 4140;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_TEXT_UPLOAD_STR: String = "Printer/Endorser Text Upload";
+        const WIA_IPS_PRINTER_ENDORSER_VALID_CHARACTERS: u32 = 4138;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_VALID_CHARACTERS_STR: String = "Printer/Endorser Valid Characters";
+        const WIA_IPS_PRINTER_ENDORSER_VALID_FORMAT_SPECIFIERS: u32 = 4139;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_VALID_FORMAT_SPECIFIERS_STR: String = "Printer/Endorser Valid Format Specifiers";
+        const WIA_IPS_PRINTER_ENDORSER_XOFFSET: u32 = 4134;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_XOFFSET_STR: String = "Printer/Endorser Horizontal Offset";
+        const WIA_IPS_PRINTER_ENDORSER_YOFFSET: u32 = 4135;
+        #[encoding("utf-16")]
+        const WIA_IPS_PRINTER_ENDORSER_YOFFSET_STR: String = "Printer/Endorser Vertical Offset";
+        const WIA_IPS_ROTATION: u32 = 6157;
+        #[encoding("utf-16")]
+        const WIA_IPS_ROTATION_STR: String = "Rotation";
+        const WIA_IPS_SCAN_AHEAD: u32 = 4180;
+        const WIA_IPS_SCAN_AHEAD_CAPACITY: u32 = 4181;
+        #[encoding("utf-16")]
+        const WIA_IPS_SCAN_AHEAD_CAPACITY_STR: String = "Scan Ahead Capacity";
+        #[encoding("utf-16")]
+        const WIA_IPS_SCAN_AHEAD_STR: String = "Scan Ahead";
+        const WIA_IPS_SEGMENTATION: u32 = 6164;
+        #[encoding("utf-16")]
+        const WIA_IPS_SEGMENTATION_STR: String = "Segmentation";
+        const WIA_IPS_SHEET_FEEDER_REGISTRATION: u32 = 3078;
+        #[encoding("utf-16")]
+        const WIA_IPS_SHEET_FEEDER_REGISTRATION_STR: String = "Sheet Feeder Registration";
+        const WIA_IPS_SHOW_PREVIEW_CONTROL: u32 = 3103;
+        #[encoding("utf-16")]
+        const WIA_IPS_SHOW_PREVIEW_CONTROL_STR: String = "Show preview control";
+        const WIA_IPS_SUPPORTED_BARCODE_TYPES: u32 = 4155;
+        #[encoding("utf-16")]
+        const WIA_IPS_SUPPORTED_BARCODE_TYPES_STR: String = "Supported Barcode Types";
+        const WIA_IPS_SUPPORTED_PATCH_CODE_TYPES: u32 = 4162;
+        #[encoding("utf-16")]
+        const WIA_IPS_SUPPORTED_PATCH_CODE_TYPES_STR: String = "Supported Patch Code Types";
+        const WIA_IPS_SUPPORTS_CHILD_ITEM_CREATION: u32 = 3108;
+        #[encoding("utf-16")]
+        const WIA_IPS_SUPPORTS_CHILD_ITEM_CREATION_STR: String = "Supports Child Item Creation";
+        const WIA_IPS_THRESHOLD: u32 = 6159;
+        #[encoding("utf-16")]
+        const WIA_IPS_THRESHOLD_STR: String = "Threshold";
+        const WIA_IPS_TRANSFER_CAPABILITIES: u32 = 6169;
+        #[encoding("utf-16")]
+        const WIA_IPS_TRANSFER_CAPABILITIES_STR: String = "Transfer Capabilities";
+        const WIA_IPS_WARM_UP_TIME: u32 = 6161;
+        #[encoding("utf-16")]
+        const WIA_IPS_WARM_UP_TIME_STR: String = "Lamp Warm up Time";
+        const WIA_IPS_XEXTENT: u32 = 6151;
+        #[encoding("utf-16")]
+        const WIA_IPS_XEXTENT_STR: String = "Horizontal Extent";
+        const WIA_IPS_XPOS: u32 = 6149;
+        #[encoding("utf-16")]
+        const WIA_IPS_XPOS_STR: String = "Horizontal Start Position";
+        const WIA_IPS_XRES: u32 = 6147;
+        #[encoding("utf-16")]
+        const WIA_IPS_XRES_STR: String = "Horizontal Resolution";
+        const WIA_IPS_XSCALING: u32 = 3109;
+        #[encoding("utf-16")]
+        const WIA_IPS_XSCALING_STR: String = "Horizontal Scaling";
+        const WIA_IPS_YEXTENT: u32 = 6152;
+        #[encoding("utf-16")]
+        const WIA_IPS_YEXTENT_STR: String = "Vertical Extent";
+        const WIA_IPS_YPOS: u32 = 6150;
+        #[encoding("utf-16")]
+        const WIA_IPS_YPOS_STR: String = "Vertical Start Position";
+        const WIA_IPS_YRES: u32 = 6148;
+        #[encoding("utf-16")]
+        const WIA_IPS_YRES_STR: String = "Vertical Resolution";
+        const WIA_IPS_YSCALING: u32 = 3110;
+        #[encoding("utf-16")]
+        const WIA_IPS_YSCALING_STR: String = "Vertical Scaling";
+        const WIA_IS_DEFAULT_HANDLER: u32 = 1;
+        const WIA_ITEM_CAN_BE_DELETED: u32 = 128;
+        const WIA_ITEM_RD: u32 = 129;
+        const WIA_ITEM_READ: u32 = 1;
+        const WIA_ITEM_RWD: u32 = 131;
+        const WIA_ITEM_WRITE: u32 = 2;
+        const WIA_LAMP_OFF: u32 = 1;
+        const WIA_LAMP_ON: u32 = 0;
+        const WIA_LINE_ORDER_BOTTOM_TO_TOP: u32 = 2;
+        const WIA_LINE_ORDER_TOP_TO_BOTTOM: u32 = 1;
+        const WIA_LIST_COUNT: u32 = 0;
+        const WIA_LIST_NOM: u32 = 1;
+        const WIA_LIST_NUM_ELEMS: u32 = 2;
+        const WIA_LIST_VALUES: u32 = 2;
+        const WIA_LONG_DOCUMENT_DISABLED: u32 = 0;
+        const WIA_LONG_DOCUMENT_ENABLED: u32 = 1;
+        const WIA_LONG_DOCUMENT_SPLIT: u32 = 2;
+        const WIA_MAJOR_EVENT_DEVICE_CONNECT: u32 = 1;
+        const WIA_MAJOR_EVENT_DEVICE_DISCONNECT: u32 = 2;
+        const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4;
+        const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3;
+        const WIA_MAX_CTX_SIZE: u32 = 16777216;
+        struct WIA_MICR {
+            Tag: u32,
+            Version: u32,
+            Size: u32,
+            Placeholder: u16,
+            Reserved: u16,
+            Count: u32,
+            Micr: [WIA_MICR_INFO; 1],
+        }
+        struct WIA_MICR_INFO {
+            Size: u32,
+            Page: u32,
+            Length: u32,
+            Text: [u16; 1],
+        }
+        const WIA_MICR_READER_AUTO: u32 = 1;
+        const WIA_MICR_READER_DISABLED: u32 = 0;
+        const WIA_MICR_READER_FEEDER_BACK: u32 = 4;
+        const WIA_MICR_READER_FEEDER_DUPLEX: u32 = 5;
+        const WIA_MICR_READER_FEEDER_FRONT: u32 = 3;
+        const WIA_MICR_READER_FLATBED: u32 = 2;
+        const WIA_MULTI_FEED_DETECT_CONTINUE: u32 = 3;
+        const WIA_MULTI_FEED_DETECT_DISABLED: u32 = 0;
+        const WIA_MULTI_FEED_DETECT_METHOD_LENGTH: u32 = 0;
+        const WIA_MULTI_FEED_DETECT_METHOD_OVERLAP: u32 = 1;
+        const WIA_MULTI_FEED_DETECT_STOP_ERROR: u32 = 1;
+        const WIA_MULTI_FEED_DETECT_STOP_SUCCESS: u32 = 2;
+        const WIA_NOTIFICATION_EVENT: u32 = 1;
+        const WIA_NUM_DIP: u32 = 16;
+        const WIA_NUM_IPC: u32 = 9;
+        const WIA_OVER_SCAN_ALL: u32 = 3;
+        const WIA_OVER_SCAN_DISABLED: u32 = 0;
+        const WIA_OVER_SCAN_LEFT_RIGHT: u32 = 2;
+        const WIA_OVER_SCAN_TOP_BOTTOM: u32 = 1;
+        const WIA_PACKED_PIXEL: u32 = 0;
+        const WIA_PAGE_A4: u32 = 0;
+        const WIA_PAGE_AUTO: u32 = 100;
+        const WIA_PAGE_BUSINESSCARD: u32 = 6;
+        const WIA_PAGE_CUSTOM: u32 = 2;
+        const WIA_PAGE_CUSTOM_BASE: u32 = 32768;
+        const WIA_PAGE_DIN_2B: u32 = 52;
+        const WIA_PAGE_DIN_4B: u32 = 53;
+        const WIA_PAGE_ISO_A0: u32 = 7;
+        const WIA_PAGE_ISO_A1: u32 = 8;
+        const WIA_PAGE_ISO_A10: u32 = 16;
+        const WIA_PAGE_ISO_A2: u32 = 9;
+        const WIA_PAGE_ISO_A3: u32 = 10;
+        const WIA_PAGE_ISO_A4: u32 = 0;
+        const WIA_PAGE_ISO_A5: u32 = 11;
+        const WIA_PAGE_ISO_A6: u32 = 12;
+        const WIA_PAGE_ISO_A7: u32 = 13;
+        const WIA_PAGE_ISO_A8: u32 = 14;
+        const WIA_PAGE_ISO_A9: u32 = 15;
+        const WIA_PAGE_ISO_B0: u32 = 17;
+        const WIA_PAGE_ISO_B1: u32 = 18;
+        const WIA_PAGE_ISO_B10: u32 = 27;
+        const WIA_PAGE_ISO_B2: u32 = 19;
+        const WIA_PAGE_ISO_B3: u32 = 20;
+        const WIA_PAGE_ISO_B4: u32 = 21;
+        const WIA_PAGE_ISO_B5: u32 = 22;
+        const WIA_PAGE_ISO_B6: u32 = 23;
+        const WIA_PAGE_ISO_B7: u32 = 24;
+        const WIA_PAGE_ISO_B8: u32 = 25;
+        const WIA_PAGE_ISO_B9: u32 = 26;
+        const WIA_PAGE_ISO_C0: u32 = 28;
+        const WIA_PAGE_ISO_C1: u32 = 29;
+        const WIA_PAGE_ISO_C10: u32 = 38;
+        const WIA_PAGE_ISO_C2: u32 = 30;
+        const WIA_PAGE_ISO_C3: u32 = 31;
+        const WIA_PAGE_ISO_C4: u32 = 32;
+        const WIA_PAGE_ISO_C5: u32 = 33;
+        const WIA_PAGE_ISO_C6: u32 = 34;
+        const WIA_PAGE_ISO_C7: u32 = 35;
+        const WIA_PAGE_ISO_C8: u32 = 36;
+        const WIA_PAGE_ISO_C9: u32 = 37;
+        const WIA_PAGE_JIS_2A: u32 = 50;
+        const WIA_PAGE_JIS_4A: u32 = 51;
+        const WIA_PAGE_JIS_B0: u32 = 39;
+        const WIA_PAGE_JIS_B1: u32 = 40;
+        const WIA_PAGE_JIS_B10: u32 = 49;
+        const WIA_PAGE_JIS_B2: u32 = 41;
+        const WIA_PAGE_JIS_B3: u32 = 42;
+        const WIA_PAGE_JIS_B4: u32 = 43;
+        const WIA_PAGE_JIS_B5: u32 = 44;
+        const WIA_PAGE_JIS_B6: u32 = 45;
+        const WIA_PAGE_JIS_B7: u32 = 46;
+        const WIA_PAGE_JIS_B8: u32 = 47;
+        const WIA_PAGE_JIS_B9: u32 = 48;
+        const WIA_PAGE_LETTER: u32 = 1;
+        const WIA_PAGE_USLEDGER: u32 = 4;
+        const WIA_PAGE_USLEGAL: u32 = 3;
+        const WIA_PAGE_USLETTER: u32 = 1;
+        const WIA_PAGE_USSTATEMENT: u32 = 5;
+        struct WIA_PATCH_CODES {
+            Tag: u32,
+            Version: u32,
+            Size: u32,
+            Count: u32,
+            PatchCodes: [WIA_PATCH_CODE_INFO; 1],
+        }
+        const WIA_PATCH_CODE_1: u32 = 1;
+        const WIA_PATCH_CODE_10: u32 = 10;
+        const WIA_PATCH_CODE_11: u32 = 11;
+        const WIA_PATCH_CODE_12: u32 = 12;
+        const WIA_PATCH_CODE_13: u32 = 13;
+        const WIA_PATCH_CODE_14: u32 = 14;
+        const WIA_PATCH_CODE_2: u32 = 2;
+        const WIA_PATCH_CODE_3: u32 = 3;
+        const WIA_PATCH_CODE_4: u32 = 4;
+        const WIA_PATCH_CODE_6: u32 = 6;
+        const WIA_PATCH_CODE_7: u32 = 7;
+        const WIA_PATCH_CODE_8: u32 = 8;
+        const WIA_PATCH_CODE_9: u32 = 9;
+        const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768;
+        struct WIA_PATCH_CODE_INFO {
+            Type: u32,
+        }
+        const WIA_PATCH_CODE_READER_AUTO: u32 = 1;
+        const WIA_PATCH_CODE_READER_DISABLED: u32 = 0;
+        const WIA_PATCH_CODE_READER_FEEDER_BACK: u32 = 4;
+        const WIA_PATCH_CODE_READER_FEEDER_DUPLEX: u32 = 5;
+        const WIA_PATCH_CODE_READER_FEEDER_FRONT: u32 = 3;
+        const WIA_PATCH_CODE_READER_FLATBED: u32 = 2;
+        const WIA_PATCH_CODE_T: u32 = 5;
+        const WIA_PATCH_CODE_UNKNOWN: u32 = 0;
+        const WIA_PHOTO_WHITE_0: u32 = 1;
+        const WIA_PHOTO_WHITE_1: u32 = 0;
+        const WIA_PLANAR: u32 = 1;
+        const WIA_PREVIEW_SCAN: u32 = 1;
+        const WIA_PRINTER_ENDORSER_AFTER_SCAN: u32 = 1;
+        const WIA_PRINTER_ENDORSER_AUTO: u32 = 1;
+        const WIA_PRINTER_ENDORSER_BEFORE_SCAN: u32 = 0;
+        const WIA_PRINTER_ENDORSER_DIGITAL: u32 = 6;
+        const WIA_PRINTER_ENDORSER_DISABLED: u32 = 0;
+        const WIA_PRINTER_ENDORSER_FEEDER_BACK: u32 = 4;
+        const WIA_PRINTER_ENDORSER_FEEDER_DUPLEX: u32 = 5;
+        const WIA_PRINTER_ENDORSER_FEEDER_FRONT: u32 = 3;
+        const WIA_PRINTER_ENDORSER_FLATBED: u32 = 2;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_BACKGROUND: u32 = 8;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM: u32 = 3;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM_LEFT: u32 = 6;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM_RIGHT: u32 = 7;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_DEVICE_DEFAULT: u32 = 9;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_LEFT: u32 = 0;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_RIGHT: u32 = 1;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_TOP: u32 = 2;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_TOP_LEFT: u32 = 4;
+        const WIA_PRINTER_ENDORSER_GRAPHICS_TOP_RIGHT: u32 = 5;
+        const WIA_PRINT_AM_PM: u32 = 9;
+        const WIA_PRINT_DATE: u32 = 0;
+        const WIA_PRINT_DAY: u32 = 3;
+        const WIA_PRINT_FONT_BOLD: u32 = 1;
+        const WIA_PRINT_FONT_EXTRA_BOLD: u32 = 2;
+        const WIA_PRINT_FONT_ITALIC: u32 = 5;
+        const WIA_PRINT_FONT_ITALIC_BOLD: u32 = 3;
+        const WIA_PRINT_FONT_ITALIC_EXTRA_BOLD: u32 = 4;
+        const WIA_PRINT_FONT_LARGE: u32 = 12;
+        const WIA_PRINT_FONT_LARGE_BOLD: u32 = 13;
+        const WIA_PRINT_FONT_LARGE_EXTRA_BOLD: u32 = 14;
+        const WIA_PRINT_FONT_LARGE_ITALIC: u32 = 17;
+        const WIA_PRINT_FONT_LARGE_ITALIC_BOLD: u32 = 15;
+        const WIA_PRINT_FONT_LARGE_ITALIC_EXTRA_BOLD: u32 = 16;
+        const WIA_PRINT_FONT_NORMAL: u32 = 0;
+        const WIA_PRINT_FONT_SMALL: u32 = 6;
+        const WIA_PRINT_FONT_SMALL_BOLD: u32 = 7;
+        const WIA_PRINT_FONT_SMALL_EXTRA_BOLD: u32 = 8;
+        const WIA_PRINT_FONT_SMALL_ITALIC: u32 = 11;
+        const WIA_PRINT_FONT_SMALL_ITALIC_BOLD: u32 = 9;
+        const WIA_PRINT_FONT_SMALL_ITALIC_EXTRA_BOLD: u32 = 10;
+        const WIA_PRINT_HOUR_12H: u32 = 8;
+        const WIA_PRINT_HOUR_24H: u32 = 7;
+        const WIA_PRINT_IMAGE: u32 = 13;
+        const WIA_PRINT_MILLISECOND: u32 = 14;
+        const WIA_PRINT_MINUTE: u32 = 10;
+        const WIA_PRINT_MONTH: u32 = 2;
+        const WIA_PRINT_MONTH_NAME: u32 = 15;
+        const WIA_PRINT_MONTH_SHORT: u32 = 16;
+        const WIA_PRINT_PADDING_BLANK: u32 = 2;
+        const WIA_PRINT_PADDING_NONE: u32 = 0;
+        const WIA_PRINT_PADDING_ZERO: u32 = 1;
+        const WIA_PRINT_PAGE_COUNT: u32 = 12;
+        const WIA_PRINT_SECOND: u32 = 11;
+        const WIA_PRINT_TIME_12H: u32 = 6;
+        const WIA_PRINT_TIME_24H: u32 = 5;
+        const WIA_PRINT_WEEK_DAY: u32 = 4;
+        const WIA_PRINT_WEEK_DAY_SHORT: u32 = 17;
+        const WIA_PRINT_YEAR: u32 = 1;
+        const WIA_PRIVATE_DEVPROP: u32 = 38914;
+        const WIA_PRIVATE_ITEMPROP: u32 = 71682;
+        const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2;
+        const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4;
+        const WIA_PROPPAGE_SCANNER_ITEM_GENERAL: u32 = 1;
+        const WIA_PROP_CACHEABLE: u32 = 65536;
+        const WIA_PROP_FLAG: u32 = 64;
+        const WIA_PROP_LIST: u32 = 32;
+        const WIA_PROP_NONE: u32 = 8;
+        const WIA_PROP_RANGE: u32 = 16;
+        const WIA_PROP_READ: u32 = 1;
+        const WIA_PROP_RW: u32 = 3;
+        const WIA_PROP_SYNC_REQUIRED: u32 = 4;
+        const WIA_PROP_WRITE: u32 = 2;
+        const WIA_RANGE_MAX: u32 = 2;
+        const WIA_RANGE_MIN: u32 = 0;
+        const WIA_RANGE_NOM: u32 = 1;
+        const WIA_RANGE_NUM_ELEMS: u32 = 4;
+        const WIA_RANGE_STEP: u32 = 3;
+        struct WIA_RAW_HEADER {
+            Tag: u32,
+            Version: u32,
+            HeaderSize: u32,
+            XRes: u32,
+            YRes: u32,
+            XExtent: u32,
+            YExtent: u32,
+            BytesPerLine: u32,
+            BitsPerPixel: u32,
+            ChannelsPerPixel: u32,
+            DataType: u32,
+            BitsPerChannel: [u8; 8],
+            Compression: u32,
+            PhotometricInterp: u32,
+            LineOrder: u32,
+            RawDataOffset: u32,
+            RawDataSize: u32,
+            PaletteOffset: u32,
+            PaletteSize: u32,
+        }
+        const WIA_REGISTER_EVENT_CALLBACK: u32 = 1;
+        const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024;
+        const WIA_SCAN_AHEAD_ALL: u32 = 0;
+        const WIA_SCAN_AHEAD_DISABLED: u32 = 0;
+        const WIA_SCAN_AHEAD_ENABLED: u32 = 1;
+        #[encoding("utf-16")]
+        const WIA_SEGMENTATION_FILTER_STR: String = "SegmentationFilter";
+        const WIA_SELECT_DEVICE_NODEFAULT: u32 = 1;
+        const WIA_SEPARATOR_DETECT_NOSCAN_CONTINUE: u32 = 3;
+        const WIA_SEPARATOR_DETECT_NOSCAN_STOP: u32 = 4;
+        const WIA_SEPARATOR_DETECT_SCAN_CONTINUE: u32 = 1;
+        const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2;
+        const WIA_SEPARATOR_DISABLED: u32 = 0;
+        const WIA_SET_DEFAULT_HANDLER: u32 = 4;
+        const WIA_SHOW_PREVIEW_CONTROL: u32 = 0;
+        const WIA_STATUS_CALIBRATING: u32 = 2162691;
+        const WIA_STATUS_CLEAR: u32 = 2162696;
+        const WIA_STATUS_END_OF_MEDIA: u32 = 2162689;
+        const WIA_STATUS_NETWORK_DEVICE_RESERVED: u32 = 2162695;
+        const WIA_STATUS_NOT_HANDLED: u32 = 2162698;
+        const WIA_STATUS_RESERVING_NETWORK_DEVICE: u32 = 2162694;
+        const WIA_STATUS_SKIP_ITEM: u32 = 2162697;
+        const WIA_STATUS_WARMING_UP: u32 = 2162690;
+        const WIA_S_CHANGE_DEVICE: u32 = 2162699;
+        const WIA_S_NO_DEVICE_AVAILABLE: i32 = -2145320939;
+        const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1;
+        const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1;
+        const WIA_TRANSFER_MSG_DEVICE_STATUS: u32 = 5;
+        const WIA_TRANSFER_MSG_END_OF_STREAM: u32 = 2;
+        const WIA_TRANSFER_MSG_END_OF_TRANSFER: u32 = 3;
+        const WIA_TRANSFER_MSG_NEW_PAGE: u32 = 6;
+        const WIA_TRANSFER_MSG_STATUS: u32 = 1;
+        const WIA_UNREGISTER_EVENT_CALLBACK: u32 = 2;
+        const WIA_USE_SEGMENTATION_FILTER: u32 = 0;
+        const WiaAudFmt_AIFF: GUID = 0x66e2bf4f_b6fc_443f_94c8_2f33c8a65aaf;
+        const WiaAudFmt_MP3: GUID = 0x0fbc71fb_43bf_49f2_9190_e6fecff37e54;
+        const WiaAudFmt_WAV: GUID = 0xf818e146_07af_40ff_ae55_be8f2c065dbe;
+        const WiaAudFmt_WMA: GUID = 0xd61d6413_8bc2_438f_93ad_21bd484db6a1;
+        const WiaImgFmt_ASF: GUID = 0x8d948ee9_d0aa_4a12_9d9a_9cc5de36199b;
+        const WiaImgFmt_AVI: GUID = 0x32f8ca14_087c_4908_b7c4_6757fe7e90ab;
+        const WiaImgFmt_BMP: GUID = 0xb96b3cab_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_CIFF: GUID = 0x9821a8ab_3a7e_4215_94e0_d27a460c03b2;
+        const WiaImgFmt_CSV: GUID = 0x355bda24_5a9f_4494_80dc_be752cecbc8c;
+        const WiaImgFmt_DPOF: GUID = 0x369eeeab_a0e8_45ca_86a6_a83ce5697e28;
+        const WiaImgFmt_EMF: GUID = 0xb96b3cac_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_EXEC: GUID = 0x485da097_141e_4aa5_bb3b_a5618d95d02b;
+        const WiaImgFmt_EXIF: GUID = 0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_FLASHPIX: GUID = 0xb96b3cb4_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_GIF: GUID = 0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_HTML: GUID = 0xc99a4e62_99de_4a94_acca_71956ac2977d;
+        const WiaImgFmt_ICO: GUID = 0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_JBIG: GUID = 0x41e8dd92_2f0a_43d4_8636_f1614ba11e46;
+        const WiaImgFmt_JBIG2: GUID = 0xbb8e7e67_283c_4235_9e59_0b9bf94ca687;
+        const WiaImgFmt_JPEG: GUID = 0xb96b3cae_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_JPEG2K: GUID = 0x344ee2b2_39db_4dde_8173_c4b75f8f1e49;
+        const WiaImgFmt_JPEG2KX: GUID = 0x43e14614_c80a_4850_baf3_4b152dc8da27;
+        const WiaImgFmt_MEMORYBMP: GUID = 0xb96b3caa_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_MPG: GUID = 0xecd757e4_d2ec_4f57_955d_bcf8a97c4e52;
+        const WiaImgFmt_OXPS: GUID = 0x2c7b1240_c14d_4109_9755_04b89025153a;
+        const WiaImgFmt_PDFA: GUID = 0x9980bd5b_3463_43c7_bdca_3caa146f229f;
+        const WiaImgFmt_PHOTOCD: GUID = 0xb96b3cb3_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_PICT: GUID = 0xa6bc85d8_6b3e_40ee_a95c_25d482e41adc;
+        const WiaImgFmt_PNG: GUID = 0xb96b3caf_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_RAW: GUID = 0x6f120719_f1a8_4e07_9ade_9b64c63a3dcc;
+        const WiaImgFmt_RAWBAR: GUID = 0xda63f833_d26e_451e_90d2_ea55a1365d62;
+        const WiaImgFmt_RAWMIC: GUID = 0x22c4f058_0d88_409c_ac1c_eec12b0ea680;
+        const WiaImgFmt_RAWPAT: GUID = 0x7760507c_5064_400c_9a17_575624d8824b;
+        const WiaImgFmt_RAWRGB: GUID = 0xbca48b55_f272_4371_b0f1_4a150d057bb4;
+        const WiaImgFmt_RTF: GUID = 0x573dd6a3_4834_432d_a9b5_e198dd9e890d;
+        const WiaImgFmt_SCRIPT: GUID = 0xfe7d6c53_2dac_446a_b0bd_d73e21e924c9;
+        const WiaImgFmt_TIFF: GUID = 0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_TXT: GUID = 0xfafd4d82_723f_421f_9318_30501ac44b59;
+        const WiaImgFmt_UNDEFINED: GUID = 0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_UNICODE16: GUID = 0x1b7639b6_6357_47d1_9a07_12452dc073e9;
+        const WiaImgFmt_WMF: GUID = 0xb96b3cad_0728_11d3_9d7b_0000f81ef32e;
+        const WiaImgFmt_XML: GUID = 0xb9171457_dac8_4884_b393_15b471d5f07e;
+        const WiaImgFmt_XMLBAR: GUID = 0x6235701c_3a98_484c_b2a8_fdffd87e6b16;
+        const WiaImgFmt_XMLMIC: GUID = 0x2d164c61_b9ae_4b23_8973_c7067e1fbd31;
+        const WiaImgFmt_XMLPAT: GUID = 0xf8986f55_f052_460d_9523_3a7dfedbb33c;
+        const WiaImgFmt_XPS: GUID = 0x700b4a0f_2011_411c_b430_d1e0b2e10b28;
+        const WiaItemTypeAnalyze: u32 = 16;
+        const WiaItemTypeAudio: u32 = 32;
+        const WiaItemTypeBurst: u32 = 2048;
+        const WiaItemTypeDeleted: u32 = 128;
+        const WiaItemTypeDevice: u32 = 64;
+        const WiaItemTypeDisconnected: u32 = 256;
+        const WiaItemTypeDocument: u32 = 262144;
+        const WiaItemTypeFile: u32 = 2;
+        const WiaItemTypeFolder: u32 = 4;
+        const WiaItemTypeFree: u32 = 0;
+        const WiaItemTypeGenerated: u32 = 16384;
+        const WiaItemTypeHPanorama: u32 = 512;
+        const WiaItemTypeHasAttachments: u32 = 32768;
+        const WiaItemTypeImage: u32 = 1;
+        const WiaItemTypeMask: u32 = 2148532223;
+        const WiaItemTypeProgrammableDataSource: u32 = 524288;
+        const WiaItemTypeRemoved: u32 = 2147483648;
+        const WiaItemTypeRoot: u32 = 8;
+        const WiaItemTypeStorage: u32 = 4096;
+        const WiaItemTypeTransfer: u32 = 8192;
+        const WiaItemTypeVPanorama: u32 = 1024;
+        const WiaItemTypeVideo: u32 = 65536;
+    }
+}

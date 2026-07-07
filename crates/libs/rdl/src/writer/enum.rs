@@ -30,16 +30,19 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
 
     let has_flags = item.attributes().any(is_flags_attr);
 
-    let custom_attrs = write_custom_attributes(
+    let arch_attr = write_arch_attr(item.arches());
+    let custom_attrs = write_custom_attributes_except(
         item.attributes().filter(|attr| !is_flags_attr(*attr)),
         namespace,
         item.index(),
+        &["SupportedArchitectureAttribute"],
     )?;
 
     if has_flags {
         Ok(quote! {
             #[repr(#repr)]
             #[flags]
+            #arch_attr
             #(#custom_attrs)*
             enum #name {
                 #(#fields)*
@@ -48,6 +51,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
     } else {
         Ok(quote! {
             #[repr(#repr)]
+            #arch_attr
             #(#custom_attrs)*
             enum #name {
                 #(#fields)*

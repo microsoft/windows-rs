@@ -52,7 +52,7 @@ impl Encoder<'_> {
             return self.err(param, "param name not found");
         };
 
-        let name = name.ident.to_string();
+        let name = name.ident.unraw_to_string();
         let ty = self.encode_type(&param.ty)?;
         let attributes = self.parse_param_attributes(&param.attrs, &ty)?;
 
@@ -101,18 +101,27 @@ impl Encoder<'_> {
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
-            // Handle #[retval] as a pseudo-attribute: store it as RetValAttribute in
-            // the Windows.Win32.Foundation.Metadata namespace so that downstream
-            // consumers (e.g. bindgen) can detect it via has_attribute("RetValAttribute").
-            for attr in &param.attrs {
-                if attr.path().is_ident("retval") {
-                    self.emit_retval_attribute(metadata::writer::HasAttribute::Param(param_id));
+
+            // Emit parameter pseudo-attributes in the fixed table order so the winmd
+            // custom-attribute layout is stable regardless of the source attribute order (the
+            // clang scrape and the winmd → RDL writer place them differently). The generic
+            // `encode_attrs` pass below then skips them.
+            for pseudo in PSEUDO_ATTRS {
+                if let Some(attr) = param.attrs.iter().find(|a| a.path().is_ident(pseudo.short)) {
+                    self.emit_pseudo_attribute(
+                        metadata::writer::HasAttribute::Param(param_id),
+                        pseudo,
+                        attr,
+                    )?;
                 }
             }
+
+            let mut skip: Vec<&str> = vec!["r#in", "out", "opt"];
+            skip.extend(PSEUDO_ATTRS.iter().map(|p| p.short));
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
-                &["r#in", "out", "opt", "retval"],
+                &skip,
             )?;
         }
         Ok(())
@@ -153,7 +162,7 @@ impl Encoder<'_> {
                         return self.err(pt, "param name not found");
                     };
 
-                    if !param_names.insert(name.ident.to_string()) {
+                    if !param_names.insert(name.ident.unraw_to_string()) {
                         return self.err(&name.ident, "param names must be unique");
                     }
 

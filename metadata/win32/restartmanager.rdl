@@ -1,0 +1,108 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const CCH_RM_MAX_APP_NAME: u32 = 255;
+        const CCH_RM_MAX_SVC_NAME: u32 = 63;
+        const CCH_RM_SESSION_KEY: u32 = 32;
+        type PRM_FILTER_INFO = *mut RM_FILTER_INFO;
+        type PRM_PROCESS_INFO = *mut RM_PROCESS_INFO;
+        type PRM_UNIQUE_PROCESS = *mut RM_UNIQUE_PROCESS;
+        #[repr(i32)]
+        enum RM_APP_STATUS {
+            RmStatusUnknown = 0,
+            RmStatusRunning = 1,
+            RmStatusStopped = 2,
+            RmStatusStoppedOther = 4,
+            RmStatusRestarted = 8,
+            RmStatusErrorOnStop = 16,
+            RmStatusErrorOnRestart = 32,
+            RmStatusShutdownMasked = 64,
+            RmStatusRestartMasked = 128,
+        }
+        #[repr(i32)]
+        enum RM_APP_TYPE {
+            RmUnknownApp = 0,
+            RmMainWindow = 1,
+            RmOtherWindow = 2,
+            RmService = 3,
+            RmExplorer = 4,
+            RmConsole = 5,
+            RmCritical = 1000,
+        }
+        #[repr(i32)]
+        enum RM_FILTER_ACTION {
+            RmInvalidFilterAction = 0,
+            RmNoRestart = 1,
+            RmNoShutdown = 2,
+        }
+        struct RM_FILTER_INFO {
+            FilterAction: RM_FILTER_ACTION,
+            FilterTrigger: RM_FILTER_TRIGGER,
+            cbNextOffset: u32,
+            Anonymous: union {
+                strFilename: PWSTR,
+                Process: RM_UNIQUE_PROCESS,
+                strServiceShortName: PWSTR,
+            },
+        }
+        #[repr(i32)]
+        enum RM_FILTER_TRIGGER {
+            RmFilterTriggerInvalid = 0,
+            RmFilterTriggerFile = 1,
+            RmFilterTriggerProcess = 2,
+            RmFilterTriggerService = 3,
+        }
+        const RM_INVALID_PROCESS: i32 = -1;
+        const RM_INVALID_TS_SESSION: i32 = -1;
+        struct RM_PROCESS_INFO {
+            Process: RM_UNIQUE_PROCESS,
+            strAppName: [u16; 256],
+            strServiceShortName: [u16; 64],
+            ApplicationType: RM_APP_TYPE,
+            AppStatus: u32,
+            TSSessionId: u32,
+            bRestartable: BOOL,
+        }
+        #[repr(i32)]
+        enum RM_REBOOT_REASON {
+            RmRebootReasonNone = 0,
+            RmRebootReasonPermissionDenied = 1,
+            RmRebootReasonSessionMismatch = 2,
+            RmRebootReasonCriticalProcess = 4,
+            RmRebootReasonCriticalService = 8,
+            RmRebootReasonDetectedSelf = 16,
+        }
+        #[repr(i32)]
+        enum RM_SHUTDOWN_TYPE {
+            RmForceShutdown = 1,
+            RmShutdownOnlyRegistered = 16,
+        }
+        struct RM_UNIQUE_PROCESS {
+            dwProcessId: u32,
+            ProcessStartTime: FILETIME,
+        }
+        extern fn RM_WRITE_STATUS_CALLBACK(nPercentComplete: u32);
+        #[library("RstrtMgr.DLL")]
+        extern fn RmAddFilter(dwSessionHandle: u32, #[opt] strModuleName: PCWSTR, #[opt] pProcess: *const RM_UNIQUE_PROCESS, #[opt] strServiceShortName: PCWSTR, FilterAction: RM_FILTER_ACTION) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmCancelCurrentTask(dwSessionHandle: u32) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmEndSession(dwSessionHandle: u32) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmGetFilterList(dwSessionHandle: u32, #[size_param(2)] #[opt] pbFilterBuf: *mut u8, cbFilterBuf: u32, cbFilterBufNeeded: *mut u32) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmGetList(dwSessionHandle: u32, pnProcInfoNeeded: *mut u32, #[in] #[out] pnProcInfo: *mut u32, #[len_param(2)] #[in] #[out] #[opt] rgAffectedApps: [RM_PROCESS_INFO; 0], lpdwRebootReasons: *mut u32) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmJoinSession(pSessionHandle: *mut u32, strSessionKey: [u16; 0]) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmRegisterResources(dwSessionHandle: u32, nFiles: u32, #[len_param(1)] #[opt] rgsFileNames: [PCWSTR; 0], nApplications: u32, #[len_param(3)] #[opt] rgApplications: [RM_UNIQUE_PROCESS; 0], nServices: u32, #[len_param(5)] #[opt] rgsServiceNames: [PCWSTR; 0]) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmRemoveFilter(dwSessionHandle: u32, #[opt] strModuleName: PCWSTR, #[opt] pProcess: *const RM_UNIQUE_PROCESS, #[opt] strServiceShortName: PCWSTR) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmRestart(dwSessionHandle: u32, #[reserved] dwRestartFlags: u32, #[opt] fnStatus: RM_WRITE_STATUS_CALLBACK) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmShutdown(dwSessionHandle: u32, lActionFlags: u32, #[opt] fnStatus: RM_WRITE_STATUS_CALLBACK) -> u32;
+        #[library("RstrtMgr.DLL")]
+        extern fn RmStartSession(pSessionHandle: *mut u32, #[reserved] dwSessionFlags: u32, #[out] strSessionKey: [u16; 0]) -> u32;
+    }
+}

@@ -1,0 +1,1268 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type D3DKMDT_2DOFFSET = D3DKMDT_2DREGION;
+        struct D3DKMDT_2DREGION {
+            cx: u32,
+            cy: u32,
+        }
+        type D3DKMDT_ADAPTER = *mut void;
+        const D3DKMDT_BITS_PER_COMPONENT_06: u32 = 1;
+        const D3DKMDT_BITS_PER_COMPONENT_08: u32 = 2;
+        const D3DKMDT_BITS_PER_COMPONENT_10: u32 = 4;
+        const D3DKMDT_BITS_PER_COMPONENT_12: u32 = 8;
+        const D3DKMDT_BITS_PER_COMPONENT_14: u32 = 16;
+        const D3DKMDT_BITS_PER_COMPONENT_16: u32 = 32;
+        #[repr(i32)]
+        enum D3DKMDT_COLOR_BASIS {
+            D3DKMDT_CB_UNINITIALIZED = 0,
+            D3DKMDT_CB_INTENSITY = 1,
+            D3DKMDT_CB_SRGB = 2,
+            D3DKMDT_CB_SCRGB = 3,
+            D3DKMDT_CB_YCBCR = 4,
+            D3DKMDT_CB_YPBPR = 5,
+        }
+        struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
+            FirstChannel: u32,
+            SecondChannel: u32,
+            ThirdChannel: u32,
+            FourthChannel: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
+            D3DKMDT_COMPUTE_PREEMPTION_NONE = 0,
+            D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY = 100,
+            D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY = 200,
+            D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY = 300,
+            D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY = 400,
+            D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY = 500,
+        }
+        const D3DKMDT_DIMENSION_NOTSPECIFIED: i32 = -2;
+        const D3DKMDT_DIMENSION_UNINITIALIZED: i32 = -1;
+        #[repr(i32)]
+        enum D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
+            D3DKMDT_EPT_UNINITIALIZED = 0,
+            D3DKMDT_EPT_VIDPNSOURCE = 1,
+            D3DKMDT_EPT_VIDPNTARGET = 2,
+            D3DKMDT_EPT_SCALING = 3,
+            D3DKMDT_EPT_ROTATION = 4,
+            D3DKMDT_EPT_NOPIVOT = 5,
+        }
+        const D3DKMDT_FREQUENCY_NOTSPECIFIED: i32 = -2;
+        struct D3DKMDT_FREQUENCY_RANGE {
+            MinVSyncFreq: D3DDDI_RATIONAL,
+            MaxVSyncFreq: D3DDDI_RATIONAL,
+            MinHSyncFreq: D3DDDI_RATIONAL,
+            MaxHSyncFreq: D3DDDI_RATIONAL,
+        }
+        const D3DKMDT_FREQUENCY_UNINITIALIZED: i32 = -1;
+        struct D3DKMDT_GAMMA_RAMP {
+            Type: D3DDDI_GAMMARAMP_TYPE,
+            DataSize: usize,
+            Data: union {
+                pRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
+                pDxgi1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
+                p3x4: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
+                pMatrixV2: *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2,
+                pRaw: *mut void,
+            },
+        }
+        struct D3DKMDT_GDISURFACEDATA {
+            Width: u32,
+            Height: u32,
+            Format: D3DDDIFORMAT,
+            Type: D3DKMDT_GDISURFACETYPE,
+            Flags: D3DKMDT_GDISURFACEFLAGS,
+            Pitch: u32,
+        }
+        struct D3DKMDT_GDISURFACEFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMDT_GDISURFACETYPE {
+            D3DKMDT_GDISURFACE_INVALID = 0,
+            D3DKMDT_GDISURFACE_TEXTURE = 1,
+            D3DKMDT_GDISURFACE_STAGING_CPUVISIBLE = 2,
+            D3DKMDT_GDISURFACE_STAGING = 3,
+            D3DKMDT_GDISURFACE_LOOKUPTABLE = 4,
+            D3DKMDT_GDISURFACE_EXISTINGSYSMEM = 5,
+            D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE = 6,
+            D3DKMDT_GDISURFACE_TEXTURE_CROSSADAPTER = 7,
+            D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE_CROSSADAPTER = 8,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
+            D3DKMDT_GRAPHICS_PREEMPTION_NONE = 0,
+            D3DKMDT_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY = 100,
+            D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY = 200,
+            D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY = 300,
+            D3DKMDT_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY = 400,
+            D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY = 500,
+        }
+        struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
+            PrimSurfSize: D3DKMDT_2DREGION,
+            VisibleRegionSize: D3DKMDT_2DREGION,
+            Stride: u32,
+            PixelFormat: D3DDDIFORMAT,
+            ColorBasis: D3DKMDT_COLOR_BASIS,
+            PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_GTFCOMPLIANCE {
+            D3DKMDT_GTF_UNINITIALIZED = 0,
+            D3DKMDT_GTF_COMPLIANT = 1,
+            D3DKMDT_GTF_NOTCOMPLIANT = 2,
+        }
+        type D3DKMDT_HMONITORDESCRIPTORSET = *mut void;
+        type D3DKMDT_HMONITORFREQUENCYRANGESET = *mut void;
+        type D3DKMDT_HMONITORSOURCEMODESET = *mut void;
+        type D3DKMDT_HVIDEOPRESENTSOURCESET = *mut void;
+        type D3DKMDT_HVIDEOPRESENTTARGETSET = *mut void;
+        type D3DKMDT_HVIDPN = *mut void;
+        type D3DKMDT_HVIDPNSOURCEMODESET = *mut void;
+        type D3DKMDT_HVIDPNTARGETMODESET = *mut void;
+        type D3DKMDT_HVIDPNTOPOLOGY = *mut void;
+        const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: u32 = 256;
+        const D3DKMDT_MAX_OVERLAYS: u32 = 4;
+        const D3DKMDT_MAX_OVERLAYS_BITCOUNT: u32 = 2;
+        #[repr(i32)]
+        enum D3DKMDT_MODE_PREFERENCE {
+            D3DKMDT_MP_UNINITIALIZED = 0,
+            D3DKMDT_MP_PREFERRED = 1,
+            D3DKMDT_MP_NOTPREFERRED = 2,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
+            D3DKMDT_MCO_UNINITIALIZED = 0,
+            D3DKMDT_MCO_DEFAULTMONITORPROFILE = 1,
+            D3DKMDT_MCO_MONITORDESCRIPTOR = 2,
+            D3DKMDT_MCO_MONITORDESCRIPTOR_REGISTRYOVERRIDE = 3,
+            D3DKMDT_MCO_SPECIFICCAP_REGISTRYOVERRIDE = 4,
+            D3DKMDT_MCO_DRIVER = 5,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
+            D3DKMDT_MCC_UNINITIALIZED = 0,
+            D3DKMDT_MCC_IGNORE = 1,
+            D3DKMDT_MCC_ENFORCE = 2,
+        }
+        struct D3DKMDT_MONITOR_DESCRIPTOR {
+            Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
+            Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
+            DataSize: usize,
+            pData: *mut void,
+            Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
+        }
+        type D3DKMDT_MONITOR_DESCRIPTOR_ID = u32;
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
+            D3DKMDT_MDT_UNINITIALIZED = 0,
+            D3DKMDT_MDT_VESA_EDID_V1_BASEBLOCK = 1,
+            D3DKMDT_MDT_VESA_EDID_V1_BLOCKMAP = 2,
+            D3DKMDT_MDT_OTHER = 255,
+        }
+        struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
+            Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
+            RangeLimits: D3DKMDT_FREQUENCY_RANGE,
+            ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
+            Constraint: union {
+                ActiveSize: D3DKMDT_2DREGION,
+                MaxPixelRate: usize,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
+            D3DKMDT_MFRC_UNINITIALIZED = 0,
+            D3DKMDT_MFRC_ACTIVESIZE = 1,
+            D3DKMDT_MFRC_MAXPIXELRATE = 2,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_ORIENTATION {
+            D3DKMDT_MO_UNINITIALIZED = 0,
+            D3DKMDT_MO_0DEG = 1,
+            D3DKMDT_MO_90DEG = 2,
+            D3DKMDT_MO_180DEG = 3,
+            D3DKMDT_MO_270DEG = 4,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
+            D3DKMDT_MOA_UNINITIALIZED = 0,
+            D3DKMDT_MOA_NONE = 1,
+            D3DKMDT_MOA_POLLED = 2,
+            D3DKMDT_MOA_INTERRUPTIBLE = 3,
+        }
+        struct D3DKMDT_MONITOR_SOURCE_MODE {
+            Id: D3DKMDT_MONITOR_SOURCE_MODE_ID,
+            VideoSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO,
+            ColorBasis: D3DKMDT_COLOR_BASIS,
+            ColorCoeffDynamicRanges: D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES,
+            Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
+            Preference: D3DKMDT_MODE_PREFERENCE,
+        }
+        type D3DKMDT_MONITOR_SOURCE_MODE_ID = u32;
+        #[repr(i32)]
+        enum D3DKMDT_MONITOR_TIMING_TYPE {
+            D3DKMDT_MTT_UNINITIALIZED = 0,
+            D3DKMDT_MTT_ESTABLISHED = 1,
+            D3DKMDT_MTT_STANDARD = 2,
+            D3DKMDT_MTT_EXTRASTANDARD = 3,
+            D3DKMDT_MTT_DETAILED = 4,
+            D3DKMDT_MTT_DEFAULTMONITORPROFILE = 5,
+            D3DKMDT_MTT_DRIVER = 6,
+        }
+        struct D3DKMDT_PALETTEDATA {
+            Red: u8,
+            Green: u8,
+            Blue: u8,
+            Unused: u8,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
+            D3DKMDT_PVAM_UNINITIALIZED = 0,
+            D3DKMDT_PVAM_DIRECT = 1,
+            D3DKMDT_PVAM_PRESETPALETTE = 2,
+            D3DKMDT_PVAM_SETTABLEPALETTE = 3,
+        }
+        struct D3DKMDT_PREEMPTION_CAPS {
+            GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
+            ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
+        }
+        const D3DKMDT_ROTATION_SUPPORT_MASK: u32 = 255;
+        const D3DKMDT_SCALING_SUPPORT_MASK: u32 = 31;
+        struct D3DKMDT_SHADOWSURFACEDATA {
+            Width: u32,
+            Height: u32,
+            Format: D3DDDIFORMAT,
+            Pitch: u32,
+        }
+        struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
+            Width: u32,
+            Height: u32,
+            Format: D3DDDIFORMAT,
+            RefreshRate: D3DDDI_RATIONAL,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMDT_STAGINGSURFACEDATA {
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_STANDARDALLOCATION_TYPE {
+            D3DKMDT_STANDARDALLOCATION_SHAREDPRIMARYSURFACE = 1,
+            D3DKMDT_STANDARDALLOCATION_SHADOWSURFACE = 2,
+            D3DKMDT_STANDARDALLOCATION_STAGINGSURFACE = 3,
+            D3DKMDT_STANDARDALLOCATION_GDISURFACE = 4,
+            D3DKMDT_STANDARDALLOCATION_VGPU = 5,
+            D3DKMDT_STANDARDALLOCATION_FENCESTORAGE = 6,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_TEXT_RENDERING_FORMAT {
+            D3DKMDT_TRF_UNINITIALIZED = 0,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
+            D3DKMDT_VOT_UNINITIALIZED = -2,
+            D3DKMDT_VOT_OTHER = -1,
+            D3DKMDT_VOT_HD15 = 0,
+            D3DKMDT_VOT_SVIDEO = 1,
+            D3DKMDT_VOT_COMPOSITE_VIDEO = 2,
+            D3DKMDT_VOT_COMPONENT_VIDEO = 3,
+            D3DKMDT_VOT_DVI = 4,
+            D3DKMDT_VOT_HDMI = 5,
+            D3DKMDT_VOT_LVDS = 6,
+            D3DKMDT_VOT_D_JPN = 8,
+            D3DKMDT_VOT_SDI = 9,
+            D3DKMDT_VOT_DISPLAYPORT_EXTERNAL = 10,
+            D3DKMDT_VOT_DISPLAYPORT_EMBEDDED = 11,
+            D3DKMDT_VOT_UDI_EXTERNAL = 12,
+            D3DKMDT_VOT_UDI_EMBEDDED = 13,
+            D3DKMDT_VOT_SDTVDONGLE = 14,
+            D3DKMDT_VOT_MIRACAST = 15,
+            D3DKMDT_VOT_INDIRECT_WIRED = 16,
+            D3DKMDT_VOT_INTERNAL = -2147483648,
+            D3DKMDT_VOT_SVIDEO_4PIN = 1,
+            D3DKMDT_VOT_SVIDEO_7PIN = 1,
+            D3DKMDT_VOT_RF = 2,
+            D3DKMDT_VOT_RCA_3COMPONENT = 3,
+            D3DKMDT_VOT_BNC = 3,
+        }
+        struct D3DKMDT_VIDEO_PRESENT_SOURCE {
+            Id: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            dwReserved: u32,
+        }
+        type D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID = u32;
+        struct D3DKMDT_VIDEO_PRESENT_TARGET {
+            Id: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
+            VideoOutputHpdAwareness: DXGK_CHILD_DEVICE_HPD_AWARENESS,
+            MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
+            SupportsSdtvModes: BOOLEAN,
+        }
+        type D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID = u32;
+        struct D3DKMDT_VIDEO_SIGNAL_INFO {
+            VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
+            TotalSize: D3DKMDT_2DREGION,
+            ActiveSize: D3DKMDT_2DREGION,
+            VSyncFreq: D3DDDI_RATIONAL,
+            HSyncFreq: D3DDDI_RATIONAL,
+            PixelRate: usize,
+            Anonymous: union {
+                AdditionalSignalInfo: struct {
+                    _bitfield: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+                },
+                ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDEO_SIGNAL_STANDARD {
+            D3DKMDT_VSS_UNINITIALIZED = 0,
+            D3DKMDT_VSS_VESA_DMT = 1,
+            D3DKMDT_VSS_VESA_GTF = 2,
+            D3DKMDT_VSS_VESA_CVT = 3,
+            D3DKMDT_VSS_IBM = 4,
+            D3DKMDT_VSS_APPLE = 5,
+            D3DKMDT_VSS_NTSC_M = 6,
+            D3DKMDT_VSS_NTSC_J = 7,
+            D3DKMDT_VSS_NTSC_443 = 8,
+            D3DKMDT_VSS_PAL_B = 9,
+            D3DKMDT_VSS_PAL_B1 = 10,
+            D3DKMDT_VSS_PAL_G = 11,
+            D3DKMDT_VSS_PAL_H = 12,
+            D3DKMDT_VSS_PAL_I = 13,
+            D3DKMDT_VSS_PAL_D = 14,
+            D3DKMDT_VSS_PAL_N = 15,
+            D3DKMDT_VSS_PAL_NC = 16,
+            D3DKMDT_VSS_SECAM_B = 17,
+            D3DKMDT_VSS_SECAM_D = 18,
+            D3DKMDT_VSS_SECAM_G = 19,
+            D3DKMDT_VSS_SECAM_H = 20,
+            D3DKMDT_VSS_SECAM_K = 21,
+            D3DKMDT_VSS_SECAM_K1 = 22,
+            D3DKMDT_VSS_SECAM_L = 23,
+            D3DKMDT_VSS_SECAM_L1 = 24,
+            D3DKMDT_VSS_EIA_861 = 25,
+            D3DKMDT_VSS_EIA_861A = 26,
+            D3DKMDT_VSS_EIA_861B = 27,
+            D3DKMDT_VSS_PAL_K = 28,
+            D3DKMDT_VSS_PAL_K1 = 29,
+            D3DKMDT_VSS_PAL_L = 30,
+            D3DKMDT_VSS_PAL_M = 31,
+            D3DKMDT_VSS_OTHER = 255,
+        }
+        struct D3DKMDT_VIDPN_HW_CAPABILITY {
+            _bitfield: u32,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            ImportanceOrdinal: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE,
+            ContentTransformation: D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION,
+            VisibleFromActiveTLOffset: D3DKMDT_2DOFFSET,
+            VisibleFromActiveBROffset: D3DKMDT_2DOFFSET,
+            VidPnTargetColorBasis: D3DKMDT_COLOR_BASIS,
+            VidPnTargetColorCoeffDynamicRanges: D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES,
+            Content: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT,
+            CopyProtection: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION,
+            GammaRamp: D3DKMDT_GAMMA_RAMP,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
+            D3DKMDT_VPPC_UNINITIALIZED = 0,
+            D3DKMDT_VPPC_GRAPHICS = 1,
+            D3DKMDT_VPPC_VIDEO = 2,
+            D3DKMDT_VPPC_NOTSPECIFIED = 255,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
+            CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
+            APSTriggerBits: u32,
+            OEMCopyProtection: [u8; 256],
+            CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
+            _bitfield: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
+            D3DKMDT_VPPMT_UNINITIALIZED = 0,
+            D3DKMDT_VPPMT_NOPROTECTION = 1,
+            D3DKMDT_VPPMT_MACROVISION_APSTRIGGER = 2,
+            D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT = 3,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
+            D3DKMDT_VPPI_UNINITIALIZED = 0,
+            D3DKMDT_VPPI_PRIMARY = 1,
+            D3DKMDT_VPPI_SECONDARY = 2,
+            D3DKMDT_VPPI_TERTIARY = 3,
+            D3DKMDT_VPPI_QUATERNARY = 4,
+            D3DKMDT_VPPI_QUINARY = 5,
+            D3DKMDT_VPPI_SENARY = 6,
+            D3DKMDT_VPPI_SEPTENARY = 7,
+            D3DKMDT_VPPI_OCTONARY = 8,
+            D3DKMDT_VPPI_NONARY = 9,
+            D3DKMDT_VPPI_DENARY = 10,
+        }
+        type D3DKMDT_VIDPN_PRESENT_PATH_INDEX = usize;
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
+            D3DKMDT_VPPR_UNINITIALIZED = 0,
+            D3DKMDT_VPPR_IDENTITY = 1,
+            D3DKMDT_VPPR_ROTATE90 = 2,
+            D3DKMDT_VPPR_ROTATE180 = 3,
+            D3DKMDT_VPPR_ROTATE270 = 4,
+            D3DKMDT_VPPR_IDENTITY_OFFSET90 = 5,
+            D3DKMDT_VPPR_ROTATE90_OFFSET90 = 6,
+            D3DKMDT_VPPR_ROTATE180_OFFSET90 = 7,
+            D3DKMDT_VPPR_ROTATE270_OFFSET90 = 8,
+            D3DKMDT_VPPR_IDENTITY_OFFSET180 = 9,
+            D3DKMDT_VPPR_ROTATE90_OFFSET180 = 10,
+            D3DKMDT_VPPR_ROTATE180_OFFSET180 = 11,
+            D3DKMDT_VPPR_ROTATE270_OFFSET180 = 12,
+            D3DKMDT_VPPR_IDENTITY_OFFSET270 = 13,
+            D3DKMDT_VPPR_ROTATE90_OFFSET270 = 14,
+            D3DKMDT_VPPR_ROTATE180_OFFSET270 = 15,
+            D3DKMDT_VPPR_ROTATE270_OFFSET270 = 16,
+            D3DKMDT_VPPR_UNPINNED = 254,
+            D3DKMDT_VPPR_NOTSPECIFIED = 255,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
+            _bitfield: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
+            D3DKMDT_VPPS_UNINITIALIZED = 0,
+            D3DKMDT_VPPS_IDENTITY = 1,
+            D3DKMDT_VPPS_CENTERED = 2,
+            D3DKMDT_VPPS_STRETCHED = 3,
+            D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX = 4,
+            D3DKMDT_VPPS_CUSTOM = 5,
+            D3DKMDT_VPPS_RESERVED1 = 253,
+            D3DKMDT_VPPS_UNPINNED = 254,
+            D3DKMDT_VPPS_NOTSPECIFIED = 255,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
+            _bitfield: u32,
+        }
+        struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
+            Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
+            ScalingSupport: D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT,
+            Rotation: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION,
+            RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
+        }
+        struct D3DKMDT_VIDPN_SOURCE_MODE {
+            Id: D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID,
+            Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
+            Format: union {
+                Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
+                Text: D3DKMDT_TEXT_RENDERING_FORMAT,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
+            D3DKMDT_RMT_UNINITIALIZED = 0,
+            D3DKMDT_RMT_GRAPHICS = 1,
+            D3DKMDT_RMT_TEXT = 2,
+            D3DKMDT_RMT_GRAPHICS_STEREO = 3,
+            D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN = 4,
+        }
+        struct D3DKMDT_VIDPN_TARGET_MODE {
+            Id: D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID,
+            VideoSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO,
+            Anonymous: union {
+                WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
+                Anonymous: struct {
+                    _bitfield: D3DKMDT_MODE_PREFERENCE,
+                },
+            },
+            MinimumVSyncFreq: D3DDDI_RATIONAL,
+        }
+        struct D3DKMDT_VIRTUALGPUSURFACEDATA {
+            Size: u64,
+            Alignment: u32,
+            DriverSegmentId: u32,
+            PrivateDriverData: u32,
+        }
+        union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
+            Anonymous: struct {
+                _bitfield: D3DKMDT_MODE_PREFERENCE,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_DISPLAY_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u64,
+                },
+                Value: u64,
+            },
+        }
+        struct D3DKMT_DRIVERCAPS_EXT {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_MOVE_RECT {
+            SourcePoint: POINT,
+            DestRect: RECT,
+        }
+        #[packed(1)]
+        struct D3DKMT_NODEMETADATA {
+            NodeOrdinalAndAdapterIndex: u32,
+            NodeData: DXGK_NODEMETADATA,
+        }
+        #[packed(1)]
+        struct D3DKMT_QUERYCLOCKCALIBRATION {
+            hAdapter: D3DKMT_HANDLE,
+            NodeOrdinal: u32,
+            PhysicalAdapterIndex: u32,
+            ClockData: DXGK_GPUCLOCKDATA,
+        }
+        #[packed(1)]
+        struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
+            PhysicalAdapterIndex: u32,
+            EngineType: DXGK_ENGINE_TYPE,
+            Support: BOOL,
+        }
+        struct D3DKMT_WDDM_1_2_CAPS {
+            PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_1_3_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_2_0_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_2_7_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_2_9_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_3_0_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_WDDM_3_1_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[packed(1)]
+        struct DISPLAYID_DETAILED_TIMING_TYPE_I {
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u32,
+            },
+            HorizontalActivePixels: u16,
+            HorizontalBlankPixels: u16,
+            Anonymous2: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+            HorizontalSyncWidth: u16,
+            VerticalActiveLines: u16,
+            VerticalBlankLines: u16,
+            Anonymous3: #[packed(1)] struct {
+                _bitfield: u16,
+            },
+            VerticalSyncWidth: u16,
+        }
+        const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20;
+        type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
+        #[repr(i32)]
+        enum DXGKARG_FENCESTORAGEVALUETYPE {
+            D3DKARG_FENCESTORAGETYPE_CURRENTVALUE = 0,
+            D3DKARG_FENCESTORAGETYPE_MONITOREDVALUE = 1,
+        }
+        type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
+        struct DXGKARG_SETPALETTE {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            FirstEntry: u32,
+            NumEntries: u32,
+            pLookupTable: *mut D3DKMDT_PALETTEDATA,
+        }
+        #[repr(i32)]
+        enum DXGKDT_OPM_DVI_CHARACTERISTICS {
+            DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0 = 1,
+            DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE = 2,
+            DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG = -1,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_CERTIFICATE_TYPE {
+            DXGKMDT_OPM_CERTIFICATE = 0,
+            DXGKMDT_COPP_CERTIFICATE = 1,
+            DXGKMDT_UAB_CERTIFICATE = 2,
+            DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE = 3,
+            DXGKMDT_FORCE_ULONG = -1,
+        }
+        const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1;
+        const DXGKMDT_I2C_NO_FLAGS: u32 = 0;
+        const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16;
+        #[packed(1)]
+        struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            ulStatusFlags: u32,
+            ulAvailableTVProtectionStandards: u32,
+            ulActiveTVProtectionStandard: u32,
+            ulReserved: u32,
+            ulAspectRatioValidMask1: u32,
+            ulAspectRatioData1: u32,
+            ulAspectRatioValidMask2: u32,
+            ulAspectRatioData2: u32,
+            ulAspectRatioValidMask3: u32,
+            ulAspectRatioData3: u32,
+            ulReserved2: [u32; 4],
+            ulReserved3: [u32; 4],
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
+            DXGKMDT_OPM_ACP_OFF = 0,
+            DXGKMDT_OPM_ACP_LEVEL_ONE = 1,
+            DXGKMDT_OPM_ACP_LEVEL_TWO = 2,
+            DXGKMDT_OPM_ACP_LEVEL_THREE = 3,
+            DXGKMDT_OPM_ACP_FORCE_ULONG = 2147483647,
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            ulStatusFlags: u32,
+            ulDisplayWidth: u32,
+            ulDisplayHeight: u32,
+            ifInterleaveFormat: DXGKMDT_OPM_INTERLEAVE_FORMAT,
+            d3dFormat: u32,
+            ulFrequencyNumerator: u32,
+            ulFrequencyDenominator: u32,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
+            DXGKMDT_OPM_BUS_TYPE_OTHER = 0,
+            DXGKMDT_OPM_BUS_TYPE_PCI = 1,
+            DXGKMDT_OPM_BUS_TYPE_PCIX = 2,
+            DXGKMDT_OPM_BUS_TYPE_PCIEXPRESS = 3,
+            DXGKMDT_OPM_BUS_TYPE_AGP = 4,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET = 65536,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP = 131072,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET = 196608,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR = 262144,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE = 327680,
+            DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD = -2147483648,
+            DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED = -2147483648,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_CGMSA {
+            DXGKMDT_OPM_CGMSA_OFF = 0,
+            DXGKMDT_OPM_CGMSA_COPY_FREELY = 1,
+            DXGKMDT_OPM_CGMSA_COPY_NO_MORE = 2,
+            DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION = 3,
+            DXGKMDT_OPM_CGMSA_COPY_NEVER = 4,
+            DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED = 8,
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
+            omac: DXGKMDT_OPM_OMAC,
+            guidSetting: GUID,
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
+        }
+        const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056;
+        #[packed(1)]
+        struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            ulStatusFlags: u32,
+            ulHDCPFlags: u32,
+            ksvB: DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR,
+            Reserved: [u8; 11],
+            Reserved2: [u8; 16],
+            Reserved3: [u8; 16],
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_CONNECTOR_TYPE {
+            DXGKMDT_OPM_CONNECTOR_TYPE_OTHER = -1,
+            DXGKMDT_OPM_CONNECTOR_TYPE_HD15 = 0,
+            DXGKMDT_OPM_CONNECTOR_TYPE_SVIDEO = 1,
+            DXGKMDT_OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO = 2,
+            DXGKMDT_OPM_CONNECTOR_TYPE_COMPONENT_VIDEO = 3,
+            DXGKMDT_OPM_CONNECTOR_TYPE_DVI = 4,
+            DXGKMDT_OPM_CONNECTOR_TYPE_HDMI = 5,
+            DXGKMDT_OPM_CONNECTOR_TYPE_LVDS = 6,
+            DXGKMDT_OPM_CONNECTOR_TYPE_D_JPN = 8,
+            DXGKMDT_OPM_CONNECTOR_TYPE_SDI = 9,
+            DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL = 10,
+            DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED = 11,
+            DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL = 12,
+            DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED = 13,
+            DXGKMDT_OPM_CONNECTOR_TYPE_RESERVED = 14,
+            DXGKMDT_OPM_CONNECTOR_TYPE_MIRACAST = 15,
+            DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A = 16,
+            DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B = 17,
+            DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL = -2147483648,
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            guidInformation: GUID,
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
+            AdapterLuid: LUID,
+            TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
+            DXGKMDT_OPM_DPCP_OFF = 0,
+            DXGKMDT_OPM_DPCP_ON = 1,
+            DXGKMDT_OPM_DPCP_FORCE_ULONG = 2147483647,
+        }
+        struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
+            abEncryptedParameters: [u8; 256],
+        }
+        const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256;
+        const DXGKMDT_OPM_GET_ACP_AND_CGMSA_SIGNALING: GUID = 0x6629a591_3b79_4cf3_924a_11e8e7811671;
+        const DXGKMDT_OPM_GET_ACTUAL_OUTPUT_FORMAT: GUID = 0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc;
+        const DXGKMDT_OPM_GET_ACTUAL_PROTECTION_LEVEL: GUID = 0x1957210a_7766_452a_b99a_d27aed54f03a;
+        const DXGKMDT_OPM_GET_ADAPTER_BUS_TYPE: GUID = 0xc6f4d673_6174_4184_8e35_f6db5200bcba;
+        const DXGKMDT_OPM_GET_CODEC_INFO: GUID = 0x4f374491_8f5f_4445_9dba_95588f6b58b4;
+        const DXGKMDT_OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: GUID = 0x0db59d74_a992_492e_a0bd_c23fda564e00;
+        const DXGKMDT_OPM_GET_CONNECTOR_TYPE: GUID = 0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da;
+        const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: GUID = 0x99c5ceff_5f1d_4879_81c1_c52443c9482b;
+        const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: GUID = 0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5;
+        const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056;
+        #[packed(1)]
+        struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
+            omac: DXGKMDT_OPM_OMAC,
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            guidInformation: GUID,
+            ulSequenceNumber: u32,
+            cbParametersSize: u32,
+            abParameters: [u8; 4056],
+        }
+        const DXGKMDT_OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: GUID = 0x3b129589_2af8_4ef0_96a2_704a845a218e;
+        const DXGKMDT_OPM_GET_OUTPUT_ID: GUID = 0x72cb6df3_244f_40ce_b09e_20506af6302f;
+        const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: GUID = 0x38f2a801_9a6c_48bb_9107_b6696e6f1797;
+        const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: GUID = 0xb2075857_3eda_4d5d_88db_748f8c1a0549;
+        #[repr(i32)]
+        enum DXGKMDT_OPM_HDCP_FLAG {
+            DXGKMDT_OPM_HDCP_FLAG_NONE = 0,
+            DXGKMDT_OPM_HDCP_FLAG_REPEATER = 1,
+        }
+        struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
+            abKeySelectionVector: [u8; 5],
+        }
+        const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5;
+        #[repr(i32)]
+        enum DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
+            DXGKMDT_OPM_HDCP_OFF = 0,
+            DXGKMDT_OPM_HDCP_ON = 1,
+            DXGKMDT_OPM_HDCP_FORCE_ULONG = 2147483647,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3 = 0,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER = 1,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP = 2,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER = 3,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP = 4,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER = 5,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER = 6,
+            DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC = 7,
+            DXGKMDT_OPM_ASPECT_RATIO_FORCE_ULONG = 2147483647,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_INTERLEAVE_FORMAT {
+            DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER = 0,
+            DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE = 2,
+            DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST = 3,
+            DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST = 4,
+            DXGKMDT_OPM_INTERLEAVE_FORMAT_FORCE_ULONG = -1,
+        }
+        struct DXGKMDT_OPM_OMAC {
+            abOMAC: [u8; 16],
+        }
+        const DXGKMDT_OPM_OMAC_SIZE: u32 = 16;
+        #[repr(i32)]
+        enum DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
+            DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED = 0,
+            DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED = 1,
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_OUTPUT_ID {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            ulStatusFlags: u32,
+            OutputId: u64,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_PROTECTION_STANDARD {
+            DXGKMDT_OPM_PROTECTION_STANDARD_OTHER = -2147483648,
+            DXGKMDT_OPM_PROTECTION_STANDARD_NONE = 0,
+            DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_525I = 1,
+            DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_2_525I = 2,
+            DXGKMDT_OPM_PROTECTION_STANDARD_IEC62375_625P = 4,
+            DXGKMDT_OPM_PROTECTION_STANDARD_EIA608B_525 = 8,
+            DXGKMDT_OPM_PROTECTION_STANDARD_EN300294_625I = 16,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P = 32,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P = 64,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I = 128,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P = 256,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P = 512,
+            DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I = 1024,
+            DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525I = 2048,
+            DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525P = 4096,
+            DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_750P = 8192,
+            DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I = 16384,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_PROTECTION_TYPE {
+            DXGKMDT_OPM_PROTECTION_TYPE_OTHER = -2147483648,
+            DXGKMDT_OPM_PROTECTION_TYPE_NONE = 0,
+            DXGKMDT_OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP = 1,
+            DXGKMDT_OPM_PROTECTION_TYPE_ACP = 2,
+            DXGKMDT_OPM_PROTECTION_TYPE_CGMSA = 4,
+            DXGKMDT_OPM_PROTECTION_TYPE_HDCP = 8,
+            DXGKMDT_OPM_PROTECTION_TYPE_DPCP = 16,
+            DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP = 32,
+            DXGKMDT_OPM_PROTECTION_TYPE_MASK = -2147483585,
+        }
+        const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4;
+        struct DXGKMDT_OPM_RANDOM_NUMBER {
+            abRandomNumber: [u8; 16],
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_REQUESTED_INFORMATION {
+            omac: DXGKMDT_OPM_OMAC,
+            cbRequestedInformationSize: u32,
+            abRequestedInformation: [u8; 4076],
+        }
+        const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076;
+        const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: GUID = 0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee;
+        #[packed(1)]
+        struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+            ulNewTVProtectionStandard: u32,
+            ulAspectRatioChangeMask1: u32,
+            ulAspectRatioData1: u32,
+            ulAspectRatioChangeMask2: u32,
+            ulAspectRatioData2: u32,
+            ulAspectRatioChangeMask3: u32,
+            ulAspectRatioData3: u32,
+            ulReserved: [u32; 4],
+            ulReserved2: [u32; 4],
+            ulReserved3: u32,
+        }
+        const DXGKMDT_OPM_SET_HDCP_SRM: GUID = 0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13;
+        #[packed(1)]
+        struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
+            ulSRMVersion: u32,
+        }
+        const DXGKMDT_OPM_SET_PROTECTION_LEVEL: GUID = 0x9bb9327c_4eb5_4727_9f00_b42b0919c0da;
+        const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: GUID = 0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72;
+        #[packed(1)]
+        struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+            ulProtectionType: u32,
+            ulProtectionLevel: u32,
+            Reserved: u32,
+            Reserved2: u32,
+        }
+        #[packed(1)]
+        struct DXGKMDT_OPM_STANDARD_INFORMATION {
+            rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
+            ulStatusFlags: u32,
+            ulInformation: u32,
+            ulReserved: u32,
+            ulReserved2: u32,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_STATUS {
+            DXGKMDT_OPM_STATUS_NORMAL = 0,
+            DXGKMDT_OPM_STATUS_LINK_LOST = 1,
+            DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED = 2,
+            DXGKMDT_OPM_STATUS_TAMPERING_DETECTED = 4,
+            DXGKMDT_OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED = 8,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
+            DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF = 0,
+            DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION = 1,
+            DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION = 2,
+            DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG = 2147483647,
+        }
+        #[repr(i32)]
+        enum DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
+            DXGKMDT_OPM_VOS_COPP_SEMANTICS = 0,
+            DXGKMDT_OPM_VOS_OPM_SEMANTICS = 1,
+            DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY = 2,
+        }
+        #[packed(1)]
+        struct DXGK_ADAPTER_PERFDATA {
+            MemoryFrequency: u64,
+            MaxMemoryFrequency: u64,
+            MaxMemoryFrequencyOC: u64,
+            MemoryBandwidth: u64,
+            PCIEBandwidth: u64,
+            FanRPM: u32,
+            Power: u32,
+            Temperature: u32,
+            PowerStateOverride: u8,
+        }
+        #[packed(1)]
+        struct DXGK_ADAPTER_PERFDATACAPS {
+            MaxMemoryBandwidth: u64,
+            MaxPCIEBandwidth: u64,
+            MaxFanRPM: u32,
+            TemperatureMax: u32,
+            TemperatureWarning: u32,
+        }
+        #[packed(1)]
+        struct DXGK_BACKLIGHT_INFO {
+            BacklightUsersetting: u16,
+            BacklightEffective: u16,
+            GammaRamp: D3DDDI_GAMMA_RAMP_RGB256x3x16,
+        }
+        #[repr(i32)]
+        enum DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
+            DxgkBacklightOptimizationDisable = 0,
+            DxgkBacklightOptimizationDesktop = 1,
+            DxgkBacklightOptimizationDynamic = 2,
+            DxgkBacklightOptimizationDimmed = 3,
+            DxgkBacklightOptimizationEDR = 4,
+        }
+        const DXGK_BIND_TABLE_ENTRY_UNKNOWN: i32 = -1;
+        struct DXGK_BRIGHTNESS_CAPS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
+            NormalRangeCount: u32,
+            RangeCount: u32,
+            PreferredMaximumBrightness: u32,
+            SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
+        }
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_GET_OUT {
+            CurrentBrightnessMillinits: u32,
+            TargetBrightnessMillinits: u32,
+        }
+        const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16;
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_NIT_RANGE {
+            MinimumLevelMillinit: u32,
+            MaximumLevelMillinit: u32,
+            StepSizeMillinit: u32,
+        }
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_SENSOR_DATA {
+            Size: u32,
+            Anonymous: #[packed(1)] union {
+                Flags: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                ValidSensorValues: u32,
+            },
+            AlsReading: f32,
+            Chromaticity: DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY,
+            ColorTemperature: f32,
+        }
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
+            ChromaticityX: f32,
+            ChromaticityY: f32,
+        }
+        #[packed(1)]
+        struct DXGK_BRIGHTNESS_SET_IN {
+            BrightnessMillinits: u32,
+            TransitionTimeMs: u32,
+            SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
+        }
+        struct DXGK_BRIGHTNESS_STATE {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum DXGK_CHILD_DEVICE_HPD_AWARENESS {
+            HpdAwarenessUninitialized = 0,
+            HpdAwarenessAlwaysConnected = 1,
+            HpdAwarenessNone = 2,
+            HpdAwarenessPolled = 3,
+            HpdAwarenessInterruptible = 4,
+        }
+        #[repr(i32)]
+        enum DXGK_DISPLAYMUX_RUNTIME_STATUS {
+            DXGK_DISPLAYMUX_RUNTIME_STATUS_UNINITIALIZED = 0,
+            DXGK_DISPLAYMUX_RUNTIME_STATUS_OK = 1,
+            DXGK_DISPLAYMUX_RUNTIME_STATUS_NO_GPU_SUPPORT = 2,
+            DXGK_DISPLAYMUX_RUNTIME_STATUS_NON_CRITICAL_SYSTEM_INFO_MISSING = 3,
+            DXGK_DISPLAYMUX_RUNTIME_STATUS_CRITICAL_SYSTEM_INFO_MISSING = 4,
+        }
+        struct DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO {
+            Brightness3Supported: BOOLEAN,
+            Brightness3Caps: DXGK_BRIGHTNESS_CAPS,
+            Bridgtness3Ranges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
+        }
+        #[repr(i32)]
+        enum DXGK_DISPLAYMUX_SUPPORT_LEVEL {
+            DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_UNINITIALIZED = 0,
+            DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_NONE = 1,
+            DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_DEVELOPMENT = 2,
+            DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_EXPERIMENTAL = 3,
+            DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_FULL = 4,
+        }
+        #[repr(i32)]
+        enum DXGK_DISPLAY_DESCRIPTOR_TYPE {
+            DXGK_DDT_INVALID = 0,
+            DXGK_DDT_EDID = 1,
+            DXGK_DDT_DISPLAYID = 2,
+        }
+        struct DXGK_DISPLAY_INFORMATION {
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
+            ColorFormat: D3DDDIFORMAT,
+            PhysicAddress: PHYSICAL_ADDRESS,
+            TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            AcpiId: u32,
+        }
+        #[repr(i32)]
+        enum DXGK_DISPLAY_TECHNOLOGY {
+            DXGK_DT_INVALID = 0,
+            DXGK_DT_OTHER = 1,
+            DXGK_DT_LCD = 2,
+            DXGK_DT_OLED = 3,
+            DXGK_DT_PROJECTOR = 4,
+            DXGK_DT_MAX = 5,
+        }
+        #[repr(i32)]
+        enum DXGK_DISPLAY_USAGE {
+            DXGK_DU_INVALID = 0,
+            DXGK_DU_GENERIC = 1,
+            DXGK_DU_AR = 2,
+            DXGK_DU_VR = 3,
+            DXGK_DU_MEDICAL_IMAGING = 4,
+            DXGK_DU_ACCESSORY = 5,
+            DXGK_DU_MAX = 6,
+        }
+        #[repr(i32)]
+        enum DXGK_ENGINE_TYPE {
+            DXGK_ENGINE_TYPE_OTHER = 0,
+            DXGK_ENGINE_TYPE_3D = 1,
+            DXGK_ENGINE_TYPE_VIDEO_DECODE = 2,
+            DXGK_ENGINE_TYPE_VIDEO_ENCODE = 3,
+            DXGK_ENGINE_TYPE_VIDEO_PROCESSING = 4,
+            DXGK_ENGINE_TYPE_SCENE_ASSEMBLY = 5,
+            DXGK_ENGINE_TYPE_COPY = 6,
+            DXGK_ENGINE_TYPE_OVERLAY = 7,
+            DXGK_ENGINE_TYPE_CRYPTO = 8,
+            DXGK_ENGINE_TYPE_VIDEO_CODEC = 9,
+            DXGK_ENGINE_TYPE_MAX = 10,
+        }
+        struct DXGK_FAULT_ERROR_CODE {
+            Anonymous: union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Anonymous2: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+            },
+        }
+        const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: u32 = 0;
+        const DXGK_FEATURE_SUPPORT_ALWAYS_ON: u32 = 3;
+        const DXGK_FEATURE_SUPPORT_EXPERIMENTAL: u32 = 1;
+        const DXGK_FEATURE_SUPPORT_STABLE: u32 = 2;
+        #[repr(i32)]
+        enum DXGK_GENERAL_ERROR_CODE {
+            DXGK_GENERAL_ERROR_PAGE_FAULT = 0,
+            DXGK_GENERAL_ERROR_INVALID_INSTRUCTION = 1,
+        }
+        #[packed(1)]
+        struct DXGK_GPUCLOCKDATA {
+            GpuFrequency: u64,
+            GpuClockCounter: u64,
+            CpuClockCounter: u64,
+            Flags: DXGK_GPUCLOCKDATA_FLAGS,
+        }
+        struct DXGK_GPUCLOCKDATA_FLAGS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[packed(1)]
+        struct DXGK_GPUVERSION {
+            BiosVersion: [u16; 32],
+            GpuArchitecture: [u16; 32],
+        }
+        const DXGK_MAX_GPUVERSION_NAME_LENGTH: u32 = 32;
+        const DXGK_MAX_METADATA_NAME_LENGTH: u32 = 32;
+        #[packed(1)]
+        union DXGK_MONITORLINKINFO_CAPABILITIES {
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        #[packed(1)]
+        union DXGK_MONITORLINKINFO_USAGEHINTS {
+            Anonymous: #[packed(1)] struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        #[packed(1)]
+        struct DXGK_NODEMETADATA {
+            EngineType: DXGK_ENGINE_TYPE,
+            FriendlyName: [u16; 32],
+            Flags: DXGK_NODEMETADATA_FLAGS,
+            GpuMmuSupported: BOOLEAN,
+            IoMmuSupported: BOOLEAN,
+        }
+        struct DXGK_NODEMETADATA_FLAGS {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[packed(1)]
+        struct DXGK_NODE_PERFDATA {
+            Frequency: u64,
+            MaxFrequency: u64,
+            MaxFrequencyOC: u64,
+            Voltage: u32,
+            VoltageMax: u32,
+            VoltageMaxOC: u32,
+            MaxTransitionLatency: u64,
+        }
+        #[repr(i32)]
+        enum DXGK_PAGE_FAULT_FLAGS {
+            DXGK_PAGE_FAULT_WRITE = 1,
+            DXGK_PAGE_FAULT_FENCE_INVALID = 2,
+            DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED = 4,
+            DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED = 8,
+            DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR = 16,
+            DXGK_PAGE_FAULT_IOMMU = 32,
+            DXGK_PAGE_FAULT_HW_CONTEXT_VALID = 64,
+            DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID = 128,
+            DXGK_PAGE_FAULT_AND_STALL = 256,
+            DXGK_PAGE_FAULT_FIRST_INVALID = 512,
+        }
+        const DXGK_PRIMITIVE_API_SEQUENCE_NUMBER_UNKNOWN: i32 = -1;
+        #[repr(i32)]
+        enum DXGK_RENDER_PIPELINE_STAGE {
+            DXGK_RENDER_PIPELINE_STAGE_UNKNOWN = 0,
+            DXGK_RENDER_PIPELINE_STAGE_INPUT_ASSEMBLER = 1,
+            DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER = 2,
+            DXGK_RENDER_PIPELINE_STAGE_GEOMETRY_SHADER = 3,
+            DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT = 4,
+            DXGK_RENDER_PIPELINE_STAGE_RASTERIZER = 5,
+            DXGK_RENDER_PIPELINE_STAGE_PIXEL_SHADER = 6,
+            DXGK_RENDER_PIPELINE_STAGE_OUTPUT_MERGER = 7,
+        }
+        struct DXGK_TARGETMODE_DETAIL_TIMING {
+            VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
+            TimingId: u32,
+            DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
+        }
+        const DXGK_VALID_FAULT_AND_STALL_FLAGS: u32 = 268;
+        type PD3DKMDT_WIRE_FORMAT_AND_PREFERENCE = *mut D3DKMDT_WIRE_FORMAT_AND_PREFERENCE;
+        type PDXGKMDT_OPM_CONFIGURE_PARAMETERS = *mut DXGKMDT_OPM_CONFIGURE_PARAMETERS;
+        type PDXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS = *mut DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS;
+        type PDXGKMDT_OPM_ENCRYPTED_PARAMETERS = *mut DXGKMDT_OPM_ENCRYPTED_PARAMETERS;
+        type PDXGKMDT_OPM_GET_INFO_PARAMETERS = *mut DXGKMDT_OPM_GET_INFO_PARAMETERS;
+        type PDXGKMDT_OPM_OMAC = *mut DXGKMDT_OPM_OMAC;
+        type PDXGKMDT_OPM_RANDOM_NUMBER = *mut DXGKMDT_OPM_RANDOM_NUMBER;
+        type PDXGKMDT_OPM_REQUESTED_INFORMATION = *mut DXGKMDT_OPM_REQUESTED_INFORMATION;
+        type PDXGK_BRIGHTNESS_GET_NIT_RANGES_OUT = *mut DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT;
+        type PDXGK_BRIGHTNESS_GET_OUT = *mut DXGK_BRIGHTNESS_GET_OUT;
+        type PDXGK_BRIGHTNESS_SET_IN = *mut DXGK_BRIGHTNESS_SET_IN;
+        type PDXGK_CHILD_DEVICE_HPD_AWARENESS = *mut DXGK_CHILD_DEVICE_HPD_AWARENESS;
+        type PDXGK_DISPLAYMUX_RUNTIME_STATUS = *mut DXGK_DISPLAYMUX_RUNTIME_STATUS;
+        type PDXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO = *mut DXGK_DISPLAYMUX_SET_INTERNAL_PANEL_INFO;
+        type PDXGK_DISPLAYMUX_SUPPORT_LEVEL = *mut DXGK_DISPLAYMUX_SUPPORT_LEVEL;
+        type PDXGK_DISPLAY_DESCRIPTOR_TYPE = *mut DXGK_DISPLAY_DESCRIPTOR_TYPE;
+        type PDXGK_DISPLAY_INFORMATION = *mut DXGK_DISPLAY_INFORMATION;
+        type PDXGK_DISPLAY_TECHNOLOGY = *mut DXGK_DISPLAY_TECHNOLOGY;
+        type PDXGK_DISPLAY_USAGE = *mut DXGK_DISPLAY_USAGE;
+        type PDXGK_MONITORLINKINFO_CAPABILITIES = *mut DXGK_MONITORLINKINFO_CAPABILITIES;
+        type PDXGK_MONITORLINKINFO_USAGEHINTS = *mut DXGK_MONITORLINKINFO_USAGEHINTS;
+        #[repr(i32)]
+        enum _DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
+            DIDDT1_AspectRatio_1x1 = 0,
+            DIDDT1_AspectRatio_5x4 = 1,
+            DIDDT1_AspectRatio_4x3 = 2,
+            DIDDT1_AspectRatio_15x9 = 3,
+            DIDDT1_AspectRatio_16x9 = 4,
+            DIDDT1_AspectRatio_16x10 = 5,
+        }
+        #[repr(i32)]
+        enum _DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
+            DIDDT1_Progressive = 0,
+            DIDDT1_Interlaced = 1,
+        }
+        #[repr(i32)]
+        enum _DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
+            DIDDT1_Monoscopic = 0,
+            DIDDT1_Stereo = 1,
+            DIDDT1_Dependent = 2,
+        }
+        #[repr(i32)]
+        enum _DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
+            DIDDT1_Sync_Positive = 0,
+            DIDDT1_Sync_Negative = 1,
+        }
+    }
+}

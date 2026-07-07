@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library("")]
+    extern "C" fn PlainCdecl(a: i32) -> i32;
+    #[library("")]
+    extern "system" fn SimpleConvention(a: i32) -> i32;
+    #[library("")]
+    extern "system" fn SplitConvention(a: i32, b: i32) -> i32;
+}

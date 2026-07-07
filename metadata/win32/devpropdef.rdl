@@ -1,0 +1,74 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct DEVPROPCOMPKEY {
+            Key: DEVPROPKEY,
+            Store: DEVPROPSTORE,
+            LocaleName: PCWSTR,
+        }
+        struct DEVPROPERTY {
+            CompKey: DEVPROPCOMPKEY,
+            Type: DEVPROPTYPE,
+            BufferSize: u32,
+            Buffer: *mut void,
+        }
+        type DEVPROPGUID = GUID;
+        type DEVPROPID = u32;
+        const DEVPROPID_FIRST_USABLE: u32 = 2;
+        struct DEVPROPKEY {
+            fmtid: DEVPROPGUID,
+            pid: DEVPROPID,
+        }
+        #[repr(i32)]
+        enum DEVPROPSTORE {
+            DEVPROP_STORE_SYSTEM = 0,
+            DEVPROP_STORE_USER = 1,
+        }
+        type DEVPROPTYPE = u32;
+        type DEVPROP_BOOLEAN = i8;
+        const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0;
+        const DEVPROP_MASK_TYPE: u32 = 4095;
+        const DEVPROP_MASK_TYPEMOD: u32 = 61440;
+        const DEVPROP_TRUE: DEVPROP_BOOLEAN = -1;
+        const DEVPROP_TYPEMOD_ARRAY: u32 = 4096;
+        const DEVPROP_TYPEMOD_LIST: u32 = 8192;
+        const DEVPROP_TYPE_BINARY: u32 = 4099;
+        const DEVPROP_TYPE_BOOLEAN: u32 = 17;
+        const DEVPROP_TYPE_BYTE: u32 = 3;
+        const DEVPROP_TYPE_CURRENCY: u32 = 14;
+        const DEVPROP_TYPE_DATE: u32 = 15;
+        const DEVPROP_TYPE_DECIMAL: u32 = 12;
+        const DEVPROP_TYPE_DEVPROPKEY: u32 = 21;
+        const DEVPROP_TYPE_DEVPROPTYPE: u32 = 22;
+        const DEVPROP_TYPE_DOUBLE: u32 = 11;
+        const DEVPROP_TYPE_EMPTY: u32 = 0;
+        const DEVPROP_TYPE_ERROR: u32 = 23;
+        const DEVPROP_TYPE_FILETIME: u32 = 16;
+        const DEVPROP_TYPE_FLOAT: u32 = 10;
+        const DEVPROP_TYPE_GUID: u32 = 13;
+        const DEVPROP_TYPE_INT16: u32 = 4;
+        const DEVPROP_TYPE_INT32: u32 = 6;
+        const DEVPROP_TYPE_INT64: u32 = 8;
+        const DEVPROP_TYPE_NTSTATUS: u32 = 24;
+        const DEVPROP_TYPE_NULL: u32 = 1;
+        const DEVPROP_TYPE_SBYTE: u32 = 2;
+        const DEVPROP_TYPE_SECURITY_DESCRIPTOR: u32 = 19;
+        const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: u32 = 20;
+        const DEVPROP_TYPE_STRING: u32 = 18;
+        const DEVPROP_TYPE_STRING_INDIRECT: u32 = 25;
+        const DEVPROP_TYPE_STRING_LIST: u32 = 8210;
+        const DEVPROP_TYPE_UINT16: u32 = 5;
+        const DEVPROP_TYPE_UINT32: u32 = 7;
+        const DEVPROP_TYPE_UINT64: u32 = 9;
+        const MAX_DEVPROP_TYPE: u32 = 25;
+        const MAX_DEVPROP_TYPEMOD: u32 = 8192;
+        type PDEVPROPCOMPKEY = *mut DEVPROPCOMPKEY;
+        type PDEVPROPERTY = *mut DEVPROPERTY;
+        type PDEVPROPGUID = *mut GUID;
+        type PDEVPROPID = *mut u32;
+        type PDEVPROPKEY = *mut DEVPROPKEY;
+        type PDEVPROPSTORE = *mut DEVPROPSTORE;
+        type PDEVPROPTYPE = *mut u32;
+        type PDEVPROP_BOOLEAN = *mut i8;
+    }
+}

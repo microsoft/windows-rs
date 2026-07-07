@@ -1,0 +1,194 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PSAFER_CODE_PROPERTIES = *mut SAFER_CODE_PROPERTIES_V2;
+        type PSAFER_CODE_PROPERTIES_V1 = *mut SAFER_CODE_PROPERTIES_V1;
+        type PSAFER_CODE_PROPERTIES_V2 = *mut SAFER_CODE_PROPERTIES_V2;
+        type PSAFER_HASH_IDENTIFICATION = *mut SAFER_HASH_IDENTIFICATION;
+        type PSAFER_HASH_IDENTIFICATION2 = *mut SAFER_HASH_IDENTIFICATION2;
+        type PSAFER_IDENTIFICATION_HEADER = *mut SAFER_IDENTIFICATION_HEADER;
+        type PSAFER_PATHNAME_IDENTIFICATION = *mut SAFER_PATHNAME_IDENTIFICATION;
+        type PSAFER_URLZONE_IDENTIFICATION = *mut SAFER_URLZONE_IDENTIFICATION;
+        type SAFER_CODE_PROPERTIES = SAFER_CODE_PROPERTIES_V2;
+        struct SAFER_CODE_PROPERTIES_V1 {
+            cbSize: u32,
+            dwCheckFlags: u32,
+            ImagePath: PCWSTR,
+            hImageFileHandle: HANDLE,
+            UrlZoneId: u32,
+            ImageHash: [u8; 64],
+            dwImageHashSize: u32,
+            ImageSize: LARGE_INTEGER,
+            HashAlgorithm: ALG_ID,
+            pByteBlock: LPBYTE,
+            hWndParent: HWND,
+            dwWVTUIChoice: u32,
+        }
+        struct SAFER_CODE_PROPERTIES_V2 {
+            cbSize: u32,
+            dwCheckFlags: u32,
+            ImagePath: PCWSTR,
+            hImageFileHandle: HANDLE,
+            UrlZoneId: u32,
+            ImageHash: [u8; 64],
+            dwImageHashSize: u32,
+            ImageSize: LARGE_INTEGER,
+            HashAlgorithm: ALG_ID,
+            pByteBlock: LPBYTE,
+            hWndParent: HWND,
+            dwWVTUIChoice: u32,
+            PackageMoniker: PCWSTR,
+            PackagePublisher: PCWSTR,
+            PackageName: PCWSTR,
+            PackageVersion: u64,
+            PackageIsFramework: BOOL,
+        }
+        const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32;
+        const SAFER_CRITERIA_AUTHENTICODE: u32 = 8;
+        const SAFER_CRITERIA_IMAGEHASH: u32 = 4;
+        const SAFER_CRITERIA_IMAGEPATH: u32 = 1;
+        const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096;
+        const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2;
+        const SAFER_CRITERIA_URLZONE: u32 = 16;
+        struct SAFER_HASH_IDENTIFICATION {
+            header: SAFER_IDENTIFICATION_HEADER,
+            Description: [u16; 256],
+            FriendlyName: [u16; 256],
+            HashSize: u32,
+            ImageHash: [u8; 64],
+            HashAlgorithm: ALG_ID,
+            ImageSize: LARGE_INTEGER,
+            dwSaferFlags: u32,
+        }
+        struct SAFER_HASH_IDENTIFICATION2 {
+            hashIdentification: SAFER_HASH_IDENTIFICATION,
+            HashSize: u32,
+            ImageHash: [u8; 64],
+            HashAlgorithm: ALG_ID,
+        }
+        struct SAFER_IDENTIFICATION_HEADER {
+            dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
+            cbStructSize: u32,
+            IdentificationGuid: GUID,
+            lastModified: FILETIME,
+        }
+        #[repr(i32)]
+        enum SAFER_IDENTIFICATION_TYPES {
+            SaferIdentityDefault = 0,
+            SaferIdentityTypeImageName = 1,
+            SaferIdentityTypeImageHash = 2,
+            SaferIdentityTypeUrlZone = 3,
+            SaferIdentityTypeCertificate = 4,
+        }
+        const SAFER_LEVELID_CONSTRAINED: u32 = 65536;
+        const SAFER_LEVELID_DISALLOWED: u32 = 0;
+        const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144;
+        const SAFER_LEVELID_NORMALUSER: u32 = 131072;
+        const SAFER_LEVELID_UNTRUSTED: u32 = 4096;
+        type SAFER_LEVEL_HANDLE = *mut void;
+        const SAFER_LEVEL_OPEN: u32 = 1;
+        const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256;
+        const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256;
+        const SAFER_MAX_HASH_SIZE: u32 = 64;
+        #[repr(i32)]
+        enum SAFER_OBJECT_INFO_CLASS {
+            SaferObjectLevelId = 1,
+            SaferObjectScopeId = 2,
+            SaferObjectFriendlyName = 3,
+            SaferObjectDescription = 4,
+            SaferObjectBuiltin = 5,
+            SaferObjectDisallowed = 6,
+            SaferObjectDisableMaxPrivilege = 7,
+            SaferObjectInvertDeletedPrivileges = 8,
+            SaferObjectDeletedPrivileges = 9,
+            SaferObjectDefaultOwner = 10,
+            SaferObjectSidsToDisable = 11,
+            SaferObjectRestrictedSidsInverted = 12,
+            SaferObjectRestrictedSidsAdded = 13,
+            SaferObjectAllIdentificationGuids = 14,
+            SaferObjectSingleIdentification = 15,
+            SaferObjectExtendedError = 16,
+        }
+        struct SAFER_PATHNAME_IDENTIFICATION {
+            header: SAFER_IDENTIFICATION_HEADER,
+            Description: [u16; 256],
+            ImageName: PWCHAR,
+            dwSaferFlags: u32,
+        }
+        const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192;
+        const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144;
+        #[repr(i32)]
+        enum SAFER_POLICY_INFO_CLASS {
+            SaferPolicyLevelList = 1,
+            SaferPolicyEnableTransparentEnforcement = 2,
+            SaferPolicyDefaultLevel = 3,
+            SaferPolicyEvaluateUserScope = 4,
+            SaferPolicyScopeFlags = 5,
+            SaferPolicyDefaultLevelFlags = 6,
+            SaferPolicyAuthenticodeEnabled = 7,
+        }
+        const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864;
+        const SAFER_POLICY_JOBID_MASK: u32 = 4278190080;
+        const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648;
+        const SAFER_POLICY_ONLY_AUDIT: u32 = 4096;
+        const SAFER_POLICY_ONLY_EXES: u32 = 65536;
+        const SAFER_POLICY_SANDBOX_INERT: u32 = 131072;
+        const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4;
+        const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1;
+        const SAFER_POLICY_UIFLAGS_MASK: u32 = 255;
+        const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2;
+        const SAFER_SCOPEID_MACHINE: u32 = 1;
+        const SAFER_SCOPEID_USER: u32 = 2;
+        const SAFER_TOKEN_COMPARE_ONLY: u32 = 2;
+        const SAFER_TOKEN_MAKE_INERT: u32 = 4;
+        const SAFER_TOKEN_NULL_IF_EQUAL: u32 = 1;
+        const SAFER_TOKEN_WANT_FLAGS: u32 = 8;
+        struct SAFER_URLZONE_IDENTIFICATION {
+            header: SAFER_IDENTIFICATION_HEADER,
+            UrlZoneId: u32,
+            dwSaferFlags: u32,
+        }
+        #[encoding("utf-16")]
+        const SRP_POLICY_APPX: String = "APPX";
+        #[encoding("utf-16")]
+        const SRP_POLICY_DLL: String = "DLL";
+        #[encoding("utf-16")]
+        const SRP_POLICY_EXE: String = "EXE";
+        #[encoding("utf-16")]
+        const SRP_POLICY_MANAGEDINSTALLER: String = "MANAGEDINSTALLER";
+        #[encoding("utf-16")]
+        const SRP_POLICY_MSI: String = "MSI";
+        #[encoding("utf-16")]
+        const SRP_POLICY_NOV2: String = "IGNORESRPV2";
+        #[encoding("utf-16")]
+        const SRP_POLICY_SCRIPT: String = "SCRIPT";
+        #[encoding("utf-16")]
+        const SRP_POLICY_SHELL: String = "SHELL";
+        #[encoding("utf-16")]
+        const SRP_POLICY_WLDPCONFIGCI: String = "WLDPCONFIGCI";
+        #[encoding("utf-16")]
+        const SRP_POLICY_WLDPMSI: String = "WLDPMSI";
+        #[encoding("utf-16")]
+        const SRP_POLICY_WLDPSCRIPT: String = "WLDPSCRIPT";
+        #[library("ADVAPI32.dll")]
+        extern fn SaferCloseLevel(hLevelHandle: SAFER_LEVEL_HANDLE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferComputeTokenFromLevel(LevelHandle: SAFER_LEVEL_HANDLE, #[opt] InAccessToken: HANDLE, OutAccessToken: *mut HANDLE, dwFlags: u32, #[in] #[out] #[opt] lpReserved: *mut void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferCreateLevel(dwScopeId: u32, dwLevelId: u32, OpenFlags: u32, pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferGetLevelInformation(LevelHandle: SAFER_LEVEL_HANDLE, dwInfoType: SAFER_OBJECT_INFO_CLASS, #[size_param(3)] #[opt] lpQueryBuffer: *mut void, dwInBufferSize: u32, lpdwOutBufferSize: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferGetPolicyInformation(dwScopeId: u32, SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, InfoBufferSize: u32, #[size_param(2)] InfoBuffer: *mut void, InfoBufferRetSize: *mut u32, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferIdentifyLevel(dwNumProperties: u32, #[len_param(0)] #[opt] pCodeProperties: *const SAFER_CODE_PROPERTIES_V2, pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[opt] lpReserved: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferRecordEventLogEntry(hLevel: SAFER_LEVEL_HANDLE, szTargetPath: PCWSTR, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferSetLevelInformation(LevelHandle: SAFER_LEVEL_HANDLE, dwInfoType: SAFER_OBJECT_INFO_CLASS, #[size_param(3)] lpQueryBuffer: *const void, dwInBufferSize: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferSetPolicyInformation(dwScopeId: u32, SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, InfoBufferSize: u32, #[size_param(2)] InfoBuffer: *const void, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SaferiIsExecutableFileType(szFullPathname: PCWSTR, bFromShellExecute: BOOLEAN) -> BOOL;
+    }
+}

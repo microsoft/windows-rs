@@ -1,0 +1,263 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlReader(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlReaderInputWithEncodingCodePage(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IUnknown) -> HRESULT;
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlReaderInputWithEncodingName(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, pwszEncodingName: PCWSTR, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IUnknown) -> HRESULT;
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlWriter(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlWriterOutputWithEncodingCodePage(pOutputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, ppOutput: *mut IUnknown) -> HRESULT;
+        #[library("XmlLite.dll")]
+        extern fn CreateXmlWriterOutputWithEncodingName(pOutputStream: IUnknown, #[opt] pMalloc: IMalloc, pwszEncodingName: PCWSTR, ppOutput: *mut IUnknown) -> HRESULT;
+        #[repr(i32)]
+        enum DtdProcessing {
+            DtdProcessing_Prohibit = 0,
+            DtdProcessing_Parse = 1,
+            _DtdProcessing_Last = 1,
+        }
+        #[guid(0x7279fc81_709d_4095_b63d_69fe4b0d9030)]
+        interface IXmlReader: IUnknown {
+            fn SetInput(&self, #[opt] pInput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
+            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
+            fn Read(&self, #[opt] pNodeType: *mut XmlNodeType) -> HRESULT;
+            fn GetNodeType(&self, pNodeType: *mut XmlNodeType) -> HRESULT;
+            fn MoveToFirstAttribute(&self) -> HRESULT;
+            fn MoveToNextAttribute(&self) -> HRESULT;
+            fn MoveToAttributeByName(&self, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
+            fn MoveToElement(&self) -> HRESULT;
+            fn GetQualifiedName(&self, ppwszQualifiedName: *mut PCWSTR, #[opt] pcwchQualifiedName: *mut u32) -> HRESULT;
+            fn GetNamespaceUri(&self, ppwszNamespaceUri: *mut PCWSTR, #[opt] pcwchNamespaceUri: *mut u32) -> HRESULT;
+            fn GetLocalName(&self, ppwszLocalName: *mut PCWSTR, #[opt] pcwchLocalName: *mut u32) -> HRESULT;
+            fn GetPrefix(&self, ppwszPrefix: *mut PCWSTR, #[opt] pcwchPrefix: *mut u32) -> HRESULT;
+            fn GetValue(&self, ppwszValue: *mut PCWSTR, #[opt] pcwchValue: *mut u32) -> HRESULT;
+            fn ReadValueChunk(&self, #[len_param(1)] pwchBuffer: *mut u16, cwchChunkSize: u32, #[in] #[out] pcwchRead: *mut u32) -> HRESULT;
+            fn GetBaseUri(&self, ppwszBaseUri: *mut PCWSTR, #[opt] pcwchBaseUri: *mut u32) -> HRESULT;
+            fn IsDefault(&self) -> BOOL;
+            fn IsEmptyElement(&self) -> BOOL;
+            fn GetLineNumber(&self, pnLineNumber: *mut u32) -> HRESULT;
+            fn GetLinePosition(&self, pnLinePosition: *mut u32) -> HRESULT;
+            fn GetAttributeCount(&self, pnAttributeCount: *mut u32) -> HRESULT;
+            fn GetDepth(&self, pnDepth: *mut u32) -> HRESULT;
+            fn IsEOF(&self) -> BOOL;
+        }
+        #[guid(0x7279fc82_709d_4095_b63d_69fe4b0d9030)]
+        interface IXmlResolver: IUnknown {
+            fn ResolveUri(&self, #[opt] pwszBaseUri: PCWSTR, #[opt] pwszPublicIdentifier: PCWSTR, #[opt] pwszSystemIdentifier: PCWSTR, ppResolvedInput: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x7279fc88_709d_4095_b63d_69fe4b0d9030)]
+        interface IXmlWriter: IUnknown {
+            fn SetOutput(&self, #[opt] pOutput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
+            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
+            fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteAttributeString(&self, #[opt] pwszPrefix: PCWSTR, #[opt] pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR, #[opt] pwszValue: PCWSTR) -> HRESULT;
+            fn WriteCData(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteCharEntity(&self, wch: u16) -> HRESULT;
+            fn WriteChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
+            fn WriteComment(&self, #[opt] pwszComment: PCWSTR) -> HRESULT;
+            fn WriteDocType(&self, #[opt] pwszName: PCWSTR, #[opt] pwszPublicId: PCWSTR, #[opt] pwszSystemId: PCWSTR, #[opt] pwszSubset: PCWSTR) -> HRESULT;
+            fn WriteElementString(&self, #[opt] pwszPrefix: PCWSTR, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR, #[opt] pwszValue: PCWSTR) -> HRESULT;
+            fn WriteEndDocument(&self) -> HRESULT;
+            fn WriteEndElement(&self) -> HRESULT;
+            fn WriteEntityRef(&self, pwszName: PCWSTR) -> HRESULT;
+            fn WriteFullEndElement(&self) -> HRESULT;
+            fn WriteName(&self, pwszName: PCWSTR) -> HRESULT;
+            fn WriteNmToken(&self, pwszNmToken: PCWSTR) -> HRESULT;
+            fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteProcessingInstruction(&self, pwszName: PCWSTR, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteQualifiedName(&self, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
+            fn WriteRaw(&self, #[opt] pwszData: PCWSTR) -> HRESULT;
+            fn WriteRawChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
+            fn WriteStartDocument(&self, standalone: XmlStandalone) -> HRESULT;
+            fn WriteStartElement(&self, #[opt] pwszPrefix: PCWSTR, pwszLocalName: PCWSTR, #[opt] pwszNamespaceUri: PCWSTR) -> HRESULT;
+            fn WriteString(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> HRESULT;
+            fn WriteWhitespace(&self, #[opt] pwszWhitespace: PCWSTR) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+        }
+        #[guid(0x862494c6_1310_4aad_b3cd_2dbeebf670d3)]
+        interface IXmlWriterLite: IUnknown {
+            fn SetOutput(&self, #[opt] pOutput: IUnknown) -> HRESULT;
+            fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> HRESULT;
+            fn SetProperty(&self, nProperty: u32, #[opt] pValue: isize) -> HRESULT;
+            fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteAttributeString(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32, #[len_param(3)] #[opt] pwszValue: *const u16, cwszValue: u32) -> HRESULT;
+            fn WriteCData(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteCharEntity(&self, wch: u16) -> HRESULT;
+            fn WriteChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
+            fn WriteComment(&self, #[opt] pwszComment: PCWSTR) -> HRESULT;
+            fn WriteDocType(&self, #[opt] pwszName: PCWSTR, #[opt] pwszPublicId: PCWSTR, #[opt] pwszSystemId: PCWSTR, #[opt] pwszSubset: PCWSTR) -> HRESULT;
+            fn WriteElementString(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32, #[opt] pwszValue: PCWSTR) -> HRESULT;
+            fn WriteEndDocument(&self) -> HRESULT;
+            fn WriteEndElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
+            fn WriteEntityRef(&self, pwszName: PCWSTR) -> HRESULT;
+            fn WriteFullEndElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
+            fn WriteName(&self, pwszName: PCWSTR) -> HRESULT;
+            fn WriteNmToken(&self, pwszNmToken: PCWSTR) -> HRESULT;
+            fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: BOOL) -> HRESULT;
+            fn WriteProcessingInstruction(&self, pwszName: PCWSTR, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteRaw(&self, #[opt] pwszData: PCWSTR) -> HRESULT;
+            fn WriteRawChars(&self, #[len_param(1)] #[opt] pwch: *const u16, cwch: u32) -> HRESULT;
+            fn WriteStartDocument(&self, standalone: XmlStandalone) -> HRESULT;
+            fn WriteStartElement(&self, #[len_param(1)] pwszQName: *const u16, cwszQName: u32) -> HRESULT;
+            fn WriteString(&self, #[opt] pwszText: PCWSTR) -> HRESULT;
+            fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> HRESULT;
+            fn WriteWhitespace(&self, #[opt] pwszWhitespace: PCWSTR) -> HRESULT;
+            fn Flush(&self) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum XmlConformanceLevel {
+            XmlConformanceLevel_Auto = 0,
+            XmlConformanceLevel_Fragment = 1,
+            XmlConformanceLevel_Document = 2,
+            _XmlConformanceLevel_Last = 2,
+        }
+        #[repr(i32)]
+        enum XmlError {
+            MX_E_MX = -1072894464,
+            MX_E_INPUTEND = -1072894463,
+            MX_E_ENCODING = -1072894462,
+            MX_E_ENCODINGSWITCH = -1072894461,
+            MX_E_ENCODINGSIGNATURE = -1072894460,
+            WC_E_WC = -1072894432,
+            WC_E_WHITESPACE = -1072894431,
+            WC_E_SEMICOLON = -1072894430,
+            WC_E_GREATERTHAN = -1072894429,
+            WC_E_QUOTE = -1072894428,
+            WC_E_EQUAL = -1072894427,
+            WC_E_LESSTHAN = -1072894426,
+            WC_E_HEXDIGIT = -1072894425,
+            WC_E_DIGIT = -1072894424,
+            WC_E_LEFTBRACKET = -1072894423,
+            WC_E_LEFTPAREN = -1072894422,
+            WC_E_XMLCHARACTER = -1072894421,
+            WC_E_NAMECHARACTER = -1072894420,
+            WC_E_SYNTAX = -1072894419,
+            WC_E_CDSECT = -1072894418,
+            WC_E_COMMENT = -1072894417,
+            WC_E_CONDSECT = -1072894416,
+            WC_E_DECLATTLIST = -1072894415,
+            WC_E_DECLDOCTYPE = -1072894414,
+            WC_E_DECLELEMENT = -1072894413,
+            WC_E_DECLENTITY = -1072894412,
+            WC_E_DECLNOTATION = -1072894411,
+            WC_E_NDATA = -1072894410,
+            WC_E_PUBLIC = -1072894409,
+            WC_E_SYSTEM = -1072894408,
+            WC_E_NAME = -1072894407,
+            WC_E_ROOTELEMENT = -1072894406,
+            WC_E_ELEMENTMATCH = -1072894405,
+            WC_E_UNIQUEATTRIBUTE = -1072894404,
+            WC_E_TEXTXMLDECL = -1072894403,
+            WC_E_LEADINGXML = -1072894402,
+            WC_E_TEXTDECL = -1072894401,
+            WC_E_XMLDECL = -1072894400,
+            WC_E_ENCNAME = -1072894399,
+            WC_E_PUBLICID = -1072894398,
+            WC_E_PESINTERNALSUBSET = -1072894397,
+            WC_E_PESBETWEENDECLS = -1072894396,
+            WC_E_NORECURSION = -1072894395,
+            WC_E_ENTITYCONTENT = -1072894394,
+            WC_E_UNDECLAREDENTITY = -1072894393,
+            WC_E_PARSEDENTITY = -1072894392,
+            WC_E_NOEXTERNALENTITYREF = -1072894391,
+            WC_E_PI = -1072894390,
+            WC_E_SYSTEMID = -1072894389,
+            WC_E_QUESTIONMARK = -1072894388,
+            WC_E_CDSECTEND = -1072894387,
+            WC_E_MOREDATA = -1072894386,
+            WC_E_DTDPROHIBITED = -1072894385,
+            WC_E_INVALIDXMLSPACE = -1072894384,
+            NC_E_NC = -1072894368,
+            NC_E_QNAMECHARACTER = -1072894367,
+            NC_E_QNAMECOLON = -1072894366,
+            NC_E_NAMECOLON = -1072894365,
+            NC_E_DECLAREDPREFIX = -1072894364,
+            NC_E_UNDECLAREDPREFIX = -1072894363,
+            NC_E_EMPTYURI = -1072894362,
+            NC_E_XMLPREFIXRESERVED = -1072894361,
+            NC_E_XMLNSPREFIXRESERVED = -1072894360,
+            NC_E_XMLURIRESERVED = -1072894359,
+            NC_E_XMLNSURIRESERVED = -1072894358,
+            SC_E_SC = -1072894336,
+            SC_E_MAXELEMENTDEPTH = -1072894335,
+            SC_E_MAXENTITYEXPANSION = -1072894334,
+            WR_E_WR = -1072894208,
+            WR_E_NONWHITESPACE = -1072894207,
+            WR_E_NSPREFIXDECLARED = -1072894206,
+            WR_E_NSPREFIXWITHEMPTYNSURI = -1072894205,
+            WR_E_DUPLICATEATTRIBUTE = -1072894204,
+            WR_E_XMLNSPREFIXDECLARATION = -1072894203,
+            WR_E_XMLPREFIXDECLARATION = -1072894202,
+            WR_E_XMLURIDECLARATION = -1072894201,
+            WR_E_XMLNSURIDECLARATION = -1072894200,
+            WR_E_NAMESPACEUNDECLARED = -1072894199,
+            WR_E_INVALIDXMLSPACE = -1072894198,
+            WR_E_INVALIDACTION = -1072894197,
+            WR_E_INVALIDSURROGATEPAIR = -1072894196,
+            XML_E_INVALID_DECIMAL = -1072898019,
+            XML_E_INVALID_HEXIDECIMAL = -1072898018,
+            XML_E_INVALID_UNICODE = -1072898017,
+            XML_E_INVALIDENCODING = -1072897938,
+        }
+        #[repr(i32)]
+        enum XmlNodeType {
+            XmlNodeType_None = 0,
+            XmlNodeType_Element = 1,
+            XmlNodeType_Attribute = 2,
+            XmlNodeType_Text = 3,
+            XmlNodeType_CDATA = 4,
+            XmlNodeType_ProcessingInstruction = 7,
+            XmlNodeType_Comment = 8,
+            XmlNodeType_DocumentType = 10,
+            XmlNodeType_Whitespace = 13,
+            XmlNodeType_EndElement = 15,
+            XmlNodeType_XmlDeclaration = 17,
+            _XmlNodeType_Last = 17,
+        }
+        #[repr(i32)]
+        enum XmlReadState {
+            XmlReadState_Initial = 0,
+            XmlReadState_Interactive = 1,
+            XmlReadState_Error = 2,
+            XmlReadState_EndOfFile = 3,
+            XmlReadState_Closed = 4,
+        }
+        #[repr(i32)]
+        enum XmlReaderProperty {
+            XmlReaderProperty_MultiLanguage = 0,
+            XmlReaderProperty_ConformanceLevel = 1,
+            XmlReaderProperty_RandomAccess = 2,
+            XmlReaderProperty_XmlResolver = 3,
+            XmlReaderProperty_DtdProcessing = 4,
+            XmlReaderProperty_ReadState = 5,
+            XmlReaderProperty_MaxElementDepth = 6,
+            XmlReaderProperty_MaxEntityExpansion = 7,
+            _XmlReaderProperty_Last = 7,
+        }
+        #[repr(i32)]
+        enum XmlStandalone {
+            XmlStandalone_Omit = 0,
+            XmlStandalone_Yes = 1,
+            XmlStandalone_No = 2,
+            _XmlStandalone_Last = 2,
+        }
+        #[repr(i32)]
+        enum XmlWriterProperty {
+            XmlWriterProperty_MultiLanguage = 0,
+            XmlWriterProperty_Indent = 1,
+            XmlWriterProperty_ByteOrderMark = 2,
+            XmlWriterProperty_OmitXmlDeclaration = 3,
+            XmlWriterProperty_ConformanceLevel = 4,
+            XmlWriterProperty_CompactEmptyElement = 5,
+            _XmlWriterProperty_Last = 5,
+        }
+    }
+}

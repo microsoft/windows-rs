@@ -1,0 +1,3814 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct ACTIVE_LATENCY_CONFIGURATION {
+            Anonymous: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+        }
+        #[packed(1)]
+        struct BUCKET_COUNTER {
+            Reserved: u32,
+            Trim: u32,
+            Write: u32,
+            Read: u32,
+        }
+        #[packed(1)]
+        struct DEBUG_BIT_FIELD {
+            _bitfield: u16,
+        }
+        struct DSSD_POWER_STATE_DESCRIPTOR {
+            _bitfield: u8,
+        }
+        #[packed(1)]
+        struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
+            VersionNumber: u8,
+            Length: u8,
+            Reserved0: u16,
+            ActivationCount: u16,
+            Timestamp: u64,
+            Reserved1: u64,
+            PowerCycleCount: u64,
+            PreviousFirmware: u64,
+            NewFirmware: u64,
+            SlotNumber: u8,
+            CommitActionType: u8,
+            Result: u16,
+            Reserved2: [u8; 14],
+        }
+        const FIRMWARE_ACTIVATION_HISTORY_ENTRY_VERSION_1: u32 = 1;
+        const GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGE: GUID = 0x98bcce18_a5f0_bf35_a544_d97f259d669c;
+        const GUID_MFND_CHILD_CONTROLLER_QOS_STAT_LOG_PAGE: GUID = 0x9cb5fa26_0652_4644_873e_400084575f0f;
+        const GUID_OCP_DEVICE_DEVICE_CAPABILITIES: GUID = 0x0d054297_e1d1_98c9_5d49_584b913c05b7;
+        const GUID_OCP_DEVICE_ERROR_RECOVERY: GUID = 0x2131d944_30fe_ae34_ab4d_fd3dba83195a;
+        const GUID_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY: GUID = 0x769a796d_dab4_a3f6_e24d_b28aacf31cd1;
+        const GUID_OCP_DEVICE_LATENCY_MONITOR: GUID = 0x8cc07a92_84d0_9c6c_7043_e6d4585ed485;
+        const GUID_OCP_DEVICE_SMART_INFORMATION: GUID = 0x2810afc5_bfea_a4f2_9c4f_6f7cc914d5af;
+        const GUID_OCP_DEVICE_TCG_CONFIGURATION: GUID = 0xbd244006_e07e_83e6_c047_54fa9d2ae054;
+        const GUID_OCP_DEVICE_TCG_HISTORY: GUID = 0x704b513e_09c6_9490_274e_d0969690d788;
+        const GUID_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS: GUID = 0x0e9c722f_2399_bb2c_6348_32d0b798bbc7;
+        const GUID_OCP_DSSD_SPECIFIC_INFORMATION: GUID = 0x5bd594c1_94e0_9447_a21d_29998f56be6f;
+        const GUID_WCS_DEVICE_ERROR_RECOVERY: GUID = 0x2131d944_30fe_ae34_ab4d_fd3dba83195a;
+        const GUID_WCS_DEVICE_SMART_ATTRIBUTES: GUID = 0x2810afc5_bfea_a4f2_9c4f_6f7cc914d5af;
+        struct IO_COMMAND_SET_VECTOR {
+            _bitfield: u64,
+        }
+        struct LATENCY_MONITOR_FEATURE_STATUS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        #[packed(1)]
+        struct LATENCY_STAMP {
+            Trim3: u64,
+            Write3: u64,
+            Read3: u64,
+            Trim2: u64,
+            Write2: u64,
+            Read2: u64,
+            Trim1: u64,
+            Write1: u64,
+            Read1: u64,
+            Trim0: u64,
+            Write0: u64,
+            Read0: u64,
+        }
+        #[packed(1)]
+        struct LATENCY_STAMP_UNITS {
+            _bitfield: u16,
+        }
+        #[packed(1)]
+        struct MEASURED_LATENCY {
+            Trim3: u16,
+            Write3: u16,
+            Read3: u16,
+            Trim2: u16,
+            Write2: u16,
+            Read2: u16,
+            Trim1: u16,
+            Write1: u16,
+            Read1: u16,
+            Trim0: u16,
+            Write0: u16,
+            Read0: u16,
+        }
+        #[repr(i32)]
+        enum NVMEOF_ADDRESS_FAMILY {
+            NvmeofAddressUnknown = 0,
+            NvmeofAddressIPv4 = 1,
+            NvmeofAddressIPv6 = 2,
+            NvmeofAddressIB = 3,
+            NvmeofAddressFC = 4,
+            NvmeofAddressLoopback = 254,
+            NvmeofAddressMax = 255,
+        }
+        const NVMEOF_ADMINQ_MAX_DEPTH: u32 = 4096;
+        const NVMEOF_ADMINQ_MIN_DEPTH: u32 = 32;
+        struct NVMEOF_AUTH_DHCHAP_CHALLENGE {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            HL: u8,
+            Reserved1: u8,
+            HashID: u8,
+            DHgID: u8,
+            DHVLEN: u16,
+            SEQNUM: u32,
+        }
+        struct NVMEOF_AUTH_DHCHAP_DESCRIPTOR {
+            AuthId: u8,
+            Reserved0: u8,
+            HALEN: u8,
+            DHLEN: u8,
+            IdList: [u8; 60],
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_DHCHAP_GROUP_ID {
+            NvmeofAuthDHCHAPGroupNull = 0,
+            NvmeofAuthDHCHAPGroup2048 = 1,
+            NvmeofAuthDHCHAPGroup3072 = 2,
+            NvmeofAuthDHCHAPGroup4096 = 3,
+            NvmeofAuthDHCHAPGroup6144 = 4,
+            NvmeofAuthDHCHAPGroup8192 = 5,
+            NvmeofAuthDHCHAPGroupMax = 255,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_DHCHAP_HASH_ID {
+            NvmeofAuthDHCHAPHashReserved = 0,
+            NvmeofAuthDHCHAPHashSha256 = 1,
+            NvmeofAuthDHCHAPHashSha384 = 2,
+            NvmeofAuthDHCHAPHashSha512 = 3,
+            NvmeofAuthDHCHAPHashMax = 255,
+        }
+        struct NVMEOF_AUTH_DHCHAP_REPLY {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            HL: u8,
+            Reserved1: u8,
+            CVALID: u8,
+            Reserved2: u8,
+            DHVLEN: u16,
+            SEQNUM: u32,
+        }
+        struct NVMEOF_AUTH_DHCHAP_SUCCESS1 {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            HL: u8,
+            Reserved1: u8,
+            RVALID: u8,
+            Reserved2: [u8; 7],
+        }
+        struct NVMEOF_AUTH_DHCHAP_SUCCESS2 {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            Reserved1: [u8; 10],
+        }
+        struct NVMEOF_AUTH_FAILURE {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            ReasonCode: u8,
+            ReasonExplanation: u8,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_FAIL_REASON_CODE {
+            NvmeofAuthFailureReasonFailed = 1,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_FAIL_REASON_EXPLANATION {
+            NvmeofAuthFailed = 1,
+            NvmeofAuthProtocolNotUsable = 2,
+            NvmeofAuthSecureChannelConcatMismatch = 3,
+            NvmeofAuthHashFunctionNotUsable = 4,
+            NvmeofAuthDHGroupNotUsable = 5,
+            NvmeofAuthIncorrectPayload = 6,
+            NvmeofAuthIncorrectProtocolMessage = 7,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_ID {
+            NvmeofAuthIdNegotiate = 0,
+            NvmeofAuthIdChallenge = 1,
+            NvmeofAuthIdReply = 2,
+            NvmeofAuthIdSuccess1 = 3,
+            NvmeofAuthIdSuccess2 = 4,
+            NvmeofAuthIdFailure2 = 240,
+            NvmeofAuthIdFailure1 = 241,
+        }
+        struct NVMEOF_AUTH_NEGOTIATE {
+            AUTH_TYPE: u8,
+            AUTH_ID: u8,
+            Reserved0: u16,
+            T_ID: u16,
+            SC_C: u8,
+            NAPD: u8,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_PROTOCOL {
+            NvmeofAuthProtocolDHCHAP = 233,
+        }
+        struct NVMEOF_AUTH_RECEIVE_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 19],
+            SGL1: NVME_SGL_DESC,
+            Reserved2: u8,
+            SPSP0: u8,
+            SPSP1: u8,
+            SECP: u8,
+            AL: u32,
+            Reserved3: [u8; 16],
+        }
+        struct NVMEOF_AUTH_RECEIVE_RESPONSE {
+            Reserved0: u64,
+            SQHD: u16,
+            Reserved1: u16,
+            CID: u16,
+            STS: u16,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_SECURE_CHANNEL {
+            NvmeofAuthSCUnspecified = 0,
+            NvmeofAuthSCAuthRequired = 1,
+            NvmeofAuthSCAuthConcatSCRequired = 2,
+            NvmeofAuthSCReserved = 3,
+        }
+        struct NVMEOF_AUTH_SEND_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 19],
+            SGL1: NVME_SGL_DESC,
+            Reserved2: u8,
+            SPSP0: u8,
+            SPSP1: u8,
+            SECP: u8,
+            TL: u32,
+            Reserved3: [u8; 16],
+        }
+        struct NVMEOF_AUTH_SEND_RESPONSE {
+            Reserved0: u64,
+            SQHD: u16,
+            Reserved1: u16,
+            CID: u16,
+            STS: u16,
+        }
+        #[repr(i32)]
+        enum NVMEOF_AUTH_TYPE {
+            NvmeofAuthTypeCommonMessages = 0,
+            NvmeofAuthTypeDHCHAPMessages = 1,
+        }
+        struct NVMEOF_CONNECT_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 19],
+            SGL1: NVME_SGL_DESC,
+            RECFMT: u16,
+            QID: u16,
+            SQSIZE: u16,
+            CATTR: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Reserved2: u8,
+            KATO: u32,
+            Reserved3: [u8; 12],
+        }
+        struct NVMEOF_CONNECT_DATA {
+            HOSTID: [u8; 16],
+            CNTLID: u16,
+            Reserved0: [u8; 238],
+            SUBNQN: [u8; 256],
+            HOSTNQN: [u8; 256],
+            Reserved1: [u8; 256],
+        }
+        struct NVMEOF_CONNECT_RESPONSE {
+            SCSpecific: union {
+                Success: struct {
+                    CNTLID: u16,
+                    AUTHREQ: union {
+                        Anonymous: struct {
+                            _bitfield: u16,
+                        },
+                        AsUshort: u16,
+                    },
+                },
+                AsUlong: u32,
+            },
+            Reserved0: u32,
+            SQHD: u16,
+            Reserved1: u16,
+            CID: u16,
+            STS: u16,
+        }
+        #[encoding("ansi")]
+        const NVMEOF_DHCHAP_PREFIX_V1: String = "DHHC-1:";
+        const NVMEOF_DHCHAP_PROTOCOL_ID: u32 = 1;
+        const NVMEOF_DHCHAP_REPLY_CVAL_NOTVALID: u32 = 0;
+        const NVMEOF_DHCHAP_REPLY_CVAL_VALID: u32 = 1;
+        const NVMEOF_DHCHAP_SUCCESS1_RVAL_NOTVALID: u32 = 0;
+        const NVMEOF_DHCHAP_SUCCESS1_RVAL_VALID: u32 = 1;
+        struct NVMEOF_DISCONNECT_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 19],
+            SGL1: NVME_SGL_DATABLOCK_DESC,
+            RECFMT: u16,
+            Reserved2: [u8; 22],
+        }
+        struct NVMEOF_DISCONNECT_RESPONSE {
+            Reserved0: u64,
+            SQHD: u16,
+            Reserved1: u16,
+            CID: u16,
+            STS: u16,
+        }
+        const NVMEOF_DISCOVERY_LOG_VERSION_0: u32 = 0;
+        #[encoding("ansi")]
+        const NVMEOF_DISCOVERY_NQN: String = "nqn.2014-08.org.nvmexpress.discovery";
+        struct NVMEOF_FABRICS_COMMAND {
+            OPC: u8,
+            PSDT: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved: [u8; 35],
+            Specific: [u8; 24],
+        }
+        struct NVMEOF_FABRICS_RESPONSE {
+            Specific: [u8; 8],
+            SQHD: u16,
+            Reserved: u16,
+            CID: u16,
+            STS: u16,
+        }
+        const NVMEOF_IOQ_MAX_DEPTH: u32 = 65536;
+        const NVMEOF_IOQ_MIN_DEPTH: u32 = 2;
+        struct NVMEOF_PROPERTY_GET_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 35],
+            ATTRIB: struct {
+                _bitfield: u8,
+            },
+            Reserved2: [u8; 3],
+            OFST: u32,
+            Reserved3: [u8; 16],
+        }
+        struct NVMEOF_PROPERTY_GET_RESPONSE {
+            VALUE: union {
+                FourBytes: struct {
+                    Value: u32,
+                    Reserved: u32,
+                },
+                EightBytes: u64,
+            },
+            SQHD: u16,
+            Reserved0: u16,
+            CID: u16,
+            STS: u16,
+        }
+        struct NVMEOF_PROPERTY_SET_COMMAND {
+            OPC: u8,
+            Reserved0: u8,
+            CID: u16,
+            FCTYPE: u8,
+            Reserved1: [u8; 35],
+            ATTRIB: struct {
+                _bitfield: u8,
+            },
+            Reserved2: [u8; 3],
+            OFST: u32,
+            VALUE: union {
+                FourBytes: struct {
+                    Value: u32,
+                    Reserved: u32,
+                },
+                EightBytes: u64,
+            },
+            Reserved3: [u8; 8],
+        }
+        struct NVMEOF_PROPERTY_SET_RESPONSE {
+            Reserved0: u64,
+            SQHD: u16,
+            Reserved1: u16,
+            CID: u16,
+            STS: u16,
+        }
+        const NVMEOF_PROPERTY_SIZE_4Bytes: u32 = 0;
+        const NVMEOF_PROPERTY_SIZE_8Bytes: u32 = 1;
+        #[repr(i32)]
+        enum NVMEOF_SECURE_CHANNEL {
+            NvmeofSCUnspecified = 0,
+            NvmeofSCRequired = 1,
+            NvmeofSCNotRequired = 2,
+            NvmeofSCReserved = 3,
+        }
+        #[repr(i32)]
+        enum NVMEOF_SECURE_CHANNEL_PROTOCOL {
+            NvmeofSecureChannelConcatNone = 0,
+            NvmeofSecureChannelConcatWithTLS = 1,
+            NvmeofSecureChannelNewTLSPSK = 2,
+            NvmeofSecureChannelReplaceTLSPSK = 2,
+        }
+        #[repr(i32)]
+        enum NVMEOF_SUBSYSTEM_TYPE {
+            NvmeofSubsysTypeUnknown = 0,
+            NvmeofSubsysTypeDiscReferral = 1,
+            NvmeofSubsysTypeIo = 2,
+            NvmeofSubsysTypeDiscCurrent = 3,
+            NvmeofSubsysTypeMax = 255,
+        }
+        const NVMEOF_TRANSPORT_ADDR_MAX_LEN: u32 = 256;
+        const NVMEOF_TRANSPORT_SAS_MAX_LEN: u32 = 256;
+        const NVMEOF_TRANSPORT_SERVID_MAX_LEN: u32 = 32;
+        #[repr(i32)]
+        enum NVMEOF_TRANSPORT_TYPE {
+            NvmeofTransportUnknown = 0,
+            NvmeofTransportRdma = 1,
+            NvmeofTransportFC = 2,
+            NvmeofTransportTcp = 3,
+            NvmeofTransportLoopback = 254,
+            NvmeofTransportMax = 255,
+        }
+        #[repr(i32)]
+        enum NVME_ACCESS_FREQUENCIES {
+            NVME_ACCESS_FREQUENCY_NONE = 0,
+            NVME_ACCESS_FREQUENCY_TYPICAL = 1,
+            NVME_ACCESS_FREQUENCY_INFR_WRITE_INFR_READ = 2,
+            NVME_ACCESS_FREQUENCY_INFR_WRITE_FR_READ = 3,
+            NVME_ACCESS_FREQUENCY_FR_WRITE_INFR_READ = 4,
+            NVME_ACCESS_FREQUENCY_FR_WRITE_FR_READ = 5,
+            NVME_ACCESS_FREQUENCY_ONE_TIME_READ = 6,
+            NVME_ACCESS_FREQUENCY_SPECULATIVE_READ = 7,
+            NVME_ACCESS_FREQUENCY_WILL_BE_OVERWRITTEN = 8,
+        }
+        #[repr(i32)]
+        enum NVME_ACCESS_LATENCIES {
+            NVME_ACCESS_LATENCY_NONE = 0,
+            NVME_ACCESS_LATENCY_IDLE = 1,
+            NVME_ACCESS_LATENCY_NORMAL = 2,
+            NVME_ACCESS_LATENCY_LOW = 3,
+        }
+        struct NVME_ACTIVE_NAMESPACE_ID_LIST {
+            NSID: [u32; 1024],
+        }
+        const NVME_ADMINQ_ID: u32 = 0;
+        #[repr(i32)]
+        enum NVME_ADMIN_COMMANDS {
+            NVME_ADMIN_COMMAND_DELETE_IO_SQ = 0,
+            NVME_ADMIN_COMMAND_CREATE_IO_SQ = 1,
+            NVME_ADMIN_COMMAND_GET_LOG_PAGE = 2,
+            NVME_ADMIN_COMMAND_DELETE_IO_CQ = 4,
+            NVME_ADMIN_COMMAND_CREATE_IO_CQ = 5,
+            NVME_ADMIN_COMMAND_IDENTIFY = 6,
+            NVME_ADMIN_COMMAND_ABORT = 8,
+            NVME_ADMIN_COMMAND_SET_FEATURES = 9,
+            NVME_ADMIN_COMMAND_GET_FEATURES = 10,
+            NVME_ADMIN_COMMAND_ASYNC_EVENT_REQUEST = 12,
+            NVME_ADMIN_COMMAND_NAMESPACE_MANAGEMENT = 13,
+            NVME_ADMIN_COMMAND_FIRMWARE_ACTIVATE = 16,
+            NVME_ADMIN_COMMAND_FIRMWARE_COMMIT = 16,
+            NVME_ADMIN_COMMAND_FIRMWARE_IMAGE_DOWNLOAD = 17,
+            NVME_ADMIN_COMMAND_DEVICE_SELF_TEST = 20,
+            NVME_ADMIN_COMMAND_NAMESPACE_ATTACHMENT = 21,
+            NVME_ADMIN_COMMAND_KEEP_ALIVE = 24,
+            NVME_ADMIN_COMMAND_DIRECTIVE_SEND = 25,
+            NVME_ADMIN_COMMAND_DIRECTIVE_RECEIVE = 26,
+            NVME_ADMIN_COMMAND_VIRTUALIZATION_MANAGEMENT = 28,
+            NVME_ADMIN_COMMAND_NVME_MI_SEND = 29,
+            NVME_ADMIN_COMMAND_NVME_MI_RECEIVE = 30,
+            NVME_ADMIN_COMMAND_DISCOVERY_INFO_MGMT = 33,
+            NVME_ADMIN_COMMAND_DOORBELL_BUFFER_CONFIG = 124,
+            NVME_ADMIN_COMMAND_FABRICS = 127,
+            NVME_ADMIN_COMMAND_FORMAT_NVM = 128,
+            NVME_ADMIN_COMMAND_SECURITY_SEND = 129,
+            NVME_ADMIN_COMMAND_SECURITY_RECEIVE = 130,
+            NVME_ADMIN_COMMAND_SANITIZE = 132,
+            NVME_ADMIN_COMMAND_GET_LBA_STATUS = 134,
+        }
+        union NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            AsUlonglong: u64,
+        }
+        union NVME_ADMIN_QUEUE_ATTRIBUTES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            AsUlonglong: u64,
+        }
+        #[repr(i32)]
+        enum NVME_AMS_OPTION {
+            NVME_AMS_ROUND_ROBIN = 0,
+            NVME_AMS_WEIGHTED_ROUND_ROBIN_URGENT = 1,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
+            NVME_ASYNC_ERROR_WRITE_TO_INVALID_DOORBELL_REGISTER = 0,
+            NVME_ASYNC_ERROR_INVALID_DOORBELL_WRITE_VALUE = 1,
+            NVME_ASYNC_ERROR_DIAG_FAILURE = 2,
+            NVME_ASYNC_ERROR_PERSISTENT_INTERNAL_DEVICE_ERROR = 3,
+            NVME_ASYNC_ERROR_TRANSIENT_INTERNAL_DEVICE_ERROR = 4,
+            NVME_ASYNC_ERROR_FIRMWARE_IMAGE_LOAD_ERROR = 5,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
+            NVME_ASYNC_HEALTH_NVM_SUBSYSTEM_RELIABILITY = 0,
+            NVME_ASYNC_HEALTH_TEMPERATURE_THRESHOLD = 1,
+            NVME_ASYNC_HEALTH_SPARE_BELOW_THRESHOLD = 2,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_IMMEDIATE_STATUS_CODES {
+            NVME_ASYNC_IMMEDIATE_NVM_SUBSYSTEM_NORMAL_SHUTDOWN = 0,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
+            NVME_ASYNC_IO_CMD_SET_RESERVATION_LOG_PAGE_AVAILABLE = 0,
+            NVME_ASYNC_IO_CMD_SANITIZE_OPERATION_COMPLETED = 1,
+            NVME_ASYNC_IO_CMD_SANITIZE_OPERATION_COMPLETED_WITH_UNEXPECTED_DEALLOCATION = 2,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_NOTICE_CODES {
+            NVME_ASYNC_NOTICE_NAMESPACE_ATTRIBUTE_CHANGED = 0,
+            NVME_ASYNC_NOTICE_FIRMWARE_ACTIVATION_STARTING = 1,
+            NVME_ASYNC_NOTICE_TELEMETRY_LOG_CHANGED = 2,
+            NVME_ASYNC_NOTICE_ASYMMETRIC_ACCESS_CHANGE = 3,
+            NVME_ASYNC_NOTICE_PREDICTABLE_LATENCY_EVENT_AGGREGATE_LOG_CHANGE = 4,
+            NVME_ASYNC_NOTICE_LBA_STATUS_INFORMATION_ALERT = 5,
+            NVME_ASYNC_NOTICE_ENDURANCE_GROUP_EVENT_AGGREGATE_LOG_CHANGE = 6,
+            NVME_ASYNC_NOTICE_ZONE_DESCRIPTOR_CHANGED = 239,
+            NVME_ASYNC_NOTICE_DISCOVERY_LOG_PAGE_CHANGED = 240,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_TYPES {
+            NVME_ASYNC_EVENT_TYPE_ERROR_STATUS = 0,
+            NVME_ASYNC_EVENT_TYPE_HEALTH_STATUS = 1,
+            NVME_ASYNC_EVENT_TYPE_NOTICE = 2,
+            NVME_ASYNC_EVENT_TYPE_IMMEDIATE = 3,
+            NVME_ASYNC_EVENT_TYPE_IO_COMMAND_SET_STATUS = 6,
+            NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC = 7,
+        }
+        #[repr(i32)]
+        enum NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
+            NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_RESERVED = 0,
+            NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_DEVICE_PANIC = 1,
+        }
+        struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
+            _bitfield: u32,
+            Reserved1: u32,
+        }
+        union NVME_BOOT_PARTITION_INFORMATION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_BOOT_PARTITION_LOG {
+            LogIdentifier: u8,
+            Reserved0: [u8; 3],
+            BpInfo: NVME_BOOT_PARTITION_INFORMATION,
+            Reserved1: [u8; 8],
+            BootPartitionData: [u8; 1],
+        }
+        #[repr(i32)]
+        enum NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
+            NVME_CC_SHN_NO_NOTIFICATION = 0,
+            NVME_CC_SHN_NORMAL_SHUTDOWN = 1,
+            NVME_CC_SHN_ABRUPT_SHUTDOWN = 2,
+        }
+        union NVME_CDW0_FEATURE_DSSD_POWER_STATE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        type NVME_CDW0_FEATURE_ERROR_INJECTION = NVME_CDW11_FEATURE_ERROR_INJECTION;
+        union NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW0_RESERVATION_PERSISTENCE {
+            _bitfield: u32,
+        }
+        union NVME_CDW10_ABORT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_CREATE_IO_QUEUE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_DATASET_MANAGEMENT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_DELETE_IO_QUEUE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_DEVICE_SELF_TEST {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW10_DIRECTIVE_RECEIVE {
+            NUMD: u32,
+        }
+        struct NVME_CDW10_DIRECTIVE_SEND {
+            NUMD: u32,
+        }
+        union NVME_CDW10_DISCOVERY_INFO_MGMT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_FIRMWARE_ACTIVATE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW10_FIRMWARE_DOWNLOAD {
+            NUMD: u32,
+        }
+        union NVME_CDW10_FORMAT_NVM {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_GET_FEATURES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_GET_LOG_PAGE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_GET_LOG_PAGE_V121 {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_GET_LOG_PAGE_V13 {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_GET_LOG_PAGE_V20 {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_IDENTIFY {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_512_BYTES_OF_HEADER: u32 = 3;
+        const NVME_CDW10_LSP_ACTION_ESTABLISH_CONTEXT_AND_READ_LOG_DATA: u32 = 1;
+        const NVME_CDW10_LSP_ACTION_READ_LOG_DATA: u32 = 0;
+        const NVME_CDW10_LSP_ACTION_RELEASE_CONTEXT: u32 = 2;
+        const NVME_CDW10_LSP_BOOT_PARTITION_0: u32 = 0;
+        const NVME_CDW10_LSP_BOOT_PARTITION_1: u32 = 1;
+        union NVME_CDW10_RESERVATION_ACQUIRE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_RESERVATION_REGISTER {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_RESERVATION_RELEASE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_RESERVATION_REPORT {
+            Anonymous: struct {
+                NUMD: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_SANITIZE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_SECURITY_SEND_RECEIVE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW10_SET_FEATURES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW10_ZONE_APPEND {
+            SLBA: u64,
+        }
+        struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
+            SLBA: u64,
+        }
+        struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
+            SLBA: u64,
+        }
+        union NVME_CDW11_CREATE_IO_CQ {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_CREATE_IO_SQ {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_DATASET_MANAGEMENT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_DIRECTIVE_RECEIVE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_DIRECTIVE_SEND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURES {
+            NumberOfQueues: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES,
+            InterruptCoalescing: NVME_CDW11_FEATURE_INTERRUPT_COALESCING,
+            InterruptVectorConfig: NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG,
+            LbaRangeType: NVME_CDW11_FEATURE_LBA_RANGE_TYPE,
+            Arbitration: NVME_CDW11_FEATURE_ARBITRATION,
+            VolatileWriteCache: NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE,
+            AsyncEventConfig: NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG,
+            PowerManagement: NVME_CDW11_FEATURE_POWER_MANAGEMENT,
+            AutoPowerStateTransition: NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION,
+            TemperatureThreshold: NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD,
+            ErrorRecovery: NVME_CDW11_FEATURE_ERROR_RECOVERY,
+            HostMemoryBuffer: NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER,
+            WriteAtomicityNormal: NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL,
+            NonOperationalPowerState: NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE,
+            IoCommandSetProfile: NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE,
+            ErrorInjection: NVME_CDW11_FEATURE_ERROR_INJECTION,
+            HostIdentifier: NVME_CDW11_FEATURE_HOST_IDENTIFIER,
+            ReservationPersistence: NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE,
+            ReservationNotificationMask: NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK,
+            GetHostMetadata: NVME_CDW11_FEATURE_GET_HOST_METADATA,
+            SetHostMetadata: NVME_CDW11_FEATURE_SET_HOST_METADATA,
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_ARBITRATION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_ERROR_INJECTION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_ERROR_RECOVERY {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_GET_HOST_METADATA {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
+            _bitfield: u32,
+        }
+        union NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
+            _bitfield: u32,
+        }
+        struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
+            _bitfield: u32,
+        }
+        union NVME_CDW11_FEATURE_SET_HOST_METADATA {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW11_FIRMWARE_DOWNLOAD {
+            OFST: u32,
+        }
+        union NVME_CDW11_GET_LOG_PAGE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_IDENTIFY {
+            Anonymous: struct {
+                NVMSETID: u16,
+                Reserved: u16,
+            },
+            Anonymous2: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_RESERVATION_REPORT {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW11_SANITIZE {
+            Anonymous: struct {
+                OVRPAT: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CDW11_SECURITY_RECEIVE {
+            AL: u32,
+        }
+        struct NVME_CDW11_SECURITY_SEND {
+            TL: u32,
+        }
+        union NVME_CDW12_DIRECTIVE_RECEIVE {
+            AllocateResources: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES,
+            AsUlong: u32,
+        }
+        union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW12_DIRECTIVE_SEND {
+            EnableDirective: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE,
+            AsUlong: u32,
+        }
+        union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW12_FEATURES {
+            HostMemoryBuffer: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER,
+            AsUlong: u32,
+        }
+        union NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
+            Anonymous: struct {
+                HSIZE: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW12_GET_LOG_PAGE {
+            LPOL: u32,
+            AsUlong: u32,
+        }
+        union NVME_CDW12_READ_WRITE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW12_VERIFYCOMMAND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW12_ZONE_APPEND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW13_FEATURES {
+            HostMemoryBuffer: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER,
+            AsUlong: u32,
+        }
+        union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW13_GET_LOG_PAGE {
+            LPOU: u32,
+            AsUlong: u32,
+        }
+        union NVME_CDW13_READ_WRITE {
+            Anonymous: struct {
+                DSM: struct {
+                    _bitfield: u8,
+                },
+                Reserved: u8,
+                DSPEC: u16,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW13_ZONE_MANAGEMENT_SEND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW14_FEATURES {
+            HostMemoryBuffer: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER,
+            AsUlong: u32,
+        }
+        union NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
+            Anonymous: struct {
+                HMDLUA: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW14_GET_LOG_PAGE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW14_GET_LOG_PAGE_V20 {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW14_IDENTIFY {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW15_FEATURES {
+            HostMemoryBuffer: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER,
+            AsUlong: u32,
+        }
+        union NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
+            Anonymous: struct {
+                HMDLEC: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW15_READ_WRITE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW15_VERIFY_COMMAND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CDW15_ZONE_APPEND {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CHANGED_NAMESPACE_LIST_LOG {
+            NSID: [u32; 1024],
+        }
+        struct NVME_CHANGED_ZONE_LIST_LOG {
+            ZoneIdentifiersCount: u16,
+            Reserved: [u8; 6],
+            ZoneIdentifier: [u64; 511],
+        }
+        #[repr(i32)]
+        enum NVME_CMBSZ_SIZE_UNITS {
+            NVME_CMBSZ_SIZE_UNITS_4KB = 0,
+            NVME_CMBSZ_SIZE_UNITS_64KB = 1,
+            NVME_CMBSZ_SIZE_UNITS_1MB = 2,
+            NVME_CMBSZ_SIZE_UNITS_16MB = 3,
+            NVME_CMBSZ_SIZE_UNITS_256MB = 4,
+            NVME_CMBSZ_SIZE_UNITS_4GB = 5,
+            NVME_CMBSZ_SIZE_UNITS_64GB = 6,
+        }
+        struct NVME_COMMAND {
+            CDW0: NVME_COMMAND_DWORD0,
+            NSID: u32,
+            Reserved0: [u32; 2],
+            MPTR: u64,
+            Anonymous: union {
+                Anonymous: struct {
+                    PRP1: u64,
+                    PRP2: u64,
+                },
+                SGL1: [u64; 2],
+            },
+            u: union {
+                GENERAL: struct {
+                    CDW10: u32,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                IDENTIFY: struct {
+                    CDW10: NVME_CDW10_IDENTIFY,
+                    CDW11: NVME_CDW11_IDENTIFY,
+                    CDW12: u32,
+                    CDW13: u32,
+                    Anonymous: union {
+                        CDW14: u32,
+                        CDW14_V20: NVME_CDW14_IDENTIFY,
+                    },
+                    CDW15: u32,
+                },
+                ABORT: struct {
+                    CDW10: NVME_CDW10_ABORT,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                GETFEATURES: struct {
+                    CDW10: NVME_CDW10_GET_FEATURES,
+                    CDW11: NVME_CDW11_FEATURES,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                SETFEATURES: struct {
+                    CDW10: NVME_CDW10_SET_FEATURES,
+                    CDW11: NVME_CDW11_FEATURES,
+                    CDW12: NVME_CDW12_FEATURES,
+                    CDW13: NVME_CDW13_FEATURES,
+                    CDW14: NVME_CDW14_FEATURES,
+                    CDW15: NVME_CDW15_FEATURES,
+                },
+                GETLOGPAGE: struct {
+                    Anonymous: union {
+                        CDW10: NVME_CDW10_GET_LOG_PAGE,
+                        CDW10_V121: NVME_CDW10_GET_LOG_PAGE_V121,
+                        CDW10_V13: NVME_CDW10_GET_LOG_PAGE_V13,
+                        CDW10_V20: NVME_CDW10_GET_LOG_PAGE_V20,
+                    },
+                    CDW11: NVME_CDW11_GET_LOG_PAGE,
+                    CDW12: NVME_CDW12_GET_LOG_PAGE,
+                    CDW13: NVME_CDW13_GET_LOG_PAGE,
+                    Anonymous2: union {
+                        CDW14: NVME_CDW14_GET_LOG_PAGE,
+                        CDW14_V20: NVME_CDW14_GET_LOG_PAGE_V20,
+                    },
+                    CDW15: u32,
+                },
+                CREATEIOCQ: struct {
+                    CDW10: NVME_CDW10_CREATE_IO_QUEUE,
+                    CDW11: NVME_CDW11_CREATE_IO_CQ,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                CREATEIOSQ: struct {
+                    CDW10: NVME_CDW10_CREATE_IO_QUEUE,
+                    CDW11: NVME_CDW11_CREATE_IO_SQ,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                DELETEIOQUEUE: struct {
+                    CDW10: NVME_CDW10_DELETE_IO_QUEUE,
+                },
+                DATASETMANAGEMENT: struct {
+                    CDW10: NVME_CDW10_DATASET_MANAGEMENT,
+                    CDW11: NVME_CDW11_DATASET_MANAGEMENT,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                SECURITYSEND: struct {
+                    CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
+                    CDW11: NVME_CDW11_SECURITY_SEND,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                SECURITYRECEIVE: struct {
+                    CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
+                    CDW11: NVME_CDW11_SECURITY_RECEIVE,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                FIRMWAREDOWNLOAD: struct {
+                    CDW10: NVME_CDW10_FIRMWARE_DOWNLOAD,
+                    CDW11: NVME_CDW11_FIRMWARE_DOWNLOAD,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                FIRMWAREACTIVATE: struct {
+                    CDW10: NVME_CDW10_FIRMWARE_ACTIVATE,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                FORMATNVM: struct {
+                    CDW10: NVME_CDW10_FORMAT_NVM,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                DIRECTIVERECEIVE: struct {
+                    CDW10: NVME_CDW10_DIRECTIVE_RECEIVE,
+                    CDW11: NVME_CDW11_DIRECTIVE_RECEIVE,
+                    CDW12: NVME_CDW12_DIRECTIVE_RECEIVE,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                DIRECTIVESEND: struct {
+                    CDW10: NVME_CDW10_DIRECTIVE_SEND,
+                    CDW11: NVME_CDW11_DIRECTIVE_SEND,
+                    CDW12: NVME_CDW12_DIRECTIVE_SEND,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                SANITIZE: struct {
+                    CDW10: NVME_CDW10_SANITIZE,
+                    CDW11: NVME_CDW11_SANITIZE,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                READWRITE: struct {
+                    LBALOW: u32,
+                    LBAHIGH: u32,
+                    CDW12: NVME_CDW12_READ_WRITE,
+                    CDW13: NVME_CDW13_READ_WRITE,
+                    CDW14: u32,
+                    CDW15: NVME_CDW15_READ_WRITE,
+                },
+                RESERVATIONACQUIRE: struct {
+                    CDW10: NVME_CDW10_RESERVATION_ACQUIRE,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                RESERVATIONREGISTER: struct {
+                    CDW10: NVME_CDW10_RESERVATION_REGISTER,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                RESERVATIONRELEASE: struct {
+                    CDW10: NVME_CDW10_RESERVATION_RELEASE,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                RESERVATIONREPORT: struct {
+                    CDW10: NVME_CDW10_RESERVATION_REPORT,
+                    CDW11: NVME_CDW11_RESERVATION_REPORT,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                ZONEMANAGEMENTSEND: struct {
+                    CDW1011: NVME_CDW10_ZONE_MANAGEMENT_SEND,
+                    CDW12: u32,
+                    CDW13: NVME_CDW13_ZONE_MANAGEMENT_SEND,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                ZONEMANAGEMENTRECEIVE: struct {
+                    CDW1011: NVME_CDW10_ZONE_MANAGEMENT_RECEIVE,
+                    DWORDCOUNT: u32,
+                    CDW13: NVME_CDW13_ZONE_MANAGEMENT_RECEIVE,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                ZONEAPPEND: struct {
+                    CDW1011: NVME_CDW10_ZONE_APPEND,
+                    CDW12: NVME_CDW12_ZONE_APPEND,
+                    CDW13: u32,
+                    ILBRT: u32,
+                    CDW15: NVME_CDW15_ZONE_APPEND,
+                },
+                DEVICESELFTEST: struct {
+                    CDW10: NVME_CDW10_DEVICE_SELF_TEST,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                DISCOVERYINFOMGMT: struct {
+                    CDW10: NVME_CDW10_DISCOVERY_INFO_MGMT,
+                    CDW11: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                VENDORSPECIFIC: struct {
+                    NDT: u32,
+                    NDM: u32,
+                    CDW12: u32,
+                    CDW13: u32,
+                    CDW14: u32,
+                    CDW15: u32,
+                },
+                VERIFYCOMMAND: struct {
+                    LBALOW: u32,
+                    LBAHIGH: u32,
+                    CDW12: NVME_CDW12_VERIFYCOMMAND,
+                    CDW13: u32,
+                    EILBRT: u32,
+                    CDW15: NVME_CDW15_VERIFY_COMMAND,
+                },
+            },
+        }
+        union NVME_COMMAND_DWORD0 {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_COMMAND_EFFECTS_DATA {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_COMMAND_EFFECTS_LOG {
+            ACS: [NVME_COMMAND_EFFECTS_DATA; 256],
+            IOCS: [NVME_COMMAND_EFFECTS_DATA; 256],
+            Reserved: [u8; 2048],
+        }
+        #[repr(i32)]
+        enum NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
+            NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMIT_NONE = 0,
+            NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMIT_SINGLE_PER_NAMESPACE = 1,
+            NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMIT_SINGLE_PER_CONTROLLER = 2,
+        }
+        #[repr(i32)]
+        enum NVME_COMMAND_SET_IDENTIFIERS {
+            NVME_COMMAND_SET_NVM = 0,
+            NVME_COMMAND_SET_KEY_VALUE = 1,
+            NVME_COMMAND_SET_ZONED_NAMESPACE = 2,
+        }
+        union NVME_COMMAND_STATUS {
+            Anonymous: struct {
+                _bitfield: u16,
+            },
+            AsUshort: u16,
+        }
+        struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
+            _bitfield: u32,
+        }
+        struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_COMPLETION_ENTRY {
+            DW0: u32,
+            DW1: u32,
+            DW2: union {
+                Anonymous: struct {
+                    SQHD: u16,
+                    SQID: u16,
+                },
+                AsUlong: u32,
+            },
+            DW3: union {
+                Anonymous: struct {
+                    CID: u16,
+                    Status: NVME_COMMAND_STATUS,
+                },
+                AsUlong: u32,
+            },
+        }
+        union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CONTEXT_ATTRIBUTES {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CONTROLLER_CAPABILITIES {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            AsUlonglong: u64,
+        }
+        union NVME_CONTROLLER_CONFIGURATION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        const NVME_CONTROLLER_ID_DYN: u32 = 65535;
+        const NVME_CONTROLLER_ID_MAX: u32 = 65519;
+        const NVME_CONTROLLER_ID_MIN: u32 = 0;
+        const NVME_CONTROLLER_ID_STAT_PERSIST: u32 = 65534;
+        struct NVME_CONTROLLER_LIST {
+            NumberOfIdentifiers: u16,
+            ControllerID: [u16; 2047],
+        }
+        union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        #[repr(i32)]
+        enum NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
+            NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_CONTROLLER_NAME = 1,
+            NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_NAME = 2,
+            NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_VERSION = 3,
+            NVME_CONTROLLER_METADATA_PREBOOT_CONTROLLER_NAME = 4,
+            NVME_CONTROLLER_METADATA_PREBOOT_DRIVER_NAME = 5,
+            NVME_CONTROLLER_METADATA_PREBOOT_DRIVER_VERSION = 6,
+            NVME_CONTROLLER_METADATA_SYSTEM_PROCESSOR_MODEL = 7,
+            NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_NAME = 8,
+            NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_VERSION = 9,
+            NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_NAME_AND_BUILD = 10,
+            NVME_CONTROLLER_METADATA_SYSTEM_PRODUCT_NAME = 11,
+            NVME_CONTROLLER_METADATA_FIRMWARE_VERSION = 12,
+            NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_FILENAME = 13,
+            NVME_CONTROLLER_METADATA_DISPLAY_DRIVER_NAME = 14,
+            NVME_CONTROLLER_METADATA_DISPLAY_DRIVER_VERSION = 15,
+            NVME_CONTROLLER_METADATA_HOST_DETERMINED_FAILURE_RECORD = 16,
+        }
+        union NVME_CONTROLLER_READY_TIMEOUTS {
+            Anonymous: struct {
+                CRWMT: u16,
+                CRIMT: u16,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_CONTROLLER_REGISTERS {
+            CAP: NVME_CONTROLLER_CAPABILITIES,
+            VS: NVME_VERSION,
+            INTMS: u32,
+            INTMC: u32,
+            CC: NVME_CONTROLLER_CONFIGURATION,
+            Reserved0: u32,
+            CSTS: NVME_CONTROLLER_STATUS,
+            NSSR: NVME_NVM_SUBSYSTEM_RESET,
+            AQA: NVME_ADMIN_QUEUE_ATTRIBUTES,
+            ASQ: NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS,
+            ACQ: NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS,
+            CMBLOC: NVME_CONTROLLER_MEMORY_BUFFER_LOCATION,
+            CMBSZ: NVME_CONTROLLER_MEMORY_BUFFER_SIZE,
+            BPINFO: NVME_BOOT_PARTITION_INFORMATION,
+            Reserved1: [u32; 8],
+            NSSD: NVME_NVM_SUBSYSTEM_SHUTDOWN,
+            CRTO: NVME_CONTROLLER_READY_TIMEOUTS,
+            Reserved2: [u32; 933],
+            Reserved3: [u32; 64],
+            Doorbells: [u32; 0],
+        }
+        union NVME_CONTROLLER_STATUS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        #[repr(i32)]
+        enum NVME_CONTROLLER_TYPE {
+            NvmeCtrlNotReported = 0,
+            NvmeCtrlIO = 1,
+            NvmeCtrlDiscovery = 2,
+            NvmeCtrlAdmin = 3,
+            NvmeCtrlReservedMin = 4,
+            NvmeCtrlReservedMax = 255,
+        }
+        #[repr(i32)]
+        enum NVME_CPS_VALUE {
+            NVME_CPS_NOT_REPORTED = 0,
+            NVME_CPS_CONTROLLER_SCOPE = 1,
+            NVME_CPS_DOMAIN_SCOPE = 2,
+            NVME_CPS_SUBSYSTEM_SCOPE = 3,
+        }
+        #[repr(i32)]
+        enum NVME_CSS_COMMAND_SETS {
+            NVME_CSS_NVM_COMMAND_SET = 0,
+            NVME_CSS_ALL_SUPPORTED_IO_COMMAND_SET = 6,
+            NVME_CSS_ADMIN_COMMAND_SET_ONLY = 7,
+        }
+        #[repr(i32)]
+        enum NVME_CSTS_SHST_SHUTDOWN_STATUS {
+            NVME_CSTS_SHST_NO_SHUTDOWN = 0,
+            NVME_CSTS_SHST_SHUTDOWN_IN_PROCESS = 1,
+            NVME_CSTS_SHST_SHUTDOWN_COMPLETED = 2,
+        }
+        #[repr(i32)]
+        enum NVME_DEALLOCATE_READ_BEHAVIOR {
+            NVME_READ_BEHAVIOR_NOT_REPORTED = 0,
+            NVME_READ_BEHAVIOR_RETURN_ZERO = 1,
+            NVME_READ_BEHAVIOR_RETURN_ONES = 2,
+        }
+        struct NVME_DEVICE_SELF_TEST_LOG {
+            CurrentOperation: struct {
+                _bitfield: u8,
+            },
+            CurrentCompletion: struct {
+                _bitfield: u8,
+            },
+            Reserved: [u8; 2],
+            ResultData: [NVME_DEVICE_SELF_TEST_RESULT_DATA; 20],
+        }
+        #[packed(1)]
+        struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
+            Status: struct {
+                _bitfield: u8,
+            },
+            SegmentNumber: u8,
+            ValidDiagnostics: struct {
+                _bitfield: u8,
+            },
+            Reserved: u8,
+            POH: u64,
+            NSID: u32,
+            FailingLBA: u64,
+            StatusCodeType: struct {
+                _bitfield: u8,
+            },
+            StatusCode: u8,
+            VendorSpecific: u16,
+        }
+        struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
+            DirectivesSupported: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
+            DirectivesEnabled: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
+        }
+        struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
+            _bitfield: u8,
+            Reserved1: [u8; 31],
+        }
+        #[repr(i32)]
+        enum NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
+            NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATION_RETURN_PARAMETERS = 1,
+        }
+        #[repr(i32)]
+        enum NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
+            NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATION_RETURN_PARAMETERS = 1,
+            NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATION_GET_STATUS = 2,
+            NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATION_ALLOCATE_RESOURCES = 3,
+        }
+        #[repr(i32)]
+        enum NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
+            NVME_DIRECTIVE_SEND_IDENTIFY_OPERATION_ENABLE_DIRECTIVE = 1,
+        }
+        #[repr(i32)]
+        enum NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
+            NVME_DIRECTIVE_SEND_STREAMS_OPERATION_RELEASE_IDENTIFIER = 1,
+            NVME_DIRECTIVE_SEND_STREAMS_OPERATION_RELEASE_RESOURCES = 2,
+        }
+        struct NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
+            OpenStreamCount: u16,
+            StreamIdentifiers: [u16; 65535],
+        }
+        struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
+            MSL: u16,
+            NSSA: u16,
+            NSSO: u16,
+            Reserved0: [u8; 10],
+            SWS: u32,
+            SGS: u16,
+            NSA: u16,
+            NSO: u16,
+            Reserved1: [u8; 6],
+        }
+        #[repr(i32)]
+        enum NVME_DIRECTIVE_TYPES {
+            NVME_DIRECTIVE_TYPE_IDENTIFY = 0,
+            NVME_DIRECTIVE_TYPE_STREAMS = 1,
+        }
+        struct NVME_DISCOVERY_ENTRY {
+            TRTYPE: u8,
+            ADRFAM: u8,
+            SUBTYPE: u8,
+            TREQ: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            PORTID: u16,
+            CNTLID: u16,
+            ASQSZ: u16,
+            EFLAGS: union {
+                Anonymous: struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            Reserved0: [u8; 20],
+            TRSVCID: [u8; 32],
+            Reserved1: [u8; 192],
+            NQN: [u8; 256],
+            TRADDR: [u8; 256],
+            TSAS: [u8; 256],
+        }
+        struct NVME_DISCOVERY_HEADER {
+            GENCTR: u64,
+            NUMREC: u64,
+            RECFMT: u16,
+            DLPF: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Reserved0: u8,
+            TDLPL: u32,
+            Reserved1: [u8; 1000],
+        }
+        #[repr(i32)]
+        enum NVME_DISCOVERY_INFO_ENTITY_TYPES {
+            NVME_DISCOVERY_INFO_ENTITY_TYPE_RESERVED = 0,
+            NVME_DISCOVERY_INFO_ENTITY_TYPE_HOST = 1,
+            NVME_DISCOVERY_INFO_ENTITY_TYPE_DDC = 2,
+            NVME_DISCOVERY_INFO_ENTITY_TYPE_CDC = 3,
+        }
+        #[repr(i32)]
+        enum NVME_DISCOVERY_INFO_ENTRY_FORMATS {
+            NVME_DISCOVERY_INFO_ENTRY_FORMAT_RESERVED = 0,
+            NVME_DISCOVERY_INFO_ENTRY_FORMAT_BASIC = 1,
+            NVME_DISCOVERY_INFO_ENTRY_FORMAT_EXTENDED = 2,
+        }
+        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_PORTID: u32 = 63;
+        const NVME_DISCOVERY_INFO_MGMT_EKTYPE_TRADDR: u32 = 95;
+        struct NVME_DISCOVERY_INFO_MGMT_HEADER {
+            TDL: u32,
+            Reserved0: u32,
+            NUMENT: u64,
+            ENTFMT: u16,
+            ETYPE: u16,
+            PORTLCL: u8,
+            Reserved1: u8,
+            EKTYPE: union {
+                Anonymous: struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            EID: [u8; 256],
+            ENAME: [u8; 256],
+            EVER: [u8; 64],
+            Reserved2: [u8; 424],
+        }
+        #[repr(i32)]
+        enum NVME_DISCOVERY_INFO_MGMT_TASK {
+            NVME_DISCOVERY_INFO_MGMT_TASK_REGISTER = 0,
+            NVME_DISCOVERY_INFO_MGMT_TASK_DEREGISTER = 1,
+            NVME_DISCOVERY_INFO_MGMT_TASK_UPDATE = 2,
+        }
+        #[repr(i32)]
+        enum NVME_DISC_CTRL_TYPE {
+            NvmeDiscCtrlTypeUnspecified = 0,
+            NvmeDiscCtrlTypeDDC = 1,
+            NvmeDiscCtrlTypeCDC = 2,
+            NvmeDiscCtrlTypeReserved1 = 3,
+            NvmeDiscCtrlTypeReservedMax = 255,
+        }
+        #[packed(1)]
+        struct NVME_ENDURANCE_GROUP_LOG {
+            Reserved0: u32,
+            AvailableSpareThreshold: u8,
+            PercentageUsed: u8,
+            Reserved1: [u8; 26],
+            EnduranceEstimate: [u8; 16],
+            DataUnitsRead: [u8; 16],
+            DataUnitsWritten: [u8; 16],
+            MediaUnitsWritten: [u8; 16],
+            Reserved2: [u8; 416],
+        }
+        struct NVME_ERROR_INFO_LOG {
+            ErrorCount: u64,
+            SQID: u16,
+            CMDID: u16,
+            Status: NVME_COMMAND_STATUS,
+            ParameterErrorLocation: struct {
+                _bitfield: u16,
+            },
+            Lba: u64,
+            NameSpace: u32,
+            VendorInfoAvailable: u8,
+            TRTYPE: u8,
+            Reserved0: [u8; 2],
+            CommandSpecificInfo: u64,
+            TransportTypeSpecificInfo: u16,
+            Reserved1: [u8; 22],
+        }
+        struct NVME_ERROR_INJECTION_ENTRY {
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Reserved1: u8,
+            ErrorInjectionType: u16,
+            ErrorInjectionTypeSpecific: [u8; 28],
+        }
+        #[repr(i32)]
+        enum NVME_ERROR_INJECTION_TYPES {
+            NVME_ERROR_INJECTION_TYPE_RESERVED0 = 0,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_CPU_CONTROLLER_HANG = 1,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_NAND_HANG = 2,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_PLP_DEFECT = 3,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_LOGICAL_FW_ERROR = 4,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_DRAM_CORRUPTION_CRITICAL = 5,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_DRAM_CORRUPTION_NONCRITICAL = 6,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_NAND_CORRUPTION = 7,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_SRAM_CORRUPTION = 8,
+            NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_HW_MALFUNCTION = 9,
+            NVME_ERROR_INJECTION_TYPE_RESERVED1 = 10,
+            NVME_ERROR_INJECTION_TYPE_MAX = 65535,
+        }
+        struct NVME_EXTENDED_ATTR {
+            EXATTYPE: u16,
+            EXATLEN: u16,
+            EXATVAL: [u8; 0],
+        }
+        #[repr(i32)]
+        enum NVME_EXTENDED_ATTR_TYPE {
+            NvmeExtAttrReserved0 = 0,
+            NvmeExtAttrHostId = 1,
+            NvmeExtAttrAdminLabelAscii = 2,
+            NvmeExtAttrAdminLabelUtf8 = 3,
+            NvmeExtAttrReservedStart = 4,
+            NvmeExtAttrReservedEnd = 65279,
+            NvmeExtAttrVendorStart = 65280,
+            NvmeExtAttrVendorEnd = 65535,
+        }
+        struct NVME_EXTENDED_DISCOVERY_ENTRY {
+            TRTYPE: u8,
+            ADRFAM: u8,
+            SUBTYPE: u8,
+            TREQ: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            PORTID: u16,
+            CNTLID: u16,
+            ASQSZ: u16,
+            EFLAGS: union {
+                Anonymous: struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            Reserved0: [u8; 20],
+            TRSVCID: [u8; 32],
+            Reserved1: [u8; 192],
+            NQN: [u8; 256],
+            TRADDR: [u8; 256],
+            TSAS: [u8; 256],
+            TEL: u32,
+            NUMEXAT: u16,
+            Reserved2: u16,
+        }
+        const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: u32 = 16;
+        struct NVME_EXTENDED_REPORT_ZONE_INFO {
+            ZoneCount: u64,
+            Reserved: [u64; 7],
+            Desc: [NVME_ZONE_EXTENDED_REPORT_ZONE_DESC; 1],
+        }
+        #[repr(i32)]
+        enum NVME_FABRICS_COMMAND_TYPE {
+            NVME_FABRICS_COMMAND_PROPERTY_SET = 0,
+            NVME_FABRICS_COMMAND_CONNECT = 1,
+            NVME_FABRICS_COMMAND_PROPERTY_GET = 4,
+            NVME_FABRICS_COMMAND_AUTH_SEND = 5,
+            NVME_FABRICS_COMMAND_AUTH_RECV = 6,
+            NVME_FABRICS_COMMAND_DISCONNECT = 8,
+        }
+        #[repr(i32)]
+        enum NVME_FEATURES {
+            NVME_FEATURE_ARBITRATION = 1,
+            NVME_FEATURE_POWER_MANAGEMENT = 2,
+            NVME_FEATURE_LBA_RANGE_TYPE = 3,
+            NVME_FEATURE_TEMPERATURE_THRESHOLD = 4,
+            NVME_FEATURE_ERROR_RECOVERY = 5,
+            NVME_FEATURE_VOLATILE_WRITE_CACHE = 6,
+            NVME_FEATURE_NUMBER_OF_QUEUES = 7,
+            NVME_FEATURE_INTERRUPT_COALESCING = 8,
+            NVME_FEATURE_INTERRUPT_VECTOR_CONFIG = 9,
+            NVME_FEATURE_WRITE_ATOMICITY = 10,
+            NVME_FEATURE_ASYNC_EVENT_CONFIG = 11,
+            NVME_FEATURE_AUTONOMOUS_POWER_STATE_TRANSITION = 12,
+            NVME_FEATURE_HOST_MEMORY_BUFFER = 13,
+            NVME_FEATURE_TIMESTAMP = 14,
+            NVME_FEATURE_KEEP_ALIVE = 15,
+            NVME_FEATURE_HOST_CONTROLLED_THERMAL_MANAGEMENT = 16,
+            NVME_FEATURE_NONOPERATIONAL_POWER_STATE = 17,
+            NVME_FEATURE_READ_RECOVERY_LEVEL_CONFIG = 18,
+            NVME_FEATURE_PREDICTABLE_LATENCY_MODE_CONFIG = 19,
+            NVME_FEATURE_PREDICTABLE_LATENCY_MODE_WINDOW = 20,
+            NVME_FEATURE_LBA_STATUS_INFORMATION_REPORT_INTERVAL = 21,
+            NVME_FEATURE_HOST_BEHAVIOR_SUPPORT = 22,
+            NVME_FEATURE_SANITIZE_CONFIG = 23,
+            NVME_FEATURE_ENDURANCE_GROUP_EVENT_CONFIG = 24,
+            NVME_FEATURE_IO_COMMAND_SET_PROFILE = 25,
+            NVME_FEATURE_ENHANCED_CONTROLLER_METADATA = 125,
+            NVME_FEATURE_CONTROLLER_METADATA = 126,
+            NVME_FEATURE_NAMESPACE_METADATA = 127,
+            NVME_FEATURE_NVM_SOFTWARE_PROGRESS_MARKER = 128,
+            NVME_FEATURE_NVM_HOST_IDENTIFIER = 129,
+            NVME_FEATURE_NVM_RESERVATION_NOTIFICATION_MASK = 130,
+            NVME_FEATURE_NVM_RESERVATION_PERSISTANCE = 131,
+            NVME_FEATURE_NVM_NAMESPACE_WRITE_PROTECTION_CONFIG = 132,
+            NVME_FEATURE_ERROR_INJECTION = 192,
+            NVME_FEATURE_CLEAR_FW_UPDATE_HISTORY = 193,
+            NVME_FEATURE_READONLY_WRITETHROUGH_MODE = 194,
+            NVME_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS = 195,
+            NVME_FEATURE_ENABLE_IEEE1667_SILO = 196,
+            NVME_FEATURE_LATENCY_MONITOR = 197,
+            NVME_FEATURE_PLP_HEALTH_CHECK_INTERVAL = 198,
+            NVME_FEATURE_DSSD_POWER_STATE = 199,
+        }
+        struct NVME_FEATURE_HOST_IDENTIFIER_DATA {
+            HOSTID: [u8; 16],
+        }
+        struct NVME_FEATURE_HOST_METADATA_DATA {
+            NumberOfMetadataElementDescriptors: u8,
+            Reserved0: u8,
+            MetadataElementDescriptors: [u8; 4094],
+        }
+        struct NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG {
+            FeatureIdentifierSupported: [NVME_FID_SUPPORTED_AND_EFFECTS; 256],
+        }
+        #[repr(i32)]
+        enum NVME_FEATURE_VALUE_CODES {
+            NVME_FEATURE_VALUE_CURRENT = 0,
+            NVME_FEATURE_VALUE_DEFAULT = 1,
+            NVME_FEATURE_VALUE_SAVED = 2,
+            NVME_FEATURE_VALUE_SUPPORTED_CAPABILITIES = 3,
+        }
+        struct NVME_FID_SUPPORTED_AND_EFFECTS {
+            _bitfield: u32,
+        }
+        #[repr(i32)]
+        enum NVME_FIRMWARE_ACTIVATE_ACTIONS {
+            NVME_FIRMWARE_ACTIVATE_ACTION_DOWNLOAD_TO_SLOT = 0,
+            NVME_FIRMWARE_ACTIVATE_ACTION_DOWNLOAD_TO_SLOT_AND_ACTIVATE = 1,
+            NVME_FIRMWARE_ACTIVATE_ACTION_ACTIVATE = 2,
+            NVME_FIRMWARE_ACTIVATE_ACTION_DOWNLOAD_TO_SLOT_AND_ACTIVATE_IMMEDIATE = 3,
+            NVME_FIRMWARE_ACTIVATE_ACTION_REPLACE_BOOT_PARTITION = 6,
+            NVME_FIRMWARE_ACTIVATE_ACTION_ACTIVATE_BOOT_PARTITION = 7,
+        }
+        struct NVME_FIRMWARE_SLOT_INFO_LOG {
+            AFI: struct {
+                _bitfield: u8,
+            },
+            Reserved0: [u8; 7],
+            FRS: [u64; 7],
+            Reserved1: [u8; 448],
+        }
+        #[repr(i32)]
+        enum NVME_FUSED_OPERATION_CODES {
+            NVME_FUSED_OPERATION_NORMAL = 0,
+            NVME_FUSED_OPERATION_FIRST_CMD = 1,
+            NVME_FUSED_OPERATION_SECOND_CMD = 2,
+        }
+        struct NVME_GET_FEATURE_TIMESTAMP {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            AsUlonglong: u64,
+        }
+        struct NVME_HEALTH_INFO_LOG {
+            CriticalWarning: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Temperature: [u8; 2],
+            AvailableSpare: u8,
+            AvailableSpareThreshold: u8,
+            PercentageUsed: u8,
+            Reserved0: [u8; 26],
+            DataUnitRead: [u8; 16],
+            DataUnitWritten: [u8; 16],
+            HostReadCommands: [u8; 16],
+            HostWrittenCommands: [u8; 16],
+            ControllerBusyTime: [u8; 16],
+            PowerCycle: [u8; 16],
+            PowerOnHours: [u8; 16],
+            UnsafeShutdowns: [u8; 16],
+            MediaErrors: [u8; 16],
+            ErrorInfoLogEntryCount: [u8; 16],
+            WarningCompositeTemperatureTime: u32,
+            CriticalCompositeTemperatureTime: u32,
+            TemperatureSensor1: u16,
+            TemperatureSensor2: u16,
+            TemperatureSensor3: u16,
+            TemperatureSensor4: u16,
+            TemperatureSensor5: u16,
+            TemperatureSensor6: u16,
+            TemperatureSensor7: u16,
+            TemperatureSensor8: u16,
+            Reserved1: [u8; 296],
+        }
+        struct NVME_HOST_BEHAVIOR_SUPPORT_DATA {
+            ACRE: u8,
+            ETDAS: u8,
+            LBAFEE: u8,
+            Reserved: [u8; 509],
+        }
+        const NVME_HOST_IDENTIFIER_SIZE: u32 = 8;
+        struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
+            BADD: u64,
+            BSIZE: u32,
+            Reserved: u32,
+        }
+        #[repr(i32)]
+        enum NVME_HOST_METADATA_ELEMENT_ACTIONS {
+            NVME_HOST_METADATA_ADD_REPLACE_ENTRY = 0,
+            NVME_HOST_METADATA_DELETE_ENTRY_MULTIPLE = 1,
+            NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE = 2,
+        }
+        struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
+            _bitfield: u32,
+            EVAL: [u8; 1],
+        }
+        #[repr(i32)]
+        enum NVME_IDENTIFIER_TYPE {
+            NVME_IDENTIFIER_TYPE_EUI64 = 1,
+            NVME_IDENTIFIER_TYPE_NGUID = 2,
+            NVME_IDENTIFIER_TYPE_UUID = 3,
+            NVME_IDENTIFIER_TYPE_CSI = 4,
+        }
+        #[repr(i32)]
+        enum NVME_IDENTIFIER_TYPE_LENGTH {
+            NVME_IDENTIFIER_TYPE_EUI64_LENGTH = 8,
+            NVME_IDENTIFIER_TYPE_NGUID_LENGTH = 16,
+            NVME_IDENTIFIER_TYPE_UUID_LENGTH = 16,
+            NVME_IDENTIFIER_TYPE_CSI_LENGTH = 1,
+        }
+        #[repr(i32)]
+        enum NVME_IDENTIFY_CNS_CODES {
+            NVME_IDENTIFY_CNS_SPECIFIC_NAMESPACE = 0,
+            NVME_IDENTIFY_CNS_CONTROLLER = 1,
+            NVME_IDENTIFY_CNS_ACTIVE_NAMESPACES = 2,
+            NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE = 3,
+            NVME_IDENTIFY_CNS_NVM_SET = 4,
+            NVME_IDENTIFY_CNS_SPECIFIC_NAMESPACE_IO_COMMAND_SET = 5,
+            NVME_IDENTIFY_CNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET = 6,
+            NVME_IDENTIFY_CNS_ACTIVE_NAMESPACE_LIST_IO_COMMAND_SET = 7,
+            NVME_IDENTIFY_CNS_ALLOCATED_NAMESPACE_LIST = 16,
+            NVME_IDENTIFY_CNS_ALLOCATED_NAMESPACE = 17,
+            NVME_IDENTIFY_CNS_CONTROLLER_LIST_OF_NSID = 18,
+            NVME_IDENTIFY_CNS_CONTROLLER_LIST_OF_NVM_SUBSYSTEM = 19,
+            NVME_IDENTIFY_CNS_PRIMARY_CONTROLLER_CAPABILITIES = 20,
+            NVME_IDENTIFY_CNS_SECONDARY_CONTROLLER_LIST = 21,
+            NVME_IDENTIFY_CNS_NAMESPACE_GRANULARITY_LIST = 22,
+            NVME_IDENTIFY_CNS_UUID_LIST = 23,
+            NVME_IDENTIFY_CNS_DOMAIN_LIST = 24,
+            NVME_IDENTIFY_CNS_ENDURANCE_GROUP_LIST = 25,
+            NVME_IDENTIFY_CNS_ALLOCATED_NAMSPACE_LIST_IO_COMMAND_SET = 26,
+            NVME_IDENTIFY_CNS_ALLOCATED_NAMESPACE_IO_COMMAND_SET = 27,
+            NVME_IDENTIFY_CNS_IO_COMMAND_SET = 28,
+        }
+        const NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE_SIZE: u32 = 4096;
+        struct NVME_IDENTIFY_CONTROLLER_DATA {
+            VID: u16,
+            SSVID: u16,
+            SN: [u8; 20],
+            MN: [u8; 40],
+            FR: [u8; 8],
+            RAB: u8,
+            IEEE: [u8; 3],
+            CMIC: struct {
+                _bitfield: u8,
+            },
+            MDTS: u8,
+            CNTLID: u16,
+            VER: u32,
+            RTD3R: u32,
+            RTD3E: u32,
+            OAES: struct {
+                _bitfield: u32,
+            },
+            CTRATT: struct {
+                _bitfield: u32,
+            },
+            RRLS: struct {
+                _bitfield: u16,
+            },
+            Reserved0: [u8; 9],
+            CNTRLTYPE: u8,
+            FGUID: [u8; 16],
+            CRDT1: u16,
+            CRDT2: u16,
+            CRDT3: u16,
+            Reserved1: [u8; 106],
+            ReservedForManagement: [u8; 13],
+            NVMSR: u8,
+            VWCI: u8,
+            MEC: u8,
+            OACS: struct {
+                _bitfield: u16,
+            },
+            ACL: u8,
+            AERL: u8,
+            FRMW: struct {
+                _bitfield: u8,
+            },
+            LPA: struct {
+                _bitfield: u8,
+            },
+            ELPE: u8,
+            NPSS: u8,
+            AVSCC: struct {
+                _bitfield: u8,
+            },
+            APSTA: struct {
+                _bitfield: u8,
+            },
+            WCTEMP: u16,
+            CCTEMP: u16,
+            MTFA: u16,
+            HMPRE: u32,
+            HMMIN: u32,
+            TNVMCAP: [u8; 16],
+            UNVMCAP: [u8; 16],
+            RPMBS: struct {
+                _bitfield: u32,
+            },
+            EDSTT: u16,
+            DSTO: u8,
+            FWUG: u8,
+            KAS: u16,
+            HCTMA: struct {
+                _bitfield: u16,
+            },
+            MNTMT: u16,
+            MXTMT: u16,
+            SANICAP: struct {
+                _bitfield: u32,
+            },
+            HMMINDS: u32,
+            HMMAXD: u16,
+            NSETIDMAX: u16,
+            ENDGIDMAX: u16,
+            ANATT: u8,
+            ANACAP: struct {
+                _bitfield: u8,
+            },
+            ANAGRPMAX: u32,
+            NANAGRPID: u32,
+            PELS: u32,
+            DomainId: u16,
+            Reserved2: [u8; 10],
+            MEGCAP: [u8; 16],
+            TMPTHHA: u8,
+            Reserved3: u8,
+            CQT: u16,
+            Reserved4: [u8; 124],
+            SQES: struct {
+                _bitfield: u8,
+            },
+            CQES: struct {
+                _bitfield: u8,
+            },
+            MAXCMD: u16,
+            NN: u32,
+            ONCS: struct {
+                _bitfield: u16,
+            },
+            FUSES: struct {
+                _bitfield: u16,
+            },
+            FNA: struct {
+                _bitfield: u8,
+            },
+            VWC: struct {
+                _bitfield: u8,
+            },
+            AWUN: u16,
+            AWUPF: u16,
+            NVSCC: struct {
+                _bitfield: u8,
+            },
+            NWPC: struct {
+                _bitfield: u8,
+            },
+            ACWU: u16,
+            CopyDescFormats: u16,
+            SGLS: struct {
+                _bitfield: u32,
+            },
+            MNAN: u32,
+            MAXDNA: [u8; 16],
+            MAXCNA: u32,
+            Reserved6: [u8; 204],
+            SUBNQN: [u8; 256],
+            Reserved7: [u8; 768],
+            IOCCSZ: u32,
+            IORCSZ: u32,
+            ICDOFF: u16,
+            FCATT: struct {
+                _bitfield: u8,
+            },
+            MSDBD: u8,
+            OFCS: struct {
+                _bitfield: u16,
+            },
+            DCTYPE: u8,
+            Reserved8: [u8; 241],
+            PDS: [NVME_POWER_STATE_DESC; 32],
+            VS: [u8; 1024],
+        }
+        struct NVME_IDENTIFY_IO_COMMAND_SET {
+            IOCommandSetVector: [IO_COMMAND_SET_VECTOR; 512],
+        }
+        struct NVME_IDENTIFY_NAMESPACE_DATA {
+            NSZE: u64,
+            NCAP: u64,
+            NUSE: u64,
+            NSFEAT: struct {
+                _bitfield: u8,
+            },
+            NLBAF: u8,
+            FLBAS: struct {
+                _bitfield: u8,
+            },
+            MC: struct {
+                _bitfield: u8,
+            },
+            DPC: struct {
+                _bitfield: u8,
+            },
+            DPS: struct {
+                _bitfield: u8,
+            },
+            NMIC: struct {
+                _bitfield: u8,
+            },
+            RESCAP: NVM_RESERVATION_CAPABILITIES,
+            FPI: struct {
+                _bitfield: u8,
+            },
+            DLFEAT: struct {
+                _bitfield: u8,
+            },
+            NAWUN: u16,
+            NAWUPF: u16,
+            NACWU: u16,
+            NABSN: u16,
+            NABO: u16,
+            NABSPF: u16,
+            NOIOB: u16,
+            NVMCAP: [u8; 16],
+            NPWG: u16,
+            NPWA: u16,
+            NPDG: u16,
+            NPDA: u16,
+            NOWS: u16,
+            MSSRL: u16,
+            MCL: u32,
+            MSRC: u8,
+            Reserved2: [u8; 11],
+            ANAGRPID: u32,
+            Reserved3: [u8; 3],
+            NSATTR: struct {
+                _bitfield: u8,
+            },
+            NVMSETID: u16,
+            ENDGID: u16,
+            NGUID: [u8; 16],
+            EUI64: [u8; 8],
+            LBAF: [NVME_LBA_FORMAT; 64],
+            VS: [u8; 3712],
+        }
+        struct NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
+            NIDT: u8,
+            NIDL: u8,
+            Reserved: [u8; 2],
+            NID: [u8; 1],
+        }
+        struct NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
+            VSL: u8,
+            WZSL: u8,
+            WUSL: u8,
+            DMRL: u8,
+            DMRSL: u32,
+            DMSL: u64,
+            Reserved: [u8; 4080],
+        }
+        struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
+            ZOC: struct {
+                _bitfield: u16,
+            },
+            OZCS: struct {
+                _bitfield: u16,
+            },
+            MAR: u32,
+            MOR: u32,
+            RRL: u32,
+            FRL: u32,
+            Reserved0: [u8; 2796],
+            LBAEF: [NVME_LBA_ZONE_FORMAT; 16],
+            Reserved1: [u8; 768],
+            VS: [u8; 256],
+        }
+        struct NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
+            ZASL: u8,
+            Reserved: [u8; 4095],
+        }
+        #[packed(1)]
+        struct NVME_LATENCY_MONITORING_ENTRY {
+            ActiveBucketTimerThreshold: u16,
+            ActiveThresholdA: u8,
+            ActiveThresholdB: u8,
+            ActiveThresholdC: u8,
+            ActiveThresholdD: u8,
+            ActiveLatencyConfig: u16,
+            ActiveLatencyMinimumWindow: u8,
+            DebugLogTriggerEnable: u16,
+            DiscardDebugLog: u8,
+            LatencyMonitorFeatureEnable: u8,
+            Reserved0: [u8; 4083],
+        }
+        union NVME_LBA_FORMAT {
+            Anonymous: struct {
+                MS: u16,
+                LBADS: u8,
+                _bitfield: u8,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_LBA_RANGE {
+            Attributes: NVME_CONTEXT_ATTRIBUTES,
+            LogicalBlockCount: u32,
+            StartingLBA: u64,
+        }
+        struct NVME_LBA_RANGET_TYPE_ENTRY {
+            Type: u8,
+            Attributes: struct {
+                _bitfield: u8,
+            },
+            Reserved0: [u8; 14],
+            SLBA: u64,
+            NLB: u64,
+            GUID: [u8; 16],
+            Reserved1: [u8; 16],
+        }
+        #[repr(i32)]
+        enum NVME_LBA_RANGE_TYPES {
+            NVME_LBA_RANGE_TYPE_RESERVED = 0,
+            NVME_LBA_RANGE_TYPE_FILESYSTEM = 1,
+            NVME_LBA_RANGE_TYPE_RAID = 2,
+            NVME_LBA_RANGE_TYPE_CACHE = 3,
+            NVME_LBA_RANGE_TYPE_PAGE_SWAP_FILE = 4,
+        }
+        struct NVME_LBA_ZONE_FORMAT {
+            ZoneSize: u64,
+            ZDES: u8,
+            Reserved: [u8; 7],
+        }
+        struct NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
+            _bitfield: u16,
+        }
+        struct NVME_LID_SUPPORTED_AND_EFFECTS {
+            _bitfield: u32,
+        }
+        #[repr(i32)]
+        enum NVME_LOG_PAGES {
+            NVME_LOG_PAGE_SUPPORTED_LOG_PAGES = 0,
+            NVME_LOG_PAGE_ERROR_INFO = 1,
+            NVME_LOG_PAGE_HEALTH_INFO = 2,
+            NVME_LOG_PAGE_FIRMWARE_SLOT_INFO = 3,
+            NVME_LOG_PAGE_CHANGED_NAMESPACE_LIST = 4,
+            NVME_LOG_PAGE_COMMAND_EFFECTS = 5,
+            NVME_LOG_PAGE_DEVICE_SELF_TEST = 6,
+            NVME_LOG_PAGE_TELEMETRY_HOST_INITIATED = 7,
+            NVME_LOG_PAGE_TELEMETRY_CTLR_INITIATED = 8,
+            NVME_LOG_PAGE_ENDURANCE_GROUP_INFORMATION = 9,
+            NVME_LOG_PAGE_PREDICTABLE_LATENCY_NVM_SET = 10,
+            NVME_LOG_PAGE_PREDICTABLE_LATENCY_EVENT_AGGREGATE = 11,
+            NVME_LOG_PAGE_ASYMMETRIC_NAMESPACE_ACCESS = 12,
+            NVME_LOG_PAGE_PERSISTENT_EVENT_LOG = 13,
+            NVME_LOG_PAGE_LBA_STATUS_INFORMATION = 14,
+            NVME_LOG_PAGE_ENDURANCE_GROUP_EVENT_AGGREGATE = 15,
+            NVME_LOG_PAGE_MEDIA_UNIT_STATUS = 16,
+            NVME_LOG_PAGE_SUPPORTED_CAPACITY_CONFIGURATION_LIST = 17,
+            NVME_LOG_PAGE_FEATURE_IDENTIFIERS_SUPPORTED_AND_EFFECTS = 18,
+            NVME_LOG_PAGE_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS = 19,
+            NVME_LOG_PAGE_COMMAND_AND_FEATURE_LOCKDOWN = 20,
+            NVME_LOG_PAGE_BOOT_PARTITION = 21,
+            NVME_LOG_PAGE_ROTATIONAL_MEDIA_INFORMATION = 22,
+            NVME_LOG_PAGE_DISCOVERY = 112,
+            NVME_LOG_PAGE_RESERVATION_NOTIFICATION = 128,
+            NVME_LOG_PAGE_SANITIZE_STATUS = 129,
+            NVME_LOG_PAGE_CHANGED_ZONE_LIST = 191,
+        }
+        const NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY: u32 = 193;
+        const NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES: u32 = 192;
+        const NVME_MAX_HOST_IDENTIFIER_SIZE: u32 = 16;
+        const NVME_MAX_LOG_PAGE_IDENTIFIER: u32 = 255;
+        const NVME_MAX_LOG_SIZE: u32 = 4096;
+        const NVME_MAX_UUID_INDEX: u32 = 127;
+        const NVME_NAMESPACE_ALL: u32 = 4294967295;
+        #[repr(i32)]
+        enum NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
+            NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME = 1,
+            NVME_NAMESPACE_METADATA_PREBOOT_NAMESPACE_NAME = 2,
+            NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME_QUALIFIER_1 = 3,
+            NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME_QUALIFIER_2 = 4,
+        }
+        #[repr(i32)]
+        enum NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
+            NVME_MEDIA_ADDITIONALLY_MODIFIED_AFTER_SANITIZE_NOT_DEFINED = 0,
+            NVME_MEDIA_NOT_ADDITIONALLY_MODIFIED_AFTER_SANITIZE = 1,
+            NVME_MEDIA_ADDITIONALLY_MOFIDIED_AFTER_SANITIZE = 2,
+        }
+        const NVME_NQN_MAX_LEN: u32 = 256;
+        const NVME_NQN_NAME_MAX_LEN: u32 = 223;
+        const NVME_NUM_FID_SUPPORTED: u32 = 256;
+        const NVME_NUM_LOG_PAGE_IDENTIFIERS: u32 = 256;
+        const NVME_NUM_NVME_MI_COMMANDS_SUPPORTED: u32 = 256;
+        const NVME_NUM_UUID_LIST_ENTRIES: u32 = 128;
+        struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
+            _bitfield: u32,
+        }
+        struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG {
+            ManagementInterfaceCommandSupported: [NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS; 256],
+            Reserved: [u8; 3072],
+        }
+        #[repr(i32)]
+        enum NVME_NVM_COMMANDS {
+            NVME_NVM_COMMAND_FLUSH = 0,
+            NVME_NVM_COMMAND_WRITE = 1,
+            NVME_NVM_COMMAND_READ = 2,
+            NVME_NVM_COMMAND_WRITE_UNCORRECTABLE = 4,
+            NVME_NVM_COMMAND_COMPARE = 5,
+            NVME_NVM_COMMAND_WRITE_ZEROES = 8,
+            NVME_NVM_COMMAND_DATASET_MANAGEMENT = 9,
+            NVME_NVM_COMMAND_VERIFY = 12,
+            NVME_NVM_COMMAND_RESERVATION_REGISTER = 13,
+            NVME_NVM_COMMAND_RESERVATION_REPORT = 14,
+            NVME_NVM_COMMAND_RESERVATION_ACQUIRE = 17,
+            NVME_NVM_COMMAND_RESERVATION_RELEASE = 21,
+            NVME_NVM_COMMAND_COPY = 25,
+            NVME_NVM_COMMAND_ZONE_MANAGEMENT_SEND = 121,
+            NVME_NVM_COMMAND_ZONE_MANAGEMENT_RECEIVE = 122,
+            NVME_NVM_COMMAND_ZONE_APPEND = 125,
+        }
+        #[repr(i32)]
+        enum NVME_NVM_QUEUE_PRIORITIES {
+            NVME_NVM_QUEUE_PRIORITY_URGENT = 0,
+            NVME_NVM_QUEUE_PRIORITY_HIGH = 1,
+            NVME_NVM_QUEUE_PRIORITY_MEDIUM = 2,
+            NVME_NVM_QUEUE_PRIORITY_LOW = 3,
+        }
+        struct NVME_NVM_SUBSYSTEM_RESET {
+            NSSRC: u32,
+        }
+        struct NVME_NVM_SUBSYSTEM_SHUTDOWN {
+            NSSC: u32,
+        }
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
+            PciePorts: u16,
+            OobMgmtSupport: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            WriteZeroesCommand: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            SanitizeCommand: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            DatasetMgmtCommand: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            WriteUncorrectableCommand: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            FusedCommand: #[packed(1)] union {
+                Anonymous: #[packed(1)] struct {
+                    _bitfield: u16,
+                },
+                AsUshort: u16,
+            },
+            MinimumValidDSSDPowerState: u16,
+            Reserved0: u8,
+            DssdDescriptors: [DSSD_POWER_STATE_DESCRIPTOR; 127],
+            Reserved1: [u8; 3934],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: u32 = 1;
+        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_0: u32 = 0;
+        const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_2: u32 = 2;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
+            PanicResetWaitTime: u16,
+            PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
+            DeviceRecoveryAction1: u8,
+            PanicId: u64,
+            DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
+            VendorSpecificRecoveryCode: u8,
+            Reserved0: [u8; 3],
+            VendorSpecificCommandCDW12: u32,
+            VendorSpecificCommandCDW13: u32,
+            VendorSpecificCommandTimeout: u8,
+            DeviceRecoveryAction2: u8,
+            DeviceRecoveryAction2Timeout: u8,
+            Reserved1: [u8; 463],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: u32 = 2;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
+            LID: u8,
+            Reserved0: [u8; 3],
+            ValidNumberOfEntries: u32,
+            Entries: [FIRMWARE_ACTIVATION_HISTORY_ENTRY; 20],
+            Reserved1: [u8; 2790],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: u32 = 1;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
+            FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS,
+            Reserved0: u8,
+            ActiveBucketTimer: u16,
+            ActiveBucketTimerThreshold: u16,
+            ActiveThresholdA: u8,
+            ActiveThresholdB: u8,
+            ActiveThresholdC: u8,
+            ActiveThresholdD: u8,
+            ActiveLatencyConfig: ACTIVE_LATENCY_CONFIGURATION,
+            ActiveLatencyMinimumWindow: u8,
+            Reserved1: [u8; 19],
+            ActiveBucketCounter0: BUCKET_COUNTER,
+            ActiveBucketCounter1: BUCKET_COUNTER,
+            ActiveBucketCounter2: BUCKET_COUNTER,
+            ActiveBucketCounter3: BUCKET_COUNTER,
+            ActiveLatencyStamp: LATENCY_STAMP,
+            ActiveMeasuredLatency: MEASURED_LATENCY,
+            ActiveLatencyStampUnits: LATENCY_STAMP_UNITS,
+            Reserved2: [u8; 22],
+            StaticBucketCounter0: BUCKET_COUNTER,
+            StaticBucketCounter1: BUCKET_COUNTER,
+            StaticBucketCounter2: BUCKET_COUNTER,
+            StaticBucketCounter3: BUCKET_COUNTER,
+            StaticLatencyStamp: LATENCY_STAMP,
+            StaticMeasuredLatency: MEASURED_LATENCY,
+            StaticLatencyStampUnits: LATENCY_STAMP_UNITS,
+            Reserved3: [u8; 22],
+            DebugLogTriggerEnable: DEBUG_BIT_FIELD,
+            DebugLogMeasuredLatency: u16,
+            DebugLogLatencyStamp: u64,
+            DebugLogPointer: u16,
+            DebugCounterTriggerSource: DEBUG_BIT_FIELD,
+            DebugLogStampUnits: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Reserved4: [u8; 29],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: u32 = 1;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
+            MediaUnitsWritten: [u8; 16],
+            MediaUnitsRead: [u8; 16],
+            BadUserNANDBlockCount: struct {
+                RawCount: [u8; 6],
+                Normalized: [u8; 2],
+            },
+            BadSystemNANDBlockCount: struct {
+                RawCount: [u8; 6],
+                Normalized: [u8; 2],
+            },
+            XORRecoveryCount: u64,
+            UnrecoverableReadErrorCount: u64,
+            SoftECCErrorCount: u64,
+            EndToEndCorrectionCounts: #[packed(1)] struct {
+                DetectedCounts: u32,
+                CorrectedCounts: u32,
+            },
+            PercentageSystemDataUsed: u8,
+            RefreshCount: [u8; 7],
+            UserDataEraseCounts: #[packed(1)] struct {
+                MaximumCount: u32,
+                MinimumCount: u32,
+            },
+            ThermalThrottling: struct {
+                EventCount: u8,
+                Status: u8,
+            },
+            DSSDSpecVersion: #[packed(1)] struct {
+                Errata: u8,
+                PointVersion: u16,
+                MinorVersion: u16,
+                MajorVersion: u8,
+            },
+            PCIeCorrectableErrorCount: u64,
+            IncompleteShutdownCount: u32,
+            Reserved1: u32,
+            PercentageFreeBlocks: u8,
+            Reserved2: [u8; 7],
+            CapacitorHealth: u16,
+            NvmeErrata: u8,
+            Reserved3: [u8; 5],
+            UnalignedIOCount: u64,
+            SecurityVersionNumber: u64,
+            NUSE: u64,
+            PLPStartCount: [u8; 16],
+            EnduranceEstimate: [u8; 16],
+            PCIeLinkRetrainingCount: u64,
+            PowerStateChangeCount: u64,
+            Reserved4: [u8; 286],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: u32 = 3;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
+            State: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+            Reserved0: [u8; 3],
+            LSPActivationCount: u8,
+            TPRevertCount: u8,
+            LSPRevertCount: u8,
+            LOCount: u8,
+            SUMLOCount: u8,
+            RPLOCount: u8,
+            NPLOCount: u8,
+            RLLOCount: u8,
+            WLLOCount: u8,
+            RULOCount: u8,
+            WULOCount: u8,
+            Reserved1: u8,
+            SIDAuthTryCount: u32,
+            SIDAuthTryLimit: u32,
+            ResetCount: u32,
+            ResetLockCount: u32,
+            Reserved2: [u8; 462],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: u32 = 1;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
+            LID: u8,
+            Reserved0: [u8; 3],
+            HistoryEntryCount: u32,
+            HistoryEntries: [TCG_HISTORY_ENTRY; 84],
+            Reserved1: [u8; 38],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: u32 = 1;
+        #[packed(1)]
+        struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
+            UnsupportedCount: u16,
+            Reserved0: [u8; 14],
+            UnsupportedReqList: [UNSUPPORTED_REQUIREMENT; 253],
+            Reserved1: [u8; 14],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: u32 = 1;
+        #[packed(1)]
+        struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
+            EventType: u8,
+            EventTypeRevision: u8,
+            EventHeaderLength: u8,
+            Reserved0: u8,
+            ControllerIdentifier: u16,
+            EventTimestamp: u64,
+            Reserved1: [u8; 6],
+            VendorSpecificInformationLength: u16,
+            EventLength: u16,
+        }
+        #[repr(i32)]
+        enum NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
+            NVME_PERSISTENT_EVENT_TYPE_RESERVED0 = 0,
+            NVME_PERSISTENT_EVENT_TYPE_SMART_HEALTH_LOG_SNAPSHOT = 1,
+            NVME_PERSISTENT_EVENT_TYPE_FIRMWARE_COMMIT = 2,
+            NVME_PERSISTENT_EVENT_TYPE_TIMESTAMP_CHANGE = 3,
+            NVME_PERSISTENT_EVENT_TYPE_POWER_ON_OR_RESET = 4,
+            NVME_PERSISTENT_EVENT_TYPE_NVM_SUBSYSTEM_HARDWARE_ERROR = 5,
+            NVME_PERSISTENT_EVENT_TYPE_CHANGE_NAMESPACE = 6,
+            NVME_PERSISTENT_EVENT_TYPE_FORMAT_NVM_START = 7,
+            NVME_PERSISTENT_EVENT_TYPE_FORMAT_NVM_COMPLETION = 8,
+            NVME_PERSISTENT_EVENT_TYPE_SANITIZE_START = 9,
+            NVME_PERSISTENT_EVENT_TYPE_SANITIZE_COMPLETION = 10,
+            NVME_PERSISTENT_EVENT_TYPE_SET_FEATURE = 11,
+            NVME_PERSISTENT_EVENT_TYPE_TELEMETRY_LOG_CREATED = 12,
+            NVME_PERSISTENT_EVENT_TYPE_THERMAL_EXCURSION = 13,
+            NVME_PERSISTENT_EVENT_TYPE_RESERVED1_BEGIN = 14,
+            NVME_PERSISTENT_EVENT_TYPE_RESERVED1_END = 221,
+            NVME_PERSISTENT_EVENT_TYPE_VENDOR_SPECIFIC_EVENT = 222,
+            NVME_PERSISTENT_EVENT_TYPE_TCG_DEFINED = 223,
+            NVME_PERSISTENT_EVENT_TYPE_RESERVED2_BEGIN = 224,
+            NVME_PERSISTENT_EVENT_TYPE_RESERVED2_END = 255,
+            NVME_PERSISTENT_EVENT_TYPE_MAX = 255,
+        }
+        #[packed(1)]
+        struct NVME_PERSISTENT_EVENT_LOG_HEADER {
+            LogIdentifier: u8,
+            Reserved0: [u8; 3],
+            TotalNumberOfEvents: u32,
+            TotalLogLength: u64,
+            LogRevision: u8,
+            Reserved1: u8,
+            LogHeaderLength: u16,
+            Timestamp: u64,
+            PowerOnHours: [u8; 16],
+            PowerCycleCount: u64,
+            PciVendorId: u16,
+            PciSubsystemVendorId: u16,
+            SerialNumber: [u8; 20],
+            ModelNumber: [u8; 40],
+            NVMSubsystemNVMeQualifiedName: [u8; 256],
+            Reserved: [u8; 108],
+            SupportedEventsBitmap: [u8; 32],
+        }
+        struct NVME_POWER_STATE_DESC {
+            MP: u16,
+            Reserved0: u8,
+            _bitfield1: u8,
+            ENLAT: u32,
+            EXLAT: u32,
+            _bitfield2: u8,
+            _bitfield3: u8,
+            _bitfield4: u8,
+            _bitfield5: u8,
+            IDLP: u16,
+            _bitfield6: u8,
+            Reserved7: u8,
+            ACTP: u16,
+            _bitfield7: u8,
+            Reserved9: [u8; 9],
+        }
+        #[repr(i32)]
+        enum NVME_PROPERTY_OFFSET {
+            NvmePropCAP = 0,
+            NvmePropVS = 8,
+            NvmePropINTMS = 12,
+            NvmePropINTMC = 16,
+            NvmePropCC = 20,
+            NvmePropCSTS = 28,
+            NvmePropNSSR = 32,
+            NvmePropAQA = 36,
+            NvmePropASQ = 40,
+            NvmePropACQ = 48,
+            NvmePropCMBLOC = 56,
+            NvmePropCMBSZ = 60,
+            NvmePropBPINFO = 64,
+            NvmePropBPRSEL = 68,
+            NvmePropBPMBL = 72,
+            NvmePropCMBMSC = 80,
+            NvmePropCMBSTS = 88,
+            NvmePropCMBEBS = 92,
+            NvmePropCMBSWTP = 96,
+            NvmePropNSSD = 100,
+            NvmePropCRTO = 104,
+            NvmePropPMRCAP = 3584,
+            NvmePropPMRCTL = 3588,
+            NvmePropPMRSTS = 3592,
+            NvmePropPMREBS = 3596,
+            NvmePropPMRSWTP = 3600,
+            NvmePropPMRMSCL = 3604,
+            NvmePropPMRMSCU = 3608,
+        }
+        #[repr(i32)]
+        enum NVME_PROTECTION_INFORMATION_TYPES {
+            NVME_PROTECTION_INFORMATION_NOT_ENABLED = 0,
+            NVME_PROTECTION_INFORMATION_TYPE1 = 1,
+            NVME_PROTECTION_INFORMATION_TYPE2 = 2,
+            NVME_PROTECTION_INFORMATION_TYPE3 = 3,
+        }
+        union NVME_PRP_ENTRY {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            AsUlonglong: u64,
+        }
+        const NVME_PSDT_XFER_PRP: u32 = 0;
+        const NVME_PSDT_XFER_RESERVED: u32 = 3;
+        const NVME_PSDT_XFER_SGL_BYTE: u32 = 1;
+        const NVME_PSDT_XFER_SGL_QWORD: u32 = 2;
+        #[repr(i32)]
+        enum NVME_RDMA_KEYED_SGL_DESC_SUBTYPE {
+            NvmeRdmaKeyedSglDescSubtypeInvalidate = 15,
+        }
+        struct NVME_REGISTERED_CONTROLLER_DATA {
+            CNTLID: u16,
+            RCSTS: struct {
+                _bitfield: u8,
+            },
+            Reserved: [u8; 5],
+            HOSTID: [u8; 8],
+            RKEY: u64,
+        }
+        struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
+            CNTLID: u16,
+            RCSTS: struct {
+                _bitfield: u8,
+            },
+            Reserved: [u8; 5],
+            RKEY: u64,
+            HOSTID: [u8; 16],
+            Reserved1: [u8; 32],
+        }
+        struct NVME_REPORT_ZONE_INFO {
+            ZoneCount: u64,
+            Reserved: [u64; 7],
+            ZoneDescriptor: [NVME_ZONE_DESCRIPTOR; 1],
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_ACQUIRE_ACTIONS {
+            NVME_RESERVATION_ACQUIRE_ACTION_ACQUIRE = 0,
+            NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT = 1,
+            NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT_AND_ABORT = 2,
+        }
+        struct NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
+            CRKEY: u64,
+            PRKEY: u64,
+        }
+        struct NVME_RESERVATION_NOTIFICATION_LOG {
+            LogPageCount: u64,
+            LogPageType: u8,
+            AvailableLogPageCount: u8,
+            Reserved0: [u8; 2],
+            NameSpaceId: u32,
+            Reserved1: [u8; 48],
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_NOTIFICATION_TYPES {
+            NVME_RESERVATION_NOTIFICATION_TYPE_EMPTY_LOG_PAGE = 0,
+            NVME_RESERVATION_NOTIFICATION_TYPE_REGISTRATION_PREEMPTED = 1,
+            NVME_RESERVATION_NOTIFICATION_TYPE_REGISTRATION_RELEASED = 2,
+            NVME_RESERVATION_NOTIFICATION_TYPE_RESERVATION_PREEPMPTED = 3,
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_REGISTER_ACTIONS {
+            NVME_RESERVATION_REGISTER_ACTION_REGISTER = 0,
+            NVME_RESERVATION_REGISTER_ACTION_UNREGISTER = 1,
+            NVME_RESERVATION_REGISTER_ACTION_REPLACE = 2,
+        }
+        struct NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
+            CRKEY: u64,
+            NRKEY: u64,
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
+            NVME_RESERVATION_REGISTER_PTPL_STATE_NO_CHANGE = 0,
+            NVME_RESERVATION_REGISTER_PTPL_STATE_RESERVED = 1,
+            NVME_RESERVATION_REGISTER_PTPL_STATE_SET_TO_0 = 2,
+            NVME_RESERVATION_REGISTER_PTPL_STATE_SET_TO_1 = 3,
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_RELEASE_ACTIONS {
+            NVME_RESERVATION_RELEASE_ACTION_RELEASE = 0,
+            NVME_RESERVATION_RELEASE_ACTION_CLEAR = 1,
+        }
+        struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
+            CRKEY: u64,
+        }
+        struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
+            Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
+            RegisteredControllersData: [NVME_REGISTERED_CONTROLLER_DATA; 1],
+        }
+        struct NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
+            Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
+            Reserved1: [u8; 40],
+            RegisteredControllersExtendedData: [NVME_REGISTERED_CONTROLLER_EXTENDED_DATA; 1],
+        }
+        #[packed(1)]
+        struct NVME_RESERVATION_REPORT_STATUS_HEADER {
+            GEN: u32,
+            RTYPE: u8,
+            REGCTL: u16,
+            Reserved: [u8; 2],
+            PTPLS: u8,
+            Reserved1: [u8; 14],
+        }
+        #[repr(i32)]
+        enum NVME_RESERVATION_TYPES {
+            NVME_RESERVATION_TYPE_RESERVED = 0,
+            NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE = 1,
+            NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS = 2,
+            NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY = 3,
+            NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY = 4,
+            NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS = 5,
+            NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS = 6,
+        }
+        #[repr(i32)]
+        enum NVME_SANITIZE_ACTION {
+            NVME_SANITIZE_ACTION_RESERVED = 0,
+            NVME_SANITIZE_ACTION_EXIT_FAILURE_MODE = 1,
+            NVME_SANITIZE_ACTION_START_BLOCK_ERASE_SANITIZE = 2,
+            NVME_SANITIZE_ACTION_START_OVERWRITE_SANITIZE = 3,
+            NVME_SANITIZE_ACTION_START_CRYPTO_ERASE_SANITIZE = 4,
+        }
+        #[repr(i32)]
+        enum NVME_SANITIZE_OPERATION_STATUS {
+            NVME_SANITIZE_OPERATION_NONE = 0,
+            NVME_SANITIZE_OPERATION_SUCCEEDED = 1,
+            NVME_SANITIZE_OPERATION_IN_PROGRESS = 2,
+            NVME_SANITIZE_OPERATION_FAILED = 3,
+            NVME_SANITIZE_OPERATION_SUCCEEDED_WITH_FORCED_DEALLOCATION = 4,
+        }
+        struct NVME_SANITIZE_STATUS {
+            _bitfield: u16,
+        }
+        struct NVME_SANITIZE_STATUS_LOG {
+            SPROG: u16,
+            SSTAT: NVME_SANITIZE_STATUS,
+            SCDW10: u32,
+            EstimatedTimeForOverwrite: u32,
+            EstimatedTimeForBlockErase: u32,
+            EstimatedTimeForCryptoErase: u32,
+            EstimatedTimeForOverwriteWithNoDeallocateMediaModification: u32,
+            EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: u32,
+            EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: u32,
+            Reserved: [u8; 480],
+        }
+        struct NVME_SCSI_NAME_STRING {
+            PCIVendorID: [i8; 4],
+            ModelNumber: [i8; 40],
+            NamespaceID: [i8; 4],
+            SerialNumber: [i8; 20],
+        }
+        #[repr(i32)]
+        enum NVME_SECURE_ERASE_SETTINGS {
+            NVME_SECURE_ERASE_NONE = 0,
+            NVME_SECURE_ERASE_USER_DATA = 1,
+            NVME_SECURE_ERASE_CRYPTOGRAPHIC = 2,
+        }
+        struct NVME_SET_ATTRIBUTES_ENTRY {
+            Identifier: u16,
+            ENDGID: u16,
+            Reserved1: u32,
+            Random4KBReadTypical: u32,
+            OptimalWriteSize: u32,
+            TotalCapacity: [u8; 16],
+            UnallocatedCapacity: [u8; 16],
+            Reserved2: [u8; 80],
+        }
+        struct NVME_SGL_BITBUCKET_DESC {
+            Reserved0: u64,
+            Length: u32,
+            Reserved1: [u8; 3],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        struct NVME_SGL_DATABLOCK_DESC {
+            Address: u64,
+            Length: u32,
+            Reserved0: [u8; 3],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        struct NVME_SGL_DESC {
+            Reserved0: [u8; 15],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        #[repr(i32)]
+        enum NVME_SGL_DESC_SUBTYPE {
+            NvmeSglDescSubtypeAddress = 0,
+            NvmeSglDescSubtypeOffset = 1,
+            NvmeSglDescSubtypeTransportA = 10,
+            NvmeSglDescSubtypeTransportB = 11,
+            NvmeSglDescSubtypeTransportC = 12,
+            NvmeSglDescSubtypeTransportD = 13,
+            NvmeSglDescSubtypeTransportE = 14,
+            NvmeSglDescSubtypeTransportF = 15,
+        }
+        #[repr(i32)]
+        enum NVME_SGL_DESC_TYPE {
+            NvmeSglDescTypeDataBlock = 0,
+            NvmeSglDescTypeBitBucket = 1,
+            NvmeSglDescTypeSegment = 2,
+            NvmeSglDescTypeLastSegment = 3,
+            NvmeSglDescTypeKeyedDataBlock = 4,
+            NvmeSglDescTypeTransportDataBlock = 5,
+            NvmeSglDescTypeMax = 15,
+        }
+        struct NVME_SGL_KEYDATABLOCK_DESC {
+            Address: u64,
+            Length: [u8; 3],
+            Key: [u8; 4],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        struct NVME_SGL_LASTSEG_DESC {
+            Address: u64,
+            Length: u32,
+            Reserved0: [u8; 3],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        struct NVME_SGL_SEGMENT_DESC {
+            Address: u64,
+            Length: u32,
+            Reserved0: [u8; 3],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        struct NVME_SGL_TRANSPORTDATA_DESC {
+            Reserved0: u64,
+            Length: u32,
+            Reserved1: [u8; 3],
+            Identifier: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUchar: u8,
+            },
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_COMMAND_SPECIFIC_CODES {
+            NVME_STATUS_COMPLETION_QUEUE_INVALID = 0,
+            NVME_STATUS_INVALID_QUEUE_IDENTIFIER = 1,
+            NVME_STATUS_MAX_QUEUE_SIZE_EXCEEDED = 2,
+            NVME_STATUS_ABORT_COMMAND_LIMIT_EXCEEDED = 3,
+            NVME_STATUS_ASYNC_EVENT_REQUEST_LIMIT_EXCEEDED = 5,
+            NVME_STATUS_INVALID_FIRMWARE_SLOT = 6,
+            NVME_STATUS_INVALID_FIRMWARE_IMAGE = 7,
+            NVME_STATUS_INVALID_INTERRUPT_VECTOR = 8,
+            NVME_STATUS_INVALID_LOG_PAGE = 9,
+            NVME_STATUS_INVALID_FORMAT = 10,
+            NVME_STATUS_FIRMWARE_ACTIVATION_REQUIRES_CONVENTIONAL_RESET = 11,
+            NVME_STATUS_INVALID_QUEUE_DELETION = 12,
+            NVME_STATUS_FEATURE_ID_NOT_SAVEABLE = 13,
+            NVME_STATUS_FEATURE_NOT_CHANGEABLE = 14,
+            NVME_STATUS_FEATURE_NOT_NAMESPACE_SPECIFIC = 15,
+            NVME_STATUS_FIRMWARE_ACTIVATION_REQUIRES_NVM_SUBSYSTEM_RESET = 16,
+            NVME_STATUS_FIRMWARE_ACTIVATION_REQUIRES_RESET = 17,
+            NVME_STATUS_FIRMWARE_ACTIVATION_REQUIRES_MAX_TIME_VIOLATION = 18,
+            NVME_STATUS_FIRMWARE_ACTIVATION_PROHIBITED = 19,
+            NVME_STATUS_OVERLAPPING_RANGE = 20,
+            NVME_STATUS_NAMESPACE_INSUFFICIENT_CAPACITY = 21,
+            NVME_STATUS_NAMESPACE_IDENTIFIER_UNAVAILABLE = 22,
+            NVME_STATUS_NAMESPACE_ALREADY_ATTACHED = 24,
+            NVME_STATUS_NAMESPACE_IS_PRIVATE = 25,
+            NVME_STATUS_NAMESPACE_NOT_ATTACHED = 26,
+            NVME_STATUS_NAMESPACE_THIN_PROVISIONING_NOT_SUPPORTED = 27,
+            NVME_STATUS_CONTROLLER_LIST_INVALID = 28,
+            NVME_STATUS_DEVICE_SELF_TEST_IN_PROGRESS = 29,
+            NVME_STATUS_BOOT_PARTITION_WRITE_PROHIBITED = 30,
+            NVME_STATUS_INVALID_CONTROLLER_IDENTIFIER = 31,
+            NVME_STATUS_INVALID_SECONDARY_CONTROLLER_STATE = 32,
+            NVME_STATUS_INVALID_NUMBER_OF_CONTROLLER_RESOURCES = 33,
+            NVME_STATUS_INVALID_RESOURCE_IDENTIFIER = 34,
+            NVME_STATUS_SANITIZE_PROHIBITED_ON_PERSISTENT_MEMORY = 35,
+            NVME_STATUS_INVALID_ANA_GROUP_IDENTIFIER = 36,
+            NVME_STATUS_ANA_ATTACH_FAILED = 37,
+            NVME_STATUS_INSUFFICIENT_CAPACITY = 38,
+            NVME_STATUS_NAMESPACE_ATTACHMENT_LIMIT_EXCEEDED = 39,
+            NVME_STATUS_PROHIBITION_NOT_SUPPORTED = 40,
+            NVME_IO_COMMAND_SET_NOT_SUPPORTED = 41,
+            NVME_IO_COMMAND_SET_NOT_ENABLED = 42,
+            NVME_IO_COMMAND_SET_COMBINATION_REJECTED = 43,
+            NVME_IO_COMMAND_SET_INVALID = 44,
+            NVME_STATUS_INVALID_DISCOVERY_INFORMATION = 47,
+            NVME_STATUS_INSUFFICIENT_DISCOVERY_RESOURCES = 50,
+            NVME_STATUS_STREAM_RESOURCE_ALLOCATION_FAILED = 127,
+            NVME_STATUS_ZONE_INVALID_FORMAT = 127,
+            NVME_STATUS_NVM_CONFLICTING_ATTRIBUTES = 128,
+            NVME_STATUS_NVM_INVALID_PROTECTION_INFORMATION = 129,
+            NVME_STATUS_NVM_ATTEMPTED_WRITE_TO_READ_ONLY_RANGE = 130,
+            NVME_STATUS_NVM_COMMAND_SIZE_LIMIT_EXCEEDED = 131,
+            NVME_STATUS_ZONE_BOUNDARY_ERROR = 184,
+            NVME_STATUS_ZONE_FULL = 185,
+            NVME_STATUS_ZONE_READ_ONLY = 186,
+            NVME_STATUS_ZONE_OFFLINE = 187,
+            NVME_STATUS_ZONE_INVALID_WRITE = 188,
+            NVME_STATUS_ZONE_TOO_MANY_ACTIVE = 189,
+            NVME_STATUS_ZONE_TOO_MANY_OPEN = 190,
+            NVME_STATUS_ZONE_INVALID_STATE_TRANSITION = 191,
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_FABRIC_COMMAND_CODES {
+            NVME_STATUS_INCOMPATIBLE_FORMAT = 128,
+            NVME_STATUS_CONTROLLER_BUSY = 129,
+            NVME_STATUS_CONNECT_INVALID_PARAMETERS = 130,
+            NVME_STATUS_CONNECT_RESTART_DISCOVERY = 131,
+            NVME_STATUS_CONNECT_INVALID_HOST = 132,
+            NVME_STATUS_INVALID_QUEUE_TYPE = 133,
+            NVME_STATUS_DISCOVER_RESTART = 144,
+            NVME_STATUS_AUTHENTICATION_REQUIRED = 145,
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_GENERIC_COMMAND_CODES {
+            NVME_STATUS_SUCCESS_COMPLETION = 0,
+            NVME_STATUS_INVALID_COMMAND_OPCODE = 1,
+            NVME_STATUS_INVALID_FIELD_IN_COMMAND = 2,
+            NVME_STATUS_COMMAND_ID_CONFLICT = 3,
+            NVME_STATUS_DATA_TRANSFER_ERROR = 4,
+            NVME_STATUS_COMMAND_ABORTED_DUE_TO_POWER_LOSS_NOTIFICATION = 5,
+            NVME_STATUS_INTERNAL_DEVICE_ERROR = 6,
+            NVME_STATUS_COMMAND_ABORT_REQUESTED = 7,
+            NVME_STATUS_COMMAND_ABORTED_DUE_TO_SQ_DELETION = 8,
+            NVME_STATUS_COMMAND_ABORTED_DUE_TO_FAILED_FUSED_COMMAND = 9,
+            NVME_STATUS_COMMAND_ABORTED_DUE_TO_FAILED_MISSING_COMMAND = 10,
+            NVME_STATUS_INVALID_NAMESPACE_OR_FORMAT = 11,
+            NVME_STATUS_COMMAND_SEQUENCE_ERROR = 12,
+            NVME_STATUS_INVALID_SGL_LAST_SEGMENT_DESCR = 13,
+            NVME_STATUS_INVALID_NUMBER_OF_SGL_DESCR = 14,
+            NVME_STATUS_DATA_SGL_LENGTH_INVALID = 15,
+            NVME_STATUS_METADATA_SGL_LENGTH_INVALID = 16,
+            NVME_STATUS_SGL_DESCR_TYPE_INVALID = 17,
+            NVME_STATUS_INVALID_USE_OF_CONTROLLER_MEMORY_BUFFER = 18,
+            NVME_STATUS_PRP_OFFSET_INVALID = 19,
+            NVME_STATUS_ATOMIC_WRITE_UNIT_EXCEEDED = 20,
+            NVME_STATUS_OPERATION_DENIED = 21,
+            NVME_STATUS_SGL_OFFSET_INVALID = 22,
+            NVME_STATUS_RESERVED = 23,
+            NVME_STATUS_HOST_IDENTIFIER_INCONSISTENT_FORMAT = 24,
+            NVME_STATUS_KEEP_ALIVE_TIMEOUT_EXPIRED = 25,
+            NVME_STATUS_KEEP_ALIVE_TIMEOUT_INVALID = 26,
+            NVME_STATUS_COMMAND_ABORTED_DUE_TO_PREEMPT_ABORT = 27,
+            NVME_STATUS_SANITIZE_FAILED = 28,
+            NVME_STATUS_SANITIZE_IN_PROGRESS = 29,
+            NVME_STATUS_SGL_DATA_BLOCK_GRANULARITY_INVALID = 30,
+            NVME_STATUS_COMMAND_NOT_SUPPORTED_FOR_QUEUE_IN_CMB = 31,
+            NVME_STATUS_NAMESPACE_IS_WRITE_PROTECTED = 32,
+            NVME_STATUS_COMMAND_INTERRUPTED = 33,
+            NVME_STATUS_TRANSIENT_TRANSPORT_ERROR = 34,
+            NVME_STATUS_COMMAND_PROHIBITED_BY_LOCKDOWN = 35,
+            NVME_STATUS_ADMIN_COMMAND_MEDIA_NOT_READY = 36,
+            NVME_STATUS_DIRECTIVE_TYPE_INVALID = 112,
+            NVME_STATUS_DIRECTIVE_ID_INVALID = 113,
+            NVME_STATUS_NVM_LBA_OUT_OF_RANGE = 128,
+            NVME_STATUS_NVM_CAPACITY_EXCEEDED = 129,
+            NVME_STATUS_NVM_NAMESPACE_NOT_READY = 130,
+            NVME_STATUS_NVM_RESERVATION_CONFLICT = 131,
+            NVME_STATUS_FORMAT_IN_PROGRESS = 132,
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_MEDIA_ERROR_CODES {
+            NVME_STATUS_NVM_WRITE_FAULT = 128,
+            NVME_STATUS_NVM_UNRECOVERED_READ_ERROR = 129,
+            NVME_STATUS_NVM_END_TO_END_GUARD_CHECK_ERROR = 130,
+            NVME_STATUS_NVM_END_TO_END_APPLICATION_TAG_CHECK_ERROR = 131,
+            NVME_STATUS_NVM_END_TO_END_REFERENCE_TAG_CHECK_ERROR = 132,
+            NVME_STATUS_NVM_COMPARE_FAILURE = 133,
+            NVME_STATUS_NVM_ACCESS_DENIED = 134,
+            NVME_STATUS_NVM_DEALLOCATED_OR_UNWRITTEN_LOGICAL_BLOCK = 135,
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_PATH_ERROR_CODES {
+            NVME_STATUS_INTERNAL_PATH_ERROR = 0,
+            NVME_STATUS_ASYMMETRIC_ACCESS_PERSISTENT_LOSS = 1,
+            NVME_STATUS_ASYMMETRIC_ACCESS_INACCESSIBLE = 2,
+            NVME_STATUS_ASYMMETRIC_ACCESS_TRANSITION = 3,
+            NVME_STATUS_CONTROLLER_PATHING_ERROR = 96,
+            NVME_STATUS_HOST_PATHING_ERROR = 112,
+            NVME_STATUS_COMMAND_ABORTED_BY_HOST = 113,
+        }
+        #[repr(i32)]
+        enum NVME_STATUS_TYPES {
+            NVME_STATUS_TYPE_GENERIC_COMMAND = 0,
+            NVME_STATUS_TYPE_COMMAND_SPECIFIC = 1,
+            NVME_STATUS_TYPE_MEDIA_ERROR = 2,
+            NVME_STATUS_TYPE_PATH_RELATED = 3,
+            NVME_STATUS_TYPE_VENDOR_SPECIFIC = 7,
+        }
+        const NVME_STREAMS_GET_STATUS_MAX_IDS: u32 = 65535;
+        const NVME_STREAMS_ID_MAX: u32 = 65535;
+        const NVME_STREAMS_ID_MIN: u32 = 1;
+        union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_SUPPORTED_LOG_PAGES_LOG {
+            LogPageIdentifierSupported: [NVME_LID_SUPPORTED_AND_EFFECTS; 256],
+        }
+        struct NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
+            LogIdentifier: u8,
+            Reserved0: [u8; 4],
+            OrganizationID: [u8; 3],
+            Area1LastBlock: u16,
+            Area2LastBlock: u16,
+            Area3LastBlock: u16,
+            Reserved1: [u8; 2],
+            Area4LastBlock: u32,
+            Reserved2: [u8; 362],
+            ControllerInitiatedDataAvailable: u8,
+            ControllerInitiatedDataGenerationNumber: u8,
+            ReasonIdentifier: [u8; 128],
+        }
+        const NVME_TELEMETRY_DATA_BLOCK_SIZE: u32 = 512;
+        struct NVME_TELEMETRY_HOST_INITIATED_LOG {
+            LogIdentifier: u8,
+            Reserved0: [u8; 4],
+            OrganizationID: [u8; 3],
+            Area1LastBlock: u16,
+            Area2LastBlock: u16,
+            Area3LastBlock: u16,
+            Reserved1: [u8; 2],
+            Area4LastBlock: u32,
+            Reserved2: [u8; 361],
+            HostInitiatedDataGenerationNumber: u8,
+            ControllerInitiatedDataAvailable: u8,
+            ControllerInitiatedDataGenerationNumber: u8,
+            ReasonIdentifier: [u8; 128],
+        }
+        #[repr(i32)]
+        enum NVME_TEMPERATURE_THRESHOLD_TYPES {
+            NVME_TEMPERATURE_OVER_THRESHOLD = 0,
+            NVME_TEMPERATURE_UNDER_THRESHOLD = 1,
+        }
+        const NVME_UUID_ASSOCIATION_NONE: u32 = 0;
+        const NVME_UUID_ASSOCIATION_PCI_SUBSYSTEM_VID: u32 = 2;
+        const NVME_UUID_ASSOCIATION_PCI_VID: u32 = 1;
+        const NVME_UUID_ASSOCIATION_RESERVED: u32 = 3;
+        struct NVME_UUID_LIST {
+            UUID: [NVME_UUID_LIST_ENTRY; 128],
+        }
+        struct NVME_UUID_LIST_ENTRY {
+            _bitfield: u8,
+            Reserved1: [u8; 15],
+            UUID: [u8; 16],
+        }
+        #[repr(i32)]
+        enum NVME_VENDOR_LOG_PAGES {
+            NVME_LOG_PAGE_OCP_DEVICE_SMART_INFORMATION = 192,
+            NVME_LOG_PAGE_OCP_DEVICE_ERROR_RECOVERY = 193,
+            NVME_LOG_PAGE_OCP_FIRMWARE_ACTIVATION_HISTORY = 194,
+            NVME_LOG_PAGE_OCP_LATENCY_MONITOR = 195,
+            NVME_LOG_PAGE_OCP_DEVICE_CAPABILITIES = 196,
+            NVME_LOG_PAGE_OCP_UNSUPPORTED_REQUIREMENTS = 197,
+            NVME_LOG_PAGE_OCP_TCG_CONFIGURATION = 200,
+            NVME_LOG_PAGE_OCP_TCG_HISTORY = 201,
+        }
+        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MAX_OPCODE: u32 = 255;
+        const NVME_VENDOR_SPECIFIC_ADMIN_COMMAND_MIN_OPCODE: u32 = 192;
+        const NVME_VENDOR_SPECIFIC_FEATURE_MAX_IDENTIFIER: u32 = 255;
+        const NVME_VENDOR_SPECIFIC_FEATURE_MIN_IDENTIFIER: u32 = 192;
+        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MAX_IDENTIFIER: u32 = 255;
+        const NVME_VENDOR_SPECIFIC_LOG_PAGE_MIN_IDENTIFIER: u32 = 192;
+        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MAX_OPCODE: u32 = 255;
+        const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MIN_OPCODE: u32 = 128;
+        union NVME_VERSION {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            AsUlong: u32,
+        }
+        struct NVME_WCS_DEVICE_CAPABILITIES {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                AsULONG: u32,
+            },
+        }
+        #[packed(1)]
+        struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
+            PanicResetWaitTime: u16,
+            PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
+            DriveRecoveryAction: u8,
+            PanicId: u64,
+            DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
+            VendorSpecificRecoveryCode: u8,
+            Reserved0: [u8; 3],
+            VendorSpecificCommandCDW12: u32,
+            VendorSpecificCommandCDW13: u32,
+            Reserved1: [u8; 466],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        type NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
+        const NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_VERSION_1: u32 = 1;
+        #[repr(i32)]
+        enum NVME_WCS_DEVICE_RECOVERY_ACTION1 {
+            NVMeDeviceRecoveryNoAction = 0,
+            NVMeDeviceRecoveryFormatNVM = 1,
+            NVMeDeviceRecoveryVendorSpecificCommand = 2,
+            NVMeDeviceRecoveryVendorAnalysis = 3,
+            NVMeDeviceRecoveryDeviceReplacement = 4,
+            NVMeDeviceRecoverySanitize = 5,
+            NVMeDeviceRecovery1Max = 15,
+        }
+        #[repr(i32)]
+        enum NVME_WCS_DEVICE_RECOVERY_ACTION2 {
+            NVMeDeviceRecoveryControllerReset = 0,
+            NVMeDeviceRecoverySubsystemReset = 1,
+            NVMeDeviceRecoveryPcieFunctionReset = 2,
+            NVMeDeviceRecoveryPERST = 3,
+            NVMeDeviceRecoveryPowerCycle = 4,
+            NVMeDeviceRecoveryPcieHotReset = 5,
+            NVMeDeviceRecovery2Max = 15,
+        }
+        struct NVME_WCS_DEVICE_RESET_ACTION {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u8,
+                },
+                AsUCHAR: u8,
+            },
+        }
+        #[packed(1)]
+        struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
+            VersionSpecificData: [u8; 494],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        #[packed(1)]
+        struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
+            MediaUnitsWritten: [u8; 16],
+            MediaUnitsRead: [u8; 16],
+            BadUserNANDBlockCount: struct {
+                RawCount: [u8; 6],
+                Normalized: [u8; 2],
+            },
+            BadSystemNANDBlockCount: struct {
+                RawCount: [u8; 6],
+                Normalized: [u8; 2],
+            },
+            XORRecoveryCount: u64,
+            UnrecoverableReadErrorCount: u64,
+            SoftECCErrorCount: u64,
+            EndToEndCorrectionCounts: #[packed(1)] struct {
+                DetectedCounts: u32,
+                CorrectedCounts: u32,
+            },
+            PercentageSystemDataUsed: u8,
+            RefreshCount: [u8; 7],
+            UserDataEraseCounts: #[packed(1)] struct {
+                MaximumCount: u32,
+                MinimumCount: u32,
+            },
+            ThermalThrottling: struct {
+                EventCount: u8,
+                Status: u8,
+            },
+            Reserved0: [u8; 6],
+            PCIeCorrectableErrorCount: u64,
+            IncompleteShutdownCount: u32,
+            Reserved1: u32,
+            PercentageFreeBlocks: u8,
+            Reserved2: [u8; 7],
+            CapacitorHealth: u16,
+            Reserved3: [u8; 6],
+            UnalignedIOCount: u64,
+            SecurityVersionNumber: u64,
+            NUSE: u64,
+            PLPStartCount: [u8; 16],
+            EnduranceEstimate: [u8; 16],
+            Reserved4: [u8; 302],
+            LogPageVersionNumber: u16,
+            LogPageGUID: GUID,
+        }
+        const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: u32 = 2;
+        struct NVME_ZONE_DESCRIPTOR {
+            Anonymous: struct {
+                _bitfield: u8,
+            },
+            Anonymous2: struct {
+                _bitfield: u8,
+            },
+            ZA: struct {
+                _bitfield: u8,
+            },
+            Reserved3: [u8; 5],
+            ZCAP: u64,
+            ZSLBA: u64,
+            WritePointer: u64,
+            Reserved4: [u8; 32],
+        }
+        struct NVME_ZONE_DESCRIPTOR_EXTENSION {
+            ZoneDescriptorExtensionInfo: [u8; 64],
+        }
+        struct NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
+            ZoneDescriptor: NVME_ZONE_DESCRIPTOR,
+            ZoneDescriptorExtension: [NVME_ZONE_DESCRIPTOR_EXTENSION; 1],
+        }
+        #[repr(i32)]
+        enum NVME_ZONE_RECEIVE_ACTION {
+            NVME_ZONE_RECEIVE_REPORT_ZONES = 0,
+            NVME_ZONE_RECEIVE_EXTENDED_REPORT_ZONES = 1,
+        }
+        #[repr(i32)]
+        enum NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
+            NVME_ZRA_ALL_ZONES = 0,
+            NVME_ZRA_EMPTY_STATE_ZONES = 1,
+            NVME_ZRA_IO_STATE_ZONES = 2,
+            NVME_ZRA_EO_STATE_ZONES = 3,
+            NVME_ZRA_CLOSED_STATE_ZONES = 4,
+            NVME_ZRA_FULL_STATE_ZONES = 5,
+            NVME_ZRA_RO_STATE_ZONES = 6,
+            NVME_ZRA_OFFLINE_STATE_ZONES = 7,
+        }
+        #[repr(i32)]
+        enum NVME_ZONE_SEND_ACTION {
+            NVME_ZONE_SEND_CLOSE = 1,
+            NVME_ZONE_SEND_FINISH = 2,
+            NVME_ZONE_SEND_OPEN = 3,
+            NVME_ZONE_SEND_RESET = 4,
+            NVME_ZONE_SEND_OFFLINE = 5,
+            NVME_ZONE_SEND_SET_ZONE_DESCRIPTOR = 16,
+        }
+        union NVM_RESERVATION_CAPABILITIES {
+            Anonymous: struct {
+                _bitfield: u8,
+            },
+            AsUchar: u8,
+        }
+        struct NVM_SET_LIST {
+            IdentifierCount: u8,
+            Reserved: [u8; 127],
+            Entry: [NVME_SET_ATTRIBUTES_ENTRY; 1],
+        }
+        const NVM_SUBSYSTEM_SHUTDOWN_ABRUPT: u32 = 1096970356;
+        const NVM_SUBSYSTEM_SHUTDOWN_NORMAL: u32 = 1316121964;
+        type PACTIVE_LATENCY_CONFIGURATION = *mut ACTIVE_LATENCY_CONFIGURATION;
+        type PBUCKET_COUNTER = *mut BUCKET_COUNTER;
+        type PDEBUG_BIT_FIELD = *mut DEBUG_BIT_FIELD;
+        type PDSSD_POWER_STATE_DESCRIPTOR = *mut DSSD_POWER_STATE_DESCRIPTOR;
+        type PFIRMWARE_ACTIVATION_HISTORY_ENTRY = *mut FIRMWARE_ACTIVATION_HISTORY_ENTRY;
+        type PIO_COMMAND_SET_VECTOR = *mut IO_COMMAND_SET_VECTOR;
+        type PLATENCY_MONITOR_FEATURE_STATUS = *mut LATENCY_MONITOR_FEATURE_STATUS;
+        type PLATENCY_STAMP = *mut LATENCY_STAMP;
+        type PLATENCY_STAMP_UNITS = *mut LATENCY_STAMP_UNITS;
+        type PMEASURED_LATENCY = *mut MEASURED_LATENCY;
+        type PNVMEOF_AUTH_DHCHAP_CHALLENGE = *mut NVMEOF_AUTH_DHCHAP_CHALLENGE;
+        type PNVMEOF_AUTH_DHCHAP_DESCRIPTOR = *mut NVMEOF_AUTH_DHCHAP_DESCRIPTOR;
+        type PNVMEOF_AUTH_DHCHAP_REPLY = *mut NVMEOF_AUTH_DHCHAP_REPLY;
+        type PNVMEOF_AUTH_DHCHAP_SUCCESS1 = *mut NVMEOF_AUTH_DHCHAP_SUCCESS1;
+        type PNVMEOF_AUTH_DHCHAP_SUCCESS2 = *mut NVMEOF_AUTH_DHCHAP_SUCCESS2;
+        type PNVMEOF_AUTH_FAILURE = *mut NVMEOF_AUTH_FAILURE;
+        type PNVMEOF_AUTH_NEGOTIATE = *mut NVMEOF_AUTH_NEGOTIATE;
+        type PNVMEOF_AUTH_RECEIVE_COMMAND = *mut NVMEOF_AUTH_RECEIVE_COMMAND;
+        type PNVMEOF_AUTH_RECEIVE_RESPONSE = *mut NVMEOF_AUTH_RECEIVE_RESPONSE;
+        type PNVMEOF_AUTH_SEND_COMMAND = *mut NVMEOF_AUTH_SEND_COMMAND;
+        type PNVMEOF_AUTH_SEND_RESPONSE = *mut NVMEOF_AUTH_SEND_RESPONSE;
+        type PNVMEOF_CONNECT_COMMAND = *mut NVMEOF_CONNECT_COMMAND;
+        type PNVMEOF_CONNECT_DATA = *mut NVMEOF_CONNECT_DATA;
+        type PNVMEOF_CONNECT_RESPONSE = *mut NVMEOF_CONNECT_RESPONSE;
+        type PNVMEOF_DISCONNECT_COMMAND = *mut NVMEOF_DISCONNECT_COMMAND;
+        type PNVMEOF_DISCONNECT_RESPONSE = *mut NVMEOF_DISCONNECT_RESPONSE;
+        type PNVMEOF_FABRICS_COMMAND = *mut NVMEOF_FABRICS_COMMAND;
+        type PNVMEOF_FABRICS_RESPONSE = *mut NVMEOF_FABRICS_RESPONSE;
+        type PNVMEOF_PROPERTY_GET_COMMAND = *mut NVMEOF_PROPERTY_GET_COMMAND;
+        type PNVMEOF_PROPERTY_GET_RESPONSE = *mut NVMEOF_PROPERTY_GET_RESPONSE;
+        type PNVMEOF_PROPERTY_SET_COMMAND = *mut NVMEOF_PROPERTY_SET_COMMAND;
+        type PNVMEOF_PROPERTY_SET_RESPONSE = *mut NVMEOF_PROPERTY_SET_RESPONSE;
+        type PNVME_ACTIVE_NAMESPACE_ID_LIST = *mut NVME_ACTIVE_NAMESPACE_ID_LIST;
+        type PNVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS = *mut NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS;
+        type PNVME_ADMIN_QUEUE_ATTRIBUTES = *mut NVME_ADMIN_QUEUE_ATTRIBUTES;
+        type PNVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS = *mut NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS;
+        type PNVME_AUTO_POWER_STATE_TRANSITION_ENTRY = *mut NVME_AUTO_POWER_STATE_TRANSITION_ENTRY;
+        type PNVME_BOOT_PARTITION_INFORMATION = *mut NVME_BOOT_PARTITION_INFORMATION;
+        type PNVME_BOOT_PARTITION_LOG = *mut NVME_BOOT_PARTITION_LOG;
+        type PNVME_CDW0_FEATURE_DSSD_POWER_STATE = *mut NVME_CDW0_FEATURE_DSSD_POWER_STATE;
+        type PNVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO = *mut NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO;
+        type PNVME_CDW0_FEATURE_ERROR_INJECTION = *mut NVME_CDW11_FEATURE_ERROR_INJECTION;
+        type PNVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE = *mut NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE;
+        type PNVME_CDW0_RESERVATION_PERSISTENCE = *mut NVME_CDW0_RESERVATION_PERSISTENCE;
+        type PNVME_CDW10_ABORT = *mut NVME_CDW10_ABORT;
+        type PNVME_CDW10_CREATE_IO_QUEUE = *mut NVME_CDW10_CREATE_IO_QUEUE;
+        type PNVME_CDW10_DATASET_MANAGEMENT = *mut NVME_CDW10_DATASET_MANAGEMENT;
+        type PNVME_CDW10_DELETE_IO_QUEUE = *mut NVME_CDW10_DELETE_IO_QUEUE;
+        type PNVME_CDW10_DEVICE_SELF_TEST = *mut NVME_CDW10_DEVICE_SELF_TEST;
+        type PNVME_CDW10_DIRECTIVE_RECEIVE = *mut NVME_CDW10_DIRECTIVE_RECEIVE;
+        type PNVME_CDW10_DIRECTIVE_SEND = *mut NVME_CDW10_DIRECTIVE_SEND;
+        type PNVME_CDW10_DISCOVERY_INFO_MGMT = *mut NVME_CDW10_DISCOVERY_INFO_MGMT;
+        type PNVME_CDW10_FIRMWARE_ACTIVATE = *mut NVME_CDW10_FIRMWARE_ACTIVATE;
+        type PNVME_CDW10_FIRMWARE_DOWNLOAD = *mut NVME_CDW10_FIRMWARE_DOWNLOAD;
+        type PNVME_CDW10_FORMAT_NVM = *mut NVME_CDW10_FORMAT_NVM;
+        type PNVME_CDW10_GET_FEATURES = *mut NVME_CDW10_GET_FEATURES;
+        type PNVME_CDW10_GET_LOG_PAGE = *mut NVME_CDW10_GET_LOG_PAGE;
+        type PNVME_CDW10_GET_LOG_PAGE_V121 = *mut NVME_CDW10_GET_LOG_PAGE_V121;
+        type PNVME_CDW10_GET_LOG_PAGE_V13 = *mut NVME_CDW10_GET_LOG_PAGE_V13;
+        type PNVME_CDW10_GET_LOG_PAGE_V20 = *mut NVME_CDW10_GET_LOG_PAGE_V20;
+        type PNVME_CDW10_IDENTIFY = *mut NVME_CDW10_IDENTIFY;
+        type PNVME_CDW10_RESERVATION_ACQUIRE = *mut NVME_CDW10_RESERVATION_ACQUIRE;
+        type PNVME_CDW10_RESERVATION_REGISTER = *mut NVME_CDW10_RESERVATION_REGISTER;
+        type PNVME_CDW10_RESERVATION_RELEASE = *mut NVME_CDW10_RESERVATION_RELEASE;
+        type PNVME_CDW10_RESERVATION_REPORT = *mut NVME_CDW10_RESERVATION_REPORT;
+        type PNVME_CDW10_SANITIZE = *mut NVME_CDW10_SANITIZE;
+        type PNVME_CDW10_SECURITY_SEND_RECEIVE = *mut NVME_CDW10_SECURITY_SEND_RECEIVE;
+        type PNVME_CDW10_SET_FEATURES = *mut NVME_CDW10_SET_FEATURES;
+        type PNVME_CDW10_ZONE_APPEND = *mut NVME_CDW10_ZONE_APPEND;
+        type PNVME_CDW10_ZONE_MANAGEMENT_RECEIVE = *mut NVME_CDW10_ZONE_MANAGEMENT_RECEIVE;
+        type PNVME_CDW10_ZONE_MANAGEMENT_SEND = *mut NVME_CDW10_ZONE_MANAGEMENT_SEND;
+        type PNVME_CDW11_CREATE_IO_CQ = *mut NVME_CDW11_CREATE_IO_CQ;
+        type PNVME_CDW11_CREATE_IO_SQ = *mut NVME_CDW11_CREATE_IO_SQ;
+        type PNVME_CDW11_DATASET_MANAGEMENT = *mut NVME_CDW11_DATASET_MANAGEMENT;
+        type PNVME_CDW11_DIRECTIVE_RECEIVE = *mut NVME_CDW11_DIRECTIVE_RECEIVE;
+        type PNVME_CDW11_DIRECTIVE_SEND = *mut NVME_CDW11_DIRECTIVE_SEND;
+        type PNVME_CDW11_FEATURES = *mut NVME_CDW11_FEATURES;
+        type PNVME_CDW11_FEATURE_ARBITRATION = *mut NVME_CDW11_FEATURE_ARBITRATION;
+        type PNVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG = *mut NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG;
+        type PNVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION = *mut NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION;
+        type PNVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY = *mut NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY;
+        type PNVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS = *mut NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS;
+        type PNVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO = *mut NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO;
+        type PNVME_CDW11_FEATURE_ERROR_INJECTION = *mut NVME_CDW11_FEATURE_ERROR_INJECTION;
+        type PNVME_CDW11_FEATURE_ERROR_RECOVERY = *mut NVME_CDW11_FEATURE_ERROR_RECOVERY;
+        type PNVME_CDW11_FEATURE_GET_HOST_METADATA = *mut NVME_CDW11_FEATURE_GET_HOST_METADATA;
+        type PNVME_CDW11_FEATURE_HOST_IDENTIFIER = *mut NVME_CDW11_FEATURE_HOST_IDENTIFIER;
+        type PNVME_CDW11_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER;
+        type PNVME_CDW11_FEATURE_INTERRUPT_COALESCING = *mut NVME_CDW11_FEATURE_INTERRUPT_COALESCING;
+        type PNVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG = *mut NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG;
+        type PNVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE = *mut NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE;
+        type PNVME_CDW11_FEATURE_LBA_RANGE_TYPE = *mut NVME_CDW11_FEATURE_LBA_RANGE_TYPE;
+        type PNVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE = *mut NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE;
+        type PNVME_CDW11_FEATURE_NUMBER_OF_QUEUES = *mut NVME_CDW11_FEATURE_NUMBER_OF_QUEUES;
+        type PNVME_CDW11_FEATURE_POWER_MANAGEMENT = *mut NVME_CDW11_FEATURE_POWER_MANAGEMENT;
+        type PNVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE = *mut NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE;
+        type PNVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK = *mut NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK;
+        type PNVME_CDW11_FEATURE_RESERVATION_PERSISTENCE = *mut NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE;
+        type PNVME_CDW11_FEATURE_SET_HOST_METADATA = *mut NVME_CDW11_FEATURE_SET_HOST_METADATA;
+        type PNVME_CDW11_FEATURE_SUPPORTED_CAPABILITY = *mut NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY;
+        type PNVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD = *mut NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD;
+        type PNVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE = *mut NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE;
+        type PNVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL = *mut NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL;
+        type PNVME_CDW11_FIRMWARE_DOWNLOAD = *mut NVME_CDW11_FIRMWARE_DOWNLOAD;
+        type PNVME_CDW11_GET_LOG_PAGE = *mut NVME_CDW11_GET_LOG_PAGE;
+        type PNVME_CDW11_IDENTIFY = *mut NVME_CDW11_IDENTIFY;
+        type PNVME_CDW11_RESERVATION_REPORT = *mut NVME_CDW11_RESERVATION_REPORT;
+        type PNVME_CDW11_SECURITY_RECEIVE = *mut NVME_CDW11_SECURITY_RECEIVE;
+        type PNVME_CDW11_SECURITY_SEND = *mut NVME_CDW11_SECURITY_SEND;
+        type PNVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES = *mut NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES;
+        type PNVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE = *mut NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE;
+        type PNVME_CDW12_FEATURES = *mut NVME_CDW12_FEATURES;
+        type PNVME_CDW12_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER;
+        type PNVME_CDW12_GET_LOG_PAGE = *mut NVME_CDW12_GET_LOG_PAGE;
+        type PNVME_CDW12_READ_WRITE = *mut NVME_CDW12_READ_WRITE;
+        type PNVME_CDW12_VERIFYCOMMAND = *mut NVME_CDW12_VERIFYCOMMAND;
+        type PNVME_CDW12_ZONE_APPEND = *mut NVME_CDW12_ZONE_APPEND;
+        type PNVME_CDW13_FEATURES = *mut NVME_CDW13_FEATURES;
+        type PNVME_CDW13_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER;
+        type PNVME_CDW13_GET_LOG_PAGE = *mut NVME_CDW13_GET_LOG_PAGE;
+        type PNVME_CDW13_READ_WRITE = *mut NVME_CDW13_READ_WRITE;
+        type PNVME_CDW13_ZONE_MANAGEMENT_RECEIVE = *mut NVME_CDW13_ZONE_MANAGEMENT_RECEIVE;
+        type PNVME_CDW13_ZONE_MANAGEMENT_SEND = *mut NVME_CDW13_ZONE_MANAGEMENT_SEND;
+        type PNVME_CDW14_FEATURES = *mut NVME_CDW14_FEATURES;
+        type PNVME_CDW14_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER;
+        type PNVME_CDW14_GET_LOG_PAGE = *mut NVME_CDW14_GET_LOG_PAGE;
+        type PNVME_CDW14_GET_LOG_PAGE_V20 = *mut NVME_CDW14_GET_LOG_PAGE_V20;
+        type PNVME_CDW14_IDENTIFY = *mut NVME_CDW14_IDENTIFY;
+        type PNVME_CDW15_FEATURES = *mut NVME_CDW15_FEATURES;
+        type PNVME_CDW15_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER;
+        type PNVME_CDW15_READ_WRITE = *mut NVME_CDW15_READ_WRITE;
+        type PNVME_CDW15_VERIFY_COMMAND = *mut NVME_CDW15_VERIFY_COMMAND;
+        type PNVME_CDW15_ZONE_APPEND = *mut NVME_CDW15_ZONE_APPEND;
+        type PNVME_CHANGED_NAMESPACE_LIST_LOG = *mut NVME_CHANGED_NAMESPACE_LIST_LOG;
+        type PNVME_CHANGED_ZONE_LIST_LOG = *mut NVME_CHANGED_ZONE_LIST_LOG;
+        type PNVME_COMMAND = *mut NVME_COMMAND;
+        type PNVME_COMMAND_DWORD0 = *mut NVME_COMMAND_DWORD0;
+        type PNVME_COMMAND_EFFECTS_DATA = *mut NVME_COMMAND_EFFECTS_DATA;
+        type PNVME_COMMAND_EFFECTS_LOG = *mut NVME_COMMAND_EFFECTS_LOG;
+        type PNVME_COMMAND_STATUS = *mut NVME_COMMAND_STATUS;
+        type PNVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST = *mut NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST;
+        type PNVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES = *mut NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES;
+        type PNVME_COMPLETION_ENTRY = *mut NVME_COMPLETION_ENTRY;
+        type PNVME_COMPLETION_QUEUE_HEAD_DOORBELL = *mut NVME_COMPLETION_QUEUE_HEAD_DOORBELL;
+        type PNVME_CONTEXT_ATTRIBUTES = *mut NVME_CONTEXT_ATTRIBUTES;
+        type PNVME_CONTROLLER_CAPABILITIES = *mut NVME_CONTROLLER_CAPABILITIES;
+        type PNVME_CONTROLLER_CONFIGURATION = *mut NVME_CONTROLLER_CONFIGURATION;
+        type PNVME_CONTROLLER_LIST = *mut NVME_CONTROLLER_LIST;
+        type PNVME_CONTROLLER_MEMORY_BUFFER_LOCATION = *mut NVME_CONTROLLER_MEMORY_BUFFER_LOCATION;
+        type PNVME_CONTROLLER_MEMORY_BUFFER_SIZE = *mut NVME_CONTROLLER_MEMORY_BUFFER_SIZE;
+        type PNVME_CONTROLLER_READY_TIMEOUTS = *mut NVME_CONTROLLER_READY_TIMEOUTS;
+        type PNVME_CONTROLLER_REGISTERS = *mut NVME_CONTROLLER_REGISTERS;
+        type PNVME_CONTROLLER_STATUS = *mut NVME_CONTROLLER_STATUS;
+        type PNVME_DEVICE_SELF_TEST_LOG = *mut NVME_DEVICE_SELF_TEST_LOG;
+        type PNVME_DEVICE_SELF_TEST_RESULT_DATA = *mut NVME_DEVICE_SELF_TEST_RESULT_DATA;
+        type PNVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS = *mut NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS;
+        type PNVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR = *mut NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR;
+        type PNVME_DIRECTIVE_STREAMS_GET_STATUS_DATA = *mut NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA;
+        type PNVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS = *mut NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS;
+        type PNVME_DISCOVERY_ENTRY = *mut NVME_DISCOVERY_ENTRY;
+        type PNVME_DISCOVERY_HEADER = *mut NVME_DISCOVERY_HEADER;
+        type PNVME_DISCOVERY_INFO_MGMT_HEADER = *mut NVME_DISCOVERY_INFO_MGMT_HEADER;
+        type PNVME_ENDURANCE_GROUP_LOG = *mut NVME_ENDURANCE_GROUP_LOG;
+        type PNVME_ERROR_INFO_LOG = *mut NVME_ERROR_INFO_LOG;
+        type PNVME_ERROR_INJECTION_ENTRY = *mut NVME_ERROR_INJECTION_ENTRY;
+        type PNVME_EXTENDED_ATTR = *mut NVME_EXTENDED_ATTR;
+        type PNVME_EXTENDED_DISCOVERY_ENTRY = *mut NVME_EXTENDED_DISCOVERY_ENTRY;
+        type PNVME_EXTENDED_REPORT_ZONE_INFO = *mut NVME_EXTENDED_REPORT_ZONE_INFO;
+        type PNVME_FEATURE_HOST_IDENTIFIER_DATA = *mut NVME_FEATURE_HOST_IDENTIFIER_DATA;
+        type PNVME_FEATURE_HOST_METADATA_DATA = *mut NVME_FEATURE_HOST_METADATA_DATA;
+        type PNVME_FEATURE_IDENTIFIERS_EFFECTS_LOG = *mut NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG;
+        type PNVME_FID_SUPPORTED_AND_EFFECTS = *mut NVME_FID_SUPPORTED_AND_EFFECTS;
+        type PNVME_FIRMWARE_SLOT_INFO_LOG = *mut NVME_FIRMWARE_SLOT_INFO_LOG;
+        type PNVME_GET_FEATURE_TIMESTAMP = *mut NVME_GET_FEATURE_TIMESTAMP;
+        type PNVME_HEALTH_INFO_LOG = *mut NVME_HEALTH_INFO_LOG;
+        type PNVME_HOST_BEHAVIOR_SUPPORT_DATA = *mut NVME_HOST_BEHAVIOR_SUPPORT_DATA;
+        type PNVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY = *mut NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY;
+        type PNVME_HOST_METADATA_ELEMENT_DESCRIPTOR = *mut NVME_HOST_METADATA_ELEMENT_DESCRIPTOR;
+        type PNVME_IDENTIFY_CONTROLLER_DATA = *mut NVME_IDENTIFY_CONTROLLER_DATA;
+        type PNVME_IDENTIFY_IO_COMMAND_SET = *mut NVME_IDENTIFY_IO_COMMAND_SET;
+        type PNVME_IDENTIFY_NAMESPACE_DATA = *mut NVME_IDENTIFY_NAMESPACE_DATA;
+        type PNVME_IDENTIFY_NAMESPACE_DESCRIPTOR = *mut NVME_IDENTIFY_NAMESPACE_DESCRIPTOR;
+        type PNVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET = *mut NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+        type PNVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET = *mut NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET;
+        type PNVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET = *mut NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+        type PNVME_LATENCY_MONITORING_ENTRY = *mut NVME_LATENCY_MONITORING_ENTRY;
+        type PNVME_LBA_FORMAT = *mut NVME_LBA_FORMAT;
+        type PNVME_LBA_RANGE = *mut NVME_LBA_RANGE;
+        type PNVME_LBA_RANGET_TYPE_ENTRY = *mut NVME_LBA_RANGET_TYPE_ENTRY;
+        type PNVME_LBA_ZONE_FORMAT = *mut NVME_LBA_ZONE_FORMAT;
+        type PNVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG = *mut NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG;
+        type PNVME_LID_SUPPORTED_AND_EFFECTS = *mut NVME_LID_SUPPORTED_AND_EFFECTS;
+        type PNVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE = *mut NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE;
+        type PNVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS = *mut NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS;
+        type PNVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG = *mut NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG;
+        type PNVME_NVM_SUBSYSTEM_RESET = *mut NVME_NVM_SUBSYSTEM_RESET;
+        type PNVME_NVM_SUBSYSTEM_SHUTDOWN = *mut NVME_NVM_SUBSYSTEM_SHUTDOWN;
+        type PNVME_OCP_DEVICE_CAPABILITIES_LOG = *mut NVME_OCP_DEVICE_CAPABILITIES_LOG;
+        type PNVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 = *mut NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2;
+        type PNVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG = *mut NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG;
+        type PNVME_OCP_DEVICE_LATENCY_MONITOR_LOG = *mut NVME_OCP_DEVICE_LATENCY_MONITOR_LOG;
+        type PNVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 = *mut NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3;
+        type PNVME_OCP_DEVICE_TCG_CONFIGURATION_LOG = *mut NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG;
+        type PNVME_OCP_DEVICE_TCG_HISTORY_LOG = *mut NVME_OCP_DEVICE_TCG_HISTORY_LOG;
+        type PNVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG = *mut NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG;
+        type PNVME_PERSISTENT_EVENT_LOG_EVENT_HEADER = *mut NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER;
+        type PNVME_PERSISTENT_EVENT_LOG_HEADER = *mut NVME_PERSISTENT_EVENT_LOG_HEADER;
+        type PNVME_POWER_STATE_DESC = *mut NVME_POWER_STATE_DESC;
+        type PNVME_PRP_ENTRY = *mut NVME_PRP_ENTRY;
+        type PNVME_REGISTERED_CONTROLLER_DATA = *mut NVME_REGISTERED_CONTROLLER_DATA;
+        type PNVME_REGISTERED_CONTROLLER_EXTENDED_DATA = *mut NVME_REGISTERED_CONTROLLER_EXTENDED_DATA;
+        type PNVME_REPORT_ZONE_INFO = *mut NVME_REPORT_ZONE_INFO;
+        type PNVME_RESERVATION_ACQUIRE_DATA_STRUCTURE = *mut NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE;
+        type PNVME_RESERVATION_CAPABILITIES = *mut NVM_RESERVATION_CAPABILITIES;
+        type PNVME_RESERVATION_NOTIFICATION_LOG = *mut NVME_RESERVATION_NOTIFICATION_LOG;
+        type PNVME_RESERVATION_REGISTER_DATA_STRUCTURE = *mut NVME_RESERVATION_REGISTER_DATA_STRUCTURE;
+        type PNVME_RESERVATION_RELEASE_DATA_STRUCTURE = *mut NVME_RESERVATION_RELEASE_DATA_STRUCTURE;
+        type PNVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE = *mut NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE;
+        type PNVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE = *mut NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE;
+        type PNVME_RESERVATION_REPORT_STATUS_HEADER = *mut NVME_RESERVATION_REPORT_STATUS_HEADER;
+        type PNVME_SANITIZE_ACTION = *mut NVME_SANITIZE_ACTION;
+        type PNVME_SANITIZE_OPERATION_STATUS = *mut NVME_SANITIZE_OPERATION_STATUS;
+        type PNVME_SANITIZE_STATUS = *mut NVME_SANITIZE_STATUS;
+        type PNVME_SANITIZE_STATUS_LOG = *mut NVME_SANITIZE_STATUS_LOG;
+        type PNVME_SCSI_NAME_STRING = *mut NVME_SCSI_NAME_STRING;
+        type PNVME_SET_ATTRIBUTES_ENTRY = *mut NVME_SET_ATTRIBUTES_ENTRY;
+        type PNVME_SGL_BITBUCKET_DESC = *mut NVME_SGL_BITBUCKET_DESC;
+        type PNVME_SGL_DATABLOCK_DESC = *mut NVME_SGL_DATABLOCK_DESC;
+        type PNVME_SGL_DESC = *mut NVME_SGL_DESC;
+        type PNVME_SGL_KEYDATABLOCK_DESC = *mut NVME_SGL_KEYDATABLOCK_DESC;
+        type PNVME_SGL_LASTSEG_DESC = *mut NVME_SGL_LASTSEG_DESC;
+        type PNVME_SGL_SEGMENT_DESC = *mut NVME_SGL_SEGMENT_DESC;
+        type PNVME_SGL_TRANSPORTDATA_DESC = *mut NVME_SGL_TRANSPORTDATA_DESC;
+        type PNVME_SUBMISSION_QUEUE_TAIL_DOORBELL = *mut NVME_SUBMISSION_QUEUE_TAIL_DOORBELL;
+        type PNVME_SUPPORTED_LOG_PAGES_LOG = *mut NVME_SUPPORTED_LOG_PAGES_LOG;
+        type PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG = *mut NVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
+        type PNVME_TELEMETRY_HOST_INITIATED_LOG = *mut NVME_TELEMETRY_HOST_INITIATED_LOG;
+        type PNVME_UUID_LIST = *mut NVME_UUID_LIST;
+        type PNVME_UUID_LIST_ENTRY = *mut NVME_UUID_LIST_ENTRY;
+        type PNVME_VERSION = *mut NVME_VERSION;
+        type PNVME_WCS_DEVICE_CAPABILITIES = *mut NVME_WCS_DEVICE_CAPABILITIES;
+        type PNVME_WCS_DEVICE_ERROR_RECOVERY_LOG = *mut NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
+        type PNVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = *mut NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
+        type PNVME_WCS_DEVICE_RECOVERY_ACTION1 = *mut NVME_WCS_DEVICE_RECOVERY_ACTION1;
+        type PNVME_WCS_DEVICE_RECOVERY_ACTION2 = *mut NVME_WCS_DEVICE_RECOVERY_ACTION2;
+        type PNVME_WCS_DEVICE_RESET_ACTION = *mut NVME_WCS_DEVICE_RESET_ACTION;
+        type PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG = *mut NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG;
+        type PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 = *mut NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2;
+        type PNVME_ZONE_DESCRIPTOR = *mut NVME_ZONE_DESCRIPTOR;
+        type PNVME_ZONE_DESCRIPTOR_EXTENSION = *mut NVME_ZONE_DESCRIPTOR_EXTENSION;
+        type PNVME_ZONE_EXTENDED_REPORT_ZONE_DESC = *mut NVME_ZONE_EXTENDED_REPORT_ZONE_DESC;
+        type PNVM_SET_LIST = *mut NVM_SET_LIST;
+        type PTCG_ACTIVATE_METHOD_SPECIFIC = *mut TCG_ACTIVATE_METHOD_SPECIFIC;
+        type PTCG_ASSIGN_METHOD_SPECIFIC = *mut TCG_ASSIGN_METHOD_SPECIFIC;
+        type PTCG_AUTH_METHOD_SPECIFIC = *mut TCG_AUTH_METHOD_SPECIFIC;
+        type PTCG_BLOCKSID_METHOD_SPECIFIC = *mut TCG_BLOCKSID_METHOD_SPECIFIC;
+        type PTCG_HISTORY_ENTRY = *mut TCG_HISTORY_ENTRY;
+        type PTCG_REACTIVATE_METHOD_SPECIFIC = *mut TCG_REACTIVATE_METHOD_SPECIFIC;
+        type PUNSUPPORTED_REQUIREMENT = *mut UNSUPPORTED_REQUIREMENT;
+        struct TCG_ACTIVATE_METHOD_SPECIFIC {
+            RangeStartLengthPolicy: u8,
+        }
+        #[packed(1)]
+        struct TCG_ASSIGN_METHOD_SPECIFIC {
+            NamespaceId: u32,
+        }
+        #[packed(1)]
+        struct TCG_AUTH_METHOD_SPECIFIC {
+            AuthorityId: u64,
+            TriesCount: u8,
+        }
+        struct TCG_BLOCKSID_METHOD_SPECIFIC {
+            ClearEvents: u8,
+        }
+        #[packed(1)]
+        struct TCG_HISTORY_ENTRY {
+            VersionNumber: u8,
+            EntryLength: u8,
+            PowerCycleCount: u16,
+            TcgCommandCount: u32,
+            TcgCommandCompletionTS: u64,
+            InvokingId: u64,
+            MethodId: u64,
+            ComId: u16,
+            ProtocolId: u8,
+            TcgStatus: u8,
+            ProcessTime: u16,
+            CommandSpecific: [u8; 10],
+        }
+        const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1;
+        struct TCG_REACTIVATE_METHOD_SPECIFIC {
+            RangeStartLengthPolicy: u8,
+        }
+        struct UNSUPPORTED_REQUIREMENT {
+            ReqId: [u8; 16],
+        }
+        const ZDES_SIZE_MULTIPLIER_IN_BYTES: u32 = 64;
+        #[repr(i32)]
+        enum ZONE_STATE {
+            NVME_STATE_ZSE = 1,
+            NVME_STATE_ZSIO = 2,
+            NVME_STATE_ZSEO = 3,
+            NVME_STATE_ZSC = 4,
+            NVME_STATE_ZSRO = 13,
+            NVME_STATE_ZSF = 14,
+            NVME_STATE_ZSO = 15,
+        }
+    }
+}

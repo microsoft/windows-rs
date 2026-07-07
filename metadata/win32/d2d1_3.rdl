@@ -1,0 +1,325 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d2d1.dll")]
+        extern fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(pPoint0: *const D2D_POINT_2F, pPoint1: *const D2D_POINT_2F, pPoint2: *const D2D_POINT_2F, pPoint3: *const D2D_POINT_2F, pPoint4: *const D2D_POINT_2F, pPoint5: *const D2D_POINT_2F, pPoint6: *const D2D_POINT_2F, pPoint7: *const D2D_POINT_2F, pPoint8: *const D2D_POINT_2F, pPoint9: *const D2D_POINT_2F, pPoint10: *const D2D_POINT_2F, pPoint11: *const D2D_POINT_2F, pTensorPoint11: *mut D2D_POINT_2F, pTensorPoint12: *mut D2D_POINT_2F, pTensorPoint21: *mut D2D_POINT_2F, pTensorPoint22: *mut D2D_POINT_2F);
+        #[repr(i32)]
+        enum D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+            D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT = 0,
+            D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE = 1,
+            D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_COLOR_CONTEXT_TYPE {
+            D2D1_COLOR_CONTEXT_TYPE_ICC = 0,
+            D2D1_COLOR_CONTEXT_TYPE_SIMPLE = 1,
+            D2D1_COLOR_CONTEXT_TYPE_DXGI = 2,
+            D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_GAMMA1 {
+            D2D1_GAMMA1_G22 = 0,
+            D2D1_GAMMA1_G10 = 1,
+            D2D1_GAMMA1_G2084 = 2,
+            D2D1_GAMMA1_FORCE_DWORD = -1,
+        }
+        struct D2D1_GRADIENT_MESH_PATCH {
+            point00: D2D_POINT_2F,
+            point01: D2D_POINT_2F,
+            point02: D2D_POINT_2F,
+            point03: D2D_POINT_2F,
+            point10: D2D_POINT_2F,
+            point11: D2D_POINT_2F,
+            point12: D2D_POINT_2F,
+            point13: D2D_POINT_2F,
+            point20: D2D_POINT_2F,
+            point21: D2D_POINT_2F,
+            point22: D2D_POINT_2F,
+            point23: D2D_POINT_2F,
+            point30: D2D_POINT_2F,
+            point31: D2D_POINT_2F,
+            point32: D2D_POINT_2F,
+            point33: D2D_POINT_2F,
+            color00: D2D_COLOR_F,
+            color03: D2D_COLOR_F,
+            color30: D2D_COLOR_F,
+            color33: D2D_COLOR_F,
+            topEdgeMode: D2D1_PATCH_EDGE_MODE,
+            leftEdgeMode: D2D1_PATCH_EDGE_MODE,
+            bottomEdgeMode: D2D1_PATCH_EDGE_MODE,
+            rightEdgeMode: D2D1_PATCH_EDGE_MODE,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+            D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE = 0,
+            D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION = 1,
+            D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+            D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE = 0,
+            D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE = 1,
+            D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND = 2,
+            D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_INK_BEZIER_SEGMENT {
+            point1: D2D1_INK_POINT,
+            point2: D2D1_INK_POINT,
+            point3: D2D1_INK_POINT,
+        }
+        #[repr(i32)]
+        enum D2D1_INK_NIB_SHAPE {
+            D2D1_INK_NIB_SHAPE_ROUND = 0,
+            D2D1_INK_NIB_SHAPE_SQUARE = 1,
+            D2D1_INK_NIB_SHAPE_FORCE_DWORD = -1,
+        }
+        struct D2D1_INK_POINT {
+            x: f32,
+            y: f32,
+            radius: f32,
+        }
+        struct D2D1_INK_STYLE_PROPERTIES {
+            nibShape: D2D1_INK_NIB_SHAPE,
+            nibTransform: D2D_MATRIX_3X2_F,
+        }
+        #[repr(i32)]
+        enum D2D1_ORIENTATION {
+            D2D1_ORIENTATION_DEFAULT = 1,
+            D2D1_ORIENTATION_FLIP_HORIZONTAL = 2,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE180 = 3,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL = 4,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL = 5,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE270 = 6,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL = 7,
+            D2D1_ORIENTATION_ROTATE_CLOCKWISE90 = 8,
+            D2D1_ORIENTATION_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_PATCH_EDGE_MODE {
+            D2D1_PATCH_EDGE_MODE_ALIASED = 0,
+            D2D1_PATCH_EDGE_MODE_ANTIALIASED = 1,
+            D2D1_PATCH_EDGE_MODE_ALIASED_INFLATED = 2,
+            D2D1_PATCH_EDGE_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_SIMPLE_COLOR_PROFILE {
+            redPrimary: D2D_POINT_2F,
+            greenPrimary: D2D_POINT_2F,
+            bluePrimary: D2D_POINT_2F,
+            whitePointXZ: D2D_POINT_2F,
+            gamma: D2D1_GAMMA1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_SPRITE_OPTIONS {
+            D2D1_SPRITE_OPTIONS_NONE = 0,
+            D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE = 1,
+            D2D1_SPRITE_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+            D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE = 0,
+            D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE = 1,
+            D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+            orientation: D2D1_ORIENTATION,
+            scaleX: f32,
+            scaleY: f32,
+            interpolationMode: D2D1_INTERPOLATION_MODE,
+            options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
+        }
+        #[guid(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee)]
+        interface ID2D1ColorContext1: ID2D1ColorContext {
+            fn GetColorContextType(&self) -> D2D1_COLOR_CONTEXT_TYPE;
+            fn GetDXGIColorSpace(&self) -> DXGI_COLOR_SPACE_TYPE;
+            fn GetSimpleColorProfile(&self, simpleProfile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> HRESULT;
+        }
+        #[guid(0x3bab440e_417e_47df_a2e2_bc0be6a00916)]
+        interface ID2D1CommandSink2: ID2D1CommandSink1 {
+            fn DrawInk(&self, ink: ID2D1Ink, brush: ID2D1Brush, #[opt] inkStyle: ID2D1InkStyle) -> HRESULT;
+            fn DrawGradientMesh(&self, gradientMesh: ID2D1GradientMesh) -> HRESULT;
+            fn DrawGdiMetafile(&self, gdiMetafile: ID2D1GdiMetafile, #[opt] destinationRectangle: *const D2D_RECT_F, #[opt] sourceRectangle: *const D2D_RECT_F) -> HRESULT;
+        }
+        #[guid(0x18079135_4cf3_4868_bc8e_06067e6d242d)]
+        interface ID2D1CommandSink3: ID2D1CommandSink2 {
+            fn DrawSpriteBatch(&self, spriteBatch: ID2D1SpriteBatch, startIndex: u32, spriteCount: u32, bitmap: ID2D1Bitmap, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, spriteOptions: D2D1_SPRITE_OPTIONS) -> HRESULT;
+        }
+        #[guid(0xc78a6519_40d6_4218_b2de_beeeb744bb3e)]
+        interface ID2D1CommandSink4: ID2D1CommandSink3 {
+            fn SetPrimitiveBlend2(&self, primitiveBlend: D2D1_PRIMITIVE_BLEND) -> HRESULT;
+        }
+        #[guid(0x7047dd26_b1e7_44a7_959a_8349e2144fa8)]
+        interface ID2D1CommandSink5: ID2D1CommandSink4 {
+            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const D2D_POINT_2F, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE) -> HRESULT;
+        }
+        #[guid(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b)]
+        interface ID2D1Device2: ID2D1Device1 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext2: *mut ID2D1DeviceContext2) -> HRESULT;
+            fn FlushDeviceContexts(&self, bitmap: ID2D1Bitmap);
+            fn GetDxgiDevice(&self, dxgiDevice: *mut IDXGIDevice) -> HRESULT;
+        }
+        #[guid(0x852f2087_802c_4037_ab60_ff2e7ee6fc01)]
+        interface ID2D1Device3: ID2D1Device2 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext3: *mut ID2D1DeviceContext3) -> HRESULT;
+        }
+        #[guid(0xd7bdb159_5683_4a46_bc9c_72dc720b858b)]
+        interface ID2D1Device4: ID2D1Device3 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext4: *mut ID2D1DeviceContext4) -> HRESULT;
+            fn SetMaximumColorGlyphCacheMemory(&self, maximumInBytes: u64);
+            fn GetMaximumColorGlyphCacheMemory(&self) -> u64;
+        }
+        #[guid(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4)]
+        interface ID2D1Device5: ID2D1Device4 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext5: *mut ID2D1DeviceContext5) -> HRESULT;
+        }
+        #[guid(0x7bfef914_2d75_4bad_be87_e18ddb077b6d)]
+        interface ID2D1Device6: ID2D1Device5 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext6: *mut ID2D1DeviceContext6) -> HRESULT;
+        }
+        #[guid(0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb)]
+        interface ID2D1Device7: ID2D1Device6 {
+            fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS, deviceContext: *mut ID2D1DeviceContext7) -> HRESULT;
+        }
+        #[guid(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7)]
+        interface ID2D1DeviceContext2: ID2D1DeviceContext1 {
+            fn CreateInk(&self, startPoint: *const D2D1_INK_POINT, ink: *mut ID2D1Ink) -> HRESULT;
+            fn CreateInkStyle(&self, #[opt] inkStyleProperties: *const D2D1_INK_STYLE_PROPERTIES, inkStyle: *mut ID2D1InkStyle) -> HRESULT;
+            fn CreateGradientMesh(&self, #[len_param(1)] patches: *const D2D1_GRADIENT_MESH_PATCH, patchesCount: u32, gradientMesh: *mut ID2D1GradientMesh) -> HRESULT;
+            fn CreateImageSourceFromWic(&self, wicBitmapSource: IWICBitmapSource, loadingOptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphaMode: D2D1_ALPHA_MODE, imageSource: *mut ID2D1ImageSourceFromWic) -> HRESULT;
+            fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, #[len_const(3)] extents: *const u32, #[len_param(3)] data: *const u8, dataCount: u32, #[len_const(2)] strides: *const u32, lookupTable: *mut ID2D1LookupTable3D) -> HRESULT;
+            fn CreateImageSourceFromDxgi(&self, #[len_param(1)] surfaces: *const IDXGISurface, surfaceCount: u32, colorSpace: DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, imageSource: *mut ID2D1ImageSource) -> HRESULT;
+            fn GetGradientMeshWorldBounds(&self, gradientMesh: ID2D1GradientMesh, pBounds: *mut D2D_RECT_F) -> HRESULT;
+            fn DrawInk(&self, ink: ID2D1Ink, brush: ID2D1Brush, #[opt] inkStyle: ID2D1InkStyle);
+            fn DrawGradientMesh(&self, gradientMesh: ID2D1GradientMesh);
+            fn DrawGdiMetafile(&self, gdiMetafile: ID2D1GdiMetafile, #[opt] destinationRectangle: *const D2D_RECT_F, #[opt] sourceRectangle: *const D2D_RECT_F);
+            fn CreateTransformedImageSource(&self, imageSource: ID2D1ImageSource, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, transformedImageSource: *mut ID2D1TransformedImageSource) -> HRESULT;
+        }
+        #[guid(0x235a7496_8351_414c_bcd4_6672ab2d8e00)]
+        interface ID2D1DeviceContext3: ID2D1DeviceContext2 {
+            fn CreateSpriteBatch(&self, spriteBatch: *mut ID2D1SpriteBatch) -> HRESULT;
+            fn DrawSpriteBatch(&self, spriteBatch: ID2D1SpriteBatch, startIndex: u32, spriteCount: u32, bitmap: ID2D1Bitmap, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, spriteOptions: D2D1_SPRITE_OPTIONS);
+        }
+        #[guid(0x8c427831_3d90_4476_b647_c4fae349e4db)]
+        interface ID2D1DeviceContext4: ID2D1DeviceContext3 {
+            fn CreateSvgGlyphStyle(&self, svgGlyphStyle: *mut ID2D1SvgGlyphStyle) -> HRESULT;
+            fn DrawText(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutRect: *const D2D_RECT_F, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawTextLayout(&self, origin: D2D_POINT_2F, textLayout: IDWriteTextLayout, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
+            fn DrawColorBitmapGlyphRun(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
+            fn DrawSvgGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
+            fn GetColorBitmapGlyphImage(&self, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphOrigin: D2D_POINT_2F, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, dpiX: f32, dpiY: f32, glyphTransform: *mut D2D_MATRIX_3X2_F, glyphImage: *mut ID2D1Image) -> HRESULT;
+            fn GetSvgGlyphImage(&self, glyphOrigin: D2D_POINT_2F, fontFace: IDWriteFontFace, fontEmSize: f32, glyphIndex: u16, isSideways: BOOL, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, #[opt] defaultFillBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, glyphTransform: *mut D2D_MATRIX_3X2_F, glyphImage: *mut ID2D1CommandList) -> HRESULT;
+        }
+        #[guid(0x7836d248_68cc_4df6_b9e8_de991bf62eb7)]
+        interface ID2D1DeviceContext5: ID2D1DeviceContext4 {
+            fn CreateSvgDocument(&self, #[opt] inputXmlStream: IStream, viewportSize: D2D_SIZE_F, svgDocument: *mut ID2D1SvgDocument) -> HRESULT;
+            fn DrawSvgDocument(&self, svgDocument: ID2D1SvgDocument);
+            fn CreateColorContextFromDxgiColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE, colorContext: *mut ID2D1ColorContext1) -> HRESULT;
+            fn CreateColorContextFromSimpleColorProfile(&self, simpleProfile: *const D2D1_SIMPLE_COLOR_PROFILE, colorContext: *mut ID2D1ColorContext1) -> HRESULT;
+        }
+        #[guid(0x985f7e37_4ed0_4a19_98a3_15b0edfde306)]
+        interface ID2D1DeviceContext6: ID2D1DeviceContext5 {
+            fn BlendImage(&self, image: ID2D1Image, blendMode: D2D1_BLEND_MODE, #[opt] targetOffset: *const D2D_POINT_2F, #[opt] imageRectangle: *const D2D_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE);
+        }
+        #[guid(0xec891cf7_9b69_4851_9def_4e0915771e62)]
+        interface ID2D1DeviceContext7: ID2D1DeviceContext6 {
+            fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
+            fn DrawPaintGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] defaultFillBrush: ID2D1Brush, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawGlyphRunWithColorSupport(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[opt] foregroundBrush: ID2D1Brush, #[opt] svgGlyphStyle: ID2D1SvgGlyphStyle, colorPaletteIndex: u32, measuringMode: DWRITE_MEASURING_MODE, bitmapSnapOption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
+        }
+        #[guid(0x0869759f_4f00_413f_b03e_2bda45404d0f)]
+        interface ID2D1Factory3: ID2D1Factory2 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice2: *mut ID2D1Device2) -> HRESULT;
+        }
+        #[guid(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096)]
+        interface ID2D1Factory4: ID2D1Factory3 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice3: *mut ID2D1Device3) -> HRESULT;
+        }
+        #[guid(0xc4349994_838e_4b0f_8cab_44997d9eeacc)]
+        interface ID2D1Factory5: ID2D1Factory4 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice4: *mut ID2D1Device4) -> HRESULT;
+        }
+        #[guid(0xf9976f46_f642_44c1_97ca_da32ea2a2635)]
+        interface ID2D1Factory6: ID2D1Factory5 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice5: *mut ID2D1Device5) -> HRESULT;
+        }
+        #[guid(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de)]
+        interface ID2D1Factory7: ID2D1Factory6 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice6: *mut ID2D1Device6) -> HRESULT;
+        }
+        #[guid(0x677c9311_f36d_4b1f_ae86_86d1223ffd3a)]
+        interface ID2D1Factory8: ID2D1Factory7 {
+            fn CreateDevice(&self, dxgiDevice: IDXGIDevice, d2dDevice6: *mut ID2D1Device7) -> HRESULT;
+        }
+        #[guid(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df)]
+        interface ID2D1GdiMetafile1: ID2D1GdiMetafile {
+            fn GetDpi(&self, dpiX: *mut f32, dpiY: *mut f32) -> HRESULT;
+            fn GetSourceBounds(&self, bounds: *mut D2D_RECT_F) -> HRESULT;
+        }
+        #[guid(0xfd0ecb6b_91e6_411e_8655_395e760f91b4)]
+        interface ID2D1GdiMetafileSink1: ID2D1GdiMetafileSink {
+            fn ProcessRecord(&self, recordType: u32, #[opt] recordData: *const void, recordDataSize: u32, flags: u32) -> HRESULT;
+        }
+        #[guid(0xf292e401_c050_4cde_83d7_04962d3b23c2)]
+        interface ID2D1GradientMesh: ID2D1Resource {
+            fn GetPatchCount(&self) -> u32;
+            fn GetPatches(&self, startIndex: u32, #[len_param(2)] patches: *mut D2D1_GRADIENT_MESH_PATCH, patchesCount: u32) -> HRESULT;
+        }
+        #[guid(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8)]
+        interface ID2D1ImageSource: ID2D1Image {
+            fn OfferResources(&self) -> HRESULT;
+            fn TryReclaimResources(&self, resourcesDiscarded: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x77395441_1c8f_4555_8683_f50dab0fe792)]
+        interface ID2D1ImageSourceFromWic: ID2D1ImageSource {
+            fn EnsureCached(&self, #[opt] rectangleToFill: *const D2D_RECT_U) -> HRESULT;
+            fn TrimCache(&self, #[opt] rectangleToPreserve: *const D2D_RECT_U) -> HRESULT;
+            fn GetSource(&self, wicBitmapSource: *mut IWICBitmapSource);
+        }
+        #[guid(0xb499923b_7029_478f_a8b3_432c7c5f5312)]
+        interface ID2D1Ink: ID2D1Resource {
+            fn SetStartPoint(&self, startPoint: *const D2D1_INK_POINT);
+            fn GetStartPoint(&self) -> D2D1_INK_POINT;
+            fn AddSegments(&self, #[len_param(1)] segments: *const D2D1_INK_BEZIER_SEGMENT, segmentsCount: u32) -> HRESULT;
+            fn RemoveSegmentsAtEnd(&self, segmentsCount: u32) -> HRESULT;
+            fn SetSegments(&self, startSegment: u32, #[len_param(2)] segments: *const D2D1_INK_BEZIER_SEGMENT, segmentsCount: u32) -> HRESULT;
+            fn SetSegmentAtEnd(&self, segment: *const D2D1_INK_BEZIER_SEGMENT) -> HRESULT;
+            fn GetSegmentCount(&self) -> u32;
+            fn GetSegments(&self, startSegment: u32, #[len_param(2)] segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentsCount: u32) -> HRESULT;
+            fn StreamAsGeometry(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn GetBounds(&self, #[opt] inkStyle: ID2D1InkStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, bounds: *mut D2D_RECT_F) -> HRESULT;
+        }
+        #[guid(0xbae8b344_23fc_4071_8cb5_d05d6f073848)]
+        interface ID2D1InkStyle: ID2D1Resource {
+            fn SetNibTransform(&self, transform: *const D2D_MATRIX_3X2_F);
+            fn GetNibTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn SetNibShape(&self, nibShape: D2D1_INK_NIB_SHAPE);
+            fn GetNibShape(&self) -> D2D1_INK_NIB_SHAPE;
+        }
+        #[guid(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797)]
+        interface ID2D1LookupTable3D: ID2D1Resource {}
+        #[guid(0x4dc583bf_3a10_438a_8722_e9765224f1f1)]
+        interface ID2D1SpriteBatch: ID2D1Resource {
+            fn AddSprites(&self, spriteCount: u32, destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const D2D_MATRIX_3X2_F, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
+            fn SetSprites(&self, startIndex: u32, spriteCount: u32, #[opt] destinationRectangles: *const D2D_RECT_F, #[opt] sourceRectangles: *const D2D_RECT_U, #[opt] colors: *const D2D_COLOR_F, #[opt] transforms: *const D2D_MATRIX_3X2_F, destinationRectanglesStride: u32, sourceRectanglesStride: u32, colorsStride: u32, transformsStride: u32) -> HRESULT;
+            fn GetSprites(&self, startIndex: u32, spriteCount: u32, #[len_param(1)] #[opt] destinationRectangles: *mut D2D_RECT_F, #[len_param(1)] #[opt] sourceRectangles: *mut D2D_RECT_U, #[len_param(1)] #[opt] colors: *mut D2D_COLOR_F, #[len_param(1)] #[opt] transforms: *mut D2D_MATRIX_3X2_F) -> HRESULT;
+            fn GetSpriteCount(&self) -> u32;
+            fn Clear(&self);
+        }
+        #[guid(0xaf671749_d241_4db8_8e41_dcc2e5c1a438)]
+        interface ID2D1SvgGlyphStyle: ID2D1Resource {
+            fn SetFill(&self, #[opt] brush: ID2D1Brush) -> HRESULT;
+            fn GetFill(&self, brush: *mut ID2D1Brush);
+            fn SetStroke(&self, #[opt] brush: ID2D1Brush, strokeWidth: f32, #[len_param(3)] #[opt] dashes: *const f32, dashesCount: u32, dashOffset: f32) -> HRESULT;
+            fn GetStrokeDashesCount(&self) -> u32;
+            fn GetStroke(&self, brush: *mut ID2D1Brush, #[opt] strokeWidth: *mut f32, #[len_param(3)] #[opt] dashes: *mut f32, dashesCount: u32, #[opt] dashOffset: *mut f32);
+        }
+        #[guid(0x7f1f79e5_2796_416c_8f55_700f911445e5)]
+        interface ID2D1TransformedImageSource: ID2D1Image {
+            fn GetSource(&self, imageSource: *mut ID2D1ImageSource);
+            fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
+        }
+    }
+}

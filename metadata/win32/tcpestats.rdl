@@ -1,0 +1,211 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PTCP_BOOLEAN_OPTIONAL = *mut TCP_BOOLEAN_OPTIONAL;
+        type PTCP_ESTATS_BANDWIDTH_ROD_v0 = *mut TCP_ESTATS_BANDWIDTH_ROD_v0;
+        type PTCP_ESTATS_BANDWIDTH_RW_v0 = *mut TCP_ESTATS_BANDWIDTH_RW_v0;
+        type PTCP_ESTATS_DATA_ROD_v0 = *mut TCP_ESTATS_DATA_ROD_v0;
+        type PTCP_ESTATS_DATA_RW_v0 = *mut TCP_ESTATS_DATA_RW_v0;
+        type PTCP_ESTATS_FINE_RTT_ROD_v0 = *mut TCP_ESTATS_FINE_RTT_ROD_v0;
+        type PTCP_ESTATS_FINE_RTT_RW_v0 = *mut TCP_ESTATS_FINE_RTT_RW_v0;
+        type PTCP_ESTATS_OBS_REC_ROD_v0 = *mut TCP_ESTATS_OBS_REC_ROD_v0;
+        type PTCP_ESTATS_OBS_REC_RW_v0 = *mut TCP_ESTATS_OBS_REC_RW_v0;
+        type PTCP_ESTATS_PATH_ROD_v0 = *mut TCP_ESTATS_PATH_ROD_v0;
+        type PTCP_ESTATS_PATH_RW_v0 = *mut TCP_ESTATS_PATH_RW_v0;
+        type PTCP_ESTATS_REC_ROD_v0 = *mut TCP_ESTATS_REC_ROD_v0;
+        type PTCP_ESTATS_REC_RW_v0 = *mut TCP_ESTATS_REC_RW_v0;
+        type PTCP_ESTATS_SEND_BUFF_ROD_v0 = *mut TCP_ESTATS_SEND_BUFF_ROD_v0;
+        type PTCP_ESTATS_SEND_BUFF_RW_v0 = *mut TCP_ESTATS_SEND_BUFF_RW_v0;
+        type PTCP_ESTATS_SND_CONG_ROD_v0 = *mut TCP_ESTATS_SND_CONG_ROD_v0;
+        type PTCP_ESTATS_SND_CONG_ROS_v0 = *mut TCP_ESTATS_SND_CONG_ROS_v0;
+        type PTCP_ESTATS_SND_CONG_RW_v0 = *mut TCP_ESTATS_SND_CONG_RW_v0;
+        type PTCP_ESTATS_SYN_OPTS_ROS_v0 = *mut TCP_ESTATS_SYN_OPTS_ROS_v0;
+        type PTCP_ESTATS_TYPE = *mut TCP_ESTATS_TYPE;
+        type PTCP_SOFT_ERROR = *mut TCP_SOFT_ERROR;
+        #[repr(i32)]
+        enum TCP_BOOLEAN_OPTIONAL {
+            TcpBoolOptDisabled = 0,
+            TcpBoolOptEnabled = 1,
+            TcpBoolOptUnchanged = -1,
+        }
+        struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
+            OutboundBandwidth: u64,
+            InboundBandwidth: u64,
+            OutboundInstability: u64,
+            InboundInstability: u64,
+            OutboundBandwidthPeaked: BOOLEAN,
+            InboundBandwidthPeaked: BOOLEAN,
+        }
+        struct TCP_ESTATS_BANDWIDTH_RW_v0 {
+            EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
+            EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
+        }
+        struct TCP_ESTATS_DATA_ROD_v0 {
+            DataBytesOut: u64,
+            DataSegsOut: u64,
+            DataBytesIn: u64,
+            DataSegsIn: u64,
+            SegsOut: u64,
+            SegsIn: u64,
+            SoftErrors: u32,
+            SoftErrorReason: u32,
+            SndUna: u32,
+            SndNxt: u32,
+            SndMax: u32,
+            ThruBytesAcked: u64,
+            RcvNxt: u32,
+            ThruBytesReceived: u64,
+        }
+        struct TCP_ESTATS_DATA_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_FINE_RTT_ROD_v0 {
+            RttVar: u32,
+            MaxRtt: u32,
+            MinRtt: u32,
+            SumRtt: u32,
+        }
+        struct TCP_ESTATS_FINE_RTT_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_OBS_REC_ROD_v0 {
+            CurRwinRcvd: u32,
+            MaxRwinRcvd: u32,
+            MinRwinRcvd: u32,
+            WinScaleRcvd: u8,
+        }
+        struct TCP_ESTATS_OBS_REC_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_PATH_ROD_v0 {
+            FastRetran: u32,
+            Timeouts: u32,
+            SubsequentTimeouts: u32,
+            CurTimeoutCount: u32,
+            AbruptTimeouts: u32,
+            PktsRetrans: u32,
+            BytesRetrans: u32,
+            DupAcksIn: u32,
+            SacksRcvd: u32,
+            SackBlocksRcvd: u32,
+            CongSignals: u32,
+            PreCongSumCwnd: u32,
+            PreCongSumRtt: u32,
+            PostCongSumRtt: u32,
+            PostCongCountRtt: u32,
+            EcnSignals: u32,
+            EceRcvd: u32,
+            SendStall: u32,
+            QuenchRcvd: u32,
+            RetranThresh: u32,
+            SndDupAckEpisodes: u32,
+            SumBytesReordered: u32,
+            NonRecovDa: u32,
+            NonRecovDaEpisodes: u32,
+            AckAfterFr: u32,
+            DsackDups: u32,
+            SampleRtt: u32,
+            SmoothedRtt: u32,
+            RttVar: u32,
+            MaxRtt: u32,
+            MinRtt: u32,
+            SumRtt: u32,
+            CountRtt: u32,
+            CurRto: u32,
+            MaxRto: u32,
+            MinRto: u32,
+            CurMss: u32,
+            MaxMss: u32,
+            MinMss: u32,
+            SpuriousRtoDetections: u32,
+        }
+        struct TCP_ESTATS_PATH_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_REC_ROD_v0 {
+            CurRwinSent: u32,
+            MaxRwinSent: u32,
+            MinRwinSent: u32,
+            LimRwin: u32,
+            DupAckEpisodes: u32,
+            DupAcksOut: u32,
+            CeRcvd: u32,
+            EcnSent: u32,
+            EcnNoncesRcvd: u32,
+            CurReasmQueue: u32,
+            MaxReasmQueue: u32,
+            CurAppRQueue: usize,
+            MaxAppRQueue: usize,
+            WinScaleSent: u8,
+        }
+        struct TCP_ESTATS_REC_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
+            CurRetxQueue: usize,
+            MaxRetxQueue: usize,
+            CurAppWQueue: usize,
+            MaxAppWQueue: usize,
+        }
+        struct TCP_ESTATS_SEND_BUFF_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_SND_CONG_ROD_v0 {
+            SndLimTransRwin: u32,
+            SndLimTimeRwin: u32,
+            SndLimBytesRwin: usize,
+            SndLimTransCwnd: u32,
+            SndLimTimeCwnd: u32,
+            SndLimBytesCwnd: usize,
+            SndLimTransSnd: u32,
+            SndLimTimeSnd: u32,
+            SndLimBytesSnd: usize,
+            SlowStart: u32,
+            CongAvoid: u32,
+            OtherReductions: u32,
+            CurCwnd: u32,
+            MaxSsCwnd: u32,
+            MaxCaCwnd: u32,
+            CurSsthresh: u32,
+            MaxSsthresh: u32,
+            MinSsthresh: u32,
+        }
+        struct TCP_ESTATS_SND_CONG_ROS_v0 {
+            LimCwnd: u32,
+        }
+        struct TCP_ESTATS_SND_CONG_RW_v0 {
+            EnableCollection: BOOLEAN,
+        }
+        struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
+            ActiveOpen: BOOLEAN,
+            MssRcvd: u32,
+            MssSent: u32,
+        }
+        #[repr(i32)]
+        enum TCP_ESTATS_TYPE {
+            TcpConnectionEstatsSynOpts = 0,
+            TcpConnectionEstatsData = 1,
+            TcpConnectionEstatsSndCong = 2,
+            TcpConnectionEstatsPath = 3,
+            TcpConnectionEstatsSendBuff = 4,
+            TcpConnectionEstatsRec = 5,
+            TcpConnectionEstatsObsRec = 6,
+            TcpConnectionEstatsBandwidth = 7,
+            TcpConnectionEstatsFineRtt = 8,
+            TcpConnectionEstatsMaximum = 9,
+        }
+        #[repr(i32)]
+        enum TCP_SOFT_ERROR {
+            TcpErrorNone = 0,
+            TcpErrorBelowDataWindow = 1,
+            TcpErrorAboveDataWindow = 2,
+            TcpErrorBelowAckWindow = 3,
+            TcpErrorAboveAckWindow = 4,
+            TcpErrorBelowTsWindow = 5,
+            TcpErrorAboveTsWindow = 6,
+            TcpErrorDataChecksumError = 7,
+            TcpErrorDataLengthError = 8,
+            TcpErrorMaxSoftError = 9,
+        }
+    }
+}

@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("kernel32.dll")]
+    extern "C" fn Alloc(count: usize) -> *mut void;
+    #[library("kernel32.dll")]
+    extern "C" fn Range(base: usize, offset: isize) -> isize;
+    type intptr_t = isize;
+    type ptrdiff_t = isize;
+    type size_t = usize;
+    type uintptr_t = usize;
+}

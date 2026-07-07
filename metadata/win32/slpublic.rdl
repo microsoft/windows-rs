@@ -1,0 +1,275 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type HSLC = *mut void;
+        type HSLP = *mut void;
+        #[encoding("utf-16")]
+        const ID_CAP_SLAPI: String = "slapiQueryLicenseValue";
+        type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
+        #[library("slcext.dll")]
+        extern fn SLAcquireGenuineTicket(ppTicketBlob: *mut *mut void, pcbTicketBlob: *mut u32, pwszTemplateId: PCWSTR, pwszServerUrl: PCWSTR, #[opt] pwszClientToken: PCWSTR) -> HRESULT;
+        #[library("slcext.dll")]
+        extern fn SLActivateProduct(hSLC: HSLC, pProductSkuId: *const SLID, #[opt] cbAppSpecificData: u32, #[opt] pvAppSpecificData: *const void, #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, #[opt] pwszProxyServer: PCWSTR, #[opt] wProxyPort: u16) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLClose(hSLC: HSLC) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLConsumeRight(hSLC: HSLC, pAppId: *const SLID, #[opt] pProductSkuId: *const SLID, #[opt] pwszRightName: PCWSTR, #[reserved] pvReserved: *const void) -> HRESULT;
+        #[repr(i32)]
+        enum SLDATATYPE {
+            SL_DATA_NONE = 0,
+            SL_DATA_SZ = 1,
+            SL_DATA_DWORD = 4,
+            SL_DATA_BINARY = 3,
+            SL_DATA_MULTI_SZ = 7,
+            SL_DATA_SUM = 100,
+        }
+        #[library("SLC.dll")]
+        extern fn SLDepositOfflineConfirmationId(hSLC: HSLC, pProductSkuId: *const SLID, pwszInstallationId: PCWSTR, pwszConfirmationId: PCWSTR) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLDepositOfflineConfirmationIdEx(hSLC: HSLC, #[opt] pProductSkuId: *const SLID, #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, pwszInstallationId: PCWSTR, pwszConfirmationId: PCWSTR) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLFireEvent(hSLC: HSLC, pwszEventId: PCWSTR, pApplicationId: *const SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGenerateOfflineInstallationId(hSLC: HSLC, pProductSkuId: *const SLID, ppwszInstallationId: *mut PWSTR) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGenerateOfflineInstallationIdEx(hSLC: HSLC, #[opt] pProductSkuId: *const SLID, #[opt] pActivationInfo: *const SL_ACTIVATION_INFO_HEADER, ppwszInstallationId: *mut PWSTR) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetApplicationInformation(hSLC: HSLC, pApplicationId: *const SLID, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetGenuineInformation(pQueryId: *const SLID, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut *mut u8) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetInstalledProductKeyIds(hSLC: HSLC, pProductSkuId: *const SLID, pnProductKeyIds: *mut u32, ppProductKeyIds: *mut *mut SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetLicense(hSLC: HSLC, pLicenseFileId: *const SLID, pcbLicenseFile: *mut u32, ppbLicenseFile: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetLicenseFileId(hSLC: HSLC, cbLicenseBlob: u32, #[size_param(1)] pbLicenseBlob: *const u8, pLicenseFileId: *mut SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetLicenseInformation(hSLC: HSLC, pSLLicenseId: *const SLID, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetLicensingStatusInformation(hSLC: HSLC, #[opt] pAppID: *const SLID, #[opt] pProductSkuId: *const SLID, #[opt] pwszRightName: PCWSTR, pnStatusCount: *mut u32, ppLicensingStatus: *mut *mut SL_LICENSING_STATUS) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetPKeyId(hSLC: HSLC, pwszPKeyAlgorithm: PCWSTR, pwszPKeyString: PCWSTR, cbPKeySpecificData: u32, #[size_param(3)] #[opt] pbPKeySpecificData: *const u8, pPKeyId: *mut SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetPKeyInformation(hSLC: HSLC, pPKeyId: *const SLID, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetPolicyInformation(hSLC: HSLC, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetPolicyInformationDWORD(hSLC: HSLC, pwszValueName: PCWSTR, pdwValue: *mut u32) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetProductSkuInformation(hSLC: HSLC, pProductSkuId: *const SLID, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("slcext.dll")]
+        extern fn SLGetReferralInformation(hSLC: HSLC, eReferralType: SLREFERRALTYPE, pSkuOrAppId: *const SLID, pwszValueName: PCWSTR, ppwszValue: *mut PWSTR) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetSLIDList(hSLC: HSLC, eQueryIdType: SLIDTYPE, #[opt] pQueryId: *const SLID, eReturnIdType: SLIDTYPE, pnReturnIds: *mut u32, ppReturnIds: *mut *mut SLID) -> HRESULT;
+        #[library("slcext.dll")]
+        extern fn SLGetServerStatus(pwszServerURL: PCWSTR, pwszAcquisitionType: PCWSTR, #[opt] pwszProxyServer: PCWSTR, #[opt] wProxyPort: u16, phrStatus: *mut HRESULT) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetServiceInformation(hSLC: HSLC, pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetWindowsInformation(pwszValueName: PCWSTR, #[opt] peDataType: *mut SLDATATYPE, pcbValue: *mut u32, ppbValue: *mut PBYTE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLGetWindowsInformationDWORD(pwszValueName: PCWSTR, pdwValue: *mut u32) -> HRESULT;
+        type SLID = GUID;
+        #[repr(i32)]
+        enum SLIDTYPE {
+            SL_ID_APPLICATION = 0,
+            SL_ID_PRODUCT_SKU = 1,
+            SL_ID_LICENSE_FILE = 2,
+            SL_ID_LICENSE = 3,
+            SL_ID_PKEY = 4,
+            SL_ID_ALL_LICENSES = 5,
+            SL_ID_ALL_LICENSE_FILES = 6,
+            SL_ID_STORE_TOKEN = 7,
+            SL_ID_LAST = 8,
+        }
+        #[library("SLC.dll")]
+        extern fn SLInstallLicense(hSLC: HSLC, cbLicenseBlob: u32, #[size_param(1)] pbLicenseBlob: *const u8, pLicenseFileId: *mut SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLInstallProofOfPurchase(hSLC: HSLC, pwszPKeyAlgorithm: PCWSTR, pwszPKeyString: PCWSTR, cbPKeySpecificData: u32, #[size_param(3)] #[opt] pbPKeySpecificData: *const u8, pPkeyId: *mut SLID) -> HRESULT;
+        #[library("SLWGA.dll")]
+        extern fn SLIsGenuineLocal(pAppId: *const SLID, pGenuineState: *mut SL_GENUINE_STATE, #[in] #[out] #[opt] pUIOptions: *mut SL_NONGENUINE_UI_OPTIONS) -> HRESULT;
+        #[repr(i32)]
+        enum SLLICENSINGSTATUS {
+            SL_LICENSING_STATUS_UNLICENSED = 0,
+            SL_LICENSING_STATUS_LICENSED = 1,
+            SL_LICENSING_STATUS_IN_GRACE_PERIOD = 2,
+            SL_LICENSING_STATUS_NOTIFICATION = 3,
+            SL_LICENSING_STATUS_LAST = 4,
+        }
+        #[library("SLC.dll")]
+        extern fn SLOpen(phSLC: *mut HSLC) -> HRESULT;
+        #[library("api-ms-win-core-slapi-l1-1-0.dll")]
+        extern fn SLQueryLicenseValueFromApp(valueName: PCWSTR, #[opt] valueType: *mut u32, #[size_param(3)] #[opt] dataBuffer: *mut void, dataSize: u32, resultDataSize: *mut u32) -> HRESULT;
+        #[repr(i32)]
+        enum SLREFERRALTYPE {
+            SL_REFERRALTYPE_SKUID = 0,
+            SL_REFERRALTYPE_APPID = 1,
+            SL_REFERRALTYPE_OVERRIDE_SKUID = 2,
+            SL_REFERRALTYPE_OVERRIDE_APPID = 3,
+            SL_REFERRALTYPE_BEST_MATCH = 4,
+        }
+        #[library("SLC.dll")]
+        extern fn SLRegisterEvent(#[opt] hSLC: HSLC, pwszEventId: PCWSTR, pApplicationId: *const SLID, hEvent: HANDLE) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLSetCurrentProductKey(hSLC: HSLC, pProductSkuId: *const SLID, pProductKeyId: *const SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLSetGenuineInformation(pQueryId: *const SLID, pwszValueName: PCWSTR, eDataType: SLDATATYPE, #[opt] cbValue: u32, #[size_param(3)] #[opt] pbValue: *const u8) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLUninstallLicense(hSLC: HSLC, pLicenseFileId: *const SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLUninstallProofOfPurchase(hSLC: HSLC, pPKeyId: *const SLID) -> HRESULT;
+        #[library("SLC.dll")]
+        extern fn SLUnregisterEvent(#[opt] hSLC: HSLC, pwszEventId: PCWSTR, pApplicationId: *const SLID, hEvent: HANDLE) -> HRESULT;
+        struct SL_ACTIVATION_INFO_HEADER {
+            cbSize: u32,
+            r#type: SL_ACTIVATION_TYPE,
+        }
+        #[repr(i32)]
+        enum SL_ACTIVATION_TYPE {
+            SL_ACTIVATION_TYPE_DEFAULT = 0,
+            SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY = 1,
+        }
+        struct SL_AD_ACTIVATION_INFO {
+            header: SL_ACTIVATION_INFO_HEADER,
+            pwszProductKey: PCWSTR,
+            pwszActivationObjectName: PCWSTR,
+        }
+        #[encoding("utf-16")]
+        const SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: String = "msft:spp/migrationencryptor/tokenact/1.0";
+        #[encoding("utf-16")]
+        const SL_EVENT_LICENSING_STATE_CHANGED: String = "msft:rm/event/licensingstatechanged";
+        #[encoding("utf-16")]
+        const SL_EVENT_POLICY_CHANGED: String = "msft:rm/event/policychanged";
+        #[encoding("utf-16")]
+        const SL_EVENT_USER_NOTIFICATION: String = "msft:rm/event/usernotification";
+        #[repr(i32)]
+        enum SL_GENUINE_STATE {
+            SL_GEN_STATE_IS_GENUINE = 0,
+            SL_GEN_STATE_INVALID_LICENSE = 1,
+            SL_GEN_STATE_TAMPERED = 2,
+            SL_GEN_STATE_OFFLINE = 3,
+            SL_GEN_STATE_LAST = 4,
+        }
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_ACTIVE_PLUGINS: String = "ActivePlugins";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_AUTHOR: String = "Author";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_BIOS_OA2_MINOR_VERSION: String = "BiosOA2MinorVersion";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_BIOS_PKEY: String = "BiosProductKey";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_BIOS_PKEY_DESCRIPTION: String = "BiosProductKeyDescription";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_BIOS_PKEY_PKPN: String = "BiosProductKeyPkPn";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_BIOS_SLIC_STATE: String = "BiosSlicState";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_CHANNEL: String = "Channel";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_DESCRIPTION: String = "Description";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_DIGITAL_PID: String = "DigitalPID";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_DIGITAL_PID2: String = "DigitalPID2";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_IS_KMS: String = "IsKeyManagementService";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_IS_PRS: String = "IsPRS";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_CURRENT_COUNT: String = "KeyManagementServiceCurrentCount";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_FAILED_REQUESTS: String = "KeyManagementServiceFailedRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_LICENSED_REQUESTS: String = "KeyManagementServiceLicensedRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_NON_GENUINE_GRACE_REQUESTS: String = "KeyManagementServiceNonGenuineGraceRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_NOTIFICATION_REQUESTS: String = "KeyManagementServiceNotificationRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_OOB_GRACE_REQUESTS: String = "KeyManagementServiceOOBGraceRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_OOT_GRACE_REQUESTS: String = "KeyManagementServiceOOTGraceRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_REQUIRED_CLIENT_COUNT: String = "KeyManagementServiceRequiredClientCount";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_TOTAL_REQUESTS: String = "KeyManagementServiceTotalRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_KMS_UNLICENSED_REQUESTS: String = "KeyManagementServiceUnlicensedRequests";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_LICENSE_TYPE: String = "LicenseType";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_LICENSOR_URL: String = "LicensorUrl";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_NAME: String = "Name";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_PARTIAL_PRODUCT_KEY: String = "PartialProductKey";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_PRODUCT_KEY_ACTIVATION_URL: String = "PKCURL";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_PRODUCT_SKU_ID: String = "ProductSkuId";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_RIGHT_ACCOUNT_ACTIVATION_URL: String = "RACURL";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_SECURE_PROCESSOR_ACTIVATION_URL: String = "SPCURL";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_SECURE_STORE_ID: String = "SecureStoreId";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_SYSTEM_STATE: String = "SystemState";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: String = "EULURL";
+        #[encoding("utf-16")]
+        const SL_INFO_KEY_VERSION: String = "Version";
+        struct SL_LICENSING_STATUS {
+            SkuId: SLID,
+            eStatus: SLLICENSINGSTATUS,
+            dwGraceTime: u32,
+            dwTotalGraceDays: u32,
+            hrReason: HRESULT,
+            qwValidityExpiration: u64,
+        }
+        struct SL_NONGENUINE_UI_OPTIONS {
+            cbSize: u32,
+            pComponentId: *const SLID,
+            hResultUI: HRESULT,
+        }
+        #[encoding("utf-16")]
+        const SL_PKEY_DETECT: String = "msft:rm/algorithm/pkey/detect";
+        #[encoding("utf-16")]
+        const SL_PKEY_MS2005: String = "msft:rm/algorithm/pkey/2005";
+        #[encoding("utf-16")]
+        const SL_PKEY_MS2009: String = "msft:rm/algorithm/pkey/2009";
+        #[encoding("utf-16")]
+        const SL_POLICY_EVALUATION_MODE_ENABLED: String = "Security-SPP-EvaluationModeEnabled";
+        #[encoding("utf-16")]
+        const SL_PROP_ACTIVATION_VALIDATION_IN_PROGRESS: String = "SL_ACTIVATION_VALIDATION_IN_PROGRESS";
+        #[encoding("utf-16")]
+        const SL_PROP_BRT_COMMIT: String = "SL_BRT_COMMIT";
+        #[encoding("utf-16")]
+        const SL_PROP_BRT_DATA: String = "SL_BRT_DATA";
+        #[encoding("utf-16")]
+        const SL_PROP_GENUINE_RESULT: String = "SL_GENUINE_RESULT";
+        #[encoding("utf-16")]
+        const SL_PROP_GET_GENUINE_AUTHZ: String = "SL_GET_GENUINE_AUTHZ";
+        #[encoding("utf-16")]
+        const SL_PROP_GET_GENUINE_SERVER_AUTHZ: String = "SL_GET_GENUINE_SERVER_AUTHZ";
+        #[encoding("utf-16")]
+        const SL_PROP_LAST_ACT_ATTEMPT_HRESULT: String = "SL_LAST_ACT_ATTEMPT_HRESULT";
+        #[encoding("utf-16")]
+        const SL_PROP_LAST_ACT_ATTEMPT_SERVER_FLAGS: String = "SL_LAST_ACT_ATTEMPT_SERVER_FLAGS";
+        #[encoding("utf-16")]
+        const SL_PROP_LAST_ACT_ATTEMPT_TIME: String = "SL_LAST_ACT_ATTEMPT_TIME";
+        #[encoding("utf-16")]
+        const SL_PROP_NONGENUINE_GRACE_FLAG: String = "SL_NONGENUINE_GRACE_FLAG";
+        const SL_REARM_REBOOT_REQUIRED: u32 = 1;
+        struct SL_SYSTEM_POLICY_INFORMATION {
+            Reserved1: [*mut void; 2],
+            Reserved2: [u32; 3],
+        }
+        const SL_SYSTEM_STATE_REBOOT_POLICY_FOUND: u32 = 1;
+        const SL_SYSTEM_STATE_TAMPERED: u32 = 2;
+        const SPP_MIGRATION_GATHER_ACTIVATED_WINDOWS_STATE: u32 = 2;
+        const SPP_MIGRATION_GATHER_ALL: u32 = 4294967295;
+        const SPP_MIGRATION_GATHER_MIGRATABLE_APPS: u32 = 1;
+    }
+}

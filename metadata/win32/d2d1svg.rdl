@@ -1,0 +1,232 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum D2D1_SVG_ASPECT_ALIGN {
+            D2D1_SVG_ASPECT_ALIGN_NONE = 0,
+            D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN = 1,
+            D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN = 2,
+            D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN = 3,
+            D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID = 4,
+            D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID = 5,
+            D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID = 6,
+            D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX = 7,
+            D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX = 8,
+            D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX = 9,
+            D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_ASPECT_SCALING {
+            D2D1_SVG_ASPECT_SCALING_MEET = 0,
+            D2D1_SVG_ASPECT_SCALING_SLICE = 1,
+            D2D1_SVG_ASPECT_SCALING_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_ATTRIBUTE_POD_TYPE {
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT = 0,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR = 1,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE = 2,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY = 3,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW = 4,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP = 5,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN = 6,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY = 7,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX = 8,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE = 9,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE = 10,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO = 11,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX = 12,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH = 13,
+            D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+            D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG = 0,
+            D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID = 1,
+            D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_DISPLAY {
+            D2D1_SVG_DISPLAY_INLINE = 0,
+            D2D1_SVG_DISPLAY_NONE = 1,
+            D2D1_SVG_DISPLAY_FORCE_DWORD = -1,
+        }
+        struct D2D1_SVG_LENGTH {
+            value: f32,
+            units: D2D1_SVG_LENGTH_UNITS,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_LENGTH_UNITS {
+            D2D1_SVG_LENGTH_UNITS_NUMBER = 0,
+            D2D1_SVG_LENGTH_UNITS_PERCENTAGE = 1,
+            D2D1_SVG_LENGTH_UNITS_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_LINE_CAP {
+            D2D1_SVG_LINE_CAP_BUTT = 0,
+            D2D1_SVG_LINE_CAP_SQUARE = 1,
+            D2D1_SVG_LINE_CAP_ROUND = 2,
+            D2D1_SVG_LINE_CAP_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_LINE_JOIN {
+            D2D1_SVG_LINE_JOIN_BEVEL = 1,
+            D2D1_SVG_LINE_JOIN_MITER = 3,
+            D2D1_SVG_LINE_JOIN_ROUND = 2,
+            D2D1_SVG_LINE_JOIN_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_OVERFLOW {
+            D2D1_SVG_OVERFLOW_VISIBLE = 0,
+            D2D1_SVG_OVERFLOW_HIDDEN = 1,
+            D2D1_SVG_OVERFLOW_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_PAINT_TYPE {
+            D2D1_SVG_PAINT_TYPE_NONE = 0,
+            D2D1_SVG_PAINT_TYPE_COLOR = 1,
+            D2D1_SVG_PAINT_TYPE_CURRENT_COLOR = 2,
+            D2D1_SVG_PAINT_TYPE_URI = 3,
+            D2D1_SVG_PAINT_TYPE_URI_NONE = 4,
+            D2D1_SVG_PAINT_TYPE_URI_COLOR = 5,
+            D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR = 6,
+            D2D1_SVG_PAINT_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_PATH_COMMAND {
+            D2D1_SVG_PATH_COMMAND_CLOSE_PATH = 0,
+            D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE = 1,
+            D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE = 2,
+            D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE = 3,
+            D2D1_SVG_PATH_COMMAND_LINE_RELATIVE = 4,
+            D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE = 5,
+            D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE = 6,
+            D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE = 7,
+            D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE = 8,
+            D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE = 9,
+            D2D1_SVG_PATH_COMMAND_ARC_RELATIVE = 10,
+            D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE = 11,
+            D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE = 12,
+            D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE = 13,
+            D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE = 14,
+            D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE = 15,
+            D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE = 16,
+            D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE = 17,
+            D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE = 18,
+            D2D1_SVG_PATH_COMMAND_FORCE_DWORD = -1,
+        }
+        struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
+            defer: BOOL,
+            align: D2D1_SVG_ASPECT_ALIGN,
+            meetOrSlice: D2D1_SVG_ASPECT_SCALING,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_UNIT_TYPE {
+            D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE = 0,
+            D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX = 1,
+            D2D1_SVG_UNIT_TYPE_FORCE_DWORD = -1,
+        }
+        struct D2D1_SVG_VIEWBOX {
+            x: f32,
+            y: f32,
+            width: f32,
+            height: f32,
+        }
+        #[repr(i32)]
+        enum D2D1_SVG_VISIBILITY {
+            D2D1_SVG_VISIBILITY_VISIBLE = 0,
+            D2D1_SVG_VISIBILITY_HIDDEN = 1,
+            D2D1_SVG_VISIBILITY_FORCE_DWORD = -1,
+        }
+        #[guid(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e)]
+        interface ID2D1SvgAttribute: ID2D1Resource {
+            fn GetElement(&self, element: *mut ID2D1SvgElement);
+            fn Clone(&self, attribute: *mut ID2D1SvgAttribute) -> HRESULT;
+        }
+        #[guid(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec)]
+        interface ID2D1SvgDocument: ID2D1Resource {
+            fn SetViewportSize(&self, viewportSize: D2D_SIZE_F) -> HRESULT;
+            fn GetViewportSize(&self) -> D2D_SIZE_F;
+            fn SetRoot(&self, #[opt] root: ID2D1SvgElement) -> HRESULT;
+            fn GetRoot(&self, root: *mut ID2D1SvgElement);
+            fn FindElementById(&self, id: PCWSTR, svgElement: *mut ID2D1SvgElement) -> HRESULT;
+            fn Serialize(&self, outputXmlStream: IStream, #[opt] subtree: ID2D1SvgElement) -> HRESULT;
+            fn Deserialize(&self, inputXmlStream: IStream, subtree: *mut ID2D1SvgElement) -> HRESULT;
+            fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[opt] color: *const D2D_COLOR_F, #[opt] id: PCWSTR, paint: *mut ID2D1SvgPaint) -> HRESULT;
+            fn CreateStrokeDashArray(&self, #[len_param(1)] #[opt] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
+            fn CreatePointCollection(&self, #[len_param(1)] #[opt] points: *const D2D_POINT_2F, pointsCount: u32, pointCollection: *mut ID2D1SvgPointCollection) -> HRESULT;
+            fn CreatePathData(&self, #[len_param(1)] #[opt] segmentData: *const f32, segmentDataCount: u32, #[len_param(3)] #[opt] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, pathData: *mut ID2D1SvgPathData) -> HRESULT;
+        }
+        #[guid(0xac7b67a6_183e_49c1_a823_0ebe40b0db29)]
+        interface ID2D1SvgElement: ID2D1Resource {
+            fn GetDocument(&self, document: *mut ID2D1SvgDocument);
+            fn GetTagName(&self, #[len_param(1)] #[out] name: PWSTR, nameCount: u32) -> HRESULT;
+            fn GetTagNameLength(&self) -> u32;
+            fn IsTextContent(&self) -> BOOL;
+            fn GetParent(&self, parent: *mut ID2D1SvgElement);
+            fn HasChildren(&self) -> BOOL;
+            fn GetTopWindow(&self, child: *mut ID2D1SvgElement);
+            fn GetLastChild(&self, child: *mut ID2D1SvgElement);
+            fn GetPreviousChild(&self, referenceChild: ID2D1SvgElement, previousChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn GetNextChild(&self, referenceChild: ID2D1SvgElement, nextChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn InsertChildBefore(&self, newChild: ID2D1SvgElement, #[opt] referenceChild: ID2D1SvgElement) -> HRESULT;
+            fn AppendChild(&self, newChild: ID2D1SvgElement) -> HRESULT;
+            fn ReplaceChild(&self, newChild: ID2D1SvgElement, oldChild: ID2D1SvgElement) -> HRESULT;
+            fn RemoveChild(&self, oldChild: ID2D1SvgElement) -> HRESULT;
+            fn CreateChild(&self, tagName: PCWSTR, newChild: *mut ID2D1SvgElement) -> HRESULT;
+            fn IsAttributeSpecified(&self, name: PCWSTR, #[opt] inherited: *mut BOOL) -> BOOL;
+            fn GetSpecifiedAttributeCount(&self) -> u32;
+            fn GetSpecifiedAttributeName(&self, index: u32, #[len_param(2)] #[out] name: PWSTR, nameCount: u32, #[opt] inherited: *mut BOOL) -> HRESULT;
+            fn GetSpecifiedAttributeNameLength(&self, index: u32, nameLength: *mut u32, #[opt] inherited: *mut BOOL) -> HRESULT;
+            fn RemoveAttribute(&self, name: PCWSTR) -> HRESULT;
+            fn SetTextValue(&self, #[len_param(1)] name: *const u16, nameCount: u32) -> HRESULT;
+            fn GetTextValue(&self, #[len_param(1)] #[out] name: PWSTR, nameCount: u32) -> HRESULT;
+            fn GetTextValueLength(&self) -> u32;
+            fn SetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: PCWSTR) -> HRESULT;
+            fn GetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, #[len_param(3)] #[out] value: PWSTR, valueCount: u32) -> HRESULT;
+            fn GetAttributeValueLength(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valueLength: *mut u32) -> HRESULT;
+            fn SetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[size_param(3)] value: *const void, valueSizeInBytes: u32) -> HRESULT;
+            fn GetAttributeValue(&self, name: PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, #[size_param(3)] value: *mut void, valueSizeInBytes: u32) -> HRESULT;
+            fn SetAttributeValue(&self, name: PCWSTR, value: ID2D1SvgAttribute) -> HRESULT;
+            fn GetAttributeValue(&self, name: PCWSTR, riid: *const GUID, #[iid_is] value: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490)]
+        interface ID2D1SvgPaint: ID2D1SvgAttribute {
+            fn SetPaintType(&self, paintType: D2D1_SVG_PAINT_TYPE) -> HRESULT;
+            fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
+            fn SetColor(&self, color: *const D2D_COLOR_F) -> HRESULT;
+            fn GetColor(&self, color: *mut D2D_COLOR_F);
+            fn SetId(&self, id: PCWSTR) -> HRESULT;
+            fn GetId(&self, #[len_param(1)] #[out] id: PWSTR, idCount: u32) -> HRESULT;
+            fn GetIdLength(&self) -> u32;
+        }
+        #[guid(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888)]
+        interface ID2D1SvgPathData: ID2D1SvgAttribute {
+            fn RemoveSegmentDataAtEnd(&self, dataCount: u32) -> HRESULT;
+            fn UpdateSegmentData(&self, #[len_param(1)] data: *const f32, dataCount: u32, startIndex: u32) -> HRESULT;
+            fn GetSegmentData(&self, #[len_param(1)] data: *mut f32, dataCount: u32, startIndex: u32) -> HRESULT;
+            fn GetSegmentDataCount(&self) -> u32;
+            fn RemoveCommandsAtEnd(&self, commandsCount: u32) -> HRESULT;
+            fn UpdateCommands(&self, #[len_param(1)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetCommands(&self, #[len_param(1)] commands: *mut D2D1_SVG_PATH_COMMAND, commandsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetCommandsCount(&self) -> u32;
+            fn CreatePathGeometry(&self, fillMode: D2D1_FILL_MODE, pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
+        }
+        #[guid(0x9dbe4c0d_3572_4dd9_9825_5530813bb712)]
+        interface ID2D1SvgPointCollection: ID2D1SvgAttribute {
+            fn RemovePointsAtEnd(&self, pointsCount: u32) -> HRESULT;
+            fn UpdatePoints(&self, #[len_param(1)] points: *const D2D_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetPoints(&self, #[len_param(1)] points: *mut D2D_POINT_2F, pointsCount: u32, startIndex: u32) -> HRESULT;
+            fn GetPointsCount(&self) -> u32;
+        }
+        #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]
+        interface ID2D1SvgStrokeDashArray: ID2D1SvgAttribute {
+            fn RemoveDashesAtEnd(&self, dashesCount: u32) -> HRESULT;
+            fn UpdateDashes(&self, #[len_param(1)] dashes: *const f32, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdateDashes(&self, #[len_param(1)] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn GetDashes(&self, #[len_param(1)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn GetDashesCount(&self) -> u32;
+        }
+    }
+}

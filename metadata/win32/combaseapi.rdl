@@ -1,0 +1,239 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AgileReferenceOptions {
+            AGILEREFERENCE_DEFAULT = 0,
+            AGILEREFERENCE_DELAYEDMARSHAL = 1,
+        }
+        const CLSCTX_ALL: u32 = 23;
+        const CLSCTX_INPROC: u32 = 3;
+        const CLSCTX_SERVER: u32 = 21;
+        #[library("ole32.dll")]
+        extern fn CLSIDFromProgID(lpszProgID: PCWSTR, lpclsid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CLSIDFromProgIDEx(lpszProgID: PCWSTR, lpclsid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CLSIDFromString(lpsz: PCWSTR, pclsid: *mut GUID) -> HRESULT;
+        #[repr(i32)]
+        enum COINITBASE {
+            COINITBASE_MULTITHREADED = 0,
+        }
+        const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8;
+        const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16;
+        const COM_RIGHTS_EXECUTE: u32 = 1;
+        const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2;
+        const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4;
+        const COM_RIGHTS_RESERVED1: u32 = 32;
+        const COM_RIGHTS_RESERVED2: u32 = 64;
+        #[repr(u32)]
+        #[flags]
+        enum COWAIT_FLAGS {
+            COWAIT_DEFAULT = 0,
+            COWAIT_WAITALL = 1,
+            COWAIT_ALERTABLE = 2,
+            COWAIT_INPUTAVAILABLE = 4,
+            COWAIT_DISPATCH_CALLS = 8,
+            COWAIT_DISPATCH_WINDOW_MESSAGES = 16,
+        }
+        type CO_DEVICE_CATALOG_COOKIE = *mut void;
+        type CO_MTA_USAGE_COOKIE = *mut void;
+        #[repr(u32)]
+        #[flags]
+        enum CWMO_FLAGS {
+            CWMO_DEFAULT = 0,
+            CWMO_DISPATCH_CALLS = 1,
+            CWMO_DISPATCH_WINDOW_MESSAGES = 2,
+        }
+        const CWMO_MAX_HANDLES: u32 = 56;
+        #[library("ole32.dll")]
+        extern fn CoAddRefServerProcess() -> u32;
+        #[library("ole32.dll")]
+        extern fn CoAllowUnmarshalerCLSID(clsid: *const GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCancelCall(dwThreadId: u32, ulTimeout: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCopyProxy(pProxy: IUnknown, ppCopy: *mut IUnknown) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCreateFreeThreadedMarshaler(#[opt] punkOuter: IUnknown, ppunkMarshal: *mut IUnknown) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCreateGuid(pguid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCreateInstance(rclsid: *const GUID, #[opt] pUnkOuter: IUnknown, dwClsContext: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCreateInstanceEx(Clsid: *const GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, #[opt] pServerInfo: *const COSERVERINFO, dwCount: u32, #[len_param(4)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoCreateInstanceFromApp(Clsid: *const GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, #[opt] reserved: *const void, dwCount: u32, #[len_param(4)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoDecodeProxy(dwClientPid: u32, ui64ProxyAddress: u64, pServerInformation: *mut ServerInformation) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoDecrementMTAUsage(Cookie: CO_MTA_USAGE_COOKIE) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoDisableCallCancellation(#[opt] pReserved: *const void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoDisconnectContext(dwTimeout: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoDisconnectObject(pUnk: IUnknown, dwReserved: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoEnableCallCancellation(#[opt] pReserved: *const void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoFileTimeNow(lpFileTime: *mut FILETIME) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoFreeUnusedLibraries();
+        #[library("ole32.dll")]
+        extern fn CoFreeUnusedLibrariesEx(dwUnloadDelay: u32, dwReserved: u32);
+        #[library("ole32.dll")]
+        extern fn CoGetApartmentType(pAptType: *mut APTTYPE, pAptQualifier: *mut APTTYPEQUALIFIER) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetCallContext(riid: *const GUID, ppInterface: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetCallerTID(lpdwTID: *mut u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetCancelObject(dwThreadId: u32, iid: *const GUID, ppUnk: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetClassObject(rclsid: *const GUID, dwClsContext: u32, #[opt] pvReserved: *const void, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetContextToken(pToken: *mut usize) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetCurrentLogicalThreadId(pguid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetCurrentProcess() -> u32;
+        #[library("ole32.dll")]
+        extern fn CoGetDefaultContext(aptType: APTTYPE, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetInterfaceAndReleaseStream(pStm: IStream, iid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetMalloc(dwMemContext: u32, ppMalloc: *mut IMalloc) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetMarshalSizeMax(pulSize: *mut u32, riid: *const GUID, pUnk: IUnknown, dwDestContext: u32, #[opt] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetObjectContext(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetPSClsid(riid: *const GUID, pClsid: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetStandardMarshal(riid: *const GUID, #[opt] pUnk: IUnknown, dwDestContext: u32, #[opt] pvDestContext: *const void, mshlflags: u32, ppMarshal: *mut IMarshal) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetStdMarshalEx(pUnkOuter: IUnknown, smexflags: u32, ppUnkInner: *mut IUnknown) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoGetTreatAsClass(clsidOld: *const GUID, pClsidNew: *mut GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoImpersonateClient() -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoIncrementMTAUsage(pCookie: *mut CO_MTA_USAGE_COOKIE) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoInitializeEx(#[opt] pvReserved: *const void, dwCoInit: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoInitializeSecurity(#[opt] pSecDesc: PSECURITY_DESCRIPTOR, cAuthSvc: i32, #[len_param(1)] #[opt] asAuthSvc: *const SOLE_AUTHENTICATION_SERVICE, #[opt] pReserved1: *const void, dwAuthnLevel: u32, dwImpLevel: u32, #[opt] pAuthList: *const void, dwCapabilities: u32, #[opt] pReserved3: *const void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoInvalidateRemoteMachineBindings(pszMachineName: PCWSTR) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoIsHandlerConnected(pUnk: IUnknown) -> BOOL;
+        #[library("ole32.dll")]
+        extern fn CoLockObjectExternal(pUnk: IUnknown, fLock: BOOL, fLastUnlockReleases: BOOL) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoMarshalHresult(pstm: IStream, hresult: HRESULT) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoMarshalInterThreadInterfaceInStream(riid: *const GUID, pUnk: IUnknown, ppStm: *mut IStream) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoMarshalInterface(pStm: IStream, riid: *const GUID, pUnk: IUnknown, dwDestContext: u32, #[opt] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoQueryAuthenticationServices(pcAuthSvc: *mut u32, asAuthSvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoQueryClientBlanket(#[opt] pAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut PWSTR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, pPrivs: *mut RPC_AUTHZ_HANDLE, #[in] #[out] #[opt] pCapabilities: *mut u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoQueryProxyBlanket(pProxy: IUnknown, #[opt] pwAuthnSvc: *mut u32, #[opt] pAuthzSvc: *mut u32, pServerPrincName: *mut PWSTR, #[opt] pAuthnLevel: *mut u32, #[opt] pImpLevel: *mut u32, #[opt] pAuthInfo: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] pCapabilites: *mut u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRegisterActivationFilter(pActivationFilter: IActivationFilter) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRegisterClassObject(rclsid: *const GUID, pUnk: IUnknown, dwClsContext: u32, flags: u32, lpdwRegister: *mut u32) -> HRESULT;
+        #[library("api-ms-win-core-com-l1-1-3.dll")]
+        extern fn CoRegisterDeviceCatalog(deviceInstanceId: PCWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRegisterPSClsid(riid: *const GUID, rclsid: *const GUID) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRegisterSurrogate(pSurrogate: ISurrogate) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoReleaseMarshalData(pStm: IStream) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoReleaseServerProcess() -> u32;
+        #[library("ole32.dll")]
+        extern fn CoResumeClassObjects() -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRevertToSelf() -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoRevokeClassObject(dwRegister: u32) -> HRESULT;
+        #[library("api-ms-win-core-com-l1-1-3.dll")]
+        extern fn CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoSetCancelObject(#[opt] pUnk: IUnknown) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoSetProxyBlanket(pProxy: IUnknown, dwAuthnSvc: u32, dwAuthzSvc: u32, #[opt] pServerPrincName: *const OLECHAR, dwAuthnLevel: u32, dwImpLevel: u32, #[opt] pAuthInfo: RPC_AUTH_IDENTITY_HANDLE, dwCapabilities: u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoSuspendClassObjects() -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoSwitchCallContext(#[opt] pNewObject: IUnknown, ppOldObject: *mut IUnknown) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoTaskMemAlloc(cb: usize) -> *mut void;
+        #[library("ole32.dll")]
+        extern fn CoTaskMemFree(pv: *mut void);
+        #[library("ole32.dll")]
+        extern fn CoTaskMemRealloc(pv: *mut void, cb: usize) -> *mut void;
+        #[library("ole32.dll")]
+        extern fn CoTestCancel() -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoUninitialize();
+        #[library("ole32.dll")]
+        extern fn CoUnmarshalHresult(pstm: IStream, phresult: *mut HRESULT) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoUnmarshalInterface(pStm: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoWaitForMultipleHandles(dwFlags: u32, dwTimeout: u32, cHandles: u32, #[len_param(2)] pHandles: *const HANDLE, lpdwindex: *mut u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CoWaitForMultipleObjects(dwFlags: u32, dwTimeout: u32, cHandles: u32, #[len_param(2)] pHandles: *const HANDLE, lpdwindex: *mut u32) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn CreateStreamOnHGlobal(hGlobal: HGLOBAL, fDeleteOnRelease: BOOL, ppstm: *mut IStream) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn FreePropVariantArray(cVariants: u32, #[len_param(0)] #[in] #[out] rgvars: *mut PROPVARIANT) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn GetHGlobalFromStream(pstm: IStream, phglobal: *mut HGLOBAL) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn IIDFromString(lpsz: PCWSTR, lpiid: *mut GUID) -> HRESULT;
+        extern fn LPFNCANUNLOADNOW() -> HRESULT;
+        extern fn LPFNGETCLASSOBJECT(param0: *const GUID, param1: *const GUID, param2: *mut *mut void) -> HRESULT;
+        type PServerInformation = *mut ServerInformation;
+        #[library("ole32.dll")]
+        extern fn ProgIDFromCLSID(clsid: *const GUID, lplpszProgID: *mut PWSTR) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn PropVariantClear(#[in] #[out] pvar: *mut PROPVARIANT) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn PropVariantCopy(pvarDest: *mut PROPVARIANT, pvarSrc: *const PROPVARIANT) -> HRESULT;
+        #[repr(u32)]
+        #[flags]
+        enum REGCLS {
+            REGCLS_SINGLEUSE = 0,
+            REGCLS_MULTIPLEUSE = 1,
+            REGCLS_MULTI_SEPARATE = 2,
+            REGCLS_SUSPENDED = 4,
+            REGCLS_SURROGATE = 8,
+            REGCLS_AGILE = 16,
+        }
+        #[library("ole32.dll")]
+        extern fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const GUID, pUnk: IUnknown, ppAgileReference: *mut IAgileReference) -> HRESULT;
+        #[repr(i32)]
+        enum STDMSHLFLAGS {
+            SMEXF_SERVER = 1,
+            SMEXF_HANDLER = 2,
+        }
+        struct ServerInformation {
+            dwServerPid: u32,
+            dwServerTid: u32,
+            ui64ServerAddress: u64,
+        }
+        #[library("ole32.dll")]
+        extern fn StringFromCLSID(rclsid: *const GUID, lplpsz: *mut PWSTR) -> HRESULT;
+        #[library("ole32.dll")]
+        extern fn StringFromGUID2(rguid: *const GUID, #[len_param(2)] #[out] lpsz: PWSTR, cchMax: i32) -> i32;
+        #[library("ole32.dll")]
+        extern fn StringFromIID(rclsid: *const GUID, lplpsz: *mut PWSTR) -> HRESULT;
+    }
+}

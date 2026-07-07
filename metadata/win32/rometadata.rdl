@@ -1,0 +1,7 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("RoMetadata.dll")]
+        extern fn MetaDataGetDispenser(rclsid: *const GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+    }
+}

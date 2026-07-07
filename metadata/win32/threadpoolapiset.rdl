@@ -1,0 +1,80 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn CallbackMayRunLong(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CancelThreadpoolIo(#[in] #[out] pio: *mut TP_IO);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpool(#[in] #[out] ptpp: *mut TP_POOL);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolCleanupGroup(#[in] #[out] ptpcg: *mut TP_CLEANUP_GROUP);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolCleanupGroupMembers(#[in] #[out] ptpcg: *mut TP_CLEANUP_GROUP, fCancelPendingCallbacks: BOOL, #[in] #[out] #[opt] pvCleanupContext: *mut void);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolIo(#[in] #[out] pio: *mut TP_IO);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolTimer(#[in] #[out] pti: *mut TP_TIMER);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolWait(#[in] #[out] pwa: *mut TP_WAIT);
+        #[library("KERNEL32.dll")]
+        extern fn CloseThreadpoolWork(#[in] #[out] pwk: *mut TP_WORK);
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpool(#[reserved] reserved: *const void) -> PTP_POOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> PTP_IO;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> PTP_TIMER;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> PTP_WAIT;
+        #[library("KERNEL32.dll")]
+        extern fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> PTP_WORK;
+        #[library("KERNEL32.dll")]
+        extern fn DisassociateCurrentThreadFromCallback(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE);
+        #[library("KERNEL32.dll")]
+        extern fn FreeLibraryWhenCallbackReturns(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE, r#mod: HMODULE);
+        #[library("KERNEL32.dll")]
+        extern fn IsThreadpoolTimerSet(#[in] #[out] pti: *mut TP_TIMER) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn LeaveCriticalSectionWhenCallbackReturns(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE, #[in] #[out] pcs: PCRITICAL_SECTION);
+        extern fn PTP_WIN32_IO_CALLBACK(#[in] #[out] Instance: *mut TP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: *mut void, #[in] #[out] #[opt] Overlapped: *mut void, IoResult: u32, NumberOfBytesTransferred: usize, #[in] #[out] Io: *mut TP_IO);
+        #[library("KERNEL32.dll")]
+        extern fn QueryThreadpoolStackInformation(ptpp: *const TP_POOL, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReleaseMutexWhenCallbackReturns(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE, r#mut: HANDLE);
+        #[library("KERNEL32.dll")]
+        extern fn ReleaseSemaphoreWhenCallbackReturns(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE, sem: HANDLE, crel: u32);
+        #[library("KERNEL32.dll")]
+        extern fn SetEventWhenCallbackReturns(#[in] #[out] pci: *mut TP_CALLBACK_INSTANCE, evt: HANDLE);
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolStackInformation(#[in] #[out] ptpp: *mut TP_POOL, ptpsi: *const TP_POOL_STACK_INFORMATION) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolThreadMaximum(#[in] #[out] ptpp: *mut TP_POOL, cthrdMost: u32);
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolThreadMinimum(#[in] #[out] ptpp: *mut TP_POOL, cthrdMic: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolTimer(#[in] #[out] pti: *mut TP_TIMER, #[opt] pftDueTime: *const FILETIME, msPeriod: u32, #[opt] msWindowLength: u32);
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolTimerEx(#[in] #[out] pti: *mut TP_TIMER, #[opt] pftDueTime: *const FILETIME, msPeriod: u32, #[opt] msWindowLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolWait(#[in] #[out] pwa: *mut TP_WAIT, #[opt] h: HANDLE, #[opt] pftTimeout: *const FILETIME);
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadpoolWaitEx(#[in] #[out] pwa: *mut TP_WAIT, #[opt] h: HANDLE, #[opt] pftTimeout: *const FILETIME, #[reserved] Reserved: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn StartThreadpoolIo(#[in] #[out] pio: *mut TP_IO);
+        #[library("KERNEL32.dll")]
+        extern fn SubmitThreadpoolWork(#[in] #[out] pwk: *mut TP_WORK);
+        #[library("KERNEL32.dll")]
+        extern fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: *mut void, #[opt] pcbe: *const TP_CALLBACK_ENVIRON_V3) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WaitForThreadpoolIoCallbacks(#[in] #[out] pio: *mut TP_IO, fCancelPendingCallbacks: BOOL);
+        #[library("KERNEL32.dll")]
+        extern fn WaitForThreadpoolTimerCallbacks(#[in] #[out] pti: *mut TP_TIMER, fCancelPendingCallbacks: BOOL);
+        #[library("KERNEL32.dll")]
+        extern fn WaitForThreadpoolWaitCallbacks(#[in] #[out] pwa: *mut TP_WAIT, fCancelPendingCallbacks: BOOL);
+        #[library("KERNEL32.dll")]
+        extern fn WaitForThreadpoolWorkCallbacks(#[in] #[out] pwk: *mut TP_WORK, fCancelPendingCallbacks: BOOL);
+    }
+}

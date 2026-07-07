@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d)]
+        interface IMemoryBufferByteAccess: IUnknown {
+            fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> HRESULT;
+        }
+    }
+}

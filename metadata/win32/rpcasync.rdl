@@ -1,0 +1,320 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct BinaryParam {
+            Buffer: *mut void,
+            Size: i16,
+        }
+        const EEInfoGCCOM: u32 = 11;
+        const EEInfoGCFRS: u32 = 12;
+        const EEInfoNextRecordsMissing: u32 = 2;
+        const EEInfoPreviousRecordsMissing: u32 = 1;
+        const EEInfoUseFileTime: u32 = 4;
+        #[repr(i32)]
+        enum ExtendedErrorParamTypes {
+            eeptAnsiString = 1,
+            eeptUnicodeString = 2,
+            eeptLongVal = 3,
+            eeptShortVal = 4,
+            eeptPointerVal = 5,
+            eeptNone = 6,
+            eeptBinary = 7,
+        }
+        #[library("RPCRT4.dll")]
+        extern fn I_RpcAsyncAbortCall(pAsync: *const RPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn I_RpcAsyncSetHandle(Message: *const RPC_MESSAGE, pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn I_RpcBindingInqClientTokenAttributes(Binding: RPC_BINDING_HANDLE, #[opt] TokenId: *mut LUID, #[opt] AuthenticationId: *mut LUID, #[opt] ModifiedId: *mut LUID) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn I_RpcExceptionFilter(ExceptionCode: u32) -> i32;
+        const MaxNumberOfEEInfoParams: u32 = 4;
+        extern fn PFN_RPCNOTIFICATION_ROUTINE(pAsync: *mut RPC_ASYNC_STATE, Context: *mut void, Event: RPC_ASYNC_EVENT);
+        type PRPC_ASYNC_NOTIFICATION_INFO = *mut RPC_ASYNC_NOTIFICATION_INFO;
+        type PRPC_ASYNC_STATE = *mut RPC_ASYNC_STATE;
+        type PRPC_CALL_LOCAL_ADDRESS_V1 = *mut RPC_CALL_LOCAL_ADDRESS_V1;
+        extern fn RPCNOTIFICATION_ROUTINE(pAsync: *mut RPC_ASYNC_STATE, Context: *mut void, Event: RPC_ASYNC_EVENT);
+        #[repr(i32)]
+        enum RPC_ASYNC_EVENT {
+            RpcCallComplete = 0,
+            RpcSendComplete = 1,
+            RpcReceiveComplete = 2,
+            RpcClientDisconnect = 3,
+            RpcClientCancel = 4,
+        }
+        union RPC_ASYNC_NOTIFICATION_INFO {
+            APC: struct {
+                NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+                hThread: HANDLE,
+            },
+            IOC: struct {
+                hIOPort: HANDLE,
+                dwNumberOfBytesTransferred: u32,
+                dwCompletionKey: usize,
+                lpOverlapped: LPOVERLAPPED,
+            },
+            HWND: struct {
+                hWnd: HWND,
+                Msg: u32,
+            },
+            hEvent: HANDLE,
+            NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+        }
+        struct RPC_ASYNC_STATE {
+            Size: u32,
+            Signature: u32,
+            Lock: i32,
+            Flags: u32,
+            StubInfo: *mut void,
+            UserInfo: *mut void,
+            RuntimeInfo: *mut void,
+            Event: RPC_ASYNC_EVENT,
+            NotificationType: RPC_NOTIFICATION_TYPES,
+            u: RPC_ASYNC_NOTIFICATION_INFO,
+            Reserved: [isize; 4],
+        }
+        type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
+        struct RPC_CALL_ATTRIBUTES_V1_A {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u8,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u8,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+        }
+        struct RPC_CALL_ATTRIBUTES_V1_W {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u16,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u16,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+        }
+        struct RPC_CALL_ATTRIBUTES_V2_A {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u8,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u8,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+            KernelModeCaller: BOOL,
+            ProtocolSequence: u32,
+            IsClientLocal: u32,
+            ClientPID: HANDLE,
+            CallStatus: u32,
+            CallType: RpcCallType,
+            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+            OpNum: u16,
+            InterfaceUuid: GUID,
+        }
+        struct RPC_CALL_ATTRIBUTES_V2_W {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u16,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u16,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+            KernelModeCaller: BOOL,
+            ProtocolSequence: u32,
+            IsClientLocal: RpcCallClientLocality,
+            ClientPID: HANDLE,
+            CallStatus: u32,
+            CallType: RpcCallType,
+            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+            OpNum: u16,
+            InterfaceUuid: GUID,
+        }
+        struct RPC_CALL_ATTRIBUTES_V3_A {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u8,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u8,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+            KernelModeCaller: BOOL,
+            ProtocolSequence: u32,
+            IsClientLocal: u32,
+            ClientPID: HANDLE,
+            CallStatus: u32,
+            CallType: RpcCallType,
+            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+            OpNum: u16,
+            InterfaceUuid: GUID,
+            ClientIdentifierBufferLength: u32,
+            ClientIdentifier: *mut u8,
+        }
+        struct RPC_CALL_ATTRIBUTES_V3_W {
+            Version: u32,
+            Flags: u32,
+            ServerPrincipalNameBufferLength: u32,
+            ServerPrincipalName: *mut u16,
+            ClientPrincipalNameBufferLength: u32,
+            ClientPrincipalName: *mut u16,
+            AuthenticationLevel: u32,
+            AuthenticationService: u32,
+            NullSession: BOOL,
+            KernelModeCaller: BOOL,
+            ProtocolSequence: u32,
+            IsClientLocal: RpcCallClientLocality,
+            ClientPID: HANDLE,
+            CallStatus: u32,
+            CallType: RpcCallType,
+            CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+            OpNum: u16,
+            InterfaceUuid: GUID,
+            ClientIdentifierBufferLength: u32,
+            ClientIdentifier: *mut u8,
+        }
+        const RPC_CALL_ATTRIBUTES_VERSION: u32 = 3;
+        struct RPC_CALL_LOCAL_ADDRESS_V1 {
+            Version: u32,
+            Buffer: *mut void,
+            BufferSize: u32,
+            AddressFormat: RpcLocalAddressFormat,
+        }
+        const RPC_CALL_STATUS_CANCELLED: u32 = 1;
+        const RPC_CALL_STATUS_DISCONNECTED: u32 = 2;
+        const RPC_C_INFINITE_TIMEOUT: i32 = -1;
+        const RPC_C_NOTIFY_ON_SEND_COMPLETE: u32 = 1;
+        const RPC_EEINFO_VERSION: u32 = 1;
+        struct RPC_EE_INFO_PARAM {
+            ParameterType: ExtendedErrorParamTypes,
+            u: union {
+                AnsiString: PSTR,
+                UnicodeString: PWSTR,
+                LVal: i32,
+                SVal: i16,
+                PVal: u64,
+                BVal: BinaryParam,
+            },
+        }
+        struct RPC_ERROR_ENUM_HANDLE {
+            Signature: u32,
+            CurrentPos: *mut void,
+            Head: *mut void,
+        }
+        struct RPC_EXTENDED_ERROR_INFO {
+            Version: u32,
+            ComputerName: PWSTR,
+            ProcessID: u32,
+            u: union {
+                SystemTime: SYSTEMTIME,
+                FileTime: FILETIME,
+            },
+            GeneratingComponent: u32,
+            Status: u32,
+            DetectionLocation: u16,
+            Flags: u16,
+            NumberOfParameters: i32,
+            Parameters: [RPC_EE_INFO_PARAM; 4],
+        }
+        #[repr(i32)]
+        enum RPC_NOTIFICATIONS {
+            RpcNotificationCallNone = 0,
+            RpcNotificationClientDisconnect = 1,
+            RpcNotificationCallCancel = 2,
+        }
+        #[repr(i32)]
+        enum RPC_NOTIFICATION_TYPES {
+            RpcNotificationTypeNone = 0,
+            RpcNotificationTypeEvent = 1,
+            RpcNotificationTypeApc = 2,
+            RpcNotificationTypeIoc = 3,
+            RpcNotificationTypeHwnd = 4,
+            RpcNotificationTypeCallback = 5,
+        }
+        const RPC_QUERY_CALL_LOCAL_ADDRESS: u32 = 8;
+        const RPC_QUERY_CLIENT_ID: u32 = 128;
+        const RPC_QUERY_CLIENT_PID: u32 = 16;
+        const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4;
+        const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32;
+        const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64;
+        const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, ExceptionCode: u32) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, fAbort: BOOL) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: *mut RPC_ASYNC_STATE, #[opt] Reply: *mut void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncGetCallStatus(pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncInitializeHandle(#[size_param(1)] pAsync: *mut RPC_ASYNC_STATE, Size: u32) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcAsyncRegisterInfo(pAsync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcBindingBind(#[opt] pAsync: *const RPC_ASYNC_STATE, Binding: RPC_BINDING_HANDLE, IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcBindingUnbind(Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[repr(i32)]
+        enum RpcCallClientLocality {
+            rcclInvalid = 0,
+            rcclLocal = 1,
+            rcclRemote = 2,
+            rcclClientUnknownLocality = 3,
+        }
+        #[repr(i32)]
+        enum RpcCallType {
+            rctInvalid = 0,
+            rctNormal = 1,
+            rctTraining = 2,
+            rctGuaranteed = 3,
+        }
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorAddRecord(ErrorInfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorClearInformation();
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorEndEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorGetNextRecord(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, CopyStrings: BOOL, ErrorInfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorGetNumberOfRecords(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, Records: *mut i32) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorLoadErrorInfo(#[size_param(1)] ErrorBlob: *const void, BlobSize: usize, EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorResetEnumeration(#[in] #[out] EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorSaveErrorInfo(EnumHandle: *const RPC_ERROR_ENUM_HANDLE, ErrorBlob: *mut *mut void, BlobSize: *mut usize) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcErrorStartEnumeration(EnumHandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcFreeAuthorizationContext(#[in] #[out] pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcGetAuthorizationContextForClient(#[opt] ClientBinding: RPC_BINDING_HANDLE, ImpersonateOnReturn: BOOL, #[opt] Reserved1: *const void, #[opt] pExpirationTime: *const LARGE_INTEGER, Reserved2: LUID, Reserved3: u32, #[opt] Reserved4: *const void, pAuthzClientContext: *mut *mut void) -> RPC_STATUS;
+        #[repr(i32)]
+        enum RpcLocalAddressFormat {
+            rlafInvalid = 0,
+            rlafIPv4 = 1,
+            rlafIPv6 = 2,
+        }
+        const RpcNotificationCallStatusChange: u32 = 1;
+        #[library("RPCRT4.dll")]
+        extern fn RpcServerInqCallAttributesA(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcServerInqCallAttributesW(#[opt] ClientBinding: RPC_BINDING_HANDLE, #[in] #[out] RpcCallAttributes: *mut void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcServerSubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationType: RPC_NOTIFICATION_TYPES, NotificationInfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcServerUnsubscribeForNotification(#[opt] Binding: RPC_BINDING_HANDLE, Notification: RPC_NOTIFICATIONS, NotificationsQueued: *mut u32) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsContextLockExclusive(#[opt] ServerBindingHandle: RPC_BINDING_HANDLE, UserContext: *const void) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
+        extern fn RpcSsContextLockShared(ServerBindingHandle: RPC_BINDING_HANDLE, UserContext: *const void) -> RPC_STATUS;
+    }
+}

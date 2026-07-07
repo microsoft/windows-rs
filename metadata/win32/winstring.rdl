@@ -1,0 +1,47 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        extern fn PINSPECT_HSTRING_CALLBACK(context: *const void, readAddress: usize, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        extern fn PINSPECT_HSTRING_CALLBACK2(context: *const void, readAddress: u64, length: u32, #[len_param(2)] buffer: *mut u8) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsCompareStringOrdinal(#[opt] string1: HSTRING, #[opt] string2: HSTRING, result: *mut i32) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsConcatString(#[opt] string1: HSTRING, #[opt] string2: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsCreateString(#[len_param(1)] #[opt] sourceString: *const u16, length: u32, string: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsCreateStringReference(#[opt] sourceString: PCWSTR, length: u32, hstringHeader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsDeleteString(#[opt] string: HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsDeleteStringBuffer(#[opt] bufferHandle: HSTRING_BUFFER) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsDuplicateString(#[opt] string: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsGetStringLen(#[opt] string: HSTRING) -> u32;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsGetStringRawBuffer(#[opt] string: HSTRING, #[opt] length: *mut u32) -> PCWSTR;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsInspectString(targetHString: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, #[opt] context: *const void, length: *mut u32, targetStringAddress: *mut usize) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-1.dll")]
+        extern fn WindowsInspectString2(targetHString: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, #[opt] context: *const void, length: *mut u32, targetStringAddress: *mut u64) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsIsStringEmpty(#[opt] string: HSTRING) -> BOOL;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsPreallocateStringBuffer(length: u32, charBuffer: *mut *mut u16, bufferHandle: *mut HSTRING_BUFFER) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsPromoteStringBuffer(bufferHandle: HSTRING_BUFFER, string: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsReplaceString(#[opt] string: HSTRING, #[opt] stringReplaced: HSTRING, #[opt] stringReplaceWith: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsStringHasEmbeddedNull(#[opt] string: HSTRING, hasEmbedNull: *mut BOOL) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsSubstring(#[opt] string: HSTRING, startIndex: u32, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsSubstringWithSpecifiedLength(#[opt] string: HSTRING, startIndex: u32, length: u32, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsTrimStringEnd(#[opt] string: HSTRING, #[opt] trimString: HSTRING, newString: *mut HSTRING) -> HRESULT;
+        #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
+        extern fn WindowsTrimStringStart(#[opt] string: HSTRING, #[opt] trimString: HSTRING, newString: *mut HSTRING) -> HRESULT;
+    }
+}

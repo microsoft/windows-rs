@@ -1,0 +1,72 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type CURLINVOKECOMMANDINFOA = URLINVOKECOMMANDINFOA;
+        type CURLINVOKECOMMANDINFOW = URLINVOKECOMMANDINFOW;
+        const E_FLAGS: i32 = -2147217408;
+        const IS_E_EXEC_FAILED: i32 = -2147213310;
+        #[repr(i32)]
+        enum IURL_INVOKECOMMAND_FLAGS {
+            IURL_INVOKECOMMAND_FL_ALLOW_UI = 1,
+            IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB = 2,
+            IURL_INVOKECOMMAND_FL_DDEWAIT = 4,
+            IURL_INVOKECOMMAND_FL_ASYNCOK = 8,
+            IURL_INVOKECOMMAND_FL_LOG_USAGE = 16,
+        }
+        #[repr(i32)]
+        enum IURL_SETURL_FLAGS {
+            IURL_SETURL_FL_GUESS_PROTOCOL = 1,
+            IURL_SETURL_FL_USE_DEFAULT_PROTOCOL = 2,
+        }
+        #[guid(0xfbf23b80_e3f0_101b_8488_00aa003e56f8)]
+        interface IUniformResourceLocatorA: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetURL(&self, pcszURL: PCSTR, dwInFlags: u32) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PSTR) -> HRESULT;
+            fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOA) -> HRESULT;
+        }
+        #[guid(0xcabb0da0_da57_11cf_9974_0020afd79762)]
+        interface IUniformResourceLocatorW: IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+            fn SetURL(&self, pcszURL: PCWSTR, dwInFlags: u32) -> HRESULT;
+            fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
+            fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOW) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum MIMEASSOCIATIONDIALOG_IN_FLAGS {
+            MIMEASSOCDLG_FL_REGISTER_ASSOC = 1,
+        }
+        type PCURLINVOKECOMMANDINFOA = *const URLINVOKECOMMANDINFOA;
+        type PCURLINVOKECOMMANDINFOW = *const URLINVOKECOMMANDINFOW;
+        type PURLINVOKECOMMANDINFOA = *mut URLINVOKECOMMANDINFOA;
+        type PURLINVOKECOMMANDINFOW = *mut URLINVOKECOMMANDINFOW;
+        #[repr(i32)]
+        enum TRANSLATEURL_IN_FLAGS {
+            TRANSLATEURL_FL_GUESS_PROTOCOL = 1,
+            TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL = 2,
+        }
+        #[repr(i32)]
+        enum URLASSOCIATIONDIALOG_IN_FLAGS {
+            URLASSOCDLG_FL_USE_DEFAULT_NAME = 1,
+            URLASSOCDLG_FL_REGISTER_ASSOC = 2,
+        }
+        struct URLINVOKECOMMANDINFOA {
+            dwcbSize: u32,
+            dwFlags: u32,
+            hwndParent: HWND,
+            pcszVerb: PCSTR,
+        }
+        struct URLINVOKECOMMANDINFOW {
+            dwcbSize: u32,
+            dwFlags: u32,
+            hwndParent: HWND,
+            pcszVerb: PCWSTR,
+        }
+        const URL_E_INVALID_SYNTAX: i32 = -2147217407;
+        const URL_E_UNREGISTERED_PROTOCOL: i32 = -2147217406;
+    }
+}

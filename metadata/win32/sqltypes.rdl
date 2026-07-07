@@ -1,0 +1,131 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[arch(X64 | Arm64)]
+        type BOOKMARK = SQLULEN;
+        #[arch(X86)]
+        type BOOKMARK = SQLUINTEGER;
+        struct DATE_STRUCT {
+            year: SQLSMALLINT,
+            month: SQLUSMALLINT,
+            day: SQLUSMALLINT,
+        }
+        type HDBC = *mut void;
+        type HENV = *mut void;
+        type HSTMT = *mut void;
+        type PTR = *mut void;
+        type RETCODE = i16;
+        type SCHAR = i8;
+        type SDWORD = i32;
+        type SLONG = i32;
+        type SQLBIGINT = i64;
+        type SQLCHAR = u8;
+        type SQLDATE = u8;
+        type SQLDECIMAL = u8;
+        type SQLGUID = GUID;
+        type SQLHANDLE = *mut void;
+        type SQLHDBC = SQLHANDLE;
+        type SQLHDESC = SQLHANDLE;
+        type SQLHENV = SQLHANDLE;
+        type SQLHSTMT = SQLHANDLE;
+        type SQLHWND = HWND;
+        type SQLINTEGER = i32;
+        #[repr(i32)]
+        enum SQLINTERVAL {
+            SQL_IS_YEAR = 1,
+            SQL_IS_MONTH = 2,
+            SQL_IS_DAY = 3,
+            SQL_IS_HOUR = 4,
+            SQL_IS_MINUTE = 5,
+            SQL_IS_SECOND = 6,
+            SQL_IS_YEAR_TO_MONTH = 7,
+            SQL_IS_DAY_TO_HOUR = 8,
+            SQL_IS_DAY_TO_MINUTE = 9,
+            SQL_IS_DAY_TO_SECOND = 10,
+            SQL_IS_HOUR_TO_MINUTE = 11,
+            SQL_IS_HOUR_TO_SECOND = 12,
+            SQL_IS_MINUTE_TO_SECOND = 13,
+        }
+        #[arch(X64 | Arm64)]
+        type SQLLEN = i64;
+        type SQLNUMERIC = u8;
+        type SQLPOINTER = *mut void;
+        type SQLRETURN = SQLSMALLINT;
+        #[arch(X64 | Arm64)]
+        type SQLROWCOUNT = SQLULEN;
+        #[arch(X86)]
+        type SQLROWCOUNT = SQLUINTEGER;
+        #[arch(X64 | Arm64)]
+        type SQLROWOFFSET = SQLLEN;
+        #[arch(X86)]
+        type SQLROWOFFSET = SQLINTEGER;
+        #[arch(X64 | Arm64)]
+        type SQLROWSETSIZE = SQLULEN;
+        #[arch(X86)]
+        type SQLROWSETSIZE = SQLUINTEGER;
+        type SQLSCHAR = i8;
+        #[arch(X64 | Arm64)]
+        type SQLSETPOSIROW = u64;
+        type SQLSMALLINT = i16;
+        type SQLTCHAR = SQLCHAR;
+        type SQLTIME = u8;
+        type SQLTIMESTAMP = u8;
+        #[arch(X64 | Arm64)]
+        type SQLTRANSID = SQLULEN;
+        #[arch(X86)]
+        type SQLTRANSID = SQLUINTEGER;
+        type SQLUBIGINT = u64;
+        type SQLUINTEGER = u32;
+        #[arch(X64 | Arm64)]
+        type SQLULEN = u64;
+        type SQLUSMALLINT = u16;
+        type SQLVARCHAR = u8;
+        type SQLWCHAR = u16;
+        type SQL_DATE_STRUCT = DATE_STRUCT;
+        struct SQL_DAY_SECOND_STRUCT {
+            day: SQLUINTEGER,
+            hour: SQLUINTEGER,
+            minute: SQLUINTEGER,
+            second: SQLUINTEGER,
+            fraction: SQLUINTEGER,
+        }
+        struct SQL_INTERVAL_STRUCT {
+            interval_type: SQLINTERVAL,
+            interval_sign: SQLSMALLINT,
+            intval: union {
+                year_month: SQL_YEAR_MONTH_STRUCT,
+                day_second: SQL_DAY_SECOND_STRUCT,
+            },
+        }
+        const SQL_MAX_NUMERIC_LEN: u32 = 16;
+        struct SQL_NUMERIC_STRUCT {
+            precision: SQLCHAR,
+            scale: SQLSCHAR,
+            sign: SQLCHAR,
+            val: [SQLCHAR; 16],
+        }
+        type SQL_TIMESTAMP_STRUCT = TIMESTAMP_STRUCT;
+        type SQL_TIME_STRUCT = TIME_STRUCT;
+        struct SQL_YEAR_MONTH_STRUCT {
+            year: SQLUINTEGER,
+            month: SQLUINTEGER,
+        }
+        type SSHORT = i16;
+        type SWORD = i16;
+        struct TIMESTAMP_STRUCT {
+            year: SQLSMALLINT,
+            month: SQLUSMALLINT,
+            day: SQLUSMALLINT,
+            hour: SQLUSMALLINT,
+            minute: SQLUSMALLINT,
+            second: SQLUSMALLINT,
+            fraction: SQLUINTEGER,
+        }
+        struct TIME_STRUCT {
+            hour: SQLUSMALLINT,
+            minute: SQLUSMALLINT,
+            second: SQLUSMALLINT,
+        }
+        type UDWORD = u32;
+    }
+}

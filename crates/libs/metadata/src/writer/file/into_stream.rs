@@ -105,24 +105,24 @@ impl File {
         let size_of_streams = records.len() + guids.len() + strings.len() + blobs.len();
 
         let dos = IMAGE_DOS_HEADER {
-            e_magic: IMAGE_DOS_SIGNATURE,
+            e_magic: IMAGE_DOS_SIGNATURE as u16,
             e_lfarlc: 64,
             e_lfanew: size_of::<IMAGE_DOS_HEADER>() as i32,
             ..Default::default()
         };
 
         let file = IMAGE_FILE_HEADER {
-            Machine: IMAGE_FILE_MACHINE_I386,
+            Machine: IMAGE_FILE_MACHINE_I386 as u16,
             NumberOfSections: 1,
             SizeOfOptionalHeader: size_of::<IMAGE_OPTIONAL_HEADER32>() as u16,
-            Characteristics: IMAGE_FILE_DLL
+            Characteristics: (IMAGE_FILE_DLL
                 | IMAGE_FILE_32BIT_MACHINE
-                | IMAGE_FILE_EXECUTABLE_IMAGE,
+                | IMAGE_FILE_EXECUTABLE_IMAGE) as u16,
             ..Default::default()
         };
 
         let mut optional = IMAGE_OPTIONAL_HEADER32 {
-            Magic: IMAGE_NT_OPTIONAL_HDR32_MAGIC,
+            Magic: IMAGE_NT_OPTIONAL_HDR32_MAGIC as u16,
             MajorLinkerVersion: 11,
             SizeOfInitializedData: 1024,
             ImageBase: 0x400000,
@@ -133,10 +133,10 @@ impl File {
             MajorSubsystemVersion: 6,
             MinorSubsystemVersion: 2,
             SizeOfHeaders: 512,
-            Subsystem: IMAGE_SUBSYSTEM_WINDOWS_CUI,
-            DllCharacteristics: IMAGE_DLLCHARACTERISTICS_NX_COMPAT
+            Subsystem: IMAGE_SUBSYSTEM_WINDOWS_CUI as u16,
+            DllCharacteristics: (IMAGE_DLLCHARACTERISTICS_NX_COMPAT
                 | IMAGE_DLLCHARACTERISTICS_NO_SEH
-                | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE,
+                | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE) as u16,
             SizeOfStackReserve: 0x100000,
             SizeOfHeapReserve: 4096,
             LoaderFlags: 0x100000,

@@ -1,0 +1,916 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ATA_FLAGS_48BIT_COMMAND: u32 = 8;
+        const ATA_FLAGS_DATA_IN: u32 = 2;
+        const ATA_FLAGS_DATA_OUT: u32 = 4;
+        const ATA_FLAGS_DRDY_REQUIRED: u32 = 1;
+        const ATA_FLAGS_NO_MULTIPLE: u32 = 32;
+        const ATA_FLAGS_USE_DMA: u32 = 16;
+        struct ATA_PASS_THROUGH_DIRECT {
+            Length: u16,
+            AtaFlags: u16,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            ReservedAsUchar: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            ReservedAsUlong: u32,
+            DataBuffer: *mut void,
+            PreviousTaskFile: [u8; 8],
+            CurrentTaskFile: [u8; 8],
+        }
+        #[arch(X64 | Arm64)]
+        struct ATA_PASS_THROUGH_DIRECT32 {
+            Length: u16,
+            AtaFlags: u16,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            ReservedAsUchar: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            ReservedAsUlong: u32,
+            DataBuffer: *mut void,
+            PreviousTaskFile: [u8; 8],
+            CurrentTaskFile: [u8; 8],
+        }
+        struct ATA_PASS_THROUGH_EX {
+            Length: u16,
+            AtaFlags: u16,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            ReservedAsUchar: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            ReservedAsUlong: u32,
+            DataBufferOffset: usize,
+            PreviousTaskFile: [u8; 8],
+            CurrentTaskFile: [u8; 8],
+        }
+        #[arch(X64 | Arm64)]
+        struct ATA_PASS_THROUGH_EX32 {
+            Length: u16,
+            AtaFlags: u16,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            ReservedAsUchar: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            ReservedAsUlong: u32,
+            DataBufferOffset: u32,
+            PreviousTaskFile: [u8; 8],
+            CurrentTaskFile: [u8; 8],
+        }
+        const BOOT_PARTITION_FUNCTION_ACTIVATE: u32 = 2;
+        const BOOT_PARTITION_FUNCTION_DOWNLOAD: u32 = 1;
+        const BOOT_PARTITION_FUNCTION_GET_INFO: u32 = 3;
+        struct BOOT_PARTITION_REQUEST_BLOCK {
+            Version: u32,
+            Size: u32,
+            Function: u32,
+            Flags: u32,
+            DataBufferOffset: u32,
+            DataBufferLength: u32,
+        }
+        const BOOT_PARTITION_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
+        const BOOT_PARTITION_STATUS_ERROR: u32 = 1;
+        const BOOT_PARTITION_STATUS_ILLEGAL_REQUEST: u32 = 2;
+        const BOOT_PARTITION_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4;
+        const BOOT_PARTITION_STATUS_INVALID_ALIGNMENT: u32 = 8;
+        const BOOT_PARTITION_STATUS_INVALID_IMAGE: u32 = 7;
+        const BOOT_PARTITION_STATUS_INVALID_PARAMETER: u32 = 3;
+        const BOOT_PARTITION_STATUS_INVALID_SLOT: u32 = 6;
+        const BOOT_PARTITION_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5;
+        const BOOT_PARTITION_STATUS_SUCCESS: u32 = 0;
+        const BOOT_PARTITION_STATUS_WRITE_PROHIBITED: u32 = 9;
+        #[encoding("ansi")]
+        const DD_SCSI_DEVICE_NAME: String = "\\Device\\ScsiPort";
+        struct DSM_NOTIFICATION_REQUEST_BLOCK {
+            Size: u32,
+            Version: u32,
+            NotifyFlags: u32,
+            DataSetProfile: u32,
+            Reserved: [u32; 3],
+            DataSetRangesCount: u32,
+            DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
+        }
+        extern fn DUMP_DEVICE_POWERON_ROUTINE(Context: *const void) -> i32;
+        struct DUMP_DRIVER {
+            DumpDriverList: *mut void,
+            DriverName: [u16; 15],
+            BaseName: [u16; 15],
+        }
+        struct DUMP_DRIVER_EX {
+            DumpDriverList: *mut void,
+            DriverName: [u16; 15],
+            BaseName: [u16; 15],
+            DriverFullPath: NTSCSI_UNICODE_STRING,
+        }
+        const DUMP_DRIVER_NAME_LENGTH: u32 = 15;
+        const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: u32 = 8;
+        const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4;
+        const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1;
+        const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2;
+        struct DUMP_POINTERS {
+            AdapterObject: *mut _ADAPTER_OBJECT,
+            MappedRegisterBase: *mut void,
+            DumpData: *mut void,
+            CommonBufferVa: *mut void,
+            CommonBufferPa: LARGE_INTEGER,
+            CommonBufferSize: u32,
+            AllocateCommonBuffers: BOOLEAN,
+            UseDiskDump: BOOLEAN,
+            Spare1: [u8; 2],
+            DeviceObject: *mut void,
+        }
+        struct DUMP_POINTERS_EX {
+            Header: DUMP_POINTERS_VERSION,
+            DumpData: *mut void,
+            CommonBufferVa: *mut void,
+            CommonBufferSize: u32,
+            AllocateCommonBuffers: BOOLEAN,
+            DeviceObject: *mut void,
+            DriverList: *mut void,
+            dwPortFlags: u32,
+            MaxDeviceDumpSectionSize: u32,
+            MaxDeviceDumpLevel: u32,
+            MaxTransferSize: u32,
+            AdapterObject: *mut void,
+            MappedRegisterBase: *mut void,
+            DeviceReady: PBOOLEAN,
+            DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
+            DumpDevicePowerOnContext: *mut void,
+        }
+        #[arch(X64 | Arm64)]
+        const DUMP_POINTERS_EX_V2_SIZE: u32 = 48;
+        #[arch(X86)]
+        const DUMP_POINTERS_EX_V2_SIZE: u32 = 32;
+        #[arch(X64 | Arm64)]
+        const DUMP_POINTERS_EX_V3_SIZE: u32 = 88;
+        #[arch(X86)]
+        const DUMP_POINTERS_EX_V3_SIZE: u32 = 60;
+        struct DUMP_POINTERS_VERSION {
+            Version: u32,
+            Size: u32,
+        }
+        const DUMP_POINTERS_VERSION_1: u32 = 1;
+        const DUMP_POINTERS_VERSION_2: u32 = 2;
+        const DUMP_POINTERS_VERSION_3: u32 = 3;
+        const DUMP_POINTERS_VERSION_4: u32 = 4;
+        const FILE_DEVICE_SCSI: u32 = 27;
+        const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3;
+        const FIRMWARE_FUNCTION_DOWNLOAD: u32 = 2;
+        const FIRMWARE_FUNCTION_GET_INFO: u32 = 1;
+        struct FIRMWARE_REQUEST_BLOCK {
+            Version: u32,
+            Size: u32,
+            Function: u32,
+            Flags: u32,
+            DataBufferOffset: u32,
+            DataBufferLength: u32,
+        }
+        const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
+        const FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1;
+        const FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4;
+        const FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2;
+        const FIRMWARE_REQUEST_FLAG_REPLACE_AND_SWITCH_UPON_RESET: u32 = 536870912;
+        const FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824;
+        const FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648;
+        const FIRMWARE_REQUEST_FLAG_SWITCH_TO_FIRMWARE_WITHOUT_RESET: u32 = 268435456;
+        const FIRMWARE_STATUS_COMMAND_ABORT: u32 = 133;
+        const FIRMWARE_STATUS_CONTROLLER_ERROR: u32 = 16;
+        const FIRMWARE_STATUS_DEVICE_ERROR: u32 = 64;
+        const FIRMWARE_STATUS_END_OF_MEDIA: u32 = 134;
+        const FIRMWARE_STATUS_ERROR: u32 = 1;
+        const FIRMWARE_STATUS_ID_NOT_FOUND: u32 = 131;
+        const FIRMWARE_STATUS_ILLEGAL_LENGTH: u32 = 135;
+        const FIRMWARE_STATUS_ILLEGAL_REQUEST: u32 = 2;
+        const FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG: u32 = 4;
+        const FIRMWARE_STATUS_INTERFACE_CRC_ERROR: u32 = 128;
+        const FIRMWARE_STATUS_INVALID_IMAGE: u32 = 7;
+        const FIRMWARE_STATUS_INVALID_PARAMETER: u32 = 3;
+        const FIRMWARE_STATUS_INVALID_SLOT: u32 = 6;
+        const FIRMWARE_STATUS_MEDIA_CHANGE: u32 = 130;
+        const FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST: u32 = 132;
+        const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5;
+        const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32;
+        const FIRMWARE_STATUS_SUCCESS: u32 = 0;
+        const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129;
+        struct HYBRID_DEMOTE_BY_SIZE {
+            Version: u32,
+            Size: u32,
+            SourcePriority: u8,
+            TargetPriority: u8,
+            Reserved0: u16,
+            Reserved1: u32,
+            LbaCount: u64,
+        }
+        struct HYBRID_DIRTY_THRESHOLDS {
+            Version: u32,
+            Size: u32,
+            DirtyLowThreshold: u32,
+            DirtyHighThreshold: u32,
+        }
+        const HYBRID_FUNCTION_DEMOTE_BY_SIZE: u32 = 19;
+        const HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM: u32 = 16;
+        const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17;
+        const HYBRID_FUNCTION_GET_INFO: u32 = 1;
+        const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18;
+        struct HYBRID_INFORMATION {
+            Version: u32,
+            Size: u32,
+            HybridSupported: BOOLEAN,
+            Status: NVCACHE_STATUS,
+            CacheTypeEffective: NVCACHE_TYPE,
+            CacheTypeDefault: NVCACHE_TYPE,
+            FractionBase: u32,
+            CacheSize: u64,
+            Attributes: struct {
+                _bitfield: u32,
+            },
+            Priorities: struct {
+                PriorityLevelCount: u8,
+                MaxPriorityBehavior: BOOLEAN,
+                OptimalWriteGranularity: u8,
+                Reserved: u8,
+                DirtyThresholdLow: u32,
+                DirtyThresholdHigh: u32,
+                SupportedCommands: struct {
+                    _bitfield: u32,
+                    MaxEvictCommands: u32,
+                    MaxLbaRangeCountForEvict: u32,
+                    MaxLbaRangeCountForChangeLba: u32,
+                },
+                Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 0],
+            },
+        }
+        struct HYBRID_REQUEST_BLOCK {
+            Version: u32,
+            Size: u32,
+            Function: u32,
+            Flags: u32,
+            DataBufferOffset: u32,
+            DataBufferLength: u32,
+        }
+        const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1;
+        const HYBRID_REQUEST_INFO_STRUCTURE_VERSION: u32 = 1;
+        const HYBRID_STATUS_ENABLE_REFCOUNT_HOLD: u32 = 16;
+        const HYBRID_STATUS_ILLEGAL_REQUEST: u32 = 1;
+        const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2;
+        const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3;
+        const HYBRID_STATUS_SUCCESS: u32 = 0;
+        struct IDE_IO_CONTROL {
+            HeaderLength: u32,
+            Signature: [u8; 8],
+            Timeout: u32,
+            ControlCode: u32,
+            ReturnStatus: u32,
+            DataLength: u32,
+        }
+        const IOCTL_ATA_MINIPORT: u32 = 315444;
+        const IOCTL_ATA_PASS_THROUGH: u32 = 315436;
+        const IOCTL_ATA_PASS_THROUGH_DIRECT: u32 = 315440;
+        const IOCTL_IDE_PASS_THROUGH: u32 = 315432;
+        const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448;
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_BOOT_PARTITION: String = "BOOTPINF";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: String = "MPDSMGEN";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: String = "MPDSM   ";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: String = "ENDURINF";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: String = "FIRMWARE";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: String = "HYBRDISK";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: String = "TOPOLOGY";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: String = "PROTOCOL";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: String = "TEMPERAT";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: String = "SCSIDISK";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: String = "SETPROTO";
+        #[encoding("ansi")]
+        const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: String = "SETTEMPT";
+        const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: u32 = 315456;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: u32 = 315472;
+        const IOCTL_MPIO_PASS_THROUGH_PATH_EX: u32 = 315468;
+        const IOCTL_SCSI_BASE: u32 = 4;
+        const IOCTL_SCSI_FREE_DUMP_POINTERS: u32 = 266276;
+        const IOCTL_SCSI_GET_ADDRESS: u32 = 266264;
+        const IOCTL_SCSI_GET_CAPABILITIES: u32 = 266256;
+        const IOCTL_SCSI_GET_DUMP_POINTERS: u32 = 266272;
+        const IOCTL_SCSI_GET_INQUIRY_DATA: u32 = 266252;
+        const IOCTL_SCSI_MINIPORT: u32 = 315400;
+        const IOCTL_SCSI_MINIPORT_BOOT_PARTITION: u32 = 1771408;
+        const IOCTL_SCSI_MINIPORT_DIAGNOSTIC: u32 = 1771776;
+        const IOCTL_SCSI_MINIPORT_FIRMWARE: u32 = 1771392;
+        const IOCTL_SCSI_MINIPORT_HYBRID: u32 = 1771040;
+        const IOCTL_SCSI_MINIPORT_NVCACHE: u32 = 1771008;
+        const IOCTL_SCSI_PASS_THROUGH: u32 = 315396;
+        const IOCTL_SCSI_PASS_THROUGH_DIRECT: u32 = 315412;
+        const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464;
+        const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460;
+        const IOCTL_SCSI_RESCAN_BUS: u32 = 266268;
+        struct IO_SCSI_CAPABILITIES {
+            Length: u32,
+            MaximumTransferLength: u32,
+            MaximumPhysicalPages: u32,
+            SupportedAsynchronousEvents: u32,
+            AlignmentMask: u32,
+            TaggedQueuing: BOOLEAN,
+            AdapterScansDown: BOOLEAN,
+            AdapterUsesPio: BOOLEAN,
+        }
+        const MINIPORT_DSM_NOTIFICATION_VERSION: u32 = 1;
+        const MINIPORT_DSM_NOTIFICATION_VERSION_1: u32 = 1;
+        const MINIPORT_DSM_NOTIFY_FLAG_BEGIN: u32 = 1;
+        const MINIPORT_DSM_NOTIFY_FLAG_END: u32 = 2;
+        const MINIPORT_DSM_PROFILE_CRASHDUMP_FILE: u32 = 3;
+        const MINIPORT_DSM_PROFILE_HIBERNATION_FILE: u32 = 2;
+        const MINIPORT_DSM_PROFILE_PAGE_FILE: u32 = 1;
+        const MINIPORT_DSM_PROFILE_UNKNOWN: u32 = 0;
+        const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4;
+        const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1;
+        const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2;
+        struct MPIO_PASS_THROUGH_PATH {
+            PassThrough: SCSI_PASS_THROUGH,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        #[arch(X64 | Arm64)]
+        struct MPIO_PASS_THROUGH_PATH32 {
+            PassThrough: SCSI_PASS_THROUGH32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        #[arch(X64 | Arm64)]
+        struct MPIO_PASS_THROUGH_PATH32_EX {
+            PassThroughOffset: u32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        struct MPIO_PASS_THROUGH_PATH_DIRECT {
+            PassThrough: SCSI_PASS_THROUGH_DIRECT,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        #[arch(X64 | Arm64)]
+        struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
+            PassThrough: SCSI_PASS_THROUGH_DIRECT32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        #[arch(X64 | Arm64)]
+        struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
+            PassThroughOffset: u32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
+            PassThroughOffset: u32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        struct MPIO_PASS_THROUGH_PATH_EX {
+            PassThroughOffset: u32,
+            Version: u32,
+            Length: u16,
+            Flags: u8,
+            PortNumber: u8,
+            MpioPathId: u64,
+        }
+        struct MP_DEVICE_DATA_SET_RANGE {
+            StartingOffset: i64,
+            LengthInBytes: u64,
+        }
+        #[repr(i32)]
+        enum MP_STORAGE_DIAGNOSTIC_LEVEL {
+            MpStorageDiagnosticLevelDefault = 0,
+            MpStorageDiagnosticLevelMax = 1,
+        }
+        #[repr(i32)]
+        enum MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+            MpStorageDiagnosticTargetTypeUndefined = 0,
+            MpStorageDiagnosticTargetTypeMiniport = 2,
+            MpStorageDiagnosticTargetTypeHbaFirmware = 3,
+            MpStorageDiagnosticTargetTypeMax = 4,
+        }
+        const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16;
+        const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20;
+        const NRB_FUNCTION_NVCACHE_INFO: u32 = 236;
+        const NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN: u32 = 1;
+        const NRB_FUNCTION_NVCACHE_POWER_MODE_SET: u32 = 0;
+        const NRB_FUNCTION_NVSEPARATED_FLUSH: u32 = 193;
+        const NRB_FUNCTION_NVSEPARATED_INFO: u32 = 192;
+        const NRB_FUNCTION_NVSEPARATED_WB_DISABLE: u32 = 194;
+        const NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT: u32 = 195;
+        const NRB_FUNCTION_PASS_HINT_PAYLOAD: u32 = 224;
+        const NRB_FUNCTION_QUERY_ASCENDER_STATUS: u32 = 208;
+        const NRB_FUNCTION_QUERY_CACHE_MISS: u32 = 19;
+        const NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS: u32 = 209;
+        const NRB_FUNCTION_QUERY_PINNED_SET: u32 = 18;
+        const NRB_FUNCTION_REMOVE_LBAS_PINNED_SET: u32 = 17;
+        const NRB_FUNCTION_SPINDLE_STATUS: u32 = 229;
+        const NRB_ILLEGAL_REQUEST: u32 = 1;
+        const NRB_INPUT_DATA_OVERRUN: u32 = 3;
+        const NRB_INPUT_DATA_UNDERRUN: u32 = 4;
+        const NRB_INVALID_PARAMETER: u32 = 2;
+        const NRB_OUTPUT_DATA_OVERRUN: u32 = 5;
+        const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6;
+        const NRB_SUCCESS: u32 = 0;
+        struct NTSCSI_UNICODE_STRING {
+            Length: u16,
+            MaximumLength: u16,
+            Buffer: PWCH,
+        }
+        struct NVCACHE_HINT_PAYLOAD {
+            Command: u8,
+            Feature7_0: u8,
+            Feature15_8: u8,
+            Count15_8: u8,
+            LBA7_0: u8,
+            LBA15_8: u8,
+            LBA23_16: u8,
+            LBA31_24: u8,
+            LBA39_32: u8,
+            LBA47_40: u8,
+            Auxiliary7_0: u8,
+            Auxiliary23_16: u8,
+            Reserved: [u8; 4],
+        }
+        struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
+            PriorityLevel: u8,
+            Reserved0: [u8; 3],
+            ConsumedNVMSizeFraction: u32,
+            ConsumedMappingResourcesFraction: u32,
+            ConsumedNVMSizeForDirtyDataFraction: u32,
+            ConsumedMappingResourcesForDirtyDataFraction: u32,
+            Reserved1: u32,
+        }
+        struct NVCACHE_REQUEST_BLOCK {
+            NRBSize: u32,
+            Function: u16,
+            NRBFlags: u32,
+            NRBStatus: u32,
+            Count: u32,
+            LBA: u64,
+            DataBufSize: u32,
+            NVCacheStatus: u32,
+            NVCacheSubStatus: u32,
+        }
+        #[repr(i32)]
+        enum NVCACHE_STATUS {
+            NvCacheStatusUnknown = 0,
+            NvCacheStatusDisabling = 1,
+            NvCacheStatusDisabled = 2,
+            NvCacheStatusEnabled = 3,
+        }
+        #[repr(i32)]
+        enum NVCACHE_TYPE {
+            NvCacheTypeUnknown = 0,
+            NvCacheTypeNone = 1,
+            NvCacheTypeWriteBack = 2,
+            NvCacheTypeWriteThrough = 3,
+        }
+        struct NV_FEATURE_PARAMETER {
+            NVPowerModeEnabled: u16,
+            NVParameterReserv1: u16,
+            NVCmdEnabled: u16,
+            NVParameterReserv2: u16,
+            NVPowerModeVer: u16,
+            NVCmdVer: u16,
+            NVSize: u32,
+            NVReadSpeed: u16,
+            NVWrtSpeed: u16,
+            DeviceSpinUpTime: u32,
+        }
+        struct NV_SEP_CACHE_PARAMETER {
+            Version: u32,
+            Size: u32,
+            Flags: union {
+                CacheFlags: struct {
+                    _bitfield: u8,
+                },
+                CacheFlagsSet: u8,
+            },
+            WriteCacheType: u8,
+            WriteCacheTypeEffective: u8,
+            ParameterReserve1: [u8; 3],
+        }
+        const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1;
+        const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1;
+        #[repr(i32)]
+        enum NV_SEP_WRITE_CACHE_TYPE {
+            NVSEPWriteCacheTypeUnknown = 0,
+            NVSEPWriteCacheTypeNone = 1,
+            NVSEPWriteCacheTypeWriteBack = 2,
+            NVSEPWriteCacheTypeWriteThrough = 3,
+        }
+        type PATA_PASS_THROUGH_DIRECT = *mut ATA_PASS_THROUGH_DIRECT;
+        #[arch(X64 | Arm64)]
+        type PATA_PASS_THROUGH_DIRECT32 = *mut ATA_PASS_THROUGH_DIRECT32;
+        type PATA_PASS_THROUGH_EX = *mut ATA_PASS_THROUGH_EX;
+        #[arch(X64 | Arm64)]
+        type PATA_PASS_THROUGH_EX32 = *mut ATA_PASS_THROUGH_EX32;
+        type PBOOT_PARTITION_REQUEST_BLOCK = *mut BOOT_PARTITION_REQUEST_BLOCK;
+        type PDSM_NOTIFICATION_REQUEST_BLOCK = *mut DSM_NOTIFICATION_REQUEST_BLOCK;
+        type PDUMP_DEVICE_POWERON_ROUTINE = *mut DUMP_DEVICE_POWERON_ROUTINE;
+        type PDUMP_DRIVER = *mut DUMP_DRIVER;
+        type PDUMP_DRIVER_EX = *mut DUMP_DRIVER_EX;
+        type PDUMP_POINTERS = *mut DUMP_POINTERS;
+        type PDUMP_POINTERS_EX = *mut DUMP_POINTERS_EX;
+        type PDUMP_POINTERS_VERSION = *mut DUMP_POINTERS_VERSION;
+        type PFIRMWARE_REQUEST_BLOCK = *mut FIRMWARE_REQUEST_BLOCK;
+        type PHYBRID_DEMOTE_BY_SIZE = *mut HYBRID_DEMOTE_BY_SIZE;
+        type PHYBRID_DIRTY_THRESHOLDS = *mut HYBRID_DIRTY_THRESHOLDS;
+        type PHYBRID_INFORMATION = *mut HYBRID_INFORMATION;
+        type PHYBRID_REQUEST_BLOCK = *mut HYBRID_REQUEST_BLOCK;
+        type PIDE_IO_CONTROL = *mut IDE_IO_CONTROL;
+        type PIO_SCSI_CAPABILITIES = *mut IO_SCSI_CAPABILITIES;
+        type PMPIO_PASS_THROUGH_PATH = *mut MPIO_PASS_THROUGH_PATH;
+        #[arch(X64 | Arm64)]
+        type PMPIO_PASS_THROUGH_PATH32 = *mut MPIO_PASS_THROUGH_PATH32;
+        #[arch(X64 | Arm64)]
+        type PMPIO_PASS_THROUGH_PATH32_EX = *mut MPIO_PASS_THROUGH_PATH32_EX;
+        type PMPIO_PASS_THROUGH_PATH_DIRECT = *mut MPIO_PASS_THROUGH_PATH_DIRECT;
+        #[arch(X64 | Arm64)]
+        type PMPIO_PASS_THROUGH_PATH_DIRECT32 = *mut MPIO_PASS_THROUGH_PATH_DIRECT32;
+        #[arch(X64 | Arm64)]
+        type PMPIO_PASS_THROUGH_PATH_DIRECT32_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT32_EX;
+        type PMPIO_PASS_THROUGH_PATH_DIRECT_EX = *mut MPIO_PASS_THROUGH_PATH_DIRECT_EX;
+        type PMPIO_PASS_THROUGH_PATH_EX = *mut MPIO_PASS_THROUGH_PATH_EX;
+        type PMP_DEVICE_DATA_SET_RANGE = *mut MP_DEVICE_DATA_SET_RANGE;
+        type PMP_STORAGE_DIAGNOSTIC_LEVEL = *mut MP_STORAGE_DIAGNOSTIC_LEVEL;
+        type PMP_STORAGE_DIAGNOSTIC_TARGET_TYPE = *mut MP_STORAGE_DIAGNOSTIC_TARGET_TYPE;
+        type PNTSCSI_UNICODE_STRING = *mut NTSCSI_UNICODE_STRING;
+        type PNVCACHE_HINT_PAYLOAD = *mut NVCACHE_HINT_PAYLOAD;
+        type PNVCACHE_PRIORITY_LEVEL_DESCRIPTOR = *mut NVCACHE_PRIORITY_LEVEL_DESCRIPTOR;
+        type PNVCACHE_REQUEST_BLOCK = *mut NVCACHE_REQUEST_BLOCK;
+        type PNV_FEATURE_PARAMETER = *mut NV_FEATURE_PARAMETER;
+        type PNV_SEP_CACHE_PARAMETER = *mut NV_SEP_CACHE_PARAMETER;
+        type PNV_SEP_WRITE_CACHE_TYPE = *mut NV_SEP_WRITE_CACHE_TYPE;
+        type PSCSI_ADAPTER_BUS_INFO = *mut SCSI_ADAPTER_BUS_INFO;
+        type PSCSI_ADDRESS = *mut SCSI_ADDRESS;
+        type PSCSI_BUS_DATA = *mut SCSI_BUS_DATA;
+        type PSCSI_INQUIRY_DATA = *mut SCSI_INQUIRY_DATA;
+        type PSCSI_PASS_THROUGH = *mut SCSI_PASS_THROUGH;
+        #[arch(X64 | Arm64)]
+        type PSCSI_PASS_THROUGH32 = *mut SCSI_PASS_THROUGH32;
+        #[arch(X64 | Arm64)]
+        type PSCSI_PASS_THROUGH32_EX = *mut SCSI_PASS_THROUGH32_EX;
+        type PSCSI_PASS_THROUGH_DIRECT = *mut SCSI_PASS_THROUGH_DIRECT;
+        #[arch(X64 | Arm64)]
+        type PSCSI_PASS_THROUGH_DIRECT32 = *mut SCSI_PASS_THROUGH_DIRECT32;
+        #[arch(X64 | Arm64)]
+        type PSCSI_PASS_THROUGH_DIRECT32_EX = *mut SCSI_PASS_THROUGH_DIRECT32_EX;
+        type PSCSI_PASS_THROUGH_DIRECT_EX = *mut SCSI_PASS_THROUGH_DIRECT_EX;
+        type PSCSI_PASS_THROUGH_EX = *mut SCSI_PASS_THROUGH_EX;
+        type PSRB_IO_CONTROL = *mut SRB_IO_CONTROL;
+        type PSTORAGE_BOOT_PARTITION_ACTIVATE = *mut STORAGE_BOOT_PARTITION_ACTIVATE;
+        type PSTORAGE_BOOT_PARTITION_DOWNLOAD = *mut STORAGE_BOOT_PARTITION_DOWNLOAD;
+        type PSTORAGE_BOOT_PARTITION_INFO = *mut STORAGE_BOOT_PARTITION_INFO;
+        type PSTORAGE_DIAGNOSTIC_MP_REQUEST = *mut STORAGE_DIAGNOSTIC_MP_REQUEST;
+        type PSTORAGE_ENDURANCE_DATA_DESCRIPTOR = *mut STORAGE_ENDURANCE_DATA_DESCRIPTOR;
+        type PSTORAGE_ENDURANCE_INFO = *mut STORAGE_ENDURANCE_INFO;
+        type PSTORAGE_FIRMWARE_ACTIVATE = *mut STORAGE_FIRMWARE_ACTIVATE;
+        type PSTORAGE_FIRMWARE_DOWNLOAD = *mut STORAGE_FIRMWARE_DOWNLOAD;
+        type PSTORAGE_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_FIRMWARE_DOWNLOAD_V2;
+        type PSTORAGE_FIRMWARE_INFO = *mut STORAGE_FIRMWARE_INFO;
+        type PSTORAGE_FIRMWARE_INFO_V2 = *mut STORAGE_FIRMWARE_INFO_V2;
+        type PSTORAGE_FIRMWARE_SLOT_INFO = *mut STORAGE_FIRMWARE_SLOT_INFO;
+        type PSTORAGE_FIRMWARE_SLOT_INFO_V2 = *mut STORAGE_FIRMWARE_SLOT_INFO_V2;
+        struct SCSI_ADAPTER_BUS_INFO {
+            NumberOfBuses: u8,
+            BusData: [SCSI_BUS_DATA; 1],
+        }
+        struct SCSI_ADDRESS {
+            Length: u32,
+            PortNumber: u8,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+        }
+        struct SCSI_BUS_DATA {
+            NumberOfLogicalUnits: u8,
+            InitiatorBusId: u8,
+            InquiryDataOffset: u32,
+        }
+        struct SCSI_INQUIRY_DATA {
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            DeviceClaimed: BOOLEAN,
+            InquiryDataLength: u32,
+            NextInquiryDataOffset: u32,
+            InquiryData: [u8; 1],
+        }
+        const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3;
+        const SCSI_IOCTL_DATA_IN: u32 = 1;
+        const SCSI_IOCTL_DATA_OUT: u32 = 0;
+        const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2;
+        struct SCSI_PASS_THROUGH {
+            Length: u16,
+            ScsiStatus: u8,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            CdbLength: u8,
+            SenseInfoLength: u8,
+            DataIn: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            DataBufferOffset: usize,
+            SenseInfoOffset: u32,
+            Cdb: [u8; 16],
+        }
+        #[arch(X64 | Arm64)]
+        struct SCSI_PASS_THROUGH32 {
+            Length: u16,
+            ScsiStatus: u8,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            CdbLength: u8,
+            SenseInfoLength: u8,
+            DataIn: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            DataBufferOffset: u32,
+            SenseInfoOffset: u32,
+            Cdb: [u8; 16],
+        }
+        #[arch(X64 | Arm64)]
+        struct SCSI_PASS_THROUGH32_EX {
+            Version: u32,
+            Length: u32,
+            CdbLength: u32,
+            StorAddressLength: u32,
+            ScsiStatus: u8,
+            SenseInfoLength: u8,
+            DataDirection: u8,
+            Reserved: u8,
+            TimeOutValue: u32,
+            StorAddressOffset: u32,
+            SenseInfoOffset: u32,
+            DataOutTransferLength: u32,
+            DataInTransferLength: u32,
+            DataOutBufferOffset: u32,
+            DataInBufferOffset: u32,
+            Cdb: [u8; 1],
+        }
+        struct SCSI_PASS_THROUGH_DIRECT {
+            Length: u16,
+            ScsiStatus: u8,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            CdbLength: u8,
+            SenseInfoLength: u8,
+            DataIn: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            DataBuffer: *mut void,
+            SenseInfoOffset: u32,
+            Cdb: [u8; 16],
+        }
+        #[arch(X64 | Arm64)]
+        struct SCSI_PASS_THROUGH_DIRECT32 {
+            Length: u16,
+            ScsiStatus: u8,
+            PathId: u8,
+            TargetId: u8,
+            Lun: u8,
+            CdbLength: u8,
+            SenseInfoLength: u8,
+            DataIn: u8,
+            DataTransferLength: u32,
+            TimeOutValue: u32,
+            DataBuffer: *mut void,
+            SenseInfoOffset: u32,
+            Cdb: [u8; 16],
+        }
+        #[arch(X64 | Arm64)]
+        struct SCSI_PASS_THROUGH_DIRECT32_EX {
+            Version: u32,
+            Length: u32,
+            CdbLength: u32,
+            StorAddressLength: u32,
+            ScsiStatus: u8,
+            SenseInfoLength: u8,
+            DataDirection: u8,
+            Reserved: u8,
+            TimeOutValue: u32,
+            StorAddressOffset: u32,
+            SenseInfoOffset: u32,
+            DataOutTransferLength: u32,
+            DataInTransferLength: u32,
+            DataOutBuffer: *mut void,
+            DataInBuffer: *mut void,
+            Cdb: [u8; 1],
+        }
+        struct SCSI_PASS_THROUGH_DIRECT_EX {
+            Version: u32,
+            Length: u32,
+            CdbLength: u32,
+            StorAddressLength: u32,
+            ScsiStatus: u8,
+            SenseInfoLength: u8,
+            DataDirection: u8,
+            Reserved: u8,
+            TimeOutValue: u32,
+            StorAddressOffset: u32,
+            SenseInfoOffset: u32,
+            DataOutTransferLength: u32,
+            DataInTransferLength: u32,
+            DataOutBuffer: *mut void,
+            DataInBuffer: *mut void,
+            Cdb: [u8; 1],
+        }
+        struct SCSI_PASS_THROUGH_EX {
+            Version: u32,
+            Length: u32,
+            CdbLength: u32,
+            StorAddressLength: u32,
+            ScsiStatus: u8,
+            SenseInfoLength: u8,
+            DataDirection: u8,
+            Reserved: u8,
+            TimeOutValue: u32,
+            StorAddressOffset: u32,
+            SenseInfoOffset: u32,
+            DataOutTransferLength: u32,
+            DataInTransferLength: u32,
+            DataOutBufferOffset: usize,
+            DataInBufferOffset: usize,
+            Cdb: [u8; 1],
+        }
+        struct SRB_IO_CONTROL {
+            HeaderLength: u32,
+            Signature: [u8; 8],
+            Timeout: u32,
+            ControlCode: u32,
+            ReturnCode: u32,
+            Length: u32,
+        }
+        struct STORAGE_BOOT_PARTITION_ACTIVATE {
+            Version: u32,
+            Size: u32,
+            BPID: u8,
+            Reserved0: [u8; 3],
+        }
+        const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
+        struct STORAGE_BOOT_PARTITION_DOWNLOAD {
+            Version: u32,
+            Size: u32,
+            BPID: u8,
+            Offset: u64,
+            BufferSize: u64,
+            ImageBuffer: [u8; 1],
+        }
+        const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
+        const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: u32 = 1;
+        struct STORAGE_BOOT_PARTITION_INFO {
+            Version: u32,
+            Size: u32,
+            BPSZ: u64,
+            ImagePayloadAlignment: u32,
+            ImagePayloadMaxSize: u32,
+            SlotCount: u8,
+            ABPID: u8,
+        }
+        struct STORAGE_DIAGNOSTIC_MP_REQUEST {
+            Version: u32,
+            Size: u32,
+            TargetType: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE,
+            Level: MP_STORAGE_DIAGNOSTIC_LEVEL,
+            ProviderId: GUID,
+            BufferSize: u32,
+            Reserved: u32,
+            DataBuffer: [u8; 1],
+        }
+        const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: u32 = 1;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER: u32 = 3;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE: u32 = 4;
+        const STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE: u32 = 5;
+        const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: u32 = 6;
+        const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: u32 = 0;
+        const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: u32 = 2;
+        struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
+            Version: u32,
+            Size: u32,
+            EnduranceInfo: STORAGE_ENDURANCE_INFO,
+        }
+        struct STORAGE_ENDURANCE_INFO {
+            ValidFields: u32,
+            GroupId: u32,
+            Flags: struct {
+                _bitfield: u32,
+            },
+            LifePercentage: u32,
+            BytesReadCount: [u8; 16],
+            ByteWriteCount: [u8; 16],
+        }
+        struct STORAGE_FIRMWARE_ACTIVATE {
+            Version: u32,
+            Size: u32,
+            SlotToActivate: u8,
+            Reserved0: [u8; 3],
+        }
+        const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
+        struct STORAGE_FIRMWARE_DOWNLOAD {
+            Version: u32,
+            Size: u32,
+            Offset: u64,
+            BufferSize: u64,
+            ImageBuffer: [u8; 0],
+        }
+        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
+        const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2;
+        struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
+            Version: u32,
+            Size: u32,
+            Offset: u64,
+            BufferSize: u64,
+            Slot: u8,
+            Reserved: [u8; 3],
+            ImageSize: u32,
+            ImageBuffer: [u8; 0],
+        }
+        struct STORAGE_FIRMWARE_INFO {
+            Version: u32,
+            Size: u32,
+            UpgradeSupport: BOOLEAN,
+            SlotCount: u8,
+            ActiveSlot: u8,
+            PendingActivateSlot: u8,
+            Reserved: u32,
+            Slot: [STORAGE_FIRMWARE_SLOT_INFO; 0],
+        }
+        const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255;
+        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1;
+        const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2;
+        struct STORAGE_FIRMWARE_INFO_V2 {
+            Version: u32,
+            Size: u32,
+            UpgradeSupport: BOOLEAN,
+            SlotCount: u8,
+            ActiveSlot: u8,
+            PendingActivateSlot: u8,
+            FirmwareShared: BOOLEAN,
+            Reserved: [u8; 3],
+            ImagePayloadAlignment: u32,
+            ImagePayloadMaxSize: u32,
+            Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 0],
+        }
+        struct STORAGE_FIRMWARE_SLOT_INFO {
+            SlotNumber: u8,
+            ReadOnly: BOOLEAN,
+            Reserved: [u8; 6],
+            Revision: union {
+                Info: [u8; 8],
+                AsUlonglong: u64,
+            },
+        }
+        struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
+            SlotNumber: u8,
+            ReadOnly: BOOLEAN,
+            Reserved: [u8; 6],
+            Revision: [u8; 16],
+        }
+        const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16;
+        const ScsiRawInterfaceGuid: GUID = 0x53f56309_b6bf_11d0_94f2_00a0c91efb8b;
+        const WmiScsiAddressGuid: GUID = 0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b;
+        struct _ADAPTER_OBJECT {}
+    }
+}

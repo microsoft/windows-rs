@@ -1,0 +1,1226 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct APPDATA {
+            m_idApp: u32,
+            m_szAppGuid: [u16; 40],
+            m_dwAppProcessId: u32,
+            m_AppStatistics: APPSTATISTICS,
+        }
+        struct APPSTATISTICS {
+            m_cTotalCalls: u32,
+            m_cTotalInstances: u32,
+            m_cTotalClasses: u32,
+            m_cCallsPerSecond: u32,
+        }
+        const AppDomainHelper: GUID = 0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4;
+        struct ApplicationProcessRecycleInfo {
+            IsRecyclable: BOOL,
+            IsRecycled: BOOL,
+            TimeRecycled: FILETIME,
+            TimeToTerminate: FILETIME,
+            RecycleReasonCode: i32,
+            IsPendingRecycle: BOOL,
+            HasAutomaticLifetimeRecycling: BOOL,
+            TimeForAutomaticRecycling: FILETIME,
+            MemoryLimitInKB: u32,
+            MemoryUsageInKBLastCheck: u32,
+            ActivationLimit: u32,
+            NumActivationsLastReported: u32,
+            CallLimit: u32,
+            NumCallsLastReported: u32,
+        }
+        struct ApplicationProcessStatistics {
+            NumCallsOutstanding: u32,
+            NumTrackedComponents: u32,
+            NumComponentInstances: u32,
+            AvgCallsPerSecond: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: u32,
+        }
+        struct ApplicationProcessSummary {
+            PartitionIdPrimaryApplication: GUID,
+            ApplicationIdPrimaryApplication: GUID,
+            ApplicationInstanceId: GUID,
+            ProcessId: u32,
+            Type: COMPLUS_APPTYPE,
+            ProcessExeName: PWSTR,
+            IsService: BOOL,
+            IsPaused: BOOL,
+            IsRecycled: BOOL,
+        }
+        struct ApplicationSummary {
+            ApplicationInstanceId: GUID,
+            PartitionId: GUID,
+            ApplicationId: GUID,
+            Type: COMPLUS_APPTYPE,
+            ApplicationName: PWSTR,
+            NumTrackedComponents: u32,
+            NumComponentInstances: u32,
+        }
+        const ByotServerEx: GUID = 0xecabb0aa_7f19_11d2_978e_0000f8757e2a;
+        struct CLSIDDATA {
+            m_clsid: GUID,
+            m_cReferences: u32,
+            m_cBound: u32,
+            m_cPooled: u32,
+            m_cInCall: u32,
+            m_dwRespTime: u32,
+            m_cCallsCompleted: u32,
+            m_cCallsFailed: u32,
+        }
+        struct CLSIDDATA2 {
+            m_clsid: GUID,
+            m_appid: GUID,
+            m_partid: GUID,
+            m_pwszAppName: *mut u16,
+            m_pwszCtxName: *mut u16,
+            m_eAppType: COMPLUS_APPTYPE,
+            m_cReferences: u32,
+            m_cBound: u32,
+            m_cPooled: u32,
+            m_cInCall: u32,
+            m_dwRespTime: u32,
+            m_cCallsCompleted: u32,
+            m_cCallsFailed: u32,
+        }
+        const COMEvents: GUID = 0xecabb0ab_7f19_11d2_978e_0000f8757e2a;
+        #[repr(i32)]
+        enum COMPLUS_APPTYPE {
+            APPTYPE_UNKNOWN = -1,
+            APPTYPE_SERVER = 1,
+            APPTYPE_LIBRARY = 0,
+            APPTYPE_SWC = 2,
+        }
+        struct COMSVCSEVENTINFO {
+            cbSize: u32,
+            dwPid: u32,
+            lTime: i64,
+            lMicroTime: i32,
+            perfCount: i64,
+            guidApp: GUID,
+            sMachineName: PWSTR,
+        }
+        const CRMClerk: GUID = 0xecabb0bd_7f19_11d2_978e_0000f8757e2a;
+        #[repr(i32)]
+        enum CRMFLAGS {
+            CRMFLAG_FORGETTARGET = 1,
+            CRMFLAG_WRITTENDURINGPREPARE = 2,
+            CRMFLAG_WRITTENDURINGCOMMIT = 4,
+            CRMFLAG_WRITTENDURINGABORT = 8,
+            CRMFLAG_WRITTENDURINGRECOVERY = 16,
+            CRMFLAG_WRITTENDURINGREPLAY = 32,
+            CRMFLAG_REPLAYINPROGRESS = 64,
+        }
+        #[repr(i32)]
+        enum CRMREGFLAGS {
+            CRMREGFLAG_PREPAREPHASE = 1,
+            CRMREGFLAG_COMMITPHASE = 2,
+            CRMREGFLAG_ABORTPHASE = 4,
+            CRMREGFLAG_ALLPHASES = 7,
+            CRMREGFLAG_FAILIFINDOUBTSREMAIN = 16,
+        }
+        const CRMRecoveryClerk: GUID = 0xecabb0be_7f19_11d2_978e_0000f8757e2a;
+        const CRR_ACTIVATION_LIMIT: u32 = 4294967294;
+        const CRR_CALL_LIMIT: u32 = 4294967293;
+        const CRR_LIFETIME_LIMIT: u32 = 4294967295;
+        const CRR_MEMORY_LIMIT: u32 = 4294967292;
+        const CRR_NO_REASON_SUPPLIED: u32 = 0;
+        const CRR_RECYCLED_FROM_UI: u32 = 4294967291;
+        #[repr(i32)]
+        enum CSC_Binding {
+            CSC_NoBinding = 0,
+            CSC_BindToPoolThread = 1,
+        }
+        #[repr(i32)]
+        enum CSC_COMTIIntrinsicsConfig {
+            CSC_NoCOMTIIntrinsics = 0,
+            CSC_InheritCOMTIIntrinsics = 1,
+        }
+        #[repr(i32)]
+        enum CSC_IISIntrinsicsConfig {
+            CSC_NoIISIntrinsics = 0,
+            CSC_InheritIISIntrinsics = 1,
+        }
+        #[repr(i32)]
+        enum CSC_InheritanceConfig {
+            CSC_Inherit = 0,
+            CSC_Ignore = 1,
+        }
+        #[repr(i32)]
+        enum CSC_PartitionConfig {
+            CSC_NoPartition = 0,
+            CSC_InheritPartition = 1,
+            CSC_NewPartition = 2,
+        }
+        #[repr(i32)]
+        enum CSC_SxsConfig {
+            CSC_NoSxs = 0,
+            CSC_InheritSxs = 1,
+            CSC_NewSxs = 2,
+        }
+        #[repr(i32)]
+        enum CSC_SynchronizationConfig {
+            CSC_NoSynchronization = 0,
+            CSC_IfContainerIsSynchronized = 1,
+            CSC_NewSynchronizationIfNecessary = 2,
+            CSC_NewSynchronization = 3,
+        }
+        #[repr(i32)]
+        enum CSC_ThreadPool {
+            CSC_ThreadPoolNone = 0,
+            CSC_ThreadPoolInherit = 1,
+            CSC_STAThreadPool = 2,
+            CSC_MTAThreadPool = 3,
+        }
+        #[repr(i32)]
+        enum CSC_TrackerConfig {
+            CSC_DontUseTracker = 0,
+            CSC_UseTracker = 1,
+        }
+        #[repr(i32)]
+        enum CSC_TransactionConfig {
+            CSC_NoTransaction = 0,
+            CSC_IfContainerIsTransactional = 1,
+            CSC_CreateTransactionIfNecessary = 2,
+            CSC_NewTransaction = 3,
+        }
+        const CServiceConfig: GUID = 0xecabb0c8_7f19_11d2_978e_0000f8757e2a;
+        const ClrAssemblyLocator: GUID = 0x458aa3b5_265a_4b75_bc05_9bea4630cf18;
+        #[library("comsvcs.dll")]
+        extern fn CoCreateActivity(pIUnknown: IUnknown, riid: *const GUID, ppObj: *mut *mut void) -> HRESULT;
+        #[library("comsvcs.dll")]
+        extern fn CoEnterServiceDomain(pConfigObject: IUnknown) -> HRESULT;
+        #[library("comsvcs.dll")]
+        extern fn CoLeaveServiceDomain(pUnkStatus: IUnknown);
+        const CoMTSLocator: GUID = 0xecabb0ac_7f19_11d2_978e_0000f8757e2a;
+        const ComServiceEvents: GUID = 0xecabb0c3_7f19_11d2_978e_0000f8757e2a;
+        const ComSystemAppEventData: GUID = 0xecabb0c6_7f19_11d2_978e_0000f8757e2a;
+        struct ComponentHangMonitorInfo {
+            IsMonitored: BOOL,
+            TerminateOnHang: BOOL,
+            AvgCallThresholdInMs: u32,
+        }
+        struct ComponentStatistics {
+            NumInstances: u32,
+            NumBoundReferences: u32,
+            NumPooledObjects: u32,
+            NumObjectsInCall: u32,
+            AvgResponseTimeInMs: u32,
+            NumCallsCompletedRecent: u32,
+            NumCallsFailedRecent: u32,
+            NumCallsCompletedTotal: u32,
+            NumCallsFailedTotal: u32,
+            Reserved1: u32,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: u32,
+        }
+        struct ComponentSummary {
+            ApplicationInstanceId: GUID,
+            PartitionId: GUID,
+            ApplicationId: GUID,
+            Clsid: GUID,
+            ClassName: PWSTR,
+            ApplicationName: PWSTR,
+        }
+        #[guid(0x19a5a02c_0ac8_11d2_b286_00c04f8ef934)]
+        interface ContextInfo: IDispatch {
+            fn IsInTransaction(&self, #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetTransaction(&self, #[retval] ppTx: *mut IUnknown) -> HRESULT;
+            fn GetTransactionId(&self, #[retval] pbstrTxId: *mut BSTR) -> HRESULT;
+            fn GetActivityId(&self, #[retval] pbstrActivityId: *mut BSTR) -> HRESULT;
+            fn GetContextId(&self, #[retval] pbstrCtxId: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xc99d6e75_2375_11d4_8331_00c04f605588)]
+        interface ContextInfo2: ContextInfo {
+            fn GetPartitionId(&self, #[retval] param0: *mut BSTR) -> HRESULT;
+            fn GetApplicationId(&self, #[retval] param0: *mut BSTR) -> HRESULT;
+            fn GetApplicationInstanceId(&self, #[retval] param0: *mut BSTR) -> HRESULT;
+        }
+        struct CrmLogRecordRead {
+            dwCrmFlags: u32,
+            dwSequenceNumber: u32,
+            blobUserData: BLOB,
+        }
+        #[repr(i32)]
+        enum CrmTransactionState {
+            TxState_Active = 0,
+            TxState_Committed = 1,
+            TxState_Aborted = 2,
+            TxState_Indoubt = 3,
+        }
+        const DATA_NOT_AVAILABLE: u32 = 4294967295;
+        #[repr(i32)]
+        enum DUMPTYPE {
+            DUMPTYPE_FULL = 0,
+            DUMPTYPE_MINI = 1,
+            DUMPTYPE_NONE = 2,
+        }
+        const DispenserManager: GUID = 0xecabb0c0_7f19_11d2_978e_0000f8757e2a;
+        const Dummy30040732: GUID = 0xecabb0a9_7f19_11d2_978e_0000f8757e2a;
+        #[repr(i32)]
+        enum Error_Constants {
+            mtsErrCtxAborted = -2147164158,
+            mtsErrCtxAborting = -2147164157,
+            mtsErrCtxNoContext = -2147164156,
+            mtsErrCtxNotRegistered = -2147164155,
+            mtsErrCtxSynchTimeout = -2147164154,
+            mtsErrCtxOldReference = -2147164153,
+            mtsErrCtxRoleNotFound = -2147164148,
+            mtsErrCtxNoSecurity = -2147164147,
+            mtsErrCtxWrongThread = -2147164146,
+            mtsErrCtxTMNotAvailable = -2147164145,
+            comQCErrApplicationNotQueued = -2146368000,
+            comQCErrNoQueueableInterfaces = -2146367999,
+            comQCErrQueuingServiceNotAvailable = -2146367998,
+            comQCErrQueueTransactMismatch = -2146367997,
+            comqcErrRecorderMarshalled = -2146367996,
+            comqcErrOutParam = -2146367995,
+            comqcErrRecorderNotTrusted = -2146367994,
+            comqcErrPSLoad = -2146367993,
+            comqcErrMarshaledObjSameTxn = -2146367992,
+            comqcErrInvalidMessage = -2146367920,
+            comqcErrMsmqSidUnavailable = -2146367919,
+            comqcErrWrongMsgExtension = -2146367918,
+            comqcErrMsmqServiceUnavailable = -2146367917,
+            comqcErrMsgNotAuthenticated = -2146367916,
+            comqcErrMsmqConnectorUsed = -2146367915,
+            comqcErrBadMarshaledObject = -2146367914,
+        }
+        const EventServer: GUID = 0xecabafbc_7f19_11d2_978e_0000f8757e2a;
+        const GUID_STRING_SIZE: u32 = 40;
+        #[repr(i32)]
+        enum GetAppTrackerDataFlags {
+            GATD_INCLUDE_PROCESS_EXE_NAME = 1,
+            GATD_INCLUDE_LIBRARY_APPS = 2,
+            GATD_INCLUDE_SWC = 4,
+            GATD_INCLUDE_CLASS_NAME = 8,
+            GATD_INCLUDE_APPLICATION_NAME = 16,
+        }
+        #[library("comsvcs.dll")]
+        extern fn GetManagedExtensions(dwExts: *mut u32) -> HRESULT;
+        const GetSecurityCallContextAppObject: GUID = 0xecabb0a8_7f19_11d2_978e_0000f8757e2a;
+        struct HANG_INFO {
+            fAppHangMonitorEnabled: BOOL,
+            fTerminateOnHang: BOOL,
+            DumpType: DUMPTYPE,
+            dwHangTimeout: u32,
+            dwDumpCount: u32,
+            dwInfoMsgCount: u32,
+        }
+        #[guid(0xc7b67079_8255_42c6_9ec0_6994a3548780)]
+        interface IAppDomainHelper: IDispatch {
+            fn Initialize(&self, pUnkAD: IUnknown, param1: *const void, pPool: *const void) -> HRESULT;
+            fn DoCallback(&self, pUnkAD: IUnknown, param1: *const void, pPool: *const void) -> HRESULT;
+        }
+        #[guid(0x391ffbb9_a8ee_432a_abc8_baa238dab90f)]
+        interface IAssemblyLocator: IDispatch {
+            fn GetModules(&self, applicationDir: BSTR, applicationName: BSTR, assemblyName: BSTR, #[retval] pModules: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xfe6777fb_a674_4177_8f32_6d707e113484)]
+        interface IAsyncErrorNotify: IUnknown {
+            fn OnError(&self, hr: HRESULT) -> HRESULT;
+        }
+        #[guid(0x3a0f150f_8ee5_4b94_b40e_aef2f9e42ed2)]
+        interface ICOMLBArguments: IUnknown {
+            fn GetCLSID(&self, pCLSID: *mut GUID) -> HRESULT;
+            fn SetCLSID(&self, pCLSID: *const GUID) -> HRESULT;
+            fn GetMachineName(&self, cchSvr: u32, #[len_param(0)] #[out] szServerName: [u16; 0]) -> HRESULT;
+            fn SetMachineName(&self, cchSvr: u32, #[len_param(0)] szServerName: [u16; 0]) -> HRESULT;
+        }
+        #[guid(0x0ff5a96f_11fc_47d1_baa6_25dd347e7242)]
+        interface ICheckSxsConfig: IUnknown {
+            fn IsSameSxsConfig(&self, wszSxsName: PCWSTR, wszSxsDirectory: PCWSTR, wszSxsAppName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x683130b0_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComActivityEvents: IUnknown {
+            fn OnActivityCreate(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID) -> HRESULT;
+            fn OnActivityDestroy(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID) -> HRESULT;
+            fn OnActivityEnter(&self, pInfo: *const COMSVCSEVENTINFO, guidCurrent: *const GUID, guidEntered: *const GUID, dwThread: u32) -> HRESULT;
+            fn OnActivityTimeout(&self, pInfo: *const COMSVCSEVENTINFO, guidCurrent: *const GUID, guidEntered: *const GUID, dwThread: u32, dwTimeout: u32) -> HRESULT;
+            fn OnActivityReenter(&self, pInfo: *const COMSVCSEVENTINFO, guidCurrent: *const GUID, dwThread: u32, dwCallDepth: u32) -> HRESULT;
+            fn OnActivityLeave(&self, pInfo: *const COMSVCSEVENTINFO, guidCurrent: *const GUID, guidLeft: *const GUID) -> HRESULT;
+            fn OnActivityLeaveSame(&self, pInfo: *const COMSVCSEVENTINFO, guidCurrent: *const GUID, dwCallDepth: u32) -> HRESULT;
+        }
+        #[guid(0x1290bc1a_b219_418d_b078_5934ded08242)]
+        interface IComApp2Events: IUnknown {
+            fn OnAppActivation2(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID) -> HRESULT;
+            fn OnAppShutdown2(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppForceShutdown2(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppPaused2(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID, bPaused: BOOL) -> HRESULT;
+            fn OnAppRecycle2(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID, guidProcess: GUID, lReason: i32) -> HRESULT;
+        }
+        #[guid(0x683130a6_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComAppEvents: IUnknown {
+            fn OnAppActivation(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppShutdown(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnAppForceShutdown(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+        }
+        #[guid(0x683130b5_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComCRMEvents: IUnknown {
+            fn OnCRMRecoveryStart(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMRecoveryDone(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMCheckpoint(&self, pInfo: *const COMSVCSEVENTINFO, guidApp: GUID) -> HRESULT;
+            fn OnCRMBegin(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, guidActivity: GUID, guidTx: GUID, szProgIdCompensator: [u16; 64], szDescription: [u16; 64]) -> HRESULT;
+            fn OnCRMPrepare(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMCommit(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMAbort(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMIndoubt(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMDone(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMRelease(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMAnalyze(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, dwCrmRecordType: u32, dwRecordSize: u32) -> HRESULT;
+            fn OnCRMWrite(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: u32) -> HRESULT;
+            fn OnCRMForget(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMForce(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID) -> HRESULT;
+            fn OnCRMDeliver(&self, pInfo: *const COMSVCSEVENTINFO, guidClerkCLSID: GUID, fVariants: BOOL, dwRecordSize: u32) -> HRESULT;
+        }
+        #[guid(0x683130b3_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComExceptionEvents: IUnknown {
+            fn OnExceptionUser(&self, pInfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszStackTrace: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x683130b1_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComIdentityEvents: IUnknown {
+            fn OnIISRequestInfo(&self, pInfo: *const COMSVCSEVENTINFO, ObjId: u64, pszClientIP: PCWSTR, pszServerIP: PCWSTR, pszURL: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x20e3bf07_b506_4ad5_a50c_d2ca5b9c158e)]
+        interface IComInstance2Events: IUnknown {
+            fn OnObjectCreate2(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, clsid: *const GUID, tsid: *const GUID, CtxtID: u64, ObjectID: u64, guidPartition: *const GUID) -> HRESULT;
+            fn OnObjectDestroy2(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+        }
+        #[guid(0x683130a7_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComInstanceEvents: IUnknown {
+            fn OnObjectCreate(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, clsid: *const GUID, tsid: *const GUID, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnObjectDestroy(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+        }
+        #[guid(0x605cf82c_578e_4298_975d_82babcd9e053)]
+        interface IComLTxEvents: IUnknown {
+            fn OnLtxTransactionStart(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, tsid: GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
+            fn OnLtxTransactionPrepare(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, fVote: BOOL) -> HRESULT;
+            fn OnLtxTransactionAbort(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
+            fn OnLtxTransactionCommit(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID) -> HRESULT;
+            fn OnLtxTransactionPromote(&self, pInfo: *mut COMSVCSEVENTINFO, guidLtx: GUID, txnId: GUID) -> HRESULT;
+        }
+        #[guid(0xfb388aaa_567d_4024_af8e_6e93ee748573)]
+        interface IComMethod2Events: IUnknown {
+            fn OnMethodCall2(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32) -> HRESULT;
+            fn OnMethodReturn2(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32, hresult: HRESULT) -> HRESULT;
+            fn OnMethodException2(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, dwThread: u32, iMeth: u32) -> HRESULT;
+        }
+        #[guid(0x683130a9_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComMethodEvents: IUnknown {
+            fn OnMethodCall(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32) -> HRESULT;
+            fn OnMethodReturn(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32, hresult: HRESULT) -> HRESULT;
+            fn OnMethodException(&self, pInfo: *const COMSVCSEVENTINFO, oid: u64, guidCid: *const GUID, guidRid: *const GUID, iMeth: u32) -> HRESULT;
+        }
+        #[guid(0xf9a76d2e_76a5_43eb_a0c4_49bec8e48480)]
+        interface IComMtaThreadPoolKnobs: IUnknown {
+            fn MTASetMaxThreadCount(&self, dwMaxThreads: u32) -> HRESULT;
+            fn MTAGetMaxThreadCount(&self, pdwMaxThreads: *mut u32) -> HRESULT;
+            fn MTASetThrottleValue(&self, dwThrottle: u32) -> HRESULT;
+            fn MTAGetThrottleValue(&self, pdwThrottle: *mut u32) -> HRESULT;
+        }
+        #[guid(0x4b5a7827_8df2_45c0_8f6f_57ea1f856a9f)]
+        interface IComObjectConstruction2Events: IUnknown {
+            fn OnObjectConstruct2(&self, pInfo: *const COMSVCSEVENTINFO, guidObject: *const GUID, sConstructString: PCWSTR, oid: u64, guidPartition: *const GUID) -> HRESULT;
+        }
+        #[guid(0x683130af_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComObjectConstructionEvents: IUnknown {
+            fn OnObjectConstruct(&self, pInfo: *const COMSVCSEVENTINFO, guidObject: *const GUID, sConstructString: PCWSTR, oid: u64) -> HRESULT;
+        }
+        #[guid(0x683130aa_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComObjectEvents: IUnknown {
+            fn OnObjectActivate(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnObjectDeactivate(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64, ObjectID: u64) -> HRESULT;
+            fn OnDisableCommit(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnEnableCommit(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnSetComplete(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+            fn OnSetAbort(&self, pInfo: *const COMSVCSEVENTINFO, CtxtID: u64) -> HRESULT;
+        }
+        #[guid(0x65bf6534_85ea_4f64_8cf4_3d974b2ab1cf)]
+        interface IComObjectPool2Events: IUnknown {
+            fn OnObjPoolPutObject2(&self, pInfo: *const COMSVCSEVENTINFO, guidObject: *const GUID, nReason: i32, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolGetObject2(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, dwAvailable: u32, oid: u64, guidPartition: *const GUID) -> HRESULT;
+            fn OnObjPoolRecycleToTx2(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
+            fn OnObjPoolGetFromTx2(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64, guidPartition: *const GUID) -> HRESULT;
+        }
+        #[guid(0x683130ad_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComObjectPoolEvents: IUnknown {
+            fn OnObjPoolPutObject(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, nReason: i32, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolGetObject(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, dwAvailable: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolRecycleToTx(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
+            fn OnObjPoolGetFromTx(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, guidObject: *const GUID, guidTx: *const GUID, objid: u64) -> HRESULT;
+        }
+        #[guid(0x683130ae_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComObjectPoolEvents2: IUnknown {
+            fn OnObjPoolCreateObject(&self, pInfo: *const COMSVCSEVENTINFO, guidObject: *const GUID, dwObjsCreated: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolDestroyObject(&self, pInfo: *const COMSVCSEVENTINFO, guidObject: *const GUID, dwObjsCreated: u32, oid: u64) -> HRESULT;
+            fn OnObjPoolCreateDecision(&self, pInfo: *mut COMSVCSEVENTINFO, dwThreadsWaiting: u32, dwAvail: u32, dwCreated: u32, dwMin: u32, dwMax: u32) -> HRESULT;
+            fn OnObjPoolTimeout(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, guidActivity: *const GUID, dwTimeout: u32) -> HRESULT;
+            fn OnObjPoolCreatePool(&self, pInfo: *mut COMSVCSEVENTINFO, guidObject: *const GUID, dwMin: u32, dwMax: u32, dwTimeout: u32) -> HRESULT;
+        }
+        #[guid(0x683130b2_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComQCEvents: IUnknown {
+            fn OnQCRecord(&self, pInfo: *const COMSVCSEVENTINFO, objid: u64, szQueue: [u16; 60], guidMsgId: *const GUID, guidWorkFlowId: *const GUID, msmqhr: HRESULT) -> HRESULT;
+            fn OnQCQueueOpen(&self, pInfo: *const COMSVCSEVENTINFO, szQueue: [u16; 60], QueueID: u64, hr: HRESULT) -> HRESULT;
+            fn OnQCReceive(&self, pInfo: *const COMSVCSEVENTINFO, QueueID: u64, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, hr: HRESULT) -> HRESULT;
+            fn OnQCReceiveFail(&self, pInfo: *const COMSVCSEVENTINFO, QueueID: u64, msmqhr: HRESULT) -> HRESULT;
+            fn OnQCMoveToReTryQueue(&self, pInfo: *const COMSVCSEVENTINFO, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, RetryIndex: u32) -> HRESULT;
+            fn OnQCMoveToDeadQueue(&self, pInfo: *const COMSVCSEVENTINFO, guidMsgId: *const GUID, guidWorkFlowId: *const GUID) -> HRESULT;
+            fn OnQCPlayback(&self, pInfo: *const COMSVCSEVENTINFO, objid: u64, guidMsgId: *const GUID, guidWorkFlowId: *const GUID, hr: HRESULT) -> HRESULT;
+        }
+        #[guid(0x683130ab_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComResourceEvents: IUnknown {
+            fn OnResourceCreate(&self, pInfo: *const COMSVCSEVENTINFO, ObjectID: u64, pszType: PCWSTR, resId: u64, enlisted: BOOL) -> HRESULT;
+            fn OnResourceAllocate(&self, pInfo: *const COMSVCSEVENTINFO, ObjectID: u64, pszType: PCWSTR, resId: u64, enlisted: BOOL, NumRated: u32, Rating: u32) -> HRESULT;
+            fn OnResourceRecycle(&self, pInfo: *const COMSVCSEVENTINFO, ObjectID: u64, pszType: PCWSTR, resId: u64) -> HRESULT;
+            fn OnResourceDestroy(&self, pInfo: *const COMSVCSEVENTINFO, ObjectID: u64, hr: HRESULT, pszType: PCWSTR, resId: u64) -> HRESULT;
+            fn OnResourceTrack(&self, pInfo: *const COMSVCSEVENTINFO, ObjectID: u64, pszType: PCWSTR, resId: u64, enlisted: BOOL) -> HRESULT;
+        }
+        #[guid(0x683130ac_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComSecurityEvents: IUnknown {
+            fn OnAuthenticate(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, ObjectID: u64, guidIID: *const GUID, iMeth: u32, cbByteOrig: u32, pSidOriginalUser: *const u8, cbByteCur: u32, pSidCurrentUser: *const u8, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+            fn OnAuthenticateFail(&self, pInfo: *mut COMSVCSEVENTINFO, guidActivity: *const GUID, ObjectID: u64, guidIID: *const GUID, iMeth: u32, cbByteOrig: u32, pSidOriginalUser: *const u8, cbByteCur: u32, pSidCurrentUser: *const u8, bCurrentUserInpersonatingInProc: BOOL) -> HRESULT;
+        }
+        #[guid(0x324b64fa_33b6_11d2_98b7_00c04f8ee1c4)]
+        interface IComStaThreadPoolKnobs: IUnknown {
+            fn SetMinThreadCount(&self, minThreads: u32) -> HRESULT;
+            fn GetMinThreadCount(&self, minThreads: *mut u32) -> HRESULT;
+            fn SetMaxThreadCount(&self, maxThreads: u32) -> HRESULT;
+            fn GetMaxThreadCount(&self, maxThreads: *mut u32) -> HRESULT;
+            fn SetActivityPerThread(&self, activitiesPerThread: u32) -> HRESULT;
+            fn GetActivityPerThread(&self, activitiesPerThread: *mut u32) -> HRESULT;
+            fn SetActivityRatio(&self, activityRatio: f64) -> HRESULT;
+            fn GetActivityRatio(&self, activityRatio: *mut f64) -> HRESULT;
+            fn GetThreadCount(&self, pdwThreads: *mut u32) -> HRESULT;
+            fn GetQueueDepth(&self, pdwQDepth: *mut u32) -> HRESULT;
+            fn SetQueueDepth(&self, dwQDepth: i32) -> HRESULT;
+        }
+        #[guid(0x73707523_ff9a_4974_bf84_2108dc213740)]
+        interface IComStaThreadPoolKnobs2: IComStaThreadPoolKnobs {
+            fn GetMaxCPULoad(&self, pdwLoad: *mut u32) -> HRESULT;
+            fn SetMaxCPULoad(&self, pdwLoad: i32) -> HRESULT;
+            fn GetCPUMetricEnabled(&self, pbMetricEnabled: *mut BOOL) -> HRESULT;
+            fn SetCPUMetricEnabled(&self, bMetricEnabled: BOOL) -> HRESULT;
+            fn GetCreateThreadsAggressively(&self, pbMetricEnabled: *mut BOOL) -> HRESULT;
+            fn SetCreateThreadsAggressively(&self, bMetricEnabled: BOOL) -> HRESULT;
+            fn GetMaxCSR(&self, pdwCSR: *mut u32) -> HRESULT;
+            fn SetMaxCSR(&self, dwCSR: i32) -> HRESULT;
+            fn GetWaitTimeForThreadCleanup(&self, pdwThreadCleanupWaitTime: *mut u32) -> HRESULT;
+            fn SetWaitTimeForThreadCleanup(&self, dwThreadCleanupWaitTime: i32) -> HRESULT;
+        }
+        #[guid(0x683130a5_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComThreadEvents: IUnknown {
+            fn OnThreadStart(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, dwThread: u32, dwTheadCnt: u32) -> HRESULT;
+            fn OnThreadTerminate(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, dwThread: u32, dwTheadCnt: u32) -> HRESULT;
+            fn OnThreadBindToApartment(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, AptID: u64, dwActCnt: u32, dwLowCnt: u32) -> HRESULT;
+            fn OnThreadUnBind(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, AptID: u64, dwActCnt: u32) -> HRESULT;
+            fn OnThreadWorkEnque(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadWorkPrivate(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64) -> HRESULT;
+            fn OnThreadWorkPublic(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadWorkRedirect(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32, ThreadNum: u64) -> HRESULT;
+            fn OnThreadWorkReject(&self, pInfo: *const COMSVCSEVENTINFO, ThreadID: u64, MsgWorkID: u64, QueueLen: u32) -> HRESULT;
+            fn OnThreadAssignApartment(&self, pInfo: *const COMSVCSEVENTINFO, guidActivity: *const GUID, AptID: u64) -> HRESULT;
+            fn OnThreadUnassignApartment(&self, pInfo: *const COMSVCSEVENTINFO, AptID: u64) -> HRESULT;
+        }
+        #[guid(0xc266c677_c9ad_49ab_9fd9_d9661078588a)]
+        interface IComTrackingInfoCollection: IUnknown {
+            fn Type(&self, pType: *mut TRACKING_COLL_TYPE) -> HRESULT;
+            fn Count(&self, pCount: *mut u32) -> HRESULT;
+            fn Item(&self, ulIndex: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x4e6cdcc9_fb25_4fd5_9cc5_c9f4b6559cec)]
+        interface IComTrackingInfoEvents: IUnknown {
+            fn OnNewTrackingInfo(&self, pToplevelCollection: IUnknown) -> HRESULT;
+        }
+        #[guid(0x116e42c5_d8b1_47bf_ab1e_c895ed3e2372)]
+        interface IComTrackingInfoObject: IUnknown {
+            fn GetValue(&self, szPropertyName: PCWSTR, pvarOut: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
+        interface IComTrackingInfoProperties: IUnknown {
+            fn PropCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetPropName(&self, ulIndex: u32, ppszPropName: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
+        interface IComTransaction2Events: IUnknown {
+            fn OnTransactionStart2(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID, tsid: *const GUID, fRoot: BOOL, nIsolationLevel: i32) -> HRESULT;
+            fn OnTransactionPrepare2(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID, fVoteYes: BOOL) -> HRESULT;
+            fn OnTransactionAbort2(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+            fn OnTransactionCommit2(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+        }
+        #[guid(0x683130a8_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComTransactionEvents: IUnknown {
+            fn OnTransactionStart(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID, tsid: *const GUID, fRoot: BOOL) -> HRESULT;
+            fn OnTransactionPrepare(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID, fVoteYes: BOOL) -> HRESULT;
+            fn OnTransactionAbort(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+            fn OnTransactionCommit(&self, pInfo: *const COMSVCSEVENTINFO, guidTx: *const GUID) -> HRESULT;
+        }
+        #[guid(0x683130a4_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface IComUserEvent: IUnknown {
+            fn OnUserEvent(&self, pInfo: *mut COMSVCSEVENTINFO, pvarEvent: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xd396da85_bf8f_11d1_bbae_00c04fc2fa5f)]
+        interface IContextProperties: IUnknown {
+            fn Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn GetProperty(&self, name: BSTR, #[retval] pProperty: *mut VARIANT) -> HRESULT;
+            fn EnumNames(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+            fn SetProperty(&self, name: BSTR, property: VARIANT) -> HRESULT;
+            fn RemoveProperty(&self, name: BSTR) -> HRESULT;
+        }
+        #[guid(0xa7549a29_a7c4_42e1_8dc1_7e3d748dc24a)]
+        interface IContextSecurityPerimeter: IUnknown {
+            fn GetPerimeterFlag(&self, pFlag: *mut BOOL) -> HRESULT;
+            fn SetPerimeterFlag(&self, fFlag: BOOL) -> HRESULT;
+        }
+        #[guid(0x3c05e54b_a42a_11d2_afc4_00c04f8ee1c4)]
+        interface IContextState: IUnknown {
+            fn SetDeactivateOnReturn(&self, bDeactivate: VARIANT_BOOL) -> HRESULT;
+            fn GetDeactivateOnReturn(&self, pbDeactivate: *mut VARIANT_BOOL) -> HRESULT;
+            fn SetMyTransactionVote(&self, txVote: TransactionVote) -> HRESULT;
+            fn GetMyTransactionVote(&self, ptxVote: *mut TransactionVote) -> HRESULT;
+        }
+        #[guid(0x227ac7a8_8423_42ce_b7cf_03061ec9aaa3)]
+        interface ICreateWithLocalTransaction: IUnknown {
+            fn CreateInstanceWithSysTx(&self, pTransaction: IUnknown, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x455acf59_5345_11d2_99cf_00c04f797bc9)]
+        interface ICreateWithTipTransactionEx: IUnknown {
+            fn CreateInstance(&self, bstrTipUrl: BSTR, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x455acf57_5345_11d2_99cf_00c04f797bc9)]
+        interface ICreateWithTransactionEx: IUnknown {
+            fn CreateInstance(&self, pTransaction: ITransaction, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xbbc01830_8d3b_11d1_82ec_00a0c91eede9)]
+        interface ICrmCompensator: IUnknown {
+            fn SetLogControl(&self, pLogControl: ICrmLogControl) -> HRESULT;
+            fn BeginPrepare(&self) -> HRESULT;
+            fn PrepareRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn EndPrepare(&self, #[retval] pfOkToPrepare: *mut BOOL) -> HRESULT;
+            fn BeginCommit(&self, fRecovery: BOOL) -> HRESULT;
+            fn CommitRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn EndCommit(&self) -> HRESULT;
+            fn BeginAbort(&self, fRecovery: BOOL) -> HRESULT;
+            fn AbortRecord(&self, crmLogRec: CrmLogRecordRead, #[retval] pfForget: *mut BOOL) -> HRESULT;
+            fn EndAbort(&self) -> HRESULT;
+        }
+        #[guid(0xf0baf8e4_7804_11d1_82e9_00a0c91eede9)]
+        interface ICrmCompensatorVariants: IUnknown {
+            fn SetLogControlVariants(&self, pLogControl: ICrmLogControl) -> HRESULT;
+            fn BeginPrepareVariants(&self) -> HRESULT;
+            fn PrepareRecordVariants(&self, pLogRecord: *const VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn EndPrepareVariants(&self, #[retval] pbOkToPrepare: *mut VARIANT_BOOL) -> HRESULT;
+            fn BeginCommitVariants(&self, bRecovery: VARIANT_BOOL) -> HRESULT;
+            fn CommitRecordVariants(&self, pLogRecord: *const VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn EndCommitVariants(&self) -> HRESULT;
+            fn BeginAbortVariants(&self, bRecovery: VARIANT_BOOL) -> HRESULT;
+            fn AbortRecordVariants(&self, pLogRecord: *const VARIANT, #[retval] pbForget: *mut VARIANT_BOOL) -> HRESULT;
+            fn EndAbortVariants(&self) -> HRESULT;
+        }
+        #[guid(0x9c51d821_c98b_11d1_82fb_00a0c91eede9)]
+        interface ICrmFormatLogRecords: IUnknown {
+            fn GetColumnCount(&self, plColumnCount: *mut i32) -> HRESULT;
+            fn GetColumnHeaders(&self, pHeaders: *mut VARIANT) -> HRESULT;
+            fn GetColumn(&self, CrmLogRec: CrmLogRecordRead, pFormattedLogRecord: *mut VARIANT) -> HRESULT;
+            fn GetColumnVariants(&self, LogRecord: VARIANT, pFormattedLogRecord: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xa0e174b3_d26e_11d2_8f84_00805fc7bcd9)]
+        interface ICrmLogControl: IUnknown {
+            #[special]
+            fn get_TransactionUOW(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn RegisterCompensator(&self, lpcwstrProgIdCompensator: PCWSTR, lpcwstrDescription: PCWSTR, lCrmRegFlags: i32) -> HRESULT;
+            fn WriteLogRecordVariants(&self, pLogRecord: *const VARIANT) -> HRESULT;
+            fn ForceLog(&self) -> HRESULT;
+            fn ForgetLogRecord(&self) -> HRESULT;
+            fn ForceTransactionToAbort(&self) -> HRESULT;
+            fn WriteLogRecord(&self, rgBlob: [BLOB; 0], cBlob: u32) -> HRESULT;
+        }
+        #[guid(0x70c8e443_c7ed_11d1_82fb_00a0c91eede9)]
+        interface ICrmMonitor: IUnknown {
+            fn GetClerks(&self, #[retval] pClerks: *mut ICrmMonitorClerks) -> HRESULT;
+            fn HoldClerk(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x70c8e442_c7ed_11d1_82fb_00a0c91eede9)]
+        interface ICrmMonitorClerks: IDispatch {
+            fn Item(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] pVal: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            fn ProgIdCompensator(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            fn Description(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            fn TransactionUOW(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            fn ActivityId(&self, Index: VARIANT, #[retval] pItem: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x70c8e441_c7ed_11d1_82fb_00a0c91eede9)]
+        interface ICrmMonitorLogRecords: IUnknown {
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_TransactionState(&self, #[retval] pVal: *mut CrmTransactionState) -> HRESULT;
+            #[special]
+            fn get_StructuredRecords(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetLogRecord(&self, dwIndex: u32, #[in] #[out] pCrmLogRec: *mut CrmLogRecordRead) -> HRESULT;
+            fn GetLogRecordVariants(&self, IndexNumber: VARIANT, #[retval] pLogRecord: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x208b3651_2b48_11cf_be10_00aa00a2fa25)]
+        interface IDispenserDriver: IUnknown {
+            fn CreateResource(&self, ResTypId: RESTYPID, pResId: *mut RESID, pSecsFreeBeforeDestroy: *mut TIMEINSECS) -> HRESULT;
+            fn RateResource(&self, ResTypId: RESTYPID, ResId: RESID, fRequiresTransactionEnlistment: BOOL, pRating: *mut RESOURCERATING) -> HRESULT;
+            fn EnlistResource(&self, ResId: RESID, TransId: TRANSID) -> HRESULT;
+            fn ResetResource(&self, ResId: RESID) -> HRESULT;
+            fn DestroyResource(&self, ResId: RESID) -> HRESULT;
+            fn DestroyResourceS(&self, ResId: constSRESID) -> HRESULT;
+        }
+        #[guid(0x5cb31e10_2b5f_11cf_be10_00aa00a2fa25)]
+        interface IDispenserManager: IUnknown {
+            fn RegisterDispenser(&self, param0: IDispenserDriver, szDispenserName: PCWSTR, param2: *mut IHolder) -> HRESULT;
+            fn GetContext(&self, param0: *mut INSTID, param1: *mut TRANSID) -> HRESULT;
+        }
+        #[guid(0x51372af2_cae7_11cf_be81_00aa00a2fa25)]
+        interface IEnumNames: IUnknown {
+            fn Next(&self, celt: u32, rgname: *mut BSTR, #[retval] pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+        }
+        #[guid(0x9a9f12b8_80af_47ab_a579_35ea57725370)]
+        interface IEventServerTrace: IDispatch {
+            fn StartTraceGuid(&self, bstrguidEvent: BSTR, bstrguidFilter: BSTR, lPidFilter: i32) -> HRESULT;
+            fn StopTraceGuid(&self, bstrguidEvent: BSTR, bstrguidFilter: BSTR, lPidFilter: i32) -> HRESULT;
+            fn EnumTraceGuid(&self, plCntGuids: *mut i32, pbstrGuidList: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x507c3ac8_3e12_4cb0_9366_653d3e050638)]
+        interface IGetAppTrackerData: IUnknown {
+            fn GetApplicationProcesses(&self, PartitionId: *const GUID, ApplicationId: *const GUID, Flags: u32, NumApplicationProcesses: *mut u32, ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
+            fn GetApplicationProcessDetails(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, Flags: u32, #[opt] Summary: *mut ApplicationProcessSummary, #[opt] Statistics: *mut ApplicationProcessStatistics, #[opt] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[opt] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
+            fn GetApplicationsInProcess(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, PartitionId: *const GUID, Flags: u32, NumApplicationsInProcess: *mut u32, Applications: *mut *mut ApplicationSummary) -> HRESULT;
+            fn GetComponentsInProcess(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, PartitionId: *const GUID, ApplicationId: *const GUID, Flags: u32, NumComponentsInProcess: *mut u32, Components: *mut *mut ComponentSummary) -> HRESULT;
+            fn GetComponentDetails(&self, ApplicationInstanceId: *const GUID, ProcessId: u32, Clsid: *const GUID, Flags: u32, #[opt] Summary: *mut ComponentSummary, #[opt] Statistics: *mut ComponentStatistics, #[opt] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
+            fn GetTrackerDataAsCollectionObject(&self, TopLevelCollection: *mut IUnknown) -> HRESULT;
+            fn GetSuggestedPollingInterval(&self, PollingIntervalInSeconds: *mut u32) -> HRESULT;
+        }
+        #[guid(0x51372af4_cae7_11cf_be81_00aa00a2fa25)]
+        interface IGetContextProperties: IUnknown {
+            fn Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            fn GetProperty(&self, name: BSTR, #[retval] pProperty: *mut VARIANT) -> HRESULT;
+            fn EnumNames(&self, #[retval] ppenum: *mut IEnumNames) -> HRESULT;
+        }
+        #[guid(0xcafc823f_b441_11d1_b82b_0000f8757e2a)]
+        interface IGetSecurityCallContext: IDispatch {
+            fn GetSecurityCallContext(&self, #[retval] ppObject: *mut ISecurityCallContext) -> HRESULT;
+        }
+        #[guid(0xbf6a1850_2b45_11cf_be10_00aa00a2fa25)]
+        interface IHolder: IUnknown {
+            fn AllocResource(&self, param0: RESTYPID, param1: *mut RESID) -> HRESULT;
+            fn FreeResource(&self, param0: RESID) -> HRESULT;
+            fn TrackResource(&self, param0: RESID) -> HRESULT;
+            fn TrackResourceS(&self, param0: constSRESID) -> HRESULT;
+            fn UntrackResource(&self, param0: RESID, param1: BOOL) -> HRESULT;
+            fn UntrackResourceS(&self, param0: constSRESID, param1: BOOL) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn RequestDestroyResource(&self, param0: RESID) -> HRESULT;
+        }
+        #[guid(0x683130b4_2e50_11d2_98a5_00c04f8ee1c4)]
+        interface ILBEvents: IUnknown {
+            fn TargetUp(&self, bstrServerName: BSTR, bstrClsidEng: BSTR) -> HRESULT;
+            fn TargetDown(&self, bstrServerName: BSTR, bstrClsidEng: BSTR) -> HRESULT;
+            fn EngineDefined(&self, bstrPropName: BSTR, varPropValue: *mut VARIANT, bstrClsidEng: BSTR) -> HRESULT;
+        }
+        #[guid(0x51372af0_cae7_11cf_be81_00aa00a2fa25)]
+        interface IMTSActivity: IUnknown {
+            fn SynchronousCall(&self, pCall: IMTSCall) -> HRESULT;
+            fn AsyncCall(&self, pCall: IMTSCall) -> HRESULT;
+            fn Reserved1(&self);
+            fn BindToCurrentThread(&self) -> HRESULT;
+            fn UnbindFromThread(&self) -> HRESULT;
+        }
+        #[guid(0x51372aef_cae7_11cf_be81_00aa00a2fa25)]
+        interface IMTSCall: IUnknown {
+            fn OnCall(&self) -> HRESULT;
+        }
+        #[guid(0xd19b8bfd_7f88_11d0_b16e_00aa00ba3258)]
+        interface IMTSLocator: IDispatch {
+            fn GetEventDispatcher(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xa5f325af_572f_46da_b8ab_827c3d95d99e)]
+        interface IManagedActivationEvents: IUnknown {
+            fn CreateManagedStub(&self, pInfo: IManagedObjectInfo, fDist: BOOL) -> HRESULT;
+            fn DestroyManagedStub(&self, pInfo: IManagedObjectInfo) -> HRESULT;
+        }
+        #[guid(0x1427c51a_4584_49d8_90a0_c50d8086cbe9)]
+        interface IManagedObjectInfo: IUnknown {
+            fn GetIUnknown(&self, pUnk: *mut IUnknown) -> HRESULT;
+            fn GetIObjectControl(&self, pCtrl: *mut IObjectControl) -> HRESULT;
+            fn SetInPool(&self, bInPool: BOOL, pPooledObj: IManagedPooledObj) -> HRESULT;
+            fn SetWrapperStrength(&self, bStrong: BOOL) -> HRESULT;
+        }
+        #[guid(0xda91b74e_5388_4783_949d_c1cd5fb00506)]
+        interface IManagedPoolAction: IUnknown {
+            fn LastRelease(&self) -> HRESULT;
+        }
+        #[guid(0xc5da4bea_1b42_4437_8926_b6a38860a770)]
+        interface IManagedPooledObj: IUnknown {
+            fn SetHeld(&self, m_bHeld: BOOL) -> HRESULT;
+        }
+        #[guid(0x588a085a_b795_11d1_8054_00c04fc340ee)]
+        interface IMessageMover: IDispatch {
+            #[special]
+            fn get_SourcePath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_SourcePath(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_DestPath(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DestPath(&self, newVal: BSTR) -> HRESULT;
+            #[special]
+            fn get_CommitBatchSize(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            #[special]
+            fn put_CommitBatchSize(&self, newVal: i32) -> HRESULT;
+            fn MoveMessages(&self, #[retval] plMessagesMoved: *mut i32) -> HRESULT;
+        }
+        #[guid(0xd56c3dc1_8482_11d0_b170_00aa00ba3258)]
+        interface IMtsEventInfo: IDispatch {
+            #[special]
+            fn get_Names(&self, #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] sDisplayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_EventID(&self, #[retval] sGuidEventID: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] lCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Value(&self, sKey: BSTR, #[retval] pVal: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xbacedf4d_74ab_11d0_b162_00aa00ba3258)]
+        interface IMtsEvents: IDispatch {
+            #[special]
+            fn get_PackageName(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_PackageGuid(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn PostEvent(&self, vEvent: *const VARIANT) -> HRESULT;
+            #[special]
+            fn get_FireEvents(&self, #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
+            fn GetProcessID(&self, #[retval] id: *mut i32) -> HRESULT;
+        }
+        #[guid(0x4b2e958c_0393_11d1_b1ab_00aa00ba3258)]
+        interface IMtsGrp: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] pVal: *mut i32) -> HRESULT;
+            fn Item(&self, lIndex: i32, ppUnkDispatcher: *mut IUnknown) -> HRESULT;
+            fn Refresh(&self) -> HRESULT;
+        }
+        type INSTID = usize;
+        #[guid(0x7d8805a0_2ea7_11d1_b1cc_00aa00ba3258)]
+        interface IObjPool: IUnknown {
+            fn Reserved1(&self);
+            fn Reserved2(&self);
+            fn Reserved3(&self);
+            fn Reserved4(&self);
+            fn PutEndTx(&self, pObj: IUnknown);
+            fn Reserved5(&self);
+            fn Reserved6(&self);
+        }
+        #[guid(0x41c4f8b3_7439_11d2_98cb_00c04f8ee1c4)]
+        interface IObjectConstruct: IUnknown {
+            fn Construct(&self, pCtorObj: IDispatch) -> HRESULT;
+        }
+        #[guid(0x41c4f8b2_7439_11d2_98cb_00c04f8ee1c4)]
+        interface IObjectConstructString: IDispatch {
+            #[special]
+            fn get_ConstructString(&self, #[retval] pVal: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x51372ae0_cae7_11cf_be81_00aa00a2fa25)]
+        interface IObjectContext: IUnknown {
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetComplete(&self) -> HRESULT;
+            fn SetAbort(&self) -> HRESULT;
+            fn EnableCommit(&self) -> HRESULT;
+            fn DisableCommit(&self) -> HRESULT;
+            fn IsInTransaction(&self) -> BOOL;
+            fn IsSecurityEnabled(&self) -> BOOL;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pfIsInRole: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x51372afc_cae7_11cf_be81_00aa00a2fa25)]
+        interface IObjectContextActivity: IUnknown {
+            fn GetActivityId(&self, pGUID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x75b52ddb_e8ed_11d1_93ad_00aa00ba3258)]
+        interface IObjectContextInfo: IUnknown {
+            fn IsInTransaction(&self) -> BOOL;
+            fn GetTransaction(&self, pptrans: *mut IUnknown) -> HRESULT;
+            fn GetTransactionId(&self, pGuid: *mut GUID) -> HRESULT;
+            fn GetActivityId(&self, pGUID: *mut GUID) -> HRESULT;
+            fn GetContextId(&self, pGuid: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x594be71a_4bc4_438b_9197_cfd176248b09)]
+        interface IObjectContextInfo2: IObjectContextInfo {
+            fn GetPartitionId(&self, pGuid: *mut GUID) -> HRESULT;
+            fn GetApplicationId(&self, pGuid: *mut GUID) -> HRESULT;
+            fn GetApplicationInstanceId(&self, pGuid: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x92fd41ca_bad9_11d2_9a2d_00c04f797bc9)]
+        interface IObjectContextTip: IUnknown {
+            fn GetTipUrl(&self, #[retval] pTipUrl: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x51372aec_cae7_11cf_be81_00aa00a2fa25)]
+        interface IObjectControl: IUnknown {
+            fn Activate(&self) -> HRESULT;
+            fn Deactivate(&self);
+            fn CanBePooled(&self) -> BOOL;
+        }
+        #[guid(0x51372afd_cae7_11cf_be81_00aa00a2fa25)]
+        interface IPlaybackControl: IUnknown {
+            fn FinalClientRetry(&self) -> HRESULT;
+            fn FinalServerRetry(&self) -> HRESULT;
+        }
+        #[guid(0x0a469861_5a91_43a0_99b6_d5e179bb0631)]
+        interface IPoolManager: IDispatch {
+            fn ShutdownPool(&self, CLSIDOrProgID: BSTR) -> HRESULT;
+        }
+        #[guid(0x1113f52d_dc7f_4943_aed6_88d04027e32a)]
+        interface IProcessInitializer: IUnknown {
+            fn Startup(&self, punkProcessControl: IUnknown) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0xcafc823e_b441_11d1_b82b_0000f8757e2a)]
+        interface ISecurityCallContext: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsSecurityEnabled(&self, #[retval] pfIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsUserInRole(&self, pUser: *const VARIANT, bstrRole: BSTR, #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xcafc823d_b441_11d1_b82b_0000f8757e2a)]
+        interface ISecurityCallersColl: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, lIndex: i32, #[retval] pObj: *mut ISecurityIdentityColl) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xcafc823c_b441_11d1_b82b_0000f8757e2a)]
+        interface ISecurityIdentityColl: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x51372aea_cae7_11cf_be81_00aa00a2fa25)]
+        interface ISecurityProperty: IUnknown {
+            fn GetDirectCreatorSID(&self, pSID: *mut PSID) -> HRESULT;
+            fn GetOriginalCreatorSID(&self, pSID: *mut PSID) -> HRESULT;
+            fn GetDirectCallerSID(&self, pSID: *mut PSID) -> HRESULT;
+            fn GetOriginalCallerSID(&self, pSID: *mut PSID) -> HRESULT;
+            fn ReleaseSID(&self, pSID: PSID) -> HRESULT;
+        }
+        #[guid(0xdcf443f4_3f8a_4872_b9f0_369a796d12d6)]
+        interface ISelectCOMLBServer: IUnknown {
+            fn Init(&self) -> HRESULT;
+            fn GetLBServer(&self, pUnk: IUnknown) -> HRESULT;
+        }
+        #[guid(0x2732fd59_b2b4_4d44_878c_8b8f09626008)]
+        interface ISendMethodEvents: IUnknown {
+            fn SendMethodCall(&self, pIdentity: *const void, riid: *const GUID, dwMeth: u32) -> HRESULT;
+            fn SendMethodReturn(&self, pIdentity: *const void, riid: *const GUID, dwMeth: u32, hrCall: HRESULT, hrServer: HRESULT) -> HRESULT;
+        }
+        #[guid(0x67532e0c_9e2f_4450_a354_035633944e17)]
+        interface IServiceActivity: IUnknown {
+            fn SynchronousCall(&self, pIServiceCall: IServiceCall) -> HRESULT;
+            fn AsynchronousCall(&self, pIServiceCall: IServiceCall) -> HRESULT;
+            fn BindToCurrentThread(&self) -> HRESULT;
+            fn UnbindFromThread(&self) -> HRESULT;
+        }
+        #[guid(0xbd3e2e12_42dd_40f4_a09a_95a50c58304b)]
+        interface IServiceCall: IUnknown {
+            fn OnCall(&self) -> HRESULT;
+        }
+        #[guid(0x09e6831e_04e1_4ed4_9d0f_e8b168bafeaf)]
+        interface IServiceComTIIntrinsicsConfig: IUnknown {
+            fn ComTIIntrinsicsConfig(&self, comtiIntrinsicsConfig: CSC_COMTIIntrinsicsConfig) -> HRESULT;
+        }
+        #[guid(0x1a0cf920_d452_46f4_bc36_48118d54ea52)]
+        interface IServiceIISIntrinsicsConfig: IUnknown {
+            fn IISIntrinsicsConfig(&self, iisIntrinsicsConfig: CSC_IISIntrinsicsConfig) -> HRESULT;
+        }
+        #[guid(0x92186771_d3b4_4d77_a8ea_ee842d586f35)]
+        interface IServiceInheritanceConfig: IUnknown {
+            fn ContainingContextTreatment(&self, inheritanceConfig: CSC_InheritanceConfig) -> HRESULT;
+        }
+        #[guid(0x80182d03_5ea4_4831_ae97_55beffc2e590)]
+        interface IServicePartitionConfig: IUnknown {
+            fn PartitionConfig(&self, partitionConfig: CSC_PartitionConfig) -> HRESULT;
+            fn PartitionID(&self, guidPartitionID: *const GUID) -> HRESULT;
+        }
+        #[guid(0xb302df81_ea45_451e_99a2_09f9fd1b1e13)]
+        interface IServicePool: IUnknown {
+            fn Initialize(&self, pPoolConfig: IUnknown) -> HRESULT;
+            fn GetObject(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Shutdown(&self) -> HRESULT;
+        }
+        #[guid(0xa9690656_5bca_470c_8451_250c1f43a33e)]
+        interface IServicePoolConfig: IUnknown {
+            #[special]
+            fn put_MaxPoolSize(&self, dwMaxPool: u32) -> HRESULT;
+            #[special]
+            fn get_MaxPoolSize(&self, #[retval] pdwMaxPool: *mut u32) -> HRESULT;
+            #[special]
+            fn put_MinPoolSize(&self, dwMinPool: u32) -> HRESULT;
+            #[special]
+            fn get_MinPoolSize(&self, #[retval] pdwMinPool: *mut u32) -> HRESULT;
+            #[special]
+            fn put_CreationTimeout(&self, dwCreationTimeout: u32) -> HRESULT;
+            #[special]
+            fn get_CreationTimeout(&self, #[retval] pdwCreationTimeout: *mut u32) -> HRESULT;
+            #[special]
+            fn put_TransactionAffinity(&self, fTxAffinity: BOOL) -> HRESULT;
+            #[special]
+            fn get_TransactionAffinity(&self, #[retval] pfTxAffinity: *mut BOOL) -> HRESULT;
+            #[special]
+            fn put_ClassFactory(&self, pFactory: IClassFactory) -> HRESULT;
+            #[special]
+            fn get_ClassFactory(&self, #[retval] pFactory: *mut IClassFactory) -> HRESULT;
+        }
+        #[guid(0xc7cd7379_f3f2_4634_811b_703281d73e08)]
+        interface IServiceSxsConfig: IUnknown {
+            fn SxsConfig(&self, scsConfig: CSC_SxsConfig) -> HRESULT;
+            fn SxsName(&self, szSxsName: PCWSTR) -> HRESULT;
+            fn SxsDirectory(&self, szSxsDirectory: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xfd880e81_6dce_4c58_af83_a208846c0030)]
+        interface IServiceSynchronizationConfig: IUnknown {
+            fn ConfigureSynchronization(&self, synchConfig: CSC_SynchronizationConfig) -> HRESULT;
+        }
+        #[guid(0x33caf1a1_fcb8_472b_b45e_967448ded6d8)]
+        interface IServiceSysTxnConfig: IServiceTransactionConfig {
+            fn ConfigureBYOTSysTxn(&self, pTxProxy: ITransactionProxy) -> HRESULT;
+        }
+        #[guid(0x186d89bc_f277_4bcc_80d5_4df7b836ef4a)]
+        interface IServiceThreadPoolConfig: IUnknown {
+            fn SelectThreadPool(&self, threadPool: CSC_ThreadPool) -> HRESULT;
+            fn SetBindingInfo(&self, binding: CSC_Binding) -> HRESULT;
+        }
+        #[guid(0x6c3a3e1d_0ba6_4036_b76f_d0404db816c9)]
+        interface IServiceTrackerConfig: IUnknown {
+            fn TrackerConfig(&self, trackerConfig: CSC_TrackerConfig, szTrackerAppName: PCWSTR, szTrackerCtxName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x59f4c2a3_d3d7_4a31_b6e4_6ab3177c50b9)]
+        interface IServiceTransactionConfig: IServiceTransactionConfigBase {
+            fn ConfigureBYOT(&self, pITxByot: ITransaction) -> HRESULT;
+        }
+        #[guid(0x772b3fbe_6ffd_42fb_b5f8_8f9b260f3810)]
+        interface IServiceTransactionConfigBase: IUnknown {
+            fn ConfigureTransaction(&self, transactionConfig: CSC_TransactionConfig) -> HRESULT;
+            fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> HRESULT;
+            fn TransactionTimeout(&self, ulTimeoutSec: u32) -> HRESULT;
+            fn BringYourOwnTransaction(&self, szTipURL: PCWSTR) -> HRESULT;
+            fn NewTransactionDescription(&self, szTxDesc: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x2a005c01_a5de_11cf_9e66_00aa00a3f464)]
+        interface ISharedProperty: IDispatch {
+            #[special]
+            fn get_Value(&self, #[retval] pVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Value(&self, val: VARIANT) -> HRESULT;
+        }
+        #[guid(0x2a005c07_a5de_11cf_9e66_00aa00a3f464)]
+        interface ISharedPropertyGroup: IDispatch {
+            fn CreatePropertyByPosition(&self, Index: i32, fExists: *mut VARIANT_BOOL, #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            #[special]
+            fn get_PropertyByPosition(&self, Index: i32, #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
+            fn CreateProperty(&self, Name: BSTR, fExists: *mut VARIANT_BOOL, #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            #[special]
+            fn get_Property(&self, Name: BSTR, #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
+        }
+        #[guid(0x2a005c0d_a5de_11cf_9e66_00aa00a3f464)]
+        interface ISharedPropertyGroupManager: IDispatch {
+            fn CreatePropertyGroup(&self, Name: BSTR, #[in] #[out] dwIsoMode: *mut i32, #[in] #[out] dwRelMode: *mut i32, fExists: *mut VARIANT_BOOL, #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            #[special]
+            fn get_Group(&self, Name: BSTR, #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] retval: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xd6d48a3c_d5c5_49e7_8c74_99e4889ed52f)]
+        interface ISystemAppEventData: IUnknown {
+            fn Startup(&self) -> HRESULT;
+            fn OnDataChanged(&self, dwPID: u32, dwMask: u32, dwNumberSinks: u32, bstrDwMethodMask: BSTR, dwReason: u32, u64TraceHandle: u64) -> HRESULT;
+        }
+        #[guid(0x51372af7_cae7_11cf_be81_00aa00a2fa25)]
+        interface IThreadPoolKnobs: IUnknown {
+            fn GetMaxThreads(&self, plcMaxThreads: *mut i32) -> HRESULT;
+            fn GetCurrentThreads(&self, plcCurrentThreads: *mut i32) -> HRESULT;
+            fn SetMaxThreads(&self, lcMaxThreads: i32) -> HRESULT;
+            fn GetDeleteDelay(&self, pmsecDeleteDelay: *mut i32) -> HRESULT;
+            fn SetDeleteDelay(&self, msecDeleteDelay: i32) -> HRESULT;
+            fn GetMaxQueuedRequests(&self, plcMaxQueuedRequests: *mut i32) -> HRESULT;
+            fn GetCurrentQueuedRequests(&self, plcCurrentQueuedRequests: *mut i32) -> HRESULT;
+            fn SetMaxQueuedRequests(&self, lcMaxQueuedRequests: i32) -> HRESULT;
+            fn SetMinThreads(&self, lcMinThreads: i32) -> HRESULT;
+            fn SetQueueDepth(&self, lcQueueDepth: i32) -> HRESULT;
+        }
+        #[guid(0x7999fc21_d3c6_11cf_acab_00a024a55aef)]
+        interface ITransactionContext: IDispatch {
+            fn CreateInstance(&self, pszProgId: BSTR, #[retval] pObject: *mut VARIANT) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+        }
+        #[guid(0x7999fc22_d3c6_11cf_acab_00a024a55aef)]
+        interface ITransactionContextEx: IUnknown {
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn Commit(&self) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+        }
+        #[guid(0x788ea814_87b1_11d1_bba6_00c04fc2fa5f)]
+        interface ITransactionProperty: IUnknown {
+            fn Reserved1(&self);
+            fn Reserved2(&self);
+            fn Reserved3(&self);
+            fn Reserved4(&self);
+            fn Reserved5(&self);
+            fn Reserved6(&self);
+            fn Reserved7(&self);
+            fn Reserved8(&self);
+            fn Reserved9(&self);
+            fn GetTransactionResourcePool(&self, ppTxPool: *mut ITransactionResourcePool) -> HRESULT;
+            fn Reserved10(&self);
+            fn Reserved11(&self);
+            fn Reserved12(&self);
+            fn Reserved13(&self);
+            fn Reserved14(&self);
+            fn Reserved15(&self);
+            fn Reserved16(&self);
+            fn Reserved17(&self);
+        }
+        #[guid(0x02558374_df2e_4dae_bd6b_1d5c994f9bdc)]
+        interface ITransactionProxy: IUnknown {
+            fn Commit(&self, guid: GUID) -> HRESULT;
+            fn Abort(&self) -> HRESULT;
+            fn Promote(&self, pTransaction: *mut ITransaction) -> HRESULT;
+            fn CreateVoter(&self, pTxAsync: ITransactionVoterNotifyAsync2, ppBallot: *mut ITransactionVoterBallotAsync2) -> HRESULT;
+            fn GetIsolationLevel(&self, #[retval] param0: *mut ISOLEVEL) -> HRESULT;
+            fn GetIdentifier(&self, #[retval] pbstrIdentifier: *mut GUID) -> HRESULT;
+            fn IsReusable(&self, pfIsReusable: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xc5feb7c1_346a_11d1_b1cc_00aa00ba3258)]
+        interface ITransactionResourcePool: IUnknown {
+            fn PutResource(&self, pPool: IObjPool, pUnk: IUnknown) -> HRESULT;
+            fn GetResource(&self, pPool: IObjPool, ppUnk: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x61f589e8_3724_4898_a0a4_664ae9e1d1b4)]
+        interface ITransactionStatus: IUnknown {
+            fn SetTransactionStatus(&self, hrStatus: HRESULT) -> HRESULT;
+            fn GetTransactionStatus(&self, pHrStatus: *mut HRESULT) -> HRESULT;
+        }
+        #[guid(0x13d86f31_0139_41af_bcad_c7d50435fe9f)]
+        interface ITxProxyHolder: IUnknown {
+            fn GetIdentifier(&self, pGuidLtx: *mut GUID);
+        }
+        const LBEvents: GUID = 0xecabb0c1_7f19_11d2_978e_0000f8757e2a;
+        #[repr(i32)]
+        enum LockModes {
+            LockSetGet = 0,
+            LockMethod = 1,
+        }
+        #[library("comsvcs.dll")]
+        extern fn MTSCreateActivity(riid: *const GUID, ppobj: *mut *mut void) -> HRESULT;
+        type MTS_OBJID = u64;
+        type MTS_RESID = u64;
+        const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392;
+        const MessageMover: GUID = 0xecabb0bf_7f19_11d2_978e_0000f8757e2a;
+        const MtsGrp: GUID = 0x4b2e958d_0393_11d1_b1ab_00aa00ba3258;
+        #[guid(0x74c08646_cedb_11cf_8b49_00aa00b8a790)]
+        interface ObjectContext: IDispatch {
+            fn CreateInstance(&self, bstrProgID: BSTR, #[retval] pObject: *mut VARIANT) -> HRESULT;
+            fn SetComplete(&self) -> HRESULT;
+            fn SetAbort(&self) -> HRESULT;
+            fn EnableCommit(&self) -> HRESULT;
+            fn DisableCommit(&self) -> HRESULT;
+            fn IsInTransaction(&self, #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsSecurityEnabled(&self, #[retval] pbIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn IsCallerInRole(&self, bstrRole: BSTR, #[retval] pbInRole: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Count(&self, #[retval] plCount: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Item(&self, name: BSTR, #[retval] pItem: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            #[special]
+            fn get_Security(&self, #[retval] ppSecurityProperty: *mut SecurityProperty) -> HRESULT;
+            #[special]
+            fn get_ContextInfo(&self, #[retval] ppContextInfo: *mut ContextInfo) -> HRESULT;
+        }
+        #[guid(0x7dc41850_0c31_11d0_8b79_00aa00b8a790)]
+        interface ObjectControl: IUnknown {
+            fn Activate(&self) -> HRESULT;
+            fn Deactivate(&self) -> HRESULT;
+            fn CanBePooled(&self, #[retval] pbPoolable: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        const PoolMgr: GUID = 0xecabafb5_7f19_11d2_978e_0000f8757e2a;
+        struct RECYCLE_INFO {
+            guidCombaseProcessIdentifier: GUID,
+            ProcessStartTime: i64,
+            dwRecycleLifetimeLimit: u32,
+            dwRecycleMemoryLimit: u32,
+            dwRecycleExpirationTimeout: u32,
+        }
+        type RESID = usize;
+        type RESOURCERATING = u32;
+        type RESTYPID = usize;
+        #[library("comsvcs.dll")]
+        extern "C" fn RecycleSurrogate(lReasonCode: i32) -> HRESULT;
+        #[repr(i32)]
+        enum ReleaseModes {
+            Standard = 0,
+            Process = 1,
+        }
+        type SRESID = PWSTR;
+        #[library("comsvcs.dll")]
+        extern "C" fn SafeRef(rid: *const GUID, pUnk: IUnknown) -> *mut void;
+        const SecurityCallContext: GUID = 0xecabb0a7_7f19_11d2_978e_0000f8757e2a;
+        const SecurityCallers: GUID = 0xecabb0a6_7f19_11d2_978e_0000f8757e2a;
+        const SecurityIdentity: GUID = 0xecabb0a5_7f19_11d2_978e_0000f8757e2a;
+        #[guid(0xe74a7215_014d_11d1_a63c_00a0c911b4e0)]
+        interface SecurityProperty: IDispatch {
+            fn GetDirectCallerName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetDirectCreatorName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCallerName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCreatorName(&self, #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+        }
+        const ServicePool: GUID = 0xecabb0c9_7f19_11d2_978e_0000f8757e2a;
+        const ServicePoolConfig: GUID = 0xecabb0ca_7f19_11d2_978e_0000f8757e2a;
+        const SharedProperty: GUID = 0x2a005c05_a5de_11cf_9e66_00aa00a3f464;
+        const SharedPropertyGroup: GUID = 0x2a005c0b_a5de_11cf_9e66_00aa00a3f464;
+        const SharedPropertyGroupManager: GUID = 0x2a005c11_a5de_11cf_9e66_00aa00a3f464;
+        type TIMEINSECS = i32;
+        #[encoding("utf-16")]
+        const TRACKER_INIT_EVENT: String = "Global\\COM+ Tracker Init Event";
+        #[encoding("utf-16")]
+        const TRACKER_STARTSTOP_EVENT: String = "Global\\COM+ Tracker Push Event";
+        #[repr(i32)]
+        enum TRACKING_COLL_TYPE {
+            TRKCOLL_PROCESSES = 0,
+            TRKCOLL_APPLICATIONS = 1,
+            TRKCOLL_COMPONENTS = 2,
+        }
+        type TRANSID = usize;
+        const TrackerServer: GUID = 0xecabafb9_7f19_11d2_978e_0000f8757e2a;
+        const TransactionContext: GUID = 0x7999fc25_d3c6_11cf_acab_00a024a55aef;
+        const TransactionContextEx: GUID = 0x5cb66670_d3d4_11cf_acab_00a024a55aef;
+        #[repr(i32)]
+        enum TransactionVote {
+            TxCommit = 0,
+            TxAbort = 1,
+        }
+        type constSRESID = PCWSTR;
+    }
+}

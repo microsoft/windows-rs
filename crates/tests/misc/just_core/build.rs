@@ -8,7 +8,7 @@ fn main() {
         "SysFreeString",
         "IStringable",
         "GetLastError",
-        "VhfStart",
+        "HidD_GetHidGuid",
         "RpcMgmtEnableIdleCleanup",
         "--flat",
     ]);

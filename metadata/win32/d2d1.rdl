@@ -1,0 +1,587 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d2d1.dll")]
+        extern fn D2D1CreateFactory(factoryType: D2D1_FACTORY_TYPE, riid: *const GUID, #[opt] pFactoryOptions: *const D2D1_FACTORY_OPTIONS, ppIFactory: *mut *mut void) -> HRESULT;
+        #[library("d2d1.dll")]
+        extern fn D2D1InvertMatrix(#[in] #[out] matrix: *mut D2D_MATRIX_3X2_F) -> BOOL;
+        #[library("d2d1.dll")]
+        extern fn D2D1IsMatrixInvertible(matrix: *const D2D_MATRIX_3X2_F) -> BOOL;
+        #[library("d2d1.dll")]
+        extern fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut D2D_MATRIX_3X2_F);
+        #[library("d2d1.dll")]
+        extern fn D2D1MakeSkewMatrix(angleX: f32, angleY: f32, center: D2D_POINT_2F, matrix: *mut D2D_MATRIX_3X2_F);
+        #[repr(i32)]
+        enum D2D1_ANTIALIAS_MODE {
+            D2D1_ANTIALIAS_MODE_PER_PRIMITIVE = 0,
+            D2D1_ANTIALIAS_MODE_ALIASED = 1,
+            D2D1_ANTIALIAS_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_ARC_SEGMENT {
+            point: D2D_POINT_2F,
+            size: D2D_SIZE_F,
+            rotationAngle: f32,
+            sweepDirection: D2D1_SWEEP_DIRECTION,
+            arcSize: D2D1_ARC_SIZE,
+        }
+        #[repr(i32)]
+        enum D2D1_ARC_SIZE {
+            D2D1_ARC_SIZE_SMALL = 0,
+            D2D1_ARC_SIZE_LARGE = 1,
+            D2D1_ARC_SIZE_FORCE_DWORD = -1,
+        }
+        struct D2D1_BEZIER_SEGMENT {
+            point1: D2D_POINT_2F,
+            point2: D2D_POINT_2F,
+            point3: D2D_POINT_2F,
+        }
+        struct D2D1_BITMAP_BRUSH_PROPERTIES {
+            extendModeX: D2D1_EXTEND_MODE,
+            extendModeY: D2D1_EXTEND_MODE,
+            interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
+        }
+        #[repr(i32)]
+        enum D2D1_BITMAP_INTERPOLATION_MODE {
+            D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
+            D2D1_BITMAP_INTERPOLATION_MODE_LINEAR = 1,
+            D2D1_BITMAP_INTERPOLATION_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_BITMAP_PROPERTIES {
+            pixelFormat: D2D1_PIXEL_FORMAT,
+            dpiX: f32,
+            dpiY: f32,
+        }
+        struct D2D1_BRUSH_PROPERTIES {
+            opacity: f32,
+            transform: D2D_MATRIX_3X2_F,
+        }
+        #[repr(i32)]
+        enum D2D1_CAP_STYLE {
+            D2D1_CAP_STYLE_FLAT = 0,
+            D2D1_CAP_STYLE_SQUARE = 1,
+            D2D1_CAP_STYLE_ROUND = 2,
+            D2D1_CAP_STYLE_TRIANGLE = 3,
+            D2D1_CAP_STYLE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_COMBINE_MODE {
+            D2D1_COMBINE_MODE_UNION = 0,
+            D2D1_COMBINE_MODE_INTERSECT = 1,
+            D2D1_COMBINE_MODE_XOR = 2,
+            D2D1_COMBINE_MODE_EXCLUDE = 3,
+            D2D1_COMBINE_MODE_FORCE_DWORD = -1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+            D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE = 0,
+            D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE = 1,
+            D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        #[repr(i32)]
+        enum D2D1_DASH_STYLE {
+            D2D1_DASH_STYLE_SOLID = 0,
+            D2D1_DASH_STYLE_DASH = 1,
+            D2D1_DASH_STYLE_DOT = 2,
+            D2D1_DASH_STYLE_DASH_DOT = 3,
+            D2D1_DASH_STYLE_DASH_DOT_DOT = 4,
+            D2D1_DASH_STYLE_CUSTOM = 5,
+            D2D1_DASH_STYLE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_DC_INITIALIZE_MODE {
+            D2D1_DC_INITIALIZE_MODE_COPY = 0,
+            D2D1_DC_INITIALIZE_MODE_CLEAR = 1,
+            D2D1_DC_INITIALIZE_MODE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_DEBUG_LEVEL {
+            D2D1_DEBUG_LEVEL_NONE = 0,
+            D2D1_DEBUG_LEVEL_ERROR = 1,
+            D2D1_DEBUG_LEVEL_WARNING = 2,
+            D2D1_DEBUG_LEVEL_INFORMATION = 3,
+            D2D1_DEBUG_LEVEL_FORCE_DWORD = -1,
+        }
+        struct D2D1_DRAWING_STATE_DESCRIPTION {
+            antialiasMode: D2D1_ANTIALIAS_MODE,
+            textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
+            tag1: D2D1_TAG,
+            tag2: D2D1_TAG,
+            transform: D2D_MATRIX_3X2_F,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_DRAW_TEXT_OPTIONS {
+            D2D1_DRAW_TEXT_OPTIONS_NO_SNAP = 1,
+            D2D1_DRAW_TEXT_OPTIONS_CLIP = 2,
+            D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT = 4,
+            D2D1_DRAW_TEXT_OPTIONS_DISABLE_COLOR_BITMAP_SNAPPING = 8,
+            D2D1_DRAW_TEXT_OPTIONS_NONE = 0,
+            D2D1_DRAW_TEXT_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_ELLIPSE {
+            point: D2D_POINT_2F,
+            radiusX: f32,
+            radiusY: f32,
+        }
+        #[repr(i32)]
+        enum D2D1_EXTEND_MODE {
+            D2D1_EXTEND_MODE_CLAMP = 0,
+            D2D1_EXTEND_MODE_WRAP = 1,
+            D2D1_EXTEND_MODE_MIRROR = 2,
+            D2D1_EXTEND_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_FACTORY_OPTIONS {
+            debugLevel: D2D1_DEBUG_LEVEL,
+        }
+        #[repr(i32)]
+        enum D2D1_FACTORY_TYPE {
+            D2D1_FACTORY_TYPE_SINGLE_THREADED = 0,
+            D2D1_FACTORY_TYPE_MULTI_THREADED = 1,
+            D2D1_FACTORY_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_FEATURE_LEVEL {
+            D2D1_FEATURE_LEVEL_DEFAULT = 0,
+            D2D1_FEATURE_LEVEL_9 = 37120,
+            D2D1_FEATURE_LEVEL_10 = 40960,
+            D2D1_FEATURE_LEVEL_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_FIGURE_BEGIN {
+            D2D1_FIGURE_BEGIN_FILLED = 0,
+            D2D1_FIGURE_BEGIN_HOLLOW = 1,
+            D2D1_FIGURE_BEGIN_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_FIGURE_END {
+            D2D1_FIGURE_END_OPEN = 0,
+            D2D1_FIGURE_END_CLOSED = 1,
+            D2D1_FIGURE_END_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_FILL_MODE {
+            D2D1_FILL_MODE_ALTERNATE = 0,
+            D2D1_FILL_MODE_WINDING = 1,
+            D2D1_FILL_MODE_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_GAMMA {
+            D2D1_GAMMA_2_2 = 0,
+            D2D1_GAMMA_1_0 = 1,
+            D2D1_GAMMA_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_GEOMETRY_RELATION {
+            D2D1_GEOMETRY_RELATION_UNKNOWN = 0,
+            D2D1_GEOMETRY_RELATION_DISJOINT = 1,
+            D2D1_GEOMETRY_RELATION_IS_CONTAINED = 2,
+            D2D1_GEOMETRY_RELATION_CONTAINS = 3,
+            D2D1_GEOMETRY_RELATION_OVERLAP = 4,
+            D2D1_GEOMETRY_RELATION_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+            D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES = 0,
+            D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES = 1,
+            D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD = -1,
+        }
+        struct D2D1_GRADIENT_STOP {
+            position: f32,
+            color: D2D_COLOR_F,
+        }
+        struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
+            hwnd: HWND,
+            pixelSize: D2D_SIZE_U,
+            presentOptions: D2D1_PRESENT_OPTIONS,
+        }
+        const D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC: i32 = 4;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC: i32 = 2;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_FANT: i32 = 6;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC: i32 = 5;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR: i32 = 1;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR: i32 = 7;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR: i32 = 3;
+        const D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR: i32 = 0;
+        const D2D1_INVALID_TAG: i32 = -1;
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_LAYER_OPTIONS {
+            D2D1_LAYER_OPTIONS_NONE = 0,
+            D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE = 1,
+            D2D1_LAYER_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_LAYER_PARAMETERS {
+            contentBounds: D2D_RECT_F,
+            geometricMask: ID2D1Geometry,
+            maskAntialiasMode: D2D1_ANTIALIAS_MODE,
+            maskTransform: D2D_MATRIX_3X2_F,
+            opacity: f32,
+            opacityBrush: ID2D1Brush,
+            layerOptions: D2D1_LAYER_OPTIONS,
+        }
+        struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+            startPoint: D2D_POINT_2F,
+            endPoint: D2D_POINT_2F,
+        }
+        #[repr(i32)]
+        enum D2D1_LINE_JOIN {
+            D2D1_LINE_JOIN_MITER = 0,
+            D2D1_LINE_JOIN_BEVEL = 1,
+            D2D1_LINE_JOIN_ROUND = 2,
+            D2D1_LINE_JOIN_MITER_OR_BEVEL = 3,
+            D2D1_LINE_JOIN_FORCE_DWORD = -1,
+        }
+        #[repr(i32)]
+        enum D2D1_OPACITY_MASK_CONTENT {
+            D2D1_OPACITY_MASK_CONTENT_GRAPHICS = 0,
+            D2D1_OPACITY_MASK_CONTENT_TEXT_NATURAL = 1,
+            D2D1_OPACITY_MASK_CONTENT_TEXT_GDI_COMPATIBLE = 2,
+            D2D1_OPACITY_MASK_CONTENT_FORCE_DWORD = -1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_PATH_SEGMENT {
+            D2D1_PATH_SEGMENT_NONE = 0,
+            D2D1_PATH_SEGMENT_FORCE_UNSTROKED = 1,
+            D2D1_PATH_SEGMENT_FORCE_ROUND_LINE_JOIN = 2,
+            D2D1_PATH_SEGMENT_FORCE_DWORD = 4294967295,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_PRESENT_OPTIONS {
+            D2D1_PRESENT_OPTIONS_NONE = 0,
+            D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS = 1,
+            D2D1_PRESENT_OPTIONS_IMMEDIATELY = 2,
+            D2D1_PRESENT_OPTIONS_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_QUADRATIC_BEZIER_SEGMENT {
+            point1: D2D_POINT_2F,
+            point2: D2D_POINT_2F,
+        }
+        struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+            center: D2D_POINT_2F,
+            gradientOriginOffset: D2D_POINT_2F,
+            radiusX: f32,
+            radiusY: f32,
+        }
+        struct D2D1_RENDER_TARGET_PROPERTIES {
+            r#type: D2D1_RENDER_TARGET_TYPE,
+            pixelFormat: D2D1_PIXEL_FORMAT,
+            dpiX: f32,
+            dpiY: f32,
+            usage: D2D1_RENDER_TARGET_USAGE,
+            minLevel: D2D1_FEATURE_LEVEL,
+        }
+        #[repr(i32)]
+        enum D2D1_RENDER_TARGET_TYPE {
+            D2D1_RENDER_TARGET_TYPE_DEFAULT = 0,
+            D2D1_RENDER_TARGET_TYPE_SOFTWARE = 1,
+            D2D1_RENDER_TARGET_TYPE_HARDWARE = 2,
+            D2D1_RENDER_TARGET_TYPE_FORCE_DWORD = -1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_RENDER_TARGET_USAGE {
+            D2D1_RENDER_TARGET_USAGE_NONE = 0,
+            D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING = 1,
+            D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE = 2,
+            D2D1_RENDER_TARGET_USAGE_FORCE_DWORD = 4294967295,
+        }
+        struct D2D1_ROUNDED_RECT {
+            rect: D2D_RECT_F,
+            radiusX: f32,
+            radiusY: f32,
+        }
+        struct D2D1_STROKE_STYLE_PROPERTIES {
+            startCap: D2D1_CAP_STYLE,
+            endCap: D2D1_CAP_STYLE,
+            dashCap: D2D1_CAP_STYLE,
+            lineJoin: D2D1_LINE_JOIN,
+            miterLimit: f32,
+            dashStyle: D2D1_DASH_STYLE,
+            dashOffset: f32,
+        }
+        #[repr(i32)]
+        enum D2D1_SWEEP_DIRECTION {
+            D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE = 0,
+            D2D1_SWEEP_DIRECTION_CLOCKWISE = 1,
+            D2D1_SWEEP_DIRECTION_FORCE_DWORD = -1,
+        }
+        type D2D1_TAG = u64;
+        #[repr(i32)]
+        enum D2D1_TEXT_ANTIALIAS_MODE {
+            D2D1_TEXT_ANTIALIAS_MODE_DEFAULT = 0,
+            D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE = 1,
+            D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE = 2,
+            D2D1_TEXT_ANTIALIAS_MODE_ALIASED = 3,
+            D2D1_TEXT_ANTIALIAS_MODE_FORCE_DWORD = -1,
+        }
+        struct D2D1_TRIANGLE {
+            point1: D2D_POINT_2F,
+            point2: D2D_POINT_2F,
+            point3: D2D_POINT_2F,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D2D1_WINDOW_STATE {
+            D2D1_WINDOW_STATE_NONE = 0,
+            D2D1_WINDOW_STATE_OCCLUDED = 1,
+            D2D1_WINDOW_STATE_FORCE_DWORD = 4294967295,
+        }
+        #[guid(0xa2296057_ea42_4099_983b_539fb6505426)]
+        interface ID2D1Bitmap: ID2D1Image {
+            fn GetSize(&self) -> D2D_SIZE_F;
+            fn GetPixelSize(&self) -> D2D_SIZE_U;
+            fn GetPixelFormat(&self) -> D2D1_PIXEL_FORMAT;
+            fn GetDpi(&self, dpiX: *mut f32, dpiY: *mut f32);
+            fn CopyFromBitmap(&self, #[opt] destPoint: *const D2D_POINT_2U, bitmap: ID2D1Bitmap, #[opt] srcRect: *const D2D_RECT_U) -> HRESULT;
+            fn CopyFromRenderTarget(&self, #[opt] destPoint: *const D2D_POINT_2U, renderTarget: ID2D1RenderTarget, #[opt] srcRect: *const D2D_RECT_U) -> HRESULT;
+            fn CopyFromMemory(&self, #[opt] dstRect: *const D2D_RECT_U, srcData: *const void, pitch: u32) -> HRESULT;
+        }
+        #[guid(0x2cd906aa_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1BitmapBrush: ID2D1Brush {
+            fn SetExtendModeX(&self, extendModeX: D2D1_EXTEND_MODE);
+            fn SetExtendModeY(&self, extendModeY: D2D1_EXTEND_MODE);
+            fn SetInterpolationMode(&self, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE);
+            fn SetBitmap(&self, #[opt] bitmap: ID2D1Bitmap);
+            fn GetExtendModeX(&self) -> D2D1_EXTEND_MODE;
+            fn GetExtendModeY(&self) -> D2D1_EXTEND_MODE;
+            fn GetInterpolationMode(&self) -> D2D1_BITMAP_INTERPOLATION_MODE;
+            fn GetBitmap(&self, bitmap: *mut ID2D1Bitmap);
+        }
+        #[guid(0x2cd90695_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1BitmapRenderTarget: ID2D1RenderTarget {
+            fn GetBitmap(&self, bitmap: *mut ID2D1Bitmap) -> HRESULT;
+        }
+        #[guid(0x2cd906a8_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1Brush: ID2D1Resource {
+            fn SetOpacity(&self, opacity: f32);
+            fn SetTransform(&self, transform: *const D2D_MATRIX_3X2_F);
+            fn GetOpacity(&self) -> f32;
+            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+        }
+        #[guid(0x1c51bc64_de61_46fd_9899_63a5d8f03950)]
+        interface ID2D1DCRenderTarget: ID2D1RenderTarget {
+            fn BindDC(&self, hDC: HDC, pSubRect: *const RECT) -> HRESULT;
+        }
+        #[guid(0x28506e39_ebf6_46a1_bb47_fd85565ab957)]
+        interface ID2D1DrawingStateBlock: ID2D1Resource {
+            fn GetDescription(&self, stateDescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
+            fn SetDescription(&self, stateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
+            fn SetTextRenderingParams(&self, #[opt] textRenderingParams: IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, textRenderingParams: *mut IDWriteRenderingParams);
+        }
+        #[guid(0x2cd906a4_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1EllipseGeometry: ID2D1Geometry {
+            fn GetEllipse(&self, ellipse: *mut D2D1_ELLIPSE);
+        }
+        #[guid(0x06152247_6f50_465a_9245_118bfd3b6007)]
+        interface ID2D1Factory: IUnknown {
+            fn ReloadSystemMetrics(&self) -> HRESULT;
+            fn GetDesktopDpi(&self, dpiX: *mut f32, dpiY: *mut f32);
+            fn CreateRectangleGeometry(&self, rectangle: *const D2D_RECT_F, rectangleGeometry: *mut ID2D1RectangleGeometry) -> HRESULT;
+            fn CreateRoundedRectangleGeometry(&self, roundedRectangle: *const D2D1_ROUNDED_RECT, roundedRectangleGeometry: *mut ID2D1RoundedRectangleGeometry) -> HRESULT;
+            fn CreateEllipseGeometry(&self, ellipse: *const D2D1_ELLIPSE, ellipseGeometry: *mut ID2D1EllipseGeometry) -> HRESULT;
+            fn CreateGeometryGroup(&self, fillMode: D2D1_FILL_MODE, #[len_param(2)] geometries: *const ID2D1Geometry, geometriesCount: u32, geometryGroup: *mut ID2D1GeometryGroup) -> HRESULT;
+            fn CreateTransformedGeometry(&self, sourceGeometry: ID2D1Geometry, transform: *const D2D_MATRIX_3X2_F, transformedGeometry: *mut ID2D1TransformedGeometry) -> HRESULT;
+            fn CreatePathGeometry(&self, pathGeometry: *mut ID2D1PathGeometry) -> HRESULT;
+            fn CreateStrokeStyle(&self, strokeStyleProperties: *const D2D1_STROKE_STYLE_PROPERTIES, #[len_param(2)] #[opt] dashes: *const f32, dashesCount: u32, strokeStyle: *mut ID2D1StrokeStyle) -> HRESULT;
+            fn CreateDrawingStateBlock(&self, #[opt] drawingStateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION, #[opt] textRenderingParams: IDWriteRenderingParams, drawingStateBlock: *mut ID2D1DrawingStateBlock) -> HRESULT;
+            fn CreateWicBitmapRenderTarget(&self, target: IWICBitmap, renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
+            fn CreateHwndRenderTarget(&self, renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndRenderTargetProperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndRenderTarget: *mut ID2D1HwndRenderTarget) -> HRESULT;
+            fn CreateDxgiSurfaceRenderTarget(&self, dxgiSurface: IDXGISurface, renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, renderTarget: *mut ID2D1RenderTarget) -> HRESULT;
+            fn CreateDCRenderTarget(&self, renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES, dcRenderTarget: *mut ID2D1DCRenderTarget) -> HRESULT;
+        }
+        #[guid(0xe0db51c3_6f77_4bae_b3d5_e47509b35838)]
+        interface ID2D1GdiInteropRenderTarget: IUnknown {
+            fn GetDC(&self, mode: D2D1_DC_INITIALIZE_MODE, hdc: *mut HDC) -> HRESULT;
+            fn ReleaseDC(&self, #[opt] update: *const RECT) -> HRESULT;
+        }
+        #[guid(0x2cd906a1_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1Geometry: ID2D1Resource {
+            fn GetBounds(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, bounds: *mut D2D_RECT_F) -> HRESULT;
+            fn GetWidenedBounds(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, bounds: *mut D2D_RECT_F) -> HRESULT;
+            fn StrokeContainsPoint(&self, point: D2D_POINT_2F, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
+            fn FillContainsPoint(&self, point: D2D_POINT_2F, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, contains: *mut BOOL) -> HRESULT;
+            fn CompareWithGeometry(&self, inputGeometry: ID2D1Geometry, #[opt] inputGeometryTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> HRESULT;
+            fn Simplify(&self, simplificationOption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn Tessellate(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, tessellationSink: ID2D1TessellationSink) -> HRESULT;
+            fn CombineWithGeometry(&self, inputGeometry: ID2D1Geometry, combineMode: D2D1_COMBINE_MODE, #[opt] inputGeometryTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn Outline(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+            fn ComputeArea(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, area: *mut f32) -> HRESULT;
+            fn ComputeLength(&self, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, length: *mut f32) -> HRESULT;
+            fn ComputePointAtLength(&self, length: f32, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, #[opt] point: *mut D2D_POINT_2F, #[opt] unitTangentVector: *mut D2D_POINT_2F) -> HRESULT;
+            fn Widen(&self, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle, #[opt] worldTransform: *const D2D_MATRIX_3X2_F, flatteningTolerance: f32, geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
+        }
+        #[guid(0x2cd906a6_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1GeometryGroup: ID2D1Geometry {
+            fn GetFillMode(&self) -> D2D1_FILL_MODE;
+            fn GetSourceGeometryCount(&self) -> u32;
+            fn GetSourceGeometries(&self, #[len_param(1)] geometries: *mut ID2D1Geometry, geometriesCount: u32);
+        }
+        #[guid(0x2cd9069f_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1GeometrySink: ID2D1SimplifiedGeometrySink {
+            fn AddLine(&self, point: D2D_POINT_2F);
+            fn AddBezier(&self, bezier: *const D2D1_BEZIER_SEGMENT);
+            fn AddQuadraticBezier(&self, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT);
+            fn AddQuadraticBeziers(&self, #[len_param(1)] beziers: *const D2D1_QUADRATIC_BEZIER_SEGMENT, beziersCount: u32);
+            fn AddArc(&self, arc: *const D2D1_ARC_SEGMENT);
+        }
+        #[guid(0x2cd906a7_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1GradientStopCollection: ID2D1Resource {
+            fn GetGradientStopCount(&self) -> u32;
+            fn GetGradientStops(&self, #[len_param(1)] gradientStops: *mut D2D1_GRADIENT_STOP, gradientStopsCount: u32);
+            fn GetColorInterpolationGamma(&self) -> D2D1_GAMMA;
+            fn GetExtendMode(&self) -> D2D1_EXTEND_MODE;
+        }
+        #[guid(0x2cd90698_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1HwndRenderTarget: ID2D1RenderTarget {
+            fn CheckWindowState(&self) -> D2D1_WINDOW_STATE;
+            fn Resize(&self, pixelSize: *const D2D_SIZE_U) -> HRESULT;
+            fn GetHwnd(&self) -> HWND;
+        }
+        #[guid(0x65019f75_8da2_497c_b32c_dfa34e48ede6)]
+        interface ID2D1Image: ID2D1Resource {}
+        #[guid(0x2cd9069b_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1Layer: ID2D1Resource {
+            fn GetSize(&self) -> D2D_SIZE_F;
+        }
+        #[guid(0x2cd906ab_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1LinearGradientBrush: ID2D1Brush {
+            fn SetStartPoint(&self, startPoint: D2D_POINT_2F);
+            fn SetEndPoint(&self, endPoint: D2D_POINT_2F);
+            fn GetStartPoint(&self) -> D2D_POINT_2F;
+            fn GetEndPoint(&self) -> D2D_POINT_2F;
+            fn GetGradientStopCollection(&self, gradientStopCollection: *mut ID2D1GradientStopCollection);
+        }
+        #[guid(0x2cd906c2_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1Mesh: ID2D1Resource {
+            fn Open(&self, tessellationSink: *mut ID2D1TessellationSink) -> HRESULT;
+        }
+        #[guid(0x2cd906a5_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1PathGeometry: ID2D1Geometry {
+            fn Open(&self, geometrySink: *mut ID2D1GeometrySink) -> HRESULT;
+            fn Stream(&self, geometrySink: ID2D1GeometrySink) -> HRESULT;
+            fn GetSegmentCount(&self, count: *mut u32) -> HRESULT;
+            fn GetFigureCount(&self, count: *mut u32) -> HRESULT;
+        }
+        #[guid(0x2cd906ac_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1RadialGradientBrush: ID2D1Brush {
+            fn SetCenter(&self, center: D2D_POINT_2F);
+            fn SetGradientOriginOffset(&self, gradientOriginOffset: D2D_POINT_2F);
+            fn SetRadiusX(&self, radiusX: f32);
+            fn SetRadiusY(&self, radiusY: f32);
+            fn GetCenter(&self) -> D2D_POINT_2F;
+            fn GetGradientOriginOffset(&self) -> D2D_POINT_2F;
+            fn GetRadiusX(&self) -> f32;
+            fn GetRadiusY(&self) -> f32;
+            fn GetGradientStopCollection(&self, gradientStopCollection: *mut ID2D1GradientStopCollection);
+        }
+        #[guid(0x2cd906a2_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1RectangleGeometry: ID2D1Geometry {
+            fn GetRect(&self, rect: *mut D2D_RECT_F);
+        }
+        #[guid(0x2cd90694_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1RenderTarget: ID2D1Resource {
+            fn CreateBitmap(&self, size: D2D_SIZE_U, #[opt] srcData: *const void, pitch: u32, bitmapProperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateBitmapFromWicBitmap(&self, wicBitmapSource: IWICBitmapSource, #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateSharedBitmap(&self, riid: *const GUID, #[in] #[out] data: *mut void, #[opt] bitmapProperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ID2D1Bitmap) -> HRESULT;
+            fn CreateBitmapBrush(&self, #[opt] bitmap: ID2D1Bitmap, #[opt] bitmapBrushProperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, bitmapBrush: *mut ID2D1BitmapBrush) -> HRESULT;
+            fn CreateSolidColorBrush(&self, color: *const D2D_COLOR_F, #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, solidColorBrush: *mut ID2D1SolidColorBrush) -> HRESULT;
+            fn CreateGradientStopCollection(&self, #[len_param(1)] gradientStops: *const D2D1_GRADIENT_STOP, gradientStopsCount: u32, colorInterpolationGamma: D2D1_GAMMA, extendMode: D2D1_EXTEND_MODE, gradientStopCollection: *mut ID2D1GradientStopCollection) -> HRESULT;
+            fn CreateLinearGradientBrush(&self, linearGradientBrushProperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, gradientStopCollection: ID2D1GradientStopCollection, linearGradientBrush: *mut ID2D1LinearGradientBrush) -> HRESULT;
+            fn CreateRadialGradientBrush(&self, radialGradientBrushProperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, #[opt] brushProperties: *const D2D1_BRUSH_PROPERTIES, gradientStopCollection: ID2D1GradientStopCollection, radialGradientBrush: *mut ID2D1RadialGradientBrush) -> HRESULT;
+            fn CreateCompatibleRenderTarget(&self, #[opt] desiredSize: *const D2D_SIZE_F, #[opt] desiredPixelSize: *const D2D_SIZE_U, #[opt] desiredFormat: *const D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmapRenderTarget: *mut ID2D1BitmapRenderTarget) -> HRESULT;
+            fn CreateLayer(&self, #[opt] size: *const D2D_SIZE_F, layer: *mut ID2D1Layer) -> HRESULT;
+            fn CreateMesh(&self, mesh: *mut ID2D1Mesh) -> HRESULT;
+            fn DrawLine(&self, point0: D2D_POINT_2F, point1: D2D_POINT_2F, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn DrawRectangle(&self, rect: *const D2D_RECT_F, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn FillRectangle(&self, rect: *const D2D_RECT_F, brush: ID2D1Brush);
+            fn DrawRoundedRectangle(&self, roundedRect: *const D2D1_ROUNDED_RECT, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn FillRoundedRectangle(&self, roundedRect: *const D2D1_ROUNDED_RECT, brush: ID2D1Brush);
+            fn DrawEllipse(&self, ellipse: *const D2D1_ELLIPSE, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn FillEllipse(&self, ellipse: *const D2D1_ELLIPSE, brush: ID2D1Brush);
+            fn DrawGeometry(&self, geometry: ID2D1Geometry, brush: ID2D1Brush, strokeWidth: f32, #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn FillGeometry(&self, geometry: ID2D1Geometry, brush: ID2D1Brush, #[opt] opacityBrush: ID2D1Brush);
+            fn FillMesh(&self, mesh: ID2D1Mesh, brush: ID2D1Brush);
+            fn FillOpacityMask(&self, opacityMask: ID2D1Bitmap, brush: ID2D1Brush, content: D2D1_OPACITY_MASK_CONTENT, #[opt] destinationRectangle: *const D2D_RECT_F, #[opt] sourceRectangle: *const D2D_RECT_F);
+            fn DrawBitmap(&self, bitmap: ID2D1Bitmap, #[opt] destinationRectangle: *const D2D_RECT_F, opacity: f32, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, #[opt] sourceRectangle: *const D2D_RECT_F);
+            fn DrawText(&self, #[len_param(1)] string: *const u16, stringLength: u32, textFormat: IDWriteTextFormat, layoutRect: *const D2D_RECT_F, defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawTextLayout(&self, origin: D2D_POINT_2F, textLayout: IDWriteTextLayout, defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS);
+            fn DrawGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
+            fn SetTransform(&self, transform: *const D2D_MATRIX_3X2_F);
+            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+            fn SetAntialiasMode(&self, antialiasMode: D2D1_ANTIALIAS_MODE);
+            fn GetAntialiasMode(&self) -> D2D1_ANTIALIAS_MODE;
+            fn SetTextAntialiasMode(&self, textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE);
+            fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE;
+            fn SetTextRenderingParams(&self, #[opt] textRenderingParams: IDWriteRenderingParams);
+            fn GetTextRenderingParams(&self, textRenderingParams: *mut IDWriteRenderingParams);
+            fn SetTags(&self, tag1: D2D1_TAG, tag2: D2D1_TAG);
+            fn GetTags(&self, #[opt] tag1: *mut D2D1_TAG, #[opt] tag2: *mut D2D1_TAG);
+            fn PushLayer(&self, layerParameters: *const D2D1_LAYER_PARAMETERS, #[opt] layer: ID2D1Layer);
+            fn PopLayer(&self);
+            fn Flush(&self, #[opt] tag1: *mut D2D1_TAG, #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn SaveDrawingState(&self, #[in] #[out] drawingStateBlock: ID2D1DrawingStateBlock);
+            fn RestoreDrawingState(&self, drawingStateBlock: ID2D1DrawingStateBlock);
+            fn PushAxisAlignedClip(&self, clipRect: *const D2D_RECT_F, antialiasMode: D2D1_ANTIALIAS_MODE);
+            fn PopAxisAlignedClip(&self);
+            fn Clear(&self, #[opt] clearColor: *const D2D_COLOR_F);
+            fn BeginDraw(&self);
+            fn EndDraw(&self, #[opt] tag1: *mut D2D1_TAG, #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn GetPixelFormat(&self) -> D2D1_PIXEL_FORMAT;
+            fn SetDpi(&self, dpiX: f32, dpiY: f32);
+            fn GetDpi(&self, dpiX: *mut f32, dpiY: *mut f32);
+            fn GetSize(&self) -> D2D_SIZE_F;
+            fn GetPixelSize(&self) -> D2D_SIZE_U;
+            fn GetMaximumBitmapSize(&self) -> u32;
+            fn IsSupported(&self, renderTargetProperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> BOOL;
+        }
+        #[guid(0x2cd90691_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1Resource: IUnknown {
+            fn GetFactory(&self, factory: *mut ID2D1Factory);
+        }
+        #[guid(0x2cd906a3_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1RoundedRectangleGeometry: ID2D1Geometry {
+            fn GetRoundedRect(&self, roundedRect: *mut D2D1_ROUNDED_RECT);
+        }
+        #[guid(0x2cd9069e_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1SimplifiedGeometrySink: IUnknown {
+            fn SetFillMode(&self, fillMode: D2D1_FILL_MODE);
+            fn SetSegmentFlags(&self, vertexFlags: D2D1_PATH_SEGMENT);
+            fn BeginFigure(&self, startPoint: D2D_POINT_2F, figureBegin: D2D1_FIGURE_BEGIN);
+            fn AddLines(&self, #[len_param(1)] points: *const D2D_POINT_2F, pointsCount: u32);
+            fn AddBeziers(&self, #[len_param(1)] beziers: *const D2D1_BEZIER_SEGMENT, beziersCount: u32);
+            fn EndFigure(&self, figureEnd: D2D1_FIGURE_END);
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x2cd906a9_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1SolidColorBrush: ID2D1Brush {
+            fn SetColor(&self, color: *const D2D_COLOR_F);
+            fn GetColor(&self) -> D2D_COLOR_F;
+        }
+        #[guid(0x2cd9069d_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1StrokeStyle: ID2D1Resource {
+            fn GetStartCap(&self) -> D2D1_CAP_STYLE;
+            fn GetEndCap(&self) -> D2D1_CAP_STYLE;
+            fn GetDashCap(&self) -> D2D1_CAP_STYLE;
+            fn GetMiterLimit(&self) -> f32;
+            fn GetLineJoin(&self) -> D2D1_LINE_JOIN;
+            fn GetDashOffset(&self) -> f32;
+            fn GetDashStyle(&self) -> D2D1_DASH_STYLE;
+            fn GetDashesCount(&self) -> u32;
+            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32);
+        }
+        #[guid(0x2cd906c1_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1TessellationSink: IUnknown {
+            fn AddTriangles(&self, #[len_param(1)] triangles: *const D2D1_TRIANGLE, trianglesCount: u32);
+            fn Close(&self) -> HRESULT;
+        }
+        #[guid(0x2cd906bb_12e2_11dc_9fed_001143a055f9)]
+        interface ID2D1TransformedGeometry: ID2D1Geometry {
+            fn GetSourceGeometry(&self, sourceGeometry: *mut ID2D1Geometry);
+            fn GetTransform(&self, transform: *mut D2D_MATRIX_3X2_F);
+        }
+    }
+}

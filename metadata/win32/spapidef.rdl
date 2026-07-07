@@ -1,0 +1,47 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const LOGTOKEN_NO_LOG: u32 = 1;
+        const LOGTOKEN_SETUPAPI_APPLOG: u32 = 2;
+        const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3;
+        const LOGTOKEN_TYPE_MASK: u32 = 3;
+        const LOGTOKEN_UNSPECIFIED: u32 = 0;
+        type PSP_LOG_TOKEN = *mut DWORDLONG;
+        type SP_LOG_TOKEN = DWORDLONG;
+        const TXTLOG_BACKUP: u32 = 128;
+        const TXTLOG_CMI: u32 = 268435456;
+        const TXTLOG_COPYFILES: u32 = 8;
+        const TXTLOG_DEPTH_DECR: u32 = 262144;
+        const TXTLOG_DEPTH_INCR: u32 = 131072;
+        const TXTLOG_DETAILS: u32 = 5;
+        const TXTLOG_DEVINST: u32 = 1;
+        const TXTLOG_DEVMGR: u32 = 536870912;
+        const TXTLOG_DRIVER_STORE: u32 = 67108864;
+        const TXTLOG_DRVSETUP: u32 = 4194304;
+        const TXTLOG_ERROR: u32 = 1;
+        const TXTLOG_FILEQ: u32 = 4;
+        const TXTLOG_FLUSH_FILE: u32 = 1048576;
+        const TXTLOG_INF: u32 = 2;
+        const TXTLOG_INFDB: u32 = 1024;
+        const TXTLOG_INSTALLER: u32 = 1073741824;
+        const TXTLOG_NEWDEV: u32 = 16777216;
+        const TXTLOG_POLICY: u32 = 8388608;
+        const TXTLOG_RESERVED_FLAGS: u32 = 65520;
+        const TXTLOG_SETUP: u32 = 134217728;
+        const TXTLOG_SETUPAPI_BITS: u32 = 3;
+        const TXTLOG_SETUPAPI_CMDLINE: u32 = 2;
+        const TXTLOG_SETUPAPI_DEVLOG: u32 = 1;
+        const TXTLOG_SIGVERIF: u32 = 32;
+        const TXTLOG_SUMMARY: u32 = 4;
+        const TXTLOG_SYSTEM_STATE_CHANGE: u32 = 3;
+        const TXTLOG_TAB_1: u32 = 524288;
+        const TXTLOG_TIMESTAMP: u32 = 65536;
+        const TXTLOG_UI: u32 = 256;
+        const TXTLOG_UMPNPMGR: u32 = 33554432;
+        const TXTLOG_UTIL: u32 = 512;
+        const TXTLOG_VENDOR: u32 = 2147483648;
+        const TXTLOG_VERBOSE: u32 = 6;
+        const TXTLOG_VERY_VERBOSE: u32 = 7;
+        const TXTLOG_WARNING: u32 = 2;
+    }
+}

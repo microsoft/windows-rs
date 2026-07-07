@@ -1,0 +1,94 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xdada2357_e0ad_492e_98db_dd61c53ba353)]
+        interface IPortableDeviceKeyCollection: IUnknown {
+            fn GetCount(&self, pcElems: *const u32) -> HRESULT;
+            fn GetAt(&self, dwIndex: u32, pKey: *const PROPERTYKEY) -> HRESULT;
+            fn Add(&self, Key: *const PROPERTYKEY) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+        }
+        #[guid(0x89b2e422_4f1b_4316_bcef_a44afea83eb3)]
+        interface IPortableDevicePropVariantCollection: IUnknown {
+            fn GetCount(&self, pcElems: *const u32) -> HRESULT;
+            fn GetAt(&self, dwIndex: u32, pValue: *const PROPVARIANT) -> HRESULT;
+            fn Add(&self, pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetType(&self, pvt: *mut VARTYPE) -> HRESULT;
+            fn ChangeType(&self, vt: VARTYPE) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+        }
+        #[guid(0x6848f6f2_3155_4f86_b6f5_263eeeab3143)]
+        interface IPortableDeviceValues: IUnknown {
+            fn GetCount(&self, pcelt: *const u32) -> HRESULT;
+            fn GetAt(&self, index: u32, #[in] #[out] pKey: *mut PROPERTYKEY, #[in] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn SetValue(&self, key: *const PROPERTYKEY, pValue: *const PROPVARIANT) -> HRESULT;
+            fn GetValue(&self, key: *const PROPERTYKEY, pValue: *mut PROPVARIANT) -> HRESULT;
+            fn SetStringValue(&self, key: *const PROPERTYKEY, Value: PCWSTR) -> HRESULT;
+            fn GetStringValue(&self, key: *const PROPERTYKEY, pValue: *mut PWSTR) -> HRESULT;
+            fn SetUnsignedIntegerValue(&self, key: *const PROPERTYKEY, Value: u32) -> HRESULT;
+            fn GetUnsignedIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut u32) -> HRESULT;
+            fn SetSignedIntegerValue(&self, key: *const PROPERTYKEY, Value: i32) -> HRESULT;
+            fn GetSignedIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut i32) -> HRESULT;
+            fn SetUnsignedLargeIntegerValue(&self, key: *const PROPERTYKEY, Value: u64) -> HRESULT;
+            fn GetUnsignedLargeIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut u64) -> HRESULT;
+            fn SetSignedLargeIntegerValue(&self, key: *const PROPERTYKEY, Value: i64) -> HRESULT;
+            fn GetSignedLargeIntegerValue(&self, key: *const PROPERTYKEY, pValue: *mut i64) -> HRESULT;
+            fn SetFloatValue(&self, key: *const PROPERTYKEY, Value: f32) -> HRESULT;
+            fn GetFloatValue(&self, key: *const PROPERTYKEY, pValue: *mut f32) -> HRESULT;
+            fn SetErrorValue(&self, key: *const PROPERTYKEY, Value: HRESULT) -> HRESULT;
+            fn GetErrorValue(&self, key: *const PROPERTYKEY, pValue: *mut HRESULT) -> HRESULT;
+            fn SetKeyValue(&self, key: *const PROPERTYKEY, Value: *const PROPERTYKEY) -> HRESULT;
+            fn GetKeyValue(&self, key: *const PROPERTYKEY, pValue: *mut PROPERTYKEY) -> HRESULT;
+            fn SetBoolValue(&self, key: *const PROPERTYKEY, Value: BOOL) -> HRESULT;
+            fn GetBoolValue(&self, key: *const PROPERTYKEY, pValue: *mut BOOL) -> HRESULT;
+            fn SetIUnknownValue(&self, key: *const PROPERTYKEY, pValue: IUnknown) -> HRESULT;
+            fn GetIUnknownValue(&self, key: *const PROPERTYKEY, ppValue: *mut IUnknown) -> HRESULT;
+            fn SetGuidValue(&self, key: *const PROPERTYKEY, Value: *const GUID) -> HRESULT;
+            fn GetGuidValue(&self, key: *const PROPERTYKEY, pValue: *mut GUID) -> HRESULT;
+            fn SetBufferValue(&self, key: *const PROPERTYKEY, pValue: *const u8, cbValue: u32) -> HRESULT;
+            fn GetBufferValue(&self, key: *const PROPERTYKEY, ppValue: *mut *mut u8, pcbValue: *mut u32) -> HRESULT;
+            fn SetIPortableDeviceValuesValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceValues) -> HRESULT;
+            fn GetIPortableDeviceValuesValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceValues) -> HRESULT;
+            fn SetIPortableDevicePropVariantCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDevicePropVariantCollection) -> HRESULT;
+            fn GetIPortableDevicePropVariantCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDevicePropVariantCollection) -> HRESULT;
+            fn SetIPortableDeviceKeyCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceKeyCollection) -> HRESULT;
+            fn GetIPortableDeviceKeyCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceKeyCollection) -> HRESULT;
+            fn SetIPortableDeviceValuesCollectionValue(&self, key: *const PROPERTYKEY, pValue: IPortableDeviceValuesCollection) -> HRESULT;
+            fn GetIPortableDeviceValuesCollectionValue(&self, key: *const PROPERTYKEY, ppValue: *mut IPortableDeviceValuesCollection) -> HRESULT;
+            fn RemoveValue(&self, key: *const PROPERTYKEY) -> HRESULT;
+            fn CopyValuesFromPropertyStore(&self, pStore: IPropertyStore) -> HRESULT;
+            fn CopyValuesToPropertyStore(&self, pStore: IPropertyStore) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+        }
+        #[guid(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99)]
+        interface IPortableDeviceValuesCollection: IUnknown {
+            fn GetCount(&self, pcElems: *const u32) -> HRESULT;
+            fn GetAt(&self, dwIndex: u32, ppValues: *mut IPortableDeviceValues) -> HRESULT;
+            fn Add(&self, pValues: IPortableDeviceValues) -> HRESULT;
+            fn Clear(&self) -> HRESULT;
+            fn RemoveAt(&self, dwIndex: u32) -> HRESULT;
+        }
+        #[guid(0xb32f4002_bb27_45ff_af4f_06631c1e8dad)]
+        interface IWpdSerializer: IUnknown {
+            fn GetIPortableDeviceValuesFromBuffer(&self, pBuffer: *const u8, dwInputBufferLength: u32, ppParams: *mut IPortableDeviceValues) -> HRESULT;
+            fn WriteIPortableDeviceValuesToBuffer(&self, dwOutputBufferLength: u32, pResults: IPortableDeviceValues, pBuffer: *mut u8, pdwBytesWritten: *mut u32) -> HRESULT;
+            fn GetBufferFromIPortableDeviceValues(&self, pSource: IPortableDeviceValues, ppBuffer: *mut *mut u8, pdwBufferSize: *mut u32) -> HRESULT;
+            fn GetSerializedSize(&self, pSource: IPortableDeviceValues, pdwSize: *mut u32) -> HRESULT;
+        }
+        const PortableDeviceKeyCollection: GUID = 0xde2d022d_2480_43be_97f0_d1fa2cf98f4f;
+        const PortableDevicePropVariantCollection: GUID = 0x08a99e2f_6d6d_4b80_af5a_baf2bcbe4cb9;
+        const PortableDeviceValues: GUID = 0x0c15d503_d017_47ce_9016_7b3f978721cc;
+        const PortableDeviceValuesCollection: GUID = 0x3882134d_14cf_4220_9cb4_435f86d83f60;
+        #[repr(i32)]
+        enum WPD_STREAM_UNITS {
+            WPD_STREAM_UNITS_BYTES = 0,
+            WPD_STREAM_UNITS_FRAMES = 1,
+            WPD_STREAM_UNITS_ROWS = 2,
+            WPD_STREAM_UNITS_MILLISECONDS = 4,
+            WPD_STREAM_UNITS_MICROSECONDS = 8,
+        }
+        const WpdSerializer: GUID = 0x0b91a74b_ad7c_4a9d_b563_29eef9167172;
+    }
+}

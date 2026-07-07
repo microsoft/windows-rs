@@ -1,0 +1,158 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum EVRFilterConfigPrefs {
+            EVRFilterConfigPrefs_EnableQoS = 1,
+            EVRFilterConfigPrefs_Mask = 1,
+        }
+        #[guid(0x83e91e85_82c1_4ea7_801d_85dc50b75086)]
+        interface IEVRFilterConfig: IUnknown {
+            fn SetNumberOfStreams(&self, dwMaxStreams: u32) -> HRESULT;
+            fn GetNumberOfStreams(&self, pdwMaxStreams: *mut u32) -> HRESULT;
+        }
+        #[guid(0xaea36028_796d_454f_beee_b48071e24304)]
+        interface IEVRFilterConfigEx: IEVRFilterConfig {
+            fn SetConfigPrefs(&self, dwConfigFlags: u32) -> HRESULT;
+            fn GetConfigPrefs(&self, pdwConfigFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x83a4ce40_7710_494b_a893_a472049af630)]
+        interface IEVRTrustedVideoPlugin: IUnknown {
+            fn IsInTrustedVideoMode(&self, pYes: *mut BOOL) -> HRESULT;
+            fn CanConstrict(&self, pYes: *mut BOOL) -> HRESULT;
+            fn SetConstriction(&self, dwKPix: u32) -> HRESULT;
+            fn DisableImageExport(&self, bDisable: BOOL) -> HRESULT;
+        }
+        #[guid(0x56c294d0_753e_4260_8d61_a3d8820b1d54)]
+        interface IMFDesiredSample: IUnknown {
+            fn GetDesiredSampleTimeAndDuration(&self, phnsSampleTime: *mut i64, phnsSampleDuration: *mut i64) -> HRESULT;
+            fn SetDesiredSampleTimeAndDuration(&self, hnsSampleTime: i64, hnsSampleDuration: i64);
+            fn Clear(&self);
+        }
+        #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
+        interface IMFTopologyServiceLookup: IUnknown {
+            fn LookupService(&self, Type: MF_SERVICE_LOOKUP_TYPE, dwIndex: u32, guidService: *const GUID, riid: *const GUID, #[len_const(1)] ppvObjects: *mut *mut void, #[in] #[out] pnObjects: *mut u32) -> HRESULT;
+        }
+        #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
+        interface IMFTopologyServiceLookupClient: IUnknown {
+            fn InitServicePointers(&self, pLookup: IMFTopologyServiceLookup) -> HRESULT;
+            fn ReleaseServicePointers(&self) -> HRESULT;
+        }
+        #[guid(0xa38d9567_5a9c_4f3c_b293_8eb415b279ba)]
+        interface IMFVideoDeviceID: IUnknown {
+            fn GetDeviceID(&self, pDeviceID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xa490b1e4_ab84_4d31_a1b2_181e03b1077a)]
+        interface IMFVideoDisplayControl: IUnknown {
+            fn GetNativeVideoSize(&self, #[in] #[out] pszVideo: *mut SIZE, #[in] #[out] pszARVideo: *mut SIZE) -> HRESULT;
+            fn GetIdealVideoSize(&self, #[in] #[out] pszMin: *mut SIZE, #[in] #[out] pszMax: *mut SIZE) -> HRESULT;
+            fn SetVideoPosition(&self, pnrcSource: *const MFVideoNormalizedRect, prcDest: *const RECT) -> HRESULT;
+            fn GetVideoPosition(&self, pnrcSource: *mut MFVideoNormalizedRect, prcDest: *mut RECT) -> HRESULT;
+            fn SetAspectRatioMode(&self, dwAspectRatioMode: u32) -> HRESULT;
+            fn GetAspectRatioMode(&self, pdwAspectRatioMode: *mut u32) -> HRESULT;
+            fn SetVideoWindow(&self, hwndVideo: HWND) -> HRESULT;
+            fn GetVideoWindow(&self, phwndVideo: *mut HWND) -> HRESULT;
+            fn RepaintVideo(&self) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, pDib: *mut *mut u8, pcbDib: *mut u32, #[in] #[out] pTimeStamp: *mut i64) -> HRESULT;
+            fn SetBorderColor(&self, Clr: COLORREF) -> HRESULT;
+            fn GetBorderColor(&self, pClr: *mut COLORREF) -> HRESULT;
+            fn SetRenderingPrefs(&self, dwRenderFlags: u32) -> HRESULT;
+            fn GetRenderingPrefs(&self, pdwRenderFlags: *mut u32) -> HRESULT;
+            fn SetFullscreen(&self, fFullscreen: BOOL) -> HRESULT;
+            fn GetFullscreen(&self, pfFullscreen: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xa5c6c53f_c202_4aa5_9695_175ba8c508a5)]
+        interface IMFVideoMixerControl: IUnknown {
+            fn SetStreamZOrder(&self, dwStreamID: u32, dwZ: u32) -> HRESULT;
+            fn GetStreamZOrder(&self, dwStreamID: u32, pdwZ: *mut u32) -> HRESULT;
+            fn SetStreamOutputRect(&self, dwStreamID: u32, pnrcOutput: *const MFVideoNormalizedRect) -> HRESULT;
+            fn GetStreamOutputRect(&self, dwStreamID: u32, pnrcOutput: *mut MFVideoNormalizedRect) -> HRESULT;
+        }
+        #[guid(0x8459616d_966e_4930_b658_54fa7e5a16d3)]
+        interface IMFVideoMixerControl2: IMFVideoMixerControl {
+            fn SetMixingPrefs(&self, dwMixFlags: u32) -> HRESULT;
+            fn GetMixingPrefs(&self, pdwMixFlags: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae)]
+        interface IMFVideoPositionMapper: IUnknown {
+            fn MapOutputCoordinateToInputStream(&self, xOut: f32, yOut: f32, dwOutputStreamIndex: u32, dwInputStreamIndex: u32, pxIn: *mut f32, pyIn: *mut f32) -> HRESULT;
+        }
+        #[guid(0x29aff080_182a_4a5d_af3b_448f3a6346cb)]
+        interface IMFVideoPresenter: IMFClockStateSink {
+            fn ProcessMessage(&self, eMessage: MFVP_MESSAGE_TYPE, ulParam: usize) -> HRESULT;
+            fn GetCurrentMediaType(&self, ppMediaType: *mut IMFVideoMediaType) -> HRESULT;
+        }
+        #[guid(0xdfdfd197_a9ca_43d8_b341_6af3503792cd)]
+        interface IMFVideoRenderer: IUnknown {
+            fn InitializeRenderer(&self, #[opt] pVideoMixer: IMFTransform, #[opt] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
+        }
+        #[library("EVR.dll")]
+        extern "C" fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("EVR.dll")]
+        extern "C" fn MFCreateVideoMixerAndPresenter(#[opt] pMixerOwner: IUnknown, #[opt] pPresenterOwner: IUnknown, riidMixer: *const GUID, ppvVideoMixer: *mut *mut void, riidPresenter: *const GUID, ppvVideoPresenter: *mut *mut void) -> HRESULT;
+        #[library("EVR.dll")]
+        extern "C" fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppVideoPresenter: *mut *mut void) -> HRESULT;
+        #[library("MF.dll")]
+        extern "C" fn MFCreateVideoRenderer(riidRenderer: *const GUID, ppVideoRenderer: *mut *mut void) -> HRESULT;
+        #[library("EVR.dll")]
+        extern "C" fn MFCreateVideoSampleAllocator(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
+        #[library("EVR.dll")]
+        extern "C" fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
+        const MFEVRDLL: u32 = 0;
+        #[repr(i32)]
+        enum MFVP_MESSAGE_TYPE {
+            MFVP_MESSAGE_FLUSH = 0,
+            MFVP_MESSAGE_INVALIDATEMEDIATYPE = 1,
+            MFVP_MESSAGE_PROCESSINPUTNOTIFY = 2,
+            MFVP_MESSAGE_BEGINSTREAMING = 3,
+            MFVP_MESSAGE_ENDSTREAMING = 4,
+            MFVP_MESSAGE_ENDOFSTREAM = 5,
+            MFVP_MESSAGE_STEP = 6,
+            MFVP_MESSAGE_CANCELSTEP = 7,
+        }
+        #[repr(i32)]
+        enum MFVideoAspectRatioMode {
+            MFVideoARMode_None = 0,
+            MFVideoARMode_PreservePicture = 1,
+            MFVideoARMode_PreservePixel = 2,
+            MFVideoARMode_NonLinearStretch = 4,
+            MFVideoARMode_Mask = 7,
+        }
+        #[repr(i32)]
+        enum MFVideoMixPrefs {
+            MFVideoMixPrefs_ForceHalfInterlace = 1,
+            MFVideoMixPrefs_AllowDropToHalfInterlace = 2,
+            MFVideoMixPrefs_AllowDropToBob = 4,
+            MFVideoMixPrefs_ForceBob = 8,
+            MFVideoMixPrefs_EnableRotation = 16,
+            MFVideoMixPrefs_Mask = 31,
+        }
+        #[repr(i32)]
+        enum MFVideoRenderPrefs {
+            MFVideoRenderPrefs_DoNotRenderBorder = 1,
+            MFVideoRenderPrefs_DoNotClipToDevice = 2,
+            MFVideoRenderPrefs_AllowOutputThrottling = 4,
+            MFVideoRenderPrefs_ForceOutputThrottling = 8,
+            MFVideoRenderPrefs_ForceBatching = 16,
+            MFVideoRenderPrefs_AllowBatching = 32,
+            MFVideoRenderPrefs_ForceScaling = 64,
+            MFVideoRenderPrefs_AllowScaling = 128,
+            MFVideoRenderPrefs_DoNotRepaintOnStop = 256,
+            MFVideoRenderPrefs_Mask = 511,
+        }
+        #[repr(i32)]
+        enum MF_SERVICE_LOOKUP_TYPE {
+            MF_SERVICE_LOOKUP_UPSTREAM = 0,
+            MF_SERVICE_LOOKUP_UPSTREAM_DIRECT = 1,
+            MF_SERVICE_LOOKUP_DOWNSTREAM = 2,
+            MF_SERVICE_LOOKUP_DOWNSTREAM_DIRECT = 3,
+            MF_SERVICE_LOOKUP_ALL = 4,
+            MF_SERVICE_LOOKUP_GLOBAL = 5,
+        }
+        const MR_BUFFER_SERVICE: GUID = 0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d;
+        const MR_VIDEO_ACCELERATION_SERVICE: GUID = 0xefef5175_5c7d_4ce2_bbbd_34ff8bca6554;
+        const MR_VIDEO_MIXER_SERVICE: GUID = 0x073cd2fc_6cf4_40b7_8859_e89552c841f8;
+        const MR_VIDEO_RENDER_SERVICE: GUID = 0x1092a86c_ab1a_459a_a336_831fbc4d11ff;
+        const VIDEO_ZOOM_RECT: GUID = 0x7aaa1638_1b7f_4c93_bd89_5b9c9fb6fcf0;
+    }
+}

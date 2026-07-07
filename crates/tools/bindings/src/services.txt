@@ -1,6 +1,7 @@
 --out crates/libs/services/src/bindings.rs
 --flat --sys
 
+
 --filter
     NO_ERROR
     RegisterServiceCtrlHandlerExW

@@ -1,0 +1,83 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PSecPkgCred_CipherStrengths = *mut SecPkgCred_CipherStrengths;
+        type PSecPkgCred_ClientCertPolicy = *mut SecPkgCred_ClientCertPolicy;
+        type PSecPkgCred_SessionTicketKey = *mut SecPkgCred_SessionTicketKey;
+        type PSecPkgCred_SessionTicketKeys = *mut SecPkgCred_SessionTicketKeys;
+        type PSecPkgCred_SupportedAlgs = *mut SecPkgCred_SupportedAlgs;
+        type PSecPkgCred_SupportedProtocols = *mut SecPkgCred_SupportedProtocols;
+        const SECPKG_ATTR_APP_DATA: u32 = 94;
+        const SECPKG_ATTR_CC_POLICY_RESULT: u32 = 97;
+        const SECPKG_ATTR_CERT_CHECK_RESULT: u32 = 113;
+        const SECPKG_ATTR_CERT_CHECK_RESULT_INPROC: u32 = 114;
+        const SECPKG_ATTR_CIPHER_INFO: u32 = 100;
+        const SECPKG_ATTR_CIPHER_STRENGTHS: u32 = 87;
+        const SECPKG_ATTR_CLIENT_CERT_POLICY: u32 = 96;
+        const SECPKG_ATTR_CONNECTION_INFO: u32 = 90;
+        const SECPKG_ATTR_CONNECTION_INFO_EX: u32 = 110;
+        const SECPKG_ATTR_EAP_KEY_BLOCK: u32 = 91;
+        const SECPKG_ATTR_EAP_PRF_INFO: u32 = 101;
+        const SECPKG_ATTR_EARLY_START: u32 = 105;
+        const SECPKG_ATTR_ISSUER_LIST: u32 = 80;
+        const SECPKG_ATTR_ISSUER_LIST_EX: u32 = 89;
+        const SECPKG_ATTR_KEYING_MATERIAL: u32 = 107;
+        const SECPKG_ATTR_KEYING_MATERIAL_INFO: u32 = 106;
+        const SECPKG_ATTR_KEYING_MATERIAL_INPROC: u32 = 112;
+        const SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: u32 = 111;
+        const SECPKG_ATTR_LOCAL_CERT_CONTEXT: u32 = 84;
+        const SECPKG_ATTR_LOCAL_CERT_INFO: u32 = 99;
+        const SECPKG_ATTR_LOCAL_CRED: u32 = 82;
+        const SECPKG_ATTR_MAPPED_CRED_ATTR: u32 = 92;
+        const SECPKG_ATTR_REMOTE_CERTIFICATES: u32 = 95;
+        const SECPKG_ATTR_REMOTE_CERT_CHAIN: u32 = 103;
+        const SECPKG_ATTR_REMOTE_CERT_CONTEXT: u32 = 83;
+        const SECPKG_ATTR_REMOTE_CRED: u32 = 81;
+        const SECPKG_ATTR_ROOT_STORE: u32 = 85;
+        const SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT: u32 = 117;
+        const SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT_INPROC: u32 = 116;
+        const SECPKG_ATTR_SESSION_INFO: u32 = 93;
+        const SECPKG_ATTR_SESSION_TICKET_KEYS: u32 = 115;
+        const SECPKG_ATTR_SRTP_PARAMETERS: u32 = 108;
+        const SECPKG_ATTR_SUPPORTED_ALGS: u32 = 86;
+        const SECPKG_ATTR_SUPPORTED_PROTOCOLS: u32 = 88;
+        const SECPKG_ATTR_SUPPORTED_SIGNATURES: u32 = 102;
+        const SECPKG_ATTR_TOKEN_BINDING: u32 = 109;
+        const SECPKG_ATTR_UI_INFO: u32 = 104;
+        const SECPKG_ATTR_USE_NCRYPT: u32 = 98;
+        const SESSION_TICKET_INFO_V0: u32 = 0;
+        const SESSION_TICKET_INFO_VERSION: u32 = 0;
+        struct SecPkgCred_CipherStrengths {
+            dwMinimumCipherStrength: u32,
+            dwMaximumCipherStrength: u32,
+        }
+        struct SecPkgCred_ClientCertPolicy {
+            dwFlags: u32,
+            guidPolicyId: GUID,
+            dwCertFlags: u32,
+            dwUrlRetrievalTimeout: u32,
+            fCheckRevocationFreshnessTime: BOOL,
+            dwRevocationFreshnessTime: u32,
+            fOmitUsageCheck: BOOL,
+            pwszSslCtlStoreName: PWSTR,
+            pwszSslCtlIdentifier: PWSTR,
+        }
+        struct SecPkgCred_SessionTicketKey {
+            TicketInfoVersion: u32,
+            KeyId: [u8; 16],
+            KeyingMaterial: [u8; 64],
+            KeyingMaterialSize: u8,
+        }
+        struct SecPkgCred_SessionTicketKeys {
+            cSessionTicketKeys: u32,
+            pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
+        }
+        struct SecPkgCred_SupportedAlgs {
+            cSupportedAlgs: u32,
+            palgSupportedAlgs: *mut ALG_ID,
+        }
+        struct SecPkgCred_SupportedProtocols {
+            grbitProtocol: u32,
+        }
+    }
+}

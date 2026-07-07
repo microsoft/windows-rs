@@ -1,0 +1,272 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: u32 = 1;
+        const ANRUS_PRIORITY_AUDIO_ACTIVE: u32 = 4;
+        const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: u32 = 8;
+        const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16;
+        const ANRUS_TOUCH_MODIFICATION_ACTIVE: u32 = 2;
+        #[library("OLEACC.dll")]
+        extern fn AccNotifyTouchInteraction(hwndApp: HWND, hwndTarget: HWND, ptTarget: POINT) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn AccSetRunningUtilityState(hwndApp: HWND, dwUtilityStateMask: u32, dwUtilityState: u32) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn AccessibleChildren(paccContainer: IAccessible, iChildStart: i32, cChildren: i32, #[len_param(2)] rgvarChildren: *mut VARIANT, pcObtained: *mut i32) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn AccessibleObjectFromEvent(hwnd: HWND, dwId: u32, dwChildId: u32, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn AccessibleObjectFromPoint(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn AccessibleObjectFromWindow(hwnd: HWND, dwId: u32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        #[repr(i32)]
+        enum AnnoScope {
+            ANNO_THIS = 0,
+            ANNO_CONTAINER = 1,
+        }
+        const CAccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
+        const CLSID_AccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
+        #[library("OLEACC.dll")]
+        extern fn CreateStdAccessibleObject(hwnd: HWND, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn CreateStdAccessibleProxyA(hwnd: HWND, pClassName: PCSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        #[library("OLEACC.dll")]
+        extern fn CreateStdAccessibleProxyW(hwnd: HWND, pClassName: PCWSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        const DISPID_ACC_CHILD: i32 = -5002;
+        const DISPID_ACC_CHILDCOUNT: i32 = -5001;
+        const DISPID_ACC_DEFAULTACTION: i32 = -5013;
+        const DISPID_ACC_DESCRIPTION: i32 = -5005;
+        const DISPID_ACC_DODEFAULTACTION: i32 = -5018;
+        const DISPID_ACC_FOCUS: i32 = -5011;
+        const DISPID_ACC_HELP: i32 = -5008;
+        const DISPID_ACC_HELPTOPIC: i32 = -5009;
+        const DISPID_ACC_HITTEST: i32 = -5017;
+        const DISPID_ACC_KEYBOARDSHORTCUT: i32 = -5010;
+        const DISPID_ACC_LOCATION: i32 = -5015;
+        const DISPID_ACC_NAME: i32 = -5003;
+        const DISPID_ACC_NAVIGATE: i32 = -5016;
+        const DISPID_ACC_PARENT: i32 = -5000;
+        const DISPID_ACC_ROLE: i32 = -5006;
+        const DISPID_ACC_SELECT: i32 = -5014;
+        const DISPID_ACC_SELECTION: i32 = -5012;
+        const DISPID_ACC_STATE: i32 = -5007;
+        const DISPID_ACC_VALUE: i32 = -5004;
+        #[library("OLEACC.dll")]
+        extern fn GetOleaccVersionInfo(pVer: *mut u32, pBuild: *mut u32);
+        #[library("OLEACC.dll")]
+        extern fn GetRoleTextA(lRole: u32, #[len_param(2)] #[out] #[opt] lpszRole: PSTR, cchRoleMax: u32) -> u32;
+        #[library("OLEACC.dll")]
+        extern fn GetRoleTextW(lRole: u32, #[len_param(2)] #[out] #[opt] lpszRole: PWSTR, cchRoleMax: u32) -> u32;
+        #[library("OLEACC.dll")]
+        extern fn GetStateTextA(lStateBit: u32, #[len_param(2)] #[out] #[opt] lpszState: PSTR, cchState: u32) -> u32;
+        #[library("OLEACC.dll")]
+        extern fn GetStateTextW(lStateBit: u32, #[len_param(2)] #[out] #[opt] lpszState: PWSTR, cchState: u32) -> u32;
+        #[guid(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f)]
+        interface IAccIdentity: IUnknown {
+            fn GetIdentityString(&self, dwIDChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
+        }
+        #[guid(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0)]
+        interface IAccPropServer: IUnknown {
+            fn GetPropValue(&self, pIDString: *const u8, dwIDStringLen: u32, idProp: MSAAPROPID, pvarValue: *mut VARIANT, pfHasProp: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x6e26e776_04f0_495d_80e4_3330352e3169)]
+        interface IAccPropServices: IUnknown {
+            fn SetPropValue(&self, pIDString: *const u8, dwIDStringLen: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetPropServer(&self, pIDString: *const u8, dwIDStringLen: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearProps(&self, pIDString: *const u8, dwIDStringLen: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn SetHwndProp(&self, hwnd: HWND, idObject: u32, idChild: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetHwndPropStr(&self, hwnd: HWND, idObject: u32, idChild: u32, idProp: MSAAPROPID, str: PCWSTR) -> HRESULT;
+            fn SetHwndPropServer(&self, hwnd: HWND, idObject: u32, idChild: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearHwndProps(&self, hwnd: HWND, idObject: u32, idChild: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn ComposeHwndIdentityString(&self, hwnd: HWND, idObject: u32, idChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
+            fn DecomposeHwndIdentityString(&self, pIDString: *const u8, dwIDStringLen: u32, phwnd: *mut HWND, pidObject: *mut u32, pidChild: *mut u32) -> HRESULT;
+            fn SetHmenuProp(&self, hmenu: HMENU, idChild: u32, idProp: MSAAPROPID, var: VARIANT) -> HRESULT;
+            fn SetHmenuPropStr(&self, hmenu: HMENU, idChild: u32, idProp: MSAAPROPID, str: PCWSTR) -> HRESULT;
+            fn SetHmenuPropServer(&self, hmenu: HMENU, idChild: u32, paProps: *const MSAAPROPID, cProps: i32, pServer: IAccPropServer, annoScope: AnnoScope) -> HRESULT;
+            fn ClearHmenuProps(&self, hmenu: HMENU, idChild: u32, paProps: *const MSAAPROPID, cProps: i32) -> HRESULT;
+            fn ComposeHmenuIdentityString(&self, hmenu: HMENU, idChild: u32, ppIDString: *mut *mut u8, pdwIDStringLen: *mut u32) -> HRESULT;
+            fn DecomposeHmenuIdentityString(&self, pIDString: *const u8, dwIDStringLen: u32, phmenu: *mut HMENU, pidChild: *mut u32) -> HRESULT;
+        }
+        #[guid(0x618736e0_3c3d_11cf_810c_00aa00389b71)]
+        interface IAccessible: IDispatch {
+            #[special]
+            fn get_accParent(&self, #[retval] ppdispParent: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_accChildCount(&self, #[retval] pcountChildren: *mut i32) -> HRESULT;
+            #[special]
+            fn get_accChild(&self, varChild: VARIANT, #[retval] ppdispChild: *mut IDispatch) -> HRESULT;
+            #[special]
+            fn get_accName(&self, #[opt] varChild: VARIANT, #[retval] pszName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_accValue(&self, #[opt] varChild: VARIANT, #[retval] pszValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_accDescription(&self, #[opt] varChild: VARIANT, #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_accRole(&self, #[opt] varChild: VARIANT, #[retval] pvarRole: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_accState(&self, #[opt] varChild: VARIANT, #[retval] pvarState: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_accHelp(&self, #[opt] varChild: VARIANT, #[retval] pszHelp: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_accHelpTopic(&self, pszHelpFile: *mut BSTR, #[opt] varChild: VARIANT, #[retval] pidTopic: *mut i32) -> HRESULT;
+            #[special]
+            fn get_accKeyboardShortcut(&self, #[opt] varChild: VARIANT, #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_accFocus(&self, #[retval] pvarChild: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_accSelection(&self, #[retval] pvarChildren: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_accDefaultAction(&self, #[opt] varChild: VARIANT, #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn accSelect(&self, flagsSelect: i32, #[opt] varChild: VARIANT) -> HRESULT;
+            fn accLocation(&self, pxLeft: *mut i32, pyTop: *mut i32, pcxWidth: *mut i32, pcyHeight: *mut i32, #[opt] varChild: VARIANT) -> HRESULT;
+            fn accNavigate(&self, navDir: i32, #[opt] varStart: VARIANT, #[retval] pvarEndUpAt: *mut VARIANT) -> HRESULT;
+            fn accHitTest(&self, xLeft: i32, yTop: i32, #[retval] pvarChild: *mut VARIANT) -> HRESULT;
+            fn accDoDefaultAction(&self, #[opt] varChild: VARIANT) -> HRESULT;
+            #[special]
+            fn put_accName(&self, #[opt] varChild: VARIANT, szName: BSTR) -> HRESULT;
+            #[special]
+            fn put_accValue(&self, #[opt] varChild: VARIANT, szValue: BSTR) -> HRESULT;
+        }
+        #[guid(0x03022430_abc4_11d0_bde2_00aa001a1953)]
+        interface IAccessibleHandler: IUnknown {
+            fn AccessibleObjectFromID(&self, hwnd: i32, lObjectID: i32, pIAccessible: *mut IAccessible) -> HRESULT;
+        }
+        #[guid(0xbf3abd9c_76da_4389_9eb6_1427d25abab7)]
+        interface IAccessibleWindowlessSite: IUnknown {
+            fn AcquireObjectIdRange(&self, rangeSize: i32, pRangeOwner: IAccessibleHandler, pRangeBase: *mut i32) -> HRESULT;
+            fn ReleaseObjectIdRange(&self, rangeBase: i32, pRangeOwner: IAccessibleHandler) -> HRESULT;
+            fn QueryObjectIdRanges(&self, pRangesOwner: IAccessibleHandler, psaRanges: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetParentAccessible(&self, ppParent: *mut IAccessible) -> HRESULT;
+        }
+        const IID_IAccPropMgrInternal: GUID = 0x2bd370a9_3e7f_4edd_8a85_f8fed1f8e51f;
+        const IIS_ControlAccessible: GUID = 0x38c682a6_9731_43f2_9fae_e901e641b101;
+        const IIS_IsOleaccProxy: GUID = 0x902697fa_80e4_4560_802a_a13f22a64709;
+        const LIBID_Accessibility: GUID = 0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71;
+        extern fn LPFNACCESSIBLECHILDREN(paccContainer: IAccessible, iChildStart: i32, cChildren: i32, rgvarChildren: *mut VARIANT, pcObtained: *mut i32) -> HRESULT;
+        extern fn LPFNACCESSIBLEOBJECTFROMPOINT(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
+        extern fn LPFNACCESSIBLEOBJECTFROMWINDOW(hwnd: HWND, dwId: u32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn LPFNCREATESTDACCESSIBLEOBJECT(hwnd: HWND, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn LPFNLRESULTFROMOBJECT(riid: *const GUID, wParam: WPARAM, punk: IUnknown) -> LRESULT;
+        extern fn LPFNOBJECTFROMLRESULT(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
+        type LPMSAAMENUINFO = *mut MSAAMENUINFO;
+        #[library("OLEACC.dll")]
+        extern fn LresultFromObject(riid: *const GUID, wParam: WPARAM, punk: IUnknown) -> LRESULT;
+        struct MSAAMENUINFO {
+            dwMSAASignature: u32,
+            cchWText: u32,
+            pszWText: PWSTR,
+        }
+        type MSAAPROPID = GUID;
+        const MSAA_MENU_SIG: u32 = 2853040141;
+        const NAVDIR_DOWN: u32 = 2;
+        const NAVDIR_FIRSTCHILD: u32 = 7;
+        const NAVDIR_LASTCHILD: u32 = 8;
+        const NAVDIR_LEFT: u32 = 3;
+        const NAVDIR_MAX: u32 = 9;
+        const NAVDIR_MIN: u32 = 0;
+        const NAVDIR_NEXT: u32 = 5;
+        const NAVDIR_PREVIOUS: u32 = 6;
+        const NAVDIR_RIGHT: u32 = 4;
+        const NAVDIR_UP: u32 = 1;
+        #[library("OLEACC.dll")]
+        extern fn ObjectFromLresult(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
+        const PROPID_ACC_DEFAULTACTION: GUID = 0x180c072b_c27f_43c7_9922_f63562a4632b;
+        const PROPID_ACC_DESCRIPTION: GUID = 0x4d48dfe4_bd3f_491f_a648_492d6f20c588;
+        const PROPID_ACC_DESCRIPTIONMAP: GUID = 0x1ff1435f_8a14_477b_b226_a0abe279975d;
+        const PROPID_ACC_DODEFAULTACTION: GUID = 0x1ba09523_2e3b_49a6_a059_59682a3c48fd;
+        const PROPID_ACC_FOCUS: GUID = 0x6eb335df_1c29_4127_b12c_dee9fd157f2b;
+        const PROPID_ACC_HELP: GUID = 0xc831e11f_44db_4a99_9768_cb8f978b7231;
+        const PROPID_ACC_HELPTOPIC: GUID = 0x787d1379_8ede_440b_8aec_11f7bf9030b3;
+        const PROPID_ACC_KEYBOARDSHORTCUT: GUID = 0x7d9bceee_7d1e_4979_9382_5180f4172c34;
+        const PROPID_ACC_NAME: GUID = 0x608d3df8_8128_4aa7_a428_f55e49267291;
+        const PROPID_ACC_NAV_DOWN: GUID = 0x031670ed_3cdf_48d2_9613_138f2dd8a668;
+        const PROPID_ACC_NAV_FIRSTCHILD: GUID = 0xcfd02558_557b_4c67_84f9_2a09fce40749;
+        const PROPID_ACC_NAV_LASTCHILD: GUID = 0x302ecaa5_48d5_4f8d_b671_1a8d20a77832;
+        const PROPID_ACC_NAV_LEFT: GUID = 0x228086cb_82f1_4a39_8705_dcdc0fff92f5;
+        const PROPID_ACC_NAV_NEXT: GUID = 0x1cdc5455_8cd9_4c92_a371_3939a2fe3eee;
+        const PROPID_ACC_NAV_PREV: GUID = 0x776d3891_c73b_4480_b3f6_076a16a15af6;
+        const PROPID_ACC_NAV_RIGHT: GUID = 0xcd211d9f_e1cb_4fe5_a77c_920b884d095b;
+        const PROPID_ACC_NAV_UP: GUID = 0x016e1a2b_1a4e_4767_8612_3386f66935ec;
+        const PROPID_ACC_PARENT: GUID = 0x474c22b6_ffc2_467a_b1b5_e958b4657330;
+        const PROPID_ACC_ROLE: GUID = 0xcb905ff2_7bd1_4c05_b3c8_e6c241364d70;
+        const PROPID_ACC_ROLEMAP: GUID = 0xf79acda2_140d_4fe6_8914_208476328269;
+        const PROPID_ACC_SELECTION: GUID = 0xb99d073c_d731_405b_9061_d95e8f842984;
+        const PROPID_ACC_STATE: GUID = 0xa8d4d5b0_0a21_42d0_a5c0_514e984f457b;
+        const PROPID_ACC_STATEMAP: GUID = 0x43946c5e_0ac0_4042_b525_07bbdbe17fa7;
+        const PROPID_ACC_VALUE: GUID = 0x123fe443_211a_4615_9527_c45a7e93717a;
+        const PROPID_ACC_VALUEMAP: GUID = 0xda1c3d79_fc5c_420e_b399_9d1533549e75;
+        const ROLE_SYSTEM_ALERT: u32 = 8;
+        const ROLE_SYSTEM_ANIMATION: u32 = 54;
+        const ROLE_SYSTEM_APPLICATION: u32 = 14;
+        const ROLE_SYSTEM_BORDER: u32 = 19;
+        const ROLE_SYSTEM_BUTTONDROPDOWN: u32 = 56;
+        const ROLE_SYSTEM_BUTTONDROPDOWNGRID: u32 = 58;
+        const ROLE_SYSTEM_BUTTONMENU: u32 = 57;
+        const ROLE_SYSTEM_CARET: u32 = 7;
+        const ROLE_SYSTEM_CELL: u32 = 29;
+        const ROLE_SYSTEM_CHARACTER: u32 = 32;
+        const ROLE_SYSTEM_CHART: u32 = 17;
+        const ROLE_SYSTEM_CHECKBUTTON: u32 = 44;
+        const ROLE_SYSTEM_CLIENT: u32 = 10;
+        const ROLE_SYSTEM_CLOCK: u32 = 61;
+        const ROLE_SYSTEM_COLUMN: u32 = 27;
+        const ROLE_SYSTEM_COLUMNHEADER: u32 = 25;
+        const ROLE_SYSTEM_COMBOBOX: u32 = 46;
+        const ROLE_SYSTEM_CURSOR: u32 = 6;
+        const ROLE_SYSTEM_DIAGRAM: u32 = 53;
+        const ROLE_SYSTEM_DIAL: u32 = 49;
+        const ROLE_SYSTEM_DIALOG: u32 = 18;
+        const ROLE_SYSTEM_DOCUMENT: u32 = 15;
+        const ROLE_SYSTEM_DROPLIST: u32 = 47;
+        const ROLE_SYSTEM_EQUATION: u32 = 55;
+        const ROLE_SYSTEM_GRAPHIC: u32 = 40;
+        const ROLE_SYSTEM_GRIP: u32 = 4;
+        const ROLE_SYSTEM_GROUPING: u32 = 20;
+        const ROLE_SYSTEM_HELPBALLOON: u32 = 31;
+        const ROLE_SYSTEM_HOTKEYFIELD: u32 = 50;
+        const ROLE_SYSTEM_INDICATOR: u32 = 39;
+        const ROLE_SYSTEM_IPADDRESS: u32 = 63;
+        const ROLE_SYSTEM_LINK: u32 = 30;
+        const ROLE_SYSTEM_LIST: u32 = 33;
+        const ROLE_SYSTEM_LISTITEM: u32 = 34;
+        const ROLE_SYSTEM_MENUBAR: u32 = 2;
+        const ROLE_SYSTEM_MENUITEM: u32 = 12;
+        const ROLE_SYSTEM_MENUPOPUP: u32 = 11;
+        const ROLE_SYSTEM_OUTLINE: u32 = 35;
+        const ROLE_SYSTEM_OUTLINEBUTTON: u32 = 64;
+        const ROLE_SYSTEM_OUTLINEITEM: u32 = 36;
+        const ROLE_SYSTEM_PAGETAB: u32 = 37;
+        const ROLE_SYSTEM_PAGETABLIST: u32 = 60;
+        const ROLE_SYSTEM_PANE: u32 = 16;
+        const ROLE_SYSTEM_PROGRESSBAR: u32 = 48;
+        const ROLE_SYSTEM_PROPERTYPAGE: u32 = 38;
+        const ROLE_SYSTEM_PUSHBUTTON: u32 = 43;
+        const ROLE_SYSTEM_RADIOBUTTON: u32 = 45;
+        const ROLE_SYSTEM_ROW: u32 = 28;
+        const ROLE_SYSTEM_ROWHEADER: u32 = 26;
+        const ROLE_SYSTEM_SCROLLBAR: u32 = 3;
+        const ROLE_SYSTEM_SEPARATOR: u32 = 21;
+        const ROLE_SYSTEM_SLIDER: u32 = 51;
+        const ROLE_SYSTEM_SOUND: u32 = 5;
+        const ROLE_SYSTEM_SPINBUTTON: u32 = 52;
+        const ROLE_SYSTEM_SPLITBUTTON: u32 = 62;
+        const ROLE_SYSTEM_STATICTEXT: u32 = 41;
+        const ROLE_SYSTEM_STATUSBAR: u32 = 23;
+        const ROLE_SYSTEM_TABLE: u32 = 24;
+        const ROLE_SYSTEM_TEXT: u32 = 42;
+        const ROLE_SYSTEM_TITLEBAR: u32 = 1;
+        const ROLE_SYSTEM_TOOLBAR: u32 = 22;
+        const ROLE_SYSTEM_TOOLTIP: u32 = 13;
+        const ROLE_SYSTEM_WHITESPACE: u32 = 59;
+        const ROLE_SYSTEM_WINDOW: u32 = 9;
+        const SELFLAG_ADDSELECTION: u32 = 8;
+        const SELFLAG_EXTENDSELECTION: u32 = 4;
+        const SELFLAG_NONE: u32 = 0;
+        const SELFLAG_REMOVESELECTION: u32 = 16;
+        const SELFLAG_TAKEFOCUS: u32 = 1;
+        const SELFLAG_TAKESELECTION: u32 = 2;
+        const SELFLAG_VALID: u32 = 31;
+        const STATE_SYSTEM_HASPOPUP: u32 = 1073741824;
+        #[library("OLEACC.dll")]
+        extern fn WindowFromAccessibleObject(param0: IAccessible, #[opt] phwnd: *mut HWND) -> HRESULT;
+    }
+}

@@ -109,46 +109,56 @@ impl Merger {
                 arch_groups.push((reader::Index::new(files), *arch_bits));
             }
 
-            // Compute the union of arch bits for each (namespace, name) pair.
-            let mut arch_presence: HashMap<(String, String), i32> = HashMap::new();
+            // Group every arch copy by (namespace, name).
+            let mut groups: BTreeMap<
+                (String, String),
+                Vec<(&reader::Index, reader::TypeDef<'_>, i32)>,
+            > = BTreeMap::new();
             for (idx, arch_bits) in &arch_groups {
                 for ty in idx.types() {
-                    *arch_presence
+                    groups
                         .entry((ty.namespace().to_string(), ty.name().to_string()))
-                        .or_default() |= arch_bits;
+                        .or_default()
+                        .push((idx, ty, *arch_bits));
                 }
             }
 
-            // Build a flat list of (Index ref, TypeDef, arch_bits) sorted by (ns, name).
-            let mut all_type_refs: Vec<(&reader::Index, reader::TypeDef<'_>, i32)> = Vec::new();
-            for (idx, arch_bits) in &arch_groups {
-                for ty in idx.types() {
-                    all_type_refs.push((idx, ty, *arch_bits));
-                }
-            }
-            all_type_refs
-                .sort_by(|a, b| (a.1.namespace(), a.1.name()).cmp(&(b.1.namespace(), b.1.name())));
-
-            // Write each type with the appropriate arch annotation.
-            // For types present in all arches, deduplicate to a single arch-neutral TypeDef.
-            // For types present in a subset, write each copy with SupportedArchitecture.
-            let mut deduped: HashSet<(String, String)> = HashSet::new();
-            for (idx, ty, _arch_bits) in &all_type_refs {
-                let key = (ty.namespace().to_string(), ty.name().to_string());
-                let present_mask = arch_presence.get(&key).copied().unwrap_or(0);
-
-                let arch_override = if present_mask == all_arches_mask {
-                    // Present on every arch: write once without SupportedArchitecture.
-                    if !deduped.insert(key) {
-                        continue; // Already written.
-                    }
-                    Some(0) // 0 = suppress arch attribute
+            for copies in groups.values() {
+                let (idx, ty, _) = copies[0];
+                if ty.category() == reader::TypeCategory::Class {
+                    // The apis container (constants + functions): union members so
+                    // arch-divergent constants/functions are each kept and tagged. This
+                    // applies whether the container is present on every arch or only a
+                    // subset — `write_type_arch_merged` tags each member neutral only when
+                    // it spans every arch in the run (`all_arches_mask`), else per-arch.
+                    write_type_arch_merged(&mut file, idx, ty, copies, all_arches_mask);
                 } else {
-                    // Present on a subset: annotate with the union of arches that have it.
-                    Some(present_mask)
-                };
-
-                write_type(&mut file, idx, *ty, None, arch_override);
+                    // A value type. Group the per-arch copies by structural signature and
+                    // emit one copy per distinct shape, tagged with the union of the arch
+                    // bits of every copy sharing that shape. This coalesces arches that are
+                    // structurally identical (e.g. `ARM64_NT_CONTEXT` is byte-identical on
+                    // x64 and x86) into a single `SupportedArchitecture(x64|x86)` definition
+                    // instead of duplicate copies, and — crucially — splits a shape that
+                    // diverges across the arches it appears on (the CONTEXT class) instead of
+                    // collapsing it to `copies[0]` and dropping the other arch's layout. A
+                    // group that ends up spanning every arch in the run is written
+                    // arch-neutral (`Some(0)`); anything narrower keeps its subset tag,
+                    // whether that subset is a shape split or a type present on only some
+                    // arches to begin with.
+                    let mut by_sig: Vec<(String, &reader::Index, reader::TypeDef, i32)> = vec![];
+                    for (cidx, c, bits) in copies {
+                        let sig = type_sig(cidx, *c);
+                        if let Some(entry) = by_sig.iter_mut().find(|(s, ..)| *s == sig) {
+                            entry.3 |= *bits;
+                        } else {
+                            by_sig.push((sig, cidx, *c, *bits));
+                        }
+                    }
+                    for (_, cidx, c, bits) in &by_sig {
+                        let arch = if *bits == all_arches_mask { 0 } else { *bits };
+                        write_type(&mut file, cidx, *c, None, Some(arch));
+                    }
+                }
             }
         }
 
@@ -236,13 +246,7 @@ fn write_type(
     }
 
     for field in def.fields() {
-        let field_def = file.Field(field.name(), &field.ty(), field.flags());
-
-        if let Some(constant) = field.constant() {
-            file.Constant(writer::HasConstant::Field(field_def), &constant.value());
-        }
-
-        write_attributes(file, writer::HasAttribute::Field(field_def), field);
+        write_field(file, field, None);
     }
 
     let generics: Vec<_> = def
@@ -280,28 +284,7 @@ fn write_type(
 
     if !is_winrt_class {
         for method in def.methods() {
-            let method_def = file.MethodDef(
-                method.name(),
-                &method.signature(&generics),
-                method.flags(),
-                method.impl_flags(),
-            );
-
-            for param_def in method.params() {
-                let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
-                write_attributes(file, writer::HasAttribute::Param(param), param_def);
-            }
-
-            write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
-
-            if let Some(impl_map) = method.impl_map() {
-                file.ImplMap(
-                    method_def,
-                    impl_map.flags(),
-                    impl_map.import_name(),
-                    impl_map.import_scope().name(),
-                );
-            }
+            write_method(file, method, &generics, None);
         }
     }
 
@@ -318,6 +301,199 @@ fn write_type(
         debug_assert!(inner_def.flags().is_nested());
         write_type(file, index, inner_def, Some(type_def), arch_override);
     }
+}
+
+/// Writes a field (and its constant) with an optional `SupportedArchitecture` override.
+fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Option<i32>) {
+    let field_def = file.Field(field.name(), &field.ty(), field.flags());
+    if let Some(constant) = field.constant() {
+        file.Constant(writer::HasConstant::Field(field_def), &constant.value());
+    }
+    write_attributes_with_arch(
+        file,
+        writer::HasAttribute::Field(field_def),
+        field,
+        arch_override,
+    );
+}
+
+/// Writes a method (params, impl map) with an optional `SupportedArchitecture` override.
+fn write_method(
+    file: &mut writer::File,
+    method: reader::MethodDef,
+    generics: &[Type],
+    arch_override: Option<i32>,
+) {
+    let method_def = file.MethodDef(
+        method.name(),
+        &method.signature(generics),
+        method.flags(),
+        method.impl_flags(),
+    );
+    for param_def in method.params() {
+        let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
+        write_attributes(file, writer::HasAttribute::Param(param), param_def);
+    }
+    write_attributes_with_arch(
+        file,
+        writer::HasAttribute::MethodDef(method_def),
+        method,
+        arch_override,
+    );
+    if let Some(impl_map) = method.impl_map() {
+        file.ImplMap(
+            method_def,
+            impl_map.flags(),
+            impl_map.import_name(),
+            impl_map.import_scope().name(),
+        );
+    }
+}
+
+/// Writes a TypeDef present on every architecture, unioning its fields and methods across
+/// arch copies. Members shared by all arches stay arch-neutral; members present on only a
+/// subset (arch-divergent constants like `CONTEXT_ALL`, arch-only functions) are emitted
+/// once per distinct definition with a `SupportedArchitecture` tag. This keeps the apis
+/// container's per-arch constants/functions instead of dropping all but x64.
+fn write_type_arch_merged(
+    file: &mut writer::File,
+    index: &reader::Index,
+    def: reader::TypeDef,
+    copies: &[(&reader::Index, reader::TypeDef, i32)],
+    all_mask: i32,
+) {
+    let extends = def
+        .extends()
+        .map(|e| writer::TypeDefOrRef::TypeRef(file.TypeRef(e.namespace(), e.name())))
+        .unwrap_or_default();
+    let type_def = file.TypeDef(def.namespace(), def.name(), extends, def.flags());
+
+    let generics: Vec<_> = def
+        .generic_params()
+        .map(|p| Type::Generic(p.name().to_string(), p.sequence()))
+        .collect();
+
+    write_attributes_with_arch(file, writer::HasAttribute::TypeDef(type_def), def, Some(0));
+    for map in def.interface_impls() {
+        let interface_impl = file.InterfaceImpl(type_def, &map.interface(&generics));
+        write_attributes(
+            file,
+            writer::HasAttribute::InterfaceImpl(interface_impl),
+            map,
+        );
+    }
+    for generic in def.generic_params() {
+        file.GenericParam(
+            generic.name(),
+            writer::TypeOrMethodDef::TypeDef(type_def),
+            generic.sequence(),
+            generic.flags(),
+        );
+    }
+
+    // Union fields by (name, type, value); accumulate the arch bits each distinct field
+    // appears on, keeping a representative to re-emit.
+    let mut fields: BTreeMap<String, (reader::Field, i32)> = BTreeMap::new();
+    for (_, ty, bits) in copies {
+        for field in ty.fields() {
+            let val = field
+                .constant()
+                .map(|c| format!("{:?}", c.value()))
+                .unwrap_or_default();
+            let key = format!("{}|{:?}|{val}", field.name(), field.ty());
+            fields.entry(key).or_insert((field, 0)).1 |= bits;
+        }
+    }
+    for (field, bits) in fields.into_values() {
+        write_field(file, field, Some(if bits == all_mask { 0 } else { bits }));
+    }
+
+    let is_winrt_class = def.category() == reader::TypeCategory::Class
+        && def.flags().contains(TypeAttributes::WindowsRuntime);
+    if !is_winrt_class {
+        let mut methods: BTreeMap<String, (reader::MethodDef, i32)> = BTreeMap::new();
+        for (_, ty, bits) in copies {
+            for method in ty.methods() {
+                let key = format!("{}|{:?}", method.name(), method.signature(&generics));
+                methods.entry(key).or_insert((method, 0)).1 |= bits;
+            }
+        }
+        for (method, bits) in methods.into_values() {
+            write_method(
+                file,
+                method,
+                &generics,
+                Some(if bits == all_mask { 0 } else { bits }),
+            );
+        }
+    }
+
+    if let Some(class_layout) = def.class_layout() {
+        file.ClassLayout(
+            type_def,
+            class_layout.packing_size(),
+            class_layout.class_size(),
+        );
+    }
+
+    for inner_def in index.nested(def) {
+        write_type(file, index, inner_def, Some(type_def), Some(0));
+    }
+}
+
+/// A structural signature for a value type: its fields (name + type + constant value),
+/// packing/size, and any forced over-alignment. Used to detect arch copies that diverge
+/// in shape (the CONTEXT class) so they are emitted per-arch instead of collapsed to one.
+///
+/// Methods are included so that reference TypeDefs whose divergence lives entirely in a
+/// method signature rather than in fields — Win32 callbacks and WinRT delegates, whose
+/// shape is the `Invoke` signature — are correctly detected as arch-divergent.
+///
+/// Field constant values are included so an enum whose members hold different per-arch
+/// values does not collapse (which would silently drop the divergent values), matching
+/// the apis-container member key which also folds in the constant value.
+///
+/// The `AlignmentAttribute` value is included because it is the *sole* winmd encoding of
+/// forced over-alignment (`__declspec(align(N))` / `alignas(N)`): the `ClassLayout` can
+/// only *lower* alignment via its packing size, so two copies identical in fields/layout
+/// but differing only in raised alignment would otherwise collapse to one arch-neutral
+/// copy and silently drop the other arch's alignment.
+fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
+    let fields: Vec<String> = def
+        .fields()
+        .map(|f| {
+            let val = f
+                .constant()
+                .map(|c| format!("{:?}", c.value()))
+                .unwrap_or_default();
+            format!("{}:{:?}={val}", f.name(), f.ty())
+        })
+        .collect();
+    let methods: Vec<String> = def
+        .methods()
+        .map(|m| format!("{}:{:?}", m.name(), m.signature(&[])))
+        .collect();
+    let layout = def
+        .class_layout()
+        .map(|l| (l.packing_size(), l.class_size()));
+    let align = def
+        .find_attribute("AlignmentAttribute")
+        .map(|a| format!("{:?}", a.value()));
+    // Nested types are referenced by their (arch-invariant) leaf name, so a field
+    // referencing a nested type looks identical across arches even when the nested
+    // type's own shape diverges (e.g. `HSTRING_HEADER`'s inline union is `[24]` on
+    // 64-bit and `[20]` on x86). Recurse into the nested subtree so such divergence
+    // surfaces in the enclosing type's signature — the arch merge then splits the
+    // enclosing type per arch (hoisting `#[arch]` up to it) instead of collapsing to
+    // one neutral copy and silently dropping the other arch's nested shape.
+    let nested: Vec<String> = index
+        .nested(def)
+        .map(|inner| format!("{}={}", inner.name(), type_sig(index, inner)))
+        .collect();
+    format!(
+        "{fields:?}|{methods:?}|{layout:?}|{align:?}|{:?}|{nested:?}",
+        def.flags()
+    )
 }
 
 fn write_attributes<'a, R: HasAttributes<'a>>(
@@ -347,7 +523,7 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
 
         // Skip the existing SupportedArchitectureAttribute when we're overriding arch.
         if arch_override.is_some()
-            && ty.namespace() == "Windows.Win32.Foundation.Metadata"
+            && ty.namespace() == "Windows.Win32.Metadata"
             && ty.name() == "SupportedArchitectureAttribute"
         {
             continue;
@@ -379,7 +555,7 @@ fn write_supported_architecture_attr(
     parent: writer::HasAttribute,
     arch_bits: i32,
 ) {
-    let ns = "Windows.Win32.Foundation.Metadata";
+    let ns = "Windows.Win32.Metadata";
     let name = "SupportedArchitectureAttribute";
 
     let type_ref = writer::MemberRefParent::TypeRef(file.TypeRef(ns, name));

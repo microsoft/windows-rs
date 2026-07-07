@@ -1,0 +1,365 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const D3DCAPS2_CANAUTOGENMIPMAP: u32 = 1073741824;
+        const D3DCAPS2_CANCALIBRATEGAMMA: u32 = 1048576;
+        const D3DCAPS2_CANMANAGERESOURCE: u32 = 268435456;
+        const D3DCAPS2_CANSHARERESOURCE: u32 = 2147483648;
+        const D3DCAPS2_DYNAMICTEXTURES: u32 = 536870912;
+        const D3DCAPS2_FULLSCREENGAMMA: u32 = 131072;
+        const D3DCAPS2_RESERVED: u32 = 33554432;
+        const D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD: u32 = 32;
+        const D3DCAPS3_COPY_TO_SYSTEMMEM: u32 = 512;
+        const D3DCAPS3_COPY_TO_VIDMEM: u32 = 256;
+        const D3DCAPS3_DXVAHD: u32 = 1024;
+        const D3DCAPS3_DXVAHD_LIMITED: u32 = 2048;
+        const D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION: u32 = 128;
+        const D3DCAPS3_RESERVED: u32 = 2147483679;
+        struct D3DCAPS9 {
+            DeviceType: D3DDEVTYPE,
+            AdapterOrdinal: u32,
+            Caps: u32,
+            Caps2: u32,
+            Caps3: u32,
+            PresentationIntervals: u32,
+            CursorCaps: u32,
+            DevCaps: u32,
+            PrimitiveMiscCaps: u32,
+            RasterCaps: u32,
+            ZCmpCaps: u32,
+            SrcBlendCaps: u32,
+            DestBlendCaps: u32,
+            AlphaCmpCaps: u32,
+            ShadeCaps: u32,
+            TextureCaps: u32,
+            TextureFilterCaps: u32,
+            CubeTextureFilterCaps: u32,
+            VolumeTextureFilterCaps: u32,
+            TextureAddressCaps: u32,
+            VolumeTextureAddressCaps: u32,
+            LineCaps: u32,
+            MaxTextureWidth: u32,
+            MaxTextureHeight: u32,
+            MaxVolumeExtent: u32,
+            MaxTextureRepeat: u32,
+            MaxTextureAspectRatio: u32,
+            MaxAnisotropy: u32,
+            MaxVertexW: f32,
+            GuardBandLeft: f32,
+            GuardBandTop: f32,
+            GuardBandRight: f32,
+            GuardBandBottom: f32,
+            ExtentsAdjust: f32,
+            StencilCaps: u32,
+            FVFCaps: u32,
+            TextureOpCaps: u32,
+            MaxTextureBlendStages: u32,
+            MaxSimultaneousTextures: u32,
+            VertexProcessingCaps: u32,
+            MaxActiveLights: u32,
+            MaxUserClipPlanes: u32,
+            MaxVertexBlendMatrices: u32,
+            MaxVertexBlendMatrixIndex: u32,
+            MaxPointSize: f32,
+            MaxPrimitiveCount: u32,
+            MaxVertexIndex: u32,
+            MaxStreams: u32,
+            MaxStreamStride: u32,
+            VertexShaderVersion: u32,
+            MaxVertexShaderConst: u32,
+            PixelShaderVersion: u32,
+            PixelShader1xMaxValue: f32,
+            DevCaps2: u32,
+            MaxNpatchTessellationLevel: f32,
+            Reserved5: u32,
+            MasterAdapterOrdinal: u32,
+            AdapterOrdinalInGroup: u32,
+            NumberOfAdaptersInGroup: u32,
+            DeclTypes: u32,
+            NumSimultaneousRTs: u32,
+            StretchRectFilterCaps: u32,
+            VS20Caps: D3DVSHADERCAPS2_0,
+            PS20Caps: D3DPSHADERCAPS2_0,
+            VertexTextureFilterCaps: u32,
+            MaxVShaderInstructionsExecuted: u32,
+            MaxPShaderInstructionsExecuted: u32,
+            MaxVertexShader30InstructionSlots: u32,
+            MaxPixelShader30InstructionSlots: u32,
+        }
+        const D3DCAPS_OVERLAY: u32 = 2048;
+        const D3DCAPS_READ_SCANLINE: u32 = 131072;
+        #[arch(X64 | Arm64)]
+        struct D3DCONTENTPROTECTIONCAPS {
+            Caps: u32,
+            KeyExchangeType: GUID,
+            BufferAlignmentStart: u32,
+            BlockAlignmentSize: u32,
+            ProtectedMemorySize: u64,
+        }
+        #[packed(4)]
+        #[arch(X86)]
+        struct D3DCONTENTPROTECTIONCAPS {
+            Caps: u32,
+            KeyExchangeType: GUID,
+            BufferAlignmentStart: u32,
+            BlockAlignmentSize: u32,
+            ProtectedMemorySize: u64,
+        }
+        const D3DCPCAPS_CONTENTKEY: u32 = 16;
+        const D3DCPCAPS_ENCRYPTEDREADBACK: u32 = 64;
+        const D3DCPCAPS_ENCRYPTEDREADBACKKEY: u32 = 128;
+        const D3DCPCAPS_ENCRYPTSLICEDATAONLY: u32 = 512;
+        const D3DCPCAPS_FRESHENSESSIONKEY: u32 = 32;
+        const D3DCPCAPS_HARDWARE: u32 = 2;
+        const D3DCPCAPS_PARTIALDECRYPTION: u32 = 8;
+        const D3DCPCAPS_PROTECTIONALWAYSON: u32 = 4;
+        const D3DCPCAPS_SEQUENTIAL_CTR_IV: u32 = 256;
+        const D3DCPCAPS_SOFTWARE: u32 = 1;
+        const D3DCRYPTOTYPE_AES128_CTR: GUID = 0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f;
+        const D3DCRYPTOTYPE_PROPRIETARY: GUID = 0xab4e9afd_1d1c_46e6_a72f_0869917b0de8;
+        const D3DCURSORCAPS_COLOR: u32 = 1;
+        const D3DCURSORCAPS_LOWRES: u32 = 2;
+        const D3DDEVCAPS2_ADAPTIVETESSNPATCH: u32 = 8;
+        const D3DDEVCAPS2_ADAPTIVETESSRTPATCH: u32 = 4;
+        const D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES: u32 = 16;
+        const D3DDEVCAPS2_DMAPNPATCH: u32 = 2;
+        const D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH: u32 = 32;
+        const D3DDEVCAPS2_STREAMOFFSET: u32 = 1;
+        const D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET: u32 = 64;
+        const D3DDEVCAPS_CANBLTSYSTONONLOCAL: u32 = 131072;
+        const D3DDEVCAPS_CANRENDERAFTERFLIP: u32 = 2048;
+        const D3DDEVCAPS_DRAWPRIMITIVES2: u32 = 8192;
+        const D3DDEVCAPS_DRAWPRIMITIVES2EX: u32 = 32768;
+        const D3DDEVCAPS_DRAWPRIMTLVERTEX: u32 = 1024;
+        const D3DDEVCAPS_EXECUTESYSTEMMEMORY: u32 = 16;
+        const D3DDEVCAPS_EXECUTEVIDEOMEMORY: u32 = 32;
+        const D3DDEVCAPS_HWRASTERIZATION: u32 = 524288;
+        const D3DDEVCAPS_HWTRANSFORMANDLIGHT: u32 = 65536;
+        const D3DDEVCAPS_NPATCHES: u32 = 16777216;
+        const D3DDEVCAPS_PUREDEVICE: u32 = 1048576;
+        const D3DDEVCAPS_QUINTICRTPATCHES: u32 = 2097152;
+        const D3DDEVCAPS_RTPATCHES: u32 = 4194304;
+        const D3DDEVCAPS_RTPATCHHANDLEZERO: u32 = 8388608;
+        const D3DDEVCAPS_SEPARATETEXTUREMEMORIES: u32 = 16384;
+        const D3DDEVCAPS_TEXTURENONLOCALVIDMEM: u32 = 4096;
+        const D3DDEVCAPS_TEXTURESYSTEMMEMORY: u32 = 256;
+        const D3DDEVCAPS_TEXTUREVIDEOMEMORY: u32 = 512;
+        const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: u32 = 64;
+        const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: u32 = 128;
+        const D3DDTCAPS_DEC3N: u32 = 128;
+        const D3DDTCAPS_FLOAT16_2: u32 = 256;
+        const D3DDTCAPS_FLOAT16_4: u32 = 512;
+        const D3DDTCAPS_SHORT2N: u32 = 4;
+        const D3DDTCAPS_SHORT4N: u32 = 8;
+        const D3DDTCAPS_UBYTE4: u32 = 1;
+        const D3DDTCAPS_UBYTE4N: u32 = 2;
+        const D3DDTCAPS_UDEC3: u32 = 64;
+        const D3DDTCAPS_USHORT2N: u32 = 16;
+        const D3DDTCAPS_USHORT4N: u32 = 32;
+        const D3DFVFCAPS_DONOTSTRIPELEMENTS: u32 = 524288;
+        const D3DFVFCAPS_PSIZE: u32 = 1048576;
+        const D3DFVFCAPS_TEXCOORDCOUNTMASK: u32 = 65535;
+        const D3DKEYEXCHANGE_DXVA: GUID = 0x43d3775c_38e5_4924_8d86_d3fccf153e9b;
+        const D3DKEYEXCHANGE_RSAES_OAEP: GUID = 0xc1949895_d72a_4a1d_8e5d_ed857d171520;
+        const D3DLINECAPS_ALPHACMP: u32 = 8;
+        const D3DLINECAPS_ANTIALIAS: u32 = 32;
+        const D3DLINECAPS_BLEND: u32 = 4;
+        const D3DLINECAPS_FOG: u32 = 16;
+        const D3DLINECAPS_TEXTURE: u32 = 1;
+        const D3DLINECAPS_ZTEST: u32 = 2;
+        const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768;
+        const D3DMIN30SHADERINSTRUCTIONS: u32 = 512;
+        struct D3DOVERLAYCAPS {
+            Caps: u32,
+            MaxOverlayDisplayWidth: u32,
+            MaxOverlayDisplayHeight: u32,
+        }
+        const D3DOVERLAYCAPS_FULLRANGERGB: u32 = 1;
+        const D3DOVERLAYCAPS_LIMITEDRANGERGB: u32 = 2;
+        const D3DOVERLAYCAPS_STRETCHX: u32 = 64;
+        const D3DOVERLAYCAPS_STRETCHY: u32 = 128;
+        const D3DOVERLAYCAPS_YCbCr_BT601: u32 = 4;
+        const D3DOVERLAYCAPS_YCbCr_BT601_xvYCC: u32 = 16;
+        const D3DOVERLAYCAPS_YCbCr_BT709: u32 = 8;
+        const D3DOVERLAYCAPS_YCbCr_BT709_xvYCC: u32 = 32;
+        const D3DPBLENDCAPS_BLENDFACTOR: u32 = 8192;
+        const D3DPBLENDCAPS_BOTHINVSRCALPHA: u32 = 4096;
+        const D3DPBLENDCAPS_BOTHSRCALPHA: u32 = 2048;
+        const D3DPBLENDCAPS_DESTALPHA: u32 = 64;
+        const D3DPBLENDCAPS_DESTCOLOR: u32 = 256;
+        const D3DPBLENDCAPS_INVDESTALPHA: u32 = 128;
+        const D3DPBLENDCAPS_INVDESTCOLOR: u32 = 512;
+        const D3DPBLENDCAPS_INVSRCALPHA: u32 = 32;
+        const D3DPBLENDCAPS_INVSRCCOLOR: u32 = 8;
+        const D3DPBLENDCAPS_INVSRCCOLOR2: u32 = 32768;
+        const D3DPBLENDCAPS_ONE: u32 = 2;
+        const D3DPBLENDCAPS_SRCALPHA: u32 = 16;
+        const D3DPBLENDCAPS_SRCALPHASAT: u32 = 1024;
+        const D3DPBLENDCAPS_SRCCOLOR: u32 = 4;
+        const D3DPBLENDCAPS_SRCCOLOR2: u32 = 16384;
+        const D3DPBLENDCAPS_ZERO: u32 = 1;
+        const D3DPCMPCAPS_ALWAYS: u32 = 128;
+        const D3DPCMPCAPS_EQUAL: u32 = 4;
+        const D3DPCMPCAPS_GREATER: u32 = 16;
+        const D3DPCMPCAPS_GREATEREQUAL: u32 = 64;
+        const D3DPCMPCAPS_LESS: u32 = 2;
+        const D3DPCMPCAPS_LESSEQUAL: u32 = 8;
+        const D3DPCMPCAPS_NEVER: u32 = 1;
+        const D3DPCMPCAPS_NOTEQUAL: u32 = 32;
+        const D3DPMISCCAPS_BLENDOP: u32 = 2048;
+        const D3DPMISCCAPS_CLIPPLANESCALEDPOINTS: u32 = 256;
+        const D3DPMISCCAPS_CLIPTLVERTS: u32 = 512;
+        const D3DPMISCCAPS_COLORWRITEENABLE: u32 = 128;
+        const D3DPMISCCAPS_CULLCCW: u32 = 64;
+        const D3DPMISCCAPS_CULLCW: u32 = 32;
+        const D3DPMISCCAPS_CULLNONE: u32 = 16;
+        const D3DPMISCCAPS_FOGANDSPECULARALPHA: u32 = 65536;
+        const D3DPMISCCAPS_FOGVERTEXCLAMPED: u32 = 1048576;
+        const D3DPMISCCAPS_INDEPENDENTWRITEMASKS: u32 = 16384;
+        const D3DPMISCCAPS_MASKZ: u32 = 2;
+        const D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS: u32 = 262144;
+        const D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING: u32 = 524288;
+        const D3DPMISCCAPS_NULLREFERENCE: u32 = 4096;
+        const D3DPMISCCAPS_PERSTAGECONSTANT: u32 = 32768;
+        const D3DPMISCCAPS_POSTBLENDSRGBCONVERT: u32 = 2097152;
+        const D3DPMISCCAPS_SEPARATEALPHABLEND: u32 = 131072;
+        const D3DPMISCCAPS_TSSARGTEMP: u32 = 1024;
+        const D3DPRASTERCAPS_ANISOTROPY: u32 = 131072;
+        const D3DPRASTERCAPS_COLORPERSPECTIVE: u32 = 4194304;
+        const D3DPRASTERCAPS_DEPTHBIAS: u32 = 67108864;
+        const D3DPRASTERCAPS_DITHER: u32 = 1;
+        const D3DPRASTERCAPS_FOGRANGE: u32 = 65536;
+        const D3DPRASTERCAPS_FOGTABLE: u32 = 256;
+        const D3DPRASTERCAPS_FOGVERTEX: u32 = 128;
+        const D3DPRASTERCAPS_MIPMAPLODBIAS: u32 = 8192;
+        const D3DPRASTERCAPS_MULTISAMPLE_TOGGLE: u32 = 134217728;
+        const D3DPRASTERCAPS_SCISSORTEST: u32 = 16777216;
+        const D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS: u32 = 33554432;
+        const D3DPRASTERCAPS_WBUFFER: u32 = 262144;
+        const D3DPRASTERCAPS_WFOG: u32 = 1048576;
+        const D3DPRASTERCAPS_ZBUFFERLESSHSR: u32 = 32768;
+        const D3DPRASTERCAPS_ZFOG: u32 = 2097152;
+        const D3DPRASTERCAPS_ZTEST: u32 = 16;
+        const D3DPRESENT_INTERVAL_DEFAULT: u32 = 0;
+        const D3DPRESENT_INTERVAL_FOUR: u32 = 8;
+        const D3DPRESENT_INTERVAL_IMMEDIATE: u32 = 2147483648;
+        const D3DPRESENT_INTERVAL_ONE: u32 = 1;
+        const D3DPRESENT_INTERVAL_THREE: u32 = 4;
+        const D3DPRESENT_INTERVAL_TWO: u32 = 2;
+        const D3DPS20CAPS_ARBITRARYSWIZZLE: u32 = 1;
+        const D3DPS20CAPS_GRADIENTINSTRUCTIONS: u32 = 2;
+        const D3DPS20CAPS_NODEPENDENTREADLIMIT: u32 = 8;
+        const D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT: u32 = 16;
+        const D3DPS20CAPS_PREDICATION: u32 = 4;
+        const D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24;
+        const D3DPS20_MAX_NUMINSTRUCTIONSLOTS: u32 = 512;
+        const D3DPS20_MAX_NUMTEMPS: u32 = 32;
+        const D3DPS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4;
+        const D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0;
+        const D3DPS20_MIN_NUMINSTRUCTIONSLOTS: u32 = 96;
+        const D3DPS20_MIN_NUMTEMPS: u32 = 12;
+        const D3DPS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 0;
+        const D3DPSHADECAPS_ALPHAGOURAUDBLEND: u32 = 16384;
+        const D3DPSHADECAPS_COLORGOURAUDRGB: u32 = 8;
+        const D3DPSHADECAPS_FOGGOURAUD: u32 = 524288;
+        const D3DPSHADECAPS_SPECULARGOURAUDRGB: u32 = 512;
+        struct D3DPSHADERCAPS2_0 {
+            Caps: u32,
+            DynamicFlowControlDepth: i32,
+            NumTemps: i32,
+            StaticFlowControlDepth: i32,
+            NumInstructionSlots: i32,
+        }
+        const D3DPTADDRESSCAPS_BORDER: u32 = 8;
+        const D3DPTADDRESSCAPS_CLAMP: u32 = 4;
+        const D3DPTADDRESSCAPS_INDEPENDENTUV: u32 = 16;
+        const D3DPTADDRESSCAPS_MIRROR: u32 = 2;
+        const D3DPTADDRESSCAPS_MIRRORONCE: u32 = 32;
+        const D3DPTADDRESSCAPS_WRAP: u32 = 1;
+        const D3DPTEXTURECAPS_ALPHA: u32 = 4;
+        const D3DPTEXTURECAPS_ALPHAPALETTE: u32 = 128;
+        const D3DPTEXTURECAPS_CUBEMAP: u32 = 2048;
+        const D3DPTEXTURECAPS_CUBEMAP_POW2: u32 = 131072;
+        const D3DPTEXTURECAPS_MIPCUBEMAP: u32 = 65536;
+        const D3DPTEXTURECAPS_MIPMAP: u32 = 16384;
+        const D3DPTEXTURECAPS_MIPVOLUMEMAP: u32 = 32768;
+        const D3DPTEXTURECAPS_NONPOW2CONDITIONAL: u32 = 256;
+        const D3DPTEXTURECAPS_NOPROJECTEDBUMPENV: u32 = 2097152;
+        const D3DPTEXTURECAPS_PERSPECTIVE: u32 = 1;
+        const D3DPTEXTURECAPS_POW2: u32 = 2;
+        const D3DPTEXTURECAPS_PROJECTED: u32 = 1024;
+        const D3DPTEXTURECAPS_SQUAREONLY: u32 = 32;
+        const D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE: u32 = 64;
+        const D3DPTEXTURECAPS_VOLUMEMAP: u32 = 8192;
+        const D3DPTEXTURECAPS_VOLUMEMAP_POW2: u32 = 262144;
+        const D3DPTFILTERCAPS_CONVOLUTIONMONO: u32 = 262144;
+        const D3DPTFILTERCAPS_MAGFANISOTROPIC: u32 = 67108864;
+        const D3DPTFILTERCAPS_MAGFGAUSSIANQUAD: u32 = 268435456;
+        const D3DPTFILTERCAPS_MAGFLINEAR: u32 = 33554432;
+        const D3DPTFILTERCAPS_MAGFPOINT: u32 = 16777216;
+        const D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD: u32 = 134217728;
+        const D3DPTFILTERCAPS_MINFANISOTROPIC: u32 = 1024;
+        const D3DPTFILTERCAPS_MINFGAUSSIANQUAD: u32 = 4096;
+        const D3DPTFILTERCAPS_MINFLINEAR: u32 = 512;
+        const D3DPTFILTERCAPS_MINFPOINT: u32 = 256;
+        const D3DPTFILTERCAPS_MINFPYRAMIDALQUAD: u32 = 2048;
+        const D3DPTFILTERCAPS_MIPFLINEAR: u32 = 131072;
+        const D3DPTFILTERCAPS_MIPFPOINT: u32 = 65536;
+        const D3DSTENCILCAPS_DECR: u32 = 128;
+        const D3DSTENCILCAPS_DECRSAT: u32 = 16;
+        const D3DSTENCILCAPS_INCR: u32 = 64;
+        const D3DSTENCILCAPS_INCRSAT: u32 = 8;
+        const D3DSTENCILCAPS_INVERT: u32 = 32;
+        const D3DSTENCILCAPS_KEEP: u32 = 1;
+        const D3DSTENCILCAPS_REPLACE: u32 = 4;
+        const D3DSTENCILCAPS_TWOSIDED: u32 = 256;
+        const D3DSTENCILCAPS_ZERO: u32 = 2;
+        const D3DTEXOPCAPS_ADD: u32 = 64;
+        const D3DTEXOPCAPS_ADDSIGNED: u32 = 128;
+        const D3DTEXOPCAPS_ADDSIGNED2X: u32 = 256;
+        const D3DTEXOPCAPS_ADDSMOOTH: u32 = 1024;
+        const D3DTEXOPCAPS_BLENDCURRENTALPHA: u32 = 32768;
+        const D3DTEXOPCAPS_BLENDDIFFUSEALPHA: u32 = 2048;
+        const D3DTEXOPCAPS_BLENDFACTORALPHA: u32 = 8192;
+        const D3DTEXOPCAPS_BLENDTEXTUREALPHA: u32 = 4096;
+        const D3DTEXOPCAPS_BLENDTEXTUREALPHAPM: u32 = 16384;
+        const D3DTEXOPCAPS_BUMPENVMAP: u32 = 2097152;
+        const D3DTEXOPCAPS_BUMPENVMAPLUMINANCE: u32 = 4194304;
+        const D3DTEXOPCAPS_DISABLE: u32 = 1;
+        const D3DTEXOPCAPS_DOTPRODUCT3: u32 = 8388608;
+        const D3DTEXOPCAPS_LERP: u32 = 33554432;
+        const D3DTEXOPCAPS_MODULATE: u32 = 8;
+        const D3DTEXOPCAPS_MODULATE2X: u32 = 16;
+        const D3DTEXOPCAPS_MODULATE4X: u32 = 32;
+        const D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR: u32 = 131072;
+        const D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA: u32 = 262144;
+        const D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR: u32 = 524288;
+        const D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA: u32 = 1048576;
+        const D3DTEXOPCAPS_MULTIPLYADD: u32 = 16777216;
+        const D3DTEXOPCAPS_PREMODULATE: u32 = 65536;
+        const D3DTEXOPCAPS_SELECTARG1: u32 = 2;
+        const D3DTEXOPCAPS_SELECTARG2: u32 = 4;
+        const D3DTEXOPCAPS_SUBTRACT: u32 = 512;
+        const D3DVS20CAPS_PREDICATION: u32 = 1;
+        const D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24;
+        const D3DVS20_MAX_NUMTEMPS: u32 = 32;
+        const D3DVS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4;
+        const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0;
+        const D3DVS20_MIN_NUMTEMPS: u32 = 12;
+        const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1;
+        struct D3DVSHADERCAPS2_0 {
+            Caps: u32,
+            DynamicFlowControlDepth: i32,
+            NumTemps: i32,
+            StaticFlowControlDepth: i32,
+        }
+        const D3DVTXPCAPS_DIRECTIONALLIGHTS: u32 = 8;
+        const D3DVTXPCAPS_LOCALVIEWER: u32 = 32;
+        const D3DVTXPCAPS_MATERIALSOURCE7: u32 = 2;
+        const D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER: u32 = 512;
+        const D3DVTXPCAPS_POSITIONALLIGHTS: u32 = 16;
+        const D3DVTXPCAPS_TEXGEN: u32 = 1;
+        const D3DVTXPCAPS_TEXGEN_SPHEREMAP: u32 = 256;
+        const D3DVTXPCAPS_TWEENING: u32 = 64;
+    }
+}

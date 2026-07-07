@@ -107,6 +107,13 @@ impl Encoder<'_> {
             &["repr", "flags"],
         )?;
 
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(
+                metadata::writer::HasAttribute::TypeDef(enum_type),
+                arch_bits,
+            );
+        }
+
         self.output.Field(
             "value__",
             &ty,
@@ -118,7 +125,7 @@ impl Encoder<'_> {
         let type_name = metadata::Type::value_named(self.namespace, self.name);
 
         for variant in &item.variants {
-            let name = variant.ident.to_string();
+            let name = variant.ident.unraw_to_string();
 
             let field = self.output.Field(
                 &name,

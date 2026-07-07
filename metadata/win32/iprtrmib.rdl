@@ -1,0 +1,157 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const BEST_IF: u32 = 20;
+        const BEST_ROUTE: u32 = 21;
+        const DEST_LONGER: u32 = 29;
+        const DEST_MATCHING: u32 = 28;
+        const DEST_SHORTER: u32 = 30;
+        const ICMP_STATS: u32 = 11;
+        const IF_NUMBER: u32 = 0;
+        const IF_ROW: u32 = 2;
+        const IF_STATUS: u32 = 25;
+        const IF_TABLE: u32 = 1;
+        const IP6_STATS: u32 = 36;
+        const IPRTRMGR_PID: u32 = 10000;
+        const IP_ADDRROW: u32 = 5;
+        const IP_ADDRTABLE: u32 = 4;
+        const IP_FORWARDNUMBER: u32 = 6;
+        const IP_FORWARDROW: u32 = 8;
+        const IP_FORWARDTABLE: u32 = 7;
+        const IP_NETROW: u32 = 10;
+        const IP_NETTABLE: u32 = 9;
+        const IP_STATS: u32 = 3;
+        const MAX_MIB_OFFSET: u32 = 8;
+        const MAX_SCOPE_NAME_LEN: u32 = 255;
+        const MCAST_BOUNDARY: u32 = 26;
+        const MCAST_GLOBAL: u32 = 24;
+        const MCAST_IF_ENTRY: u32 = 23;
+        const MCAST_MFE: u32 = 18;
+        const MCAST_MFE_STATS: u32 = 19;
+        const MCAST_MFE_STATS_EX: u32 = 35;
+        const MCAST_SCOPE: u32 = 27;
+        struct MIB_BEST_IF {
+            dwDestAddr: u32,
+            dwIfIndex: u32,
+        }
+        struct MIB_BOUNDARYROW {
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
+        }
+        struct MIB_IFSTATUS {
+            dwIfIndex: u32,
+            dwAdminStatus: u32,
+            dwOperationalStatus: u32,
+            bMHbeatActive: BOOL,
+            bMHbeatAlive: BOOL,
+        }
+        struct MIB_IPDESTROW {
+            ForwardRow: MIB_IPFORWARDROW,
+            dwForwardPreference: u32,
+            dwForwardViewSet: u32,
+        }
+        struct MIB_IPDESTTABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPDESTROW; 1],
+        }
+        struct MIB_IPMCAST_BOUNDARY {
+            dwIfIndex: u32,
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
+            dwStatus: u32,
+        }
+        struct MIB_IPMCAST_BOUNDARY_TABLE {
+            dwNumEntries: u32,
+            table: [MIB_IPMCAST_BOUNDARY; 1],
+        }
+        struct MIB_IPMCAST_SCOPE {
+            dwGroupAddress: u32,
+            dwGroupMask: u32,
+            snNameBuffer: SCOPE_NAME_BUFFER,
+            dwStatus: u32,
+        }
+        struct MIB_MCAST_LIMIT_ROW {
+            dwTtl: u32,
+            dwRateLimit: u32,
+        }
+        struct MIB_OPAQUE_INFO {
+            dwId: u32,
+            Anonymous: union {
+                ullAlign: u64,
+                rgbyData: [u8; 1],
+            },
+        }
+        struct MIB_OPAQUE_QUERY {
+            dwVarId: u32,
+            rgdwVarIndex: [u32; 1],
+        }
+        struct MIB_PROXYARP {
+            dwAddress: u32,
+            dwMask: u32,
+            dwIfIndex: u32,
+        }
+        struct MIB_ROUTESTATE {
+            bRoutesSetToStack: BOOL,
+        }
+        const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39;
+        type PMIB_BEST_IF = *mut MIB_BEST_IF;
+        type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
+        type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
+        type PMIB_IPDESTROW = *mut MIB_IPDESTROW;
+        type PMIB_IPDESTTABLE = *mut MIB_IPDESTTABLE;
+        type PMIB_IPMCAST_BOUNDARY = *mut MIB_IPMCAST_BOUNDARY;
+        type PMIB_IPMCAST_BOUNDARY_TABLE = *mut MIB_IPMCAST_BOUNDARY_TABLE;
+        type PMIB_IPMCAST_SCOPE = *mut MIB_IPMCAST_SCOPE;
+        type PMIB_MCAST_LIMIT_ROW = *mut MIB_MCAST_LIMIT_ROW;
+        type PMIB_OPAQUE_INFO = *mut MIB_OPAQUE_INFO;
+        type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
+        type PMIB_PROXYARP = *mut MIB_PROXYARP;
+        type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
+        const PROXY_ARP: u32 = 22;
+        type PTCPIP_OWNER_MODULE_BASIC_INFO = *mut TCPIP_OWNER_MODULE_BASIC_INFO;
+        type PTCPIP_OWNER_MODULE_INFO_CLASS = *mut TCPIP_OWNER_MODULE_INFO_CLASS;
+        type PTCP_TABLE_CLASS = *mut TCP_TABLE_CLASS;
+        type PUDP_TABLE_CLASS = *mut UDP_TABLE_CLASS;
+        const ROUTE_LONGER: u32 = 32;
+        const ROUTE_MATCHING: u32 = 31;
+        const ROUTE_SHORTER: u32 = 33;
+        const ROUTE_STATE: u32 = 34;
+        type SCOPE_NAME = *mut SN_CHAR;
+        type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
+        type SN_CHAR = u16;
+        const TCP6_STATS: u32 = 38;
+        struct TCPIP_OWNER_MODULE_BASIC_INFO {
+            pModuleName: PWCHAR,
+            pModulePath: PWCHAR,
+        }
+        #[repr(i32)]
+        enum TCPIP_OWNER_MODULE_INFO_CLASS {
+            TCPIP_OWNER_MODULE_INFO_BASIC = 0,
+        }
+        const TCP_ROW: u32 = 14;
+        const TCP_STATS: u32 = 12;
+        const TCP_TABLE: u32 = 13;
+        #[repr(i32)]
+        enum TCP_TABLE_CLASS {
+            TCP_TABLE_BASIC_LISTENER = 0,
+            TCP_TABLE_BASIC_CONNECTIONS = 1,
+            TCP_TABLE_BASIC_ALL = 2,
+            TCP_TABLE_OWNER_PID_LISTENER = 3,
+            TCP_TABLE_OWNER_PID_CONNECTIONS = 4,
+            TCP_TABLE_OWNER_PID_ALL = 5,
+            TCP_TABLE_OWNER_MODULE_LISTENER = 6,
+            TCP_TABLE_OWNER_MODULE_CONNECTIONS = 7,
+            TCP_TABLE_OWNER_MODULE_ALL = 8,
+        }
+        const UDP6_STATS: u32 = 37;
+        const UDP_ROW: u32 = 17;
+        const UDP_STATS: u32 = 15;
+        const UDP_TABLE: u32 = 16;
+        #[repr(i32)]
+        enum UDP_TABLE_CLASS {
+            UDP_TABLE_BASIC = 0,
+            UDP_TABLE_OWNER_PID = 1,
+            UDP_TABLE_OWNER_MODULE = 2,
+        }
+    }
+}

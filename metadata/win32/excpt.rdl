@@ -1,0 +1,12 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum EXCEPTION_DISPOSITION {
+            ExceptionContinueExecution = 0,
+            ExceptionContinueSearch = 1,
+            ExceptionNestedException = 2,
+            ExceptionCollidedUnwind = 3,
+        }
+    }
+}

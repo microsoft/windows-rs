@@ -1,0 +1,235 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[no_guid]
+        interface CVssWriter {
+            fn OnPrepareSnapshot(&self) -> bool;
+            fn OnFreeze(&self) -> bool;
+            fn OnThaw(&self) -> bool;
+            fn OnAbort(&self) -> bool;
+        }
+        #[no_guid]
+        interface CVssWriterEx: CVssWriter {}
+        #[no_guid]
+        interface CVssWriterEx2: CVssWriterEx {}
+        #[library("VSSAPI.DLL")]
+        extern fn CreateVssExpressWriterInternal(ppWriter: *mut IVssExpressWriter) -> HRESULT;
+        #[library("VSSAPI.DLL")]
+        extern fn CreateWriter(pWriter: CVssWriter, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
+        #[library("VSSAPI.DLL")]
+        extern fn CreateWriterEx(pWriter: CVssWriterEx, pWriterImpl: *mut IVssWriterImpl) -> HRESULT;
+        #[guid(0xd2c72c96_c121_4518_b627_e5a93d010ead)]
+        interface IVssComponent: IUnknown {
+            fn GetLogicalPath(&self, pbstrPath: *mut BSTR) -> HRESULT;
+            fn GetComponentType(&self, pct: *mut VSS_COMPONENT_TYPE) -> HRESULT;
+            fn GetComponentName(&self, pbstrName: *mut BSTR) -> HRESULT;
+            fn GetBackupSucceeded(&self, pbSucceeded: *mut bool) -> HRESULT;
+            fn GetAlternateLocationMappingCount(&self, pcMappings: *mut u32) -> HRESULT;
+            fn GetAlternateLocationMapping(&self, iMapping: u32, ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
+            fn SetBackupMetadata(&self, wszData: PCWSTR) -> HRESULT;
+            fn GetBackupMetadata(&self, pbstrData: *mut BSTR) -> HRESULT;
+            fn AddPartialFile(&self, wszPath: PCWSTR, wszFilename: PCWSTR, wszRanges: PCWSTR, wszMetadata: PCWSTR) -> HRESULT;
+            fn GetPartialFileCount(&self, pcPartialFiles: *mut u32) -> HRESULT;
+            fn GetPartialFile(&self, iPartialFile: u32, pbstrPath: *mut BSTR, pbstrFilename: *mut BSTR, pbstrRange: *mut BSTR, pbstrMetadata: *mut BSTR) -> HRESULT;
+            fn IsSelectedForRestore(&self, pbSelectedForRestore: *mut bool) -> HRESULT;
+            fn GetAdditionalRestores(&self, pbAdditionalRestores: *mut bool) -> HRESULT;
+            fn GetNewTargetCount(&self, pcNewTarget: *mut u32) -> HRESULT;
+            fn GetNewTarget(&self, iNewTarget: u32, ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
+            fn AddDirectedTarget(&self, wszSourcePath: PCWSTR, wszSourceFilename: PCWSTR, wszSourceRangeList: PCWSTR, wszDestinationPath: PCWSTR, wszDestinationFilename: PCWSTR, wszDestinationRangeList: PCWSTR) -> HRESULT;
+            fn GetDirectedTargetCount(&self, pcDirectedTarget: *mut u32) -> HRESULT;
+            fn GetDirectedTarget(&self, iDirectedTarget: u32, pbstrSourcePath: *mut BSTR, pbstrSourceFileName: *mut BSTR, pbstrSourceRangeList: *mut BSTR, pbstrDestinationPath: *mut BSTR, pbstrDestinationFilename: *mut BSTR, pbstrDestinationRangeList: *mut BSTR) -> HRESULT;
+            fn SetRestoreMetadata(&self, wszRestoreMetadata: PCWSTR) -> HRESULT;
+            fn GetRestoreMetadata(&self, pbstrRestoreMetadata: *mut BSTR) -> HRESULT;
+            fn SetRestoreTarget(&self, target: VSS_RESTORE_TARGET) -> HRESULT;
+            fn GetRestoreTarget(&self, pTarget: *mut VSS_RESTORE_TARGET) -> HRESULT;
+            fn SetPreRestoreFailureMsg(&self, wszPreRestoreFailureMsg: PCWSTR) -> HRESULT;
+            fn GetPreRestoreFailureMsg(&self, pbstrPreRestoreFailureMsg: *mut BSTR) -> HRESULT;
+            fn SetPostRestoreFailureMsg(&self, wszPostRestoreFailureMsg: PCWSTR) -> HRESULT;
+            fn GetPostRestoreFailureMsg(&self, pbstrPostRestoreFailureMsg: *mut BSTR) -> HRESULT;
+            fn SetBackupStamp(&self, wszBackupStamp: PCWSTR) -> HRESULT;
+            fn GetBackupStamp(&self, pbstrBackupStamp: *mut BSTR) -> HRESULT;
+            fn GetPreviousBackupStamp(&self, pbstrBackupStamp: *mut BSTR) -> HRESULT;
+            fn GetBackupOptions(&self, pbstrBackupOptions: *mut BSTR) -> HRESULT;
+            fn GetRestoreOptions(&self, pbstrRestoreOptions: *mut BSTR) -> HRESULT;
+            fn GetRestoreSubcomponentCount(&self, pcRestoreSubcomponent: *mut u32) -> HRESULT;
+            fn GetRestoreSubcomponent(&self, iComponent: u32, pbstrLogicalPath: *mut BSTR, pbstrComponentName: *mut BSTR, pbRepair: *mut bool) -> HRESULT;
+            fn GetFileRestoreStatus(&self, pStatus: *mut VSS_FILE_RESTORE_STATUS) -> HRESULT;
+            fn AddDifferencedFilesByLastModifyTime(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: BOOL, ftLastModifyTime: FILETIME) -> HRESULT;
+            fn AddDifferencedFilesByLastModifyLSN(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: BOOL, bstrLsnString: BSTR) -> HRESULT;
+            fn GetDifferencedFilesCount(&self, pcDifferencedFiles: *mut u32) -> HRESULT;
+            fn GetDifferencedFile(&self, iDifferencedFile: u32, pbstrPath: *mut BSTR, pbstrFilespec: *mut BSTR, pbRecursive: *mut BOOL, pbstrLsnString: *mut BSTR, pftLastModifyTime: *mut FILETIME) -> HRESULT;
+        }
+        #[guid(0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa)]
+        interface IVssComponentEx: IVssComponent {
+            fn SetPrepareForBackupFailureMsg(&self, wszFailureMsg: PCWSTR) -> HRESULT;
+            fn SetPostSnapshotFailureMsg(&self, wszFailureMsg: PCWSTR) -> HRESULT;
+            fn GetPrepareForBackupFailureMsg(&self, pbstrFailureMsg: *mut BSTR) -> HRESULT;
+            fn GetPostSnapshotFailureMsg(&self, pbstrFailureMsg: *mut BSTR) -> HRESULT;
+            fn GetAuthoritativeRestore(&self, pbAuth: *mut bool) -> HRESULT;
+            fn GetRollForward(&self, pRollType: *mut VSS_ROLLFORWARD_TYPE, pbstrPoint: *mut BSTR) -> HRESULT;
+            fn GetRestoreName(&self, pbstrName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d)]
+        interface IVssComponentEx2: IVssComponentEx {
+            fn SetFailure(&self, hr: HRESULT, hrApplication: HRESULT, #[opt] wszApplicationMessage: PCWSTR, dwReserved: u32) -> HRESULT;
+            fn GetFailure(&self, phr: *mut HRESULT, phrApplication: *mut HRESULT, pbstrApplicationMessage: *mut BSTR, pdwReserved: *mut u32) -> HRESULT;
+        }
+        #[guid(0x9c772e77_b26e_427f_92dd_c996f41ea5e3)]
+        interface IVssCreateExpressWriterMetadata: IUnknown {
+            fn AddExcludeFiles(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool) -> HRESULT;
+            fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszLogicalPath: PCWSTR, wszComponentName: PCWSTR, wszCaption: PCWSTR, pbIcon: *const u8, cbIcon: u32, bRestoreMetadata: bool, bNotifyOnBackupComplete: bool, bSelectable: bool, bSelectableForRestore: bool, dwComponentFlags: u32) -> HRESULT;
+            fn AddFilesToFileGroup(&self, wszLogicalPath: PCWSTR, wszGroupName: PCWSTR, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool, wszAlternateLocation: PCWSTR, dwBackupTypeMask: u32) -> HRESULT;
+            fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszService: PCWSTR, wszUserProcedure: PCWSTR, writerRestore: VSS_WRITERRESTORE_ENUM, bRebootRequired: bool) -> HRESULT;
+            fn AddComponentDependency(&self, wszForLogicalPath: PCWSTR, wszForComponentName: PCWSTR, onWriterId: VSS_ID, wszOnLogicalPath: PCWSTR, wszOnComponentName: PCWSTR) -> HRESULT;
+            fn SetBackupSchema(&self, dwSchemaMask: u32) -> HRESULT;
+            fn SaveAsXML(&self, pbstrXML: *mut BSTR) -> HRESULT;
+        }
+        #[no_guid]
+        interface IVssCreateWriterMetadata {
+            fn AddIncludeFiles(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool, wszAlternateLocation: PCWSTR) -> HRESULT;
+            fn AddExcludeFiles(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool) -> HRESULT;
+            fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszLogicalPath: PCWSTR, wszComponentName: PCWSTR, wszCaption: PCWSTR, pbIcon: *const u8, cbIcon: u32, bRestoreMetadata: bool, bNotifyOnBackupComplete: bool, bSelectable: bool, bSelectableForRestore: bool, dwComponentFlags: u32) -> HRESULT;
+            fn AddDatabaseFiles(&self, wszLogicalPath: PCWSTR, wszDatabaseName: PCWSTR, wszPath: PCWSTR, wszFilespec: PCWSTR, dwBackupTypeMask: u32) -> HRESULT;
+            fn AddDatabaseLogFiles(&self, wszLogicalPath: PCWSTR, wszDatabaseName: PCWSTR, wszPath: PCWSTR, wszFilespec: PCWSTR, dwBackupTypeMask: u32) -> HRESULT;
+            fn AddFilesToFileGroup(&self, wszLogicalPath: PCWSTR, wszGroupName: PCWSTR, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool, wszAlternateLocation: PCWSTR, dwBackupTypeMask: u32) -> HRESULT;
+            fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszService: PCWSTR, wszUserProcedure: PCWSTR, writerRestore: VSS_WRITERRESTORE_ENUM, bRebootRequired: bool) -> HRESULT;
+            fn AddAlternateLocationMapping(&self, wszSourcePath: PCWSTR, wszSourceFilespec: PCWSTR, bRecursive: bool, wszDestination: PCWSTR) -> HRESULT;
+            fn AddComponentDependency(&self, wszForLogicalPath: PCWSTR, wszForComponentName: PCWSTR, onWriterId: VSS_ID, wszOnLogicalPath: PCWSTR, wszOnComponentName: PCWSTR) -> HRESULT;
+            fn SetBackupSchema(&self, dwSchemaMask: u32) -> HRESULT;
+            fn GetDocument(&self, pDoc: *mut IXMLDOMDocument) -> HRESULT;
+            fn SaveAsXML(&self, pbstrXML: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x9f21981d_d469_4349_b807_39e64e4674e1)]
+        interface IVssCreateWriterMetadataEx: IVssCreateWriterMetadata {
+            fn AddExcludeFilesFromSnapshot(&self, wszPath: PCWSTR, wszFilespec: PCWSTR, bRecursive: bool) -> HRESULT;
+        }
+        #[guid(0xe33affdc_59c7_47b1_97d5_4266598f6235)]
+        interface IVssExpressWriter: IUnknown {
+            fn CreateMetadata(&self, writerId: VSS_ID, writerName: PCWSTR, usageType: VSS_USAGE_TYPE, versionMajor: u32, versionMinor: u32, reserved: u32, ppMetadata: *mut IVssCreateExpressWriterMetadata) -> HRESULT;
+            fn LoadMetadata(&self, metadata: PCWSTR, reserved: u32) -> HRESULT;
+            fn Register(&self) -> HRESULT;
+            fn Unregister(&self, writerId: VSS_ID) -> HRESULT;
+        }
+        #[no_guid]
+        interface IVssWMDependency: IUnknown {
+            fn GetWriterId(&self, pWriterId: *mut VSS_ID) -> HRESULT;
+            fn GetLogicalPath(&self, pbstrLogicalPath: *mut BSTR) -> HRESULT;
+            fn GetComponentName(&self, pbstrComponentName: *mut BSTR) -> HRESULT;
+        }
+        #[no_guid]
+        interface IVssWMFiledesc: IUnknown {
+            fn GetPath(&self, pbstrPath: *mut BSTR) -> HRESULT;
+            fn GetFilespec(&self, pbstrFilespec: *mut BSTR) -> HRESULT;
+            fn GetRecursive(&self, pbRecursive: *mut bool) -> HRESULT;
+            fn GetAlternateLocation(&self, pbstrAlternateLocation: *mut BSTR) -> HRESULT;
+            fn GetBackupTypeMask(&self, pdwTypeMask: *mut u32) -> HRESULT;
+        }
+        #[no_guid]
+        interface IVssWriterComponents {
+            fn GetComponentCount(&self, pcComponents: *mut u32) -> HRESULT;
+            fn GetWriterInfo(&self, pidInstance: *mut VSS_ID, pidWriter: *mut VSS_ID) -> HRESULT;
+            fn GetComponent(&self, iComponent: u32, ppComponent: *mut IVssComponent) -> HRESULT;
+        }
+        #[no_guid]
+        interface IVssWriterImpl: IUnknown {
+            fn Initialize(&self, writerId: VSS_ID, wszWriterName: PCWSTR, #[opt] wszWriterInstanceName: PCWSTR, dwMajorVersion: u32, dwMinorVersion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nLevel: VSS_APPLICATION_LEVEL, dwTimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, bIOThrottlingOnly: bool) -> HRESULT;
+            fn Subscribe(&self, dwSubscribeTimeout: u32, dwEventFlags: u32) -> HRESULT;
+            fn Unsubscribe(&self) -> HRESULT;
+            fn Uninitialize(&self);
+            fn GetCurrentVolumeArray(&self) -> *mut PCWSTR;
+            fn GetCurrentVolumeCount(&self) -> u32;
+            fn GetSnapshotDeviceName(&self, wszOriginalVolume: PCWSTR, ppwszSnapshotDevice: *mut PCWSTR) -> HRESULT;
+            fn GetCurrentSnapshotSetId(&self) -> VSS_ID;
+            fn GetContext(&self) -> i32;
+            fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
+            fn IsPathAffected(&self, wszPath: PCWSTR) -> bool;
+            fn IsBootableSystemStateBackedUp(&self) -> bool;
+            fn AreComponentsSelected(&self) -> bool;
+            fn GetBackupType(&self) -> VSS_BACKUP_TYPE;
+            fn GetRestoreType(&self) -> VSS_RESTORE_TYPE;
+            fn SetWriterFailure(&self, hr: HRESULT) -> HRESULT;
+            fn IsPartialFileSupportEnabled(&self) -> bool;
+            fn InstallAlternateWriter(&self, idWriter: VSS_ID, clsid: GUID) -> HRESULT;
+            fn GetIdentityInformation(&self) -> IVssExamineWriterMetadata;
+            fn SetWriterFailureEx(&self, hr: HRESULT, hrApplication: HRESULT, wszApplicationMessage: PCWSTR) -> HRESULT;
+            fn GetSessionId(&self, idSession: *mut VSS_ID) -> HRESULT;
+            fn IsWriterShuttingDown(&self) -> bool;
+        }
+        #[repr(i32)]
+        enum VSS_ALTERNATE_WRITER_STATE {
+            VSS_AWS_UNDEFINED = 0,
+            VSS_AWS_NO_ALTERNATE_WRITER = 1,
+            VSS_AWS_ALTERNATE_WRITER_EXISTS = 2,
+            VSS_AWS_THIS_IS_ALTERNATE_WRITER = 3,
+        }
+        #[repr(i32)]
+        enum VSS_COMPONENT_FLAGS {
+            VSS_CF_BACKUP_RECOVERY = 1,
+            VSS_CF_APP_ROLLBACK_RECOVERY = 2,
+            VSS_CF_NOT_SYSTEM_STATE = 4,
+        }
+        #[repr(i32)]
+        enum VSS_COMPONENT_TYPE {
+            VSS_CT_UNDEFINED = 0,
+            VSS_CT_DATABASE = 1,
+            VSS_CT_FILEGROUP = 2,
+        }
+        #[repr(i32)]
+        enum VSS_FILE_RESTORE_STATUS {
+            VSS_RS_UNDEFINED = 0,
+            VSS_RS_NONE = 1,
+            VSS_RS_ALL = 2,
+            VSS_RS_FAILED = 3,
+        }
+        #[repr(i32)]
+        enum VSS_RESTOREMETHOD_ENUM {
+            VSS_RME_UNDEFINED = 0,
+            VSS_RME_RESTORE_IF_NOT_THERE = 1,
+            VSS_RME_RESTORE_IF_CAN_REPLACE = 2,
+            VSS_RME_STOP_RESTORE_START = 3,
+            VSS_RME_RESTORE_TO_ALTERNATE_LOCATION = 4,
+            VSS_RME_RESTORE_AT_REBOOT = 5,
+            VSS_RME_RESTORE_AT_REBOOT_IF_CANNOT_REPLACE = 6,
+            VSS_RME_CUSTOM = 7,
+            VSS_RME_RESTORE_STOP_START = 8,
+        }
+        #[repr(i32)]
+        enum VSS_RESTORE_TARGET {
+            VSS_RT_UNDEFINED = 0,
+            VSS_RT_ORIGINAL = 1,
+            VSS_RT_ALTERNATE = 2,
+            VSS_RT_DIRECTED = 3,
+            VSS_RT_ORIGINAL_LOCATION = 4,
+        }
+        #[repr(i32)]
+        enum VSS_SOURCE_TYPE {
+            VSS_ST_UNDEFINED = 0,
+            VSS_ST_TRANSACTEDDB = 1,
+            VSS_ST_NONTRANSACTEDDB = 2,
+            VSS_ST_OTHER = 3,
+        }
+        #[repr(i32)]
+        enum VSS_SUBSCRIBE_MASK {
+            VSS_SM_POST_SNAPSHOT_FLAG = 1,
+            VSS_SM_BACKUP_EVENTS_FLAG = 2,
+            VSS_SM_RESTORE_EVENTS_FLAG = 4,
+            VSS_SM_IO_THROTTLING_FLAG = 8,
+            VSS_SM_ALL_FLAGS = -1,
+        }
+        #[repr(i32)]
+        enum VSS_USAGE_TYPE {
+            VSS_UT_UNDEFINED = 0,
+            VSS_UT_BOOTABLESYSTEMSTATE = 1,
+            VSS_UT_SYSTEMSERVICE = 2,
+            VSS_UT_USERDATA = 3,
+            VSS_UT_OTHER = 4,
+        }
+        #[repr(i32)]
+        enum VSS_WRITERRESTORE_ENUM {
+            VSS_WRE_UNDEFINED = 0,
+            VSS_WRE_NEVER = 1,
+            VSS_WRE_IF_REPLACE_FAILS = 2,
+            VSS_WRE_ALWAYS = 3,
+        }
+    }
+}

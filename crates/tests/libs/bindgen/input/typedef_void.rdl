@@ -1,0 +1,8 @@
+//! --filter Test --sys --flat
+#[win32]
+mod Test {
+    type MenuTemplate = void;
+    type MenuTemplateChain = MenuTemplate;
+    #[library("user32.dll")]
+    extern fn LoadMenuIndirect(template: *const MenuTemplate) -> isize;
+}

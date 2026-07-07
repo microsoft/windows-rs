@@ -1,0 +1,840 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ActiveEnd {
+            ActiveEnd_None = 0,
+            ActiveEnd_Start = 1,
+            ActiveEnd_End = 2,
+        }
+        #[repr(i32)]
+        enum AnimationStyle {
+            AnimationStyle_None = 0,
+            AnimationStyle_LasVegasLights = 1,
+            AnimationStyle_BlinkingBackground = 2,
+            AnimationStyle_SparkleText = 3,
+            AnimationStyle_MarchingBlackAnts = 4,
+            AnimationStyle_MarchingRedAnts = 5,
+            AnimationStyle_Shimmer = 6,
+            AnimationStyle_Other = -1,
+        }
+        #[repr(i32)]
+        enum BulletStyle {
+            BulletStyle_None = 0,
+            BulletStyle_HollowRoundBullet = 1,
+            BulletStyle_FilledRoundBullet = 2,
+            BulletStyle_HollowSquareBullet = 3,
+            BulletStyle_FilledSquareBullet = 4,
+            BulletStyle_DashBullet = 5,
+            BulletStyle_Other = -1,
+        }
+        type CONTROLTYPEID = i32;
+        const CUIAutomationClientInfo: GUID = 0xc2d4f567_8a9b_4c3e_9f1a_2b5c7d8e0f3a;
+        const CUIAutomationClientInfoSource: GUID = 0xa8d4f123_7b2c_4e5f_9a1b_3c8d6e9f0a2b;
+        const CUIAutomationRegistrar: GUID = 0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6;
+        #[repr(i32)]
+        enum CapStyle {
+            CapStyle_None = 0,
+            CapStyle_SmallCap = 1,
+            CapStyle_AllCap = 2,
+            CapStyle_AllPetiteCaps = 3,
+            CapStyle_PetiteCaps = 4,
+            CapStyle_Unicase = 5,
+            CapStyle_Titling = 6,
+            CapStyle_Other = -1,
+        }
+        #[repr(i32)]
+        enum CaretBidiMode {
+            CaretBidiMode_LTR = 0,
+            CaretBidiMode_RTL = 1,
+        }
+        #[repr(i32)]
+        enum CaretPosition {
+            CaretPosition_Unknown = 0,
+            CaretPosition_EndOfLine = 1,
+            CaretPosition_BeginningOfLine = 2,
+        }
+        #[repr(i32)]
+        enum DockPosition {
+            DockPosition_Top = 0,
+            DockPosition_Left = 1,
+            DockPosition_Bottom = 2,
+            DockPosition_Right = 3,
+            DockPosition_Fill = 4,
+            DockPosition_None = 5,
+        }
+        type EVENTID = i32;
+        #[repr(i32)]
+        enum ExpandCollapseState {
+            ExpandCollapseState_Collapsed = 0,
+            ExpandCollapseState_Expanded = 1,
+            ExpandCollapseState_PartiallyExpanded = 2,
+            ExpandCollapseState_LeafNode = 3,
+        }
+        #[repr(i32)]
+        enum FillType {
+            FillType_None = 0,
+            FillType_Color = 1,
+            FillType_Gradient = 2,
+            FillType_Picture = 3,
+            FillType_Pattern = 4,
+        }
+        #[repr(i32)]
+        enum FlowDirections {
+            FlowDirections_Default = 0,
+            FlowDirections_RightToLeft = 1,
+            FlowDirections_BottomToTop = 2,
+            FlowDirections_Vertical = 4,
+        }
+        type HEADINGLEVELID = i32;
+        #[repr(i32)]
+        enum HorizontalTextAlignment {
+            HorizontalTextAlignment_Left = 0,
+            HorizontalTextAlignment_Centered = 1,
+            HorizontalTextAlignment_Right = 2,
+            HorizontalTextAlignment_Justified = 3,
+        }
+        #[guid(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875)]
+        interface IAccessibleEx: IUnknown {
+            fn GetObjectForChild(&self, idChild: i32, #[retval] pRetVal: *mut IAccessibleEx) -> HRESULT;
+            fn GetIAccessiblePair(&self, ppAcc: *mut IAccessible, pidChild: *mut i32) -> HRESULT;
+            fn GetRuntimeId(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn ConvertReturnedElement(&self, pIn: IRawElementProviderSimple, ppRetValOut: *mut IAccessibleEx) -> HRESULT;
+        }
+        #[guid(0x33ac331b_943e_4020_b295_db37784974a3)]
+        interface IAccessibleHostingElementProviders: IUnknown {
+            fn GetEmbeddedFragmentRoots(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetObjectIdForProvider(&self, pProvider: IRawElementProviderSimple, pidObject: *mut i32) -> HRESULT;
+        }
+        #[guid(0xf95c7e80_bd63_4601_9782_445ebff011fc)]
+        interface IAnnotationProvider: IUnknown {
+            #[special]
+            fn get_AnnotationTypeId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_AnnotationTypeName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Author(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DateTime(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Target(&self, #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0x2062a28a_8c07_4b94_8e12_7037c622aeb8)]
+        interface ICustomNavigationProvider: IUnknown {
+            fn Navigate(&self, direction: NavigateDirection, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0x159bc72c_4ad3_485e_9637_d7052edf0146)]
+        interface IDockProvider: IUnknown {
+            fn SetDockPosition(&self, dockPosition: DockPosition) -> HRESULT;
+            #[special]
+            fn get_DockPosition(&self, #[retval] pRetVal: *mut DockPosition) -> HRESULT;
+        }
+        #[guid(0x6aa7bbbb_7ff9_497d_904f_d20b897929d8)]
+        interface IDragProvider: IUnknown {
+            #[special]
+            fn get_IsGrabbed(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_DropEffect(&self, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DropEffects(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetGrabbedItems(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61)]
+        interface IDropTargetProvider: IUnknown {
+            #[special]
+            fn get_DropTargetEffect(&self, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_DropTargetEffects(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24)]
+        interface IExpandCollapseProvider: IUnknown {
+            fn Expand(&self) -> HRESULT;
+            fn Collapse(&self) -> HRESULT;
+            #[special]
+            fn get_ExpandCollapseState(&self, #[retval] pRetVal: *mut ExpandCollapseState) -> HRESULT;
+        }
+        #[guid(0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1)]
+        interface IGridItemProvider: IUnknown {
+            #[special]
+            fn get_Row(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Column(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_RowSpan(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ColumnSpan(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ContainingGrid(&self, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0xb17d6187_0907_464b_a168_0ef17a1572b1)]
+        interface IGridProvider: IUnknown {
+            fn GetItem(&self, row: i32, column: i32, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            #[special]
+            fn get_RowCount(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ColumnCount(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+        }
+        #[guid(0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2)]
+        interface IInvokeProvider: IUnknown {
+            fn Invoke(&self) -> HRESULT;
+        }
+        #[guid(0xe747770b_39ce_4382_ab30_d8fb3f336f24)]
+        interface IItemContainerProvider: IUnknown {
+            fn FindItemByProperty(&self, pStartAfter: IRawElementProviderSimple, propertyId: PROPERTYID, value: VARIANT, #[retval] pFound: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0xe44c3566_915d_4070_99c6_047bff5a08f5)]
+        interface ILegacyIAccessibleProvider: IUnknown {
+            fn Select(&self, flagsSelect: i32) -> HRESULT;
+            fn DoDefaultAction(&self) -> HRESULT;
+            fn SetValue(&self, szValue: PCWSTR) -> HRESULT;
+            fn GetIAccessible(&self, #[retval] ppAccessible: *mut IAccessible) -> HRESULT;
+            #[special]
+            fn get_ChildId(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_Name(&self, #[retval] pszName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pszValue: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] pszDescription: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Role(&self, #[retval] pdwRole: *mut u32) -> HRESULT;
+            #[special]
+            fn get_State(&self, #[retval] pdwState: *mut u32) -> HRESULT;
+            #[special]
+            fn get_Help(&self, #[retval] pszHelp: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_KeyboardShortcut(&self, #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn GetSelection(&self, #[retval] pvarSelectedChildren: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_DefaultAction(&self, #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x6278cab1_b556_4a1a_b4e0_418acc523201)]
+        interface IMultipleViewProvider: IUnknown {
+            fn GetViewName(&self, viewId: i32, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn SetCurrentView(&self, viewId: i32) -> HRESULT;
+            #[special]
+            fn get_CurrentView(&self, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn GetSupportedViews(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64)]
+        interface IObjectModelProvider: IUnknown {
+            fn GetUnderlyingObjectModel(&self, #[retval] ppUnknown: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435)]
+        interface IProxyProviderWinEventHandler: IUnknown {
+            fn RespondToWinEvent(&self, idWinEvent: u32, hwnd: HWND, idObject: i32, idChild: i32, pSink: IProxyProviderWinEventSink) -> HRESULT;
+        }
+        #[guid(0x4fd82b78_a43e_46ac_9803_0a6969c7c183)]
+        interface IProxyProviderWinEventSink: IUnknown {
+            fn AddAutomationPropertyChangedEvent(&self, pProvider: IRawElementProviderSimple, id: PROPERTYID, newValue: VARIANT) -> HRESULT;
+            fn AddAutomationEvent(&self, pProvider: IRawElementProviderSimple, id: EVENTID) -> HRESULT;
+            fn AddStructureChangedEvent(&self, pProvider: IRawElementProviderSimple, structureChangeType: StructureChangeType, runtimeId: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x36dc7aef_33e6_4691_afe1_2be7274b3d33)]
+        interface IRangeValueProvider: IUnknown {
+            fn SetValue(&self, val: f64) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_IsReadOnly(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_Maximum(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_Minimum(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_LargeChange(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_SmallChange(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+        }
+        #[guid(0xa407b27b_0f6d_4427_9292_473c7bf93258)]
+        interface IRawElementProviderAdviseEvents: IUnknown {
+            fn AdviseEventAdded(&self, eventId: EVENTID, propertyIDs: *const SAFEARRAY) -> HRESULT;
+            fn AdviseEventRemoved(&self, eventId: EVENTID, propertyIDs: *const SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xf7063da8_8359_439c_9297_bbc5299a7d87)]
+        interface IRawElementProviderFragment: IUnknown {
+            fn Navigate(&self, direction: NavigateDirection, #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetRuntimeId(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_BoundingRectangle(&self, #[retval] pRetVal: *mut UiaRect) -> HRESULT;
+            fn GetEmbeddedFragmentRoots(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn SetFocus(&self) -> HRESULT;
+            #[special]
+            fn get_FragmentRoot(&self, #[retval] pRetVal: *mut IRawElementProviderFragmentRoot) -> HRESULT;
+        }
+        #[guid(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58)]
+        interface IRawElementProviderFragmentRoot: IUnknown {
+            fn ElementProviderFromPoint(&self, x: f64, y: f64, #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetFocus(&self, #[retval] pRetVal: *mut IRawElementProviderFragment) -> HRESULT;
+        }
+        #[guid(0x24be0b07_d37d_487a_98cf_a13ed465e9b3)]
+        interface IRawElementProviderHostingAccessibles: IUnknown {
+            fn GetEmbeddedAccessibles(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x1d5df27c_8947_4425_b8d9_79787bb460b8)]
+        interface IRawElementProviderHwndOverride: IUnknown {
+            fn GetOverrideProviderForHwnd(&self, hwnd: HWND, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0xd6dd68d1_86fd_4332_8666_9abedea2d24c)]
+        interface IRawElementProviderSimple: IUnknown {
+            #[special]
+            fn get_ProviderOptions(&self, #[retval] pRetVal: *mut ProviderOptions) -> HRESULT;
+            fn GetPatternProvider(&self, patternId: PATTERNID, #[retval] pRetVal: *mut IUnknown) -> HRESULT;
+            fn GetPropertyValue(&self, propertyId: PROPERTYID, #[retval] pRetVal: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn get_HostRawElementProvider(&self, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56)]
+        interface IRawElementProviderSimple2: IRawElementProviderSimple {
+            fn ShowContextMenu(&self) -> HRESULT;
+        }
+        #[guid(0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf)]
+        interface IRawElementProviderSimple3: IRawElementProviderSimple2 {
+            fn GetMetadataValue(&self, targetId: i32, metadataId: METADATAID, #[retval] returnVal: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0)]
+        interface IRawElementProviderWindowlessSite: IUnknown {
+            fn GetAdjacentFragment(&self, direction: NavigateDirection, #[retval] ppParent: *mut IRawElementProviderFragment) -> HRESULT;
+            fn GetRuntimeIdPrefix(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x2360c714_4bf1_4b26_ba65_9b21316127eb)]
+        interface IScrollItemProvider: IUnknown {
+            fn ScrollIntoView(&self) -> HRESULT;
+        }
+        #[guid(0xb38b8077_1fc3_42a5_8cae_d40c2215055a)]
+        interface IScrollProvider: IUnknown {
+            fn Scroll(&self, horizontalAmount: ScrollAmount, verticalAmount: ScrollAmount) -> HRESULT;
+            fn SetScrollPercent(&self, horizontalPercent: f64, verticalPercent: f64) -> HRESULT;
+            #[special]
+            fn get_HorizontalScrollPercent(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_VerticalScrollPercent(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_HorizontalViewSize(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_VerticalViewSize(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_HorizontallyScrollable(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_VerticallyScrollable(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x2acad808_b2d4_452d_a407_91ff1ad167b2)]
+        interface ISelectionItemProvider: IUnknown {
+            fn Select(&self) -> HRESULT;
+            fn AddToSelection(&self) -> HRESULT;
+            fn RemoveFromSelection(&self) -> HRESULT;
+            #[special]
+            fn get_IsSelected(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_SelectionContainer(&self, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0xfb8b03af_3bdf_48d4_bd36_1a65793be168)]
+        interface ISelectionProvider: IUnknown {
+            fn GetSelection(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_CanSelectMultiple(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_IsSelectionRequired(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x14f68475_ee1c_44f6_a869_d239381f0fe7)]
+        interface ISelectionProvider2: ISelectionProvider {
+            #[special]
+            fn get_FirstSelectedItem(&self, #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            #[special]
+            fn get_LastSelectedItem(&self, #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            #[special]
+            fn get_CurrentSelectedItem(&self, #[retval] retVal: *mut IRawElementProviderSimple) -> HRESULT;
+            #[special]
+            fn get_ItemCount(&self, #[retval] retVal: *mut i32) -> HRESULT;
+        }
+        #[guid(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0)]
+        interface ISpreadsheetItemProvider: IUnknown {
+            #[special]
+            fn get_Formula(&self, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn GetAnnotationObjects(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetAnnotationTypes(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x6f6b5d35_5525_4f80_b758_85473832ffc7)]
+        interface ISpreadsheetProvider: IUnknown {
+            fn GetItemByName(&self, name: PCWSTR, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+        }
+        #[guid(0x19b6b649_f5d7_4a6d_bdcb_129252be588a)]
+        interface IStylesProvider: IUnknown {
+            #[special]
+            fn get_StyleId(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_StyleName(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FillColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FillPatternStyle(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Shape(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_FillPatternColor(&self, #[retval] retVal: *mut i32) -> HRESULT;
+            #[special]
+            fn get_ExtendedProperties(&self, #[retval] retVal: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee)]
+        interface ISynchronizedInputProvider: IUnknown {
+            fn StartListening(&self, inputType: SynchronizedInputType) -> HRESULT;
+            fn Cancel(&self) -> HRESULT;
+        }
+        #[guid(0xb9734fa6_771f_4d78_9c90_2517999349cd)]
+        interface ITableItemProvider: IUnknown {
+            fn GetRowHeaderItems(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetColumnHeaderItems(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x9c860395_97b3_490a_b52a_858cc22af166)]
+        interface ITableProvider: IUnknown {
+            fn GetRowHeaders(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetColumnHeaders(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            #[special]
+            fn get_RowOrColumnMajor(&self, #[retval] pRetVal: *mut RowOrColumnMajor) -> HRESULT;
+        }
+        #[guid(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9)]
+        interface ITextChildProvider: IUnknown {
+            #[special]
+            fn get_TextContainer(&self, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            #[special]
+            fn get_TextRange(&self, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+        }
+        #[guid(0xea3605b4_3a05_400e_b5f9_4e91b40f6176)]
+        interface ITextEditProvider: ITextProvider {
+            fn GetActiveComposition(&self, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetConversionTarget(&self, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+        }
+        #[guid(0x3589c92c_63f3_4367_99bb_ada653b77cf2)]
+        interface ITextProvider: IUnknown {
+            fn GetSelection(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetVisibleRanges(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn RangeFromChild(&self, childElement: IRawElementProviderSimple, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn RangeFromPoint(&self, point: UiaPoint, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            #[special]
+            fn get_DocumentRange(&self, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            #[special]
+            fn get_SupportedTextSelection(&self, #[retval] pRetVal: *mut SupportedTextSelection) -> HRESULT;
+        }
+        #[guid(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195)]
+        interface ITextProvider2: ITextProvider {
+            fn RangeFromAnnotation(&self, annotationElement: IRawElementProviderSimple, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetCaretRange(&self, isActive: *mut BOOL, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+        }
+        #[guid(0x5347ad7b_c355_46f8_aff5_909033582f63)]
+        interface ITextRangeProvider: IUnknown {
+            fn Clone(&self, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn Compare(&self, range: ITextRangeProvider, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetRange: ITextRangeProvider, targetEndpoint: TextPatternRangeEndpoint, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> HRESULT;
+            fn FindAttribute(&self, attributeId: TEXTATTRIBUTEID, val: VARIANT, backward: BOOL, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn FindText(&self, text: BSTR, backward: BOOL, ignoreCase: BOOL, #[retval] pRetVal: *mut ITextRangeProvider) -> HRESULT;
+            fn GetAttributeValue(&self, attributeId: TEXTATTRIBUTEID, #[retval] pRetVal: *mut VARIANT) -> HRESULT;
+            fn GetBoundingRectangles(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEnclosingElement(&self, #[retval] pRetVal: *mut IRawElementProviderSimple) -> HRESULT;
+            fn GetText(&self, maxLength: i32, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            fn Move(&self, unit: TextUnit, count: i32, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, #[retval] pRetVal: *mut i32) -> HRESULT;
+            fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetRange: ITextRangeProvider, targetEndpoint: TextPatternRangeEndpoint) -> HRESULT;
+            fn Select(&self) -> HRESULT;
+            fn AddToSelection(&self) -> HRESULT;
+            fn RemoveFromSelection(&self) -> HRESULT;
+            fn ScrollIntoView(&self, alignToTop: BOOL) -> HRESULT;
+            fn GetChildren(&self, #[retval] pRetVal: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0x9bbce42c_1921_4f18_89ca_dba1910a0386)]
+        interface ITextRangeProvider2: ITextRangeProvider {
+            fn ShowContextMenu(&self) -> HRESULT;
+        }
+        #[guid(0x56d00bd0_c4f4_433c_a836_1a52a57e0892)]
+        interface IToggleProvider: IUnknown {
+            fn Toggle(&self) -> HRESULT;
+            #[special]
+            fn get_ToggleState(&self, #[retval] pRetVal: *mut ToggleState) -> HRESULT;
+        }
+        #[guid(0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c)]
+        interface ITransformProvider: IUnknown {
+            fn Move(&self, x: f64, y: f64) -> HRESULT;
+            fn Resize(&self, width: f64, height: f64) -> HRESULT;
+            fn Rotate(&self, degrees: f64) -> HRESULT;
+            #[special]
+            fn get_CanMove(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_CanResize(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_CanRotate(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x4758742f_7ac2_460c_bc48_09fc09308a93)]
+        interface ITransformProvider2: ITransformProvider {
+            fn Zoom(&self, zoom: f64) -> HRESULT;
+            #[special]
+            fn get_CanZoom(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_ZoomLevel(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_ZoomMinimum(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            #[special]
+            fn get_ZoomMaximum(&self, #[retval] pRetVal: *mut f64) -> HRESULT;
+            fn ZoomByUnit(&self, zoomUnit: ZoomUnit) -> HRESULT;
+        }
+        #[guid(0x5b8e8f2a_9c7d_4f3e_a1b2_8d6e9f4c0a1b)]
+        interface IUIAutomationClientConnectionCallback: IUnknown {
+            fn OnConnected(&self, clientInfo: IUIAutomationClientInfo) -> HRESULT;
+            fn OnDisconnected(&self, clientInfo: IUIAutomationClientInfo) -> HRESULT;
+        }
+        #[guid(0xb2e8a3f1_4c5d_4e7a_8f6b_3d2e1c9a0b8f)]
+        interface IUIAutomationClientInfo: IUnknown {
+            #[special]
+            fn get_ProcessId(&self, #[retval] processId: *mut u32) -> HRESULT;
+            #[special]
+            fn get_ProcessName(&self, #[retval] processName: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xf4b8a2e1_9c3d_4a7e_8f6b_2d5e4c1a9b8f)]
+        interface IUIAutomationClientInfoSource: IUnknown {
+            fn RegisterClientConnectionCallback(&self, callback: IUIAutomationClientConnectionCallback, handle: *mut u64) -> HRESULT;
+            fn UnregisterClientConnectionCallback(&self, handle: u64) -> HRESULT;
+            fn GetConnectedClients(&self, #[retval] clients: *mut *mut SAFEARRAY) -> HRESULT;
+        }
+        #[guid(0xd97022f3_a947_465e_8b2a_ac4315fa54e8)]
+        interface IUIAutomationPatternHandler: IUnknown {
+            fn CreateClientWrapper(&self, pPatternInstance: IUIAutomationPatternInstance, pClientWrapper: *mut IUnknown) -> HRESULT;
+            fn Dispatch(&self, pTarget: IUnknown, index: u32, pParams: *const UIAutomationParameter, cParams: u32) -> HRESULT;
+        }
+        #[guid(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d)]
+        interface IUIAutomationPatternInstance: IUnknown {
+            fn GetProperty(&self, index: u32, cached: BOOL, r#type: UIAutomationType, pPtr: *mut void) -> HRESULT;
+            fn CallMethod(&self, index: u32, pParams: *const UIAutomationParameter, cParams: u32) -> HRESULT;
+        }
+        #[guid(0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf)]
+        interface IUIAutomationRegistrar: IUnknown {
+            fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo, propertyId: *mut PROPERTYID) -> HRESULT;
+            fn RegisterEvent(&self, event: *const UIAutomationEventInfo, eventId: *mut EVENTID) -> HRESULT;
+            fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, pPatternId: *mut PATTERNID, pPatternAvailablePropertyId: *mut PROPERTYID, propertyIdCount: u32, pPropertyIds: *mut PROPERTYID, eventIdCount: u32, pEventIds: *mut EVENTID) -> HRESULT;
+        }
+        #[guid(0xc7935180_6fb3_4201_b174_7df73adbf64a)]
+        interface IValueProvider: IUnknown {
+            fn SetValue(&self, val: PCWSTR) -> HRESULT;
+            #[special]
+            fn get_Value(&self, #[retval] pRetVal: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_IsReadOnly(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b)]
+        interface IVirtualizedItemProvider: IUnknown {
+            fn Realize(&self) -> HRESULT;
+        }
+        #[guid(0x987df77b_db06_4d77_8f8a_86a9c3bb90b9)]
+        interface IWindowProvider: IUnknown {
+            fn SetVisualState(&self, state: WindowVisualState) -> HRESULT;
+            fn Close(&self) -> HRESULT;
+            fn WaitForInputIdle(&self, milliseconds: i32, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_CanMaximize(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_CanMinimize(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_IsModal(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+            #[special]
+            fn get_WindowVisualState(&self, #[retval] pRetVal: *mut WindowVisualState) -> HRESULT;
+            #[special]
+            fn get_WindowInteractionState(&self, #[retval] pRetVal: *mut WindowInteractionState) -> HRESULT;
+            #[special]
+            fn get_IsTopmost(&self, #[retval] pRetVal: *mut BOOL) -> HRESULT;
+        }
+        type LANDMARKTYPEID = i32;
+        #[repr(i32)]
+        enum LiveSetting {
+            Off = 0,
+            Polite = 1,
+            Assertive = 2,
+        }
+        type METADATAID = i32;
+        #[repr(i32)]
+        enum NavigateDirection {
+            NavigateDirection_Parent = 0,
+            NavigateDirection_NextSibling = 1,
+            NavigateDirection_PreviousSibling = 2,
+            NavigateDirection_FirstChild = 3,
+            NavigateDirection_LastChild = 4,
+        }
+        #[repr(i32)]
+        enum NotificationKind {
+            NotificationKind_ItemAdded = 0,
+            NotificationKind_ItemRemoved = 1,
+            NotificationKind_ActionCompleted = 2,
+            NotificationKind_ActionAborted = 3,
+            NotificationKind_Other = 4,
+        }
+        #[repr(i32)]
+        enum NotificationProcessing {
+            NotificationProcessing_ImportantAll = 0,
+            NotificationProcessing_ImportantMostRecent = 1,
+            NotificationProcessing_All = 2,
+            NotificationProcessing_MostRecent = 3,
+            NotificationProcessing_CurrentThenMostRecent = 4,
+            NotificationProcessing_ImportantCurrentThenMostRecent = 5,
+        }
+        #[repr(i32)]
+        enum OrientationType {
+            OrientationType_None = 0,
+            OrientationType_Horizontal = 1,
+            OrientationType_Vertical = 2,
+        }
+        #[repr(i32)]
+        enum OutlineStyles {
+            OutlineStyles_None = 0,
+            OutlineStyles_Outline = 1,
+            OutlineStyles_Shadow = 2,
+            OutlineStyles_Engraved = 4,
+            OutlineStyles_Embossed = 8,
+        }
+        type PATTERNID = i32;
+        type PROPERTYID = i32;
+        #[repr(u32)]
+        #[flags]
+        enum ProviderOptions {
+            ProviderOptions_ClientSideProvider = 1,
+            ProviderOptions_ServerSideProvider = 2,
+            ProviderOptions_NonClientAreaProvider = 4,
+            ProviderOptions_OverrideProvider = 8,
+            ProviderOptions_ProviderOwnsSetFocus = 16,
+            ProviderOptions_UseComThreading = 32,
+            ProviderOptions_RefuseNonClientSupport = 64,
+            ProviderOptions_HasNativeIAccessible = 128,
+            ProviderOptions_UseClientCoordinates = 256,
+        }
+        #[repr(i32)]
+        enum RowOrColumnMajor {
+            RowOrColumnMajor_RowMajor = 0,
+            RowOrColumnMajor_ColumnMajor = 1,
+            RowOrColumnMajor_Indeterminate = 2,
+        }
+        #[repr(i32)]
+        enum SayAsInterpretAs {
+            SayAsInterpretAs_None = 0,
+            SayAsInterpretAs_Spell = 1,
+            SayAsInterpretAs_Cardinal = 2,
+            SayAsInterpretAs_Ordinal = 3,
+            SayAsInterpretAs_Number = 4,
+            SayAsInterpretAs_Date = 5,
+            SayAsInterpretAs_Time = 6,
+            SayAsInterpretAs_Telephone = 7,
+            SayAsInterpretAs_Currency = 8,
+            SayAsInterpretAs_Net = 9,
+            SayAsInterpretAs_Url = 10,
+            SayAsInterpretAs_Address = 11,
+            SayAsInterpretAs_Alphanumeric = 12,
+            SayAsInterpretAs_Name = 13,
+            SayAsInterpretAs_Media = 14,
+            SayAsInterpretAs_Date_MonthDayYear = 15,
+            SayAsInterpretAs_Date_DayMonthYear = 16,
+            SayAsInterpretAs_Date_YearMonthDay = 17,
+            SayAsInterpretAs_Date_YearMonth = 18,
+            SayAsInterpretAs_Date_MonthYear = 19,
+            SayAsInterpretAs_Date_DayMonth = 20,
+            SayAsInterpretAs_Date_MonthDay = 21,
+            SayAsInterpretAs_Date_Year = 22,
+            SayAsInterpretAs_Time_HoursMinutesSeconds12 = 23,
+            SayAsInterpretAs_Time_HoursMinutes12 = 24,
+            SayAsInterpretAs_Time_HoursMinutesSeconds24 = 25,
+            SayAsInterpretAs_Time_HoursMinutes24 = 26,
+        }
+        #[repr(i32)]
+        enum ScrollAmount {
+            ScrollAmount_LargeDecrement = 0,
+            ScrollAmount_SmallDecrement = 1,
+            ScrollAmount_NoAmount = 2,
+            ScrollAmount_LargeIncrement = 3,
+            ScrollAmount_SmallIncrement = 4,
+        }
+        #[repr(i32)]
+        enum StructureChangeType {
+            StructureChangeType_ChildAdded = 0,
+            StructureChangeType_ChildRemoved = 1,
+            StructureChangeType_ChildrenInvalidated = 2,
+            StructureChangeType_ChildrenBulkAdded = 3,
+            StructureChangeType_ChildrenBulkRemoved = 4,
+            StructureChangeType_ChildrenReordered = 5,
+        }
+        #[repr(i32)]
+        enum SupportedTextSelection {
+            SupportedTextSelection_None = 0,
+            SupportedTextSelection_Single = 1,
+            SupportedTextSelection_Multiple = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum SynchronizedInputType {
+            SynchronizedInputType_KeyUp = 1,
+            SynchronizedInputType_KeyDown = 2,
+            SynchronizedInputType_LeftMouseUp = 4,
+            SynchronizedInputType_LeftMouseDown = 8,
+            SynchronizedInputType_RightMouseUp = 16,
+            SynchronizedInputType_RightMouseDown = 32,
+        }
+        type TEXTATTRIBUTEID = i32;
+        #[repr(i32)]
+        enum TextDecorationLineStyle {
+            TextDecorationLineStyle_None = 0,
+            TextDecorationLineStyle_Single = 1,
+            TextDecorationLineStyle_WordsOnly = 2,
+            TextDecorationLineStyle_Double = 3,
+            TextDecorationLineStyle_Dot = 4,
+            TextDecorationLineStyle_Dash = 5,
+            TextDecorationLineStyle_DashDot = 6,
+            TextDecorationLineStyle_DashDotDot = 7,
+            TextDecorationLineStyle_Wavy = 8,
+            TextDecorationLineStyle_ThickSingle = 9,
+            TextDecorationLineStyle_DoubleWavy = 11,
+            TextDecorationLineStyle_ThickWavy = 12,
+            TextDecorationLineStyle_LongDash = 13,
+            TextDecorationLineStyle_ThickDash = 14,
+            TextDecorationLineStyle_ThickDashDot = 15,
+            TextDecorationLineStyle_ThickDashDotDot = 16,
+            TextDecorationLineStyle_ThickDot = 17,
+            TextDecorationLineStyle_ThickLongDash = 18,
+            TextDecorationLineStyle_Other = -1,
+        }
+        #[repr(i32)]
+        enum TextEditChangeType {
+            TextEditChangeType_None = 0,
+            TextEditChangeType_AutoCorrect = 1,
+            TextEditChangeType_Composition = 2,
+            TextEditChangeType_CompositionFinalized = 3,
+            TextEditChangeType_AutoComplete = 4,
+        }
+        #[repr(i32)]
+        enum TextPatternRangeEndpoint {
+            TextPatternRangeEndpoint_Start = 0,
+            TextPatternRangeEndpoint_End = 1,
+        }
+        #[repr(i32)]
+        enum TextUnit {
+            TextUnit_Character = 0,
+            TextUnit_Format = 1,
+            TextUnit_Word = 2,
+            TextUnit_Line = 3,
+            TextUnit_Paragraph = 4,
+            TextUnit_Page = 5,
+            TextUnit_Document = 6,
+        }
+        #[repr(i32)]
+        enum ToggleState {
+            ToggleState_Off = 0,
+            ToggleState_On = 1,
+            ToggleState_Indeterminate = 2,
+        }
+        struct UIAutomationEventInfo {
+            guid: GUID,
+            pProgrammaticName: PCWSTR,
+        }
+        struct UIAutomationMethodInfo {
+            pProgrammaticName: PCWSTR,
+            doSetFocus: BOOL,
+            cInParameters: u32,
+            cOutParameters: u32,
+            pParameterTypes: *mut UIAutomationType,
+            pParameterNames: *mut PCWSTR,
+        }
+        struct UIAutomationParameter {
+            r#type: UIAutomationType,
+            pData: *mut void,
+        }
+        struct UIAutomationPatternInfo {
+            guid: GUID,
+            pProgrammaticName: PCWSTR,
+            providerInterfaceId: GUID,
+            clientInterfaceId: GUID,
+            cProperties: u32,
+            pProperties: *mut UIAutomationPropertyInfo,
+            cMethods: u32,
+            pMethods: *mut UIAutomationMethodInfo,
+            cEvents: u32,
+            pEvents: *mut UIAutomationEventInfo,
+            pPatternHandler: IUIAutomationPatternHandler,
+        }
+        struct UIAutomationPropertyInfo {
+            guid: GUID,
+            pProgrammaticName: PCWSTR,
+            r#type: UIAutomationType,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum UIAutomationType {
+            UIAutomationType_Int = 1,
+            UIAutomationType_Bool = 2,
+            UIAutomationType_String = 3,
+            UIAutomationType_Double = 4,
+            UIAutomationType_Point = 5,
+            UIAutomationType_Rect = 6,
+            UIAutomationType_Element = 7,
+            UIAutomationType_Array = 65536,
+            UIAutomationType_Out = 131072,
+            UIAutomationType_IntArray = 65537,
+            UIAutomationType_BoolArray = 65538,
+            UIAutomationType_StringArray = 65539,
+            UIAutomationType_DoubleArray = 65540,
+            UIAutomationType_PointArray = 65541,
+            UIAutomationType_RectArray = 65542,
+            UIAutomationType_ElementArray = 65543,
+            UIAutomationType_OutInt = 131073,
+            UIAutomationType_OutBool = 131074,
+            UIAutomationType_OutString = 131075,
+            UIAutomationType_OutDouble = 131076,
+            UIAutomationType_OutPoint = 131077,
+            UIAutomationType_OutRect = 131078,
+            UIAutomationType_OutElement = 131079,
+            UIAutomationType_OutIntArray = 196609,
+            UIAutomationType_OutBoolArray = 196610,
+            UIAutomationType_OutStringArray = 196611,
+            UIAutomationType_OutDoubleArray = 196612,
+            UIAutomationType_OutPointArray = 196613,
+            UIAutomationType_OutRectArray = 196614,
+            UIAutomationType_OutElementArray = 196615,
+        }
+        struct UiaChangeInfo {
+            uiaId: i32,
+            payload: VARIANT,
+            extraInfo: VARIANT,
+        }
+        struct UiaPoint {
+            x: f64,
+            y: f64,
+        }
+        struct UiaRect {
+            left: f64,
+            top: f64,
+            width: f64,
+            height: f64,
+        }
+        #[repr(i32)]
+        enum VisualEffects {
+            VisualEffects_None = 0,
+            VisualEffects_Shadow = 1,
+            VisualEffects_Reflection = 2,
+            VisualEffects_Glow = 4,
+            VisualEffects_SoftEdges = 8,
+            VisualEffects_Bevel = 16,
+        }
+        #[repr(i32)]
+        enum WindowInteractionState {
+            WindowInteractionState_Running = 0,
+            WindowInteractionState_Closing = 1,
+            WindowInteractionState_ReadyForUserInteraction = 2,
+            WindowInteractionState_BlockedByModalWindow = 3,
+            WindowInteractionState_NotResponding = 4,
+        }
+        #[repr(i32)]
+        enum WindowVisualState {
+            WindowVisualState_Normal = 0,
+            WindowVisualState_Maximized = 1,
+            WindowVisualState_Minimized = 2,
+        }
+        #[repr(i32)]
+        enum ZoomUnit {
+            ZoomUnit_NoAmount = 0,
+            ZoomUnit_LargeDecrement = 1,
+            ZoomUnit_SmallDecrement = 2,
+            ZoomUnit_LargeIncrement = 3,
+            ZoomUnit_SmallIncrement = 4,
+        }
+    }
+}

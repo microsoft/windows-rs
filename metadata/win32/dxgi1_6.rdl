@@ -1,0 +1,82 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("dxgi.dll")]
+        extern fn DXGIDeclareAdapterRemovalSupport() -> HRESULT;
+        #[library("dxgi.dll")]
+        extern fn DXGIDisableVBlankVirtualization() -> HRESULT;
+        struct DXGI_ADAPTER_DESC3 {
+            Description: [u16; 128],
+            VendorId: u32,
+            DeviceId: u32,
+            SubSysId: u32,
+            Revision: u32,
+            DedicatedVideoMemory: usize,
+            DedicatedSystemMemory: usize,
+            SharedSystemMemory: usize,
+            AdapterLuid: LUID,
+            Flags: DXGI_ADAPTER_FLAG3,
+            GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
+            ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DXGI_ADAPTER_FLAG3 {
+            DXGI_ADAPTER_FLAG3_NONE = 0,
+            DXGI_ADAPTER_FLAG3_REMOTE = 1,
+            DXGI_ADAPTER_FLAG3_SOFTWARE = 2,
+            DXGI_ADAPTER_FLAG3_ACG_COMPATIBLE = 4,
+            DXGI_ADAPTER_FLAG3_SUPPORT_MONITORED_FENCES = 8,
+            DXGI_ADAPTER_FLAG3_SUPPORT_NON_MONITORED_FENCES = 16,
+            DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE = 32,
+            DXGI_ADAPTER_FLAG3_FORCE_DWORD = 4294967295,
+        }
+        #[repr(i32)]
+        enum DXGI_GPU_PREFERENCE {
+            DXGI_GPU_PREFERENCE_UNSPECIFIED = 0,
+            DXGI_GPU_PREFERENCE_MINIMUM_POWER = 1,
+            DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
+            DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN = 1,
+            DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_WINDOWED = 2,
+            DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_CURSOR_STRETCHED = 4,
+        }
+        struct DXGI_OUTPUT_DESC1 {
+            DeviceName: [u16; 32],
+            DesktopCoordinates: RECT,
+            AttachedToDesktop: BOOL,
+            Rotation: DXGI_MODE_ROTATION,
+            Monitor: HMONITOR,
+            BitsPerColor: u32,
+            ColorSpace: DXGI_COLOR_SPACE_TYPE,
+            RedPrimary: [f32; 2],
+            GreenPrimary: [f32; 2],
+            BluePrimary: [f32; 2],
+            WhitePoint: [f32; 2],
+            MinLuminance: f32,
+            MaxLuminance: f32,
+            MaxFullFrameLuminance: f32,
+        }
+        #[guid(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e)]
+        interface IDXGIAdapter4: IDXGIAdapter3 {
+            fn GetDesc3(&self, pDesc: *mut DXGI_ADAPTER_DESC3) -> HRESULT;
+        }
+        #[guid(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17)]
+        interface IDXGIFactory6: IDXGIFactory5 {
+            fn EnumAdapterByGpuPreference(&self, Adapter: u32, GpuPreference: DXGI_GPU_PREFERENCE, riid: *const GUID, #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xa4966eed_76db_44da_84c1_ee9a7afb20a8)]
+        interface IDXGIFactory7: IDXGIFactory6 {
+            fn RegisterAdaptersChangedEvent(&self, hEvent: HANDLE, pdwCookie: *mut u32) -> HRESULT;
+            fn UnregisterAdaptersChangedEvent(&self, dwCookie: u32) -> HRESULT;
+        }
+        #[guid(0x068346e8_aaec_4b84_add7_137f513f77a1)]
+        interface IDXGIOutput6: IDXGIOutput5 {
+            fn GetDesc1(&self, pDesc: *mut DXGI_OUTPUT_DESC1) -> HRESULT;
+            fn CheckHardwareCompositionSupport(&self, pFlags: *mut u32) -> HRESULT;
+        }
+    }
+}

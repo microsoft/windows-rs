@@ -1,0 +1,134 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3;
+        const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5;
+        const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1;
+        const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4;
+        const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2;
+        struct EVENT_DATA_DESCRIPTOR {
+            Ptr: u64,
+            Size: u32,
+            Anonymous: union {
+                Reserved: u32,
+                Anonymous: struct {
+                    Type: u8,
+                    Reserved1: u8,
+                    Reserved2: u16,
+                },
+            },
+        }
+        const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1;
+        const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0;
+        const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2;
+        const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: u32 = 4;
+        const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3;
+        struct EVENT_DESCRIPTOR {
+            Id: u16,
+            Version: u8,
+            Channel: u8,
+            Level: u8,
+            Opcode: u8,
+            Task: u16,
+            Keyword: u64,
+        }
+        struct EVENT_FILTER_DESCRIPTOR {
+            Ptr: u64,
+            Size: u32,
+            Type: u32,
+        }
+        struct EVENT_FILTER_EVENT_ID {
+            FilterIn: BOOLEAN,
+            Reserved: u8,
+            Count: u16,
+            Events: [u16; 1],
+        }
+        struct EVENT_FILTER_EVENT_NAME {
+            MatchAnyKeyword: u64,
+            MatchAllKeyword: u64,
+            Level: u8,
+            FilterIn: BOOLEAN,
+            NameCount: u16,
+            Names: [u8; 1],
+        }
+        struct EVENT_FILTER_HEADER {
+            Id: u16,
+            Version: u8,
+            Reserved: [u8; 5],
+            InstanceId: u64,
+            Size: u32,
+            NextOffset: u32,
+        }
+        struct EVENT_FILTER_LEVEL_KW {
+            MatchAnyKeyword: u64,
+            MatchAllKeyword: u64,
+            Level: u8,
+            FilterIn: BOOLEAN,
+        }
+        const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
+        const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
+        const EVENT_FILTER_TYPE_EVENT_NAME: u32 = 2147484672;
+        const EVENT_FILTER_TYPE_EXECUTABLE_NAME: u32 = 2147483656;
+        const EVENT_FILTER_TYPE_NONE: u32 = 0;
+        const EVENT_FILTER_TYPE_PACKAGE_APP_ID: u32 = 2147483680;
+        const EVENT_FILTER_TYPE_PACKAGE_ID: u32 = 2147483664;
+        const EVENT_FILTER_TYPE_PAYLOAD: u32 = 2147483904;
+        const EVENT_FILTER_TYPE_PID: u32 = 2147483652;
+        const EVENT_FILTER_TYPE_SCHEMATIZED: u32 = 2147483648;
+        const EVENT_FILTER_TYPE_STACKWALK: u32 = 2147487744;
+        const EVENT_FILTER_TYPE_STACKWALK_LEVEL_KW: u32 = 2147500032;
+        const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840;
+        const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649;
+        const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650;
+        #[repr(i32)]
+        enum EVENT_INFO_CLASS {
+            EventProviderBinaryTrackInfo = 0,
+            EventProviderSetReserved1 = 1,
+            EventProviderSetTraits = 2,
+            EventProviderUseDescriptorType = 3,
+            EventProviderSetReserved2 = 4,
+            MaxEventInfo = 5,
+        }
+        const EVENT_MAX_LEVEL: u32 = 255;
+        const EVENT_MIN_LEVEL: u32 = 0;
+        const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2;
+        const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1;
+        #[library("ADVAPI32.dll")]
+        extern fn EventActivityIdControl(ControlCode: u32, #[in] #[out] ActivityId: *mut GUID) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventEnabled(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR) -> BOOLEAN;
+        #[library("ADVAPI32.dll")]
+        extern fn EventProviderEnabled(RegHandle: REGHANDLE, Level: u8, Keyword: u64) -> BOOLEAN;
+        #[library("ADVAPI32.dll")]
+        extern fn EventRegister(ProviderId: *const GUID, #[opt] EnableCallback: PENABLECALLBACK, #[opt] CallbackContext: *const void, RegHandle: *mut u64) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventSetInformation(RegHandle: REGHANDLE, InformationClass: EVENT_INFO_CLASS, #[size_param(3)] EventInformation: *const void, InformationLength: u32) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventUnregister(RegHandle: REGHANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventWrite(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, UserDataCount: u32, #[len_param(2)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventWriteEx(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, Filter: u64, Flags: u32, #[opt] ActivityId: *const GUID, #[opt] RelatedActivityId: *const GUID, UserDataCount: u32, #[len_param(6)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventWriteString(RegHandle: REGHANDLE, Level: u8, Keyword: u64, String: PCWSTR) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EventWriteTransfer(RegHandle: REGHANDLE, EventDescriptor: *const EVENT_DESCRIPTOR, #[opt] ActivityId: *const GUID, #[opt] RelatedActivityId: *const GUID, UserDataCount: u32, #[len_param(4)] #[opt] UserData: *const EVENT_DATA_DESCRIPTOR) -> u32;
+        const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128;
+        const MAX_EVENT_FILTERS_COUNT: u32 = 13;
+        const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024;
+        const MAX_EVENT_FILTER_EVENT_ID_COUNT: u32 = 64;
+        const MAX_EVENT_FILTER_EVENT_NAME_SIZE: u32 = 4096;
+        const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096;
+        const MAX_EVENT_FILTER_PID_COUNT: u32 = 8;
+        type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
+        extern fn PENABLECALLBACK(SourceId: *const GUID, IsEnabled: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
+        type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
+        type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
+        type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
+        type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
+        type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;
+        type PEVENT_FILTER_LEVEL_KW = *mut EVENT_FILTER_LEVEL_KW;
+        type PREGHANDLE = *mut u64;
+        type REGHANDLE = u64;
+    }
+}

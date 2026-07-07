@@ -8,8 +8,8 @@ use windows_metadata::{Signature, Type};
 /// answers "which feature do I enable?" for either crate.
 const WINMD: [&str; 3] = [
     "crates/libs/bindgen/default/Windows.winmd",
-    "crates/libs/bindgen/default/Windows.Win32.winmd",
-    "crates/libs/bindgen/default/Windows.Wdk.winmd",
+    "crates/tools/package/reference/Windows.Win32.winmd",
+    "crates/tools/package/reference/Windows.Wdk.winmd",
 ];
 
 /// The folder published to GitHub Pages by `web.yml`; regenerated and checked

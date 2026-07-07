@@ -15,28 +15,30 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
 
     while i < tokens.len() {
         // Detect outer attribute: `#` followed by a `[...]` group.
-        if let TokenTree::Punct(p) = &tokens[i] {
-            if p.as_char() == '#' {
-                if let Some(TokenTree::Group(g)) = tokens.get(i + 1) {
-                    if g.delimiter() == Delimiter::Bracket {
-                        // An attribute that immediately follows `->` is a return-type
-                        // attribute and must stay inline (e.g. `-> #[Const] *const u8`).
-                        let after_arrow = output.ends_with("-> ");
-                        let treat_inline = inline || after_arrow;
-                        if !treat_inline && at_line_start(output) {
-                            push_indent(output, indent);
-                        }
-                        format_attribute(g, output);
-                        if treat_inline {
-                            output.push(' ');
-                        } else {
-                            output.push('\n');
-                        }
-                        i += 2;
-                        continue;
-                    }
-                }
+        if let TokenTree::Punct(p) = &tokens[i]
+            && p.as_char() == '#'
+            && let Some(TokenTree::Group(g)) = tokens.get(i + 1)
+            && g.delimiter() == Delimiter::Bracket
+        {
+            // An attribute that immediately follows `->` is a return-type
+            // attribute and must stay inline (e.g. `-> #[Const] *const u8`).
+            // An attribute that immediately follows `: ` is in type position
+            // (e.g. an inline nested `field: #[packed(1)] struct { .. }`) and
+            // likewise stays inline.
+            let after_arrow = output.ends_with("-> ");
+            let after_colon = output.ends_with(": ");
+            let treat_inline = inline || after_arrow || after_colon;
+            if !treat_inline && at_line_start(output) {
+                push_indent(output, indent);
             }
+            format_attribute(g, output);
+            if treat_inline {
+                output.push(' ');
+            } else {
+                output.push('\n');
+            }
+            i += 2;
+            continue;
         }
 
         if !inline && at_line_start(output) {

@@ -1,0 +1,972 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ABC_OVERLAYDESKTOPICONS: u32 = 1;
+        const ABE_BOTTOM: u32 = 3;
+        const ABE_LEFT: u32 = 0;
+        const ABE_RIGHT: u32 = 2;
+        const ABE_TOP: u32 = 1;
+        const ABM_ACTIVATE: u32 = 6;
+        const ABM_GETAUTOHIDEBAR: u32 = 7;
+        const ABM_GETAUTOHIDEBAREX: u32 = 11;
+        const ABM_GETSTATE: u32 = 4;
+        const ABM_GETTASKBARPOS: u32 = 5;
+        const ABM_NEW: u32 = 0;
+        const ABM_QUERYPOS: u32 = 2;
+        const ABM_REMOVE: u32 = 1;
+        const ABM_SETAUTOHIDEBAR: u32 = 8;
+        const ABM_SETAUTOHIDEBAREX: u32 = 12;
+        const ABM_SETPOS: u32 = 3;
+        const ABM_SETSTATE: u32 = 10;
+        const ABM_WINDOWPOSCHANGED: u32 = 9;
+        const ABN_FULLSCREENAPP: u32 = 2;
+        const ABN_POSCHANGED: u32 = 1;
+        const ABN_STATECHANGE: u32 = 0;
+        const ABN_WINDOWARRANGE: u32 = 3;
+        const ABS_ALWAYSONTOP: u32 = 2;
+        const ABS_AUTOHIDE: u32 = 1;
+        #[arch(X64 | Arm64)]
+        struct APPBARDATA {
+            cbSize: u32,
+            hWnd: HWND,
+            uCallbackMessage: u32,
+            uEdge: u32,
+            rc: RECT,
+            lParam: LPARAM,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct APPBARDATA {
+            cbSize: u32,
+            hWnd: HWND,
+            uCallbackMessage: u32,
+            uEdge: u32,
+            rc: RECT,
+            lParam: LPARAM,
+        }
+        #[repr(i32)]
+        enum ASSOCCLASS {
+            ASSOCCLASS_SHELL_KEY = 0,
+            ASSOCCLASS_PROGID_KEY = 1,
+            ASSOCCLASS_PROGID_STR = 2,
+            ASSOCCLASS_CLSID_KEY = 3,
+            ASSOCCLASS_CLSID_STR = 4,
+            ASSOCCLASS_APP_KEY = 5,
+            ASSOCCLASS_APP_STR = 6,
+            ASSOCCLASS_SYSTEM_STR = 7,
+            ASSOCCLASS_FOLDER = 8,
+            ASSOCCLASS_STAR = 9,
+            ASSOCCLASS_FIXED_PROGID_STR = 10,
+            ASSOCCLASS_PROTOCOL_STR = 11,
+        }
+        #[arch(X64 | Arm64)]
+        struct ASSOCIATIONELEMENT {
+            ac: ASSOCCLASS,
+            hkClass: HKEY,
+            pszClass: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct ASSOCIATIONELEMENT {
+            ac: ASSOCCLASS,
+            hkClass: HKEY,
+            pszClass: PCWSTR,
+        }
+        #[library("SHELL32.dll")]
+        extern fn AssocCreateForClasses(#[len_param(1)] rgClasses: *const ASSOCIATIONELEMENT, cClasses: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn CommandLineToArgvW(lpCmdLine: PCWSTR, pNumArgs: *mut i32) -> *mut PWSTR;
+        type DRAGINFO = DRAGINFOA;
+        #[arch(X64 | Arm64)]
+        struct DRAGINFOA {
+            uSize: u32,
+            pt: POINT,
+            fNC: BOOL,
+            lpFileList: PZZSTR,
+            grfKeyState: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct DRAGINFOA {
+            uSize: u32,
+            pt: POINT,
+            fNC: BOOL,
+            lpFileList: PZZSTR,
+            grfKeyState: u32,
+        }
+        #[arch(X64 | Arm64)]
+        struct DRAGINFOW {
+            uSize: u32,
+            pt: POINT,
+            fNC: BOOL,
+            lpFileList: PZZWSTR,
+            grfKeyState: u32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct DRAGINFOW {
+            uSize: u32,
+            pt: POINT,
+            fNC: BOOL,
+            lpFileList: PZZWSTR,
+            grfKeyState: u32,
+        }
+        #[library("SHELL32.dll")]
+        extern fn DoEnvironmentSubstA(#[len_param(1)] #[in] #[out] pszSrc: PSTR, cchSrc: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn DoEnvironmentSubstW(#[len_param(1)] #[in] #[out] pszSrc: PWSTR, cchSrc: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn DragAcceptFiles(hWnd: HWND, fAccept: BOOL);
+        #[library("SHELL32.dll")]
+        extern fn DragFinish(hDrop: HDROP);
+        #[library("SHELL32.dll")]
+        extern fn DragQueryFileA(hDrop: HDROP, iFile: u32, #[len_param(3)] #[out] #[opt] lpszFile: PSTR, cch: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn DragQueryFileW(hDrop: HDROP, iFile: u32, #[len_param(3)] #[out] #[opt] lpszFile: PWSTR, cch: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn DragQueryPoint(hDrop: HDROP, ppt: *mut POINT) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn DuplicateIcon(#[reserved] hInst: HINSTANCE, hIcon: HICON) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractAssociatedIconA(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PSTR, #[in] #[out] piIcon: *mut u16) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractAssociatedIconExA(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PSTR, #[in] #[out] piIconIndex: *mut u16, #[in] #[out] piIconId: *mut u16) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractAssociatedIconExW(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PWSTR, #[in] #[out] piIconIndex: *mut u16, #[in] #[out] piIconId: *mut u16) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractAssociatedIconW(#[reserved] hInst: HINSTANCE, #[len_const(128)] #[in] #[out] pszIconPath: PWSTR, #[in] #[out] piIcon: *mut u16) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractIconA(#[reserved] hInst: HINSTANCE, pszExeFileName: PCSTR, nIconIndex: u32) -> HICON;
+        #[library("SHELL32.dll")]
+        extern fn ExtractIconExA(lpszFile: PCSTR, nIconIndex: i32, #[len_param(4)] #[opt] phiconLarge: *mut HICON, #[len_param(4)] #[opt] phiconSmall: *mut HICON, nIcons: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn ExtractIconExW(lpszFile: PCWSTR, nIconIndex: i32, #[len_param(4)] #[opt] phiconLarge: *mut HICON, #[len_param(4)] #[opt] phiconSmall: *mut HICON, nIcons: u32) -> u32;
+        #[library("SHELL32.dll")]
+        extern fn ExtractIconW(#[reserved] hInst: HINSTANCE, pszExeFileName: PCWSTR, nIconIndex: u32) -> HICON;
+        type FILEOP_FLAGS = u16;
+        const FOF_ALLOWUNDO: u32 = 64;
+        const FOF_CONFIRMMOUSE: u32 = 2;
+        const FOF_FILESONLY: u32 = 128;
+        const FOF_MULTIDESTFILES: u32 = 1;
+        const FOF_NOCONFIRMATION: u32 = 16;
+        const FOF_NOCONFIRMMKDIR: u32 = 512;
+        const FOF_NOCOPYSECURITYATTRIBS: u32 = 2048;
+        const FOF_NOERRORUI: u32 = 1024;
+        const FOF_NORECURSEREPARSE: u32 = 32768;
+        const FOF_NORECURSION: u32 = 4096;
+        const FOF_NO_CONNECTED_ELEMENTS: u32 = 8192;
+        const FOF_NO_UI: u32 = 1556;
+        const FOF_RENAMEONCOLLISION: u32 = 8;
+        const FOF_SILENT: u32 = 4;
+        const FOF_SIMPLEPROGRESS: u32 = 256;
+        const FOF_WANTMAPPINGHANDLE: u32 = 32;
+        const FOF_WANTNUKEWARNING: u32 = 16384;
+        const FO_COPY: u32 = 2;
+        const FO_DELETE: u32 = 3;
+        const FO_MOVE: u32 = 1;
+        const FO_RENAME: u32 = 4;
+        #[library("SHELL32.dll")]
+        extern fn FindExecutableA(lpFile: PCSTR, #[opt] lpDirectory: PCSTR, #[out] lpResult: PSTR) -> HINSTANCE;
+        #[library("SHELL32.dll")]
+        extern fn FindExecutableW(lpFile: PCWSTR, #[opt] lpDirectory: PCWSTR, #[out] lpResult: PWSTR) -> HINSTANCE;
+        type HDROP = *mut void;
+        #[library("SHELL32.dll")]
+        extern fn InitNetworkAddressControl() -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn IsLFNDriveA(#[opt] pszPath: PCSTR) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn IsLFNDriveW(#[opt] pszPath: PCWSTR) -> BOOL;
+        type LPDRAGINFO = LPDRAGINFOA;
+        type LPDRAGINFOA = *mut DRAGINFOA;
+        type LPDRAGINFOW = *mut DRAGINFOW;
+        type LPSHELLEXECUTEINFO = LPSHELLEXECUTEINFOA;
+        type LPSHELLEXECUTEINFOA = *mut SHELLEXECUTEINFOA;
+        type LPSHELLEXECUTEINFOW = *mut SHELLEXECUTEINFOW;
+        type LPSHFILEOPSTRUCT = LPSHFILEOPSTRUCTA;
+        type LPSHFILEOPSTRUCTA = *mut SHFILEOPSTRUCTA;
+        type LPSHFILEOPSTRUCTW = *mut SHFILEOPSTRUCTW;
+        type LPSHNAMEMAPPING = LPSHNAMEMAPPINGA;
+        type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
+        type LPSHNAMEMAPPINGW = *mut SHNAMEMAPPINGW;
+        type LPSHQUERYRBINFO = *mut SHQUERYRBINFO;
+        const NCM_DISPLAYERRORTIP: u32 = 1028;
+        const NCM_GETADDRESS: u32 = 1025;
+        const NCM_GETALLOWTYPE: u32 = 1027;
+        const NCM_SETALLOWTYPE: u32 = 1026;
+        struct NC_ADDRESS {
+            pAddrInfo: *mut NET_ADDRESS_INFO_,
+            PortNumber: u16,
+            PrefixLength: u8,
+        }
+        struct NET_ADDRESS_INFO_ {}
+        const NIF_GUID: u32 = 32;
+        const NIF_ICON: u32 = 2;
+        const NIF_INFO: u32 = 16;
+        const NIF_MESSAGE: u32 = 1;
+        const NIF_REALTIME: u32 = 64;
+        const NIF_SHOWTIP: u32 = 128;
+        const NIF_STATE: u32 = 8;
+        const NIF_TIP: u32 = 4;
+        const NIIF_ERROR: u32 = 3;
+        const NIIF_ICON_MASK: u32 = 15;
+        const NIIF_INFO: u32 = 1;
+        const NIIF_LARGE_ICON: u32 = 32;
+        const NIIF_NONE: u32 = 0;
+        const NIIF_NOSOUND: u32 = 16;
+        const NIIF_RESPECT_QUIET_TIME: u32 = 128;
+        const NIIF_USER: u32 = 4;
+        const NIIF_WARNING: u32 = 2;
+        const NIM_ADD: u32 = 0;
+        const NIM_DELETE: u32 = 2;
+        const NIM_MODIFY: u32 = 1;
+        const NIM_SETFOCUS: u32 = 3;
+        const NIM_SETVERSION: u32 = 4;
+        const NINF_KEY: u32 = 1;
+        const NIN_BALLOONHIDE: u32 = 1027;
+        const NIN_BALLOONSHOW: u32 = 1026;
+        const NIN_BALLOONTIMEOUT: u32 = 1028;
+        const NIN_BALLOONUSERCLICK: u32 = 1029;
+        const NIN_KEYSELECT: u32 = 1025;
+        const NIN_POPUPCLOSE: u32 = 1031;
+        const NIN_POPUPOPEN: u32 = 1030;
+        const NIN_SELECT: u32 = 1024;
+        const NIS_HIDDEN: u32 = 1;
+        const NIS_SHAREDICON: u32 = 2;
+        type NOTIFYICONDATA = NOTIFYICONDATAA;
+        #[arch(X64 | Arm64)]
+        struct NOTIFYICONDATAA {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
+            hIcon: HICON,
+            szTip: [i8; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [i8; 256],
+            Anonymous: union {
+                uTimeout: u32,
+                uVersion: u32,
+            },
+            szInfoTitle: [i8; 64],
+            dwInfoFlags: u32,
+            guidItem: GUID,
+            hBalloonIcon: HICON,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct NOTIFYICONDATAA {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
+            hIcon: HICON,
+            szTip: [i8; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [i8; 256],
+            Anonymous: #[packed(1)] union {
+                uTimeout: u32,
+                uVersion: u32,
+            },
+            szInfoTitle: [i8; 64],
+            dwInfoFlags: u32,
+            guidItem: GUID,
+            hBalloonIcon: HICON,
+        }
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAA_V1_SIZE: u32 = 104;
+        #[arch(X86)]
+        const NOTIFYICONDATAA_V1_SIZE: u32 = 88;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAA_V2_SIZE: u32 = 504;
+        #[arch(X86)]
+        const NOTIFYICONDATAA_V2_SIZE: u32 = 488;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAA_V3_SIZE: u32 = 520;
+        #[arch(X86)]
+        const NOTIFYICONDATAA_V3_SIZE: u32 = 504;
+        #[arch(X64 | Arm64)]
+        struct NOTIFYICONDATAW {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
+            hIcon: HICON,
+            szTip: [u16; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [u16; 256],
+            Anonymous: union {
+                uTimeout: u32,
+                uVersion: u32,
+            },
+            szInfoTitle: [u16; 64],
+            dwInfoFlags: u32,
+            guidItem: GUID,
+            hBalloonIcon: HICON,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct NOTIFYICONDATAW {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            uFlags: u32,
+            uCallbackMessage: u32,
+            hIcon: HICON,
+            szTip: [u16; 128],
+            dwState: u32,
+            dwStateMask: u32,
+            szInfo: [u16; 256],
+            Anonymous: #[packed(1)] union {
+                uTimeout: u32,
+                uVersion: u32,
+            },
+            szInfoTitle: [u16; 64],
+            dwInfoFlags: u32,
+            guidItem: GUID,
+            hBalloonIcon: HICON,
+        }
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAW_V1_SIZE: u32 = 168;
+        #[arch(X86)]
+        const NOTIFYICONDATAW_V1_SIZE: u32 = 152;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAW_V2_SIZE: u32 = 952;
+        #[arch(X86)]
+        const NOTIFYICONDATAW_V2_SIZE: u32 = 936;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATAW_V3_SIZE: u32 = 968;
+        #[arch(X86)]
+        const NOTIFYICONDATAW_V3_SIZE: u32 = 952;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATA_V1_SIZE: u32 = 104;
+        #[arch(X86)]
+        const NOTIFYICONDATA_V1_SIZE: u32 = 88;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATA_V2_SIZE: u32 = 504;
+        #[arch(X86)]
+        const NOTIFYICONDATA_V2_SIZE: u32 = 488;
+        #[arch(X64 | Arm64)]
+        const NOTIFYICONDATA_V3_SIZE: u32 = 520;
+        #[arch(X86)]
+        const NOTIFYICONDATA_V3_SIZE: u32 = 504;
+        #[arch(X64 | Arm64)]
+        struct NOTIFYICONIDENTIFIER {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            guidItem: GUID,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct NOTIFYICONIDENTIFIER {
+            cbSize: u32,
+            hWnd: HWND,
+            uID: u32,
+            guidItem: GUID,
+        }
+        const NOTIFYICON_VERSION: u32 = 3;
+        const NOTIFYICON_VERSION_4: u32 = 4;
+        const OFFLINE_STATUS_INCOMPLETE: u32 = 4;
+        const OFFLINE_STATUS_LOCAL: u32 = 1;
+        const OFFLINE_STATUS_REMOTE: u32 = 2;
+        type OPEN_PRINTER_PROPS_INFO = OPEN_PRINTER_PROPS_INFOA;
+        #[arch(X64 | Arm64)]
+        struct OPEN_PRINTER_PROPS_INFOA {
+            dwSize: u32,
+            pszSheetName: PSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
+            bModal: BOOL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPEN_PRINTER_PROPS_INFOA {
+            dwSize: u32,
+            pszSheetName: PSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
+            bModal: BOOL,
+        }
+        #[arch(X64 | Arm64)]
+        struct OPEN_PRINTER_PROPS_INFOW {
+            dwSize: u32,
+            pszSheetName: PWSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
+            bModal: BOOL,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct OPEN_PRINTER_PROPS_INFOW {
+            dwSize: u32,
+            pszSheetName: PWSTR,
+            uSheetIndex: u32,
+            dwFlags: u32,
+            bModal: BOOL,
+        }
+        type PAPPBARDATA = *mut APPBARDATA;
+        extern fn PFNCANSHAREFOLDERW(pszPath: PCWSTR) -> HRESULT;
+        extern fn PFNSHOWSHAREFOLDERUIW(#[opt] hwndParent: HWND, pszPath: PCWSTR) -> HRESULT;
+        type PNC_ADDRESS = *mut NC_ADDRESS;
+        type PNOTIFYICONDATA = PNOTIFYICONDATAA;
+        type PNOTIFYICONDATAA = *mut NOTIFYICONDATAA;
+        type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
+        type PNOTIFYICONIDENTIFIER = *mut NOTIFYICONIDENTIFIER;
+        type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
+        type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
+        type POPEN_PRINTER_PROPS_INFOW = *mut OPEN_PRINTER_PROPS_INFOW;
+        const PO_DELETE: u32 = 19;
+        const PO_PORTCHANGE: u32 = 32;
+        const PO_RENAME: u32 = 20;
+        const PO_REN_PORT: u32 = 52;
+        const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6;
+        const PRINTACTION_NETINSTALL: u32 = 2;
+        const PRINTACTION_NETINSTALLLINK: u32 = 3;
+        const PRINTACTION_OPEN: u32 = 0;
+        const PRINTACTION_OPENNETPRN: u32 = 5;
+        const PRINTACTION_PROPERTIES: u32 = 1;
+        const PRINTACTION_SERVERPROPERTIES: u32 = 7;
+        const PRINTACTION_TESTPAGE: u32 = 4;
+        type PRINTEROP_FLAGS = u16;
+        const PRINT_PROP_FORCE_NAME: u32 = 1;
+        type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;
+        #[repr(i32)]
+        enum QUERY_USER_NOTIFICATION_STATE {
+            QUNS_NOT_PRESENT = 1,
+            QUNS_BUSY = 2,
+            QUNS_RUNNING_D3D_FULL_SCREEN = 3,
+            QUNS_PRESENTATION_MODE = 4,
+            QUNS_ACCEPTS_NOTIFICATIONS = 5,
+            QUNS_QUIET_TIME = 6,
+            QUNS_APP = 7,
+        }
+        const SEE_MASK_ASYNCOK: u32 = 1048576;
+        const SEE_MASK_CLASSKEY: u32 = 3;
+        const SEE_MASK_CLASSNAME: u32 = 1;
+        const SEE_MASK_CONNECTNETDRV: u32 = 128;
+        const SEE_MASK_DEFAULT: u32 = 0;
+        const SEE_MASK_DOENVSUBST: u32 = 512;
+        const SEE_MASK_FLAG_DDEWAIT: u32 = 256;
+        const SEE_MASK_FLAG_HINST_IS_SITE: u32 = 134217728;
+        const SEE_MASK_FLAG_LOG_USAGE: u32 = 67108864;
+        const SEE_MASK_FLAG_NO_UI: u32 = 1024;
+        const SEE_MASK_HMONITOR: u32 = 2097152;
+        const SEE_MASK_HOTKEY: u32 = 32;
+        const SEE_MASK_IDLIST: u32 = 4;
+        const SEE_MASK_INVOKEIDLIST: u32 = 12;
+        const SEE_MASK_NOASYNC: u32 = 256;
+        const SEE_MASK_NOCLOSEPROCESS: u32 = 64;
+        const SEE_MASK_NOQUERYCLASSSTORE: u32 = 16777216;
+        const SEE_MASK_NOZONECHECKS: u32 = 8388608;
+        const SEE_MASK_NO_CONSOLE: u32 = 32768;
+        const SEE_MASK_UNICODE: u32 = 16384;
+        const SEE_MASK_WAITFORINPUTIDLE: u32 = 33554432;
+        const SE_ERR_ACCESSDENIED: u32 = 5;
+        const SE_ERR_ASSOCINCOMPLETE: u32 = 27;
+        const SE_ERR_DDEBUSY: u32 = 30;
+        const SE_ERR_DDEFAIL: u32 = 29;
+        const SE_ERR_DDETIMEOUT: u32 = 28;
+        const SE_ERR_DLLNOTFOUND: u32 = 32;
+        const SE_ERR_FNF: u32 = 2;
+        const SE_ERR_NOASSOC: u32 = 31;
+        const SE_ERR_OOM: u32 = 8;
+        const SE_ERR_PNF: u32 = 3;
+        const SE_ERR_SHARE: u32 = 26;
+        #[library("SHELL32.dll")]
+        extern fn SHAppBarMessage(dwMessage: u32, #[in] #[out] pData: *mut APPBARDATA) -> usize;
+        #[arch(X64 | Arm64)]
+        struct SHCREATEPROCESSINFOW {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            pszFile: PCWSTR,
+            pszParameters: PCWSTR,
+            pszCurrentDirectory: PCWSTR,
+            hUserToken: HANDLE,
+            lpProcessAttributes: LPSECURITY_ATTRIBUTES,
+            lpThreadAttributes: LPSECURITY_ATTRIBUTES,
+            bInheritHandles: BOOL,
+            dwCreationFlags: u32,
+            lpStartupInfo: LPSTARTUPINFOW,
+            lpProcessInformation: LPPROCESS_INFORMATION,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHCREATEPROCESSINFOW {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            pszFile: PCWSTR,
+            pszParameters: PCWSTR,
+            pszCurrentDirectory: PCWSTR,
+            hUserToken: HANDLE,
+            lpProcessAttributes: LPSECURITY_ATTRIBUTES,
+            lpThreadAttributes: LPSECURITY_ATTRIBUTES,
+            bInheritHandles: BOOL,
+            dwCreationFlags: u32,
+            lpStartupInfo: LPSTARTUPINFOW,
+            lpProcessInformation: LPPROCESS_INFORMATION,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHCreateProcessAsUserW(#[in] #[out] pscpi: *mut SHCREATEPROCESSINFOW) -> BOOL;
+        type SHELLEXECUTEINFO = SHELLEXECUTEINFOA;
+        #[arch(X64 | Arm64)]
+        struct SHELLEXECUTEINFOA {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCSTR,
+            lpFile: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
+            nShow: i32,
+            hInstApp: HINSTANCE,
+            lpIDList: *mut void,
+            lpClass: PCSTR,
+            hkeyClass: HKEY,
+            dwHotKey: u32,
+            Anonymous: union {
+                hIcon: HANDLE,
+                hMonitor: HANDLE,
+            },
+            hProcess: HANDLE,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHELLEXECUTEINFOA {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCSTR,
+            lpFile: PCSTR,
+            lpParameters: PCSTR,
+            lpDirectory: PCSTR,
+            nShow: i32,
+            hInstApp: HINSTANCE,
+            lpIDList: *mut void,
+            lpClass: PCSTR,
+            hkeyClass: HKEY,
+            dwHotKey: u32,
+            Anonymous: #[packed(1)] union {
+                hIcon: HANDLE,
+                hMonitor: HANDLE,
+            },
+            hProcess: HANDLE,
+        }
+        #[arch(X64 | Arm64)]
+        struct SHELLEXECUTEINFOW {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCWSTR,
+            lpFile: PCWSTR,
+            lpParameters: PCWSTR,
+            lpDirectory: PCWSTR,
+            nShow: i32,
+            hInstApp: HINSTANCE,
+            lpIDList: *mut void,
+            lpClass: PCWSTR,
+            hkeyClass: HKEY,
+            dwHotKey: u32,
+            Anonymous: union {
+                hIcon: HANDLE,
+                hMonitor: HANDLE,
+            },
+            hProcess: HANDLE,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHELLEXECUTEINFOW {
+            cbSize: u32,
+            fMask: u32,
+            hwnd: HWND,
+            lpVerb: PCWSTR,
+            lpFile: PCWSTR,
+            lpParameters: PCWSTR,
+            lpDirectory: PCWSTR,
+            nShow: i32,
+            hInstApp: HINSTANCE,
+            lpIDList: *mut void,
+            lpClass: PCWSTR,
+            hkeyClass: HKEY,
+            dwHotKey: u32,
+            Anonymous: #[packed(1)] union {
+                hIcon: HANDLE,
+                hMonitor: HANDLE,
+            },
+            hProcess: HANDLE,
+        }
+        const SHERB_NOCONFIRMATION: u32 = 1;
+        const SHERB_NOPROGRESSUI: u32 = 2;
+        const SHERB_NOSOUND: u32 = 4;
+        #[library("SHELL32.dll")]
+        extern fn SHEmptyRecycleBinA(#[opt] hwnd: HWND, #[opt] pszRootPath: PCSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHEmptyRecycleBinW(#[opt] hwnd: HWND, #[opt] pszRootPath: PCWSTR, dwFlags: u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHEnumerateUnreadMailAccountsW(#[opt] hKeyUser: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszMailAddress: PWSTR, cchMailAddress: i32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHEvaluateSystemCommandTemplate(pszCmdTemplate: PCWSTR, ppszApplication: *mut PWSTR, ppszCommandLine: *mut PWSTR, ppszParameters: *mut PWSTR) -> HRESULT;
+        type SHFILEINFO = SHFILEINFOA;
+        #[arch(X64 | Arm64)]
+        struct SHFILEINFOA {
+            hIcon: HICON,
+            iIcon: i32,
+            dwAttributes: u32,
+            szDisplayName: [i8; 260],
+            szTypeName: [i8; 80],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHFILEINFOA {
+            hIcon: HICON,
+            iIcon: i32,
+            dwAttributes: u32,
+            szDisplayName: [i8; 260],
+            szTypeName: [i8; 80],
+        }
+        #[arch(X64 | Arm64)]
+        struct SHFILEINFOW {
+            hIcon: HICON,
+            iIcon: i32,
+            dwAttributes: u32,
+            szDisplayName: [u16; 260],
+            szTypeName: [u16; 80],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHFILEINFOW {
+            hIcon: HICON,
+            iIcon: i32,
+            dwAttributes: u32,
+            szDisplayName: [u16; 260],
+            szTypeName: [u16; 80],
+        }
+        type SHFILEOPSTRUCT = SHFILEOPSTRUCTA;
+        #[arch(X64 | Arm64)]
+        struct SHFILEOPSTRUCTA {
+            hwnd: HWND,
+            wFunc: u32,
+            pFrom: PCZZSTR,
+            pTo: PCZZSTR,
+            fFlags: FILEOP_FLAGS,
+            fAnyOperationsAborted: BOOL,
+            hNameMappings: *mut void,
+            lpszProgressTitle: PCSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHFILEOPSTRUCTA {
+            hwnd: HWND,
+            wFunc: u32,
+            pFrom: PCZZSTR,
+            pTo: PCZZSTR,
+            fFlags: FILEOP_FLAGS,
+            fAnyOperationsAborted: BOOL,
+            hNameMappings: *mut void,
+            lpszProgressTitle: PCSTR,
+        }
+        #[arch(X64 | Arm64)]
+        struct SHFILEOPSTRUCTW {
+            hwnd: HWND,
+            wFunc: u32,
+            pFrom: PCZZWSTR,
+            pTo: PCZZWSTR,
+            fFlags: FILEOP_FLAGS,
+            fAnyOperationsAborted: BOOL,
+            hNameMappings: *mut void,
+            lpszProgressTitle: PCWSTR,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHFILEOPSTRUCTW {
+            hwnd: HWND,
+            wFunc: u32,
+            pFrom: PCZZWSTR,
+            pTo: PCZZWSTR,
+            fFlags: FILEOP_FLAGS,
+            fAnyOperationsAborted: BOOL,
+            hNameMappings: *mut void,
+            lpszProgressTitle: PCWSTR,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHFileOperationA(#[in] #[out] lpFileOp: *mut SHFILEOPSTRUCTA) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHFileOperationW(#[in] #[out] lpFileOp: *mut SHFILEOPSTRUCTW) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn SHFreeNameMappings(#[opt] hNameMappings: HANDLE);
+        const SHGFI_ADDOVERLAYS: u32 = 32;
+        const SHGFI_ATTRIBUTES: u32 = 2048;
+        const SHGFI_ATTR_SPECIFIED: u32 = 131072;
+        const SHGFI_DISPLAYNAME: u32 = 512;
+        const SHGFI_EXETYPE: u32 = 8192;
+        const SHGFI_ICON: u32 = 256;
+        const SHGFI_ICONLOCATION: u32 = 4096;
+        const SHGFI_LARGEICON: u32 = 0;
+        const SHGFI_LINKOVERLAY: u32 = 32768;
+        const SHGFI_OPENICON: u32 = 2;
+        const SHGFI_OVERLAYINDEX: u32 = 64;
+        const SHGFI_PIDL: u32 = 8;
+        const SHGFI_SELECTED: u32 = 65536;
+        const SHGFI_SHELLICONSIZE: u32 = 4;
+        const SHGFI_SMALLICON: u32 = 1;
+        const SHGFI_SYSICONINDEX: u32 = 16384;
+        const SHGFI_TYPENAME: u32 = 1024;
+        const SHGFI_USEFILEATTRIBUTES: u32 = 16;
+        const SHGNLI_NOLNK: u32 = 8;
+        const SHGNLI_NOLOCNAME: u32 = 16;
+        const SHGNLI_NOUNIQUE: u32 = 4;
+        const SHGNLI_PIDL: u32 = 1;
+        const SHGNLI_PREFIXNAME: u32 = 2;
+        const SHGNLI_USEURLEXT: u32 = 32;
+        const SHGSI_ICON: u32 = 256;
+        const SHGSI_ICONLOCATION: u32 = 0;
+        const SHGSI_LARGEICON: u32 = 0;
+        const SHGSI_LINKOVERLAY: u32 = 32768;
+        const SHGSI_SELECTED: u32 = 65536;
+        const SHGSI_SHELLICONSIZE: u32 = 4;
+        const SHGSI_SMALLICON: u32 = 1;
+        const SHGSI_SYSICONINDEX: u32 = 16384;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDiskFreeSpaceExA(pszDirectoryName: PCSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDiskFreeSpaceExW(pszDirectoryName: PCWSTR, #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetDriveMedia(pszDrive: PCWSTR, pdwMediaContent: *mut u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFileInfoA(pszPath: PCSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOA, cbFileInfo: u32, uFlags: u32) -> usize;
+        #[library("SHELL32.dll")]
+        extern fn SHGetFileInfoW(pszPath: PCWSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOW, cbFileInfo: u32, uFlags: u32) -> usize;
+        #[library("SHELL32.dll")]
+        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetLocalizedName(pszPath: PCWSTR, #[len_param(2)] #[out] pszResModule: PWSTR, cch: u32, pidsRes: *mut i32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetNewLinkInfoA(pszLinkTo: PCSTR, pszDir: PCSTR, #[out] pszName: PSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetNewLinkInfoW(pszLinkTo: PCWSTR, pszDir: PCWSTR, #[out] pszName: PWSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: u32, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHGetUnreadMailCountW(#[opt] hKeyUser: HKEY, #[opt] pszMailAddress: PCWSTR, #[opt] pdwCount: *mut u32, #[opt] pFileTime: *mut FILETIME, #[len_param(5)] #[out] #[opt] pszShellExecuteCommand: PWSTR, cchShellExecuteCommand: i32) -> HRESULT;
+        const SHIL_EXTRALARGE: u32 = 2;
+        const SHIL_JUMBO: u32 = 4;
+        const SHIL_LARGE: u32 = 0;
+        const SHIL_LAST: u32 = 4;
+        const SHIL_SMALL: u32 = 1;
+        const SHIL_SYSSMALL: u32 = 3;
+        #[library("SHELL32.dll")]
+        extern fn SHInvokePrinterCommandA(#[opt] hwnd: HWND, uAction: u32, lpBuf1: PCSTR, #[opt] lpBuf2: PCSTR, fModal: BOOL) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHInvokePrinterCommandW(#[opt] hwnd: HWND, uAction: u32, lpBuf1: PCWSTR, #[opt] lpBuf2: PCWSTR, fModal: BOOL) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn SHIsFileAvailableOffline(pwszPath: PCWSTR, #[opt] pdwStatus: *mut u32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHLoadNonloadedIconOverlayIdentifiers() -> HRESULT;
+        type SHNAMEMAPPING = SHNAMEMAPPINGA;
+        #[arch(X64 | Arm64)]
+        struct SHNAMEMAPPINGA {
+            pszOldPath: PSTR,
+            pszNewPath: PSTR,
+            cchOldPath: i32,
+            cchNewPath: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHNAMEMAPPINGA {
+            pszOldPath: PSTR,
+            pszNewPath: PSTR,
+            cchOldPath: i32,
+            cchNewPath: i32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SHNAMEMAPPINGW {
+            pszOldPath: PWSTR,
+            pszNewPath: PWSTR,
+            cchOldPath: i32,
+            cchNewPath: i32,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHNAMEMAPPINGW {
+            pszOldPath: PWSTR,
+            pszNewPath: PWSTR,
+            cchOldPath: i32,
+            cchNewPath: i32,
+        }
+        #[arch(X64 | Arm64)]
+        struct SHQUERYRBINFO {
+            cbSize: u32,
+            i64Size: i64,
+            i64NumItems: i64,
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHQUERYRBINFO {
+            cbSize: u32,
+            i64Size: i64,
+            i64NumItems: i64,
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHQueryRecycleBinA(#[opt] pszRootPath: PCSTR, #[in] #[out] pSHQueryRBInfo: *mut SHQUERYRBINFO) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHQueryRecycleBinW(#[opt] pszRootPath: PCWSTR, #[in] #[out] pSHQueryRBInfo: *mut SHQUERYRBINFO) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHQueryUserNotificationState(pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHRemoveLocalizedName(pszPath: PCWSTR) -> HRESULT;
+        #[repr(i32)]
+        enum SHSTOCKICONID {
+            SIID_DOCNOASSOC = 0,
+            SIID_DOCASSOC = 1,
+            SIID_APPLICATION = 2,
+            SIID_FOLDER = 3,
+            SIID_FOLDEROPEN = 4,
+            SIID_DRIVE525 = 5,
+            SIID_DRIVE35 = 6,
+            SIID_DRIVEREMOVE = 7,
+            SIID_DRIVEFIXED = 8,
+            SIID_DRIVENET = 9,
+            SIID_DRIVENETDISABLED = 10,
+            SIID_DRIVECD = 11,
+            SIID_DRIVERAM = 12,
+            SIID_WORLD = 13,
+            SIID_SERVER = 15,
+            SIID_PRINTER = 16,
+            SIID_MYNETWORK = 17,
+            SIID_FIND = 22,
+            SIID_HELP = 23,
+            SIID_SHARE = 28,
+            SIID_LINK = 29,
+            SIID_SLOWFILE = 30,
+            SIID_RECYCLER = 31,
+            SIID_RECYCLERFULL = 32,
+            SIID_MEDIACDAUDIO = 40,
+            SIID_LOCK = 47,
+            SIID_AUTOLIST = 49,
+            SIID_PRINTERNET = 50,
+            SIID_SERVERSHARE = 51,
+            SIID_PRINTERFAX = 52,
+            SIID_PRINTERFAXNET = 53,
+            SIID_PRINTERFILE = 54,
+            SIID_STACK = 55,
+            SIID_MEDIASVCD = 56,
+            SIID_STUFFEDFOLDER = 57,
+            SIID_DRIVEUNKNOWN = 58,
+            SIID_DRIVEDVD = 59,
+            SIID_MEDIADVD = 60,
+            SIID_MEDIADVDRAM = 61,
+            SIID_MEDIADVDRW = 62,
+            SIID_MEDIADVDR = 63,
+            SIID_MEDIADVDROM = 64,
+            SIID_MEDIACDAUDIOPLUS = 65,
+            SIID_MEDIACDRW = 66,
+            SIID_MEDIACDR = 67,
+            SIID_MEDIACDBURN = 68,
+            SIID_MEDIABLANKCD = 69,
+            SIID_MEDIACDROM = 70,
+            SIID_AUDIOFILES = 71,
+            SIID_IMAGEFILES = 72,
+            SIID_VIDEOFILES = 73,
+            SIID_MIXEDFILES = 74,
+            SIID_FOLDERBACK = 75,
+            SIID_FOLDERFRONT = 76,
+            SIID_SHIELD = 77,
+            SIID_WARNING = 78,
+            SIID_INFO = 79,
+            SIID_ERROR = 80,
+            SIID_KEY = 81,
+            SIID_SOFTWARE = 82,
+            SIID_RENAME = 83,
+            SIID_DELETE = 84,
+            SIID_MEDIAAUDIODVD = 85,
+            SIID_MEDIAMOVIEDVD = 86,
+            SIID_MEDIAENHANCEDCD = 87,
+            SIID_MEDIAENHANCEDDVD = 88,
+            SIID_MEDIAHDDVD = 89,
+            SIID_MEDIABLURAY = 90,
+            SIID_MEDIAVCD = 91,
+            SIID_MEDIADVDPLUSR = 92,
+            SIID_MEDIADVDPLUSRW = 93,
+            SIID_DESKTOPPC = 94,
+            SIID_MOBILEPC = 95,
+            SIID_USERS = 96,
+            SIID_MEDIASMARTMEDIA = 97,
+            SIID_MEDIACOMPACTFLASH = 98,
+            SIID_DEVICECELLPHONE = 99,
+            SIID_DEVICECAMERA = 100,
+            SIID_DEVICEVIDEOCAMERA = 101,
+            SIID_DEVICEAUDIOPLAYER = 102,
+            SIID_NETWORKCONNECT = 103,
+            SIID_INTERNET = 104,
+            SIID_ZIPFILE = 105,
+            SIID_SETTINGS = 106,
+            SIID_DRIVEHDDVD = 132,
+            SIID_DRIVEBD = 133,
+            SIID_MEDIAHDDVDROM = 134,
+            SIID_MEDIAHDDVDR = 135,
+            SIID_MEDIAHDDVDRAM = 136,
+            SIID_MEDIABDROM = 137,
+            SIID_MEDIABDR = 138,
+            SIID_MEDIABDRE = 139,
+            SIID_CLUSTEREDDRIVE = 140,
+            SIID_MAX_ICONS = 181,
+        }
+        #[arch(X64 | Arm64)]
+        struct SHSTOCKICONINFO {
+            cbSize: u32,
+            hIcon: HICON,
+            iSysImageIndex: i32,
+            iIcon: i32,
+            szPath: [u16; 260],
+        }
+        #[packed(1)]
+        #[arch(X86)]
+        struct SHSTOCKICONINFO {
+            cbSize: u32,
+            hIcon: HICON,
+            iSysImageIndex: i32,
+            iIcon: i32,
+            szPath: [u16; 260],
+        }
+        #[library("SHELL32.dll")]
+        extern fn SHSetLocalizedName(pszPath: PCWSTR, pszResModule: PCWSTR, idsRes: i32) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHSetUnreadMailCountW(pszMailAddress: PCWSTR, dwCount: u32, pszShellExecuteCommand: PCWSTR) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHTestTokenMembership(#[opt] hToken: HANDLE, ulRID: u32) -> BOOL;
+        const SIID_INVALID: SHSTOCKICONID = -1;
+        #[library("SHELL32.dll")]
+        extern fn ShellAboutA(#[opt] hWnd: HWND, szApp: PCSTR, #[opt] szOtherStuff: PCSTR, #[opt] hIcon: HICON) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn ShellAboutW(#[opt] hWnd: HWND, szApp: PCWSTR, #[opt] szOtherStuff: PCWSTR, #[opt] hIcon: HICON) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn ShellExecuteA(#[opt] hwnd: HWND, #[opt] lpOperation: PCSTR, lpFile: PCSTR, #[opt] lpParameters: PCSTR, #[opt] lpDirectory: PCSTR, nShowCmd: i32) -> HINSTANCE;
+        #[library("SHELL32.dll")]
+        extern fn ShellExecuteExA(#[in] #[out] pExecInfo: *mut SHELLEXECUTEINFOA) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn ShellExecuteExW(#[in] #[out] pExecInfo: *mut SHELLEXECUTEINFOW) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn ShellExecuteW(#[opt] hwnd: HWND, #[opt] lpOperation: PCWSTR, lpFile: PCWSTR, #[opt] lpParameters: PCWSTR, #[opt] lpDirectory: PCWSTR, nShowCmd: i32) -> HINSTANCE;
+        #[library("SHLWAPI.dll")]
+        extern "C" fn ShellMessageBoxA(#[opt] hAppInst: HINSTANCE, #[opt] hWnd: HWND, lpcText: PCSTR, #[opt] lpcTitle: PCSTR, fuStyle: u32, ...) -> i32;
+        #[library("SHLWAPI.dll")]
+        extern "C" fn ShellMessageBoxW(#[opt] hAppInst: HINSTANCE, #[opt] hWnd: HWND, lpcText: PCWSTR, #[opt] lpcTitle: PCWSTR, fuStyle: u32, ...) -> i32;
+        #[library("SHELL32.dll")]
+        extern fn Shell_NotifyIconA(dwMessage: u32, lpData: *const NOTIFYICONDATAA) -> BOOL;
+        #[library("SHELL32.dll")]
+        extern fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER, iconLocation: *mut RECT) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn Shell_NotifyIconW(dwMessage: u32, lpData: *const NOTIFYICONDATAW) -> BOOL;
+        #[encoding("utf-16")]
+        const WC_NETADDRESS: String = "msctls_netaddress";
+    }
+}

@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    const ElementType: i32 = 0;
+    struct Node {
+        Type: i32,
+        Parent: i32,
+    }
+    const TextType: i32 = 1;
+}

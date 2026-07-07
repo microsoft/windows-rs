@@ -32,7 +32,7 @@ mod hstring_header;
 use hstring_header::*;
 
 #[cfg(windows)]
-#[expect(non_camel_case_types, clippy::upper_case_acronyms)]
+#[expect(clippy::upper_case_acronyms)]
 mod bindings;
 
 mod decode;

@@ -1,0 +1,672 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct IPSEC_ADDRESS_INFO0 {
+            numV4Addresses: u32,
+            v4Addresses: *mut u32,
+            numV6Addresses: u32,
+            v6Addresses: *mut FWP_BYTE_ARRAY16,
+        }
+        struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            udpEspValidationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            invalidClearTextInbound: u32,
+            saNotInitializedOnInbound: u32,
+            receiveOverIncorrectSaInbound: u32,
+            secureReceivesNotMatchingFilters: u32,
+        }
+        struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            udpEspValidationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            invalidClearTextInbound: u32,
+            saNotInitializedOnInbound: u32,
+            receiveOverIncorrectSaInbound: u32,
+            secureReceivesNotMatchingFilters: u32,
+            totalDropPacketsInbound: u32,
+        }
+        struct IPSEC_AGGREGATE_SA_STATISTICS0 {
+            activeSas: u32,
+            pendingSaNegotiations: u32,
+            totalSasAdded: u32,
+            totalSasDeleted: u32,
+            successfulRekeys: u32,
+            activeTunnels: u32,
+            offloadedSas: u32,
+        }
+        struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
+            invalidSpisOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            saNotInitializedOnInbound: u32,
+        }
+        struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
+            authTransform: IPSEC_AUTH_TRANSFORM0,
+            cipherTransform: IPSEC_CIPHER_TRANSFORM0,
+        }
+        type IPSEC_AUTH_CONFIG = u8;
+        const IPSEC_AUTH_CONFIG_GCM_AES_128: u32 = 3;
+        const IPSEC_AUTH_CONFIG_GCM_AES_192: u32 = 4;
+        const IPSEC_AUTH_CONFIG_GCM_AES_256: u32 = 5;
+        const IPSEC_AUTH_CONFIG_HMAC_MD5_96: u32 = 0;
+        const IPSEC_AUTH_CONFIG_HMAC_SHA_1_96: u32 = 1;
+        const IPSEC_AUTH_CONFIG_HMAC_SHA_256_128: u32 = 2;
+        const IPSEC_AUTH_CONFIG_MAX: u32 = 6;
+        struct IPSEC_AUTH_TRANSFORM0 {
+            authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
+            cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
+        }
+        struct IPSEC_AUTH_TRANSFORM_ID0 {
+            authType: IPSEC_AUTH_TYPE,
+            authConfig: IPSEC_AUTH_CONFIG,
+        }
+        #[repr(i32)]
+        enum IPSEC_AUTH_TYPE {
+            IPSEC_AUTH_MD5 = 0,
+            IPSEC_AUTH_SHA_1 = 1,
+            IPSEC_AUTH_SHA_256 = 2,
+            IPSEC_AUTH_AES_128 = 3,
+            IPSEC_AUTH_AES_192 = 4,
+            IPSEC_AUTH_AES_256 = 5,
+            IPSEC_AUTH_MAX = 6,
+        }
+        type IPSEC_CIPHER_CONFIG = u8;
+        const IPSEC_CIPHER_CONFIG_CBC_3DES: u32 = 2;
+        const IPSEC_CIPHER_CONFIG_CBC_AES_128: u32 = 3;
+        const IPSEC_CIPHER_CONFIG_CBC_AES_192: u32 = 4;
+        const IPSEC_CIPHER_CONFIG_CBC_AES_256: u32 = 5;
+        const IPSEC_CIPHER_CONFIG_CBC_DES: u32 = 1;
+        const IPSEC_CIPHER_CONFIG_GCM_AES_128: u32 = 6;
+        const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7;
+        const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8;
+        const IPSEC_CIPHER_CONFIG_MAX: u32 = 9;
+        struct IPSEC_CIPHER_TRANSFORM0 {
+            cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
+            cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
+        }
+        struct IPSEC_CIPHER_TRANSFORM_ID0 {
+            cipherType: IPSEC_CIPHER_TYPE,
+            cipherConfig: IPSEC_CIPHER_CONFIG,
+        }
+        #[repr(i32)]
+        enum IPSEC_CIPHER_TYPE {
+            IPSEC_CIPHER_TYPE_DES = 1,
+            IPSEC_CIPHER_TYPE_3DES = 2,
+            IPSEC_CIPHER_TYPE_AES_128 = 3,
+            IPSEC_CIPHER_TYPE_AES_192 = 4,
+            IPSEC_CIPHER_TYPE_AES_256 = 5,
+            IPSEC_CIPHER_TYPE_MAX = 6,
+        }
+        type IPSEC_CRYPTO_MODULE_ID = GUID;
+        const IPSEC_DOSP_DSCP_DISABLE_VALUE: u32 = 255;
+        const IPSEC_DOSP_FLAG_DISABLE_AUTHIP: u32 = 4;
+        const IPSEC_DOSP_FLAG_DISABLE_DEFAULT_BLOCK: u32 = 8;
+        const IPSEC_DOSP_FLAG_ENABLE_IKEV1: u32 = 1;
+        const IPSEC_DOSP_FLAG_ENABLE_IKEV2: u32 = 2;
+        const IPSEC_DOSP_FLAG_FILTER_BLOCK: u32 = 16;
+        const IPSEC_DOSP_FLAG_FILTER_EXEMPT: u32 = 32;
+        struct IPSEC_DOSP_OPTIONS0 {
+            stateIdleTimeoutSeconds: u32,
+            perIPRateLimitQueueIdleTimeoutSeconds: u32,
+            ipV6IPsecUnauthDscp: u8,
+            ipV6IPsecUnauthRateLimitBytesPerSec: u32,
+            ipV6IPsecUnauthPerIPRateLimitBytesPerSec: u32,
+            ipV6IPsecAuthDscp: u8,
+            ipV6IPsecAuthRateLimitBytesPerSec: u32,
+            icmpV6Dscp: u8,
+            icmpV6RateLimitBytesPerSec: u32,
+            ipV6FilterExemptDscp: u8,
+            ipV6FilterExemptRateLimitBytesPerSec: u32,
+            defBlockExemptDscp: u8,
+            defBlockExemptRateLimitBytesPerSec: u32,
+            maxStateEntries: u32,
+            maxPerIPRateLimitQueues: u32,
+            flags: u32,
+            numPublicIFLuids: u32,
+            publicIFLuids: *mut u64,
+            numInternalIFLuids: u32,
+            internalIFLuids: *mut u64,
+            publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
+            internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
+        }
+        const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0;
+        struct IPSEC_DOSP_STATE0 {
+            publicHostV6Addr: [u8; 16],
+            internalHostV6Addr: [u8; 16],
+            totalInboundIPv6IPsecAuthPackets: u64,
+            totalOutboundIPv6IPsecAuthPackets: u64,
+            durationSecs: u32,
+        }
+        struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
+            publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
+            internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
+        }
+        struct IPSEC_DOSP_STATISTICS0 {
+            totalStateEntriesCreated: u64,
+            currentStateEntries: u64,
+            totalInboundAllowedIPv6IPsecUnauthPkts: u64,
+            totalInboundRatelimitDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundPerIPRatelimitDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundOtherDiscardedIPv6IPsecUnauthPkts: u64,
+            totalInboundAllowedIPv6IPsecAuthPkts: u64,
+            totalInboundRatelimitDiscardedIPv6IPsecAuthPkts: u64,
+            totalInboundOtherDiscardedIPv6IPsecAuthPkts: u64,
+            totalInboundAllowedICMPv6Pkts: u64,
+            totalInboundRatelimitDiscardedICMPv6Pkts: u64,
+            totalInboundAllowedIPv6FilterExemptPkts: u64,
+            totalInboundRatelimitDiscardedIPv6FilterExemptPkts: u64,
+            totalInboundDiscardedIPv6FilterBlockPkts: u64,
+            totalInboundAllowedDefBlockExemptPkts: u64,
+            totalInboundRatelimitDiscardedDefBlockExemptPkts: u64,
+            totalInboundDiscardedDefBlockPkts: u64,
+            currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
+        }
+        struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
+            invalidSpisOnInbound: u32,
+            decryptionFailuresOnInbound: u32,
+            authenticationFailuresOnInbound: u32,
+            replayCheckFailuresOnInbound: u32,
+            saNotInitializedOnInbound: u32,
+        }
+        #[repr(i32)]
+        enum IPSEC_FAILURE_POINT {
+            IPSEC_FAILURE_NONE = 0,
+            IPSEC_FAILURE_ME = 1,
+            IPSEC_FAILURE_PEER = 2,
+            IPSEC_FAILURE_POINT_MAX = 3,
+        }
+        struct IPSEC_GETSPI0 {
+            inboundIpsecTraffic: IPSEC_TRAFFIC0,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            rngCryptoModuleID: *mut IPSEC_CRYPTO_MODULE_ID,
+        }
+        struct IPSEC_GETSPI1 {
+            inboundIpsecTraffic: IPSEC_TRAFFIC1,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            rngCryptoModuleID: *mut IPSEC_CRYPTO_MODULE_ID,
+        }
+        struct IPSEC_ID0 {
+            mmTargetName: *mut u16,
+            emTargetName: *mut u16,
+            numTokens: u32,
+            tokens: *mut IPSEC_TOKEN0,
+            explicitCredentials: u64,
+            logonId: u64,
+        }
+        struct IPSEC_KEYING_POLICY0 {
+            numKeyMods: u32,
+            keyModKeys: *mut GUID,
+        }
+        struct IPSEC_KEYING_POLICY1 {
+            numKeyMods: u32,
+            keyModKeys: *mut GUID,
+            flags: u32,
+        }
+        const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1;
+        struct IPSEC_KEYMODULE_STATE0 {
+            keyModuleKey: GUID,
+            stateBlob: FWP_BYTE_BLOB,
+        }
+        struct IPSEC_KEY_MANAGER0 {
+            keyManagerKey: GUID,
+            displayData: FWPM_DISPLAY_DATA0,
+            flags: u32,
+            keyDictationTimeoutHint: u8,
+        }
+        const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1;
+        #[repr(i32)]
+        enum IPSEC_PFS_GROUP {
+            IPSEC_PFS_NONE = 0,
+            IPSEC_PFS_1 = 1,
+            IPSEC_PFS_2 = 2,
+            IPSEC_PFS_2048 = 3,
+            IPSEC_PFS_14 = 3,
+            IPSEC_PFS_ECP_256 = 4,
+            IPSEC_PFS_ECP_384 = 5,
+            IPSEC_PFS_MM = 6,
+            IPSEC_PFS_24 = 7,
+            IPSEC_PFS_MAX = 8,
+        }
+        const IPSEC_POLICY_FLAG_BANDWIDTH1: u32 = 268435456;
+        const IPSEC_POLICY_FLAG_BANDWIDTH2: u32 = 536870912;
+        const IPSEC_POLICY_FLAG_BANDWIDTH3: u32 = 1073741824;
+        const IPSEC_POLICY_FLAG_BANDWIDTH4: u32 = 2147483648;
+        const IPSEC_POLICY_FLAG_CLEAR_DF_ON_TUNNEL: u32 = 8;
+        const IPSEC_POLICY_FLAG_DONT_NEGOTIATE_BYTE_LIFETIME: u32 = 128;
+        const IPSEC_POLICY_FLAG_DONT_NEGOTIATE_SECOND_LIFETIME: u32 = 64;
+        const IPSEC_POLICY_FLAG_ENABLE_SERVER_ADDR_ASSIGNMENT: u32 = 512;
+        const IPSEC_POLICY_FLAG_ENABLE_V6_IN_V4_TUNNELING: u32 = 256;
+        const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_DICTATE_KEY: u32 = 8192;
+        const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384;
+        const IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_GENERAL_NAT_TRAVERSAL: u32 = 32;
+        const IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_PEER_BEHIND_NAT: u32 = 16;
+        const IPSEC_POLICY_FLAG_ND_BOUNDARY: u32 = 4;
+        const IPSEC_POLICY_FLAG_ND_SECURE: u32 = 2;
+        const IPSEC_POLICY_FLAG_POINT_TO_SITE_TUNNEL: u32 = 131072;
+        const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768;
+        const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536;
+        const IPSEC_POLICY_FLAG_TUNNEL_ALLOW_OUTBOUND_CLEAR_CONNECTION: u32 = 1024;
+        const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ALREADY_SECURE_CONNECTION: u32 = 2048;
+        const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6: u32 = 4096;
+        struct IPSEC_PROPOSAL0 {
+            lifetime: IPSEC_SA_LIFETIME0,
+            numSaTransforms: u32,
+            saTransforms: *mut IPSEC_SA_TRANSFORM0,
+            pfsGroup: IPSEC_PFS_GROUP,
+        }
+        struct IPSEC_SA0 {
+            spi: IPSEC_SA_SPI,
+            saTransformType: IPSEC_TRANSFORM_TYPE,
+            Anonymous: union {
+                ahInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
+                espAuthInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
+                espCipherInformation: *mut IPSEC_SA_CIPHER_INFORMATION0,
+                espAuthAndCipherInformation: *mut IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0,
+                espAuthFwInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
+            },
+        }
+        struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
+            saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0,
+            saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
+        }
+        struct IPSEC_SA_AUTH_INFORMATION0 {
+            authTransform: IPSEC_AUTH_TRANSFORM0,
+            authKey: FWP_BYTE_BLOB,
+        }
+        struct IPSEC_SA_BUNDLE0 {
+            flags: u32,
+            lifetime: IPSEC_SA_LIFETIME0,
+            idleTimeoutSeconds: u32,
+            ndAllowClearTimeoutSeconds: u32,
+            ipsecId: *mut IPSEC_ID0,
+            napContext: u32,
+            qmSaId: u32,
+            numSAs: u32,
+            saList: *mut IPSEC_SA0,
+            keyModuleState: *mut IPSEC_KEYMODULE_STATE0,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                peerV4PrivateAddress: u32,
+            },
+            mmSaId: u64,
+            pfsGroup: IPSEC_PFS_GROUP,
+        }
+        struct IPSEC_SA_BUNDLE1 {
+            flags: u32,
+            lifetime: IPSEC_SA_LIFETIME0,
+            idleTimeoutSeconds: u32,
+            ndAllowClearTimeoutSeconds: u32,
+            ipsecId: *mut IPSEC_ID0,
+            napContext: u32,
+            qmSaId: u32,
+            numSAs: u32,
+            saList: *mut IPSEC_SA0,
+            keyModuleState: *mut IPSEC_KEYMODULE_STATE0,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                peerV4PrivateAddress: u32,
+            },
+            mmSaId: u64,
+            pfsGroup: IPSEC_PFS_GROUP,
+            saLookupContext: GUID,
+            qmFilterId: u64,
+        }
+        const IPSEC_SA_BUNDLE_FLAG_ALLOW_NULL_TARGET_NAME_MATCH: u32 = 512;
+        const IPSEC_SA_BUNDLE_FLAG_ASSUME_UDP_CONTEXT_OUTBOUND: u32 = 2048;
+        const IPSEC_SA_BUNDLE_FLAG_CLEAR_DF_ON_TUNNEL: u32 = 1024;
+        const IPSEC_SA_BUNDLE_FLAG_ENABLE_OPTIONAL_ASYMMETRIC_IDLE: u32 = 262144;
+        const IPSEC_SA_BUNDLE_FLAG_FORCE_INBOUND_CONNECTIONS: u32 = 32768;
+        const IPSEC_SA_BUNDLE_FLAG_FORCE_OUTBOUND_CONNECTIONS: u32 = 65536;
+        const IPSEC_SA_BUNDLE_FLAG_FORWARD_PATH_INITIATOR: u32 = 131072;
+        const IPSEC_SA_BUNDLE_FLAG_GUARANTEE_ENCRYPTION: u32 = 8;
+        const IPSEC_SA_BUNDLE_FLAG_IP_IN_IP_PKT: u32 = 4194304;
+        const IPSEC_SA_BUNDLE_FLAG_LOCALLY_DICTATED_KEYS: u32 = 1048576;
+        const IPSEC_SA_BUNDLE_FLAG_LOW_POWER_MODE_SUPPORT: u32 = 8388608;
+        const IPSEC_SA_BUNDLE_FLAG_ND_BOUNDARY: u32 = 2;
+        const IPSEC_SA_BUNDLE_FLAG_ND_PEER_BOUNDARY: u32 = 4096;
+        const IPSEC_SA_BUNDLE_FLAG_ND_PEER_NAT_BOUNDARY: u32 = 4;
+        const IPSEC_SA_BUNDLE_FLAG_ND_SECURE: u32 = 1;
+        const IPSEC_SA_BUNDLE_FLAG_NLB: u32 = 16;
+        const IPSEC_SA_BUNDLE_FLAG_NO_EXPLICIT_CRED_MATCH: u32 = 128;
+        const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64;
+        const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32;
+        const IPSEC_SA_BUNDLE_FLAG_PEER_SUPPORTS_GUARANTEE_ENCRYPTION: u32 = 16384;
+        const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152;
+        const IPSEC_SA_BUNDLE_FLAG_SUPPRESS_DUPLICATE_DELETION: u32 = 8192;
+        const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH1: u32 = 268435456;
+        const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH2: u32 = 536870912;
+        const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH3: u32 = 1073741824;
+        const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4: u32 = 2147483648;
+        const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288;
+        struct IPSEC_SA_CIPHER_INFORMATION0 {
+            cipherTransform: IPSEC_CIPHER_TRANSFORM0,
+            cipherKey: FWP_BYTE_BLOB,
+        }
+        struct IPSEC_SA_CONTEXT0 {
+            saContextId: u64,
+            inboundSa: *mut IPSEC_SA_DETAILS0,
+            outboundSa: *mut IPSEC_SA_DETAILS0,
+        }
+        struct IPSEC_SA_CONTEXT1 {
+            saContextId: u64,
+            inboundSa: *mut IPSEC_SA_DETAILS1,
+            outboundSa: *mut IPSEC_SA_DETAILS1,
+        }
+        struct IPSEC_SA_CONTEXT_CHANGE0 {
+            changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
+            saContextId: u64,
+        }
+        struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
+            localSubNet: FWP_CONDITION_VALUE0,
+            remoteSubNet: FWP_CONDITION_VALUE0,
+        }
+        #[repr(i32)]
+        enum IPSEC_SA_CONTEXT_EVENT_TYPE0 {
+            IPSEC_SA_CONTEXT_EVENT_ADD = 1,
+            IPSEC_SA_CONTEXT_EVENT_DELETE = 2,
+            IPSEC_SA_CONTEXT_EVENT_MAX = 3,
+        }
+        struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+            enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
+            flags: u32,
+            sessionKey: GUID,
+        }
+        struct IPSEC_SA_DETAILS0 {
+            ipVersion: FWP_IP_VERSION,
+            saDirection: FWP_DIRECTION,
+            traffic: IPSEC_TRAFFIC0,
+            saBundle: IPSEC_SA_BUNDLE0,
+            Anonymous: union {
+                udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            transportFilter: *mut FWPM_FILTER0,
+        }
+        struct IPSEC_SA_DETAILS1 {
+            ipVersion: FWP_IP_VERSION,
+            saDirection: FWP_DIRECTION,
+            traffic: IPSEC_TRAFFIC1,
+            saBundle: IPSEC_SA_BUNDLE1,
+            Anonymous: union {
+                udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
+            },
+            transportFilter: *mut FWPM_FILTER0,
+            virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0,
+        }
+        struct IPSEC_SA_ENUM_TEMPLATE0 {
+            saDirection: FWP_DIRECTION,
+        }
+        struct IPSEC_SA_IDLE_TIMEOUT0 {
+            idleTimeoutSeconds: u32,
+            idleTimeoutSecondsFailOver: u32,
+        }
+        struct IPSEC_SA_LIFETIME0 {
+            lifetimeSeconds: u32,
+            lifetimeKilobytes: u32,
+            lifetimePackets: u32,
+        }
+        type IPSEC_SA_SPI = u32;
+        struct IPSEC_SA_TRANSFORM0 {
+            ipsecTransformType: IPSEC_TRANSFORM_TYPE,
+            Anonymous: union {
+                ahTransform: *mut IPSEC_AUTH_TRANSFORM0,
+                espAuthTransform: *mut IPSEC_AUTH_TRANSFORM0,
+                espCipherTransform: *mut IPSEC_CIPHER_TRANSFORM0,
+                espAuthAndCipherTransform: *mut IPSEC_AUTH_AND_CIPHER_TRANSFORM0,
+                espAuthFwTransform: *mut IPSEC_AUTH_TRANSFORM0,
+            },
+        }
+        struct IPSEC_STATISTICS0 {
+            aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
+            espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
+            ahDropPacketStatistics: IPSEC_AH_DROP_PACKET_STATISTICS0,
+            aggregateDropPacketStatistics: IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0,
+            inboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
+            outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
+        }
+        struct IPSEC_STATISTICS1 {
+            aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
+            espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
+            ahDropPacketStatistics: IPSEC_AH_DROP_PACKET_STATISTICS0,
+            aggregateDropPacketStatistics: IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1,
+            inboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
+            outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
+        }
+        struct IPSEC_TOKEN0 {
+            r#type: IPSEC_TOKEN_TYPE,
+            principal: IPSEC_TOKEN_PRINCIPAL,
+            mode: IPSEC_TOKEN_MODE,
+            token: IPSEC_TOKEN_HANDLE,
+        }
+        type IPSEC_TOKEN_HANDLE = u64;
+        #[repr(i32)]
+        enum IPSEC_TOKEN_MODE {
+            IPSEC_TOKEN_MODE_MAIN = 0,
+            IPSEC_TOKEN_MODE_EXTENDED = 1,
+            IPSEC_TOKEN_MODE_MAX = 2,
+        }
+        #[repr(i32)]
+        enum IPSEC_TOKEN_PRINCIPAL {
+            IPSEC_TOKEN_PRINCIPAL_LOCAL = 0,
+            IPSEC_TOKEN_PRINCIPAL_PEER = 1,
+            IPSEC_TOKEN_PRINCIPAL_MAX = 2,
+        }
+        #[repr(i32)]
+        enum IPSEC_TOKEN_TYPE {
+            IPSEC_TOKEN_TYPE_MACHINE = 0,
+            IPSEC_TOKEN_TYPE_IMPERSONATION = 1,
+            IPSEC_TOKEN_TYPE_MAX = 2,
+        }
+        struct IPSEC_TRAFFIC0 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            trafficType: IPSEC_TRAFFIC_TYPE,
+            Anonymous3: union {
+                ipsecFilterId: u64,
+                tunnelPolicyId: u64,
+            },
+            remotePort: u16,
+        }
+        struct IPSEC_TRAFFIC1 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            trafficType: IPSEC_TRAFFIC_TYPE,
+            Anonymous3: union {
+                ipsecFilterId: u64,
+                tunnelPolicyId: u64,
+            },
+            remotePort: u16,
+            localPort: u16,
+            ipProtocol: u8,
+            localIfLuid: u64,
+            realIfProfileId: u32,
+        }
+        struct IPSEC_TRAFFIC_SELECTOR0 {
+            protocolId: u8,
+            portStart: u16,
+            portEnd: u16,
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                startV4Address: u32,
+                startV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                endV4Address: u32,
+                endV6Address: [u8; 16],
+            },
+        }
+        struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
+            flags: u32,
+            numLocalTrafficSelectors: u32,
+            localTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
+            numRemoteTrafficSelectors: u32,
+            remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
+        }
+        struct IPSEC_TRAFFIC_STATISTICS0 {
+            encryptedByteCount: u64,
+            authenticatedAHByteCount: u64,
+            authenticatedESPByteCount: u64,
+            transportByteCount: u64,
+            tunnelByteCount: u64,
+            offloadByteCount: u64,
+        }
+        struct IPSEC_TRAFFIC_STATISTICS1 {
+            encryptedByteCount: u64,
+            authenticatedAHByteCount: u64,
+            authenticatedESPByteCount: u64,
+            transportByteCount: u64,
+            tunnelByteCount: u64,
+            offloadByteCount: u64,
+            totalSuccessfulPackets: u64,
+        }
+        #[repr(i32)]
+        enum IPSEC_TRAFFIC_TYPE {
+            IPSEC_TRAFFIC_TYPE_TRANSPORT = 0,
+            IPSEC_TRAFFIC_TYPE_TUNNEL = 1,
+            IPSEC_TRAFFIC_TYPE_MAX = 2,
+        }
+        #[repr(i32)]
+        enum IPSEC_TRANSFORM_TYPE {
+            IPSEC_TRANSFORM_AH = 1,
+            IPSEC_TRANSFORM_ESP_AUTH = 2,
+            IPSEC_TRANSFORM_ESP_CIPHER = 3,
+            IPSEC_TRANSFORM_ESP_AUTH_AND_CIPHER = 4,
+            IPSEC_TRANSFORM_ESP_AUTH_FW = 5,
+            IPSEC_TRANSFORM_TYPE_MAX = 6,
+        }
+        struct IPSEC_TRANSPORT_POLICY0 {
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY0,
+        }
+        struct IPSEC_TRANSPORT_POLICY1 {
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY1,
+        }
+        struct IPSEC_TRANSPORT_POLICY2 {
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            flags: u32,
+            ndAllowClearTimeoutSeconds: u32,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY2,
+        }
+        struct IPSEC_TUNNEL_ENDPOINT0 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                v4Address: u32,
+                v6Address: [u8; 16],
+            },
+        }
+        struct IPSEC_TUNNEL_ENDPOINTS0 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+        }
+        struct IPSEC_TUNNEL_ENDPOINTS1 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            localIfLuid: u64,
+        }
+        struct IPSEC_TUNNEL_ENDPOINTS2 {
+            ipVersion: FWP_IP_VERSION,
+            Anonymous: union {
+                localV4Address: u32,
+                localV6Address: [u8; 16],
+            },
+            Anonymous2: union {
+                remoteV4Address: u32,
+                remoteV6Address: [u8; 16],
+            },
+            localIfLuid: u64,
+            remoteFqdn: *mut u16,
+            numAddresses: u32,
+            remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
+        }
+        struct IPSEC_TUNNEL_POLICY0 {
+            flags: u32,
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS0,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY0,
+        }
+        struct IPSEC_TUNNEL_POLICY1 {
+            flags: u32,
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS1,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY1,
+        }
+        struct IPSEC_TUNNEL_POLICY2 {
+            flags: u32,
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS2,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY2,
+            fwdPathSaLifetime: u32,
+        }
+        struct IPSEC_TUNNEL_POLICY3 {
+            flags: u32,
+            numIpsecProposals: u32,
+            ipsecProposals: *mut IPSEC_PROPOSAL0,
+            tunnelEndpoints: IPSEC_TUNNEL_ENDPOINTS2,
+            saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
+            emPolicy: *mut IKEEXT_EM_POLICY2,
+            fwdPathSaLifetime: u32,
+            compartmentId: u32,
+            numTrafficSelectorPolicy: u32,
+            trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0,
+        }
+        struct IPSEC_V4_UDP_ENCAPSULATION0 {
+            localUdpEncapPort: u16,
+            remoteUdpEncapPort: u16,
+        }
+    }
+}

@@ -1,0 +1,4232 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct D3DKMDT_DISPLAYMODE_FLAGS {
+            _bitfield1: u32,
+            _bitfield2: D3DKMDT_MODE_PRUNING_REASON,
+        }
+        #[repr(i32)]
+        enum D3DKMDT_MODE_PRUNING_REASON {
+            D3DKMDT_MPR_UNINITIALIZED = 0,
+            D3DKMDT_MPR_ALLCAPS = 1,
+            D3DKMDT_MPR_DESCRIPTOR_MONITOR_SOURCE_MODE = 2,
+            D3DKMDT_MPR_DESCRIPTOR_MONITOR_FREQUENCY_RANGE = 3,
+            D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_SOURCE_MODE = 4,
+            D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_FREQUENCY_RANGE = 5,
+            D3DKMDT_MPR_DEFAULT_PROFILE_MONITOR_SOURCE_MODE = 6,
+            D3DKMDT_MPR_DRIVER_RECOMMENDED_MONITOR_SOURCE_MODE = 7,
+            D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE = 8,
+            D3DKMDT_MPR_CLONE_PATH_PRUNED = 9,
+            D3DKMDT_MPR_MAXVALID = 10,
+        }
+        #[library("GDI32.dll")]
+        extern fn D3DKMTAcquireKeyedMutex(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTAcquireKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckExclusiveOwnership() -> BOOLEAN;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckMultiPlaneOverlaySupport(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckMultiPlaneOverlaySupport2(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckMultiPlaneOverlaySupport3(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckSharedResourceAccess(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCheckVidPnExclusiveOwnership(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCloseAdapter(param0: *const D3DKMT_CLOSEADAPTER) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTConnectDoorbell(param0: *const D3DKMT_CONNECT_DOORBELL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateAllocation(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateAllocation2(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateContext(#[in] #[out] param0: *mut D3DKMT_CREATECONTEXT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateDCFromMemory(#[in] #[out] param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateDevice(#[in] #[out] param0: *mut D3DKMT_CREATEDEVICE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateDoorbell(param0: *const D3DKMT_CREATE_DOORBELL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateHwContext(#[in] #[out] param0: *mut D3DKMT_CREATEHWCONTEXT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateHwQueue(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateHwQueueForUserModeSubmission(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateKeyedMutex(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateNativeFence(#[in] #[out] param0: *mut D3DKMT_CREATENATIVEFENCE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateOverlay(#[in] #[out] param0: *mut D3DKMT_CREATEOVERLAY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreatePagingQueue(#[in] #[out] param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateProtectedSession(#[in] #[out] param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateSynchronizationObject(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTCreateSynchronizationObject2(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyAllocation2(param0: *const D3DKMT_DESTROYALLOCATION2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyDevice(param0: *const D3DKMT_DESTROYDEVICE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyDoorbell(param0: *const D3DKMT_DESTROY_DOORBELL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyHwContext(param0: *const D3DKMT_DESTROYHWCONTEXT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyHwQueue(param0: *const D3DKMT_DESTROYHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyKeyedMutex(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyOutputDupl(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyPagingQueue(#[in] #[out] param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroyProtectedSession(#[in] #[out] param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTEnumAdapters(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTEnumAdapters2(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS2) -> NTSTATUS;
+        #[library("api-ms-win-dx-d3dkmt-l1-1-6.dll")]
+        extern fn D3DKMTEnumAdapters3(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS3) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTEvict(#[in] #[out] param0: *mut D3DKMT_EVICT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTFlushHeapTransitions(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTFreeGpuVirtualAddress(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetContextInProcessSchedulingPriority(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetContextSchedulingPriority(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetDeviceState(#[in] #[out] param0: *mut D3DKMT_GETDEVICESTATE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetDisplayModeList(#[in] #[out] param0: *mut D3DKMT_GETDISPLAYMODELIST) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetMultiPlaneOverlayCaps(#[in] #[out] param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetMultisampleMethodList(#[in] #[out] param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetNativeFenceLogDetail(#[in] #[out] param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetOverlayState(#[in] #[out] param0: *mut D3DKMT_GETOVERLAYSTATE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetPostCompositionCaps(#[in] #[out] param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetPresentHistory(#[in] #[out] param0: *mut D3DKMT_GETPRESENTHISTORY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetPresentQueueEvent(hAdapter: D3DKMT_HANDLE, #[in] #[out] param1: *mut HANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetProcessDeviceRemovalSupport(#[in] #[out] param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetProcessSchedulingPriorityClass(param0: HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetResourcePresentPrivateDriverData(#[in] #[out] param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetRuntimeData(#[in] #[out] param0: *mut D3DKMT_GETRUNTIMEDATA) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetScanLine(#[in] #[out] param0: *mut D3DKMT_GETSCANLINE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetSharedPrimaryHandle(#[in] #[out] param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTGetSharedResourceAdapterLuid(#[in] #[out] param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTIsFeatureEnabled(#[in] #[out] param0: *mut D3DKMT_ISFEATUREENABLED) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTLock(#[in] #[out] param0: *mut D3DKMT_LOCK) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTLock2(#[in] #[out] param0: *mut D3DKMT_LOCK2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTMakeResident(#[in] #[out] param0: *mut D3DDDI_MAKERESIDENT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTMapGpuVirtualAddress(#[in] #[out] param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTNotifyWorkSubmission(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenAdapterFromDeviceName(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenAdapterFromGdiDisplayName(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenAdapterFromHdc(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenAdapterFromLuid(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenKeyedMutex(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenKeyedMutexFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenNativeFenceFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenNtHandleFromName(#[in] #[out] param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenProtectedSessionFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenResource(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenResource2(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenResourceFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenSyncObjectFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenSyncObjectFromNtHandle2(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenSyncObjectNtHandleFromName(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOpenSynchronizationObject(#[in] #[out] param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOutputDuplGetFrameInfo(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOutputDuplGetMetaData(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOutputDuplGetPointerShapeData(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> NTSTATUS;
+        #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        extern fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTOutputDuplReleaseFrame(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPresent(#[in] #[out] param0: *mut D3DKMT_PRESENT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPresentMultiPlaneOverlay2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPresentMultiPlaneOverlay3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryAdapterInfo(#[in] #[out] param0: *mut D3DKMT_QUERYADAPTERINFO) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryClockCalibration(#[in] #[out] param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryFSEBlock(#[in] #[out] param0: *mut D3DKMT_QUERYFSEBLOCK) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryFeatureInterface(#[in] #[out] param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryProcessOfferInfo(#[in] #[out] param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryProtectedSessionInfoFromNtHandle(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryProtectedSessionStatus(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(#[in] #[out] param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryResourceInfo(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFO) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryResourceInfoFromNtHandle(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryVidPnExclusiveOwnership(#[in] #[out] param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTQueryVideoMemoryInfo(#[in] #[out] param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReclaimAllocations(#[in] #[out] param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReclaimAllocations2(#[in] #[out] param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTRegisterTrimNotification(#[in] #[out] param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTRegisterVailProcess(param0: *const GUID) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReleaseKeyedMutex(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReleaseKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReleaseProcessVidPnSourceOwners(param0: HANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTRender(#[in] #[out] param0: *mut D3DKMT_RENDER) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTReserveGpuVirtualAddress(#[in] #[out] param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTResizeRingBuffer(#[in] #[out] param0: *mut D3DKMT_RESIZERINGBUFFER) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetContextInProcessSchedulingPriority(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetDisplayMode(#[in] #[out] param0: *mut D3DKMT_SETDISPLAYMODE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetFSEBlock(param0: *const D3DKMT_SETFSEBLOCK) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetGammaRamp(param0: *const D3DKMT_SETGAMMARAMP) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetHwProtectionTeardownRecovery(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetProcessSchedulingPriorityClass(param0: HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetStablePowerState(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetSyncRefreshCountWaitTarget(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetVidPnSourceHwProtection(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetVidPnSourceOwner(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetVidPnSourceOwner1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTShareObjects(cObjects: u32, #[len_param(0)] hObjects: *const D3DKMT_HANDLE, pObjectAttributes: *const OBJECT_ATTRIBUTES, dwDesiredAccess: u32, phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSharedPrimaryUnLockNotification(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSignalSynchronizationObject(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSignalSynchronizationObject2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSignalSynchronizationObjectFromCpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSignalSynchronizationObjectFromGpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSignalSynchronizationObjectFromGpu2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSubmitCommand(param0: *const D3DKMT_SUBMITCOMMAND) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSubmitCommandToHwQueue(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> NTSTATUS;
+        #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        extern fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> NTSTATUS;
+        #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        extern fn D3DKMTSubmitPresentToHwQueue(#[in] #[out] param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTTrimProcessCommitment(#[in] #[out] param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUnregisterTrimNotification(#[in] #[out] param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUpdateAllocationProperty(#[in] #[out] param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTUpdateOverlay(param0: *const D3DKMT_UPDATEOVERLAY) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForSynchronizationObject(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForSynchronizationObject2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForSynchronizationObjectFromCpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForSynchronizationObjectFromGpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForVerticalBlankEvent(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> NTSTATUS;
+        #[library("GDI32.dll")]
+        extern fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
+        struct D3DKMT_ACQUIREKEYEDMUTEX {
+            hKeyedMutex: D3DKMT_HANDLE,
+            Key: u64,
+            pTimeout: PLARGE_INTEGER,
+            FenceValue: u64,
+        }
+        struct D3DKMT_ACQUIREKEYEDMUTEX2 {
+            hKeyedMutex: D3DKMT_HANDLE,
+            Key: u64,
+            pTimeout: PLARGE_INTEGER,
+            FenceValue: u64,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+        }
+        struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
+            Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
+            Activate: BOOL,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
+            D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO = 0,
+            D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED = 15,
+        }
+        struct D3DKMT_ADAPTERADDRESS {
+            BusNumber: u32,
+            DeviceNumber: u32,
+            FunctionNumber: u32,
+        }
+        struct D3DKMT_ADAPTERINFO {
+            hAdapter: D3DKMT_HANDLE,
+            AdapterLuid: LUID,
+            NumOfSources: u32,
+            bPrecisePresentRegionsPreferred: BOOL,
+        }
+        struct D3DKMT_ADAPTERREGISTRYINFO {
+            AdapterString: [u16; 260],
+            BiosString: [u16; 260],
+            DacType: [u16; 260],
+            ChipType: [u16; 260],
+        }
+        struct D3DKMT_ADAPTERTYPE {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_ADAPTER_PERFDATA {
+            PhysicalAdapterIndex: u32,
+            MemoryFrequency: u64,
+            MaxMemoryFrequency: u64,
+            MaxMemoryFrequencyOC: u64,
+            MemoryBandwidth: u64,
+            PCIEBandwidth: u64,
+            FanRPM: u32,
+            Power: u32,
+            Temperature: u32,
+            PowerStateOverride: u8,
+        }
+        struct D3DKMT_ADAPTER_PERFDATACAPS {
+            PhysicalAdapterIndex: u32,
+            MaxMemoryBandwidth: u64,
+            MaxPCIEBandwidth: u64,
+            MaxFanRPM: u32,
+            TemperatureMax: u32,
+            TemperatureWarning: u32,
+        }
+        struct D3DKMT_ADAPTER_VERIFIER_OPTION {
+            Type: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE,
+            Mode: D3DKMT_VERIFIER_OPTION_MODE,
+            Data: D3DKMT_ADAPTER_VERIFIER_OPTION_DATA,
+        }
+        union D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
+            VidMmFlags: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS,
+            VidMmTrimInterval: D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL,
+            VidMmPagingInfo: D3DKMT_ADAPTER_VERIFIER_VIDMM_PAGING_INFO,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
+            D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS = 1000,
+            D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL = 1001,
+            D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_PAGING_INFO = 1002,
+        }
+        union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_ADAPTER_VERIFIER_VIDMM_PAGING_INFO {
+            FillPattern: u32,
+            MaxTransferChunkSize: u32,
+        }
+        struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
+            MinimumTrimInterval: u64,
+            MaximumTrimInterval: u64,
+            IdleTrimInterval: u64,
+            ForegroundTrimInterval: u64,
+            StartPeriodicTrimThreshold: u32,
+            CriticalPeriodicTrimThreshold: u32,
+        }
+        struct D3DKMT_ADJUSTFULLSCREENGAMMA {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Scale: D3DDDI_DXGI_RGB,
+            Offset: D3DDDI_DXGI_RGB,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ALLOCATIONRESIDENCYSTATUS {
+            D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY = 1,
+            D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY = 2,
+            D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT = 3,
+        }
+        struct D3DKMT_AUXILIARYPRESENTINFO {
+            size: u32,
+            r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
+        }
+        #[repr(i32)]
+        enum D3DKMT_AUXILIARYPRESENTINFO_TYPE {
+            D3DKMT_AUXILIARYPRESENTINFO_TYPE_FLIPMANAGER = 0,
+        }
+        struct D3DKMT_BDDFALLBACK_CTL {
+            ForceBddHeadlessNextFallback: BOOLEAN,
+        }
+        struct D3DKMT_BLOCKLIST_INFO {
+            Size: u32,
+            BlockList: [u16; 1],
+        }
+        struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
+            hLogicalSurface: u64,
+            hPhysicalSurface: u64,
+            EventId: u64,
+            DirtyRegions: D3DKMT_DIRTYREGIONS,
+        }
+        struct D3DKMT_BRIGHTNESS_INFO {
+            Type: D3DKMT_BRIGHTNESS_INFO_TYPE,
+            ChildUid: u32,
+            Anonymous: union {
+                PossibleLevels: D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS,
+                Brightness: u8,
+                BrightnessCaps: DXGK_BRIGHTNESS_CAPS,
+                BrightnessState: DXGK_BRIGHTNESS_STATE,
+                OptimizationLevel: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL,
+                ReductionInfo: DXGK_BACKLIGHT_INFO,
+                VerboseLogging: BOOLEAN,
+                NitRanges: DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT,
+                GetBrightnessMillinits: DXGK_BRIGHTNESS_GET_OUT,
+                SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
+                BrightnessInterfaceSupported: D3DKMT_BRIGHTNESS_INTERFACE_VERSION,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_BRIGHTNESS_INFO_TYPE {
+            D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS = 1,
+            D3DKMT_BRIGHTNESS_INFO_GET = 2,
+            D3DKMT_BRIGHTNESS_INFO_SET = 3,
+            D3DKMT_BRIGHTNESS_INFO_GET_CAPS = 4,
+            D3DKMT_BRIGHTNESS_INFO_SET_STATE = 5,
+            D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION = 6,
+            D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION = 7,
+            D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE = 8,
+            D3DKMT_BRIGHTNESS_INFO_END_MANUAL_MODE = 9,
+            D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING = 10,
+            D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES = 11,
+            D3DKMT_BRIGHTNESS_INFO_SUPPORTED_INTERFACE = 12,
+        }
+        #[repr(i32)]
+        enum D3DKMT_BRIGHTNESS_INTERFACE_VERSION {
+            D3DKMT_BRIGHTNESS_INTERFACE_VERSION_UNINITIALIZED = 0,
+            D3DKMT_BRIGHTNESS_INTERFACE_VERSION_1 = 1,
+            D3DKMT_BRIGHTNESS_INTERFACE_VERSION_2 = 2,
+            D3DKMT_BRIGHTNESS_INTERFACE_VERSION_3 = 3,
+        }
+        struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
+            LevelCount: u8,
+            BrightnessLevels: [u8; 256],
+        }
+        struct D3DKMT_BUDGETCHANGENOTIFICATION {
+            Context: *mut void,
+            Budget: u64,
+        }
+        struct D3DKMT_CANCEL_PRESENTS {
+            cbSize: u32,
+            hDevice: D3DKMT_HANDLE,
+            Flags: D3DKMT_CANCEL_PRESENTS_FLAGS,
+            Operation: D3DKMT_CANCEL_PRESENTS_OPERATION,
+            CancelFromPresentId: u64,
+            CompSurfaceLuid: LUID,
+            BindId: u64,
+            hFlipManagerProcessedEvent: HANDLE,
+        }
+        struct D3DKMT_CANCEL_PRESENTS_FLAGS {
+            Anonymous: union {
+                ReprogramInterrupt: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_CANCEL_PRESENTS_OPERATION {
+            D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM = 0,
+            D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT = 1,
+            D3DKMT_CANCEL_PRESENTS_OPERATION_FLUSH_COMPLETED_PRESENTS = 2,
+        }
+        struct D3DKMT_CHANGESURFACEPOINTER {
+            hDC: HDC,
+            hBitmap: HANDLE,
+            pSurfacePointer: *mut void,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
+        }
+        struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
+            hProcess: HANDLE,
+            hAdapter: D3DKMT_HANDLE,
+            MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+            Reservation: u64,
+            PhysicalAdapterIndex: u32,
+        }
+        struct D3DKMT_CHECKMONITORPOWERSTATE {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
+            hDevice: D3DKMT_HANDLE,
+            PlaneCount: u32,
+            pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE,
+            Supported: BOOL,
+            ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
+        }
+        struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            PlaneCount: u32,
+            pOverlayPlanes: *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2,
+            Supported: BOOL,
+            ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
+        }
+        struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            PlaneCount: u32,
+            ppOverlayPlanes: *mut *mut D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3,
+            PostCompositionCount: u32,
+            ppPostComposition: *mut *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE,
+            Supported: BOOL,
+            ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
+        }
+        struct D3DKMT_CHECKOCCLUSION {
+            hWindow: HWND,
+        }
+        struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
+            hResource: D3DKMT_HANDLE,
+            ClientPid: u32,
+        }
+        struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
+            hResource: D3DKMT_HANDLE,
+            CompSurfaceLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
+        }
+        struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
+            LayerIndex: u32,
+            hResource: D3DKMT_HANDLE,
+            CompSurfaceLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
+        }
+        struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
+            LayerIndex: u32,
+            hResource: D3DKMT_HANDLE,
+            CompSurfaceLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
+        }
+        struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_CLIENTHINT {
+            D3DKMT_CLIENTHINT_UNKNOWN = 0,
+            D3DKMT_CLIENTHINT_OPENGL = 1,
+            D3DKMT_CLIENTHINT_CDD = 2,
+            D3DKMT_CLIENTHINT_OPENCL = 3,
+            D3DKMT_CLIENTHINT_VULKAN = 4,
+            D3DKMT_CLIENTHINT_CUDA = 5,
+            D3DKMT_CLIENTHINT_RESERVED = 6,
+            D3DKMT_CLIENTHINT_DX7 = 7,
+            D3DKMT_CLIENTHINT_DX8 = 8,
+            D3DKMT_CLIENTHINT_DX9 = 9,
+            D3DKMT_CLIENTHINT_DX10 = 10,
+            D3DKMT_CLIENTHINT_DX11 = 11,
+            D3DKMT_CLIENTHINT_DX12 = 12,
+            D3DKMT_CLIENTHINT_9ON12 = 13,
+            D3DKMT_CLIENTHINT_11ON12 = 14,
+            D3DKMT_CLIENTHINT_MFT_ENCODE = 15,
+            D3DKMT_CLIENTHINT_GLON12 = 16,
+            D3DKMT_CLIENTHINT_CLON12 = 17,
+            D3DKMT_CLIENTHINT_DML_TENSORFLOW = 18,
+            D3DKMT_CLIENTHINT_ONEAPI_LEVEL0 = 19,
+            D3DKMT_CLIENTHINT_DML_PYTORCH = 20,
+            D3DKMT_CLIENTHINT_VKON12 = 21,
+            D3DKMT_CLIENTHINT_FASTRPC = 22,
+            D3DKMT_CLIENTHINT_SNPE = 23,
+            D3DKMT_CLIENTHINT_QNN = 24,
+            D3DKMT_CLIENTHINT_VITIS = 25,
+            D3DKMT_CLIENTHINT_FFMPEG = 26,
+            D3DKMT_CLIENTHINT_OPEN_VINO = 27,
+            D3DKMT_CLIENTHINT_DML_WEBNN = 28,
+            D3DKMT_CLIENTHINT_MAX = 29,
+        }
+        struct D3DKMT_CLOSEADAPTER {
+            hAdapter: D3DKMT_HANDLE,
+        }
+        const D3DKMT_COMPONENTIZED_INDICATOR: u32 = 35;
+        struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
+            hPrivateData: u64,
+        }
+        struct D3DKMT_CONFIGURESHAREDRESOURCE {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            IsDwm: BOOLEAN,
+            hProcess: HANDLE,
+            AllowAccess: BOOLEAN,
+        }
+        struct D3DKMT_CONNECT_DOORBELL {
+            hHwQueue: D3DKMT_HANDLE,
+            Flags: D3DKMT_CONNECT_DOORBELL_FLAGS,
+            DoorbellMapping: D3DDDI_DOORBELLMAPPING,
+            Reserved: [u8; 64],
+        }
+        struct D3DKMT_CONNECT_DOORBELL_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_CPDRIVERNAME {
+            ContentProtectionFileName: [u16; 260],
+        }
+        struct D3DKMT_CREATEALLOCATION {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            hGlobalShare: D3DKMT_HANDLE,
+            pPrivateRuntimeData: *const void,
+            PrivateRuntimeDataSize: u32,
+            Anonymous: union {
+                pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
+                pPrivateDriverData: *const void,
+            },
+            PrivateDriverDataSize: u32,
+            NumAllocations: u32,
+            Anonymous2: union {
+                pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
+                pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
+            },
+            Flags: D3DKMT_CREATEALLOCATIONFLAGS,
+            hPrivateRuntimeResourceHandle: HANDLE,
+        }
+        struct D3DKMT_CREATEALLOCATIONFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_CREATECONTEXT {
+            hDevice: D3DKMT_HANDLE,
+            NodeOrdinal: u32,
+            EngineAffinity: u32,
+            Flags: D3DDDI_CREATECONTEXTFLAGS,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            ClientHint: D3DKMT_CLIENTHINT,
+            hContext: D3DKMT_HANDLE,
+            pCommandBuffer: *mut void,
+            CommandBufferSize: u32,
+            pAllocationList: *mut D3DDDI_ALLOCATIONLIST,
+            AllocationListSize: u32,
+            pPatchLocationList: *mut D3DDDI_PATCHLOCATIONLIST,
+            PatchLocationListSize: u32,
+            CommandBuffer: D3DGPU_VIRTUAL_ADDRESS,
+        }
+        struct D3DKMT_CREATECONTEXTVIRTUAL {
+            hDevice: D3DKMT_HANDLE,
+            NodeOrdinal: u32,
+            EngineAffinity: u32,
+            Flags: D3DDDI_CREATECONTEXTFLAGS,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            ClientHint: D3DKMT_CLIENTHINT,
+            hContext: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATEDCFROMMEMORY {
+            pMemory: *mut void,
+            Format: D3DDDIFORMAT,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
+            hDeviceDc: HDC,
+            pColorTable: *mut PALETTEENTRY,
+            hDc: HDC,
+            hBitmap: HANDLE,
+        }
+        struct D3DKMT_CREATEDEVICE {
+            Anonymous: union {
+                hAdapter: D3DKMT_HANDLE,
+                pAdapter: *mut void,
+            },
+            Flags: D3DKMT_CREATEDEVICEFLAGS,
+            hDevice: D3DKMT_HANDLE,
+            pCommandBuffer: *mut void,
+            CommandBufferSize: u32,
+            pAllocationList: *mut D3DDDI_ALLOCATIONLIST,
+            AllocationListSize: u32,
+            pPatchLocationList: *mut D3DDDI_PATCHLOCATIONLIST,
+            PatchLocationListSize: u32,
+        }
+        struct D3DKMT_CREATEDEVICEFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_CREATEHWCONTEXT {
+            hDevice: D3DKMT_HANDLE,
+            NodeOrdinal: u32,
+            EngineAffinity: u32,
+            Flags: D3DDDI_CREATEHWCONTEXTFLAGS,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+            hHwContext: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATEHWQUEUE {
+            hHwContext: D3DKMT_HANDLE,
+            Flags: D3DDDI_CREATEHWQUEUEFLAGS,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+            hHwQueue: D3DKMT_HANDLE,
+            hHwQueueProgressFence: D3DKMT_HANDLE,
+            HwQueueProgressFenceCPUVirtualAddress: *mut void,
+            HwQueueProgressFenceGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+        }
+        struct D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION {
+            hHwContext: D3DKMT_HANDLE,
+            Flags: D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS,
+            hRingBuffer: D3DKMT_HANDLE,
+            hRingBufferControl: D3DKMT_HANDLE,
+            PrivateDriverData: [u8; 64],
+            hHwQueue: D3DKMT_HANDLE,
+            DoorbellStatusCpuVa: *mut void,
+            hProgressFence: D3DKMT_HANDLE,
+            ProgressFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
+            ProgressFenceLastQueuedValueCpuVa: *mut void,
+            LogBufferInfo: D3DDDI_NATIVEFENCELOGDETAIL,
+            Reserved: [u8; 64],
+        }
+        struct D3DKMT_CREATEKEYEDMUTEX {
+            InitialValue: u64,
+            hSharedHandle: D3DKMT_HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATEKEYEDMUTEX2 {
+            InitialValue: u64,
+            hSharedHandle: D3DKMT_HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+            Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
+        }
+        struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_CREATENATIVEFENCE {
+            hDevice: D3DKMT_HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+            PrivateDriverData: [u8; 64],
+            Info: D3DDDI_NATIVEFENCEINFO,
+            Flags: D3DKMT_CREATENATIVEFENCE_FLAGS,
+            Reserved: [u8; 28],
+        }
+        struct D3DKMT_CREATENATIVEFENCE_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_CREATEOVERLAY {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            hDevice: D3DKMT_HANDLE,
+            OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
+            hOverlay: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATEPAGINGQUEUE {
+            hDevice: D3DKMT_HANDLE,
+            Priority: D3DDDI_PAGINGQUEUE_PRIORITY,
+            hPagingQueue: D3DKMT_HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+            FenceValueCPUVirtualAddress: *mut void,
+            PhysicalAdapterIndex: u32,
+        }
+        struct D3DKMT_CREATEPROTECTEDSESSION {
+            hDevice: D3DKMT_HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+            pPrivateDriverData: *const void,
+            PrivateDriverDataSize: u32,
+            pPrivateRuntimeData: *const void,
+            PrivateRuntimeDataSize: u32,
+            hHandle: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATESTANDARDALLOCATION {
+            Type: D3DKMT_STANDARDALLOCATIONTYPE,
+            Anonymous: union {
+                ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
+            },
+            Flags: D3DKMT_CREATESTANDARDALLOCATIONFLAGS,
+        }
+        struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_CREATESYNCFILE {
+            hDevice: D3DKMT_HANDLE,
+            hMonitoredFence: D3DKMT_HANDLE,
+            FenceValue: u64,
+            hSyncFile: u64,
+        }
+        struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
+            hDevice: D3DKMT_HANDLE,
+            Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO,
+            hSyncObject: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
+            hDevice: D3DKMT_HANDLE,
+            Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
+            hSyncObject: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATE_DOORBELL {
+            hHwQueue: D3DKMT_HANDLE,
+            hRingBuffer: D3DKMT_HANDLE,
+            hRingBufferControl: D3DKMT_HANDLE,
+            Flags: D3DKMT_CREATE_DOORBELL_FLAGS,
+            PrivateDriverDataSize: u32,
+            PrivateDriverData: *mut void,
+            DoorbellCPUVirtualAddress: *mut void,
+            DoorbellSecondaryCPUVirtualAddress: *mut void,
+            DoorbellStatusCPUVirtualAddress: *mut void,
+            HwQueueProgressFenceLastQueuedValueCPUVirtualAddress: *mut void,
+            hDoorbell: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_CREATE_DOORBELL_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_CREATE_OUTPUTDUPL {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            KeyedMutexCount: u32,
+            RequiredKeyedMutexCount: u32,
+            KeyedMutexs: [D3DKMT_OUTPUTDUPL_KEYEDMUTEX; 3],
+            Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
+        }
+        struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
+            SupportTier: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER,
+        }
+        #[repr(i32)]
+        enum D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
+            D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE = 0,
+            D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_COPY = 1,
+            D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE = 2,
+            D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT = 3,
+        }
+        struct D3DKMT_CURRENTDISPLAYMODE {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            DisplayMode: D3DKMT_DISPLAYMODE,
+        }
+        struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
+            Length: u32,
+            Buffer: [u8; 1],
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEFRAG_ESCAPE_OPERATION {
+            D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS = 0,
+            D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD = 1,
+            D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD = 2,
+            D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS = 3,
+            D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER = 4,
+        }
+        struct D3DKMT_DESTROYALLOCATION {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            phAllocationList: *const D3DKMT_HANDLE,
+            AllocationCount: u32,
+        }
+        struct D3DKMT_DESTROYALLOCATION2 {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            phAllocationList: *const D3DKMT_HANDLE,
+            AllocationCount: u32,
+            Flags: D3DDDICB_DESTROYALLOCATION2FLAGS,
+        }
+        struct D3DKMT_DESTROYCONTEXT {
+            hContext: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYDCFROMMEMORY {
+            hDc: HDC,
+            hBitmap: HANDLE,
+        }
+        struct D3DKMT_DESTROYDEVICE {
+            hDevice: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYHWCONTEXT {
+            hHwContext: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYHWQUEUE {
+            hHwQueue: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYKEYEDMUTEX {
+            hKeyedMutex: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYOVERLAY {
+            hDevice: D3DKMT_HANDLE,
+            hOverlay: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYPROTECTEDSESSION {
+            hHandle: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
+            hSyncObject: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROY_DOORBELL {
+            hDoorbell: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_DESTROY_OUTPUTDUPL {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            bDestroyAllContexts: BOOL,
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEVICEESCAPE_TYPE {
+            D3DKMT_DEVICEESCAPE_VIDPNFROMALLOCATION = 0,
+            D3DKMT_DEVICEESCAPE_RESTOREGAMMA = 1,
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEVICEEXECUTION_STATE {
+            D3DKMT_DEVICEEXECUTION_ACTIVE = 1,
+            D3DKMT_DEVICEEXECUTION_RESET = 2,
+            D3DKMT_DEVICEEXECUTION_HUNG = 3,
+            D3DKMT_DEVICEEXECUTION_STOPPED = 4,
+            D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY = 5,
+            D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT = 6,
+            D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT = 7,
+        }
+        struct D3DKMT_DEVICEPAGEFAULT_STATE {
+            FaultedPrimitiveAPISequenceNumber: u64,
+            FaultedPipelineStage: DXGK_RENDER_PIPELINE_STAGE,
+            FaultedBindTableEntry: u32,
+            PageFaultFlags: DXGK_PAGE_FAULT_FLAGS,
+            FaultErrorCode: DXGK_FAULT_ERROR_CODE,
+            FaultedVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+        }
+        struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            bQueuedPresentLimitReached: BOOLEAN,
+        }
+        struct D3DKMT_DEVICEPRESENT_STATE {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PresentStats: D3DKMT_PRESENT_STATS,
+        }
+        struct D3DKMT_DEVICEPRESENT_STATE_DWM {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
+        }
+        struct D3DKMT_DEVICERESET_STATE {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEVICESTATE_TYPE {
+            D3DKMT_DEVICESTATE_EXECUTION = 1,
+            D3DKMT_DEVICESTATE_PRESENT = 2,
+            D3DKMT_DEVICESTATE_RESET = 3,
+            D3DKMT_DEVICESTATE_PRESENT_DWM = 4,
+            D3DKMT_DEVICESTATE_PAGE_FAULT = 5,
+            D3DKMT_DEVICESTATE_PRESENT_QUEUE = 6,
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEVICE_ERROR_REASON {
+            D3DKMT_DEVICE_ERROR_REASON_GENERIC = -2147483648,
+            D3DKMT_DEVICE_ERROR_REASON_DRIVER_ERROR = -2147483642,
+        }
+        struct D3DKMT_DEVICE_ESCAPE {
+            Type: D3DKMT_DEVICEESCAPE_TYPE,
+            Anonymous: union {
+                VidPnFromAllocation: struct {
+                    hPrimaryAllocation: D3DKMT_HANDLE,
+                    VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+                },
+            },
+        }
+        struct D3DKMT_DEVICE_IDS {
+            VendorID: u32,
+            DeviceID: u32,
+            SubVendorID: u32,
+            SubSystemID: u32,
+            RevisionID: u32,
+            BusType: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE {
+            D3DKMT_DEVICE_MARKED_AS_ERROR_NO_ERROR = 0,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_NOT_RECOVERED = 1,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_PREPARE_DMA_BUFFER = 2,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_PREPARE_DMA_BUFFER_TRY_AGAIN_LATER = 3,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_PROCESS_DEFERRED_COMMAND = 4,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FLIP_TO_ADDRESS = 5,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DRIVER_FAULTED = 6,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_HUNG = 7,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_PREPARE_DMA_BUFFER_SPLIT_PACKET_PREEMPTED = 8,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_HARDWARE_PAGE_FAULT = 9,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_SOFTWARE_PAGE_FAULT = 10,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_EVICT_VALIDATION_FAILURE = 11,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_TO_PAGE_IN_REQUIRED_RESOURCE = 12,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_PROBE_AND_LOCK_TRANSFER = 13,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_TERMINATED_FOR_PROCESS_CLEANUP = 14,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_EVICTING_WHILE_IN_USE = 15,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_SUBMITTING_RENDER_FOR_NON_RESIDENT_ALLOCATION = 16,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_HISTORY_BUFFER_NOT_RESIDENT = 17,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_MISSED_PAGING_FENCE_SYNCHRONIZATION_FOR_RESIDENT_ALLOCATION = 18,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_SUBMIT_COMMAND_VIRTUAL = 19,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_INVALID_RECLAIM_USAGE = 20,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_UPDATE_ALLOCATION_PROPERTY = 21,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DEVICE_RESET = 22,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_MOVE_VA_COMMIT = 23,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_MOVE_PAGING = 24,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILED_ASYNC_VMBUS_COMMAND = 25,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_DISPLAY_DISCONNECT = 26,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_GPU_VA_COMMITMENT_ERROR = 27,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE_KERNEL_MAX = 28,
+            D3DKMT_DEVICE_MARKED_AS_ERROR_FROM_USER_MODE = -2147483648,
+        }
+        struct D3DKMT_DEVICE_MARKED_AS_ERROR_INFO {
+            hDevice: D3DKMT_HANDLE,
+            DumpAssociationGUID: GUID,
+            FailureCode: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE,
+        }
+        struct D3DKMT_DIRECTFLIP_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_DIRTYREGIONS {
+            NumRects: u32,
+            Rects: [RECT; 16],
+        }
+        struct D3DKMT_DISPLAYMODE {
+            Width: u32,
+            Height: u32,
+            Format: D3DDDIFORMAT,
+            IntegerRefreshRate: u32,
+            RefreshRate: D3DDDI_RATIONAL,
+            ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+            DisplayOrientation: D3DDDI_ROTATION,
+            DisplayFixedOutput: u32,
+            Flags: D3DKMDT_DISPLAYMODE_FLAGS,
+        }
+        struct D3DKMT_DISPLAYMODELIST {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            ModeCount: u32,
+            pModeList: [D3DKMT_DISPLAYMODE; 0],
+        }
+        struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
+            Version: KMT_DISPLAY_UMD_VERSION,
+            UmdFileName: [u16; 260],
+        }
+        struct D3DKMT_DLIST_DRIVER_NAME {
+            DListFileName: [u16; 260],
+        }
+        #[repr(i32)]
+        enum D3DKMT_DMMESCAPETYPE {
+            D3DKMT_DMMESCAPETYPE_UNINITIALIZED = 0,
+            D3DKMT_DMMESCAPETYPE_GET_SUMMARY_INFO = 1,
+            D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_SOURCES_INFO = 2,
+            D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_TARGETS_INFO = 3,
+            D3DKMT_DMMESCAPETYPE_GET_ACTIVEVIDPN_INFO = 4,
+            D3DKMT_DMMESCAPETYPE_GET_MONITORS_INFO = 5,
+            D3DKMT_DMMESCAPETYPE_RECENTLY_COMMITTED_VIDPNS_INFO = 6,
+            D3DKMT_DMMESCAPETYPE_RECENT_MODECHANGE_REQUESTS_INFO = 7,
+            D3DKMT_DMMESCAPETYPE_RECENTLY_RECOMMENDED_VIDPNS_INFO = 8,
+            D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO = 9,
+            D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_SOURCEMODESET_INFO = 10,
+            D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_COFUNCPATHMODALITY_INFO = 11,
+            D3DKMT_DMMESCAPETYPE_GET_LASTCLIENTCOMMITTEDVIDPN_INFO = 12,
+            D3DKMT_DMMESCAPETYPE_GET_VERSION_INFO = 13,
+            D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS = 14,
+        }
+        struct D3DKMT_DMM_ESCAPE {
+            Type: D3DKMT_DMMESCAPETYPE,
+            ProvidedBufferSize: D3DKMT_SIZE_T,
+            MinRequiredBufferSize: D3DKMT_SIZE_T,
+            Data: [u8; 1],
+        }
+        struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
+            bForceFullScreenDirty: BOOL,
+        }
+        #[repr(i32)]
+        enum D3DKMT_DRIVERVERSION {
+            KMT_DRIVERVERSION_WDDM_1_0 = 1000,
+            KMT_DRIVERVERSION_WDDM_1_1_PRERELEASE = 1102,
+            KMT_DRIVERVERSION_WDDM_1_1 = 1105,
+            KMT_DRIVERVERSION_WDDM_1_2 = 1200,
+            KMT_DRIVERVERSION_WDDM_1_3 = 1300,
+            KMT_DRIVERVERSION_WDDM_2_0 = 2000,
+            KMT_DRIVERVERSION_WDDM_2_1 = 2100,
+            KMT_DRIVERVERSION_WDDM_2_2 = 2200,
+            KMT_DRIVERVERSION_WDDM_2_3 = 2300,
+            KMT_DRIVERVERSION_WDDM_2_4 = 2400,
+            KMT_DRIVERVERSION_WDDM_2_5 = 2500,
+            KMT_DRIVERVERSION_WDDM_2_6 = 2600,
+            KMT_DRIVERVERSION_WDDM_2_7 = 2700,
+            KMT_DRIVERVERSION_WDDM_2_8 = 2800,
+            KMT_DRIVERVERSION_WDDM_2_9 = 2900,
+            KMT_DRIVERVERSION_WDDM_3_0 = 3000,
+            KMT_DRIVERVERSION_WDDM_3_1 = 3100,
+            KMT_DRIVERVERSION_WDDM_3_2 = 3200,
+        }
+        struct D3DKMT_DRIVER_DESCRIPTION {
+            DriverDescription: [u16; 4096],
+        }
+        struct D3DKMT_ENUMADAPTERS {
+            NumAdapters: u32,
+            Adapters: [D3DKMT_ADAPTERINFO; 16],
+        }
+        struct D3DKMT_ENUMADAPTERS2 {
+            NumAdapters: u32,
+            pAdapters: *mut D3DKMT_ADAPTERINFO,
+        }
+        struct D3DKMT_ENUMADAPTERS3 {
+            Filter: D3DKMT_ENUMADAPTERS_FILTER,
+            NumAdapters: u32,
+            pAdapters: *mut D3DKMT_ADAPTERINFO,
+        }
+        union D3DKMT_ENUMADAPTERS_FILTER {
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            Value: u64,
+        }
+        struct D3DKMT_ESCAPE {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            Type: D3DKMT_ESCAPETYPE,
+            Flags: D3DDDI_ESCAPEFLAGS,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            hContext: D3DKMT_HANDLE,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ESCAPETYPE {
+            D3DKMT_ESCAPE_DRIVERPRIVATE = 0,
+            D3DKMT_ESCAPE_VIDMM = 1,
+            D3DKMT_ESCAPE_TDRDBGCTRL = 2,
+            D3DKMT_ESCAPE_VIDSCH = 3,
+            D3DKMT_ESCAPE_DEVICE = 4,
+            D3DKMT_ESCAPE_DMM = 5,
+            D3DKMT_ESCAPE_DEBUG_SNAPSHOT = 6,
+            D3DKMT_ESCAPE_DRT_TEST = 8,
+            D3DKMT_ESCAPE_DIAGNOSTICS = 9,
+            D3DKMT_ESCAPE_OUTPUTDUPL_SNAPSHOT = 10,
+            D3DKMT_ESCAPE_OUTPUTDUPL_DIAGNOSTICS = 11,
+            D3DKMT_ESCAPE_BDD_PNP = 12,
+            D3DKMT_ESCAPE_BDD_FALLBACK = 13,
+            D3DKMT_ESCAPE_ACTIVATE_SPECIFIC_DIAG = 14,
+            D3DKMT_ESCAPE_MODES_PRUNED_OUT = 15,
+            D3DKMT_ESCAPE_WHQL_INFO = 16,
+            D3DKMT_ESCAPE_BRIGHTNESS = 17,
+            D3DKMT_ESCAPE_EDID_CACHE = 18,
+            D3DKMT_ESCAPE_MIRACAST_DISPLAY_REQUEST = 20,
+            D3DKMT_ESCAPE_HISTORY_BUFFER_STATUS = 21,
+            D3DKMT_ESCAPE_MIRACAST_ADAPTER_DIAG_INFO = 23,
+            D3DKMT_ESCAPE_FORCE_BDDFALLBACK_HEADLESS = 24,
+            D3DKMT_ESCAPE_REQUEST_MACHINE_CRASH = 25,
+            D3DKMT_ESCAPE_SOFTGPU_ENABLE_DISABLE_HMD = 27,
+            D3DKMT_ESCAPE_PROCESS_VERIFIER_OPTION = 28,
+            D3DKMT_ESCAPE_ADAPTER_VERIFIER_OPTION = 29,
+            D3DKMT_ESCAPE_IDD_REQUEST = 30,
+            D3DKMT_ESCAPE_DOD_SET_DIRTYRECT_MODE = 31,
+            D3DKMT_ESCAPE_LOG_CODEPOINT_PACKET = 32,
+            D3DKMT_ESCAPE_LOG_USERMODE_DAIG_PACKET = 33,
+            D3DKMT_ESCAPE_GET_EXTERNAL_DIAGNOSTICS = 34,
+            D3DKMT_ESCAPE_GET_DISPLAY_CONFIGURATIONS = 36,
+            D3DKMT_ESCAPE_QUERY_IOMMU_STATUS = 37,
+            D3DKMT_ESCAPE_CCD_DATABASE = 38,
+            D3DKMT_ESCAPE_QUERY_DMA_REMAPPING_STATUS = 39,
+            D3DKMT_ESCAPE_QUERY_PHYSICAL_ADAPTER = 40,
+            D3DKMT_ESCAPE_WIN32K_START = 1024,
+            D3DKMT_ESCAPE_WIN32K_HIP_DEVICE_INFO = 1024,
+            D3DKMT_ESCAPE_WIN32K_QUERY_CD_ROTATION_BLOCK = 1025,
+            D3DKMT_ESCAPE_WIN32K_DPI_INFO = 1026,
+            D3DKMT_ESCAPE_WIN32K_PRESENTER_VIEW_INFO = 1027,
+            D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI = 1028,
+            D3DKMT_ESCAPE_WIN32K_BDD_FALLBACK = 1029,
+            D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL = 1030,
+            D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN = 1031,
+            D3DKMT_ESCAPE_WIN32K_DISPBROKER_TEST = 1035,
+            D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE_INFO = 1036,
+            D3DKMT_ESCAPE_WIN32K_SET_DIMMED_STATE = 1037,
+            D3DKMT_ESCAPE_WIN32K_SPECIALIZED_DISPLAY_TEST = 1038,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION {
+            D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION_TO_ALLOCATION = 0,
+            D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION_FROM_ALLOCATION = 1,
+        }
+        #[repr(i32)]
+        enum D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
+            D3DKMT_ESCAPE_PFN_CONTROL_DEFAULT = 0,
+            D3DKMT_ESCAPE_PFN_CONTROL_FORCE_CPU = 1,
+            D3DKMT_ESCAPE_PFN_CONTROL_FORCE_GPU = 2,
+        }
+        struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
+            Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
+            VidPnSourceId: u32,
+            ProcessBoostEligible: BOOLEAN,
+            VSyncMultiplier: u32,
+            BaseDesktopDuration: u32,
+            Reserved: [u8; 16],
+        }
+        #[repr(i32)]
+        enum D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
+            D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_BASE_DESKTOP_DURATION = 0,
+            D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_VSYNC_MULTIPLIER = 1,
+            D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_PROCESS_BOOST_ELIGIBLE = 2,
+        }
+        struct D3DKMT_EVICT {
+            hDevice: D3DKMT_HANDLE,
+            NumAllocations: u32,
+            AllocationList: *const D3DKMT_HANDLE,
+            Flags: D3DDDI_EVICT_FLAGS,
+            NumBytesToTrim: u64,
+        }
+        struct D3DKMT_EVICTION_CRITERIA {
+            MinimumSize: u64,
+            MaximumSize: u64,
+            Anonymous: struct {
+                Anonymous: union {
+                    Flags: struct {
+                        _bitfield: u32,
+                    },
+                    Value: u32,
+                },
+            },
+        }
+        struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
+            Key: u64,
+        }
+        struct D3DKMT_FLIPINFOFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
+            auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
+            flipManagerTracingId: u32,
+            customDurationChanged: BOOL,
+            pFlipManagerProcessedEvent: *mut void,
+            FlipAdapterLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            independentFlipStage: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE,
+            FlipCompletedQpc: u64,
+            HwPresentDurationQpc: u32,
+            WasCanceled: BOOL,
+            ConvertedToNonIFlip: BOOL,
+        }
+        struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
+            hPrivateData: u64,
+            PresentAtQpc: u64,
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
+            D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED = 0,
+            D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE = 1,
+        }
+        struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
+            FenceValue: u64,
+            hLogicalSurface: u64,
+            dxgContext: D3DKMT_UINT_PTR,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            SwapChainIndex: u32,
+            PresentLimitSemaphoreId: u64,
+            FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            Flags: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS,
+            hCompSurf: i64,
+            compSurfLuid: LUID,
+            confirmationCookie: u64,
+            CompositionSyncKey: u64,
+            ScrollRect: RECT,
+            ScrollOffset: POINT,
+            PresentCount: u32,
+            RevealColor: [f32; 4],
+            Rotation: D3DDDI_ROTATION,
+            Anonymous: union {
+                ScatterBlts: D3DKMT_SCATTERBLTS,
+                Anonymous: struct {
+                    hSyncObject: HANDLE,
+                    HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
+                    Anonymous: union {
+                        HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
+                        HDRMetaDataHDR10Plus: D3DDDI_HDR_METADATA_HDR10PLUS,
+                    },
+                },
+            },
+            InkCookie: u32,
+            SourceRect: RECT,
+            DestWidth: u32,
+            DestHeight: u32,
+            TargetRect: RECT,
+            Transform: [f32; 6],
+            CustomDuration: u32,
+            CustomDurationFlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            PlaneIndex: u32,
+            ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
+            DirtyRegions: D3DKMT_DIRTYREGIONS,
+        }
+        struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_FLIPOVERLAY {
+            hDevice: D3DKMT_HANDLE,
+            hOverlay: D3DKMT_HANDLE,
+            hSource: D3DKMT_HANDLE,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DKMT_FLIPQUEUEINFO {
+            MaxHardwareFlipQueueLength: u32,
+            MaxSoftwareFlipQueueLength: u32,
+            FlipFlags: D3DKMT_FLIPINFOFLAGS,
+        }
+        struct D3DKMT_FLUSHHEAPTRANSITIONS {
+            hAdapter: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_FREEGPUVIRTUALADDRESS {
+            hAdapter: D3DKMT_HANDLE,
+            BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Size: D3DGPU_SIZE_T,
+        }
+        struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
+            hLogicalSurface: u64,
+            hPhysicalSurface: u64,
+            ScrollRect: RECT,
+            ScrollOffset: POINT,
+            DirtyRegions: D3DKMT_DIRTYREGIONS,
+        }
+        struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
+            hlsurf: u64,
+            dwDirtyFlags: u32,
+            uiCookie: u64,
+        }
+        const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2;
+        struct D3DKMT_GETALLOCATIONPRIORITY {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            phAllocationList: *const D3DKMT_HANDLE,
+            AllocationCount: u32,
+            pPriorities: *mut u32,
+        }
+        struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+            hContext: D3DKMT_HANDLE,
+            Priority: i32,
+        }
+        struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
+            hContext: D3DKMT_HANDLE,
+            Priority: i32,
+        }
+        struct D3DKMT_GETDEVICESTATE {
+            hDevice: D3DKMT_HANDLE,
+            StateType: D3DKMT_DEVICESTATE_TYPE,
+            Anonymous: union {
+                ExecutionState: D3DKMT_DEVICEEXECUTION_STATE,
+                PresentState: D3DKMT_DEVICEPRESENT_STATE,
+                ResetState: D3DKMT_DEVICERESET_STATE,
+                PresentStateDWM: D3DKMT_DEVICEPRESENT_STATE_DWM,
+                PageFaultState: D3DKMT_DEVICEPAGEFAULT_STATE,
+                PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
+            },
+        }
+        struct D3DKMT_GETDISPLAYMODELIST {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            pModeList: *mut D3DKMT_DISPLAYMODE,
+            ModeCount: u32,
+        }
+        struct D3DKMT_GETMULTISAMPLEMETHODLIST {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Width: u32,
+            Height: u32,
+            Format: D3DDDIFORMAT,
+            pMethodList: *mut D3DKMT_MULTISAMPLEMETHOD,
+            MethodCount: u32,
+        }
+        struct D3DKMT_GETNATIVEFENCELOGDETAIL {
+            hHwQueue: D3DKMT_HANDLE,
+            Flags: D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS,
+            WaitLogNumberOfEntries: u32,
+            SignalLogNumberOfEntries: u32,
+            WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
+            Reserved: [u8; 64],
+        }
+        struct D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_GETOVERLAYSTATE {
+            hDevice: D3DKMT_HANDLE,
+            hOverlay: D3DKMT_HANDLE,
+            OverlayEnabled: BOOLEAN,
+        }
+        struct D3DKMT_GETPRESENTHISTORY {
+            hAdapter: D3DKMT_HANDLE,
+            ProvidedSize: u32,
+            WrittenSize: u32,
+            pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
+            NumTokens: u32,
+        }
+        const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048;
+        struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
+            hProcess: HANDLE,
+            AdapterLuid: LUID,
+            Support: BOOLEAN,
+        }
+        struct D3DKMT_GETRUNTIMEDATA {
+            hAdapter: D3DKMT_HANDLE,
+            hGlobalShare: D3DKMT_HANDLE,
+            pRuntimeData: *mut void,
+            RuntimeDataSize: u32,
+        }
+        struct D3DKMT_GETSCANLINE {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            InVerticalBlank: BOOLEAN,
+            ScanLine: u32,
+        }
+        struct D3DKMT_GETSHAREDPRIMARYHANDLE {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            hSharedPrimary: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
+            hGlobalShare: D3DKMT_HANDLE,
+            hNtHandle: HANDLE,
+            AdapterLuid: LUID,
+        }
+        struct D3DKMT_GETVERTICALBLANKEVENT {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            phEvent: *mut D3DKMT_PTR_TYPE,
+        }
+        struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
+            hDevice: D3DKMT_HANDLE,
+            bFailedDwmAcquireVidPn: BOOLEAN,
+        }
+        struct D3DKMT_GET_GPUMMU_CAPS {
+            PhysicalAdapterIndex: u32,
+            GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
+        }
+        struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            MaxPlanes: u32,
+            MaxRGBPlanes: u32,
+            MaxYUVPlanes: u32,
+            OverlayCaps: D3DKMT_MULTIPLANE_OVERLAY_CAPS,
+            MaxStretchFactor: f32,
+            MaxShrinkFactor: f32,
+        }
+        struct D3DKMT_GET_POST_COMPOSITION_CAPS {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            MaxStretchFactor: f32,
+            MaxShrinkFactor: f32,
+        }
+        struct D3DKMT_GET_PTE {
+            PhysicalAdapterIndex: u32,
+            PageTableLevel: u32,
+            PageTableIndex: [u32; 6],
+            b64KBPte: BOOLEAN,
+            NumPtes: u32,
+            Pte: [DXGK_PTE; 64],
+            NumValidEntries: u32,
+        }
+        struct D3DKMT_GET_PTE_EXT {
+            DriverProtection: [u64; 64],
+            AllocationData: [u64; 64],
+        }
+        const D3DKMT_GET_PTE_MAX: u32 = 64;
+        struct D3DKMT_GET_SEGMENT_CAPS {
+            PhysicalAdapterIndex: u32,
+            NumSegments: u32,
+            SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
+        }
+        struct D3DKMT_GPUMMU_CAPS {
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+            VirtualAddressBitCount: u32,
+        }
+        struct D3DKMT_GPUVERSION {
+            PhysicalAdapterIndex: u32,
+            BiosVersion: [u16; 32],
+            GpuArchitecture: [u16; 32],
+        }
+        #[repr(i32)]
+        enum D3DKMT_GPU_PREFERENCE_QUERY_STATE {
+            D3DKMT_GPU_PREFERENCE_STATE_UNINITIALIZED = 0,
+            D3DKMT_GPU_PREFERENCE_STATE_HIGH_PERFORMANCE = 1,
+            D3DKMT_GPU_PREFERENCE_STATE_MINIMUM_POWER = 2,
+            D3DKMT_GPU_PREFERENCE_STATE_UNSPECIFIED = 3,
+            D3DKMT_GPU_PREFERENCE_STATE_NOT_FOUND = 4,
+            D3DKMT_GPU_PREFERENCE_STATE_USER_SPECIFIED_GPU = 5,
+        }
+        #[repr(i32)]
+        enum D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
+            D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST = 0,
+            D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE = 1,
+            D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE = 2,
+        }
+        struct D3DKMT_HISTORY_BUFFER_STATUS {
+            Enabled: BOOLEAN,
+            Reserved: u32,
+        }
+        struct D3DKMT_HWDRM_SUPPORT {
+            Supported: BOOLEAN,
+        }
+        struct D3DKMT_HYBRID_DLIST_DLL_MUX_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_HYBRID_LIST {
+            State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
+            AdapterLuid: LUID,
+            bUserPreferenceQuery: BOOL,
+            QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
+        }
+        struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_INVALIDATEACTIVEVIDPN {
+            hAdapter: D3DKMT_HANDLE,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DKMT_INVALIDATECACHE {
+            hDevice: D3DKMT_HANDLE,
+            hAllocation: D3DKMT_HANDLE,
+            Offset: D3DKMT_SIZE_T,
+            Length: D3DKMT_SIZE_T,
+        }
+        struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
+            Disabled: BOOL,
+        }
+        struct D3DKMT_ISFEATUREENABLED {
+            hAdapter: D3DKMT_HANDLE,
+            FeatureId: DXGK_FEATURE_ID,
+            Result: DXGK_ISFEATUREENABLED_RESULT,
+        }
+        struct D3DKMT_KMD_DRIVER_VERSION {
+            DriverVersion: LARGE_INTEGER,
+        }
+        struct D3DKMT_LOCK {
+            hDevice: D3DKMT_HANDLE,
+            hAllocation: D3DKMT_HANDLE,
+            PrivateDriverData: u32,
+            NumPages: u32,
+            pPages: *const u32,
+            pData: *mut void,
+            Flags: D3DDDICB_LOCKFLAGS,
+            GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+        }
+        struct D3DKMT_LOCK2 {
+            hDevice: D3DKMT_HANDLE,
+            hAllocation: D3DKMT_HANDLE,
+            Flags: D3DDDICB_LOCK2FLAGS,
+            pData: *mut void,
+        }
+        struct D3DKMT_MAPPROCESSDEBUGBLOB {
+            hDevice: D3DKMT_HANDLE,
+            Flags: D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS,
+            BufferSize: usize,
+            pBuffer: *mut void,
+        }
+        struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_MARKDEVICEASERROR {
+            hDevice: D3DKMT_HANDLE,
+            Reason: D3DKMT_DEVICE_ERROR_REASON,
+        }
+        const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: u32 = 16;
+        const D3DKMT_MAX_DMM_ESCAPE_DATASIZE: i32 = 102400;
+        const D3DKMT_MAX_MULTIPLANE_OVERLAY_ALLOCATIONS_PER_PLANE: u32 = 256;
+        const D3DKMT_MAX_MULTIPLANE_OVERLAY_PLANES: u32 = 8;
+        const D3DKMT_MAX_OBJECTS_PER_HANDLE: u32 = 3;
+        const D3DKMT_MAX_PRESENT_HISTORY_RECTS: u32 = 16;
+        const D3DKMT_MAX_PRESENT_HISTORY_SCATTERBLTS: u32 = 12;
+        const D3DKMT_MAX_SEGMENT_COUNT: u32 = 32;
+        const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: u32 = 8;
+        #[repr(i32)]
+        enum D3DKMT_MEMORY_SEGMENT_GROUP {
+            D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL = 0,
+            D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL = 1,
+        }
+        struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
+            MiracastCompanionDriverName: [u16; 260],
+        }
+        struct D3DKMT_MIRACAST_CHUNK_DATA {
+            ChunkInfo: DXGK_MIRACAST_CHUNK_INFO,
+            PrivateDriverDataSize: u32,
+            PrivateDriverData: [u8; 1],
+        }
+        #[repr(i32)]
+        enum D3DKMT_MIRACAST_DEVICE_STATUS {
+            D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS = 0,
+            D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR = 1,
+            D3DKMT_MIRACAST_DEVICE_STATUS_PENDING = 2,
+            D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR = -2147483647,
+            D3DKMT_MIRACAST_DEVICE_STATUS_GPU_RESOURCE_IN_USE = -2147483646,
+            D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_ERROR = -2147483645,
+            D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING = -2147483644,
+            D3DKMT_MIRACAST_DEVICE_STATUS_REMOTE_SESSION = -2147483643,
+            D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_FOUND = -2147483642,
+            D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_STARTED = -2147483641,
+            D3DKMT_MIRACAST_DEVICE_STATUS_INVALID_PARAMETER = -2147483640,
+            D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_BANDWIDTH = -2147483639,
+            D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_MEMORY = -2147483638,
+            D3DKMT_MIRACAST_DEVICE_STATUS_CANCELLED = -2147483637,
+        }
+        struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
+            HdcpSupported: BOOLEAN,
+            DefaultControlPort: u32,
+            UsesIhvSolution: BOOLEAN,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
+            MiracastStopped = 0,
+            MiracastStartPending = 1,
+            MiracastStarted = 2,
+            MiracastStopPending = 3,
+        }
+        struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
+            State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
+        }
+        struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
+            AdapterLuid: LUID,
+            TargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            StopReason: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MIRACAST_DRIVER_TYPE {
+            D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED = 0,
+            D3DKMT_MIRACAST_DRIVER_IHV = 1,
+            D3DKMT_MIRACAST_DRIVER_MS = 2,
+        }
+        struct D3DKMT_MPO3DDI_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_MPOKERNELCAPS_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
+            VidPnSourceId: u32,
+            Update: BOOL,
+            KernelSupported: BOOL,
+            HudSupported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
+            VidPnSourceId: u32,
+            Update: BOOL,
+            Supported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY {
+            LayerIndex: u32,
+            Enabled: BOOL,
+            hAllocation: D3DKMT_HANDLE,
+            PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY2 {
+            LayerIndex: u32,
+            Enabled: BOOL,
+            hAllocation: D3DKMT_HANDLE,
+            PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY3 {
+            LayerIndex: u32,
+            InputFlags: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS,
+            FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            MaxImmediateFlipLine: u32,
+            AllocationCount: u32,
+            pAllocationList: *mut D3DKMT_HANDLE,
+            DriverPrivateDataSize: u32,
+            pDriverPrivateData: *mut void,
+            pPlaneAttributes: *const D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
+            hFlipToFence: D3DKMT_HANDLE,
+            hFlipAwayFence: D3DKMT_HANDLE,
+            FlipToFenceValue: u64,
+            FlipAwayFenceValue: u64,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
+            Flags: u32,
+            SrcRect: RECT,
+            DstRect: RECT,
+            ClipRect: RECT,
+            Rotation: D3DDDI_ROTATION,
+            Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
+            DirtyRectCount: u32,
+            pDirtyRects: *mut RECT,
+            VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
+            YCbCrFlags: u32,
+            StereoFormat: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT,
+            StereoLeftViewFrame0: BOOL,
+            StereoBaseViewFrame0: BOOL,
+            StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
+            StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
+            Flags: u32,
+            SrcRect: RECT,
+            DstRect: RECT,
+            ClipRect: RECT,
+            Rotation: D3DDDI_ROTATION,
+            Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
+            DirtyRectCount: u32,
+            pDirtyRects: *mut RECT,
+            VideoFrameFormat: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT,
+            ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
+            StereoFormat: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT,
+            StereoLeftViewFrame0: BOOL,
+            StereoBaseViewFrame0: BOOL,
+            StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
+            StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
+            Reserved1: u32,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
+            Flags: u32,
+            SrcRect: RECT,
+            DstRect: RECT,
+            ClipRect: RECT,
+            Rotation: D3DDDI_ROTATION,
+            Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND,
+            DirtyRectCount: u32,
+            pDirtyRects: *mut RECT,
+            ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
+            StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
+            SDRWhiteLevel: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MULTIPLANE_OVERLAY_BLEND {
+            D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE = 0,
+            D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND = 1,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
+            D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP = 1,
+            D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP = 2,
+            D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK = 4,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
+            Flags: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS,
+            SrcRect: RECT,
+            DstRect: RECT,
+            Rotation: D3DDDI_ROTATION,
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO = 0,
+            D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_HORIZONTAL = 1,
+            D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_VERTICAL = 2,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_SEPARATE = 3,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO_OFFSET = 4,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_ROW_INTERLEAVED = 5,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_COLUMN_INTERLEAVED = 6,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_CHECKERBOARD = 7,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
+            D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE = 0,
+            D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST = 1,
+            D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST = 2,
+        }
+        #[repr(i32)]
+        enum D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+            D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE = 1,
+            D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709 = 2,
+            D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC = 4,
+        }
+        struct D3DKMT_MULTISAMPLEMETHOD {
+            NumSamples: u32,
+            NumQualityLevels: u32,
+            Reserved: u32,
+        }
+        struct D3DKMT_NODE_PERFDATA {
+            NodeOrdinal: u32,
+            PhysicalAdapterIndex: u32,
+            Frequency: u64,
+            MaxFrequency: u64,
+            MaxFrequencyOC: u64,
+            Voltage: u32,
+            VoltageMax: u32,
+            VoltageMaxOC: u32,
+            MaxTransitionLatency: u64,
+        }
+        struct D3DKMT_NOTIFY_WORK_SUBMISSION {
+            hHwQueue: D3DKMT_HANDLE,
+            Flags: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS,
+            PrivateDriverData: [u8; 64],
+        }
+        struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_OFFERALLOCATIONS {
+            hDevice: D3DKMT_HANDLE,
+            pResources: *mut D3DKMT_HANDLE,
+            HandleList: *const D3DKMT_HANDLE,
+            NumAllocations: u32,
+            Priority: D3DKMT_OFFER_PRIORITY,
+            Flags: D3DKMT_OFFER_FLAGS,
+        }
+        struct D3DKMT_OFFER_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_OFFER_PRIORITY {
+            D3DKMT_OFFER_PRIORITY_LOW = 1,
+            D3DKMT_OFFER_PRIORITY_NORMAL = 2,
+            D3DKMT_OFFER_PRIORITY_HIGH = 3,
+            D3DKMT_OFFER_PRIORITY_AUTO = 4,
+        }
+        struct D3DKMT_OPENADAPTERFROMDEVICENAME {
+            pDeviceName: PCWSTR,
+            hAdapter: D3DKMT_HANDLE,
+            AdapterLuid: LUID,
+        }
+        struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
+            DeviceName: [u16; 32],
+            hAdapter: D3DKMT_HANDLE,
+            AdapterLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_OPENADAPTERFROMHDC {
+            hDc: HDC,
+            hAdapter: D3DKMT_HANDLE,
+            AdapterLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_OPENADAPTERFROMLUID {
+            AdapterLuid: LUID,
+            hAdapter: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENGLINFO {
+            UmdOpenGlIcdFileName: [u16; 260],
+            Version: u32,
+            Flags: u32,
+        }
+        struct D3DKMT_OPENKEYEDMUTEX {
+            hSharedHandle: D3DKMT_HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENKEYEDMUTEX2 {
+            hSharedHandle: D3DKMT_HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+        }
+        struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
+            hNtHandle: HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+        }
+        struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
+            hNtHandle: HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            EngineAffinity: u32,
+            Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
+            hSyncObject: D3DKMT_HANDLE,
+            NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
+            PrivateDriverData: [u8; 64],
+            Reserved: [u8; 32],
+        }
+        struct D3DKMT_OPENNTHANDLEFROMNAME {
+            dwDesiredAccess: u32,
+            pObjAttrib: *mut OBJECT_ATTRIBUTES,
+            hNtHandle: HANDLE,
+        }
+        struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
+            hNtHandle: HANDLE,
+            hHandle: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENRESOURCE {
+            hDevice: D3DKMT_HANDLE,
+            hGlobalShare: D3DKMT_HANDLE,
+            NumAllocations: u32,
+            Anonymous: union {
+                pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
+                pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
+            },
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+            pResourcePrivateDriverData: *mut void,
+            ResourcePrivateDriverDataSize: u32,
+            pTotalPrivateDriverDataBuffer: *mut void,
+            TotalPrivateDriverDataBufferSize: u32,
+            hResource: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
+            hDevice: D3DKMT_HANDLE,
+            hNtHandle: HANDLE,
+            NumAllocations: u32,
+            pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
+            PrivateRuntimeDataSize: u32,
+            pPrivateRuntimeData: *mut void,
+            ResourcePrivateDriverDataSize: u32,
+            pResourcePrivateDriverData: *mut void,
+            TotalPrivateDriverDataBufferSize: u32,
+            pTotalPrivateDriverDataBuffer: *mut void,
+            hResource: D3DKMT_HANDLE,
+            hKeyedMutex: D3DKMT_HANDLE,
+            pKeyedMutexPrivateRuntimeData: *mut void,
+            KeyedMutexPrivateRuntimeDataSize: u32,
+            hSyncObject: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
+            hSharedHandle: D3DKMT_HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+            Reserved: [u64; 8],
+        }
+        struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
+            hNtHandle: HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
+            hNtHandle: HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
+            hSyncObject: D3DKMT_HANDLE,
+            Anonymous: union {
+                MonitoredFence: struct {
+                    FenceValueCPUVirtualAddress: *mut void,
+                    FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+                    EngineAffinity: u32,
+                },
+                Reserved: [u64; 8],
+            },
+        }
+        struct D3DKMT_OPENSYNCOBJECTFROMSYNCFILE {
+            hSyncFile: u64,
+            hDevice: D3DKMT_HANDLE,
+            hSyncObject: D3DKMT_HANDLE,
+            FenceValue: u64,
+            FenceValueCPUVirtualAddress: *mut void,
+            FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
+        }
+        struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
+            dwDesiredAccess: u32,
+            pObjAttrib: *mut OBJECT_ATTRIBUTES,
+            hNtHandle: HANDLE,
+        }
+        struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
+            Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
+            Width: u32,
+            Height: u32,
+            Pitch: u32,
+            HotSpot: POINT,
+        }
+        #[repr(i32)]
+        enum D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
+            D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME = 1,
+            D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR = 2,
+            D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR = 4,
+        }
+        struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            OutputDuplicationCount: u32,
+        }
+        struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_OUTPUTDUPLPRESENT {
+            hContext: D3DKMT_HANDLE,
+            hSource: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            PresentRegions: D3DKMT_PRESENT_RGNS,
+            Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
+            hIndirectContext: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
+            hSource: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            BroadcastHwQueueCount: u32,
+            hHwQueues: *mut D3DKMT_HANDLE,
+            PresentRegions: D3DKMT_PRESENT_RGNS,
+            Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
+            hIndirectHwQueue: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
+            LastPresentTime: LARGE_INTEGER,
+            LastMouseUpdateTime: LARGE_INTEGER,
+            AccumulatedFrames: u32,
+            RectsCoalesced: BOOL,
+            ProtectedContentMaskedOut: BOOL,
+            PointerPosition: D3DKMT_OUTPUTDUPL_POINTER_POSITION,
+            TotalMetadataBufferSize: u32,
+            PointerShapeBufferSize: u32,
+        }
+        struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
+        }
+        struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            BufferSizeSupplied: u32,
+            pShapeBuffer: *mut void,
+            BufferSizeRequired: u32,
+            ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
+        }
+        struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
+            hSharedSurfaceNt: HANDLE,
+        }
+        struct D3DKMT_OUTPUTDUPL_METADATA {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Type: D3DKMT_OUTPUTDUPL_METADATATYPE,
+            BufferSizeSupplied: u32,
+            pBuffer: *mut void,
+            BufferSizeRequired: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_OUTPUTDUPL_METADATATYPE {
+            D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS = 0,
+            D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS = 1,
+        }
+        struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
+            Position: POINT,
+            Visible: BOOL,
+        }
+        struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            NextKeyMutexIdx: u32,
+        }
+        struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
+            Size: u32,
+            SessionProcessCount: u32,
+            SessionActiveConnectionsCount: u32,
+            NumVidPnSources: u32,
+            NumOutputDuplContexts: u32,
+            Padding: u32,
+            OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 0],
+        }
+        struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
+            IndexBitCount: u32,
+            IndexMask: u64,
+            IndexShift: u64,
+            LowerLevelsMask: u64,
+            EntryCoverageInPages: u64,
+        }
+        struct D3DKMT_PANELFITTER_SUPPORT {
+            Supported: BOOL,
+        }
+        struct D3DKMT_PARAVIRTUALIZATION {
+            SecureContainer: BOOLEAN,
+        }
+        struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
+            Count: u32,
+        }
+        struct D3DKMT_PINDIRECTFLIPRESOURCES {
+            hDevice: D3DKMT_HANDLE,
+            ResourceCount: u32,
+            pResourceList: *mut D3DKMT_HANDLE,
+        }
+        struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_PNP_KEY_TYPE {
+            D3DKMT_PNP_KEY_HARDWARE = 1,
+            D3DKMT_PNP_KEY_SOFTWARE = 2,
+        }
+        struct D3DKMT_POLLDISPLAYCHILDREN {
+            hAdapter: D3DKMT_HANDLE,
+            _bitfield: u32,
+        }
+        struct D3DKMT_PRESENT {
+            Anonymous: union {
+                hDevice: D3DKMT_HANDLE,
+                hContext: D3DKMT_HANDLE,
+            },
+            hWindow: HWND,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            hSource: D3DKMT_HANDLE,
+            hDestination: D3DKMT_HANDLE,
+            Color: u32,
+            DstRect: RECT,
+            SrcRect: RECT,
+            SubRectCnt: u32,
+            pSrcSubRects: *const RECT,
+            PresentCount: u32,
+            FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            Flags: D3DKMT_PRESENTFLAGS,
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            PresentLimitSemaphore: HANDLE,
+            PresentHistoryToken: D3DKMT_PRESENTHISTORYTOKEN,
+            pPresentRegions: *mut D3DKMT_PRESENT_RGNS,
+            Anonymous2: union {
+                hAdapter: D3DKMT_HANDLE,
+                hIndirectContext: D3DKMT_HANDLE,
+            },
+            Duration: u32,
+            BroadcastSrcAllocation: *mut D3DKMT_HANDLE,
+            BroadcastDstAllocation: *mut D3DKMT_HANDLE,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+            bOptimizeForComposition: BOOLEAN,
+        }
+        struct D3DKMT_PRESENTFLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_PRESENTHISTORYTOKEN {
+            Model: D3DKMT_PRESENT_MODEL,
+            TokenSize: u32,
+            CompositionBindingId: u64,
+            Token: union {
+                MaxSize: [u8; 1064],
+                Flip: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN,
+                Blt: D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN,
+                VistaBlt: D3DKMT_VISTABLTMODEL_PRESENTHISTORYTOKEN,
+                Gdi: D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN,
+                Fence: D3DKMT_FENCE_PRESENTHISTORYTOKEN,
+                GdiSysMem: D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN,
+                Composition: D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN,
+                FlipManager: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN,
+                SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
+            },
+        }
+        const D3DKMT_PRESENTHISTORYTOKEN_SIZE: u32 = 1080;
+        #[repr(i32)]
+        enum D3DKMT_PRESENT_MODEL {
+            D3DKMT_PM_UNINITIALIZED = 0,
+            D3DKMT_PM_REDIRECTED_GDI = 1,
+            D3DKMT_PM_REDIRECTED_FLIP = 2,
+            D3DKMT_PM_REDIRECTED_BLT = 3,
+            D3DKMT_PM_REDIRECTED_VISTABLT = 4,
+            D3DKMT_PM_SCREENCAPTUREFENCE = 5,
+            D3DKMT_PM_REDIRECTED_GDI_SYSMEM = 6,
+            D3DKMT_PM_REDIRECTED_COMPOSITION = 7,
+            D3DKMT_PM_SURFACECOMPLETE = 8,
+            D3DKMT_PM_FLIPMANAGER = 9,
+        }
+        struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
+            Anonymous: union {
+                hDevice: D3DKMT_HANDLE,
+                hContext: D3DKMT_HANDLE,
+            },
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PresentCount: u32,
+            FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            Flags: D3DKMT_PRESENTFLAGS,
+            PresentPlaneCount: u32,
+            pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY,
+            Duration: u32,
+        }
+        struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
+            hAdapter: D3DKMT_HANDLE,
+            Anonymous: union {
+                hDevice: D3DKMT_HANDLE,
+                hContext: D3DKMT_HANDLE,
+            },
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PresentCount: u32,
+            FlipInterval: D3DDDI_FLIPINTERVAL_TYPE,
+            Flags: D3DKMT_PRESENTFLAGS,
+            PresentPlaneCount: u32,
+            pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY2,
+            Duration: u32,
+        }
+        struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
+            hAdapter: D3DKMT_HANDLE,
+            ContextCount: u32,
+            pContextList: *mut D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PresentCount: u32,
+            Flags: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS,
+            PresentPlaneCount: u32,
+            ppPresentPlanes: *mut *mut D3DKMT_MULTIPLANE_OVERLAY3,
+            pPostComposition: *mut D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
+            Duration: u32,
+            HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
+            HDRMetaDataSize: u32,
+            pHDRMetaData: *const void,
+            BoostRefreshRateMultiplier: u32,
+        }
+        struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_PRESENT_REDIRECTED {
+            hSyncObj: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            WaitedFenceValue: u64,
+            PresentHistoryToken: D3DKMT_PRESENTHISTORYTOKEN,
+            Flags: D3DKMT_PRESENT_REDIRECTED_FLAGS,
+            hSource: D3DKMT_HANDLE,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+        }
+        struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_PRESENT_RGNS {
+            DirtyRectCount: u32,
+            pDirtyRects: *const RECT,
+            MoveRectCount: u32,
+            pMoveRects: *const D3DKMT_MOVE_RECT,
+        }
+        struct D3DKMT_PRESENT_STATS {
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            SyncGPUTime: LARGE_INTEGER,
+        }
+        struct D3DKMT_PRESENT_STATS_DWM {
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            PresentQPCTime: LARGE_INTEGER,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            CustomPresentDuration: u32,
+        }
+        struct D3DKMT_PRESENT_STATS_DWM2 {
+            cbSize: u32,
+            PresentCount: u32,
+            PresentRefreshCount: u32,
+            PresentQPCTime: LARGE_INTEGER,
+            SyncRefreshCount: u32,
+            SyncQPCTime: LARGE_INTEGER,
+            CustomPresentDuration: u32,
+            VirtualSyncRefreshCount: u32,
+            VirtualSyncQPCTime: LARGE_INTEGER,
+            VSyncDurationQPCTime: LARGE_INTEGER,
+            VSyncMultiplier: u32,
+            VirtualPresentRefreshCount: u32,
+            VirtualPresentQPCTime: LARGE_INTEGER,
+        }
+        struct D3DKMT_PROCESS_VERIFIER_OPTION {
+            hProcess: HANDLE,
+            Type: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE,
+            Mode: D3DKMT_VERIFIER_OPTION_MODE,
+            Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
+        }
+        union D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
+            VidMmFlags: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS,
+            VidMmRestrictBudget: D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET,
+        }
+        #[repr(i32)]
+        enum D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
+            D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS = 1000,
+            D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET = 1001,
+        }
+        union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
+            LocalBudget: u64,
+            NonLocalBudget: u64,
+        }
+        #[repr(i32)]
+        enum D3DKMT_PROTECTED_SESSION_STATUS {
+            D3DKMT_PROTECTED_SESSION_STATUS_OK = 0,
+            D3DKMT_PROTECTED_SESSION_STATUS_INVALID = 1,
+        }
+        struct D3DKMT_QUERYADAPTERINFO {
+            hAdapter: D3DKMT_HANDLE,
+            Type: KMTQUERYADAPTERINFOTYPE,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DKMT_QUERYALLOCATIONRESIDENCY {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            phAllocationList: *const D3DKMT_HANDLE,
+            AllocationCount: u32,
+            pResidencyStatus: *mut D3DKMT_ALLOCATIONRESIDENCYSTATUS,
+        }
+        struct D3DKMT_QUERYFEATUREINTERFACE {
+            hAdapter: D3DKMT_HANDLE,
+            FeatureId: DXGK_FEATURE_ID,
+            Result: DXGK_ISFEATUREENABLED_RESULT,
+            InterfaceTableSize: u32,
+            InterfaceTable: *const FARPROC,
+        }
+        struct D3DKMT_QUERYFSEBLOCK {
+            AdapterLuid: LUID,
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
+        }
+        union D3DKMT_QUERYFSEBLOCKFLAGS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_QUERYPROCESSOFFERINFO {
+            cbSize: u32,
+            hProcess: HANDLE,
+            DecommitUniqueness: u64,
+            DecommittableBytes: u64,
+        }
+        struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
+            hNtHandle: HANDLE,
+            pPrivateDriverData: *const void,
+            PrivateDriverDataSize: u32,
+            pPrivateRuntimeData: *const void,
+            PrivateRuntimeDataSize: u32,
+        }
+        struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
+            hHandle: D3DKMT_HANDLE,
+            Status: D3DKMT_PROTECTED_SESSION_STATUS,
+        }
+        struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
+            DeviceName: [u16; 32],
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_QUERYRESOURCEINFO {
+            hDevice: D3DKMT_HANDLE,
+            hGlobalShare: D3DKMT_HANDLE,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+            TotalPrivateDriverDataSize: u32,
+            ResourcePrivateDriverDataSize: u32,
+            NumAllocations: u32,
+        }
+        struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
+            hDevice: D3DKMT_HANDLE,
+            hNtHandle: HANDLE,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+            TotalPrivateDriverDataSize: u32,
+            ResourcePrivateDriverDataSize: u32,
+            NumAllocations: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
+            D3DKMT_PreemptionAttempt = 0,
+            D3DKMT_PreemptionAttemptSuccess = 1,
+            D3DKMT_PreemptionAttemptMissNoCommand = 2,
+            D3DKMT_PreemptionAttemptMissNotEnabled = 3,
+            D3DKMT_PreemptionAttemptMissNextFence = 4,
+            D3DKMT_PreemptionAttemptMissPagingCommand = 5,
+            D3DKMT_PreemptionAttemptMissSplittedCommand = 6,
+            D3DKMT_PreemptionAttemptMissFenceCommand = 7,
+            D3DKMT_PreemptionAttemptMissRenderPendingFlip = 8,
+            D3DKMT_PreemptionAttemptMissNotMakingProgress = 9,
+            D3DKMT_PreemptionAttemptMissLessPriority = 10,
+            D3DKMT_PreemptionAttemptMissRemainingQuantum = 11,
+            D3DKMT_PreemptionAttemptMissRemainingPreemptionQuantum = 12,
+            D3DKMT_PreemptionAttemptMissAlreadyPreempting = 13,
+            D3DKMT_PreemptionAttemptMissGlobalBlock = 14,
+            D3DKMT_PreemptionAttemptMissAlreadyRunning = 15,
+            D3DKMT_PreemptionAttemptStatisticsMax = 16,
+        }
+        const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: u32 = 16;
+        struct D3DKMT_QUERYSTATISTICS {
+            Type: D3DKMT_QUERYSTATISTICS_TYPE,
+            AdapterLuid: LUID,
+            hProcess: HANDLE,
+            QueryResult: D3DKMT_QUERYSTATISTICS_RESULT,
+            Anonymous: union {
+                QuerySegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
+                QueryProcessSegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
+                QueryProcessSegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+                QueryNode: D3DKMT_QUERYSTATISTICS_QUERY_NODE,
+                QueryProcessNode: D3DKMT_QUERYSTATISTICS_QUERY_NODE,
+                QueryVidPnSource: D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE,
+                QueryProcessVidPnSource: D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE,
+                QueryPhysAdapter: D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER,
+                QueryAdapter2: D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2,
+                QuerySegment2: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2,
+                QueryProcessAdapter2: D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2,
+                QueryProcessSegment2: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2,
+                QueryProcessSegmentGroup2: D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2,
+                QuerySegmentUsage: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE,
+                QuerySegmentGroupUsage: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE,
+                QueryNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
+                QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
+            },
+        }
+        struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
+            NbSegments: u32,
+            NodeCount: u32,
+            VidPnSourceCount: u32,
+            VSyncEnabled: u32,
+            TdrDetectedCount: u32,
+            ZeroLengthDmaBuffers: i64,
+            RestartedPeriod: u64,
+            ReferenceDmaBuffer: D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER,
+            Renaming: D3DKMT_QUERYSTATSTICS_RENAMING,
+            Preparation: D3DKMT_QUERYSTATSTICS_PREPRATION,
+            PagingFault: D3DKMT_QUERYSTATSTICS_PAGING_FAULT,
+            PagingTransfer: D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER,
+            SwizzlingRange: D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE,
+            Locks: D3DKMT_QUERYSTATSTICS_LOCKS,
+            Allocations: D3DKMT_QUERYSTATSTICS_ALLOCATIONS,
+            Terminations: D3DKMT_QUERYSTATSTICS_TERMINATIONS,
+            Flags: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS,
+            Reserved: [u64; 7],
+        }
+        struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u64,
+                },
+                Value: u64,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
+            D3DKMT_AllocationPriorityClassMinimum = 0,
+            D3DKMT_AllocationPriorityClassLow = 1,
+            D3DKMT_AllocationPriorityClassNormal = 2,
+            D3DKMT_AllocationPriorityClassHigh = 3,
+            D3DKMT_AllocationPriorityClassMaximum = 4,
+            D3DKMT_MaxAllocationPriorityClass = 5,
+        }
+        const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5;
+        struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
+            TotalBytesEvictedFromProcess: u64,
+            BytesBySegmentPreference: [u64; 5],
+        }
+        struct D3DKMT_QUERYSTATISTICS_COUNTER {
+            Count: u32,
+            Bytes: u64,
+        }
+        struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
+            Size: D3DKMT_QUERYSTATISTICS_COUNTER,
+            AllocationListBytes: u32,
+            PatchLocationListBytes: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
+            D3DKMT_ClientRenderBuffer = 0,
+            D3DKMT_ClientPagingBuffer = 1,
+            D3DKMT_SystemPagingBuffer = 2,
+            D3DKMT_SystemPreemptionBuffer = 3,
+            D3DKMT_DmaPacketTypeMax = 4,
+        }
+        struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
+            PacketSubmited: u32,
+            PacketCompleted: u32,
+            PacketPreempted: u32,
+            PacketFaulted: u32,
+        }
+        const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4;
+        struct D3DKMT_QUERYSTATISTICS_MEMORY {
+            TotalBytesEvicted: u64,
+            AllocsCommitted: u32,
+            AllocsResident: u32,
+        }
+        struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
+            AllocatedBytes: u64,
+            FreeBytes: u64,
+            ZeroBytes: u64,
+            ModifiedBytes: u64,
+            StandbyBytes: u64,
+        }
+        struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
+            GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
+            SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
+            NodePerfData: D3DKMT_NODE_PERFDATA,
+            Reserved: [u32; 3],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
+            QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
+            DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
+            AdapterPerfData: D3DKMT_ADAPTER_PERFDATA,
+            AdapterPerfDataCaps: D3DKMT_ADAPTER_PERFDATACAPS,
+            GpuVersion: D3DKMT_GPUVERSION,
+        }
+        struct D3DKMT_QUERYSTATISTICS_POLICY {
+            PreferApertureForRead: [u64; 5],
+            PreferAperture: [u64; 5],
+            MemResetOnPaging: u64,
+            RemovePagesFromWorkingSetOnPaging: u64,
+            MigrationEnabled: u64,
+        }
+        struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
+            PreemptionCounter: [u32; 16],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
+            NbSegments: u32,
+            NodeCount: u32,
+            VidPnSourceCount: u32,
+            VirtualMemoryUsage: u32,
+            DmaBuffer: D3DKMT_QUERYSTATISTICS_DMA_BUFFER,
+            CommitmentData: D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA,
+            _Policy: D3DKMT_QUERYSTATISTICS_POLICY,
+            ProcessInterferenceCounters: D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS,
+            ClientHint: D3DKMT_CLIENTHINT,
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
+            NodeCount: u32,
+            VidPnSourceCount: u32,
+            SystemMemory: D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY,
+            Reserved: [u64; 7],
+        }
+        const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9;
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
+            InterferenceCount: [u64; 9],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
+            RunningTime: LARGE_INTEGER,
+            ContextSwitch: u32,
+            PreemptionStatistics: D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION,
+            PacketStatistics: D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION,
+            Reserved: [u64; 8],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
+            Budget: u64,
+            Requested: u64,
+            Usage: u64,
+            Demoted: [u64; 5],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
+            BytesCommitted: u64,
+            MaximumWorkingSet: u64,
+            MinimumWorkingSet: u64,
+            NbReferencedAllocationEvictedInPeriod: u32,
+            Padding: u32,
+            VideoMemory: D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY,
+            _Policy: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY,
+            Reserved: [u64; 8],
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
+            UseMRU: u64,
+        }
+        struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
+            Frame: u32,
+            CancelledFrame: u32,
+            QueuedPresent: u32,
+            Padding: u32,
+            IsVSyncEnabled: u64,
+            VSyncOnTotalTimeMs: u64,
+            VSyncOffKeepPhaseTotalTimeMs: u64,
+            VSyncOffNoPhaseTotalTimeMs: u64,
+            Reserved: [u64; 4],
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
+            PhysicalAdapterIndex: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
+            PhysicalAdapterIndex: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
+            NodeId: u32,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
+            PhysicalAdapterIndex: u16,
+            NodeOrdinal: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
+            PhysicalAdapterIndex: u32,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
+            PhysicalAdapterIndex: u16,
+            SegmentGroup: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
+            SegmentId: u32,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
+            PhysicalAdapterIndex: u16,
+            SegmentId: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
+            PhysicalAdapterIndex: u16,
+            SegmentGroup: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
+            PhysicalAdapterIndex: u16,
+            SegmentId: u16,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
+            VidPnSourceId: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
+            D3DKMT_RenderCommandBuffer = 0,
+            D3DKMT_DeferredCommandBuffer = 1,
+            D3DKMT_SystemCommandBuffer = 2,
+            D3DKMT_MmIoFlipCommandBuffer = 3,
+            D3DKMT_WaitCommandBuffer = 4,
+            D3DKMT_SignalCommandBuffer = 5,
+            D3DKMT_DeviceCommandBuffer = 6,
+            D3DKMT_SoftwareCommandBuffer = 7,
+            D3DKMT_QueuePacketTypeMax = 8,
+        }
+        struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
+            PacketSubmited: u32,
+            PacketCompleted: u32,
+        }
+        const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: u32 = 8;
+        union D3DKMT_QUERYSTATISTICS_RESULT {
+            AdapterInformation: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION,
+            PhysAdapterInformation: D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION,
+            SegmentInformation: D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION,
+            NodeInformation: D3DKMT_QUERYSTATISTICS_NODE_INFORMATION,
+            VidPnSourceInformation: D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION,
+            ProcessInformation: D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION,
+            ProcessAdapterInformation: D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION,
+            ProcessSegmentInformation: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION,
+            ProcessNodeInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
+            ProcessVidPnSourceInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
+            ProcessSegmentGroupInformation: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION,
+            SegmentUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
+            SegmentGroupUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
+        }
+        struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
+            CommitLimit: u64,
+            BytesCommitted: u64,
+            BytesResident: u64,
+            Memory: D3DKMT_QUERYSTATISTICS_MEMORY,
+            Aperture: u32,
+            TotalBytesEvictedByPriority: [u64; 5],
+            SystemMemoryEndAddress: u64,
+            PowerFlags: struct {
+                _bitfield: u64,
+            },
+            SegmentProperties: struct {
+                _bitfield: u64,
+            },
+            Reserved: [u64; 5],
+        }
+        const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: u32 = 5;
+        #[repr(i32)]
+        enum D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
+            D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE = 0,
+            D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY = 1,
+            D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM = 2,
+        }
+        struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
+            BytesAllocated: u64,
+            BytesReserved: u64,
+            SmallAllocationBlocks: u32,
+            LargeAllocationBlocks: u32,
+            WriteCombinedBytesAllocated: u64,
+            WriteCombinedBytesReserved: u64,
+            CachedBytesAllocated: u64,
+            CachedBytesReserved: u64,
+            SectionBytesAllocated: u64,
+            SectionBytesReserved: u64,
+            BytesZeroed: u64,
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUERYSTATISTICS_TYPE {
+            D3DKMT_QUERYSTATISTICS_ADAPTER = 0,
+            D3DKMT_QUERYSTATISTICS_PROCESS = 1,
+            D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER = 2,
+            D3DKMT_QUERYSTATISTICS_SEGMENT = 3,
+            D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT = 4,
+            D3DKMT_QUERYSTATISTICS_NODE = 5,
+            D3DKMT_QUERYSTATISTICS_PROCESS_NODE = 6,
+            D3DKMT_QUERYSTATISTICS_VIDPNSOURCE = 7,
+            D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE = 8,
+            D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP = 9,
+            D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER = 10,
+            D3DKMT_QUERYSTATISTICS_ADAPTER2 = 11,
+            D3DKMT_QUERYSTATISTICS_SEGMENT2 = 12,
+            D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2 = 13,
+            D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2 = 14,
+            D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2 = 15,
+            D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE = 16,
+            D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE = 17,
+            D3DKMT_QUERYSTATISTICS_NODE2 = 18,
+            D3DKMT_QUERYSTATISTICS_PROCESS_NODE2 = 19,
+        }
+        struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
+            AllocsCommitted: u32,
+            AllocsResidentInP: [D3DKMT_QUERYSTATISTICS_COUNTER; 5],
+            AllocsResidentInNonPreferred: D3DKMT_QUERYSTATISTICS_COUNTER,
+            TotalBytesEvictedDueToPreparation: u64,
+        }
+        struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
+            GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
+            SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
+            Reserved: [u64; 8],
+        }
+        struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
+            Created: D3DKMT_QUERYSTATISTICS_COUNTER,
+            Destroyed: D3DKMT_QUERYSTATISTICS_COUNTER,
+            Opened: D3DKMT_QUERYSTATISTICS_COUNTER,
+            Closed: D3DKMT_QUERYSTATISTICS_COUNTER,
+            MigratedSuccess: D3DKMT_QUERYSTATISTICS_COUNTER,
+            MigratedFail: D3DKMT_QUERYSTATISTICS_COUNTER,
+            MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
+        }
+        struct D3DKMT_QUERYSTATSTICS_LOCKS {
+            NbLocks: u32,
+            NbLocksWaitFlag: u32,
+            NbLocksDiscardFlag: u32,
+            NbLocksNoOverwrite: u32,
+            NbLocksNoReadSync: u32,
+            NbLocksLinearization: u32,
+            NbComplexLocks: u32,
+        }
+        struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
+            Faults: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsFirstTimeAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsReclaimed: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsMigration: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsIncorrectResource: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsLostContent: D3DKMT_QUERYSTATISTICS_COUNTER,
+            FaultsEvicted: D3DKMT_QUERYSTATISTICS_COUNTER,
+            AllocationsMEM_RESET: D3DKMT_QUERYSTATISTICS_COUNTER,
+            AllocationsUnresetSuccess: D3DKMT_QUERYSTATISTICS_COUNTER,
+            AllocationsUnresetFail: D3DKMT_QUERYSTATISTICS_COUNTER,
+            AllocationsUnresetSuccessRead: u32,
+            AllocationsUnresetFailRead: u32,
+            Evictions: D3DKMT_QUERYSTATISTICS_COUNTER,
+            EvictionsDueToPreparation: D3DKMT_QUERYSTATISTICS_COUNTER,
+            EvictionsDueToLock: D3DKMT_QUERYSTATISTICS_COUNTER,
+            EvictionsDueToClose: D3DKMT_QUERYSTATISTICS_COUNTER,
+            EvictionsDueToPurge: D3DKMT_QUERYSTATISTICS_COUNTER,
+            EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
+        }
+        struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
+            BytesFilled: u64,
+            BytesDiscarded: u64,
+            BytesMappedIntoAperture: u64,
+            BytesUnmappedFromAperture: u64,
+            BytesTransferredFromMdlToMemory: u64,
+            BytesTransferredFromMemoryToMdl: u64,
+            BytesTransferredFromApertureToMemory: u64,
+            BytesTransferredFromMemoryToAperture: u64,
+        }
+        struct D3DKMT_QUERYSTATSTICS_PREPRATION {
+            BroadcastStall: u32,
+            NbDMAPrepared: u32,
+            NbDMAPreparedLongPath: u32,
+            ImmediateHighestPreparationPass: u32,
+            AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
+        }
+        struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
+            NbCall: u32,
+            NbAllocationsReferenced: u32,
+            MaxNbAllocationsReferenced: u32,
+            NbNULLReference: u32,
+            NbWriteReference: u32,
+            NbRenamedAllocationsReferenced: u32,
+            NbIterationSearchingRenamedAllocation: u32,
+            NbLockedAllocationReferenced: u32,
+            NbAllocationWithValidPrepatchingInfoReferenced: u32,
+            NbAllocationWithInvalidPrepatchingInfoReferenced: u32,
+            NbDMABufferSuccessfullyPrePatched: u32,
+            NbPrimariesReferencesOverflow: u32,
+            NbAllocationWithNonPreferredResources: u32,
+            NbAllocationInsertedInMigrationTable: u32,
+        }
+        struct D3DKMT_QUERYSTATSTICS_RENAMING {
+            NbAllocationsRenamed: u32,
+            NbAllocationsShrinked: u32,
+            NbRenamedBuffer: u32,
+            MaxRenamingListLength: u32,
+            NbFailuresDueToRenamingLimit: u32,
+            NbFailuresDueToCreateAllocation: u32,
+            NbFailuresDueToOpenAllocation: u32,
+            NbFailuresDueToLowResource: u32,
+            NbFailuresDueToNonRetiredLimit: u32,
+        }
+        struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
+            NbRangesAcquired: u32,
+            NbRangesReleased: u32,
+        }
+        struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
+            TerminatedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
+            TerminatedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
+            DestroyedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
+            DestroyedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
+        }
+        struct D3DKMT_QUERYVIDEOMEMORYINFO {
+            hProcess: HANDLE,
+            hAdapter: D3DKMT_HANDLE,
+            MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+            Budget: u64,
+            CurrentUsage: u64,
+            CurrentReservation: u64,
+            AvailableForReservation: u64,
+            PhysicalAdapterIndex: u32,
+        }
+        struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
+            hProcess: HANDLE,
+            hWindow: HWND,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            AdapterLuid: LUID,
+            OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
+        }
+        struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
+            AdapterUniqueGUID: [u16; 40],
+        }
+        struct D3DKMT_QUERY_DEVICE_IDS {
+            PhysicalAdapterIndex: u32,
+            DeviceIds: D3DKMT_DEVICE_IDS,
+        }
+        struct D3DKMT_QUERY_GPUMMU_CAPS {
+            PhysicalAdapterIndex: u32,
+            Caps: D3DKMT_GPUMMU_CAPS,
+        }
+        struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
+            MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
+        }
+        struct D3DKMT_QUERY_PHYSICAL_ADAPTER {
+            PhysicalAdapterIndex: u32,
+            NumExecutionNodes: u32,
+            PagingNodeIndex: u32,
+        }
+        struct D3DKMT_QUERY_PHYSICAL_ADAPTER_1 {
+            PhysicalAdapterIndex: u32,
+            NumExecutionNodes: u32,
+            PagingNodeIndex: u32,
+            GdiNodeIndex: u32,
+        }
+        struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
+            PhysicalAdapterIndex: u32,
+            PnPKeyType: D3DKMT_PNP_KEY_TYPE,
+            pDest: *mut u16,
+            pCchDest: *mut u32,
+        }
+        struct D3DKMT_QUERY_SCANOUT_CAPS {
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Caps: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_QUEUEDLIMIT_TYPE {
+            D3DKMT_SET_QUEUEDLIMIT_PRESENT = 1,
+            D3DKMT_GET_QUEUEDLIMIT_PRESENT = 2,
+        }
+        struct D3DKMT_RECLAIMALLOCATIONS {
+            hDevice: D3DKMT_HANDLE,
+            pResources: *mut D3DKMT_HANDLE,
+            HandleList: *const D3DKMT_HANDLE,
+            pDiscarded: *mut BOOL,
+            NumAllocations: u32,
+        }
+        struct D3DKMT_RECLAIMALLOCATIONS2 {
+            hPagingQueue: D3DKMT_HANDLE,
+            NumAllocations: u32,
+            pResources: *mut D3DKMT_HANDLE,
+            HandleList: *const D3DKMT_HANDLE,
+            Anonymous: union {
+                pDiscarded: *mut BOOL,
+                pResults: *mut D3DDDI_RECLAIM_RESULT,
+            },
+            PagingFenceValue: u64,
+        }
+        struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
+            hDevice: D3DKMT_HANDLE,
+            Callback: PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK,
+            Context: *mut void,
+            Handle: *mut void,
+        }
+        struct D3DKMT_REGISTERTRIMNOTIFICATION {
+            AdapterLuid: LUID,
+            hDevice: D3DKMT_HANDLE,
+            Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
+            Context: *mut void,
+            Handle: *mut void,
+        }
+        struct D3DKMT_RELEASEKEYEDMUTEX {
+            hKeyedMutex: D3DKMT_HANDLE,
+            Key: u64,
+            FenceValue: u64,
+        }
+        struct D3DKMT_RELEASEKEYEDMUTEX2 {
+            hKeyedMutex: D3DKMT_HANDLE,
+            Key: u64,
+            FenceValue: u64,
+            pPrivateRuntimeData: *mut void,
+            PrivateRuntimeDataSize: u32,
+        }
+        struct D3DKMT_RENDER {
+            Anonymous: union {
+                hDevice: D3DKMT_HANDLE,
+                hContext: D3DKMT_HANDLE,
+            },
+            CommandOffset: u32,
+            CommandLength: u32,
+            AllocationCount: u32,
+            PatchLocationCount: u32,
+            pNewCommandBuffer: *mut void,
+            NewCommandBufferSize: u32,
+            pNewAllocationList: *mut D3DDDI_ALLOCATIONLIST,
+            NewAllocationListSize: u32,
+            pNewPatchLocationList: *mut D3DDDI_PATCHLOCATIONLIST,
+            NewPatchLocationListSize: u32,
+            Flags: D3DKMT_RENDERFLAGS,
+            PresentHistoryToken: u64,
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            QueuedBufferCount: u32,
+            NewCommandBuffer: D3DGPU_VIRTUAL_ADDRESS,
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+        }
+        struct D3DKMT_RENDERFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
+            Param1: D3DKMT_ULONG_PTR,
+            Param2: D3DKMT_ULONG_PTR,
+            Param3: D3DKMT_ULONG_PTR,
+        }
+        struct D3DKMT_RESIZERINGBUFFER {
+            hHwQueue: D3DKMT_HANDLE,
+            hRingBuffer: D3DKMT_HANDLE,
+            hRingBufferControl: D3DKMT_HANDLE,
+            Flags: D3DKMT_RESIZERINGBUFFER_FLAGS,
+            PrivateDriverData: [u8; 64],
+            Reserved: [u8; 64],
+        }
+        struct D3DKMT_RESIZERINGBUFFER_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_SCATTERBLT {
+            hLogicalSurfaceDestination: u64,
+            hDestinationCompSurfDWM: i64,
+            DestinationCompositionBindingId: u64,
+            SourceRect: RECT,
+            DestinationOffset: POINT,
+        }
+        struct D3DKMT_SCATTERBLTS {
+            NumBlts: u32,
+            Blts: [D3DKMT_SCATTERBLT; 12],
+        }
+        #[repr(i32)]
+        enum D3DKMT_SCHEDULINGPRIORITYCLASS {
+            D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE = 0,
+            D3DKMT_SCHEDULINGPRIORITYCLASS_BELOW_NORMAL = 1,
+            D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL = 2,
+            D3DKMT_SCHEDULINGPRIORITYCLASS_ABOVE_NORMAL = 3,
+            D3DKMT_SCHEDULINGPRIORITYCLASS_HIGH = 4,
+            D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME = 5,
+        }
+        struct D3DKMT_SEGMENTGROUPSIZEINFO {
+            PhysicalAdapterIndex: u32,
+            LegacyInfo: D3DKMT_SEGMENTSIZEINFO,
+            LocalMemory: u64,
+            NonLocalMemory: u64,
+            NonBudgetMemory: u64,
+        }
+        struct D3DKMT_SEGMENTSIZEINFO {
+            DedicatedVideoMemorySize: u64,
+            DedicatedSystemMemorySize: u64,
+            SharedSystemMemorySize: u64,
+        }
+        struct D3DKMT_SEGMENT_CAPS {
+            Size: u64,
+            PageSize: u32,
+            SegmentId: u32,
+            bAperture: BOOLEAN,
+            bReservedSysMem: BOOLEAN,
+            BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
+        }
+        struct D3DKMT_SETALLOCATIONPRIORITY {
+            hDevice: D3DKMT_HANDLE,
+            hResource: D3DKMT_HANDLE,
+            phAllocationList: *const D3DKMT_HANDLE,
+            AllocationCount: u32,
+            pPriorities: *const u32,
+        }
+        struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+            hContext: D3DKMT_HANDLE,
+            Priority: i32,
+        }
+        struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
+            hContext: D3DKMT_HANDLE,
+            Priority: i32,
+        }
+        const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824;
+        struct D3DKMT_SETDISPLAYMODE {
+            hDevice: D3DKMT_HANDLE,
+            hPrimaryAllocation: D3DKMT_HANDLE,
+            ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+            DisplayOrientation: D3DDDI_ROTATION,
+            PrivateDriverFormatAttribute: u32,
+            Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
+        }
+        struct D3DKMT_SETDISPLAYMODE_FLAGS {
+            _bitfield1: BOOLEAN,
+            _bitfield2: u32,
+        }
+        struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            PrivateDriverFormatAttribute: u32,
+        }
+        struct D3DKMT_SETFSEBLOCK {
+            AdapterLuid: LUID,
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Flags: D3DKMT_SETFSEBLOCKFLAGS,
+        }
+        union D3DKMT_SETFSEBLOCKFLAGS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_SETGAMMARAMP {
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            Type: D3DDDI_GAMMARAMP_TYPE,
+            Anonymous: union {
+                pGammaRampRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
+                pGammaRampDXGI1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
+            },
+            Size: u32,
+        }
+        struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
+            hAdapter: D3DKMT_HANDLE,
+            Recovered: BOOL,
+        }
+        struct D3DKMT_SETQUEUEDLIMIT {
+            hDevice: D3DKMT_HANDLE,
+            Type: D3DKMT_QUEUEDLIMIT_TYPE,
+            Anonymous: union {
+                QueuedPresentLimit: u32,
+                Anonymous: struct {
+                    VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+                    QueuedPendingFlipLimit: u32,
+                },
+            },
+        }
+        struct D3DKMT_SETSTABLEPOWERSTATE {
+            hAdapter: D3DKMT_HANDLE,
+            Enabled: BOOL,
+        }
+        struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            TargetSyncRefreshCount: u32,
+        }
+        struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
+            hAdapter: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            HwProtected: BOOL,
+        }
+        struct D3DKMT_SETVIDPNSOURCEOWNER {
+            hDevice: D3DKMT_HANDLE,
+            pType: *const D3DKMT_VIDPNSOURCEOWNER_TYPE,
+            pVidPnSourceId: *const D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            VidPnSourceCount: u32,
+        }
+        struct D3DKMT_SETVIDPNSOURCEOWNER1 {
+            Version0: D3DKMT_SETVIDPNSOURCEOWNER,
+            Flags: D3DKMT_VIDPNSOURCEOWNER_FLAGS,
+        }
+        struct D3DKMT_SETVIDPNSOURCEOWNER2 {
+            Version1: D3DKMT_SETVIDPNSOURCEOWNER1,
+            pVidPnSourceNtHandles: *const D3DKMT_PTR_TYPE,
+        }
+        struct D3DKMT_SET_COLORSPACE_TRANSFORM {
+            AdapterLuid: LUID,
+            VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
+            Type: D3DDDI_GAMMARAMP_TYPE,
+            Size: u32,
+            Anonymous: union {
+                pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
+            },
+        }
+        struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
+            AdapterLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            LockRect: RECTL,
+        }
+        struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
+            AdapterLuid: LUID,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_SHAREOBJECTWITHHOST {
+            hDevice: D3DKMT_HANDLE,
+            hObject: D3DKMT_HANDLE,
+            Reserved: u64,
+            hVailProcessNtHandle: u64,
+        }
+        struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: [D3DKMT_HANDLE; 32],
+            Flags: D3DDDICB_SIGNALFLAGS,
+        }
+        struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: [D3DKMT_HANDLE; 32],
+            Flags: D3DDDICB_SIGNALFLAGS,
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            Anonymous: union {
+                Fence: struct {
+                    FenceValue: u64,
+                },
+                CpuEventHandle: HANDLE,
+                Reserved: [u64; 8],
+            },
+        }
+        struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
+            hDevice: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            FenceValueArray: *const u64,
+            Flags: D3DDDICB_SIGNALFLAGS,
+        }
+        struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            Anonymous: union {
+                MonitoredFenceValueArray: *const u64,
+                Reserved: [u64; 8],
+            },
+        }
+        struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            Flags: D3DDDICB_SIGNALFLAGS,
+            BroadcastContextCount: u32,
+            BroadcastContextArray: *const D3DKMT_HANDLE,
+            Anonymous: union {
+                FenceValue: u64,
+                CpuEventHandle: HANDLE,
+                MonitoredFenceValueArray: *const u64,
+                Reserved: [u64; 8],
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_STANDARDALLOCATIONTYPE {
+            D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP = 1,
+            D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE = 2,
+            D3DKMT_STANDARDALLOCATIONTYPE_MAX = 3,
+        }
+        struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
+            Size: D3DKMT_SIZE_T,
+        }
+        #[encoding("utf-16")]
+        const D3DKMT_SUBKEY_DX9: String = "DX9";
+        #[encoding("utf-16")]
+        const D3DKMT_SUBKEY_OPENGL: String = "OpenGL";
+        struct D3DKMT_SUBMITCOMMAND {
+            Commands: D3DGPU_VIRTUAL_ADDRESS,
+            CommandLength: u32,
+            Flags: D3DKMT_SUBMITCOMMANDFLAGS,
+            PresentHistoryToken: u64,
+            BroadcastContextCount: u32,
+            BroadcastContext: [D3DKMT_HANDLE; 64],
+            pPrivateDriverData: *mut void,
+            PrivateDriverDataSize: u32,
+            NumPrimaries: u32,
+            WrittenPrimaries: [D3DKMT_HANDLE; 16],
+            NumHistoryBuffers: u32,
+            HistoryBufferArray: *mut D3DKMT_HANDLE,
+        }
+        struct D3DKMT_SUBMITCOMMANDFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
+            hHwQueue: D3DKMT_HANDLE,
+            HwQueueProgressFenceId: u64,
+            CommandBuffer: D3DGPU_VIRTUAL_ADDRESS,
+            CommandLength: u32,
+            PrivateDriverDataSize: u32,
+            pPrivateDriverData: *mut void,
+            NumPrimaries: u32,
+            WrittenPrimaries: *const D3DKMT_HANDLE,
+        }
+        struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
+            hHwQueue: D3DKMT_HANDLE,
+            HwQueueProgressFenceId: u64,
+            PrivatePresentData: D3DKMT_PRESENT,
+        }
+        struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
+            hHwQueues: *mut D3DKMT_HANDLE,
+            PrivatePresentData: D3DKMT_PRESENT,
+        }
+        struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
+            Flags: D3DDDICB_SIGNALFLAGS,
+            BroadcastHwQueueCount: u32,
+            BroadcastHwQueueArray: *const D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            FenceValueArray: *const u64,
+        }
+        struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
+            hHwQueue: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            FenceValueArray: *const u64,
+        }
+        struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
+            hLogicalSurface: u64,
+        }
+        #[repr(i32)]
+        enum D3DKMT_TDRDBGCTRLTYPE {
+            D3DKMT_TDRDBGCTRLTYPE_FORCETDR = 0,
+            D3DKMT_TDRDBGCTRLTYPE_DISABLEBREAK = 1,
+            D3DKMT_TDRDBGCTRLTYPE_ENABLEBREAK = 2,
+            D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL = 3,
+            D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR = 4,
+            D3DKMT_TDRDBGCTRLTYPE_GPUTDR = 5,
+            D3DKMT_TDRDBGCTRLTYPE_FORCEDODTDR = 6,
+            D3DKMT_TDRDBGCTRLTYPE_FORCEDODVSYNCTDR = 7,
+            D3DKMT_TDRDBGCTRLTYPE_ENGINETDR = 8,
+        }
+        struct D3DKMT_TDRDBGCTRL_ESCAPE {
+            TdrControl: D3DKMT_TDRDBGCTRLTYPE,
+            Anonymous: union {
+                NodeOrdinal: u32,
+            },
+        }
+        struct D3DKMT_TRIMNOTIFICATION {
+            Context: *mut void,
+            Flags: D3DDDI_TRIMRESIDENCYSET_FLAGS,
+            NumBytesToTrim: u64,
+        }
+        struct D3DKMT_TRIMPROCESSCOMMITMENT {
+            cbSize: u32,
+            hProcess: HANDLE,
+            Flags: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS,
+            DecommitRequested: u64,
+            NumBytesDecommitted: u64,
+        }
+        union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+            Value: u32,
+        }
+        struct D3DKMT_UMDFILENAMEINFO {
+            Version: KMTUMDVERSION,
+            UmdFileName: [u16; 260],
+        }
+        struct D3DKMT_UMD_DRIVER_VERSION {
+            DriverVersion: LARGE_INTEGER,
+        }
+        struct D3DKMT_UNLOCK {
+            hDevice: D3DKMT_HANDLE,
+            NumAllocations: u32,
+            phAllocations: *const D3DKMT_HANDLE,
+        }
+        struct D3DKMT_UNLOCK2 {
+            hDevice: D3DKMT_HANDLE,
+            hAllocation: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_UNMAPPROCESSDEBUGBLOB {
+            hDevice: D3DKMT_HANDLE,
+            pBuffer: *mut void,
+            Flags: D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS,
+        }
+        struct D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
+            hDevice: D3DKMT_HANDLE,
+            ResourceCount: u32,
+            pResourceList: *mut D3DKMT_HANDLE,
+        }
+        struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
+            Handle: *mut void,
+        }
+        struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
+            Handle: *mut void,
+            Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
+        }
+        struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
+            hDevice: D3DKMT_HANDLE,
+            hContext: D3DKMT_HANDLE,
+            hFenceObject: D3DKMT_HANDLE,
+            NumOperations: u32,
+            Operations: *mut D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION,
+            Reserved0: D3DKMT_SIZE_T,
+            Reserved1: u64,
+            FenceValue: u64,
+            Flags: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        struct D3DKMT_UPDATEOVERLAY {
+            hDevice: D3DKMT_HANDLE,
+            hOverlay: D3DKMT_HANDLE,
+            OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
+        }
+        struct D3DKMT_VAD_DESC {
+            VadIndex: u32,
+            VadAddress: u64,
+            NumMappedRanges: u32,
+            VadType: u32,
+            StartAddress: u64,
+            EndAddress: u64,
+        }
+        #[repr(i32)]
+        enum D3DKMT_VAD_ESCAPE_COMMAND {
+            D3DKMT_VAD_ESCAPE_GETNUMVADS = 0,
+            D3DKMT_VAD_ESCAPE_GETVAD = 1,
+            D3DKMT_VAD_ESCAPE_GETVADRANGE = 2,
+            D3DKMT_VAD_ESCAPE_GET_PTE = 3,
+            D3DKMT_VAD_ESCAPE_GET_GPUMMU_CAPS = 4,
+            D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS = 5,
+            D3DKMT_VAD_ESCAPE_GET_PTE_DATA = 6,
+        }
+        struct D3DKMT_VA_RANGE_DESC {
+            VadAddress: u64,
+            VaRangeIndex: u32,
+            PhysicalAdapterIndex: u32,
+            StartAddress: u64,
+            EndAddress: u64,
+            DriverProtection: u64,
+            OwnerType: u32,
+            pOwner: u64,
+            OwnerOffset: u64,
+            Protection: u32,
+        }
+        #[repr(i32)]
+        enum D3DKMT_VERIFIER_OPTION_MODE {
+            D3DKMT_VERIFIER_OPTION_QUERY = 0,
+            D3DKMT_VERIFIER_OPTION_SET = 1,
+        }
+        struct D3DKMT_VGPUINTERFACEID {
+            VirtualGpuIntefaceId: [u16; 260],
+        }
+        #[repr(i32)]
+        enum D3DKMT_VIDMMESCAPETYPE {
+            D3DKMT_VIDMMESCAPETYPE_SETFAULT = 0,
+            D3DKMT_VIDMMESCAPETYPE_RUN_COHERENCY_TEST = 1,
+            D3DKMT_VIDMMESCAPETYPE_RUN_UNMAP_TO_DUMMY_PAGE_TEST = 2,
+            D3DKMT_VIDMMESCAPETYPE_APERTURE_CORRUPTION_CHECK = 3,
+            D3DKMT_VIDMMESCAPETYPE_SUSPEND_CPU_ACCESS_TEST = 4,
+            D3DKMT_VIDMMESCAPETYPE_EVICT = 5,
+            D3DKMT_VIDMMESCAPETYPE_EVICT_BY_NT_HANDLE = 6,
+            D3DKMT_VIDMMESCAPETYPE_GET_VAD_INFO = 7,
+            D3DKMT_VIDMMESCAPETYPE_SET_BUDGET = 8,
+            D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS = 9,
+            D3DKMT_VIDMMESCAPETYPE_RESUME_PROCESS = 10,
+            D3DKMT_VIDMMESCAPETYPE_GET_BUDGET = 11,
+            D3DKMT_VIDMMESCAPETYPE_SET_TRIM_INTERVALS = 12,
+            D3DKMT_VIDMMESCAPETYPE_EVICT_BY_CRITERIA = 13,
+            D3DKMT_VIDMMESCAPETYPE_WAKE = 14,
+            D3DKMT_VIDMMESCAPETYPE_DEFRAG = 15,
+            D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION = 16,
+            D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY = 17,
+            D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG = 18,
+            D3DKMT_VIDMMESCAPETYPE_COPY_CONTENT = 19,
+            D3DKMT_VIDMMESCAPETYPE_DEBUG = 20,
+            D3DKMT_VIDMMESCAPETYPE_QUERYSECTION = 21,
+        }
+        struct D3DKMT_VIDMM_ESCAPE {
+            Type: D3DKMT_VIDMMESCAPETYPE,
+            Anonymous: union {
+                SetFault: struct {
+                    Anonymous: union {
+                        Anonymous: struct {
+                            _bitfield: u32,
+                        },
+                        Value: u32,
+                    },
+                },
+                Debug: struct {
+                    Anonymous: union {
+                        Anonymous: struct {
+                            _bitfield: u32,
+                        },
+                        Value: u32,
+                    },
+                },
+                Evict: struct {
+                    ResourceHandle: D3DKMT_HANDLE,
+                    AllocationHandle: D3DKMT_HANDLE,
+                    hProcess: HANDLE,
+                },
+                EvictByNtHandle: struct {
+                    NtHandle: u64,
+                },
+                GetVads: struct {
+                    Anonymous: union {
+                        GetNumVads: struct {
+                            NumVads: u32,
+                        },
+                        GetVad: D3DKMT_VAD_DESC,
+                        GetVadRange: D3DKMT_VA_RANGE_DESC,
+                        GetGpuMmuCaps: D3DKMT_GET_GPUMMU_CAPS,
+                        GetPte: D3DKMT_GET_PTE,
+                        GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
+                    },
+                    Command: D3DKMT_VAD_ESCAPE_COMMAND,
+                    Status: NTSTATUS,
+                    Anonymous2: union {
+                        GetPteExt: D3DKMT_GET_PTE_EXT,
+                    },
+                },
+                SetBudget: struct {
+                    LocalMemoryBudget: u64,
+                    SystemMemoryBudget: u64,
+                },
+                SuspendProcess: struct {
+                    hProcess: HANDLE,
+                    bAllowWakeOnSubmission: BOOL,
+                },
+                ResumeProcess: struct {
+                    hProcess: HANDLE,
+                },
+                GetBudget: struct {
+                    NumBytesToTrim: u64,
+                },
+                SetTrimIntervals: struct {
+                    MinTrimInterval: u32,
+                    MaxTrimInterval: u32,
+                    IdleTrimInterval: u32,
+                },
+                EvictByCriteria: D3DKMT_EVICTION_CRITERIA,
+                Wake: struct {
+                    bFlush: BOOL,
+                },
+                Defrag: struct {
+                    Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
+                    SegmentId: u32,
+                    TotalCommitted: u64,
+                    TotalFree: u64,
+                    LargestGapBefore: u64,
+                    LargestGapAfter: u64,
+                },
+                DelayExecution: struct {
+                    hPagingQueue: D3DKMT_HANDLE,
+                    PhysicalAdapterIndex: u32,
+                    Milliseconds: u32,
+                    PagingFenceValue: u64,
+                },
+                VerifyIntegrity: struct {
+                    PhysicalAdapterIndex: u16,
+                    SegmentId: u16,
+                },
+                DelayedEvictionConfig: struct {
+                    TimerValue: i64,
+                },
+                CopyContent: struct {
+                    UserBuffer: *mut void,
+                    Direction: D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION,
+                    hAllocation: D3DKMT_HANDLE,
+                    Offset: u64,
+                    Size: u64,
+                },
+                QuerySection: struct {
+                    hAllocation: D3DKMT_HANDLE,
+                    hSection: HANDLE,
+                },
+            },
+        }
+        struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                Value: u32,
+            },
+        }
+        #[repr(i32)]
+        enum D3DKMT_VIDPNSOURCEOWNER_TYPE {
+            D3DKMT_VIDPNSOURCEOWNER_UNOWNED = 0,
+            D3DKMT_VIDPNSOURCEOWNER_SHARED = 1,
+            D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE = 2,
+            D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI = 3,
+            D3DKMT_VIDPNSOURCEOWNER_EMULATED = 4,
+        }
+        #[repr(i32)]
+        enum D3DKMT_VIDSCHESCAPETYPE {
+            D3DKMT_VIDSCHESCAPETYPE_PREEMPTIONCONTROL = 0,
+            D3DKMT_VIDSCHESCAPETYPE_SUSPENDSCHEDULER = 1,
+            D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL = 2,
+            D3DKMT_VIDSCHESCAPETYPE_SUSPENDRESUME = 3,
+            D3DKMT_VIDSCHESCAPETYPE_ENABLECONTEXTDELAY = 4,
+            D3DKMT_VIDSCHESCAPETYPE_CONFIGURE_TDR_LIMIT = 5,
+            D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET = 6,
+            D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL = 7,
+            D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE = 8,
+        }
+        struct D3DKMT_VIDSCH_ESCAPE {
+            Type: D3DKMT_VIDSCHESCAPETYPE,
+            Anonymous: union {
+                PreemptionControl: BOOL,
+                EnableContextDelay: BOOL,
+                TdrControl2: struct {
+                    TdrControl: u32,
+                    Anonymous: union {
+                        NodeOrdinal: u32,
+                    },
+                },
+                SuspendScheduler: BOOL,
+                TdrControl: u32,
+                SuspendTime: u32,
+                TdrLimit: struct {
+                    Count: u32,
+                    Time: u32,
+                },
+                PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
+            },
+            VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
+        }
+        struct D3DKMT_VIRTUALADDRESSFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_VIRTUALADDRESSINFO {
+            VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
+        }
+        type D3DKMT_VISTABLTMODEL_PRESENTHISTORYTOKEN = u64;
+        struct D3DKMT_WAITFORIDLE {
+            hDevice: D3DKMT_HANDLE,
+        }
+        struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: [D3DKMT_HANDLE; 32],
+        }
+        struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: [D3DKMT_HANDLE; 32],
+            Anonymous: union {
+                Fence: struct {
+                    FenceValue: u64,
+                },
+                Reserved: [u64; 8],
+            },
+        }
+        struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
+            hDevice: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            FenceValueArray: *const u64,
+            hAsyncEvent: HANDLE,
+            Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
+        }
+        struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
+            hContext: D3DKMT_HANDLE,
+            ObjectCount: u32,
+            ObjectHandleArray: *const D3DKMT_HANDLE,
+            Anonymous: union {
+                MonitoredFenceValueArray: *const u64,
+                FenceValue: u64,
+                Reserved: [u64; 8],
+            },
+        }
+        struct D3DKMT_WAITFORVERTICALBLANKEVENT {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+        }
+        struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
+            hAdapter: D3DKMT_HANDLE,
+            hDevice: D3DKMT_HANDLE,
+            VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
+            NumObjects: u32,
+            ObjectHandleArray: [D3DKMT_PTR_TYPE; 8],
+        }
+        struct D3DKMT_WAITSYNCFILE {
+            hSyncFile: u64,
+            hContext: D3DKMT_HANDLE,
+            Reserved: u32,
+        }
+        struct D3DKMT_WORKINGSETFLAGS {
+            _bitfield: u32,
+        }
+        struct D3DKMT_WORKINGSETINFO {
+            Flags: D3DKMT_WORKINGSETFLAGS,
+            MinimumWorkingSetPercentile: u32,
+            MaximumWorkingSetPercentile: u32,
+        }
+        struct D3DKMT_WSAUMDIMAGENAME {
+            WsaUmdImageName: [u16; 260],
+        }
+        struct D3DKMT_XBOX {
+            IsXBOX: BOOL,
+        }
+        #[repr(i32)]
+        enum DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_NONE = 0,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME0 = 1,
+            DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME1 = 2,
+        }
+        #[repr(i32)]
+        enum DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
+            DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_BILINEAR = 1,
+            DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_HIGH = 2,
+        }
+        #[repr(i32)]
+        enum DXGKMT_POWER_SHARED_TYPE {
+            DXGKMT_POWER_SHARED_TYPE_AUDIO = 0,
+        }
+        const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16;
+        struct DXGK_ESCAPE_GPUMMUCAPS {
+            ReadOnlyMemorySupported: BOOLEAN,
+            NoExecuteMemorySupported: BOOLEAN,
+            ZeroInPteSupported: BOOLEAN,
+            CacheCoherentMemorySupported: BOOLEAN,
+            LargePageSupported: BOOLEAN,
+            DualPteSupported: BOOLEAN,
+            AllowNonAlignedLargePageAddress: BOOLEAN,
+            _bitfield: BOOLEAN,
+            VirtualAddressBitCount: u32,
+            PageTableLevelCount: u32,
+            PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
+        }
+        struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
+            pfnEnableProcessDebugBlobCollection: PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION,
+            pfnDisableProcessDebugBlobCollection: PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION,
+            pfnMapProcessDebugBlob: PFND3DKMT_MAPPROCESSDEBUGBLOB,
+            pfnUnmapProcessDebugBlob: PFND3DKMT_UNMAPPROCESSDEBUGBLOB,
+        }
+        type DXGK_GRAPHICSPOWER_REGISTER_INPUT = DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
+        struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
+            Version: u32,
+            PrivateHandle: *mut void,
+            PowerNotificationCb: PDXGK_POWER_NOTIFICATION,
+            RemovalNotificationCb: PDXGK_REMOVAL_NOTIFICATION,
+            FStateNotificationCb: PDXGK_FSTATE_NOTIFICATION,
+            InitialComponentStateCb: PDXGK_INITIAL_COMPONENT_STATE,
+        }
+        struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
+            DeviceHandle: *mut void,
+            InitialGrfxPowerState: DEVICE_POWER_STATE,
+            SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
+            UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
+        }
+        const DXGK_GRAPHICSPOWER_VERSION: u32 = 4098;
+        const DXGK_GRAPHICSPOWER_VERSION_1_0: u32 = 4096;
+        const DXGK_GRAPHICSPOWER_VERSION_1_1: u32 = 4097;
+        const DXGK_GRAPHICSPOWER_VERSION_1_2: u32 = 4098;
+        const FLIPEX_TIMEOUT_KERNEL: u32 = 20000000;
+        const FLIPEX_TIMEOUT_USER: u32 = 2000;
+        const GUID_DEVINTERFACE_GRAPHICSPOWER: GUID = 0xea5c6870_e93c_4588_bef1_fec42fc9429a;
+        const IOCTL_INTERNAL_GRAPHICSPOWER_REGISTER: u32 = 2304007;
+        #[repr(i32)]
+        enum KMTQUERYADAPTERINFOTYPE {
+            KMTQAITYPE_UMDRIVERPRIVATE = 0,
+            KMTQAITYPE_UMDRIVERNAME = 1,
+            KMTQAITYPE_UMOPENGLINFO = 2,
+            KMTQAITYPE_GETSEGMENTSIZE = 3,
+            KMTQAITYPE_ADAPTERGUID = 4,
+            KMTQAITYPE_FLIPQUEUEINFO = 5,
+            KMTQAITYPE_ADAPTERADDRESS = 6,
+            KMTQAITYPE_SETWORKINGSETINFO = 7,
+            KMTQAITYPE_ADAPTERREGISTRYINFO = 8,
+            KMTQAITYPE_CURRENTDISPLAYMODE = 9,
+            KMTQAITYPE_MODELIST = 10,
+            KMTQAITYPE_CHECKDRIVERUPDATESTATUS = 11,
+            KMTQAITYPE_VIRTUALADDRESSINFO = 12,
+            KMTQAITYPE_DRIVERVERSION = 13,
+            KMTQAITYPE_ADAPTERTYPE = 15,
+            KMTQAITYPE_OUTPUTDUPLCONTEXTSCOUNT = 16,
+            KMTQAITYPE_WDDM_1_2_CAPS = 17,
+            KMTQAITYPE_UMD_DRIVER_VERSION = 18,
+            KMTQAITYPE_DIRECTFLIP_SUPPORT = 19,
+            KMTQAITYPE_MULTIPLANEOVERLAY_SUPPORT = 20,
+            KMTQAITYPE_DLIST_DRIVER_NAME = 21,
+            KMTQAITYPE_WDDM_1_3_CAPS = 22,
+            KMTQAITYPE_MULTIPLANEOVERLAY_HUD_SUPPORT = 23,
+            KMTQAITYPE_WDDM_2_0_CAPS = 24,
+            KMTQAITYPE_NODEMETADATA = 25,
+            KMTQAITYPE_CPDRIVERNAME = 26,
+            KMTQAITYPE_XBOX = 27,
+            KMTQAITYPE_INDEPENDENTFLIP_SUPPORT = 28,
+            KMTQAITYPE_MIRACASTCOMPANIONDRIVERNAME = 29,
+            KMTQAITYPE_PHYSICALADAPTERCOUNT = 30,
+            KMTQAITYPE_PHYSICALADAPTERDEVICEIDS = 31,
+            KMTQAITYPE_DRIVERCAPS_EXT = 32,
+            KMTQAITYPE_QUERY_MIRACAST_DRIVER_TYPE = 33,
+            KMTQAITYPE_QUERY_GPUMMU_CAPS = 34,
+            KMTQAITYPE_QUERY_MULTIPLANEOVERLAY_DECODE_SUPPORT = 35,
+            KMTQAITYPE_QUERY_HW_PROTECTION_TEARDOWN_COUNT = 36,
+            KMTQAITYPE_QUERY_ISBADDRIVERFORHWPROTECTIONDISABLED = 37,
+            KMTQAITYPE_MULTIPLANEOVERLAY_SECONDARY_SUPPORT = 38,
+            KMTQAITYPE_INDEPENDENTFLIP_SECONDARY_SUPPORT = 39,
+            KMTQAITYPE_PANELFITTER_SUPPORT = 40,
+            KMTQAITYPE_PHYSICALADAPTERPNPKEY = 41,
+            KMTQAITYPE_GETSEGMENTGROUPSIZE = 42,
+            KMTQAITYPE_MPO3DDI_SUPPORT = 43,
+            KMTQAITYPE_HWDRM_SUPPORT = 44,
+            KMTQAITYPE_MPOKERNELCAPS_SUPPORT = 45,
+            KMTQAITYPE_MULTIPLANEOVERLAY_STRETCH_SUPPORT = 46,
+            KMTQAITYPE_GET_DEVICE_VIDPN_OWNERSHIP_INFO = 47,
+            KMTQAITYPE_QUERYREGISTRY = 48,
+            KMTQAITYPE_KMD_DRIVER_VERSION = 49,
+            KMTQAITYPE_BLOCKLIST_KERNEL = 50,
+            KMTQAITYPE_BLOCKLIST_RUNTIME = 51,
+            KMTQAITYPE_ADAPTERGUID_RENDER = 52,
+            KMTQAITYPE_ADAPTERADDRESS_RENDER = 53,
+            KMTQAITYPE_ADAPTERREGISTRYINFO_RENDER = 54,
+            KMTQAITYPE_CHECKDRIVERUPDATESTATUS_RENDER = 55,
+            KMTQAITYPE_DRIVERVERSION_RENDER = 56,
+            KMTQAITYPE_ADAPTERTYPE_RENDER = 57,
+            KMTQAITYPE_WDDM_1_2_CAPS_RENDER = 58,
+            KMTQAITYPE_WDDM_1_3_CAPS_RENDER = 59,
+            KMTQAITYPE_QUERY_ADAPTER_UNIQUE_GUID = 60,
+            KMTQAITYPE_NODEPERFDATA = 61,
+            KMTQAITYPE_ADAPTERPERFDATA = 62,
+            KMTQAITYPE_ADAPTERPERFDATA_CAPS = 63,
+            KMTQUITYPE_GPUVERSION = 64,
+            KMTQAITYPE_DRIVER_DESCRIPTION = 65,
+            KMTQAITYPE_DRIVER_DESCRIPTION_RENDER = 66,
+            KMTQAITYPE_SCANOUT_CAPS = 67,
+            KMTQAITYPE_DISPLAY_UMDRIVERNAME = 71,
+            KMTQAITYPE_PARAVIRTUALIZATION_RENDER = 68,
+            KMTQAITYPE_SERVICENAME = 69,
+            KMTQAITYPE_WDDM_2_7_CAPS = 70,
+            KMTQAITYPE_TRACKEDWORKLOAD_SUPPORT = 72,
+            KMTQAITYPE_HYBRID_DLIST_DLL_SUPPORT = 73,
+            KMTQAITYPE_DISPLAY_CAPS = 74,
+            KMTQAITYPE_WDDM_2_9_CAPS = 75,
+            KMTQAITYPE_CROSSADAPTERRESOURCE_SUPPORT = 76,
+            KMTQAITYPE_WDDM_3_0_CAPS = 77,
+            KMTQAITYPE_WSAUMDIMAGENAME = 78,
+            KMTQAITYPE_VGPUINTERFACEID = 79,
+            KMTQAITYPE_WDDM_3_1_CAPS = 80,
+            KMTQAITYPE_HYBRID_DLIST_DLL_MUX_SUPPORT = 81,
+        }
+        #[repr(i32)]
+        enum KMTUMDVERSION {
+            KMTUMDVERSION_DX9 = 0,
+            KMTUMDVERSION_DX10 = 1,
+            KMTUMDVERSION_DX11 = 2,
+            KMTUMDVERSION_DX12 = 3,
+            KMTUMDVERSION_DX12_WSA32 = 4,
+            KMTUMDVERSION_DX12_WSA64 = 5,
+            NUM_KMTUMDVERSIONS = 6,
+        }
+        #[repr(i32)]
+        enum KMT_DISPLAY_UMD_VERSION {
+            KMT_DISPLAY_UMDVERSION_1 = 0,
+            NUM_KMT_DISPLAY_UMDVERSIONS = 1,
+        }
+        const MAX_ENUM_ADAPTERS: u32 = 16;
+        struct OBJECT_ATTRIBUTES {
+            Length: u32,
+            RootDirectory: HANDLE,
+            ObjectName: PUNICODE_STRING,
+            Attributes: u32,
+            SecurityDescriptor: *mut void,
+            SecurityQualityOfService: *mut void,
+        }
+        struct OBJECT_ATTRIBUTES {}
+        struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+            Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
+            ProcessID: HANDLE,
+            AccumulatedPresents: u32,
+            LastPresentTime: LARGE_INTEGER,
+            LastMouseTime: LARGE_INTEGER,
+            ProcessName: [i8; 16],
+        }
+        #[repr(i32)]
+        enum OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
+            OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE = 0,
+            OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE = 1,
+            OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY = 2,
+            OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32 = -1,
+        }
+        const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3;
+        type PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS;
+        type PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS;
+        type PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS = *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS;
+        extern fn PDXGK_FSTATE_NOTIFICATION(GraphicsDeviceHandle: *mut void, ComponentIndex: u32, NewFState: u32, PreNotification: BOOLEAN, PrivateHandle: *mut void);
+        type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT;
+        type PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
+        type PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT;
+        extern fn PDXGK_GRAPHICSPOWER_UNREGISTER(DeviceHandle: *mut void, PrivateHandle: *mut void) -> NTSTATUS;
+        extern fn PDXGK_INITIAL_COMPONENT_STATE(GraphicsDeviceHandle: *mut void, PrivateHandle: *mut void, ComponentIndex: u32, IsBlockingType: BOOLEAN, InitialFState: u32, ComponentGuid: GUID, PowerComponentMappingFlag: u32);
+        extern fn PDXGK_POWER_NOTIFICATION(GraphicsDeviceHandle: *mut void, NewGrfxPowerState: DEVICE_POWER_STATE, PreNotification: BOOLEAN, PrivateHandle: *mut void);
+        extern fn PDXGK_REMOVAL_NOTIFICATION(GraphicsDeviceHandle: *mut void, PrivateHandle: *mut void);
+        extern fn PDXGK_SET_SHARED_POWER_COMPONENT_STATE(DeviceHandle: *mut void, PrivateHandle: *mut void, ComponentIndex: u32, Active: BOOLEAN) -> NTSTATUS;
+        extern fn PFND3DKMT_ACQUIREKEYEDMUTEX(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> NTSTATUS;
+        extern fn PFND3DKMT_ACQUIREKEYEDMUTEX2(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> NTSTATUS;
+        extern fn PFND3DKMT_ADJUSTFULLSCREENGAMMA(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> NTSTATUS;
+        extern fn PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION);
+        extern fn PFND3DKMT_CANCELPRESENTS(param0: *const D3DKMT_CANCEL_PRESENTS) -> NTSTATUS;
+        extern fn PFND3DKMT_CHANGESURFACEPOINTER(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> NTSTATUS;
+        extern fn PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP() -> BOOLEAN;
+        extern fn PFND3DKMT_CHECKMONITORPOWERSTATE(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKOCCLUSION(param0: *const D3DKMT_CHECKOCCLUSION) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKSHAREDRESOURCEACCESS(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> NTSTATUS;
+        extern fn PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
+        extern fn PFND3DKMT_CLOSEADAPTER(param0: *const D3DKMT_CLOSEADAPTER) -> NTSTATUS;
+        extern fn PFND3DKMT_CONFIGURESHAREDRESOURCE(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> NTSTATUS;
+        extern fn PFND3DKMT_CONNECTDOORBELL(param0: *const D3DKMT_CONNECT_DOORBELL) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEALLOCATION(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEALLOCATION2(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATECONTEXT(#[in] #[out] param0: *mut D3DKMT_CREATECONTEXT) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATECONTEXTVIRTUAL(#[in] #[out] param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEDCFROMMEMORY(#[in] #[out] param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEDEVICE(#[in] #[out] param0: *mut D3DKMT_CREATEDEVICE) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEDOORBELL(param0: *const D3DKMT_CREATE_DOORBELL) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEHWQUEUE(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEKEYEDMUTEX(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEKEYEDMUTEX2(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATENATIVEFENCE(#[in] #[out] param0: *mut D3DKMT_CREATENATIVEFENCE) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEOUTPUTDUPL(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEOVERLAY(#[in] #[out] param0: *mut D3DKMT_CREATEOVERLAY) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEPAGINGQUEUE(#[in] #[out] param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATEPROTECTEDSESSION(#[in] #[out] param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATESYNCHRONIZATIONOBJECT(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        extern fn PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYALLOCATION(param0: *const D3DKMT_DESTROYALLOCATION) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYALLOCATION2(param0: *const D3DKMT_DESTROYALLOCATION2) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYCONTEXT(param0: *const D3DKMT_DESTROYCONTEXT) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYDCFROMMEMORY(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYDEVICE(param0: *const D3DKMT_DESTROYDEVICE) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYDOORBELL(param0: *const D3DKMT_DESTROY_DOORBELL) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYHWQUEUE(param0: *const D3DKMT_DESTROYHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYKEYEDMUTEX(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYOUTPUTDUPL(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYOVERLAY(param0: *const D3DKMT_DESTROYOVERLAY) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYPAGINGQUEUE(#[in] #[out] param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYPROTECTEDSESSION(#[in] #[out] param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> NTSTATUS;
+        extern fn PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        extern fn PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION() -> NTSTATUS;
+        extern fn PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION() -> NTSTATUS;
+        extern fn PFND3DKMT_ENUMADAPTERS(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS) -> NTSTATUS;
+        extern fn PFND3DKMT_ENUMADAPTERS2(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS2) -> NTSTATUS;
+        extern fn PFND3DKMT_ENUMADAPTERS3(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS3) -> NTSTATUS;
+        extern fn PFND3DKMT_ESCAPE(param0: *const D3DKMT_ESCAPE) -> NTSTATUS;
+        extern fn PFND3DKMT_EVICT(#[in] #[out] param0: *mut D3DKMT_EVICT) -> NTSTATUS;
+        extern fn PFND3DKMT_FLIPOVERLAY(param0: *const D3DKMT_FLIPOVERLAY) -> NTSTATUS;
+        extern fn PFND3DKMT_FLUSHHEAPTRANSITIONS(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> NTSTATUS;
+        extern fn PFND3DKMT_FREEGPUVIRTUALADDRESS(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> NTSTATUS;
+        extern fn PFND3DKMT_GETALLOCATIONPRIORITY(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_GETDEVICESTATE(#[in] #[out] param0: *mut D3DKMT_GETDEVICESTATE) -> NTSTATUS;
+        extern fn PFND3DKMT_GETDISPLAYMODELIST(#[in] #[out] param0: *mut D3DKMT_GETDISPLAYMODELIST) -> NTSTATUS;
+        extern fn PFND3DKMT_GETDWMVERTICALBLANKEVENT(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> NTSTATUS;
+        extern fn PFND3DKMT_GETMULTIPLANEOVERLAYCAPS(#[in] #[out] param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> NTSTATUS;
+        extern fn PFND3DKMT_GETMULTISAMPLEMETHODLIST(#[in] #[out] param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> NTSTATUS;
+        extern fn PFND3DKMT_GETNATIVEFENCELOGDETAIL(#[in] #[out] param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> NTSTATUS;
+        extern fn PFND3DKMT_GETOVERLAYSTATE(#[in] #[out] param0: *mut D3DKMT_GETOVERLAYSTATE) -> NTSTATUS;
+        extern fn PFND3DKMT_GETPOSTCOMPOSITIONCAPS(#[in] #[out] param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> NTSTATUS;
+        extern fn PFND3DKMT_GETPRESENTHISTORY(#[in] #[out] param0: *mut D3DKMT_GETPRESENTHISTORY) -> NTSTATUS;
+        extern fn PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT(#[in] #[out] param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> NTSTATUS;
+        extern fn PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS(param0: HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
+        extern fn PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA(#[in] #[out] param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> NTSTATUS;
+        extern fn PFND3DKMT_GETRUNTIMEDATA(#[in] #[out] param0: *mut D3DKMT_GETRUNTIMEDATA) -> NTSTATUS;
+        extern fn PFND3DKMT_GETSCANLINE(#[in] #[out] param0: *mut D3DKMT_GETSCANLINE) -> NTSTATUS;
+        extern fn PFND3DKMT_GETSHAREDPRIMARYHANDLE(#[in] #[out] param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID(#[in] #[out] param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> NTSTATUS;
+        extern fn PFND3DKMT_INVALIDATEACTIVEVIDPN(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> NTSTATUS;
+        extern fn PFND3DKMT_INVALIDATECACHE(param0: *const D3DKMT_INVALIDATECACHE) -> NTSTATUS;
+        extern fn PFND3DKMT_ISFEATUREENABLED(#[in] #[out] param0: *mut D3DKMT_ISFEATUREENABLED) -> NTSTATUS;
+        extern fn PFND3DKMT_LOCK(#[in] #[out] param0: *mut D3DKMT_LOCK) -> NTSTATUS;
+        extern fn PFND3DKMT_LOCK2(#[in] #[out] param0: *mut D3DKMT_LOCK2) -> NTSTATUS;
+        extern fn PFND3DKMT_MAKERESIDENT(#[in] #[out] param0: *mut D3DDDI_MAKERESIDENT) -> NTSTATUS;
+        extern fn PFND3DKMT_MAPGPUVIRTUALADDRESS(#[in] #[out] param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> NTSTATUS;
+        extern fn PFND3DKMT_MAPPROCESSDEBUGBLOB(#[in] #[out] param0: *mut D3DKMT_MAPPROCESSDEBUGBLOB) -> NTSTATUS;
+        extern fn PFND3DKMT_MARKDEVICEASERROR(param0: *const D3DKMT_MARKDEVICEASERROR) -> NTSTATUS;
+        extern fn PFND3DKMT_NOTIFYWORKSUBMISSION(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> NTSTATUS;
+        extern fn PFND3DKMT_OFFERALLOCATIONS(param0: *const D3DKMT_OFFERALLOCATIONS) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENADAPTERFROMDEVICENAME(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENADAPTERFROMHDC(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENADAPTERFROMLUID(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENKEYEDMUTEX(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENKEYEDMUTEX2(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENNTHANDLEFROMNAME(#[in] #[out] param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENRESOURCE(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENRESOURCE2(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENRESOURCEFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENSYNCHRONIZATIONOBJECT(#[in] #[out] param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> NTSTATUS;
+        extern fn PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLGETFRAMEINFO(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLGETMETADATA(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLPRESENT(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_OUTPUTDUPLRELEASEFRAME(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> NTSTATUS;
+        extern fn PFND3DKMT_PINDIRECTFLIPRESOURCES(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> NTSTATUS;
+        extern fn PFND3DKMT_POLLDISPLAYCHILDREN(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> NTSTATUS;
+        extern fn PFND3DKMT_PRESENT(#[in] #[out] param0: *mut D3DKMT_PRESENT) -> NTSTATUS;
+        extern fn PFND3DKMT_PRESENTMULTIPLANEOVERLAY(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> NTSTATUS;
+        extern fn PFND3DKMT_PRESENTMULTIPLANEOVERLAY2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> NTSTATUS;
+        extern fn PFND3DKMT_PRESENTMULTIPLANEOVERLAY3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYADAPTERINFO(#[in] #[out] param0: *mut D3DKMT_QUERYADAPTERINFO) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYALLOCATIONRESIDENCY(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYCLOCKCALIBRATION(#[in] #[out] param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYFEATUREINTERFACE(#[in] #[out] param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYFSEBLOCK(#[in] #[out] param0: *mut D3DKMT_QUERYFSEBLOCK) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYHYBRIDLISTVALUE(#[in] #[out] param0: *mut D3DKMT_HYBRID_LIST) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYPROCESSOFFERINFO(#[in] #[out] param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME(#[in] #[out] param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYRESOURCEINFO(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFO) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYSTATISTICS(param0: *const D3DKMT_QUERYSTATISTICS) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYVIDEOMEMORYINFO(#[in] #[out] param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> NTSTATUS;
+        extern fn PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP(#[in] #[out] param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
+        extern fn PFND3DKMT_RECLAIMALLOCATIONS(#[in] #[out] param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> NTSTATUS;
+        extern fn PFND3DKMT_RECLAIMALLOCATIONS2(#[in] #[out] param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> NTSTATUS;
+        extern fn PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION(#[in] #[out] param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_REGISTERTRIMNOTIFICATION(#[in] #[out] param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_RELEASEKEYEDMUTEX(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> NTSTATUS;
+        extern fn PFND3DKMT_RELEASEKEYEDMUTEX2(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> NTSTATUS;
+        extern fn PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS(param0: HANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_RENDER(#[in] #[out] param0: *mut D3DKMT_RENDER) -> NTSTATUS;
+        extern fn PFND3DKMT_RESERVEGPUVIRTUALADDRESS(#[in] #[out] param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> NTSTATUS;
+        extern fn PFND3DKMT_RESIZERINGBUFFER(#[in] #[out] param0: *mut D3DKMT_RESIZERINGBUFFER) -> NTSTATUS;
+        extern fn PFND3DKMT_SETALLOCATIONPRIORITY(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
+        extern fn PFND3DKMT_SETDISPLAYMODE(#[in] #[out] param0: *mut D3DKMT_SETDISPLAYMODE) -> NTSTATUS;
+        extern fn PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> NTSTATUS;
+        extern fn PFND3DKMT_SETFSEBLOCK(param0: *const D3DKMT_SETFSEBLOCK) -> NTSTATUS;
+        extern fn PFND3DKMT_SETGAMMARAMP(param0: *const D3DKMT_SETGAMMARAMP) -> NTSTATUS;
+        extern fn PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> NTSTATUS;
+        extern fn PFND3DKMT_SETHYBRIDLISTVVALUE(#[in] #[out] param0: *mut D3DKMT_HYBRID_LIST) -> NTSTATUS;
+        extern fn PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS(param0: HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
+        extern fn PFND3DKMT_SETQUEUEDLIMIT(param0: *const D3DKMT_SETQUEUEDLIMIT) -> NTSTATUS;
+        extern fn PFND3DKMT_SETSTABLEPOWERSTATE(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> NTSTATUS;
+        extern fn PFND3DKMT_SETSTEREOENABLED(param0: BOOL) -> NTSTATUS;
+        extern fn PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> NTSTATUS;
+        extern fn PFND3DKMT_SETVIDPNSOURCEHWPROTECTION(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> NTSTATUS;
+        extern fn PFND3DKMT_SETVIDPNSOURCEOWNER(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> NTSTATUS;
+        extern fn PFND3DKMT_SETVIDPNSOURCEOWNER1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> NTSTATUS;
+        extern fn PFND3DKMT_SETVIDPNSOURCEOWNER2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> NTSTATUS;
+        extern fn PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_SHAREOBJECTS(cObjects: u32, #[len_param(0)] hObjects: *const D3DKMT_HANDLE, pObjectAttributes: *const OBJECT_ATTRIBUTES, dwDesiredAccess: u32, phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
+        extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
+        extern fn PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITCOMMAND(param0: *const D3DKMT_SUBMITCOMMAND) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITCOMMANDTOHWQUEUE(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITPRESENTTOHWQUEUE(#[in] #[out] param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
+        extern fn PFND3DKMT_TRIMNOTIFICATIONCALLBACK(#[in] #[out] param0: *mut D3DKMT_TRIMNOTIFICATION);
+        extern fn PFND3DKMT_TRIMPROCESSCOMMITMENT(#[in] #[out] param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> NTSTATUS;
+        extern fn PFND3DKMT_UNLOCK(param0: *const D3DKMT_UNLOCK) -> NTSTATUS;
+        extern fn PFND3DKMT_UNLOCK2(param0: *const D3DKMT_UNLOCK2) -> NTSTATUS;
+        extern fn PFND3DKMT_UNMAPPROCESSDEBUGBLOB(#[in] #[out] param0: *mut D3DKMT_UNMAPPROCESSDEBUGBLOB) -> NTSTATUS;
+        extern fn PFND3DKMT_UNPINDIRECTFLIPRESOURCES(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> NTSTATUS;
+        extern fn PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION(#[in] #[out] param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_UNREGISTERTRIMNOTIFICATION(#[in] #[out] param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> NTSTATUS;
+        extern fn PFND3DKMT_UPDATEALLOCATIONPROPERTY(#[in] #[out] param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> NTSTATUS;
+        extern fn PFND3DKMT_UPDATEGPUVIRTUALADDRESS(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> NTSTATUS;
+        extern fn PFND3DKMT_UPDATEOVERLAY(param0: *const D3DKMT_UPDATEOVERLAY) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORIDLE(param0: *const D3DKMT_WAITFORIDLE) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> NTSTATUS;
+        extern fn PFND3DKMT_WAITFORVERTICALBLANKEVENT2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
+        type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
+        const SHARED_ALLOCATION_ALL_ACCESS: u32 = 983041;
+        const SHARED_ALLOCATION_WRITE: u32 = 1;
+    }
+}

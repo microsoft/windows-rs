@@ -1,0 +1,82 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x46eb5926_582e_4017_9fdf_e8998daa0950)]
+        interface IImageList: IUnknown {
+            fn Add(&self, hbmImage: HBITMAP, #[opt] hbmMask: HBITMAP, pi: *mut i32) -> HRESULT;
+            fn ReplaceIcon(&self, i: i32, hicon: HICON, pi: *mut i32) -> HRESULT;
+            fn SetOverlayImage(&self, iImage: i32, iOverlay: i32) -> HRESULT;
+            fn Replace(&self, i: i32, hbmImage: HBITMAP, #[opt] hbmMask: HBITMAP) -> HRESULT;
+            fn AddMasked(&self, hbmImage: HBITMAP, crMask: COLORREF, pi: *mut i32) -> HRESULT;
+            fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> HRESULT;
+            fn Remove(&self, i: i32) -> HRESULT;
+            fn GetIcon(&self, i: i32, flags: u32, picon: *mut HICON) -> HRESULT;
+            fn GetImageInfo(&self, i: i32, pImageInfo: *mut IMAGEINFO) -> HRESULT;
+            fn Copy(&self, iDst: i32, punkSrc: IUnknown, iSrc: i32, uFlags: u32) -> HRESULT;
+            fn Merge(&self, i1: i32, punk2: IUnknown, i2: i32, dx: i32, dy: i32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Clone(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetImageRect(&self, i: i32, prc: *mut RECT) -> HRESULT;
+            fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> HRESULT;
+            fn SetIconSize(&self, cx: i32, cy: i32) -> HRESULT;
+            fn GetImageCount(&self, pi: *mut i32) -> HRESULT;
+            fn SetImageCount(&self, uNewCount: u32) -> HRESULT;
+            fn SetBkColor(&self, clrBk: COLORREF, pclr: *mut COLORREF) -> HRESULT;
+            fn GetBkColor(&self, pclr: *mut COLORREF) -> HRESULT;
+            fn BeginDrag(&self, iTrack: i32, dxHotspot: i32, dyHotspot: i32) -> HRESULT;
+            fn EndDrag(&self) -> HRESULT;
+            fn DragEnter(&self, #[opt] hwndLock: HWND, x: i32, y: i32) -> HRESULT;
+            fn DragLeave(&self, #[opt] hwndLock: HWND) -> HRESULT;
+            fn DragMove(&self, x: i32, y: i32) -> HRESULT;
+            fn SetDragCursorImage(&self, punk: IUnknown, iDrag: i32, dxHotspot: i32, dyHotspot: i32) -> HRESULT;
+            fn DragShowNolock(&self, fShow: BOOL) -> HRESULT;
+            fn GetDragImage(&self, #[opt] ppt: *mut POINT, #[opt] pptHotspot: *mut POINT, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetItemFlags(&self, i: i32, dwFlags: *mut u32) -> HRESULT;
+            fn GetOverlayImage(&self, iOverlay: i32, piIndex: *mut i32) -> HRESULT;
+        }
+        #[guid(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1)]
+        interface IImageList2: IImageList {
+            fn Resize(&self, cxNewIconSize: i32, cyNewIconSize: i32) -> HRESULT;
+            fn GetOriginalSize(&self, iImage: i32, dwFlags: u32, pcx: *mut i32, pcy: *mut i32) -> HRESULT;
+            fn SetOriginalSize(&self, iImage: i32, cx: i32, cy: i32) -> HRESULT;
+            fn SetCallback(&self, #[opt] punk: IUnknown) -> HRESULT;
+            fn GetCallback(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ForceImagePresent(&self, iImage: i32, dwFlags: u32) -> HRESULT;
+            fn DiscardImages(&self, iFirstImage: i32, iLastImage: i32, dwFlags: u32) -> HRESULT;
+            fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> HRESULT;
+            fn GetStatistics(&self, #[in] #[out] pils: *mut IMAGELISTSTATS) -> HRESULT;
+            fn Initialize(&self, cx: i32, cy: i32, flags: u32, cInitial: i32, cGrow: i32) -> HRESULT;
+            fn Replace2(&self, i: i32, hbmImage: HBITMAP, #[opt] hbmMask: HBITMAP, #[opt] punk: IUnknown, dwFlags: u32) -> HRESULT;
+            fn ReplaceFromImageList(&self, i: i32, pil: IImageList, iSrc: i32, #[opt] punk: IUnknown, dwFlags: u32) -> HRESULT;
+        }
+        const ILDI_PURGE: u32 = 1;
+        const ILDI_QUERYACCESS: u32 = 8;
+        const ILDI_RESETACCESS: u32 = 4;
+        const ILDI_STANDBY: u32 = 2;
+        const ILDRF_IMAGELOWQUALITY: u32 = 1;
+        const ILDRF_OVERLAYLOWQUALITY: u32 = 16;
+        const ILFIP_ALWAYS: u32 = 0;
+        const ILFIP_FROMSTANDBY: u32 = 1;
+        const ILGOS_ALWAYS: u32 = 0;
+        const ILGOS_FROMSTANDBY: u32 = 1;
+        const ILIF_ALPHA: u32 = 1;
+        const ILIF_LOWQUALITY: u32 = 2;
+        const ILR_DEFAULT: u32 = 0;
+        const ILR_HORIZONTAL_CENTER: u32 = 1;
+        const ILR_HORIZONTAL_LEFT: u32 = 0;
+        const ILR_HORIZONTAL_RIGHT: u32 = 2;
+        const ILR_SCALE_ASPECTRATIO: u32 = 256;
+        const ILR_SCALE_CLIP: u32 = 0;
+        const ILR_VERTICAL_BOTTOM: u32 = 32;
+        const ILR_VERTICAL_CENTER: u32 = 16;
+        const ILR_VERTICAL_TOP: u32 = 0;
+        struct IMAGELISTSTATS {
+            cbSize: u32,
+            cAlloc: i32,
+            cUsed: i32,
+            cStandby: i32,
+        }
+        const ImageList: GUID = 0x7c476ba2_02b1_48f4_8048_b24619ddc058;
+        #[library("COMCTL32.dll")]
+        extern fn ImageList_CoCreateInstance(rclsid: *const GUID, #[opt] punkOuter: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+    }
+}

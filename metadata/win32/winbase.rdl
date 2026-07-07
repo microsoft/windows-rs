@@ -1,0 +1,2408 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ABOVE_NORMAL_PRIORITY_CLASS: u32 = 32768;
+        type ACTCTX = ACTCTXA;
+        struct ACTCTXA {
+            cbSize: u32,
+            dwFlags: u32,
+            lpSource: PCSTR,
+            wProcessorArchitecture: u16,
+            wLangId: LANGID,
+            lpAssemblyDirectory: PCSTR,
+            lpResourceName: PCSTR,
+            lpApplicationName: PCSTR,
+            hModule: HMODULE,
+        }
+        struct ACTCTXW {
+            cbSize: u32,
+            dwFlags: u32,
+            lpSource: PCWSTR,
+            wProcessorArchitecture: u16,
+            wLangId: LANGID,
+            lpAssemblyDirectory: PCWSTR,
+            lpResourceName: PCWSTR,
+            lpApplicationName: PCWSTR,
+            hModule: HMODULE,
+        }
+        const ACTCTX_FLAG_APPLICATION_NAME_VALID: u32 = 32;
+        const ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID: u32 = 4;
+        const ACTCTX_FLAG_HMODULE_VALID: u32 = 128;
+        const ACTCTX_FLAG_LANGID_VALID: u32 = 2;
+        const ACTCTX_FLAG_PROCESSOR_ARCHITECTURE_VALID: u32 = 1;
+        const ACTCTX_FLAG_RESOURCE_NAME_VALID: u32 = 8;
+        const ACTCTX_FLAG_SET_PROCESS_DEFAULT: u32 = 16;
+        const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: u32 = 64;
+        struct ACTCTX_SECTION_KEYED_DATA {
+            cbSize: u32,
+            ulDataFormatVersion: u32,
+            lpData: *mut void,
+            ulLength: u32,
+            lpSectionGlobalData: *mut void,
+            ulSectionGlobalDataLength: u32,
+            lpSectionBase: *mut void,
+            ulSectionTotalLength: u32,
+            hActCtx: HANDLE,
+            ulAssemblyRosterIndex: u32,
+            ulFlags: u32,
+            AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
+        }
+        struct ACTCTX_SECTION_KEYED_DATA_2600 {
+            cbSize: u32,
+            ulDataFormatVersion: u32,
+            lpData: *mut void,
+            ulLength: u32,
+            lpSectionGlobalData: *mut void,
+            ulSectionGlobalDataLength: u32,
+            lpSectionBase: *mut void,
+            ulSectionTotalLength: u32,
+            hActCtx: HANDLE,
+            ulAssemblyRosterIndex: u32,
+        }
+        struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+            lpInformation: *mut void,
+            lpSectionBase: *mut void,
+            ulSectionLength: u32,
+            lpSectionGlobalDataBase: *mut void,
+            ulSectionGlobalDataLength: u32,
+        }
+        struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
+            hActCtx: HANDLE,
+            dwFlags: u32,
+        }
+        const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1;
+        const AC_LINE_BACKUP_POWER: u32 = 2;
+        const AC_LINE_OFFLINE: u32 = 0;
+        const AC_LINE_ONLINE: u32 = 1;
+        const AC_LINE_UNKNOWN: u32 = 255;
+        extern fn APPLICATION_RECOVERY_CALLBACK(pvParameter: *mut void) -> u32;
+        const ATOM_FLAG_GLOBAL: u32 = 2;
+        #[library("ADVAPI32.dll")]
+        extern fn AccessCheckAndAuditAlarmA(SubsystemName: PCSTR, #[opt] HandleId: *const void, ObjectTypeName: PCSTR, #[opt] ObjectName: PCSTR, SecurityDescriptor: PSECURITY_DESCRIPTOR, DesiredAccess: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOL, GrantedAccess: *mut u32, AccessStatus: *mut BOOL, pfGenerateOnClose: *mut BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn AccessCheckByTypeAndAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, ObjectTypeName: PCSTR, #[opt] ObjectName: PCSTR, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: u32, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[in] #[out] #[opt] ObjectTypeList: *mut OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOL, GrantedAccess: *mut u32, AccessStatus: *mut BOOL, pfGenerateOnClose: *mut BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn AccessCheckByTypeResultListAndAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, ObjectTypeName: PCSTR, #[opt] ObjectName: PCSTR, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: u32, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[in] #[out] #[opt] ObjectTypeList: *mut OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOL, #[len_param(10)] GrantedAccess: *mut u32, #[len_param(10)] AccessStatusList: *mut u32, pfGenerateOnClose: *mut BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(SubsystemName: PCSTR, HandleId: *const void, ClientToken: HANDLE, ObjectTypeName: PCSTR, #[opt] ObjectName: PCSTR, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: u32, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(11)] #[in] #[out] #[opt] ObjectTypeList: *mut OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOL, #[len_param(11)] GrantedAccess: *mut u32, #[len_param(11)] AccessStatusList: *mut u32, pfGenerateOnClose: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ActivateActCtx(#[in] #[out] #[opt] hActCtx: HANDLE, lpCookie: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn AddAtomA(#[opt] lpString: PCSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn AddAtomW(#[opt] lpString: PCWSTR) -> ATOM;
+        #[library("ADVAPI32.dll")]
+        extern fn AddConditionalAce(#[in] #[out] pAcl: *mut ACL, dwAceRevision: u32, AceFlags: u32, AceType: u8, AccessMask: u32, pSid: PSID, ConditionStr: *const u16, ReturnLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn AddIntegrityLabelToBoundaryDescriptor(#[in] #[out] BoundaryDescriptor: *mut HANDLE, IntegrityLabel: PSID) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn AddRefActCtx(#[in] #[out] hActCtx: HANDLE);
+        #[library("KERNEL32.dll")]
+        extern fn AddSecureMemoryCacheCallback(pfnCallBack: PSECURE_MEMORY_CACHE_CALLBACK) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ApplicationRecoveryFinished(bSuccess: BOOL);
+        #[library("KERNEL32.dll")]
+        extern fn ApplicationRecoveryInProgress(pbCancelled: *mut BOOL) -> HRESULT;
+        const BACKUP_ALTERNATE_DATA: u32 = 4;
+        const BACKUP_DATA: u32 = 1;
+        const BACKUP_EA_DATA: u32 = 2;
+        const BACKUP_GHOSTED_FILE_EXTENTS: u32 = 11;
+        const BACKUP_INVALID: u32 = 0;
+        const BACKUP_LINK: u32 = 5;
+        const BACKUP_OBJECT_ID: u32 = 7;
+        const BACKUP_PROPERTY_DATA: u32 = 6;
+        const BACKUP_REPARSE_DATA: u32 = 8;
+        const BACKUP_SECURITY_DATA: u32 = 3;
+        const BACKUP_SPARSE_BLOCK: u32 = 9;
+        const BACKUP_TXFS_DATA: u32 = 10;
+        const BASE_SEARCH_PATH_DISABLE_SAFE_SEARCHMODE: u32 = 65536;
+        const BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE: u32 = 1;
+        const BASE_SEARCH_PATH_INVALID_FLAGS: i32 = -98306;
+        const BASE_SEARCH_PATH_PERMANENT: u32 = 32768;
+        const BATTERY_FLAG_CHARGING: u32 = 8;
+        const BATTERY_FLAG_CRITICAL: u32 = 4;
+        const BATTERY_FLAG_HIGH: u32 = 1;
+        const BATTERY_FLAG_LOW: u32 = 2;
+        const BATTERY_FLAG_NO_BATTERY: u32 = 128;
+        const BATTERY_FLAG_UNKNOWN: u32 = 255;
+        const BATTERY_LIFE_UNKNOWN: u32 = 4294967295;
+        const BATTERY_PERCENTAGE_UNKNOWN: u32 = 255;
+        const BAUD_075: u32 = 1;
+        const BAUD_110: u32 = 2;
+        const BAUD_115200: u32 = 131072;
+        const BAUD_1200: u32 = 64;
+        const BAUD_128K: u32 = 65536;
+        const BAUD_134_5: u32 = 4;
+        const BAUD_14400: u32 = 4096;
+        const BAUD_150: u32 = 8;
+        const BAUD_1800: u32 = 128;
+        const BAUD_19200: u32 = 8192;
+        const BAUD_2400: u32 = 256;
+        const BAUD_300: u32 = 16;
+        const BAUD_38400: u32 = 16384;
+        const BAUD_4800: u32 = 512;
+        const BAUD_56K: u32 = 32768;
+        const BAUD_57600: u32 = 262144;
+        const BAUD_600: u32 = 32;
+        const BAUD_7200: u32 = 1024;
+        const BAUD_9600: u32 = 2048;
+        const BAUD_USER: u32 = 268435456;
+        const BELOW_NORMAL_PRIORITY_CLASS: u32 = 16384;
+        #[library("ADVAPI32.dll")]
+        extern fn BackupEventLogA(hEventLog: HANDLE, lpBackupFileName: PCSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn BackupEventLogW(hEventLog: HANDLE, lpBackupFileName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BackupRead(hFile: HANDLE, #[size_param(2)] lpBuffer: *mut u8, nNumberOfBytesToRead: u32, lpNumberOfBytesRead: *mut u32, bAbort: BOOL, bProcessSecurity: BOOL, #[in] #[out] lpContext: *mut *mut void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BackupSeek(hFile: HANDLE, dwLowBytesToSeek: u32, dwHighBytesToSeek: u32, lpdwLowByteSeeked: *mut u32, lpdwHighByteSeeked: *mut u32, #[in] #[out] lpContext: *mut *mut void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BackupWrite(hFile: HANDLE, #[size_param(2)] lpBuffer: *const u8, nNumberOfBytesToWrite: u32, lpNumberOfBytesWritten: *mut u32, bAbort: BOOL, bProcessSecurity: BOOL, #[in] #[out] lpContext: *mut *mut void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BeginUpdateResourceA(pFileName: PCSTR, bDeleteExistingResources: BOOL) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn BeginUpdateResourceW(pFileName: PCWSTR, bDeleteExistingResources: BOOL) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn BindIoCompletionCallback(FileHandle: HANDLE, Function: LPOVERLAPPED_COMPLETION_ROUTINE, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BuildCommDCBA(lpDef: PCSTR, lpDCB: *mut DCB) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BuildCommDCBAndTimeoutsA(lpDef: PCSTR, lpDCB: *mut DCB, lpCommTimeouts: *mut COMMTIMEOUTS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BuildCommDCBAndTimeoutsW(lpDef: PCWSTR, lpDCB: *mut DCB, lpCommTimeouts: *mut COMMTIMEOUTS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn BuildCommDCBW(lpDef: PCWSTR, lpDCB: *mut DCB) -> BOOL;
+        const CALLBACK_CHUNK_FINISHED: u32 = 0;
+        const CALLBACK_STREAM_SWITCH: u32 = 1;
+        const CBR_110: u32 = 110;
+        const CBR_115200: u32 = 115200;
+        const CBR_1200: u32 = 1200;
+        const CBR_128000: u32 = 128000;
+        const CBR_14400: u32 = 14400;
+        const CBR_19200: u32 = 19200;
+        const CBR_2400: u32 = 2400;
+        const CBR_256000: u32 = 256000;
+        const CBR_300: u32 = 300;
+        const CBR_38400: u32 = 38400;
+        const CBR_4800: u32 = 4800;
+        const CBR_56000: u32 = 56000;
+        const CBR_57600: u32 = 57600;
+        const CBR_600: u32 = 600;
+        const CBR_9600: u32 = 9600;
+        const CE_BREAK: u32 = 16;
+        const CE_DNS: u32 = 2048;
+        const CE_FRAME: u32 = 8;
+        const CE_IOE: u32 = 1024;
+        const CE_MODE: u32 = 32768;
+        const CE_OOP: u32 = 4096;
+        const CE_OVERRUN: u32 = 2;
+        const CE_PTO: u32 = 512;
+        const CE_RXOVER: u32 = 1;
+        const CE_RXPARITY: u32 = 4;
+        const CE_TXFULL: u32 = 256;
+        const CLRBREAK: u32 = 9;
+        const CLRDTR: u32 = 6;
+        const CLRRTS: u32 = 4;
+        struct COMMCONFIG {
+            dwSize: u32,
+            wVersion: u16,
+            wReserved: u16,
+            dcb: DCB,
+            dwProviderSubType: u32,
+            dwProviderOffset: u32,
+            dwProviderSize: u32,
+            wcProviderData: [u16; 1],
+        }
+        struct COMMPROP {
+            wPacketLength: u16,
+            wPacketVersion: u16,
+            dwServiceMask: u32,
+            dwReserved1: u32,
+            dwMaxTxQueue: u32,
+            dwMaxRxQueue: u32,
+            dwMaxBaud: u32,
+            dwProvSubType: u32,
+            dwProvCapabilities: u32,
+            dwSettableParams: u32,
+            dwSettableBaud: u32,
+            wSettableData: u16,
+            wSettableStopParity: u16,
+            dwCurrentTxQueue: u32,
+            dwCurrentRxQueue: u32,
+            dwProvSpec1: u32,
+            dwProvSpec2: u32,
+            wcProvChar: [u16; 1],
+        }
+        const COMMPROP_INITIALIZED: u32 = 3879531822;
+        struct COMMTIMEOUTS {
+            ReadIntervalTimeout: u32,
+            ReadTotalTimeoutMultiplier: u32,
+            ReadTotalTimeoutConstant: u32,
+            WriteTotalTimeoutMultiplier: u32,
+            WriteTotalTimeoutConstant: u32,
+        }
+        struct COMSTAT {
+            _bitfield: u32,
+            cbInQue: u32,
+            cbOutQue: u32,
+        }
+        #[repr(i32)]
+        enum COPYFILE2_COPY_PHASE {
+            COPYFILE2_PHASE_NONE = 0,
+            COPYFILE2_PHASE_PREPARE_SOURCE = 1,
+            COPYFILE2_PHASE_PREPARE_DEST = 2,
+            COPYFILE2_PHASE_READ_SOURCE = 3,
+            COPYFILE2_PHASE_WRITE_DESTINATION = 4,
+            COPYFILE2_PHASE_SERVER_COPY = 5,
+            COPYFILE2_PHASE_NAMEGRAFT_COPY = 6,
+            COPYFILE2_PHASE_MAX = 7,
+        }
+        struct COPYFILE2_CREATE_OPLOCK_KEYS {
+            ParentOplockKey: GUID,
+            TargetOplockKey: GUID,
+        }
+        struct COPYFILE2_EXTENDED_PARAMETERS {
+            dwSize: u32,
+            dwCopyFlags: u32,
+            pfCancel: *mut BOOL,
+            pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+            pvCallbackContext: *mut void,
+        }
+        struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
+            dwSize: u32,
+            dwCopyFlags: u32,
+            pfCancel: *mut BOOL,
+            pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
+            pvCallbackContext: *mut void,
+            dwCopyFlagsV2: u32,
+            ioDesiredSize: u32,
+            ioDesiredRate: u32,
+            pProgressRoutineOld: LPPROGRESS_ROUTINE,
+            SourceOplockKeys: PCOPYFILE2_CREATE_OPLOCK_KEYS,
+            reserved: [*mut void; 6],
+        }
+        const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824;
+        const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096;
+        const COPYFILE2_IO_RATE_MIN: u32 = 512;
+        struct COPYFILE2_MESSAGE {
+            Type: COPYFILE2_MESSAGE_TYPE,
+            dwPadding: u32,
+            Info: union {
+                ChunkStarted: struct {
+                    dwStreamNumber: u32,
+                    dwReserved: u32,
+                    hSourceFile: HANDLE,
+                    hDestinationFile: HANDLE,
+                    uliChunkNumber: ULARGE_INTEGER,
+                    uliChunkSize: ULARGE_INTEGER,
+                    uliStreamSize: ULARGE_INTEGER,
+                    uliTotalFileSize: ULARGE_INTEGER,
+                },
+                ChunkFinished: struct {
+                    dwStreamNumber: u32,
+                    dwFlags: u32,
+                    hSourceFile: HANDLE,
+                    hDestinationFile: HANDLE,
+                    uliChunkNumber: ULARGE_INTEGER,
+                    uliChunkSize: ULARGE_INTEGER,
+                    uliStreamSize: ULARGE_INTEGER,
+                    uliStreamBytesTransferred: ULARGE_INTEGER,
+                    uliTotalFileSize: ULARGE_INTEGER,
+                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                },
+                StreamStarted: struct {
+                    dwStreamNumber: u32,
+                    dwReserved: u32,
+                    hSourceFile: HANDLE,
+                    hDestinationFile: HANDLE,
+                    uliStreamSize: ULARGE_INTEGER,
+                    uliTotalFileSize: ULARGE_INTEGER,
+                },
+                StreamFinished: struct {
+                    dwStreamNumber: u32,
+                    dwReserved: u32,
+                    hSourceFile: HANDLE,
+                    hDestinationFile: HANDLE,
+                    uliStreamSize: ULARGE_INTEGER,
+                    uliStreamBytesTransferred: ULARGE_INTEGER,
+                    uliTotalFileSize: ULARGE_INTEGER,
+                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                },
+                PollContinue: struct {
+                    dwReserved: u32,
+                },
+                Error: struct {
+                    CopyPhase: COPYFILE2_COPY_PHASE,
+                    dwStreamNumber: u32,
+                    hrFailure: HRESULT,
+                    dwReserved: u32,
+                    uliChunkNumber: ULARGE_INTEGER,
+                    uliStreamSize: ULARGE_INTEGER,
+                    uliStreamBytesTransferred: ULARGE_INTEGER,
+                    uliTotalFileSize: ULARGE_INTEGER,
+                    uliTotalBytesTransferred: ULARGE_INTEGER,
+                },
+                SparseChunkStatus: struct {
+                    uliChunkNumber: ULARGE_INTEGER,
+                    uliChunkSize: ULARGE_INTEGER,
+                    uliChunkOffset: ULARGE_INTEGER,
+                },
+            },
+        }
+        #[repr(i32)]
+        enum COPYFILE2_MESSAGE_ACTION {
+            COPYFILE2_PROGRESS_CONTINUE = 0,
+            COPYFILE2_PROGRESS_CANCEL = 1,
+            COPYFILE2_PROGRESS_STOP = 2,
+            COPYFILE2_PROGRESS_QUIET = 3,
+            COPYFILE2_PROGRESS_PAUSE = 4,
+        }
+        const COPYFILE2_MESSAGE_COPY_OFFLOAD: u32 = 1;
+        #[repr(i32)]
+        enum COPYFILE2_MESSAGE_TYPE {
+            COPYFILE2_CALLBACK_NONE = 0,
+            COPYFILE2_CALLBACK_CHUNK_STARTED = 1,
+            COPYFILE2_CALLBACK_CHUNK_FINISHED = 2,
+            COPYFILE2_CALLBACK_STREAM_STARTED = 3,
+            COPYFILE2_CALLBACK_STREAM_FINISHED = 4,
+            COPYFILE2_CALLBACK_POLL_CONTINUE = 5,
+            COPYFILE2_CALLBACK_ERROR = 6,
+            COPYFILE2_CALLBACK_SPARSE_CHUNK_STARTED = 7,
+            COPYFILE2_CALLBACK_SPARSE_CHUNK_FINISHED = 8,
+            COPYFILE2_CALLBACK_MAX = 9,
+        }
+        const COPY_FILE2_V2_DISABLE_BLOCK_CLONING: u32 = 2;
+        const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: u32 = 1;
+        const COPY_FILE2_V2_VALID_FLAGS: u32 = 3;
+        const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: u32 = 8;
+        const COPY_FILE_COPY_SYMLINK: u32 = 2048;
+        const COPY_FILE_DIRECTORY: u32 = 128;
+        const COPY_FILE_DISABLE_PRE_ALLOCATION: u32 = 67108864;
+        const COPY_FILE_DISABLE_SPARSE_COPY: u32 = 2147483648;
+        const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: u32 = 33554432;
+        const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: u32 = 134217728;
+        const COPY_FILE_ENABLE_SPARSE_COPY: u32 = 536870912;
+        const COPY_FILE_FAIL_IF_EXISTS: u32 = 1;
+        const COPY_FILE_IGNORE_EDP_BLOCK: u32 = 4194304;
+        const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: u32 = 8388608;
+        const COPY_FILE_NO_BUFFERING: u32 = 4096;
+        const COPY_FILE_NO_OFFLOAD: u32 = 262144;
+        const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: u32 = 2097152;
+        const COPY_FILE_OPEN_SOURCE_FOR_WRITE: u32 = 4;
+        const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: u32 = 268435456;
+        const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: u32 = 8192;
+        const COPY_FILE_RESTARTABLE: u32 = 2;
+        const COPY_FILE_RESUME_FROM_PAUSE: u32 = 16384;
+        const COPY_FILE_SKIP_ALTERNATE_STREAMS: u32 = 32768;
+        const CREATE_BREAKAWAY_FROM_JOB: u32 = 16777216;
+        const CREATE_DEFAULT_ERROR_MODE: u32 = 67108864;
+        const CREATE_FORCEDOS: u32 = 8192;
+        const CREATE_FOR_DIR: u32 = 2;
+        const CREATE_FOR_IMPORT: u32 = 1;
+        const CREATE_IGNORE_SYSTEM_DEFAULT: u32 = 2147483648;
+        const CREATE_NEW_CONSOLE: u32 = 16;
+        const CREATE_NEW_PROCESS_GROUP: u32 = 512;
+        const CREATE_NO_WINDOW: u32 = 134217728;
+        const CREATE_PRESERVE_CODE_AUTHZ_LEVEL: u32 = 33554432;
+        const CREATE_PROTECTED_PROCESS: u32 = 262144;
+        const CREATE_SECURE_PROCESS: u32 = 4194304;
+        const CREATE_SEPARATE_WOW_VDM: u32 = 2048;
+        const CREATE_SHARED_WOW_VDM: u32 = 4096;
+        const CREATE_SUSPENDED: u32 = 4;
+        const CREATE_UNICODE_ENVIRONMENT: u32 = 1024;
+        const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216;
+        #[library("KERNEL32.dll")]
+        extern fn CallNamedPipeA(lpNamedPipeName: PCSTR, #[size_param(2)] #[opt] lpInBuffer: *const void, nInBufferSize: u32, #[size_param(4)] #[opt] lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, nTimeOut: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CancelDeviceWakeupRequest(hDevice: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CancelTimerQueueTimer(#[opt] TimerQueue: HANDLE, Timer: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CheckNameLegalDOS8Dot3A(lpName: PCSTR, #[len_param(2)] #[out] #[opt] lpOemName: PSTR, OemNameSize: u32, #[opt] pbNameContainsSpaces: *mut BOOL, pbNameLegal: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CheckNameLegalDOS8Dot3W(lpName: PCWSTR, #[len_param(2)] #[out] #[opt] lpOemName: PSTR, OemNameSize: u32, #[opt] pbNameContainsSpaces: *mut BOOL, pbNameLegal: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ClearCommBreak(hFile: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ClearCommError(hFile: HANDLE, #[opt] lpErrors: *mut u32, #[opt] lpStat: *mut COMSTAT) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ClearEventLogA(hEventLog: HANDLE, #[opt] lpBackupFileName: PCSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ClearEventLogW(hEventLog: HANDLE, #[opt] lpBackupFileName: PCWSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CloseEncryptedFileRaw(pvContext: *const void);
+        #[library("ADVAPI32.dll")]
+        extern fn CloseEventLog(hEventLog: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CommConfigDialogA(lpszName: PCSTR, #[opt] hWnd: HWND, #[in] #[out] lpCC: *mut COMMCONFIG) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CommConfigDialogW(lpszName: PCWSTR, #[opt] hWnd: HWND, #[in] #[out] lpCC: *mut COMMCONFIG) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ConvertFiberToThread() -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ConvertThreadToFiber(#[opt] lpParameter: *const void) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn ConvertThreadToFiberEx(#[opt] lpParameter: *const void, dwFlags: u32) -> *mut void;
+        #[arch(Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn CopyContext(#[in] #[out] Destination: *mut ARM64_NT_CONTEXT, ContextFlags: u32, Source: *const ARM64_NT_CONTEXT) -> BOOL;
+        #[arch(X86 | X64)]
+        #[library("KERNEL32.dll")]
+        extern fn CopyContext(#[in] #[out] Destination: *mut CONTEXT, ContextFlags: u32, Source: *const CONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFile2(pwszExistingFileName: PCWSTR, pwszNewFileName: PCWSTR, #[opt] pExtendedParameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileA(lpExistingFileName: PCSTR, lpNewFileName: PCSTR, bFailIfExists: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileExA(lpExistingFileName: PCSTR, lpNewFileName: PCSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, #[in] #[out] #[opt] pbCancel: *mut BOOL, dwCopyFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileExW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, #[in] #[out] #[opt] pbCancel: *mut BOOL, dwCopyFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileTransactedA(lpExistingFileName: PCSTR, lpNewFileName: PCSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, #[opt] pbCancel: *const BOOL, dwCopyFlags: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileTransactedW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, #[opt] pbCancel: *const BOOL, dwCopyFlags: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CopyFileW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR, bFailIfExists: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateActCtxA(pActCtx: *const ACTCTXA) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateActCtxW(pActCtx: *const ACTCTXW) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateBoundaryDescriptorA(Name: PCSTR, Flags: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateDirectoryExA(lpTemplateDirectory: PCSTR, lpNewDirectory: PCSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateDirectoryExW(lpTemplateDirectory: PCWSTR, lpNewDirectory: PCWSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateDirectoryTransactedA(#[opt] lpTemplateDirectory: PCSTR, lpNewDirectory: PCSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateDirectoryTransactedW(#[opt] lpTemplateDirectory: PCWSTR, lpNewDirectory: PCWSTR, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFiber(dwStackSize: usize, lpStartAddress: LPFIBER_START_ROUTINE, #[opt] lpParameter: *const void) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFiberEx(dwStackCommitSize: usize, dwStackReserveSize: usize, dwFlags: u32, lpStartAddress: LPFIBER_START_ROUTINE, #[opt] lpParameter: *const void) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileMappingA(hFile: HANDLE, #[opt] lpFileMappingAttributes: *const SECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileMappingNumaA(hFile: HANDLE, #[opt] lpFileMappingAttributes: *const SECURITY_ATTRIBUTES, flProtect: u32, dwMaximumSizeHigh: u32, dwMaximumSizeLow: u32, #[opt] lpName: PCSTR, nndPreferred: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileTransactedA(lpFileName: PCSTR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, #[opt] hTemplateFile: HANDLE, hTransaction: HANDLE, #[opt] pusMiniVersion: *const u16, #[reserved] lpExtendedParameter: *const void) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateFileTransactedW(lpFileName: PCWSTR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, #[opt] hTemplateFile: HANDLE, hTransaction: HANDLE, #[opt] pusMiniVersion: *const u16, #[reserved] lpExtendedParameter: *const void) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateHardLinkA(lpFileName: PCSTR, lpExistingFileName: PCSTR, #[reserved] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateHardLinkTransactedA(lpFileName: PCSTR, lpExistingFileName: PCSTR, #[reserved] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateHardLinkTransactedW(lpFileName: PCWSTR, lpExistingFileName: PCWSTR, #[reserved] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateHardLinkW(lpFileName: PCWSTR, lpExistingFileName: PCWSTR, #[reserved] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateJobObjectA(#[opt] lpJobAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateJobSet(NumJob: u32, #[len_param(0)] UserJobSet: *const JOB_SET_ARRAY, Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateMailslotA(lpName: PCSTR, nMaxMessageSize: u32, lReadTimeout: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateMailslotW(lpName: PCWSTR, nMaxMessageSize: u32, lReadTimeout: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateNamedPipeA(lpName: PCSTR, dwOpenMode: u32, dwPipeMode: u32, nMaxInstances: u32, nOutBufferSize: u32, nInBufferSize: u32, nDefaultTimeOut: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreatePrivateNamespaceA(#[opt] lpPrivateNamespaceAttributes: *const SECURITY_ATTRIBUTES, lpBoundaryDescriptor: *const void, lpAliasPrefix: PCSTR) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn CreateProcessWithLogonW(lpUsername: PCWSTR, #[opt] lpDomain: PCWSTR, lpPassword: PCWSTR, dwLogonFlags: u32, #[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: *const STARTUPINFOW, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn CreateProcessWithTokenW(hToken: HANDLE, dwLogonFlags: u32, #[opt] lpApplicationName: PCWSTR, #[in] #[out] #[opt] lpCommandLine: PWSTR, dwCreationFlags: u32, #[opt] lpEnvironment: *const void, #[opt] lpCurrentDirectory: PCWSTR, lpStartupInfo: *const STARTUPINFOW, lpProcessInformation: *mut PROCESS_INFORMATION) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSemaphoreA(#[opt] lpSemaphoreAttributes: *const SECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSemaphoreExA(#[opt] lpSemaphoreAttributes: *const SECURITY_ATTRIBUTES, lInitialCount: i32, lMaximumCount: i32, #[opt] lpName: PCSTR, #[reserved] dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSymbolicLinkA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSymbolicLinkTransactedA(lpSymlinkFileName: PCSTR, lpTargetFileName: PCSTR, dwFlags: u32, hTransaction: HANDLE) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSymbolicLinkTransactedW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32, hTransaction: HANDLE) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn CreateSymbolicLinkW(lpSymlinkFileName: PCWSTR, lpTargetFileName: PCWSTR, dwFlags: u32) -> BOOLEAN;
+        #[library("KERNEL32.dll")]
+        extern fn CreateTapePartition(hDevice: HANDLE, dwPartitionMethod: u32, dwCount: u32, dwSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn CreateUmsCompletionList(UmsCompletionList: *mut PUMS_COMPLETION_LIST) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateUmsThreadContext(lpUmsThread: *mut PUMS_CONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn CreateWaitableTimerA(#[opt] lpTimerAttributes: *const SECURITY_ATTRIBUTES, bManualReset: BOOL, #[opt] lpTimerName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn CreateWaitableTimerExA(#[opt] lpTimerAttributes: *const SECURITY_ATTRIBUTES, #[opt] lpTimerName: PCSTR, dwFlags: u32, dwDesiredAccess: u32) -> HANDLE;
+        const DATABITS_16: u16 = 16;
+        const DATABITS_16X: u16 = 32;
+        const DATABITS_5: u16 = 1;
+        const DATABITS_6: u16 = 2;
+        const DATABITS_7: u16 = 4;
+        const DATABITS_8: u16 = 8;
+        struct DCB {
+            DCBlength: u32,
+            BaudRate: u32,
+            _bitfield: u32,
+            wReserved: u16,
+            XonLim: u16,
+            XoffLim: u16,
+            ByteSize: u8,
+            Parity: u8,
+            StopBits: u8,
+            XonChar: i8,
+            XoffChar: i8,
+            ErrorChar: i8,
+            EofChar: i8,
+            EvtChar: i8,
+            wReserved1: u16,
+        }
+        const DDD_EXACT_MATCH_ON_REMOVE: u32 = 4;
+        const DDD_LUID_BROADCAST_DRIVE: u32 = 16;
+        const DDD_NO_BROADCAST_SYSTEM: u32 = 8;
+        const DDD_RAW_TARGET_PATH: u32 = 1;
+        const DDD_REMOVE_DEFINITION: u32 = 2;
+        const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1;
+        const DEBUG_ONLY_THIS_PROCESS: u32 = 2;
+        const DEBUG_PROCESS: u32 = 1;
+        #[repr(i32)]
+        enum DEP_SYSTEM_POLICY_TYPE {
+            DEPPolicyAlwaysOff = 0,
+            DEPPolicyAlwaysOn = 1,
+            DEPPolicyOptIn = 2,
+            DEPPolicyOptOut = 3,
+            DEPTotalPolicyCount = 4,
+        }
+        const DETACHED_PROCESS: u32 = 8;
+        const DOCKINFO_DOCKED: u32 = 2;
+        const DOCKINFO_UNDOCKED: u32 = 1;
+        const DOCKINFO_USER_DOCKED: u32 = 6;
+        const DOCKINFO_USER_SUPPLIED: u32 = 4;
+        const DOCKINFO_USER_UNDOCKED: u32 = 5;
+        const DRIVE_CDROM: u32 = 5;
+        const DRIVE_FIXED: u32 = 3;
+        const DRIVE_NO_ROOT_DIR: u32 = 1;
+        const DRIVE_RAMDISK: u32 = 6;
+        const DRIVE_REMOTE: u32 = 4;
+        const DRIVE_REMOVABLE: u32 = 2;
+        const DRIVE_UNKNOWN: u32 = 0;
+        const DTR_CONTROL_DISABLE: u32 = 0;
+        const DTR_CONTROL_ENABLE: u32 = 1;
+        const DTR_CONTROL_HANDSHAKE: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn DeactivateActCtx(dwFlags: u32, ulCookie: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DebugBreakProcess(Process: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DebugSetProcessKillOnExit(KillOnExit: BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn DecryptFileA(lpFileName: PCSTR, #[reserved] dwReserved: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn DecryptFileW(lpFileName: PCWSTR, #[reserved] dwReserved: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DefineDosDeviceA(dwFlags: u32, lpDeviceName: PCSTR, #[opt] lpTargetPath: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteAtom(nAtom: ATOM) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteFiber(lpFiber: *const void);
+        #[library("KERNEL32.dll")]
+        extern fn DeleteFileTransactedA(lpFileName: PCSTR, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteFileTransactedW(lpFileName: PCWSTR, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteUmsCompletionList(UmsCompletionList: PUMS_COMPLETION_LIST) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteUmsThreadContext(UmsThread: PUMS_CONTEXT) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DeleteVolumeMountPointA(lpszVolumeMountPoint: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DequeueUmsCompletionListItems(UmsCompletionList: PUMS_COMPLETION_LIST, WaitTimeOut: u32, UmsThreadList: *mut PUMS_CONTEXT) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn DeregisterEventSource(hEventLog: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DisableThreadProfiling(PerformanceDataHandle: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn DnsHostnameToComputerNameA(Hostname: PCSTR, #[len_param(2)] #[out] #[opt] ComputerName: PSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DnsHostnameToComputerNameW(Hostname: PCWSTR, #[len_param(2)] #[out] #[opt] ComputerName: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn DosDateTimeToFileTime(wFatDate: u16, wFatTime: u16, lpFileTime: *mut FILETIME) -> BOOL;
+        const EFSRPC_SECURE_ONLY: u32 = 8;
+        const EFS_DROP_ALTERNATE_STREAMS: u32 = 16;
+        const EFS_USE_RECOVERY_KEYS: u32 = 1;
+        const EVENPARITY: u32 = 2;
+        const EVENTLOG_FULL_INFO: u32 = 0;
+        struct EVENTLOG_FULL_INFORMATION {
+            dwFull: u32,
+        }
+        const EV_BREAK: u32 = 64;
+        const EV_CTS: u32 = 8;
+        const EV_DSR: u32 = 16;
+        const EV_ERR: u32 = 128;
+        const EV_EVENT1: u32 = 2048;
+        const EV_EVENT2: u32 = 4096;
+        const EV_PERR: u32 = 512;
+        const EV_RING: u32 = 256;
+        const EV_RLSD: u32 = 32;
+        const EV_RX80FULL: u32 = 1024;
+        const EV_RXCHAR: u32 = 1;
+        const EV_RXFLAG: u32 = 2;
+        const EV_TXEMPTY: u32 = 4;
+        const EXTENDED_STARTUPINFO_PRESENT: u32 = 524288;
+        #[library("KERNEL32.dll")]
+        extern fn EnableProcessOptionalXStateFeatures(Features: u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnableThreadProfiling(ThreadHandle: HANDLE, Flags: u32, HardwareCounters: u64, PerformanceDataHandle: *mut HANDLE) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn EncryptFileA(lpFileName: PCSTR) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn EncryptFileW(lpFileName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EndUpdateResourceA(hUpdate: HANDLE, fDiscard: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EndUpdateResourceW(hUpdate: HANDLE, fDiscard: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnterUmsSchedulingMode(SchedulerStartupInfo: *const UMS_SCHEDULER_STARTUP_INFO) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceLanguagesA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, lpEnumFunc: ENUMRESLANGPROCA, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceLanguagesW(#[opt] hModule: HMODULE, lpType: PCWSTR, lpName: PCWSTR, lpEnumFunc: ENUMRESLANGPROCW, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceTypesA(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCA, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EnumResourceTypesW(#[opt] hModule: HMODULE, lpEnumFunc: ENUMRESTYPEPROCW, lParam: isize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn EraseTape(hDevice: HANDLE, dwEraseType: u32, bImmediate: BOOL) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn EscapeCommFunction(hFile: HANDLE, dwFunc: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ExecuteUmsThread(#[in] #[out] UmsThread: PUMS_CONTEXT) -> BOOL;
+        const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1;
+        const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2;
+        const FIBER_FLAG_FLOAT_SWITCH: u32 = 1;
+        struct FILE_ALIGNMENT_INFO {
+            AlignmentRequirement: u32,
+        }
+        struct FILE_ALLOCATION_INFO {
+            AllocationSize: LARGE_INTEGER,
+        }
+        struct FILE_ATTRIBUTE_TAG_INFO {
+            FileAttributes: u32,
+            ReparseTag: u32,
+        }
+        struct FILE_BASIC_INFO {
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            FileAttributes: u32,
+        }
+        const FILE_BEGIN: u32 = 0;
+        struct FILE_CASE_SENSITIVE_INFO {
+            Flags: u32,
+        }
+        struct FILE_COMPRESSION_INFO {
+            CompressedFileSize: LARGE_INTEGER,
+            CompressionFormat: u16,
+            CompressionUnitShift: u8,
+            ChunkShift: u8,
+            ClusterShift: u8,
+            Reserved: [u8; 3],
+        }
+        const FILE_CURRENT: u32 = 1;
+        const FILE_DIR_DISALLOWED: u32 = 9;
+        const FILE_DISPOSITION_FLAG_DELETE: u32 = 1;
+        const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: u32 = 0;
+        const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: u32 = 4;
+        const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: u32 = 16;
+        const FILE_DISPOSITION_FLAG_ON_CLOSE: u32 = 8;
+        const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: u32 = 2;
+        struct FILE_DISPOSITION_INFO {
+            DeleteFileA: BOOLEAN,
+        }
+        struct FILE_DISPOSITION_INFO_EX {
+            Flags: u32,
+        }
+        const FILE_ENCRYPTABLE: u32 = 0;
+        const FILE_END: u32 = 2;
+        struct FILE_END_OF_FILE_INFO {
+            EndOfFile: LARGE_INTEGER,
+        }
+        const FILE_FLAG_BACKUP_SEMANTICS: u32 = 33554432;
+        const FILE_FLAG_DELETE_ON_CLOSE: u32 = 67108864;
+        const FILE_FLAG_DISALLOW_PATH_REDIRECTS: u32 = 65536;
+        const FILE_FLAG_FIRST_PIPE_INSTANCE: u32 = 524288;
+        const FILE_FLAG_IGNORE_IMPERSONATED_DEVICEMAP: u32 = 131072;
+        const FILE_FLAG_NO_BUFFERING: u32 = 536870912;
+        const FILE_FLAG_OPEN_NO_RECALL: u32 = 1048576;
+        const FILE_FLAG_OPEN_REPARSE_POINT: u32 = 2097152;
+        const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144;
+        const FILE_FLAG_OVERLAPPED: u32 = 1073741824;
+        const FILE_FLAG_POSIX_SEMANTICS: u32 = 16777216;
+        const FILE_FLAG_RANDOM_ACCESS: u32 = 268435456;
+        const FILE_FLAG_SEQUENTIAL_SCAN: u32 = 134217728;
+        const FILE_FLAG_SESSION_AWARE: u32 = 8388608;
+        const FILE_FLAG_WRITE_THROUGH: u32 = 2147483648;
+        #[repr(i32)]
+        enum FILE_FLUSH_MODE {
+            FILE_FLUSH_DEFAULT = 0,
+            FILE_FLUSH_DATA = 1,
+            FILE_FLUSH_MIN_METADATA = 2,
+            FILE_FLUSH_NO_SYNC = 3,
+        }
+        struct FILE_FULL_DIR_INFO {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_BOTH_DIR_INFO {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ShortNameLength: CCHAR,
+            ShortName: [u16; 12],
+            FileId: LARGE_INTEGER,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_DESCRIPTOR {
+            dwSize: u32,
+            Type: FILE_ID_TYPE,
+            Anonymous: union {
+                FileId: LARGE_INTEGER,
+                ObjectId: GUID,
+                ExtendedFileId: FILE_ID_128,
+            },
+        }
+        struct FILE_ID_EXTD_DIR_INFO {
+            NextEntryOffset: u32,
+            FileIndex: u32,
+            CreationTime: LARGE_INTEGER,
+            LastAccessTime: LARGE_INTEGER,
+            LastWriteTime: LARGE_INTEGER,
+            ChangeTime: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            AllocationSize: LARGE_INTEGER,
+            FileAttributes: u32,
+            FileNameLength: u32,
+            EaSize: u32,
+            ReparsePointTag: u32,
+            FileId: FILE_ID_128,
+            FileName: [u16; 1],
+        }
+        struct FILE_ID_INFO {
+            VolumeSerialNumber: u64,
+            FileId: FILE_ID_128,
+        }
+        #[repr(i32)]
+        enum FILE_ID_TYPE {
+            FileIdType = 0,
+            ObjectIdType = 1,
+            ExtendedFileIdType = 2,
+            MaximumFileIdType = 3,
+        }
+        struct FILE_IO_PRIORITY_HINT_INFO {
+            PriorityHint: PRIORITY_HINT,
+        }
+        const FILE_IS_ENCRYPTED: u32 = 1;
+        struct FILE_NAME_INFO {
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_NAME_NORMALIZED: u32 = 0;
+        const FILE_NAME_OPENED: u32 = 8;
+        const FILE_READ_ONLY: u32 = 8;
+        struct FILE_REMOTE_PROTOCOL_INFO {
+            StructureVersion: u16,
+            StructureSize: u16,
+            Protocol: u32,
+            ProtocolMajorVersion: u16,
+            ProtocolMinorVersion: u16,
+            ProtocolRevision: u16,
+            Reserved: u16,
+            Flags: u32,
+            GenericReserved: struct {
+                Reserved: [u32; 8],
+            },
+            ProtocolSpecific: union {
+                Smb2: struct {
+                    Server: struct {
+                        Capabilities: u32,
+                    },
+                    Share: struct {
+                        Capabilities: u32,
+                        ShareFlags: u32,
+                    },
+                },
+                Reserved: [u32; 16],
+            },
+        }
+        const FILE_RENAME_FLAG_POSIX_SEMANTICS: u32 = 2;
+        const FILE_RENAME_FLAG_REPLACE_IF_EXISTS: u32 = 1;
+        const FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4;
+        struct FILE_RENAME_INFO {
+            Anonymous: union {
+                ReplaceIfExists: BOOLEAN,
+                Flags: u32,
+            },
+            RootDirectory: HANDLE,
+            FileNameLength: u32,
+            FileName: [u16; 1],
+        }
+        const FILE_ROOT_DIR: u32 = 3;
+        const FILE_SKIP_COMPLETION_PORT_ON_SUCCESS: u32 = 1;
+        const FILE_SKIP_SET_EVENT_ON_HANDLE: u32 = 2;
+        struct FILE_STANDARD_INFO {
+            AllocationSize: LARGE_INTEGER,
+            EndOfFile: LARGE_INTEGER,
+            NumberOfLinks: u32,
+            DeletePending: BOOLEAN,
+            Directory: BOOLEAN,
+        }
+        struct FILE_STORAGE_INFO {
+            LogicalBytesPerSector: u32,
+            PhysicalBytesPerSectorForAtomicity: u32,
+            PhysicalBytesPerSectorForPerformance: u32,
+            FileSystemEffectivePhysicalBytesPerSectorForAtomicity: u32,
+            Flags: u32,
+            ByteOffsetForSectorAlignment: u32,
+            ByteOffsetForPartitionAlignment: u32,
+        }
+        struct FILE_STREAM_INFO {
+            NextEntryOffset: u32,
+            StreamNameLength: u32,
+            StreamSize: LARGE_INTEGER,
+            StreamAllocationSize: LARGE_INTEGER,
+            StreamName: [u16; 1],
+        }
+        const FILE_SYSTEM_ATTR: u32 = 2;
+        const FILE_SYSTEM_DIR: u32 = 4;
+        const FILE_SYSTEM_NOT_SUPPORT: u32 = 6;
+        const FILE_TYPE_CHAR: u32 = 2;
+        const FILE_TYPE_DISK: u32 = 1;
+        const FILE_TYPE_PIPE: u32 = 3;
+        const FILE_TYPE_REMOTE: u32 = 32768;
+        const FILE_TYPE_UNKNOWN: u32 = 0;
+        const FILE_UNKNOWN: u32 = 5;
+        const FILE_USER_DISALLOWED: u32 = 7;
+        #[repr(u32)]
+        #[flags]
+        enum FILE_WRITE_FLAGS {
+            FILE_WRITE_FLAGS_NONE = 0,
+            FILE_WRITE_FLAGS_WRITE_THROUGH = 1,
+        }
+        const FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA: u32 = 4;
+        const FIND_ACTCTX_SECTION_KEY_RETURN_FLAGS: u32 = 2;
+        const FIND_ACTCTX_SECTION_KEY_RETURN_HACTCTX: u32 = 1;
+        const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
+        const FORMAT_MESSAGE_ARGUMENT_ARRAY: u32 = 8192;
+        const FORMAT_MESSAGE_FROM_HMODULE: u32 = 2048;
+        const FORMAT_MESSAGE_FROM_STRING: u32 = 1024;
+        const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;
+        const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 512;
+        const FORMAT_MESSAGE_MAX_WIDTH_MASK: u32 = 255;
+        const FS_CASE_IS_PRESERVED: u32 = 2;
+        const FS_CASE_SENSITIVE: u32 = 1;
+        const FS_FILE_COMPRESSION: u32 = 16;
+        const FS_FILE_ENCRYPTION: u32 = 131072;
+        const FS_PERSISTENT_ACLS: u32 = 8;
+        const FS_UNICODE_STORED_ON_DISK: u32 = 4;
+        const FS_VOL_IS_COMPRESSED: u32 = 32768;
+        #[library("KERNEL32.dll")]
+        extern fn FatalExit(ExitCode: i32);
+        #[library("ADVAPI32.dll")]
+        extern fn FileEncryptionStatusA(lpFileName: PCSTR, lpStatus: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn FileEncryptionStatusW(lpFileName: PCWSTR, lpStatus: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FileTimeToDosDateTime(lpFileTime: *const FILETIME, lpFatDate: *mut u16, lpFatTime: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindActCtxSectionGuid(dwFlags: u32, #[reserved] lpExtensionGuid: *const GUID, ulSectionId: u32, #[opt] lpGuidToFind: *const GUID, ReturnedData: *mut ACTCTX_SECTION_KEYED_DATA) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindActCtxSectionStringA(dwFlags: u32, #[reserved] lpExtensionGuid: *const GUID, ulSectionId: u32, lpStringToFind: PCSTR, ReturnedData: *mut ACTCTX_SECTION_KEYED_DATA) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindActCtxSectionStringW(dwFlags: u32, #[reserved] lpExtensionGuid: *const GUID, ulSectionId: u32, lpStringToFind: PCWSTR, ReturnedData: *mut ACTCTX_SECTION_KEYED_DATA) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindAtomA(#[opt] lpString: PCSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn FindAtomW(#[opt] lpString: PCWSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstFileNameTransactedW(lpFileName: PCWSTR, dwFlags: u32, #[in] #[out] StringLength: *mut u32, #[len_param(2)] #[out] LinkName: PWSTR, #[opt] hTransaction: HANDLE) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstFileTransactedA(lpFileName: PCSTR, fInfoLevelId: FINDEX_INFO_LEVELS, lpFindFileData: *mut void, fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: *const void, dwAdditionalFlags: u32, hTransaction: HANDLE) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstFileTransactedW(lpFileName: PCWSTR, fInfoLevelId: FINDEX_INFO_LEVELS, lpFindFileData: *mut void, fSearchOp: FINDEX_SEARCH_OPS, #[reserved] lpSearchFilter: *const void, dwAdditionalFlags: u32, hTransaction: HANDLE) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstStreamTransactedW(lpFileName: PCWSTR, InfoLevel: STREAM_INFO_LEVELS, lpFindStreamData: *mut void, #[reserved] dwFlags: u32, hTransaction: HANDLE) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstVolumeA(#[len_param(1)] #[out] lpszVolumeName: PSTR, cchBufferLength: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstVolumeMountPointA(lpszRootPathName: PCSTR, #[len_param(2)] #[out] lpszVolumeMountPoint: PSTR, cchBufferLength: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindFirstVolumeMountPointW(lpszRootPathName: PCWSTR, #[len_param(2)] #[out] lpszVolumeMountPoint: PWSTR, cchBufferLength: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn FindNextVolumeA(#[in] #[out] hFindVolume: HANDLE, #[len_param(2)] #[out] lpszVolumeName: PSTR, cchBufferLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindNextVolumeMountPointA(hFindVolumeMountPoint: HANDLE, #[len_param(2)] #[out] lpszVolumeMountPoint: PSTR, cchBufferLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindNextVolumeMountPointW(hFindVolumeMountPoint: HANDLE, #[len_param(2)] #[out] lpszVolumeMountPoint: PWSTR, cchBufferLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FindResourceA(#[opt] hModule: HMODULE, lpName: PCSTR, lpType: PCSTR) -> HRSRC;
+        #[library("KERNEL32.dll")]
+        extern fn FindResourceExA(#[opt] hModule: HMODULE, lpType: PCSTR, lpName: PCSTR, wLanguage: u16) -> HRSRC;
+        #[library("KERNEL32.dll")]
+        extern fn FindVolumeMountPointClose(hFindVolumeMountPoint: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FormatMessageA(dwFlags: u32, #[opt] lpSource: *const void, dwMessageId: u32, dwLanguageId: u32, lpBuffer: PSTR, nSize: u32, #[opt] Arguments: *const va_list) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn FormatMessageW(dwFlags: u32, #[opt] lpSource: *const void, dwMessageId: u32, dwLanguageId: u32, lpBuffer: PWSTR, nSize: u32, #[opt] Arguments: *const va_list) -> u32;
+        #[encoding("ansi")]
+        const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: String = "GetSystemWow64DirectoryA";
+        #[encoding("utf-16")]
+        const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: String = "GetSystemWow64DirectoryA";
+        #[encoding("ansi")]
+        const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: String = "GetSystemWow64DirectoryW";
+        #[encoding("utf-16")]
+        const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: String = "GetSystemWow64DirectoryW";
+        const GET_TAPE_DRIVE_INFORMATION: u32 = 1;
+        const GET_TAPE_MEDIA_INFORMATION: u32 = 0;
+        const GHND: u32 = 66;
+        const GMEM_DDESHARE: u32 = 8192;
+        const GMEM_DISCARDABLE: u32 = 256;
+        const GMEM_DISCARDED: u32 = 16384;
+        const GMEM_FIXED: u32 = 0;
+        const GMEM_INVALID_HANDLE: u32 = 32768;
+        const GMEM_LOCKCOUNT: u32 = 255;
+        const GMEM_LOWER: u32 = 4096;
+        const GMEM_MODIFY: u32 = 128;
+        const GMEM_MOVEABLE: u32 = 2;
+        const GMEM_NOCOMPACT: u32 = 16;
+        const GMEM_NODISCARD: u32 = 32;
+        const GMEM_NOTIFY: u32 = 16384;
+        const GMEM_NOT_BANKED: u32 = 4096;
+        const GMEM_SHARE: u32 = 8192;
+        const GMEM_VALID_FLAGS: u32 = 32626;
+        const GMEM_ZEROINIT: u32 = 64;
+        const GPTR: u32 = 64;
+        #[library("KERNEL32.dll")]
+        extern fn GetActiveProcessorCount(GroupNumber: u16) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetActiveProcessorGroupCount() -> u16;
+        #[library("KERNEL32.dll")]
+        extern fn GetApplicationRecoveryCallback(hProcess: HANDLE, pRecoveryCallback: *mut APPLICATION_RECOVERY_CALLBACK, ppvParameter: *mut *mut void, #[opt] pdwPingInterval: *mut u32, #[opt] pdwFlags: *mut u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetApplicationRestartSettings(hProcess: HANDLE, #[len_param(2)] #[out] #[opt] pwzCommandline: PWSTR, #[in] #[out] pcchSize: *mut u32, #[opt] pdwFlags: *mut u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn GetAtomNameA(nAtom: ATOM, #[len_param(2)] #[out] lpBuffer: PSTR, nSize: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetAtomNameW(nAtom: ATOM, #[len_param(2)] #[out] lpBuffer: PWSTR, nSize: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetBinaryTypeA(lpApplicationName: PCSTR, lpBinaryType: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetBinaryTypeW(lpApplicationName: PCWSTR, lpBinaryType: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommConfig(hCommDev: HANDLE, #[size_param(2)] #[opt] lpCC: *mut COMMCONFIG, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommMask(hFile: HANDLE, lpEvtMask: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommModemStatus(hFile: HANDLE, lpModemStat: *mut u32) -> BOOL;
+        #[library("api-ms-win-core-comm-l1-1-2.dll")]
+        extern fn GetCommPorts(#[len_param(1)] lpPortNumbers: *mut u32, uPortNumbersCount: u32, puPortNumbersFound: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommProperties(hFile: HANDLE, #[in] #[out] lpCommProp: *mut COMMPROP) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommState(hFile: HANDLE, lpDCB: *mut DCB) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommTimeouts(hFile: HANDLE, lpCommTimeouts: *mut COMMTIMEOUTS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCompressedFileSizeTransactedA(lpFileName: PCSTR, #[opt] lpFileSizeHigh: *mut u32, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCompressedFileSizeTransactedW(lpFileName: PCWSTR, #[opt] lpFileSizeHigh: *mut u32, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetComputerNameA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetComputerNameW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, #[in] #[out] nSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentActCtx(lphActCtx: *mut HANDLE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetCurrentHwProfileA(lpHwProfileInfo: *mut HW_PROFILE_INFOA) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetCurrentHwProfileW(lpHwProfileInfo: *mut HW_PROFILE_INFOW) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentUmsThread() -> PUMS_CONTEXT;
+        #[library("KERNEL32.dll")]
+        extern fn GetDefaultCommConfigA(lpszName: PCSTR, #[size_param(2)] lpCC: *mut COMMCONFIG, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetDefaultCommConfigW(lpszName: PCWSTR, #[size_param(2)] lpCC: *mut COMMCONFIG, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetDevicePowerState(hDevice: HANDLE, pfOn: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetDllDirectoryA(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetDllDirectoryW(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetEnabledXStateFeatures() -> u64;
+        #[library("ADVAPI32.dll")]
+        extern fn GetEventLogInformation(hEventLog: HANDLE, dwInfoLevel: u32, #[size_param(3)] lpBuffer: *mut void, cbBufSize: u32, pcbBytesNeeded: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileAttributesTransactedA(lpFileName: PCSTR, fInfoLevelId: GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileAttributesTransactedW(lpFileName: PCWSTR, fInfoLevelId: GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileBandwidthReservation(hFile: HANDLE, lpPeriodMilliseconds: *mut u32, lpBytesPerPeriod: *mut u32, pDiscardable: *mut BOOL, lpTransferSize: *mut u32, lpNumOutstandingRequests: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileInformationByHandleEx(hFile: HANDLE, FileInformationClass: FILE_INFO_BY_HANDLE_CLASS, #[size_param(3)] lpFileInformation: *mut void, dwBufferSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFileInformationByName(FileName: PCWSTR, FileInformationClass: FILE_INFO_BY_NAME_CLASS, #[size_param(3)] FileInfoBuffer: *mut void, FileInfoBufferSize: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetFileSecurityA(lpFileName: PCSTR, RequestedInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, nLength: u32, lpnLengthNeeded: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFirmwareEnvironmentVariableA(lpName: PCSTR, lpGuid: PCSTR, #[size_param(3)] #[opt] pBuffer: *mut void, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFirmwareEnvironmentVariableExA(lpName: PCSTR, lpGuid: PCSTR, #[size_param(3)] #[opt] pBuffer: *mut void, nSize: u32, #[opt] pdwAttribubutes: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFirmwareEnvironmentVariableExW(lpName: PCWSTR, lpGuid: PCWSTR, #[size_param(3)] #[opt] pBuffer: *mut void, nSize: u32, #[opt] pdwAttribubutes: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFirmwareEnvironmentVariableW(lpName: PCWSTR, lpGuid: PCWSTR, #[size_param(3)] #[opt] pBuffer: *mut void, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFirmwareType(#[in] #[out] FirmwareType: *mut FIRMWARE_TYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetFullPathNameTransactedA(lpFileName: PCSTR, nBufferLength: u32, #[len_param(1)] #[out] #[opt] lpBuffer: PSTR, lpFilePart: *mut PSTR, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetFullPathNameTransactedW(lpFileName: PCWSTR, nBufferLength: u32, #[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, lpFilePart: *mut PWSTR, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLogicalDriveStringsA(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLongPathNameTransactedA(lpszShortPath: PCSTR, #[len_param(2)] #[out] #[opt] lpszLongPath: PSTR, cchBuffer: u32, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetLongPathNameTransactedW(lpszShortPath: PCWSTR, #[len_param(2)] #[out] #[opt] lpszLongPath: PWSTR, cchBuffer: u32, hTransaction: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetMailslotInfo(hMailslot: HANDLE, #[opt] lpMaxMessageSize: *mut u32, #[opt] lpNextSize: *mut u32, #[opt] lpMessageCount: *mut u32, #[opt] lpReadTimeout: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetMaximumProcessorCount(GroupNumber: u16) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetMaximumProcessorGroupCount() -> u16;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeClientComputerNameA(Pipe: HANDLE, #[size_param(2)] #[out] ClientComputerName: PSTR, ClientComputerNameLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeClientProcessId(Pipe: HANDLE, ClientProcessId: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeClientSessionId(Pipe: HANDLE, ClientSessionId: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeHandleStateA(hNamedPipe: HANDLE, #[opt] lpState: *mut u32, #[opt] lpCurInstances: *mut u32, #[opt] lpMaxCollectionCount: *mut u32, #[opt] lpCollectDataTimeout: *mut u32, #[len_param(6)] #[out] #[opt] lpUserName: PSTR, nMaxUserNameSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeServerProcessId(Pipe: HANDLE, ServerProcessId: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNamedPipeServerSessionId(Pipe: HANDLE, ServerSessionId: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNextUmsListItem(#[in] #[out] UmsContext: PUMS_CONTEXT) -> PUMS_CONTEXT;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaAvailableMemoryNode(Node: u8, AvailableBytes: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaAvailableMemoryNodeEx(Node: u16, AvailableBytes: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaNodeNumberFromHandle(hFile: HANDLE, NodeNumber: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaNodeProcessorMask(Node: u8, ProcessorMask: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaProcessorNode(Processor: u8, NodeNumber: *mut u8) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaProcessorNodeEx(Processor: *const PROCESSOR_NUMBER, NodeNumber: *mut u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetNumaProximityNode(ProximityId: u32, NodeNumber: *mut u8) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetNumberOfEventLogRecords(hEventLog: HANDLE, NumberOfRecords: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetOldestEventLogRecord(hEventLog: HANDLE, OldestRecord: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileIntA(lpAppName: PCSTR, lpKeyName: PCSTR, nDefault: i32, #[opt] lpFileName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileIntW(lpAppName: PCWSTR, lpKeyName: PCWSTR, nDefault: i32, #[opt] lpFileName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileSectionA(lpAppName: PCSTR, #[len_param(2)] #[out] #[opt] lpReturnedString: PSTR, nSize: u32, #[opt] lpFileName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileSectionNamesA(#[len_param(1)] #[out] #[opt] lpszReturnBuffer: PSTR, nSize: u32, #[opt] lpFileName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileSectionNamesW(#[len_param(1)] #[out] #[opt] lpszReturnBuffer: PWSTR, nSize: u32, #[opt] lpFileName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileSectionW(lpAppName: PCWSTR, #[len_param(2)] #[out] #[opt] lpReturnedString: PWSTR, nSize: u32, #[opt] lpFileName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileStringA(#[opt] lpAppName: PCSTR, #[opt] lpKeyName: PCSTR, #[opt] lpDefault: PCSTR, #[len_param(4)] #[out] #[opt] lpReturnedString: PSTR, nSize: u32, #[opt] lpFileName: PCSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileStringW(#[opt] lpAppName: PCWSTR, #[opt] lpKeyName: PCWSTR, #[opt] lpDefault: PCWSTR, #[len_param(4)] #[out] #[opt] lpReturnedString: PWSTR, nSize: u32, #[opt] lpFileName: PCWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileStructA(lpszSection: PCSTR, lpszKey: PCSTR, #[size_param(3)] #[opt] lpStruct: *mut void, uSizeStruct: u32, #[opt] szFile: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetPrivateProfileStructW(lpszSection: PCWSTR, lpszKey: PCWSTR, #[size_param(3)] #[opt] lpStruct: *mut void, uSizeStruct: u32, #[opt] szFile: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessAffinityMask(hProcess: HANDLE, lpProcessAffinityMask: *mut usize, lpSystemAffinityMask: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessDEPPolicy(hProcess: HANDLE, lpFlags: *mut u32, lpPermanent: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProcessIoCounters(hProcess: HANDLE, lpIoCounters: *mut IO_COUNTERS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileIntA(lpAppName: PCSTR, lpKeyName: PCSTR, nDefault: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileIntW(lpAppName: PCWSTR, lpKeyName: PCWSTR, nDefault: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileSectionA(lpAppName: PCSTR, #[len_param(2)] #[out] #[opt] lpReturnedString: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileSectionW(lpAppName: PCWSTR, #[len_param(2)] #[out] #[opt] lpReturnedString: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileStringA(#[opt] lpAppName: PCSTR, #[opt] lpKeyName: PCSTR, #[opt] lpDefault: PCSTR, #[len_param(4)] #[out] #[opt] lpReturnedString: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetProfileStringW(#[opt] lpAppName: PCWSTR, #[opt] lpKeyName: PCWSTR, #[opt] lpDefault: PCWSTR, #[len_param(4)] #[out] #[opt] lpReturnedString: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetShortPathNameA(lpszLongPath: PCSTR, #[len_param(2)] #[out] #[opt] lpszShortPath: PSTR, cchBuffer: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetStartupInfoA(lpStartupInfo: *mut STARTUPINFOA);
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemPowerStatus(lpSystemPowerStatus: *mut SYSTEM_POWER_STATUS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetSystemRegistryQuota(#[opt] pdwQuotaAllowed: *mut u32, #[opt] pdwQuotaUsed: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetTapeParameters(hDevice: HANDLE, dwOperation: u32, #[in] #[out] lpdwSize: *mut u32, #[size_param(2)] lpTapeInformation: *mut void) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTapePosition(hDevice: HANDLE, dwPositionType: u32, lpdwPartition: *mut u32, lpdwOffsetLow: *mut u32, lpdwOffsetHigh: *mut u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetTapeStatus(hDevice: HANDLE) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadEnabledXStateFeatures() -> u64;
+        #[library("KERNEL32.dll")]
+        extern fn GetThreadSelectorEntry(hThread: HANDLE, dwSelector: u32, #[out] lpSelectorEntry: LPLDT_ENTRY) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetUmsCompletionListEvent(UmsCompletionList: PUMS_COMPLETION_LIST, #[in] #[out] UmsCompletionEvent: *mut HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetUmsSystemThreadInformation(ThreadHandle: HANDLE, #[in] #[out] SystemThreadInfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetUserNameA(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, #[in] #[out] pcbBuffer: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn GetUserNameW(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, #[in] #[out] pcbBuffer: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetVolumeNameForVolumeMountPointA(lpszVolumeMountPoint: PCSTR, #[len_param(2)] #[out] lpszVolumeName: PSTR, cchBufferLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetVolumePathNameA(lpszFileName: PCSTR, #[len_param(2)] #[out] lpszVolumePathName: PSTR, cchBufferLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetVolumePathNamesForVolumeNameA(lpszVolumeName: PCSTR, #[len_param(2)] #[opt] lpszVolumePathNames: *mut i8, cchBufferLength: u32, lpcchReturnLength: *mut u32) -> BOOL;
+        #[arch(Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn GetXStateFeaturesMask(Context: *const ARM64_NT_CONTEXT, FeatureMask: *mut u64) -> BOOL;
+        #[arch(X86 | X64)]
+        #[library("KERNEL32.dll")]
+        extern fn GetXStateFeaturesMask(Context: *const CONTEXT, FeatureMask: *mut u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalAddAtomA(#[opt] lpString: PCSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalAddAtomExA(#[opt] lpString: PCSTR, Flags: u32) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalAddAtomExW(#[opt] lpString: PCWSTR, Flags: u32) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalAddAtomW(#[opt] lpString: PCWSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalAlloc(uFlags: u32, dwBytes: usize) -> HGLOBAL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalCompact(dwMinFree: u32) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalDeleteAtom(nAtom: ATOM) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalFindAtomA(#[opt] lpString: PCSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalFindAtomW(#[opt] lpString: PCWSTR) -> ATOM;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalFix(hMem: HGLOBAL);
+        #[library("KERNEL32.dll")]
+        extern fn GlobalFlags(hMem: HGLOBAL) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalFree(hMem: HGLOBAL) -> HGLOBAL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalGetAtomNameA(nAtom: ATOM, #[len_param(2)] #[out] lpBuffer: PSTR, nSize: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalGetAtomNameW(nAtom: ATOM, #[len_param(2)] #[out] lpBuffer: PWSTR, nSize: i32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalHandle(pMem: *const void) -> HGLOBAL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalLock(hMem: HGLOBAL) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalMemoryStatus(lpBuffer: *mut MEMORYSTATUS);
+        #[library("KERNEL32.dll")]
+        extern fn GlobalReAlloc(hMem: HGLOBAL, dwBytes: usize, uFlags: u32) -> HGLOBAL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalSize(hMem: HGLOBAL) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalUnWire(hMem: HGLOBAL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalUnfix(hMem: HGLOBAL);
+        #[library("KERNEL32.dll")]
+        extern fn GlobalUnlock(hMem: HGLOBAL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GlobalWire(hMem: HGLOBAL) -> *mut void;
+        const HANDLE_FLAG_INHERIT: u32 = 1;
+        const HANDLE_FLAG_PROTECT_FROM_CLOSE: u32 = 2;
+        const HIGH_PRIORITY_CLASS: u32 = 128;
+        const HINSTANCE_ERROR: u32 = 32;
+        const HW_PROFILE_GUIDLEN: u32 = 39;
+        type HW_PROFILE_INFO = HW_PROFILE_INFOA;
+        struct HW_PROFILE_INFOA {
+            dwDockInfo: u32,
+            szHwProfileGuid: [i8; 39],
+            szHwProfileName: [i8; 80],
+        }
+        struct HW_PROFILE_INFOW {
+            dwDockInfo: u32,
+            szHwProfileGuid: [u16; 39],
+            szHwProfileName: [u16; 80],
+        }
+        const IDLE_PRIORITY_CLASS: u32 = 64;
+        const IE_BADID: i32 = -1;
+        const IE_BAUDRATE: i32 = -12;
+        const IE_BYTESIZE: i32 = -11;
+        const IE_DEFAULT: i32 = -5;
+        const IE_HARDWARE: i32 = -10;
+        const IE_MEMORY: i32 = -4;
+        const IE_NOPEN: i32 = -3;
+        const IE_OPEN: i32 = -2;
+        const IGNORE: u32 = 0;
+        const INFINITE: u32 = 4294967295;
+        const INHERIT_CALLER_PRIORITY: u32 = 131072;
+        const INHERIT_PARENT_AFFINITY: u32 = 65536;
+        const INVALID_ATOM: ATOM = 0;
+        #[library("KERNEL32.dll")]
+        extern fn InitAtomTable(nSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn InitializeContext(#[size_param(3)] #[opt] Buffer: *mut void, ContextFlags: u32, Context: *mut PCONTEXT, #[in] #[out] ContextLength: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn InitializeContext2(#[size_param(3)] #[opt] Buffer: *mut void, ContextFlags: u32, Context: *mut PCONTEXT, #[in] #[out] ContextLength: *mut u32, XStateCompactionMask: u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadCodePtr(#[opt] lpfn: FARPROC) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadHugeReadPtr(#[opt] lp: *const void, ucb: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadHugeWritePtr(#[opt] lp: *const void, ucb: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadReadPtr(#[opt] lp: *const void, ucb: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadStringPtrA(#[opt] lpsz: PCSTR, ucchMax: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadStringPtrW(#[opt] lpsz: PCWSTR, ucchMax: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsBadWritePtr(#[opt] lp: *const void, ucb: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsNativeVhdBoot(NativeVhdBoot: *mut BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn IsSystemResumeAutomatic() -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn IsTextUnicode(#[size_param(1)] lpv: *const void, iSize: i32, #[in] #[out] #[opt] lpiResult: *mut i32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn IsTokenUntrusted(TokenHandle: HANDLE) -> BOOL;
+        struct JIT_DEBUG_INFO {
+            dwSize: u32,
+            dwProcessorArchitecture: u32,
+            dwThreadID: u32,
+            dwReserved0: u32,
+            lpExceptionAddress: u64,
+            lpExceptionRecord: u64,
+            lpContextRecord: u64,
+        }
+        type JIT_DEBUG_INFO32 = JIT_DEBUG_INFO;
+        type JIT_DEBUG_INFO64 = JIT_DEBUG_INFO;
+        const LOGON32_LOGON_BATCH: u32 = 4;
+        const LOGON32_LOGON_INTERACTIVE: u32 = 2;
+        const LOGON32_LOGON_NETWORK: u32 = 3;
+        const LOGON32_LOGON_NETWORK_CLEARTEXT: u32 = 8;
+        const LOGON32_LOGON_NEW_CREDENTIALS: u32 = 9;
+        const LOGON32_LOGON_SERVICE: u32 = 5;
+        const LOGON32_LOGON_UNLOCK: u32 = 7;
+        const LOGON32_PROVIDER_DEFAULT: u32 = 0;
+        const LOGON32_PROVIDER_VIRTUAL: u32 = 4;
+        const LOGON32_PROVIDER_WINNT35: u32 = 1;
+        const LOGON32_PROVIDER_WINNT40: u32 = 2;
+        const LOGON32_PROVIDER_WINNT50: u32 = 3;
+        const LOGON_NETCREDENTIALS_ONLY: u32 = 2;
+        const LOGON_WITH_PROFILE: u32 = 1;
+        const LOGON_ZERO_PASSWORD_BUFFER: u32 = 2147483648;
+        type LPCOMMCONFIG = *mut COMMCONFIG;
+        type LPCOMMPROP = *mut COMMPROP;
+        type LPCOMMTIMEOUTS = *mut COMMTIMEOUTS;
+        type LPCOMSTAT = *mut COMSTAT;
+        type LPDCB = *mut DCB;
+        type LPEVENTLOG_FULL_INFORMATION = *mut EVENTLOG_FULL_INFORMATION;
+        type LPEXCEPTION_POINTERS = PEXCEPTION_POINTERS;
+        type LPEXCEPTION_RECORD = PEXCEPTION_RECORD;
+        type LPFIBER_START_ROUTINE = PFIBER_START_ROUTINE;
+        type LPFILE_ID_DESCRIPTOR = *mut FILE_ID_DESCRIPTOR;
+        type LPHW_PROFILE_INFO = LPHW_PROFILE_INFOA;
+        type LPHW_PROFILE_INFOA = *mut HW_PROFILE_INFOA;
+        type LPHW_PROFILE_INFOW = *mut HW_PROFILE_INFOW;
+        type LPJIT_DEBUG_INFO = *mut JIT_DEBUG_INFO;
+        type LPJIT_DEBUG_INFO32 = *mut JIT_DEBUG_INFO;
+        type LPJIT_DEBUG_INFO64 = *mut JIT_DEBUG_INFO;
+        #[arch(X64 | Arm64)]
+        type LPLDT_ENTRY = *mut void;
+        #[arch(X86)]
+        type LPLDT_ENTRY = PLDT_ENTRY;
+        type LPMEMORYSTATUS = *mut MEMORYSTATUS;
+        type LPOFSTRUCT = *mut OFSTRUCT;
+        type LPPOWER_REQUEST_CONTEXT = *mut REASON_CONTEXT;
+        extern fn LPPROGRESS_ROUTINE(TotalFileSize: LARGE_INTEGER, TotalBytesTransferred: LARGE_INTEGER, StreamSize: LARGE_INTEGER, StreamBytesTransferred: LARGE_INTEGER, dwStreamNumber: u32, dwCallbackReason: u32, hSourceFile: HANDLE, hDestinationFile: HANDLE, #[opt] lpData: *const void) -> u32;
+        type LPSTARTUPINFOEX = LPSTARTUPINFOEXA;
+        type LPSTARTUPINFOEXA = *mut STARTUPINFOEXA;
+        type LPSTARTUPINFOEXW = *mut STARTUPINFOEXW;
+        type LPSYSTEM_POWER_STATUS = *mut SYSTEM_POWER_STATUS;
+        const LPTx: u32 = 128;
+        type LPWIN32_STREAM_ID = *mut WIN32_STREAM_ID;
+        #[library("KERNEL32.dll")]
+        extern fn LoadModule(lpModuleName: PCSTR, lpParameterBlock: *const void) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn LoadPackagedLibrary(lpwLibFileName: PCWSTR, #[reserved] Reserved: u32) -> HMODULE;
+        #[library("KERNEL32.dll")]
+        extern fn LocalAlloc(uFlags: u32, uBytes: usize) -> HLOCAL;
+        #[library("KERNEL32.dll")]
+        extern fn LocalCompact(uMinFree: u32) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn LocalFlags(hMem: HLOCAL) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn LocalFree(hMem: HLOCAL) -> HLOCAL;
+        #[library("KERNEL32.dll")]
+        extern fn LocalHandle(pMem: *const void) -> HLOCAL;
+        #[library("KERNEL32.dll")]
+        extern fn LocalLock(hMem: HLOCAL) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn LocalReAlloc(hMem: HLOCAL, uBytes: usize, uFlags: u32) -> HLOCAL;
+        #[library("KERNEL32.dll")]
+        extern fn LocalShrink(hMem: HLOCAL, cbNewSize: u32) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn LocalSize(hMem: HLOCAL) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn LocalUnlock(hMem: HLOCAL) -> BOOL;
+        #[arch(Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn LocateXStateFeature(Context: *const ARM64_NT_CONTEXT, FeatureId: u32, #[opt] Length: *mut u32) -> *mut void;
+        #[arch(X86 | X64)]
+        #[library("KERNEL32.dll")]
+        extern fn LocateXStateFeature(Context: *const CONTEXT, FeatureId: u32, #[opt] Length: *mut u32) -> *mut void;
+        #[library("ADVAPI32.dll")]
+        extern fn LogonUserA(lpszUsername: PCSTR, #[opt] lpszDomain: PCSTR, #[opt] lpszPassword: PCSTR, dwLogonType: u32, dwLogonProvider: u32, phToken: *mut HANDLE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LogonUserExA(lpszUsername: PCSTR, #[opt] lpszDomain: PCSTR, #[opt] lpszPassword: PCSTR, dwLogonType: u32, dwLogonProvider: u32, phToken: *mut HANDLE, ppLogonSid: *mut PSID, ppProfileBuffer: *mut *mut void, #[opt] pdwProfileLength: *mut u32, #[opt] pQuotaLimits: *mut QUOTA_LIMITS) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LogonUserExW(lpszUsername: PCWSTR, #[opt] lpszDomain: PCWSTR, #[opt] lpszPassword: PCWSTR, dwLogonType: u32, dwLogonProvider: u32, phToken: *mut HANDLE, ppLogonSid: *mut PSID, ppProfileBuffer: *mut *mut void, #[opt] pdwProfileLength: *mut u32, #[opt] pQuotaLimits: *mut QUOTA_LIMITS) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LogonUserW(lpszUsername: PCWSTR, #[opt] lpszDomain: PCWSTR, #[opt] lpszPassword: PCWSTR, dwLogonType: u32, dwLogonProvider: u32, phToken: *mut HANDLE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupAccountNameA(#[opt] lpSystemName: PCSTR, lpAccountName: PCSTR, #[size_param(3)] #[out] #[opt] Sid: PSID, #[in] #[out] cbSid: *mut u32, #[len_param(5)] #[out] #[opt] ReferencedDomainName: PSTR, #[in] #[out] cchReferencedDomainName: *mut u32, peUse: *mut SID_NAME_USE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupAccountNameW(#[opt] lpSystemName: PCWSTR, lpAccountName: PCWSTR, #[size_param(3)] #[out] #[opt] Sid: PSID, #[in] #[out] cbSid: *mut u32, #[len_param(5)] #[out] #[opt] ReferencedDomainName: PWSTR, #[in] #[out] cchReferencedDomainName: *mut u32, peUse: *mut SID_NAME_USE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupAccountSidA(#[opt] lpSystemName: PCSTR, Sid: PSID, #[len_param(3)] #[out] #[opt] Name: PSTR, #[in] #[out] cchName: *mut u32, #[len_param(5)] #[out] #[opt] ReferencedDomainName: PSTR, #[in] #[out] cchReferencedDomainName: *mut u32, peUse: *mut SID_NAME_USE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupAccountSidW(#[opt] lpSystemName: PCWSTR, Sid: PSID, #[len_param(3)] #[out] #[opt] Name: PWSTR, #[in] #[out] cchName: *mut u32, #[len_param(5)] #[out] #[opt] ReferencedDomainName: PWSTR, #[in] #[out] cchReferencedDomainName: *mut u32, peUse: *mut SID_NAME_USE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeDisplayNameA(#[opt] lpSystemName: PCSTR, lpName: PCSTR, #[len_param(3)] #[out] #[opt] lpDisplayName: PSTR, #[in] #[out] cchDisplayName: *mut u32, lpLanguageId: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeDisplayNameW(#[opt] lpSystemName: PCWSTR, lpName: PCWSTR, #[len_param(3)] #[out] #[opt] lpDisplayName: PWSTR, #[in] #[out] cchDisplayName: *mut u32, lpLanguageId: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeNameA(#[opt] lpSystemName: PCSTR, lpLuid: *const LUID, #[len_param(3)] #[out] #[opt] lpName: PSTR, #[in] #[out] cchName: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeNameW(#[opt] lpSystemName: PCWSTR, lpLuid: *const LUID, #[len_param(3)] #[out] #[opt] lpName: PWSTR, #[in] #[out] cchName: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeValueA(#[opt] lpSystemName: PCSTR, lpName: PCSTR, lpLuid: *mut LUID) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn LookupPrivilegeValueW(#[opt] lpSystemName: PCWSTR, lpName: PCWSTR, lpLuid: *mut LUID) -> BOOL;
+        const MARKPARITY: u32 = 3;
+        const MAXINTATOM: u32 = 49152;
+        const MAX_COMPUTERNAME_LENGTH: u32 = 15;
+        const MAX_PROFILE_LEN: u32 = 80;
+        struct MEMORYSTATUS {
+            dwLength: u32,
+            dwMemoryLoad: u32,
+            dwTotalPhys: usize,
+            dwAvailPhys: usize,
+            dwTotalPageFile: usize,
+            dwAvailPageFile: usize,
+            dwTotalVirtual: usize,
+            dwAvailVirtual: usize,
+        }
+        const MICROSOFT_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 0;
+        const MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 1;
+        const MOVEFILE_COPY_ALLOWED: u32 = 2;
+        const MOVEFILE_CREATE_HARDLINK: u32 = 16;
+        const MOVEFILE_DELAY_UNTIL_REBOOT: u32 = 4;
+        const MOVEFILE_FAIL_IF_NOT_TRACKABLE: u32 = 32;
+        const MOVEFILE_REPLACE_EXISTING: u32 = 1;
+        const MOVEFILE_WRITE_THROUGH: u32 = 8;
+        const MS_CTS_ON: u32 = 16;
+        const MS_DSR_ON: u32 = 32;
+        const MS_RING_ON: u32 = 64;
+        const MS_RLSD_ON: u32 = 128;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn MapUserPhysicalPagesScatter(#[len_param(1)] VirtualAddresses: *const *const void, NumberOfPages: usize, #[len_param(1)] #[opt] PageArray: *const u64) -> BOOL;
+        #[arch(X86)]
+        #[library("KERNEL32.dll")]
+        extern fn MapUserPhysicalPagesScatter(#[len_param(1)] VirtualAddresses: *const *const void, NumberOfPages: usize, #[len_param(1)] #[opt] PageArray: *const u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MapViewOfFileExNuma(hFileMappingObject: HANDLE, dwDesiredAccess: u32, dwFileOffsetHigh: u32, dwFileOffsetLow: u32, dwNumberOfBytesToMap: usize, #[opt] lpBaseAddress: *const void, nndPreferred: u32) -> *mut void;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileA(lpExistingFileName: PCSTR, lpNewFileName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileExA(lpExistingFileName: PCSTR, #[opt] lpNewFileName: PCSTR, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileExW(lpExistingFileName: PCWSTR, #[opt] lpNewFileName: PCWSTR, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileTransactedA(lpExistingFileName: PCSTR, #[opt] lpNewFileName: PCSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, dwFlags: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileTransactedW(lpExistingFileName: PCWSTR, #[opt] lpNewFileName: PCWSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, dwFlags: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileW(lpExistingFileName: PCWSTR, lpNewFileName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileWithProgressA(lpExistingFileName: PCSTR, #[opt] lpNewFileName: PCSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MoveFileWithProgressW(lpExistingFileName: PCWSTR, #[opt] lpNewFileName: PCWSTR, #[opt] lpProgressRoutine: LPPROGRESS_ROUTINE, #[opt] lpData: *const void, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn MulDiv(nNumber: i32, nNumerator: i32, nDenominator: i32) -> i32;
+        const NMPWAIT_NOWAIT: u32 = 1;
+        const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0;
+        const NMPWAIT_WAIT_FOREVER: u32 = 4294967295;
+        const NOPARITY: u32 = 0;
+        const NORMAL_PRIORITY_CLASS: u32 = 32;
+        #[library("ADVAPI32.dll")]
+        extern fn NotifyChangeEventLog(hEventLog: HANDLE, hEvent: HANDLE) -> BOOL;
+        const ODDPARITY: u32 = 1;
+        struct OFSTRUCT {
+            cBytes: u8,
+            fFixedDisk: u8,
+            nErrCode: u16,
+            Reserved1: u16,
+            Reserved2: u16,
+            szPathName: [i8; 128],
+        }
+        const OFS_MAXPATHNAME: u32 = 128;
+        const OF_CANCEL: u32 = 2048;
+        const OF_CREATE: u32 = 4096;
+        const OF_DELETE: u32 = 512;
+        const OF_EXIST: u32 = 16384;
+        const OF_PARSE: u32 = 256;
+        const OF_PROMPT: u32 = 8192;
+        const OF_READ: u32 = 0;
+        const OF_READWRITE: u32 = 2;
+        const OF_REOPEN: u32 = 32768;
+        const OF_SHARE_COMPAT: u32 = 0;
+        const OF_SHARE_DENY_NONE: u32 = 64;
+        const OF_SHARE_DENY_READ: u32 = 48;
+        const OF_SHARE_DENY_WRITE: u32 = 32;
+        const OF_SHARE_EXCLUSIVE: u32 = 16;
+        const OF_VERIFY: u32 = 1024;
+        const OF_WRITE: u32 = 1;
+        const ONE5STOPBITS: u32 = 1;
+        const ONESTOPBIT: u32 = 0;
+        const OPERATION_API_VERSION: u32 = 1;
+        const OPERATION_END_DISCARD: u32 = 1;
+        struct OPERATION_END_PARAMETERS {
+            Version: u32,
+            OperationId: OPERATION_ID,
+            Flags: u32,
+        }
+        type OPERATION_ID = u32;
+        struct OPERATION_START_PARAMETERS {
+            Version: u32,
+            OperationId: OPERATION_ID,
+            Flags: u32,
+        }
+        const OPERATION_START_TRACE_CURRENT_THREAD: u32 = 1;
+        const OVERWRITE_HIDDEN: u32 = 4;
+        #[library("ADVAPI32.dll")]
+        extern fn ObjectCloseAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, GenerateOnClose: BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ObjectDeleteAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, GenerateOnClose: BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ObjectOpenAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, ObjectTypeName: PCSTR, #[opt] ObjectName: PCSTR, pSecurityDescriptor: PSECURITY_DESCRIPTOR, ClientToken: HANDLE, DesiredAccess: u32, GrantedAccess: u32, #[opt] Privileges: *const PRIVILEGE_SET, ObjectCreation: BOOL, AccessGranted: BOOL, GenerateOnClose: *mut BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ObjectPrivilegeAuditAlarmA(SubsystemName: PCSTR, HandleId: *const void, ClientToken: HANDLE, DesiredAccess: u32, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOL) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenBackupEventLogA(#[opt] lpUNCServerName: PCSTR, lpFileName: PCSTR) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenBackupEventLogW(#[opt] lpUNCServerName: PCWSTR, lpFileName: PCWSTR) -> HANDLE;
+        #[library("api-ms-win-core-comm-l1-1-1.dll")]
+        extern fn OpenCommPort(uPortNumber: u32, dwDesiredAccess: u32, dwFlagsAndAttributes: u32) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenEncryptedFileRawA(lpFileName: PCSTR, ulFlags: u32, pvContext: *mut *mut void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenEncryptedFileRawW(lpFileName: PCWSTR, ulFlags: u32, pvContext: *mut *mut void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenEventLogA(#[opt] lpUNCServerName: PCSTR, lpSourceName: PCSTR) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenEventLogW(#[opt] lpUNCServerName: PCWSTR, lpSourceName: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenFile(lpFileName: PCSTR, #[in] #[out] lpReOpenBuff: *mut OFSTRUCT, uStyle: u32) -> HFILE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenFileById(hVolumeHint: HANDLE, lpFileId: *const FILE_ID_DESCRIPTOR, dwDesiredAccess: u32, dwShareMode: u32, #[opt] lpSecurityAttributes: *const SECURITY_ATTRIBUTES, dwFlagsAndAttributes: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenFileMappingA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenJobObjectA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenMutexA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenPrivateNamespaceA(lpBoundaryDescriptor: *const void, lpAliasPrefix: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenSemaphoreA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpName: PCSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn OpenWaitableTimerA(dwDesiredAccess: u32, bInheritHandle: BOOL, lpTimerName: PCSTR) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn OperationEnd(OperationEndParams: *const OPERATION_END_PARAMETERS) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn OperationStart(OperationStartParams: *const OPERATION_START_PARAMETERS) -> BOOL;
+        type PACTCTX = PACTCTXA;
+        type PACTCTXA = *mut ACTCTXA;
+        type PACTCTXW = *mut ACTCTXW;
+        type PACTCTX_SECTION_KEYED_DATA = *mut ACTCTX_SECTION_KEYED_DATA;
+        type PACTCTX_SECTION_KEYED_DATA_2600 = *mut ACTCTX_SECTION_KEYED_DATA_2600;
+        type PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = *mut ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA;
+        type PACTIVATION_CONTEXT_BASIC_INFORMATION = *mut ACTIVATION_CONTEXT_BASIC_INFORMATION;
+        const PARITY_EVEN: u16 = 1024;
+        const PARITY_MARK: u16 = 2048;
+        const PARITY_NONE: u16 = 256;
+        const PARITY_ODD: u16 = 512;
+        const PARITY_SPACE: u16 = 4096;
+        type PCACTCTX = PCACTCTXA;
+        type PCACTCTXA = *const ACTCTXA;
+        type PCACTCTXW = *const ACTCTXW;
+        type PCACTCTX_SECTION_KEYED_DATA = *const ACTCTX_SECTION_KEYED_DATA;
+        type PCACTCTX_SECTION_KEYED_DATA_2600 = *const ACTCTX_SECTION_KEYED_DATA_2600;
+        type PCACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = *const ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA;
+        type PCACTIVATION_CONTEXT_BASIC_INFORMATION = *const ACTIVATION_CONTEXT_BASIC_INFORMATION;
+        const PCF_16BITMODE: u32 = 512;
+        const PCF_DTRDSR: u32 = 1;
+        const PCF_INTTIMEOUTS: u32 = 128;
+        const PCF_PARITY_CHECK: u32 = 8;
+        const PCF_RLSD: u32 = 4;
+        const PCF_RTSCTS: u32 = 2;
+        const PCF_SETXCHAR: u32 = 32;
+        const PCF_SPECIALCHARS: u32 = 256;
+        const PCF_TOTALTIMEOUTS: u32 = 64;
+        const PCF_XONXOFF: u32 = 16;
+        type PCOPYFILE2_CREATE_OPLOCK_KEYS = *mut COPYFILE2_CREATE_OPLOCK_KEYS;
+        extern fn PCOPYFILE2_PROGRESS_ROUTINE(pMessage: *const COPYFILE2_MESSAGE, #[opt] pvCallbackContext: *const void) -> COPYFILE2_MESSAGE_ACTION;
+        extern fn PFE_EXPORT_FUNC(#[size_param(2)] pbData: *const u8, #[opt] pvCallbackContext: *const void, ulLength: u32) -> u32;
+        extern fn PFE_IMPORT_FUNC(#[size_param(2)] pbData: *mut u8, #[opt] pvCallbackContext: *const void, #[in] #[out] ulLength: *mut u32) -> u32;
+        extern fn PFIBER_CALLOUT_ROUTINE(lpParameter: *mut void) -> *mut void;
+        extern fn PFIBER_START_ROUTINE(lpFiberParameter: *mut void);
+        type PFILE_ALIGNMENT_INFO = *mut FILE_ALIGNMENT_INFO;
+        type PFILE_ALLOCATION_INFO = *mut FILE_ALLOCATION_INFO;
+        type PFILE_ATTRIBUTE_TAG_INFO = *mut FILE_ATTRIBUTE_TAG_INFO;
+        type PFILE_BASIC_INFO = *mut FILE_BASIC_INFO;
+        type PFILE_CASE_SENSITIVE_INFO = *mut FILE_CASE_SENSITIVE_INFO;
+        type PFILE_COMPRESSION_INFO = *mut FILE_COMPRESSION_INFO;
+        type PFILE_DISPOSITION_INFO = *mut FILE_DISPOSITION_INFO;
+        type PFILE_DISPOSITION_INFO_EX = *mut FILE_DISPOSITION_INFO_EX;
+        type PFILE_END_OF_FILE_INFO = *mut FILE_END_OF_FILE_INFO;
+        type PFILE_FULL_DIR_INFO = *mut FILE_FULL_DIR_INFO;
+        type PFILE_ID_BOTH_DIR_INFO = *mut FILE_ID_BOTH_DIR_INFO;
+        type PFILE_ID_EXTD_DIR_INFO = *mut FILE_ID_EXTD_DIR_INFO;
+        type PFILE_ID_INFO = *mut FILE_ID_INFO;
+        type PFILE_ID_TYPE = *mut FILE_ID_TYPE;
+        type PFILE_IO_PRIORITY_HINT_INFO = *mut FILE_IO_PRIORITY_HINT_INFO;
+        type PFILE_NAME_INFO = *mut FILE_NAME_INFO;
+        type PFILE_REMOTE_PROTOCOL_INFO = *mut FILE_REMOTE_PROTOCOL_INFO;
+        type PFILE_RENAME_INFO = *mut FILE_RENAME_INFO;
+        type PFILE_STANDARD_INFO = *mut FILE_STANDARD_INFO;
+        type PFILE_STORAGE_INFO = *mut FILE_STORAGE_INFO;
+        type PFILE_STREAM_INFO = *mut FILE_STREAM_INFO;
+        extern fn PGET_SYSTEM_WOW64_DIRECTORY_A(#[len_param(1)] #[out] #[opt] lpBuffer: PSTR, uSize: u32) -> u32;
+        extern fn PGET_SYSTEM_WOW64_DIRECTORY_W(#[len_param(1)] #[out] #[opt] lpBuffer: PWSTR, uSize: u32) -> u32;
+        const PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
+        const PIPE_ACCESS_DUPLEX: u32 = 3;
+        const PIPE_ACCESS_INBOUND: u32 = 1;
+        const PIPE_ACCESS_OUTBOUND: u32 = 2;
+        const PIPE_CLIENT_END: u32 = 0;
+        const PIPE_NOWAIT: u32 = 1;
+        const PIPE_READMODE_BYTE: u32 = 0;
+        const PIPE_READMODE_MESSAGE: u32 = 2;
+        const PIPE_REJECT_REMOTE_CLIENTS: u32 = 8;
+        const PIPE_SERVER_END: u32 = 1;
+        const PIPE_TYPE_BYTE: u32 = 0;
+        const PIPE_TYPE_MESSAGE: u32 = 4;
+        const PIPE_UNLIMITED_INSTANCES: u32 = 255;
+        const PIPE_WAIT: u32 = 0;
+        type POFSTRUCT = *mut OFSTRUCT;
+        type POPERATION_END_PARAMETERS = *mut OPERATION_END_PARAMETERS;
+        type POPERATION_START_PARAMETERS = *mut OPERATION_START_PARAMETERS;
+        type POWER_REQUEST_CONTEXT = REASON_CONTEXT;
+        type PPOWER_REQUEST_CONTEXT = *mut REASON_CONTEXT;
+        type PPROCESS_CREATION_SME_VECTOR_LENGTH = *mut PROCESS_CREATION_SME_VECTOR_LENGTH;
+        type PPROCESS_CREATION_SVE_VECTOR_LENGTH = *mut PROCESS_CREATION_SVE_VECTOR_LENGTH;
+        extern fn PQUERYACTCTXW_FUNC(dwFlags: u32, hActCtx: HANDLE, #[opt] pvSubInstance: *const void, ulInfoClass: u32, #[size_param(5)] #[opt] pvBuffer: *mut void, cbBuffer: usize, #[opt] pcbWrittenOrRequired: *mut usize) -> BOOL;
+        #[repr(i32)]
+        enum PRIORITY_HINT {
+            IoPriorityHintVeryLow = 0,
+            IoPriorityHintLow = 1,
+            IoPriorityHintNormal = 2,
+            MaximumIoPriorityHintType = 3,
+        }
+        const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1;
+        const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2;
+        const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1;
+        const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED_UNLESS_SECURE: u32 = 4;
+        const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_DISABLE_PROCESS_TREE: u32 = 2;
+        const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_ENABLE_PROCESS_TREE: u32 = 1;
+        const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_OVERRIDE: u32 = 4;
+        const PROCESS_CREATION_DESKTOP_APP_TRUSTED_LAUNCH_ALLOW_WINDOWS_HOST: u32 = 8;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_BLOCK_NON_CET_BINARIES_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_BLOCK_NON_CET_BINARIES_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_BLOCK_NON_CET_BINARIES_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_BLOCK_NON_CET_BINARIES_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_BLOCK_NON_CET_BINARIES_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_CET_USER_SHADOW_STACKS_ALWAYS_OFF: u32 = 536870912;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_CET_USER_SHADOW_STACKS_ALWAYS_ON: u32 = 268435456;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_CET_USER_SHADOW_STACKS_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_CET_USER_SHADOW_STACKS_MASK: u32 = 805306368;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_CET_USER_SHADOW_STACKS_RESERVED: u32 = 805306368;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_ALLOW_DOWNGRADE_DYNAMIC_CODE_POLICY_ALWAYS_OFF: u32 = 2097152;
+        const PROCESS_CREATION_MITIGATION_POLICY2_ALLOW_DOWNGRADE_DYNAMIC_CODE_POLICY_ALWAYS_ON: u32 = 1048576;
+        const PROCESS_CREATION_MITIGATION_POLICY2_ALLOW_DOWNGRADE_DYNAMIC_CODE_POLICY_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_ALLOW_DOWNGRADE_DYNAMIC_CODE_POLICY_MASK: u32 = 3145728;
+        const PROCESS_CREATION_MITIGATION_POLICY2_ALLOW_DOWNGRADE_DYNAMIC_CODE_POLICY_RESERVED: u32 = 3145728;
+        const PROCESS_CREATION_MITIGATION_POLICY2_BLOCK_NON_CET_BINARIES_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_BLOCK_NON_CET_BINARIES_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_BLOCK_NON_CET_BINARIES_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_BLOCK_NON_CET_BINARIES_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_BLOCK_NON_CET_BINARIES_NON_EHCONT: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_DYNAMIC_APIS_OUT_OF_PROC_ONLY_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_DYNAMIC_APIS_OUT_OF_PROC_ONLY_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_DYNAMIC_APIS_OUT_OF_PROC_ONLY_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_DYNAMIC_APIS_OUT_OF_PROC_ONLY_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_DYNAMIC_APIS_OUT_OF_PROC_ONLY_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_USER_SHADOW_STACKS_ALWAYS_OFF: u32 = 536870912;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_USER_SHADOW_STACKS_ALWAYS_ON: u32 = 268435456;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_USER_SHADOW_STACKS_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_USER_SHADOW_STACKS_MASK: u32 = 805306368;
+        const PROCESS_CREATION_MITIGATION_POLICY2_CET_USER_SHADOW_STACKS_STRICT_MODE: u32 = 805306368;
+        const PROCESS_CREATION_MITIGATION_POLICY2_FSCTL_SYSTEM_CALL_DISABLE_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_FSCTL_SYSTEM_CALL_DISABLE_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_FSCTL_SYSTEM_CALL_DISABLE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_FSCTL_SYSTEM_CALL_DISABLE_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_FSCTL_SYSTEM_CALL_DISABLE_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_LOADER_INTEGRITY_CONTINUITY_ALWAYS_OFF: u32 = 32;
+        const PROCESS_CREATION_MITIGATION_POLICY2_LOADER_INTEGRITY_CONTINUITY_ALWAYS_ON: u32 = 16;
+        const PROCESS_CREATION_MITIGATION_POLICY2_LOADER_INTEGRITY_CONTINUITY_AUDIT: u32 = 48;
+        const PROCESS_CREATION_MITIGATION_POLICY2_LOADER_INTEGRITY_CONTINUITY_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_LOADER_INTEGRITY_CONTINUITY_MASK: u32 = 48;
+        const PROCESS_CREATION_MITIGATION_POLICY2_MODULE_TAMPERING_PROTECTION_ALWAYS_OFF: u32 = 8192;
+        const PROCESS_CREATION_MITIGATION_POLICY2_MODULE_TAMPERING_PROTECTION_ALWAYS_ON: u32 = 4096;
+        const PROCESS_CREATION_MITIGATION_POLICY2_MODULE_TAMPERING_PROTECTION_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_MODULE_TAMPERING_PROTECTION_MASK: u32 = 12288;
+        const PROCESS_CREATION_MITIGATION_POLICY2_MODULE_TAMPERING_PROTECTION_NOINHERIT: u32 = 12288;
+        const PROCESS_CREATION_MITIGATION_POLICY2_POINTER_AUTH_USER_IP_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_POINTER_AUTH_USER_IP_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_POINTER_AUTH_USER_IP_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_POINTER_AUTH_USER_IP_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_POINTER_AUTH_USER_IP_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_CORE_SHARING_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_CORE_SHARING_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_CORE_SHARING_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_CORE_SHARING_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_CORE_SHARING_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_INDIRECT_BRANCH_PREDICTION_ALWAYS_OFF: u32 = 131072;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_INDIRECT_BRANCH_PREDICTION_ALWAYS_ON: u32 = 65536;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_INDIRECT_BRANCH_PREDICTION_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_INDIRECT_BRANCH_PREDICTION_MASK: u32 = 196608;
+        const PROCESS_CREATION_MITIGATION_POLICY2_RESTRICT_INDIRECT_BRANCH_PREDICTION_RESERVED: u32 = 196608;
+        const PROCESS_CREATION_MITIGATION_POLICY2_SPECULATIVE_STORE_BYPASS_DISABLE_ALWAYS_OFF: u32 = 33554432;
+        const PROCESS_CREATION_MITIGATION_POLICY2_SPECULATIVE_STORE_BYPASS_DISABLE_ALWAYS_ON: u32 = 16777216;
+        const PROCESS_CREATION_MITIGATION_POLICY2_SPECULATIVE_STORE_BYPASS_DISABLE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_SPECULATIVE_STORE_BYPASS_DISABLE_MASK: u32 = 50331648;
+        const PROCESS_CREATION_MITIGATION_POLICY2_SPECULATIVE_STORE_BYPASS_DISABLE_RESERVED: u32 = 50331648;
+        const PROCESS_CREATION_MITIGATION_POLICY2_STRICT_CONTROL_FLOW_GUARD_ALWAYS_OFF: u32 = 512;
+        const PROCESS_CREATION_MITIGATION_POLICY2_STRICT_CONTROL_FLOW_GUARD_ALWAYS_ON: u32 = 256;
+        const PROCESS_CREATION_MITIGATION_POLICY2_STRICT_CONTROL_FLOW_GUARD_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_STRICT_CONTROL_FLOW_GUARD_MASK: u32 = 768;
+        const PROCESS_CREATION_MITIGATION_POLICY2_STRICT_CONTROL_FLOW_GUARD_RESERVED: u32 = 768;
+        const PROCESS_CREATION_MITIGATION_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_USER_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_XTENDED_CONTROL_FLOW_GUARD_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_XTENDED_CONTROL_FLOW_GUARD_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_XTENDED_CONTROL_FLOW_GUARD_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_XTENDED_CONTROL_FLOW_GUARD_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY2_XTENDED_CONTROL_FLOW_GUARD_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_AUDIT_NONSYSTEM_FONTS: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALLOW_STORE: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF: u32 = 131072;
+        const PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON: u32 = 65536;
+        const PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_MASK: u32 = 196608;
+        const PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_RESERVED: u32 = 196608;
+        const PROCESS_CREATION_MITIGATION_POLICY_CONTROL_FLOW_GUARD_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_CONTROL_FLOW_GUARD_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_CONTROL_FLOW_GUARD_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_CONTROL_FLOW_GUARD_EXPORT_SUPPRESSION: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_CONTROL_FLOW_GUARD_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE: u32 = 2;
+        const PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE: u32 = 1;
+        const PROCESS_CREATION_MITIGATION_POLICY_EXTENSION_POINT_DISABLE_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_EXTENSION_POINT_DISABLE_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_EXTENSION_POINT_DISABLE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_EXTENSION_POINT_DISABLE_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_EXTENSION_POINT_DISABLE_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FONT_DISABLE_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FONT_DISABLE_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FONT_DISABLE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FONT_DISABLE_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_OFF: u32 = 512;
+        const PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON: u32 = 256;
+        const PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON_REQ_RELOCS: u32 = 768;
+        const PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_MASK: u32 = 768;
+        const PROCESS_CREATION_MITIGATION_POLICY_HEAP_TERMINATE_ALWAYS_OFF: u32 = 8192;
+        const PROCESS_CREATION_MITIGATION_POLICY_HEAP_TERMINATE_ALWAYS_ON: u32 = 4096;
+        const PROCESS_CREATION_MITIGATION_POLICY_HEAP_TERMINATE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_HEAP_TERMINATE_MASK: u32 = 12288;
+        const PROCESS_CREATION_MITIGATION_POLICY_HEAP_TERMINATE_RESERVED: u32 = 12288;
+        const PROCESS_CREATION_MITIGATION_POLICY_HIGH_ENTROPY_ASLR_ALWAYS_OFF: u32 = 2097152;
+        const PROCESS_CREATION_MITIGATION_POLICY_HIGH_ENTROPY_ASLR_ALWAYS_ON: u32 = 1048576;
+        const PROCESS_CREATION_MITIGATION_POLICY_HIGH_ENTROPY_ASLR_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_HIGH_ENTROPY_ASLR_MASK: u32 = 3145728;
+        const PROCESS_CREATION_MITIGATION_POLICY_HIGH_ENTROPY_ASLR_RESERVED: u32 = 3145728;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_LOW_LABEL_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_LOW_LABEL_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_LOW_LABEL_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_LOW_LABEL_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_LOW_LABEL_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_REMOTE_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_REMOTE_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_REMOTE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_REMOTE_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_NO_REMOTE_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_PREFER_SYSTEM32_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_PREFER_SYSTEM32_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_PREFER_SYSTEM32_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_PREFER_SYSTEM32_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_IMAGE_LOAD_PREFER_SYSTEM32_RESERVED: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_PROHIBIT_DYNAMIC_CODE_ALWAYS_OFF: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_PROHIBIT_DYNAMIC_CODE_ALWAYS_ON: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_PROHIBIT_DYNAMIC_CODE_ALWAYS_ON_ALLOW_OPT_OUT: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_PROHIBIT_DYNAMIC_CODE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_PROHIBIT_DYNAMIC_CODE_MASK: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4;
+        const PROCESS_CREATION_MITIGATION_POLICY_STRICT_HANDLE_CHECKS_ALWAYS_OFF: u32 = 33554432;
+        const PROCESS_CREATION_MITIGATION_POLICY_STRICT_HANDLE_CHECKS_ALWAYS_ON: u32 = 16777216;
+        const PROCESS_CREATION_MITIGATION_POLICY_STRICT_HANDLE_CHECKS_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_STRICT_HANDLE_CHECKS_MASK: u32 = 50331648;
+        const PROCESS_CREATION_MITIGATION_POLICY_STRICT_HANDLE_CHECKS_RESERVED: u32 = 50331648;
+        const PROCESS_CREATION_MITIGATION_POLICY_WIN32K_SYSTEM_CALL_DISABLE_ALWAYS_OFF: u32 = 536870912;
+        const PROCESS_CREATION_MITIGATION_POLICY_WIN32K_SYSTEM_CALL_DISABLE_ALWAYS_ON: u32 = 268435456;
+        const PROCESS_CREATION_MITIGATION_POLICY_WIN32K_SYSTEM_CALL_DISABLE_DEFER: u32 = 0;
+        const PROCESS_CREATION_MITIGATION_POLICY_WIN32K_SYSTEM_CALL_DISABLE_MASK: u32 = 805306368;
+        const PROCESS_CREATION_MITIGATION_POLICY_WIN32K_SYSTEM_CALL_DISABLE_RESERVED: u32 = 805306368;
+        struct PROCESS_CREATION_SME_VECTOR_LENGTH {
+            Anonymous: union {
+                Data: u32,
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+            },
+            Reserved: u32,
+        }
+        union PROCESS_CREATION_SVE_VECTOR_LENGTH {
+            Data: u32,
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+        }
+        const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: u32 = 2;
+        const PROCESS_DEP_ENABLE: u32 = 1;
+        const PROCESS_MODE_BACKGROUND_BEGIN: u32 = 1048576;
+        const PROCESS_MODE_BACKGROUND_END: u32 = 2097152;
+        const PROCESS_NAME_NATIVE: u32 = 1;
+        const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144;
+        const PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY: u32 = 131087;
+        const PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY: u32 = 131086;
+        const PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER: u32 = 131098;
+        const PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY: u32 = 131090;
+        const PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES: u32 = 196635;
+        const PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY: u32 = 196611;
+        const PROC_THREAD_ATTRIBUTE_HANDLE_LIST: u32 = 131074;
+        const PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR: u32 = 196613;
+        const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072;
+        const PROC_THREAD_ATTRIBUTE_JOB_LIST: u32 = 131085;
+        const PROC_THREAD_ATTRIBUTE_MACHINE_TYPE: u32 = 131097;
+        const PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY: u32 = 131096;
+        const PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY: u32 = 131079;
+        #[repr(i32)]
+        enum PROC_THREAD_ATTRIBUTE_NUM {
+            ProcThreadAttributeParentProcess = 0,
+            ProcThreadAttributeHandleList = 2,
+            ProcThreadAttributeGroupAffinity = 3,
+            ProcThreadAttributePreferredNode = 4,
+            ProcThreadAttributeIdealProcessor = 5,
+            ProcThreadAttributeUmsThread = 6,
+            ProcThreadAttributeMitigationPolicy = 7,
+            ProcThreadAttributeSecurityCapabilities = 9,
+            ProcThreadAttributeProtectionLevel = 11,
+            ProcThreadAttributeJobList = 13,
+            ProcThreadAttributeChildProcessPolicy = 14,
+            ProcThreadAttributeAllApplicationPackagesPolicy = 15,
+            ProcThreadAttributeWin32kFilter = 16,
+            ProcThreadAttributeSafeOpenPromptOriginClaim = 17,
+            ProcThreadAttributeDesktopAppPolicy = 18,
+            ProcThreadAttributePseudoConsole = 22,
+            ProcThreadAttributeMitigationAuditPolicy = 24,
+            ProcThreadAttributeMachineType = 25,
+            ProcThreadAttributeComponentFilter = 26,
+            ProcThreadAttributeEnableOptionalXStateFeatures = 27,
+            ProcThreadAttributeTrustedApp = 29,
+            ProcThreadAttributeSveVectorLength = 30,
+            ProcThreadAttributeSmeVectorLength = 31,
+        }
+        const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535;
+        const PROC_THREAD_ATTRIBUTE_PARENT_PROCESS: u32 = 131072;
+        const PROC_THREAD_ATTRIBUTE_PREFERRED_NODE: u32 = 131076;
+        const PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL: u32 = 131083;
+        const PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE: u32 = 131094;
+        const PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES: u32 = 131081;
+        const PROC_THREAD_ATTRIBUTE_SME_VECTOR_LENGTH: u32 = 131103;
+        const PROC_THREAD_ATTRIBUTE_SVE_VECTOR_LENGTH: u32 = 131102;
+        const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536;
+        const PROC_THREAD_ATTRIBUTE_TRUSTED_APP: u32 = 131101;
+        const PROC_THREAD_ATTRIBUTE_UMS_THREAD: u32 = 196614;
+        const PROC_THREAD_ATTRIBUTE_WIN32K_FILTER: u32 = 131088;
+        const PROFILE_KERNEL: u32 = 536870912;
+        const PROFILE_SERVER: u32 = 1073741824;
+        const PROFILE_USER: u32 = 268435456;
+        const PROGRESS_CANCEL: u32 = 1;
+        const PROGRESS_CONTINUE: u32 = 0;
+        const PROGRESS_QUIET: u32 = 3;
+        const PROGRESS_STOP: u32 = 2;
+        const PROTECTION_LEVEL_ANTIMALWARE_LIGHT: u32 = 3;
+        const PROTECTION_LEVEL_AUTHENTICODE: u32 = 7;
+        const PROTECTION_LEVEL_CODEGEN_LIGHT: u32 = 6;
+        const PROTECTION_LEVEL_LSA_LIGHT: u32 = 4;
+        const PROTECTION_LEVEL_NONE: u32 = 4294967294;
+        const PROTECTION_LEVEL_PPL_APP: u32 = 8;
+        const PROTECTION_LEVEL_SAME: u32 = 4294967295;
+        const PROTECTION_LEVEL_WINDOWS: u32 = 1;
+        const PROTECTION_LEVEL_WINDOWS_LIGHT: u32 = 2;
+        const PROTECTION_LEVEL_WINTCB: u32 = 5;
+        const PROTECTION_LEVEL_WINTCB_LIGHT: u32 = 0;
+        const PST_FAX: u32 = 33;
+        const PST_LAT: u32 = 257;
+        const PST_MODEM: u32 = 6;
+        const PST_NETWORK_BRIDGE: u32 = 256;
+        const PST_PARALLELPORT: u32 = 2;
+        const PST_RS232: u32 = 1;
+        const PST_RS422: u32 = 3;
+        const PST_RS423: u32 = 4;
+        const PST_RS449: u32 = 5;
+        const PST_SCANNER: u32 = 34;
+        const PST_TCPIP_TELNET: u32 = 258;
+        const PST_UNSPECIFIED: u32 = 0;
+        const PST_X25: u32 = 259;
+        type PUMS_COMPLETION_LIST = *mut void;
+        type PUMS_CONTEXT = *mut void;
+        type PUMS_SCHEDULER_ENTRY_POINT = PRTL_UMS_SCHEDULER_ENTRY_POINT;
+        type PUMS_SCHEDULER_STARTUP_INFO = *mut UMS_SCHEDULER_STARTUP_INFO;
+        type PUMS_SYSTEM_THREAD_INFORMATION = *mut UMS_SYSTEM_THREAD_INFORMATION;
+        type PUMS_THREAD_INFO_CLASS = *mut RTL_UMS_THREAD_INFO_CLASS;
+        const PURGE_RXABORT: u32 = 2;
+        const PURGE_RXCLEAR: u32 = 8;
+        const PURGE_TXABORT: u32 = 1;
+        const PURGE_TXCLEAR: u32 = 4;
+        #[library("KERNEL32.dll")]
+        extern fn PowerClearRequest(PowerRequest: HANDLE, RequestType: POWER_REQUEST_TYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PowerCreateRequest(Context: *const REASON_CONTEXT) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn PowerSetRequest(PowerRequest: HANDLE, RequestType: POWER_REQUEST_TYPE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PrepareTape(hDevice: HANDLE, dwOperation: u32, bImmediate: BOOL) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn PrivilegedServiceAuditAlarmA(SubsystemName: PCSTR, ServiceName: PCSTR, ClientToken: HANDLE, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PulseEvent(hEvent: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn PurgeComm(hFile: HANDLE, dwFlags: u32) -> BOOL;
+        const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16;
+        const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8;
+        const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648;
+        const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4;
+        #[library("KERNEL32.dll")]
+        extern fn QueryActCtxSettingsW(#[opt] dwFlags: u32, #[opt] hActCtx: HANDLE, #[opt] settingsNameSpace: PCWSTR, settingName: PCWSTR, #[size_param(5)] #[out] #[opt] pvBuffer: PWSTR, dwBuffer: usize, #[opt] pdwWrittenOrRequired: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryActCtxW(dwFlags: u32, hActCtx: HANDLE, #[opt] pvSubInstance: *const void, ulInfoClass: u32, #[size_param(5)] #[opt] pvBuffer: *mut void, cbBuffer: usize, #[opt] pcbWrittenOrRequired: *mut usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryDosDeviceA(#[opt] lpDeviceName: PCSTR, #[len_param(2)] #[out] #[opt] lpTargetPath: PSTR, ucchMax: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn QueryFullProcessImageNameA(hProcess: HANDLE, dwFlags: u32, #[len_param(3)] #[out] lpExeName: PSTR, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryFullProcessImageNameW(hProcess: HANDLE, dwFlags: u32, #[len_param(3)] #[out] lpExeName: PWSTR, #[in] #[out] lpdwSize: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn QueryThreadProfiling(ThreadHandle: HANDLE, Enabled: *mut BOOLEAN) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn QueryUmsThreadInformation(UmsThread: PUMS_CONTEXT, UmsThreadInfoClass: UMS_THREAD_INFO_CLASS, #[size_param(3)] UmsThreadInformation: *mut void, UmsThreadInformationLength: u32, #[opt] ReturnLength: *mut u32) -> BOOL;
+        const REALTIME_PRIORITY_CLASS: u32 = 256;
+        const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000;
+        const RECOVERY_MAX_PING_INTERVAL: u32 = 300000;
+        const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1;
+        const REMOTE_PROTOCOL_INFO_FLAG_OFFLINE: u32 = 2;
+        const REMOTE_PROTOCOL_INFO_FLAG_PERSISTENT_HANDLE: u32 = 4;
+        const REPLACEFILE_IGNORE_ACL_ERRORS: u32 = 4;
+        const REPLACEFILE_IGNORE_MERGE_ERRORS: u32 = 2;
+        const REPLACEFILE_WRITE_THROUGH: u32 = 1;
+        const RESETDEV: u32 = 7;
+        const RESTART_MAX_CMD_LINE: u32 = 1024;
+        const RESTART_NO_CRASH: u32 = 1;
+        const RESTART_NO_HANG: u32 = 2;
+        const RESTART_NO_PATCH: u32 = 4;
+        const RESTART_NO_REBOOT: u32 = 8;
+        const RPI_FLAG_SMB2_SHARECAP_CLUSTER: u32 = 64;
+        const RPI_FLAG_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: u32 = 16;
+        const RPI_FLAG_SMB2_SHARECAP_DFS: u32 = 8;
+        const RPI_FLAG_SMB2_SHARECAP_SCALEOUT: u32 = 32;
+        const RPI_FLAG_SMB2_SHARECAP_TIMEWARP: u32 = 2;
+        const RPI_SMB2_FLAG_SERVERCAP_DFS: u32 = 1;
+        const RPI_SMB2_FLAG_SERVERCAP_DIRECTORY_LEASING: u32 = 32;
+        const RPI_SMB2_FLAG_SERVERCAP_LARGEMTU: u32 = 4;
+        const RPI_SMB2_FLAG_SERVERCAP_LEASING: u32 = 2;
+        const RPI_SMB2_FLAG_SERVERCAP_MULTICHANNEL: u32 = 8;
+        const RPI_SMB2_FLAG_SERVERCAP_PERSISTENT_HANDLES: u32 = 16;
+        const RPI_SMB2_SHAREFLAG_COMPRESS_DATA: u32 = 2;
+        const RPI_SMB2_SHAREFLAG_ENCRYPT_DATA: u32 = 1;
+        const RTS_CONTROL_DISABLE: u32 = 0;
+        const RTS_CONTROL_ENABLE: u32 = 1;
+        const RTS_CONTROL_HANDSHAKE: u32 = 2;
+        const RTS_CONTROL_TOGGLE: u32 = 3;
+        #[library("api-ms-win-core-backgroundtask-l1-1-0.dll")]
+        extern fn RaiseCustomSystemEventTrigger(CustomSystemEventTriggerConfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn ReOpenFile(hOriginalFile: HANDLE, dwDesiredAccess: u32, dwShareMode: u32, dwFlagsAndAttributes: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn ReadDirectoryChangesExW(hDirectory: HANDLE, #[size_param(2)] lpBuffer: *mut void, nBufferLength: u32, bWatchSubtree: BOOL, dwNotifyFilter: u32, #[opt] lpBytesReturned: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE, ReadDirectoryNotifyInformationClass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadDirectoryChangesW(hDirectory: HANDLE, #[size_param(2)] lpBuffer: *mut void, nBufferLength: u32, bWatchSubtree: BOOL, dwNotifyFilter: u32, #[opt] lpBytesReturned: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED, #[opt] lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ReadEncryptedFileRaw(pfExportCallback: PFE_EXPORT_FUNC, #[opt] pvCallbackContext: *const void, pvContext: *const void) -> u32;
+        #[library("ADVAPI32.dll")]
+        extern fn ReadEventLogA(hEventLog: HANDLE, dwReadFlags: u32, dwRecordOffset: u32, #[size_param(4)] lpBuffer: *mut void, nNumberOfBytesToRead: u32, pnBytesRead: *mut u32, pnMinNumberOfBytesNeeded: *mut u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ReadEventLogW(hEventLog: HANDLE, dwReadFlags: u32, dwRecordOffset: u32, #[size_param(4)] lpBuffer: *mut void, nNumberOfBytesToRead: u32, pnBytesRead: *mut u32, pnMinNumberOfBytesNeeded: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReadThreadProfilingData(PerformanceDataHandle: HANDLE, Flags: u32, PerformanceData: *mut PERFORMANCE_DATA) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn RegisterApplicationRecoveryCallback(pRecoveyCallback: APPLICATION_RECOVERY_CALLBACK, #[opt] pvParameter: *const void, dwPingInterval: u32, dwFlags: u32) -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn RegisterApplicationRestart(#[opt] pwzCommandline: PCWSTR, dwFlags: u32) -> HRESULT;
+        #[library("ADVAPI32.dll")]
+        extern fn RegisterEventSourceA(#[opt] lpUNCServerName: PCSTR, lpSourceName: PCSTR) -> HANDLE;
+        #[library("ADVAPI32.dll")]
+        extern fn RegisterEventSourceW(#[opt] lpUNCServerName: PCWSTR, lpSourceName: PCWSTR) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn RegisterWaitForSingleObject(phNewWaitObject: *mut HANDLE, hObject: HANDLE, Callback: WAITORTIMERCALLBACK, #[opt] Context: *const void, dwMilliseconds: u32, dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReleaseActCtx(#[in] #[out] hActCtx: HANDLE);
+        #[library("KERNEL32.dll")]
+        extern fn RemoveDirectoryTransactedA(lpPathName: PCSTR, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn RemoveDirectoryTransactedW(lpPathName: PCWSTR, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn RemoveSecureMemoryCacheCallback(pfnCallBack: PSECURE_MEMORY_CACHE_CALLBACK) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReplaceFileA(lpReplacedFileName: PCSTR, lpReplacementFileName: PCSTR, #[opt] lpBackupFileName: PCSTR, dwReplaceFlags: u32, #[reserved] lpExclude: *const void, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReplaceFileW(lpReplacedFileName: PCWSTR, lpReplacementFileName: PCWSTR, #[opt] lpBackupFileName: PCWSTR, dwReplaceFlags: u32, #[reserved] lpExclude: *const void, #[reserved] lpReserved: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn ReplacePartitionUnit(TargetPartition: PCWSTR, SparePartition: PCWSTR, Flags: u32) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ReportEventA(hEventLog: HANDLE, wType: u16, wCategory: u16, dwEventID: u32, #[opt] lpUserSid: PSID, wNumStrings: u16, dwDataSize: u32, #[len_param(5)] #[opt] lpStrings: *const PCSTR, #[size_param(6)] #[opt] lpRawData: *const void) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn ReportEventW(hEventLog: HANDLE, wType: u16, wCategory: u16, dwEventID: u32, #[opt] lpUserSid: PSID, wNumStrings: u16, dwDataSize: u32, #[len_param(5)] #[opt] lpStrings: *const PCWSTR, #[size_param(6)] #[opt] lpRawData: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn RequestDeviceWakeup(hDevice: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn RequestWakeupLatency(latency: LATENCY_TIME) -> BOOL;
+        const SCS_32BIT_BINARY: u32 = 0;
+        const SCS_64BIT_BINARY: u32 = 6;
+        const SCS_DOS_BINARY: u32 = 1;
+        const SCS_OS216_BINARY: u32 = 5;
+        const SCS_PIF_BINARY: u32 = 3;
+        const SCS_POSIX_BINARY: u32 = 4;
+        #[arch(X64 | Arm64)]
+        const SCS_THIS_PLATFORM_BINARY: u32 = 6;
+        #[arch(X86)]
+        const SCS_THIS_PLATFORM_BINARY: u32 = 0;
+        const SCS_WOW_BINARY: u32 = 2;
+        const SECURITY_ANONYMOUS: u32 = 0;
+        const SECURITY_CONTEXT_TRACKING: u32 = 262144;
+        const SECURITY_DELEGATION: u32 = 196608;
+        const SECURITY_EFFECTIVE_ONLY: u32 = 524288;
+        const SECURITY_IDENTIFICATION: u32 = 65536;
+        const SECURITY_IMPERSONATION: u32 = 131072;
+        const SECURITY_SQOS_PRESENT: u32 = 1048576;
+        const SECURITY_VALID_SQOS_FLAGS: u32 = 2031616;
+        const SEM_FAILCRITICALERRORS: u32 = 1;
+        const SEM_NOALIGNMENTFAULTEXCEPT: u32 = 4;
+        const SEM_NOGPFAULTERRORBOX: u32 = 2;
+        const SEM_NOOPENFILEERRORBOX: u32 = 32768;
+        const SETBREAK: u32 = 8;
+        const SETDTR: u32 = 5;
+        const SETRTS: u32 = 3;
+        const SETXOFF: u32 = 1;
+        const SETXON: u32 = 2;
+        const SET_TAPE_DRIVE_INFORMATION: u32 = 1;
+        const SET_TAPE_MEDIA_INFORMATION: u32 = 0;
+        const SHUTDOWN_NORETRY: u32 = 1;
+        const SPACEPARITY: u32 = 4;
+        const SP_BAUD: u32 = 2;
+        const SP_DATABITS: u32 = 4;
+        const SP_HANDSHAKING: u32 = 16;
+        const SP_PARITY: u32 = 1;
+        const SP_PARITY_CHECK: u32 = 32;
+        const SP_RLSD: u32 = 64;
+        const SP_SERIALCOMM: u32 = 1;
+        const SP_STOPBITS: u32 = 8;
+        const STACK_SIZE_PARAM_IS_A_RESERVATION: u32 = 65536;
+        const STARTF_FORCEOFFFEEDBACK: u32 = 128;
+        const STARTF_FORCEONFEEDBACK: u32 = 64;
+        const STARTF_HOLOGRAPHIC: u32 = 262144;
+        const STARTF_PREVENTPINNING: u32 = 8192;
+        const STARTF_RUNFULLSCREEN: u32 = 32;
+        const STARTF_TITLEISAPPID: u32 = 4096;
+        const STARTF_TITLEISLINKNAME: u32 = 2048;
+        const STARTF_UNTRUSTEDSOURCE: u32 = 32768;
+        const STARTF_USECOUNTCHARS: u32 = 8;
+        const STARTF_USEFILLATTRIBUTE: u32 = 16;
+        const STARTF_USEHOTKEY: u32 = 512;
+        const STARTF_USEPOSITION: u32 = 4;
+        const STARTF_USESHOWWINDOW: u32 = 1;
+        const STARTF_USESIZE: u32 = 2;
+        const STARTF_USESTDHANDLES: u32 = 256;
+        type STARTUPINFOEX = STARTUPINFOEXA;
+        struct STARTUPINFOEXA {
+            StartupInfo: STARTUPINFOA,
+            lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
+        }
+        struct STARTUPINFOEXW {
+            StartupInfo: STARTUPINFOW,
+            lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
+        }
+        const STD_ERROR_HANDLE: u32 = 4294967284;
+        const STD_INPUT_HANDLE: u32 = 4294967286;
+        const STD_OUTPUT_HANDLE: u32 = 4294967285;
+        const STOPBITS_10: u16 = 1;
+        const STOPBITS_15: u16 = 2;
+        const STOPBITS_20: u16 = 4;
+        const STORAGE_INFO_FLAGS_ALIGNED_DEVICE: u32 = 1;
+        const STORAGE_INFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2;
+        const STORAGE_INFO_OFFSET_UNKNOWN: u32 = 4294967295;
+        const STREAM_CONTAINS_GHOSTED_FILE_EXTENTS: u32 = 16;
+        const STREAM_CONTAINS_PROPERTIES: u32 = 4;
+        const STREAM_CONTAINS_SECURITY: u32 = 2;
+        const STREAM_MODIFIED_WHEN_READ: u32 = 1;
+        const STREAM_NORMAL_ATTRIBUTE: u32 = 0;
+        const STREAM_SPARSE_ATTRIBUTE: u32 = 8;
+        const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: u32 = 2;
+        const SYMBOLIC_LINK_FLAG_DIRECTORY: u32 = 1;
+        struct SYSTEM_POWER_STATUS {
+            ACLineStatus: u8,
+            BatteryFlag: u8,
+            BatteryLifePercent: u8,
+            SystemStatusFlag: u8,
+            BatteryLifeTime: u32,
+            BatteryFullLifeTime: u32,
+        }
+        const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1;
+        const S_ALLTHRESHOLD: u32 = 2;
+        const S_LEGATO: u32 = 1;
+        const S_NORMAL: u32 = 0;
+        const S_PERIOD1024: u32 = 1;
+        const S_PERIOD2048: u32 = 2;
+        const S_PERIOD512: u32 = 0;
+        const S_PERIODVOICE: u32 = 3;
+        const S_QUEUEEMPTY: u32 = 0;
+        const S_SERBDNT: i32 = -5;
+        const S_SERDCC: i32 = -7;
+        const S_SERDDR: i32 = -14;
+        const S_SERDFQ: i32 = -13;
+        const S_SERDLN: i32 = -6;
+        const S_SERDMD: i32 = -10;
+        const S_SERDPT: i32 = -12;
+        const S_SERDSH: i32 = -11;
+        const S_SERDSR: i32 = -15;
+        const S_SERDST: i32 = -16;
+        const S_SERDTP: i32 = -8;
+        const S_SERDVL: i32 = -9;
+        const S_SERDVNA: i32 = -1;
+        const S_SERMACT: i32 = -3;
+        const S_SEROFM: i32 = -2;
+        const S_SERQFUL: i32 = -4;
+        const S_STACCATO: u32 = 2;
+        const S_THRESHOLD: u32 = 1;
+        const S_WHITE1024: u32 = 5;
+        const S_WHITE2048: u32 = 6;
+        const S_WHITE512: u32 = 4;
+        const S_WHITEVOICE: u32 = 7;
+        #[library("KERNEL32.dll")]
+        extern fn SetCommBreak(hFile: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCommConfig(hCommDev: HANDLE, #[size_param(2)] lpCC: *const COMMCONFIG, dwSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCommMask(hFile: HANDLE, dwEvtMask: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCommState(hFile: HANDLE, lpDCB: *const DCB) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCommTimeouts(hFile: HANDLE, lpCommTimeouts: *const COMMTIMEOUTS) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetDefaultCommConfigA(lpszName: PCSTR, #[size_param(2)] lpCC: *const COMMCONFIG, dwSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetDefaultCommConfigW(lpszName: PCWSTR, #[size_param(2)] lpCC: *const COMMCONFIG, dwSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetDllDirectoryA(#[opt] lpPathName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetDllDirectoryW(#[opt] lpPathName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetEnvironmentStringsA(NewEnvironment: *const i8) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileAttributesTransactedA(lpFileName: PCSTR, dwFileAttributes: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileAttributesTransactedW(lpFileName: PCWSTR, dwFileAttributes: u32, hTransaction: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileBandwidthReservation(hFile: HANDLE, nPeriodMilliseconds: u32, nBytesPerPeriod: u32, bDiscardable: BOOL, lpTransferSize: *mut u32, lpNumOutstandingRequests: *mut u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileCompletionNotificationModes(FileHandle: HANDLE, Flags: u8) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn SetFileSecurityA(lpFileName: PCSTR, SecurityInformation: SECURITY_INFORMATION, pSecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileShortNameA(hFile: HANDLE, lpShortName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFileShortNameW(hFile: HANDLE, lpShortName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFirmwareEnvironmentVariableA(lpName: PCSTR, lpGuid: PCSTR, #[size_param(3)] #[opt] pValue: *const void, nSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFirmwareEnvironmentVariableExA(lpName: PCSTR, lpGuid: PCSTR, #[size_param(3)] #[opt] pValue: *const void, nSize: u32, dwAttributes: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFirmwareEnvironmentVariableExW(lpName: PCWSTR, lpGuid: PCWSTR, #[size_param(3)] #[opt] pValue: *const void, nSize: u32, dwAttributes: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetFirmwareEnvironmentVariableW(lpName: PCWSTR, lpGuid: PCWSTR, #[size_param(3)] #[opt] pValue: *const void, nSize: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetHandleCount(uNumber: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetMailslotInfo(hMailslot: HANDLE, lReadTimeout: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetMessageWaitingIndicator(hMsgIndicator: HANDLE, ulMsgCount: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessAffinityMask(hProcess: HANDLE, dwProcessAffinityMask: usize) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetProcessDEPPolicy(dwFlags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetSearchPathMode(Flags: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetSystemPowerState(fSuspend: BOOL, fForce: BOOL) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetTapeParameters(hDevice: HANDLE, dwOperation: u32, lpTapeInformation: *const void) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetTapePosition(hDevice: HANDLE, dwPositionMethod: u32, dwPartition: u32, dwOffsetLow: u32, dwOffsetHigh: u32, bImmediate: BOOL) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadAffinityMask(hThread: HANDLE, dwThreadAffinityMask: usize) -> usize;
+        #[library("KERNEL32.dll")]
+        extern fn SetThreadExecutionState(esFlags: EXECUTION_STATE) -> EXECUTION_STATE;
+        #[library("KERNEL32.dll")]
+        extern fn SetTimerQueueTimer(#[opt] TimerQueue: HANDLE, Callback: WAITORTIMERCALLBACK, #[opt] Parameter: *const void, DueTime: u32, Period: u32, PreferIo: BOOL) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn SetUmsThreadInformation(UmsThread: PUMS_CONTEXT, UmsThreadInfoClass: UMS_THREAD_INFO_CLASS, UmsThreadInformation: *const void, UmsThreadInformationLength: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetVolumeLabelA(#[opt] lpRootPathName: PCSTR, #[opt] lpVolumeName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetVolumeLabelW(#[opt] lpRootPathName: PCWSTR, #[opt] lpVolumeName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetVolumeMountPointA(lpszVolumeMountPoint: PCSTR, lpszVolumeName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetVolumeMountPointW(lpszVolumeMountPoint: PCWSTR, lpszVolumeName: PCWSTR) -> BOOL;
+        #[arch(Arm64)]
+        #[library("KERNEL32.dll")]
+        extern fn SetXStateFeaturesMask(#[in] #[out] Context: *mut ARM64_NT_CONTEXT, FeatureMask: u64) -> BOOL;
+        #[arch(X86 | X64)]
+        #[library("KERNEL32.dll")]
+        extern fn SetXStateFeaturesMask(#[in] #[out] Context: *mut CONTEXT, FeatureMask: u64) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetupComm(hFile: HANDLE, dwInQueue: u32, dwOutQueue: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SwitchToFiber(lpFiber: *const void);
+        const TC_GP_TRAP: u32 = 2;
+        const TC_HARDERR: u32 = 1;
+        const TC_NORMAL: u32 = 0;
+        const TC_SIGNAL: u32 = 3;
+        const THREAD_MODE_BACKGROUND_BEGIN: u32 = 65536;
+        const THREAD_MODE_BACKGROUND_END: u32 = 131072;
+        const THREAD_PRIORITY_ABOVE_NORMAL: u32 = 1;
+        const THREAD_PRIORITY_BELOW_NORMAL: i32 = -1;
+        const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647;
+        const THREAD_PRIORITY_HIGHEST: u32 = 2;
+        const THREAD_PRIORITY_IDLE: i32 = -15;
+        const THREAD_PRIORITY_LOWEST: i32 = -2;
+        const THREAD_PRIORITY_NORMAL: u32 = 0;
+        const THREAD_PRIORITY_TIME_CRITICAL: u32 = 15;
+        const TWOSTOPBITS: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn TransmitCommChar(hFile: HANDLE, cChar: i8) -> BOOL;
+        type UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON;
+        struct UMS_SCHEDULER_STARTUP_INFO {
+            UmsVersion: u32,
+            CompletionList: PUMS_COMPLETION_LIST,
+            SchedulerProc: PUMS_SCHEDULER_ENTRY_POINT,
+            SchedulerParam: *mut void,
+        }
+        struct UMS_SYSTEM_THREAD_INFORMATION {
+            UmsVersion: u32,
+            Anonymous: union {
+                Anonymous: struct {
+                    _bitfield: u32,
+                },
+                ThreadUmsFlags: u32,
+            },
+        }
+        type UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS;
+        const UMS_VERSION: u32 = 256;
+        #[library("KERNEL32.dll")]
+        extern fn UmsThreadYield(SchedulerParam: *const void) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UnregisterApplicationRecoveryCallback() -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn UnregisterApplicationRestart() -> HRESULT;
+        #[library("KERNEL32.dll")]
+        extern fn UnregisterWait(WaitHandle: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UpdateResourceA(hUpdate: HANDLE, lpType: PCSTR, lpName: PCSTR, wLanguage: u16, #[size_param(5)] #[opt] lpData: *const void, cb: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn UpdateResourceW(hUpdate: HANDLE, lpType: PCWSTR, lpName: PCWSTR, wLanguage: u16, #[size_param(5)] #[opt] lpData: *const void, cb: u32) -> BOOL;
+        const VOLUME_NAME_DOS: u32 = 0;
+        const VOLUME_NAME_GUID: u32 = 1;
+        const VOLUME_NAME_NONE: u32 = 4;
+        const VOLUME_NAME_NT: u32 = 2;
+        #[library("KERNEL32.dll")]
+        extern fn VerifyVersionInfoA(#[in] #[out] lpVersionInformation: *mut OSVERSIONINFOEXA, dwTypeMask: u32, dwlConditionMask: DWORDLONG) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn VerifyVersionInfoW(#[in] #[out] lpVersionInformation: *mut OSVERSIONINFOEXW, dwTypeMask: u32, dwlConditionMask: DWORDLONG) -> BOOL;
+        const WAIT_ABANDONED: u32 = 128;
+        const WAIT_ABANDONED_0: u32 = 128;
+        const WAIT_FAILED: u32 = 4294967295;
+        const WAIT_IO_COMPLETION: u32 = 192;
+        const WAIT_OBJECT_0: u32 = 0;
+        struct WIN32_STREAM_ID {
+            dwStreamId: u32,
+            dwStreamAttributes: u32,
+            Size: LARGE_INTEGER,
+            dwStreamNameSize: u32,
+            cStreamName: [u16; 1],
+        }
+        #[library("KERNEL32.dll")]
+        extern fn WTSGetActiveConsoleSessionId() -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn WaitCommEvent(hFile: HANDLE, #[in] #[out] lpEvtMask: *mut u32, #[in] #[out] #[opt] lpOverlapped: *mut OVERLAPPED) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WaitNamedPipeA(lpNamedPipeName: PCSTR, nTimeOut: u32) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WinExec(lpCmdLine: PCSTR, uCmdShow: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn Wow64GetThreadSelectorEntry(hThread: HANDLE, dwSelector: u32, lpSelectorEntry: *mut WOW64_LDT_ENTRY) -> BOOL;
+        #[library("ADVAPI32.dll")]
+        extern fn WriteEncryptedFileRaw(pfImportCallback: PFE_IMPORT_FUNC, #[opt] pvCallbackContext: *const void, pvContext: *const void) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileSectionA(#[opt] lpAppName: PCSTR, #[opt] lpString: PCSTR, #[opt] lpFileName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileSectionW(#[opt] lpAppName: PCWSTR, #[opt] lpString: PCWSTR, #[opt] lpFileName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileStringA(#[opt] lpAppName: PCSTR, #[opt] lpKeyName: PCSTR, #[opt] lpString: PCSTR, #[opt] lpFileName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileStringW(#[opt] lpAppName: PCWSTR, #[opt] lpKeyName: PCWSTR, #[opt] lpString: PCWSTR, #[opt] lpFileName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileStructA(lpszSection: PCSTR, lpszKey: PCSTR, #[size_param(3)] #[opt] lpStruct: *const void, uSizeStruct: u32, #[opt] szFile: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WritePrivateProfileStructW(lpszSection: PCWSTR, lpszKey: PCWSTR, #[size_param(3)] #[opt] lpStruct: *const void, uSizeStruct: u32, #[opt] szFile: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteProfileSectionA(lpAppName: PCSTR, lpString: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteProfileSectionW(lpAppName: PCWSTR, lpString: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteProfileStringA(#[opt] lpAppName: PCSTR, #[opt] lpKeyName: PCSTR, #[opt] lpString: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteProfileStringW(#[opt] lpAppName: PCWSTR, #[opt] lpKeyName: PCWSTR, #[opt] lpString: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn WriteTapemark(hDevice: HANDLE, dwTapemarkType: u32, dwTapemarkCount: u32, bImmediate: BOOL) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn ZombifyActCtx(#[in] #[out] hActCtx: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn _hread(hFile: HFILE, #[size_param(2)] lpBuffer: *mut void, lBytes: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn _hwrite(hFile: HFILE, #[size_param(2)] lpBuffer: *const i8, lBytes: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn _lclose(hFile: HFILE) -> HFILE;
+        #[library("KERNEL32.dll")]
+        extern fn _lcreat(lpPathName: PCSTR, iAttribute: i32) -> HFILE;
+        #[library("KERNEL32.dll")]
+        extern fn _llseek(hFile: HFILE, lOffset: i32, iOrigin: i32) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn _lopen(lpPathName: PCSTR, iReadWrite: i32) -> HFILE;
+        #[library("KERNEL32.dll")]
+        extern fn _lread(hFile: HFILE, #[size_param(2)] lpBuffer: *mut void, uBytes: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn _lwrite(hFile: HFILE, #[size_param(2)] lpBuffer: *const i8, uBytes: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcatA(#[in] #[out] lpString1: PSTR, lpString2: PCSTR) -> PSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcatW(#[in] #[out] lpString1: PWSTR, lpString2: PCWSTR) -> PWSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcmpA(lpString1: PCSTR, lpString2: PCSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcmpW(lpString1: PCWSTR, lpString2: PCWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcmpiA(lpString1: PCSTR, lpString2: PCSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcmpiW(lpString1: PCWSTR, lpString2: PCWSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcpyA(#[out] lpString1: PSTR, lpString2: PCSTR) -> PSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcpyW(#[out] lpString1: PWSTR, lpString2: PCWSTR) -> PWSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcpynA(#[len_param(2)] #[out] lpString1: PSTR, lpString2: PCSTR, iMaxLength: i32) -> PSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrcpynW(#[len_param(2)] #[out] lpString1: PWSTR, lpString2: PCWSTR, iMaxLength: i32) -> PWSTR;
+        #[library("KERNEL32.dll")]
+        extern fn lstrlenA(lpString: PCSTR) -> i32;
+        #[library("KERNEL32.dll")]
+        extern fn lstrlenW(lpString: PCWSTR) -> i32;
+    }
+}

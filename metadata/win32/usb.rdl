@@ -1,0 +1,543 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1;
+        const MS_OS_FLAGS_CONTAINERID: u32 = 2;
+        #[encoding("utf-16")]
+        const MS_OS_STRING_SIGNATURE: String = "MSFT100";
+        const MS_POWER_DESCRIPTOR_INDEX: u32 = 2;
+        struct OS_STRING {
+            bLength: u8,
+            bDescriptorType: u8,
+            MicrosoftString: [u16; 7],
+            bVendorCode: u8,
+            Anonymous: union {
+                bPad: u8,
+                bFlags: u8,
+            },
+        }
+        const OS_STRING_DESCRIPTOR_INDEX: u32 = 238;
+        type PHYSICAL_ADDRESS = LARGE_INTEGER;
+        type PIRP = *mut void;
+        type PMDL = *mut void;
+        type POS_STRING = *mut OS_STRING;
+        type PURB = *mut URB;
+        type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
+        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1;
+        type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        type PUSBD_INTERFACE_INFORMATION = *mut USBD_INTERFACE_INFORMATION;
+        type PUSBD_ISO_PACKET_DESCRIPTOR = *mut USBD_ISO_PACKET_DESCRIPTOR;
+        type PUSBD_PIPE_INFORMATION = *mut USBD_PIPE_INFORMATION;
+        type PUSBD_STREAM_INFORMATION = *mut USBD_STREAM_INFORMATION;
+        type PUSBD_VERSION_INFORMATION = *mut USBD_VERSION_INFORMATION;
+        struct URB {
+            Anonymous: union {
+                UrbHeader: _URB_HEADER,
+                UrbSelectInterface: _URB_SELECT_INTERFACE,
+                UrbSelectConfiguration: _URB_SELECT_CONFIGURATION,
+                UrbPipeRequest: _URB_PIPE_REQUEST,
+                UrbFrameLengthControl: _URB_FRAME_LENGTH_CONTROL,
+                UrbGetFrameLength: _URB_GET_FRAME_LENGTH,
+                UrbSetFrameLength: _URB_SET_FRAME_LENGTH,
+                UrbGetCurrentFrameNumber: _URB_GET_CURRENT_FRAME_NUMBER,
+                UrbControlTransfer: _URB_CONTROL_TRANSFER,
+                UrbControlTransferEx: _URB_CONTROL_TRANSFER_EX,
+                UrbBulkOrInterruptTransfer: _URB_BULK_OR_INTERRUPT_TRANSFER,
+                UrbIsochronousTransfer: _URB_ISOCH_TRANSFER,
+                UrbControlDescriptorRequest: _URB_CONTROL_DESCRIPTOR_REQUEST,
+                UrbControlGetStatusRequest: _URB_CONTROL_GET_STATUS_REQUEST,
+                UrbControlFeatureRequest: _URB_CONTROL_FEATURE_REQUEST,
+                UrbControlVendorClassRequest: _URB_CONTROL_VENDOR_OR_CLASS_REQUEST,
+                UrbControlGetInterfaceRequest: _URB_CONTROL_GET_INTERFACE_REQUEST,
+                UrbControlGetConfigurationRequest: _URB_CONTROL_GET_CONFIGURATION_REQUEST,
+                UrbOSFeatureDescriptorRequest: _URB_OS_FEATURE_DESCRIPTOR_REQUEST,
+                UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
+                UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
+            },
+        }
+        const URB_FUNCTION_ABORT_PIPE: u32 = 2;
+        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9;
+        const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55;
+        const URB_FUNCTION_CLASS_DEVICE: u32 = 26;
+        const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28;
+        const URB_FUNCTION_CLASS_INTERFACE: u32 = 27;
+        const URB_FUNCTION_CLASS_OTHER: u32 = 31;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17;
+        const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34;
+        const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54;
+        const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8;
+        const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50;
+        const URB_FUNCTION_GET_CONFIGURATION: u32 = 38;
+        const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36;
+        const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40;
+        const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5;
+        const URB_FUNCTION_GET_INTERFACE: u32 = 39;
+        const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61;
+        const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42;
+        const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19;
+        const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21;
+        const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20;
+        const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33;
+        const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10;
+        const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56;
+        const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53;
+        const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4;
+        const URB_FUNCTION_RESERVED_0X0016: u32 = 22;
+        const URB_FUNCTION_RESERVE_0X001D: u32 = 29;
+        const URB_FUNCTION_RESERVE_0X002B: u32 = 43;
+        const URB_FUNCTION_RESERVE_0X002C: u32 = 44;
+        const URB_FUNCTION_RESERVE_0X002D: u32 = 45;
+        const URB_FUNCTION_RESERVE_0X002E: u32 = 46;
+        const URB_FUNCTION_RESERVE_0X002F: u32 = 47;
+        const URB_FUNCTION_RESERVE_0X0033: u32 = 51;
+        const URB_FUNCTION_RESERVE_0X0034: u32 = 52;
+        const URB_FUNCTION_RESET_PIPE: u32 = 30;
+        const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0;
+        const URB_FUNCTION_SELECT_INTERFACE: u32 = 1;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37;
+        const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41;
+        const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13;
+        const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15;
+        const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14;
+        const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35;
+        const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6;
+        const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49;
+        const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48;
+        const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30;
+        const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3;
+        const URB_FUNCTION_VENDOR_DEVICE: u32 = 23;
+        const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25;
+        const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24;
+        const URB_FUNCTION_VENDOR_OTHER: u32 = 32;
+        const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256;
+        const USBDI_VERSION: u32 = 1536;
+        type USBD_CONFIGURATION_HANDLE = *mut void;
+        const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
+        const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8;
+        struct USBD_DEVICE_INFORMATION {
+            OffsetNext: u32,
+            UsbdDeviceHandle: *mut void,
+            DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+        }
+        #[packed(1)]
+        struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
+            Size: u32,
+            EndpointAddress: u16,
+            ResourceId: u32,
+            Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+            _bitfield1: u32,
+            _bitfield2: u32,
+            TransferSegmentLA: PHYSICAL_ADDRESS,
+            TransferSegmentVA: *mut void,
+            TransferRingSize: usize,
+            TransferRingInitialCycleBit: u32,
+            MessageNumber: u32,
+            EventRingSegmentLA: PHYSICAL_ADDRESS,
+            EventRingSegmentVA: *mut void,
+            EventRingSize: usize,
+            EventRingInitialCycleBit: u32,
+            ClientTransferRingSegmentPAIn: PHYSICAL_ADDRESS,
+            ClientTransferRingSizeIn: usize,
+            ClientDataBufferPAIn: PHYSICAL_ADDRESS,
+            ClientDataBufferSizeIn: usize,
+            ClientDataBufferLAOut: PHYSICAL_ADDRESS,
+            ClientDataBufferVAOut: *mut void,
+        }
+        #[packed(1)]
+        struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
+            Size: u32,
+            EndpointAddress: u16,
+            ResourceId: u32,
+            Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+            _bitfield1: u32,
+            _bitfield2: u32,
+            TransferSegmentLA: PHYSICAL_ADDRESS,
+            TransferSegmentVA: *mut void,
+            TransferRingSize: usize,
+            TransferRingInitialCycleBit: u32,
+            MessageNumber: u32,
+            EventRingSegmentLA: PHYSICAL_ADDRESS,
+            EventRingSegmentVA: *mut void,
+            EventRingSize: usize,
+            EventRingInitialCycleBit: u32,
+        }
+        type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
+        #[repr(i32)]
+        enum USBD_ENDPOINT_OFFLOAD_MODE {
+            UsbdEndpointOffloadModeNotSupported = 0,
+            UsbdEndpointOffloadSoftwareAssisted = 1,
+            UsbdEndpointOffloadHardwareAssisted = 2,
+        }
+        type USBD_INTERFACE_HANDLE = *mut void;
+        struct USBD_INTERFACE_INFORMATION {
+            Length: u16,
+            InterfaceNumber: u8,
+            AlternateSetting: u8,
+            Class: u8,
+            SubClass: u8,
+            Protocol: u8,
+            Reserved: u8,
+            InterfaceHandle: USBD_INTERFACE_HANDLE,
+            NumberOfPipes: u32,
+            Pipes: [USBD_PIPE_INFORMATION; 1],
+        }
+        struct USBD_ISO_PACKET_DESCRIPTOR {
+            Offset: u32,
+            Length: u32,
+            Status: USBD_STATUS,
+        }
+        const USBD_ISO_START_FRAME_RANGE: u32 = 1024;
+        const USBD_PF_CHANGE_MAX_PACKET: u32 = 1;
+        const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4;
+        const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256;
+        const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48;
+        const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8;
+        const USBD_PF_PRIORITY_MASK: u32 = 240;
+        const USBD_PF_SHORT_PACKET_OPT: u32 = 2;
+        const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536;
+        const USBD_PF_VALID_MASK: u32 = 319;
+        const USBD_PF_VIDEO_PRIORITY: u32 = 16;
+        const USBD_PF_VOICE_PRIORITY: u32 = 32;
+        type USBD_PIPE_HANDLE = *mut void;
+        struct USBD_PIPE_INFORMATION {
+            MaximumPacketSize: u16,
+            EndpointAddress: u8,
+            Interval: u8,
+            PipeType: USBD_PIPE_TYPE,
+            PipeHandle: USBD_PIPE_HANDLE,
+            MaximumTransferSize: u32,
+            PipeFlags: u32,
+        }
+        #[repr(i32)]
+        enum USBD_PIPE_TYPE {
+            UsbdPipeTypeControl = 0,
+            UsbdPipeTypeIsochronous = 1,
+            UsbdPipeTypeBulk = 2,
+            UsbdPipeTypeInterrupt = 3,
+        }
+        const USBD_SHORT_TRANSFER_OK: u32 = 2;
+        const USBD_START_ISO_TRANSFER_ASAP: u32 = 4;
+        type USBD_STATUS = i32;
+        const USBD_STATUS_BABBLE_DETECTED: USBD_STATUS = -1073741806;
+        const USBD_STATUS_BAD_CONFIG_DESC_LENGTH: USBD_STATUS = -1072693242;
+        const USBD_STATUS_BAD_DESCRIPTOR: USBD_STATUS = -1072693248;
+        const USBD_STATUS_BAD_DESCRIPTOR_BLEN: USBD_STATUS = -1072693247;
+        const USBD_STATUS_BAD_DESCRIPTOR_TYPE: USBD_STATUS = -1072693246;
+        const USBD_STATUS_BAD_ENDPOINT_ADDRESS: USBD_STATUS = -1072693239;
+        const USBD_STATUS_BAD_ENDPOINT_DESCRIPTOR: USBD_STATUS = -1072693244;
+        const USBD_STATUS_BAD_INTERFACE_ASSOC_DESCRIPTOR: USBD_STATUS = -1072693243;
+        const USBD_STATUS_BAD_INTERFACE_DESCRIPTOR: USBD_STATUS = -1072693245;
+        const USBD_STATUS_BAD_NUMBER_OF_ENDPOINTS: USBD_STATUS = -1072693240;
+        const USBD_STATUS_BAD_NUMBER_OF_INTERFACES: USBD_STATUS = -1072693241;
+        const USBD_STATUS_BAD_START_FRAME: USBD_STATUS = -1073739264;
+        const USBD_STATUS_BTSTUFF: USBD_STATUS = -1073741822;
+        const USBD_STATUS_BUFFER_OVERRUN: USBD_STATUS = -1073741812;
+        const USBD_STATUS_BUFFER_TOO_SMALL: USBD_STATUS = -1073729536;
+        const USBD_STATUS_BUFFER_UNDERRUN: USBD_STATUS = -1073741811;
+        const USBD_STATUS_CANCELED: USBD_STATUS = -1073676288;
+        const USBD_STATUS_CRC: USBD_STATUS = -1073741823;
+        const USBD_STATUS_DATA_BUFFER_ERROR: USBD_STATUS = -1073741805;
+        const USBD_STATUS_DATA_OVERRUN: USBD_STATUS = -1073741816;
+        const USBD_STATUS_DATA_TOGGLE_MISMATCH: USBD_STATUS = -1073741821;
+        const USBD_STATUS_DATA_UNDERRUN: USBD_STATUS = -1073741815;
+        const USBD_STATUS_DEVICE_GONE: USBD_STATUS = -1073713152;
+        const USBD_STATUS_DEV_NOT_RESPONDING: USBD_STATUS = -1073741819;
+        const USBD_STATUS_ENDPOINT_HALTED: USBD_STATUS = -1073741776;
+        const USBD_STATUS_ERROR_BUSY: USBD_STATUS = -2147482624;
+        const USBD_STATUS_ERROR_SHORT_TRANSFER: USBD_STATUS = -2147481344;
+        const USBD_STATUS_FIFO: USBD_STATUS = -1073741808;
+        const USBD_STATUS_FRAME_CONTROL_NOT_OWNED: USBD_STATUS = -1073738496;
+        const USBD_STATUS_FRAME_CONTROL_OWNED: USBD_STATUS = -1073738752;
+        const USBD_STATUS_HUB_INTERNAL_ERROR: USBD_STATUS = -1073704960;
+        const USBD_STATUS_INAVLID_CONFIGURATION_DESCRIPTOR: USBD_STATUS = -1073737984;
+        const USBD_STATUS_INAVLID_PIPE_FLAGS: USBD_STATUS = -1073721344;
+        const USBD_STATUS_INSUFFICIENT_RESOURCES: USBD_STATUS = -1073737728;
+        const USBD_STATUS_INTERFACE_NOT_FOUND: USBD_STATUS = -1073725440;
+        const USBD_STATUS_INTERNAL_HC_ERROR: USBD_STATUS = -2147481600;
+        const USBD_STATUS_INVALID_CONFIGURATION_DESCRIPTOR: USBD_STATUS = -1073737984;
+        const USBD_STATUS_INVALID_PARAMETER: USBD_STATUS = -2147482880;
+        const USBD_STATUS_INVALID_PIPE_HANDLE: USBD_STATUS = -2147482112;
+        const USBD_STATUS_INVALID_STREAM_ID: USBD_STATUS = -1073741802;
+        const USBD_STATUS_INVALID_STREAM_TYPE: USBD_STATUS = -1073741803;
+        const USBD_STATUS_INVALID_URB_FUNCTION: USBD_STATUS = -2147483136;
+        const USBD_STATUS_ISOCH_REQUEST_FAILED: USBD_STATUS = -1073739008;
+        const USBD_STATUS_ISO_NA_LATE_USBPORT: USBD_STATUS = -1073479680;
+        const USBD_STATUS_ISO_NOT_ACCESSED_BY_HW: USBD_STATUS = -1073610752;
+        const USBD_STATUS_ISO_NOT_ACCESSED_LATE: USBD_STATUS = -1073414144;
+        const USBD_STATUS_ISO_TD_ERROR: USBD_STATUS = -1073545216;
+        const USBD_STATUS_NOT_ACCESSED: USBD_STATUS = -1073741809;
+        const USBD_STATUS_NOT_SUPPORTED: USBD_STATUS = -1073738240;
+        const USBD_STATUS_NO_BANDWIDTH: USBD_STATUS = -2147481856;
+        const USBD_STATUS_NO_PING_RESPONSE: USBD_STATUS = -1073741804;
+        const USBD_STATUS_PENDING: USBD_STATUS = 1073741824;
+        const USBD_STATUS_PID_CHECK_FAILURE: USBD_STATUS = -1073741818;
+        const USBD_STATUS_PORT_OPERATION_PENDING: USBD_STATUS = 1;
+        const USBD_STATUS_RESERVED1: USBD_STATUS = -1073741814;
+        const USBD_STATUS_RESERVED2: USBD_STATUS = -1073741813;
+        const USBD_STATUS_SET_CONFIG_FAILED: USBD_STATUS = -1073733632;
+        const USBD_STATUS_STALL_PID: USBD_STATUS = -1073741820;
+        const USBD_STATUS_STATUS_NOT_MAPPED: USBD_STATUS = -1073709056;
+        const USBD_STATUS_SUCCESS: USBD_STATUS = 0;
+        const USBD_STATUS_TIMEOUT: USBD_STATUS = -1073717248;
+        const USBD_STATUS_UNEXPECTED_PID: USBD_STATUS = -1073741817;
+        const USBD_STATUS_XACT_ERROR: USBD_STATUS = -1073741807;
+        struct USBD_STREAM_INFORMATION {
+            PipeHandle: USBD_PIPE_HANDLE,
+            StreamID: u32,
+            MaximumTransferSize: u32,
+            PipeFlags: u32,
+        }
+        const USBD_TRANSFER_DIRECTION: u32 = 1;
+        const USBD_TRANSFER_DIRECTION_IN: u32 = 1;
+        const USBD_TRANSFER_DIRECTION_OUT: u32 = 0;
+        struct USBD_VERSION_INFORMATION {
+            USBDI_Version: u32,
+            Supported_USB_Version: u32,
+        }
+        #[repr(i32)]
+        enum USB_CONTROLLER_FLAVOR {
+            USB_HcGeneric = 0,
+            OHCI_Generic = 100,
+            OHCI_Hydra = 101,
+            OHCI_NEC = 102,
+            UHCI_Generic = 200,
+            UHCI_Piix4 = 201,
+            UHCI_Piix3 = 202,
+            UHCI_Ich2 = 203,
+            UHCI_Reserved204 = 204,
+            UHCI_Ich1 = 205,
+            UHCI_Ich3m = 206,
+            UHCI_Ich4 = 207,
+            UHCI_Ich5 = 208,
+            UHCI_Ich6 = 209,
+            UHCI_Intel = 249,
+            UHCI_VIA = 250,
+            UHCI_VIA_x01 = 251,
+            UHCI_VIA_x02 = 252,
+            UHCI_VIA_x03 = 253,
+            UHCI_VIA_x04 = 254,
+            UHCI_VIA_x0E_FIFO = 264,
+            EHCI_Generic = 1000,
+            EHCI_NEC = 2000,
+            EHCI_Lucent = 3000,
+            EHCI_NVIDIA_Tegra2 = 4000,
+            EHCI_NVIDIA_Tegra3 = 4001,
+            EHCI_Intel_Medfield = 5001,
+        }
+        const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0;
+        const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0;
+        const USB_DEFAULT_MAX_PACKET: u32 = 64;
+        const USB_PORTATTR_MINI_CONNECTOR: u32 = 4;
+        const USB_PORTATTR_NO_CONNECTOR: u32 = 1;
+        const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432;
+        const USB_PORTATTR_OEM_CONNECTOR: u32 = 8;
+        const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216;
+        const USB_PORTATTR_SHARED_USB2: u32 = 2;
+        const VALID_TRANSFER_FLAGS_MASK: u32 = 15;
+        struct _URB_BULK_OR_INTERRUPT_TRANSFER {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+        }
+        struct _URB_CONTROL_DESCRIPTOR_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            Reserved1: u16,
+            Index: u8,
+            DescriptorType: u8,
+            LanguageId: u16,
+            Reserved2: u16,
+        }
+        struct _URB_CONTROL_FEATURE_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved2: u32,
+            Reserved3: u32,
+            Reserved4: *mut void,
+            Reserved5: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            Reserved0: u16,
+            FeatureSelector: u16,
+            Index: u16,
+            Reserved1: u16,
+        }
+        struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            Reserved1: [u8; 8],
+        }
+        struct _URB_CONTROL_GET_INTERFACE_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            Reserved1: [u8; 4],
+            Interface: u16,
+            Reserved2: u16,
+        }
+        struct _URB_CONTROL_GET_STATUS_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            Reserved1: [u8; 4],
+            Index: u16,
+            Reserved2: u16,
+        }
+        struct _URB_CONTROL_TRANSFER {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            SetupPacket: [u8; 8],
+        }
+        struct _URB_CONTROL_TRANSFER_EX {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            Timeout: u32,
+            hca: _URB_HCD_AREA,
+            SetupPacket: [u8; 8],
+        }
+        struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            RequestTypeReservedBits: u8,
+            Request: u8,
+            Value: u16,
+            Index: u16,
+            Reserved1: u16,
+        }
+        struct _URB_FRAME_LENGTH_CONTROL {
+            Hdr: _URB_HEADER,
+        }
+        struct _URB_GET_CURRENT_FRAME_NUMBER {
+            Hdr: _URB_HEADER,
+            FrameNumber: u32,
+        }
+        struct _URB_GET_FRAME_LENGTH {
+            Hdr: _URB_HEADER,
+            FrameLength: u32,
+            FrameNumber: u32,
+        }
+        struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            MaximumSendPathDelayInMilliSeconds: u32,
+            MaximumCompletionPathDelayInMilliSeconds: u32,
+        }
+        struct _URB_HCD_AREA {
+            Reserved8: [*mut void; 8],
+        }
+        struct _URB_HEADER {
+            Length: u16,
+            Function: u16,
+            Status: USBD_STATUS,
+            UsbdDeviceHandle: *mut void,
+            UsbdFlags: u32,
+        }
+        struct _URB_ISOCH_TRANSFER {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            TransferFlags: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            StartFrame: u32,
+            NumberOfPackets: u32,
+            ErrorCount: u32,
+            IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
+        }
+        struct _URB_OPEN_STATIC_STREAMS {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            NumberOfStreams: u32,
+            StreamInfoVersion: u16,
+            StreamInfoSize: u16,
+            Streams: PUSBD_STREAM_INFORMATION,
+        }
+        struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+            Hdr: _URB_HEADER,
+            Reserved: *mut void,
+            Reserved0: u32,
+            TransferBufferLength: u32,
+            TransferBuffer: *mut void,
+            TransferBufferMDL: PMDL,
+            UrbLink: *mut URB,
+            hca: _URB_HCD_AREA,
+            _bitfield: u8,
+            Reserved2: u8,
+            InterfaceNumber: u8,
+            MS_PageIndex: u8,
+            MS_FeatureDescriptorIndex: u16,
+            Reserved3: u16,
+        }
+        struct _URB_PIPE_REQUEST {
+            Hdr: _URB_HEADER,
+            PipeHandle: USBD_PIPE_HANDLE,
+            Reserved: u32,
+        }
+        struct _URB_SELECT_CONFIGURATION {
+            Hdr: _URB_HEADER,
+            ConfigurationDescriptor: PUSB_CONFIGURATION_DESCRIPTOR,
+            ConfigurationHandle: USBD_CONFIGURATION_HANDLE,
+            Interface: USBD_INTERFACE_INFORMATION,
+        }
+        struct _URB_SELECT_INTERFACE {
+            Hdr: _URB_HEADER,
+            ConfigurationHandle: USBD_CONFIGURATION_HANDLE,
+            Interface: USBD_INTERFACE_INFORMATION,
+        }
+        struct _URB_SET_FRAME_LENGTH {
+            Hdr: _URB_HEADER,
+            FrameLengthDelta: i32,
+        }
+    }
+}

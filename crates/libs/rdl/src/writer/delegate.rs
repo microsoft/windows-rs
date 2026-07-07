@@ -23,11 +23,16 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
             quote! { #[guid(#lit)] }
         }
     };
+    let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
-        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
+        &[
+            "GuidAttribute",
+            "UnmanagedFunctionPointerAttribute",
+            "SupportedArchitectureAttribute",
+        ],
     )?;
 
     let abi = match read_unmanaged_abi(item) {
@@ -44,6 +49,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
 
     Ok(quote! {
         #guid_token
+        #arch_attr
         #(#custom_attrs)*
         delegate #abi fn #name #generics_tokens (#(#params),*) #return_type;
     })

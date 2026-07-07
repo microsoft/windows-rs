@@ -1,0 +1,1265 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ALLOC_LOG_CONF: u32 = 2;
+        const BASIC_LOG_CONF: u32 = 0;
+        const BOOT_LOG_CONF: u32 = 3;
+        #[packed(1)]
+        struct BUSNUMBER_DES {
+            BUSD_Count: u32,
+            BUSD_Type: u32,
+            BUSD_Flags: u32,
+            BUSD_Alloc_Base: u32,
+            BUSD_Alloc_End: u32,
+        }
+        #[packed(1)]
+        struct BUSNUMBER_RANGE {
+            BUSR_Min: u32,
+            BUSR_Max: u32,
+            BUSR_nBusNumbers: u32,
+            BUSR_Flags: u32,
+        }
+        struct BUSNUMBER_RESOURCE {
+            BusNumber_Header: BUSNUMBER_DES,
+            BusNumber_Data: [BUSNUMBER_RANGE; 1],
+        }
+        #[library("SETUPAPI.dll")]
+        extern "C" fn CMP_WaitNoPendingInstallEvents(dwTimeout: u32) -> u32;
+        const CM_ADD_ID_BITS: u32 = 1;
+        const CM_ADD_ID_COMPATIBLE: u32 = 1;
+        const CM_ADD_ID_HARDWARE: u32 = 0;
+        const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0;
+        const CM_ADD_RANGE_BITS: u32 = 1;
+        const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_Empty_Log_Conf(plcLogConf: *mut LOG_CONF, dnDevInst: DEVINST, Priority: PRIORITY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_Empty_Log_Conf_Ex(plcLogConf: *mut LOG_CONF, dnDevInst: DEVINST, Priority: PRIORITY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_IDA(dnDevInst: DEVINST, pszID: PCSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_IDW(dnDevInst: DEVINST, pszID: PCWSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_ID_ExA(dnDevInst: DEVINST, pszID: PCSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_ID_ExW(dnDevInst: DEVINST, pszID: PCWSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_Range(ullStartValue: DWORDLONG, ullEndValue: DWORDLONG, rlh: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_Res_Des(#[opt] prdResDes: *mut RES_DES, lcLogConf: LOG_CONF, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Add_Res_Des_Ex(#[opt] prdResDes: *mut RES_DES, lcLogConf: LOG_CONF, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        const CM_CDFLAGS_DRIVER: u32 = 1;
+        const CM_CDFLAGS_RESERVED: u32 = 4;
+        const CM_CDFLAGS_ROOT_OWNED: u32 = 2;
+        const CM_CDMASK_DESCRIPTION: u32 = 8;
+        const CM_CDMASK_DEVINST: u32 = 1;
+        const CM_CDMASK_FLAGS: u32 = 4;
+        const CM_CDMASK_RESDES: u32 = 2;
+        const CM_CDMASK_VALID: u32 = 15;
+        const CM_CLASS_PROPERTY_BITS: u32 = 1;
+        const CM_CLASS_PROPERTY_INSTALLER: u32 = 0;
+        const CM_CLASS_PROPERTY_INTERFACE: u32 = 1;
+        const CM_CREATE_DEVINST_BITS: u32 = 15;
+        const CM_CREATE_DEVINST_DO_NOT_INSTALL: u32 = 8;
+        const CM_CREATE_DEVINST_GENERATE_ID: u32 = 4;
+        const CM_CREATE_DEVINST_NORMAL: u32 = 0;
+        const CM_CREATE_DEVINST_NO_WAIT_INSTALL: u32 = 1;
+        const CM_CREATE_DEVINST_PHANTOM: u32 = 2;
+        const CM_CREATE_DEVNODE_BITS: u32 = 15;
+        const CM_CREATE_DEVNODE_DO_NOT_INSTALL: u32 = 8;
+        const CM_CREATE_DEVNODE_GENERATE_ID: u32 = 4;
+        const CM_CREATE_DEVNODE_NORMAL: u32 = 0;
+        const CM_CREATE_DEVNODE_NO_WAIT_INSTALL: u32 = 1;
+        const CM_CREATE_DEVNODE_PHANTOM: u32 = 2;
+        const CM_CRP_CHARACTERISTICS: u32 = 28;
+        const CM_CRP_DEVTYPE: u32 = 26;
+        const CM_CRP_EXCLUSIVE: u32 = 27;
+        const CM_CRP_LOWERFILTERS: u32 = 19;
+        const CM_CRP_MAX: u32 = 37;
+        const CM_CRP_MIN: u32 = 1;
+        const CM_CRP_SECURITY: u32 = 24;
+        const CM_CRP_SECURITY_SDS: u32 = 25;
+        const CM_CRP_UPPERFILTERS: u32 = 18;
+        const CM_CUSTOMDEVPROP_BITS: u32 = 1;
+        const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Connect_MachineA(#[opt] UNCServerName: PCSTR, phMachine: *mut HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Connect_MachineW(#[opt] UNCServerName: PCWSTR, phMachine: *mut HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Create_DevNodeA(pdnDevInst: *mut DEVNODE, pDeviceID: *const i8, dnParent: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Create_DevNodeW(pdnDevInst: *mut DEVNODE, pDeviceID: *const u16, dnParent: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Create_DevNode_ExA(pdnDevInst: *mut DEVNODE, pDeviceID: *const i8, dnParent: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Create_DevNode_ExW(pdnDevInst: *mut DEVNODE, pDeviceID: *const u16, dnParent: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Create_Range_List(prlh: *mut RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        const CM_DELETE_CLASS_BITS: u32 = 3;
+        const CM_DELETE_CLASS_INTERFACE: u32 = 2;
+        const CM_DELETE_CLASS_ONLY: u32 = 0;
+        const CM_DELETE_CLASS_SUBKEYS: u32 = 1;
+        const CM_DETECT_BITS: u32 = 2147483655;
+        const CM_DETECT_CRASHED: u32 = 2;
+        const CM_DETECT_HWPROF_FIRST_BOOT: u32 = 4;
+        const CM_DETECT_NEW_PROFILE: u32 = 1;
+        const CM_DETECT_RUN: u32 = 2147483648;
+        const CM_DEVCAP_DOCKDEVICE: u32 = 8;
+        const CM_DEVCAP_EJECTSUPPORTED: u32 = 2;
+        const CM_DEVCAP_HARDWAREDISABLED: u32 = 256;
+        const CM_DEVCAP_LOCKSUPPORTED: u32 = 1;
+        const CM_DEVCAP_NONDYNAMIC: u32 = 512;
+        const CM_DEVCAP_RAWDEVICEOK: u32 = 64;
+        const CM_DEVCAP_REMOVABLE: u32 = 4;
+        const CM_DEVCAP_SECUREDEVICE: u32 = 1024;
+        const CM_DEVCAP_SILENTINSTALL: u32 = 32;
+        const CM_DEVCAP_SURPRISEREMOVALOK: u32 = 128;
+        const CM_DEVCAP_UNIQUEID: u32 = 16;
+        const CM_DISABLE_ABSOLUTE: u32 = 1;
+        const CM_DISABLE_BITS: u32 = 15;
+        const CM_DISABLE_HARDWARE: u32 = 2;
+        const CM_DISABLE_PERSIST: u32 = 8;
+        const CM_DISABLE_POLITE: u32 = 0;
+        const CM_DISABLE_UI_NOT_OK: u32 = 4;
+        const CM_DRP_ADDRESS: u32 = 29;
+        const CM_DRP_BASE_CONTAINERID: u32 = 37;
+        const CM_DRP_BUSNUMBER: u32 = 22;
+        const CM_DRP_BUSTYPEGUID: u32 = 20;
+        const CM_DRP_CAPABILITIES: u32 = 16;
+        const CM_DRP_CHARACTERISTICS: u32 = 28;
+        const CM_DRP_CLASS: u32 = 8;
+        const CM_DRP_CLASSGUID: u32 = 9;
+        const CM_DRP_COMPATIBLEIDS: u32 = 3;
+        const CM_DRP_CONFIGFLAGS: u32 = 11;
+        const CM_DRP_DEVICEDESC: u32 = 1;
+        const CM_DRP_DEVICE_POWER_DATA: u32 = 31;
+        const CM_DRP_DEVTYPE: u32 = 26;
+        const CM_DRP_DRIVER: u32 = 10;
+        const CM_DRP_ENUMERATOR_NAME: u32 = 23;
+        const CM_DRP_EXCLUSIVE: u32 = 27;
+        const CM_DRP_FRIENDLYNAME: u32 = 13;
+        const CM_DRP_HARDWAREID: u32 = 2;
+        const CM_DRP_INSTALL_STATE: u32 = 35;
+        const CM_DRP_LEGACYBUSTYPE: u32 = 21;
+        const CM_DRP_LOCATION_INFORMATION: u32 = 14;
+        const CM_DRP_LOCATION_PATHS: u32 = 36;
+        const CM_DRP_LOWERFILTERS: u32 = 19;
+        const CM_DRP_MAX: u32 = 37;
+        const CM_DRP_MFG: u32 = 12;
+        const CM_DRP_MIN: u32 = 1;
+        const CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: u32 = 15;
+        const CM_DRP_REMOVAL_POLICY: u32 = 32;
+        const CM_DRP_REMOVAL_POLICY_HW_DEFAULT: u32 = 33;
+        const CM_DRP_REMOVAL_POLICY_OVERRIDE: u32 = 34;
+        const CM_DRP_SECURITY: u32 = 24;
+        const CM_DRP_SECURITY_SDS: u32 = 25;
+        const CM_DRP_SERVICE: u32 = 5;
+        const CM_DRP_UI_NUMBER: u32 = 17;
+        const CM_DRP_UI_NUMBER_DESC_FORMAT: u32 = 30;
+        const CM_DRP_UNUSED0: u32 = 4;
+        const CM_DRP_UNUSED1: u32 = 6;
+        const CM_DRP_UNUSED2: u32 = 7;
+        const CM_DRP_UPPERFILTERS: u32 = 18;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Class_Key(ClassGuid: *const GUID, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Class_Key_Ex(ClassGuid: *const GUID, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_DevNode_Key(dnDevNode: DEVNODE, ulHardwareProfile: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_DevNode_Key_Ex(dnDevNode: DEVNODE, ulHardwareProfile: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Device_Interface_KeyA(pszDeviceInterface: PCSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Device_Interface_KeyW(pszDeviceInterface: PCWSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Device_Interface_Key_ExA(pszDeviceInterface: PCSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Device_Interface_Key_ExW(pszDeviceInterface: PCWSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Delete_Range(ullStartValue: DWORDLONG, ullEndValue: DWORDLONG, rlh: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Detect_Resource_Conflict(dnDevInst: DEVINST, ResourceID: RESOURCEID, #[size_param(3)] ResourceData: *const void, ResourceLen: u32, pbConflictDetected: *mut BOOL, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Detect_Resource_Conflict_Ex(dnDevInst: DEVINST, ResourceID: RESOURCEID, #[size_param(3)] ResourceData: *const void, ResourceLen: u32, pbConflictDetected: *mut BOOL, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Disable_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Disable_DevNode_Ex(dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Disconnect_Machine(#[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Dup_Range_List(rlhOld: RANGE_LIST, rlhNew: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        const CM_ENUMERATE_CLASSES_BITS: u32 = 1;
+        const CM_ENUMERATE_CLASSES_INSTALLER: u32 = 0;
+        const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enable_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enable_DevNode_Ex(dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_Classes(ulClassIndex: u32, ClassGuid: *mut GUID, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_Classes_Ex(ulClassIndex: u32, ClassGuid: *mut GUID, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_EnumeratorsA(ulEnumIndex: u32, #[len_param(2)] #[out] Buffer: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_EnumeratorsW(ulEnumIndex: u32, #[len_param(2)] #[out] Buffer: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_Enumerators_ExA(ulEnumIndex: u32, #[len_param(2)] #[out] Buffer: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Enumerate_Enumerators_ExW(ulEnumIndex: u32, #[len_param(2)] #[out] Buffer: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Find_Range(pullStart: *mut DWORDLONG, ullStart: DWORDLONG, ulLength: u32, ullAlignment: DWORDLONG, ullEnd: DWORDLONG, rlh: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_First_Range(rlh: RANGE_LIST, pullStart: *mut DWORDLONG, pullEnd: *mut DWORDLONG, preElement: *mut RANGE_ELEMENT, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Log_Conf(lcLogConfToBeFreed: LOG_CONF, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Log_Conf_Ex(lcLogConfToBeFreed: LOG_CONF, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Log_Conf_Handle(lcLogConf: LOG_CONF) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Range_List(rlh: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Res_Des(#[opt] prdResDes: *mut RES_DES, rdResDes: RES_DES, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Res_Des_Ex(#[opt] prdResDes: *mut RES_DES, rdResDes: RES_DES, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Res_Des_Handle(rdResDes: RES_DES) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Free_Resource_Conflict_Handle(clConflictList: CONFLICT_LIST) -> CONFIGRET;
+        const CM_GETIDLIST_DONOTGENERATE: u32 = 268435520;
+        const CM_GETIDLIST_FILTER_BITS: u32 = 268436479;
+        const CM_GETIDLIST_FILTER_BUSRELATIONS: u32 = 32;
+        const CM_GETIDLIST_FILTER_CLASS: u32 = 512;
+        const CM_GETIDLIST_FILTER_EJECTRELATIONS: u32 = 4;
+        const CM_GETIDLIST_FILTER_ENUMERATOR: u32 = 1;
+        const CM_GETIDLIST_FILTER_NONE: u32 = 0;
+        const CM_GETIDLIST_FILTER_POWERRELATIONS: u32 = 16;
+        const CM_GETIDLIST_FILTER_PRESENT: u32 = 256;
+        const CM_GETIDLIST_FILTER_REMOVALRELATIONS: u32 = 8;
+        const CM_GETIDLIST_FILTER_SERVICE: u32 = 2;
+        const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: u32 = 128;
+        const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: u32 = 1;
+        const CM_GET_DEVICE_INTERFACE_LIST_BITS: u32 = 1;
+        const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: u32 = 0;
+        const CM_GLOBAL_STATE_CAN_DO_UI: u32 = 1;
+        const CM_GLOBAL_STATE_DETECTION_PENDING: u32 = 16;
+        const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2;
+        const CM_GLOBAL_STATE_REBOOT_REQUIRED: u32 = 32;
+        const CM_GLOBAL_STATE_SERVICES_AVAILABLE: u32 = 4;
+        const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Child(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Child_Ex(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Key_NameA(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] pszKeyName: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Key_NameW(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Key_Name_ExA(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] pszKeyName: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Key_Name_ExW(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] pszKeyName: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_NameA(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] Buffer: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_NameW(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] Buffer: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Name_ExA(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] Buffer: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Name_ExW(ClassGuid: *const GUID, #[len_param(2)] #[out] #[opt] Buffer: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Class_PropertyW(ClassGUID: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Class_Property_ExW(ClassGUID: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Class_Property_Keys(ClassGUID: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Class_Property_Keys_Ex(ClassGUID: *const GUID, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Registry_PropertyA(ClassGuid: *const GUID, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Class_Registry_PropertyW(ClassGuid: *const GUID, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Depth(pulDepth: *mut u32, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Depth_Ex(pulDepth: *mut u32, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Custom_PropertyA(dnDevInst: DEVINST, pszCustomPropertyName: PCSTR, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Custom_PropertyW(dnDevInst: DEVINST, pszCustomPropertyName: PCWSTR, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Custom_Property_ExA(dnDevInst: DEVINST, pszCustomPropertyName: PCSTR, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Custom_Property_ExW(dnDevInst: DEVINST, pszCustomPropertyName: PCWSTR, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_DevNode_PropertyW(dnDevInst: DEVINST, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_DevNode_Property_ExW(dnDevInst: DEVINST, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_DevNode_Property_Keys(dnDevInst: DEVINST, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_DevNode_Property_Keys_Ex(dnDevInst: DEVINST, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Registry_PropertyA(dnDevInst: DEVINST, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Registry_PropertyW(dnDevInst: DEVINST, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Registry_Property_ExA(dnDevInst: DEVINST, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Registry_Property_ExW(dnDevInst: DEVINST, ulProperty: u32, #[opt] pulRegDataType: *mut u32, #[size_param(4)] #[opt] Buffer: *mut void, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Status(pulStatus: *mut u32, pulProblemNumber: *mut u32, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_DevNode_Status_Ex(pulStatus: *mut u32, pulProblemNumber: *mut u32, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_IDA(dnDevInst: DEVINST, #[len_param(2)] #[out] Buffer: PSTR, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_IDW(dnDevInst: DEVINST, #[len_param(2)] #[out] Buffer: PWSTR, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_ExA(dnDevInst: DEVINST, #[len_param(2)] #[out] Buffer: PSTR, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_ExW(dnDevInst: DEVINST, #[len_param(2)] #[out] Buffer: PWSTR, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_ListA(#[opt] pszFilter: PCSTR, #[len_param(2)] Buffer: *mut i8, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_ListW(#[opt] pszFilter: PCWSTR, #[len_param(2)] Buffer: *mut u16, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_ExA(#[opt] pszFilter: PCSTR, #[len_param(2)] Buffer: *mut i8, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_ExW(#[opt] pszFilter: PCWSTR, #[len_param(2)] Buffer: *mut u16, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_SizeA(pulLen: *mut u32, #[opt] pszFilter: PCSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_SizeW(pulLen: *mut u32, #[opt] pszFilter: PCWSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_Size_ExA(pulLen: *mut u32, #[opt] pszFilter: PCSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_List_Size_ExW(pulLen: *mut u32, #[opt] pszFilter: PCWSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_Size(pulLen: *mut u32, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_ID_Size_Ex(pulLen: *mut u32, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_AliasA(pszDeviceInterface: PCSTR, AliasInterfaceGuid: *const GUID, #[len_param(3)] #[out] pszAliasDeviceInterface: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_AliasW(pszDeviceInterface: PCWSTR, AliasInterfaceGuid: *const GUID, #[len_param(3)] #[out] pszAliasDeviceInterface: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_Alias_ExA(pszDeviceInterface: PCSTR, AliasInterfaceGuid: *const GUID, #[len_param(3)] #[out] pszAliasDeviceInterface: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_Alias_ExW(pszDeviceInterface: PCWSTR, AliasInterfaceGuid: *const GUID, #[len_param(3)] #[out] pszAliasDeviceInterface: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_ListA(InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const i8, #[len_param(3)] Buffer: *mut i8, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_ListW(InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const u16, #[len_param(3)] Buffer: *mut u16, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_ExA(InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const i8, #[len_param(3)] Buffer: *mut i8, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_ExW(InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const u16, #[len_param(3)] Buffer: *mut u16, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_SizeA(pulLen: *mut u32, InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const i8, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_SizeW(pulLen: *mut u32, InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const u16, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_Size_ExA(pulLen: *mut u32, InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const i8, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Device_Interface_List_Size_ExW(pulLen: *mut u32, InterfaceClassGuid: *const GUID, #[opt] pDeviceID: *const u16, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Device_Interface_PropertyW(pszDeviceInterface: PCWSTR, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Device_Interface_Property_ExW(pszDeviceInterface: PCWSTR, PropertyKey: *const DEVPROPKEY, PropertyType: *mut DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *mut u8, #[in] #[out] PropertyBufferSize: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Device_Interface_Property_KeysW(pszDeviceInterface: PCWSTR, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Get_Device_Interface_Property_Keys_ExW(pszDeviceInterface: PCWSTR, #[len_param(2)] #[opt] PropertyKeyArray: *mut DEVPROPKEY, #[in] #[out] PropertyKeyCount: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_First_Log_Conf(#[opt] plcLogConf: *mut LOG_CONF, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_First_Log_Conf_Ex(#[opt] plcLogConf: *mut LOG_CONF, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Global_State(pulState: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Global_State_Ex(pulState: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_HW_Prof_FlagsA(pDeviceID: *const i8, ulHardwareProfile: u32, pulValue: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_HW_Prof_FlagsW(pDeviceID: *const u16, ulHardwareProfile: u32, pulValue: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_HW_Prof_Flags_ExA(pDeviceID: *const i8, ulHardwareProfile: u32, pulValue: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_HW_Prof_Flags_ExW(pDeviceID: *const u16, ulHardwareProfile: u32, pulValue: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Hardware_Profile_InfoA(ulIndex: u32, pHWProfileInfo: *mut HWPROFILEINFO_A, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Hardware_Profile_InfoW(ulIndex: u32, pHWProfileInfo: *mut HWPROFILEINFO_W, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Hardware_Profile_Info_ExA(ulIndex: u32, pHWProfileInfo: *mut HWPROFILEINFO_A, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Hardware_Profile_Info_ExW(ulIndex: u32, pHWProfileInfo: *mut HWPROFILEINFO_W, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Log_Conf_Priority(lcLogConf: LOG_CONF, pPriority: *mut PRIORITY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Log_Conf_Priority_Ex(lcLogConf: LOG_CONF, pPriority: *mut PRIORITY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Next_Log_Conf(#[opt] plcLogConf: *mut LOG_CONF, lcLogConf: LOG_CONF, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Next_Log_Conf_Ex(#[opt] plcLogConf: *mut LOG_CONF, lcLogConf: LOG_CONF, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Next_Res_Des(prdResDes: *mut RES_DES, rdResDes: RES_DES, ForResource: RESOURCEID, #[opt] pResourceID: *mut RESOURCEID, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Next_Res_Des_Ex(prdResDes: *mut RES_DES, rdResDes: RES_DES, ForResource: RESOURCEID, #[opt] pResourceID: *mut RESOURCEID, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Parent(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Parent_Ex(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Res_Des_Data(rdResDes: RES_DES, #[size_param(2)] Buffer: *mut void, BufferLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Res_Des_Data_Ex(rdResDes: RES_DES, #[size_param(2)] Buffer: *mut void, BufferLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Res_Des_Data_Size(pulSize: *mut u32, rdResDes: RES_DES, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Res_Des_Data_Size_Ex(pulSize: *mut u32, rdResDes: RES_DES, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Resource_Conflict_Count(clConflictList: CONFLICT_LIST, pulCount: *mut u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Resource_Conflict_DetailsA(clConflictList: CONFLICT_LIST, ulIndex: u32, #[in] #[out] pConflictDetails: *mut CONFLICT_DETAILS_A) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Resource_Conflict_DetailsW(clConflictList: CONFLICT_LIST, ulIndex: u32, #[in] #[out] pConflictDetails: *mut CONFLICT_DETAILS_W) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Sibling(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Sibling_Ex(pdnDevInst: *mut DEVNODE, dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Version() -> u16;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Get_Version_Ex(#[opt] hMachine: HMACHINE) -> u16;
+        const CM_HWPI_DOCKED: u32 = 2;
+        const CM_HWPI_NOT_DOCKABLE: u32 = 0;
+        const CM_HWPI_UNDOCKED: u32 = 1;
+        const CM_INSTALL_STATE_FAILED_INSTALL: u32 = 2;
+        const CM_INSTALL_STATE_FINISH_INSTALL: u32 = 3;
+        const CM_INSTALL_STATE_INSTALLED: u32 = 0;
+        const CM_INSTALL_STATE_NEEDS_REINSTALL: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Intersect_Range_List(rlhOld1: RANGE_LIST, rlhOld2: RANGE_LIST, rlhNew: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Invert_Range_List(rlhOld: RANGE_LIST, rlhNew: RANGE_LIST, ullMaxValue: DWORDLONG, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Is_Dock_Station_Present(pbPresent: *mut BOOL) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Is_Dock_Station_Present_Ex(pbPresent: *mut BOOL, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Is_Version_Available(wVersion: u16) -> BOOL;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Is_Version_Available_Ex(wVersion: u16, #[opt] hMachine: HMACHINE) -> BOOL;
+        const CM_LOCATE_DEVINST_BITS: u32 = 7;
+        const CM_LOCATE_DEVINST_CANCELREMOVE: u32 = 2;
+        const CM_LOCATE_DEVINST_NORMAL: u32 = 0;
+        const CM_LOCATE_DEVINST_NOVALIDATION: u32 = 4;
+        const CM_LOCATE_DEVINST_PHANTOM: u32 = 1;
+        const CM_LOCATE_DEVNODE_BITS: u32 = 7;
+        const CM_LOCATE_DEVNODE_CANCELREMOVE: u32 = 2;
+        const CM_LOCATE_DEVNODE_NORMAL: u32 = 0;
+        const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4;
+        const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Locate_DevNodeA(pdnDevInst: *mut DEVNODE, #[opt] pDeviceID: *const i8, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Locate_DevNodeW(pdnDevInst: *mut DEVNODE, #[opt] pDeviceID: *const u16, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Locate_DevNode_ExA(pdnDevInst: *mut DEVNODE, #[opt] pDeviceID: *const i8, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Locate_DevNode_ExW(pdnDevInst: *mut DEVNODE, #[opt] pDeviceID: *const u16, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_MapCrToWin32Err(CmReturnCode: CONFIGRET, DefaultErr: u32) -> u32;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Merge_Range_List(rlhOld1: RANGE_LIST, rlhOld2: RANGE_LIST, rlhNew: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Modify_Res_Des(prdResDes: *mut RES_DES, rdResDes: RES_DES, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Modify_Res_Des_Ex(prdResDes: *mut RES_DES, rdResDes: RES_DES, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Move_DevNode(dnFromDevInst: DEVINST, dnToDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Move_DevNode_Ex(dnFromDevInst: DEVINST, dnToDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1;
+        const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2;
+        #[repr(i32)]
+        enum CM_NOTIFY_ACTION {
+            CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL = 0,
+            CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL = 1,
+            CM_NOTIFY_ACTION_DEVICEQUERYREMOVE = 2,
+            CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED = 3,
+            CM_NOTIFY_ACTION_DEVICEREMOVEPENDING = 4,
+            CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE = 5,
+            CM_NOTIFY_ACTION_DEVICECUSTOMEVENT = 6,
+            CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED = 7,
+            CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED = 8,
+            CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED = 9,
+            CM_NOTIFY_ACTION_MAX = 10,
+        }
+        struct CM_NOTIFY_EVENT_DATA {
+            FilterType: CM_NOTIFY_FILTER_TYPE,
+            Reserved: u32,
+            u: union {
+                DeviceInterface: struct {
+                    ClassGuid: GUID,
+                    SymbolicLink: [u16; 1],
+                },
+                DeviceHandle: struct {
+                    EventGuid: GUID,
+                    NameOffset: i32,
+                    DataSize: u32,
+                    Data: [u8; 1],
+                },
+                DeviceInstance: struct {
+                    InstanceId: [u16; 1],
+                },
+            },
+        }
+        struct CM_NOTIFY_FILTER {
+            cbSize: u32,
+            Flags: u32,
+            FilterType: CM_NOTIFY_FILTER_TYPE,
+            Reserved: u32,
+            u: union {
+                DeviceInterface: struct {
+                    ClassGuid: GUID,
+                },
+                DeviceHandle: struct {
+                    hTarget: HANDLE,
+                },
+                DeviceInstance: struct {
+                    InstanceId: [u16; 200],
+                },
+            },
+        }
+        const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2;
+        const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1;
+        #[repr(i32)]
+        enum CM_NOTIFY_FILTER_TYPE {
+            CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE = 0,
+            CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE = 1,
+            CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE = 2,
+            CM_NOTIFY_FILTER_TYPE_MAX = 3,
+        }
+        const CM_NOTIFY_FILTER_VALID_FLAGS: u32 = 3;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Next_Range(#[in] #[out] preElement: *mut RANGE_ELEMENT, pullStart: *mut DWORDLONG, pullEnd: *mut DWORDLONG, ulFlags: u32) -> CONFIGRET;
+        const CM_OPEN_CLASS_KEY_BITS: u32 = 1;
+        const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0;
+        const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Class_KeyA(#[opt] ClassGuid: *const GUID, #[opt] pszClassName: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkClass: *mut HKEY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Class_KeyW(#[opt] ClassGuid: *const GUID, #[opt] pszClassName: PCWSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkClass: *mut HKEY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Class_Key_ExA(#[opt] ClassGuid: *const GUID, #[opt] pszClassName: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkClass: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Class_Key_ExW(#[opt] ClassGuid: *const GUID, #[opt] pszClassName: PCWSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkClass: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_DevNode_Key(dnDevNode: DEVINST, samDesired: REGSAM, ulHardwareProfile: u32, Disposition: REGDISPOSITION, phkDevice: *mut HKEY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_DevNode_Key_Ex(dnDevNode: DEVINST, samDesired: REGSAM, ulHardwareProfile: u32, Disposition: REGDISPOSITION, phkDevice: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Device_Interface_KeyA(pszDeviceInterface: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Device_Interface_KeyW(pszDeviceInterface: PCWSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Device_Interface_Key_ExA(pszDeviceInterface: PCSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Open_Device_Interface_Key_ExW(pszDeviceInterface: PCWSTR, samDesired: REGSAM, Disposition: REGDISPOSITION, phkDeviceInterface: *mut HKEY, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        const CM_QUERY_ARBITRATOR_BITS: u32 = 1;
+        const CM_QUERY_ARBITRATOR_RAW: u32 = 0;
+        const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1;
+        const CM_QUERY_REMOVE_BITS: u32 = 1;
+        const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1;
+        const CM_QUERY_REMOVE_UI_OK: u32 = 0;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_And_Remove_SubTreeA(dnAncestor: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PSTR, ulNameLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_And_Remove_SubTreeW(dnAncestor: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PWSTR, ulNameLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_And_Remove_SubTree_ExA(dnAncestor: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PSTR, ulNameLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_And_Remove_SubTree_ExW(dnAncestor: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PWSTR, ulNameLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Arbitrator_Free_Data(#[size_param(1)] pData: *mut void, DataLen: u32, dnDevInst: DEVINST, ResourceID: RESOURCEID, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Arbitrator_Free_Data_Ex(#[size_param(1)] pData: *mut void, DataLen: u32, dnDevInst: DEVINST, ResourceID: RESOURCEID, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Arbitrator_Free_Size(pulSize: *mut u32, dnDevInst: DEVINST, ResourceID: RESOURCEID, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Arbitrator_Free_Size_Ex(pulSize: *mut u32, dnDevInst: DEVINST, ResourceID: RESOURCEID, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Remove_SubTree(dnAncestor: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Remove_SubTree_Ex(dnAncestor: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Query_Resource_Conflict_List(pclConflictList: *mut CONFLICT_LIST, dnDevInst: DEVINST, ResourceID: RESOURCEID, #[size_param(4)] ResourceData: *const void, ResourceLen: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        const CM_REENUMERATE_ASYNCHRONOUS: u32 = 4;
+        const CM_REENUMERATE_BITS: u32 = 7;
+        const CM_REENUMERATE_NORMAL: u32 = 0;
+        const CM_REENUMERATE_RETRY_INSTALLATION: u32 = 2;
+        const CM_REENUMERATE_SYNCHRONOUS: u32 = 1;
+        const CM_REGISTER_DEVICE_DRIVER_BITS: u32 = 3;
+        const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: u32 = 1;
+        const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: u32 = 2;
+        const CM_REGISTER_DEVICE_DRIVER_STATIC: u32 = 0;
+        const CM_REGISTRY_BITS: u32 = 769;
+        const CM_REGISTRY_CONFIG: u32 = 512;
+        const CM_REGISTRY_HARDWARE: u32 = 0;
+        const CM_REGISTRY_SOFTWARE: u32 = 1;
+        const CM_REGISTRY_USER: u32 = 256;
+        const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: u32 = 1;
+        const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: u32 = 2;
+        const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: u32 = 3;
+        const CM_REMOVE_BITS: u32 = 7;
+        const CM_REMOVE_DISABLE: u32 = 4;
+        const CM_REMOVE_NO_RESTART: u32 = 2;
+        const CM_REMOVE_UI_NOT_OK: u32 = 1;
+        const CM_REMOVE_UI_OK: u32 = 0;
+        const CM_RESDES_WIDTH_32: u32 = 1;
+        const CM_RESDES_WIDTH_64: u32 = 2;
+        const CM_RESDES_WIDTH_BITS: u32 = 3;
+        const CM_RESDES_WIDTH_DEFAULT: u32 = 0;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Reenumerate_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Reenumerate_DevNode_Ex(dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_Driver(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_Driver_Ex(dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_InterfaceA(dnDevInst: DEVINST, InterfaceClassGuid: *const GUID, #[opt] pszReference: PCSTR, #[len_param(4)] #[out] pszDeviceInterface: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_InterfaceW(dnDevInst: DEVINST, InterfaceClassGuid: *const GUID, #[opt] pszReference: PCWSTR, #[len_param(4)] #[out] pszDeviceInterface: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_Interface_ExA(dnDevInst: DEVINST, InterfaceClassGuid: *const GUID, #[opt] pszReference: PCSTR, #[len_param(4)] #[out] pszDeviceInterface: PSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Register_Device_Interface_ExW(dnDevInst: DEVINST, InterfaceClassGuid: *const GUID, #[opt] pszReference: PCWSTR, #[len_param(4)] #[out] pszDeviceInterface: PWSTR, #[in] #[out] pulLength: *mut u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Register_Notification(pFilter: *const CM_NOTIFY_FILTER, #[opt] pContext: *const void, pCallback: PCM_NOTIFY_CALLBACK, pNotifyContext: *mut HCMNOTIFICATION) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Remove_SubTree(dnAncestor: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Remove_SubTree_Ex(dnAncestor: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Device_EjectA(dnDevInst: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PSTR, ulNameLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Device_EjectW(dnDevInst: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PWSTR, ulNameLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Device_Eject_ExA(dnDevInst: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PSTR, ulNameLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Device_Eject_ExW(dnDevInst: DEVINST, #[opt] pVetoType: *mut PNP_VETO_TYPE, #[len_param(3)] #[out] #[opt] pszVetoName: PWSTR, ulNameLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Eject_PC() -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Request_Eject_PC_Ex(#[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Run_Detection(ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Run_Detection_Ex(ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        const CM_SETUP_BITS: u32 = 15;
+        const CM_SETUP_DEVINST_CONFIG: u32 = 5;
+        const CM_SETUP_DEVINST_CONFIG_CLASS: u32 = 6;
+        const CM_SETUP_DEVINST_CONFIG_EXTENSIONS: u32 = 7;
+        const CM_SETUP_DEVINST_CONFIG_RESET: u32 = 8;
+        const CM_SETUP_DEVINST_READY: u32 = 0;
+        const CM_SETUP_DEVINST_RESET: u32 = 4;
+        const CM_SETUP_DEVNODE_CONFIG: u32 = 5;
+        const CM_SETUP_DEVNODE_CONFIG_CLASS: u32 = 6;
+        const CM_SETUP_DEVNODE_CONFIG_EXTENSIONS: u32 = 7;
+        const CM_SETUP_DEVNODE_CONFIG_RESET: u32 = 8;
+        const CM_SETUP_DEVNODE_READY: u32 = 0;
+        const CM_SETUP_DEVNODE_RESET: u32 = 4;
+        const CM_SETUP_DOWNLOAD: u32 = 1;
+        const CM_SETUP_PROP_CHANGE: u32 = 3;
+        const CM_SETUP_WRITE_LOG_CONFS: u32 = 2;
+        const CM_SET_DEVINST_PROBLEM_BITS: u32 = 1;
+        const CM_SET_DEVINST_PROBLEM_NORMAL: u32 = 0;
+        const CM_SET_DEVINST_PROBLEM_OVERRIDE: u32 = 1;
+        const CM_SET_DEVNODE_PROBLEM_BITS: u32 = 1;
+        const CM_SET_DEVNODE_PROBLEM_NORMAL: u32 = 0;
+        const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1;
+        const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1;
+        const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_Class_PropertyW(ClassGUID: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_Class_Property_ExW(ClassGUID: *const GUID, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_Class_Registry_PropertyA(ClassGuid: *const GUID, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_Class_Registry_PropertyW(ClassGuid: *const GUID, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Problem(dnDevInst: DEVINST, ulProblem: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Problem_Ex(dnDevInst: DEVINST, ulProblem: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_DevNode_PropertyW(dnDevInst: DEVINST, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_DevNode_Property_ExW(dnDevInst: DEVINST, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Registry_PropertyA(dnDevInst: DEVINST, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Registry_PropertyW(dnDevInst: DEVINST, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Registry_Property_ExA(dnDevInst: DEVINST, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_DevNode_Registry_Property_ExW(dnDevInst: DEVINST, ulProperty: u32, #[size_param(3)] #[opt] Buffer: *const void, ulLength: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_Device_Interface_PropertyW(pszDeviceInterface: PCWSTR, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Set_Device_Interface_Property_ExW(pszDeviceInterface: PCWSTR, PropertyKey: *const DEVPROPKEY, PropertyType: DEVPROPTYPE, #[size_param(4)] #[opt] PropertyBuffer: *const u8, PropertyBufferSize: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof(ulHardwareProfile: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof_Ex(ulHardwareProfile: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof_FlagsA(pDeviceID: *const i8, ulConfig: u32, ulValue: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof_FlagsW(pDeviceID: *const u16, ulConfig: u32, ulValue: u32, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof_Flags_ExA(pDeviceID: *const i8, ulConfig: u32, ulValue: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Set_HW_Prof_Flags_ExW(pDeviceID: *const u16, ulConfig: u32, ulValue: u32, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Setup_DevNode(dnDevInst: DEVINST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Setup_DevNode_Ex(dnDevInst: DEVINST, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Test_Range_Available(ullStartValue: DWORDLONG, ullEndValue: DWORDLONG, rlh: RANGE_LIST, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Uninstall_DevNode(dnDevInst: DEVNODE, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Uninstall_DevNode_Ex(dnDevInst: DEVNODE, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Unregister_Device_InterfaceA(pszDeviceInterface: PCSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Unregister_Device_InterfaceW(pszDeviceInterface: PCWSTR, ulFlags: u32) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Unregister_Device_Interface_ExA(pszDeviceInterface: PCSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("SETUPAPI.dll")]
+        extern fn CM_Unregister_Device_Interface_ExW(pszDeviceInterface: PCWSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
+        #[library("CFGMGR32.dll")]
+        extern fn CM_Unregister_Notification(NotifyContext: HCMNOTIFICATION) -> CONFIGRET;
+        const CONFIGMG_VERSION: u32 = 1024;
+        type CONFIGRET = RETURN_TYPE;
+        type CONFLICT_DETAILS = CONFLICT_DETAILS_A;
+        struct CONFLICT_DETAILS_A {
+            CD_ulSize: u32,
+            CD_ulMask: u32,
+            CD_dnDevInst: DEVINST,
+            CD_rdResDes: RES_DES,
+            CD_ulFlags: u32,
+            CD_szDescription: [i8; 260],
+        }
+        struct CONFLICT_DETAILS_W {
+            CD_ulSize: u32,
+            CD_ulMask: u32,
+            CD_dnDevInst: DEVINST,
+            CD_rdResDes: RES_DES,
+            CD_ulFlags: u32,
+            CD_szDescription: [u16; 260],
+        }
+        type CONFLICT_LIST = usize;
+        #[packed(1)]
+        struct CONNECTION_DES {
+            COND_Type: u32,
+            COND_Flags: u32,
+            COND_Class: u8,
+            COND_ClassType: u8,
+            COND_Reserved1: u8,
+            COND_Reserved2: u8,
+            COND_Id: LARGE_INTEGER,
+        }
+        struct CONNECTION_RESOURCE {
+            Connection_Header: CONNECTION_DES,
+        }
+        const CR_ACCESS_DENIED: u32 = 51;
+        const CR_ALREADY_SUCH_DEVINST: u32 = 16;
+        const CR_ALREADY_SUCH_DEVNODE: u32 = 16;
+        const CR_APM_VETOED: u32 = 24;
+        const CR_BUFFER_SMALL: u32 = 26;
+        const CR_CALL_NOT_IMPLEMENTED: u32 = 52;
+        const CR_CANT_SHARE_IRQ: u32 = 43;
+        const CR_CREATE_BLOCKED: u32 = 21;
+        const CR_DEFAULT: u32 = 1;
+        const CR_DEVICE_INTERFACE_ACTIVE: u32 = 54;
+        const CR_DEVICE_NOT_THERE: u32 = 36;
+        const CR_DEVINST_HAS_REQS: u32 = 10;
+        const CR_DEVLOADER_NOT_READY: u32 = 33;
+        const CR_DEVNODE_HAS_REQS: u32 = 10;
+        const CR_DLVXD_NOT_FOUND: u32 = 12;
+        const CR_FAILURE: u32 = 19;
+        const CR_FREE_RESOURCES: u32 = 41;
+        const CR_INVALID_API: u32 = 32;
+        const CR_INVALID_ARBITRATOR: u32 = 8;
+        const CR_INVALID_CONFLICT_LIST: u32 = 57;
+        const CR_INVALID_DATA: u32 = 31;
+        const CR_INVALID_DEVICE_ID: u32 = 30;
+        const CR_INVALID_DEVINST: u32 = 5;
+        const CR_INVALID_DEVNODE: u32 = 5;
+        const CR_INVALID_FLAG: u32 = 4;
+        const CR_INVALID_INDEX: u32 = 58;
+        const CR_INVALID_LOAD_TYPE: u32 = 25;
+        const CR_INVALID_LOG_CONF: u32 = 7;
+        const CR_INVALID_MACHINENAME: u32 = 47;
+        const CR_INVALID_NODELIST: u32 = 9;
+        const CR_INVALID_POINTER: u32 = 3;
+        const CR_INVALID_PRIORITY: u32 = 39;
+        const CR_INVALID_PROPERTY: u32 = 53;
+        const CR_INVALID_RANGE: u32 = 18;
+        const CR_INVALID_RANGE_LIST: u32 = 17;
+        const CR_INVALID_REFERENCE_STRING: u32 = 56;
+        const CR_INVALID_RESOURCEID: u32 = 11;
+        const CR_INVALID_RES_DES: u32 = 6;
+        const CR_INVALID_STRUCTURE_SIZE: u32 = 59;
+        const CR_MACHINE_UNAVAILABLE: u32 = 49;
+        const CR_NEED_RESTART: u32 = 34;
+        const CR_NOT_DISABLEABLE: u32 = 40;
+        const CR_NOT_SYSTEM_VM: u32 = 22;
+        const CR_NO_ARBITRATOR: u32 = 27;
+        const CR_NO_CM_SERVICES: u32 = 50;
+        const CR_NO_DEPENDENT: u32 = 44;
+        const CR_NO_MORE_HW_PROFILES: u32 = 35;
+        const CR_NO_MORE_LOG_CONF: u32 = 14;
+        const CR_NO_MORE_RES_DES: u32 = 15;
+        const CR_NO_REGISTRY_HANDLE: u32 = 28;
+        const CR_NO_SUCH_DEVICE_INTERFACE: u32 = 55;
+        const CR_NO_SUCH_DEVINST: u32 = 13;
+        const CR_NO_SUCH_DEVNODE: u32 = 13;
+        const CR_NO_SUCH_LOGICAL_DEV: u32 = 20;
+        const CR_NO_SUCH_REGISTRY_KEY: u32 = 46;
+        const CR_NO_SUCH_VALUE: u32 = 37;
+        const CR_OUT_OF_MEMORY: u32 = 2;
+        const CR_QUERY_VETOED: u32 = 42;
+        const CR_REGISTRY_ERROR: u32 = 29;
+        const CR_REMOTE_COMM_FAILURE: u32 = 48;
+        const CR_REMOVE_VETOED: u32 = 23;
+        const CR_SAME_RESOURCES: u32 = 45;
+        const CR_SUCCESS: u32 = 0;
+        const CR_WRONG_TYPE: u32 = 38;
+        #[packed(1)]
+        struct CS_DES {
+            CSD_SignatureLength: u32,
+            CSD_LegacyDataOffset: u32,
+            CSD_LegacyDataSize: u32,
+            CSD_Flags: u32,
+            CSD_ClassGuid: GUID,
+            CSD_Signature: [u8; 1],
+        }
+        struct CS_RESOURCE {
+            CS_Header: CS_DES,
+        }
+        type DEVINST = u32;
+        type DEVINSTID = DEVINSTID_A;
+        type DEVINSTID_A = *mut i8;
+        type DEVINSTID_W = *mut u16;
+        type DEVNODE = u32;
+        type DEVNODEID = DEVNODEID_A;
+        type DEVNODEID_A = *mut i8;
+        type DEVNODEID_W = *mut u16;
+        #[packed(1)]
+        struct DEVPRIVATE_DES {
+            PD_Count: u32,
+            PD_Type: u32,
+            PD_Data1: u32,
+            PD_Data2: u32,
+            PD_Data3: u32,
+            PD_Flags: u32,
+        }
+        #[packed(1)]
+        struct DEVPRIVATE_RANGE {
+            PR_Data1: u32,
+            PR_Data2: u32,
+            PR_Data3: u32,
+        }
+        struct DEVPRIVATE_RESOURCE {
+            PRV_Header: DEVPRIVATE_DES,
+            PRV_Data: [DEVPRIVATE_RANGE; 1],
+        }
+        #[packed(1)]
+        struct DMA_DES {
+            DD_Count: u32,
+            DD_Type: u32,
+            DD_Flags: u32,
+            DD_Alloc_Chan: u32,
+        }
+        #[packed(1)]
+        struct DMA_RANGE {
+            DR_Min: u32,
+            DR_Max: u32,
+            DR_Flags: u32,
+        }
+        struct DMA_RESOURCE {
+            DMA_Header: DMA_DES,
+            DMA_Data: [DMA_RANGE; 1],
+        }
+        const FILTERED_LOG_CONF: u32 = 1;
+        const FORCED_LOG_CONF: u32 = 4;
+        type HCMNOTIFICATION = *mut void;
+        type HMACHINE = HANDLE;
+        type HWPROFILEINFO = HWPROFILEINFO_A;
+        #[packed(1)]
+        struct HWPROFILEINFO_A {
+            HWPI_ulHWProfile: u32,
+            HWPI_szFriendlyName: [i8; 80],
+            HWPI_dwFlags: u32,
+        }
+        #[packed(1)]
+        struct HWPROFILEINFO_W {
+            HWPI_ulHWProfile: u32,
+            HWPI_szFriendlyName: [u16; 80],
+            HWPI_dwFlags: u32,
+        }
+        const IOA_Local: u32 = 255;
+        const IO_ALIAS_10_BIT_DECODE: u32 = 4;
+        const IO_ALIAS_12_BIT_DECODE: u32 = 16;
+        const IO_ALIAS_16_BIT_DECODE: u32 = 0;
+        const IO_ALIAS_POSITIVE_DECODE: u32 = 255;
+        #[packed(1)]
+        struct IO_DES {
+            IOD_Count: u32,
+            IOD_Type: u32,
+            IOD_Alloc_Base: DWORDLONG,
+            IOD_Alloc_End: DWORDLONG,
+            IOD_DesFlags: u32,
+        }
+        #[packed(1)]
+        struct IO_RANGE {
+            IOR_Align: DWORDLONG,
+            IOR_nPorts: u32,
+            IOR_Min: DWORDLONG,
+            IOR_Max: DWORDLONG,
+            IOR_RangeFlags: u32,
+            IOR_Alias: DWORDLONG,
+        }
+        struct IO_RESOURCE {
+            IO_Header: IO_DES,
+            IO_Data: [IO_RANGE; 1],
+        }
+        #[arch(X64 | Arm64)]
+        type IRQ_DES = IRQ_DES_64;
+        #[arch(X86)]
+        type IRQ_DES = IRQ_DES_32;
+        #[packed(1)]
+        struct IRQ_DES_32 {
+            IRQD_Count: u32,
+            IRQD_Type: u32,
+            IRQD_Flags: u32,
+            IRQD_Alloc_Num: u32,
+            IRQD_Affinity: u32,
+        }
+        #[packed(1)]
+        struct IRQ_DES_64 {
+            IRQD_Count: u32,
+            IRQD_Type: u32,
+            IRQD_Flags: u32,
+            IRQD_Alloc_Num: u32,
+            IRQD_Affinity: u64,
+        }
+        #[packed(1)]
+        struct IRQ_RANGE {
+            IRQR_Min: u32,
+            IRQR_Max: u32,
+            IRQR_Flags: u32,
+        }
+        #[arch(X64 | Arm64)]
+        type IRQ_RESOURCE = IRQ_RESOURCE_64;
+        #[arch(X86)]
+        type IRQ_RESOURCE = IRQ_RESOURCE_32;
+        struct IRQ_RESOURCE_32 {
+            IRQ_Header: IRQ_DES_32,
+            IRQ_Data: [IRQ_RANGE; 1],
+        }
+        struct IRQ_RESOURCE_64 {
+            IRQ_Header: IRQ_DES_64,
+            IRQ_Data: [IRQ_RANGE; 1],
+        }
+        type LOG_CONF = usize;
+        const LOG_CONF_BITS: u32 = 7;
+        const MAX_CLASS_NAME_LEN: u32 = 32;
+        const MAX_CONFIG_VALUE: u32 = 9999;
+        const MAX_DEVICE_ID_LEN: u32 = 200;
+        const MAX_DEVNODE_ID_LEN: u32 = 200;
+        const MAX_DMA_CHANNELS: u32 = 7;
+        const MAX_GUID_STRING_LEN: u32 = 39;
+        const MAX_INSTANCE_VALUE: u32 = 9999;
+        const MAX_IO_PORTS: u32 = 20;
+        const MAX_IRQS: u32 = 7;
+        const MAX_MEM_REGISTERS: u32 = 9;
+        #[packed(1)]
+        struct MEM_DES {
+            MD_Count: u32,
+            MD_Type: u32,
+            MD_Alloc_Base: DWORDLONG,
+            MD_Alloc_End: DWORDLONG,
+            MD_Flags: u32,
+            MD_Reserved: u32,
+        }
+        #[packed(1)]
+        struct MEM_LARGE_DES {
+            MLD_Count: u32,
+            MLD_Type: u32,
+            MLD_Alloc_Base: DWORDLONG,
+            MLD_Alloc_End: DWORDLONG,
+            MLD_Flags: u32,
+            MLD_Reserved: u32,
+        }
+        #[packed(1)]
+        struct MEM_LARGE_RANGE {
+            MLR_Align: DWORDLONG,
+            MLR_nBytes: u64,
+            MLR_Min: DWORDLONG,
+            MLR_Max: DWORDLONG,
+            MLR_Flags: u32,
+            MLR_Reserved: u32,
+        }
+        struct MEM_LARGE_RESOURCE {
+            MEM_LARGE_Header: MEM_LARGE_DES,
+            MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
+        }
+        #[packed(1)]
+        struct MEM_RANGE {
+            MR_Align: DWORDLONG,
+            MR_nBytes: u32,
+            MR_Min: DWORDLONG,
+            MR_Max: DWORDLONG,
+            MR_Flags: u32,
+            MR_Reserved: u32,
+        }
+        struct MEM_RESOURCE {
+            MEM_Header: MEM_DES,
+            MEM_Data: [MEM_RANGE; 1],
+        }
+        #[packed(1)]
+        struct MFCARD_DES {
+            PMF_Count: u32,
+            PMF_Type: u32,
+            PMF_Flags: u32,
+            PMF_ConfigOptions: u8,
+            PMF_IoResourceIndex: u8,
+            PMF_Reserved: [u8; 2],
+            PMF_ConfigRegisterBase: u32,
+        }
+        struct MFCARD_RESOURCE {
+            MfCard_Header: MFCARD_DES,
+        }
+        const NUM_CR_RESULTS: u32 = 60;
+        const NUM_LOG_CONF: u32 = 6;
+        const OVERRIDE_LOG_CONF: u32 = 5;
+        type PBUSNUMBER_DES = *mut BUSNUMBER_DES;
+        type PBUSNUMBER_RANGE = *mut BUSNUMBER_RANGE;
+        type PBUSNUMBER_RESOURCE = *mut BUSNUMBER_RESOURCE;
+        #[packed(1)]
+        struct PCCARD_DES {
+            PCD_Count: u32,
+            PCD_Type: u32,
+            PCD_Flags: u32,
+            PCD_ConfigIndex: u8,
+            PCD_Reserved: [u8; 3],
+            PCD_MemoryCardBase1: u32,
+            PCD_MemoryCardBase2: u32,
+            PCD_MemoryCardBase: [u32; 2],
+            PCD_MemoryFlags: [u16; 2],
+            PCD_IoFlags: [u8; 2],
+        }
+        struct PCCARD_RESOURCE {
+            PcCard_Header: PCCARD_DES,
+        }
+        const PCD_MAX_IO: u32 = 2;
+        const PCD_MAX_MEMORY: u32 = 2;
+        type PCM_NOTIFY_ACTION = *mut CM_NOTIFY_ACTION;
+        extern fn PCM_NOTIFY_CALLBACK(hNotify: HCMNOTIFICATION, #[opt] Context: *const void, Action: CM_NOTIFY_ACTION, #[size_param(4)] EventData: *const CM_NOTIFY_EVENT_DATA, EventDataSize: u32) -> u32;
+        type PCM_NOTIFY_EVENT_DATA = *mut CM_NOTIFY_EVENT_DATA;
+        type PCM_NOTIFY_FILTER = *mut CM_NOTIFY_FILTER;
+        type PCM_NOTIFY_FILTER_TYPE = *mut CM_NOTIFY_FILTER_TYPE;
+        type PCONFLICT_DETAILS = PCONFLICT_DETAILS_A;
+        type PCONFLICT_DETAILS_A = *mut CONFLICT_DETAILS_A;
+        type PCONFLICT_DETAILS_W = *mut CONFLICT_DETAILS_W;
+        type PCONFLICT_LIST = *mut CONFLICT_LIST;
+        type PCONNECTION_DES = *mut CONNECTION_DES;
+        type PCONNECTION_RESOURCE = *mut CONNECTION_RESOURCE;
+        type PCS_DES = *mut CS_DES;
+        type PCS_RESOURCE = *mut CS_RESOURCE;
+        type PDEVINST = *mut DEVNODE;
+        type PDEVNODE = *mut DEVNODE;
+        type PDEVPRIVATE_DES = *mut DEVPRIVATE_DES;
+        type PDEVPRIVATE_RANGE = *mut DEVPRIVATE_RANGE;
+        type PDEVPRIVATE_RESOURCE = *mut DEVPRIVATE_RESOURCE;
+        type PDMA_DES = *mut DMA_DES;
+        type PDMA_RANGE = *mut DMA_RANGE;
+        type PDMA_RESOURCE = *mut DMA_RESOURCE;
+        type PHCMNOTIFICATION = *mut HCMNOTIFICATION;
+        type PHMACHINE = *mut HMACHINE;
+        type PHWPROFILEINFO = PHWPROFILEINFO_A;
+        type PHWPROFILEINFO_A = *mut HWPROFILEINFO_A;
+        type PHWPROFILEINFO_W = *mut HWPROFILEINFO_W;
+        type PIO_DES = *mut IO_DES;
+        type PIO_RANGE = *mut IO_RANGE;
+        type PIO_RESOURCE = *mut IO_RESOURCE;
+        #[arch(X64 | Arm64)]
+        type PIRQ_DES = PIRQ_DES_64;
+        #[arch(X86)]
+        type PIRQ_DES = PIRQ_DES_32;
+        type PIRQ_DES_32 = *mut IRQ_DES_32;
+        type PIRQ_DES_64 = *mut IRQ_DES_64;
+        type PIRQ_RANGE = *mut IRQ_RANGE;
+        #[arch(X64 | Arm64)]
+        type PIRQ_RESOURCE = PIRQ_RESOURCE_64;
+        #[arch(X86)]
+        type PIRQ_RESOURCE = PIRQ_RESOURCE_32;
+        type PIRQ_RESOURCE_32 = *mut IRQ_RESOURCE_32;
+        type PIRQ_RESOURCE_64 = *mut IRQ_RESOURCE_64;
+        type PLOG_CONF = *mut LOG_CONF;
+        type PMEM_DES = *mut MEM_DES;
+        type PMEM_LARGE_DES = *mut MEM_LARGE_DES;
+        type PMEM_LARGE_RANGE = *mut MEM_LARGE_RANGE;
+        type PMEM_LARGE_RESOURCE = *mut MEM_LARGE_RESOURCE;
+        type PMEM_RANGE = *mut MEM_RANGE;
+        type PMEM_RESOURCE = *mut MEM_RESOURCE;
+        type PMFCARD_DES = *mut MFCARD_DES;
+        type PMFCARD_RESOURCE = *mut MFCARD_RESOURCE;
+        type PPCCARD_DES = *mut PCCARD_DES;
+        type PPCCARD_RESOURCE = *mut PCCARD_RESOURCE;
+        type PPRIORITY = *mut PRIORITY;
+        type PRANGE_ELEMENT = *mut RANGE_ELEMENT;
+        type PRANGE_LIST = *mut RANGE_LIST;
+        type PRESOURCEID = *mut RESOURCEID;
+        type PRES_DES = *mut RES_DES;
+        type PRIORITY = u32;
+        const PRIORITY_BIT: u32 = 8;
+        const PRIORITY_EQUAL_FIRST: u32 = 8;
+        const PRIORITY_EQUAL_LAST: u32 = 0;
+        type RANGE_ELEMENT = usize;
+        type RANGE_LIST = usize;
+        type REGDISPOSITION = u32;
+        type RESOURCEID = u32;
+        type RES_DES = usize;
+        type RETURN_TYPE = u32;
+        const RegDisposition_Bits: u32 = 1;
+        const RegDisposition_OpenAlways: u32 = 0;
+        const RegDisposition_OpenExisting: u32 = 1;
+        const ResType_All: u32 = 0;
+        const ResType_BusNumber: u32 = 6;
+        const ResType_ClassSpecific: u32 = 65535;
+        const ResType_Connection: u32 = 32772;
+        const ResType_DMA: u32 = 3;
+        const ResType_DevicePrivate: u32 = 32769;
+        const ResType_DoNotUse: u32 = 5;
+        const ResType_IO: u32 = 2;
+        const ResType_IRQ: u32 = 4;
+        const ResType_Ignored_Bit: u32 = 32768;
+        const ResType_MAX: u32 = 7;
+        const ResType_Mem: u32 = 1;
+        const ResType_MemLarge: u32 = 7;
+        const ResType_MfCardConfig: u32 = 32771;
+        const ResType_None: u32 = 0;
+        const ResType_PcCardConfig: u32 = 32770;
+        const ResType_Reserved: u32 = 32768;
+        const fDD_BYTE: u32 = 0;
+        const fDD_BYTE_AND_WORD: u32 = 3;
+        const fDD_BusMaster: u32 = 4;
+        const fDD_DWORD: u32 = 2;
+        const fDD_NoBusMaster: u32 = 0;
+        const fDD_TypeA: u32 = 8;
+        const fDD_TypeB: u32 = 16;
+        const fDD_TypeF: u32 = 24;
+        const fDD_TypeStandard: u32 = 0;
+        const fDD_WORD: u32 = 1;
+        const fIOD_10_BIT_DECODE: u32 = 4;
+        const fIOD_12_BIT_DECODE: u32 = 8;
+        const fIOD_16_BIT_DECODE: u32 = 16;
+        const fIOD_DECODE: u32 = 252;
+        const fIOD_IO: u32 = 1;
+        const fIOD_Memory: u32 = 0;
+        const fIOD_PASSIVE_DECODE: u32 = 64;
+        const fIOD_PORT_BAR: u32 = 256;
+        const fIOD_POSITIVE_DECODE: u32 = 32;
+        const fIOD_PortType: u32 = 1;
+        const fIOD_WINDOW_DECODE: u32 = 128;
+        const fIRQD_Edge: u32 = 2;
+        const fIRQD_Exclusive: u32 = 0;
+        const fIRQD_Level: u32 = 0;
+        const fIRQD_Level_Bit: u32 = 1;
+        const fIRQD_Share: u32 = 1;
+        const fIRQD_Share_Bit: u32 = 0;
+        const fMD_24: u32 = 0;
+        const fMD_32: u32 = 2;
+        const fMD_32_24: u32 = 2;
+        const fMD_Cacheable: u32 = 32;
+        const fMD_CombinedWrite: u32 = 16;
+        const fMD_CombinedWriteAllowed: u32 = 16;
+        const fMD_CombinedWriteDisallowed: u32 = 0;
+        const fMD_MEMORY_BAR: u32 = 128;
+        const fMD_MemoryType: u32 = 1;
+        const fMD_NonCacheable: u32 = 0;
+        const fMD_Pref: u32 = 4;
+        const fMD_PrefetchAllowed: u32 = 4;
+        const fMD_PrefetchDisallowed: u32 = 0;
+        const fMD_Prefetchable: u32 = 4;
+        const fMD_RAM: u32 = 1;
+        const fMD_ROM: u32 = 0;
+        const fMD_ReadAllowed: u32 = 0;
+        const fMD_ReadDisallowed: u32 = 8;
+        const fMD_Readable: u32 = 8;
+        const fMD_WINDOW_DECODE: u32 = 64;
+        const fPCD_ATTRIBUTES_PER_WINDOW: u32 = 32768;
+        const fPCD_IO1_16: u32 = 65536;
+        const fPCD_IO1_SRC_16: u32 = 262144;
+        const fPCD_IO1_WS_16: u32 = 524288;
+        const fPCD_IO1_ZW_8: u32 = 131072;
+        const fPCD_IO2_16: u32 = 1048576;
+        const fPCD_IO2_SRC_16: u32 = 4194304;
+        const fPCD_IO2_WS_16: u32 = 8388608;
+        const fPCD_IO2_ZW_8: u32 = 2097152;
+        const fPCD_IO_16: u32 = 1;
+        const fPCD_IO_8: u32 = 0;
+        const fPCD_IO_SRC_16: u32 = 32;
+        const fPCD_IO_WS_16: u32 = 64;
+        const fPCD_IO_ZW_8: u32 = 16;
+        const fPCD_MEM1_16: u32 = 67108864;
+        const fPCD_MEM1_A: u32 = 4;
+        const fPCD_MEM1_WS_ONE: u32 = 16777216;
+        const fPCD_MEM1_WS_THREE: u32 = 50331648;
+        const fPCD_MEM1_WS_TWO: u32 = 33554432;
+        const fPCD_MEM2_16: u32 = 1073741824;
+        const fPCD_MEM2_A: u32 = 8;
+        const fPCD_MEM2_WS_ONE: u32 = 268435456;
+        const fPCD_MEM2_WS_THREE: u32 = 805306368;
+        const fPCD_MEM2_WS_TWO: u32 = 536870912;
+        const fPCD_MEM_16: u32 = 2;
+        const fPCD_MEM_8: u32 = 0;
+        const fPCD_MEM_A: u32 = 4;
+        const fPCD_MEM_WS_ONE: u32 = 256;
+        const fPCD_MEM_WS_THREE: u32 = 768;
+        const fPCD_MEM_WS_TWO: u32 = 512;
+        const fPMF_AUDIO_ENABLE: u32 = 8;
+        const mDD_BusMaster: u32 = 4;
+        const mDD_Type: u32 = 24;
+        const mDD_Width: u32 = 3;
+        const mIRQD_Edge_Level: u32 = 2;
+        const mIRQD_Share: u32 = 1;
+        const mMD_32_24: u32 = 2;
+        const mMD_Cacheable: u32 = 32;
+        const mMD_CombinedWrite: u32 = 16;
+        const mMD_MemoryType: u32 = 1;
+        const mMD_Prefetchable: u32 = 4;
+        const mMD_Readable: u32 = 8;
+        const mPCD_IO_8_16: u32 = 1;
+        const mPCD_MEM1_WS: u32 = 50331648;
+        const mPCD_MEM2_WS: u32 = 805306368;
+        const mPCD_MEM_8_16: u32 = 2;
+        const mPCD_MEM_A_C: u32 = 12;
+        const mPCD_MEM_WS: u32 = 768;
+        const mPMF_AUDIO_ENABLE: u32 = 8;
+    }
+}

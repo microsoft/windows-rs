@@ -1,0 +1,2760 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum D3D12_BITSTREAM_ENCRYPTION_TYPE {
+            D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE = 0,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
+            IOCoherent: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
+            VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
+            VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+            Protected: BOOL,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
+            NodeIndex: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            DecodeSample: D3D12_VIDEO_SAMPLE,
+            OutputFormat: D3D12_VIDEO_FORMAT,
+            FrameRate: DXGI_RATIONAL,
+            BitRate: u32,
+            SupportFlags: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS,
+            ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+            NodeIndex: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            FormatCount: u32,
+            pOutputFormats: *mut DXGI_FORMAT,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
+            NodeIndex: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            FormatCount: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
+            NodeIndex: u32,
+            DecodeProfile: GUID,
+            Width: u32,
+            Height: u32,
+            DecodeFormat: DXGI_FORMAT,
+            Components: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS,
+            BinCount: u32,
+            CounterBitDepth: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+            NodeIndex: u32,
+            ProfileCount: u32,
+            pProfiles: *mut GUID,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
+            NodeIndex: u32,
+            ProfileCount: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
+            NodeIndex: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
+            NodeIndex: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            Width: u32,
+            Height: u32,
+            DecodeFormat: DXGI_FORMAT,
+            FrameRate: DXGI_RATIONAL,
+            BitRate: u32,
+            SupportFlags: D3D12_VIDEO_DECODE_SUPPORT_FLAGS,
+            ConfigurationFlags: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS,
+            DecodeTier: D3D12_VIDEO_DECODE_TIER,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            IsSupported: BOOL,
+            CodecSupportLimits: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            IsSupported: BOOL,
+            PictureSupport: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
+            NodeIndex: u32,
+            SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+            SupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+            MapSourcePreferenceRanking: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            FrameResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            CodecSupport: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+            HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
+            IsSupported: BOOL,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
+            HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC1,
+            IsSupported: BOOL,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Format: DXGI_FORMAT,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            IntraRefreshMode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
+            NodeIndex: u32,
+            SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+            MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            BidirectionalRefFrameEnabled: BOOL,
+            SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+            MaxMotionHints: u32,
+            MinDeviation: u32,
+            MaxDeviation: u32,
+            MapSourcePreferenceRanking: u32,
+            MotionUnitPrecisionSupport: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            ResolutionRatiosCount: u32,
+            IsSupported: BOOL,
+            MinResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            MaxResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            ResolutionWidthMultipleRequirement: u32,
+            ResolutionHeightMultipleRequirement: u32,
+            pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            ResolutionRatiosCount: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            IsSupported: BOOL,
+            MinSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            MaxSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
+            NodeIndex: u32,
+            SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            IsSupported: BOOL,
+            MapSourcePreferenceRanking: u32,
+            BlockSize: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            InputFormat: DXGI_FORMAT,
+            InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+            QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+            DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+            MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+            Pow2DownscaleFactor: u32,
+            SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+            IsSupported: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS {
+            DirtyRegionsSupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+            MapSourcePreferenceRanking: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS {
+            SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
+            MaxSubregionsNumber: u32,
+            MaxIntraRefreshFrameDuration: u32,
+            SubregionBlockPixelsSize: u32,
+            QPMapRegionPixelsSize: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
+            MaxSubregionsNumber: u32,
+            MaxIntraRefreshFrameDuration: u32,
+            SubregionBlockPixelsSize: u32,
+            QPMapRegionPixelsSize: u32,
+            QPMap: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP,
+            DirtyRegions: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS,
+            MotionSearch: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH,
+            FrameAnalysis: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
+            MaxMotionHints: u32,
+            MinDeviation: u32,
+            MaxDeviation: u32,
+            MapSourcePreferenceRanking: u32,
+            MotionUnitPrecisionSupportFlags: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+            SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP {
+            MapSourcePreferenceRanking: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
+            NodeIndex: u32,
+            SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+            MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+            IsSupported: BOOL,
+            MaxResolvedBufferAllocationSize: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            InputFormat: DXGI_FORMAT,
+            PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            IsSupported: BOOL,
+            CompressedBitstreamBufferAccessAlignment: u32,
+            EncoderMetadataBufferAccessAlignment: u32,
+            MaxEncoderOutputMetadataBufferSize: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            InputFormat: DXGI_FORMAT,
+            PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            IsSupported: BOOL,
+            CompressedBitstreamBufferAccessAlignment: u32,
+            EncoderMetadataBufferAccessAlignment: u32,
+            MaxEncoderOutputMetadataBufferSize: u32,
+            OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            EncoderOutputMetadataQPMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            EncoderOutputMetadataSATDMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            EncoderOutputMetadataBitAllocationMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            EncoderOutputMetadataFramePSNRComponentsNumber: u32,
+            EncoderOutputMetadataSubregionsPSNRComponentsNumber: u32,
+            EncoderOutputMetadataSubregionsPSNRResolvedMetadataBufferSize: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            InputFormat: DXGI_FORMAT,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+            RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+            IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+            SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            ResolutionsListCount: u32,
+            pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            MaxReferenceFramesInDPB: u32,
+            ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+            SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+            SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            InputFormat: DXGI_FORMAT,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+            RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+            IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+            SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            ResolutionsListCount: u32,
+            pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            MaxReferenceFramesInDPB: u32,
+            ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+            SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+            SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
+            SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+            MaxQualityVsSpeed: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
+            NodeIndex: u32,
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            InputFormat: DXGI_FORMAT,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+            RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+            IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+            SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            ResolutionsListCount: u32,
+            pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            MaxReferenceFramesInDPB: u32,
+            ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+            SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+            SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1,
+            SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+            MaxQualityVsSpeed: u32,
+            QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+            DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+            MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+            FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+            NodeIndex: u32,
+            CommandCount: u32,
+            pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
+            NodeIndex: u32,
+            CommandCount: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+            CommandId: GUID,
+            Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+            ParameterCount: u32,
+            pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
+            CommandId: GUID,
+            Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+            ParameterCount: u32,
+            ParameterPacking: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+            NodeIndex: u32,
+            CommandId: GUID,
+            pCreationParameters: *const void,
+            CreationParametersSizeInBytes: usize,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+            NodeIndex: u32,
+            CommandId: GUID,
+            pInputData: *const void,
+            InputDataSizeInBytes: usize,
+            pOutputData: *mut void,
+            OutputDataSizeInBytes: usize,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
+            NodeIndex: u32,
+            VideoDecodeSupport: BOOL,
+            VideoProcessSupport: BOOL,
+            VideoEncodeSupport: BOOL,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
+            NodeIndex: u32,
+            InputFormat: DXGI_FORMAT,
+            BlockSizeFlags: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS,
+            PrecisionFlags: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS,
+            SizeRange: D3D12_VIDEO_SIZE_RANGE,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
+            NodeIndex: u32,
+            SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
+            NodeIndex: u32,
+            InputFormat: DXGI_FORMAT,
+            BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+            Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+            SizeRange: D3D12_VIDEO_SIZE_RANGE,
+            Protected: BOOL,
+            MotionVectorHeapMemoryPoolL0Size: u64,
+            MotionVectorHeapMemoryPoolL1Size: u64,
+            MotionEstimatorMemoryPoolL0Size: u64,
+            MotionEstimatorMemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+            NodeMask: u32,
+            pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+            NumInputStreamDescs: u32,
+            pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+            NodeMask: u32,
+            pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+            NumInputStreamDescs: u32,
+            pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+            Protected: BOOL,
+            MemoryPoolL0Size: u64,
+            MemoryPoolL1Size: u64,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
+            NodeIndex: u32,
+            MaxInputStreams: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
+            NodeIndex: u32,
+            SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
+            NodeIndex: u32,
+            DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+            Filters: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+            FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+            InputFrameRate: DXGI_RATIONAL,
+            OutputFrameRate: DXGI_RATIONAL,
+            EnableAutoProcessing: BOOL,
+            PastFrames: u32,
+            FutureFrames: u32,
+        }
+        struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+            NodeIndex: u32,
+            InputSample: D3D12_VIDEO_SAMPLE,
+            InputFieldType: D3D12_VIDEO_FIELD_TYPE,
+            InputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+            InputFrameRate: DXGI_RATIONAL,
+            OutputFormat: D3D12_VIDEO_FORMAT,
+            OutputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+            OutputFrameRate: DXGI_RATIONAL,
+            SupportFlags: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS,
+            ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+            FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+            DeinterlaceSupport: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+            AutoProcessingSupport: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS,
+            FilterSupport: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+            FilterRangeSupport: [D3D12_VIDEO_PROCESS_FILTER_RANGE; 32],
+        }
+        #[repr(i32)]
+        enum D3D12_FEATURE_VIDEO {
+            D3D12_FEATURE_VIDEO_DECODE_SUPPORT = 0,
+            D3D12_FEATURE_VIDEO_DECODE_PROFILES = 1,
+            D3D12_FEATURE_VIDEO_DECODE_FORMATS = 2,
+            D3D12_FEATURE_VIDEO_DECODE_CONVERSION_SUPPORT = 3,
+            D3D12_FEATURE_VIDEO_PROCESS_SUPPORT = 5,
+            D3D12_FEATURE_VIDEO_PROCESS_MAX_INPUT_STREAMS = 6,
+            D3D12_FEATURE_VIDEO_PROCESS_REFERENCE_INFO = 7,
+            D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE = 8,
+            D3D12_FEATURE_VIDEO_PROCESSOR_SIZE = 9,
+            D3D12_FEATURE_VIDEO_DECODE_PROFILE_COUNT = 10,
+            D3D12_FEATURE_VIDEO_DECODE_FORMAT_COUNT = 11,
+            D3D12_FEATURE_VIDEO_ARCHITECTURE = 17,
+            D3D12_FEATURE_VIDEO_DECODE_HISTOGRAM = 18,
+            D3D12_FEATURE_VIDEO_FEATURE_AREA_SUPPORT = 19,
+            D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR = 20,
+            D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_SIZE = 21,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_COUNT = 22,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMANDS = 23,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT = 24,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETERS = 25,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SUPPORT = 26,
+            D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SIZE = 27,
+            D3D12_FEATURE_VIDEO_DECODE_PROTECTED_RESOURCES = 28,
+            D3D12_FEATURE_VIDEO_PROCESS_PROTECTED_RESOURCES = 29,
+            D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES = 30,
+            D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE1 = 31,
+            D3D12_FEATURE_VIDEO_PROCESSOR_SIZE1 = 32,
+            D3D12_FEATURE_VIDEO_ENCODER_CODEC = 33,
+            D3D12_FEATURE_VIDEO_ENCODER_PROFILE_LEVEL = 34,
+            D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT = 35,
+            D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION = 36,
+            D3D12_FEATURE_VIDEO_ENCODER_INPUT_FORMAT = 37,
+            D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_MODE = 38,
+            D3D12_FEATURE_VIDEO_ENCODER_INTRA_REFRESH_MODE = 39,
+            D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 40,
+            D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE = 41,
+            D3D12_FEATURE_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT = 42,
+            D3D12_FEATURE_VIDEO_ENCODER_SUPPORT = 43,
+            D3D12_FEATURE_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT = 44,
+            D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS = 45,
+            D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG = 46,
+            D3D12_FEATURE_VIDEO_ENCODER_SUPPORT1 = 47,
+            D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 = 48,
+            D3D12_FEATURE_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT = 49,
+            D3D12_FEATURE_VIDEO_ENCODER_QPMAP_INPUT = 50,
+            D3D12_FEATURE_VIDEO_ENCODER_DIRTY_REGIONS = 51,
+            D3D12_FEATURE_VIDEO_ENCODER_MOTION_SEARCH = 52,
+            D3D12_FEATURE_VIDEO_ENCODER_SUPPORT2 = 55,
+            D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE1 = 56,
+            D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS = 57,
+        }
+        struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
+            Status: u64,
+            NumMacroblocksAffected: u64,
+            FrameRate: DXGI_RATIONAL,
+            BitRate: u32,
+        }
+        struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
+            pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
+            PixelWidth: u32,
+            PixelHeight: u32,
+        }
+        struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
+            pMotionVectorTexture2D: ID3D12Resource,
+            MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
+        }
+        struct D3D12_RESOURCE_COORDINATE {
+            X: u64,
+            Y: u32,
+            Z: u32,
+            SubresourceIndex: u32,
+        }
+        struct D3D12_VIDEO_DECODER_DESC {
+            NodeMask: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+        }
+        struct D3D12_VIDEO_DECODER_HEAP_DESC {
+            NodeMask: u32,
+            Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+            DecodeWidth: u32,
+            DecodeHeight: u32,
+            Format: DXGI_FORMAT,
+            FrameRate: DXGI_RATIONAL,
+            BitRate: u32,
+            MaxDecodePictureBufferCount: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
+            D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS = 0,
+            D3D12_VIDEO_DECODE_ARGUMENT_TYPE_INVERSE_QUANTIZATION_MATRIX = 1,
+            D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL = 2,
+            D3D12_VIDEO_DECODE_ARGUMENT_TYPE_HUFFMAN_TABLE = 3,
+        }
+        struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
+            pBuffer: ID3D12Resource,
+            Offset: u64,
+            Size: u64,
+        }
+        struct D3D12_VIDEO_DECODE_CONFIGURATION {
+            DecodeProfile: GUID,
+            BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
+            InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
+            D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE = 0,
+            D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_HEIGHT_ALIGNMENT_MULTIPLE_32_REQUIRED = 1,
+            D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED = 2,
+            D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED = 4,
+            D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_ALLOW_RESOLUTION_CHANGE_ON_NON_KEY_FRAME = 8,
+        }
+        struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
+            Enable: BOOL,
+            pReferenceTexture2D: ID3D12Resource,
+            ReferenceSubresource: u32,
+            OutputColorSpace: DXGI_COLOR_SPACE_TYPE,
+            DecodeColorSpace: DXGI_COLOR_SPACE_TYPE,
+        }
+        struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
+            Enable: BOOL,
+            pReferenceTexture2D: ID3D12Resource,
+            ReferenceSubresource: u32,
+            OutputColorSpace: DXGI_COLOR_SPACE_TYPE,
+            DecodeColorSpace: DXGI_COLOR_SPACE_TYPE,
+            OutputWidth: u32,
+            OutputHeight: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
+            D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED = 1,
+        }
+        struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+            Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
+            Size: u32,
+            pData: *mut void,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y = 0,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_U = 1,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_V = 2,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_R = 0,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_G = 1,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_B = 2,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_A = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE = 0,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_Y = 1,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_U = 2,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_V = 4,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_R = 1,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_G = 2,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_B = 4,
+            D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_A = 8,
+        }
+        struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+            NumFrameArguments: u32,
+            FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
+            ReferenceFrames: D3D12_VIDEO_DECODE_REFERENCE_FRAMES,
+            CompressedBitstream: D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM,
+            pHeap: ID3D12VideoDecoderHeap,
+        }
+        struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
+            Offset: u64,
+            pBuffer: ID3D12Resource,
+        }
+        struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
+            pOutputTexture2D: ID3D12Resource,
+            OutputSubresource: u32,
+            ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
+        }
+        struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+            pOutputTexture2D: ID3D12Resource,
+            OutputSubresource: u32,
+            ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1,
+            Histograms: [D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM; 4],
+        }
+        const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: GUID = 0x17127009_a00f_4ce1_994e_bf4081f6f3f0;
+        const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: GUID = 0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8;
+        const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: GUID = 0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a;
+        const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: GUID = 0x6936ff0f_45b1_4163_9cc1_646ef6946108;
+        const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: GUID = 0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8;
+        const D3D12_VIDEO_DECODE_PROFILE_H264: GUID = 0x1b81be68_a0c7_11d3_b984_00c04f2e73c5;
+        const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: GUID = 0x705b9d82_76cf_49d6_b7e6_ac8872db013c;
+        const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: GUID = 0xf9aaccbb_c2b6_4cfc_8779_5707b1760552;
+        const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: GUID = 0xd79be8da_0cf1_4c81_b82a_69a4e236f43d;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: GUID = 0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: GUID = 0x107af0e0_ef1a_4d19_aba8_67a163073d13;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_422: GUID = 0x0bac4fe5_1532_4429_a854_f84de04953db;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_444: GUID = 0x0dabeffa_4458_4602_bc03_0795659d617c;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_EXT: GUID = 0x9cc55490_e37c_4932_8684_4920f9f6409c;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12: GUID = 0x1a72925f_0c2c_4f15_96fb_b17d1473603f;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12_422: GUID = 0x55bcac81_f311_4093_a7d0_1cbc0b849bee;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12_444: GUID = 0x9798634d_fe9d_48e5_b4da_dbec45b3df01;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN16: GUID = 0xa4fbdbb0_a113_482b_a232_635cc0697f6d;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN_444: GUID = 0x4008018f_f537_4b36_98cf_61af8a2c1a33;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MONOCHROME: GUID = 0x0685b993_3d8c_43a0_8b28_d74c2d6899a4;
+        const D3D12_VIDEO_DECODE_PROFILE_HEVC_MONOCHROME10: GUID = 0x142a1d0f_69dd_4ec9_8591_b12ffcb91a29;
+        const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_420: GUID = 0xcf782c83_bef5_4a2c_87cb_6019e7b175ac;
+        const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_422: GUID = 0xf04df417_eee2_4067_a778_f35c15ab9721;
+        const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_444: GUID = 0x4cd00e17_89ba_48ef_b9f9_edcb82713f65;
+        const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_420: GUID = 0x725cb506_0c29_43c4_9440_8e9397903a04;
+        const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_422: GUID = 0x5b77b9cd_1a35_4c30_9fd8_ef4b60c035dd;
+        const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_444: GUID = 0xd95161f9_0d44_47e6_bcf5_1bfbfb268f97;
+        const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_4444: GUID = 0xc91748d5_fd18_4aca_9db3_3a6634ab547d;
+        const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: GUID = 0x86695f12_340e_4f04_9fd3_9253dd327460;
+        const D3D12_VIDEO_DECODE_PROFILE_MPEG2: GUID = 0xee27417f_5e28_4e65_beea_1d26b508adc9;
+        const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: GUID = 0xed418a9f_010d_4eda_9ae3_9a65358d8d2e;
+        const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: GUID = 0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319;
+        const D3D12_VIDEO_DECODE_PROFILE_VC1: GUID = 0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5;
+        const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: GUID = 0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5;
+        const D3D12_VIDEO_DECODE_PROFILE_VP8: GUID = 0x90b899ea_3a62_4705_88b3_8df04b2744e7;
+        const D3D12_VIDEO_DECODE_PROFILE_VP9: GUID = 0x463707f8_a1d0_4585_876d_83aa6d60b89e;
+        const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: GUID = 0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7;
+        struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+            NumTexture2Ds: u32,
+            ppTexture2Ds: *mut ID3D12Resource,
+            pSubresources: *mut u32,
+            ppHeaps: *mut ID3D12VideoDecoderHeap,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_DECODE_STATUS {
+            D3D12_VIDEO_DECODE_STATUS_OK = 0,
+            D3D12_VIDEO_DECODE_STATUS_CONTINUE = 1,
+            D3D12_VIDEO_DECODE_STATUS_CONTINUE_SKIP_DISPLAY = 2,
+            D3D12_VIDEO_DECODE_STATUS_RESTART = 3,
+            D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED = 4,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
+            D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_DECODE_SUPPORT_FLAG_SUPPORTED = 1,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_DECODE_TIER {
+            D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED = 0,
+            D3D12_VIDEO_DECODE_TIER_1 = 1,
+            D3D12_VIDEO_DECODE_TIER_2 = 2,
+            D3D12_VIDEO_DECODE_TIER_3 = 3,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
+            CdefBits: u64,
+            CdefDampingMinus3: u64,
+            CdefYPriStrength: [u64; 8],
+            CdefUVPriStrength: [u64; 8],
+            CdefYSecStrength: [u64; 8],
+            CdefUVSecStrength: [u64; 8],
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
+            FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+            OrderHintBitsMinus1: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
+            SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+            RequiredFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+            SupportedInterpolationFilters: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS,
+            SupportedRestorationParams: [[D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS; 3]; 3],
+            SupportedSegmentationModes: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS,
+            SupportedTxModes: [D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS; 4],
+            SegmentationBlockSize: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE,
+            PostEncodeValuesFlags: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS,
+            MaxTemporalLayers: u32,
+            MaxSpatialLayers: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
+            D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_SINGLE_REFERENCE = 0,
+            D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_COMPOUND_REFERENCE = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_128x128_SUPERBLOCK = 1,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FILTER_INTRA = 2,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTRA_EDGE_FILTER = 4,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTERINTRA_COMPOUND = 8,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_MASKED_COMPOUND = 16,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_WARPED_MOTION = 32,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_DUAL_FILTER = 64,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_JNT_COMP = 128,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FORCED_INTEGER_MOTION_VECTORS = 256,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SUPER_RESOLUTION = 512,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_LOOP_RESTORATION_FILTER = 1024,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_PALETTE_ENCODING = 2048,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_CDEF_FILTERING = 4096,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTRA_BLOCK_COPY = 8192,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FRAME_REFERENCE_MOTION_VECTORS = 16384,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_ORDER_HINT_TOOLS = 32768,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_AUTO_SEGMENTATION = 65536,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_CUSTOM_SEGMENTATION = 131072,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_LOOP_FILTER_DELTAS = 262144,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_QUANTIZATION_DELTAS = 524288,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_QUANTIZATION_MATRIX = 1048576,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_REDUCED_TX_SET = 2097152,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_MOTION_MODE_SWITCHABLE = 4194304,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_ALLOW_HIGH_PRECISION_MV = 8388608,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SKIP_MODE_PRESENT = 16777216,
+            D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_DELTA_LF_PARAMS = 33554432,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
+            Use128SuperBlocks: BOOL,
+            TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
+            ValidationFlags: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS,
+            MinTileRows: u32,
+            MaxTileRows: u32,
+            MinTileCols: u32,
+            MaxTileCols: u32,
+            MinTileWidth: u32,
+            MaxTileWidth: u32,
+            MinTileArea: u32,
+            MaxTileArea: u32,
+            TileSizeBytesMinus1: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NOT_SPECIFIED = 1,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_CODEC_CONSTRAINT = 2,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_HARDWARE_CONSTRAINT = 4,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_ROWS_COUNT = 8,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_COLS_COUNT = 16,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_WIDTH = 32,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_AREA = 64,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_TOTAL_TILES = 128,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_KEY_FRAME = 0,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_INTER_FRAME = 1,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_INTRA_ONLY_FRAME = 2,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_SWITCH_FRAME = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_KEY_FRAME = 1,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_INTER_FRAME = 2,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_INTRA_ONLY_FRAME = 4,
+            D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_SWITCH_FRAME = 8,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP = 0,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP_SMOOTH = 1,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP_SHARP = 2,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_BILINEAR = 3,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_SWITCHABLE = 4,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP = 1,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP_SMOOTH = 2,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP_SHARP = 4,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_BILINEAR = 8,
+            D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_SWITCHABLE = 16,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_LEVELS {
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_2_0 = 0,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_2_1 = 1,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_2_2 = 2,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_2_3 = 3,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_3_0 = 4,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_3_1 = 5,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_3_2 = 6,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_3_3 = 7,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_4_0 = 8,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_4_1 = 9,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_4_2 = 10,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_4_3 = 11,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_5_0 = 12,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_5_1 = 13,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_5_2 = 14,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_5_3 = 15,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_6_0 = 16,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_6_1 = 17,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_6_2 = 18,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_6_3 = 19,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_7_0 = 20,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_7_1 = 21,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_7_2 = 22,
+            D3D12_VIDEO_ENCODER_AV1_LEVELS_7_3 = 23,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
+            Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
+            Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
+            Flags: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS,
+            FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
+            CompoundPredictionType: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
+            InterpolationFilter: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS,
+            FrameRestorationConfig: D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG,
+            TxMode: D3D12_VIDEO_ENCODER_AV1_TX_MODE,
+            SuperResDenominator: u32,
+            OrderHint: u32,
+            PictureIndex: u32,
+            TemporalLayerIndexPlus1: u32,
+            SpatialLayerIndexPlus1: u32,
+            ReferenceFramesReconPictureDescriptors: [D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR; 8],
+            ReferenceIndices: [u32; 7],
+            PrimaryRefFrame: u32,
+            RefreshFrameFlags: u32,
+            LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
+            LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
+            Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
+            QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
+            CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i16,
+            CustomSegmentation: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
+            CustomSegmentsMap: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_ERROR_RESILIENT_MODE = 1,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_DISABLE_CDF_UPDATE = 2,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_PALETTE_ENCODING = 4,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_SKIP_MODE = 8,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_FRAME_REFERENCE_MOTION_VECTORS = 16,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_FORCE_INTEGER_MOTION_VECTORS = 32,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ALLOW_INTRA_BLOCK_COPY = 64,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_USE_SUPER_RESOLUTION = 128,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_DISABLE_FRAME_END_UPDATE_CDF = 256,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_FRAME_SEGMENTATION_AUTO = 512,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_FRAME_SEGMENTATION_CUSTOM = 1024,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_WARPED_MOTION = 2048,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_REDUCED_TX_SET = 4096,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_MOTION_MODE_SWITCHABLE = 8192,
+            D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ALLOW_HIGH_PRECISION_MV = 16384,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
+            RowCount: u64,
+            ColCount: u64,
+            RowHeights: [u64; 64],
+            ColWidths: [u64; 64],
+            ContextUpdateTileId: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
+            CompoundPredictionType: u64,
+            LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
+            LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
+            Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
+            QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
+            CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
+            SegmentationConfig: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
+            PrimaryRefFrame: u64,
+            ReferenceIndices: [u64; 7],
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_QUANTIZATION = 1,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_QUANTIZATION_DELTA = 2,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_LOOP_FILTER = 4,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_LOOP_FILTER_DELTA = 8,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_CDEF_DATA = 16,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_CONTEXT_UPDATE_TILE_ID = 32,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_COMPOUND_PREDICTION_MODE = 64,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_PRIMARY_REF_FRAME = 128,
+            D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_REFERENCE_INDICES = 256,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_PROFILE {
+            D3D12_VIDEO_ENCODER_AV1_PROFILE_MAIN = 0,
+            D3D12_VIDEO_ENCODER_AV1_PROFILE_HIGH = 1,
+            D3D12_VIDEO_ENCODER_AV1_PROFILE_PROFESSIONAL = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
+            ReconstructedPictureResourceIndex: u32,
+            TemporalLayerIndexPlus1: u32,
+            SpatialLayerIndexPlus1: u32,
+            FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
+            WarpedMotionInfo: D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO,
+            OrderHint: u32,
+            PictureIndex: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
+            TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
+            TransformationMatrix: [i32; 8],
+            InvalidAffineSet: BOOL,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_IDENTITY = 0,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_TRANSLATION = 1,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_ROTZOOM = 2,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_AFFINE = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_IDENTITY = 1,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_TRANSLATION = 2,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_ROTZOOM = 4,
+            D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_AFFINE = 8,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
+            FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
+            LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_NOT_SUPPORTED = 0,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_32x32 = 1,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_64x64 = 2,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_128x128 = 4,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_256x256 = 8,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_DISABLED = 0,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_32x32 = 1,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_64x64 = 2,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_128x128 = 3,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_256x256 = 4,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_DISABLED = 0,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_SWITCHABLE = 1,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_WIENER = 2,
+            D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_SGRPROJ = 3,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_4x4 = 0,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_8x8 = 1,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_16x16 = 2,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_32x32 = 3,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_64x64 = 4,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
+            UpdateMap: u64,
+            TemporalUpdate: u64,
+            UpdateData: u64,
+            NumSegments: u64,
+            SegmentsData: [D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA; 8],
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
+            SegmentsMapByteSize: u32,
+            pSegmentsMap: *mut u8,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_DISABLED = 0,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_Q = 1,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_Y_V = 2,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_Y_H = 3,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_U = 4,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_V = 5,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_REF_FRAME = 6,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_SKIP = 7,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_GLOBALMV = 8,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_DISABLED = 1,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_Q = 2,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_Y_V = 4,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_Y_H = 8,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_U = 16,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_V = 32,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_REF_FRAME = 64,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_SKIP = 128,
+            D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_GLOBALMV = 256,
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
+            EnabledFeatures: u64,
+            FeatureValue: [i64; 8],
+        }
+        struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
+            IntraDistance: u32,
+            InterFramePeriod: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_TIER {
+            D3D12_VIDEO_ENCODER_AV1_TIER_MAIN = 0,
+            D3D12_VIDEO_ENCODER_AV1_TIER_HIGH = 1,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_AV1_TX_MODE {
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_ONLY4x4 = 0,
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_LARGEST = 1,
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_SELECT = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_ONLY4x4 = 1,
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_LARGEST = 2,
+            D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_SELECT = 4,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_CODEC {
+            D3D12_VIDEO_ENCODER_CODEC_H264 = 0,
+            D3D12_VIDEO_ENCODER_CODEC_HEVC = 1,
+            D3D12_VIDEO_ENCODER_CODEC_AV1 = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
+            LoopFilterLevel: [u64; 2],
+            LoopFilterLevelU: u64,
+            LoopFilterLevelV: u64,
+            LoopFilterSharpnessLevel: u64,
+            LoopFilterDeltaEnabled: u64,
+            UpdateRefDelta: u64,
+            RefDeltas: [i64; 8],
+            UpdateModeDelta: u64,
+            ModeDeltas: [i64; 2],
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
+            DeltaLFPresent: u64,
+            DeltaLFMulti: u64,
+            DeltaLFRes: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
+            PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
+            MaxUniqueReferencesPerFrame: u32,
+            SupportedFrameTypes: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS,
+            SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
+            BaseQIndex: u64,
+            YDCDeltaQ: i64,
+            UDCDeltaQ: i64,
+            UACDeltaQ: i64,
+            VDCDeltaQ: i64,
+            VACDeltaQ: i64,
+            UsingQMatrix: u64,
+            QMY: u64,
+            QMU: u64,
+            QMV: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
+            DeltaQPresent: u64,
+            DeltaQRes: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+            DataSize: u32,
+            Anonymous: union {
+                pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
+                pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
+                pAV1Config: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
+            ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
+            DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
+            DisableDeblockingFilterConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_DISABLED = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_TEMPORAL = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_SPATIAL = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_CONSTRAINED_INTRAPREDICTION = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_ADAPTIVE_8x8_TRANSFORM = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ENABLE_CABAC_ENCODING = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES = 8,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_1_DISABLE_ALL_SLICE_BLOCK_EDGES = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_2_DISABLE_SLICE_BOUNDARIES_BLOCKS = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_3_USE_TWO_STAGE_DEBLOCKING = 3,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_4_DISABLE_CHROMA_BLOCK_EDGES = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES = 5,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING = 6,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_1_DISABLE_ALL_SLICE_BLOCK_EDGES = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_2_DISABLE_SLICE_BOUNDARIES_BLOCKS = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_3_USE_TWO_STAGE_DEBLOCKING = 8,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_4_DISABLE_CHROMA_BLOCK_EDGES = 16,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES = 32,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING = 64,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
+            ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
+            MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_8x8 = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_16x16 = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_32x32 = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_64x64 = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_DISABLE_LOOP_FILTER_ACROSS_SLICES = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_SAO_FILTER = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_LONG_TERM_REFERENCES = 8,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_ASYMETRIC_MOTION_PARTITION = 16,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_TRANSFORM_SKIPPING = 32,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_CONSTRAINED_INTRAPREDICTION = 64,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_TRANSFORM_SKIP_ROTATION = 128,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT = 256,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_IMPLICIT_RDPCM = 512,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_EXPLICIT_RDPCM = 1024,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING = 2048,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_INTRA_SMOOTHING_DISABLED = 4096,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_HIGH_PRECISION_OFFSETS = 8192,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION = 16384,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT = 32768,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_SEPARATE_COLOUR_PLANE = 65536,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_4x4 = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_8x8 = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_16x16 = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_32x32 = 3,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+            DataSize: u32,
+            Anonymous: union {
+                pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
+                pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
+                pHEVCSupport1: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1,
+                pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
+            SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
+            DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CABAC_ENCODING_SUPPORT = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_BFRAME_LTR_COMBINED_SUPPORT = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_ADAPTIVE_8x8_TRANSFORM_ENCODING_SUPPORT = 8,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_SPATIAL_ENCODING_SUPPORT = 16,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_TEMPORAL_ENCODING_SUPPORT = 32,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT = 64,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT = 128,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
+            SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
+            MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
+            SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
+            MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+            MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+            max_transform_hierarchy_depth_inter: u8,
+            max_transform_hierarchy_depth_intra: u8,
+            allowed_diff_cu_chroma_qp_offset_depth_values: u32,
+            allowed_log2_sao_offset_scale_luma_values: u32,
+            allowed_log2_sao_offset_scale_chroma_values: u32,
+            allowed_log2_max_transform_skip_block_size_minus2_values: u32,
+            allowed_chroma_qp_offset_list_len_minus1_values: u32,
+            allowed_cb_qp_offset_list_values: [u32; 6],
+            allowed_cr_qp_offset_list_values: [u32; 6],
+            SupportFlags1: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_BFRAME_LTR_COMBINED_SUPPORT = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT = 2,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT = 4,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_SAO_FILTER_SUPPORT = 8,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_SUPPORT = 16,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_REQUIRED = 32,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_SUPPORT = 64,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_DISABLING_LOOP_FILTER_ACROSS_SLICES_SUPPORT = 128,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_P_FRAMES_IMPLEMENTED_AS_LOW_DELAY_B_FRAMES = 256,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT = 512,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_ROTATION_ENABLED_SUPPORT = 1024,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_ROTATION_ENABLED_REQUIRED = 2048,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT_ENABLED_SUPPORT = 4096,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT_ENABLED_REQUIRED = 8192,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_IMPLICIT_RDPCM_ENABLED_SUPPORT = 16384,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_IMPLICIT_RDPCM_ENABLED_REQUIRED = 32768,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXPLICIT_RDPCM_ENABLED_SUPPORT = 65536,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXPLICIT_RDPCM_ENABLED_REQUIRED = 131072,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING_SUPPORT = 262144,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING_REQUIRED = 524288,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SMOOTHING_DISABLED_SUPPORT = 1048576,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SMOOTHING_DISABLED_REQUIRED = 2097152,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_HIGH_PRECISION_OFFSETS_ENABLED_SUPPORT = 4194304,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_HIGH_PRECISION_OFFSETS_ENABLED_REQUIRED = 8388608,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION_ENABLED_SUPPORT = 16777216,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION_ENABLED_REQUIRED = 33554432,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT_ENABLED_SUPPORT = 67108864,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT_ENABLED_REQUIRED = 134217728,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_SUPPORT = 268435456,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_REQUIRED = 536870912,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_SUPPORT = 1073741824,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_REQUIRED = 2147483648,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_NONE = 0,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_SUPPORT = 1,
+            D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_REQUIRED = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+            DataSize: u32,
+            Anonymous: union {
+                pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
+                pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
+                pAV1Support: *mut D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
+            MaxL0ReferencesForP: u32,
+            MaxL0ReferencesForB: u32,
+            MaxL1ReferencesForB: u32,
+            MaxLongTermReferences: u32,
+            MaxDPBCapacity: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
+            MaxL0ReferencesForP: u32,
+            MaxL0ReferencesForB: u32,
+            MaxL1ReferencesForB: u32,
+            MaxLongTermReferences: u32,
+            MaxDPBCapacity: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
+            pBuffer: ID3D12Resource,
+            FrameStartOffset: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+            NotificationMode: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE,
+            Anonymous: union {
+                FrameOutputBuffer: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
+                SubregionOutputBuffers: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM,
+            },
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE {
+            D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_FULL_FRAME = 0,
+            D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_SUBREGIONS = 1,
+        }
+        struct D3D12_VIDEO_ENCODER_DESC {
+            NodeMask: u32,
+            Flags: D3D12_VIDEO_ENCODER_FLAGS,
+            EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+            EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            InputFormat: DXGI_FORMAT,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            MaxMotionEstimationPrecision: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
+        }
+        struct D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
+            FullFrameIdentical: BOOL,
+            MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+            NumDirtyRects: u32,
+            pDirtyRects: *mut RECT,
+            SourceDPBFrameReference: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            Anonymous: union {
+                pOpaqueLayoutBuffer: ID3D12Resource,
+                pCPUBuffer: *mut D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION {
+            Enabled: BOOL,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE {
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_DIRTY = 0,
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_SKIP = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_REPEAT_FRAME = 1,
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS = 2,
+            D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS_REQUIRE_FULL_ROW = 4,
+        }
+        struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+            SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+            PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
+            pInputFrame: ID3D12Resource,
+            InputFrameSubresource: u32,
+            CurrentFrameBitstreamMetadataSize: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+            SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+            PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1,
+            pInputFrame: ID3D12Resource,
+            InputFrameSubresource: u32,
+            CurrentFrameBitstreamMetadataSize: u32,
+            OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+        }
+        struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
+            Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
+            ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+            EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+        }
+        struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+            Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1,
+            ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+            EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+            FrameAnalysisReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR = 0,
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_CODEC_PICTURE_CONTROL_NOT_SUPPORTED = 1,
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_NOT_SUPPORTED = 2,
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_REFERENCE_PICTURES = 4,
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPPORTED = 8,
+            D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_METADATA_BUFFER_SOURCE = 16,
+        }
+        struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
+            pBuffer: ID3D12Resource,
+            Offset: u64,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_FLAGS {
+            D3D12_VIDEO_ENCODER_FLAG_NONE = 0,
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS {
+            pDownscaledFrame: ID3D12Resource,
+            Subresource: u64,
+            DownscaledReferences: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION {
+            Enabled: BOOL,
+            Pow2DownscaleFactor: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION {
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_FULL_PIXEL = 0,
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_HALF_PIXEL = 1,
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_QUARTER_PIXEL = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_FULL_PIXEL = 1,
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_HALF_PIXEL = 2,
+            D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_QUARTER_PIXEL = 4,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE {
+            D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_FULL_SEARCH = 0,
+            D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT = 1,
+            D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT_LIMITED_DISTANCE = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG {
+            MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+            SearchDeviationLimit: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            Anonymous: union {
+                pOpaqueLayoutBuffer: ID3D12Resource,
+                pCPUBuffer: *mut D3D12_VIDEO_ENCODER_MOVEREGION_INFO,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
+            DataSize: u32,
+            Anonymous: union {
+                pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
+            },
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME = 0,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_BYTES_PER_SUBREGION = 1,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_SQUARE_UNITS_PER_SUBREGION_ROW_UNALIGNED = 2,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION = 3,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME = 4,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_GRID_PARTITION = 5,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_CONFIGURABLE_GRID_PARTITION = 6,
+            D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_AUTO = 7,
+        }
+        struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
+            bSize: u64,
+            bStartOffset: u64,
+            bHeaderSize: u64,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_I_FRAME = 0,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_P_FRAME = 1,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_B_FRAME = 2,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_IDR_FRAME = 3,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_I_FRAME = 0,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_P_FRAME = 1,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_B_FRAME = 2,
+            D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_IDR_FRAME = 3,
+        }
+        struct D3D12_VIDEO_ENCODER_HEAP_DESC {
+            NodeMask: u32,
+            Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+            EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+            EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            ResolutionsListCount: u32,
+            pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+        }
+        struct D3D12_VIDEO_ENCODER_HEAP_DESC1 {
+            NodeMask: u32,
+            Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+            EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+            EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            ResolutionsListCount: u32,
+            pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            Pow2DownscaleFactor: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+            D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS = 1,
+            D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_SINGLE_BUFFER = 2,
+            D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_DIRTY_REGIONS = 4,
+            D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_RATE_CONTROL_FRAME_ANALYSIS = 8,
+        }
+        struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+            MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+            Anonymous: union {
+                Quantization: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX,
+                DirtyRegions: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS,
+                MotionVectors: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS {
+            FullFrameIdentical: BOOL,
+            MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+            pDirtyRegionsMap: ID3D12Resource,
+            SourceDPBFrameReference: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
+            MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+            NumHintsPerPixel: u32,
+            ppMotionVectorMaps: *mut ID3D12Resource,
+            pMotionVectorMapsSubresources: *mut u32,
+            ppMotionVectorMapsMetadata: *mut ID3D12Resource,
+            pMotionVectorMapsMetadataSubresources: *mut u32,
+            MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+            PictureControlConfiguration: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+        }
+        struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX {
+            pQuantizationMap: ID3D12Resource,
+        }
+        struct D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO {
+            Codec: D3D12_VIDEO_ENCODER_CODEC,
+            Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+            InputFormat: DXGI_FORMAT,
+            InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+            SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE {
+            D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_CPU_BUFFER = 0,
+            D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_GPU_TEXTURE = 1,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE {
+            D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_QUANTIZATION_MATRIX = 0,
+            D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_DIRTY_REGIONS = 1,
+            D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_MOTION_VECTORS = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
+            Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+            IntraRefreshDuration: u32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+            D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_NONE = 0,
+            D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_ROW_BASED = 1,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_LEVELS_H264 {
+            D3D12_VIDEO_ENCODER_LEVELS_H264_1 = 0,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_1b = 1,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_11 = 2,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_12 = 3,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_13 = 4,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_2 = 5,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_21 = 6,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_22 = 7,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_3 = 8,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_31 = 9,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_32 = 10,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_4 = 11,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_41 = 12,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_42 = 13,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_5 = 14,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_51 = 15,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_52 = 16,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_6 = 17,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_61 = 18,
+            D3D12_VIDEO_ENCODER_LEVELS_H264_62 = 19,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_LEVELS_HEVC {
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_1 = 0,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_2 = 1,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_21 = 2,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_3 = 3,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_31 = 4,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_4 = 5,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_41 = 6,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_5 = 7,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_51 = 8,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_52 = 9,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_6 = 10,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_61 = 11,
+            D3D12_VIDEO_ENCODER_LEVELS_HEVC_62 = 12,
+        }
+        struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+            DataSize: u32,
+            Anonymous: union {
+                pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
+                pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
+                pAV1LevelSetting: *mut D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
+            Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
+            Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
+            D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM = 0,
+            D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_FULL_PIXEL = 1,
+            D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL = 2,
+            D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL = 3,
+            D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_EIGHTH_PIXEL = 4,
+        }
+        struct D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION {
+            Enabled: BOOL,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+            MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+            BidirectionalRefFrameEnabled: BOOL,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_SUPPORTED = 1,
+            D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_MULTIPLE_HINTS = 2,
+            D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_GPU_TEXTURE_MULTIPLE_REFERENCES = 4,
+        }
+        struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
+            NumMoveRegions: u32,
+            pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
+            MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+            SourceDPBFrameReference: u32,
+            MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+            Flags: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS {
+            D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_MULTIPLE_HINTS = 1,
+        }
+        struct D3D12_VIDEO_ENCODER_MOVE_RECT {
+            SourcePoint: POINT,
+            DestRect: RECT,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_QP_MAP = 1,
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SATD_MAP = 2,
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_RC_BIT_ALLOCATION_MAP = 4,
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_FRAME_PSNR = 8,
+            D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SUBREGIONS_PSNR = 16,
+        }
+        struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
+            EncodeErrorFlags: u64,
+            EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
+            EncodedBitstreamWrittenBytesCount: u64,
+            WrittenSubregionsCount: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
+            AverageQP: u64,
+            IntraCodingUnitsCount: u64,
+            InterCodingUnitsCount: u64,
+            SkipCodingUnitsCount: u64,
+            AverageMotionEstimationXDirection: u64,
+            AverageMotionEstimationYDirection: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+            DataSize: u32,
+            Anonymous: union {
+                pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+                pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
+                pHEVCPicData1: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1,
+                pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
+            DataSize: u32,
+            Anonymous: union {
+                pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+                pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2,
+                pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
+            FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
+            pic_parameter_set_id: u32,
+            idr_pic_id: u32,
+            PictureOrderCountNumber: u32,
+            FrameDecodingOrderNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
+            pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264,
+            adaptive_ref_pic_marking_mode_flag: u8,
+            RefPicMarkingOperationsCommandsCount: u32,
+            pRefPicMarkingOperationsCommands: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES = 1,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE = 2,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
+            modification_of_pic_nums_idc: u8,
+            abs_diff_pic_num_minus1: u32,
+            long_term_pic_num: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
+            memory_management_control_operation: u8,
+            difference_of_pic_nums_minus1: u32,
+            long_term_pic_num: u32,
+            long_term_frame_idx: u32,
+            max_long_term_frame_idx_plus1: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+            FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
+            pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+            FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
+            pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+            diff_cu_chroma_qp_offset_depth: u8,
+            log2_sao_offset_scale_luma: u8,
+            log2_sao_offset_scale_chroma: u8,
+            log2_max_transform_skip_block_size_minus2: u8,
+            chroma_qp_offset_list_len_minus1: u8,
+            cb_qp_offset_list: [i8; 6],
+            cr_qp_offset_list: [i8; 6],
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+            FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+            slice_pic_parameter_set_id: u32,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+            List0ReferenceFramesCount: u32,
+            pList0ReferenceFrames: *mut u32,
+            List1ReferenceFramesCount: u32,
+            pList1ReferenceFrames: *mut u32,
+            ReferenceFramesReconPictureDescriptorsCount: u32,
+            pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+            List0RefPicModificationsCount: u32,
+            pList0RefPicModifications: *mut u32,
+            List1RefPicModificationsCount: u32,
+            pList1RefPicModifications: *mut u32,
+            QPMapValuesCount: u32,
+            pRateControlQPMap: *mut i8,
+            diff_cu_chroma_qp_offset_depth: u8,
+            log2_sao_offset_scale_luma: u8,
+            log2_sao_offset_scale_chroma: u8,
+            log2_max_transform_skip_block_size_minus2: u8,
+            chroma_qp_offset_list_len_minus1: u8,
+            cb_qp_offset_list: [i8; 6],
+            cr_qp_offset_list: [i8; 6],
+            num_ref_idx_l0_active_minus1: u32,
+            num_ref_idx_l1_active_minus1: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES = 1,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE = 2,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_CROSS_COMPONENT_PREDICTION = 4,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_CHROMA_QP_OFFSET_LIST = 8,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+            IntraRefreshFrameIndex: u32,
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+            PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA,
+            ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+            IntraRefreshFrameIndex: u32,
+            Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+            PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+            ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+            MotionVectors: D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS,
+            DirtyRects: D3D12_VIDEO_ENCODER_DIRTY_REGIONS,
+            QuantizationTextureMap: D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP,
+            FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE = 1,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_QUANTIZATION_MATRIX_INPUT = 2,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_DIRTY_REGIONS_INPUT = 4,
+            D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_MOTION_VECTORS_INPUT = 8,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+            DataSize: u32,
+            Anonymous: union {
+                pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+                pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+                pTilesPartition_AV1: *const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+            Anonymous: union {
+                MaxBytesPerSlice: u32,
+                NumberOfCodingUnitsPerSlice: u32,
+                NumberOfRowsPerSlice: u32,
+                NumberOfSlicesPerFrame: u32,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
+            Width: u32,
+            Height: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
+            WidthRatio: u32,
+            HeightRatio: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
+            DataSize: u32,
+            Anonymous: union {
+                pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
+                pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
+                pAV1Profile: *mut D3D12_VIDEO_ENCODER_AV1_PROFILE,
+            },
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_PROFILE_H264 {
+            D3D12_VIDEO_ENCODER_PROFILE_H264_MAIN = 0,
+            D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH = 1,
+            D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH_10 = 2,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_PROFILE_HEVC {
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN = 0,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10 = 1,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12 = 2,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10_422 = 3,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_422 = 4,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN_444 = 5,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10_444 = 6,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_444 = 7,
+            D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN16_444 = 8,
+        }
+        struct D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION {
+            Enabled: BOOL,
+            MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+        }
+        struct D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP {
+            pOpaqueQuantizationMap: ID3D12Resource,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
+            Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+            Flags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS,
+            ConfigParams: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS,
+            TargetFrameRate: DXGI_RATIONAL,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
+            QualityVsSpeed: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+            DataSize: u32,
+            Anonymous: union {
+                pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
+                pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
+                pConfiguration_VBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR,
+                pConfiguration_QVBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR,
+                pConfiguration_CQP1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1,
+                pConfiguration_CBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1,
+                pConfiguration_VBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1,
+                pConfiguration_QVBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1,
+                pConfiguration_AbsoluteQPMap: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
+            ConstantQP_FullIntracodedFrame: u32,
+            ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+            ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
+            ConstantQP_FullIntracodedFrame: u32,
+            ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+            ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+            QualityVsSpeed: u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_DELTA_QP = 1,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_FRAME_ANALYSIS = 2,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QP_RANGE = 4,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_INITIAL_QP = 8,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_MAX_FRAME_SIZE = 16,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_VBV_SIZES = 32,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_EXTENSION1_SUPPORT = 64,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QUALITY_VS_SPEED = 128,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_SPATIAL_ADAPTIVE_QP = 256,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_INTRACODED_FRAME_SUPPORTED = 1,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_UNIDIR_INTER_FRAME_SUPPORTED = 2,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_BIDIR_INTER_FRAME_SUPPORTED = 4,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_EXTERNAL_DPB_DOWNSCALING = 8,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_1ST_PASS_SKIP = 16,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_DOWNSCALE_FACTOR_CHANGE_KEY_FRAME = 32,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_SUPPORTED = 7,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_ABSOLUTE_QP_MAP = 0,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP = 1,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CBR = 2,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR = 3,
+            D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR = 4,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            ConstantQualityTarget: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            ConstantQualityTarget: u32,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+        }
+        struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
+            InitialQP: u32,
+            MinQP: u32,
+            MaxQP: u32,
+            MaxFrameBitSize: u64,
+            TargetAvgBitRate: u64,
+            PeakBitRate: u64,
+            VBVCapacity: u64,
+            InitialVBVFullness: u64,
+            QualityVsSpeed: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
+            pReconstructedPicture: ID3D12Resource,
+            ReconstructedPictureSubresource: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
+            ReconstructedPictureResourceIndex: u32,
+            IsLongTermReference: BOOL,
+            LongTermPictureIdx: u32,
+            PictureOrderCountNumber: u32,
+            FrameDecodingOrderNumber: u32,
+            TemporalLayerIndex: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
+            ReconstructedPictureResourceIndex: u32,
+            IsRefUsedByCurrentPic: BOOL,
+            IsLongTermReference: BOOL,
+            PictureOrderCountNumber: u32,
+            TemporalLayerIndex: u32,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+            SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+            InputData: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS {
+            pOpaqueLayoutBuffer: ID3D12Resource,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+            EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+            EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            EncoderInputFormat: DXGI_FORMAT,
+            EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+            EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+            EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+            EncoderInputFormat: DXGI_FORMAT,
+            EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+            OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+            CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
+            ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1 {
+            ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+            pOutputQPMap: ID3D12Resource,
+            pOutputSATDMap: ID3D12Resource,
+            pOutputBitAllocationMap: ID3D12Resource,
+            ResolvedFramePSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+            ResolvedSubregionsPSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+        }
+        struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_PSNR_RESOLVED_LAYOUT {
+            PSNRY: f32,
+            PSNRU: f32,
+            PSNRV: f32,
+        }
+        struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+            Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
+            IntraRefreshConfig: D3D12_VIDEO_ENCODER_INTRA_REFRESH,
+            RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+            PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+            SelectedLayoutMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+            FrameSubregionsLayoutData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+            CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RESOLUTION_CHANGE = 1,
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RATE_CONTROL_CHANGE = 2,
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_SUBREGION_LAYOUT_CHANGE = 4,
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_REQUEST_INTRA_REFRESH = 8,
+            D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_GOP_SEQUENCE_CHANGE = 16,
+        }
+        struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+            DataSize: u32,
+            Anonymous: union {
+                pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
+                pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
+                pAV1SequenceStructure: *mut D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE,
+            },
+        }
+        struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
+            GOPLength: u32,
+            PPicturePeriod: u32,
+            pic_order_cnt_type: u8,
+            log2_max_frame_num_minus4: u8,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
+        }
+        struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
+            GOPLength: u32,
+            PPicturePeriod: u32,
+            log2_max_pic_order_cnt_lsb_minus4: u8,
+        }
+        struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
+            BufferMode: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE,
+            ExpectedSubregionCount: u32,
+            pSubregionBitstreamsBaseOffsets: *mut u64,
+            ppSubregionBitstreams: *mut ID3D12Resource,
+            ppSubregionSizes: *mut ID3D12Resource,
+            ppSubregionOffsets: *mut ID3D12Resource,
+            ppSubregionFences: *mut ID3D12Fence,
+            pSubregionFenceValues: *mut u64,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE {
+            D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_ARRAY_OF_BUFFERS = 0,
+            D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_SINGLE_BUFFER = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_GENERAL_SUPPORT_OK = 1,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_RECONFIGURATION_AVAILABLE = 2,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RESOLUTION_RECONFIGURATION_AVAILABLE = 4,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_VBV_SIZE_CONFIG_AVAILABLE = 8,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_FRAME_ANALYSIS_AVAILABLE = 16,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RECONSTRUCTED_FRAMES_REQUIRE_TEXTURE_ARRAYS = 32,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_DELTA_QP_AVAILABLE = 64,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_LAYOUT_RECONFIGURATION_AVAILABLE = 128,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_ADJUSTABLE_QP_RANGE_AVAILABLE = 256,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_INITIAL_QP_AVAILABLE = 512,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_MAX_FRAME_SIZE_AVAILABLE = 1024,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SEQUENCE_GOP_RECONFIGURATION_AVAILABLE = 2048,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_MOTION_ESTIMATION_PRECISION_MODE_LIMIT_AVAILABLE = 4096,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_EXTENSION1_SUPPORT = 8192,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_QUALITY_VS_SPEED_AVAILABLE = 16384,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_READABLE_RECONSTRUCTED_PICTURE_LAYOUT_AVAILABLE = 32768,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_QP_MAP_METADATA_AVAILABLE = 65536,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_SATD_MAP_METADATA_AVAILABLE = 131072,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_RC_BIT_ALLOCATION_MAP_METADATA_AVAILABLE = 262144,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS_AVAILABLE = 524288,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_SINGLE_BUFFER_AVAILABLE = 1048576,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_FRAME_PSNR_METADATA_AVAILABLE = 2097152,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGIONS_PSNR_METADATA_AVAILABLE = 4194304,
+            D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_SPATIAL_ADAPTIVE_QP_AVAILABLE = 8388608,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_ENCODER_TIER_HEVC {
+            D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN = 0,
+            D3D12_VIDEO_ENCODER_TIER_HEVC_HIGH = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE = 0,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_NOT_SUPPORTED = 1,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INPUT_FORMAT_NOT_SUPPORTED = 8,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_CONFIGURATION_NOT_SUPPORTED = 16,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_MODE_NOT_SUPPORTED = 32,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_CONFIGURATION_NOT_SUPPORTED = 64,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INTRA_REFRESH_MODE_NOT_SUPPORTED = 128,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_MODE_NOT_SUPPORTED = 256,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST = 512,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_GOP_STRUCTURE_NOT_SUPPORTED = 2048,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_DATA_NOT_SUPPORTED = 4096,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_QPMAP_NOT_SUPPORTED = 8192,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_DIRTY_REGIONS_NOT_SUPPORTED = 16384,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_MOTION_SEARCH_NOT_SUPPORTED = 32768,
+            D3D12_VIDEO_ENCODER_VALIDATION_FLAG_FRAME_ANALYSIS_NOT_SUPPORTED = 65536,
+        }
+        struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+            NumTexture2Ds: u32,
+            ppTexture2Ds: *mut ID3D12Resource,
+            pSubresources: *mut u32,
+        }
+        struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+            NodeMask: u32,
+            CommandId: GUID,
+        }
+        struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
+            CommandId: GUID,
+            Name: PCWSTR,
+            CommandListSupportFlags: D3D12_COMMAND_LIST_SUPPORT_FLAGS,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE = 0,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ = 1,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE = 2,
+        }
+        struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
+            Name: PCWSTR,
+            Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
+            Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CREATION = 0,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_INITIALIZATION = 1,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_EXECUTION = 2,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_INPUT = 3,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_OUTPUT = 4,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_INPUT = 5,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_OUTPUT = 6,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT8 = 0,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT16 = 1,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT32 = 2,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT64 = 3,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT8 = 4,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT16 = 5,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT32 = 6,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT64 = 7,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_FLOAT = 8,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_DOUBLE = 9,
+            D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_RESOURCE = 10,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_FIELD_TYPE {
+            D3D12_VIDEO_FIELD_TYPE_NONE = 0,
+            D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST = 1,
+            D3D12_VIDEO_FIELD_TYPE_INTERLACED_BOTTOM_FIELD_FIRST = 2,
+        }
+        struct D3D12_VIDEO_FORMAT {
+            Format: DXGI_FORMAT,
+            ColorSpace: DXGI_COLOR_SPACE_TYPE,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
+            D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE = 0,
+            D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED = 1,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_FRAME_STEREO_FORMAT {
+            D3D12_VIDEO_FRAME_STEREO_FORMAT_NONE = 0,
+            D3D12_VIDEO_FRAME_STEREO_FORMAT_MONO = 1,
+            D3D12_VIDEO_FRAME_STEREO_FORMAT_HORIZONTAL = 2,
+            D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL = 3,
+            D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE = 4,
+        }
+        struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+            NodeMask: u32,
+            InputFormat: DXGI_FORMAT,
+            BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+            Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+            SizeRange: D3D12_VIDEO_SIZE_RANGE,
+        }
+        struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
+            pInputTexture2D: ID3D12Resource,
+            InputSubresourceIndex: u32,
+            pReferenceTexture2D: ID3D12Resource,
+            ReferenceSubresourceIndex: u32,
+            pHintMotionVectorHeap: ID3D12VideoMotionVectorHeap,
+        }
+        struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
+            pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
+            D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8 = 0,
+            D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_16X16 = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
+            D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE = 0,
+            D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_8X8 = 1,
+            D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_16X16 = 2,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
+            D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL = 0,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
+            D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE = 0,
+            D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL = 1,
+        }
+        struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+            NodeMask: u32,
+            InputFormat: DXGI_FORMAT,
+            BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+            Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+            SizeRange: D3D12_VIDEO_SIZE_RANGE,
+        }
+        struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
+            Enable: BOOL,
+            Alpha: f32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
+            D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_OPAQUE = 0,
+            D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_BACKGROUND = 1,
+            D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_DESTINATION = 2,
+            D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_SOURCE_STREAM = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DENOISE = 1,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DERINGING = 2,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_EDGE_ENHANCEMENT = 4,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_COLOR_CORRECTION = 8,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_FLESH_TONE_MAPPING = 16,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_IMAGE_STABILIZATION = 32,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_SUPER_RESOLUTION = 64,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_ANAMORPHIC_SCALING = 128,
+            D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM = 2147483648,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
+            D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_BOB = 1,
+            D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM = 2147483648,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_FILL = 1,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_LUMA_KEY = 2,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_STEREO = 4,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_ROTATION = 8,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_FLIP = 16,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_BLENDING = 32,
+            D3D12_VIDEO_PROCESS_FEATURE_FLAG_PIXEL_ASPECT_RATIO = 64,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_PROCESS_FILTER {
+            D3D12_VIDEO_PROCESS_FILTER_BRIGHTNESS = 0,
+            D3D12_VIDEO_PROCESS_FILTER_CONTRAST = 1,
+            D3D12_VIDEO_PROCESS_FILTER_HUE = 2,
+            D3D12_VIDEO_PROCESS_FILTER_SATURATION = 3,
+            D3D12_VIDEO_PROCESS_FILTER_NOISE_REDUCTION = 4,
+            D3D12_VIDEO_PROCESS_FILTER_EDGE_ENHANCEMENT = 5,
+            D3D12_VIDEO_PROCESS_FILTER_ANAMORPHIC_SCALING = 6,
+            D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT = 7,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_FILTER_FLAGS {
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_BRIGHTNESS = 1,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_CONTRAST = 2,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_HUE = 4,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_SATURATION = 8,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_NOISE_REDUCTION = 16,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_EDGE_ENHANCEMENT = 32,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_ANAMORPHIC_SCALING = 64,
+            D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT = 128,
+        }
+        struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
+            Minimum: i32,
+            Maximum: i32,
+            Default: i32,
+            Multiplier: f32,
+        }
+        struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
+            pTexture2D: ID3D12Resource,
+            Subresource: u32,
+            ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
+        }
+        struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+            InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+            Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+            Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+            RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+            FilterLevels: [i32; 32],
+            AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+        }
+        struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+            InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+            Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+            Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+            RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+            FilterLevels: [i32; 32],
+            AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+            FieldType: D3D12_VIDEO_FIELD_TYPE,
+        }
+        struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
+            Format: DXGI_FORMAT,
+            ColorSpace: DXGI_COLOR_SPACE_TYPE,
+            SourceAspectRatio: DXGI_RATIONAL,
+            DestinationAspectRatio: DXGI_RATIONAL,
+            FrameRate: DXGI_RATIONAL,
+            SourceSizeRange: D3D12_VIDEO_SIZE_RANGE,
+            DestinationSizeRange: D3D12_VIDEO_SIZE_RANGE,
+            EnableOrientation: BOOL,
+            FilterFlags: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+            StereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+            FieldType: D3D12_VIDEO_FIELD_TYPE,
+            DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+            EnableAlphaBlending: BOOL,
+            LumaKey: D3D12_VIDEO_PROCESS_LUMA_KEY,
+            NumPastFrames: u32,
+            NumFutureFrames: u32,
+            EnableAutoProcessing: BOOL,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
+            D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY = 1,
+            D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT = 2,
+        }
+        struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
+            OutputIndex: u32,
+            InputFrameOrField: u32,
+        }
+        struct D3D12_VIDEO_PROCESS_LUMA_KEY {
+            Enable: BOOL,
+            Lower: f32,
+            Upper: f32,
+        }
+        #[repr(i32)]
+        enum D3D12_VIDEO_PROCESS_ORIENTATION {
+            D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT = 0,
+            D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_HORIZONTAL = 1,
+            D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90 = 2,
+            D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90_FLIP_HORIZONTAL = 3,
+            D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_180 = 4,
+            D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL = 5,
+            D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270 = 6,
+            D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270_FLIP_HORIZONTAL = 7,
+        }
+        struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
+            pTexture2D: ID3D12Resource,
+            Subresource: u32,
+        }
+        struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+            OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
+            TargetRectangle: D3D12_RECT,
+        }
+        struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+            Format: DXGI_FORMAT,
+            ColorSpace: DXGI_COLOR_SPACE_TYPE,
+            AlphaFillMode: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE,
+            AlphaFillModeSourceStreamIndex: u32,
+            BackgroundColor: [f32; 4],
+            FrameRate: DXGI_RATIONAL,
+            EnableStereo: BOOL,
+        }
+        struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
+            NumPastFrames: u32,
+            ppPastFrames: *mut ID3D12Resource,
+            pPastSubresources: *mut u32,
+            NumFutureFrames: u32,
+            ppFutureFrames: *mut ID3D12Resource,
+            pFutureSubresources: *mut u32,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
+            D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED = 1,
+        }
+        struct D3D12_VIDEO_PROCESS_TRANSFORM {
+            SourceRectangle: D3D12_RECT,
+            DestinationRectangle: D3D12_RECT,
+            Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
+            D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED = 1,
+        }
+        struct D3D12_VIDEO_SAMPLE {
+            Width: u32,
+            Height: u32,
+            Format: D3D12_VIDEO_FORMAT,
+        }
+        struct D3D12_VIDEO_SCALE_SUPPORT {
+            OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
+            Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
+            D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE = 0,
+            D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY = 1,
+            D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY = 2,
+            D3D12_VIDEO_SCALE_SUPPORT_FLAG_DPB_ENCODER_RESOURCES = 4,
+        }
+        struct D3D12_VIDEO_SIZE_RANGE {
+            MaxWidth: u32,
+            MaxHeight: u32,
+            MinWidth: u32,
+            MinHeight: u32,
+        }
+        #[guid(0x3b60536e_ad29_4e64_a269_f853837e5e53)]
+        interface ID3D12VideoDecodeCommandList: ID3D12CommandList {
+            fn Close(&self) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn ClearState(&self);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn EndEvent(&self);
+            fn DecodeFrame(&self, pDecoder: ID3D12VideoDecoder, pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+        }
+        #[guid(0xd52f011b_b56e_453c_a05a_a7f311c8f472)]
+        interface ID3D12VideoDecodeCommandList1: ID3D12VideoDecodeCommandList {
+            fn DecodeFrame1(&self, pDecoder: ID3D12VideoDecoder, pOutputArguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pInputArguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+        }
+        #[guid(0x6e120880_c114_4153_8036_d247051e1729)]
+        interface ID3D12VideoDecodeCommandList2: ID3D12VideoDecodeCommandList1 {
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
+        }
+        #[guid(0x2aee8c37_9562_42da_8abf_61efeb2e4513)]
+        interface ID3D12VideoDecodeCommandList3: ID3D12VideoDecodeCommandList2 {
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+        }
+        #[guid(0xc59b6bdc_7720_4074_a136_17a156037470)]
+        interface ID3D12VideoDecoder: ID3D12Pageable {
+            fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
+        }
+        #[guid(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e)]
+        interface ID3D12VideoDecoder1: ID3D12VideoDecoder {
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f)]
+        interface ID3D12VideoDecoderHeap: ID3D12Pageable {
+            fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
+        }
+        #[guid(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26)]
+        interface ID3D12VideoDecoderHeap1: ID3D12VideoDecoderHeap {
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x1f052807_0b46_4acc_8a89_364f793718a4)]
+        interface ID3D12VideoDevice: IUnknown {
+            fn CheckFeatureSupport(&self, FeatureVideo: D3D12_FEATURE_VIDEO, #[size_param(2)] #[in] #[out] pFeatureSupportData: *mut void, FeatureSupportDataSize: u32) -> HRESULT;
+            fn CreateVideoDecoder(&self, pDesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const GUID, #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoDecoderHeap(&self, pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const GUID, #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoProcessor(&self, NodeMask: u32, pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: u32, #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const GUID, #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x981611ad_a144_4c83_9890_f30e26d658ab)]
+        interface ID3D12VideoDevice1: ID3D12VideoDevice {
+            fn CreateVideoMotionEstimator(&self, pDesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoMotionEstimator: *mut *mut void) -> HRESULT;
+            fn CreateVideoMotionVectorHeap(&self, pDesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoMotionVectorHeap: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xf019ac49_f838_4a95_9b17_579437c8f513)]
+        interface ID3D12VideoDevice2: ID3D12VideoDevice1 {
+            fn CreateVideoDecoder1(&self, pDesc: *const D3D12_VIDEO_DECODER_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoDecoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoDecoderHeap1(&self, pVideoDecoderHeapDesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoDecoderHeap: *mut *mut void) -> HRESULT;
+            fn CreateVideoProcessor1(&self, NodeMask: u32, pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, NumInputStreamDescs: u32, #[len_param(2)] pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoProcessor: *mut *mut void) -> HRESULT;
+            fn CreateVideoExtensionCommand(&self, pDesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, #[size_param(2)] pCreationParameters: *const void, CreationParametersDataSizeInBytes: usize, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession, riid: *const GUID, #[iid_is] ppVideoExtensionCommand: *mut *mut void) -> HRESULT;
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize, #[size_param(4)] pOutputData: *mut void, OutputDataSizeInBytes: usize) -> HRESULT;
+        }
+        #[guid(0x4243adb4_3a32_4666_973c_0ccc5625dc44)]
+        interface ID3D12VideoDevice3: ID3D12VideoDevice2 {
+            fn CreateVideoEncoder(&self, pDesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const GUID, #[iid_is] ppVideoEncoder: *mut *mut void) -> HRESULT;
+            fn CreateVideoEncoderHeap(&self, pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const GUID, #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xe59ad09e_f1ae_42bb_8983_9f6e5586c4eb)]
+        interface ID3D12VideoDevice4: ID3D12VideoDevice3 {
+            fn CreateVideoEncoderHeap1(&self, pDesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const GUID, #[iid_is] ppVideoEncoderHeap: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x8455293a_0cbd_4831_9b39_fbdbab724723)]
+        interface ID3D12VideoEncodeCommandList: ID3D12CommandList {
+            fn Close(&self) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn ClearState(&self);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn EndEvent(&self);
+            fn EstimateMotion(&self, pMotionEstimator: ID3D12VideoMotionEstimator, pOutputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pInputArguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
+            fn ResolveMotionVectorHeap(&self, pOutputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pInputArguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+        }
+        #[guid(0x94971eca_2bdb_4769_88cf_3675ea757ebc)]
+        interface ID3D12VideoEncodeCommandList1: ID3D12VideoEncodeCommandList {
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
+        }
+        #[guid(0x895491e2_e701_46a9_9a1f_8d3480ed867a)]
+        interface ID3D12VideoEncodeCommandList2: ID3D12VideoEncodeCommandList1 {
+            fn EncodeFrame(&self, pEncoder: ID3D12VideoEncoder, pHeap: ID3D12VideoEncoderHeap, pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
+            fn ResolveEncoderOutputMetadata(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
+        }
+        #[guid(0x7f027b22_1515_4e85_aa0d_026486580576)]
+        interface ID3D12VideoEncodeCommandList3: ID3D12VideoEncodeCommandList2 {
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+        }
+        #[guid(0x69aeb5b7_55f2_4012_8b73_3a88d65a204c)]
+        interface ID3D12VideoEncodeCommandList4: ID3D12VideoEncodeCommandList3 {
+            fn EncodeFrame1(&self, pEncoder: ID3D12VideoEncoder, pHeap: ID3D12VideoEncoderHeap1, pInputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, pOutputArguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1);
+            fn ResolveEncoderOutputMetadata1(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1);
+            fn ResolveInputParamLayout(&self, pInputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, pOutputArguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS);
+        }
+        #[guid(0x2e0d212d_8df9_44a6_a770_bb289b182737)]
+        interface ID3D12VideoEncoder: ID3D12Pageable {
+            fn GetNodeMask(&self) -> u32;
+            fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS;
+            fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
+            fn GetCodecProfile(&self, #[in] #[out] dstProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> HRESULT;
+            fn GetCodecConfiguration(&self, #[in] #[out] dstCodecConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> HRESULT;
+            fn GetInputFormat(&self) -> DXGI_FORMAT;
+            fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE;
+        }
+        #[guid(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a)]
+        interface ID3D12VideoEncoderHeap: ID3D12Pageable {
+            fn GetNodeMask(&self) -> u32;
+            fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
+            fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
+            fn GetCodecProfile(&self, #[in] #[out] dstProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> HRESULT;
+            fn GetCodecLevel(&self, #[in] #[out] dstLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> HRESULT;
+            fn GetResolutionListCount(&self) -> u32;
+            fn GetResolutionList(&self, ResolutionsListCount: u32, #[len_param(0)] pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> HRESULT;
+        }
+        #[guid(0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9)]
+        interface ID3D12VideoEncoderHeap1: ID3D12VideoEncoderHeap {
+            fn GetPow2DownscaleFactor(&self) -> u32;
+        }
+        #[guid(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4)]
+        interface ID3D12VideoExtensionCommand: ID3D12Pageable {
+            fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x33fdae0e_098b_428f_87bb_34b695de08f8)]
+        interface ID3D12VideoMotionEstimator: ID3D12Pageable {
+            fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x5be17987_743a_4061_834b_23d22daea505)]
+        interface ID3D12VideoMotionVectorHeap: ID3D12Pageable {
+            fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xaeb2543a_167f_4682_acc8_d159ed4a6209)]
+        interface ID3D12VideoProcessCommandList: ID3D12CommandList {
+            fn Close(&self) -> HRESULT;
+            fn Reset(&self, pAllocator: ID3D12CommandAllocator) -> HRESULT;
+            fn ClearState(&self);
+            fn ResourceBarrier(&self, NumBarriers: u32, #[len_param(0)] pBarriers: *const D3D12_RESOURCE_BARRIER);
+            fn DiscardResource(&self, pResource: ID3D12Resource, #[opt] pRegion: *const D3D12_DISCARD_REGION);
+            fn BeginQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn EndQuery(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, Index: u32);
+            fn ResolveQueryData(&self, pQueryHeap: ID3D12QueryHeap, Type: D3D12_QUERY_TYPE, StartIndex: u32, NumQueries: u32, pDestinationBuffer: ID3D12Resource, AlignedDestinationBufferOffset: u64);
+            fn SetPredication(&self, #[opt] pBuffer: ID3D12Resource, AlignedBufferOffset: u64, Operation: D3D12_PREDICATION_OP);
+            fn SetMarker(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn BeginEvent(&self, Metadata: u32, #[size_param(2)] #[opt] pData: *const void, Size: u32);
+            fn EndEvent(&self);
+            fn ProcessFrames(&self, pVideoProcessor: ID3D12VideoProcessor, pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: u32, #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
+            fn WriteBufferImmediate(&self, Count: u32, #[len_param(0)] pParams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, #[len_param(0)] #[opt] pModes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+        }
+        #[guid(0x542c5c4d_7596_434f_8c93_4efa6766f267)]
+        interface ID3D12VideoProcessCommandList1: ID3D12VideoProcessCommandList {
+            fn ProcessFrames1(&self, pVideoProcessor: ID3D12VideoProcessor, pOutputArguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, NumInputStreams: u32, #[len_param(2)] pInputArguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
+        }
+        #[guid(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4)]
+        interface ID3D12VideoProcessCommandList2: ID3D12VideoProcessCommandList1 {
+            fn SetProtectedResourceSession(&self, #[opt] pProtectedResourceSession: ID3D12ProtectedResourceSession);
+            fn InitializeExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pInitializationParameters: *const void, InitializationParametersSizeInBytes: usize);
+            fn ExecuteExtensionCommand(&self, pExtensionCommand: ID3D12VideoExtensionCommand, #[size_param(2)] pExecutionParameters: *const void, ExecutionParametersSizeInBytes: usize);
+        }
+        #[guid(0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff)]
+        interface ID3D12VideoProcessCommandList3: ID3D12VideoProcessCommandList2 {
+            fn Barrier(&self, NumBarrierGroups: u32, #[len_param(0)] pBarrierGroups: *const D3D12_BARRIER_GROUP);
+        }
+        #[guid(0x304fdb32_bede_410a_8545_943ac6a46138)]
+        interface ID3D12VideoProcessor: ID3D12Pageable {
+            fn GetNodeMask(&self) -> u32;
+            fn GetNumInputStreamDescs(&self) -> u32;
+            fn GetInputStreamDescs(&self, NumInputStreamDescs: u32, #[len_param(0)] pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> HRESULT;
+            fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC;
+        }
+        #[guid(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c)]
+        interface ID3D12VideoProcessor1: ID3D12VideoProcessor {
+            fn GetProtectedResourceSession(&self, riid: *const GUID, #[iid_is] ppProtectedSession: *mut *mut void) -> HRESULT;
+        }
+    }
+}

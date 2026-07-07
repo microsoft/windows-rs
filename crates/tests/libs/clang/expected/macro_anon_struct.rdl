@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    struct THING {
+        value: i32,
+    }
+}

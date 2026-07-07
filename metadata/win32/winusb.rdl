@@ -1,0 +1,86 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type PWINUSB_INTERFACE_HANDLE = *mut *mut void;
+        type PWINUSB_ISOCH_BUFFER_HANDLE = *mut *mut void;
+        type PWINUSB_SETUP_PACKET = *mut WINUSB_SETUP_PACKET;
+        type WINUSB_INTERFACE_HANDLE = *mut void;
+        type WINUSB_ISOCH_BUFFER_HANDLE = *mut void;
+        #[packed(1)]
+        struct WINUSB_SETUP_PACKET {
+            RequestType: u8,
+            Request: u8,
+            Value: u16,
+            Index: u16,
+            Length: u16,
+        }
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_AbortPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ControlTransfer(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SetupPacket: WINUSB_SETUP_PACKET, #[size_param(3)] #[opt] Buffer: *mut u8, BufferLength: u32, #[opt] LengthTransferred: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_FlushPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_Free(InterfaceHandle: WINUSB_INTERFACE_HANDLE) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetAdjustedFrameNumber(#[in] #[out] CurrentFrameNumber: *mut u32, TimeStamp: LARGE_INTEGER) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetAssociatedInterface(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AssociatedInterfaceIndex: u8, AssociatedInterfaceHandle: *mut *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetCurrentAlternateSetting(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SettingNumber: *mut u8) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetCurrentFrameNumber(InterfaceHandle: WINUSB_INTERFACE_HANDLE, CurrentFrameNumber: *mut u32, TimeStamp: *mut LARGE_INTEGER) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetCurrentFrameNumberAndQpc(InterfaceHandle: WINUSB_INTERFACE_HANDLE, FrameQpcInfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetDescriptor(InterfaceHandle: WINUSB_INTERFACE_HANDLE, DescriptorType: u8, Index: u8, LanguageID: u16, #[size_param(5)] #[opt] Buffer: *mut u8, BufferLength: u32, LengthTransferred: *mut u32) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetOverlappedResult(InterfaceHandle: WINUSB_INTERFACE_HANDLE, lpOverlapped: *const OVERLAPPED, lpNumberOfBytesTransferred: *mut u32, bWait: BOOL) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetPipePolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, PolicyType: u32, #[in] #[out] ValueLength: *mut u32, #[size_param(3)] Value: *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_GetPowerPolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PolicyType: u32, #[in] #[out] ValueLength: *mut u32, #[size_param(2)] Value: *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_Initialize(DeviceHandle: HANDLE, InterfaceHandle: *mut *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ParseConfigurationDescriptor(ConfigurationDescriptor: *const USB_CONFIGURATION_DESCRIPTOR, StartPosition: *const void, InterfaceNumber: i32, AlternateSetting: i32, InterfaceClass: i32, InterfaceSubClass: i32, InterfaceProtocol: i32) -> PUSB_INTERFACE_DESCRIPTOR;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ParseDescriptors(#[size_param(1)] DescriptorBuffer: *const void, TotalLength: u32, StartPosition: *const void, DescriptorType: i32) -> PUSB_COMMON_DESCRIPTOR;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_QueryDeviceInformation(InterfaceHandle: WINUSB_INTERFACE_HANDLE, InformationType: u32, #[in] #[out] BufferLength: *mut u32, #[size_param(2)] Buffer: *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_QueryInterfaceSettings(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateInterfaceNumber: u8, UsbAltInterfaceDescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_QueryPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateInterfaceNumber: u8, PipeIndex: u8, PipeInformation: *mut WINUSB_PIPE_INFORMATION) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_QueryPipeEx(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateSettingNumber: u8, PipeIndex: u8, PipeInformationEx: *mut WINUSB_PIPE_INFORMATION_EX) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ReadIsochPipe(BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, Offset: u32, Length: u32, #[in] #[out] FrameNumber: *mut u32, NumberOfPackets: u32, #[len_param(4)] IsoPacketDescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ReadIsochPipeAsap(BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, Offset: u32, Length: u32, ContinueStream: BOOL, NumberOfPackets: u32, #[len_param(4)] IsoPacketDescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ReadPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, #[size_param(3)] #[opt] Buffer: *mut u8, BufferLength: u32, #[opt] LengthTransferred: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_RegisterIsochBuffer(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, #[size_param(3)] #[in] #[out] Buffer: *mut u8, BufferLength: u32, IsochBufferHandle: *mut *mut void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_ResetPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_SetCurrentAlternateSetting(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SettingNumber: u8) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_SetPipePolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, PolicyType: u32, ValueLength: u32, #[size_param(3)] Value: *const void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_SetPowerPolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PolicyType: u32, ValueLength: u32, #[size_param(2)] Value: *const void) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_StartTrackingForTimeSync(InterfaceHandle: WINUSB_INTERFACE_HANDLE, StartTrackingInfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_StopTrackingForTimeSync(InterfaceHandle: WINUSB_INTERFACE_HANDLE, StopTrackingInfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_UnregisterIsochBuffer(IsochBufferHandle: WINUSB_ISOCH_BUFFER_HANDLE) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_WriteIsochPipe(BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, Offset: u32, Length: u32, #[in] #[out] FrameNumber: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_WriteIsochPipeAsap(BufferHandle: WINUSB_ISOCH_BUFFER_HANDLE, Offset: u32, Length: u32, ContinueStream: BOOL, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+        #[library("WINUSB.DLL")]
+        extern fn WinUsb_WritePipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, #[size_param(3)] Buffer: *const u8, BufferLength: u32, #[opt] LengthTransferred: *mut u32, #[opt] Overlapped: *const OVERLAPPED) -> BOOL;
+    }
+}

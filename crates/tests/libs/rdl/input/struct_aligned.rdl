@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[align(16)]
+    struct M128A {
+        Low: u64,
+        High: i64,
+    }
+    #[align(32)]
+    struct OverAligned {
+        value: i32,
+    }
+}

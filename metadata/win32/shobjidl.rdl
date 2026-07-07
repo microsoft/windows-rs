@@ -1,0 +1,462 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ACDD_VISIBLE: u32 = 1;
+        const AccessibilityDockingService: GUID = 0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402;
+        const AlphabeticalCategorizer: GUID = 0x3c2654c6_7372_4f6b_b310_55d6128f49d2;
+        const ApplicationAssociationRegistrationUI: GUID = 0x1968106d_f3b5_44cf_890e_116fcb9ecef1;
+        const AttachmentServices: GUID = 0x4125dd96_e03a_4103_8f70_e0597d803b9c;
+        type CDBE_ACTIONS = u32;
+        const CDBurn: GUID = 0xfbeb8a05_beee_4442_804e_409d6c4515e9;
+        #[repr(u32)]
+        #[flags]
+        enum DSH_FLAGS {
+            DSH_ALLOWDROPDESCRIPTIONTEXT = 1,
+        }
+        const DesktopGadget: GUID = 0x924ccc1b_6562_4c85_8657_d177925222b6;
+        const DocPropShellExtension: GUID = 0x883373c3_bf89_11d1_be35_080036b11a03;
+        const ExecuteFolder: GUID = 0x11dbb47c_a525_400b_9e80_a54615a090c0;
+        const ExplorerBrowser: GUID = 0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb;
+        #[repr(u32)]
+        #[flags]
+        enum FOLDERVIEWOPTIONS {
+            FVO_DEFAULT = 0,
+            FVO_VISTALAYOUT = 1,
+            FVO_CUSTOMPOSITION = 2,
+            FVO_CUSTOMORDERING = 4,
+            FVO_SUPPORTHYPERLINKS = 8,
+            FVO_NOANIMATIONS = 16,
+            FVO_NOSCROLLTIPS = 32,
+        }
+        const FSCopyHandler: GUID = 0xd197380a_0a79_4dc8_a033_ed882c2fa14b;
+        const FolderViewHost: GUID = 0x20b1cb23_6968_4eb9_b7d4_a66d00d07cee;
+        #[guid(0x8849dc22_cedf_4c95_998d_051419dd3f76)]
+        interface IAccessibilityDockingService: IUnknown {
+            fn GetAvailableSize(&self, hMonitor: HMONITOR, pcxFixed: *mut u32, pcyMax: *mut u32) -> HRESULT;
+            fn DockWindow(&self, hwnd: HWND, hMonitor: HMONITOR, cyRequested: u32, pCallback: IAccessibilityDockingServiceCallback) -> HRESULT;
+            fn UndockWindow(&self, hwnd: HWND) -> HRESULT;
+        }
+        #[guid(0x157733fd_a592_42e5_b594_248468c5a81b)]
+        interface IAccessibilityDockingServiceCallback: IUnknown {
+            fn Undocked(&self, undockReason: UNDOCK_REASON) -> HRESULT;
+        }
+        #[guid(0x95a391c5_9ed4_4c28_8401_ab9e06719e11)]
+        interface IAccessibleObject: IUnknown {
+            fn SetAccessibleName(&self, pszName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x1f76a169_f994_40ac_8fc8_0959e8874710)]
+        interface IApplicationAssociationRegistrationUI: IUnknown {
+            fn LaunchAdvancedAssociationUI(&self, pszAppRegistryName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db)]
+        interface IAutoCompleteDropDown: IUnknown {
+            fn GetDropDownStatus(&self, pdwFlags: *mut u32, ppwszString: *mut PWSTR) -> HRESULT;
+            fn ResetEnumerator(&self) -> HRESULT;
+        }
+        #[guid(0xb9075c7c_d48e_403f_ab99_d6c77a1084ac)]
+        interface IBandHost: IUnknown {
+            fn CreateBand(&self, rclsidBand: *const GUID, fAvailable: BOOL, fVisible: BOOL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn SetBandAvailability(&self, rclsidBand: *const GUID, fAvailable: BOOL) -> HRESULT;
+            fn DestroyBand(&self, rclsidBand: *const GUID) -> HRESULT;
+        }
+        #[guid(0x3d73a659_e5d0_4d42_afc0_5121ba425c8d)]
+        interface ICDBurn: IUnknown {
+            fn GetRecorderDriveLetter(&self, #[out] pszDrive: PWSTR, cch: u32) -> HRESULT;
+            fn Burn(&self, hwnd: HWND) -> HRESULT;
+            fn HasRecordableDrive(&self, pfHasRecorder: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0x2271dcca_74fc_4414_8fb7_c56b05ace2d7)]
+        interface ICDBurnExt: IUnknown {
+            fn GetSupportedActionTypes(&self, pdwActions: *mut CDBE_ACTIONS) -> HRESULT;
+        }
+        #[guid(0xc8ad25a1_3294_41ee_8165_71174bd01c57)]
+        interface ICommDlgBrowser3: ICommDlgBrowser2 {
+            fn OnColumnClicked(&self, ppshv: IShellView, iColumn: i32) -> HRESULT;
+            fn GetCurrentFilter(&self, #[out] pszFileSpec: PWSTR, cchFileSpec: i32) -> HRESULT;
+            fn OnPreViewCreated(&self, ppshv: IShellView) -> HRESULT;
+        }
+        #[guid(0x0df60d92_6818_46d6_b358_d66170dde466)]
+        interface IComputerInfoChangeNotify: IUnknown {
+            fn ComputerInfoChanged(&self) -> HRESULT;
+        }
+        struct IControlMarkup {}
+        const IDD_WIZEXTN_FIRST: u32 = 20480;
+        const IDD_WIZEXTN_LAST: u32 = 20736;
+        #[guid(0x79d16de4_abee_4021_8d9d_9169b261d657)]
+        interface IDeskBand2: IDeskBand {
+            fn CanRenderComposited(&self, pfCanRenderComposited: *mut BOOL) -> HRESULT;
+            fn SetCompositionState(&self, fCompositionEnabled: BOOL) -> HRESULT;
+            fn GetCompositionState(&self, pfCompositionEnabled: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xc1646bc4_f298_4f91_a204_eb2dd1709d1a)]
+        interface IDesktopGadget: IUnknown {
+            fn RunGadget(&self, gadgetPath: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x83e07d0d_0c5f_4163_bf1a_60b274051e40)]
+        interface IDragSourceHelper2: IDragSourceHelper {
+            fn SetFlags(&self, dwFlags: u32) -> HRESULT;
+        }
+        #[guid(0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7)]
+        interface IDynamicHWHandler: IUnknown {
+            fn GetDynamicInfo(&self, pszDeviceID: PCWSTR, dwContentType: u32, ppszAction: *mut PWSTR) -> HRESULT;
+        }
+        const IENamespaceTreeControl: GUID = 0xace52d03_e5cd_4b20_82ff_e71b11beae1d;
+        #[guid(0x61e00d45_8fff_4e60_924e_6537b61612dd)]
+        interface IEnumReadyCallback: IUnknown {
+            fn EnumReady(&self) -> HRESULT;
+        }
+        #[guid(0x8c8bf236_1aec_495f_9894_91d57c3c686f)]
+        interface IEnumerableView: IUnknown {
+            fn SetEnumReadyCallback(&self, percb: IEnumReadyCallback) -> HRESULT;
+            fn CreateEnumIDListFromContents(&self, pidlFolder: *const ITEMIDLIST, dwEnumFlags: u32, ppEnumIDList: *mut IEnumIDList) -> HRESULT;
+        }
+        #[guid(0x61744fc7_85b5_4791_a9b0_272276309b13)]
+        interface IFileDialog2: IFileDialog {
+            fn SetCancelButtonLabel(&self, pszLabel: PCWSTR) -> HRESULT;
+            fn SetNavigationRoot(&self, psi: IShellItem) -> HRESULT;
+        }
+        #[guid(0x36116642_d713_4b97_9b83_7484a9d00433)]
+        interface IFileDialogControlEvents: IUnknown {
+            fn OnItemSelected(&self, pfdc: IFileDialogCustomize, dwIDCtl: u32, dwIDItem: u32) -> HRESULT;
+            fn OnButtonClicked(&self, pfdc: IFileDialogCustomize, dwIDCtl: u32) -> HRESULT;
+            fn OnCheckButtonToggled(&self, pfdc: IFileDialogCustomize, dwIDCtl: u32, bChecked: BOOL) -> HRESULT;
+            fn OnControlActivating(&self, pfdc: IFileDialogCustomize, dwIDCtl: u32) -> HRESULT;
+        }
+        #[guid(0x47c01f95_e185_412c_b5c5_4f27df965aea)]
+        interface IFolderBandPriv: IUnknown {
+            fn SetCascade(&self, fCascade: BOOL) -> HRESULT;
+            fn SetAccelerators(&self, fAccelerators: BOOL) -> HRESULT;
+            fn SetNoIcons(&self, fNoIcons: BOOL) -> HRESULT;
+            fn SetNoText(&self, fNoText: BOOL) -> HRESULT;
+        }
+        #[guid(0x1ea58f02_d55a_411d_b09e_9e65ac21605b)]
+        interface IFolderViewHost: IUnknown {
+            fn Initialize(&self, hwndParent: HWND, pdo: IDataObject, prc: *const RECT) -> HRESULT;
+        }
+        #[guid(0x3cc974d2_b302_4d36_ad3e_06d93f695d3f)]
+        interface IFolderViewOptions: IUnknown {
+            fn SetFolderViewOptions(&self, fvoMask: FOLDERVIEWOPTIONS, fvoFlags: FOLDERVIEWOPTIONS) -> HRESULT;
+            fn GetFolderViewOptions(&self, pfvoFlags: *mut FOLDERVIEWOPTIONS) -> HRESULT;
+        }
+        #[guid(0xc1fb73d0_ec3a_4ba2_b512_8cdb9187b6d1)]
+        interface IHWEventHandler: IUnknown {
+            fn Initialize(&self, pszParams: PCWSTR) -> HRESULT;
+            fn HandleEvent(&self, pszDeviceID: PCWSTR, pszAltDeviceID: PCWSTR, pszEventType: PCWSTR) -> HRESULT;
+            fn HandleEventWithContent(&self, pszDeviceID: PCWSTR, pszAltDeviceID: PCWSTR, pszEventType: PCWSTR, pszContentTypeHandler: PCWSTR, pdataobject: IDataObject) -> HRESULT;
+        }
+        #[guid(0xcfcc809f_295d_42e8_9ffc_424b33c487e6)]
+        interface IHWEventHandler2: IHWEventHandler {
+            fn HandleEventWithHWND(&self, pszDeviceID: PCWSTR, pszAltDeviceID: PCWSTR, pszEventType: PCWSTR, hwndOwner: HWND) -> HRESULT;
+        }
+        #[guid(0x505f1513_6b3e_4892_a272_59f8889a4d3e)]
+        interface IImageRecompress: IUnknown {
+            fn RecompressImage(&self, psi: IShellItem, cx: i32, cy: i32, iQuality: i32, pstg: IStorage, ppstrmOut: *mut IStream) -> HRESULT;
+        }
+        #[guid(0xd2b57227_3d23_4b95_93c0_492bd454c356)]
+        interface IInsertItem: IUnknown {
+            fn InsertItem(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+        }
+        struct IMarkupCallback {}
+        #[guid(0x71f312de_43ed_4190_8477_e9536b82350b)]
+        interface INameSpaceTreeAccessible: IUnknown {
+            fn OnGetDefaultAccessibilityAction(&self, psi: IShellItem, pbstrDefaultAction: *mut BSTR) -> HRESULT;
+            fn OnDoDefaultAccessibilityAction(&self, psi: IShellItem) -> HRESULT;
+            fn OnGetAccessibilityRole(&self, psi: IShellItem, pvarRole: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0x7cc7aed8_290e_49bc_8945_c1401cc9306c)]
+        interface INameSpaceTreeControl2: INameSpaceTreeControl {
+            fn SetControlStyle(&self, nstcsMask: NSTCSTYLE, nstcsStyle: NSTCSTYLE) -> HRESULT;
+            fn GetControlStyle(&self, nstcsMask: NSTCSTYLE, pnstcsStyle: *mut NSTCSTYLE) -> HRESULT;
+            fn SetControlStyle2(&self, nstcsMask: NSTCSTYLE2, nstcsStyle: NSTCSTYLE2) -> HRESULT;
+            fn GetControlStyle2(&self, nstcsMask: NSTCSTYLE2, pnstcsStyle: *mut NSTCSTYLE2) -> HRESULT;
+        }
+        #[guid(0x2d3ba758_33ee_42d5_bb7b_5f3431d86c78)]
+        interface INameSpaceTreeControlCustomDraw: IUnknown {
+            fn PrePaint(&self, hdc: HDC, prc: *const RECT, plres: *mut LRESULT) -> HRESULT;
+            fn PostPaint(&self, hdc: HDC, prc: *const RECT) -> HRESULT;
+            fn ItemPrePaint(&self, hdc: HDC, prc: *const RECT, pnstccdItem: *const NSTCCUSTOMDRAW, #[in] #[out] pclrText: *mut COLORREF, #[in] #[out] pclrTextBk: *mut COLORREF, plres: *mut LRESULT) -> HRESULT;
+            fn ItemPostPaint(&self, hdc: HDC, prc: *const RECT, pnstccdItem: *const NSTCCUSTOMDRAW) -> HRESULT;
+        }
+        #[guid(0xf9c665d6_c2f2_4c19_bf33_8322d7352f51)]
+        interface INameSpaceTreeControlDropHandler: IUnknown {
+            fn OnDragEnter(&self, #[opt] psiOver: IShellItem, psiaData: IShellItemArray, fOutsideSource: BOOL, grfKeyState: u32, #[in] #[out] pdwEffect: *mut u32) -> HRESULT;
+            fn OnDragOver(&self, #[opt] psiOver: IShellItem, psiaData: IShellItemArray, grfKeyState: u32, #[in] #[out] pdwEffect: *mut u32) -> HRESULT;
+            fn OnDragPosition(&self, #[opt] psiOver: IShellItem, psiaData: IShellItemArray, iNewPosition: i32, iOldPosition: i32) -> HRESULT;
+            fn OnDrop(&self, #[opt] psiOver: IShellItem, psiaData: IShellItemArray, iPosition: i32, grfKeyState: u32, #[in] #[out] pdwEffect: *mut u32) -> HRESULT;
+            fn OnDropPosition(&self, #[opt] psiOver: IShellItem, psiaData: IShellItemArray, iNewPosition: i32, iOldPosition: i32) -> HRESULT;
+            fn OnDragLeave(&self, #[opt] psiOver: IShellItem) -> HRESULT;
+        }
+        #[guid(0x93d77985_b3d8_4484_8318_672cdda002ce)]
+        interface INameSpaceTreeControlEvents: IUnknown {
+            fn OnItemClick(&self, psi: IShellItem, nstceHitTest: NSTCEHITTEST, nstceClickType: NSTCECLICKTYPE) -> HRESULT;
+            fn OnPropertyItemCommit(&self, psi: IShellItem) -> HRESULT;
+            fn OnItemStateChanging(&self, psi: IShellItem, nstcisMask: NSTCITEMSTATE, nstcisState: NSTCITEMSTATE) -> HRESULT;
+            fn OnItemStateChanged(&self, psi: IShellItem, nstcisMask: NSTCITEMSTATE, nstcisState: NSTCITEMSTATE) -> HRESULT;
+            fn OnSelectionChanged(&self, psiaSelection: IShellItemArray) -> HRESULT;
+            fn OnKeyboardInput(&self, uMsg: u32, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
+            fn OnBeforeExpand(&self, psi: IShellItem) -> HRESULT;
+            fn OnAfterExpand(&self, psi: IShellItem) -> HRESULT;
+            fn OnBeginLabelEdit(&self, psi: IShellItem) -> HRESULT;
+            fn OnEndLabelEdit(&self, psi: IShellItem) -> HRESULT;
+            fn OnGetToolTip(&self, psi: IShellItem, #[len_param(2)] #[out] pszTip: PWSTR, cchTip: i32) -> HRESULT;
+            fn OnBeforeItemDelete(&self, psi: IShellItem) -> HRESULT;
+            fn OnItemAdded(&self, psi: IShellItem, fIsRoot: BOOL) -> HRESULT;
+            fn OnItemDeleted(&self, psi: IShellItem, fIsRoot: BOOL) -> HRESULT;
+            fn OnBeforeContextMenu(&self, #[opt] psi: IShellItem, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn OnAfterContextMenu(&self, #[opt] psi: IShellItem, pcmIn: IContextMenu, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn OnBeforeStateImageChange(&self, psi: IShellItem) -> HRESULT;
+            fn OnGetDefaultIconIndex(&self, psi: IShellItem, piDefaultIcon: *mut i32, piOpenIcon: *mut i32) -> HRESULT;
+        }
+        #[guid(0x76e54780_ad74_48e3_a695_3ba9a0aff10d)]
+        interface IPreviousVersionsInfo: IUnknown {
+            fn AreSnapshotsAvailable(&self, pszPath: PCWSTR, fOkToBeSlow: BOOL, pfAvailable: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xaa9198bb_ccec_472d_beed_19a4f6733f7a)]
+        interface IPublishingWizard: IWizardExtension {
+            fn Initialize(&self, #[opt] pdo: IDataObject, dwOptions: u32, pszServiceScope: PCWSTR) -> HRESULT;
+            fn GetTransferManifest(&self, #[opt] phrFromTransfer: *mut HRESULT, pdocManifest: *mut IXMLDOMDocument) -> HRESULT;
+        }
+        #[guid(0xddefe873_6997_4e68_be26_39b633adbe12)]
+        interface IQueryCancelAutoPlay: IUnknown {
+            fn AllowAutoPlay(&self, pszPath: PCWSTR, dwContentType: u32, pszLabel: PCWSTR, dwSerialNumber: u32) -> HRESULT;
+        }
+        #[guid(0xc7b236ce_ee80_11d0_985f_006008059382)]
+        interface IQueryCodePage: IUnknown {
+            fn GetCodePage(&self, puiCodePage: *mut u32) -> HRESULT;
+            fn SetCodePage(&self, uiCodePage: u32) -> HRESULT;
+        }
+        #[guid(0x96e5ae6d_6ae1_4b1c_900c_c6480eaa8828)]
+        interface IResultsFolder: IUnknown {
+            fn AddItem(&self, psi: IShellItem) -> HRESULT;
+            fn AddIDList(&self, pidl: *const ITEMIDLIST, ppidlAdded: *mut LPITEMIDLIST) -> HRESULT;
+            fn RemoveItem(&self, psi: IShellItem) -> HRESULT;
+            fn RemoveIDList(&self, pidl: *const ITEMIDLIST) -> HRESULT;
+            fn RemoveAll(&self) -> HRESULT;
+        }
+        #[guid(0x6af6e03f_d664_4ef4_9626_f7e0ed36755e)]
+        interface ISearchBoxInfo: IUnknown {
+            fn GetCondition(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetText(&self, ppsz: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xfce4bde0_4b68_4b80_8e9c_7426315a7388)]
+        interface IShellRunDll: IUnknown {
+            fn Run(&self, pszArgs: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xec39fa88_f8af_41c5_8421_38bed28f4673)]
+        interface IShellView3: IShellView2 {
+            fn CreateViewWindow3(&self, psbOwner: IShellBrowser, psvPrev: IShellView, dwViewFlags: SV3CVW3_FLAGS, dwMask: FOLDERFLAGS, dwFlags: FOLDERFLAGS, fvMode: FOLDERVIEWMODE, pvid: *const SHELLVIEWID, prcView: *const RECT, phwndView: *mut HWND) -> HRESULT;
+        }
+        #[guid(0x4cd19ada_25a5_4a32_b3b7_347bee5be36b)]
+        interface IStartMenuPinnedList: IUnknown {
+            fn RemoveFromList(&self, pitem: IShellItem) -> HRESULT;
+        }
+        #[guid(0x5efb46d7_47c0_4b68_acda_ded47c90ec91)]
+        interface IStorageProviderBanners: IUnknown {
+            fn SetBanner(&self, providerIdentity: PCWSTR, subscriptionId: PCWSTR, contentId: PCWSTR) -> HRESULT;
+            fn ClearBanner(&self, providerIdentity: PCWSTR, subscriptionId: PCWSTR) -> HRESULT;
+            fn ClearAllBanners(&self, providerIdentity: PCWSTR) -> HRESULT;
+            fn GetBanner(&self, providerIdentity: PCWSTR, subscriptionId: PCWSTR, contentId: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0x7bf992a9_af7a_4dba_b2e5_4d080b1ecbc6)]
+        interface IStorageProviderCopyHook: IUnknown {
+            fn CopyCallback(&self, hwnd: HWND, operation: u32, flags: u32, srcFile: PCWSTR, srcAttribs: u32, destFile: PCWSTR, destAttribs: u32, result: *mut u32) -> HRESULT;
+        }
+        #[guid(0xfe0b6665_e0ca_49b9_a178_2b5cb48d92a5)]
+        interface IStreamAsync: IStream {
+            fn ReadAsync(&self, #[size_param(1)] pv: *mut void, cb: u32, #[opt] pcbRead: *mut u32, lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn WriteAsync(&self, #[size_param(1)] lpBuffer: *const void, cb: u32, #[opt] pcbWritten: *mut u32, lpOverlapped: *const OVERLAPPED) -> HRESULT;
+            fn OverlappedResult(&self, lpOverlapped: *const OVERLAPPED, lpNumberOfBytesTransferred: *mut u32, bWait: BOOL) -> HRESULT;
+            fn CancelIo(&self) -> HRESULT;
+        }
+        #[guid(0x8a68fdda_1fdc_4c20_8ceb_416643b5a625)]
+        interface IStreamUnbufferedInfo: IUnknown {
+            fn GetSectorSize(&self, pcbSectorSize: *mut u32) -> HRESULT;
+        }
+        #[guid(0x6d67e846_5b9c_4db8_9cbc_dde12f4254f1)]
+        interface ITrayDeskBand: IUnknown {
+            fn ShowDeskBand(&self, clsid: *const GUID) -> HRESULT;
+            fn HideDeskBand(&self, clsid: *const GUID) -> HRESULT;
+            fn IsDeskBandShown(&self, clsid: *const GUID) -> HRESULT;
+            fn DeskBandRegistrationChanged(&self) -> HRESULT;
+        }
+        #[guid(0x05edda5c_98a3_4717_8adb_c5e7da991eb1)]
+        interface IUseToBrowseItem: IRelatedItem {}
+        #[guid(0xa561e69a_b4b8_4113_91a5_64c6bcca3430)]
+        interface IUserAccountChangeCallback: IUnknown {
+            fn OnPictureChange(&self, pszUserName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x215913cc_57eb_4fab_ab5a_e5fa7bea2a6c)]
+        interface IUserNotification2: IUnknown {
+            fn SetBalloonInfo(&self, pszTitle: PCWSTR, pszText: PCWSTR, dwInfoFlags: u32) -> HRESULT;
+            fn SetBalloonRetry(&self, dwShowTime: u32, dwInterval: u32, cRetryCount: u32) -> HRESULT;
+            fn SetIconInfo(&self, hIcon: HICON, pszToolTip: PCWSTR) -> HRESULT;
+            fn Show(&self, pqc: IQueryContinue, dwContinuePollInterval: u32, pSink: IUserNotificationCallback) -> HRESULT;
+            fn PlaySound(&self, pszSoundName: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x19108294_0441_4aff_8013_fa0a730b0bea)]
+        interface IUserNotificationCallback: IUnknown {
+            fn OnBalloonUserClick(&self, pt: *const POINT) -> HRESULT;
+            fn OnLeftClick(&self, pt: *const POINT) -> HRESULT;
+            fn OnContextMenu(&self, pt: *const POINT) -> HRESULT;
+        }
+        #[guid(0xe693cf68_d967_4112_8763_99172aee5e5a)]
+        interface IVisualProperties: IUnknown {
+            fn SetWatermark(&self, hbmp: HBITMAP, vpwf: VPWATERMARKFLAGS) -> HRESULT;
+            fn SetColor(&self, vpcf: VPCOLORFLAGS, cr: COLORREF) -> HRESULT;
+            fn GetColor(&self, vpcf: VPCOLORFLAGS, pcr: *mut COLORREF) -> HRESULT;
+            fn SetItemHeight(&self, cyItemInPixels: i32) -> HRESULT;
+            fn GetItemHeight(&self, cyItemInPixels: *mut i32) -> HRESULT;
+            fn SetFont(&self, plf: *const LOGFONTW, bRedraw: BOOL) -> HRESULT;
+            fn GetFont(&self, plf: *mut LOGFONTW) -> HRESULT;
+            fn SetTheme(&self, pszSubAppName: PCWSTR, pszSubIdList: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x0e6b3f66_98d1_48c0_a222_fbde74e2fbc5)]
+        interface IWebWizardExtension: IWizardExtension {
+            fn SetInitialURL(&self, pszURL: PCWSTR) -> HRESULT;
+            fn SetErrorURL(&self, pszErrorURL: PCWSTR) -> HRESULT;
+        }
+        #[guid(0xc02ea696_86cc_491e_9b23_74394a0444a8)]
+        interface IWizardExtension: IUnknown {
+            fn AddPages(&self, #[len_param(1)] aPages: *mut HPROPSHEETPAGE, cPages: u32, pnPagesAdded: *mut u32) -> HRESULT;
+            fn GetFirstPage(&self, phpage: *mut HPROPSHEETPAGE) -> HRESULT;
+            fn GetLastPage(&self, phpage: *mut HPROPSHEETPAGE) -> HRESULT;
+        }
+        #[guid(0x88960f5b_422f_4e7b_8013_73415381c3c3)]
+        interface IWizardSite: IUnknown {
+            fn GetPreviousPage(&self, phpage: *mut HPROPSHEETPAGE) -> HRESULT;
+            fn GetNextPage(&self, phpage: *mut HPROPSHEETPAGE) -> HRESULT;
+            fn GetCancelledPage(&self, phpage: *mut HPROPSHEETPAGE) -> HRESULT;
+        }
+        const ImageProperties: GUID = 0x7ab770c7_0e23_4d7a_8aa2_19bfad479829;
+        const ImageRecompress: GUID = 0x6e33091c_d2f8_4740_b55e_2e11d1477a2c;
+        const InternetPrintOrdering: GUID = 0xadd36aa8_751a_4579_a266_d66f5202ccbb;
+        type LPVIEWSETTINGS = *mut i8;
+        const MergedCategorizer: GUID = 0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304;
+        struct NSTCCUSTOMDRAW {
+            psi: IShellItem,
+            uItemState: u32,
+            nstcis: NSTCITEMSTATE,
+            pszText: PCWSTR,
+            iImage: i32,
+            himl: HIMAGELIST,
+            iLevel: i32,
+            iIndent: i32,
+        }
+        const NSTCDHPOS_ONTOP: i32 = -1;
+        type NSTCECLICKTYPE = u32;
+        type NSTCEHITTEST = u32;
+        const NSTCS2_ALLMASK: u32 = 7;
+        #[repr(u32)]
+        #[flags]
+        enum NSTCSTYLE2 {
+            NSTCS2_DEFAULT = 0,
+            NSTCS2_INTERRUPTNOTIFICATIONS = 1,
+            NSTCS2_SHOWNULLSPACEMENU = 2,
+            NSTCS2_DISPLAYPADDING = 4,
+            NSTCS2_DISPLAYPINNEDONLY = 8,
+            NTSCS2_NOSINGLETONAUTOEXPAND = 16,
+            NTSCS2_NEVERINSERTNONENUMERATED = 32,
+        }
+        const NamespaceTreeControl: GUID = 0xae054212_3535_4430_83ed_d501aa6680e6;
+        #[encoding("utf-16")]
+        const PROPSTR_EXTENSIONCOMPLETIONSTATE: String = "ExtensionCompletionState";
+        const PreviousVersions: GUID = 0x596ab062_b4d2_4215_9f74_e9109b0a8153;
+        const PublishDropTarget: GUID = 0xcc6eeffb_43f6_46c5_9619_51d571967f7d;
+        const PublishingWizard: GUID = 0x6b33163c_76a5_4b6c_bf21_45de9cd503a1;
+        const QueryCancelAutoPlay: GUID = 0x331f1768_05a9_4ddd_b86e_dae34ddc998a;
+        #[library("SHELL32.dll")]
+        extern fn SHAddDefaultPropertiesByExt(pszExt: PCWSTR, pPropStore: IPropertyStore) -> HRESULT;
+        #[library("SHELL32.dll")]
+        extern fn SHCreateDefaultPropertiesOp(psi: IShellItem, ppFileOp: *mut IFileOperation) -> HRESULT;
+        const SHPWHF_ANYLOCATION: u32 = 256;
+        const SHPWHF_NOFILESELECTOR: u32 = 4;
+        const SHPWHF_NONETPLACECREATE: u32 = 2;
+        const SHPWHF_NORECOMPRESS: u32 = 1;
+        const SHPWHF_USEMRU: u32 = 8;
+        const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536;
+        #[library("SHELL32.dll")]
+        extern fn SHSetDefaultProperties(#[opt] hwnd: HWND, psi: IShellItem, dwFileOpFlags: u32, #[opt] pfops: IFileOperationProgressSink) -> HRESULT;
+        const SID_SCommandBarState: GUID = 0xb99eaa5c_3850_4400_bc33_2ce534048bf8;
+        type SV3CVW3_FLAGS = u32;
+        #[repr(u32)]
+        #[flags]
+        enum SYNC_ENGINE_STATE_FLAGS {
+            SESF_NONE = 0,
+            SESF_SERVICE_QUOTA_NEARING_LIMIT = 1,
+            SESF_SERVICE_QUOTA_EXCEEDED_LIMIT = 2,
+            SESF_AUTHENTICATION_ERROR = 4,
+            SESF_PAUSED_DUE_TO_METERED_NETWORK = 8,
+            SESF_PAUSED_DUE_TO_DISK_SPACE_FULL = 16,
+            SESF_PAUSED_DUE_TO_CLIENT_POLICY = 32,
+            SESF_PAUSED_DUE_TO_SERVICE_POLICY = 64,
+            SESF_SERVICE_UNAVAILABLE = 128,
+            SESF_PAUSED_DUE_TO_USER_REQUEST = 256,
+            SESF_ALL_FLAGS = 511,
+        }
+        const StartMenuPin: GUID = 0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8;
+        const StorageProviderBanners: GUID = 0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063;
+        const TimeCategorizer: GUID = 0x3bb4118f_ddfd_4d30_a348_9fb5d6bf1afe;
+        const TrayBandSiteService: GUID = 0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934;
+        const TrayDeskBand: GUID = 0xe6442437_6c68_4f52_94dd_2cfed267efb9;
+        #[repr(i32)]
+        enum UNDOCK_REASON {
+            UR_RESOLUTION_CHANGE = 0,
+            UR_MONITOR_DISCONNECT = 1,
+        }
+        #[repr(i32)]
+        enum VPCOLORFLAGS {
+            VPCF_TEXT = 1,
+            VPCF_BACKGROUND = 2,
+            VPCF_SORTCOLUMN = 3,
+            VPCF_SUBTEXT = 4,
+            VPCF_TEXTBACKGROUND = 5,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum VPWATERMARKFLAGS {
+            VPWF_DEFAULT = 0,
+            VPWF_ALPHABLEND = 1,
+        }
+        const VirtualDesktopManager: GUID = 0xaa509086_5ca9_4c25_8f95_589d3c07b48a;
+        const WebWizardHost: GUID = 0xc827f149_55c1_4d28_935e_57e47caed973;
+        #[repr(i32)]
+        enum _CDBE_ACTIONS {
+            CDBE_TYPE_MUSIC = 1,
+            CDBE_TYPE_DATA = 2,
+            CDBE_TYPE_ALL = -1,
+        }
+        #[repr(i32)]
+        enum _NSTCECLICKTYPE {
+            NSTCECT_LBUTTON = 1,
+            NSTCECT_MBUTTON = 2,
+            NSTCECT_RBUTTON = 3,
+            NSTCECT_BUTTON = 3,
+            NSTCECT_DBLCLICK = 4,
+        }
+        #[repr(i32)]
+        enum _NSTCEHITTEST {
+            NSTCEHT_NOWHERE = 1,
+            NSTCEHT_ONITEMICON = 2,
+            NSTCEHT_ONITEMLABEL = 4,
+            NSTCEHT_ONITEMINDENT = 8,
+            NSTCEHT_ONITEMBUTTON = 16,
+            NSTCEHT_ONITEMRIGHT = 32,
+            NSTCEHT_ONITEMSTATEICON = 64,
+            NSTCEHT_ONITEM = 70,
+            NSTCEHT_ONITEMTABBUTTON = 4096,
+        }
+        #[repr(i32)]
+        enum _SV3CVW3_FLAGS {
+            SV3CVW3_DEFAULT = 0,
+            SV3CVW3_NONINTERACTIVE = 1,
+            SV3CVW3_FORCEVIEWMODE = 2,
+            SV3CVW3_FORCEFOLDERFLAGS = 4,
+        }
+        #[repr(i32)]
+        enum tagCDBURNINGEXTENSIONRET {
+            CDBE_RET_DEFAULT = 0,
+            CDBE_RET_DONTRUNOTHEREXTS = 1,
+            CDBE_RET_STOPWIZARD = 2,
+        }
+    }
+}

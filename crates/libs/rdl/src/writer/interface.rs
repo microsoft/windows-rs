@@ -30,15 +30,17 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
             quote! { #[guid(#lit)] }
         }
     };
+    let arch_attr = write_arch_attr(item.arches());
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
-        &["GuidAttribute"],
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
     )?;
 
     Ok(quote! {
         #guid_token
+        #arch_attr
         #(#custom_attrs)*
         interface #name #generics_tokens #requires_tokens {
             #(#members)*

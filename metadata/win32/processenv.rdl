@@ -1,0 +1,53 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("KERNEL32.dll")]
+        extern fn ExpandEnvironmentStringsA(lpSrc: PCSTR, #[len_param(2)] #[out] #[opt] lpDst: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn ExpandEnvironmentStringsW(lpSrc: PCWSTR, #[len_param(2)] #[out] #[opt] lpDst: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn FreeEnvironmentStringsA(penv: *const i8) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn FreeEnvironmentStringsW(penv: *const u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommandLineA() -> PSTR;
+        #[library("KERNEL32.dll")]
+        extern fn GetCommandLineW() -> PWSTR;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentDirectoryA(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetCurrentDirectoryW(nBufferLength: u32, #[len_param(0)] #[out] #[opt] lpBuffer: PWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetEnvironmentStrings() -> LPCH;
+        #[library("KERNEL32.dll")]
+        extern fn GetEnvironmentStringsW() -> LPWCH;
+        #[library("KERNEL32.dll")]
+        extern fn GetEnvironmentVariableA(#[opt] lpName: PCSTR, #[len_param(2)] #[out] #[opt] lpBuffer: PSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetEnvironmentVariableW(#[opt] lpName: PCWSTR, #[len_param(2)] #[out] #[opt] lpBuffer: PWSTR, nSize: u32) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn GetStdHandle(nStdHandle: u32) -> HANDLE;
+        #[library("KERNEL32.dll")]
+        extern fn NeedCurrentDirectoryForExePathA(ExeName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn NeedCurrentDirectoryForExePathW(ExeName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SearchPathA(#[opt] lpPath: PCSTR, lpFileName: PCSTR, #[opt] lpExtension: PCSTR, nBufferLength: u32, #[len_param(3)] #[out] #[opt] lpBuffer: PSTR, #[opt] lpFilePart: *mut PSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SearchPathW(#[opt] lpPath: PCWSTR, lpFileName: PCWSTR, #[opt] lpExtension: PCWSTR, nBufferLength: u32, #[len_param(3)] #[out] #[opt] lpBuffer: PWSTR, #[opt] lpFilePart: *mut PWSTR) -> u32;
+        #[library("KERNEL32.dll")]
+        extern fn SetCurrentDirectoryA(lpPathName: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetCurrentDirectoryW(lpPathName: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetEnvironmentStringsW(NewEnvironment: *const u16) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetEnvironmentVariableA(lpName: PCSTR, #[opt] lpValue: PCSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetEnvironmentVariableW(lpName: PCWSTR, #[opt] lpValue: PCWSTR) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetStdHandle(nStdHandle: u32, hHandle: HANDLE) -> BOOL;
+        #[library("KERNEL32.dll")]
+        extern fn SetStdHandleEx(nStdHandle: u32, hHandle: HANDLE, #[opt] phPrevValue: *mut HANDLE) -> BOOL;
+    }
+}

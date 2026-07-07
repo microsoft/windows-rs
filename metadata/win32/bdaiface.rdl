@@ -1,0 +1,454 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum BDA_DrmPairingError {
+            BDA_DrmPairing_Succeeded = 0,
+            BDA_DrmPairing_HardwareFailure = 1,
+            BDA_DrmPairing_NeedRevocationData = 2,
+            BDA_DrmPairing_NeedIndiv = 3,
+            BDA_DrmPairing_Other = 4,
+            BDA_DrmPairing_DrmInitFailed = 5,
+            BDA_DrmPairing_DrmNotPaired = 6,
+            BDA_DrmPairing_DrmRePairSoon = 7,
+            BDA_DrmPairing_Aborted = 8,
+            BDA_DrmPairing_NeedSDKUpdate = 9,
+        }
+        const CLSID_BroadcastEventService: GUID = 0x0b3ffb92_0919_4934_9d5b_619c719d0202;
+        const CLSID_PBDA_AUX_DATA_TYPE: GUID = 0xfd456373_3323_4090_adca_8ed45f55cf10;
+        const CLSID_PBDA_Encoder_DATA_TYPE: GUID = 0x728fd6bc_5546_4716_b103_f899f5a1fa68;
+        const CLSID_PBDA_FDC_DATA_TYPE: GUID = 0xe7dbf9a0_22ab_4047_8e67_ef9ad504e729;
+        const CLSID_PBDA_GDDS_DATA_TYPE: GUID = 0xc80c0df3_6052_4c16_9f56_c44c21f73c45;
+        struct EALocationCodeType {
+            LocationCodeScheme: LocationCodeSchemeType,
+            state_code: u8,
+            county_subdivision: u8,
+            county_code: u16,
+        }
+        #[repr(i32)]
+        enum EntitlementType {
+            Entitled = 0,
+            NotEntitled = 1,
+            TechnicalFailure = 2,
+        }
+        #[guid(0x7def4c09_6e66_4567_a819_f0e17f4a81ab)]
+        interface IBDA_AUX: IUnknown {
+            fn QueryCapabilities(&self, pdwNumAuxInputsBSTR: *mut u32) -> HRESULT;
+            fn EnumCapability(&self, dwIndex: u32, dwInputID: *mut u32, pConnectorType: *mut GUID, ConnTypeNum: *mut u32, NumVideoStds: *mut u32, AnalogStds: *mut u64) -> HRESULT;
+        }
+        #[guid(0xddf15b12_bd25_11d2_9ca0_00c04f7971e0)]
+        interface IBDA_AutoDemodulate: IUnknown {
+            fn put_AutoDemodulate(&self) -> HRESULT;
+        }
+        #[guid(0x34518d13_1182_48e6_b28f_b24987787326)]
+        interface IBDA_AutoDemodulateEx: IBDA_AutoDemodulate {
+            fn get_SupportedDeviceNodeTypes(&self, ulcDeviceNodeTypesMax: u32, pulcDeviceNodeTypes: *mut u32, #[in] #[out] pguidDeviceNodeTypes: *mut GUID) -> HRESULT;
+            fn get_SupportedVideoFormats(&self, pulAMTunerModeType: *mut u32, pulAnalogVideoStandard: *mut u32) -> HRESULT;
+            fn get_AuxInputCount(&self, #[in] #[out] pulCompositeCount: *mut u32, #[in] #[out] pulSvideoCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0xcd51f1e0_7be9_4123_8482_a2a796c0a6b0)]
+        interface IBDA_ConditionalAccess: IUnknown {
+            fn get_SmartCardStatus(&self, pCardStatus: *mut SmartCardStatusType, pCardAssociation: *mut SmartCardAssociationType, pbstrCardError: *mut BSTR, pfOOBLocked: *mut VARIANT_BOOL) -> HRESULT;
+            fn get_SmartCardInfo(&self, pbstrCardName: *mut BSTR, pbstrCardManufacturer: *mut BSTR, pfDaylightSavings: *mut VARIANT_BOOL, pbyRatingRegion: *mut u8, plTimeZoneOffsetMinutes: *mut i32, pbstrLanguage: *mut BSTR, pEALocationCode: *mut EALocationCodeType) -> HRESULT;
+            fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut u32, ulcApplicationsMax: u32, #[in] #[out] rgApplications: [SmartCardApplication; 0]) -> HRESULT;
+            fn get_Entitlement(&self, usVirtualChannel: u16, pEntitlement: *mut EntitlementType) -> HRESULT;
+            fn TuneByChannel(&self, usVirtualChannel: u16) -> HRESULT;
+            fn SetProgram(&self, usProgramNumber: u16) -> HRESULT;
+            fn AddProgram(&self, usProgramNumber: u16) -> HRESULT;
+            fn RemoveProgram(&self, usProgramNumber: u16) -> HRESULT;
+            fn GetModuleUI(&self, byDialogNumber: u8, pbstrURL: *mut BSTR) -> HRESULT;
+            fn InformUIClosed(&self, byDialogNumber: u8, CloseReason: UICloseReasonType) -> HRESULT;
+        }
+        #[guid(0x497c3418_23cb_44ba_bb62_769f506fcea7)]
+        interface IBDA_ConditionalAccessEx: IUnknown {
+            fn CheckEntitlementToken(&self, ulDialogRequest: u32, bstrLanguage: BSTR, RequestType: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbEntitlementTokenLen: u32, pbEntitlementToken: *const u8, pulDescrambleStatus: *mut u32) -> HRESULT;
+            fn SetCaptureToken(&self, ulcbCaptureTokenLen: u32, pbCaptureToken: *const u8) -> HRESULT;
+            fn OpenBroadcastMmi(&self, ulDialogRequest: u32, bstrLanguage: BSTR, EventId: u32) -> HRESULT;
+            fn CloseMmiDialog(&self, ulDialogRequest: u32, bstrLanguage: BSTR, ulDialogNumber: u32, ReasonCode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulSessionResult: *mut u32) -> HRESULT;
+            fn CreateDialogRequestNumber(&self, pulDialogRequestNumber: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1f9bc2a5_44a3_4c52_aab1_0bbce5a1381d)]
+        interface IBDA_DRIDRMService: IUnknown {
+            fn SetDRM(&self, bstrNewDrm: BSTR) -> HRESULT;
+            fn GetDRMStatus(&self, pbstrDrmUuidList: *mut BSTR, DrmUuid: *mut GUID) -> HRESULT;
+            fn GetPairingStatus(&self, #[in] #[out] penumPairingStatus: *mut BDA_DrmPairingError) -> HRESULT;
+        }
+        #[guid(0x05c690f8_56db_4bb2_b053_79c12098bb26)]
+        interface IBDA_DRIWMDRMSession: IUnknown {
+            fn AcknowledgeLicense(&self, hrLicenseAck: HRESULT) -> HRESULT;
+            fn ProcessLicenseChallenge(&self, dwcbLicenseMessage: u32, pbLicenseMessage: *const u8, #[in] #[out] pdwcbLicenseResponse: *mut u32, #[in] #[out] ppbLicenseResponse: *mut *mut u8) -> HRESULT;
+            fn ProcessRegistrationChallenge(&self, dwcbRegistrationMessage: u32, pbRegistrationMessage: *const u8, #[in] #[out] pdwcbRegistrationResponse: *mut u32, #[in] #[out] ppbRegistrationResponse: *mut *mut u8) -> HRESULT;
+            fn SetRevInfo(&self, dwRevInfoLen: u32, pbRevInfo: *const u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
+            fn SetCrl(&self, dwCrlLen: u32, pbCrlLen: *const u8, #[in] #[out] pdwResponse: *mut u32) -> HRESULT;
+            fn GetHMSAssociationData(&self) -> HRESULT;
+            fn GetLastCardeaError(&self, #[in] #[out] pdwError: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf98d88b0_1992_4cd6_a6d9_b9afab99330d)]
+        interface IBDA_DRM: IUnknown {
+            fn GetDRMPairingStatus(&self, pdwStatus: *mut u32, phError: *mut HRESULT) -> HRESULT;
+            fn PerformDRMPairing(&self, fSync: BOOL) -> HRESULT;
+        }
+        #[guid(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e)]
+        interface IBDA_DRMService: IUnknown {
+            fn SetDRM(&self, puuidNewDrm: *const GUID) -> HRESULT;
+            fn GetDRMStatus(&self, pbstrDrmUuidList: *mut BSTR, DrmUuid: *mut GUID) -> HRESULT;
+        }
+        #[guid(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0)]
+        interface IBDA_DeviceControl: IUnknown {
+            fn StartChanges(&self) -> HRESULT;
+            fn CheckChanges(&self) -> HRESULT;
+            fn CommitChanges(&self) -> HRESULT;
+            fn GetChangeState(&self, #[in] #[out] pState: *mut u32) -> HRESULT;
+        }
+        #[guid(0x20e80cb5_c543_4c1b_8eb3_49e719eee7d4)]
+        interface IBDA_DiagnosticProperties: IPropertyBag {}
+        #[guid(0xef30f379_985b_4d10_b640_a79d5e04e1e0)]
+        interface IBDA_DigitalDemodulator: IUnknown {
+            fn put_ModulationType(&self, pModulationType: *const ModulationType) -> HRESULT;
+            fn get_ModulationType(&self, #[in] #[out] pModulationType: *mut ModulationType) -> HRESULT;
+            fn put_InnerFECMethod(&self, pFECMethod: *const FECMethod) -> HRESULT;
+            fn get_InnerFECMethod(&self, #[in] #[out] pFECMethod: *mut FECMethod) -> HRESULT;
+            fn put_InnerFECRate(&self, pFECRate: *const BinaryConvolutionCodeRate) -> HRESULT;
+            fn get_InnerFECRate(&self, #[in] #[out] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
+            fn put_OuterFECMethod(&self, pFECMethod: *const FECMethod) -> HRESULT;
+            fn get_OuterFECMethod(&self, #[in] #[out] pFECMethod: *mut FECMethod) -> HRESULT;
+            fn put_OuterFECRate(&self, pFECRate: *const BinaryConvolutionCodeRate) -> HRESULT;
+            fn get_OuterFECRate(&self, #[in] #[out] pFECRate: *mut BinaryConvolutionCodeRate) -> HRESULT;
+            fn put_SymbolRate(&self, pSymbolRate: *const u32) -> HRESULT;
+            fn get_SymbolRate(&self, #[in] #[out] pSymbolRate: *mut u32) -> HRESULT;
+            fn put_SpectralInversion(&self, pSpectralInversion: *const SpectralInversion) -> HRESULT;
+            fn get_SpectralInversion(&self, #[in] #[out] pSpectralInversion: *mut SpectralInversion) -> HRESULT;
+        }
+        #[guid(0x525ed3ee_5cf3_4e1e_9a06_5368a84f9a6e)]
+        interface IBDA_DigitalDemodulator2: IBDA_DigitalDemodulator {
+            fn put_GuardInterval(&self, pGuardInterval: *const GuardInterval) -> HRESULT;
+            fn get_GuardInterval(&self, #[in] #[out] pGuardInterval: *mut GuardInterval) -> HRESULT;
+            fn put_TransmissionMode(&self, pTransmissionMode: *const TransmissionMode) -> HRESULT;
+            fn get_TransmissionMode(&self, #[in] #[out] pTransmissionMode: *mut TransmissionMode) -> HRESULT;
+            fn put_RollOff(&self, pRollOff: *const RollOff) -> HRESULT;
+            fn get_RollOff(&self, #[in] #[out] pRollOff: *mut RollOff) -> HRESULT;
+            fn put_Pilot(&self, pPilot: *const Pilot) -> HRESULT;
+            fn get_Pilot(&self, #[in] #[out] pPilot: *mut Pilot) -> HRESULT;
+        }
+        #[guid(0x13f19604_7d32_4359_93a2_a05205d90ac9)]
+        interface IBDA_DigitalDemodulator3: IBDA_DigitalDemodulator2 {
+            fn put_SignalTimeouts(&self, pSignalTimeouts: *const BDA_SIGNAL_TIMEOUTS) -> HRESULT;
+            fn get_SignalTimeouts(&self, #[in] #[out] pSignalTimeouts: *mut BDA_SIGNAL_TIMEOUTS) -> HRESULT;
+            fn put_PLPNumber(&self, pPLPNumber: *const u32) -> HRESULT;
+            fn get_PLPNumber(&self, #[in] #[out] pPLPNumber: *mut u32) -> HRESULT;
+        }
+        #[guid(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11)]
+        interface IBDA_DiseqCommand: IUnknown {
+            fn put_EnableDiseqCommands(&self, bEnable: BOOLEAN) -> HRESULT;
+            fn put_DiseqLNBSource(&self, ulLNBSource: u32) -> HRESULT;
+            fn put_DiseqUseToneBurst(&self, bUseToneBurst: BOOLEAN) -> HRESULT;
+            fn put_DiseqRepeats(&self, ulRepeats: u32) -> HRESULT;
+            fn put_DiseqSendCommand(&self, ulRequestId: u32, ulcbCommandLen: u32, pbCommand: *const u8) -> HRESULT;
+            fn get_DiseqResponse(&self, ulRequestId: u32, #[in] #[out] pulcbResponseLen: *mut u32, #[in] #[out] pbResponse: [u8; 0]) -> HRESULT;
+        }
+        #[guid(0xd806973d_3ebe_46de_8fbb_6358fe784208)]
+        interface IBDA_EasMessage: IUnknown {
+            fn get_EasMessage(&self, ulEventID: u32, #[in] #[out] ppEASObject: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x3a8bad59_59fe_4559_a0ba_396cfaa98ae3)]
+        interface IBDA_Encoder: IUnknown {
+            fn QueryCapabilities(&self, NumAudioFmts: *mut u32, NumVideoFmts: *mut u32) -> HRESULT;
+            fn EnumAudioCapability(&self, FmtIndex: u32, MethodID: *mut u32, AlgorithmType: *mut u32, SamplingRate: *mut u32, BitDepth: *mut u32, NumChannels: *mut u32) -> HRESULT;
+            fn EnumVideoCapability(&self, FmtIndex: u32, MethodID: *mut u32, AlgorithmType: *mut u32, VerticalSize: *mut u32, HorizontalSize: *mut u32, AspectRatio: *mut u32, FrameRateCode: *mut u32, ProgressiveSequence: *mut u32) -> HRESULT;
+            fn SetParameters(&self, AudioBitrateMode: u32, AudioBitrate: u32, AudioMethodID: u32, AudioProgram: u32, VideoBitrateMode: u32, VideoBitrate: u32, VideoMethodID: u32) -> HRESULT;
+            fn GetState(&self, AudioBitrateMax: *mut u32, AudioBitrateMin: *mut u32, AudioBitrateMode: *mut u32, AudioBitrateStepping: *mut u32, AudioBitrate: *mut u32, AudioMethodID: *mut u32, AvailableAudioPrograms: *mut u32, AudioProgram: *mut u32, VideoBitrateMax: *mut u32, VideoBitrateMin: *mut u32, VideoBitrateMode: *mut u32, VideoBitrate: *mut u32, VideoBitrateStepping: *mut u32, VideoMethodID: *mut u32, SignalSourceID: *mut u32, SignalFormat: *mut u64, SignalLock: *mut BOOL, SignalLevel: *mut i32, SignalToNoiseRatio: *mut u32) -> HRESULT;
+        }
+        #[guid(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0)]
+        interface IBDA_EthernetFilter: IUnknown {
+            fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[in] #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
+            fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
+        }
+        #[guid(0x207c413f_00dc_4c61_bad6_6fee1ff07064)]
+        interface IBDA_EventingService: IUnknown {
+            fn CompleteEvent(&self, ulEventID: u32, ulEventResult: u32) -> HRESULT;
+        }
+        #[guid(0x138adc7e_58ae_437f_b0b4_c9fe19d5b4ac)]
+        interface IBDA_FDC: IUnknown {
+            fn GetStatus(&self, CurrentBitrate: *mut u32, CarrierLock: *mut BOOL, CurrentFrequency: *mut u32, CurrentSpectrumInversion: *mut BOOL, CurrentPIDList: *mut BSTR, CurrentTIDList: *mut BSTR, Overflow: *mut BOOL) -> HRESULT;
+            fn RequestTables(&self, TableIDs: BSTR) -> HRESULT;
+            fn AddPid(&self, PidsToAdd: BSTR, RemainingFilterEntries: *mut u32) -> HRESULT;
+            fn RemovePid(&self, PidsToRemove: BSTR) -> HRESULT;
+            fn AddTid(&self, TidsToAdd: BSTR, CurrentTidList: *mut BSTR) -> HRESULT;
+            fn RemoveTid(&self, TidsToRemove: BSTR) -> HRESULT;
+            fn GetTableSection(&self, Pid: *mut u32, MaxBufferSize: u32, ActualSize: *mut u32, SecBuffer: *mut u8) -> HRESULT;
+        }
+        #[guid(0x71985f47_1ca1_11d3_9cc8_00c04f7971e0)]
+        interface IBDA_FrequencyFilter: IUnknown {
+            fn put_Autotune(&self, ulTransponder: u32) -> HRESULT;
+            fn get_Autotune(&self, #[in] #[out] pulTransponder: *mut u32) -> HRESULT;
+            fn put_Frequency(&self, ulFrequency: u32) -> HRESULT;
+            fn get_Frequency(&self, #[in] #[out] pulFrequency: *mut u32) -> HRESULT;
+            fn put_Polarity(&self, Polarity: Polarisation) -> HRESULT;
+            fn get_Polarity(&self, #[in] #[out] pPolarity: *mut Polarisation) -> HRESULT;
+            fn put_Range(&self, ulRange: u32) -> HRESULT;
+            fn get_Range(&self, #[in] #[out] pulRange: *mut u32) -> HRESULT;
+            fn put_Bandwidth(&self, ulBandwidth: u32) -> HRESULT;
+            fn get_Bandwidth(&self, #[in] #[out] pulBandwidth: *mut u32) -> HRESULT;
+            fn put_FrequencyMultiplier(&self, ulMultiplier: u32) -> HRESULT;
+            fn get_FrequencyMultiplier(&self, #[in] #[out] pulMultiplier: *mut u32) -> HRESULT;
+        }
+        #[guid(0xc0afcb73_23e7_4bc6_bafa_fdc167b4719f)]
+        interface IBDA_GuideDataDeliveryService: IUnknown {
+            fn GetGuideDataType(&self, pguidDataType: *mut GUID) -> HRESULT;
+            fn GetGuideData(&self, #[in] #[out] pulcbBufferLen: *mut u32, pbBuffer: *mut u8, pulGuideDataPercentageProgress: *mut u32) -> HRESULT;
+            fn RequestGuideDataUpdate(&self) -> HRESULT;
+            fn GetTuneXmlFromServiceIdx(&self, ul64ServiceIdx: u64, pbstrTuneXml: *mut BSTR) -> HRESULT;
+            fn GetServices(&self, #[in] #[out] pulcbBufferLen: *mut u32, pbBuffer: *mut u8) -> HRESULT;
+            fn GetServiceInfoFromTuneXml(&self, bstrTuneXml: BSTR, pbstrServiceDescription: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x3f4dc8e2_4050_11d3_8f4b_00c04f7971e2)]
+        interface IBDA_IPSinkControl: IUnknown {
+            fn GetMulticastList(&self, #[in] #[out] pulcbSize: *mut u32, #[in] #[out] pbBuffer: *mut *mut u8) -> HRESULT;
+            fn GetAdapterIPAddress(&self, #[in] #[out] pulcbSize: *mut u32, #[in] #[out] pbBuffer: *mut *mut u8) -> HRESULT;
+        }
+        #[guid(0xa750108f_492e_4d51_95f7_649b23ff7ad7)]
+        interface IBDA_IPSinkInfo: IUnknown {
+            fn get_MulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, ppbAddressList: *mut *mut u8) -> HRESULT;
+            fn get_AdapterIPAddress(&self, pbstrBuffer: *mut BSTR) -> HRESULT;
+            fn get_AdapterDescription(&self, pbstrBuffer: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0)]
+        interface IBDA_IPV4Filter: IUnknown {
+            fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
+            fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
+        }
+        #[guid(0xe1785a74_2a23_4fb3_9245_a8f88017ef33)]
+        interface IBDA_IPV6Filter: IUnknown {
+            fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut u32) -> HRESULT;
+            fn PutMulticastList(&self, ulcbAddresses: u32, pAddressList: [u8; 0]) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut u32, #[out] pAddressList: [u8; 0]) -> HRESULT;
+            fn PutMulticastMode(&self, ulModeMask: u32) -> HRESULT;
+            fn GetMulticastMode(&self, pulModeMask: *mut u32) -> HRESULT;
+        }
+        #[guid(0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f)]
+        interface IBDA_ISDBConditionalAccess: IUnknown {
+            fn SetIsdbCasRequest(&self, ulRequestId: u32, ulcbRequestBufferLen: u32, pbRequestBuffer: *const u8) -> HRESULT;
+        }
+        #[guid(0x992cf102_49f9_4719_a664_c4f23e2408f4)]
+        interface IBDA_LNBInfo: IUnknown {
+            fn put_LocalOscilatorFrequencyLowBand(&self, ulLOFLow: u32) -> HRESULT;
+            fn get_LocalOscilatorFrequencyLowBand(&self, #[in] #[out] pulLOFLow: *mut u32) -> HRESULT;
+            fn put_LocalOscilatorFrequencyHighBand(&self, ulLOFHigh: u32) -> HRESULT;
+            fn get_LocalOscilatorFrequencyHighBand(&self, #[in] #[out] pulLOFHigh: *mut u32) -> HRESULT;
+            fn put_HighLowSwitchFrequency(&self, ulSwitchFrequency: u32) -> HRESULT;
+            fn get_HighLowSwitchFrequency(&self, #[in] #[out] pulSwitchFrequency: *mut u32) -> HRESULT;
+        }
+        #[guid(0x942aafec_4c05_4c74_b8eb_8706c2a4943f)]
+        interface IBDA_MUX: IUnknown {
+            fn SetPidList(&self, ulPidListCount: u32, pbPidListBuffer: *const BDA_MUX_PIDLISTITEM) -> HRESULT;
+            fn GetPidList(&self, #[in] #[out] pulPidListCount: *mut u32, #[in] #[out] pbPidListBuffer: *mut BDA_MUX_PIDLISTITEM) -> HRESULT;
+        }
+        #[guid(0x7f0b3150_7b81_4ad4_98e3_7e9097094301)]
+        interface IBDA_NameValueService: IUnknown {
+            fn GetValueNameByIndex(&self, ulIndex: u32, pbstrName: *mut BSTR) -> HRESULT;
+            fn GetValue(&self, bstrName: BSTR, bstrLanguage: BSTR, pbstrValue: *mut BSTR) -> HRESULT;
+            fn SetValue(&self, ulDialogRequest: u32, bstrLanguage: BSTR, bstrName: BSTR, bstrValue: BSTR, ulReserved: u32) -> HRESULT;
+        }
+        #[guid(0xfd501041_8ebe_11ce_8183_00aa00577da2)]
+        interface IBDA_NetworkProvider: IUnknown {
+            fn PutSignalSource(&self, ulSignalSource: u32) -> HRESULT;
+            fn GetSignalSource(&self, #[in] #[out] pulSignalSource: *mut u32) -> HRESULT;
+            fn GetNetworkType(&self, #[in] #[out] pguidNetworkType: *mut GUID) -> HRESULT;
+            fn PutTuningSpace(&self, guidTuningSpace: *const GUID) -> HRESULT;
+            fn GetTuningSpace(&self, #[in] #[out] pguidTuingSpace: *mut GUID) -> HRESULT;
+            fn RegisterDeviceFilter(&self, pUnkFilterControl: IUnknown, #[in] #[out] ppvRegisitrationContext: *mut u32) -> HRESULT;
+            fn UnRegisterDeviceFilter(&self, pvRegistrationContext: u32) -> HRESULT;
+        }
+        #[guid(0xddf15b0d_bd25_11d2_9ca0_00c04f7971e0)]
+        interface IBDA_NullTransform: IUnknown {
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+        }
+        #[guid(0x0ded49d5_a8b7_4d5d_97a1_12b0c195874d)]
+        interface IBDA_PinControl: IUnknown {
+            fn GetPinID(&self, #[in] #[out] pulPinID: *mut u32) -> HRESULT;
+            fn GetPinType(&self, #[in] #[out] pulPinType: *mut u32) -> HRESULT;
+            fn RegistrationContext(&self, #[in] #[out] pulRegistrationCtx: *mut u32) -> HRESULT;
+        }
+        #[guid(0xd2f1644b_b409_11d2_bc69_00a0c9ee9e16)]
+        interface IBDA_SignalProperties: IUnknown {
+            fn PutNetworkType(&self, guidNetworkType: *const GUID) -> HRESULT;
+            fn GetNetworkType(&self, #[in] #[out] pguidNetworkType: *mut GUID) -> HRESULT;
+            fn PutSignalSource(&self, ulSignalSource: u32) -> HRESULT;
+            fn GetSignalSource(&self, #[in] #[out] pulSignalSource: *mut u32) -> HRESULT;
+            fn PutTuningSpace(&self, guidTuningSpace: *const GUID) -> HRESULT;
+            fn GetTuningSpace(&self, #[in] #[out] pguidTuingSpace: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x1347d106_cf3a_428a_a5cb_ac0d9a2a4338)]
+        interface IBDA_SignalStatistics: IUnknown {
+            fn put_SignalStrength(&self, lDbStrength: i32) -> HRESULT;
+            fn get_SignalStrength(&self, #[in] #[out] plDbStrength: *mut i32) -> HRESULT;
+            fn put_SignalQuality(&self, lPercentQuality: i32) -> HRESULT;
+            fn get_SignalQuality(&self, #[in] #[out] plPercentQuality: *mut i32) -> HRESULT;
+            fn put_SignalPresent(&self, fPresent: BOOLEAN) -> HRESULT;
+            fn get_SignalPresent(&self, #[in] #[out] pfPresent: *mut BOOLEAN) -> HRESULT;
+            fn put_SignalLocked(&self, fLocked: BOOLEAN) -> HRESULT;
+            fn get_SignalLocked(&self, #[in] #[out] pfLocked: *mut BOOLEAN) -> HRESULT;
+            fn put_SampleTime(&self, lmsSampleTime: i32) -> HRESULT;
+            fn get_SampleTime(&self, #[in] #[out] plmsSampleTime: *mut i32) -> HRESULT;
+        }
+        #[guid(0x79b56888_7fea_4690_b45d_38fd3c7849be)]
+        interface IBDA_Topology: IUnknown {
+            fn GetNodeTypes(&self, #[in] #[out] pulcNodeTypes: *mut u32, ulcNodeTypesMax: u32, #[in] #[out] rgulNodeTypes: [u32; 0]) -> HRESULT;
+            fn GetNodeDescriptors(&self, #[in] #[out] ulcNodeDescriptors: *mut u32, ulcNodeDescriptorsMax: u32, #[in] #[out] rgNodeDescriptors: [BDANODE_DESCRIPTOR; 0]) -> HRESULT;
+            fn GetNodeInterfaces(&self, ulNodeType: u32, #[in] #[out] pulcInterfaces: *mut u32, ulcInterfacesMax: u32, #[in] #[out] rgguidInterfaces: [GUID; 0]) -> HRESULT;
+            fn GetPinTypes(&self, #[in] #[out] pulcPinTypes: *mut u32, ulcPinTypesMax: u32, #[in] #[out] rgulPinTypes: [u32; 0]) -> HRESULT;
+            fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut u32, ulcConnectionsMax: u32, #[in] #[out] rgConnections: [BDA_TEMPLATE_CONNECTION; 0]) -> HRESULT;
+            fn CreatePin(&self, ulPinType: u32, #[in] #[out] pulPinId: *mut u32) -> HRESULT;
+            fn DeletePin(&self, ulPinId: u32) -> HRESULT;
+            fn SetMediaType(&self, ulPinId: u32, pMediaType: *const AM_MEDIA_TYPE) -> HRESULT;
+            fn SetMedium(&self, ulPinId: u32, pMedium: *const REGPINMEDIUM) -> HRESULT;
+            fn CreateTopology(&self, ulInputPinId: u32, ulOutputPinId: u32) -> HRESULT;
+            fn GetControlNode(&self, ulInputPinId: u32, ulOutputPinId: u32, ulNodeType: u32, #[in] #[out] ppControlNode: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x8e882535_5f86_47ab_86cf_c281a72a0549)]
+        interface IBDA_TransportStreamInfo: IUnknown {
+            fn get_PatTableTickCount(&self, pPatTickCount: *mut u32) -> HRESULT;
+        }
+        #[guid(0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98)]
+        interface IBDA_TransportStreamSelector: IUnknown {
+            fn SetTSID(&self, usTSID: u16) -> HRESULT;
+            fn GetTSInformation(&self, #[in] #[out] pulTSInformationBufferLen: *mut u32, pbTSInformationBuffer: *mut u8) -> HRESULT;
+        }
+        #[guid(0x53b14189_e478_4b7a_a1ff_506db4b99dfe)]
+        interface IBDA_UserActivityService: IUnknown {
+            fn SetCurrentTunerUseReason(&self, dwUseReason: u32) -> HRESULT;
+            fn GetUserActivityInterval(&self, pdwActivityInterval: *mut u32) -> HRESULT;
+            fn UserActivityDetected(&self) -> HRESULT;
+        }
+        #[guid(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0)]
+        interface IBDA_VoidTransform: IUnknown {
+            fn Start(&self) -> HRESULT;
+            fn Stop(&self) -> HRESULT;
+        }
+        #[guid(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88)]
+        interface IBDA_WMDRMSession: IUnknown {
+            fn GetStatus(&self, MaxCaptureToken: *mut u32, MaxStreamingPid: *mut u32, MaxLicense: *mut u32, MinSecurityLevel: *mut u32, RevInfoSequenceNumber: *mut u32, RevInfoIssuedTime: *mut u64, RevInfoTTL: *mut u32, RevListVersion: *mut u32, ulState: *mut u32) -> HRESULT;
+            fn SetRevInfo(&self, ulRevInfoLen: u32, pbRevInfo: *const u8) -> HRESULT;
+            fn SetCrl(&self, ulCrlLen: u32, pbCrlLen: *const u8) -> HRESULT;
+            fn TransactMessage(&self, ulcbRequest: u32, pbRequest: *const u8, #[in] #[out] pulcbResponse: *mut u32, #[in] #[out] pbResponse: *mut u8) -> HRESULT;
+            fn GetLicense(&self, uuidKey: *const GUID, #[in] #[out] pulPackageLen: *mut u32, #[in] #[out] pbPackage: *mut u8) -> HRESULT;
+            fn ReissueLicense(&self, uuidKey: *const GUID) -> HRESULT;
+            fn RenewLicense(&self, ulInXmrLicenseLen: u32, pbInXmrLicense: *const u8, ulEntitlementTokenLen: u32, pbEntitlementToken: *const u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulOutXmrLicenseLen: *mut u32, #[in] #[out] pbOutXmrLicense: *mut u8) -> HRESULT;
+            fn GetKeyInfo(&self, #[in] #[out] pulKeyInfoLen: *mut u32, #[in] #[out] pbKeyInfo: *mut u8) -> HRESULT;
+        }
+        #[guid(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6)]
+        interface IBDA_WMDRMTuner: IUnknown {
+            fn PurchaseEntitlement(&self, ulDialogRequest: u32, bstrLanguage: BSTR, ulPurchaseTokenLen: u32, pbPurchaseToken: *const u8, pulDescrambleStatus: *mut u32, #[in] #[out] pulCaptureTokenLen: *mut u32, #[in] #[out] pbCaptureToken: *mut u8) -> HRESULT;
+            fn CancelCaptureToken(&self, ulCaptureTokenLen: u32, pbCaptureToken: *const u8) -> HRESULT;
+            fn SetPidProtection(&self, ulPid: u32, uuidKey: *const GUID) -> HRESULT;
+            fn GetPidProtection(&self, pulPid: u32, uuidKey: *mut GUID) -> HRESULT;
+            fn SetSyncValue(&self, ulSyncValue: u32) -> HRESULT;
+            fn GetStartCodeProfile(&self, #[in] #[out] pulStartCodeProfileLen: *mut u32, #[in] #[out] pbStartCodeProfile: *mut u8) -> HRESULT;
+        }
+        #[guid(0x3b21263f_26e8_489d_aac4_924f7efd9511)]
+        interface IBroadcastEvent: IUnknown {
+            fn Fire(&self, EventID: GUID) -> HRESULT;
+        }
+        #[guid(0x3d9e3887_1929_423f_8021_43682de95448)]
+        interface IBroadcastEventEx: IBroadcastEvent {
+            fn FireEx(&self, EventID: GUID, Param1: u32, Param2: u32, Param3: u32, Param4: u32) -> HRESULT;
+        }
+        #[guid(0x4b2bd7ea_8347_467b_8dbf_62f784929cc3)]
+        interface ICCSubStreamFiltering: IUnknown {
+            #[special]
+            fn get_SubstreamTypes(&self, #[retval] pTypes: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SubstreamTypes(&self, Types: i32) -> HRESULT;
+        }
+        #[guid(0x1f0e5357_af43_44e6_8547_654c645145d2)]
+        interface IESEvent: IUnknown {
+            fn GetEventId(&self, #[retval] pdwEventId: *mut u32) -> HRESULT;
+            fn GetEventType(&self, #[retval] pguidEventType: *mut GUID) -> HRESULT;
+            fn SetCompletionStatus(&self, dwResult: u32) -> HRESULT;
+            fn GetData(&self, #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetStringData(&self, #[retval] pbstrData: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0xabd414bf_cfe5_4e5e_af5b_4b4e49c5bfeb)]
+        interface IESEvents: IUnknown {
+            fn OnESEventReceived(&self, guidEventType: GUID, pESEvent: IESEvent) -> HRESULT;
+        }
+        #[guid(0xafb6c2a2_2c41_11d3_8a60_0000f81e0e4a)]
+        interface IEnumPIDMap: IUnknown {
+            fn Next(&self, cRequest: u32, #[in] #[out] pPIDMap: *mut PID_MAP, pcReceived: *mut u32) -> HRESULT;
+            fn Skip(&self, cRecords: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+        }
+        #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
+        interface IFrequencyMap: IUnknown {
+            fn get_FrequencyMapping(&self, ulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
+            fn put_FrequencyMapping(&self, ulCount: u32, pList: [u32; 0]) -> HRESULT;
+            fn get_CountryCode(&self, pulCountryCode: *mut u32) -> HRESULT;
+            fn put_CountryCode(&self, ulCountryCode: u32) -> HRESULT;
+            fn get_DefaultFrequencyMapping(&self, ulCountryCode: u32, pulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
+            fn get_CountryCodeList(&self, pulCount: *mut u32, ppulList: *mut *mut u32) -> HRESULT;
+        }
+        #[guid(0xafb6c2a1_2c41_11d3_8a60_0000f81e0e4a)]
+        interface IMPEG2PIDMap: IUnknown {
+            fn MapPID(&self, culPID: u32, pulPID: *const u32, MediaSampleContent: MEDIA_SAMPLE_CONTENT) -> HRESULT;
+            fn UnmapPID(&self, culPID: u32, pulPID: *const u32) -> HRESULT;
+            fn EnumPIDMap(&self, pIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum KSPROPERTY_IPSINK {
+            KSPROPERTY_IPSINK_MULTICASTLIST = 0,
+            KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION = 1,
+            KSPROPERTY_IPSINK_ADAPTER_ADDRESS = 2,
+        }
+        #[repr(i32)]
+        enum LocationCodeSchemeType {
+            SCTE_18 = 0,
+        }
+        const PBDA_AUX_CONNECTOR_TYPE_Composite: GUID = 0xf6298b4c_c725_4d42_849b_410bbb14ea62;
+        const PBDA_AUX_CONNECTOR_TYPE_SVideo: GUID = 0xa0e905f4_24c9_4a54_b761_213355efc13a;
+        const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1;
+        const PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII: u32 = 0;
+        const PBDA_Encoder_BitrateMode_Average: u32 = 3;
+        const PBDA_Encoder_BitrateMode_Constant: u32 = 1;
+        const PBDA_Encoder_BitrateMode_Variable: u32 = 2;
+        const PBDA_Encoder_Video_AVC: u32 = 1;
+        const PBDA_Encoder_Video_H264: u32 = 1;
+        const PBDA_Encoder_Video_MPEG2PartII: u32 = 0;
+        const PBDA_Encoder_Video_MPEG4Part10: u32 = 1;
+        struct SmartCardApplication {
+            ApplicationType: ApplicationTypeType,
+            ApplicationVersion: u16,
+            pbstrApplicationName: BSTR,
+            pbstrApplicationURL: BSTR,
+        }
+        #[repr(i32)]
+        enum SmartCardAssociationType {
+            NotAssociated = 0,
+            Associated = 1,
+            AssociationUnknown = 2,
+        }
+        #[repr(i32)]
+        enum SmartCardStatusType {
+            CardInserted = 0,
+            CardRemoved = 1,
+            CardError = 2,
+            CardDataChanged = 3,
+            CardFirmwareUpgrade = 4,
+        }
+        #[repr(i32)]
+        enum UICloseReasonType {
+            NotReady = 0,
+            UserClosed = 1,
+            SystemClosed = 2,
+            DeviceClosed = 3,
+            ErrorClosed = 4,
+        }
+    }
+}
